@@ -12,10 +12,21 @@ if( !defined( 'MEDIAWIKI' ) ) {
 	die( -1 );
 }
 
-define('NS_LQT_THREAD', 90);
-define('NS_LQT_THREAD_TALK', 91);
-define('NS_LQT_SUMMARY', 92);
-define('NS_LQT_SUMMARY_TALK', 93);
+
+function efArrayDefault($name, $key, $default) {
+	global $$name;
+	if( isset($$name) && is_array($$name) && array_key_exists($key, $$name) ) {
+		$foo = $$name;
+		return $foo[$key];
+	}
+	else {
+		return $default;
+	}
+}
+define('NS_LQT_THREAD', efArrayDefault('egLqtNamespaceNumbers', 'Thread', 90));
+define('NS_LQT_THREAD_TALK', efArrayDefault('egLqtNamespaceNumbers', 'Thread_talk', 91));
+define('NS_LQT_SUMMARY', efArrayDefault('egLqtNamespaceNumbers', 'Summary', 92));
+define('NS_LQT_SUMMARY_TALK', efArrayDefault('egLqtNamespaceNumbers', 'Summary_talk', 93));
 
 $wgCanonicalNamespaceNames[NS_LQT_THREAD]		= 'Thread';
 $wgCanonicalNamespaceNames[NS_LQT_THREAD_TALK]	= 'Thread_talk';
