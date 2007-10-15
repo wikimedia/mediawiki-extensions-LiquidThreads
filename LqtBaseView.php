@@ -47,6 +47,7 @@ require_once('PageHistory.php');
 $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
 $wgHooks['SpecialMovepageAfterMove'][] = 'LqtDispatch::onPageMove';
 $wgHooks['LinkerMakeLinkObj'][] = 'LqtDispatch::makeLinkObj';
+$wgHooks['SkinTemplateTabAction'][] = 'LqtDispatch::tabAction';
 $wgHooks['ChangesListInsertArticleLink'][] = 'LqtDispatch::changesListArticleLink';
 $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtDispatch::setNewtalkHTML';
 
@@ -176,6 +177,28 @@ class LqtDispatch {
 		return false;
 	}
 	
+	// One major place that doesn't use makeLinkObj is the tabs. So override known/unknown there too.
+	static function tabAction(&$skintemplate, $title, $message, $selected, $checkEdit,
+			&$classes, &$query, &$text, &$result) {
+		if( ! $title->isTalkPage() )
+			return false;
+		if( $title->getArticleID() != 0 ) {
+			$query = "";
+			return false;
+		}		
+		// It's a talkpage without a header. Get rid of action=edit always,
+		// color as apropriate.
+		$query = "";
+		$article = new Article($title->getSubjectPage());
+		$threads = Threads::where(Threads::articleClause($article), "LIMIT 1");
+		if( count($threads) != 0 ) {
+			$i = array_search('new', $classes); if( $i !== false ) {
+				array_splice($classes, $i, 1);
+			}
+		}
+		return false;
+	}
+	
 	static function changesListArticleLink(&$changeslist, &$articlelink, &$s, &$rc, $unpatrolled, $watched) {
 		if( $rc->getTitle()->getNamespace() == NS_LQT_THREAD ) {
 			$thread = Threads::withRoot(new Post( $rc->getTitle() ));
@@ -184,7 +207,7 @@ class LqtDispatch {
 					$thread->article()->getTitle()->getTalkPage() );
 			}
 		}
-		return true;	
+		return true;
 	}
 	
 	static function setNewtalkHTML($skintemplate, $tpl) {
