@@ -406,12 +406,21 @@ class ThreadPermalinkView extends LqtView {
 	protected $thread;
 	
 	function customizeTabs( $skintemplate, $content_actions ) {
-		// if you call the key 'talk', the url gets re-set later. Bug:
+		// Insert fake 'article' and 'discussion' tabs before the thread tab.
+		// If you call the key 'talk', the url gets re-set later. TODO:
 		// the access key for the talk tab doesn't work.
-		$article_url = $this->thread->article()->getTitle()->getFullURL();
-		$talk_url = $this->thread->article()->getTitle()->getTalkPage()->getFullURL();
-		efInsertIntoAssoc('article', array('text'=>'article', 'href'=>$article_url), 'nstab-thread', $content_actions);
-		efInsertIntoAssoc('not_talk', array('text'=>'discussion', 'href'=>$talk_url), 'nstab-thread', $content_actions);
+		$article_t = $this->thread->article()->getTitle();
+		$talk_t = $this->thread->article()->getTitle()->getTalkPage();
+		efInsertIntoAssoc('article', array(
+				'text'=>wfMsg($article_t->getNamespaceKey()),
+				'href'=>$article_t->getFullURL(),
+				'class' => $article_t->exists() ? '' : 'new'), 
+			'nstab-thread', $content_actions);
+		efInsertIntoAssoc('not_talk', array(
+				// talkpage certainly exists since this thread is from it.
+				'text'=>wfMsg('talk'),
+				'href'=>$talk_t->getFullURL()),
+		 	'nstab-thread', $content_actions);
 
 		unset($content_actions['edit']);
 		unset($content_actions['viewsource']);
@@ -551,7 +560,8 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 	}
 
 	function customizeSubtitle() {
-		$threadhist = "<a href=\"{$this->permalinkUrl($this->thread->topmostThread(), 'thread_history')}\">View history for the entire thread</a>";
+		$msg = wfMsg('lqt_hist_view_whole_thread');
+		$threadhist = "<a href=\"{$this->permalinkUrl($this->thread->topmostThread(), 'thread_history')}\">$msg</a>";
 		$this->output->setSubtitle(  $this->getSubtitle() . '<br />' . $this->output->getSubtitle() . "<br />$threadhist" );
 		return true;
 	}
@@ -658,17 +668,17 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 
 		
 		if ( count($revisions) == 0 && $this->page == 1 ) {
-			$this->output->addHTML('<p>This thread doesn\'t have any history revisions. That\'s pretty weird.');
+			$this->output->addHTML('<p>'.wfMsg('lqt_hist_no_revisions_error'));
 		}
 		else if ( count($revisions) == 0 ) {
 			// we could redirect to the previous page... yow.
-			$this->output->addHTML('<p>You are beyond the number of pages of history that exist.');
+			$this->output->addHTML('<p>'.wfMsg('lqt_hist_past_last_page_error'));
 		}
 		
 		if( $this->page > 1 ) {
-			$this->output->addHTML( '<a class="lqt_newer_older" href="' . $this->queryReplace(array('lqt_hist_page'=>$this->page - 1)) . '">«newer</a>' );
+			$this->output->addHTML( '<a class="lqt_newer_older" href="' . $this->queryReplace(array('lqt_hist_page'=>$this->page - 1)) .'">'.wfMsg('lqt_newer').'</a>' );
 		} else {
-			$this->output->addHTML( '<span class="lqt_newer_older_disabled" title="This link is disabled because you are on the first page.">«newer</span>' );
+			$this->output->addHTML( '<span class="lqt_newer_older_disabled" title="'.wfMsg('lqt_hist_tooltip_newer_disabled').'">'.wfMsg('lqt_newer').'</span>' );
 		}
 		
 		$is_last_page = false;
@@ -676,9 +686,9 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 			if( $r->changeType() == Threads::CHANGE_NEW_THREAD )
 				$is_last_page = true;
 		if( $is_last_page ) {
-			$this->output->addHTML( '<span class="lqt_newer_older_disabled" title="This link is disabled because you are on the last page.">older»</span>' );
+			$this->output->addHTML( '<span class="lqt_newer_older_disabled" title="'.wfMsg('lqt_hist_tooltip_older_disabled').'">'.wfMsg('lqt_older').'</span>' );
 		} else {
-			$this->output->addHTML( '<a class="lqt_newer_older" href="' . $this->queryReplace(array('lqt_hist_page'=>$this->page + 1)) . '">older»</a>' );			
+			$this->output->addHTML( '<a class="lqt_newer_older" href="' . $this->queryReplace(array('lqt_hist_page'=>$this->page + 1)) . '">'.wfMsg('lqt_older').'</a>' );			
 		}
 	}
 
@@ -702,7 +712,7 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 		}
 		self::addJSandCSS();
 		
-		$this->output->setSubtitle($this->getSubtitle() . '<br />' . wfMsg('lqt_history_subtitle'));
+		$this->output->setSubtitle($this->getSubtitle() . '<br />' . wfMsg('lqt_hist_listing_subtitle'));
 				
 		$this->showThreadHeading($this->thread);
 		$this->showHistoryListing($this->thread);
@@ -730,17 +740,16 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	function showHistoryInfo() {
 		global $wgLang; // TODO global.
 		$this->openDiv('lqt_history_info');
-		$this->output->addHTML('Revision as of ' . $wgLang->timeanddate($this->thread->modified()) . '.<br>' );
-		if( $this->thread->changeType() == Threads::CHANGE_NEW_THREAD ) {
-			$this->output->addHTML('This is the thread\'s initial revision.');
-		}
-		else if( $this->thread->changeType() == Threads::CHANGE_REPLY_CREATED ) {
-			$this->output->addHTML('The highlighted comment was created in this revision.');
-		} else if( $this->thread->changeType() == Threads::CHANGE_EDITED_ROOT ) {
+		$this->output->addHTML(wfMsg('lqt_revision_as_of', $wgLang->timeanddate($this->thread->modified())) .'<br>' );
+
+		$ct = $this->thread->changeType();
+		if( $ct == Threads::CHANGE_NEW_THREAD ) $msg = wfMsg('lqt_change_new_thread');
+		else if( $ct == Threads::CHANGE_REPLY_CREATED ) $msg = wfMsg('lqt_change_reply_created');
+		else if( $ct == Threads::CHANGE_EDITED_ROOT ) {
 			$diff_url = $this->permalinkUrlWithDiff($this->thread);
-			$this->output->addHTML('The highlighted comment was edited in this revision. ');
-			$this->output->addHTML( "[<a href=\"$diff_url\">show diffs</a>]" );
+			$msg = wfMsg('lqt_change_edited_root') . " [<a href=\"$diff_url\">" . wfMsg('diff') . '</a>]';
 		}
+		$this->output->addHTML($msg);
 		$this->closeDiv();
 	}
 	

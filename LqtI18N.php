@@ -33,6 +33,8 @@ function wfInitializeLqtMessages() {
 		'lqt_fragment'=>'a fragment of a $1 from $2',
 		'lqt_discussion_link'=>'discussion', // substituted above
 		'lqt_from_talk'=>'from $1',
+		'lqt_newer'=>'«newer',
+		'lqt_older'=>'older»',
 		'lqt_hist_comment_edited'=>'Comment text edited',
 		'lqt_hist_summary_changed'=>'Summary changed',
 		'lqt_hist_reply_created'=>'New reply created',
@@ -40,7 +42,16 @@ function wfInitializeLqtMessages() {
 		'lqt_hist_deleted'=>'Deleted',
 		'lqt_hist_undeleted'=>'Undeleted',
 		'lqt_hist_moved_talkpage'=>'Moved',
-		'lqt_history_subtitle'=>'Viewing a history listing.',
+		'lqt_hist_listing_subtitle'=>'Viewing a history listing.',
+		'lqt_hist_view_whole_thread'=>'View history for the entire thread',
+		'lqt_hist_no_revisions_error'=>'This thread doesn\'t have any history revisions. That\'s pretty weird.',
+		'lqt_hist_past_last_page_error'=>'You are beyond the number of pages of history that exist.',
+		'lqt_hist_tooltip_newer_disabled'=>'This link is disabled because you are on the first page.',
+		'lqt_hist_tooltip_older_disabled' => 'This link is disabled because you are on the last page.',
+		'lqt_revision_as_of' => "Revision as of $1.",
+		'lqt_change_new_thread' => 'This is the thread\'s initial revision.',
+		'lqt_change_reply_created' => 'The highlighted comment was created in this revision.',
+		'lqt_change_edited_root' => 'The highlighted comment was edited in this revision.'
 	);
         
         foreach( $lqtMessages as $key => $value ) {
