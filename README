@@ -8,12 +8,11 @@ hack Liquid Threads and make it more awesome.
 INSTALLATION:
 ============
 
-1. Install MediaWiki as usual.
-2. Rename this directory to extensions/LiquidThreads inside your
+1. Rename this directory to extensions/LiquidThreads inside your
    MediaWiki directory.
-3. Cause your MySQL server to execute the statements in lqt.sql.
+2. Cause your MySQL server to execute the statements in lqt.sql.
    (On Unix, you can say, "mysql -u $USER -p -e 'source lqt.sql'".)
-4. Add this line to the end of your LocalSettings.conf:
+3. Add this line to the end of your LocalSettings.conf:
    require_once('extensions/LiquidThreads/LqtPages.php');
 
 Liquid Threads uses namespace numbers 90, 91, 92, and 93. If you are using
