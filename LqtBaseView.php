@@ -588,12 +588,12 @@ HTML;
 	static function addJSandCSS() {
 		// Changed this to be static so that we can call it from
 		// wfLqtBeforeWatchlistHook.
-		global $wgJsMimeType, $wgStylePath, $wgStyleVersion; // TODO globals.
+		global $wgJsMimeType, $wgScriptPath, $wgStyleVersion; // TODO globals.
 		global $wgOut;
 		$s = <<< HTML
-		<script type="{$wgJsMimeType}" src="{$wgStylePath}/common/lqt.js"><!-- lqt js --></script>
+		<script type="{$wgJsMimeType}" src="{$wgScriptPath}/extensions/LiquidThreads/lqt.js"><!-- lqt js --></script>
 		<style type="text/css" media="screen, projection">/*<![CDATA[*/
-			@import "{$wgStylePath}/common/lqt.css?{$wgStyleVersion}";
+			@import "{$wgScriptPath}/extensions/LiquidThreads/lqt.css?{$wgStyleVersion}";
 		/*]]>*/</style>
 
 HTML;

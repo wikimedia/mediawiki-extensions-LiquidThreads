@@ -9,12 +9,12 @@ INSTALLATION:
 ============
 
 1. Install MediaWiki as usual.
-2. Copy *.php into extensions/.
-3. Copy lqt.css and lqt.js into skins/common/.
-4. Cause your MySQL server to execute the statements in lqt.sql.
+2. Rename this directory to extensions/LiquidThreads inside your
+   MediaWiki directory.
+3. Cause your MySQL server to execute the statements in lqt.sql.
    (On Unix, you can say, "mysql -u $USER -p -e 'source lqt.sql'".)
-5. Add this line to the end of your LocalSettings.conf:
-   require_once('extensions/LqtPages.php');
+4. Add this line to the end of your LocalSettings.conf:
+   require_once('extensions/LiquidThreads/LqtPages.php');
 
 Liquid Threads uses namespace numbers 90, 91, 92, and 93. If you are using
 another extension which uses any of these numbers, you should have Liquid
