@@ -58,6 +58,7 @@ function wfInitializeLqtMessages() {
 		'lqt_protectedfromreply_link' => 'protected',
 		'lqt_subject' => 'Subject: ',
 		'lqt_nosubject' => '«no subject»',
+		'lqt_noreason' => 'No reason given.',
 		'lqt_move_placeholder' => 'This thread is a placeholder indicating that a thread, $1, was removed from this page to another talk page. This move was made by $2 at $3.',
 		'lqt_thread_deleted_for_sysops' => 'This thread has been $1 and is only visible to sysops.',
 		'lqt_thread_deleted_for_sysops_deleted' => 'deleted', // substituted above in bold
@@ -65,7 +66,28 @@ function wfInitializeLqtMessages() {
 		'lqt_summary_notice' => 'If this discussion seems to be concluded, you are encouraged to $1. There have been no changes here for at least $2 days.',
 		'lqt_summary_notice_link' => 'write a summary',
 		'lqt_summary_label' => 'This thread has been summarized as follows:',
-		
+		'lqt_nosuchrevision' => 'There is no such revision of this thread.',
+		'lqt_nosuchthread' => 'There is no such thread.',
+		'lqt_threadrequired' => 'You must specify a thread in the URL.',
+		'lqt_move_movingthread' => 'Moving $1. This thread is part of $2.',
+		'lqt_move_torename' => 'To rename this thread, $1 and change the \'Subject\' field.',
+		'lqt_move_torename_edit' => 'edit it', // substituted above as a link
+		'lqt_move_destinationtitle' => 'Title of destination talkpage:',
+		'lqt_move_move' => 'Move',
+		'lqt_move_nodestination' => 'You must specify a destination.',
+		'lqt_move_noreason' => 'No reason given.',
+		'lqt_move_success' => 'The thread was moved to $1.',
+		'lqt_delete_undeleting' => 'Undeleting $1.',
+		'lqt_delete_undeletethread' => 'Undelete Thread',
+		'lqt_delete_partof' => 'This thread is part of $1.',
+		'lqt_delete_deleting' => 'Deleting $1 and $2 to it.',
+		'lqt_delete_deleting_allreplies' => 'all replies', // subst above in bold
+		'lqt_delete_deletethread' => 'Delete Thread and Replies',
+		'lqt_delete_deleted' => 'The thread was deleted.',
+		'lqt_delete_undeleted' => 'The thread was undeleted.',
+		'lqt_delete_return' => 'Return to $1.',
+		'lqt_delete_return_link' => 'the talkpage', // subst above
+		'lqt_delete_unallowed' => 'You are not allowed to delete threads.',
 	);
 
 	$lqtMessages['nl'] = array(

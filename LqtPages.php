@@ -455,11 +455,11 @@ class ThreadPermalinkView extends LqtView {
 	}
 	
 	function noSuchRevision() {
-		$this->output->addHTML("There is no such revision of this thread.");
+		$this->output->addHTML(wfMsg('lqt_nosuchrevision'));
 	}
 	
 	function showMissingThreadPage() {
-		$this->output->addHTML("There is no such thread.");	
+		$this->output->addHTML(wfMsg('lqt_nosuchthread'));	
 	}
 	
 	function getSubtitle() {
@@ -786,21 +786,21 @@ function wfLqtSpecialMoveThreadToAnotherPage() {
 			$thread_name = $this->thread->title()->getPrefixedText();
 			$article_name = $this->thread->article()->getTitle()->getTalkPage()->getPrefixedText();
 			$edit_url = LqtView::permalinkUrl($this->thread, 'edit', $this->thread);
+			$wfMsg = 'wfMsg'; // functions can only be called within string expansion by variable name.
 			$this->output->addHTML(<<<HTML
-			<p>Moving <b>$thread_name</b>.
-			This thread is part of <b>$article_name</b>.</p>
-			<p>To rename this thread, <a href="$edit_url">edit it</a> and change the 'Subject' field.</p>
+			<p>{$wfMsg('lqt_move_movingthread', "<b>$thread_name</b>", "<b>$article_name</b>")}</p>
+			<p>{$wfMsg('lqt_move_torename', "<a href=\"$edit_url\">{$wfMsg('lqt_move_torename_edit')}</a>")}</p>
 			<form id="lqt_move_thread_form" action="{$this->title->getLocalURL()}" method="POST">
 			<table>
 			<tr>
-			<td><label for="lqt_move_thread_target_title">Title of destination talkpage:</label></td>
+			<td><label for="lqt_move_thread_target_title">{$wfMsg('lqt_move_destinationtitle')}</label></td>
 			<td><input id="lqt_move_thread_target_title" name="lqt_move_thread_target_title" tabindex="100" size="40" /></td>
 			</tr><tr>
-			<td><label for="lqt_move_thread_reason">Reason:</label></td>
+			<td><label for="lqt_move_thread_reason">{$wfMsg('movereason')}</label></td>
 			<td><input id="lqt_move_thread_reason" name="lqt_move_thread_reason" tabindex="200" size="40" /></td>
 			</tr><tr>
 			<td>&nbsp;</td>
-			<td><input type="submit" value="Move" style="float:right;" tabindex="300" /></td>
+			<td><input type="submit" value="{$wfMsg('lqt_move_move')}" style="float:right;" tabindex="300" /></td>
 			</tr>
 			</table>
 			</form>
@@ -841,12 +841,12 @@ HTML
 			
 			$tmp = $this->request->getVal('lqt_move_thread_target_title');
 			if( $tmp === "" ) {
-				$this->redisplayForm(array('lqt_move_thread_target_title'), "You must specify a destination.");
+				$this->redisplayForm(array('lqt_move_thread_target_title'), wfMsg('lqt_move_nodestination'));
 				return;
 			}
 			$newtitle = Title::newFromText( $tmp )->getSubjectPage();
 			
-			$reason = $this->request->getVal('lqt_move_thread_reason', "No reason given.");
+			$reason = $this->request->getVal('lqt_move_thread_reason', wfMsg('lqt_noreason'));
 			
 			// TODO no status code from this method.
 			$this->thread->moveToSubjectPage( $newtitle, $reason, true );
@@ -855,10 +855,8 @@ HTML
 		}
 		
 		function showSuccessMessage( $target_title ) {
-			$this->output->addHTML(<<<HTML
-		The thread was moved to <a href="{$target_title->getFullURL()}">{$target_title->getPrefixedText()}</a>.
-HTML
-			);
+			$this->output->addHTML(wfMsg('lqt_move_success',
+				'<a href="'.$target_title->getFullURL().'">'.$target_title->getPrefixedText().'</a>'));
 		}
 
         function execute( $par = null ) {
@@ -871,13 +869,13 @@ HTML
             $this->setHeaders();
             
 			if( $par === null || $par === "") {
-				$this->output->addHTML("You must specify a thread in the URL.");
+				$this->output->addHTML(wfMsg('lqt_threadrequired'));
 				return;
 			}
 			// TODO should implement Threads::withTitle(...).
 			$thread = Threads::withRoot( new Article(Title::newFromURL($par)) );
 			if (!$thread) {
-				$this->output->addHTML("No such thread exists.");
+				$this->output->addHTML(wfMsg('lqt_nosuchthread'));
 				return;
 			}
 			
@@ -924,19 +922,22 @@ function wfLqtSpecialDeleteThread() {
 			$deleting = $this->thread->type() != Threads::TYPE_DELETED;
 			
 			$operation_message = $deleting ?
-				"Deleting <b>$thread_name</b> and <b>all replies</b> to it."
-				: "Undeleting <b>$thread_name</b>.";
+				wfMsg('lqt_delete_deleting', "<b>$thread_name</b>", '<b>'.wfMsg('lqt_delete_deleting_allreplies').'</b>')
+//				"Deleting <b>$thread_name</b> and <b>all replies</b> to it."
+				: wfMsg('lqt_delete_undeleting', "<b>$thread_name</b>");
 			$button_label = $deleting ?
-				"Delete Thread and Replies"
-				: "Undelete Thread";
+				wfMsg('lqt_delete_deletethread')
+				: wfMsg('lqt_delete_undeletethread');
+			$part_of = wfMsg('lqt_delete_partof', '<b>'.$article_name.'</b>');
+			$reason = wfMsg('movereason'); // XXX arguably wrong to use movereason.
 			
 			$this->output->addHTML(<<<HTML
 			<p>$operation_message
-			This thread is part of <b>$article_name</b>.</p>
+			$part_of</p>
 			<form id="lqt_delete_thread_form" action="{$this->title->getLocalURL()}" method="POST">
 			<table>
 			<tr>
-			<td><label for="lqt_delete_thread_reason">Reason:</label></td>
+			<td><label for="lqt_delete_thread_reason">$reason</label></td>
 			<td><input id="lqt_delete_thread_reason" name="lqt_delete_thread_reason" tabindex="200" size="40" /></td>
 			</tr><tr>
 			<td>&nbsp;</td>
@@ -953,7 +954,7 @@ HTML
 			if( in_array('delete', $this->user->getRights()) ) {
 				return true;
 			} else {
-				$this->output->addHTML("You are not allowed to delete threads.");
+				$this->output->addHTML(wfMsg('lqt_delete_unallowed'));
 				return false;
 			}
 		}
@@ -968,7 +969,7 @@ HTML
 			if( !$this->checkUserRights() )
 				return;
 
-			$reason = $this->request->getVal('lqt_delete_thread_reason', "No reason given.");
+			$reason = $this->request->getVal('lqt_delete_thread_reason', wfMsg('lqt_noreason'));
 			
 			// TODO: in theory, two fast-acting sysops could undo each others' work.
 			$is_deleted_already = $this->thread->type() == Threads::TYPE_DELETED;
@@ -981,14 +982,12 @@ HTML
 		}
 		
 		function showSuccessMessage( $is_deleted_already ) {
-			$message = $is_deleted_already ? "The thread was undeleted." : "The thread was deleted.";
-			
 			// TODO talkpageUrl should accept threads, and look up their talk pages.
 			$talkpage_url = LqtView::talkpageUrl($this->thread->article()->getTitle()->getTalkpage());
-			$this->output->addHTML(<<<HTML
-		$message Return to <a href="$talkpage_url">the talkpage</a>.
-HTML
-			);
+			$message = $is_deleted_already ? wfMsg('lqt_delete_undeleted') : wfMsg('lqt_delete_deleted');
+			$message .= ' ';
+			$message .= wfMsg('lqt_delete_return', '<a href="'.$talkpage_url.'">'.wfMsg('lqt_delete_return_link').'</a>');
+			$this->output->addHTML($message);
 		}
 
         function execute( $par = null ) {
@@ -1001,13 +1000,13 @@ HTML
             $this->setHeaders();
             
 			if( $par === null || $par === "") {
-				$this->output->addHTML("You must specify a thread in the URL.");
+				$this->output->addHTML(wfMsg('lqt_threadrequired'));
 				return;
 			}
 			// TODO should implement Threads::withTitle(...).
 			$thread = Threads::withRoot( new Article(Title::newFromURL($par)) );
 			if (!$thread) {
-				$this->output->addHTML("No such thread exists.");
+				$this->output->addHTML(wfMsg('lqt_nosuchthread'));
 				return;
 			}
 			
