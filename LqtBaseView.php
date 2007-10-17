@@ -181,10 +181,10 @@ class LqtDispatch {
 	static function tabAction(&$skintemplate, $title, $message, $selected, $checkEdit,
 			&$classes, &$query, &$text, &$result) {
 		if( ! $title->isTalkPage() )
-			return false;
+			return true;
 		if( $title->getArticleID() != 0 ) {
 			$query = "";
-			return false;
+			return true;
 		}		
 		// It's a talkpage without a header. Get rid of action=edit always,
 		// color as apropriate.
@@ -196,14 +196,14 @@ class LqtDispatch {
 				array_splice($classes, $i, 1);
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	static function changesListArticleLink(&$changeslist, &$articlelink, &$s, &$rc, $unpatrolled, $watched) {
 		if( $rc->getTitle()->getNamespace() == NS_LQT_THREAD ) {
 			$thread = Threads::withRoot(new Post( $rc->getTitle() ));
 			if($thread) {
-				$articlelink .= ' from ' . $changeslist->skin->makeKnownLinkObj(
+				$articlelink .= wfMsg('lqt_changes_from') . $changeslist->skin->makeKnownLinkObj(
 					$thread->article()->getTitle()->getTalkPage() );
 			}
 		}
@@ -212,7 +212,6 @@ class LqtDispatch {
 	
 	static function setNewtalkHTML($skintemplate, $tpl) {
 		global $wgUser, $wgTitle, $wgOut;
-		
 		$newmsg_t = SpecialPage::getPage('Newmessages')->getTitle();
 		$watchlist_t = SpecialPage::getPage('Watchlist')->getTitle();
 		$usertalk_t = $wgUser->getTalkPage();
@@ -221,7 +220,8 @@ class LqtDispatch {
 				&&! $watchlist_t->equals($wgTitle)
 				&&! $usertalk_t->equals($wgTitle)
 				) {
-			$tpl->set("newtalk", "You have <a href=\"{$newmsg_t->getFullURL()}\">new messages</a>.");
+			$s = wfMsg('lqt_youhavenewmessages', '<a href="'.$newmsg_t->getFullURL().'">'.wfMsg('newmessageslink').'</a>');
+			$tpl->set("newtalk", $s);
 			$wgOut->setSquidMaxage(0);
 		} else {
 			$tpl->set("newtalk", '');
@@ -391,7 +391,8 @@ HTML;
 	function showReplyProtectedNotice($thread) {
 		$log_url = SpecialPage::getPage('Log')->getTitle()->getFullURL(
 			"type=protect&user=&page={$thread->title()->getPrefixedURL()}");
-		$this->output->addHTML("<p>This thread has been <a href=\"$log_url\">protected</a> from being replied to.");
+		$this->output->addHTML('<p>' . wfMsg('lqt_protectedfromreply',
+			'<a href="'.$log_url.'">'.wfMsg('lqt_protectedfromreply_link').'</a>'));
 	}
 
 	function showNewThreadForm() {
@@ -448,10 +449,11 @@ HTML;
 		
 		if ( $edit_type=='new' || ($thread && !$thread->hasSuperthread()) ) {
 			// This is a top-level post; show the subject line.
-			$sbjtxt = $thread ? $thread->subjectWithoutIncrement() : '';
-			$subject = $this->request->getVal('lqt_subject_field', $sbjtxt);
+			$db_subject = $thread ? $thread->subjectWithoutIncrement() : '';
+			$subject = $this->request->getVal('lqt_subject_field', $db_subject);
+			$subject_label = wfMsg('lqt_subject');
 			$e->editFormTextBeforeContent .= <<<HTML
-			<label for="lqt_subject_field">Subject: </label>
+			<label for="lqt_subject_field">$subject_label</label>
 			<input type="text" size="60" name="lqt_subject_field" id="lqt_subject_field" value="$subject" tabindex="1"><br>
 HTML;
 		}
@@ -510,7 +512,7 @@ HTML;
 		return Title::newFromText( "Thread:$token" );
 	}
 	function newScratchTitle($subject) {
-		return $this->incrementedTitle( $subject?$subject:"«no subject»", NS_LQT_THREAD );
+		return $this->incrementedTitle( $subject?$subject:wfMsg('lqt_nosubject'), NS_LQT_THREAD );
 	}
 	function newSummaryTitle($t) {
 		return $this->incrementedTitle( $t->subject(), NS_LQT_SUMMARY );
@@ -764,24 +766,24 @@ HTML
 			$revision = Revision::newFromTitle( $thread->title() );
 			$target = Title::newFromRedirect( $revision->getText() );
 			$t_thread = Threads::withRoot( new Article( $target ) );
-			$p = new Parser(); $sig = $p->getUserSig( $thread->root()->originalAuthor() );
-
-			$this->output->addHTML( "This thread is a placeholder indicating that a thread, <a href=\"{$target->getFullURL()}\">{$target->getText()}</a>, was removed from this page to another talk page. This move was made by " );
-			$this->output->addWikitext( $sig, false );
-			$this->output->addHTML( " at " );
-			$this->output->addHTML( $wgLang->timeanddate($thread->modified()) );
-			$this->output->addHTML( "." );
-			
+			$author = $thread->root()->originalAuthor();
+			$sig = $this->user->getSkin()->userLink( $author->getID(), $author->getName() ) .
+				   $this->user->getSkin()->userToolLinks( $author->getID(), $author->getName() );
+			$this->output->addHTML( wfMsg('lqt_move_placeholder',
+				'<a href="'.$target->getFullURL().'">'.$target->getText().'</a>',
+				$sig,
+				$wgLang->timeanddate($thread->modified())
+				));			
 			return;
 		}
 
-		
 		if ( $thread->type() == Threads::TYPE_DELETED ) {
 			if ( in_array('deletedhistory',  $this->user->getRights()) ) {
-				$this->output->addHTML("<p>The following thread has been <b>deleted</b> and is invisible to non-sysops.</p>");
+				$this->output->addHTML('<p>'. wfMsg('lqt_thread_deleted_for_sysops', 
+					'<b>'.wfMsg('lqt_thread_deleted_for_sysops_deleted').'</b>') .'</p>');
 			}
 			else {
-				$this->output->addHTML("<p><em>This thread was deleted.</em></p>");
+				$this->output->addHTML('<p><em>'.wfMsg('lqt_thread_deleted').'</em></p>');
 				return;
 			}
 		}
@@ -791,7 +793,10 @@ HTML
 			$this->showSummary($thread);
 		} else if ( $timestamp->isBefore(Date::now()->nDaysAgo($this->archive_start_days))
 		            && !$thread->summary() && !$thread->hasSuperthread() && !$thread->isHistorical() ) {
-			$this->output->addHTML("<p class=\"lqt_summary_notice\">If this discussion seems to be concluded, you are encouraged to <a href=\"{$this->permalinkUrl($thread, 'summarize')}\">write a summary</a>. There have been no changes here for at least $this->archive_start_days days.</p>");
+			$this->output->addHTML('<p class="lqt_summary_notice">'. wfMsg('lqt_summary_notice',
+				'<a href="'.$this->permalinkUrl($thread, 'summarize').'">'.wfMsg('lqt_summary_notice_link').'</a>',
+				$this->archive_start_days
+				) .'</p>');
 		}
 
 		$this->openDiv('lqt_thread', "lqt_thread_id_{$thread->id()}");
@@ -833,10 +838,11 @@ HTML
 	
 	function showSummary($t) {
 		if ( !$t->summary() ) return;
+		$msg = wfMsg('lqt_summary_label');
 		$this->output->addHTML(<<<HTML
 			<div class='lqt_thread_permalink_summary'>
 			<span class="lqt_thread_permalink_summary_title">
-			This thread has been summarized as follows:
+			$msg
 			</span><span class="lqt_thread_permalink_summary_edit">
 			[<a href="{$this->permalinkUrl($t,'summarize')}">edit</a>]
 			</span>

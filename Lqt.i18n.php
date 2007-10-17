@@ -52,6 +52,20 @@ function wfInitializeLqtMessages() {
 		'lqt_change_new_thread' => 'This is the thread\'s initial revision.',
 		'lqt_change_reply_created' => 'The highlighted comment was created in this revision.',
 		'lqt_change_edited_root' => 'The highlighted comment was edited in this revision.',
+		'lqt_youhavenewmessages' => 'You have $1.',
+		'lqt_changes_from' => ' from ',
+		'lqt_protectedfromreply' => 'This thread has been $1 from being replied to.',
+		'lqt_protectedfromreply_link' => 'protected',
+		'lqt_subject' => 'Subject: ',
+		'lqt_nosubject' => '«no subject»',
+		'lqt_move_placeholder' => 'This thread is a placeholder indicating that a thread, $1, was removed from this page to another talk page. This move was made by $2 at $3.',
+		'lqt_thread_deleted_for_sysops' => 'This thread has been $1 and is only visible to sysops.',
+		'lqt_thread_deleted_for_sysops_deleted' => 'deleted', // substituted above in bold
+		'lqt_thread_deleted' => 'This thread has been deleted.',
+		'lqt_summary_notice' => 'If this discussion seems to be concluded, you are encouraged to $1. There have been no changes here for at least $2 days.',
+		'lqt_summary_notice_link' => 'write a summary',
+		'lqt_summary_label' => 'This thread has been summarized as follows:',
+		
 	);
 
 	$lqtMessages['nl'] = array(
