@@ -341,8 +341,13 @@ class LqtView {
 	}
 
 	static function talkpageUrl( $title, $method = null, $operand = null, $includeFragment = true ) {
+		global $wgRequest; // TODO global + ugly hack.
 		$query = $method ? "lqt_method=$method" : "";
 		$query = $operand ? "$query&lqt_operand={$operand->id()}" : $query;
+		$oldid = $wgRequest->getVal('oldid', null); if( $oldid !== null ) {
+			// this is an immensely ugly hack to make editing old revisions work.
+			$query = "$query&oldid=$oldid";
+		}
 		return $title->getFullURL( $query ) . ($operand && $includeFragment ? "#lqt_thread_{$operand->id()}" : "");
 	}
 	
@@ -648,9 +653,13 @@ HTML;
 		if (!$outputDone) {
 			// Cache miss; parse and output it.
 			$rev = Revision::newFromTitle( $post->getTitle(), $oldid );
-			if ($rev) {
+			if ($rev && $oldid) {
+				// don't save oldids in the parser cache.
+				$this->output->addWikiText( $rev->getText() );
+				return true;
+			}
+			else if ($rev) {
 				$this->output->addPrimaryWikiText( $rev->getText(), $post, true );
-			//	$this->output->addWikiText( $rev->getText() );
 				return true;
 			} else {
 				return false;
@@ -714,7 +723,17 @@ HTML
 		
 		$post = $thread->root();
 
-		$oldid = $thread->isHistorical() ? $thread->rootRevision() : null;
+		// This is a bit of a hack to have individual histories work.
+		// We can grab oldid either from lqt_oldid (which is a thread rev),
+		// or from oldid (which is a page rev). But oldid only applies to the
+		// thread being requested, not any replies.  TODO: eliminate the need
+		// for article-level histories.
+		$page_rev = $this->request->getVal('oldid', null);
+		if( $page_rev !== null && $this->title->equals($thread->root()->getTitle()) ) {
+			$oldid = $page_rev;
+		} else {
+			$oldid = $thread->isHistorical() ? $thread->rootRevision() : null;
+		}
 		
 		$this->openDiv( $this->postDivClass($thread) );
 		

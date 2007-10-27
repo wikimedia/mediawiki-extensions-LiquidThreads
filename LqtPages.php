@@ -547,27 +547,46 @@ class TalkpageHeaderView {
 	}
 }
 
+/*
+	This is invoked in two cases:
+	(1) the single-article history listing
+	(2) an old revision of a single article.
+*/
 class IndividualThreadHistoryView extends ThreadPermalinkView {
+	protected $oldid;
+	
 	function customizeTabs( $skintemplate, $content_actions ) {
-		unset($content_actions['edit']);
-		unset($content_actions['viewsource']);
-		unset($content_actions['talk']);
-		
-		$content_actions['talk']['class'] = false;
 		$content_actions['history']['class'] = 'selected';
-		
+		parent::customizeTabs(&$skintemplate, &$content_actions);		
 		return true;
 	}
 
+	/* This customizes the subtitle of a history *listing* from the hook,
+	   and of an old revision from getSubtitle() below. */
 	function customizeSubtitle() {
 		$msg = wfMsg('lqt_hist_view_whole_thread');
 		$threadhist = "<a href=\"{$this->permalinkUrl($this->thread->topmostThread(), 'thread_history')}\">$msg</a>";
-		$this->output->setSubtitle(  $this->getSubtitle() . '<br />' . $this->output->getSubtitle() . "<br />$threadhist" );
+		$this->output->setSubtitle(  parent::getSubtitle() . '<br />' . $this->output->getSubtitle() . "<br />$threadhist" );
 		return true;
+	}
+	
+	/* */
+	function getSubtitle() {
+		$this->article->setOldSubtitle($this->oldid);
+		$this->customizeSubtitle();
+		return $this->output->getSubtitle();
 	}
 	
 	function show() {
 		global $wgHooks;
+
+		$this->oldid = $this->request->getVal('oldid', null);
+		if( $this->oldid !== null ) {
+
+			parent::show();
+			return false;
+		}
+		
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
 		
 		$wgHooks['PageHistoryBeforeList'][] = array($this, 'customizeSubtitle');
@@ -917,7 +936,6 @@ function wfLqtSpecialDeleteThread() {
 			
 			$thread_name = $this->thread->title()->getPrefixedText();
 			$article_name = $this->thread->article()->getTitle()->getTalkPage()->getPrefixedText();
-			$edit_url = LqtView::permalinkUrl($this->thread, 'edit', $this->thread);
 			
 			$deleting = $this->thread->type() != Threads::TYPE_DELETED;
 			
