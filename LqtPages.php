@@ -797,11 +797,11 @@ function wfLqtSpecialMoveThreadToAnotherPage() {
 
         function __construct() {
             SpecialPage::SpecialPage( 'Movethread' );
-            SpecialPage::$mStripSubpages = false;
             $this->includable( false );
         }
 
 		function handleGet() {
+			$form_action = $this->title->getLocalURL() . '/' . $this->thread->title()->getPrefixedURL();
 			$thread_name = $this->thread->title()->getPrefixedText();
 			$article_name = $this->thread->article()->getTitle()->getTalkPage()->getPrefixedText();
 			$edit_url = LqtView::permalinkUrl($this->thread, 'edit', $this->thread);
@@ -809,7 +809,7 @@ function wfLqtSpecialMoveThreadToAnotherPage() {
 			$this->output->addHTML(<<<HTML
 			<p>{$wfMsg('lqt_move_movingthread', "<b>$thread_name</b>", "<b>$article_name</b>")}</p>
 			<p>{$wfMsg('lqt_move_torename', "<a href=\"$edit_url\">{$wfMsg('lqt_move_torename_edit')}</a>")}</p>
-			<form id="lqt_move_thread_form" action="{$this->title->getLocalURL()}" method="POST">
+			<form id="lqt_move_thread_form" action="$form_action" method="POST">
 			<table>
 			<tr>
 			<td><label for="lqt_move_thread_target_title">{$wfMsg('lqt_move_destinationtitle')}</label></td>
@@ -926,7 +926,6 @@ function wfLqtSpecialDeleteThread() {
 
         function __construct() {
             SpecialPage::SpecialPage( 'Deletethread' );
-            SpecialPage::$mStripSubpages = false;
             $this->includable( false );
         }
 
@@ -934,6 +933,7 @@ function wfLqtSpecialDeleteThread() {
 			if( !$this->checkUserRights() )
 				return;
 			
+			$form_action = $this->title->getLocalURL() . '/' . $this->thread->title()->getPrefixedURL();
 			$thread_name = $this->thread->title()->getPrefixedText();
 			$article_name = $this->thread->article()->getTitle()->getTalkPage()->getPrefixedText();
 			
@@ -952,7 +952,7 @@ function wfLqtSpecialDeleteThread() {
 			$this->output->addHTML(<<<HTML
 			<p>$operation_message
 			$part_of</p>
-			<form id="lqt_delete_thread_form" action="{$this->title->getLocalURL()}" method="POST">
+			<form id="lqt_delete_thread_form" action="{$form_action}" method="POST">
 			<table>
 			<tr>
 			<td><label for="lqt_delete_thread_reason">$reason</label></td>
@@ -1189,7 +1189,6 @@ function wfLqtSpecialNewMessages() {
 
         function __construct() {
             SpecialPage::SpecialPage( 'Newmessages' );
-            SpecialPage::$mStripSubpages = false;
             $this->includable( true );
         }
 
