@@ -821,13 +821,14 @@ HTML
 		$this->openDiv('lqt_thread', "lqt_thread_id_{$thread->id()}");
 		
 		$this->showRootPost( $thread );
-		$this->indent();
+		if( $thread->hasSubthreads() ) $this->indent();
 		foreach( $thread->subthreads() as $st ) {
 			$this->showThread($st);
 		}
-		$this->unindent();
+		if( $thread->hasSubthreads() ) $this->unindent();
 		
 		$this->closeDiv();
+		
 	}
 
 	function indent() {
@@ -835,6 +836,7 @@ HTML
 			$this->output->addHTML('<dl class="lqt_replies"><dd>');
 		} else {
 			$this->output->addHTML('<div class="lqt_replies_without_indent">');
+			$this->output->addHTML('<span class="lqt_nonindent_message">&rarr; in reply to the above...</span>');
 		}
 		$this->headerLevel += 1;
 	}
@@ -842,6 +844,7 @@ HTML
 		if( $this->headerLevel <= $this->maxIndentationLevel + 1 ) {
 			$this->output->addHTML('</dd></dl>');
 		} else {
+			$this->output->addHTML('<span class="lqt_nonindent_message">&larr;</span>');
 			$this->output->addHTML('</div>');
 		}
 		$this->headerLevel -= 1;

@@ -657,7 +657,7 @@ class Thread {
 	}
 	
 	function hasSubthreads() {
-		return count($replies) != 0;
+		return count($this->replies) != 0;
 	}
 
 	function subthreads() {

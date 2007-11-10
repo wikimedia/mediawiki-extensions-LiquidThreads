@@ -226,15 +226,22 @@ h2.lqt_header {
 }
 
 .lqt_post {
-	/*border: solid 1px #ddd;
+/*	border: solid 1px #ddd;
 	border-left: 2px solid;*/
-	margin-bottom: 0em;
+	margin-bottom: 2em;
 	padding: 0 0 0.5em 0em;
+	clear: both;
 }
 
 .lqt_post_highlight { border: solid 1px #fabd23; margin-top: 0.1in; padding: 0.2em; }
 
 .lqt_replies { margin-left: 0.25in; }
+
+.lqt_nonindent_message {
+	color: #777;
+	font-size: smaller;
+	float: left;
+}
 
 .lqt_footer {
          margin: 0em 0 0em 0 ;
