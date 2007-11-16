@@ -501,6 +501,9 @@ HTML;
 		// so $thread is null. In that case, just allow editpage to redirect back to the talk page.
 		if ( $this->output->getRedirect() != '' && $thread ) {
 			$this->output->redirect( $this->title->getFullURL() . '#' . 'lqt_thread_' . $thread->id() );
+		} else if ( $this->output->getRedirect() != '' && $edit_applies_to ) {
+			// For summaries:
+			$this->output->redirect( $edit_applies_to->title()->getFullURL() . '#' . 'lqt_thread_' . $edit_applies_to->id() );
 		}
 	}
 	
