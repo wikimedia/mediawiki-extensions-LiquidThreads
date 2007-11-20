@@ -582,7 +582,7 @@ HTML;
 	*                   'enabled' => true )
 	*   )
 	*/
-	function applicableThreadCommands($thread) {
+	function threadFooterCommands($thread) {
 		$commands = array();
 		
 		$user_can_edit = $thread->root()->getTitle()->quickUserCan( 'edit' );
@@ -611,6 +611,33 @@ HTML;
 							 'href' =>  $this->talkpageUrl( $this->title, 'reply', $thread ),
 							 'enabled' => $user_can_edit );
 
+		return $commands;
+	}
+	
+	function topLevelThreadCommands($thread) {
+		$commands = array();
+		
+		$commands[] = array( 'label' => wfMsg('history_short'),
+		                     'href' => $this->permalinkUrl($thread, 'history'),
+		                     'enabled' => true );
+		
+		if( in_array('move', $this->user->getRights()) ) {
+			$move_href = SpecialPage::getPage('Movethread')->getTitle()->getFullURL()
+				. '/' . $thread->title()->getPrefixedURL();
+			$commands[] = array( 'label' => wfMsg('move'),
+			                     'href' => $move_href,
+			                     'enabled' => true );
+		}
+		if( !$this->user->isAnon() && !$thread->title()->userIsWatching() ) {
+			$commands[] = array( 'label' => wfMsg('watch'),
+			                     'href' => $this->permalinkUrlWithQuery($thread, 'action=watch'),
+			                     'enabled' => true );
+		} else if( !$this->user->isAnon() ) {
+			$commands[] = array( 'label' => wfMsg('unwatch'),
+                                 'href' => $this->permalinkUrlWithQuery($thread, 'action=unwatch'),
+			                     'enabled' => true );
+		}
+		
 		return $commands;
 	}
 
@@ -690,21 +717,27 @@ HTML;
 HTML
 		);
 		
-		foreach( $this->applicableThreadCommands($thread) as $command ) {
+		$this->output->addHTML($this->listItemsForCommands($this->threadFooterCommands($thread)));
+		
+		$this->output->addHTML('</ul>');
+	}
+
+	function listItemsForCommands($commands) {
+		$result = array();
+		foreach( $commands as $command ) {
 			$label = $command['label'];
 			$href = $command['href'];
 			$enabled = $command['enabled'];
 			
 			if( $enabled ) {
-				$this->output->addHTML( "<li><a href=\"$href\">$label</a></li>" );
+				$result[] = "<li><a href=\"$href\">$label</a></li>";
 			} else {
-				$this->output->addHTML( "<li><span class=\"lqt_footer_disabled\">$label</span></li>" );
+				$result[] = "<li><span class=\"lqt_command_disabled\">$label</span></li>";
 			}
 		}
-		
-		$this->output->addHTML('</ul>');
+		return join("", $result);
 	}
-
+	
 	function selectNewUserColor( $user ) {
 		$userkey = $user->isAnon() ? "anon:" . $user->getName() : "user:" . $user->getId();
 		
@@ -761,11 +794,18 @@ HTML
 
 	function showThreadHeading( $thread ) {
 		if ( $thread->hasDistinctSubject() ) {
+			if( $thread->hasSuperthread() ) {
+				$commands_html = "";
+			} else {
+				$lis = $this->listItemsForCommands($this->topLevelThreadCommands($thread));
+				$commands_html = "<ul class=\"lqt_threadlevel_commands\">$lis</ul>";
+			}
+			
 			$html = $thread->subjectWithoutIncrement() .
 			        ' <span class="lqt_subject_increment">(' .
 			        $thread->increment() . ')</span>';
-			$this->output->addHTML( "<h{$this->headerLevel} class=\"lqt_header\"><span class=\"mw-headline\">"
-				. $html . "</span></h{$this->headerLevel}>" );
+			$this->output->addHTML( "<h{$this->headerLevel} class=\"lqt_header\">
+				<span class=\"mw-headline\">" . $html . "</span></h{$this->headerLevel}>$commands_html" );
 		}
 	}
 	
