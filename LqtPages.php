@@ -12,7 +12,6 @@ if( !defined( 'MEDIAWIKI' ) ) {
 	die( -1 );
 }
 
-
 function efArrayDefault($name, $key, $default) {
 	global $$name;
 	if( isset($$name) && is_array($$name) && array_key_exists($key, $$name) ) {
@@ -23,6 +22,7 @@ function efArrayDefault($name, $key, $default) {
 		return $default;
 	}
 }
+
 define('NS_LQT_THREAD', efArrayDefault('egLqtNamespaceNumbers', 'Thread', 90));
 define('NS_LQT_THREAD_TALK', efArrayDefault('egLqtNamespaceNumbers', 'Thread_talk', 91));
 define('NS_LQT_SUMMARY', efArrayDefault('egLqtNamespaceNumbers', 'Summary', 92));
@@ -38,14 +38,19 @@ $wgExtraNamespaces[NS_LQT_THREAD_TALK] = 'Thread_talk';
 $wgExtraNamespaces[NS_LQT_SUMMARY] = 'Summary';
 $wgExtraNamespaces[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
 
+$dir = dirname(__FILE__) . '/';
+$wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'Lqt.i18n.php';
+
 require_once('LqtBaseView.php');
-require_once('Lqt.i18n.php');
 
 $wgExtensionFunctions[] = 'wfLqtSpecialDeleteThread';
 $wgExtensionFunctions[] = 'wfLqtSpecialMoveThreadToAnotherPage';
 $wgExtensionFunctions[] = 'wfLqtSpecialNewMessages';
 $wgHooks['BeforeWatchlist'][] = 'wfLqtBeforeWatchlistHook';
 
+$wgSpecialPages['DeleteThread'] = 'SpecialDeleteThread';
+$wgSpecialPages['MoveThread'] = 'SpecialMoveThreadToAnotherPage';
+$wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
 
 /**
  * Recreate the original associative array so that a new pair with the given key
@@ -69,7 +74,6 @@ function efInsertIntoAssoc( $new_key, $new_value, $before, &$original_array ) {
 	$original_array = $new_assoc;
 }
 
-
 class TalkpageView extends LqtView {
 	/* Added to SkinTemplateTabs hook in TalkpageView::show(). */
 	function customizeTabs( $skintemplate, $content_actions ) {
@@ -80,9 +84,9 @@ class TalkpageView extends LqtView {
 		unset($content_actions['history']);
 		unset($content_actions['watch']);
 		unset($content_actions['move']);
-		
+
 		/*
-		TODO: 
+		TODO:
 		We could make these tabs actually follow the tab metaphor if we repointed
 		the 'history' and 'edit' tabs to the original subject page. That way 'discussion'
 		would just be one of four ways to view the article. But then those other tabs, for
@@ -100,10 +104,12 @@ class TalkpageView extends LqtView {
 		}
 		return $ps;
 	}
-	
+
 	function showArchiveWidget() {
 		$threads = $this->queries->query('recently-archived');
 		$threadlinks = $this->permalinksForThreads($threads);
+
+		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		if ( count($threadlinks) > 0 ) {
 			$this->openDiv('lqt_archive_teaser');
@@ -120,10 +126,11 @@ HTML
 		);
 		$this->closeDiv();
 	}
-	
+
 	function showHeader() {
 		/* Show the contents of the actual talkpage article if it exists. */
 
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		$article = new Article( $this->title );
 		$oldid = $this->request->getVal('oldid', null);
 		$editlink = $this->title->getFullURL( 'action=edit' );
@@ -133,7 +140,7 @@ HTML
 			$this->openDiv('lqt_header_content');
 			$this->showPostBody($article, $oldid);
 			$this->outputList('ul', 'lqt_header_commands', null, array(
-				"[<a href=\"$editlink\">".wfMsg('edit')."</a>]", 
+				"[<a href=\"$editlink\">".wfMsg('edit')."</a>]",
 				"[<a href=\"$historylink\">".wfMsg('history_short')."</a>]"
 				));
 			$this->closeDiv();
@@ -141,7 +148,7 @@ HTML
 			$this->output->addHTML("<p class=\"lqt_header_notice\">[<a href=\"$editlink\">".wfMsg('lqt_add_header')."</a>]</p>");
 		}
 	}
-	
+
 	function outputList( $kind, $class, $id, $contents ) {
 		$this->output->addHTML(wfOpenElement($kind, array('class'=>$class,'id'=>$id)));
 		foreach ($contents as $li) {
@@ -151,7 +158,7 @@ HTML
 		}
 		$this->output->addHTML(wfCloseElement($kind));
 	}
-	
+
 	function showTOC($threads) {
 		$sk = $this->user->getSkin();
 		$toclines = array();
@@ -164,7 +171,7 @@ HTML
 		$toclines[] = $sk->tocUnindent(1);
 		$this->output->addHTML($sk->tocList( implode('', $toclines) ));
 	}
-	
+
 	function show() {
 		global $wgHooks;
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
@@ -173,7 +180,7 @@ HTML
 		self::addJSandCSS();
 
 		$this->showHeader();
-		
+
 		$this->showArchiveWidget();
 
 		if( $this->methodApplies('talkpage_new_thread') ) {
@@ -199,7 +206,7 @@ class TalkpageArchiveView extends TalkpageView {
 		parent::__construct($output, $article, $title, $user, $request);
 		$this->loadQueryFromRequest();
 	}
-	
+
 	function showThread($t) {
 		$this->output->addHTML(<<<HTML
 <tr>
@@ -217,7 +224,7 @@ HTML
 HTML
 );
 	}
-	
+
 	function loadQueryFromRequest() {
 		// Begin with with the requirements for being *in* the archive.
 		$startdate = Date::now()->nDaysAgo($this->archive_start_days)->midnight();
@@ -227,7 +234,7 @@ HTML
 			                  ' OR thread.thread_type = '.Threads::TYPE_MOVED.')',
 		                     'thread.thread_modified < ' . $startdate->text());
 		$options = array('ORDER BY thread.thread_modified DESC');
-		
+
 		$annotations = array("Searching for threads");
 
 		$r = $this->request;
@@ -309,7 +316,7 @@ HTML
 		if (count($months) == 0) {
 			return true;
 		}
-		
+
 		$use_dates = $this->request->getVal('lqt_archive_filter_by_date', null);
 		if ( $use_dates === null ) {
 			$use_dates = $this->request->getBool('lqt_archive_start', false) ||
@@ -344,11 +351,11 @@ HTML
 			$older = '<span class="lqt_newer_older_disabled" title="This link is disabled because you are viewing threads from all dates.">«older</span>';
 			$newer = '<span class="lqt_newer_older_disabled" title="This link is disabled because you are viewing threads from all dates.">newer»</span>';
 		}
-		
+
 		$this->output->addHTML(<<<HTML
 <form id="lqt_archive_search_form" action="{$this->title->getLocalURL()}">
 	<input type="hidden" name="lqt_method" value="talkpage_archive">
-        <input type="hidden" name="title" value="{$this->title->getPrefixedURL()}"	
+        <input type="hidden" name="title" value="{$this->title->getPrefixedURL()}"
 
 	<input type="radio" id="lqt_archive_filter_by_date_no"
                name="lqt_archive_filter_by_date" value="0" {$any_date_check}>
@@ -357,7 +364,7 @@ HTML
                name="lqt_archive_filter_by_date" value="1" {$these_dates_check}>
 	<label for="lqt_archive_filter_by_date_yes">Only these dates:</label> <br>
 
-<table>	
+<table>
 <tr><td><label for="lqt_archive_start">From</label>
     <td>{$this->monthSelect($months, 'lqt_archive_start')} <br>
 <tr><td><label for="lqt_archive_end">To</label>
@@ -370,14 +377,14 @@ HTML
 );
 		return false;
 	}
-	
+
 	function show() {
 		global $wgHooks;
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
-		
+
 		$this->output->setPageTitle( $this->title->getTalkpage()->getPrefixedText() );
 		self::addJSandCSS();
-		
+
 		$empty = $this->showSearchForm();
 		if ($empty) {
 			$this->output->addHTML('<p>There are no threads in the archive.');
@@ -396,15 +403,14 @@ HTML
 			$this->showThread($t);
 		}
 		$this->output->addHTML('</table>');
-		
+
 		return false;
 	}
 }
 
-
 class ThreadPermalinkView extends LqtView {
 	protected $thread;
-	
+
 	function customizeTabs( $skintemplate, $content_actions ) {
 		// Insert fake 'article' and 'discussion' tabs before the thread tab.
 		// If you call the key 'talk', the url gets re-set later. TODO:
@@ -414,7 +420,7 @@ class ThreadPermalinkView extends LqtView {
 		efInsertIntoAssoc('article', array(
 				'text'=>wfMsg($article_t->getNamespaceKey()),
 				'href'=>$article_t->getFullURL(),
-				'class' => $article_t->exists() ? '' : 'new'), 
+				'class' => $article_t->exists() ? '' : 'new'),
 			'nstab-thread', $content_actions);
 		efInsertIntoAssoc('not_talk', array(
 				// talkpage certainly exists since this thread is from it.
@@ -435,17 +441,17 @@ class ThreadPermalinkView extends LqtView {
 				SpecialPage::getPage('Deletethread')->getTitle()->getFullURL() . '/' .
 				$this->thread->title()->getPrefixedURL();
 		}
-		
+
 		if( array_key_exists('history', $content_actions) ) {
 			$content_actions['history']['href'] = $this->permalinkUrl( $this->thread, 'thread_history' );
 			if( $this->methodApplies('thread_history') ) {
 				$content_actions['history']['class'] = 'selected';
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	function showThreadHeading( $thread ) {
 		if ( $this->headerLevel == 2 ) {
 			$this->output->setPageTitle( $thread->wikilink() );
@@ -453,15 +459,15 @@ class ThreadPermalinkView extends LqtView {
 			parent::showThreadHeading($thread);
 		}
 	}
-	
+
 	function noSuchRevision() {
 		$this->output->addHTML(wfMsg('lqt_nosuchrevision'));
 	}
-	
+
 	function showMissingThreadPage() {
-		$this->output->addHTML(wfMsg('lqt_nosuchthread'));	
+		$this->output->addHTML(wfMsg('lqt_nosuchthread'));
 	}
-	
+
 	function getSubtitle() {
  		// TODO the archive month part is obsolete.
 		if (Date::now()->nDaysAgo(30)->midnight()->isBefore( new Date($this->thread->modified()) ))
@@ -476,16 +482,16 @@ class ThreadPermalinkView extends LqtView {
 			return wfMsg('lqt_from_talk', $talkpage_link);
 		}
 	}
-	
+
 	function __construct(&$output, &$article, &$title, &$user, &$request) {
-		
+
 		parent::__construct($output, $article, $title, $user, $request);
-		
+
 		$t = Threads::withRoot( $this->article );
 		$r = $this->request->getVal('lqt_oldid', null); if( $r ) {
 			$t = $t->atRevision($r);
 			if( !$t ) { $this->noSuchRevision(); return; }
-			
+
 		}
 		$this->thread = $t;
 		if( ! $t ) {
@@ -495,13 +501,13 @@ class ThreadPermalinkView extends LqtView {
 		// $this->article gets saved to thread_article, so we want it to point to the
 		// subject page associated with the talkpage, always, not the permalink url.
 		$this->article = $t->article(); # for creating reply threads.
-		
+
 	}
 
 	function show() {
 		global $wgHooks;
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
-		
+
 		if( ! $this->thread ) {
 			$this->showMissingThreadPage();
 			return false;
@@ -509,16 +515,15 @@ class ThreadPermalinkView extends LqtView {
 
 		self::addJSandCSS();
 		$this->output->setSubtitle($this->getSubtitle());
-		
+
 		if( $this->methodApplies('summarize') )
 			$this->showSummarizeForm($this->thread);
 
 		$this->showThread($this->thread);
-		
+
 		return false;
 	}
 }
-
 
 /*
  * Cheap views that just pass through to MW functions.
@@ -531,7 +536,7 @@ class TalkpageHeaderView {
 		unset($content_actions['history']);
 		unset($content_actions['watch']);
 		unset($content_actions['move']);
-		
+
 		$content_actions['talk']['class'] = false;
 		$content_actions['header'] = array( 'class'=>'selected',
 		                                    'text'=>'header',
@@ -539,7 +544,7 @@ class TalkpageHeaderView {
 
 		return true;
 	}
-	
+
 	function show() {
 		global $wgHooks;
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
@@ -554,10 +559,10 @@ class TalkpageHeaderView {
 */
 class IndividualThreadHistoryView extends ThreadPermalinkView {
 	protected $oldid;
-	
+
 	function customizeTabs( $skintemplate, $content_actions ) {
 		$content_actions['history']['class'] = 'selected';
-		parent::customizeTabs(&$skintemplate, &$content_actions);		
+		parent::customizeTabs(&$skintemplate, &$content_actions);
 		return true;
 	}
 
@@ -569,14 +574,14 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 		$this->output->setSubtitle(  parent::getSubtitle() . '<br />' . $this->output->getSubtitle() . "<br />$threadhist" );
 		return true;
 	}
-	
+
 	/* */
 	function getSubtitle() {
 		$this->article->setOldSubtitle($this->oldid);
 		$this->customizeSubtitle();
 		return $this->output->getSubtitle();
 	}
-	
+
 	function show() {
 		global $wgHooks;
 
@@ -586,13 +591,13 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 			parent::show();
 			return false;
 		}
-		
+
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
-		
+
 		$wgHooks['PageHistoryBeforeList'][] = array($this, 'customizeSubtitle');
-		
+
 		return true;
-	}	
+	}
 }
 
 class ThreadDiffView {
@@ -600,13 +605,13 @@ class ThreadDiffView {
 		unset($content_actions['edit']);
 		unset($content_actions['viewsource']);
 		unset($content_actions['talk']);
-		
+
 		$content_actions['talk']['class'] = false;
 		$content_actions['history']['class'] = 'selected';
-		
+
 		return true;
 	}
-	
+
 	function show() {
 		global $wgHooks;
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
@@ -620,16 +625,16 @@ class ThreadProtectionFormView {
 		unset($content_actions['addsection']);
 		unset($content_actions['viewsource']);
 		unset($content_actions['talk']);
-		
+
 		$content_actions['talk']['class'] = false;
 		if ( array_key_exists('protect', $content_actions) )
 			$content_actions['protect']['class'] = 'selected';
 		else if ( array_key_exists('unprotect', $content_actions) )
 			$content_actions['unprotect']['class'] = 'selected';
-					
+
 		return true;
 	}
-	
+
 	function show() {
 		global $wgHooks;
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
@@ -637,13 +642,11 @@ class ThreadProtectionFormView {
 	}
 }
 
-
-
 class ThreadHistoryListingView extends ThreadPermalinkView {
-	
+
 	private function rowForThread($t) {
 		global $wgLang, $wgOut; // TODO global.
-		
+
 		/* TODO: best not to refer to LqtView class directly. */
 		/* We don't use oldid because that has side-effects. */
 		$result = array();
@@ -657,12 +660,12 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 		$change_label = array_key_exists($t->changeType(), $change_names) ? $change_names[$t->changeType()] : "";
 
 		$url = LqtView::permalinkUrlWithQuery( $this->thread, 'lqt_oldid=' . $t->revisionNumber() );
-		
+
 		$user_id = $t->changeUser()->getID(); # ever heard of a User object?
 		$user_text = $t->changeUser()->getName();
 		$sig = $this->user->getSkin()->userLink( $user_id, $user_text ) .
 			   $this->user->getSkin()->userToolLinks( $user_id, $user_text );
-		
+
 		$change_comment=$t->changeComment();
 		if(!empty($change_comment))
 			$change_comment="<em>($change_comment)</em>";
@@ -675,7 +678,7 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 		$result[] = "</tr>";
 		return implode('', $result);
 	}
-	
+
 	function showHistoryListing($t) {
 		$revisions = new ThreadHistoryIterator($t, $this->perPage, $this->perPage * ($this->page - 1));
 
@@ -685,7 +688,6 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 		}
 		$this->output->addHTML('</table>');
 
-		
 		if ( count($revisions) == 0 && $this->page == 1 ) {
 			$this->output->addHTML('<p>'.wfMsg('lqt_hist_no_revisions_error'));
 		}
@@ -693,13 +695,13 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 			// we could redirect to the previous page... yow.
 			$this->output->addHTML('<p>'.wfMsg('lqt_hist_past_last_page_error'));
 		}
-		
+
 		if( $this->page > 1 ) {
 			$this->output->addHTML( '<a class="lqt_newer_older" href="' . $this->queryReplace(array('lqt_hist_page'=>$this->page - 1)) .'">'.wfMsg('lqt_newer').'</a>' );
 		} else {
 			$this->output->addHTML( '<span class="lqt_newer_older_disabled" title="'.wfMsg('lqt_hist_tooltip_newer_disabled').'">'.wfMsg('lqt_newer').'</span>' );
 		}
-		
+
 		$is_last_page = false;
 		foreach($revisions as $r)
 			if( $r->changeType() == Threads::CHANGE_NEW_THREAD )
@@ -707,7 +709,7 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 		if( $is_last_page ) {
 			$this->output->addHTML( '<span class="lqt_newer_older_disabled" title="'.wfMsg('lqt_hist_tooltip_older_disabled').'">'.wfMsg('lqt_older').'</span>' );
 		} else {
-			$this->output->addHTML( '<a class="lqt_newer_older" href="' . $this->queryReplace(array('lqt_hist_page'=>$this->page + 1)) . '">'.wfMsg('lqt_older').'</a>' );			
+			$this->output->addHTML( '<a class="lqt_newer_older" href="' . $this->queryReplace(array('lqt_hist_page'=>$this->page + 1)) . '">'.wfMsg('lqt_older').'</a>' );
 		}
 	}
 
@@ -715,7 +717,7 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 		parent::__construct($output, $article, $title, $user, $request);
 		$this->loadParametersFromRequest();
 	}
-	
+
 	function loadParametersFromRequest() {
 		$this->perPage = $this->request->getInt('lqt_hist_per_page', 10);
 		$this->page = $this->request->getInt('lqt_hist_page', 1);
@@ -724,26 +726,26 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 	function show() {
 		global $wgHooks;
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
-		
+
 		if( ! $this->thread ) {
 			$this->showMissingThreadPage();
 			return false;
 		}
 		self::addJSandCSS();
-		
+
 		$this->output->setSubtitle($this->getSubtitle() . '<br />' . wfMsg('lqt_hist_listing_subtitle'));
-				
+
 		$this->showThreadHeading($this->thread);
 		$this->showHistoryListing($this->thread);
 
 		$this->showThread($this->thread);
-		
+
 		return false;
 	}
 }
 
 class ThreadHistoricalRevisionView extends ThreadPermalinkView {
-	
+
 	/* TOOD: customize tabs so that History is highlighted. */
 
 	function postDivClass($thread) {
@@ -754,8 +756,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		else
 			return 'lqt_post';
 	}
-	
-	
+
 	function showHistoryInfo() {
 		global $wgLang; // TODO global.
 		$this->openDiv('lqt_history_info');
@@ -771,34 +772,34 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$this->output->addHTML($msg);
 		$this->closeDiv();
 	}
-	
+
 	function show() {
 		if( ! $this->thread ) {
 			$this->showMissingThreadPage();
 			return false;
-		}			
+		}
 		$this->showHistoryInfo();
 		parent::show();
 		return false;
 	}
 }
 
-
 function wfLqtSpecialMoveThreadToAnotherPage() {
-    global $wgMessageCache;
 
-    require_once('SpecialPage.php');
-    
-    $wgMessageCache->addMessage( 'movethread', 'Move Thread to Another Page' );
-    
     class SpecialMoveThreadToAnotherPage extends SpecialPage {
 		private $user, $output, $request, $title, $thread;
-
 
         function __construct() {
             SpecialPage::SpecialPage( 'Movethread' );
             $this->includable( false );
         }
+
+	/**
+	 * @see SpecialPage::getDescription
+	 */
+	function getDescription() {
+		return wfMsg( 'lqt_movethread' );
+	}
 
 		function handleGet() {
 			$form_action = $this->title->getLocalURL() . '/' . $this->thread->title()->getPrefixedURL();
@@ -825,7 +826,7 @@ function wfLqtSpecialMoveThreadToAnotherPage() {
 			</form>
 HTML
 			);
-			
+
 		}
 
 		function checkUserRights() {
@@ -857,36 +858,37 @@ HTML
 		function handlePost() {
 			if( !$this->checkUserRights() )
 				return;
-			
+
 			$tmp = $this->request->getVal('lqt_move_thread_target_title');
 			if( $tmp === "" ) {
 				$this->redisplayForm(array('lqt_move_thread_target_title'), wfMsg('lqt_move_nodestination'));
 				return;
 			}
 			$newtitle = Title::newFromText( $tmp )->getSubjectPage();
-			
+
 			$reason = $this->request->getVal('lqt_move_thread_reason', wfMsg('lqt_noreason'));
-			
+
 			// TODO no status code from this method.
 			$this->thread->moveToSubjectPage( $newtitle, $reason, true );
-			
+
 			$this->showSuccessMessage( $newtitle->getTalkPage() );
 		}
-		
+
 		function showSuccessMessage( $target_title ) {
 			$this->output->addHTML(wfMsg('lqt_move_success',
 				'<a href="'.$target_title->getFullURL().'">'.$target_title->getPrefixedText().'</a>'));
 		}
 
-        function execute( $par = null ) {
-            global $wgOut, $wgRequest, $wgTitle, $wgUser;
+		function execute( $par = null ) {
+			global $wgOut, $wgRequest, $wgTitle, $wgUser;
+			wfLoadExtensionMessages( 'LiquidThreads' );
 			$this->user = $wgUser;
 			$this->output = $wgOut;
 			$this->request = $wgRequest;
 			$this->title = $wgTitle;
-	
-            $this->setHeaders();
-            
+
+			$this->setHeaders();
+
 			if( $par === null || $par === "") {
 				$this->output->addHTML(wfMsg('lqt_threadrequired'));
 				return;
@@ -897,7 +899,7 @@ HTML
 				$this->output->addHTML(wfMsg('lqt_nosuchthread'));
 				return;
 			}
-			
+
 			$this->thread = $thread;
 
 			if ( $this->request->wasPosted() ) {
@@ -908,37 +910,37 @@ HTML
 
         }
     }
-    
+
      SpecialPage::addPage( new SpecialMoveThreadToAnotherPage() );
 }
 
-
 function wfLqtSpecialDeleteThread() {
-    global $wgMessageCache;
 
-    require_once('SpecialPage.php');
-    
-    $wgMessageCache->addMessage( 'deletethread', 'Delete or Undelete Thread' );
-    
     class SpecialDeleteThread extends SpecialPage {
 		private $user, $output, $request, $title, $thread;
-
 
         function __construct() {
             SpecialPage::SpecialPage( 'Deletethread' );
             $this->includable( false );
         }
 
+	/**
+	 * @see SpecialPage::getDescription
+	 */
+	function getDescription() {
+		return wfMsg( 'lqt_deletethread' );
+	}
+
 		function handleGet() {
 			if( !$this->checkUserRights() )
 				return;
-			
+
 			$form_action = $this->title->getLocalURL() . '/' . $this->thread->title()->getPrefixedURL();
 			$thread_name = $this->thread->title()->getPrefixedText();
 			$article_name = $this->thread->article()->getTitle()->getTalkPage()->getPrefixedText();
-			
+
 			$deleting = $this->thread->type() != Threads::TYPE_DELETED;
-			
+
 			$operation_message = $deleting ?
 				wfMsg('lqt_delete_deleting', "<b>$thread_name</b>", '<b>'.wfMsg('lqt_delete_deleting_allreplies').'</b>')
 //				"Deleting <b>$thread_name</b> and <b>all replies</b> to it."
@@ -948,7 +950,7 @@ function wfLqtSpecialDeleteThread() {
 				: wfMsg('lqt_delete_undeletethread');
 			$part_of = wfMsg('lqt_delete_partof', '<b>'.$article_name.'</b>');
 			$reason = wfMsg('movereason'); // XXX arguably wrong to use movereason.
-			
+
 			$this->output->addHTML(<<<HTML
 			<p>$operation_message
 			$part_of</p>
@@ -965,7 +967,7 @@ function wfLqtSpecialDeleteThread() {
 			</form>
 HTML
 			);
-			
+
 		}
 
 		function checkUserRights() {
@@ -988,7 +990,7 @@ HTML
 				return;
 
 			$reason = $this->request->getVal('lqt_delete_thread_reason', wfMsg('lqt_noreason'));
-			
+
 			// TODO: in theory, two fast-acting sysops could undo each others' work.
 			$is_deleted_already = $this->thread->type() == Threads::TYPE_DELETED;
 			if ( $is_deleted_already ) {
@@ -998,7 +1000,7 @@ HTML
 			}
 			$this->showSuccessMessage( $is_deleted_already );
 		}
-		
+
 		function showSuccessMessage( $is_deleted_already ) {
 			// TODO talkpageUrl should accept threads, and look up their talk pages.
 			$talkpage_url = LqtView::talkpageUrl($this->thread->article()->getTitle()->getTalkpage());
@@ -1010,13 +1012,14 @@ HTML
 
         function execute( $par = null ) {
             global $wgOut, $wgRequest, $wgTitle, $wgUser;
+			wfLoadExtensionMessages( 'LiquidThreads' );
 			$this->user = $wgUser;
 			$this->output = $wgOut;
 			$this->request = $wgRequest;
 			$this->title = $wgTitle;
-	
+
             $this->setHeaders();
-            
+
 			if( $par === null || $par === "") {
 				$this->output->addHTML(wfMsg('lqt_threadrequired'));
 				return;
@@ -1027,7 +1030,7 @@ HTML
 				$this->output->addHTML(wfMsg('lqt_nosuchthread'));
 				return;
 			}
-			
+
 			$this->thread = $thread;
 
 			if ( $this->request->wasPosted() ) {
@@ -1038,18 +1041,16 @@ HTML
 
         }
     }
-    
+
      SpecialPage::addPage( new SpecialDeleteThread() );
 }
 
-
-
 class NewUserMessagesView extends LqtView {
-	
+
 	protected $threads;
 	protected $tops;
 	protected $targets;
-		
+
 	function preShowThread($t) {
 //		$t_ids = implode(',', array_map(create_function('$t', 'return $t->id();'), $this->targets[$t->id()]));
 		$t_ids = implode(',', $this->targets[$t->id()]);
@@ -1066,7 +1067,7 @@ class NewUserMessagesView extends LqtView {
 HTML
 		);
 	}
-	
+
 	function postShowThread($t) {
 		$this->output->addHTML(<<<HTML
 		</td>
@@ -1074,7 +1075,7 @@ HTML
 HTML
 		);
 	}
-	
+
 	function showUndo($ids) {
 		if( count($ids) == 1 ) {
 			$t = Threads::withId($ids[0]);
@@ -1094,7 +1095,7 @@ HTML
 HTML
 		);
 	}
-	
+
 	function postDivClass($thread) {
 		$topid = $thread->topmostThread()->id();
 		if( in_array($thread->id(), $this->targets[$topid]) )
@@ -1102,17 +1103,17 @@ HTML
 		else
 			return 'lqt_post';
 	}
-	
+
 	function showOnce() {
 		self::addJSandCSS();
-		
+
 		if( $this->request->wasPosted() ) {
 			// If they just viewed this page, maybe they still want that notice.
 			// But if they took the time to dismiss even one message, they
 			// probably don't anymore.
 			$this->user->setNewtalk(false);
 		}
-		
+
 		if( $this->request->wasPosted() && $this->methodApplies('mark_as_unread') ) {
 			$ids = explode(',', $this->request->getVal('lqt_operand', ''));
 			if( $ids !== false ) {
@@ -1122,7 +1123,7 @@ HTML
 				$this->output->redirect( $this->title->getFullURL() );
 			}
 		}
-		
+
 		else if( $this->request->wasPosted() && $this->methodApplies('mark_as_read') ) {
 			$ids = explode(',', $this->request->getVal('lqt_operand', ''));
 			if( $ids !== false ) {
@@ -1133,18 +1134,18 @@ HTML
 				$this->output->redirect( $this->title->getFullURL($query) );
 			}
 		}
-		
+
 		else if( $this->methodApplies('undo_mark_as_read') ) {
 			$ids = explode(',', $this->request->getVal('lqt_operand', ''));
 			$this->showUndo($ids);
 		}
 	}
-	
+
 	function show() {
 		if ( ! is_array( $this->threads ) ) {
 			throw new MWException('You must use NewUserMessagesView::setThreads() before calling NewUserMessagesView::show().');
 		}
-		
+
 		// Do everything by id, because we can't depend on reference identity; a simple Thread::withId
 		// can change the cached value and screw up your references.
 
@@ -1164,26 +1165,21 @@ HTML
 			// It turns out that with lqtviews composed of threads from various talkpages,
 			// each thread is going to have a different article... this is pretty ugly.
 			$this->article = $t->article();
-			
+
 			$this->preShowThread($t);
 			$this->showThread($t);
 			$this->postShowThread($t);
 		}
 		return false;
 	}
-	
+
 	function setThreads( $threads ) {
 		$this->threads = $threads;
 	}
 }
 
 function wfLqtSpecialNewMessages() {
-    global $wgMessageCache;
 
-    require_once('SpecialPage.php');
-    
-    $wgMessageCache->addMessage( 'newmessages', 'New Messages' );
-    
     class SpecialNewMessages extends SpecialPage {
 		private $user, $output, $request, $title;
 
@@ -1192,48 +1188,55 @@ function wfLqtSpecialNewMessages() {
             $this->includable( true );
         }
 
+	/**
+	 * @see SpecialPage::getDescription
+	 */
+	function getDescription() {
+		return wfMsg( 'lqt_newmessages' );
+	}
+
         function execute( $par = null ) {
 		    global $wgOut, $wgRequest, $wgTitle, $wgUser;
+			wfLoadExtensionMessages( 'LiquidThreads' );
 			$this->user = $wgUser;
 			$this->output = $wgOut;
 			$this->request = $wgRequest;
 			$this->title = $wgTitle;
-	
+
             $this->setHeaders();
 
 			$view = new NewUserMessagesView( $this->output, new Article($this->title),
 							$this->title, $this->user, $this->request );
 			$view->setHeaderLevel(3);
 			$view->showOnce();
-			
+
 			$this->output->addHTML('<h2 class="lqt_newmessages_section">Messages sent to you:</h2>');
 			$view->setThreads( NewMessages::newUserMessages($this->user) );
 			$view->show();
-			
+
 			$this->output->addHTML('<h2 class="lqt_newmessages_section">Messages on other talkpages:</h2>');
 			$view->setThreads( NewMessages::watchedThreadsForUser($this->user) );
 			$view->show();
         }
     }
-    
+
      SpecialPage::addPage( new SpecialNewMessages() );
 }
 
-
 function wfLqtBeforeWatchlistHook( $options, $user, &$hook_sql ) {
 	global $wgOut;
-	
+
 	$hook_sql = "AND page_namespace != " . NS_LQT_THREAD;
-	
+
 	$talkpage_messages = NewMessages::newUserMessages($user);
 	$tn = count($talkpage_messages);
-	
+
 	$watch_messages = NewMessages::watchedThreadsForUser($user);
 	$wn = count($watch_messages);
-	
+
 	if( $tn == 0 && $wn == 0 )
 		return true;
-	
+
 	LqtView::addJSandCSS();
 	$messages_url = SpecialPage::getPage('Newmessages')->getTitle()->getFullURL();
 	$wgOut->addHTML(<<< HTML
@@ -1245,6 +1248,3 @@ HTML
 
 	return true;
 }
-
-
-?>
