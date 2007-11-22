@@ -618,7 +618,7 @@ HTML;
 		$commands = array();
 		
 		$commands[] = array( 'label' => wfMsg('history_short'),
-		                     'href' => $this->permalinkUrl($thread, 'history'),
+		                     'href' => $this->permalinkUrl($thread, 'thread_history'),
 		                     'enabled' => true );
 		
 		if( in_array('move', $this->user->getRights()) ) {
