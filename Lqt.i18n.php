@@ -157,6 +157,15 @@ $messages['ar'] = array(
 	'lqt_delete_unallowed' => 'أنت غير مسموح لك بحذف مجموعات الرسائل.',
 );
 
+$messages['el'] = array(
+	'lqt_newmessages' => 'Νέα Μηνύματα',
+	'lqt_discussion_link' => 'συζήτηση',
+	'lqt_from_talk' => 'από $1',
+	'lqt_youhavenewmessages' => 'Έχετε $1.',
+	'lqt_changes_from' => 'από',
+	'lqt_move_torename_edit' => 'επεξεργαστείτε το',
+);
+
 $messages['fr'] = array(
 	'lqt_newmessages' => 'Nouveaux messages',
 	'lqt_movethread' => 'Déplacer le fil vers une autre page',
