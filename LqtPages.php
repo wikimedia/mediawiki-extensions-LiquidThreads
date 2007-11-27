@@ -132,10 +132,15 @@ HTML
 
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$article = new Article( $this->title );
+		$revision = Revision::newFromId($article->getLatest());
+		$article_text = $revision->getRawText();
+		
 		$oldid = $this->request->getVal('oldid', null);
 		$editlink = $this->title->getFullURL( 'action=edit' );
-
-		if ( $article->exists() ) {
+		
+		// If $article_text == "", the talkpage was probably just created
+		// when the first thread was posted to make the links blue.
+		if ( $article->exists() && $article_text != "" ) {
 			$historylink = $this->title->getFullURL( 'action=history' );
 			$this->openDiv('lqt_header_content');
 			$this->showPostBody($article, $oldid);

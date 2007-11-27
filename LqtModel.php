@@ -833,10 +833,30 @@ class Threads {
 			$superthread->addReply( $newthread );
 		}
 		
+		self::createTalkpageIfNeeded($article);
+		
 		NewMessages::writeMessageStateForUpdatedThread($newthread);
 		
 		return $newthread;
      }
+
+	/**
+	 * Create the talkpage if it doesn't exist so that links to it
+	 * will show up blue instead of red. For use upon new thread creation.
+	*/
+	protected static function createTalkpageIfNeeded($subjectPage) {
+		$talkpage_t = $subjectPage->getTitle()->getTalkpage();
+		$talkpage = new Article($talkpage_t);
+		if( ! $talkpage->exists() ) {
+			try {
+				$talkpage->doEdit( "", wfMsg('lqt_talkpage_autocreate_summary'), EDIT_NEW | EDIT_SUPPRESS_RC );
+				
+			} catch( DBQueryError $e ) {
+				// The article already existed by now. No need to do anything.
+				wfDebug(__METHOD__ . ": Article already existed by the time we tried to create it.");
+			}
+		}
+	}
 	
 	static function where( $where, $options = array(), $extra_tables = array(), $joins = "" ) {
 		global $wgDBprefix;

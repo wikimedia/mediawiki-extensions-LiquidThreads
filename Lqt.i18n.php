@@ -82,6 +82,7 @@ $messages['en'] = array(
 	'lqt_delete_return' => 'Return to $1.',
 	'lqt_delete_return_link' => 'the talkpage', // subst above
 	'lqt_delete_unallowed' => 'You are not allowed to delete threads.',
+	'lqt_talkpage_autocreate_summary' => 'Talkpage autocreated when first thread was posted.',
 );
 
 $messages['ar'] = array(
