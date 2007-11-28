@@ -236,6 +236,7 @@ $messages['fr'] = array(
 	'lqt_delete_return' => 'Revenir à $1',
 	'lqt_delete_return_link' => 'la page de discussion',
 	'lqt_delete_unallowed' => 'Vous n\'avez pas les droits pour effacer des fils.',
+	'lqt_talkpage_autocreate_summary' => 'Page de discussion créée automatiquement quand le premier fil de discussion a été envoyé.',
 );
 
 $messages['hsb'] = array(
@@ -380,4 +381,5 @@ $messages['nl'] = array(
 	'lqt_delete_return' => 'Terugkeren naar $1.',
 	'lqt_delete_return_link' => 'de overlegpagina',
 	'lqt_delete_unallowed' => 'U mag geen onderwerpspagina\'s verwijderen.',
+	'lqt_talkpage_autocreate_summary' => 'Overlegpagina automatisch gemaakt wanneer eerste onderwerpspagina is gemaakt.',
 );
