@@ -155,6 +155,7 @@ $messages['ar'] = array(
 	'lqt_delete_return' => 'ارجع إلى $1.',
 	'lqt_delete_return_link' => 'صفحة النقاش',
 	'lqt_delete_unallowed' => 'أنت غير مسموح لك بحذف مجموعات الرسائل.',
+	'lqt_talkpage_autocreate_summary' => 'صفحة النقاش تم إنشاؤها تلقائيا عندما تم إرسال أول مجموعة رسائل.',
 );
 
 $messages['el'] = array(
