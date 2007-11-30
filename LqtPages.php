@@ -133,7 +133,7 @@ HTML
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$article = new Article( $this->title );
 		$revision = Revision::newFromId($article->getLatest());
-		$article_text = $revision->getRawText();
+		if( $revision ) $article_text = $revision->getRawText();
 		
 		$oldid = $this->request->getVal('oldid', null);
 		$editlink = $this->title->getFullURL( 'action=edit' );
