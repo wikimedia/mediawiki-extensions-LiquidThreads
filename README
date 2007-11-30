@@ -12,7 +12,7 @@ INSTALLATION:
    MediaWiki directory.
 2. Cause your MySQL server to execute the statements in lqt.sql.
    (On Unix, you can say, "mysql -u $USER -p -e 'source lqt.sql'".)
-3. Add this line to the end of your LocalSettings.conf:
+3. Add this line to the end of your LocalSettings.php:
    require_once('extensions/LiquidThreads/LqtPages.php');
 
 Liquid Threads uses namespace numbers 90, 91, 92, and 93. If you are using
