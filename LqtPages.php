@@ -43,6 +43,7 @@ $wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'Lqt.i18n.php';
 
 require_once('LqtBaseView.php');
 
+$wgExtensionFunctions[] = 'wfLqtInitMsg';
 $wgExtensionFunctions[] = 'wfLqtSpecialDeleteThread';
 $wgExtensionFunctions[] = 'wfLqtSpecialMoveThreadToAnotherPage';
 $wgExtensionFunctions[] = 'wfLqtSpecialNewMessages';
@@ -51,6 +52,13 @@ $wgHooks['BeforeWatchlist'][] = 'wfLqtBeforeWatchlistHook';
 $wgSpecialPages['DeleteThread'] = 'SpecialDeleteThread';
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThreadToAnotherPage';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
+
+/**
+ * Initialize LiquidThreads user interface messages
+ */
+function wfLqtInitMsg() {
+	wfLoadExtensionMessages( 'LiquidThreads' );
+}
 
 /**
  * Recreate the original associative array so that a new pair with the given key
@@ -109,8 +117,6 @@ class TalkpageView extends LqtView {
 		$threads = $this->queries->query('recently-archived');
 		$threadlinks = $this->permalinksForThreads($threads);
 
-		wfLoadExtensionMessages( 'LiquidThreads' );
-
 		if ( count($threadlinks) > 0 ) {
 			$this->openDiv('lqt_archive_teaser');
 			$this->output->addHTML(wfMsg('lqt_recently_archived'));
@@ -130,7 +136,6 @@ HTML
 	function showHeader() {
 		/* Show the contents of the actual talkpage article if it exists. */
 
-		wfLoadExtensionMessages( 'LiquidThreads' );
 		$article = new Article( $this->title );
 		$revision = Revision::newFromId($article->getLatest());
 		if( $revision ) $article_text = $revision->getRawText();
@@ -886,7 +891,6 @@ HTML
 
 		function execute( $par = null ) {
 			global $wgOut, $wgRequest, $wgTitle, $wgUser;
-			wfLoadExtensionMessages( 'LiquidThreads' );
 			$this->user = $wgUser;
 			$this->output = $wgOut;
 			$this->request = $wgRequest;
@@ -1017,7 +1021,6 @@ HTML
 
         function execute( $par = null ) {
             global $wgOut, $wgRequest, $wgTitle, $wgUser;
-			wfLoadExtensionMessages( 'LiquidThreads' );
 			$this->user = $wgUser;
 			$this->output = $wgOut;
 			$this->request = $wgRequest;
@@ -1202,7 +1205,6 @@ function wfLqtSpecialNewMessages() {
 
         function execute( $par = null ) {
 		    global $wgOut, $wgRequest, $wgTitle, $wgUser;
-			wfLoadExtensionMessages( 'LiquidThreads' );
 			$this->user = $wgUser;
 			$this->output = $wgOut;
 			$this->request = $wgRequest;
