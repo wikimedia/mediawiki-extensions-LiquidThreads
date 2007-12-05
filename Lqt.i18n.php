@@ -96,6 +96,9 @@ $messages['ar'] = array(
 	'lqt_recently_archived' => 'مؤرشف حديثا',
 	'lqt_add_header' => 'أضف عنوانا',
 	'lqt_new_thread' => 'ابدأ نقاشا جديدا',
+	'lqt_in_response_to' => 'كرد على $1 بواسطة $2، بالأعلى:',
+	'lqt_edited_notice_author' => 'هذه الرسالة تم تعديلها مرة ثانية بواسطة المؤلف الأصلي.',
+	'lqt_edited_notice_others' => 'هذه الرسالة تم تعديلها بواسطة شخص آخر غير المؤلف.',
 	'lqt_move_placeholder' => 'مجموعة الرسائل هذه هي لحجز المكان وتعني أن مجموعة رسائل، $1، أزيلت من هذه الصفحة إلى صفحة نقاش أخرى. هذا النقل تم بواسطة $2 في $3.',
 	'lqt_reply' => 'رد',
 	'lqt_delete' => 'احذف',
@@ -250,6 +253,9 @@ $messages['hsb'] = array(
 	'lqt_recently_archived' => 'Runje archiwowany',
 	'lqt_add_header' => 'Hłowu přidać',
 	'lqt_new_thread' => 'Nowu diskusiju započeć',
+	'lqt_in_response_to' => 'Wotmołwjejo na $1 wot $2, horjeka:',
+	'lqt_edited_notice_author' => 'Tuta powěsć bu wot prěnjotneho awtora znowa wobdźěłana.',
+	'lqt_edited_notice_others' => 'Tuta powěsć bu wot někoho druheho hač awtora wobdźěłana.',
 	'lqt_move_placeholder' => 'Tuta nitka je naměstnik, kotryž podawa, zo nitka, $1, je so z tuteje strony na druhu diskusijnu stron přesunyła. Tute přesunjenje je $2 pola $3 činił.',
 	'lqt_reply' => 'Wotmołwić',
 	'lqt_delete' => 'Wušmórnyć',
@@ -312,6 +318,7 @@ $messages['hsb'] = array(
 	'lqt_delete_return' => 'Wróć so k $1.',
 	'lqt_delete_return_link' => 'diskusijna strona',
 	'lqt_delete_unallowed' => 'Njesměš nitki wušmórować.',
+	'lqt_talkpage_autocreate_summary' => 'Diskusijna strona je so awtomatisce wutworiła, hdyž bě so prěnja nitka wotesłała.',
 );
 
 $messages['nl'] = array(
