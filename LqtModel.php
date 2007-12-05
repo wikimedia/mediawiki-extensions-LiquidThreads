@@ -168,6 +168,7 @@ class HistoricalThread extends Thread {
 		$this->changeComment = $t->changeComment;
 		$this->changeUser = $t->changeUser;
 		$this->changeUserText = $t->changeUserText;
+		$this->editedness = $t->editedness;
 		
 		$this->replies = array();
 		foreach ($t->replies as $r) {
@@ -238,6 +239,9 @@ class Thread {
 	protected $id;
 	protected $revisionNumber;
 	protected $type;
+	
+	/* Flag about who has edited or replied to this thread. */
+	protected $editedness;
 	
 	/* Information about what changed in this revision. */
 	protected $changeType;
@@ -347,6 +351,18 @@ class Thread {
 		$this->bumpRevisionsOnAncestors($change_type, $change_object, $reason, wfTimestampNow());
 		self::setChangeOnDescendents($this->topmostThread(), $change_type, $change_object);
 		
+		if( $change_type == Threads::CHANGE_REPLY_CREATED
+				&& $this->editedness == Threads::EDITED_NEVER ) {
+			$this->editedness = Threads::EDITED_HAS_REPLY;
+		}
+		else if( $change_type == Threads::CHANGE_EDITED_ROOT ) {
+			if( $wgUser->getId() == 0 || $wgUser->getId() != $this->root()->originalAuthor()->getId() ) {
+				$this->editedness = Threads::EDITED_BY_OTHERS;
+			} else if( $this->editedness == Threads::EDITED_HAS_REPLY ) {
+				$this->editedness = Threads::EDITED_BY_AUTHOR;
+			}
+		}
+		
 		/* SCHEMA changes must be reflected here. */
 		
 		$dbr =& wfGetDB( DB_MASTER );
@@ -360,6 +376,7 @@ class Thread {
 //					'thread_revision' => $this->revisionNumber,
 					'thread_article_namespace' => $this->articleNamespace,
 				    'thread_article_title' => $this->articleTitle,
+					'thread_editedness' => $this->editedness,
 //					'thread_change_type' => $this->changeType,
 //					'thread_change_object' => $this->changeObject,
 //					'thread_change_comment' => $this->changeComment,
@@ -474,6 +491,7 @@ class Thread {
 		$this->changeComment = $line->thread_change_comment;
 		$this->changeUser = $line->thread_change_user;
 		$this->changeUserText = $line->thread_change_user_text;
+		$this->editedness = $line->thread_editedness;
 
 		$root_title = Title::makeTitle( $line->page_namespace, $line->page_title );
 		$this->root = new Post($root_title);
@@ -598,6 +616,10 @@ class Thread {
 	
 	function rootRevision() {
 		return $this->rootRevision;
+	}
+	
+	function editedness() {
+		return $this->editedness;
 	}
 	
 	function summary() {
@@ -774,6 +796,12 @@ class Threads {
 	static $VALID_CHANGE_TYPES = array(self::CHANGE_EDITED_SUMMARY, self::CHANGE_EDITED_ROOT,
 		self::CHANGE_REPLY_CREATED, self::CHANGE_NEW_THREAD, self::CHANGE_DELETED, self::CHANGE_UNDELETED,
 		self::CHANGE_MOVED_TALKPAGE);
+		
+	// Possible values of Thread->editedness.
+	const EDITED_NEVER = 0;
+	const EDITED_HAS_REPLY = 1;
+	const EDITED_BY_AUTHOR = 2;
+	const EDITED_BY_OTHERS = 3;
 
 	static $cache_by_root = array();
 	static $cache_by_id = array();
@@ -809,7 +837,8 @@ class Threads {
 				  'thread_change_comment' => "", // TODO
 				  'thread_change_user' => $wgUser->getID(),
 				  'thread_change_user_text' => $wgUser->getName(),
-				  'thread_type' => $type),
+				  'thread_type' => $type,
+				  'thread_editedness' => self::EDITED_NEVER),
             __METHOD__);
 		
 		$newid = $dbr->insertId();

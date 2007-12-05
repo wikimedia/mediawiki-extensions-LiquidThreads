@@ -719,7 +719,7 @@ HTML
 		);
 		
 		$this->output->addHTML($this->listItemsForCommands($this->threadFooterCommands($thread)));
-		
+
 		$this->output->addHTML('</ul>');
 	}
 
@@ -871,6 +871,13 @@ HTML
 				) .'</p>');
 		}
 
+		
+		if( $thread->editedness() == Threads::EDITED_BY_AUTHOR ) {
+			$this->output->addHTML('<div class="lqt_edited_notice">'.wfMsg('lqt_edited_notice_author').'</div>');
+		} else if($thread->editedness() == Threads::EDITED_BY_OTHERS ) {
+			$this->output->addHTML('<div class="lqt_edited_notice">'.wfMsg('lqt_edited_notice_others').'</div>');
+		}
+		
 		$this->openDiv('lqt_thread', "lqt_thread_id_{$thread->id()}");
 		
 		$this->showRootPost( $thread );

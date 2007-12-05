@@ -9,6 +9,8 @@ CREATE TABLE /*$wgDBprefix*/thread (
   thread_created char(14) binary NOT NULL default '',
   thread_revision int(8) unsigned NOT NULL default 1,
 
+  thread_editedness int(1) NOT NULL default 0,
+
   thread_article_namespace int NOT NULL,
   thread_article_title varchar(255) binary NOT NULL,
 

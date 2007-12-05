@@ -231,9 +231,13 @@ margin-right: 5em;
 .lqt_nonindent_message {
 	color: #777;
 	font-size: smaller;
-	float: left;
 }
 
+
+.lqt_edited_notice {
+	color: #777;
+	font-size: smaller;
+}
 
 
 .lqt_header {
@@ -278,22 +282,22 @@ margin-right: 5em;
 	width: 80%;
  }
 
-.lqt_post .lqt_footer a, .lqt_threadlevel_commands a {
+.lqt_post .lqt_footer a, .lqt_nonindent_message a, .lqt_threadlevel_commands a {
 	color: #5874d1;
 }
-.lqt_post .lqt_footer a:visited, .lqt_threadlevel_commands a:visited {
+.lqt_post .lqt_footer a:visited, .lqt_nonindent_message a:visited, .lqt_threadlevel_commands a:visited {
 	color: #937cba;
 }
-.lqt_post .lqt_footer a:active, .lqt_threadlevel_commands a:active {
+.lqt_post .lqt_footer a:active, .lqt_nonindent_message a:active, .lqt_threadlevel_commands a:active {
 	color: #faa700;
 }
-.lqt_post .lqt_footer a.stub, .lqt_threadlevel_commands a.stub {
+.lqt_post .lqt_footer a.stub, .lqt_nonindent_message a.stub, .lqt_threadlevel_commands a.stub {
 	color: #a66e7a;
 }
-.lqt_post .lqt_footer a.new, #p-personal a.new, .lqt_threadlevel_commands a.new, #p-personal a.new {
+.lqt_post .lqt_footer a.new, #p-personal a.new, .lqt_threadlevel_commands a.new, .lqt_nonindent_message a.new, #p-personal a.new, .lqt_threadlevel_commands a.new, #p-personal a.new {
 	color: #d25858;
 }
-.lqt_post .lqt_footer a.new:visited, #p-personal a.new:visited, .lqt_threadlevel_commands a.new:visited, #p-personal a.new:visited {
+.lqt_post .lqt_footer a.new:visited, #p-personal a.new:visited, .lqt_threadlevel_commands a.new:visited, .lqt_nonindent_message a.new:visited, #p-personal a.new:visited, .lqt_threadlevel_commands a.new:visited, #p-personal a.new:visited {
 	color: #c49292;
 }
 
@@ -305,27 +309,27 @@ margin-right: 5em;
         border-color: #aaa;
 }*/
 
-.lqt_post .lqt_footer:hover a, .lqt_threadlevel_commands:hover a {
+.lqt_post .lqt_footer:hover a, .lqt_nonindent_message:hover a, .lqt_threadlevel_commands:hover a {
 	color: #002bb8;
 	text-decoration: none;
 }
-.lqt_post .lqt_footer:hover a:visited, .lqt_threadlevel_commands:hover a:visited {
+.lqt_post .lqt_footer:hover a:visited, .lqt_nonindent_message:hover a:visited, .lqt_threadlevel_commands:hover a:visited {
 	color: #5a3696;
 	text-decoration: none;
 }
-.lqt_post .lqt_footer:hover a:active, .lqt_threadlevel_commands:hover a:active {
+.lqt_post .lqt_footer:hover a:active, .lqt_nonindent_message:hover a:active, .lqt_threadlevel_commands:hover a:active {
 	color: #faa700;
 	text-decoration: none;
 }
-.lqt_post .lqt_footer:hover a.stub, .lqt_threadlevel_commands:hover a.stub {
+.lqt_post .lqt_footer:hover a.stub, .lqt_nonindent_message:hover a.stub, .lqt_threadlevel_commands:hover a.stub {
 	color: #772233;
 	text-decoration: none;
 }
-.lqt_post .lqt_footer:hover a.new, #p-personal a.new, .lqt_threadlevel_commands:hover a.new, #p-personal a.new {
+.lqt_post .lqt_footer:hover a.new, #p-personal a.new, .lqt_threadlevel_commands:hover a.new, .lqt_nonindent_message:hover a.new, #p-personal a.new, .lqt_threadlevel_commands:hover a.new, #p-personal a.new {
 	color: #ba0000;
 	text-decoration: none;
 }
-.lqt_post .lqt_footer:hover a.new:visited, #p-personal a.new:visited, .lqt_threadlevel_commands:hover a.new:visited, #p-personal a.new:visited {
+.lqt_post .lqt_footer:hover a.new:visited, #p-personal a.new:visited, .lqt_threadlevel_commands:hover a.new:visited, .lqt_nonindent_message:hover a.new:visited, #p-personal a.new:visited, .lqt_threadlevel_commands:hover a.new:visited, #p-personal a.new:visited {
 	color: #a55858;
 	text-decoration: none;
 }
