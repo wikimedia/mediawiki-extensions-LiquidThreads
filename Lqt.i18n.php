@@ -19,6 +19,7 @@ $messages['en'] = array(
 	'lqt_recently_archived' => 'Recently archived',
 	'lqt_add_header' => 'Add header',
 	'lqt_new_thread' => 'Start a new discussion',
+	'lqt_in_response_to' => 'In reply to $1 by $2, above:',
 	'lqt_move_placeholder' => "''Placeholder left when the thread was moved to another page.''",
 	'lqt_reply' => 'Reply',
 	'lqt_delete' => 'Delete',

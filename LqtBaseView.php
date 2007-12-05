@@ -241,6 +241,7 @@ class LqtView {
 	
 	protected $headerLevel = 2; 	/* h1, h2, h3, etc. */
 	protected $maxIndentationLevel = 4;
+	protected $lastUnindentedSuperthread;
 	
 	protected $user_colors;
 	protected $user_color_index;
@@ -783,9 +784,9 @@ HTML
 		$this->closeDiv();
 		
 		if( $this->methodAppliesToThread( 'reply', $thread ) ) {
-			$this->indent();
+			$this->indent($thread);
 			$this->showReplyForm( $thread );
-			$this->unindent();
+			$this->unindent($thread);
 		}
 		
 		$popts->setEditSection($previous_editsection);
@@ -819,6 +820,15 @@ HTML
 
 	function showThread( $thread ) {
 		global $wgLang; # TODO global.
+		
+		if( $this->lastUnindentedSuperthread ) {
+			$tmp = $this->lastUnindentedSuperthread;
+			$msg = wfMsg('lqt_in_response_to',
+				'<a href="#lqt_thread_'.$tmp->id().'">'.$tmp->title()->getText().'</a>',
+				$tmp->root()->originalAuthor()->getName());
+			$this->output->addHTML('<span class="lqt_nonindent_message">&larr;'.$msg.'</span>');
+		}
+		
 		
 		$this->showThreadHeading( $thread );
 		
@@ -864,32 +874,33 @@ HTML
 		$this->openDiv('lqt_thread', "lqt_thread_id_{$thread->id()}");
 		
 		$this->showRootPost( $thread );
-		if( $thread->hasSubthreads() ) $this->indent();
+		if( $thread->hasSubthreads() ) $this->indent($thread);
 		foreach( $thread->subthreads() as $st ) {
 			$this->showThread($st);
 		}
-		if( $thread->hasSubthreads() ) $this->unindent();
+		if( $thread->hasSubthreads() ) $this->unindent($thread);
 		
 		$this->closeDiv();
 		
 	}
 
-	function indent() {
+	function indent($thread) {
 		if( $this->headerLevel <= $this->maxIndentationLevel ) {
 			$this->output->addHTML('<dl class="lqt_replies"><dd>');
 		} else {
 			$this->output->addHTML('<div class="lqt_replies_without_indent">');
-			$this->output->addHTML('<span class="lqt_nonindent_message">&rarr; in reply to the above...</span>');
 		}
+		$this->lastUnindentedSuperthread = null;
 		$this->headerLevel += 1;
 	}
-	function unindent() {
+	function unindent($thread) {
 		if( $this->headerLevel <= $this->maxIndentationLevel + 1 ) {
 			$this->output->addHTML('</dd></dl>');
 		} else {
-			$this->output->addHTML('<span class="lqt_nonindent_message">&larr;</span>');
 			$this->output->addHTML('</div>');
 		}
+		// See the beginning of showThread().
+		$this->lastUnindentedSuperthread = $thread->superthread();
 		$this->headerLevel -= 1;
 	}
 
