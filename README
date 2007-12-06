@@ -18,7 +18,7 @@ INSTALLATION:
 Liquid Threads uses namespace numbers 90, 91, 92, and 93. If you are using
 another extension which uses any of these numbers, you should have Liquid
 Threads use different numbers by adding something like the following to your
-LocalSettings.conf, *before* including LqtPages.php:
+LocalSettings.php, *before* including LqtPages.php:
 
 $egLqtNamespaceNumbers = array(
     'Thread' => 100,
