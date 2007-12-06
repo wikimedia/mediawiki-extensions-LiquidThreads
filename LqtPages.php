@@ -572,7 +572,7 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 
 	function customizeTabs( $skintemplate, $content_actions ) {
 		$content_actions['history']['class'] = 'selected';
-		parent::customizeTabs(&$skintemplate, &$content_actions);
+		parent::customizeTabs($skintemplate, $content_actions);
 		return true;
 	}
 
