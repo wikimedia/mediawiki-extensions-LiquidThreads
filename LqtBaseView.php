@@ -61,7 +61,8 @@ class LqtDispatch {
 		'IndividualThreadHistoryView' => 'IndividualThreadHistoryView',
 		'ThreadDiffView' => 'ThreadDiffView',
 		'ThreadPermalinkView' => 'ThreadPermalinkView',
-		'ThreadProtectionFormView' => 'ThreadProtectionFormView'
+		'ThreadProtectionFormView' => 'ThreadProtectionFormView',
+		'ThreadWatchView' => 'ThreadWatchView',
 		);
 
 	static function talkpageMain(&$output, &$talk_article, &$title, &$user, &$request) {
@@ -98,7 +99,7 @@ class LqtDispatch {
 		
 		$action =  $request->getVal('action');
 		$lqt_method = $request->getVal('lqt_method');
-		
+
 		if( $lqt_method == 'thread_history' ) {
 			$viewname = self::$views['ThreadHistoryListingView'];
 		}
@@ -115,6 +116,9 @@ class LqtDispatch {
 		}
 		else if ( $request->getVal('lqt_oldid', null) !== null ) {
 			$viewname = self::$views['ThreadHistoricalRevisionView'];
+		}
+		else if( $action == 'watch' || $action == 'unwatch' ){
+			$viewname = self::$views['ThreadWatchView'];
 		}
 		else {
 			$viewname = self::$views['ThreadPermalinkView'];

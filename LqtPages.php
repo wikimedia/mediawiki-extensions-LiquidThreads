@@ -629,6 +629,14 @@ class ThreadDiffView {
 	}
 }
 
+class ThreadWatchView extends ThreadPermalinkView {
+	function show() {
+		global $wgHooks;
+		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
+		return true;
+	}
+}
+
 class ThreadProtectionFormView {
 	function customizeTabs( $skintemplate, $content_actions ) {
 		unset($content_actions['edit']);
