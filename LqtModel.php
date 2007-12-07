@@ -746,6 +746,14 @@ class Thread {
 		return $this->changeComment;
 	}
 	
+	function redirectThread() {
+		$rev = Revision::newFromId($this->root()->getLatest());
+		$rtitle = Title::newFromRedirect($rev->getRawText());
+		if( !$rtitle ) return null;
+		$rthread = Threads::withRoot(new Article($rtitle));
+		return $rthread;
+	}
+	
 	// Called from hook in Title::isProtected.
 	static function getRestrictionsForTitle($title, $action, &$result) {
 		$thread = Threads::withRoot(new Post($title));

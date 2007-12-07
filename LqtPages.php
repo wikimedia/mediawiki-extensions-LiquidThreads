@@ -226,7 +226,10 @@ HTML
 );		if( $t->hasSummary() ) {
 			$this->showPostBody($t->summary());
 		} else if ( $t->type() == Threads::TYPE_MOVED ) {
-			$this->output->addWikiText(wfMsg('lqt_move_placeholder'));
+			$rthread = $t->redirectThread();
+			if( $rthread  && $rthread->summary() ) {
+				$this->showPostBody($rthread->summary());
+			}
 		}
 			$this->output->addHTML(<<<HTML
 	</td>
