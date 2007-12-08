@@ -235,8 +235,15 @@ margin-right: 5em;
 
 
 .lqt_edited_notice {
-	color: #777;
-	font-size: smaller;
+/*	font-size: smaller;
+	margin-top: -0.5em;
+	padding-top: 0;*/
+}
+.lqt_edited_notice_author {
+/*	color: #c2cb9a; */
+}
+.lqt_edited_notice_others {
+/*	color: #bb84b4; */
 }
 
 

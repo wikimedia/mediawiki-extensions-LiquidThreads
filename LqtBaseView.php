@@ -718,9 +718,18 @@ HTML;
 		$this->output->addHTML(<<<HTML
 <ul class="lqt_footer">
 <li class="lqt_author_sig lqt_post_color_{$color_number}">$sig</li>
-<li>$timestamp</li>
 HTML
 		);
+	
+		if( $thread->editedness() == Threads::EDITED_BY_AUTHOR ||
+		 		$thread->editedness() == Threads::EDITED_BY_OTHERS ) {
+			$editedness_url = $this->permalinkUrlWithQuery($thread, 'action=history');
+			$editedness_color_number = $thread->editedness() == Threads::EDITED_BY_AUTHOR ?
+				$color_number : ($color_number == self::number_of_user_colors ? 1 : $color_number + 1);
+			$this->output->addHTML("<li class=\"lqt_edited_notice lqt_post_color_{$editedness_color_number}\">".'<a href="'.$editedness_url.'">'.wfMsg('lqt_edited_notice').'</a>'.'</li>');
+		}
+		
+		$this->output->addHTML("<li>$timestamp</li>");
 		
 		$this->output->addHTML($this->listItemsForCommands($this->threadFooterCommands($thread)));
 
@@ -875,16 +884,12 @@ HTML
 				) .'</p>');
 		}
 
-		
-		if( $thread->editedness() == Threads::EDITED_BY_AUTHOR ) {
-			$this->output->addHTML('<div class="lqt_edited_notice">'.wfMsg('lqt_edited_notice_author').'</div>');
-		} else if($thread->editedness() == Threads::EDITED_BY_OTHERS ) {
-			$this->output->addHTML('<div class="lqt_edited_notice">'.wfMsg('lqt_edited_notice_others').'</div>');
-		}
+
 		
 		$this->openDiv('lqt_thread', "lqt_thread_id_{$thread->id()}");
 		
 		$this->showRootPost( $thread );
+		
 		if( $thread->hasSubthreads() ) $this->indent($thread);
 		foreach( $thread->subthreads() as $st ) {
 			$this->showThread($st);
