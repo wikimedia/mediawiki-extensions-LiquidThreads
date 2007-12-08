@@ -271,16 +271,37 @@ margin-right: 5em;
 }
 
 .lqt_footer {
-         margin: 0em 0 0em 0 ;
-         font-size: smaller;
-         color: #777;
+	margin: 0em 0 0em 0 ;
+	font-size: smaller;
+	color: #777;
+/*	padding-left: 0.6em;*/
+	padding-top: 0;
+	padding-bottom: 0;
+	display: table;
+	width: auto;
+	
+	margin-left: -0.6em;	
+	
+/*	border-top: solid 1px #eee;
+	border-left: solid 1px #ddd;*/
 }
 
 .lqt_footer li {
-         display: inline;
-         list-style-type: none;
-         padding-right: 0.6em;
-		border-bottom: solid 1px #ddd;
+	display: inline;
+	list-style-type: none;
+	padding-right: 0.6em;
+	margin-top: 0;
+	margin-bottom: 0;
+	
+	background-color: #efefef;
+	border-bottom: solid 1px #ddd;
+}
+
+/* This doesn't work in IE, so we need to replace it. What we want is
+   padding-left on the surrounding ul, but then we would need to place
+   the background color on the ul, and there is a *gap*. */
+.lqt_footer li:first-child {
+	padding-left: 0.6em;
 }
 
 #lqt_subject_field { 
