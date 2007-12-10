@@ -12,6 +12,14 @@ if( !defined( 'MEDIAWIKI' ) ) {
 	die( -1 );
 }
 
+$wgExtensionCredits['other'][] = array(
+	'name'        => 'Liquid Threads',
+	'version'     => '1.1',
+	'url'         => 'http://www.mediawiki.org/wiki/Extension:Liquid_Threads',
+	'author'      => 'David McCabe',
+	'description' => 'Add threading discussions to talk pages',
+);
+
 function efArrayDefault($name, $key, $default) {
 	global $$name;
 	if( isset($$name) && is_array($$name) && array_key_exists($key, $$name) ) {
@@ -139,10 +147,10 @@ HTML
 		$article = new Article( $this->title );
 		$revision = Revision::newFromId($article->getLatest());
 		if( $revision ) $article_text = $revision->getRawText();
-		
+
 		$oldid = $this->request->getVal('oldid', null);
 		$editlink = $this->title->getFullURL( 'action=edit' );
-		
+
 		// If $article_text == "", the talkpage was probably just created
 		// when the first thread was posted to make the links blue.
 		if ( $article->exists() && $article_text != "" ) {
