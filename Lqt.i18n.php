@@ -198,6 +198,8 @@ $messages['el'] = array(
 	'lqt_from_talk' => 'από $1',
 	'lqt_youhavenewmessages' => 'Έχετε $1.',
 	'lqt_changes_from' => 'από',
+	'lqt_protectedfromreply_link' => 'προστατευμένο',
+	'lqt_summary_notice_link' => 'γράψτε μια περίληψη',
 	'lqt_move_torename_edit' => 'επεξεργαστείτε το',
 );
 
@@ -209,6 +211,7 @@ $messages['fr'] = array(
 	'lqt_recently_archived' => 'Archivé récemment',
 	'lqt_add_header' => 'Ajouter en-tête',
 	'lqt_new_thread' => 'Lancer une nouvelle discussion',
+	'lqt_edited_notice' => 'Modifié',
 	'lqt_move_placeholder' => 'Ce fil est une marque substitutive indiquant qu\'un fil, $1, a été déplacé de cette page vers une autre page de discussion. Ce déplacement a été fait par $2 à $3.',
 	'lqt_reply' => 'Répondre',
 	'lqt_delete' => 'Effacer',
@@ -271,6 +274,15 @@ $messages['fr'] = array(
 	'lqt_delete_return_link' => 'la page de discussion',
 	'lqt_delete_unallowed' => 'Vous n\'avez pas les droits pour effacer des fils.',
 	'lqt_talkpage_autocreate_summary' => 'Page de discussion créée automatiquement quand le premier fil de discussion a été envoyé.',
+);
+
+$messages['gl'] = array(
+	'lqt_newmessages' => 'Mensaxes Novas',
+	'lqt_new_thread' => 'Comezar un novo debate',
+	'lqt_discussion_link' => 'debate',
+	'lqt_protectedfromreply_link' => 'protexido',
+	'lqt_noreason' => 'Ningunha razón foi dada.',
+	'lqt_summary_notice_link' => 'escribir un resumo',
 );
 
 $messages['hsb'] = array(
