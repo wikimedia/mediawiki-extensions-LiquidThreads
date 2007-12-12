@@ -395,27 +395,27 @@ The archive page.
         border-color: #aaa;
 }*/
 
-.lqt_post .lqt_footer:hover a, .lqt_nonindent_message:hover a, .lqt_threadlevel_commands:hover a {
+.lqt_post .lqt_footer .lqt_footer_commands:hover a, .lqt_nonindent_message:hover a, .lqt_threadlevel_commands:hover a {
 	color: #002bb8;
 	text-decoration: none;
 }
-.lqt_post .lqt_footer:hover a:visited, .lqt_nonindent_message:hover a:visited, .lqt_threadlevel_commands:hover a:visited {
+.lqt_post .lqt_footer .lqt_footer_commands:hover a:visited, .lqt_nonindent_message:hover a:visited, .lqt_threadlevel_commands:hover a:visited {
 	color: #5a3696;
 	text-decoration: none;
 }
-.lqt_post .lqt_footer:hover a:active, .lqt_nonindent_message:hover a:active, .lqt_threadlevel_commands:hover a:active {
+.lqt_post .lqt_footer .lqt_footer_commands:hover a:active, .lqt_nonindent_message:hover a:active, .lqt_threadlevel_commands:hover a:active {
 	color: #faa700;
 	text-decoration: none;
 }
-.lqt_post .lqt_footer:hover a.stub, .lqt_nonindent_message:hover a.stub, .lqt_threadlevel_commands:hover a.stub {
+.lqt_post .lqt_footer .lqt_footer_commands:hover a.stub, .lqt_nonindent_message:hover a.stub, .lqt_threadlevel_commands:hover a.stub {
 	color: #772233;
 	text-decoration: none;
 }
-.lqt_post .lqt_footer:hover a.new, #p-personal a.new, .lqt_threadlevel_commands:hover a.new, .lqt_nonindent_message:hover a.new, #p-personal a.new, .lqt_threadlevel_commands:hover a.new, #p-personal a.new {
+.lqt_post .lqt_footer .lqt_footer_commands:hover a.new, #p-personal a.new, .lqt_threadlevel_commands:hover a.new, .lqt_nonindent_message:hover a.new, #p-personal a.new, .lqt_threadlevel_commands:hover a.new, #p-personal a.new {
 	color: #ba0000;
 	text-decoration: none;
 }
-.lqt_post .lqt_footer:hover a.new:visited, #p-personal a.new:visited, .lqt_threadlevel_commands:hover a.new:visited, .lqt_nonindent_message:hover a.new:visited, #p-personal a.new:visited, .lqt_threadlevel_commands:hover a.new:visited, #p-personal a.new:visited {
+.lqt_post .lqt_footer .lqt_footer_commands:hover a.new:visited, #p-personal a.new:visited, .lqt_threadlevel_commands:hover a.new:visited, .lqt_nonindent_message:hover a.new:visited, #p-personal a.new:visited, .lqt_threadlevel_commands:hover a.new:visited, #p-personal a.new:visited {
 	color: #a55858;
 	text-decoration: none;
 }
@@ -438,6 +438,13 @@ The archive page.
 .lqt_post_color_5 a { color: #0098cd !important; }
 .lqt_post_color_6 a { color: #00cd98 !important; }
 
+.lqt_footer_sig:hover .lqt_post_color_1 a { color: #cd9800 !important; }
+.lqt_footer_sig:hover .lqt_post_color_2 a { color: #cd0098 !important; }
+.lqt_footer_sig:hover .lqt_post_color_3 a { color: #98cd00 !important; }
+.lqt_footer_sig:hover .lqt_post_color_4 a { color: #9800cd !important; }
+.lqt_footer_sig:hover .lqt_post_color_5 a { color: #0098cd !important; }
+.lqt_footer_sig:hover .lqt_post_color_6 a { color: #00cd98 !important; }
+.lqt_footer_sig:hover a { text-decoration: none; }
 
 li#ca-nstab-thread {
 	/* from #ca-talk */

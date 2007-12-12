@@ -704,6 +704,14 @@ HTML;
 		}
 	}
 
+	function colorTest() {
+		$this->output->addHTML( '<div class="lqt_footer"><li class="lqt_footer_sig">' );
+		for( $i = 1; $i <= self::number_of_user_colors; $i++ ) {
+			$this->output->addHTML("<span class=\"lqt_post_color_{$i}\"><a href=\"foo\">DavidMcCabe</a></span>");
+		}
+		$this->output->addHTML('</li></div>');
+	}
+
 	function showThreadFooter( $thread ) {
 		global $wgLang; // TODO global.
 		
@@ -717,6 +725,7 @@ HTML;
 		
 		$this->output->addHTML(<<<HTML
 <ul class="lqt_footer">
+<span class="lqt_footer_sig">
 <li class="lqt_author_sig lqt_post_color_{$color_number}">$sig</li>
 HTML
 		);
@@ -729,9 +738,11 @@ HTML
 			$this->output->addHTML("<li class=\"lqt_edited_notice lqt_post_color_{$editedness_color_number}\">".'<a href="'.$editedness_url.'">'.wfMsg('lqt_edited_notice').'</a>'.'</li>');
 		}
 		
-		$this->output->addHTML("<li>$timestamp</li>");
+		$this->output->addHTML("</span><li>$timestamp</li>");
 		
-		$this->output->addHTML($this->listItemsForCommands($this->threadFooterCommands($thread)));
+		$this->output->addHTML('<span class="lqt_footer_commands">' .
+			$this->listItemsForCommands($this->threadFooterCommands($thread)) .
+			'</span>');
 
 		$this->output->addHTML('</ul>');
 	}
@@ -833,7 +844,7 @@ HTML
 
 	function showThread( $thread ) {
 		global $wgLang; # TODO global.
-		
+
 		if( $this->lastUnindentedSuperthread ) {
 			$tmp = $this->lastUnindentedSuperthread;
 			$msg = wfMsg('lqt_in_response_to',
