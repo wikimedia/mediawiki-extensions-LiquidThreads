@@ -14,8 +14,8 @@ if( !defined( 'MEDIAWIKI' ) ) {
 
 $wgExtensionCredits['other'][] = array(
 	'name'        => 'Liquid Threads',
-	'version'     => '1.1',
-	'url'         => 'http://www.mediawiki.org/wiki/Extension:Liquid_Threads',
+	'version'     => '1.0',
+	'url'         => 'http://www.mediawiki.org/wiki/Extension:LiquidThreads',
 	'author'      => 'David McCabe',
 	'description' => 'Add threading discussions to talk pages',
 );
