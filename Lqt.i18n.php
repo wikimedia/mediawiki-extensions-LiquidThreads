@@ -85,6 +85,11 @@ $messages['en'] = array(
 	'lqt_delete_return_link' => 'the talkpage', // subst above
 	'lqt_delete_unallowed' => 'You are not allowed to delete threads.',
 	'lqt_talkpage_autocreate_summary' => 'Talkpage autocreated when first thread was posted.',
+	'lqt_header_warning_before_big' => '',
+	'lqt_header_warning_big' => 'You are editing a $1. ',
+	'lqt_header_warning_after_big' => 'You might instead want to $2.',
+	'lqt_header_warning_bold' => 'talkpage header',
+	'lqt_header_warning_new_discussion' => 'start a new discussion',
 );
 
 $messages['ar'] = array(

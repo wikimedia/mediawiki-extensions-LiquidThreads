@@ -556,7 +556,7 @@ class ThreadPermalinkView extends LqtView {
  * Cheap views that just pass through to MW functions.
  */
 
-class TalkpageHeaderView {
+class TalkpageHeaderView extends LqtView {
 	function customizeTabs( $skintemplate, $content_actions ) {
 		unset($content_actions['edit']);
 		unset($content_actions['addsection']);
@@ -573,8 +573,20 @@ class TalkpageHeaderView {
 	}
 
 	function show() {
-		global $wgHooks;
+		global $wgHooks, $wgOut, $wgTitle, $wgRequest;
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
+		
+		if( $wgRequest->getVal('action') === 'edit' ) {
+			$warn_bold = '<strong>' . wfMsg('lqt_header_warning_bold') . '</strong>';
+			$warn_link = '<a href="'.$this->talkpageUrl($wgTitle, 'talkpage_new_thread').'">'.
+				wfMsg('lqt_header_warning_new_discussion').'</a>';
+			$wgOut->addHTML('<p class="lqt_header_warning">' .
+				wfMsg('lqt_header_warning_before_big', $warn_bold, $warn_link) .
+				'<big>' . wfMsg('lqt_header_warning_big', $warn_bold, $warn_link) . '</big>' . 
+				wfMsg('lqt_header_warning_after_big', $warn_bold, $warn_link) .
+				'</p>');
+		}
+		
 		return true;
 	}
 }
