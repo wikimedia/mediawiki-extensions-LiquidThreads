@@ -121,26 +121,6 @@ class TalkpageView extends LqtView {
 		return $ps;
 	}
 
-	function showArchiveWidget() {
-		$threads = $this->queries->query('recently-archived');
-		$threadlinks = $this->permalinksForThreads($threads);
-
-		if ( count($threadlinks) > 0 ) {
-			$this->openDiv('lqt_archive_teaser');
-			$this->output->addHTML(wfMsg('lqt_recently_archived'));
-			$this->outputList('ul', '', '', $threadlinks);
-		} else {
-			$this->openDiv();
-		}
-		$url = $this->talkpageUrl($this->title, 'talkpage_archive');
-		$browse=wfMsg('lqt_browse_archive');
-		$this->output->addHTML(<<<HTML
-			<p><a href="$url" class="lqt_browse_archive">$browse</a></p>
-HTML
-		);
-		$this->closeDiv();
-	}
-
 	function showHeader() {
 		/* Show the contents of the actual talkpage article if it exists. */
 
@@ -187,7 +167,28 @@ HTML
 			$i++;
 		}
 		$toclines[] = $sk->tocUnindent(1);
+		$this->openDiv('lqt_toc_wrapper');
 		$this->output->addHTML($sk->tocList( implode('', $toclines) ));
+		$this->closeDiv();
+	}
+
+	function showArchiveWidget() {
+		$threads = $this->queries->query('recently-archived');
+		$threadlinks = $this->permalinksForThreads($threads);
+		$url = $this->talkpageUrl($this->title, 'talkpage_archive');
+		$browse=wfMsg('lqt_browse_archive');
+		
+		if ( count($threadlinks) > 0 ) {
+			$this->openDiv('lqt_archive_teaser');
+			$this->output->addHTML('<h2 class="lqt_recently_archived">'.wfMsg('lqt_recently_archived').'</h2>');
+			$this->outputList('ul', '', '', $threadlinks);
+			$this->output->addHTML("<div class=\"lqt_browse_archive\">[<a href=\"$url\">$browse</a>]</div>");
+			$this->closeDiv();
+		} else {
+			$this->openDiv('lqt_archive_teaser_empty');
+			$this->output->addHTML("<div class=\"lqt_browse_archive\"><a href=\"$url\">$browse</a></div>");
+			$this->closeDiv();			
+		}
 	}
 
 	function show() {
@@ -198,9 +199,8 @@ HTML
 		self::addJSandCSS();
 
 		$this->showHeader();
-
-		$this->showArchiveWidget();
-
+		
+		
 		if( $this->methodApplies('talkpage_new_thread') ) {
 			$this->showNewThreadForm();
 		} else {
@@ -209,9 +209,15 @@ HTML
 		}
 
 		$threads = $this->queries->query('fresh');
+
+		$this->openDiv('lqt_toc_archive_wrapper');
 		if(count($threads) > 3) {
 			$this->showTOC($threads);
 		}
+		$this->showArchiveWidget();
+		$this->closeDiv();
+
+		
 		foreach($threads as $t) {
 			$this->showThread($t);
 		}

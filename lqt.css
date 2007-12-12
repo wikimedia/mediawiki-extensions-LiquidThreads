@@ -27,7 +27,7 @@
 }
 
 .lqt_start_discussion {
-	vertical-align: center;
+	vertical-align: middle;
 }
 
 .lqt_header_notice {
@@ -105,21 +105,80 @@ margin-right: 5em;
 	color: black;
 }*/
 
+
+/*********************************
+The archive and TOC on talkpages.
+**********************************/
+
+.lqt_archive_teaser_empty {
+	float:right;
+	font-weight: bold;
+}
 .lqt_archive_teaser {
 	float: right;
 	border: 1px solid #ddd;
-	margin: 1em 0 0.5em 0;
+/*	margin: 0 1em 1em 2em;*/
 	background-color: #eee;
-	padding: 0.4em;
+/*	padding: 0.4em;*/
+	padding: 5px;
 	display: table; width: auto;
 }
-.lqt_browse_archive {
+.lqt_archive_teaser ul {
+	list-style-type: none;
+	list-style-image: none;
+	margin-left: 0;
+	padding-left: 0;
+	text-align: left;
+	margin-bottom: 0.6em;
+}
+h2.lqt_recently_archived {
+	border: none;
+	padding: 0;
+	padding-top: 2px;
+	font-size: 100%;
+	font-weight: bold;
+	text-align: center;
+}
+/*.lqt_browse_archive {
 	margin-bottom: 0.5em;
 	font-weight: bold;
-}
+}*/
 .lqt_archive_teaser .lqt_browse_archive {
-	display: inline;
+/*	display: inline;*/
+	display: block;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 5px;
 }
+.lqt_toc_wrapper {
+	float:left;
+}
+.lqt_toc_wrapper .toc {
+	/* Make to match other LQT grey boxes */
+	border: 1px solid #ddd !important;
+	background-color: #eee !important;
+	
+	margin-right: 2em; /* Space before archive */
+}
+.lqt_toc_wrapper .toc .toctoggle {
+	/* Ugly; no one's going to miss it? */
+	display: none;
+}
+
+.lqt_toc_archive_wrapper {
+	display: table;
+	width: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+
+
+/*********************************
+The archive page.
+**********************************/
+
+
 
 .lqt_search_annotations {
 	float: left;
@@ -206,7 +265,6 @@ margin-right: 5em;
 .lqt_deleted_notice a:active {
 	color: #faa700;
 }     
-}
 
 .lqt_channel_body {
         background-color: white;
@@ -264,7 +322,7 @@ margin-right: 5em;
 	color: #777;
 }
 
-.lqt_threadlevel_commands li{
+.lqt_threadlevel_commands li {
 	display: inline;
 	list-style-type: none;
 	padding-right: 0.6em;
