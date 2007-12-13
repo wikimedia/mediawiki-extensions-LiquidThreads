@@ -167,30 +167,32 @@ class TalkpageView extends LqtView {
 			$i++;
 		}
 		$toclines[] = $sk->tocUnindent(1);
+		
 		$this->openDiv('lqt_toc_wrapper');
-		$this->output->addHTML($sk->tocList( implode('', $toclines) ));
-		$this->closeDiv();
+		$this->output->addHTML('<h2 class="lqt_toc_title">'.wfMsg('lqt_contents_title').'</h2> <ul>');
+		
+		foreach($threads as $t) {
+			$this->output->addHTML('<li><a href="#'.$this->anchorName($t).'">'.$t->subjectWithoutIncrement().'</a></li>');
+		}
+		
+		$this->output->addHTML('</ul></div>');
 	}
 
 	function showArchiveWidget() {
 		$threads = $this->queries->query('recently-archived');
 		$threadlinks = $this->permalinksForThreads($threads);
 		$url = $this->talkpageUrl($this->title, 'talkpage_archive');
-		$browse=wfMsg('lqt_browse_archive');
 		
 		if ( count($threadlinks) > 0 ) {
 			$this->openDiv('lqt_archive_teaser');
 			$this->output->addHTML('<h2 class="lqt_recently_archived">'.wfMsg('lqt_recently_archived').'</h2>');
+//			$this->output->addHTML("<span class=\"lqt_browse_archive\">[<a href=\"$url\">".wfMsg('lqt_browse_archive_with_recent')."</a>]</span></h2>");
 			$this->outputList('ul', '', '', $threadlinks);
-			$this->output->addHTML("<div class=\"lqt_browse_archive\">[<a href=\"$url\">$browse</a>]</div>");
 			$this->closeDiv();
-		} else {
-			$this->openDiv('lqt_archive_teaser_empty');
-			$this->output->addHTML("<div class=\"lqt_browse_archive\"><a href=\"$url\">$browse</a></div>");
-			$this->closeDiv();			
+		} else {	
 		}
 	}
-
+	
 	function show() {
 		global $wgHooks;
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
@@ -211,6 +213,11 @@ class TalkpageView extends LqtView {
 		$threads = $this->queries->query('fresh');
 
 		$this->openDiv('lqt_toc_archive_wrapper');
+		
+		$this->openDiv('lqt_archive_teaser_empty');
+		$this->output->addHTML("<div class=\"lqt_browse_archive\"><a href=\"{$this->talkpageUrl($this->title, 'talkpage_archive')}\">".wfMsg('lqt_browse_archive_without_recent')."</a></div>");
+		$this->closeDiv();
+			
 		if(count($threads) > 3) {
 			$this->showTOC($threads);
 		}

@@ -27,6 +27,10 @@
 }
 
 .lqt_start_discussion {
+/*	background-color: #353535;
+	color: #888;
+	padding: 5pt;
+	border: solid 1px #ddd;*/
 	vertical-align: middle;
 	font-size: 120%;
 }
@@ -37,14 +41,16 @@
 	font-weight: bold;
 }
 .lqt_header_content {
-	background-color: #eee;
-	border: 1px solid #ddd;
-	margin: 1em 0;
-	margin-right: 0;
-	padding: .5em 1em;
+/*	background-color: #eee; */
+	border-bottom: 2px solid #ddd;
+	margin: 0.5em 0 1.5em 0;
+	padding: 0;
 	
-	display: table;
-	width: auto;    
+	float: left;
+	width: 100%;
+	
+/*	display: table;
+	width: auto;*/
 }
 .lqt_header_commands {
 	float: right;
@@ -112,67 +118,50 @@ The archive and TOC on talkpages.
 **********************************/
 
 .lqt_archive_teaser_empty {
-	float:right;
+	clear:both;
 	font-weight: bold;
 }
 .lqt_archive_teaser {
-	float: right;
-	border: 1px solid #ddd;
-/*	margin: 0 1em 1em 2em;*/
-	background-color: #eee;
-/*	padding: 0.4em;*/
-	padding: 5px;
+	float: left;
 	display: table; width: auto;
-}
-.lqt_archive_teaser ul {
-	list-style-type: none;
-	list-style-image: none;
-	margin-left: 0;
-	padding-left: 0;
-	text-align: left;
-	margin-bottom: 0.6em;
-}
-h2.lqt_recently_archived {
-	border: none;
-	padding: 0;
-	padding-top: 2px;
-	font-size: 100%;
-	font-weight: bold;
-	text-align: center;
-}
-/*.lqt_browse_archive {
-	margin-bottom: 0.5em;
-	font-weight: bold;
-}*/
-.lqt_archive_teaser .lqt_browse_archive {
-/*	display: inline;*/
-	display: block;
-	text-align: center;
-	font-weight: bold;
-	margin-bottom: 5px;
+/*	margin-bottom: 2em;*/
 }
 .lqt_toc_wrapper {
 	float:left;
+	margin-right: 3.5em; /* Space before archive */
+/*	margin-bottom: 2em;*/
 }
-.lqt_toc_wrapper .toc {
-	/* Make to match other LQT grey boxes */
-	border: 1px solid #ddd !important;
-	background-color: #eee !important;
-	
-	margin-right: 2em; /* Space before archive */
-}
-.lqt_toc_wrapper .toc .toctoggle {
-	/* Ugly; no one's going to miss it? */
-	display: none;
-}
-
 .lqt_toc_archive_wrapper {
-	display: table;
-	width: auto;
-	margin-top: 1em;
-	margin-bottom: 1em;
+	margin-top: 0.5em;
+	margin-bottom: 1.5em;
+	float:left;
 }
-
+.lqt_archive_teaser ul, .lqt_toc_wrapper ul {
+	list-style-type: none;
+	list-style-image: none;
+	text-align: left;
+	margin-left: 0;
+	padding-left: 0;
+	margin-bottom: 0.6em;
+	margin-top: 0;
+}
+.lqt_archive_teaser ul li, .lqt_toc_wrapper ul li {
+	padding-left: 1em;
+	border-left: solid 1px #ddd;
+}
+h2.lqt_recently_archived, h2.lqt_toc_title {
+	border: none;
+	font-size: 100%;
+	font-weight: bold;
+	margin-bottom: 0 !important;
+}
+.lqt_archive_teaser .lqt_browse_archive {
+/*	display: block;*/
+	float:right;
+	font-weight: bold;
+	margin-top: 0;
+/*	margin-left: 1em;*/
+}
 
 
 /*********************************
