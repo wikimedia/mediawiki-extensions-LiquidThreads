@@ -677,6 +677,41 @@ $messages['no'] = array(
 
 );
 
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'lqt_newmessages'               => 'Messatges Novèls',
+	'lqt_movethread'                => 'Desplaçar lo fial vèrs una autra pagina',
+	'lqt_deletethread'              => 'Escafar o recuperar lo fial',
+	'lqt_recently_archived'         => 'Archivat recentament',
+	'lqt_add_header'                => 'Ajustar entèsta',
+	'lqt_new_thread'                => 'Amodar una discussion novèla',
+	'lqt_in_response_to'            => 'En responsa a $1 per $2, mai naut :',
+	'lqt_edited_notice'             => 'Modificat',
+	'lqt_move_placeholder'          => "Aqueste fial es una marca substitutiva qu'indica qu'un fial, $1, es estat desplaçat d'aquesta pagina vèrs una autra pagina de discussion. Aqueste desplaçament es estat fach per $2 a $3.",
+	'lqt_reply'                     => 'Respondre',
+	'lqt_delete'                    => 'Escafar',
+	'lqt_undelete'                  => 'Recuperar',
+	'lqt_permalink'                 => 'Permaligam',
+	'lqt_fragment'                  => 'un fragment de $1 a partir de $2',
+	'lqt_from_talk'                 => 'de $1',
+	'lqt_newer'                     => '«mai recent',
+	'lqt_older'                     => 'mai ancian»',
+	'lqt_hist_comment_edited'       => 'Comentari modificat',
+	'lqt_hist_summary_changed'      => 'Somari modificat',
+	'lqt_hist_reply_created'        => 'Responsa novèla creada',
+	'lqt_hist_thread_created'       => 'Fial novèl creat',
+	'lqt_hist_deleted'              => 'Escafat',
+	'lqt_hist_undeleted'            => 'Recuperat',
+	'lqt_hist_moved_talkpage'       => 'Desplaçat',
+	'lqt_hist_listing_subtitle'     => 'Visualizar un istoric',
+	'lqt_hist_view_whole_thread'    => "Veire l'istoric de tot lo fial",
+	'lqt_hist_no_revisions_error'   => "Aqueste fial a pas d'istoric de revisions. Es curiós.",
+	'lqt_hist_past_last_page_error' => "Avètz depassat lo nombre de paginas de l'istoric.",
+
+);
+
 /** 粵語 (粵語)
  * @author Shinjiman
  */
