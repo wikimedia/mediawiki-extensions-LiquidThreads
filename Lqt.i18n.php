@@ -725,12 +725,97 @@ $messages['yue'] = array(
 
 );
 
+/** Traditional Chinese (?中文(简体)?)
+ * @author Shinjiman
+ */
+$messages['zh-hans'] = array(
+	'lqt_newmessages'                       => '新信息',
+	'lqt_movethread'                        => '移动讨论串到另一页面',
+	'lqt_deletethread'                      => '删除或反删除讨论串',
+	'lqt_browse_archive_without_recent'     => '查看存档的讨论串',
+	'lqt_browse_archive_with_recent'        => '更旧的',
+	'lqt_recently_archived'                 => '先前的存档:',
+	'lqt_contents_title'                    => '内容:',
+	'lqt_add_header'                        => '加入页顶',
+	'lqt_new_thread'                        => '开始一个新讨论',
+	'lqt_in_response_to'                    => '回覆由$2所编写的$1，以上:',
+	'lqt_edited_notice'                     => '已编辑',
+	'lqt_move_placeholder'                  => '这个讨论串是一个放置指定讨论串$1在这个页面中删除了，移动到另一个讨论页面中。这次的移动是由$2于$3所作的。',
+	'lqt_reply'                             => '回覆',
+	'lqt_delete'                            => '删除',
+	'lqt_undelete'                          => '反删除',
+	'lqt_permalink'                         => '永久链接',
+	'lqt_fragment'                          => '自$2中，$1的一块碎片',
+	'lqt_discussion_link'                   => '讨论',
+	'lqt_from_talk'                         => '自$1',
+	'lqt_newer'                             => '?更新',
+	'lqt_older'                             => '更旧?',
+	'lqt_hist_comment_edited'               => '已编辑摘要文字',
+	'lqt_hist_summary_changed'              => '已更改摘要',
+	'lqt_hist_reply_created'                => '已建立新的回覆',
+	'lqt_hist_thread_created'               => '已建立新的讨论串',
+	'lqt_hist_deleted'                      => '已经删除',
+	'lqt_hist_undeleted'                    => '已经反删除',
+	'lqt_hist_moved_talkpage'               => '已移动',
+	'lqt_hist_listing_subtitle'             => '正在查看历史列表。',
+	'lqt_hist_view_whole_thread'            => '查看整个讨论串的历史',
+	'lqt_hist_no_revisions_error'           => '这个讨论没有任何的历史修订。好像很不寻常。',
+	'lqt_hist_past_last_page_error'         => '您在已经存在的历史版数存在范围以外。',
+	'lqt_hist_tooltip_newer_disabled'       => '这个链接已经停用，因为您现正于第一页。',
+	'lqt_hist_tooltip_older_disabled'       => '这个链接已经停用，因为您现正于最后一页。',
+	'lqt_revision_as_of'                    => '于$1的修订。',
+	'lqt_change_new_thread'                 => '这个是讨论串中的最初修订。',
+	'lqt_change_reply_created'              => '这醒目提示的评论在这次修订中建立。',
+	'lqt_change_edited_root'                => '这醒目提示的评论在这次修订中作过编辑。',
+	'lqt_youhavenewmessages'                => '您有$1。',
+	'lqt_changes_from'                      => '由',
+	'lqt_protectedfromreply'                => '这个要回覆的讨论串$1。',
+	'lqt_protectedfromreply_link'           => '已保护',
+	'lqt_subject'                           => '主旨:',
+	'lqt_nosubject'                         => '?无主旨?',
+	'lqt_noreason'                          => '无给出原因。',
+	'lqt_thread_deleted_for_sysops'         => '这个讨论串$1，只可以给操作员可见。',
+	'lqt_thread_deleted_for_sysops_deleted' => '已删除',
+	'lqt_thread_deleted'                    => '这个讨论串已经删除。',
+	'lqt_summary_notice'                    => '如果这个讨论是有结论的话，鼓励您去$1。这个讨论已经最少有$2天没有更改。',
+	'lqt_summary_notice_link'               => '写一个摘要',
+	'lqt_summary_label'                     => '这个讨论串已经摘要为:',
+	'lqt_nosuchrevision'                    => '在这个讨论串中没有所要的修订。',
+	'lqt_nosuchthread'                      => '这里没有这个讨论串。',
+	'lqt_threadrequired'                    => '您必须要在URL中指定一个讨论串。',
+	'lqt_move_movingthread'                 => '正在移动$1。这个讨论串是$2的一部份。',
+	'lqt_move_torename'                     => "要重新命名这个讨论串，$1再更改'主旨'一栏。",
+	'lqt_move_torename_edit'                => '编辑它',
+	'lqt_move_destinationtitle'             => '目标讨论页的标题:',
+	'lqt_move_move'                         => '移动',
+	'lqt_move_nodestination'                => '您必须要指定一个目标。',
+	'lqt_move_noreason'                     => '无给出原因。',
+	'lqt_move_success'                      => '讨论串已经移动到$1。',
+	'lqt_delete_undeleting'                 => '正在反删除$1。',
+	'lqt_delete_undeletethread'             => '反删除讨论串',
+	'lqt_delete_partof'                     => '这个讨论串是$1的一部份。',
+	'lqt_delete_deleting'                   => '正在删除$1和$2。',
+	'lqt_delete_deleting_allreplies'        => '所有回覆',
+	'lqt_delete_deletethread'               => '删除讨论串和回覆',
+	'lqt_delete_deleted'                    => '讨论串已经删除。',
+	'lqt_delete_undeleted'                  => '讨论串已经反删除。',
+	'lqt_delete_return'                     => '回到$1。',
+	'lqt_delete_return_link'                => '讨论页',
+	'lqt_delete_unallowed'                  => '您是不容许去删除讨论串。',
+	'lqt_talkpage_autocreate_summary'       => '当第一个讨论串贴上后自动建立讨论页。',
+	'lqt_header_warning_big'                => '您现正在编辑$1。',
+	'lqt_header_warning_after_big'          => '用来作为公告和导言的页顶。您可能想去$2。',
+	'lqt_header_warning_bold'               => '讨论页页顶',
+	'lqt_header_warning_new_discussion'     => '开始一个新的讨论',
+
+);
+
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
 	'lqt_newmessages'                       => '新信息',
-	'lqt_movethread'                        => '搬討論串去另一頁',
+	'lqt_movethread'                        => '移動討論串到另一頁面',
 	'lqt_deletethread'                      => '刪除或反刪除討論串',
 	'lqt_browse_archive_without_recent'     => '檢視存檔的討論串',
 	'lqt_browse_archive_with_recent'        => '更舊的',
@@ -740,7 +825,7 @@ $messages['zh-hant'] = array(
 	'lqt_new_thread'                        => '開始一個新討論',
 	'lqt_in_response_to'                    => '回覆由$2所編寫的$1，以上:',
 	'lqt_edited_notice'                     => '已編輯',
-	'lqt_move_placeholder'                  => '這個討論串是一個放置指定討論串$1在這個頁面中刪除了，移動到另一個討論版中。這次的移動是係由$2於$3所作的。',
+	'lqt_move_placeholder'                  => '這個討論串是一個放置指定討論串$1在這個頁面中刪除了，移動到另一個討論版中。這次的移動是由$2於$3所作的。',
 	'lqt_reply'                             => '回覆',
 	'lqt_delete'                            => '刪除',
 	'lqt_undelete'                          => '反刪除',
@@ -806,6 +891,13 @@ $messages['zh-hant'] = array(
 	'lqt_header_warning_big'                => '您現正在編輯$1。',
 	'lqt_header_warning_after_big'          => '用來作為公告和導言的頁頂。您可能想去$2。',
 	'lqt_header_warning_bold'               => '討論頁頁頂',
-	'lqt_header_warning_new_discussion'     => '開始一個新旳討論',
+	'lqt_header_warning_new_discussion'     => '開始一個新的討論',
 
 );
+
+$messages['zh']     = $messages['zh-hans'];
+$messages['zh-cn']  = $messages['zh-hans'];
+$messages['zh-hk']  = $messages['zh-hant'];
+$messages['zh-sg']  = $messages['zh-hans'];
+$messages['zh-tw']  = $messages['zh-hant'];
+$messages['zh-yue'] = $messages['yue'];
