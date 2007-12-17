@@ -244,14 +244,17 @@ $messages['el'] = array(
 
 /** French (Français)
  * @author Sherbrooke
- * @author Grondin
  * @author Dereckson
+ * @author Grondin
  */
 $messages['fr'] = array(
 	'lqt_newmessages'                       => 'Nouveaux messages',
 	'lqt_movethread'                        => 'Déplacer le fil vers une autre page',
 	'lqt_deletethread'                      => 'Effacer ou récupérer le fil',
+	'lqt_browse_archive_without_recent'     => 'Afficher les sujets archivés',
+	'lqt_browse_archive_with_recent'        => 'plus anciens',
 	'lqt_recently_archived'                 => 'Archivé récemment',
+	'lqt_contents_title'                    => 'Table des sujets :',
 	'lqt_add_header'                        => 'Ajouter en-tête',
 	'lqt_new_thread'                        => 'Lancer une nouvelle discussion',
 	'lqt_in_response_to'                    => 'En réponse à $1 par $2, plus haut :',
@@ -265,7 +268,7 @@ $messages['fr'] = array(
 	'lqt_discussion_link'                   => 'discussion',
 	'lqt_from_talk'                         => 'de $1',
 	'lqt_newer'                             => '«plus récent',
-	'lqt_older'                             => 'plus vieux»',
+	'lqt_older'                             => 'plus ancien»',
 	'lqt_hist_comment_edited'               => 'Commentaire modifié',
 	'lqt_hist_summary_changed'              => 'Sommaire modifié',
 	'lqt_hist_reply_created'                => 'Nouvelle réponse créée',
@@ -322,7 +325,6 @@ $messages['fr'] = array(
 	'lqt_header_warning_after_big'          => 'Les en-têtes sont pour les annonces et les préfaces. Vous devriez à la place $2.',
 	'lqt_header_warning_bold'               => "En-tête d'une page de discussion",
 	'lqt_header_warning_new_discussion'     => 'lancer un nouveau fil de discussion',
-
 );
 
 /** Galician (Galego)
@@ -333,6 +335,7 @@ $messages['gl'] = array(
 	'lqt_newmessages'                       => 'Mensaxes Novas',
 	'lqt_movethread'                        => 'Mover o Fío a Outra Páxina',
 	'lqt_deletethread'                      => 'Eliminar ou Recuperar Fío',
+	'lqt_browse_archive_without_recent'     => 'Ver os fíos de discusións arquivados',
 	'lqt_browse_archive_with_recent'        => 'vello',
 	'lqt_recently_archived'                 => 'Arquivado recentemente',
 	'lqt_contents_title'                    => 'Contidos:',
@@ -369,6 +372,7 @@ $messages['gl'] = array(
 	'lqt_change_edited_root'                => 'O comentario destacado foi editado nesta revisión.',
 	'lqt_youhavenewmessages'                => 'Ten $1.',
 	'lqt_changes_from'                      => ' de',
+	'lqt_protectedfromreply'                => 'Este fío de discusión foi de $1 desde que se respondeu a.',
 	'lqt_protectedfromreply_link'           => 'protexido',
 	'lqt_subject'                           => 'Asunto:',
 	'lqt_nosubject'                         => '«sen asunto»',
@@ -403,9 +407,9 @@ $messages['gl'] = array(
 	'lqt_delete_unallowed'                  => 'Non lle está permitido eliminar fíos.',
 	'lqt_talkpage_autocreate_summary'       => 'Páxina de conversa creada automaticametne cando se publicou o primeiro fío.',
 	'lqt_header_warning_big'                => 'Vostede está editando un $1.',
+	'lqt_header_warning_after_big'          => 'Son cabeceiras dos anuncios e prefacios. É posíbel que no seu lugar queiran $2.',
 	'lqt_header_warning_bold'               => 'Cabeceira da páxina de conversa',
 	'lqt_header_warning_new_discussion'     => 'comezar unha nova conversa',
-
 );
 
 /** Upper Sorbian (Hornjoserbsce)
