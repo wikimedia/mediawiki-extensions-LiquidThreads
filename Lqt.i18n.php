@@ -497,6 +497,59 @@ $messages['hsb'] = array(
 
 );
 
+/** Hungarian (Magyar)
+ * @author Bdanee
+ */
+$messages['hu'] = array(
+	'lqt_newmessages'                   => 'Új üzenetek',
+	'lqt_movethread'                    => 'Átmozgatás másik lapra',
+	'lqt_deletethread'                  => 'Beszélgetés törlése vagy visszaállítása',
+	'lqt_browse_archive_without_recent' => 'Archivált beszélgetések megtekintése',
+	'lqt_browse_archive_with_recent'    => 'korábbi',
+	'lqt_contents_title'                => 'Tartalom',
+	'lqt_new_thread'                    => 'Új beszélgetés indítása',
+	'lqt_in_response_to'                => 'Válasz: $1, írta $2:',
+	'lqt_edited_notice'                 => 'szerkesztve',
+	'lqt_move_placeholder'              => 'Ez a beszélgetés csupán egy jelzés, hogy a $1 beszélgetést $2 áthelyezte $3-kor egy másik vitalapra.',
+	'lqt_reply'                         => 'válasz',
+	'lqt_delete'                        => 'törlés',
+	'lqt_undelete'                      => 'visszaállítás',
+	'lqt_permalink'                     => 'permalink',
+	'lqt_discussion_link'               => 'beszélgetés',
+	'lqt_newer'                         => '«frissebb',
+	'lqt_older'                         => 'korábbi»',
+	'lqt_hist_comment_edited'           => 'Szerkesztette a megjegyzést',
+	'lqt_hist_summary_changed'          => 'Megváltoztatta az összefoglalót',
+	'lqt_hist_reply_created'            => 'Új választ írt',
+	'lqt_hist_thread_created'           => 'Új beszélgetést indított',
+	'lqt_hist_deleted'                  => 'törölve',
+	'lqt_hist_undeleted'                => 'visszaállítva',
+	'lqt_hist_moved_talkpage'           => 'áthelyezve',
+	'lqt_subject'                       => 'Tárgy',
+	'lqt_nosubject'                     => '«nincs tárgy»',
+	'lqt_summary_notice'                => 'Ha a beszélgetés befejeződött, $1. Nem történt változás $2 napja.',
+	'lqt_summary_notice_link'           => 'írhatsz összefoglalót',
+	'lqt_move_torename'                 => 'A beszélgetés átnevezéséhez a $1 változtasd meg a Tárgy mezőt.',
+	'lqt_move_torename_edit'            => 'szerkesztéskor',
+	'lqt_move_move'                     => 'Áthelyezés',
+	'lqt_move_noreason'                 => 'Nincs ok megadva.',
+	'lqt_delete_undeleting'             => '$ visszaállítása.',
+	'lqt_delete_undeletethread'         => 'Beszélgetés visszaállítása',
+	'lqt_delete_deleting_allreplies'    => 'összes válasz',
+	'lqt_header_warning_new_discussion' => 'új beszélgetés indítása',
+);
+
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'lqt_newmessages'         => 'Nei Messagen',
+	'lqt_delete'              => 'Läschen',
+	'lqt_hist_deleted'        => 'Geläscht',
+	'lqt_hist_moved_talkpage' => 'Geréckelt',
+	'lqt_subject'             => 'Sujet:',
+);
+
 /** Lozi (Silozi)
  * @author Ooswesthoesbes
  */
