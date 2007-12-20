@@ -52,6 +52,7 @@ $messages['en'] = array(
 	'lqt_change_edited_root' => 'The highlighted comment was edited in this revision.',
 	'lqt_youhavenewmessages' => 'You have $1.',
 	'lqt_changes_from' => ' from ',
+	'lqt_changes_summary_of' => ' of ',
 	'lqt_protectedfromreply' => 'This thread has been $1 from being replied to.',
 	'lqt_protectedfromreply_link' => 'protected',
 	'lqt_subject' => 'Subject: ',

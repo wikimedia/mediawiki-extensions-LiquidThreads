@@ -213,12 +213,20 @@ class LqtDispatch {
 	}
 	
 	static function changesListArticleLink(&$changeslist, &$articlelink, &$s, &$rc, $unpatrolled, $watched) {
+		$thread = null;
 		if( $rc->getTitle()->getNamespace() == NS_LQT_THREAD ) {
 			$thread = Threads::withRoot(new Post( $rc->getTitle() ));
-			if($thread) {
-				$articlelink .= wfMsg('lqt_changes_from') . $changeslist->skin->makeKnownLinkObj(
-					$thread->article()->getTitle()->getTalkPage() );
-			}
+			$msg = wfMsg('lqt_changes_from');
+			$link = $thread->article()->getTitle()->getTalkPage();
+		}
+		else if( $rc->getTitle()->getNamespace() == NS_LQT_SUMMARY ) {
+			$thread = Threads::withSummary(new Article( $rc->getTitle() ));
+			$msg = wfMsg('lqt_changes_summary_of');
+			$link = $thread->title();
+		}
+		
+		if($thread) {
+			$articlelink .= $msg . $changeslist->skin->makeKnownLinkObj( $link );
 		}
 		return true;
 	}
