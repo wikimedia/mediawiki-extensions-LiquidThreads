@@ -178,8 +178,7 @@ class TalkpageView extends LqtView {
 		$this->output->addHTML('</ul></div>');
 	}
 
-	function showArchiveWidget() {
-		$threads = $this->queries->query('recently-archived');
+	function showArchiveWidget($threads) {
 		$threadlinks = $this->permalinksForThreads($threads);
 		$url = $this->talkpageUrl($this->title, 'talkpage_archive');
 		
@@ -218,10 +217,11 @@ class TalkpageView extends LqtView {
 		$this->output->addHTML("<div class=\"lqt_browse_archive\"><a href=\"{$this->talkpageUrl($this->title, 'talkpage_archive')}\">".wfMsg('lqt_browse_archive_without_recent')."</a></div>");
 		$this->closeDiv();
 			
-		if(count($threads) > 3) {
+		$recently_archived_threads = $this->queries->query('recently-archived');
+		if(count($threads) > 3 || count($recently_archived_threads) > 0) {
 			$this->showTOC($threads);
 		}
-		$this->showArchiveWidget();
+		$this->showArchiveWidget($recently_archived_threads);
 		$this->closeDiv();
 
 		
