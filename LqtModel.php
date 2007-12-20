@@ -976,6 +976,15 @@ SQL;
 		echo("Corrupt liquidthreads database: $msg");
 		die();
 	}
+	
+	private static function assertSingularity( $threads, $attribute, $value ) {
+		if( count($threads) == 0 ) { return null; }
+		if( count($threads) == 1 ) { return $threads[0]; }
+		if( count($threads) > 1 ) {
+			Threads::databaseError("More than one thread with $attribute = $value.");
+			return null;
+		}
+	}
 
 	static function withRoot( $post ) {
 		if( $post->getTitle()->getNamespace() != NS_LQT_THREAD ) {
@@ -987,24 +996,20 @@ SQL;
 			return self::$cache_by_root[$post->getID()];
 		}
 		$ts = Threads::where( array('thread.thread_root' => $post->getID()) );
-		if( count($ts) == 0 ) { return null; }
-		if ( count($ts) >1 ) {
-			Threads::databaseError("More than one thread with thread_root = {$post->getID()}.");
-		}
-		return $ts[0];
+		return self::assertSingularity($ts, 'thread_root', $post->getID());
 	}
 
 	static function withId( $id ) {
 		if( array_key_exists( $id, self::$cache_by_id ) ) {
 			return self::$cache_by_id[$id];
 		}
-			
 		$ts = Threads::where( array('thread.thread_id' => $id ) );
-		if( count($ts) == 0 ) { return null; }
-		if ( count($ts) >1 ) {
-			Threads::databaseError("More than one thread with thread_id = {$id}.");
-		}
-		return $ts[0];
+		return self::assertSingularity($ts, 'thread_id', $id);
+	}
+	
+	static function withSummary( $article ) {
+		$ts = Threads::where( array('thread.thread_summary_page' => $article->getId()));
+		return self::assertSingularity($ts, 'thread_summary_page', $article->getId());
 	}
 	
 	/**

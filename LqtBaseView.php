@@ -63,6 +63,7 @@ class LqtDispatch {
 		'ThreadPermalinkView' => 'ThreadPermalinkView',
 		'ThreadProtectionFormView' => 'ThreadProtectionFormView',
 		'ThreadWatchView' => 'ThreadWatchView',
+		'SummaryPageView' => 'SummaryPageView'
 		);
 
 	static function talkpageMain(&$output, &$talk_article, &$title, &$user, &$request) {
@@ -127,6 +128,12 @@ class LqtDispatch {
 		return $view->show();
 	}
 	
+	static function threadSummaryMain(&$output, &$article, &$title, &$user, &$request) {
+		$viewname = self::$views['SummaryPageView'];
+		$view = new $viewname( $output, $article, $title, $user, $request );
+		return $view->show();
+	}
+	
 	/**
 	* If the page we recieve is a Liquid Threads page of any kind, process it
 	* as needed and return True. If it's a normal, non-liquid page, return false.
@@ -136,6 +143,8 @@ class LqtDispatch {
 			return self::talkpageMain ($output, $article, $title, $user, $request);
 		} else if ( $title->getNamespace() == NS_LQT_THREAD ) {
 			return self::threadPermalinkMain($output, $article, $title, $user, $request);
+		} else if ( $title->getNamespace() == NS_LQT_SUMMARY ) {
+			return self::threadSummaryMain($output, $article, $title, $user, $request);
 		}
 		return true;
 	}

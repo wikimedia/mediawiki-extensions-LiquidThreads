@@ -39,6 +39,7 @@ lqt-schema-change-2.sql for before r26550
 lqt-schema-change-3.sql for before r26563
 lqt-schema-change-4.sql for before r26575
 lqt-schema-change-5.sql for before r28178
+lqt-schema-change-6.sql for before r28693
 
 CONTACT:
 =======

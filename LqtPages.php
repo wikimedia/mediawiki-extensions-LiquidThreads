@@ -838,6 +838,23 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	}
 }
 
+
+class SummaryPageView extends LqtView {
+	function show() {
+		$thread = Threads::withSummary($this->article);
+		if( $thread ) {
+			$url = $thread->root()->getTitle()->getFullURL();
+			$name = $thread->root()->getTitle()->getPrefixedText();
+			$this->output->setSubtitle(
+				wfMsg('lqt_summary_subtitle',
+					'<a href="'.$url.'">'.$name.'</a>'));
+		}
+		return true;
+	}
+}
+
+
+
 function wfLqtSpecialMoveThreadToAnotherPage() {
 
     class SpecialMoveThreadToAnotherPage extends SpecialPage {

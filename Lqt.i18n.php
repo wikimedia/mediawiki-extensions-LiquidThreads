@@ -64,6 +64,7 @@ $messages['en'] = array(
 	'lqt_summary_notice' => 'If this discussion seems to be concluded, you are encouraged to $1. There have been no changes here for at least $2 days.',
 	'lqt_summary_notice_link' => 'write a summary',
 	'lqt_summary_label' => 'This thread has been summarized as follows:',
+	'lqt_summary_subtitle' => 'the summary of $1.',
 	'lqt_nosuchrevision' => 'There is no such revision of this thread.',
 	'lqt_nosuchthread' => 'There is no such thread.',
 	'lqt_threadrequired' => 'You must specify a thread in the URL.',

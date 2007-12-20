@@ -28,7 +28,8 @@ CREATE TABLE /*$wgDBprefix*/thread (
   INDEX thread_ancestor (thread_ancestor),
   INDEX thread_article_title (thread_article_namespace, thread_article_title),
   INDEX thread_modified (thread_modified),
-  INDEX thread_created (thread_created)
+  INDEX thread_created (thread_created),
+  INDEX thread_summary_page (thread_summary_page)
 ) TYPE=InnoDB;
 
 CREATE TABLE /*$wgDBprefix*/historical_thread (
