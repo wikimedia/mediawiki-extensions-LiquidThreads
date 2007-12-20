@@ -313,6 +313,7 @@ $messages['fr'] = array(
 	'lqt_delete_undeleting'                 => 'Récupération de $1',
 	'lqt_delete_undeletethread'             => 'Fil récupéré',
 	'lqt_delete_partof'                     => 'Ce fil est partie de $1.',
+	'lqt_delete_deleting'                   => 'Suppression du fil $1 et de $2.',
 	'lqt_delete_deleting_allreplies'        => 'toutes les réponses',
 	'lqt_delete_deletethread'               => 'Effacer le fil et répondre',
 	'lqt_delete_deleted'                    => 'Le fil a été effacé.',
@@ -543,11 +544,13 @@ $messages['hu'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'lqt_newmessages'         => 'Nei Messagen',
-	'lqt_delete'              => 'Läschen',
-	'lqt_hist_deleted'        => 'Geläscht',
-	'lqt_hist_moved_talkpage' => 'Geréckelt',
-	'lqt_subject'             => 'Sujet:',
+	'lqt_newmessages'                   => 'Nei Messagen',
+	'lqt_delete'                        => 'Läschen',
+	'lqt_discussion_link'               => 'Diskussioun',
+	'lqt_hist_deleted'                  => 'Geläscht',
+	'lqt_hist_moved_talkpage'           => 'Geréckelt',
+	'lqt_subject'                       => 'Sujet:',
+	'lqt_header_warning_new_discussion' => 'Eng nei Diskussioun ufénken.',
 );
 
 /** Lozi (Silozi)
@@ -741,7 +744,10 @@ $messages['oc'] = array(
 	'lqt_newmessages'                       => 'Messatges Novèls',
 	'lqt_movethread'                        => 'Desplaçar lo fial vèrs una autra pagina',
 	'lqt_deletethread'                      => 'Escafar o recuperar lo fial',
+	'lqt_browse_archive_without_recent'     => 'Afichar los subjèctes archivats',
+	'lqt_browse_archive_with_recent'        => 'mai ancians',
 	'lqt_recently_archived'                 => 'Archivat recentament',
+	'lqt_contents_title'                    => 'Taula dels subjèctes :',
 	'lqt_add_header'                        => 'Ajustar entèsta',
 	'lqt_new_thread'                        => 'Amodar una discussion novèla',
 	'lqt_in_response_to'                    => 'En responsa a $1 per $2, mai naut :',
