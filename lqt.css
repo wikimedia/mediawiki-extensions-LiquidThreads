@@ -43,6 +43,7 @@
 .lqt_header_content {
 /*	background-color: #eee; */
 	border-bottom: 2px solid #ddd;
+	border-right: 2px solid #ddd;
 	margin: 0.5em 0 1.5em 0;
 	padding: 0;
 	
