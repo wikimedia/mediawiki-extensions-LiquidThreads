@@ -950,13 +950,16 @@ HTML
 	
 	function showSummary($t) {
 		if ( !$t->summary() ) return;
-		$msg = wfMsg('lqt_summary_label');
+		$label = wfMsg('lqt_summary_label');
+		$edit = strtolower(wfMsg('edit'));
+		$link = strtolower(wfMsg('lqt_permalink'));
 		$this->output->addHTML(<<<HTML
 			<div class='lqt_thread_permalink_summary'>
 			<span class="lqt_thread_permalink_summary_title">
-			$msg
+			$label
 			</span><span class="lqt_thread_permalink_summary_edit">
-			[<a href="{$this->permalinkUrl($t,'summarize')}">edit</a>]
+			[<a href="{$t->summary()->getTitle()->getFullURL()}">$link</a>]
+			[<a href="{$this->permalinkUrl($t,'summarize')}">$edit</a>]
 			</span>
 HTML
 		);
