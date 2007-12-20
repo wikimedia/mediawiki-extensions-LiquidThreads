@@ -151,6 +151,7 @@ $messages['ar'] = array(
 	'lqt_summary_notice'                    => 'لو أن هذا النقاش يبدو كما لو أنه انتهى، فأنت مشجع على $1. لا توجد أي تغييرات هنا لمدة $2 يوم على الأقل.',
 	'lqt_summary_notice_link'               => 'اكتب ملخصا',
 	'lqt_summary_label'                     => 'مجموعة الرسائل هذه تم تلخيصها كالتالي:',
+	'lqt_summary_subtitle'                  => 'ملخص $1.',
 	'lqt_nosuchrevision'                    => 'لا توجد نسخة كهذه من مجموعة الرسائل هذه.',
 	'lqt_nosuchthread'                      => 'لا توجد مجموعة رسائل كهذه.',
 	'lqt_threadrequired'                    => 'يجب عليك تحديد مجموعة رسائل في المسار.',
@@ -178,7 +179,6 @@ $messages['ar'] = array(
 	'lqt_header_warning_after_big'          => 'العناوين للإعلانات والمقدمات. ربما ترغب كبديل في $2.',
 	'lqt_header_warning_bold'               => 'عنوان صفحة نقاش',
 	'lqt_header_warning_new_discussion'     => 'بدء نقاش جديد',
-
 );
 
 /** Bulgarian (Български)
@@ -571,6 +571,7 @@ $messages['loz'] = array(
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
+ * @author Annabel
  */
 $messages['nl'] = array(
 	'lqt_newmessages'                       => 'Nieuwe berichten',
@@ -624,6 +625,7 @@ $messages['nl'] = array(
 	'lqt_summary_notice'                    => 'Als er een besluit lijkt te zijn over dit overleg, wordt u aangemoedigd om $1. Er zijn geen wijzigingen geweest in de afgelopen $2 dagen.',
 	'lqt_summary_notice_link'               => 'een samenvatting te schrijven',
 	'lqt_summary_label'                     => 'Deze onderwerpspagina werd samengevat als volgt:',
+	'lqt_summary_subtitle'                  => 'de samenvatting van $1',
 	'lqt_nosuchrevision'                    => 'Er bestaat geen dergelijke versie van deze onderwerpspagina.',
 	'lqt_nosuchthread'                      => 'Er bestaat geen dergelijke onderwerpspagina.',
 	'lqt_threadrequired'                    => 'U moet een onderwerspagina opgeven in de URL.',
@@ -651,7 +653,6 @@ $messages['nl'] = array(
 	'lqt_header_warning_after_big'          => 'Koppen zijn voor aankondigingen en inleidingen. Wellicht kunt u beter gebruik maken van $2.',
 	'lqt_header_warning_bold'               => 'koptekst overlegpagina',
 	'lqt_header_warning_new_discussion'     => 'begin een nieuw overleg',
-
 );
 
 /** Norwegian (‪Norsk (bokmål)‬)
