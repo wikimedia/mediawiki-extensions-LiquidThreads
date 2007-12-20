@@ -138,8 +138,8 @@ class TalkpageView extends LqtView {
 			$this->openDiv('lqt_header_content');
 			$this->showPostBody($article, $oldid);
 			$this->outputList('ul', 'lqt_header_commands', null, array(
-				"[<a href=\"$editlink\">".wfMsg('edit')."</a>]",
-				"[<a href=\"$historylink\">".wfMsg('history_short')."</a>]"
+				"[<a href=\"$editlink\">".wfMsg('edit')."&uarr;</a>]",
+				"[<a href=\"$historylink\">".wfMsg('history_short')."&uarr;</a>]"
 				));
 			$this->closeDiv();
 		} else {
