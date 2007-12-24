@@ -825,6 +825,34 @@ $messages['oc'] = array(
 	'lqt_header_warning_new_discussion'     => 'amodar un fial de discussion novèl',
 );
 
+/** Russian (Русский)
+ * @author VasilievVV
+ */
+$messages['ru'] = array(
+	'lqt_newmessages'                   => 'Новые сообщения',
+	'lqt_movethread'                    => 'Переместить ветку на другую страницу',
+	'lqt_deletethread'                  => 'Удалить/восстановить ветку',
+	'lqt_browse_archive_without_recent' => 'Просмотреть архив',
+	'lqt_browse_archive_with_recent'    => 'старее',
+	'lqt_recently_archived'             => 'Недавно заархивированные:',
+	'lqt_contents_title'                => 'Содержит:',
+	'lqt_add_header'                    => 'Добавить заголовок',
+	'lqt_new_thread'                    => 'Начать новое обсуждение',
+	'lqt_in_response_to'                => 'В ответе на $1 от $2 выше:',
+	'lqt_edited_notice'                 => 'Редактировал',
+	'lqt_move_placeholder'              => 'Эта ветка отображает то, что ветка $1 была перемещена на страницу $3 участником $2',
+	'lqt_reply'                         => 'Ответить',
+	'lqt_delete'                        => 'Удалить',
+	'lqt_undelete'                      => 'Восстановить',
+	'lqt_permalink'                     => 'Постоянная ссылка',
+	'lqt_fragment'                      => 'фрагмент $1 из $2',
+	'lqt_discussion_link'               => 'обсуждение',
+	'lqt_from_talk'                     => 'из $1',
+	'lqt_newer'                         => '«новее',
+	'lqt_older'                         => 'старее»',
+	'lqt_hist_comment_edited'           => 'Текст комментария отредактирован',
+);
+
 /** 粵語 (粵語)
  * @author Shinjiman
  */
