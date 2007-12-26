@@ -838,6 +838,7 @@ $messages['oc'] = array(
 
 /** Russian (Русский)
  * @author VasilievVV
+ * @author .:Ajvol:.
  */
 $messages['ru'] = array(
 	'lqt_newmessages'                       => 'Новые сообщения',
@@ -849,8 +850,8 @@ $messages['ru'] = array(
 	'lqt_contents_title'                    => 'Содержит:',
 	'lqt_add_header'                        => 'Добавить заголовок',
 	'lqt_new_thread'                        => 'Начать новое обсуждение',
-	'lqt_in_response_to'                    => 'В ответе на $1 от $2 выше:',
-	'lqt_edited_notice'                     => 'Редактировал',
+	'lqt_in_response_to'                    => 'В ответ на $1 от $2 выше:',
+	'lqt_edited_notice'                     => 'Правил',
 	'lqt_move_placeholder'                  => 'Эта ветка отображает то, что ветка $1 была перемещена на страницу $3 участником $2',
 	'lqt_reply'                             => 'Ответить',
 	'lqt_delete'                            => 'Удалить',
