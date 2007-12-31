@@ -219,6 +219,47 @@ $messages['bg'] = array(
 	'lqt_delete_unallowed'            => 'Нямате права да изтривате нишки.',
 );
 
+/** Bulgarian (Български)
+ * @author Spiritia
+ * @author DCLXVI
+ */
+$messages['bg'] = array(
+	'lqt_newmessages'                   => 'Нови съобщения',
+	'lqt_movethread'                    => 'Преместване на нишка към друга страница',
+	'lqt_deletethread'                  => 'Изтриване или възстановяване на нишка',
+	'lqt_browse_archive_without_recent' => 'Преглед на архивираните нишки',
+	'lqt_recently_archived'             => 'Наскоро архивирани',
+	'lqt_contents_title'                => 'Съдържание:',
+	'lqt_new_thread'                    => 'Започване на нова дискусия.',
+	'lqt_reply'                         => 'Отговор',
+	'lqt_delete'                        => 'Изтриване',
+	'lqt_undelete'                      => 'Възстановяване',
+	'lqt_permalink'                     => 'Постоянна препратка',
+	'lqt_from_talk'                     => 'от $1',
+	'lqt_newer'                         => '« по-нови',
+	'lqt_older'                         => 'по-стари »',
+	'lqt_hist_summary_changed'          => 'Променено резюме',
+	'lqt_hist_tooltip_newer_disabled'   => 'Препратката е неактивна, тъй като сте на първата страница.',
+	'lqt_hist_tooltip_older_disabled'   => 'Препратката е неактивна, тъй като сте на последната страница.',
+	'lqt_youhavenewmessages'            => 'Имате $1.',
+	'lqt_changes_from'                  => ' от',
+	'lqt_subject'                       => 'Тема:',
+	'lqt_noreason'                      => 'Не е указана причина.',
+	'lqt_thread_deleted'                => 'Нишката е била изтрита.',
+	'lqt_nosuchthread'                  => 'Няма такава нишка.',
+	'lqt_threadrequired'                => 'Трябва да се укаже нишка в URL.',
+	'lqt_move_move'                     => 'Преместване',
+	'lqt_move_noreason'                 => 'Не е указана причина.',
+	'lqt_delete_undeleting'             => 'Възстановяване на $1.',
+	'lqt_delete_undeletethread'         => 'Възстановяване на нишка',
+	'lqt_delete_partof'                 => 'Тази нишка е част от $1.',
+	'lqt_delete_deleting_allreplies'    => 'всички отговори',
+	'lqt_delete_deleted'                => 'Нишката беше изтрита.',
+	'lqt_delete_undeleted'              => 'Нишката беше възстановена.',
+	'lqt_delete_return'                 => 'Връщане към $1.',
+	'lqt_delete_unallowed'              => 'Нямате права да изтривате нишки.',
+);
+
 /** Greek (Ελληνικά)
  * @author Consta
  */
