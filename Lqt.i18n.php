@@ -503,6 +503,7 @@ $messages['hsb'] = array(
 	'lqt_change_edited_root'                => 'Wuzběhnjeny komentar bu w tutej wersiji změnjeny.',
 	'lqt_youhavenewmessages'                => 'Maš $1.',
 	'lqt_changes_from'                      => ' wot',
+	'lqt_changes_summary_of'                => 'wot',
 	'lqt_protectedfromreply'                => 'Z tuteje nitki je $1 wotmołwił.',
 	'lqt_protectedfromreply_link'           => 'škitany',
 	'lqt_subject'                           => 'Tema:',
@@ -514,6 +515,7 @@ $messages['hsb'] = array(
 	'lqt_summary_notice'                    => 'Jeli tuta diskusija zda so skónčena, da pozbudźeš so $1. Njeběchu změny wot znajmjeńša $2 {{PLURAL:$2|dnja|dnjow|dnjow|dnjow}}.',
 	'lqt_summary_notice_link'               => 'zjeće pisać',
 	'lqt_summary_label'                     => 'Tuta nitka je so takle zjała:',
+	'lqt_summary_subtitle'                  => 'zjeće wot $1.',
 	'lqt_nosuchrevision'                    => 'Njeje tajka wersija tuteje nitki.',
 	'lqt_nosuchthread'                      => 'Njeje tajka nitka.',
 	'lqt_threadrequired'                    => 'Dyrbiš w URL nitku podać.',
@@ -541,7 +543,6 @@ $messages['hsb'] = array(
 	'lqt_header_warning_after_big'          => 'Hłowowe linki su za wozjewjenja a předsłowa. Chceš snano město toho $2.',
 	'lqt_header_warning_bold'               => 'Hłowowa linka diskusijneje strony',
 	'lqt_header_warning_new_discussion'     => 'nowu diskusiju započeć',
-
 );
 
 /** Hungarian (Magyar)
