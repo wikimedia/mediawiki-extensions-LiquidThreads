@@ -224,6 +224,7 @@ $messages['bg'] = array(
 	'lqt_delete_undeleted'              => 'Нишката беше възстановена.',
 	'lqt_delete_return'                 => 'Връщане към $1.',
 	'lqt_delete_unallowed'              => 'Нямате права да изтривате нишки.',
+	'lqt_header_warning_new_discussion' => 'започване на ново обсъждане',
 );
 
 /** Greek (Ελληνικά)
