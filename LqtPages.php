@@ -35,6 +35,9 @@ define('NS_LQT_THREAD', efArrayDefault('egLqtNamespaceNumbers', 'Thread', 90));
 define('NS_LQT_THREAD_TALK', efArrayDefault('egLqtNamespaceNumbers', 'Thread_talk', 91));
 define('NS_LQT_SUMMARY', efArrayDefault('egLqtNamespaceNumbers', 'Summary', 92));
 define('NS_LQT_SUMMARY_TALK', efArrayDefault('egLqtNamespaceNumbers', 'Summary_talk', 93));
+define('LQT_NEWEST_CHANGES',1);
+define('LQT_NEWEST_THREADS',2);
+define('LQT_OLDEST_THREADS',3);
 
 $wgCanonicalNamespaceNames[NS_LQT_THREAD]		= 'Thread';
 $wgCanonicalNamespaceNames[NS_LQT_THREAD_TALK]	= 'Thread_talk';
@@ -193,18 +196,69 @@ class TalkpageView extends LqtView {
 	}
 	
 	function show() {
-		global $wgHooks;
+		global $wgHooks, $wgUser;
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
 
 		$this->output->setPageTitle( $this->title->getTalkpage()->getPrefixedText() );
 		self::addJSandCSS();
+		$article = new Article( $this->title );
+		
+		if( $this->methodApplies('talkpage_sort_order') ) {
+			global $wgRequest;
+			$remember_sort_checked = $wgRequest->getVal('lqt_remember_sort') ? 'checked ' : '';
+			$wgUser->setOption('lqt_sort_order', $this->sort_order);
+			$wgUser->saveSettings();
+		} else {
+			$remember_sort_checked = '';
+		}
 
-		$this->showHeader();
-		
-		
 		if( $this->methodApplies('talkpage_new_thread') ) {
 			$this->showNewThreadForm();
 		} else {
+
+			// Only show sort controls if there is stuff to be sorted
+			if($article->exists()) {
+				$nc_sort = $this->sort_order==LQT_NEWEST_CHANGES ? ' selected' : '';
+				$nt_sort = $this->sort_order==LQT_NEWEST_THREADS ? ' selected' : '';
+				$ot_sort = $this->sort_order==LQT_OLDEST_THREADS ? ' selected' : '';
+				$newest_changes = wfMsg('lqt_sort_newest_changes');
+				$newest_threads = wfMsg('lqt_sort_newest_threads');
+				$oldest_threads = wfMsg('lqt_sort_oldest_threads');
+				$lqt_remember_sort = wfMsg('lqt_remember_sort') ;
+				$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order');
+				$lqt_sorting_order = wfMsg('lqt_sorting_order');
+				$lqt_sort_newest_changes = wfMsg('lqt_sort_newest_changes');
+				$lqt_sort_newest_threads = wfMsg('lqt_sort_newest_threads');
+				$lqt_sort_oldest_threads = wfMsg('lqt_sort_oldest_threads');
+				$go=wfMsg('go');
+				if($wgUser->isLoggedIn()) { 
+					$remember_sort = 
+<<<HTML
+<br/>
+<label for="lqt_remember_sort_checkbox">
+<input id="lqt_remember_sort_checkbox" name="lqt_remember_sort" type="checkbox" value="1" $remember_sort_checked class="lqt_remember_sort" />
+$lqt_remember_sort</label>
+HTML;
+				} else {
+					$remember_sort = '';
+				}
+				$this->openDiv('lqt_view_options');
+				$this->output->addHTML( 
+
+<<<HTML
+<form name="lqt_sort" action="$form_action_url" method="post">$lqt_sorting_order
+<select name="lqt_order" class="lqt_sort_select">
+<option value="nc"$nc_sort>$lqt_sort_newest_changes</option>
+<option value="nt"$nt_sort>$lqt_sort_newest_threads</option>
+<option value="ot"$ot_sort>$lqt_sort_oldest_threads</option>
+</select>
+$remember_sort
+<input name="submitsort" type="submit" value="$go" class="lqt_go_sort"/>
+</form>
+HTML
+				);
+				$this->closeDiv();
+			}
 			$url = $this->talkpageUrl( $this->title, 'talkpage_new_thread' );
 			$this->output->addHTML("<strong><a class=\"lqt_start_discussion\" href=\"$url\">".wfMsg('lqt_new_thread')."</a></strong>");
 		}
@@ -216,14 +270,14 @@ class TalkpageView extends LqtView {
 		$this->openDiv('lqt_archive_teaser_empty');
 		$this->output->addHTML("<div class=\"lqt_browse_archive\"><a href=\"{$this->talkpageUrl($this->title, 'talkpage_archive')}\">".wfMsg('lqt_browse_archive_without_recent')."</a></div>");
 		$this->closeDiv();
-			
 		$recently_archived_threads = $this->queries->query('recently-archived');
 		if(count($threads) > 3 || count($recently_archived_threads) > 0) {
 			$this->showTOC($threads);
 		}
 		$this->showArchiveWidget($recently_archived_threads);
 		$this->closeDiv();
-
+		// Clear any floats
+		$this->output->addHTML('<br clear="all" />');
 		
 		foreach($threads as $t) {
 			$this->showThread($t);
@@ -554,7 +608,6 @@ class ThreadPermalinkView extends LqtView {
 			$this->showSummarizeForm($this->thread);
 
 		$this->showThread($this->thread);
-
 		return false;
 	}
 }

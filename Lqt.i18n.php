@@ -92,8 +92,13 @@ $messages['en'] = array(
 	'lqt_header_warning_before_big' => '',
 	'lqt_header_warning_big' => 'You are editing a $1. ',
 	'lqt_header_warning_after_big' => 'Headers are for announcements and prefaces. You might instead want to $2.',
-	'lqt_header_warning_bold' => 'talkpage header',
+	'lqt_header_warning_bold' => 'discussion page header',
 	'lqt_header_warning_new_discussion' => 'start a new discussion',
+	'lqt_sorting_order' => 'Sorting order:',
+	'lqt_remember_sort' => 'Remember this preference',
+	'lqt_sort_newest_changes' => 'last modified first',
+	'lqt_sort_newest_threads' => 'newest threads first',
+	'lqt_sort_oldest_threads' => 'oldest threads first',
 );
 
 /** Arabic (العربية)

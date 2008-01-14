@@ -441,3 +441,8 @@ li#ca-nstab-thread {
 	/* from #ca-talk */
 	margin-right: 1.6em;
 }
+
+.lqt_view_options  { font-size:85%; float:right; }
+.lqt_sorting_order { font-size:85%; }
+.lqt_go_sort { font-size:85%; font-weight:bold;}
+.lqt_remember_sort { font-size:85%; }

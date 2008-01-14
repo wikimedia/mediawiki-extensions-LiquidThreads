@@ -275,6 +275,8 @@ class LqtView {
 	
 	public $archive_start_days = 14;
 	public $archive_recent_days = 5;
+
+	protected $sort_order=LQT_NEWEST_CHANGES;
 	
 	function __construct(&$output, &$article, &$title, &$user, &$request) {
 		$this->article = $article;
@@ -292,24 +294,56 @@ class LqtView {
 	}
 	
 	function initializeQueries() {
+
+		if( $this->methodApplies('talkpage_sort_order') ) {
+			// Sort order is explicitly specified through UI
+			global $wgRequest;
+			$lqt_order=$wgRequest->getVal('lqt_order');
+			switch($lqt_order) {
+				case 'nc':
+					$this->sort_order=LQT_NEWEST_CHANGES;
+					break;
+				case 'nt':
+					$this->sort_order=LQT_NEWEST_THREADS;
+					break;
+				case 'ot':
+					$this->sort_order=LQT_OLDEST_THREADS;
+					break;
+			}
+		} else {
+			// Sort order set in user preferences overrides default
+			global $wgUser;
+			$user_order = $wgUser->getOption('lqt_sort_order') ;
+			if( $user_order ) {
+				$this->sort_order=$user_order;
+			}
+		}
+		global $wgOut;
 		$g = new QueryGroup();
 		$startdate = Date::now()->nDaysAgo($this->archive_start_days)->midnight();
 		$recentstartdate = $startdate->nDaysAgo($this->archive_recent_days);
 		$article_clause = Threads::articleClause($this->article);
+		if($this->sort_order==LQT_NEWEST_CHANGES) {
+			$sort_clause='ORDER BY thread.thread_modified DESC';
+		} elseif($this->sort_order==LQT_NEWEST_THREADS) {
+			$sort_clause='ORDER BY thread.thread_created DESC';
+		} elseif($this->sort_order==LQT_OLDEST_THREADS) {
+			$sort_clause='ORDER BY thread.thread_created ASC';
+		}
 		$g->addQuery('fresh',
 		              array($article_clause,
 							'thread.thread_parent is null',
 		                    '(thread.thread_modified >= ' . $startdate->text() .
 		 					'  OR (thread.thread_summary_page is NULL' . 
 								 ' AND thread.thread_type='.Threads::TYPE_NORMAL.'))'),
-		              array('ORDER BY thread.thread_modified DESC'));
+		              array($sort_clause));
 		$g->addQuery('archived',
 		             array($article_clause,
 							'thread.thread_parent is null',
 		                   '(thread.thread_summary_page is not null' .
 			                  ' OR thread.thread_type='.Threads::TYPE_NORMAL.')',
 		                   'thread.thread_modified < ' . $startdate->text()),
-		             array('ORDER BY thread.thread_modified DESC'));
+		             array($sort_clause));
 		$g->extendQuery('archived', 'recently-archived',
 		                array('( thread.thread_modified >=' . $recentstartdate->text() .
 				      '  OR  rev_timestamp >= ' . $recentstartdate->text() . ')',
