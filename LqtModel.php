@@ -409,7 +409,7 @@ class Thread {
 		$dbr =& wfGetDB( DB_MASTER );
 		
 		$new_articleNamespace = $title->getNamespace();
-		$new_articleTitle = $title->getDBKey();
+		$new_articleTitle = $title->getDBkey();
 		
 		foreach($this->replies as $r) {
 			$res = $dbr->update( 'thread',
@@ -1117,7 +1117,7 @@ class NewMessages {
 		global $wgDBprefix;
 
 		if( $t->article()->getTitle()->getNamespace() == NS_USER ) {
-			$user = User::newFromName($t->article()->getTitle()->getDBKey());
+			$user = User::newFromName($t->article()->getTitle()->getDBkey());
 			$user->setNewtalk(true);
 		}
 		
@@ -1126,8 +1126,8 @@ class NewMessages {
 		$talkpage_t = $t->article()->getTitle();
 		$root_t = $t->root()->getTitle();
 		
-		$q_talkpage_t = $dbw->addQuotes($talkpage_t->getDBKey());
-		$q_root_t = $dbw->addQuotes($root_t->getDBKey());
+		$q_talkpage_t = $dbw->addQuotes($talkpage_t->getDBkey());
+		$q_root_t = $dbw->addQuotes($root_t->getDBkey());
 		
 		// Select any applicable watchlist entries for the thread.
 		$where_clause = <<<SQL
