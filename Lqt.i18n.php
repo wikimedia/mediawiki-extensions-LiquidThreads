@@ -282,6 +282,7 @@ $messages['fr'] = array(
 	'lqt_undelete'                          => 'Récupérer',
 	'lqt_permalink'                         => 'Permalien',
 	'lqt_fragment'                          => 'un fragment de $1 à partir de $2',
+	'lqt_discussion_link'                   => 'discussion',
 	'lqt_from_talk'                         => 'de $1',
 	'lqt_newer'                             => '«plus récent',
 	'lqt_older'                             => 'plus ancien»',
@@ -342,7 +343,7 @@ $messages['fr'] = array(
 	'lqt_talkpage_autocreate_summary'       => 'Page de discussion créée automatiquement quand le premier fil de discussion a été envoyé.',
 	'lqt_header_warning_big'                => 'Vous modifiez un $1.',
 	'lqt_header_warning_after_big'          => 'Les en-têtes sont pour les annonces et les préfaces. Vous devriez à la place $2.',
-	'lqt_header_warning_bold'               => "En-tête d'une page de discussion",
+	'lqt_header_warning_bold'               => 'En-tête d’une page de discussion',
 	'lqt_header_warning_new_discussion'     => 'lancer un nouveau fil de discussion',
 );
 
@@ -515,6 +516,11 @@ $messages['hsb'] = array(
 	'lqt_header_warning_after_big'          => 'Hłowowe linki su za wozjewjenja a předsłowa. Chceš snano město toho $2.',
 	'lqt_header_warning_bold'               => 'Hłowowa linka diskusijneje strony',
 	'lqt_header_warning_new_discussion'     => 'nowu diskusiju započeć',
+	'lqt_sorting_order'                     => 'Sortěrowanski porjad:',
+	'lqt_remember_sort'                     => 'Tute nastajenje sej spomjatkować',
+	'lqt_sort_newest_changes'               => 'Poslednje změnjene jako prěnje',
+	'lqt_sort_newest_threads'               => 'najnowše nitki jako přenje',
+	'lqt_sort_oldest_threads'               => 'najstarše nitki jako prěnje',
 );
 
 /** Hungarian (Magyar)
@@ -690,6 +696,11 @@ $messages['nl'] = array(
 	'lqt_header_warning_after_big'          => 'Koppen zijn voor aankondigingen en inleidingen. Wellicht kunt u beter gebruik maken van $2.',
 	'lqt_header_warning_bold'               => 'koptekst overlegpagina',
 	'lqt_header_warning_new_discussion'     => 'begin een nieuw overleg',
+	'lqt_sorting_order'                     => 'Sorteervolgorde:',
+	'lqt_remember_sort'                     => 'Deze instelling onthouden',
+	'lqt_sort_newest_changes'               => 'laatst gewijzigd bovenaan',
+	'lqt_sort_newest_threads'               => 'nieuwste threads bovenaan',
+	'lqt_sort_oldest_threads'               => 'oudste threads bovenaan',
 );
 
 /** Norwegian (‪Norsk (bokmål)‬)
@@ -774,7 +785,6 @@ $messages['no'] = array(
 	'lqt_header_warning_after_big'          => 'Hodeseksjoner er for annonseringer og innledninger. Du vil muligens i stedet $2.',
 	'lqt_header_warning_bold'               => 'diskusjonssideinnledning',
 	'lqt_header_warning_new_discussion'     => 'start en ny diskusjon',
-
 );
 
 /** Occitan (Occitan)
@@ -946,6 +956,92 @@ $messages['ru'] = array(
 	'lqt_header_warning_new_discussion'     => 'начать новое обсуждение',
 );
 
+/** Slovak (Slovenčina)
+ * @author Helix84
+ */
+$messages['sk'] = array(
+	'lqt_newmessages'                       => 'Nové správy',
+	'lqt_movethread'                        => 'Presunúť vlákno na inú stránku',
+	'lqt_deletethread'                      => 'Zmazať alebo obnoviť zmazané vlákno',
+	'lqt_browse_archive_without_recent'     => 'Zobraziť archivované vlákna',
+	'lqt_browse_archive_with_recent'        => 'staršie',
+	'lqt_recently_archived'                 => 'Nedávno archivované:',
+	'lqt_contents_title'                    => 'Obsah:',
+	'lqt_add_header'                        => 'Pridať hlavičku',
+	'lqt_new_thread'                        => 'Začať novú diskusiu',
+	'lqt_in_response_to'                    => 'Odpoveď na $1 od $2 vyššie:',
+	'lqt_edited_notice'                     => 'Upravené',
+	'lqt_move_placeholder'                  => 'Toto vlákno je vyhradené miesto, ktoré označuje, že vlákno $1 bolo odstránené z tejto stránky na inú diskusnú stránku. Tento presun vykonal $2 $3.',
+	'lqt_reply'                             => 'Odpovedať',
+	'lqt_delete'                            => 'Zmazať',
+	'lqt_undelete'                          => 'Obnoviť zmazané',
+	'lqt_permalink'                         => 'Trvalý odkaz',
+	'lqt_fragment'                          => 'úryvok z $1 od $2',
+	'lqt_discussion_link'                   => 'diskusia',
+	'lqt_from_talk'                         => 'od $1',
+	'lqt_newer'                             => '«novšie',
+	'lqt_older'                             => 'staršie»',
+	'lqt_hist_comment_edited'               => 'Text komentára bol upravený',
+	'lqt_hist_summary_changed'              => 'Zhrnutie sa zmenilo',
+	'lqt_hist_reply_created'                => 'Bola vytvorená nová odpoveď',
+	'lqt_hist_thread_created'               => 'Bolo vytvorené nové vlákno',
+	'lqt_hist_deleted'                      => 'Zmazané',
+	'lqt_hist_undeleted'                    => 'Obnovené zmazanie',
+	'lqt_hist_moved_talkpage'               => 'Presunuté',
+	'lqt_hist_listing_subtitle'             => 'Zobrazuje sa výpis histórie.',
+	'lqt_hist_view_whole_thread'            => 'Zobraziť históriu celého vlákna',
+	'lqt_hist_no_revisions_error'           => 'Toto vlákno nemá historické revízie. To je dosť čudné.',
+	'lqt_hist_past_last_page_error'         => 'Prekročili ste počet stránok histórie, ktoré táto stránka má.',
+	'lqt_hist_tooltip_newer_disabled'       => 'Tento odkaz je nefunkčný, pretože sa nachádzate na prvej stránke.',
+	'lqt_hist_tooltip_older_disabled'       => 'Tento odkaz je nefunkčný, pretože sa nachádzate na poslednej stránke.',
+	'lqt_revision_as_of'                    => 'Revízia z $1.',
+	'lqt_change_new_thread'                 => 'Toto je prvotná revízia vlákna.',
+	'lqt_change_reply_created'              => 'Zvýraznený komentár bol vytvorený v tejto revízii.',
+	'lqt_change_edited_root'                => 'Zvýraznený komentár bol upravený v tejto revízii.',
+	'lqt_youhavenewmessages'                => 'Máte $1.',
+	'lqt_changes_from'                      => ' od',
+	'lqt_changes_summary_of'                => ' z',
+	'lqt_protectedfromreply'                => 'Toto vlákno bolo $1 proti odpovediam naň.',
+	'lqt_protectedfromreply_link'           => 'zamknuté',
+	'lqt_subject'                           => 'Predmet:',
+	'lqt_nosubject'                         => '«bez predmetu»',
+	'lqt_noreason'                          => 'Nebol udaný dôvod.',
+	'lqt_thread_deleted_for_sysops'         => 'Vlákno bolo $1 a môžu ho vidieť iba správcovia.',
+	'lqt_thread_deleted_for_sysops_deleted' => 'zmazané',
+	'lqt_thread_deleted'                    => 'Toto vlákno bolo zmazané.',
+	'lqt_summary_notice'                    => 'Ak sa zdá, že je táto diskusia uzavretá, mali by ste ju $1. Nenastali tu zmeny najmenej 	{{PLURAL:$2|deň|dni|dní}}.',
+	'lqt_summary_notice_link'               => 'napísať zhrnutie',
+	'lqt_summary_label'                     => 'Toto vlákno bolo zhrnuté nasledovne:',
+	'lqt_summary_subtitle'                  => 'zhrnutie $1.',
+	'lqt_nosuchrevision'                    => 'Takáto revízia v tomto vlákne neexistuje.',
+	'lqt_nosuchthread'                      => 'Také vlákno neexistuje.',
+	'lqt_threadrequired'                    => 'V URL musíte zadať vlákno.',
+	'lqt_move_movingthread'                 => 'Presúva sa $1. Toto vlákno je súčasťou $2.',
+	'lqt_move_torename'                     => 'Aby ste premenovali toto vlákno, $1 a zmeňte pole „Predmet“.',
+	'lqt_move_torename_edit'                => 'upravte ho',
+	'lqt_move_destinationtitle'             => 'Názov cieľovej diskusnej stránky:',
+	'lqt_move_move'                         => 'Presunúť',
+	'lqt_move_nodestination'                => 'Musíte zadať cieľ.',
+	'lqt_move_noreason'                     => 'Nebol uvedený dôvod.',
+	'lqt_move_success'                      => 'Vlákno bolo presunuté na $1.',
+	'lqt_delete_undeleting'                 => 'Obnovuje sa zmazané $1.',
+	'lqt_delete_undeletethread'             => 'Obnoviť zmazané vlákno',
+	'lqt_delete_partof'                     => 'Toto vlákno je súčasťou $1.',
+	'lqt_delete_deleting'                   => 'Maže sa $1 a $2 naň.',
+	'lqt_delete_deleting_allreplies'        => 'všetky odpovede',
+	'lqt_delete_deletethread'               => 'Zmazať vlákno a odpovede',
+	'lqt_delete_deleted'                    => 'Vlákno bolo zmazané.',
+	'lqt_delete_undeleted'                  => 'Vlákno bolo obnovené.',
+	'lqt_delete_return'                     => 'Vrátiť sa na $1.',
+	'lqt_delete_return_link'                => 'diskusnú stránku',
+	'lqt_delete_unallowed'                  => 'Nemáte povolenie mazať vlákna.',
+	'lqt_talkpage_autocreate_summary'       => 'Diskusná stránka bola automaticky vytvorená pri prvom príspevku do vlákna.',
+	'lqt_header_warning_big'                => 'Upravujete $1.',
+	'lqt_header_warning_after_big'          => 'Hlavičky slúžia na oznámenia a úvody. Namiesto toho môžete $2.',
+	'lqt_header_warning_bold'               => 'hlavička diskusnej stránky',
+	'lqt_header_warning_new_discussion'     => 'začať novú diskusiu',
+);
+
 /** 粵語 (粵語)
  * @author Shinjiman
  */
@@ -1030,7 +1126,6 @@ $messages['yue'] = array(
 	'lqt_header_warning_after_big'          => '用來做公告同埋導言嘅版頭。你可能想去$2。',
 	'lqt_header_warning_bold'               => '討論頁版頭',
 	'lqt_header_warning_new_discussion'     => '開始一個新討論',
-
 );
 
 /** Traditional Chinese (?中文(简体)?)
@@ -1204,7 +1299,6 @@ $messages['zh-hant'] = array(
 	'lqt_header_warning_after_big'          => '用來作為公告和導言的頁頂。您可能想去$2。',
 	'lqt_header_warning_bold'               => '討論頁頁頂',
 	'lqt_header_warning_new_discussion'     => '開始一個新的討論',
-
 );
 
 $messages['zh']     = $messages['zh-hans'];
