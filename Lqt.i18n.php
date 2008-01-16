@@ -185,6 +185,11 @@ $messages['ar'] = array(
 	'lqt_header_warning_after_big'          => 'العناوين للإعلانات والمقدمات. ربما ترغب كبديل في $2.',
 	'lqt_header_warning_bold'               => 'عنوان صفحة نقاش',
 	'lqt_header_warning_new_discussion'     => 'بدء نقاش جديد',
+	'lqt_sorting_order'                     => 'طريقة الترتيب:',
+	'lqt_remember_sort'                     => 'تذكر هذا التفضيل',
+	'lqt_sort_newest_changes'               => 'المعدل أخيرا أولا',
+	'lqt_sort_newest_threads'               => 'مجموعة الرسائل الأجدد أولا',
+	'lqt_sort_oldest_threads'               => 'مجموعة الرسائل الأقدم أولا',
 );
 
 /** Bulgarian (Български)
@@ -345,6 +350,11 @@ $messages['fr'] = array(
 	'lqt_header_warning_after_big'          => 'Les en-têtes sont pour les annonces et les préfaces. Vous devriez à la place $2.',
 	'lqt_header_warning_bold'               => 'En-tête d’une page de discussion',
 	'lqt_header_warning_new_discussion'     => 'lancer un nouveau fil de discussion',
+	'lqt_sorting_order'                     => 'Ordre de tri :',
+	'lqt_remember_sort'                     => 'Rappeler cette préférence',
+	'lqt_sort_newest_changes'               => 'dernier modifié en premier',
+	'lqt_sort_newest_threads'               => 'Les fils de discussion les plus récents en premier',
+	'lqt_sort_oldest_threads'               => 'Les fils de discussion les plus anciens en premier',
 );
 
 /** Galician (Galego)
@@ -430,6 +440,53 @@ $messages['gl'] = array(
 	'lqt_header_warning_after_big'          => 'Son cabeceiras dos anuncios e prefacios. É posíbel que no seu lugar queiran $2.',
 	'lqt_header_warning_bold'               => 'Cabeceira da páxina de conversa',
 	'lqt_header_warning_new_discussion'     => 'comezar unha nova conversa',
+);
+
+/** Gujarati (ગુજરાતી)
+ * @author Dsvyas
+ */
+$messages['gu'] = array(
+	'lqt_newmessages'                       => 'નવા સંદેશા',
+	'lqt_browse_archive_with_recent'        => 'જુનું/જુના',
+	'lqt_recently_archived'                 => 'તાજેતરમાં સંગ્રહ કરેલા/તાજેતરમાં દફતર કરેલા',
+	'lqt_contents_title'                    => 'સૂચિ',
+	'lqt_add_header'                        => 'શિર્ષક ઉમેરો',
+	'lqt_new_thread'                        => 'નવી ચર્ચા શરૂ કરો',
+	'lqt_in_response_to'                    => 'ઉપર મુજબ $૧ ના પ્રત્યુત્તરમાં $૨ દ્વારા/
+$૨ દ્વારા $૧ ના પ્રત્યુત્તરમાં, ઉપર મુજબ/',
+	'lqt_edited_notice'                     => 'ફેરફાર કરેલા',
+	'lqt_reply'                             => 'પ્રત્યુત્તર',
+	'lqt_delete'                            => 'રદ કરો',
+	'lqt_undelete'                          => 'રદ કરેલું પાછુ લાવો',
+	'lqt_permalink'                         => 'સ્થાયી કડી',
+	'lqt_fragment'                          => '$૧ થી $૨ ની વચ્ચેનો થોડો ભાગ',
+	'lqt_discussion_link'                   => 'ચર્ચા',
+	'lqt_from_talk'                         => '$૧ થી',
+	'lqt_newer'                             => '<<નવા',
+	'lqt_older'                             => '<<જુના',
+	'lqt_hist_comment_edited'               => 'ટીપ્પણીમાં ફેરફાર કર્યો છે',
+	'lqt_hist_summary_changed'              => 'સારાંશમાં બદલ્યો છે',
+	'lqt_hist_deleted'                      => 'રદ કરવામાં આવ્યું છે',
+	'lqt_hist_undeleted'                    => 'રદ કરેલું પાછું વાળ્યું છે',
+	'lqt_hist_moved_talkpage'               => 'ખસેડવામાં આવ્યું છે',
+	'lqt_hist_listing_subtitle'             => 'ઈતિહાસ જોઇ રહ્યા છો/ઐતિહાસિક સૂચીકરણ જોઇ રહ્યા છો',
+	'lqt_hist_past_last_page_error'         => 'આપ ઈતિહાસના પ્રવર્તમાન પાનાની સંખ્યા વટાવી ચુક્યા છો',
+	'lqt_hist_tooltip_newer_disabled'       => 'આ લિંક કામ નહી કરે, કેમકે આપ પ્રથમ પાના પર છો',
+	'lqt_hist_tooltip_older_disabled'       => 'આ લિંક કામ નહી કરે, કેમકે આપ અંતિમ પાના પર છો',
+	'lqt_revision_as_of'                    => '$૧ સુધીમાં સુધારેલ',
+	'lqt_change_reply_created'              => 'હાઇલાઇટ કરેલી ટિપ્પણીની રચના વર્તમાન સુધારા દરમ્યાન કરવામાં આવી છે',
+	'lqt_change_edited_root'                => 'હાઇલાઇટ કરેલી ટિપ્પણીમાં ફેરફાર વર્તમાન સુધારા દરમ્યાન કરવામાં આવ્યો  છે',
+	'lqt_changes_from'                      => 'થી',
+	'lqt_protectedfromreply_link'           => 'સુરક્ષિત',
+	'lqt_subject'                           => 'વિષય',
+	'lqt_nosubject'                         => '<<વિષય વિના>>',
+	'lqt_noreason'                          => 'કોઇ કારણ દર્શાવવામાં આવ્યું નથી',
+	'lqt_thread_deleted_for_sysops_deleted' => 'રદ કરેલ છે',
+	'lqt_summary_notice'                    => 'જો આ ચર્ચા પૂરી થઇ ગયેલી લાગે તો, તમને તમને ભલામણ કરવામાં આવે છે કે, $૧. અહીં છેલ્લા $૨ દિવસથી કોઇ ફેરફાર થયા નથી',
+	'lqt_summary_notice_link'               => 'સારાંશ લખો',
+	'lqt_summary_subtitle'                  => '$૧નો સારાંશ',
+	'lqt_move_torename_edit'                => 'ફેરફાર કરો',
+	'lqt_move_move'                         => 'ખસેડો',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -1040,6 +1097,11 @@ $messages['sk'] = array(
 	'lqt_header_warning_after_big'          => 'Hlavičky slúžia na oznámenia a úvody. Namiesto toho môžete $2.',
 	'lqt_header_warning_bold'               => 'hlavička diskusnej stránky',
 	'lqt_header_warning_new_discussion'     => 'začať novú diskusiu',
+	'lqt_sorting_order'                     => 'Poradie radenia:',
+	'lqt_remember_sort'                     => 'Zapamätať si tieto preferencie',
+	'lqt_sort_newest_changes'               => 'posledné zmenené na začiatku',
+	'lqt_sort_newest_threads'               => 'najnovšie vlákna na začiatku',
+	'lqt_sort_oldest_threads'               => 'najstaršie vlákna na začiatku',
 );
 
 /** 粵語 (粵語)
