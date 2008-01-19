@@ -1115,7 +1115,7 @@ $messages['sk'] = array(
 	'lqt_sort_oldest_threads'               => 'najstaršie vlákna na začiatku',
 );
 
-/** 粵語 (粵語)
+/** Yue (粵語)
  * @author Shinjiman
  */
 $messages['yue'] = array(
