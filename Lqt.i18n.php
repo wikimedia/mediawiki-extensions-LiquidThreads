@@ -867,6 +867,7 @@ $messages['oc'] = array(
 	'lqt_undelete'                          => 'Recuperar',
 	'lqt_permalink'                         => 'Permaligam',
 	'lqt_fragment'                          => 'un fragment de $1 a partir de $2',
+	'lqt_discussion_link'                   => 'discussion',
 	'lqt_from_talk'                         => 'de $1',
 	'lqt_newer'                             => '«mai recent',
 	'lqt_older'                             => 'mai ancian»',
