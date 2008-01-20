@@ -652,7 +652,7 @@ $messages['lb'] = array(
 	'lqt_delete_deleting_allreplies'        => 'all Äntwerten',
 	'lqt_delete_return'                     => 'Zréck op $1',
 	'lqt_delete_return_link'                => "d'Diskussiounssäit",
-	'lqt_header_warning_bold'               => 'Diskussiounssäiten Iwwerschrëft',
+	'lqt_header_warning_bold'               => 'Iwwerschrëft vun enger Diskussiounssäit',
 	'lqt_header_warning_new_discussion'     => 'Eng nei Diskussioun ufénken.',
 );
 
@@ -1022,6 +1022,11 @@ $messages['ru'] = array(
 	'lqt_header_warning_after_big'          => 'Заголовки служат для объявлений и введений. Вы можете $2.',
 	'lqt_header_warning_bold'               => 'заголовок страницы обсуждения',
 	'lqt_header_warning_new_discussion'     => 'начать новое обсуждение',
+	'lqt_sorting_order'                     => 'Порядок сортировки:',
+	'lqt_remember_sort'                     => 'Запомнить эти настройки',
+	'lqt_sort_newest_changes'               => 'последние изменённые вначале',
+	'lqt_sort_newest_threads'               => 'новые ветки вначале',
+	'lqt_sort_oldest_threads'               => 'старые ветки вначале',
 );
 
 /** Slovak (Slovenčina)
