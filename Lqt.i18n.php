@@ -938,6 +938,21 @@ $messages['oc'] = array(
 	'lqt_sort_oldest_threads'               => 'Los fials de discussion mai ancians en primièr',
 );
 
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'lqt_newmessages'                => 'نوي پيغامونه',
+	'lqt_reply'                      => 'ځوابول',
+	'lqt_delete'                     => 'ړنګول',
+	'lqt_from_talk'                  => 'د $1 لخوا',
+	'lqt_hist_deleted'               => 'ړنګ شو',
+	'lqt_youhavenewmessages'         => 'تاسو $1 لری.',
+	'lqt_noreason'                   => 'هېڅ سبب نه دی ورکړ شوی.',
+	'lqt_move_noreason'              => 'هېڅ سبب نه دی ورکړ شوی.',
+	'lqt_delete_deleting_allreplies' => 'ټول ځوابونه',
+);
+
 /** Russian (Русский)
  * @author VasilievVV
  * @author .:Ajvol:.
