@@ -264,6 +264,14 @@ $messages['el'] = array(
 	'lqt_header_warning_new_discussion' => 'ξεκινήστε μια νέα συζήτηση',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'lqt_newer' => '«pli nova',
+	'lqt_older' => 'pli malnova»',
+);
+
 /** French (Français)
  * @author Sherbrooke
  * @author Dereckson
