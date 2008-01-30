@@ -448,7 +448,7 @@ $messages['gl'] = array(
 	'lqt_talkpage_autocreate_summary'       => 'Páxina de conversa creada automaticametne cando se publicou o primeiro fío.',
 	'lqt_header_warning_big'                => 'Vostede está editando un $1.',
 	'lqt_header_warning_after_big'          => 'Son cabeceiras dos anuncios e prefacios. É posíbel que no seu lugar queiran $2.',
-	'lqt_header_warning_bold'               => 'Cabeceira da páxina de conversa',
+	'lqt_header_warning_bold'               => 'Cabeceira da páxina de discusión',
 	'lqt_header_warning_new_discussion'     => 'comezar unha nova conversa',
 	'lqt_remember_sort'                     => 'Lembrar esta preferencia',
 );
