@@ -75,9 +75,8 @@
 .lqt_summary_notice {
 	display: table; /* Occupy only the width of the text, */
 	width: auto;    /* not the entire available width.    */
-	
+	font-size: smaller;	
 	border: 1px solid #c0c090;
-	background-color: #faeaba;
 	margin: 1em 0;
 	padding: .5em 1em;
 }
