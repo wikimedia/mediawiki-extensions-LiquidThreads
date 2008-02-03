@@ -274,8 +274,8 @@ $messages['eo'] = array(
 
 /** French (Français)
  * @author Sherbrooke
- * @author Dereckson
  * @author Grondin
+ * @author Dereckson
  */
 $messages['fr'] = array(
 	'lqt_newmessages'                       => 'Nouveaux messages',
@@ -327,7 +327,7 @@ $messages['fr'] = array(
 	'lqt_thread_deleted_for_sysops'         => 'Ce fil a été $1. Seuls les administrateurs peuvent le voir.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'effacé',
 	'lqt_thread_deleted'                    => 'Ce fil a été effacé.',
-	'lqt_summary_notice'                    => "Si cette discussion semble complète, vous êtes encouragé à $1. Il n'y a eu aucun changement ici depuis au moins $2 {{plural:$2|jour|jours}}.",
+	'lqt_summary_notice'                    => "Il n'y a eu aucun changement dans cette discussuion de puis au moins $2 jours. Si elle a été conclue, vous pouvez avoir besoin de $1.",
 	'lqt_summary_notice_link'               => 'écrire un résumé',
 	'lqt_summary_label'                     => 'Ce fil a été résumé par :',
 	'lqt_summary_subtitle'                  => 'le résumé de $1.',
@@ -553,7 +553,7 @@ $messages['hsb'] = array(
 	'lqt_thread_deleted_for_sysops'         => 'Tuta nitka je $1 była a je jenož za administratorow widźomna.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'wušmórnjeny',
 	'lqt_thread_deleted'                    => 'Tuta nitka je so wušmórnyła.',
-	'lqt_summary_notice'                    => 'Jeli tuta diskusija zda so skónčena, da pozbudźeš so $1. Njeběchu změny wot znajmjeńša $2 {{PLURAL:$2|dnja|dnjow|dnjow|dnjow}}.',
+	'lqt_summary_notice'                    => 'Wot znajmjeńša $2 {{PLURAL:$2|dnja|dnjow|dnjow|dnjow}} na tutej diskusijnej stronje žane změny njeběchu. Jeli je zakónčena, chceš snano $1.',
 	'lqt_summary_notice_link'               => 'zjeće pisać',
 	'lqt_summary_label'                     => 'Tuta nitka je so takle zjała:',
 	'lqt_summary_subtitle'                  => 'zjeće wot $1.',
@@ -1004,6 +1004,13 @@ $messages['ps'] = array(
 	'lqt_delete_deleting_allreplies' => 'ټول ځوابونه',
 );
 
+/** Portuguese (Português)
+ * @author Malafaya
+ */
+$messages['pt'] = array(
+	'lqt_delete_return' => 'Voltar para $1.',
+);
+
 /** Russian (Русский)
  * @author VasilievVV
  * @author .:Ajvol:.
@@ -1149,7 +1156,7 @@ $messages['sk'] = array(
 	'lqt_thread_deleted_for_sysops'         => 'Vlákno bolo $1 a môžu ho vidieť iba správcovia.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'zmazané',
 	'lqt_thread_deleted'                    => 'Toto vlákno bolo zmazané.',
-	'lqt_summary_notice'                    => 'Ak sa zdá, že je táto diskusia uzavretá, mali by ste ju $1. Nenastali tu zmeny najmenej 	{{PLURAL:$2|deň|dni|dní}}.',
+	'lqt_summary_notice'                    => 'V tejto diskusii nenastali zmeny najmenej {{PLURAL:$2|deň|dni|dní}}. Ak diskusia skončila, mali by ste ju $1.',
 	'lqt_summary_notice_link'               => 'napísať zhrnutie',
 	'lqt_summary_label'                     => 'Toto vlákno bolo zhrnuté nasledovne:',
 	'lqt_summary_subtitle'                  => 'zhrnutie $1.',
@@ -1185,6 +1192,15 @@ $messages['sk'] = array(
 	'lqt_sort_newest_changes'               => 'posledné zmenené na začiatku',
 	'lqt_sort_newest_threads'               => 'najnovšie vlákna na začiatku',
 	'lqt_sort_oldest_threads'               => 'najstaršie vlákna na začiatku',
+);
+
+/** Volapük (Volapük)
+ * @author Malafaya
+ */
+$messages['vo'] = array(
+	'lqt_newmessages'        => 'Nuns Nulik',
+	'lqt_contents_title'     => 'Ninäd:',
+	'lqt_youhavenewmessages' => 'Labol $1.',
 );
 
 /** Yue (粵語)
