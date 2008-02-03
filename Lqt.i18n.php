@@ -215,6 +215,7 @@ $messages['bg'] = array(
 	'lqt_hist_summary_changed'          => 'Променено резюме',
 	'lqt_hist_tooltip_newer_disabled'   => 'Препратката е неактивна, тъй като сте на първата страница.',
 	'lqt_hist_tooltip_older_disabled'   => 'Препратката е неактивна, тъй като сте на последната страница.',
+	'lqt_revision_as_of'                => 'Версия към $1.',
 	'lqt_youhavenewmessages'            => 'Имате $1.',
 	'lqt_changes_from'                  => ' от',
 	'lqt_subject'                       => 'Тема:',
@@ -1008,7 +1009,10 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'lqt_delete_return' => 'Voltar para $1.',
+	'lqt_new_thread'         => 'Iniciar uma nova discussão',
+	'lqt_youhavenewmessages' => 'Tem $1.',
+	'lqt_nosubject'          => '«sem assunto»',
+	'lqt_delete_return'      => 'Voltar para $1.',
 );
 
 /** Russian (Русский)
