@@ -1009,9 +1009,12 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
+	'lqt_newmessages'        => 'Novas Mensagens',
 	'lqt_new_thread'         => 'Iniciar uma nova discussão',
 	'lqt_youhavenewmessages' => 'Tem $1.',
 	'lqt_nosubject'          => '«sem assunto»',
+	'lqt_noreason'           => 'Nenhum motivo foi especificado.',
+	'lqt_move_noreason'      => 'Nenhum motivo foi especificado.',
 	'lqt_delete_return'      => 'Voltar para $1.',
 );
 
