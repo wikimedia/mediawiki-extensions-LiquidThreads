@@ -1494,10 +1494,3 @@ $messages['zh-hant'] = array(
 	'lqt_header_warning_bold'               => '討論頁頁頂',
 	'lqt_header_warning_new_discussion'     => '開始一個新的討論',
 );
-
-$messages['zh']     = $messages['zh-hans'];
-$messages['zh-cn']  = $messages['zh-hans'];
-$messages['zh-hk']  = $messages['zh-hant'];
-$messages['zh-sg']  = $messages['zh-hans'];
-$messages['zh-tw']  = $messages['zh-hant'];
-$messages['zh-yue'] = $messages['yue'];
