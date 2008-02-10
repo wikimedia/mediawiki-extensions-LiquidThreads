@@ -1232,6 +1232,13 @@ $messages['sk'] = array(
 	'lqt_sort_oldest_threads'               => 'najstaršie vlákna na začiatku',
 );
 
+/** Swedish (Svenska)
+ * @author Max sonnelid
+ */
+$messages['sv'] = array(
+	'lqt_move_move' => 'Flytta',
+);
+
 /** Volapük (Volapük)
  * @author Malafaya
  */
