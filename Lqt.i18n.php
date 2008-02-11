@@ -240,6 +240,13 @@ $messages['bg'] = array(
 	'lqt_header_warning_new_discussion' => 'започване на ново обсъждане',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'lqt_delete' => 'Diverkañ',
+);
+
 /** Greek (Ελληνικά)
  * @author Consta
  */
@@ -509,6 +516,8 @@ $૨ દ્વારા $૧ ના પ્રત્યુત્તરમાં, 
  * @author Michawiki
  */
 $messages['hsb'] = array(
+	'lqt-desc'                              => 'Nitkowe diskusije k diskusijnym stronam přidać',
+	'lqt-nothread'                          => 'W archiwje žane nitki njejsu.',
 	'lqt_newmessages'                       => 'Nowe powěsće',
 	'lqt_movethread'                        => 'Nitku na druhu stronu přesunyć',
 	'lqt_deletethread'                      => 'Nitku wušmórnyć abo wobnowić',
@@ -734,6 +743,8 @@ $messages['loz'] = array(
  * @author Annabel
  */
 $messages['nl'] = array(
+	'lqt-desc'                              => "Voegt overleg in threads op overlegpagina's toe",
+	'lqt-nothread'                          => 'Er zijn geen threads in het archief aanwezig.',
 	'lqt_newmessages'                       => 'Nieuwe berichten',
 	'lqt_movethread'                        => 'Onderwerpspagina naar andere pagina hernoemen',
 	'lqt_deletethread'                      => 'Onderwerpspagina verwijderen of terugplaatsen',
