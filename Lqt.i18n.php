@@ -12,6 +12,8 @@
 $messages = array();
 
 $messages['en'] = array(
+	'lqt-desc' => 'Add threading discussions to talk pages',
+	'lqt-nothread' => 'There are no threads in the archive.',
 	'lqt_newmessages' => 'New Messages',
 	'lqt_movethread' => 'Move Thread to Another Page',
 	'lqt_deletethread' => 'Delete or Undelete Thread',
@@ -279,6 +281,8 @@ $messages['eo'] = array(
  * @author Dereckson
  */
 $messages['fr'] = array(
+	'lqt-desc'                              => 'Ajoute des fils de discussion dans les pages de discussion',
+	'lqt-nothread'                          => 'Il n’existe aucun fil de discussion dans les archives.',
 	'lqt_newmessages'                       => 'Nouveaux messages',
 	'lqt_movethread'                        => 'Déplacer le fil vers une autre page',
 	'lqt_deletethread'                      => 'Effacer ou récupérer le fil',

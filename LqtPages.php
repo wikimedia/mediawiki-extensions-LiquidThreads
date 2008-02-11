@@ -13,11 +13,12 @@ if( !defined( 'MEDIAWIKI' ) ) {
 }
 
 $wgExtensionCredits['other'][] = array(
-	'name'        => 'Liquid Threads',
-	'version'     => '1.0',
-	'url'         => 'http://www.mediawiki.org/wiki/Extension:LiquidThreads',
-	'author'      => 'David McCabe',
-	'description' => 'Add threading discussions to talk pages',
+	'name'           => 'Liquid Threads',
+	'version'        => '1.0',
+	'url'            => 'http://www.mediawiki.org/wiki/Extension:LiquidThreads',
+	'author'         => 'David McCabe',
+	'description'    => 'Add threading discussions to talk pages',
+	'descriptionmsg' => 'lqt-desc',
 );
 
 function efArrayDefault($name, $key, $default) {
@@ -475,7 +476,7 @@ HTML
 
 		$empty = $this->showSearchForm();
 		if ($empty) {
-			$this->output->addHTML('<p>There are no threads in the archive.');
+			$this->output->addHTML('<p><br/><b>'. wfMsg('lqt-nothread' ) . '</b>' );
 			return false;
 		}
 
