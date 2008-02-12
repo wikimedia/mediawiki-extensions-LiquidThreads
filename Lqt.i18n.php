@@ -107,6 +107,8 @@ $messages['en'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
+	'lqt-desc'                              => 'يضيف نقاشات في مجموعات إلى صفحات النقاش',
+	'lqt-nothread'                          => 'لا توجد مجموعات رسائل في الأرشيف.',
 	'lqt_newmessages'                       => 'رسائل جديدة',
 	'lqt_movethread'                        => 'نقل الرسائل إلى صفحة أخرى',
 	'lqt_deletethread'                      => 'حذف أو استرجاع الرسائل',
@@ -297,6 +299,15 @@ $messages['de'] = array(
 	'lqt_subject' => 'Thema: ',
 	'lqt_nosubject' => '„kein Thema“',
 	'lqt_noreason' => 'Kein Grund angegeben.',
+);
+
+/** Ewe (Eʋegbe)
+ * @author M.M.S.
+ */
+$messages['ee'] = array(
+	'lqt_newmessages' => 'Du yeyewo',
+	'lqt_delete'      => 'Tutui',
+	'lqt_move_move'   => 'Ɖɔli eƒe nɔƒe',
 );
 
 /** Greek (Ελληνικά)
@@ -968,6 +979,18 @@ $messages['no'] = array(
 	'lqt_header_warning_new_discussion'     => 'start en ny diskusjon',
 );
 
+/** Northern Sotho (Sesotho sa Leboa)
+ * @author Mohau
+ */
+$messages['nso'] = array(
+	'lqt_delete'             => 'Phumula',
+	'lqt_youhavenewmessages' => 'O nale $1.',
+	'lqt_changes_from'       => 'gotšwa',
+	'lqt_changes_summary_of' => 'ya',
+	'lqt_subject'            => 'Tabataba:',
+	'lqt_nosubject'          => '«gago tabataba»',
+);
+
 /** Occitan (Occitan)
  * @author Cedric31
  */
@@ -1078,42 +1101,49 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'lqt_newmessages'                => 'Novas Mensagens',
-	'lqt_contents_title'             => 'Conteúdo:',
-	'lqt_add_header'                 => 'Adicionar cabeçalho',
-	'lqt_new_thread'                 => 'Iniciar uma nova discussão',
-	'lqt_in_response_to'             => 'Em resposta a $1 por $2, acima:',
-	'lqt_edited_notice'              => 'Editado',
-	'lqt_reply'                      => 'Responder',
-	'lqt_delete'                     => 'Apagar',
-	'lqt_undelete'                   => 'Recuperar',
-	'lqt_permalink'                  => 'Ligação permanente',
-	'lqt_fragment'                   => 'um fragmento de $1 de $2',
-	'lqt_discussion_link'            => 'discussão',
-	'lqt_from_talk'                  => 'de $1',
-	'lqt_newer'                      => '«mais recente',
-	'lqt_older'                      => 'mais antigo»',
-	'lqt_hist_comment_edited'        => 'Texto do comentário editado',
-	'lqt_hist_summary_changed'       => 'Sumário alterado',
-	'lqt_hist_deleted'               => 'Apagado',
-	'lqt_hist_undeleted'             => 'Recuperado',
-	'lqt_hist_moved_talkpage'        => 'Movido',
-	'lqt_revision_as_of'             => 'Revisão em $1.',
-	'lqt_youhavenewmessages'         => 'Tem $1.',
-	'lqt_subject'                    => 'Assunto:',
-	'lqt_nosubject'                  => '«sem assunto»',
-	'lqt_noreason'                   => 'Nenhum motivo foi especificado.',
-	'lqt_summary_subtitle'           => 'o sumário de $1.',
-	'lqt_move_move'                  => 'Mover',
-	'lqt_move_noreason'              => 'Nenhum motivo foi especificado.',
-	'lqt_delete_undeleting'          => 'Recuperando $1.',
-	'lqt_delete_deleting_allreplies' => 'todas as respostas',
-	'lqt_delete_return'              => 'Voltar para $1.',
-	'lqt_delete_return_link'         => 'a página de discussão',
-	'lqt_header_warning_big'         => 'Você está a editar $1.',
-	'lqt_header_warning_bold'        => 'cabeçalho da página de discussão',
-	'lqt_sorting_order'              => 'Ordenação:',
-	'lqt_remember_sort'              => 'Lembrar esta preferência',
+	'lqt_newmessages'                   => 'Novas Mensagens',
+	'lqt_recently_archived'             => 'Recentemente arquivados:',
+	'lqt_contents_title'                => 'Conteúdo:',
+	'lqt_add_header'                    => 'Adicionar cabeçalho',
+	'lqt_new_thread'                    => 'Iniciar uma nova discussão',
+	'lqt_in_response_to'                => 'Em resposta a $1 por $2, acima:',
+	'lqt_edited_notice'                 => 'Editado',
+	'lqt_reply'                         => 'Responder',
+	'lqt_delete'                        => 'Apagar',
+	'lqt_undelete'                      => 'Recuperar',
+	'lqt_permalink'                     => 'Ligação permanente',
+	'lqt_fragment'                      => 'um fragmento de $1 de $2',
+	'lqt_discussion_link'               => 'discussão',
+	'lqt_from_talk'                     => 'de $1',
+	'lqt_newer'                         => '«mais recente',
+	'lqt_older'                         => 'mais antigo»',
+	'lqt_hist_comment_edited'           => 'Texto do comentário editado',
+	'lqt_hist_summary_changed'          => 'Sumário alterado',
+	'lqt_hist_deleted'                  => 'Apagado',
+	'lqt_hist_undeleted'                => 'Recuperado',
+	'lqt_hist_moved_talkpage'           => 'Movido',
+	'lqt_revision_as_of'                => 'Revisão em $1.',
+	'lqt_change_reply_created'          => 'O comentário assinalado foi criado nesta revisão.',
+	'lqt_change_edited_root'            => 'O comentário assinalado foi editado nesta revisão.',
+	'lqt_youhavenewmessages'            => 'Tem $1.',
+	'lqt_protectedfromreply_link'       => 'protegido',
+	'lqt_subject'                       => 'Assunto:',
+	'lqt_nosubject'                     => '«sem assunto»',
+	'lqt_noreason'                      => 'Nenhum motivo foi especificado.',
+	'lqt_summary_subtitle'              => 'o sumário de $1.',
+	'lqt_move_destinationtitle'         => 'Título da página de discussão destino:',
+	'lqt_move_move'                     => 'Mover',
+	'lqt_move_nodestination'            => 'Tem de especificar um destino.',
+	'lqt_move_noreason'                 => 'Nenhum motivo foi especificado.',
+	'lqt_delete_undeleting'             => 'Recuperando $1.',
+	'lqt_delete_deleting_allreplies'    => 'todas as respostas',
+	'lqt_delete_return'                 => 'Voltar para $1.',
+	'lqt_delete_return_link'            => 'a página de discussão',
+	'lqt_header_warning_big'            => 'Você está a editar $1.',
+	'lqt_header_warning_bold'           => 'cabeçalho da página de discussão',
+	'lqt_header_warning_new_discussion' => 'iniciar uma nova discussão',
+	'lqt_sorting_order'                 => 'Ordenação:',
+	'lqt_remember_sort'                 => 'Lembrar esta preferência',
 );
 
 /** Russian (Русский)
@@ -1300,10 +1330,25 @@ $messages['sk'] = array(
 );
 
 /** Swedish (Svenska)
+ * @author M.M.S.
  * @author Max sonnelid
  */
 $messages['sv'] = array(
-	'lqt_move_move' => 'Flytta',
+	'lqt_newmessages'                   => 'Nya meddelanden',
+	'lqt_new_thread'                    => 'Starta en ny diskussion',
+	'lqt_edited_notice'                 => 'Redigerad',
+	'lqt_delete'                        => 'Ta bort',
+	'lqt_discussion_link'               => 'diskussion',
+	'lqt_from_talk'                     => 'från $1',
+	'lqt_newer'                         => '«nyare',
+	'lqt_older'                         => 'äldre»',
+	'lqt_hist_deleted'                  => 'Borttagen',
+	'lqt_hist_moved_talkpage'           => 'Flyttad',
+	'lqt_youhavenewmessages'            => 'Du har $1.',
+	'lqt_move_move'                     => 'Flytta',
+	'lqt_delete_return'                 => 'Tillbaka till $1.',
+	'lqt_delete_return_link'            => 'diskussionssidan',
+	'lqt_header_warning_new_discussion' => 'starta en ny diskussion',
 );
 
 /** Volapük (Volapük)
