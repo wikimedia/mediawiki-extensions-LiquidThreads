@@ -247,6 +247,58 @@ $messages['br'] = array(
 	'lqt_delete' => 'Diverkañ',
 );
 
+/** German (Deutsch)
+ * @author Raimond Spekking
+ */
+$messages['de'] = array(
+	'lqt_newmessages' => 'Neue Nachrichten',
+	'lqt_movethread' => 'Verschiebe Diskussionsstrang auf eine andere Seite',
+	'lqt_deletethread' => 'Lösche oder stelle Diskussionsstrang wieder her',
+	'lqt_browse_archive_without_recent' => 'Archivierte Diskussionsstränge ansehen',
+	'lqt_browse_archive_with_recent' => 'ältere',
+	'lqt_recently_archived' => 'Kürzlich archiviert:',
+	'lqt_contents_title' => 'Inhalt:',
+	'lqt_add_header' => 'Ergänze Überschrift',
+	'lqt_new_thread' => 'Beginne eine neue Diskussion',
+	'lqt_in_response_to' => 'In Antwort auf $1 von $2, siehe:',
+	'lqt_edited_notice' => 	'Bearbeitet',
+	'lqt_move_placeholder' => "''Platzhalter, wenn der Diskussionsstrang auf eine andere Seite verschoben wurde.''",
+	'lqt_reply' => 'Antworten',
+	'lqt_delete' => 'Löschen',
+	'lqt_undelete' => 'wiederherstellen',
+	'lqt_permalink' => 'Permalink',
+	'lqt_fragment' => 'ein Fragment einer $1 von $2',
+	'lqt_discussion_link' => 'Diskussion', // substituted above
+	'lqt_from_talk' => 'von $1',
+	'lqt_newer' => '← jüngere',
+	'lqt_older' => 'ältere →',
+	'lqt_hist_comment_edited' => 'Comment text edited',
+	'lqt_hist_summary_changed' => 'Zusammenfassung geändert',
+	'lqt_hist_reply_created' => 'Neue Antwort erstellt',
+	'lqt_hist_thread_created' => 'Neuer Diskussionsstrang erstellt',
+	'lqt_hist_deleted' => 'gelöscht',
+	'lqt_hist_undeleted' => 'wiederhergestellt',
+	'lqt_hist_moved_talkpage' => 'verschoben',
+	'lqt_hist_listing_subtitle' => 'Ansehen einer Versionsgeschichte',
+	'lqt_hist_view_whole_thread' => 'Versionsgeschichte eines ganzen Diskussionsstrangs ansehen',
+	'lqt_hist_no_revisions_error' => 'Dieser Diskussionsstrang hat keine Versionsgeschichte. Das ist sehr merkwürdig',
+	'lqt_hist_past_last_page_error' => 'Du bist ausserhalb des Seitenbereichs der Versionsgeschichte.',
+	'lqt_hist_tooltip_newer_disabled' => 'Der Link ist deaktiviert, da du dich auf der ersten Seite befindest.',
+	'lqt_hist_tooltip_older_disabled' => 'Der Link ist deaktiviert, da du dich auf der letzten Seite befindest.',
+	'lqt_revision_as_of' => "Versionsgeschichte von $1.",
+	'lqt_change_new_thread' => 'Dies ist die erste Version des Diskussionsstrangs.',
+	'lqt_change_reply_created' => 'Der hervorgehobene Kommentar wurde in dieser Version erstellt.',
+	'lqt_change_edited_root' => 'Der hervorgehobene Kommentar wurde in dieser Version bearbeitet.',
+	'lqt_youhavenewmessages' => 'Du hast $1.',
+	'lqt_changes_from' => ' von ',
+	'lqt_changes_summary_of' => ' von ',
+	'lqt_protectedfromreply' => 'Dieser Diskussionsstrang wurde $1. Eine Antwort ist nicht möglich.',
+	'lqt_protectedfromreply_link' => 'geschützt',
+	'lqt_subject' => 'Thema: ',
+	'lqt_nosubject' => '„kein Thema“',
+	'lqt_noreason' => 'Kein Grund angegeben.',
+);
+
 /** Greek (Ελληνικά)
  * @author Consta
  */
