@@ -995,6 +995,8 @@ $messages['nso'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
+	'lqt-desc'                              => 'Ajusta de fials de discussion dins las paginas de discussion',
+	'lqt-nothread'                          => 'Existís pas cap de fial de discussion dins los archius.',
 	'lqt_newmessages'                       => 'Messatges Novèls',
 	'lqt_movethread'                        => 'Desplaçar lo fial vèrs una autra pagina',
 	'lqt_deletethread'                      => 'Escafar o recuperar lo fial',
@@ -1044,7 +1046,7 @@ $messages['oc'] = array(
 	'lqt_thread_deleted_for_sysops'         => 'Aqueste fial es estat $1. Sols los administrators o pòdon veire.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'escafat',
 	'lqt_thread_deleted'                    => 'Aqueste fial es estat escafat.',
-	'lqt_summary_notice'                    => 'Se aquesta discussion sembla completa, sètz encoratjat a $1. I a pas agut cap de cambiament aicí dempuèi al mens $2 {{plural:$2|jorn|jorns}}.',
+	'lqt_summary_notice'                    => 'I a pas agutcap de cambiament dins aquesta discussuion dempuèi al mens $2 jorns. Se es estada concluida, podètz aver besonh de $1.',
 	'lqt_summary_notice_link'               => 'escriure un resumit',
 	'lqt_summary_label'                     => 'Aqueste fial es estat resumit per :',
 	'lqt_summary_subtitle'                  => 'lo resumit de $1.',
@@ -1244,6 +1246,8 @@ $messages['ru'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
+	'lqt-desc'                              => 'Pridáva organizáciu správ na diskusných stránkach do vlákien',
+	'lqt-nothread'                          => 'V archíve sa nenachádzajú žiadne vlákna.',
 	'lqt_newmessages'                       => 'Nové správy',
 	'lqt_movethread'                        => 'Presunúť vlákno na inú stránku',
 	'lqt_deletethread'                      => 'Zmazať alebo obnoviť zmazané vlákno',
