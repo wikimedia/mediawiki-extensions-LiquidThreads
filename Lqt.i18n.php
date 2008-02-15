@@ -443,6 +443,7 @@ $messages['fr'] = array(
 /** Galician (Galego)
  * @author Xosé
  * @author Alma
+ * @author Toliño
  */
 $messages['gl'] = array(
 	'lqt_newmessages'                       => 'Mensaxes Novas',
@@ -486,7 +487,7 @@ $messages['gl'] = array(
 	'lqt_youhavenewmessages'                => 'Ten $1.',
 	'lqt_changes_from'                      => ' de',
 	'lqt_changes_summary_of'                => 'de',
-	'lqt_protectedfromreply'                => 'Este fío de discusión foi de $1 desde que se respondeu a.',
+	'lqt_protectedfromreply'                => 'Este fío de conversa foi de $1 desde que se respondeu a.',
 	'lqt_protectedfromreply_link'           => 'protexido',
 	'lqt_subject'                           => 'Asunto:',
 	'lqt_nosubject'                         => '«sen asunto»',
@@ -494,7 +495,7 @@ $messages['gl'] = array(
 	'lqt_thread_deleted_for_sysops'         => 'Este fío foi $1 e só resulta visíbel para os administradores.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'eliminado',
 	'lqt_thread_deleted'                    => 'Este fío foi eliminado.',
-	'lqt_summary_notice'                    => 'Non houbo modificacións nesta discusión en, polo menos, $2 días. Se esta conversa parece ter rematado, suxírexelle $1.',
+	'lqt_summary_notice'                    => 'Non houbo modificacións nesta conversa en, polo menos, $2 días. Se esta conversa parece ter rematado, ao mellor quere $1.',
 	'lqt_summary_notice_link'               => 'escribir un resumo',
 	'lqt_summary_label'                     => 'Este fío foi resumido como segue:',
 	'lqt_summary_subtitle'                  => 'o resumo de $1.',
@@ -523,7 +524,7 @@ $messages['gl'] = array(
 	'lqt_talkpage_autocreate_summary'       => 'Páxina de conversa creada automaticametne cando se publicou o primeiro fío.',
 	'lqt_header_warning_big'                => 'Vostede está editando un $1.',
 	'lqt_header_warning_after_big'          => 'Son cabeceiras dos anuncios e prefacios. É posíbel que no seu lugar queiran $2.',
-	'lqt_header_warning_bold'               => 'Cabeceira da páxina de discusión',
+	'lqt_header_warning_bold'               => 'Cabeceira da páxina de conversa',
 	'lqt_header_warning_new_discussion'     => 'comezar unha nova conversa',
 	'lqt_remember_sort'                     => 'Lembrar esta preferencia',
 );
