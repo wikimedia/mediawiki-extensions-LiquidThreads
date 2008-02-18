@@ -993,6 +993,8 @@ $messages['nl'] = array(
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
+	'lqt-desc'                              => 'Legger til trådede diskusjoner til diskusjonssider',
+	'lqt-nothread'                          => 'Det er ingen tråder i arkivet.',
 	'lqt_newmessages'                       => 'Nye beskjeder',
 	'lqt_movethread'                        => 'Flytt tråd til en annen side',
 	'lqt_deletethread'                      => 'Slett eller gjenopprett tråd',
@@ -1033,6 +1035,7 @@ $messages['no'] = array(
 	'lqt_change_edited_root'                => 'Den markerte kommentaren ble redigert i denne revisjonen.',
 	'lqt_youhavenewmessages'                => 'Du har $1.',
 	'lqt_changes_from'                      => ' fra',
+	'lqt_changes_summary_of'                => '  av',
 	'lqt_protectedfromreply'                => 'Denne tråden har blitt $1 for svar.',
 	'lqt_protectedfromreply_link'           => 'låst',
 	'lqt_subject'                           => 'Emne:',
@@ -1044,6 +1047,7 @@ $messages['no'] = array(
 	'lqt_summary_notice'                    => 'Det har ikke vært noen endringer på denne diskusjonssiden på minst $2 dager. Om diskusjonen er ferdig, vil du muligens $1.',
 	'lqt_summary_notice_link'               => 'skrive et sammendrag',
 	'lqt_summary_label'                     => 'Denne tråden har fått følgende sammendrag:',
+	'lqt_summary_subtitle'                  => 'sammendraget av $1.',
 	'lqt_nosuchrevision'                    => 'Det er ingen slik revisjon av denne tråden.',
 	'lqt_nosuchthread'                      => 'Det er ingen slik tråd.',
 	'lqt_threadrequired'                    => 'Du må oppgi et tråd i URL-en.',
@@ -1071,6 +1075,11 @@ $messages['no'] = array(
 	'lqt_header_warning_after_big'          => 'Hodeseksjoner er for annonseringer og innledninger. Du vil muligens i stedet $2.',
 	'lqt_header_warning_bold'               => 'diskusjonssideinnledning',
 	'lqt_header_warning_new_discussion'     => 'start en ny diskusjon',
+	'lqt_sorting_order'                     => 'Sorteringsrekkefølge:',
+	'lqt_remember_sort'                     => 'Husk denne preferansen',
+	'lqt_sort_newest_changes'               => 'de sist endrede først',
+	'lqt_sort_newest_threads'               => 'nyeste tråder først',
+	'lqt_sort_oldest_threads'               => 'eldste tråder først',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -1435,6 +1444,8 @@ $messages['sk'] = array(
  */
 $messages['sv'] = array(
 	'lqt_newmessages'                       => 'Nya meddelanden',
+	'lqt_browse_archive_with_recent'        => 'äldre',
+	'lqt_add_header'                        => 'Lägg till rubrik',
 	'lqt_new_thread'                        => 'Starta en ny diskussion',
 	'lqt_edited_notice'                     => 'Redigerad',
 	'lqt_delete'                            => 'Ta bort',
@@ -1448,8 +1459,10 @@ $messages['sv'] = array(
 	'lqt_changes_from'                      => ' från',
 	'lqt_changes_summary_of'                => ' av',
 	'lqt_protectedfromreply_link'           => 'skyddad',
+	'lqt_noreason'                          => 'Ingen anledning given.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'raderad',
 	'lqt_summary_notice_link'               => 'skriv en sammanfattning',
+	'lqt_summary_subtitle'                  => 'sammanfattningen av $1.',
 	'lqt_move_move'                         => 'Flytta',
 	'lqt_delete_return'                     => 'Tillbaka till $1.',
 	'lqt_delete_return_link'                => 'diskussionssidan',
