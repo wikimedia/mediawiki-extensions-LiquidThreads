@@ -583,8 +583,11 @@ class Thread {
 
 	function article() {
 		if ( $this->article ) return $this->article;
-		$a = new Article(Title::newFromID($this->articleId));
-		if ($a->exists()) {
+		$title = Title::newFromID($this->articleId);
+		if($title) {
+			$a = new Article($title);
+		}
+		if (isset($a) && $a->exists()) {
 			return $a;
 		} else {
 			return new Article( Title::makeTitle($this->articleNamespace, $this->articleTitle) );
