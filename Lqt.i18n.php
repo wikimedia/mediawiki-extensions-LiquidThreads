@@ -1469,6 +1469,20 @@ $messages['sv'] = array(
 	'lqt_header_warning_new_discussion'     => 'starta en ny diskussion',
 );
 
+/** Telugu (తెలుగు)
+ * @author Veeven
+ */
+$messages['te'] = array(
+	'lqt_newmessages'     => 'కొత్త సందేశాలు',
+	'lqt_delete'          => 'తొలగించు',
+	'lqt_permalink'       => 'స్థిరలింకు',
+	'lqt_discussion_link' => 'చర్చ',
+	'lqt_from_talk'       => '$1 నుండి',
+	'lqt_newer'           => '«కొత్తవి',
+	'lqt_older'           => 'పాతవి»',
+	'lqt_subject'         => 'విషయం:',
+);
+
 /** Volapük (Volapük)
  * @author Malafaya
  */
