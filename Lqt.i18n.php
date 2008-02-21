@@ -1239,6 +1239,7 @@ $messages['pt'] = array(
 	'lqt_subject'                       => 'Assunto:',
 	'lqt_nosubject'                     => '«sem assunto»',
 	'lqt_noreason'                      => 'Nenhum motivo foi especificado.',
+	'lqt_summary_notice_link'           => 'escrever um sumário',
 	'lqt_summary_subtitle'              => 'o sumário de $1.',
 	'lqt_move_destinationtitle'         => 'Título da página de discussão destino:',
 	'lqt_move_move'                     => 'Mover',
@@ -1462,6 +1463,8 @@ $messages['sv'] = array(
 	'lqt_changes_from'                      => ' från',
 	'lqt_changes_summary_of'                => ' av',
 	'lqt_protectedfromreply_link'           => 'skyddad',
+	'lqt_subject'                           => 'Motiv:',
+	'lqt_nosubject'                         => '«inget motiv»',
 	'lqt_noreason'                          => 'Ingen anledning given.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'raderad',
 	'lqt_summary_notice_link'               => 'skriv en sammanfattning',
@@ -1477,14 +1480,19 @@ $messages['sv'] = array(
  * @author Veeven
  */
 $messages['te'] = array(
-	'lqt_newmessages'     => 'కొత్త సందేశాలు',
-	'lqt_delete'          => 'తొలగించు',
-	'lqt_permalink'       => 'స్థిరలింకు',
-	'lqt_discussion_link' => 'చర్చ',
-	'lqt_from_talk'       => '$1 నుండి',
-	'lqt_newer'           => '«కొత్తవి',
-	'lqt_older'           => 'పాతవి»',
-	'lqt_subject'         => 'విషయం:',
+	'lqt_newmessages'                => 'కొత్త సందేశాలు',
+	'lqt_browse_archive_with_recent' => 'పాతవి',
+	'lqt_delete'                     => 'తొలగించు',
+	'lqt_permalink'                  => 'స్థిరలింకు',
+	'lqt_discussion_link'            => 'చర్చ',
+	'lqt_from_talk'                  => '$1 నుండి',
+	'lqt_newer'                      => '«కొత్తవి',
+	'lqt_older'                      => 'పాతవి»',
+	'lqt_changes_from'               => 'నుండి',
+	'lqt_subject'                    => 'విషయం:',
+	'lqt_noreason'                   => 'కారణం తెలుపలేదు.',
+	'lqt_move_noreason'              => 'కారణం తెలుపలేదు.',
+	'lqt_delete_return_link'         => 'చర్చా పేజీ',
 );
 
 /** Volapük (Volapük)
