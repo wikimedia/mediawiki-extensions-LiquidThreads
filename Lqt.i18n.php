@@ -347,8 +347,9 @@ $messages['eo'] = array(
 
 /** French (Français)
  * @author Sherbrooke
- * @author Grondin
+ * @author Urhixidur
  * @author Dereckson
+ * @author Grondin
  */
 $messages['fr'] = array(
 	'lqt-desc'                              => 'Ajoute des fils de discussion dans les pages de discussion',
@@ -372,8 +373,8 @@ $messages['fr'] = array(
 	'lqt_fragment'                          => 'un fragment de $1 à partir de $2',
 	'lqt_discussion_link'                   => 'discussion',
 	'lqt_from_talk'                         => 'de $1',
-	'lqt_newer'                             => '«plus récent',
-	'lqt_older'                             => 'plus ancien»',
+	'lqt_newer'                             => '« plus récent',
+	'lqt_older'                             => 'plus ancien »',
 	'lqt_hist_comment_edited'               => 'Commentaire modifié',
 	'lqt_hist_summary_changed'              => 'Sommaire modifié',
 	'lqt_hist_reply_created'                => 'Nouvelle réponse créée',
@@ -402,7 +403,7 @@ $messages['fr'] = array(
 	'lqt_thread_deleted_for_sysops'         => 'Ce fil a été $1. Seuls les administrateurs peuvent le voir.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'effacé',
 	'lqt_thread_deleted'                    => 'Ce fil a été effacé.',
-	'lqt_summary_notice'                    => "Il n'y a eu aucun changement dans cette discussuion de puis au moins $2 jours. Si elle a été conclue, vous pouvez avoir besoin de $1.",
+	'lqt_summary_notice'                    => 'Il n’y a eu aucun changement dans cette discussion depuis au moins $2 jours. Si elle a été conclue, vous pouvez avoir besoin de $1.',
 	'lqt_summary_notice_link'               => 'écrire un résumé',
 	'lqt_summary_label'                     => 'Ce fil a été résumé par :',
 	'lqt_summary_subtitle'                  => 'le résumé de $1.',
@@ -419,7 +420,7 @@ $messages['fr'] = array(
 	'lqt_move_success'                      => 'Le fil a été déplacé dans $1.',
 	'lqt_delete_undeleting'                 => 'Récupération de $1',
 	'lqt_delete_undeletethread'             => 'Fil récupéré',
-	'lqt_delete_partof'                     => 'Ce fil est partie de $1.',
+	'lqt_delete_partof'                     => 'Ce fil fait partie de $1.',
 	'lqt_delete_deleting'                   => 'Suppression du fil $1 et de $2.',
 	'lqt_delete_deleting_allreplies'        => 'toutes les réponses',
 	'lqt_delete_deletethread'               => 'Effacer le fil et répondre',
@@ -435,9 +436,9 @@ $messages['fr'] = array(
 	'lqt_header_warning_new_discussion'     => 'lancer un nouveau fil de discussion',
 	'lqt_sorting_order'                     => 'Ordre de tri :',
 	'lqt_remember_sort'                     => 'Rappeler cette préférence',
-	'lqt_sort_newest_changes'               => 'dernier modifié en premier',
-	'lqt_sort_newest_threads'               => 'Les fils de discussion les plus récents en premier',
-	'lqt_sort_oldest_threads'               => 'Les fils de discussion les plus anciens en premier',
+	'lqt_sort_newest_changes'               => 'fils de discussion plus récemment modifiés en premier',
+	'lqt_sort_newest_threads'               => 'fils de discussion les plus récents en premier',
+	'lqt_sort_oldest_threads'               => 'fils de discussion les plus anciens en premier',
 );
 
 /** Galician (Galego)
@@ -1500,6 +1501,45 @@ $messages['te'] = array(
 	'lqt_delete_deleting_allreplies'    => 'అన్ని స్పందనలు',
 	'lqt_delete_return_link'            => 'చర్చా పేజీ',
 	'lqt_header_warning_new_discussion' => 'కొత్త చర్చను మొదలుపెట్టండి',
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
+$messages['vi'] = array(
+	'lqt-desc'                          => 'Thêm những thảo luận có cấu trúc vào trang thảo luận',
+	'lqt_newmessages'                   => 'Tin nhắn mới',
+	'lqt_deletethread'                  => 'Xóa hay phục hồi cuộc thảo luận',
+	'lqt_browse_archive_without_recent' => 'Xem thảo luận được lưu trữ',
+	'lqt_browse_archive_with_recent'    => 'cũ hơn',
+	'lqt_recently_archived'             => 'Mới được lưu trữ:',
+	'lqt_contents_title'                => 'Nội dung:',
+	'lqt_new_thread'                    => 'Bắt đầu thảo luận mới:',
+	'lqt_in_response_to'                => 'Trả lời $1 bởi $2 ở trên:',
+	'lqt_reply'                         => 'Trả lời',
+	'lqt_delete'                        => 'Xóa',
+	'lqt_undelete'                      => 'Phục hồi',
+	'lqt_permalink'                     => 'Liên kết thường trực',
+	'lqt_discussion_link'               => 'thảo luận',
+	'lqt_from_talk'                     => 'từ $1',
+	'lqt_newer'                         => '«mới hơn',
+	'lqt_older'                         => 'cũ hơn»',
+	'lqt_revision_as_of'                => 'Phiên bản vào lúc $1.',
+	'lqt_youhavenewmessages'            => 'Bạn có $1.',
+	'lqt_changes_from'                  => '  từ',
+	'lqt_subject'                       => 'Chủ đề:',
+	'lqt_nosubject'                     => '«không có chủ đề»',
+	'lqt_move_torename'                 => 'Để đổi tên cuộc thảo luận này, $1 và đổi dòng “Chủ đề”.',
+	'lqt_move_torename_edit'            => 'sửa đổi nó',
+	'lqt_move_move'                     => 'Di chuyển',
+	'lqt_delete_undeletethread'         => 'Phục hồi cuộc thảo luận',
+	'lqt_delete_deleting_allreplies'    => 'các trả lời',
+	'lqt_delete_deletethread'           => 'Xóa cuộc thảo luận và các trả lời',
+	'lqt_delete_return'                 => 'Trở về $1.',
+	'lqt_delete_return_link'            => 'trang thảo luận',
+	'lqt_header_warning_big'            => 'Bạn đang sửa đổi một $1.',
+	'lqt_sorting_order'                 => 'Thứ tự xếp:',
+	'lqt_remember_sort'                 => 'Nhớ lựa chọn này',
 );
 
 /** Volapük (Volapük)
