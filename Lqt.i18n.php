@@ -848,6 +848,19 @@ $messages['ja'] = array(
 	'lqt_sort_oldest_threads'               => '古いスレッドを上に',
 );
 
+/** Khmer (ភាសាខ្មែរ)
+ * @author Chhorran
+ */
+$messages['km'] = array(
+	'lqt_delete'                            => 'លុបចេញ',
+	'lqt_undelete'                          => 'លែងលុបចេញ',
+	'lqt_hist_deleted'                      => 'បានត្រូវលុបចេញ',
+	'lqt_hist_undeleted'                    => 'លែងបានត្រូវលុបចេញ',
+	'lqt_noreason'                          => 'គ្មានហេតុផល ត្រូវបានផ្តល់អោយ ។',
+	'lqt_thread_deleted_for_sysops_deleted' => 'បានត្រូវលុបចេញ',
+	'lqt_move_noreason'                     => 'គ្មានហេតុផល ត្រូវបានផ្តល់អោយ ។',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
@@ -1484,6 +1497,7 @@ $messages['te'] = array(
 	'lqt_newmessages'                   => 'కొత్త సందేశాలు',
 	'lqt_browse_archive_with_recent'    => 'పాతవి',
 	'lqt_contents_title'                => 'విషయాలు:',
+	'lqt_reply'                         => 'స్పందించు',
 	'lqt_delete'                        => 'తొలగించు',
 	'lqt_permalink'                     => 'స్థిరలింకు',
 	'lqt_discussion_link'               => 'చర్చ',
@@ -1493,7 +1507,9 @@ $messages['te'] = array(
 	'lqt_hist_summary_changed'          => 'సంగ్రహం మార్చారు',
 	'lqt_revision_as_of'                => '$1 నాటి కూర్పు.',
 	'lqt_changes_from'                  => 'నుండి',
+	'lqt_changes_summary_of'            => ' యొక్క',
 	'lqt_subject'                       => 'విషయం:',
+	'lqt_nosubject'                     => '«విషయం లేదు»',
 	'lqt_noreason'                      => 'కారణం తెలుపలేదు.',
 	'lqt_summary_notice_link'           => 'సంగ్రహం వ్రాయండి',
 	'lqt_summary_subtitle'              => '$1 యొక్క సంగ్రహం.',
