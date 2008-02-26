@@ -1462,9 +1462,11 @@ $messages['sk'] = array(
 $messages['sv'] = array(
 	'lqt_newmessages'                       => 'Nya meddelanden',
 	'lqt_browse_archive_with_recent'        => 'äldre',
+	'lqt_recently_archived'                 => 'Nyligen arkiverade:',
 	'lqt_add_header'                        => 'Lägg till rubrik',
 	'lqt_new_thread'                        => 'Starta en ny diskussion',
 	'lqt_edited_notice'                     => 'Redigerad',
+	'lqt_reply'                             => 'Svara',
 	'lqt_delete'                            => 'Ta bort',
 	'lqt_discussion_link'                   => 'diskussion',
 	'lqt_from_talk'                         => 'från $1',
@@ -1485,9 +1487,12 @@ $messages['sv'] = array(
 	'lqt_summary_subtitle'                  => 'sammanfattningen av $1.',
 	'lqt_move_move'                         => 'Flytta',
 	'lqt_move_noreason'                     => 'Ingen anledning given.',
+	'lqt_delete_deleting_allreplies'        => 'alla svar',
 	'lqt_delete_return'                     => 'Tillbaka till $1.',
 	'lqt_delete_return_link'                => 'diskussionssidan',
+	'lqt_header_warning_big'                => 'Du redigerar en $1.',
 	'lqt_header_warning_new_discussion'     => 'starta en ny diskussion',
+	'lqt_remember_sort'                     => 'Kom ihåg denna inställning',
 );
 
 /** Telugu (తెలుగు)
