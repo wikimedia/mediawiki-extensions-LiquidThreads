@@ -518,7 +518,7 @@ HTML;
 			$subject_label = wfMsg('lqt_subject');
 			$e->editFormTextBeforeContent .= <<<HTML
 			<label for="lqt_subject_field">$subject_label</label>
-			<input type="text" size="60" name="lqt_subject_field" id="lqt_subject_field" value="$subject" tabindex="1"><br>
+			<input type="text" size="60" name="lqt_subject_field" id="lqt_subject_field" value="$subject" tabindex="1"><br />
 HTML;
 		}
 

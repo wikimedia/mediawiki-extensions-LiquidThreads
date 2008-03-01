@@ -235,7 +235,7 @@ class TalkpageView extends LqtView {
 				if($wgUser->isLoggedIn()) { 
 					$remember_sort = 
 <<<HTML
-<br/>
+<br />
 <label for="lqt_remember_sort_checkbox">
 <input id="lqt_remember_sort_checkbox" name="lqt_remember_sort" type="checkbox" value="1" $remember_sort_checked class="lqt_remember_sort" />
 $lqt_remember_sort</label>
@@ -361,7 +361,7 @@ HTML
 
 		$this->where = $where;
 		$this->options = $options;
-		$this->annotations = implode("<br>\n", $annotations);
+		$this->annotations = implode("<br />\n", $annotations);
 	}
 
 	function threads() {
@@ -448,14 +448,14 @@ HTML
 
 	<input type="radio" id="lqt_archive_filter_by_date_no"
                name="lqt_archive_filter_by_date" value="0" {$any_date_check}>
-	<label for="lqt_archive_filter_by_date_no">Any date</label>  <br>
+	<label for="lqt_archive_filter_by_date_no">Any date</label>  <br />
 	<input type="radio" id="lqt_archive_filter_by_date_yes"
                name="lqt_archive_filter_by_date" value="1" {$these_dates_check}>
-	<label for="lqt_archive_filter_by_date_yes">Only these dates:</label> <br>
+	<label for="lqt_archive_filter_by_date_yes">Only these dates:</label> <br />
 
 <table>
 <tr><td><label for="lqt_archive_start">From</label>
-    <td>{$this->monthSelect($months, 'lqt_archive_start')} <br>
+    <td>{$this->monthSelect($months, 'lqt_archive_start')} <br />
 <tr><td><label for="lqt_archive_end">To</label>
     <td>{$this->monthSelect($months, 'lqt_archive_end')}
 </table>
@@ -476,7 +476,7 @@ HTML
 
 		$empty = $this->showSearchForm();
 		if ($empty) {
-			$this->output->addHTML('<p><br/><b>'. wfMsg('lqt-nothread' ) . '</b>' );
+			$this->output->addHTML('<p><br /><b>'. wfMsg('lqt-nothread' ) . '</b>' );
 			return false;
 		}
 
@@ -868,7 +868,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	function showHistoryInfo() {
 		global $wgLang; // TODO global.
 		$this->openDiv('lqt_history_info');
-		$this->output->addHTML(wfMsg('lqt_revision_as_of', $wgLang->timeanddate($this->thread->modified())) .'<br>' );
+		$this->output->addHTML(wfMsg('lqt_revision_as_of', $wgLang->timeanddate($this->thread->modified())) .'<br />' );
 
 		$ct = $this->thread->changeType();
 		if( $ct == Threads::CHANGE_NEW_THREAD ) $msg = wfMsg('lqt_change_new_thread');
