@@ -476,7 +476,7 @@ HTML
 
 		$empty = $this->showSearchForm();
 		if ($empty) {
-			$this->output->addHTML('<p><br /><b>'. wfMsg('lqt-nothread' ) . '</b>' );
+			$this->output->addHTML('<p><br /><b>'. wfMsg('lqt-nothread' ) . '</b></p>' );
 			return false;
 		}
 
