@@ -240,6 +240,11 @@ $messages['bg'] = array(
 	'lqt_delete_return'                 => 'Връщане към $1.',
 	'lqt_delete_unallowed'              => 'Нямате права да изтривате нишки.',
 	'lqt_header_warning_new_discussion' => 'започване на ново обсъждане',
+	'lqt_sorting_order'                 => 'Ред за сортиране:',
+	'lqt_remember_sort'                 => 'Запомняне на това предпочитание',
+	'lqt_sort_newest_changes'           => 'първо последно променените',
+	'lqt_sort_newest_threads'           => 'първо най-новите нишки',
+	'lqt_sort_oldest_threads'           => 'първо най-старите нишки',
 );
 
 /** Breton (Brezhoneg)
@@ -1502,6 +1507,7 @@ $messages['te'] = array(
 	'lqt_newmessages'                   => 'కొత్త సందేశాలు',
 	'lqt_browse_archive_with_recent'    => 'పాతవి',
 	'lqt_contents_title'                => 'విషయాలు:',
+	'lqt_new_thread'                    => 'కొత్త చర్చని ప్రారంభించండి',
 	'lqt_reply'                         => 'స్పందించు',
 	'lqt_delete'                        => 'తొలగించు',
 	'lqt_permalink'                     => 'స్థిరలింకు',
@@ -1520,6 +1526,7 @@ $messages['te'] = array(
 	'lqt_summary_subtitle'              => '$1 యొక్క సంగ్రహం.',
 	'lqt_move_noreason'                 => 'కారణం తెలుపలేదు.',
 	'lqt_delete_deleting_allreplies'    => 'అన్ని స్పందనలు',
+	'lqt_delete_return'                 => 'తిరిగి $1కి.',
 	'lqt_delete_return_link'            => 'చర్చా పేజీ',
 	'lqt_header_warning_new_discussion' => 'కొత్త చర్చను మొదలుపెట్టండి',
 );
