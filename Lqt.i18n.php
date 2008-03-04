@@ -857,13 +857,58 @@ $messages['ja'] = array(
  * @author Chhorran
  */
 $messages['km'] = array(
+	'lqt_newmessages'                       => 'សារ ថ្មី ៗ',
+	'lqt_browse_archive_with_recent'        => 'ចាស់ជាង ៖',
+	'lqt_recently_archived'                 => 'ទើបតែដាក់ជា បណ្ណសារ ៖',
+	'lqt_contents_title'                    => 'តារាង ប្រធានបទ ៖',
+	'lqt_add_header'                        => 'បន្ថែម ក្បាលទំព័រ',
+	'lqt_new_thread'                        => 'ផ្តើម មួយការពិភាក្សា ថ្មី',
+	'lqt_in_response_to'                    => 'ឆ្លើយតប ទៅ $1 ដោយ $2, ខាងលើ ៖',
+	'lqt_edited_notice'                     => 'បានកែប្រែ',
+	'lqt_reply'                             => 'ឆ្លើយតប',
 	'lqt_delete'                            => 'លុបចេញ',
 	'lqt_undelete'                          => 'លែងលុបចេញ',
+	'lqt_permalink'                         => 'តំណភ្ជាប់ អចិន្ត្រៃ',
+	'lqt_fragment'                          => 'មួយបំណែក របស់ $1 ពី $2',
+	'lqt_discussion_link'                   => 'ការពិភាក្សា',
+	'lqt_from_talk'                         => 'ពី $1',
+	'lqt_newer'                             => '«ថ្មីជាង',
+	'lqt_older'                             => 'ចាស់ជាង»',
+	'lqt_hist_comment_edited'               => 'វិចារ បានត្រូវកែប្រែ',
+	'lqt_hist_summary_changed'              => 'សេចក្តីសង្ខេប ត្រូវបាន ផ្លាស់ប្តូរ',
+	'lqt_hist_reply_created'                => 'ការឆ្លើយតបថ្មី ត្រូវបានបង្កើត',
 	'lqt_hist_deleted'                      => 'បានត្រូវលុបចេញ',
 	'lqt_hist_undeleted'                    => 'លែងបានត្រូវលុបចេញ',
+	'lqt_hist_moved_talkpage'               => 'បានប្តូរទីតាំង',
+	'lqt_hist_listing_subtitle'             => 'មើល បញ្ជីប្រវត្តិ ។',
+	'lqt_hist_past_last_page_error'         => 'អ្នកបានហួស ចំនួនទំព័រ នៃប្រវត្តិ ដែលមាន',
+	'lqt_hist_tooltip_newer_disabled'       => 'តំណភ្ជាប់នេះ អសកម្ម ព្រោះ អ្នកថិតលើ ទំព័រដំបូង ។',
+	'lqt_hist_tooltip_older_disabled'       => 'តំណភ្ជាប់នេះ អសកម្ម ព្រោះ អ្នកថិតលើ ទំព័រចុងក្រោយ ។',
+	'lqt_youhavenewmessages'                => 'អ្នកមាន $1​ ។',
+	'lqt_changes_from'                      => 'ពី',
+	'lqt_changes_summary_of'                => 'នៃ',
+	'lqt_protectedfromreply_link'           => 'បានការពារ',
+	'lqt_subject'                           => 'ប្រធានបទ ៖',
+	'lqt_nosubject'                         => '«គ្មាន ប្រធានបទ»',
 	'lqt_noreason'                          => 'គ្មានហេតុផល ត្រូវបានផ្តល់អោយ ។',
 	'lqt_thread_deleted_for_sysops_deleted' => 'បានត្រូវលុបចេញ',
+	'lqt_summary_notice'                    => 'គ្មានបំលាស់ប្តូរ ក្នុងការពិភាក្សានេះ តាំងពី យ៉ាងតិច $2 ថ្ងៃ ។ បើចង់ផ្លាស់ប្តូរវា, អ្នកអាចនឹង ត្រូវការ $1 ។',
+	'lqt_summary_notice_link'               => 'សរសេរ មួយ សេចក្តីសង្ខេប',
+	'lqt_summary_subtitle'                  => 'សេចក្តីសង្ខេប នៃ $1 ។',
+	'lqt_move_torename_edit'                => 'កែប្រែ វា',
+	'lqt_move_destinationtitle'             => 'ចំណងជើង នៃ ទំព័រពិភាក្សា​ គោលដៅ ៖',
+	'lqt_move_move'                         => 'ប្តូរទីតាំង',
+	'lqt_move_nodestination'                => 'អ្នកត្រូវតែ សំដៅ មួយគោលដៅ ។',
 	'lqt_move_noreason'                     => 'គ្មានហេតុផល ត្រូវបានផ្តល់អោយ ។',
+	'lqt_delete_undeleting'                 => 'លែងលុបចេញ $1 ។',
+	'lqt_delete_deleting_allreplies'        => 'គ្រប់ ការឆ្លើយតប',
+	'lqt_delete_return'                     => 'ត្រលប់ ទៅ $1 ។',
+	'lqt_delete_return_link'                => 'ទំព័រពិភាក្សា',
+	'lqt_header_warning_big'                => 'អ្នកកំពុង កែប្រែ $1 ។',
+	'lqt_header_warning_bold'               => 'ក្បាល នៃ ទំព័រពិភាក្សា',
+	'lqt_header_warning_new_discussion'     => 'ផ្តើម មួយការពិភាក្សាថ្មី',
+	'lqt_sorting_order'                     => 'លំដាប់ រៀប ៖',
+	'lqt_remember_sort'                     => 'ចងចាំ ចំណូលចិត្ត នេះ',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -913,6 +958,13 @@ $messages['loz'] = array(
 	'lqt_protectedfromreply_link'           => 'sa bukelezi',
 	'lqt_thread_deleted_for_sysops_deleted' => 'sa afi kulobala',
 
+);
+
+/** Marathi (मराठी)
+ * @author Mahitgar
+ */
+$messages['mr'] = array(
+	'lqt_newmessages' => 'नवीन संदेश',
 );
 
 /** Dutch (Nederlands)
@@ -1280,6 +1332,8 @@ $messages['pt'] = array(
  * @author .:Ajvol:.
  */
 $messages['ru'] = array(
+	'lqt-desc'                              => 'Добавляет на страницы обсуждения потоки (ветки) обсуждений',
+	'lqt-nothread'                          => 'В архиве нет веток обсуждений.',
 	'lqt_newmessages'                       => 'Новые сообщения',
 	'lqt_movethread'                        => 'Переместить ветку на другую страницу',
 	'lqt_deletethread'                      => 'Удалить/восстановить ветку',
@@ -1329,7 +1383,7 @@ $messages['ru'] = array(
 	'lqt_thread_deleted_for_sysops'         => 'Эта ветка была $1 и видима только администраторам.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'удалена',
 	'lqt_thread_deleted'                    => 'Эта ветка была удалена.',
-	'lqt_summary_notice'                    => 'Если обсуждение подходит к концу, вы можете $1. В нём не было изменеий как минимум $2 дня.',
+	'lqt_summary_notice'                    => 'Это обсуждение не изменялось как минимум $2 дней. Если оно подошло к концу, вы можете $1.',
 	'lqt_summary_notice_link'               => 'подвести итог',
 	'lqt_summary_label'                     => 'Для этой ветки был подведён следующий итог:',
 	'lqt_summary_subtitle'                  => 'итог $1',
@@ -1460,6 +1514,46 @@ $messages['sk'] = array(
 	'lqt_sort_oldest_threads'               => 'najstaršie vlákna na začiatku',
 );
 
+/** Seeltersk (Seeltersk)
+ * @author Pyt
+ */
+$messages['stq'] = array(
+	'lqt_newmessages'                   => 'Näie Ättergjuchte',
+	'lqt_movethread'                    => 'Ferschuuwe Diskussionsstrang ap ne uur Siede',
+	'lqt_deletethread'                  => 'Läsk Diskussionsstrang of staal ju wier häär',
+	'lqt_browse_archive_without_recent' => 'Archivierde Diskussionsstrange bekiekje',
+	'lqt_browse_archive_with_recent'    => 'allere',
+	'lqt_recently_archived'             => 'Knu archivierd:',
+	'lqt_contents_title'                => 'Inhoold:',
+	'lqt_add_header'                    => 'Uurschrift touföigje',
+	'lqt_new_thread'                    => 'Fang ne näie Diskussion oun',
+	'lqt_in_response_to'                => 'In Oantwoud ap $1 fon $2, sjuch:',
+	'lqt_edited_notice'                 => 'Beoarbaided',
+	'lqt_move_placeholder'              => "''Steedehoolder, wan die Diskussionsstrang ap ne uur Siede ferschäuwen wuude.''",
+	'lqt_reply'                         => 'Oantwoudje',
+	'lqt_delete'                        => 'Läskje',
+	'lqt_undelete'                      => 'Wierhäärstaale',
+	'lqt_permalink'                     => 'Permalink',
+	'lqt_fragment'                      => 'n Fragment fon n $1 fon $2',
+	'lqt_discussion_link'               => 'Diskussion',
+	'lqt_from_talk'                     => 'fon $1',
+	'lqt_newer'                         => '← jungere',
+	'lqt_older'                         => 'allere →',
+	'lqt_hist_summary_changed'          => 'Touhoopefoatenge annerd',
+	'lqt_hist_reply_created'            => 'Näie Oantwoud moaked',
+	'lqt_hist_thread_created'           => 'Näien Diskussionsstrang moaked',
+	'lqt_hist_deleted'                  => 'Läsked',
+	'lqt_hist_undeleted'                => 'wierhäärstoald',
+	'lqt_hist_moved_talkpage'           => 'ferschäuwen',
+	'lqt_hist_listing_subtitle'         => 'Bekiekjen fon ne Versionsgeschichte',
+	'lqt_hist_view_whole_thread'        => 'Versonsgeschichte fon n gansen Diskussionsstrang bekiekje',
+	'lqt_hist_no_revisions_error'       => 'Dissen Diskussionsstrang häd neen Versionsgeschichte. Dät is gans roar.',
+	'lqt_hist_past_last_page_error'     => 'Du bäst buute dät Siedenberäk fon ju Versionsgeschichte.',
+	'lqt_hist_tooltip_newer_disabled'   => 'Disse Ferbiendenge is deaktivierd, deeruum dät du ap ju eerste Siede bäst.',
+	'lqt_hist_tooltip_older_disabled'   => 'Disse Ferbiendenge is deaktivierd, deeruum dät du ap ju lääste Siede bäst.',
+	'lqt_revision_as_of'                => 'Versionsgeschichte fon $1.',
+);
+
 /** Swedish (Svenska)
  * @author M.M.S.
  * @author Max sonnelid
@@ -1524,11 +1618,14 @@ $messages['te'] = array(
 	'lqt_noreason'                      => 'కారణం తెలుపలేదు.',
 	'lqt_summary_notice_link'           => 'సంగ్రహం వ్రాయండి',
 	'lqt_summary_subtitle'              => '$1 యొక్క సంగ్రహం.',
+	'lqt_move_destinationtitle'         => 'గమ్యస్థానపు చర్చాపేజీ యొక్క శీర్షిక:',
+	'lqt_move_nodestination'            => 'మీరు తప్పనిసరిగా ఓ గమ్యస్థానం చెప్పాలి.',
 	'lqt_move_noreason'                 => 'కారణం తెలుపలేదు.',
 	'lqt_delete_deleting_allreplies'    => 'అన్ని స్పందనలు',
 	'lqt_delete_return'                 => 'తిరిగి $1కి.',
 	'lqt_delete_return_link'            => 'చర్చా పేజీ',
 	'lqt_header_warning_new_discussion' => 'కొత్త చర్చను మొదలుపెట్టండి',
+	'lqt_remember_sort'                 => 'ఈ అభిరుచిని గుర్తుంచుకో',
 );
 
 /** Vietnamese (Tiếng Việt)
