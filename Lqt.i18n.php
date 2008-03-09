@@ -1270,6 +1270,15 @@ $messages['oc'] = array(
 	'lqt_sort_oldest_threads'               => 'Los fials de discussion mai ancians en primièr',
 );
 
+/** Polish (Polski)
+ * @author McMonster
+ */
+$messages['pl'] = array(
+	'lqt_subject'       => 'Temat:',
+	'lqt_nosubject'     => '«brak tematu»',
+	'lqt_move_noreason' => 'Nie podano powodu.',
+);
+
 /** Pashto (پښتو)
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
@@ -1331,7 +1340,9 @@ $messages['pt'] = array(
 	'lqt_move_move'                     => 'Mover',
 	'lqt_move_nodestination'            => 'Tem de especificar um destino.',
 	'lqt_move_noreason'                 => 'Nenhum motivo foi especificado.',
+	'lqt_move_success'                  => 'O tópico foi movido para $1.',
 	'lqt_delete_undeleting'             => 'Recuperando $1.',
+	'lqt_delete_undeletethread'         => 'Restaurar Tópico',
 	'lqt_delete_deleting_allreplies'    => 'todas as respostas',
 	'lqt_delete_deleted'                => 'Este tópico foi eliminado.',
 	'lqt_delete_undeleted'              => 'Este tópico foi restaurado.',
