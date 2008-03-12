@@ -346,8 +346,13 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'lqt_newer' => '«pli nova',
-	'lqt_older' => 'pli malnova»',
+	'lqt_from_talk'          => 'de $1',
+	'lqt_newer'              => '«pli nova',
+	'lqt_older'              => 'pli malnova»',
+	'lqt_youhavenewmessages' => 'Vi havas $1.',
+	'lqt_changes_from'       => 'de',
+	'lqt_changes_summary_of' => 'de',
+	'lqt_delete_return_link' => 'la diskuto-paĝo',
 );
 
 /** French (Français)
@@ -855,20 +860,21 @@ $messages['ja'] = array(
 
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
+ * @author Lovekhmer
  */
 $messages['km'] = array(
-	'lqt_newmessages'                       => 'សារ ថ្មី ៗ',
+	'lqt_newmessages'                       => 'សារថ្មីៗ',
 	'lqt_browse_archive_with_recent'        => 'ចាស់ជាង ៖',
 	'lqt_recently_archived'                 => 'ទើបតែដាក់ជា បណ្ណសារ ៖',
-	'lqt_contents_title'                    => 'តារាង ប្រធានបទ ៖',
-	'lqt_add_header'                        => 'បន្ថែម ក្បាលទំព័រ',
+	'lqt_contents_title'                    => 'មាតិកា៖',
+	'lqt_add_header'                        => 'បន្ថែមក្បាលទំព័រ',
 	'lqt_new_thread'                        => 'ផ្តើម មួយការពិភាក្សា ថ្មី',
 	'lqt_in_response_to'                    => 'ឆ្លើយតប ទៅ $1 ដោយ $2, ខាងលើ ៖',
 	'lqt_edited_notice'                     => 'បានកែប្រែ',
 	'lqt_reply'                             => 'ឆ្លើយតប',
 	'lqt_delete'                            => 'លុបចេញ',
-	'lqt_undelete'                          => 'លែងលុបចេញ',
-	'lqt_permalink'                         => 'តំណភ្ជាប់ អចិន្ត្រៃ',
+	'lqt_undelete'                          => 'ឈប់លុបចេញ',
+	'lqt_permalink'                         => 'តំណភ្ជាប់អចិន្ត្រៃយ៍',
 	'lqt_fragment'                          => 'មួយបំណែក របស់ $1 ពី $2',
 	'lqt_discussion_link'                   => 'ការពិភាក្សា',
 	'lqt_from_talk'                         => 'ពី $1',
@@ -1271,12 +1277,31 @@ $messages['oc'] = array(
 );
 
 /** Polish (Polski)
+ * @author Masti
  * @author McMonster
  */
 $messages['pl'] = array(
-	'lqt_subject'       => 'Temat:',
-	'lqt_nosubject'     => '«brak tematu»',
-	'lqt_move_noreason' => 'Nie podano powodu.',
+	'lqt_browse_archive_with_recent'  => 'starszy',
+	'lqt_contents_title'              => 'Zawartość:',
+	'lqt_add_header'                  => 'Dodaj nagłówek',
+	'lqt_new_thread'                  => 'Rozpocznij nową dyskusję',
+	'lqt_reply'                       => 'Odpowiedz',
+	'lqt_delete'                      => 'Skasuj',
+	'lqt_undelete'                    => 'Odkasuj',
+	'lqt_discussion_link'             => 'dyskusja',
+	'lqt_hist_moved_talkpage'         => 'Przeniesiony',
+	'lqt_hist_tooltip_newer_disabled' => 'Link niedostępny gdyż jesteś na pierwszej stronie.',
+	'lqt_hist_tooltip_older_disabled' => 'Link niedostępny gdyż jesteś na ostatniej stronie.',
+	'lqt_youhavenewmessages'          => 'Masz $1.',
+	'lqt_changes_from'                => 'z',
+	'lqt_changes_summary_of'          => 'z',
+	'lqt_protectedfromreply_link'     => 'zabezpieczony',
+	'lqt_subject'                     => 'Temat:',
+	'lqt_nosubject'                   => '«brak tematu»',
+	'lqt_noreason'                    => 'Nie podano powodu',
+	'lqt_thread_deleted_for_sysops'   => 'Ten wątek został $1 i jest dostępny jedynie dla administratorów.',
+	'lqt_nosuchthread'                => 'Nie ma takiego wątku.',
+	'lqt_move_noreason'               => 'Nie podano powodu.',
 );
 
 /** Pashto (پښتو)
@@ -1317,6 +1342,7 @@ $messages['pt'] = array(
 	'lqt_older'                         => 'mais antigo»',
 	'lqt_hist_comment_edited'           => 'Texto do comentário editado',
 	'lqt_hist_summary_changed'          => 'Sumário alterado',
+	'lqt_hist_thread_created'           => 'Novo tópico criado',
 	'lqt_hist_deleted'                  => 'Apagado',
 	'lqt_hist_undeleted'                => 'Recuperado',
 	'lqt_hist_moved_talkpage'           => 'Movido',
@@ -1588,7 +1614,7 @@ $messages['stq'] = array(
 
 /** Swedish (Svenska)
  * @author M.M.S.
- * @author Max sonnelid
+ * @author M.M.S.
  */
 $messages['sv'] = array(
 	'lqt_newmessages'                       => 'Nya meddelanden',
@@ -1632,6 +1658,7 @@ $messages['sv'] = array(
  */
 $messages['te'] = array(
 	'lqt_newmessages'                       => 'కొత్త సందేశాలు',
+	'lqt_movethread'                        => 'చర్చాహారాన్ని మరో పేజీకి తరలించండి',
 	'lqt_browse_archive_with_recent'        => 'పాతవి',
 	'lqt_contents_title'                    => 'విషయాలు:',
 	'lqt_new_thread'                        => 'కొత్త చర్చని ప్రారంభించండి',
@@ -1644,10 +1671,15 @@ $messages['te'] = array(
 	'lqt_older'                             => 'పాతవి»',
 	'lqt_hist_comment_edited'               => 'వ్యాఖ్య పాఠ్యాన్ని మార్చారు',
 	'lqt_hist_summary_changed'              => 'సంగ్రహం మార్చారు',
+	'lqt_hist_thread_created'               => 'కొత్త చర్చాహారాన్ని సృష్టించారు',
 	'lqt_hist_deleted'                      => 'తొలగించారు',
 	'lqt_hist_moved_talkpage'               => 'తరలించారు',
+	'lqt_hist_listing_subtitle'             => 'చారిత్రక జాబితాని చూస్తున్నారు.',
+	'lqt_hist_view_whole_thread'            => 'మొత్తం చర్చాహారానికి చరిత్రని చూడండి',
 	'lqt_hist_tooltip_newer_disabled'       => 'మీరు మొదటి పేజీలో ఉన్నందున ఈ లింకుని అచేతనం చేసాం.',
+	'lqt_hist_tooltip_older_disabled'       => 'మీరు చివరి పేజీలో ఉన్నారు కనుక ఈ లింకుని అచేతనం చేసాం.',
 	'lqt_revision_as_of'                    => '$1 నాటి కూర్పు.',
+	'lqt_change_new_thread'                 => 'ఇది చర్చాహారం యొక్క మొట్టమొదటి కూర్పు.',
 	'lqt_youhavenewmessages'                => 'మీకు $1 ఉన్నాయి.',
 	'lqt_changes_from'                      => 'నుండి',
 	'lqt_changes_summary_of'                => ' యొక్క',
@@ -1662,15 +1694,21 @@ $messages['te'] = array(
 	'lqt_summary_subtitle'                  => '$1 యొక్క సంగ్రహం.',
 	'lqt_nosuchrevision'                    => 'ఈ చర్చాహారానికి అటువంటి కూర్పు లేదు.',
 	'lqt_nosuchthread'                      => 'అటువంటి చర్చాహారమేదీ లేదు.',
+	'lqt_move_torename'                     => "ఈ చర్చాహారపు పేరు మార్చడానికి, $1 మరియు 'విషయం' అంశాన్ని మార్చండి.",
+	'lqt_move_torename_edit'                => 'దీన్ని మార్చండి',
 	'lqt_move_destinationtitle'             => 'గమ్యస్థానపు చర్చాపేజీ యొక్క శీర్షిక:',
+	'lqt_move_move'                         => 'తరలించు',
 	'lqt_move_nodestination'                => 'మీరు తప్పనిసరిగా ఓ గమ్యస్థానం చెప్పాలి.',
 	'lqt_move_noreason'                     => 'కారణం తెలుపలేదు.',
 	'lqt_move_success'                      => 'ఈ చర్చాహారాన్ని $1కి తరలించాం.',
 	'lqt_delete_partof'                     => 'ఈ చర్చాహారం $1లో భాగం.',
 	'lqt_delete_deleting_allreplies'        => 'అన్ని స్పందనలు',
+	'lqt_delete_deleted'                    => 'చర్చాహారాన్ని తొలగించాం.',
 	'lqt_delete_return'                     => 'తిరిగి $1కి.',
 	'lqt_delete_return_link'                => 'చర్చా పేజీ',
 	'lqt_delete_unallowed'                  => 'మీరు చర్చాహారాలని తొలగించలేరు.',
+	'lqt_header_warning_big'                => 'మీరు ఒక $1ని మారుస్తున్నారు.',
+	'lqt_header_warning_bold'               => 'చర్చాపేజీ శీర్షిక',
 	'lqt_header_warning_new_discussion'     => 'కొత్త చర్చను మొదలుపెట్టండి',
 	'lqt_sorting_order'                     => 'వరుస క్రమం:',
 	'lqt_remember_sort'                     => 'ఈ అభిరుచిని గుర్తుంచుకో',
