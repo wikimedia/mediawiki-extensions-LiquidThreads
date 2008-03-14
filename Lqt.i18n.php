@@ -1614,9 +1614,9 @@ $messages['stq'] = array(
 
 /** Swedish (Svenska)
  * @author M.M.S.
- * @author M.M.S.
  */
 $messages['sv'] = array(
+	'lqt-desc'                              => 'Lägger till trådade diskussioner till diskussionssidor',
 	'lqt_newmessages'                       => 'Nya meddelanden',
 	'lqt_browse_archive_with_recent'        => 'äldre',
 	'lqt_recently_archived'                 => 'Nyligen arkiverade:',
