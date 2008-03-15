@@ -922,6 +922,7 @@ $messages['km'] = array(
  */
 $messages['lb'] = array(
 	'lqt_newmessages'                       => 'Nei Messagen',
+	'lqt_browse_archive_with_recent'        => 'méi al',
 	'lqt_edited_notice'                     => 'Verännert',
 	'lqt_reply'                             => 'Äntwert',
 	'lqt_delete'                            => 'Läschen',
@@ -939,11 +940,13 @@ $messages['lb'] = array(
 	'lqt_changes_from'                      => ' vun',
 	'lqt_changes_summary_of'                => ' vun',
 	'lqt_subject'                           => 'Sujet:',
+	'lqt_nosubject'                         => '"kee Sujet"',
 	'lqt_noreason'                          => 'Kee Grond uginn.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'geläscht',
 	'lqt_summary_notice_link'               => 'Gitt e Résumé un',
 	'lqt_summary_subtitle'                  => 'De Résumé vun $1',
 	'lqt_move_move'                         => 'Réckelen',
+	'lqt_move_noreason'                     => 'Kee Grond uginn',
 	'lqt_delete_undeleting'                 => '$1 gëtt geläscht.',
 	'lqt_delete_deleting_allreplies'        => 'all Äntwerten',
 	'lqt_delete_return'                     => 'Zréck op $1',
@@ -951,6 +954,7 @@ $messages['lb'] = array(
 	'lqt_header_warning_big'                => 'Dir ännert een/eng $1',
 	'lqt_header_warning_bold'               => 'Iwwerschrëft vun enger Diskussiounssäit',
 	'lqt_header_warning_new_discussion'     => 'Eng nei Diskussioun ufénken.',
+	'lqt_remember_sort'                     => 'Dës Astellung verhalen',
 );
 
 /** Lozi (Silozi)
@@ -1308,15 +1312,16 @@ $messages['pl'] = array(
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
-	'lqt_newmessages'                => 'نوي پيغامونه',
-	'lqt_reply'                      => 'ځوابول',
-	'lqt_delete'                     => 'ړنګول',
-	'lqt_from_talk'                  => 'د $1 لخوا',
-	'lqt_hist_deleted'               => 'ړنګ شو',
-	'lqt_youhavenewmessages'         => 'تاسو $1 لری.',
-	'lqt_noreason'                   => 'هېڅ سبب نه دی ورکړ شوی.',
-	'lqt_move_noreason'              => 'هېڅ سبب نه دی ورکړ شوی.',
-	'lqt_delete_deleting_allreplies' => 'ټول ځوابونه',
+	'lqt_newmessages'                       => 'نوي پيغامونه',
+	'lqt_reply'                             => 'ځوابول',
+	'lqt_delete'                            => 'ړنګول',
+	'lqt_from_talk'                         => 'د $1 لخوا',
+	'lqt_hist_deleted'                      => 'ړنګ شو',
+	'lqt_youhavenewmessages'                => 'تاسو $1 لری.',
+	'lqt_noreason'                          => 'هېڅ سبب نه دی ورکړ شوی.',
+	'lqt_thread_deleted_for_sysops_deleted' => 'ړنګ شوی',
+	'lqt_move_noreason'                     => 'هېڅ سبب نه دی ورکړ شوی.',
+	'lqt_delete_deleting_allreplies'        => 'ټول ځوابونه',
 );
 
 /** Portuguese (Português)
