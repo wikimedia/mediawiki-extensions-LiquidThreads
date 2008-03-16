@@ -682,6 +682,7 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Bdanee
+ * @author Tgr
  */
 $messages['hu'] = array(
 	'lqt_newmessages'                       => 'Új üzenetek',
@@ -729,7 +730,7 @@ $messages['hu'] = array(
 	'lqt_thread_deleted_for_sysops'         => 'A beszélgetés $1 és csak adminisztrátorok számára látható.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'törölve lett',
 	'lqt_thread_deleted'                    => 'A beszélgetést törölték.',
-	'lqt_summary_notice'                    => 'Ha a beszélgetés befejeződött, $1. Nem történt változás $2 napja.',
+	'lqt_summary_notice'                    => 'Nem történt változás $2 napja. Ha a beszélgetés befejeződött, $1.',
 	'lqt_summary_notice_link'               => 'írhatsz összefoglalót',
 	'lqt_summary_label'                     => 'A beszélgetést a következőképpen összegezték:',
 	'lqt_summary_subtitle'                  => '$1 összegzését.',
@@ -743,7 +744,7 @@ $messages['hu'] = array(
 	'lqt_move_nodestination'                => 'Meg kell adnod a célt.',
 	'lqt_move_noreason'                     => 'Nincs ok megadva.',
 	'lqt_move_success'                      => 'A beszélgetés át lett helyezve a(z) $1 lapra.',
-	'lqt_delete_undeleting'                 => '$ visszaállítása.',
+	'lqt_delete_undeleting'                 => '$1 visszaállítása.',
 	'lqt_delete_undeletethread'             => 'Beszélgetés visszaállítása',
 	'lqt_delete_partof'                     => 'Ez a beszélgetés $1 része.',
 	'lqt_delete_deleting_allreplies'        => 'összes válasz',
@@ -755,7 +756,7 @@ $messages['hu'] = array(
 	'lqt_delete_unallowed'                  => 'Nincs jogod beszélgetéseket törölni.',
 	'lqt_talkpage_autocreate_summary'       => 'Vitalap automatikus elkészítése az első beszélgetés indulásakor.',
 	'lqt_header_warning_big'                => 'Te most egy $1 szerkesztesz.',
-	'lqt_header_warning_after_big'          => 'A fejlécek bejelentések és előszavak számára vannak. Nem $1 akarsz indítani?',
+	'lqt_header_warning_after_big'          => 'A fejlécek bejelentések és előszavak számára vannak. Nem $2 akarsz indítani?',
 	'lqt_header_warning_bold'               => 'vitalap-fejlécet',
 	'lqt_header_warning_new_discussion'     => 'új beszélgetést',
 	'lqt_sorting_order'                     => 'Rendezés:',
@@ -1250,7 +1251,7 @@ $messages['oc'] = array(
 	'lqt_nosuchthread'                      => 'Cap de fial correspond pas.',
 	'lqt_threadrequired'                    => "Devètz indicar un fial dins l'URL.",
 	'lqt_move_movingthread'                 => '$1 en deplaçament. Aqueste fial fa partida de $2.',
-	'lqt_move_torename'                     => "Per renomenar aqueste fial, $1 e modificar lo camp ''Subjècte''.",
+	'lqt_move_torename'                     => "Per tornar nomenar aqueste fial, $1 e modificar lo camp ''Subjècte''.",
 	'lqt_move_torename_edit'                => 'lo modificar',
 	'lqt_move_destinationtitle'             => 'Títol de la pagina de discussion finala :',
 	'lqt_move_move'                         => 'Desplaçar',
