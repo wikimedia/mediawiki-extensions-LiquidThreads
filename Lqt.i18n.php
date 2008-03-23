@@ -247,6 +247,13 @@ $messages['bg'] = array(
 	'lqt_sort_oldest_threads'           => 'първо най-старите нишки',
 );
 
+/** Bengali (বাংলা)
+ * @author Zaheen
+ */
+$messages['bn'] = array(
+	'lqt_delete' => 'মুছে ফেলা হোক',
+);
+
 /** Breton (Brezhoneg)
  * @author Fulup
  */
@@ -350,6 +357,7 @@ $messages['eo'] = array(
 	'lqt_browse_archive_with_recent'        => 'pli malnova',
 	'lqt_recently_archived'                 => 'Laste arkivitaj:',
 	'lqt_contents_title'                    => 'Enhavo:',
+	'lqt_add_header'                        => 'Aldonu titolon',
 	'lqt_edited_notice'                     => 'Redaktita',
 	'lqt_reply'                             => 'Respondu',
 	'lqt_delete'                            => 'Forigu',
@@ -374,8 +382,10 @@ $messages['eo'] = array(
 	'lqt_move_torename_edit'                => 'redaktu ĝin',
 	'lqt_move_move'                         => 'Movu',
 	'lqt_delete_undeleting'                 => 'Restarigante $1.',
+	'lqt_delete_deleting_allreplies'        => 'ĉiuj respondoj',
 	'lqt_delete_return_link'                => 'la diskuto-paĝo',
 	'lqt_header_warning_big'                => 'Vi redaktas $1.',
+	'lqt_header_warning_new_discussion'     => 'kreu novan diskuton',
 );
 
 /** French (Français)
