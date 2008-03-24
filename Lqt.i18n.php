@@ -261,6 +261,18 @@ $messages['br'] = array(
 	'lqt_delete' => 'Diverkañ',
 );
 
+/** Danish (Dansk)
+ * @author Jon Harald Søby
+ */
+$messages['da'] = array(
+	'lqt_delete'                            => 'Slet',
+	'lqt_discussion_link'                   => 'diskussion',
+	'lqt_hist_deleted'                      => 'Slettet',
+	'lqt_subject'                           => 'Emne:',
+	'lqt_thread_deleted_for_sysops_deleted' => 'slettet',
+	'lqt_delete_return'                     => 'Tilbage til $1.',
+);
+
 /** German (Deutsch)
  * @author Raimond Spekking
  */
@@ -376,16 +388,19 @@ $messages['eo'] = array(
 	'lqt_protectedfromreply_link'           => 'protektita',
 	'lqt_subject'                           => 'Subjekto:',
 	'lqt_nosubject'                         => '«neniu subjekto»',
+	'lqt_noreason'                          => 'Nenia kialo donata',
 	'lqt_thread_deleted_for_sysops_deleted' => 'forigita',
 	'lqt_summary_notice_link'               => 'verku resumon',
 	'lqt_summary_subtitle'                  => 'resumo de $1.',
 	'lqt_move_torename_edit'                => 'redaktu ĝin',
 	'lqt_move_move'                         => 'Movu',
+	'lqt_move_noreason'                     => 'Nenia kialo donata',
 	'lqt_delete_undeleting'                 => 'Restarigante $1.',
 	'lqt_delete_deleting_allreplies'        => 'ĉiuj respondoj',
 	'lqt_delete_return_link'                => 'la diskuto-paĝo',
 	'lqt_header_warning_big'                => 'Vi redaktas $1.',
 	'lqt_header_warning_new_discussion'     => 'kreu novan diskuton',
+	'lqt_sorting_order'                     => 'Ordigo:',
 );
 
 /** French (Français)
@@ -1193,7 +1208,23 @@ $messages['nl'] = array(
 	'lqt_sort_oldest_threads'               => 'oudste threads bovenaan',
 );
 
-/** Norwegian (‪Norsk (bokmål)‬)
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Jon Harald Søby
+ */
+$messages['nn'] = array(
+	'lqt_browse_archive_with_recent'        => 'eldre',
+	'lqt_delete'                            => 'Slett',
+	'lqt_discussion_link'                   => 'diskusjon',
+	'lqt_older'                             => 'eldre »',
+	'lqt_hist_deleted'                      => 'Sletta',
+	'lqt_subject'                           => 'Emne:',
+	'lqt_noreason'                          => 'Inga grunngjeving.',
+	'lqt_thread_deleted_for_sysops_deleted' => 'sletta',
+	'lqt_move_noreason'                     => 'Inga grunngjeving.',
+	'lqt_delete_return'                     => 'Attende til $1.',
+);
+
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
@@ -1244,7 +1275,7 @@ $messages['no'] = array(
 	'lqt_protectedfromreply_link'           => 'låst',
 	'lqt_subject'                           => 'Emne:',
 	'lqt_nosubject'                         => '«intet emne»',
-	'lqt_noreason'                          => 'Ingen grunn oppgitt.',
+	'lqt_noreason'                          => 'Ingen grunn gitt.',
 	'lqt_thread_deleted_for_sysops'         => 'Denne tråden har blitt $1 og er kun synlig for administratorer.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'slettet',
 	'lqt_thread_deleted'                    => 'Denne tråden har blitt slettet.',
@@ -1261,7 +1292,7 @@ $messages['no'] = array(
 	'lqt_move_destinationtitle'             => 'Tittel på måldiskusjonsside:',
 	'lqt_move_move'                         => 'Flytt',
 	'lqt_move_nodestination'                => 'Du må angi et mål.',
-	'lqt_move_noreason'                     => 'Ingen grunn oppgitt.',
+	'lqt_move_noreason'                     => 'Ingen grunn gitt.',
 	'lqt_move_success'                      => 'Denne tråden ble flyttet til $1.',
 	'lqt_delete_undeleting'                 => 'Gjenoppretter $1.',
 	'lqt_delete_undeletethread'             => 'Gjenopprett tråd',
@@ -1732,29 +1763,31 @@ $messages['stq'] = array(
 
 /** Swedish (Svenska)
  * @author M.M.S.
+ * @author Jon Harald Søby
  */
 $messages['sv'] = array(
 	'lqt-desc'                              => 'Lägger till trådade diskussioner till diskussionssidor',
 	'lqt_newmessages'                       => 'Nya meddelanden',
 	'lqt_browse_archive_with_recent'        => 'äldre',
 	'lqt_recently_archived'                 => 'Nyligen arkiverade:',
+	'lqt_contents_title'                    => 'Innehåll:',
 	'lqt_add_header'                        => 'Lägg till rubrik',
 	'lqt_new_thread'                        => 'Starta en ny diskussion',
 	'lqt_edited_notice'                     => 'Redigerad',
 	'lqt_reply'                             => 'Svara',
-	'lqt_delete'                            => 'Ta bort',
+	'lqt_delete'                            => 'Radera',
 	'lqt_discussion_link'                   => 'diskussion',
 	'lqt_from_talk'                         => 'från $1',
 	'lqt_newer'                             => '«nyare',
 	'lqt_older'                             => 'äldre»',
 	'lqt_hist_summary_changed'              => 'Sammanfattning ändrad',
-	'lqt_hist_deleted'                      => 'Borttagen',
+	'lqt_hist_deleted'                      => 'Raderad',
 	'lqt_hist_moved_talkpage'               => 'Flyttad',
 	'lqt_youhavenewmessages'                => 'Du har $1.',
 	'lqt_changes_from'                      => ' från',
 	'lqt_changes_summary_of'                => ' av',
 	'lqt_protectedfromreply_link'           => 'skyddad',
-	'lqt_subject'                           => 'Motiv:',
+	'lqt_subject'                           => 'Ämne:',
 	'lqt_nosubject'                         => '«inget motiv»',
 	'lqt_noreason'                          => 'Ingen anledning given.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'raderad',
