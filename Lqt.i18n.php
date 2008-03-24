@@ -593,8 +593,8 @@ $messages['gl'] = array(
  */
 $messages['gu'] = array(
 	'lqt_newmessages'                       => 'નવા સંદેશા',
-	'lqt_browse_archive_with_recent'        => 'જુનું/જુના',
-	'lqt_recently_archived'                 => 'તાજેતરમાં સંગ્રહ કરેલા/તાજેતરમાં દફતર કરેલા',
+	'lqt_browse_archive_with_recent'        => 'જુના',
+	'lqt_recently_archived'                 => 'તાજેતરમાં દફતર કરેલા',
 	'lqt_contents_title'                    => 'સૂચિ',
 	'lqt_add_header'                        => 'શિર્ષક ઉમેરો',
 	'lqt_new_thread'                        => 'નવી ચર્ચા શરૂ કરો',
@@ -615,7 +615,7 @@ $૨ દ્વારા $૧ ના પ્રત્યુત્તરમાં, 
 	'lqt_hist_deleted'                      => 'રદ કરવામાં આવ્યું છે',
 	'lqt_hist_undeleted'                    => 'રદ કરેલું પાછું વાળ્યું છે',
 	'lqt_hist_moved_talkpage'               => 'ખસેડવામાં આવ્યું છે',
-	'lqt_hist_listing_subtitle'             => 'ઈતિહાસ જોઇ રહ્યા છો/ઐતિહાસિક સૂચીકરણ જોઇ રહ્યા છો',
+	'lqt_hist_listing_subtitle'             => 'ઐતિહાસિક સૂચીકરણ જોઇ રહ્યા છો',
 	'lqt_hist_past_last_page_error'         => 'આપ ઈતિહાસના પ્રવર્તમાન પાનાની સંખ્યા વટાવી ચુક્યા છો',
 	'lqt_hist_tooltip_newer_disabled'       => 'આ લિંક કામ નહી કરે, કેમકે આપ પ્રથમ પાના પર છો',
 	'lqt_hist_tooltip_older_disabled'       => 'આ લિંક કામ નહી કરે, કેમકે આપ અંતિમ પાના પર છો',
@@ -1866,6 +1866,16 @@ $messages['te'] = array(
 	'lqt_sort_newest_changes'               => 'చివరగా మార్చినవి మొదట',
 	'lqt_sort_newest_threads'               => 'కొత్త చర్చాహారాలు మొదట',
 	'lqt_sort_oldest_threads'               => 'పాత చర్చాహారాలు మొదట',
+);
+
+/** Tetum (Tetun)
+ * @author MF-Warburg
+ */
+$messages['tet'] = array(
+	'lqt_browse_archive_with_recent' => 'tuan liu',
+	'lqt_delete'                     => 'Halakon',
+	'lqt_older'                      => 'tuan liu»',
+	'lqt_move_move'                  => 'Book',
 );
 
 /** Vietnamese (Tiếng Việt)
