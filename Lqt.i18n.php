@@ -271,6 +271,14 @@ $messages['ca'] = array(
 	'lqt_discussion_link' => 'discussió',
 );
 
+/** Welsh (Cymraeg)
+ * @author Lloffiwr
+ */
+$messages['cy'] = array(
+	'lqt_noreason'      => 'Dim rheswm wedi ei roi',
+	'lqt_move_noreason' => 'Dim rheswm wedi ei roi',
+);
+
 /** Danish (Dansk)
  * @author Jon Harald Søby
  */
@@ -287,6 +295,7 @@ $messages['da'] = array(
  * @author DaSch
  */
 $messages['de'] = array(
+	'lqt-desc'                              => 'Benutzung von Threads für diese Diskussionsseite hinzufügen',
 	'lqt-nothread'                          => 'Es sind keine archivierten Threads vorhanden.',
 	'lqt_newmessages'                       => 'Neue Nachrichten',
 	'lqt_movethread'                        => 'Verschiebe Diskussionsstrang auf eine andere Seite',
@@ -303,11 +312,13 @@ $messages['de'] = array(
 	'lqt_reply'                             => 'Antworten',
 	'lqt_delete'                            => 'Löschen',
 	'lqt_undelete'                          => 'wiederherstellen',
+	'lqt_permalink'                         => 'Permanentlink',
 	'lqt_fragment'                          => 'ein Fragment einer $1 von $2',
 	'lqt_discussion_link'                   => 'Diskussion',
 	'lqt_from_talk'                         => 'von $1',
 	'lqt_newer'                             => '← jüngere',
 	'lqt_older'                             => 'ältere →',
+	'lqt_hist_comment_edited'               => 'Kommentartext editiert',
 	'lqt_hist_summary_changed'              => 'Zusammenfassung geändert',
 	'lqt_hist_reply_created'                => 'Neue Antwort erstellt',
 	'lqt_hist_thread_created'               => 'Neuer Diskussionsstrang erstellt',
@@ -332,13 +343,18 @@ $messages['de'] = array(
 	'lqt_subject'                           => 'Thema: ',
 	'lqt_nosubject'                         => '„kein Thema“',
 	'lqt_noreason'                          => 'kein Grund angegeben.',
+	'lqt_thread_deleted_for_sysops'         => 'Dieser Thread wurde $1 und ist nur für Administratoren sichtbar.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'gelöscht',
 	'lqt_thread_deleted'                    => 'Thread wurde gelöscht.',
+	'lqt_summary_notice'                    => 'Zu dieser Diskussion gibt es seit $2 Tagen keine neuen Beiträge.
+Wenn die Diskussion beendet ist, möchtest du sie vielleicht $1.',
 	'lqt_summary_notice_link'               => 'Zusammenfassung schreiben',
 	'lqt_summary_label'                     => 'Zusammenfassung:',
 	'lqt_summary_subtitle'                  => 'Zusammenfassung von $1.',
 	'lqt_nosuchrevision'                    => 'Version des Threads wurde nicht gefunden.',
 	'lqt_nosuchthread'                      => 'Thread wurde nicht gefunden.',
+	'lqt_threadrequired'                    => 'In der URL muss ein Thread angegeben werden.',
+	'lqt_move_movingthread'                 => 'Verschiebe $1. Dieser Thread ist Teil von $2.',
 	'lqt_move_torename'                     => "Um den Thread umzubennenen, $1 und ändere das 'Thema'.",
 	'lqt_move_torename_edit'                => 'bearbeite ihn',
 	'lqt_move_destinationtitle'             => 'Name der Diskussionsseite:',
@@ -346,13 +362,22 @@ $messages['de'] = array(
 	'lqt_move_nodestination'                => 'Es muss eine Zielseite angegeben werden.',
 	'lqt_move_noreason'                     => 'kein Grund angegeben.',
 	'lqt_move_success'                      => 'Thread verschoben nach $1.',
+	'lqt_delete_undeleting'                 => 'Wiederherstellen $1.',
+	'lqt_delete_undeletethread'             => 'Wiederhergestellter Thread',
 	'lqt_delete_partof'                     => 'Dieser Thread ist Teil von $1.',
 	'lqt_delete_deleting_allreplies'        => 'alle Antworten',
 	'lqt_delete_deletethread'               => 'Thread und Antworten löschen',
 	'lqt_delete_deleted'                    => 'Der Thread wurde gelöscht.',
+	'lqt_delete_undeleted'                  => 'Der Thread wurde wiederhergestellt',
 	'lqt_delete_return'                     => 'Zurück zu $1.',
+	'lqt_delete_return_link'                => 'die Diskussionsseite',
+	'lqt_delete_unallowed'                  => 'Du hast nicht die Berechtigungen Threads zu löschen.',
 	'lqt_talkpage_autocreate_summary'       => 'Diskussionsseite automatisch mit dem ersten Thread erstellt.',
-	'lqt_header_warning_new_discussion'     => 'Neue Diskussion beginnen',
+	'lqt_header_warning_big'                => 'Du editierst eine $1.',
+	'lqt_header_warning_after_big'          => 'Kopfzeilen sind für Ankündigungen und Einleitungen.
+Möglicherweise willst du statt dessen eine $2.',
+	'lqt_header_warning_bold'               => 'Diskussionsseiten Kopfzeile',
+	'lqt_header_warning_new_discussion'     => 'neue Diskussion beginnen',
 	'lqt_sorting_order'                     => 'Sortierung:',
 	'lqt_remember_sort'                     => 'Einstellungen merken',
 	'lqt_sort_newest_changes'               => 'zuletzt geänderten Thread zuerst',
@@ -1384,7 +1409,7 @@ $messages['oc'] = array(
 	'lqt_browse_archive_with_recent'        => 'mai ancians',
 	'lqt_recently_archived'                 => 'Archivat recentament',
 	'lqt_contents_title'                    => 'Taula dels subjèctes :',
-	'lqt_add_header'                        => 'Ajustar entèsta',
+	'lqt_add_header'                        => 'Apondre una entèsta',
 	'lqt_new_thread'                        => 'Amodar una discussion novèla',
 	'lqt_in_response_to'                    => 'En responsa a $1 per $2, mai naut :',
 	'lqt_edited_notice'                     => 'Modificat',
@@ -1918,6 +1943,13 @@ $messages['tet'] = array(
 	'lqt_delete'                     => 'Halakon',
 	'lqt_older'                      => 'tuan liu»',
 	'lqt_move_move'                  => 'Book',
+);
+
+/** Tajik (Тоҷикӣ/tojikī)
+ * @author Ibrahim
+ */
+$messages['tg'] = array(
+	'lqt_delete' => 'Ҳафз',
 );
 
 /** Vietnamese (Tiếng Việt)
