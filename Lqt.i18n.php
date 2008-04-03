@@ -1945,10 +1945,8 @@ $messages['tet'] = array(
 	'lqt_move_move'                  => 'Book',
 );
 
-/** Tajik (Тоҷикӣ/tojikī)
- * @author Ibrahim
- */
-$messages['tg'] = array(
+/** Tajik (Тоҷикӣ/tojikī) */
+$messages['tg-cyrl'] = array(
 	'lqt_delete' => 'Ҳафз',
 );
 
