@@ -700,6 +700,13 @@ $messages['gu'] = array(
 	'lqt_move_move'                         => 'ખસેડો',
 );
 
+/** Hindi (हिन्दी)
+ * @author Kaustubh
+ */
+$messages['hi'] = array(
+	'lqt_contents_title' => 'अनुक्रम:',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
