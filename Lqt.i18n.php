@@ -430,6 +430,7 @@ $messages['eo'] = array(
 	'lqt_recently_archived'                 => 'Laste arkivitaj:',
 	'lqt_contents_title'                    => 'Enhavo:',
 	'lqt_add_header'                        => 'Aldonu titolon',
+	'lqt_new_thread'                        => 'Kreu novan diskuton',
 	'lqt_edited_notice'                     => 'Redaktita',
 	'lqt_reply'                             => 'Respondu',
 	'lqt_delete'                            => 'Forigu',
@@ -438,6 +439,7 @@ $messages['eo'] = array(
 	'lqt_from_talk'                         => 'de $1',
 	'lqt_newer'                             => '«pli nova',
 	'lqt_older'                             => 'pli malnova»',
+	'lqt_hist_summary_changed'              => 'Resumo ŝanĝita',
 	'lqt_hist_deleted'                      => 'Forigita',
 	'lqt_hist_undeleted'                    => 'Restarigita',
 	'lqt_hist_moved_talkpage'               => 'Movita',
@@ -450,17 +452,27 @@ $messages['eo'] = array(
 	'lqt_nosubject'                         => '«neniu subjekto»',
 	'lqt_noreason'                          => 'Nenia kialo donata',
 	'lqt_thread_deleted_for_sysops_deleted' => 'forigita',
+	'lqt_thread_deleted'                    => 'Ĉi tiu fadeno estis forigita.',
 	'lqt_summary_notice_link'               => 'verku resumon',
 	'lqt_summary_subtitle'                  => 'resumo de $1.',
+	'lqt_nosuchthread'                      => 'Estas neniel fadeno.',
 	'lqt_move_torename_edit'                => 'redaktu ĝin',
 	'lqt_move_move'                         => 'Movu',
 	'lqt_move_noreason'                     => 'Nenia kialo donata',
 	'lqt_delete_undeleting'                 => 'Restarigante $1.',
+	'lqt_delete_undeletethread'             => 'Restarigu fadenon',
 	'lqt_delete_deleting_allreplies'        => 'ĉiuj respondoj',
+	'lqt_delete_deletethread'               => 'Forigu fadenon kaj respondojn',
+	'lqt_delete_deleted'                    => 'La fadeno estis forigita.',
+	'lqt_delete_undeleted'                  => 'La fadeno estis restarigita.',
+	'lqt_delete_return'                     => 'Reiru al $1.',
 	'lqt_delete_return_link'                => 'la diskuto-paĝo',
+	'lqt_delete_unallowed'                  => 'Vi ne estas permesita forigi fadenojn.',
 	'lqt_header_warning_big'                => 'Vi redaktas $1.',
 	'lqt_header_warning_new_discussion'     => 'kreu novan diskuton',
 	'lqt_sorting_order'                     => 'Ordigo:',
+	'lqt_sort_newest_threads'               => 'Plej novaj fadenoj unue',
+	'lqt_sort_oldest_threads'               => 'plej malnovaj fadenoj unue',
 );
 
 /** French (Français)
@@ -1952,9 +1964,51 @@ $messages['tet'] = array(
 	'lqt_move_move'                  => 'Book',
 );
 
-/** Tajik (Тоҷикӣ/tojikī) */
+/** Tajik (Cyrillic) (Тоҷикӣ/tojikī (Cyrillic))
+ * @author Ibrahim
+ * @author Siebrand
+ */
 $messages['tg-cyrl'] = array(
-	'lqt_delete' => 'Ҳафз',
+	'lqt_newmessages'                       => 'Пайёмҳои нав',
+	'lqt_browse_archive_with_recent'        => 'кӯҳнатар',
+	'lqt_reply'                             => 'Посух додан',
+	'lqt_delete'                            => 'Ҳафз',
+	'lqt_discussion_link'                   => 'баҳс',
+	'lqt_from_talk'                         => 'аз $1',
+	'lqt_newer'                             => '«навтар',
+	'lqt_older'                             => 'кӯҳнатар»',
+	'lqt_hist_deleted'                      => 'Ҳазфшуда',
+	'lqt_changes_from'                      => 'аз',
+	'lqt_changes_summary_of'                => 'аз',
+	'lqt_protectedfromreply_link'           => 'ҳифзшуда',
+	'lqt_subject'                           => 'Мавзӯъ:',
+	'lqt_nosubject'                         => '«мавзӯъ нест»',
+	'lqt_noreason'                          => 'Далеле мушаххас нашудааст.',
+	'lqt_thread_deleted_for_sysops_deleted' => 'ҳазфшуда',
+	'lqt_summary_notice_link'               => 'навиштани хулоса',
+	'lqt_summary_label'                     => 'Ин тор ба таври зерин хулоса шудааст:',
+	'lqt_summary_subtitle'                  => 'хулоса аз $1.',
+	'lqt_nosuchrevision'                    => 'Чунин нусхае аз ин тор нест.',
+	'lqt_nosuchthread'                      => 'Чунин тор нест.',
+	'lqt_threadrequired'                    => 'Шумо бояд тореро дар нишонаи интернетии URL мушаххас кунед.',
+	'lqt_move_movingthread'                 => 'Дар ҳоли кӯчонидани $1. Ин тор қисме аз $2 мебошад.',
+	'lqt_move_torename'                     => "Барои тағйири номи ин тор, $1 ва ноҳияи 'Мавзӯъ'-ро тағйир диҳед.",
+	'lqt_move_torename_edit'                => 'инро вироиш кунед',
+	'lqt_move_move'                         => 'Кӯчонидан',
+	'lqt_move_nodestination'                => 'Шумо бояд мақсадро мушаххас кунед.',
+	'lqt_move_noreason'                     => 'Далеле мушаххас нашудааст',
+	'lqt_move_success'                      => 'Тор ба $1 кӯчонида шуд.',
+	'lqt_delete_unallowed'                  => 'Шумо иҷозати ҳазф кардани ин торҳоро надоред.',
+	'lqt_header_warning_big'                => 'Шумо дар ҳоли вироиши $1 ҳастед.',
+	'lqt_sort_newest_threads'               => 'торҳои навтарин аввал',
+	'lqt_sort_oldest_threads'               => 'торҳои кӯҳнатарин аввал',
+);
+
+/** Tatar (Cyrillic) (Tatarça/Татарча (Cyrillic))
+ * @author Ерней
+ */
+$messages['tt-cyrl'] = array(
+	'lqt_subject' => 'Тема:',
 );
 
 /** Vietnamese (Tiếng Việt)
@@ -2180,6 +2234,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Shinjiman
+ * @author Alexsh
  */
 $messages['zh-hant'] = array(
 	'lqt_newmessages'                       => '新信息',
@@ -2242,7 +2297,7 @@ $messages['zh-hant'] = array(
 	'lqt_move_torename'                     => "要重新命名這個討論串，$1再更改'主旨'一欄。",
 	'lqt_move_torename_edit'                => '編輯它',
 	'lqt_move_destinationtitle'             => '目標討論頁的標題:',
-	'lqt_move_move'                         => '移動',
+	'lqt_move_move'                         => '重新命名',
 	'lqt_move_nodestination'                => '您必須要指定一個目標。',
 	'lqt_move_noreason'                     => '無給出原因。',
 	'lqt_move_success'                      => '討論串已經移動到$1。',
