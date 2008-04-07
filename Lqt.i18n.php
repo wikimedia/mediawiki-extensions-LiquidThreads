@@ -1969,8 +1969,17 @@ $messages['tet'] = array(
  * @author Siebrand
  */
 $messages['tg-cyrl'] = array(
+	'lqt-desc'                              => 'Илова кардани баҳси торкашӣ ба саҳифаҳои баҳс',
+	'lqt-nothread'                          => 'Дар бойгонӣ ҳеҷ торе нест.',
 	'lqt_newmessages'                       => 'Пайёмҳои нав',
+	'lqt_movethread'                        => 'Кӯчонидани тор ба дигар саҳифа',
+	'lqt_deletethread'                      => 'Ҳазф ё барқарор кардани тор',
+	'lqt_browse_archive_without_recent'     => 'Нигаристани торҳои бойгонишуда',
 	'lqt_browse_archive_with_recent'        => 'кӯҳнатар',
+	'lqt_recently_archived'                 => 'Ба тозагӣ бойгонишуда:',
+	'lqt_contents_title'                    => 'Мундариҷа:',
+	'lqt_new_thread'                        => 'Оғози мубоҳисаи ҷадид',
+	'lqt_in_response_to'                    => 'Дар посух ба $1 тавассути $2, дар боло:',
 	'lqt_reply'                             => 'Посух додан',
 	'lqt_delete'                            => 'Ҳафз',
 	'lqt_discussion_link'                   => 'баҳс',
@@ -2000,6 +2009,7 @@ $messages['tg-cyrl'] = array(
 	'lqt_move_success'                      => 'Тор ба $1 кӯчонида шуд.',
 	'lqt_delete_unallowed'                  => 'Шумо иҷозати ҳазф кардани ин торҳоро надоред.',
 	'lqt_header_warning_big'                => 'Шумо дар ҳоли вироиши $1 ҳастед.',
+	'lqt_header_warning_new_discussion'     => 'оғози мубоҳисаи ҷадид',
 	'lqt_sort_newest_threads'               => 'торҳои навтарин аввал',
 	'lqt_sort_oldest_threads'               => 'торҳои кӯҳнатарин аввал',
 );
@@ -2008,7 +2018,8 @@ $messages['tg-cyrl'] = array(
  * @author Ерней
  */
 $messages['tt-cyrl'] = array(
-	'lqt_subject' => 'Тема:',
+	'lqt_subject'       => 'Тема:',
+	'lqt_delete_return' => '$1 битенә кайтырга.',
 );
 
 /** Vietnamese (Tiếng Việt)
