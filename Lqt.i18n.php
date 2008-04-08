@@ -1511,6 +1511,7 @@ $messages['oc'] = array(
 /** Polish (Polski)
  * @author Masti
  * @author McMonster
+ * @author Sp5uhe
  */
 $messages['pl'] = array(
 	'lqt_browse_archive_with_recent'  => 'starszy',
@@ -1518,7 +1519,7 @@ $messages['pl'] = array(
 	'lqt_add_header'                  => 'Dodaj nagłówek',
 	'lqt_new_thread'                  => 'Rozpocznij nową dyskusję',
 	'lqt_reply'                       => 'Odpowiedz',
-	'lqt_delete'                      => 'Skasuj',
+	'lqt_delete'                      => 'Usuń',
 	'lqt_undelete'                    => 'Odkasuj',
 	'lqt_discussion_link'             => 'dyskusja',
 	'lqt_hist_moved_talkpage'         => 'Przeniesiony',
