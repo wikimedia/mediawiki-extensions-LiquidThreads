@@ -717,6 +717,7 @@ $messages['gu'] = array(
  */
 $messages['hi'] = array(
 	'lqt_contents_title' => 'अनुक्रम:',
+	'lqt_delete'         => 'हटायें',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -1470,7 +1471,7 @@ $messages['oc'] = array(
 	'lqt_thread_deleted_for_sysops'         => 'Aqueste fial es estat $1. Sols los administrators o pòdon veire.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'escafat',
 	'lqt_thread_deleted'                    => 'Aqueste fial es estat escafat.',
-	'lqt_summary_notice'                    => 'I a pas agutcap de cambiament dins aquesta discussuion dempuèi al mens $2 jorns. Se es estada concluida, podètz aver besonh de $1.',
+	'lqt_summary_notice'                    => 'I a pas agut cap de cambiament dins aquesta discussion dempuèi almens $2 jorns. Se es estada concluïda, podètz aver besonh de $1.',
 	'lqt_summary_notice_link'               => 'escriure un resumit',
 	'lqt_summary_label'                     => 'Aqueste fial es estat resumit per :',
 	'lqt_summary_subtitle'                  => 'lo resumit de $1.',
