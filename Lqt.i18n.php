@@ -1800,6 +1800,16 @@ $messages['ru'] = array(
 	'lqt_sort_oldest_threads'               => 'старые ветки вначале',
 );
 
+/** Tachelhit (Tašlḥiyt)
+ * @author Zanatos
+ */
+$messages['shi'] = array(
+	'lqt_reply'          => 'jawb',
+	'lqt_delete'         => 'msḥ',
+	'lqt_hist_deleted'   => 'ityumsaḥ',
+	'lqt_hist_undeleted' => 'ur-ityumsaḥ',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */
@@ -2110,6 +2120,7 @@ $messages['tt-cyrl'] = array(
 
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
+ * @author Vinhtantran
  */
 $messages['vi'] = array(
 	'lqt-desc'                          => 'Thêm những thảo luận có cấu trúc vào trang thảo luận',
@@ -2134,9 +2145,11 @@ $messages['vi'] = array(
 	'lqt_changes_from'                  => '  từ',
 	'lqt_subject'                       => 'Chủ đề:',
 	'lqt_nosubject'                     => '«không có chủ đề»',
+	'lqt_noreason'                      => 'Không đưa ra lý do.',
 	'lqt_move_torename'                 => 'Để đổi tên cuộc thảo luận này, $1 và đổi dòng “Chủ đề”.',
 	'lqt_move_torename_edit'            => 'sửa đổi nó',
 	'lqt_move_move'                     => 'Di chuyển',
+	'lqt_move_noreason'                 => 'Không đưa ra lý do.',
 	'lqt_delete_undeletethread'         => 'Phục hồi cuộc thảo luận',
 	'lqt_delete_deleting_allreplies'    => 'các trả lời',
 	'lqt_delete_deletethread'           => 'Xóa cuộc thảo luận và các trả lời',
