@@ -1986,6 +1986,13 @@ $messages['sv'] = array(
 	'lqt_remember_sort'                     => 'Kom ihåg denna inställning',
 );
 
+/** Silesian (ślůnski)
+ * @author Herr Kriss
+ */
+$messages['szl'] = array(
+	'lqt_move_move' => 'Přećep',
+);
+
 /** Telugu (తెలుగు)
  * @author Veeven
  */
