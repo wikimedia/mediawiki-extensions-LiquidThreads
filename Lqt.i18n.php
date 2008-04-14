@@ -475,6 +475,14 @@ $messages['eo'] = array(
 	'lqt_sort_oldest_threads'               => 'plej malnovaj fadenoj unue',
 );
 
+/** Spanish (Español)
+ * @author Piolinfax
+ */
+$messages['es'] = array(
+	'lqt_noreason'      => 'No se da ninguna razón',
+	'lqt_move_noreason' => 'No se da ninguna razón',
+);
+
 /** French (Français)
  * @author Sherbrooke
  * @author Urhixidur
