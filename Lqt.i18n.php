@@ -740,6 +740,17 @@ $messages['gu'] = array(
 	'lqt_move_move'                         => 'ખસેડો',
 );
 
+/** Manx (Gaelg)
+ * @author MacTire02
+ */
+$messages['gv'] = array(
+	'lqt_newmessages'                       => 'Çhaghteraghtyn noa',
+	'lqt_hist_deleted'                      => 'Scryssit',
+	'lqt_changes_from'                      => ' ass',
+	'lqt_thread_deleted_for_sysops_deleted' => 'scryssit',
+	'lqt_summary_notice_link'               => 'screeu roie-haishbynys',
+);
+
 /** Hindi (हिन्दी)
  * @author Kaustubh
  */
@@ -1186,6 +1197,7 @@ $messages['lb'] = array(
 	'lqt_youhavenewmessages'                => 'Dir hutt $1',
 	'lqt_changes_from'                      => ' vun',
 	'lqt_changes_summary_of'                => ' vun',
+	'lqt_protectedfromreply_link'           => 'protegéiert',
 	'lqt_subject'                           => 'Sujet:',
 	'lqt_nosubject'                         => '"kee Sujet"',
 	'lqt_noreason'                          => 'Kee Grond uginn.',
