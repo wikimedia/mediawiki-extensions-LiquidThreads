@@ -229,16 +229,20 @@ $messages['bg'] = array(
 	'lqt_nosubject'                     => '«няма тема»',
 	'lqt_noreason'                      => 'Не е указана причина.',
 	'lqt_thread_deleted'                => 'Нишката е била изтрита.',
+	'lqt_nosuchrevision'                => 'Не съществува такава версия на тази нишка.',
 	'lqt_nosuchthread'                  => 'Няма такава нишка.',
 	'lqt_threadrequired'                => 'Трябва да се укаже нишка в URL.',
 	'lqt_move_movingthread'             => 'Преместване на $1. Тази нишка е част от $2.',
+	'lqt_move_torename'                 => 'За преименуване на тази нишка е необходимо да $1 и променете полето „Тема“.',
 	'lqt_move_torename_edit'            => 'редактиране',
+	'lqt_move_destinationtitle'         => 'Заглавие на целевата дискусионна страница:',
 	'lqt_move_move'                     => 'Преместване',
 	'lqt_move_noreason'                 => 'Не е указана причина.',
 	'lqt_delete_undeleting'             => 'Възстановяване на $1.',
 	'lqt_delete_undeletethread'         => 'Възстановяване на нишка',
 	'lqt_delete_partof'                 => 'Тази нишка е част от $1.',
 	'lqt_delete_deleting_allreplies'    => 'всички отговори',
+	'lqt_delete_deletethread'           => 'Изтриване на нишката и отговорите',
 	'lqt_delete_deleted'                => 'Нишката беше изтрита.',
 	'lqt_delete_undeleted'              => 'Нишката беше възстановена.',
 	'lqt_delete_return'                 => 'Връщане към $1.',
@@ -1643,7 +1647,8 @@ $messages['oc'] = array(
  * @author Amikeco
  */
 $messages['os'] = array(
-	'lqt_delete' => 'Аппар',
+	'lqt_delete'                  => 'Аппар',
+	'lqt_protectedfromreply_link' => 'æхгæд',
 );
 
 /** Polish (Polski)
@@ -2087,16 +2092,41 @@ $messages['sv'] = array(
 	'lqt_summary_notice'                    => 'Det har inte varit några ändringar på den här diskussionssidan på minst $1 dagar.
 Om diskussionen är färdig, kommer du möjligen $1.',
 	'lqt_summary_notice_link'               => 'skriv en sammanfattning',
+	'lqt_summary_label'                     => 'Denna diskussionssida har fått följande sammandrag:',
 	'lqt_summary_subtitle'                  => 'sammanfattningen av $1.',
+	'lqt_nosuchrevision'                    => 'Det finns ingen sådan version av den här diskussionssidan.',
+	'lqt_nosuchthread'                      => 'Det finns ingen sådan diskussionssida.',
+	'lqt_threadrequired'                    => 'Du måste ange en diskussionssida i URL-en.',
+	'lqt_move_movingthread'                 => 'Flyttar $1. Den här diskussionssidan är en del av $2.',
+	'lqt_move_torename'                     => 'För att döpa om den här diskussionssidan, $1 och ändra "Ämne"-fältet.',
 	'lqt_move_torename_edit'                => 'redigera den',
+	'lqt_move_destinationtitle'             => 'Titel på måldiskussionssida:',
 	'lqt_move_move'                         => 'Flytta',
+	'lqt_move_nodestination'                => 'Du måste ange ett mål.',
 	'lqt_move_noreason'                     => 'Ingen anledning given.',
+	'lqt_move_success'                      => 'Den här diskussionssidan flyttades till $1.',
+	'lqt_delete_undeleting'                 => 'Återupprättar $1.',
+	'lqt_delete_undeletethread'             => 'Återupprätta diskussionssida',
+	'lqt_delete_partof'                     => 'Den här diskussionssidan är en del av $1.',
+	'lqt_delete_deleting'                   => 'Raderar $1 och $2 dit.',
 	'lqt_delete_deleting_allreplies'        => 'alla svar',
+	'lqt_delete_deletethread'               => 'Radera diskussionssida och svar',
+	'lqt_delete_deleted'                    => 'Diskussionssidan raderades.',
+	'lqt_delete_undeleted'                  => 'Diskussionssidan återupprättades.',
 	'lqt_delete_return'                     => 'Tillbaka till $1.',
 	'lqt_delete_return_link'                => 'diskussionssidan',
+	'lqt_delete_unallowed'                  => 'Du är inte tillåten att radera diskussionssidor.',
+	'lqt_talkpage_autocreate_summary'       => 'Diskussionssida upprättades automatiskt när första diskussionssidan postades.',
 	'lqt_header_warning_big'                => 'Du redigerar en $1.',
+	'lqt_header_warning_after_big'          => 'Huvudsektioner är för annonseringar och inledningar.
+Du kommer istället vilja $2.',
+	'lqt_header_warning_bold'               => 'diskussionssidsinledning',
 	'lqt_header_warning_new_discussion'     => 'starta en ny diskussion',
+	'lqt_sorting_order'                     => 'Sorteringsföljd:',
 	'lqt_remember_sort'                     => 'Kom ihåg denna inställning',
+	'lqt_sort_newest_changes'               => 'dom senaste ändrade först',
+	'lqt_sort_newest_threads'               => 'nyaste diskussionssidor först',
+	'lqt_sort_oldest_threads'               => 'äldsta diskussionssidor först',
 );
 
 /** Silesian (ślůnski)
