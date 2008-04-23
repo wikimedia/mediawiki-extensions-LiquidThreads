@@ -432,6 +432,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'lqt-desc'                              => 'Aldonas fadenajn diskutojn al diskuto-paĝoj',
 	'lqt-nothread'                          => 'Estas neniuj fadenoj en la arkivo.',
 	'lqt_newmessages'                       => 'Novaj Mesaĝoj',
 	'lqt_movethread'                        => 'Movu fadenon al alia paĝo',
@@ -466,6 +467,8 @@ $messages['eo'] = array(
 	'lqt_hist_past_last_page_error'         => 'Vi estas preter la nombro de paĝoj da historio kiu povas ekzisti.',
 	'lqt_revision_as_of'                    => 'Revizio ekde $1.',
 	'lqt_change_new_thread'                 => 'Jen la unua revizio de la fadeno.',
+	'lqt_change_reply_created'              => 'La kolorigita komento estis kreita en ĉi tiu revizio.',
+	'lqt_change_edited_root'                => 'La kolorigita komento estis redaktita en ĉi tiu revizio.',
 	'lqt_youhavenewmessages'                => 'Vi havas $1.',
 	'lqt_changes_from'                      => 'de',
 	'lqt_changes_summary_of'                => 'de',
@@ -499,6 +502,7 @@ $messages['eo'] = array(
 	'lqt_delete_return_link'                => 'la diskuto-paĝo',
 	'lqt_delete_unallowed'                  => 'Vi ne estas permesita forigi fadenojn.',
 	'lqt_header_warning_big'                => 'Vi redaktas $1.',
+	'lqt_header_warning_bold'               => 'diskuto-paĝa kaptitolo',
 	'lqt_header_warning_new_discussion'     => 'kreu novan diskuton',
 	'lqt_sorting_order'                     => 'Ordigo:',
 	'lqt_sort_newest_threads'               => 'Plej novaj fadenoj unue',
@@ -1030,6 +1034,14 @@ $messages['hu'] = array(
 	'lqt_sort_newest_changes'               => 'utoljára módosított elöl',
 	'lqt_sort_newest_threads'               => 'legújabb beszélgetések elöl',
 	'lqt_sort_oldest_threads'               => 'legrégebbi beszélgetések elöl',
+);
+
+/** Icelandic (Íslenska)
+ * @author S.Örvarr.S
+ */
+$messages['is'] = array(
+	'lqt_noreason'      => 'Engin ástæða gefin.',
+	'lqt_move_noreason' => 'Engin ástæða gefin.',
 );
 
 /** Japanese (日本語)
