@@ -278,6 +278,13 @@ $messages['ca'] = array(
 	'lqt_discussion_link' => 'discussió',
 );
 
+/** Chamorro (Chamoru)
+ * @author Jatrobat
+ */
+$messages['ch'] = array(
+	'lqt_discussion_link' => 'diskuti',
+);
+
 /** Welsh (Cymraeg)
  * @author Lloffiwr
  */
@@ -380,7 +387,7 @@ Wenn die Diskussion beendet ist, möchtest du sie vielleicht $1.',
 	'lqt_delete_return_link'                => 'die Diskussionsseite',
 	'lqt_delete_unallowed'                  => 'Du hast nicht die Berechtigungen Threads zu löschen.',
 	'lqt_talkpage_autocreate_summary'       => 'Diskussionsseite automatisch mit dem ersten Thread erstellt.',
-	'lqt_header_warning_big'                => 'Du editierst eine $1.',
+	'lqt_header_warning_big'                => 'Du bearbeitest eine $1.',
 	'lqt_header_warning_after_big'          => 'Kopfzeilen sind für Ankündigungen und Einleitungen.
 Möglicherweise willst du statt dessen eine $2.',
 	'lqt_header_warning_bold'               => 'Diskussionsseiten Kopfzeile',
