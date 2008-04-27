@@ -106,6 +106,13 @@ You might instead want to $2.',
 	'lqt_sort_oldest_threads' => 'oldest threads first',
 );
 
+/** Karelian (Karjala)
+ * @author Flrn
+ */
+$messages['krl'] = array(
+	'lqt_discussion_link' => 'keskustelu',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */
