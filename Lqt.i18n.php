@@ -287,9 +287,10 @@ $messages['ca'] = array(
 
 /** Chamorro (Chamoru)
  * @author Jatrobat
+ * @author Gadao01
  */
 $messages['ch'] = array(
-	'lqt_discussion_link' => 'diskuti',
+	'lqt_discussion_link' => 'kombetsasion',
 );
 
 /** Welsh (Cymraeg)
@@ -519,6 +520,7 @@ $messages['eo'] = array(
 	'lqt_header_warning_bold'               => 'diskuto-paĝa kaptitolo',
 	'lqt_header_warning_new_discussion'     => 'kreu novan diskuton',
 	'lqt_sorting_order'                     => 'Ordigo:',
+	'lqt_sort_newest_changes'               => 'laste modifitaj unue',
 	'lqt_sort_newest_threads'               => 'Plej novaj fadenoj unue',
 	'lqt_sort_oldest_threads'               => 'plej malnovaj fadenoj unue',
 );
@@ -1151,6 +1153,14 @@ $messages['ja'] = array(
 	'lqt_sort_oldest_threads'               => '古いスレッドを上に',
 );
 
+/** Javanese (Basa Jawa)
+ * @author Meursault2004
+ */
+$messages['jv'] = array(
+	'lqt_contents_title'     => 'Isi:',
+	'lqt_youhavenewmessages' => 'Panjenengan ana $1.',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
  * @author Lovekhmer
@@ -1264,6 +1274,19 @@ $messages['loz'] = array(
 	'lqt_protectedfromreply_link'           => 'sa bukelezi',
 	'lqt_thread_deleted_for_sysops_deleted' => 'sa afi kulobala',
 
+);
+
+/** Malayalam (മലയാളം)
+ * @author Shijualex
+ */
+$messages['ml'] = array(
+	'lqt_contents_title'                    => 'ഉള്ളടക്കം:',
+	'lqt_delete'                            => 'മായ്ക്കുക',
+	'lqt_hist_deleted'                      => 'മായ്ച്ചു',
+	'lqt_noreason'                          => 'കാരണമൊന്നും സൂചിപ്പിച്ചിട്ടില്ല',
+	'lqt_thread_deleted_for_sysops_deleted' => 'മായ്ച്ചു',
+	'lqt_move_noreason'                     => 'കാരണമൊന്നും സൂചിപ്പിച്ചിട്ടില്ല',
+	'lqt_delete_return_link'                => 'സം‌വാദം താള്‍',
 );
 
 /** Marathi (मराठी)
