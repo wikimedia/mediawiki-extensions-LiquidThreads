@@ -1202,6 +1202,7 @@ $messages['jv'] = array(
 	'lqt_delete_return'                     => 'Bali menyang $1.',
 	'lqt_header_warning_big'                => 'Panjenengan nyunting sawijining $1.',
 	'lqt_header_warning_new_discussion'     => 'miwiti dhiskusi anyar',
+	'lqt_remember_sort'                     => 'Élinga préferènsi iki',
 );
 
 /** Khmer (ភាសាខ្មែរ)
