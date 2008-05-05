@@ -494,6 +494,7 @@ $messages['eo'] = array(
 	'lqt_thread_deleted_for_sysops_deleted' => 'forigita',
 	'lqt_thread_deleted'                    => 'Ĉi tiu fadeno estis forigita.',
 	'lqt_summary_notice_link'               => 'verku resumon',
+	'lqt_summary_label'                     => 'Ĉi tiu fadeno estis resumita jene:',
 	'lqt_summary_subtitle'                  => 'resumo de $1.',
 	'lqt_nosuchrevision'                    => 'Ne estas tia revizio de ĉi tiu fadeno.',
 	'lqt_nosuchthread'                      => 'Estas neniel fadeno.',
@@ -873,6 +874,15 @@ $messages['hi'] = array(
 	'lqt_sort_oldest_threads'               => 'पुराने थ्रेड पहले',
 );
 
+/** Hiligaynon (Ilonggo)
+ * @author Jose77
+ */
+$messages['hil'] = array(
+	'lqt_delete'          => 'Panason',
+	'lqt_discussion_link' => 'Paghisayranay',
+	'lqt_move_move'       => 'Saylohon',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
@@ -1157,8 +1167,41 @@ $messages['ja'] = array(
  * @author Meursault2004
  */
 $messages['jv'] = array(
-	'lqt_contents_title'     => 'Isi:',
-	'lqt_youhavenewmessages' => 'Panjenengan ana $1.',
+	'lqt_newmessages'                       => 'Pesen anyar',
+	'lqt_browse_archive_with_recent'        => 'luwih lawas',
+	'lqt_recently_archived'                 => 'Lagi waé diarsip:',
+	'lqt_contents_title'                    => 'Isi:',
+	'lqt_new_thread'                        => 'Miwiti dhiskusi anyar',
+	'lqt_reply'                             => 'Wangsulana',
+	'lqt_delete'                            => 'Busak',
+	'lqt_undelete'                          => 'Batalna pambusakan',
+	'lqt_permalink'                         => 'Pranala permanèn',
+	'lqt_discussion_link'                   => 'dhiskusi',
+	'lqt_from_talk'                         => 'saka $1',
+	'lqt_hist_comment_edited'               => 'Tèks komentar disunting',
+	'lqt_hist_summary_changed'              => 'Ringkesané diganti',
+	'lqt_hist_reply_created'                => 'Nggawé wangsulan anyar',
+	'lqt_hist_deleted'                      => 'Dibusak',
+	'lqt_hist_undeleted'                    => 'Batal busak',
+	'lqt_hist_moved_talkpage'               => 'Dipindhah',
+	'lqt_revision_as_of'                    => 'Révisi per $1.',
+	'lqt_youhavenewmessages'                => 'Panjenengan ana $1.',
+	'lqt_changes_from'                      => 'saking',
+	'lqt_changes_summary_of'                => 'saka',
+	'lqt_protectedfromreply_link'           => 'direksa',
+	'lqt_subject'                           => 'Subyèk:',
+	'lqt_nosubject'                         => '«ora ana subyèk»',
+	'lqt_noreason'                          => 'Ora mènèhi alesan.',
+	'lqt_thread_deleted_for_sysops_deleted' => 'dibusak',
+	'lqt_summary_notice_link'               => 'nulis ringkesan',
+	'lqt_summary_subtitle'                  => 'ringkesan saka $1.',
+	'lqt_move_move'                         => 'Pindhah',
+	'lqt_move_nodestination'                => 'Panjenengan kudu spésifikasi tujuan.',
+	'lqt_move_noreason'                     => 'Ora mènèhi alesan.',
+	'lqt_delete_undeleting'                 => 'Mbatalaké pambusakan $1.',
+	'lqt_delete_return'                     => 'Bali menyang $1.',
+	'lqt_header_warning_big'                => 'Panjenengan nyunting sawijining $1.',
+	'lqt_header_warning_new_discussion'     => 'miwiti dhiskusi anyar',
 );
 
 /** Khmer (ភាសាខ្មែរ)
