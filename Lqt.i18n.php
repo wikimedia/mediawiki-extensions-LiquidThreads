@@ -113,6 +113,13 @@ $messages['krl'] = array(
 	'lqt_discussion_link' => 'keskustelu',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Arnobarnard
+ */
+$messages['af'] = array(
+	'lqt_contents_title' => 'Inhoud:',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */
@@ -1172,6 +1179,7 @@ $messages['jv'] = array(
 	'lqt_recently_archived'                 => 'Lagi waé diarsip:',
 	'lqt_contents_title'                    => 'Isi:',
 	'lqt_new_thread'                        => 'Miwiti dhiskusi anyar',
+	'lqt_edited_notice'                     => 'Disunting',
 	'lqt_reply'                             => 'Wangsulana',
 	'lqt_delete'                            => 'Busak',
 	'lqt_undelete'                          => 'Batalna pambusakan',
@@ -1199,9 +1207,11 @@ $messages['jv'] = array(
 	'lqt_move_nodestination'                => 'Panjenengan kudu spésifikasi tujuan.',
 	'lqt_move_noreason'                     => 'Ora mènèhi alesan.',
 	'lqt_delete_undeleting'                 => 'Mbatalaké pambusakan $1.',
+	'lqt_delete_deleting_allreplies'        => 'kabèh wangsulan',
 	'lqt_delete_return'                     => 'Bali menyang $1.',
 	'lqt_header_warning_big'                => 'Panjenengan nyunting sawijining $1.',
 	'lqt_header_warning_new_discussion'     => 'miwiti dhiskusi anyar',
+	'lqt_sorting_order'                     => 'Urutan sortir:',
 	'lqt_remember_sort'                     => 'Élinga préferènsi iki',
 );
 
@@ -1262,6 +1272,16 @@ $messages['km'] = array(
 	'lqt_header_warning_new_discussion'     => 'ផ្តើម មួយការពិភាក្សាថ្មី',
 	'lqt_sorting_order'                     => 'លំដាប់ រៀប ៖',
 	'lqt_remember_sort'                     => 'ចងចាំ ចំណូលចិត្ត នេះ',
+);
+
+/** Kinaray-a (Kinaray-a)
+ * @author Jose77
+ */
+$messages['krj'] = array(
+	'lqt_contents_title'  => 'Manga Sulud:',
+	'lqt_delete'          => 'Para',
+	'lqt_discussion_link' => 'sogdanunay',
+	'lqt_delete_return'   => 'Balik sa $1.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -1742,6 +1762,29 @@ $messages['oc'] = array(
 $messages['os'] = array(
 	'lqt_delete'                  => 'Аппар',
 	'lqt_protectedfromreply_link' => 'æхгæд',
+);
+
+/** Pampanga (Kapampangan)
+ * @author Katimawan2005
+ */
+$messages['pam'] = array(
+	'lqt-nothread'                      => 'Alang tema (thread) king simpanan (archive).',
+	'lqt_newmessages'                   => 'Bayung mensahi',
+	'lqt_movethread'                    => 'Iyalis ya ing tema (thread) king aliwang bulung',
+	'lqt_deletethread'                  => 'Buran ya o iurung ya pangabura ing sinulad (thread)',
+	'lqt_browse_archive_without_recent' => 'Lon la reng sinulad king simpanan (archived threads)',
+	'lqt_browse_archive_with_recent'    => 'minuna',
+	'lqt_recently_archived'             => 'Bayu-bayung mibili king simpanan (newly archived):',
+	'lqt_contents_title'                => 'Kalamnan:',
+	'lqt_add_header'                    => 'Mangibiling pamagat (header)',
+	'lqt_new_thread'                    => 'Magumpisang bayung discusiun/pamisabi-sabi',
+	'lqt_in_response_to'                => 'Pakibat nang $2 kang $1, king babo:',
+	'lqt_edited_notice'                 => 'Me-edit',
+	'lqt_reply'                         => 'Pakibat',
+	'lqt_move_torename_edit'            => 'i-edit ya',
+	'lqt_delete_deleting_allreplies'    => 'eganaganang pakibat',
+	'lqt_delete_return'                 => 'Mibalik king $1.',
+	'lqt_sorting_order'                 => 'Basi ning pamituki-tuki (sorting order)',
 );
 
 /** Polish (Polski)
