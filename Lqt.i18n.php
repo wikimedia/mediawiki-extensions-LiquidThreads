@@ -1821,6 +1821,7 @@ $messages['pl'] = array(
  */
 $messages['ps'] = array(
 	'lqt_newmessages'                       => 'نوي پيغامونه',
+	'lqt_contents_title'                    => 'مينځپانګه:',
 	'lqt_reply'                             => 'ځوابول',
 	'lqt_delete'                            => 'ړنګول',
 	'lqt_from_talk'                         => 'د $1 لخوا',
