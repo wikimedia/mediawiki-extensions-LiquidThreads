@@ -1349,13 +1349,27 @@ $messages['loz'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
+	'lqt_newmessages'                       => 'പുതിയ സന്ദേശങ്ങള്‍',
 	'lqt_contents_title'                    => 'ഉള്ളടക്കം:',
+	'lqt_reply'                             => 'മറുപടി',
 	'lqt_delete'                            => 'മായ്ക്കുക',
+	'lqt_discussion_link'                   => 'സം‌വാദം',
 	'lqt_hist_deleted'                      => 'മായ്ച്ചു',
+	'lqt_hist_moved_talkpage'               => 'തലക്കെട്ട് മാറ്റി',
+	'lqt_youhavenewmessages'                => 'നിങ്ങള്‍ക്ക് $1 ഉണ്ട്.',
+	'lqt_subject'                           => 'വിഷയം:',
+	'lqt_nosubject'                         => '«വിഷയം കൊടുത്തിട്ടില്ല»',
 	'lqt_noreason'                          => 'കാരണമൊന്നും സൂചിപ്പിച്ചിട്ടില്ല',
 	'lqt_thread_deleted_for_sysops_deleted' => 'മായ്ച്ചു',
+	'lqt_move_move'                         => 'തലക്കെട്ടു മാറ്റുക',
 	'lqt_move_noreason'                     => 'കാരണമൊന്നും സൂചിപ്പിച്ചിട്ടില്ല',
+	'lqt_delete_deleting_allreplies'        => 'എല്ലാ മറുപടികളും',
+	'lqt_delete_return'                     => '$1 എന്ന താളിലേക്ക് തിരിച്ചുപോവുക.',
 	'lqt_delete_return_link'                => 'സം‌വാദം താള്‍',
+	'lqt_header_warning_big'                => 'താങ്കള്‍ തിരുത്തി കൊണ്ടിരിക്കുന്നത് ഒരു $1 ആണ്‌.',
+	'lqt_sorting_order'                     => 'സോര്‍ട്ടിങ്ങ് ക്രമം:',
+	'lqt_remember_sort'                     => 'ഈ ക്രമീകരണം ഓര്‍ത്തു വെക്കുക',
+	'lqt_sort_newest_changes'               => 'അവസാനം തിരുത്തിയത് ആദ്യം പ്രദര്‍ശിപ്പിക്കുക',
 );
 
 /** Marathi (मराठी)
