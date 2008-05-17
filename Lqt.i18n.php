@@ -472,7 +472,7 @@ $messages['eo'] = array(
 	'lqt_in_response_to'                    => 'Respondante al $1 de $2, supren:',
 	'lqt_edited_notice'                     => 'Redaktita',
 	'lqt_reply'                             => 'Respondu',
-	'lqt_delete'                            => 'Forigu',
+	'lqt_delete'                            => 'Forigi',
 	'lqt_undelete'                          => 'Restarigu',
 	'lqt_permalink'                         => 'Daŭra ligilo',
 	'lqt_fragment'                          => 'ero de $1 de $2',
@@ -1223,6 +1223,7 @@ $messages['jv'] = array(
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
  * @author Lovekhmer
+ * @author គីមស៊្រុន
  */
 $messages['km'] = array(
 	'lqt_newmessages'                       => 'សារថ្មីៗ',
@@ -1245,7 +1246,7 @@ $messages['km'] = array(
 	'lqt_hist_comment_edited'               => 'វិចារ បានត្រូវកែប្រែ',
 	'lqt_hist_summary_changed'              => 'សេចក្តីសង្ខេប ត្រូវបាន ផ្លាស់ប្តូរ',
 	'lqt_hist_reply_created'                => 'ការឆ្លើយតបថ្មី ត្រូវបានបង្កើត',
-	'lqt_hist_deleted'                      => 'បានត្រូវលុបចេញ',
+	'lqt_hist_deleted'                      => 'ត្រូវបានលុបចោល',
 	'lqt_hist_undeleted'                    => 'លែងបានត្រូវលុបចេញ',
 	'lqt_hist_moved_talkpage'               => 'បានប្តូរទីតាំង',
 	'lqt_hist_listing_subtitle'             => 'មើល បញ្ជីប្រវត្តិ ។',
@@ -1259,7 +1260,7 @@ $messages['km'] = array(
 	'lqt_subject'                           => 'ប្រធានបទ ៖',
 	'lqt_nosubject'                         => '«គ្មាន ប្រធានបទ»',
 	'lqt_noreason'                          => 'គ្មានហេតុផល ត្រូវបានផ្តល់អោយ ។',
-	'lqt_thread_deleted_for_sysops_deleted' => 'បានត្រូវលុបចេញ',
+	'lqt_thread_deleted_for_sysops_deleted' => 'ត្រូវបានលុបចោល',
 	'lqt_summary_notice'                    => 'គ្មានបំលាស់ប្តូរ ក្នុងការពិភាក្សានេះ តាំងពី យ៉ាងតិច $2 ថ្ងៃ ។ បើចង់ផ្លាស់ប្តូរវា, អ្នកអាចនឹង ត្រូវការ $1 ។',
 	'lqt_summary_notice_link'               => 'សរសេរ មួយ សេចក្តីសង្ខេប',
 	'lqt_summary_subtitle'                  => 'សេចក្តីសង្ខេប នៃ $1 ។',
@@ -1846,6 +1847,7 @@ $messages['pl'] = array(
 	'lqt_thread_deleted_for_sysops'   => 'Ten wątek został $1 i jest dostępny jedynie dla administratorów.',
 	'lqt_nosuchthread'                => 'Nie ma takiego wątku.',
 	'lqt_move_noreason'               => 'Nie podano powodu.',
+	'lqt_delete_return'               => 'Wróć do $1.',
 );
 
 /** Pashto (پښتو)
