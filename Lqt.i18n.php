@@ -117,7 +117,12 @@ $messages['krl'] = array(
  * @author Arnobarnard
  */
 $messages['af'] = array(
-	'lqt_contents_title' => 'Inhoud:',
+	'lqt_contents_title'     => 'Inhoud:',
+	'lqt_newer'              => '«nuwer',
+	'lqt_older'              => 'ouer»',
+	'lqt_changes_from'       => '  vanaf',
+	'lqt_changes_summary_of' => '  van',
+	'lqt_move_move'          => 'Skuif',
 );
 
 /** Arabic (العربية)
@@ -1354,8 +1359,10 @@ $messages['ml'] = array(
 	'lqt_browse_archive_with_recent'        => 'പഴയത്',
 	'lqt_contents_title'                    => 'ഉള്ളടക്കം:',
 	'lqt_new_thread'                        => 'പുതിയൊരു സം‌വാദം ആരംഭിക്കുക',
+	'lqt_edited_notice'                     => 'തിരുത്തി',
 	'lqt_reply'                             => 'മറുപടി',
 	'lqt_delete'                            => 'മായ്ക്കുക',
+	'lqt_undelete'                          => 'പുനഃസ്ഥാപിക്കുക',
 	'lqt_discussion_link'                   => 'സം‌വാദം',
 	'lqt_from_talk'                         => '$1ല്‍ നിന്ന്',
 	'lqt_newer'                             => '«പുതിയത്',
