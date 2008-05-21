@@ -1995,7 +1995,7 @@ Talvez queira em alternativa $2.',
 
 /** Russian (Русский)
  * @author VasilievVV
- * @author .:Ajvol:.
+ * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'lqt-desc'                              => 'Добавляет на страницы обсуждения потоки (ветки) обсуждений',
