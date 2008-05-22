@@ -118,6 +118,7 @@ $messages['krl'] = array(
  */
 $messages['af'] = array(
 	'lqt_contents_title'     => 'Inhoud:',
+	'lqt_delete'             => 'Skrap',
 	'lqt_newer'              => '«nuwer',
 	'lqt_older'              => 'ouer»',
 	'lqt_changes_from'       => '  vanaf',
