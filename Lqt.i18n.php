@@ -468,7 +468,7 @@ $messages['eo'] = array(
 	'lqt-nothread'                          => 'Estas neniuj fadenoj en la arkivo.',
 	'lqt_newmessages'                       => 'Novaj Mesaĝoj',
 	'lqt_movethread'                        => 'Movu fadenon al alia paĝo',
-	'lqt_deletethread'                      => 'Forigu aŭ restarigu fadenon',
+	'lqt_deletethread'                      => 'Forigi aŭ restarigi fadenon',
 	'lqt_browse_archive_without_recent'     => 'Rigardu arkivajn fadenojn',
 	'lqt_browse_archive_with_recent'        => 'pli malnova',
 	'lqt_recently_archived'                 => 'Laste arkivitaj:',
@@ -510,7 +510,7 @@ $messages['eo'] = array(
 	'lqt_noreason'                          => 'Nenia kialo donata',
 	'lqt_thread_deleted_for_sysops_deleted' => 'forigita',
 	'lqt_thread_deleted'                    => 'Ĉi tiu fadeno estis forigita.',
-	'lqt_summary_notice_link'               => 'verku resumon',
+	'lqt_summary_notice_link'               => 'verki resumon',
 	'lqt_summary_label'                     => 'Ĉi tiu fadeno estis resumita jene:',
 	'lqt_summary_subtitle'                  => 'resumo de $1.',
 	'lqt_nosuchrevision'                    => 'Ne estas tia revizio de ĉi tiu fadeno.',
@@ -538,6 +538,7 @@ $messages['eo'] = array(
 	'lqt_header_warning_bold'               => 'diskuto-paĝa kaptitolo',
 	'lqt_header_warning_new_discussion'     => 'kreu novan diskuton',
 	'lqt_sorting_order'                     => 'Ordigo:',
+	'lqt_remember_sort'                     => 'Memori ĉi tiun preferon',
 	'lqt_sort_newest_changes'               => 'laste modifitaj unue',
 	'lqt_sort_newest_threads'               => 'Plej novaj fadenoj unue',
 	'lqt_sort_oldest_threads'               => 'plej malnovaj fadenoj unue',
@@ -1294,6 +1295,14 @@ $messages['krj'] = array(
 	'lqt_delete'          => 'Para',
 	'lqt_discussion_link' => 'sogdanunay',
 	'lqt_delete_return'   => 'Balik sa $1.',
+);
+
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'lqt_noreason'      => 'Keine Aanlass aanjejovve.',
+	'lqt_move_noreason' => 'Keine Aanlass aanjejovve.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
