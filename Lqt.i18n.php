@@ -1301,8 +1301,9 @@ $messages['krj'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'lqt_noreason'      => 'Keine Aanlass aanjejovve.',
-	'lqt_move_noreason' => 'Keine Aanlass aanjejovve.',
+	'lqt_protectedfromreply_link' => 'jeschöz',
+	'lqt_noreason'                => 'Keine Aanlass aanjejovve.',
+	'lqt_move_noreason'           => 'Keine Aanlass aanjejovve.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
