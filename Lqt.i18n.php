@@ -262,6 +262,7 @@ $messages['bg'] = array(
 	'lqt_move_destinationtitle'             => 'Заглавие на целевата дискусионна страница:',
 	'lqt_move_move'                         => 'Преместване',
 	'lqt_move_noreason'                     => 'Не е указана причина.',
+	'lqt_move_success'                      => 'Нишката беше преместена като $1.',
 	'lqt_delete_undeleting'                 => 'Възстановяване на $1.',
 	'lqt_delete_undeletethread'             => 'Възстановяване на нишка',
 	'lqt_delete_partof'                     => 'Тази нишка е част от $1.',
