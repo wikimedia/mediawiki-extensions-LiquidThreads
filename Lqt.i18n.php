@@ -311,6 +311,13 @@ $messages['ch'] = array(
 	'lqt_discussion_link' => 'kombetsasion',
 );
 
+/** Church Slavic (Словѣньскъ)
+ * @author ОйЛ
+ */
+$messages['cu'] = array(
+	'lqt_delete' => 'поничьжє́ниѥ',
+);
+
 /** Welsh (Cymraeg)
  * @author Lloffiwr
  */
@@ -1302,8 +1309,10 @@ $messages['krj'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'lqt_delete'                  => 'Fottschmieße',
 	'lqt_protectedfromreply_link' => 'jeschöz',
 	'lqt_noreason'                => 'Keine Aanlass aanjejovve.',
+	'lqt_move_move'               => 'Ömnenne',
 	'lqt_move_noreason'           => 'Keine Aanlass aanjejovve.',
 );
 
