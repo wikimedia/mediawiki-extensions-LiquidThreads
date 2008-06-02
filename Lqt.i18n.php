@@ -298,8 +298,10 @@ $messages['br'] = array(
 
 /** Catalan (Català)
  * @author SMP
+ * @author Jordi Roqué
  */
 $messages['ca'] = array(
+	'lqt_contents_title'  => 'Contingut:',
 	'lqt_discussion_link' => 'discussió',
 );
 
@@ -805,7 +807,7 @@ $messages['gv'] = array(
 	'lqt_hist_deleted'                      => 'Scryssit',
 	'lqt_changes_from'                      => ' ass',
 	'lqt_thread_deleted_for_sysops_deleted' => 'scryssit',
-	'lqt_summary_notice_link'               => 'screeu roie-haishbynys',
+	'lqt_summary_notice_link'               => 'screeu giare-choontey',
 );
 
 /** Hindi (हिन्दी)
