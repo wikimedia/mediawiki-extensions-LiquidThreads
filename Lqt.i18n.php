@@ -1805,8 +1805,8 @@ $messages['oc'] = array(
 	'lqt_summary_notice_link'               => 'escriure un resumit',
 	'lqt_summary_label'                     => 'Aqueste fial es estat resumit per :',
 	'lqt_summary_subtitle'                  => 'lo resumit de $1.',
-	'lqt_nosuchrevision'                    => 'Cap de revision per aqueste fial correspond pas.',
-	'lqt_nosuchthread'                      => 'Cap de fial correspond pas.',
+	'lqt_nosuchrevision'                    => 'Cap de revision per aqueste fial correspon pas.',
+	'lqt_nosuchthread'                      => 'Cap de fial correspon pas.',
 	'lqt_threadrequired'                    => "Vos cal indicar un fial dins l'URL.",
 	'lqt_move_movingthread'                 => '$1 en deplaçament. Aqueste fial fa partida de $2.',
 	'lqt_move_torename'                     => "Per tornar nomenar aqueste fial, $1 e modificar lo camp ''Subjècte''.",
@@ -1895,9 +1895,10 @@ $messages['pl'] = array(
 	'lqt_nosubject'                   => '«brak tematu»',
 	'lqt_noreason'                    => 'Nie podano powodu',
 	'lqt_thread_deleted_for_sysops'   => 'Ten wątek został $1 i jest dostępny jedynie dla administratorów.',
-	'lqt_nosuchthread'                => 'Nie ma takiego wątku.',
+	'lqt_nosuchthread'                => 'Brak takiego wątku.',
 	'lqt_move_noreason'               => 'Nie podano powodu.',
 	'lqt_delete_return'               => 'Wróć do $1.',
+	'lqt_delete_return_link'          => 'strona dyskusji',
 );
 
 /** Pashto (پښتو)
@@ -1914,7 +1915,7 @@ $messages['ps'] = array(
 	'lqt_protectedfromreply_link'           => 'ژغورلی',
 	'lqt_subject'                           => 'سکالو:',
 	'lqt_noreason'                          => 'هېڅ سبب نه دی ورکړ شوی.',
-	'lqt_thread_deleted_for_sysops_deleted' => 'ړنګ شوی',
+	'lqt_thread_deleted_for_sysops_deleted' => 'ړنګ شو',
 	'lqt_move_noreason'                     => 'هېڅ سبب نه دی ورکړ شوی.',
 	'lqt_delete_deleting_allreplies'        => 'ټول ځوابونه',
 );
