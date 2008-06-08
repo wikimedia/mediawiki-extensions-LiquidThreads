@@ -1874,6 +1874,7 @@ $messages['pam'] = array(
  * @author Masti
  * @author McMonster
  * @author Sp5uhe
+ * @author Airwolf
  */
 $messages['pl'] = array(
 	'lqt_browse_archive_with_recent'  => 'starszy',
