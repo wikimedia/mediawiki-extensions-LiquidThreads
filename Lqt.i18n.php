@@ -1333,6 +1333,7 @@ $messages['lb'] = array(
 	'lqt_from_talk'                         => 'vun $1',
 	'lqt_newer'                             => '«méi nei',
 	'lqt_older'                             => 'méi al»',
+	'lqt_hist_comment_edited'               => 'Bemierkung geännert',
 	'lqt_hist_summary_changed'              => 'Résumé geännert',
 	'lqt_hist_deleted'                      => 'Geläscht',
 	'lqt_hist_undeleted'                    => 'Restauréiert',
@@ -2254,6 +2255,23 @@ Disse Ferschuuwenge waas däin fon $2 ap n $3.",
 	'lqt_hist_tooltip_newer_disabled'   => 'Disse Ferbiendenge is deaktivierd, deeruum dät du ap ju eerste Siede bäst.',
 	'lqt_hist_tooltip_older_disabled'   => 'Disse Ferbiendenge is deaktivierd, deeruum dät du ap ju lääste Siede bäst.',
 	'lqt_revision_as_of'                => 'Versionsgeschichte fon $1.',
+);
+
+/** Sundanese (Basa Sunda)
+ * @author Irwangatot
+ */
+$messages['su'] = array(
+	'lqt_newmessages'                       => 'Talatah anyar',
+	'lqt_contents_title'                    => 'Eusi:',
+	'lqt_reply'                             => 'Balesan',
+	'lqt_delete'                            => 'Hapus',
+	'lqt_hist_deleted'                      => 'Hapus',
+	'lqt_hist_moved_talkpage'               => 'Pindah',
+	'lqt_changes_from'                      => 'Ti',
+	'lqt_changes_summary_of'                => 'tina',
+	'lqt_thread_deleted_for_sysops_deleted' => 'hapus',
+	'lqt_move_move'                         => 'Pindah',
+	'lqt_move_noreason'                     => 'Henteu di béré alesan.',
 );
 
 /** Swedish (Svenska)
