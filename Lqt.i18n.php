@@ -810,6 +810,13 @@ $messages['gv'] = array(
 	'lqt_summary_notice_link'               => 'screeu giare-choontey',
 );
 
+/** Hawaiian (Hawai`i)
+ * @author Singularity
+ */
+$messages['haw'] = array(
+	'lqt_contents_title' => 'Papa kuhikuhi',
+);
+
 /** Hindi (हिन्दी)
  * @author Kaustubh
  */
@@ -2272,6 +2279,8 @@ $messages['su'] = array(
 	'lqt_thread_deleted_for_sysops_deleted' => 'hapus',
 	'lqt_move_move'                         => 'Pindah',
 	'lqt_move_noreason'                     => 'Henteu di béré alesan.',
+	'lqt_delete_return'                     => 'Balik deui ka $1.',
+	'lqt_header_warning_big'                => 'Anjeun keur ngédit $1',
 );
 
 /** Swedish (Svenska)
