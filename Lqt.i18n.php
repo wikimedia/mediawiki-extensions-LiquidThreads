@@ -113,6 +113,13 @@ $messages['krl'] = array(
 	'lqt_discussion_link' => 'keskustelu',
 );
 
+/** Eastern Mari (Олык Марий йылме)
+ * @author Сай
+ */
+$messages['mhr'] = array(
+	'lqt_delete' => 'Шӧраш',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  */
@@ -814,7 +821,8 @@ $messages['gv'] = array(
  * @author Singularity
  */
 $messages['haw'] = array(
-	'lqt_contents_title' => 'Papa kuhikuhi',
+	'lqt_contents_title'  => 'Papa kuhikuhi',
+	'lqt_discussion_link' => 'kūkākūkā',
 );
 
 /** Hindi (हिन्दी)
