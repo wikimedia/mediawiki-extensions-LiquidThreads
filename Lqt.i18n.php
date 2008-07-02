@@ -106,6 +106,13 @@ You might instead want to $2.',
 	'lqt_sort_oldest_threads' => 'oldest threads first',
 );
 
+/** Tarifit (Tarifit)
+ * @author Jose77
+ */
+$messages['rif'] = array(
+	'lqt_delete' => 'Sfaḍ',
+);
+
 /** Karelian (Karjala)
  * @author Flrn
  */
@@ -118,6 +125,16 @@ $messages['krl'] = array(
  */
 $messages['mhr'] = array(
 	'lqt_delete' => 'Шӧраш',
+);
+
+/** Niuean (native name missing)
+ * @author Jose77
+ */
+$messages['niu'] = array(
+	'lqt_newmessages'     => 'Tau tohi foou',
+	'lqt_delete'          => 'Tamate',
+	'lqt_discussion_link' => 'fakatutala',
+	'lqt_move_move'       => 'Une',
 );
 
 /** Afrikaans (Afrikaans)
@@ -817,6 +834,13 @@ $messages['gv'] = array(
 	'lqt_summary_notice_link'               => 'screeu giare-choontey',
 );
 
+/** Hakka (Hak-kâ-fa)
+ * @author Hakka
+ */
+$messages['hak'] = array(
+	'lqt_delete' => 'Chhù-thet',
+);
+
 /** Hawaiian (Hawai`i)
  * @author Singularity
  */
@@ -1103,6 +1127,13 @@ $messages['hu'] = array(
 	'lqt_sort_newest_changes'               => 'utoljára módosított elöl',
 	'lqt_sort_newest_threads'               => 'legújabb beszélgetések elöl',
 	'lqt_sort_oldest_threads'               => 'legrégebbi beszélgetések elöl',
+);
+
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'lqt_move_move' => 'Renominar',
 );
 
 /** Icelandic (Íslenska)
@@ -1392,6 +1423,13 @@ $messages['loz'] = array(
 
 );
 
+/** Lithuanian (Lietuvių)
+ * @author Tomasdd
+ */
+$messages['lt'] = array(
+	'lqt_delete' => 'Ištrinti',
+);
+
 /** Malayalam (മലയാളം)
  * @author Shijualex
  */
@@ -1546,6 +1584,13 @@ $messages['mr'] = array(
 	'lqt_sort_newest_changes'               => 'शेवटी बदललेले पहिल्यांदा',
 	'lqt_sort_newest_threads'               => 'नवीन थ्रेड पहिल्यांदा',
 	'lqt_sort_oldest_threads'               => 'जुने थ्रेड पहिल्यांदा',
+);
+
+/** Nedersaksisch (Nedersaksisch)
+ * @author Servien
+ */
+$messages['nds-nl'] = array(
+	'lqt_move_move' => 'Herneum',
 );
 
 /** Dutch (Nederlands)
