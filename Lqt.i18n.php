@@ -106,11 +106,21 @@ You might instead want to $2.',
 	'lqt_sort_oldest_threads' => 'oldest threads first',
 );
 
+/** Faeag Rotuma (Faeag Rotuma)
+ * @author Jose77
+ */
+$messages['rtm'] = array(
+	'lqt_newmessages'     => "Fäeag fo'ou",
+	'lqt_discussion_link' => 'hạifäega',
+);
+
 /** Tarifit (Tarifit)
  * @author Jose77
  */
 $messages['rif'] = array(
-	'lqt_delete' => 'Sfaḍ',
+	'lqt_newmessages'             => 'Tibratin timaynutin',
+	'lqt_delete'                  => 'Sfaḍ',
+	'lqt_protectedfromreply_link' => 'twaḥḍa',
 );
 
 /** Karelian (Karjala)
@@ -241,6 +251,13 @@ $messages['ar'] = array(
 	'lqt_sort_newest_changes'               => 'المعدل أخيرا أولا',
 	'lqt_sort_newest_threads'               => 'مجموعة الرسائل الأجدد أولا',
 	'lqt_sort_oldest_threads'               => 'مجموعة الرسائل الأقدم أولا',
+);
+
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'lqt_youhavenewmessages' => 'شما را هست $1.',
 );
 
 /** Bulgarian (Български)
