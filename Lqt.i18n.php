@@ -2582,6 +2582,13 @@ $messages['tg-cyrl'] = array(
 	'lqt_sort_oldest_threads'               => 'торҳои кӯҳнатарин аввал',
 );
 
+/** Turkish (Türkçe)
+ * @author Srhat
+ */
+$messages['tr'] = array(
+	'lqt_discussion_link' => 'tartışma',
+);
+
 /** Tatar (Cyrillic) (Tatarça/Татарча (Cyrillic))
  * @author Ерней
  */
