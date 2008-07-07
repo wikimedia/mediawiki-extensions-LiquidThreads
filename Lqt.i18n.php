@@ -114,15 +114,6 @@ $messages['rtm'] = array(
 	'lqt_discussion_link' => 'hạifäega',
 );
 
-/** Tarifit (Tarifit)
- * @author Jose77
- */
-$messages['rif'] = array(
-	'lqt_newmessages'             => 'Tibratin timaynutin',
-	'lqt_delete'                  => 'Sfaḍ',
-	'lqt_protectedfromreply_link' => 'twaḥḍa',
-);
-
 /** Karelian (Karjala)
  * @author Flrn
  */
@@ -130,14 +121,14 @@ $messages['krl'] = array(
 	'lqt_discussion_link' => 'keskustelu',
 );
 
-/** Eastern Mari (Олык Марий йылме)
+/** Eastern Mari (Олык Марий)
  * @author Сай
  */
 $messages['mhr'] = array(
 	'lqt_delete' => 'Шӧраш',
 );
 
-/** Niuean (native name missing)
+/** Niuean (ko e vagahau Niuē)
  * @author Jose77
  */
 $messages['niu'] = array(
@@ -2096,6 +2087,15 @@ Talvez queira em alternativa $2.',
 	'lqt_sort_newest_changes'               => 'últimos modificados primeiro',
 	'lqt_sort_newest_threads'               => 'novos tópicos primeiro',
 	'lqt_sort_oldest_threads'               => 'tópicos mais antigos primeiro',
+);
+
+/** Tarifit (Tarifit)
+ * @author Jose77
+ */
+$messages['rif'] = array(
+	'lqt_newmessages'             => 'Tibratin timaynutin',
+	'lqt_delete'                  => 'Sfaḍ',
+	'lqt_protectedfromreply_link' => 'twaḥḍa',
 );
 
 /** Russian (Русский)
