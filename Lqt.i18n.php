@@ -1141,7 +1141,9 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'lqt_move_move' => 'Renominar',
+	'lqt_noreason'      => 'Nulle ration date.',
+	'lqt_move_move'     => 'Renominar',
+	'lqt_move_noreason' => 'Nulle ration date.',
 );
 
 /** Icelandic (Íslenska)
@@ -1314,7 +1316,7 @@ $messages['km'] = array(
 	'lqt_from_talk'                         => 'ពី $1',
 	'lqt_newer'                             => '«ថ្មីជាង',
 	'lqt_older'                             => 'ចាស់ជាង»',
-	'lqt_hist_comment_edited'               => 'វិចារ បានត្រូវកែប្រែ',
+	'lqt_hist_comment_edited'               => 'វិចារបានត្រូវកែប្រែ',
 	'lqt_hist_summary_changed'              => 'សេចក្តីសង្ខេប ត្រូវបាន ផ្លាស់ប្តូរ',
 	'lqt_hist_reply_created'                => 'ការឆ្លើយតបថ្មី ត្រូវបានបង្កើត',
 	'lqt_hist_deleted'                      => 'ត្រូវបានលុបចោល',
@@ -1329,20 +1331,20 @@ $messages['km'] = array(
 	'lqt_changes_summary_of'                => 'នៃ',
 	'lqt_protectedfromreply_link'           => 'បានការពារ',
 	'lqt_subject'                           => 'ប្រធានបទ ៖',
-	'lqt_nosubject'                         => '«គ្មាន ប្រធានបទ»',
+	'lqt_nosubject'                         => '«មិនមានប្រធានបទទេ»',
 	'lqt_noreason'                          => 'គ្មានហេតុផល ត្រូវបានផ្តល់អោយ ។',
 	'lqt_thread_deleted_for_sysops_deleted' => 'ត្រូវបានលុបចោល',
 	'lqt_summary_notice'                    => 'គ្មានបំលាស់ប្តូរ ក្នុងការពិភាក្សានេះ តាំងពី យ៉ាងតិច $2 ថ្ងៃ ។ បើចង់ផ្លាស់ប្តូរវា, អ្នកអាចនឹង ត្រូវការ $1 ។',
 	'lqt_summary_notice_link'               => 'សរសេរ មួយ សេចក្តីសង្ខេប',
-	'lqt_summary_subtitle'                  => 'សេចក្តីសង្ខេប នៃ $1 ។',
-	'lqt_move_torename_edit'                => 'កែប្រែ វា',
+	'lqt_summary_subtitle'                  => 'សេចក្តីសង្ខេបនៃ$1 ។',
+	'lqt_move_torename_edit'                => 'កែប្រែវា',
 	'lqt_move_destinationtitle'             => 'ចំណងជើង នៃ ទំព័រពិភាក្សា​ គោលដៅ ៖',
 	'lqt_move_move'                         => 'ប្តូរទីតាំង',
 	'lqt_move_nodestination'                => 'អ្នកត្រូវតែ សំដៅ មួយគោលដៅ ។',
 	'lqt_move_noreason'                     => 'គ្មានហេតុផល ត្រូវបានផ្តល់អោយ ។',
 	'lqt_delete_undeleting'                 => 'លែងលុបចេញ $1 ។',
 	'lqt_delete_deleting_allreplies'        => 'គ្រប់ ការឆ្លើយតប',
-	'lqt_delete_return'                     => 'ត្រលប់ ទៅ $1 ។',
+	'lqt_delete_return'                     => 'ត្រលប់ទៅកាន់ $1 វិញ។',
 	'lqt_delete_return_link'                => 'ទំព័រពិភាក្សា',
 	'lqt_header_warning_big'                => 'អ្នកកំពុង កែប្រែ $1 ។',
 	'lqt_header_warning_bold'               => 'ក្បាល នៃ ទំព័រពិភាក្សា',
@@ -1428,7 +1430,6 @@ $messages['loz'] = array(
 	'lqt_changes_from'                      => ' di',
 	'lqt_protectedfromreply_link'           => 'sa bukelezi',
 	'lqt_thread_deleted_for_sysops_deleted' => 'sa afi kulobala',
-
 );
 
 /** Lithuanian (Lietuvių)
@@ -2451,7 +2452,7 @@ Du kommer istället vilja $2.',
 	'lqt_sort_oldest_threads'               => 'äldsta diskussionssidor först',
 );
 
-/** Silesian (ślůnski)
+/** Silesian (Ślůnski)
  * @author Herr Kriss
  */
 $messages['szl'] = array(
@@ -2789,7 +2790,7 @@ $messages['yue'] = array(
 	'lqt_header_warning_new_discussion'     => '開始一個新討論',
 );
 
-/** Traditional Chinese (?中文(简体)?)
+/** Simplified Chinese (‪中文(简体)‬)
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
@@ -2873,7 +2874,6 @@ $messages['zh-hans'] = array(
 	'lqt_header_warning_after_big'          => '用来作为公告和导言的页顶。您可能想去$2。',
 	'lqt_header_warning_bold'               => '讨论页页顶',
 	'lqt_header_warning_new_discussion'     => '开始一个新的讨论',
-
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
