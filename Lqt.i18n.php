@@ -1141,9 +1141,11 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'lqt_noreason'      => 'Nulle ration date.',
-	'lqt_move_move'     => 'Renominar',
-	'lqt_move_noreason' => 'Nulle ration date.',
+	'lqt_hist_deleted'                      => 'Delite',
+	'lqt_noreason'                          => 'Nulle ration date.',
+	'lqt_thread_deleted_for_sysops_deleted' => 'delite',
+	'lqt_move_move'                         => 'Renominar',
+	'lqt_move_noreason'                     => 'Nulle ration date.',
 );
 
 /** Icelandic (Íslenska)
