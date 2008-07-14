@@ -1141,6 +1141,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
+	'lqt_newmessages'                       => 'Nove messages',
 	'lqt_delete'                            => 'Deler',
 	'lqt_hist_deleted'                      => 'Delite',
 	'lqt_noreason'                          => 'Nulle ration date.',
