@@ -2426,7 +2426,7 @@ $messages['sv'] = array(
 	'lqt_thread_deleted_for_sysops'         => 'Den här diskussionssidan har blivit $1 och är endast synlig för administratörer.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'raderad',
 	'lqt_thread_deleted'                    => 'Den här diskussionssidan har blivit raderad.',
-	'lqt_summary_notice'                    => 'Det har inte varit några ändringar på den här diskussionssidan på minst $1 dagar.
+	'lqt_summary_notice'                    => 'Det har inte varit några ändringar på den här diskussionssidan på minst $2 dagar.
 Om diskussionen är färdig, kommer du möjligen $1.',
 	'lqt_summary_notice_link'               => 'skriv en sammanfattning',
 	'lqt_summary_label'                     => 'Denna diskussionssida har fått följande sammandrag:',
