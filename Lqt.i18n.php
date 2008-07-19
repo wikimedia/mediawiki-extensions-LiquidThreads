@@ -2113,6 +2113,13 @@ $messages['rif'] = array(
 	'lqt_protectedfromreply_link' => 'twaḥḍa',
 );
 
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'lqt_delete' => 'Şterge',
+);
+
 /** Russian (Русский)
  * @author VasilievVV
  * @author Александр Сигачёв
