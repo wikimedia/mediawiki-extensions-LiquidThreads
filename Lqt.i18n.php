@@ -1599,6 +1599,14 @@ $messages['mr'] = array(
 	'lqt_sort_oldest_threads'               => 'जुने थ्रेड पहिल्यांदा',
 );
 
+/** Nahuatl (Nahuatl)
+ * @author Fluence
+ */
+$messages['nah'] = array(
+	'lqt_delete'    => 'Ticpoloāz',
+	'lqt_move_move' => 'Ticzacāz',
+);
+
 /** Nedersaksisch (Nedersaksisch)
  * @author Servien
  */
@@ -2117,7 +2125,10 @@ $messages['rif'] = array(
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
-	'lqt_delete' => 'Şterge',
+	'lqt_contents_title'                    => 'Cuprins:',
+	'lqt_delete'                            => 'Şterge',
+	'lqt_hist_deleted'                      => 'Şters',
+	'lqt_thread_deleted_for_sysops_deleted' => 'şters',
 );
 
 /** Russian (Русский)
