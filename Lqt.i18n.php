@@ -1603,8 +1603,11 @@ $messages['mr'] = array(
  * @author Fluence
  */
 $messages['nah'] = array(
-	'lqt_delete'    => 'Ticpoloāz',
-	'lqt_move_move' => 'Ticzacāz',
+	'lqt_newmessages'   => 'Yancuīc tlahcuilōltzintli',
+	'lqt_delete'        => 'Ticpolōz',
+	'lqt_noreason'      => 'Ahmo cah īxtlamatiliztli.',
+	'lqt_move_move'     => 'Ticzacāz',
+	'lqt_move_noreason' => 'Ahmo cah īxtlamatiliztli.',
 );
 
 /** Nedersaksisch (Nedersaksisch)
