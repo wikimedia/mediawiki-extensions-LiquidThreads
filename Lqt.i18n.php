@@ -1158,6 +1158,13 @@ $messages['is'] = array(
 	'lqt_move_noreason' => 'Engin ástæða gefin.',
 );
 
+/** Italian (Italiano)
+ * @author Darth Kule
+ */
+$messages['it'] = array(
+	'lqt_contents_title' => 'Indice:',
+);
+
 /** Japanese (日本語)
  * @author JtFuruhata
  */
@@ -1608,6 +1615,7 @@ $messages['nah'] = array(
 	'lqt_noreason'      => 'Ahmo cah īxtlamatiliztli.',
 	'lqt_move_move'     => 'Ticzacāz',
 	'lqt_move_noreason' => 'Ahmo cah īxtlamatiliztli.',
+	'lqt_delete_return' => 'Timocuepāz īhuīc $1.',
 );
 
 /** Nedersaksisch (Nedersaksisch)
