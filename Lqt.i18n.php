@@ -693,6 +693,14 @@ $messages['fr'] = array(
 	'lqt_sort_oldest_threads'               => 'fils de discussion les plus anciens en premier',
 );
 
+/** Western Frisian (Frysk)
+ * @author Snakesteuben
+ */
+$messages['fy'] = array(
+	'lqt_delete'    => 'Wiskje',
+	'lqt_move_move' => 'Werneam',
+);
+
 /** Galician (Galego)
  * @author Xosé
  * @author Toliño
