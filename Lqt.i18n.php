@@ -377,6 +377,7 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author DaSch
+ * @author Raymond
  */
 $messages['de'] = array(
 	'lqt-desc'                              => 'Benutzung von Threads für diese Diskussionsseite hinzufügen',
@@ -392,7 +393,7 @@ $messages['de'] = array(
 	'lqt_new_thread'                        => 'Beginne eine neue Diskussion',
 	'lqt_in_response_to'                    => 'In Antwort auf $1 von $2, siehe:',
 	'lqt_edited_notice'                     => 'Bearbeitet',
-	'lqt_move_placeholder'                  => "''Platzhalter, wenn der Diskussionsstrang auf eine andere Seite verschoben wurde.''",
+	'lqt_move_placeholder'                  => 'Dieser Thread ist ein Platzhalter um anzuzeigen, dass ein Thread, $1, von dieser Seite auf eine andere Diskussionsseite verschoben wurde. Die Verschiebung erfolgte durch $2 am $3.',
 	'lqt_reply'                             => 'Antworten',
 	'lqt_delete'                            => 'Löschen',
 	'lqt_undelete'                          => 'wiederherstellen',
@@ -1624,6 +1625,7 @@ $messages['nah'] = array(
 	'lqt_newmessages'                       => 'Yancuīc tlahcuilōltzintli',
 	'lqt_delete'                            => 'Ticpolōz',
 	'lqt_hist_deleted'                      => 'Ōmopolo',
+	'lqt_protectedfromreply_link'           => 'ōmoquīxti',
 	'lqt_noreason'                          => 'Ahmo cah īxtlamatiliztli.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'ōmopolo',
 	'lqt_move_move'                         => 'Ticzacāz',
