@@ -1175,6 +1175,7 @@ $messages['is'] = array(
  */
 $messages['it'] = array(
 	'lqt_contents_title' => 'Indice:',
+	'lqt_delete'         => 'Cancella',
 );
 
 /** Japanese (日本語)
