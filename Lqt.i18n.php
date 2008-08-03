@@ -380,7 +380,7 @@ $messages['da'] = array(
  * @author Raymond
  */
 $messages['de'] = array(
-	'lqt-desc'                              => 'Benutzung von Threads für diese Diskussionsseite hinzufügen',
+	'lqt-desc'                              => 'Benutzung von Threads für Diskussionsseiten hinzufügen',
 	'lqt-nothread'                          => 'Es sind keine archivierten Threads vorhanden.',
 	'lqt_newmessages'                       => 'Neue Nachrichten',
 	'lqt_movethread'                        => 'Verschiebe Diskussionsstrang auf eine andere Seite',
@@ -450,6 +450,7 @@ Wenn die Diskussion beendet ist, möchtest du sie vielleicht $1.',
 	'lqt_delete_undeleting'                 => 'Wiederherstellen $1.',
 	'lqt_delete_undeletethread'             => 'Wiederhergestellter Thread',
 	'lqt_delete_partof'                     => 'Dieser Thread ist Teil von $1.',
+	'lqt_delete_deleting'                   => 'Löschung von $1 und $2.',
 	'lqt_delete_deleting_allreplies'        => 'alle Antworten',
 	'lqt_delete_deletethread'               => 'Thread und Antworten löschen',
 	'lqt_delete_deleted'                    => 'Der Thread wurde gelöscht.',
@@ -466,8 +467,8 @@ Möglicherweise willst du statt dessen eine $2.',
 	'lqt_sorting_order'                     => 'Sortierung:',
 	'lqt_remember_sort'                     => 'Einstellungen merken',
 	'lqt_sort_newest_changes'               => 'zuletzt geänderten Thread zuerst',
-	'lqt_sort_newest_threads'               => 'neusten Thread zuerst',
-	'lqt_sort_oldest_threads'               => 'neusten Thread zuerst',
+	'lqt_sort_newest_threads'               => 'neuesten Thread zuerst',
+	'lqt_sort_oldest_threads'               => 'ältesten Thread zuerst',
 );
 
 /** Ewe (Eʋegbe)
