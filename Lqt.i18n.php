@@ -593,8 +593,10 @@ $messages['eo'] = array(
 
 /** Spanish (Español)
  * @author Piolinfax
+ * @author Sanbec
  */
 $messages['es'] = array(
+	'lqt_delete'        => 'Borrar',
 	'lqt_noreason'      => 'No se da ninguna razón',
 	'lqt_move_noreason' => 'No se da ninguna razón',
 );
