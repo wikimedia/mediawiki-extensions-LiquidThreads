@@ -472,12 +472,13 @@ Möglicherweise willst du statt dessen eine $2.',
 );
 
 /** Ewe (Eʋegbe)
- * @author M.M.S.
+ * @author Natsubee
  */
 $messages['ee'] = array(
-	'lqt_newmessages' => 'Du yeyewo',
-	'lqt_delete'      => 'Tutui',
-	'lqt_move_move'   => 'Ɖɔli eƒe nɔƒe',
+	'lqt_newmessages'   => 'Du yeyewo',
+	'lqt_delete'        => 'Tutui',
+	'lqt_move_move'     => 'Ɖɔli eƒe nɔƒe',
+	'lqt_delete_return' => 'Gbugbɔ yi $1.',
 );
 
 /** Greek (Ελληνικά)
