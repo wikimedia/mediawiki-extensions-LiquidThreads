@@ -108,6 +108,7 @@ You might instead want to $2.',
 
 /** Message documentation (Message documentation)
  * @author Helix84
+ * @author Jon Harald Søby
  * @author Minh Nguyen
  */
 $messages['qqq'] = array(
@@ -407,7 +408,7 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author DaSch
- * @author Raymond
+ * @author Raimond Spekking
  */
 $messages['de'] = array(
 	'lqt-desc' => 'Benutzung von Threads für Diskussionsseiten hinzufügen',
