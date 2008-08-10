@@ -1120,8 +1120,13 @@ class NewMessages {
 		global $wgDBprefix;
 
 		if( $t->article()->getTitle()->getNamespace() == NS_USER ) {
-			$user = User::newFromName($t->article()->getTitle()->getDBkey());
-			$user->setNewtalk(true);
+			$name = $t->article()->getTitle()->getDBkey();
+			// handle talk subpage case
+			list($name) = split('/', $name);
+			$user = User::newFromName($name);
+			if( $user ) {
+				$user->setNewtalk(true);
+			}
 		}
 		
 		$dbw =& wfGetDB( DB_MASTER );
