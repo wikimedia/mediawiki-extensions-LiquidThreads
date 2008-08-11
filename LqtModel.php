@@ -40,7 +40,26 @@ class Date {
 		return $this->moved('+1 month');
 	}
 	function moved($str) {
-	  return new Date( date('YmdHis', strtotime($this->text() . ' ' . $str)) );
+		// Try to set local timezone to attempt to avoid E_STRICT errors.
+		global $wgLocaltimezone;
+		if ( isset( $wgLocaltimezone ) ) {
+			$oldtz = getenv( "TZ" );
+			putenv( "TZ=$wgLocaltimezone" );
+		}
+		// Suppress warnings for installations without a set timezone.
+		wfSuppressWarnings();
+		// Make the date string.
+		$date = date( 'YmdHis', strtotime( $this->text() . ' ' . $str ) );
+		// Restore warnings, date no loner an issue.
+		wfRestoreWarnings();
+		// Generate the date object,
+		$date = new Date( $date );
+		// Restore the old timezone if needed.
+		if ( isset( $wgLocaltimezone ) ) {
+			putenv( "TZ=$oldtz" );
+		}
+		// Return the generated date object.
+		return $date;
 	}
 	/*	function monthString() {
 		return sprintf( '%04d%02d', $this->year, $this->month );
