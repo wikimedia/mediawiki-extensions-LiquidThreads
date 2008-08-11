@@ -213,7 +213,8 @@ class TalkpageView extends LqtView {
 			$remember_sort_checked = '';
 		}
 
-		if( $this->methodApplies('talkpage_new_thread') ) {
+		global $wgRequest;
+		if( $this->methodApplies('talkpage_new_thread') || $wgRequest->getBool( 'redlink' ) ) {
 			$this->showNewThreadForm();
 		} else {
 

@@ -81,7 +81,10 @@ class LqtDispatch {
 		   actions come up, to avoid hacking the various history, editing, etc. code. */
 		$action =  $request->getVal('action');
 		$header_actions = array('history', 'edit', 'submit');
-		if ($request->getVal('lqt_method', null) === null &&
+		global $wgRequest;
+		if( $wgRequest->getBool( 'redlink' ) ) {
+			$viewname = self::$views['TalkpageView'];
+		} else if ($request->getVal('lqt_method', null) === null &&
 				( in_array( $action, $header_actions ) ||
 					$request->getVal('diff', null) !== null ) ) {
 			$viewname = self::$views['TalkpageHeaderView'];
