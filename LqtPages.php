@@ -911,20 +911,20 @@ class SummaryPageView extends LqtView {
 
 function wfLqtSpecialMoveThreadToAnotherPage() {
 
-    class SpecialMoveThreadToAnotherPage extends SpecialPage {
+	class SpecialMoveThreadToAnotherPage extends SpecialPage {
 		private $user, $output, $request, $title, $thread;
 
-        function __construct() {
-            SpecialPage::SpecialPage( 'Movethread' );
-            $this->includable( false );
-        }
+		function __construct() {
+			SpecialPage::SpecialPage( 'Movethread' );
+			$this->includable( false );
+		}
 
-	/**
-	 * @see SpecialPage::getDescription
-	 */
-	function getDescription() {
-		return wfMsg( 'lqt_movethread' );
-	}
+		/**
+		 * @see SpecialPage::getDescription
+		 */
+		function getDescription() {
+			return wfMsg( 'lqt_movethread' );
+		}
 
 		function handleGet() {
 			$form_action = $this->title->getLocalURL() . '/' . $this->thread->title()->getPrefixedURL();
@@ -1004,7 +1004,7 @@ HTML
 				'<a href="'.$target_title->getFullURL().'">'.$target_title->getPrefixedText().'</a>'));
 		}
 
-		function execute( $par = null ) {
+		function execute( $par ) {
 			global $wgOut, $wgRequest, $wgTitle, $wgUser;
 			$this->user = $wgUser;
 			$this->output = $wgOut;
@@ -1032,28 +1032,28 @@ HTML
 				$this->handleGet();
 			}
 
-        }
-    }
+		}
+	}
 
-     SpecialPage::addPage( new SpecialMoveThreadToAnotherPage() );
+	SpecialPage::addPage( new SpecialMoveThreadToAnotherPage() );
 }
 
 function wfLqtSpecialDeleteThread() {
 
-    class SpecialDeleteThread extends SpecialPage {
+	class SpecialDeleteThread extends SpecialPage {
 		private $user, $output, $request, $title, $thread;
 
-        function __construct() {
-            SpecialPage::SpecialPage( 'Deletethread' );
-            $this->includable( false );
-        }
+		function __construct() {
+			SpecialPage::SpecialPage( 'Deletethread' );
+			$this->includable( false );
+		}
 
-	/**
-	 * @see SpecialPage::getDescription
-	 */
-	function getDescription() {
-		return wfMsg( 'lqt_deletethread' );
-	}
+		/**
+		 * @see SpecialPage::getDescription
+		 */
+		function getDescription() {
+			return wfMsg( 'lqt_deletethread' );
+		}
 
 		function handleGet() {
 			if( !$this->checkUserRights() )
@@ -1134,14 +1134,14 @@ HTML
 			$this->output->addHTML($message);
 		}
 
-        function execute( $par = null ) {
-            global $wgOut, $wgRequest, $wgTitle, $wgUser;
+		function execute( $par ) {
+			global $wgOut, $wgRequest, $wgTitle, $wgUser;
 			$this->user = $wgUser;
 			$this->output = $wgOut;
 			$this->request = $wgRequest;
 			$this->title = $wgTitle;
 
-            $this->setHeaders();
+			$this->setHeaders();
 
 			if( $par === null || $par === "") {
 				$this->output->addHTML(wfMsg('lqt_threadrequired'));
@@ -1162,10 +1162,10 @@ HTML
 				$this->handleGet();
 			}
 
-        }
-    }
+		}
+	}
 
-     SpecialPage::addPage( new SpecialDeleteThread() );
+	SpecialPage::addPage( new SpecialDeleteThread() );
 }
 
 class NewUserMessagesView extends LqtView {
@@ -1303,29 +1303,29 @@ HTML
 
 function wfLqtSpecialNewMessages() {
 
-    class SpecialNewMessages extends SpecialPage {
+	class SpecialNewMessages extends SpecialPage {
 		private $user, $output, $request, $title;
 
-        function __construct() {
-            SpecialPage::SpecialPage( 'Newmessages' );
-            $this->includable( true );
-        }
+		function __construct() {
+			SpecialPage::SpecialPage( 'Newmessages' );
+			$this->includable( true );
+		}
 
-	/**
-	 * @see SpecialPage::getDescription
-	 */
-	function getDescription() {
-		return wfMsg( 'lqt_newmessages' );
-	}
+		/**
+		 * @see SpecialPage::getDescription
+		 */
+		function getDescription() {
+			return wfMsg( 'lqt_newmessages' );
+		}
 
-        function execute( $par = null ) {
-		    global $wgOut, $wgRequest, $wgTitle, $wgUser;
+		function execute( $par ) {
+			global $wgOut, $wgRequest, $wgTitle, $wgUser;
 			$this->user = $wgUser;
 			$this->output = $wgOut;
 			$this->request = $wgRequest;
 			$this->title = $wgTitle;
 
-            $this->setHeaders();
+			$this->setHeaders();
 
 			$view = new NewUserMessagesView( $this->output, new Article($this->title),
 							$this->title, $this->user, $this->request );
@@ -1339,10 +1339,11 @@ function wfLqtSpecialNewMessages() {
 			$this->output->addHTML('<h2 class="lqt_newmessages_section">Messages on other talkpages:</h2>');
 			$view->setThreads( NewMessages::watchedThreadsForUser($this->user) );
 			$view->show();
-        }
-    }
+		}
+	}
 
-     SpecialPage::addPage( new SpecialNewMessages() );
+	SpecialPage::addPage( new SpecialNewMessages() );
+
 }
 
 function wfLqtBeforeWatchlistHook( $options, $user, &$hook_sql ) {
