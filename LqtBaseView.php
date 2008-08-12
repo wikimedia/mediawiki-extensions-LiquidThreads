@@ -751,8 +751,7 @@ HTML;
 				return true;
 			}
 			else if ($rev) {
-				global $wgArticle;
-				$wgArticle->outputWikiText( $rev->getText(), true );
+				$post->outputWikiText( $rev->getText(), true );
 				return true;
 			} else {
 				return false;
