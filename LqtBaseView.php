@@ -591,7 +591,7 @@ HTML;
 		return $this->incrementedTitle( $t->subjectWithoutIncrement(), NS_LQT_THREAD );
 	}
 	/** Keep trying titles starting with $basename until one is unoccupied. */
-	function incrementedTitle($basename, $namespace) {
+	public static function incrementedTitle($basename, $namespace) {
 		$i = 1; do {
 			$t = Title::newFromText( $basename.'_('.$i.')', $namespace );
 			$i++;
