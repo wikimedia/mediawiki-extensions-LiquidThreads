@@ -82,9 +82,7 @@ class LqtDispatch {
 		$action =  $request->getVal('action');
 		$header_actions = array('history', 'edit', 'submit');
 		global $wgRequest;
-		if( $wgRequest->getBool( 'redlink' ) ) {
-			$viewname = self::$views['TalkpageView'];
-		} else if ($request->getVal('lqt_method', null) === null &&
+		if ($request->getVal('lqt_method', null) === null &&
 				( in_array( $action, $header_actions ) ||
 					$request->getVal('diff', null) !== null ) ) {
 			$viewname = self::$views['TalkpageHeaderView'];
@@ -247,7 +245,7 @@ class LqtDispatch {
 				&&! $watchlist_t->equals($wgTitle)
 				&&! $usertalk_t->equals($wgTitle)
 				) {
-			$s = wfMsg('lqt_youhavenewmessages', '<a href="'.$newmsg_t->getFullURL().'">'.wfMsg('newmessageslink').'</a>');
+			$s = wfMsgExt('lqt_youhavenewmessages', array( 'parseinline' ), $newmsg_t->getFullURL());
 			$tpl->set("newtalk", $s);
 			$wgOut->setSquidMaxage(0);
 		} else {

@@ -214,7 +214,7 @@ class TalkpageView extends LqtView {
 		}
 
 		global $wgRequest;
-		if( $this->methodApplies('talkpage_new_thread') || $wgRequest->getBool( 'redlink' ) ) {
+		if( $this->methodApplies('talkpage_new_thread') ) {
 			$this->showNewThreadForm();
 		} else {
 
