@@ -110,8 +110,10 @@ You might instead want to $2.',
  * @author Helix84
  * @author Jon Harald Søby
  * @author Minh Nguyen
+ * @author Purodha
  */
 $messages['qqq'] = array(
+	'lqt-desc' => 'Short description of this extension, shown on [[Special:Version]]. Do not translate or change links.',
 	'lqt_newmessages' => '{{Identical|New messages}}',
 	'lqt_browse_archive_with_recent' => '{{Identical|Older}}',
 	'lqt_contents_title' => '{{Identical|Contents}}',
@@ -1426,11 +1428,14 @@ $messages['krj'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'lqt-desc' => 'Määt Jeschprääschs-Fäddeme en Klaaf-Sigge müjjelesch.',
 	'lqt_delete' => 'Fottschmieße',
 	'lqt_protectedfromreply_link' => 'jeschöz',
 	'lqt_noreason' => 'Keine Aanlass aanjejovve.',
+	'lqt_thread_deleted_for_sysops_deleted' => 'fottjeschmesse',
 	'lqt_move_move' => 'Ömnenne',
 	'lqt_move_noreason' => 'Keine Aanlass aanjejovve.',
+	'lqt_delete_deleting_allreplies' => 'all Antwoote',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -1652,6 +1657,13 @@ $messages['mr'] = array(
 	'lqt_sort_newest_changes' => 'शेवटी बदललेले पहिल्यांदा',
 	'lqt_sort_newest_threads' => 'नवीन थ्रेड पहिल्यांदा',
 	'lqt_sort_oldest_threads' => 'जुने थ्रेड पहिल्यांदा',
+);
+
+/** Maltese (Malti)
+ * @author Roderick Mallia
+ */
+$messages['mt'] = array(
+	'lqt_move_move' => 'Mexxi',
 );
 
 /** Nahuatl (Nāhuatl)
@@ -2496,7 +2508,7 @@ $messages['sv'] = array(
 	'lqt_change_new_thread' => 'Detta är diskussionssidans första version.',
 	'lqt_change_reply_created' => 'Den markerade kommentaren skapades i denna version.',
 	'lqt_change_edited_root' => 'Den markerade kommentaren redigerades i denna version.',
-	'lqt_youhavenewmessages' => 'Du har $1.',
+	'lqt_youhavenewmessages' => 'Du har [$1 nya meddelanden].',
 	'lqt_changes_from' => ' från',
 	'lqt_changes_summary_of' => ' av',
 	'lqt_protectedfromreply' => 'Den här diskussionssidan har blivit $1 för svar.',
