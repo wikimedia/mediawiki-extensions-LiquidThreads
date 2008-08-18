@@ -47,6 +47,6 @@ CREATE TABLE /*$wgDBprefix*/user_message_state (
   ums_user int unsigned NOT NULL,
   ums_thread int(8) unsigned NOT NULL,
   ums_read_timestamp varbinary(14),
-  
+
   PRIMARY KEY (ums_user, ums_thread)
 ) TYPE=InnoDB;

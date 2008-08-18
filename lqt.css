@@ -196,7 +196,7 @@ The archive page.
 .lqt_archive_listing th {
 	text-align:     left;
 	vertical-align: baseline;
-	font-weight:    bold; 
+	font-weight:    bold;
 	border-bottom:  1px solid #ddd;
 }
 
@@ -330,7 +330,7 @@ The archive page.
 	padding-left: 0.6em;
 }
 
-#lqt_subject_field { 
+#lqt_subject_field {
 	margin-top:    0.7em;
 	margin-bottom: 0.5em;
 	width:         80%;

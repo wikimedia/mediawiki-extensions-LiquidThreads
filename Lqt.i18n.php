@@ -104,7 +104,7 @@ You might instead want to $2.',
 	'lqt_sort_newest_changes' => 'last modified first',
 	'lqt_sort_newest_threads' => 'newest threads first',
 	'lqt_sort_oldest_threads' => 'oldest threads first',
-	'lqt-any-date'            => 'Any date', 
+	'lqt-any-date'            => 'Any date',
 	'lqt-only-date'           => 'Only these dates:',
 	'lqt-date-from'           => 'From',
 	'lqt-date-to'             => 'To',
@@ -746,7 +746,7 @@ $messages['fr'] = array(
 	'lqt_sort_newest_changes' => 'fils de discussion plus récemment modifiés en premier',
 	'lqt_sort_newest_threads' => 'fils de discussion les plus récents en premier',
 	'lqt_sort_oldest_threads' => 'fils de discussion les plus anciens en premier',
-	'lqt-any-date'            => 'Toutes les dates', 
+	'lqt-any-date'            => 'Toutes les dates',
 	'lqt-only-date'           => 'Uniquement ces dates :',
 	'lqt-date-from'           => 'Du',
 	'lqt-date-to'             => 'au',
@@ -3094,4 +3094,3 @@ $messages['zh-hant'] = array(
 	'lqt_header_warning_bold' => '討論頁頁頂',
 	'lqt_header_warning_new_discussion' => '開始一個新的討論',
 );
-
