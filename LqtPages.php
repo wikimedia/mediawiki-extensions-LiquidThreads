@@ -325,7 +325,7 @@ HTML
 		                     'thread.thread_modified < ' . $startdate->text());
 		$options = array('ORDER BY thread.thread_modified DESC');
 
-		$annotations = array("Searching for threads");
+		$annotations = array( wfMsg ( 'lqt-searching' ));
 
 		$r = $this->request;
 
@@ -414,6 +414,10 @@ HTML
 		}
 		$any_date_check    = !$use_dates ? 'checked="1"' : '';
 		$these_dates_check =  $use_dates ? 'checked="1"' : '';
+		$any_date = wfMsg ( 'lqt-any-date' );
+		$only_date= wfMsg ( 'lqt-only-date' );
+		$date_from= wfMsg ( 'lqt-date-from' );
+		$date_to  = wfMsg ( 'lqt-date-to' );
 
 		if( isset($this->datespan) ) {
 			$oatte = $this->starti + 1;
@@ -430,16 +434,16 @@ HTML
 				     'lqt_archive_filter_by_date'=>'1',
 				     'lqt_archive_start' => $months[$os],
 				     'lqt_archive_end' => $months[$oe]))
-				. '">«older</a>';
+				. '">«'.wfMsg ( 'lqt-older' ).'</a>';
 			$newer = '<a class="lqt_newer_older" href="' . $this->queryReplace(array(
 				     'lqt_archive_filter_by_date'=>'1',
 				     'lqt_archive_start' => $months[$ns],
 				     'lqt_archive_end' => $months[$ne]))
-				. '">newer»</a>';
+				. '">'.wfMsg ( 'lqt-newer' ).'»</a>';
 		}
-		else {
-			$older = '<span class="lqt_newer_older_disabled" title="This link is disabled because you are viewing threads from all dates.">«older</span>';
-			$newer = '<span class="lqt_newer_older_disabled" title="This link is disabled because you are viewing threads from all dates.">newer»</span>';
+		else { 	
+			$older = '<span class="lqt_newer_older_disabled" title="This link is disabled because you are viewing threads from all dates.">«'.wfMsg ( 'lqt-older' ).'</span>';
+			$newer = '<span class="lqt_newer_older_disabled" title="This link is disabled because you are viewing threads from all dates.">'.wfMsg ( 'lqt-newer' ).'»</span>';
 		}
 
 		$this->output->addHTML(<<<HTML
@@ -449,15 +453,15 @@ HTML
 
 	<input type="radio" id="lqt_archive_filter_by_date_no"
                name="lqt_archive_filter_by_date" value="0" {$any_date_check}>
-	<label for="lqt_archive_filter_by_date_no">Any date</label>  <br />
+	<label for="lqt_archive_filter_by_date_no">{$any_date}</label>  <br />
 	<input type="radio" id="lqt_archive_filter_by_date_yes"
                name="lqt_archive_filter_by_date" value="1" {$these_dates_check}>
-	<label for="lqt_archive_filter_by_date_yes">Only these dates:</label> <br />
+	<label for="lqt_archive_filter_by_date_yes">{$only_date}</label> <br />
 
 <table>
-<tr><td><label for="lqt_archive_start">From</label>
+<tr><td><label for="lqt_archive_start">{$date_from}</label>
     <td>{$this->monthSelect($months, 'lqt_archive_start')} <br />
-<tr><td><label for="lqt_archive_end">To</label>
+<tr><td><label for="lqt_archive_end">{$date_to}</label>
     <td>{$this->monthSelect($months, 'lqt_archive_end')}
 </table>
 	<input type="submit">
@@ -480,13 +484,14 @@ HTML
 			$this->output->addHTML('<p><br /><b>'. wfMsg('lqt-nothread' ) . '</b></p>' );
 			return false;
 		}
-
+		$lqt_title = wfMsg ( 'lqt-title');
+		$lqt_summary = wfMsg ( 'lqt-summary' );
 		$this->output->addHTML(<<<HTML
 <p class="lqt_search_annotations">{$this->annotations}</p>
 <table class="lqt_archive_listing">
 <col class="lqt_titles" />
 <col class="lqt_summaries" />
-<tr><th>Title<th>Summary</tr>
+<tr><th>{$lqt_title}<th>{$lqt_summary}</tr>
 HTML
                 );
 		foreach ($this->threads() as $t) {
@@ -1178,13 +1183,15 @@ class NewUserMessagesView extends LqtView {
 	function preShowThread($t) {
 //		$t_ids = implode(',', array_map(create_function('$t', 'return $t->id();'), $this->targets[$t->id()]));
 		$t_ids = implode(',', $this->targets[$t->id()]);
+		$lqt_read_email = wfMsg ( 'lqt-read-email' );
+		$lqt_remove_thread = wfMsg ( 'lqt-email-remove' );
 		$this->output->addHTML(<<<HTML
 		<table ><tr>
 		<td style="padding-right: 1em; vertical-align: top; padding-top: 1em;" >
 		<form method="POST">
 			<input type="hidden" name="lqt_method" value="mark_as_read" />
 			<input type="hidden" name="lqt_operand" value="{$t_ids}" />
-			<input type="submit" value="Read" name="lqt_read_button" title="Remove this thread from New Messages." />
+			<input type="submit" value="{$lqt_read_email}" name="lqt_read_button" title="{$lqt_remove_thread}" />
 		</form>
 		</td>
 		<td>
@@ -1203,18 +1210,19 @@ HTML
 	function showUndo($ids) {
 		if( count($ids) == 1 ) {
 			$t = Threads::withId($ids[0]);
-			$msg = "Thread <b>{$t->subject()}</b> marked as read.";
+			$msg = wfMsg( 'lqt-marked-read',$t->subject()  );
 		} else {
 			$count = count($ids);
-			$msg = "$count messages marked as read.";
+			$msg =  wfMsg( 'lqt-count-marked-read',$count );
 		}
 		$operand = implode(',', $ids);
+		$lqt_email_undo = wfMsg ( 'lqt-email-undo' );
 		$this->output->addHTML(<<<HTML
 		<form method="POST" class="lqt_undo_mark_as_read">
 			$msg
 			<input type="hidden" name="lqt_method" value="mark_as_unread" />
 			<input type="hidden" name="lqt_operand" value="{$operand}" />
-			<input type="submit" value="Undo" name="lqt_read_button" title="Bring back the thread you just dismissed." />
+			<input type="submit" value="{$lqt_email_undo}" name="lqt_read_button" title="Bring back the thread you just dismissed." />
 		</form>
 HTML
 		);
@@ -1333,11 +1341,11 @@ function wfLqtSpecialNewMessages() {
 			$view->setHeaderLevel(3);
 			$view->showOnce();
 
-			$this->output->addHTML('<h2 class="lqt_newmessages_section">Messages sent to you:</h2>');
+			$this->output->addHTML('<h2 class="lqt_newmessages_section">'.wfMsg ( 'lqt-messages-sent' ).'</h2>');
 			$view->setThreads( NewMessages::newUserMessages($this->user) );
 			$view->show();
 
-			$this->output->addHTML('<h2 class="lqt_newmessages_section">Messages on other talkpages:</h2>');
+			$this->output->addHTML('<h2 class="lqt_newmessages_section">'.wfMsg ( 'lqt-other-messages' ).'</h2>');
 			$view->setThreads( NewMessages::watchedThreadsForUser($this->user) );
 			$view->show();
 		}
@@ -1363,9 +1371,10 @@ function wfLqtBeforeWatchlistHook( $options, $user, &$hook_sql ) {
 
 	LqtView::addJSandCSS();
 	$messages_url = SpecialPage::getPage('Newmessages')->getTitle()->getFullURL();
+	$new_messages = wfMsg ( 'lqt-new-messages' );
 	$wgOut->addHTML(<<< HTML
 		<a href="$messages_url" class="lqt_watchlist_messages_notice">
-			&#x2712; There are new messages for you.
+			&#x2712; {$new_messages}
 		</a>
 HTML
 	);
