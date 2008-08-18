@@ -171,31 +171,31 @@ class TalkpageView extends LqtView {
 			$i++;
 		}
 		$toclines[] = $sk->tocUnindent(1);
-
+		
 		$this->openDiv('lqt_toc_wrapper');
 		$this->output->addHTML('<h2 class="lqt_toc_title">'.wfMsg('lqt_contents_title').'</h2> <ul>');
-
+		
 		foreach($threads as $t) {
 			$this->output->addHTML('<li><a href="#'.$this->anchorName($t).'">'.$t->subjectWithoutIncrement().'</a></li>');
 		}
-
+		
 		$this->output->addHTML('</ul></div>');
 	}
 
 	function showArchiveWidget($threads) {
 		$threadlinks = $this->permalinksForThreads($threads);
 		$url = $this->talkpageUrl($this->title, 'talkpage_archive');
-
+		
 		if ( count($threadlinks) > 0 ) {
 			$this->openDiv('lqt_archive_teaser');
 			$this->output->addHTML('<h2 class="lqt_recently_archived">'.wfMsg('lqt_recently_archived').'</h2>');
 //			$this->output->addHTML("<span class=\"lqt_browse_archive\">[<a href=\"$url\">".wfMsg('lqt_browse_archive_with_recent')."</a>]</span></h2>");
 			$this->outputList('ul', '', '', $threadlinks);
 			$this->closeDiv();
-		} else {
+		} else {	
 		}
 	}
-
+	
 	function show() {
 		global $wgHooks, $wgUser;
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
@@ -203,7 +203,7 @@ class TalkpageView extends LqtView {
 		$this->output->setPageTitle( $this->title->getTalkpage()->getPrefixedText() );
 		self::addJSandCSS();
 		$article = new Article( $this->title );
-
+		
 		if( $this->methodApplies('talkpage_sort_order') ) {
 			global $wgRequest;
 			$remember_sort_checked = $wgRequest->getVal('lqt_remember_sort') ? 'checked ' : '';
@@ -233,8 +233,8 @@ class TalkpageView extends LqtView {
 				$lqt_sort_newest_threads = wfMsg('lqt_sort_newest_threads');
 				$lqt_sort_oldest_threads = wfMsg('lqt_sort_oldest_threads');
 				$go=wfMsg('go');
-				if($wgUser->isLoggedIn()) {
-					$remember_sort =
+				if($wgUser->isLoggedIn()) { 
+					$remember_sort = 
 <<<HTML
 <br />
 <label for="lqt_remember_sort_checkbox">
@@ -245,7 +245,7 @@ HTML;
 					$remember_sort = '';
 				}
 				$this->openDiv('lqt_view_options');
-				$this->output->addHTML(
+				$this->output->addHTML( 
 
 <<<HTML
 <form name="lqt_sort" action="$form_action_url" method="post">$lqt_sorting_order
@@ -268,7 +268,7 @@ HTML
 		$threads = $this->queries->query('fresh');
 
 		$this->openDiv('lqt_toc_archive_wrapper');
-
+		
 		$this->openDiv('lqt_archive_teaser_empty');
 		$this->output->addHTML("<div class=\"lqt_browse_archive\"><a href=\"{$this->talkpageUrl($this->title, 'talkpage_archive')}\">".wfMsg('lqt_browse_archive_without_recent')."</a></div>");
 		$this->closeDiv();
@@ -280,7 +280,7 @@ HTML
 		$this->closeDiv();
 		// Clear any floats
 		$this->output->addHTML('<br clear="all" />');
-
+		
 		foreach($threads as $t) {
 			$this->showThread($t);
 		}
@@ -418,7 +418,7 @@ HTML
 		$only_date= wfMsg ( 'lqt-only-date' );
 		$date_from= wfMsg ( 'lqt-date-from' );
 		$date_to  = wfMsg ( 'lqt-date-to' );
-
+		$date_info = wfMsg ( 'lqt-date-info' );
 		if( isset($this->datespan) ) {
 			$oatte = $this->starti + 1;
 			$oatts = $this->starti + 1 + $this->datespan;
@@ -441,9 +441,9 @@ HTML
 				     'lqt_archive_end' => $months[$ne]))
 				. '">'.wfMsg ( 'lqt-newer' ).'»</a>';
 		}
-		else {
-			$older = '<span class="lqt_newer_older_disabled" title="This link is disabled because you are viewing threads from all dates.">«'.wfMsg ( 'lqt-older' ).'</span>';
-			$newer = '<span class="lqt_newer_older_disabled" title="This link is disabled because you are viewing threads from all dates.">'.wfMsg ( 'lqt-newer' ).'»</span>';
+		else { 	
+			$older = '<span class="lqt_newer_older_disabled" title="'.wfMsg ( 'lqt-date-info' ).'">«'.wfMsg ( 'lqt-older' ).'</span>';
+			$newer = '<span class="lqt_newer_older_disabled" title="'.wfMsg ( 'lqt-date-info' ).'">'.wfMsg ( 'lqt-newer' ).'»</span>';
 		}
 
 		$this->output->addHTML(<<<HTML
@@ -642,18 +642,18 @@ class TalkpageHeaderView extends LqtView {
 	function show() {
 		global $wgHooks, $wgOut, $wgTitle, $wgRequest;
 		$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
-
+		
 		if( $wgRequest->getVal('action') === 'edit' ) {
 			$warn_bold = '<strong>' . wfMsg('lqt_header_warning_bold') . '</strong>';
 			$warn_link = '<a href="'.$this->talkpageUrl($wgTitle, 'talkpage_new_thread').'">'.
 				wfMsg('lqt_header_warning_new_discussion').'</a>';
 			$wgOut->addHTML('<p class="lqt_header_warning">' .
 				wfMsg('lqt_header_warning_before_big', $warn_bold, $warn_link) .
-				'<big>' . wfMsg('lqt_header_warning_big', $warn_bold, $warn_link) . '</big>' .
+				'<big>' . wfMsg('lqt_header_warning_big', $warn_bold, $warn_link) . '</big>' . 
 				wfMsg('lqt_header_warning_after_big', $warn_bold, $warn_link) .
 				'</p>');
 		}
-
+		
 		return true;
 	}
 }
@@ -1217,12 +1217,13 @@ HTML
 		}
 		$operand = implode(',', $ids);
 		$lqt_email_undo = wfMsg ( 'lqt-email-undo' );
+		$lqt_info_undo = wfMsg ( 'lqt-email-info-undo' ); 
 		$this->output->addHTML(<<<HTML
 		<form method="POST" class="lqt_undo_mark_as_read">
 			$msg
 			<input type="hidden" name="lqt_method" value="mark_as_unread" />
 			<input type="hidden" name="lqt_operand" value="{$operand}" />
-			<input type="submit" value="{$lqt_email_undo}" name="lqt_read_button" title="Bring back the thread you just dismissed." />
+			<input type="submit" value="{$lqt_email_undo}" name="lqt_read_button" title="{$lqt_info_undo}" />
 		</form>
 HTML
 		);

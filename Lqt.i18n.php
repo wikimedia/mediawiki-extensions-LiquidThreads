@@ -114,13 +114,15 @@ You might instead want to $2.',
 	'lqt-newer'               => 'newer',
 	'lqt-searching'           => 'Searching for threads',
 	'lqt-read-email'          => 'Read',
-	'lqt-email-remove'        => 'Remove this thread from New Messages.',
-	'lqt-marked-read'         => 'Thread <b>$1</b> marked as read.',
-	'lqt-count-marked-read'   => '$1 {{PLURAL:$1|messages|messages}} marked as read.',
+	'lqt-email-remove'        => 'Remove this thread from new messages.',
+	'lqt-marked-read'         => 'Thread \'\'\'$1\'\'\' marked as read.',
+	'lqt-count-marked-read'   => '$1 {{PLURAL:$1|message|messages}} marked as read.',
 	'lqt-email-undo'          => 'Undo',
 	'lqt-messages-sent'       => 'Messages sent to you:',
-	'lqt-other-messages'      => 'Messages on other talkpages:',
+	'lqt-other-messages'      => 'Messages on other talk pages:',
 	'lqt-new-messages'        => 'There are new messages for you.',
+	'lqt-email-info-undo'     => 'Bring back the thread you just dismissed.',
+	'lqt-date-info'           => 'This link is disabled because you are viewing threads from all dates.',
 );
 
 /** Message documentation (Message documentation)
@@ -755,6 +757,8 @@ $messages['fr'] = array(
 	'lqt-older'               => 'plus ancien',
 	'lqt-newer'               => 'plus récent',
 	'lqt-searching'           => 'Recherche des fils',
+	'lqt-email-info-undo'     => 'Rétablir le fil que vous venez juste de révoquer.',
+	'lqt-date-info'           => 'Ce lien est désactivé parce que vous êtes en train de voir les fils à partir de toutes les dates. ',
 );
 
 /** Western Frisian (Frysk)
