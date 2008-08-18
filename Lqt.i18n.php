@@ -153,6 +153,9 @@ $messages['qqq'] = array(
 	'lqt_move_noreason' => '{{Identical|No reason given}}',
 	'lqt_delete_return' => '{{Identical|Return to $1}}',
 	'lqt_header_warning_new_discussion' => '{{Identical|Start a new discussion}}',
+	'lqt-title' => '{{Identical|Title}}',
+	'lqt-summary' => '{{Identical|Summary}}',
+	'lqt-older' => '{{Identical|Older}}',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -521,6 +524,10 @@ Möglicherweise willst du statt dessen eine $2.',
 	'lqt_sort_newest_changes' => 'zuletzt geänderten Thread zuerst',
 	'lqt_sort_newest_threads' => 'neuesten Thread zuerst',
 	'lqt_sort_oldest_threads' => 'ältesten Thread zuerst',
+	'lqt-any-date' => 'Jedes Datum',
+	'lqt-only-date' => 'Nur diese Daten:',
+	'lqt-date-from' => 'Von',
+	'lqt-date-to' => 'Bis',
 );
 
 /** Ewe (Eʋegbe)
@@ -745,20 +752,28 @@ $messages['fr'] = array(
 	'lqt_header_warning_new_discussion' => 'lancer un nouveau fil de discussion',
 	'lqt_sorting_order' => 'Ordre de tri :',
 	'lqt_remember_sort' => 'Rappeler cette préférence',
-	'lqt_sort_newest_changes' => 'fils de discussion plus récemment modifiés en premier',
-	'lqt_sort_newest_threads' => 'fils de discussion les plus récents en premier',
-	'lqt_sort_oldest_threads' => 'fils de discussion les plus anciens en premier',
-	'lqt-any-date'            => 'Toutes les dates',
-	'lqt-only-date'           => 'Uniquement ces dates :',
-	'lqt-date-from'           => 'Du',
-	'lqt-date-to'             => 'au',
-	'lqt-title'               => 'Titre',
-	'lqt-summary'             => 'Sommaire',
-	'lqt-older'               => 'plus ancien',
-	'lqt-newer'               => 'plus récent',
-	'lqt-searching'           => 'Recherche des fils',
-	'lqt-email-info-undo'     => 'Rétablir le fil que vous venez juste de révoquer.',
-	'lqt-date-info'           => 'Ce lien est désactivé parce que vous êtes en train de voir les fils à partir de toutes les dates. ',
+	'lqt_sort_newest_changes' => 'en commençant par les derniers modifiés',
+	'lqt_sort_newest_threads' => 'en commençant par les fils de discussion les plus récents',
+	'lqt_sort_oldest_threads' => 'en commençant par les fils de discussion les plus anciens',
+	'lqt-any-date' => 'Toutes les dates',
+	'lqt-only-date' => 'Uniquement ces dates :',
+	'lqt-date-from' => 'Du',
+	'lqt-date-to' => 'au',
+	'lqt-title' => 'Titre',
+	'lqt-summary' => 'Sommaire',
+	'lqt-older' => 'plus ancien',
+	'lqt-newer' => 'plus récent',
+	'lqt-searching' => 'Recherche des fils de discussion',
+	'lqt-read-email' => 'Lire',
+	'lqt-email-remove' => 'Retirer ce fil des nouveaux messages.',
+	'lqt-marked-read' => "Fil de discussion '''$1''' marqué comme lu.",
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|message marqué comme lu|messages marqués comme lus}}',
+	'lqt-email-undo' => 'Défaire',
+	'lqt-messages-sent' => 'Messages vous étant envoyés :',
+	'lqt-other-messages' => 'Messages sur d’autres pages de discussion :',
+	'lqt-new-messages' => 'Vous avez de nouveaux messages.',
+	'lqt-email-info-undo' => 'Rétablir le fil que vous venez juste d’enlever.',
+	'lqt-date-info' => 'Ce lien est désactivé parce que vous êtes en train de voir les fils à partir de toutes les dates.',
 );
 
 /** Western Frisian (Frysk)
@@ -1037,6 +1052,13 @@ $messages['hil'] = array(
 	'lqt_move_move' => 'Saylohon',
 );
 
+/** Croatian (Hrvatski)
+ * @author Dalibor Bosits
+ */
+$messages['hr'] = array(
+	'lqt_delete' => 'Izbriši',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
@@ -1246,6 +1268,7 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author JtFuruhata
  */
 $messages['ja'] = array(
@@ -1289,7 +1312,7 @@ $messages['ja'] = array(
 	'lqt_change_new_thread' => 'このスレッドの最初の版です。',
 	'lqt_change_reply_created' => 'この版で作成されたコメントがハイライト表示されています。',
 	'lqt_change_edited_root' => 'この版で変更されたコメントがハイライト表示されています。',
-	'lqt_youhavenewmessages' => '$1があります。',
+	'lqt_youhavenewmessages' => '$1の新しいメッセージがあります。',
 	'lqt_changes_from' => '  スレッド元:',
 	'lqt_changes_summary_of' => '  要約先:',
 	'lqt_protectedfromreply' => 'このスレッドは$1されているため返答できません。',
@@ -1811,6 +1834,25 @@ $messages['nl'] = array(
 	'lqt_sort_newest_changes' => 'laatst gewijzigd bovenaan',
 	'lqt_sort_newest_threads' => 'nieuwste threads bovenaan',
 	'lqt_sort_oldest_threads' => 'oudste threads bovenaan',
+	'lqt-any-date' => 'Elke datum',
+	'lqt-only-date' => 'Alleen deze data:',
+	'lqt-date-from' => 'Van',
+	'lqt-date-to' => 'Tot',
+	'lqt-title' => 'Naam',
+	'lqt-summary' => 'Samenvatting',
+	'lqt-older' => 'ouder',
+	'lqt-newer' => 'nieuwer',
+	'lqt-searching' => 'Bezig met zoeken naar threads...',
+	'lqt-read-email' => 'Lezen',
+	'lqt-email-remove' => 'Deze thread verwijderen uit nieuwe berichten.',
+	'lqt-marked-read' => "Thread '''$1''' is gemarkeerd als gelezen.",
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|bericht|berichten}} gemarkeerd als gelezen.',
+	'lqt-email-undo' => 'Ongedaan maken',
+	'lqt-messages-sent' => 'Aan u verzonden berichten:',
+	'lqt-other-messages' => "Berichten op andere overlegpagina's:",
+	'lqt-new-messages' => 'U hebt nieuwe berichten.',
+	'lqt-email-info-undo' => 'Terug naar de thread die u zojuist hebt verlaten.',
+	'lqt-date-info' => 'Deze verwijzing is niet actief omdat u threads van alle data bekijkt.',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -1920,6 +1962,12 @@ $messages['no'] = array(
 	'lqt_sort_newest_changes' => 'de sist endrede først',
 	'lqt_sort_newest_threads' => 'nyeste tråder først',
 	'lqt_sort_oldest_threads' => 'eldste tråder først',
+	'lqt-date-from' => 'Fra',
+	'lqt-date-to' => 'Til',
+	'lqt-title' => 'Tittel',
+	'lqt-summary' => 'Sammendrag',
+	'lqt-older' => 'eldre',
+	'lqt-newer' => 'nyere',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -3098,3 +3146,4 @@ $messages['zh-hant'] = array(
 	'lqt_header_warning_bold' => '討論頁頁頂',
 	'lqt_header_warning_new_discussion' => '開始一個新的討論',
 );
+
