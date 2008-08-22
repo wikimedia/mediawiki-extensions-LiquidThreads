@@ -297,6 +297,12 @@ $messages['ar'] = array(
 	'lqt_sort_newest_changes' => 'المعدل أخيرا أولا',
 	'lqt_sort_newest_threads' => 'مجموعة الرسائل الأجدد أولا',
 	'lqt_sort_oldest_threads' => 'مجموعة الرسائل الأقدم أولا',
+	'lqt-any-date' => 'أي تاريخ',
+	'lqt-only-date' => 'فقط هذه التواريخ',
+	'lqt-date-from' => 'من',
+	'lqt-date-to' => 'إلى',
+	'lqt-title' => 'العنوان',
+	'lqt-summary' => 'ملخص',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -851,7 +857,7 @@ $messages['gl'] = array(
 	'lqt_change_new_thread' => 'Esta é a revisión inicial do fío.',
 	'lqt_change_reply_created' => 'O comentario destacado foi creado nesta revisión.',
 	'lqt_change_edited_root' => 'O comentario destacado foi editado nesta revisión.',
-	'lqt_youhavenewmessages' => 'Ten $1.',
+	'lqt_youhavenewmessages' => 'Ten [$1 novas mensaxes].',
 	'lqt_changes_from' => ' de',
 	'lqt_changes_summary_of' => 'de',
 	'lqt_protectedfromreply' => 'Este fío de conversa foi de $1 desde que se respondeu a.',
@@ -898,6 +904,14 @@ $messages['gl'] = array(
 	'lqt_sort_newest_changes' => 'os últimos modificados primeiro',
 	'lqt_sort_newest_threads' => 'novos fíos primeiro',
 	'lqt_sort_oldest_threads' => 'os fíos máis vellos primeiro',
+	'lqt-any-date' => 'Calquera data',
+	'lqt-only-date' => 'Só estas datas:',
+	'lqt-date-from' => 'Desde',
+	'lqt-date-to' => 'Ata',
+	'lqt-title' => 'Título',
+	'lqt-summary' => 'Resumo',
+	'lqt-searching' => 'Procurando ameazas',
+	'lqt-read-email' => 'Ler',
 );
 
 /** Gujarati (ગુજરાતી)
