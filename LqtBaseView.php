@@ -12,45 +12,6 @@ if( !defined( 'MEDIAWIKI' ) ) {
 	die( -1 );
 }
 
-function efVarDump($value) {
-	global $wgOut;
-	ob_start();
-	var_dump($value);
-	$tmp=ob_get_contents();
-	ob_end_clean();
-	$wgOut->addHTML(/*'<pre>' . htmlspecialchars($tmp,ENT_QUOTES) . '</pre>'*/ $tmp);
-}
-
-function efThreadTable($ts) {
-	global $wgOut;
-	$wgOut->addHTML('<table>');
-	foreach($ts as $t)
-		efThreadTableHelper($t, 0);
-	$wgOut->addHTML('</table>');
-}
-
-function efThreadTableHelper($t, $indent) {
-	global $wgOut;
-	$wgOut->addHTML('<tr>');
-	$wgOut->addHTML('<td>' . $indent);
-	$wgOut->addHTML('<td>' . $t->id());
-	$wgOut->addHTML('<td>' . $t->title()->getPrefixedText());
-	$wgOut->addHTML('</tr>');
-	foreach($t->subthreads() as $st)
-		efThreadTableHelper($st, $indent + 1);
-}
-
-require_once('LqtModel.php');
-require_once('Pager.php');
-require_once('PageHistory.php');
-
-$wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
-$wgHooks['SpecialMovepageAfterMove'][] = 'LqtDispatch::onPageMove';
-$wgHooks['LinkerMakeLinkObj'][] = 'LqtDispatch::makeLinkObj';
-$wgHooks['SkinTemplateTabAction'][] = 'LqtDispatch::tabAction';
-$wgHooks['ChangesListInsertArticleLink'][] = 'LqtDispatch::changesListArticleLink';
-$wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtDispatch::setNewtalkHTML';
-
 class LqtDispatch {
 	public static $views = array(
 		'TalkpageArchiveView' => 'TalkpageArchiveView',
