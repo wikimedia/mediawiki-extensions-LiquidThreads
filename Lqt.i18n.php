@@ -303,6 +303,19 @@ $messages['ar'] = array(
 	'lqt-date-to' => 'إلى',
 	'lqt-title' => 'العنوان',
 	'lqt-summary' => 'ملخص',
+	'lqt-older' => 'أقدم',
+	'lqt-newer' => 'أجدد',
+	'lqt-searching' => 'بحث عن مجموعات الرسائل',
+	'lqt-read-email' => 'قراءة',
+	'lqt-email-remove' => 'أزل مجموعة الرسائل هذه من الرسائل الجديدة.',
+	'lqt-marked-read' => "مجموعة الرسائل '''$1''' تم التعليم عليها كمقروءة.",
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|رسالة|رسالة}} تم التعليم عليها كمقروءة.',
+	'lqt-email-undo' => 'رجوع',
+	'lqt-messages-sent' => 'الرسائل المرسلة إليك:',
+	'lqt-other-messages' => 'الرسائل في صفحات النقاش الأخرى:',
+	'lqt-new-messages' => 'توجد رسائل جديدة لك.',
+	'lqt-email-info-undo' => 'إعادة مجموعة الرسائل التي صرفتها منذ قليل.',
+	'lqt-date-info' => 'هذه الوصلة معطلة لأنك ترى مجموعات الرسائل من كل التواريخ.',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
