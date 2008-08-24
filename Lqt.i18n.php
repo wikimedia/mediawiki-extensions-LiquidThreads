@@ -349,7 +349,7 @@ $messages['bg'] = array(
 	'lqt_hist_tooltip_newer_disabled' => 'Препратката е неактивна, тъй като сте на първата страница.',
 	'lqt_hist_tooltip_older_disabled' => 'Препратката е неактивна, тъй като сте на последната страница.',
 	'lqt_revision_as_of' => 'Версия към $1.',
-	'lqt_youhavenewmessages' => 'Имате $1.',
+	'lqt_youhavenewmessages' => 'Имате [$1 ново/нови съобщение/съобщения].',
 	'lqt_changes_from' => ' от',
 	'lqt_changes_summary_of' => '  от',
 	'lqt_protectedfromreply' => 'Тази нишка е била $1 за следващи коментари.',
@@ -389,6 +389,14 @@ $messages['bg'] = array(
 	'lqt_sort_newest_changes' => 'първо последно променените',
 	'lqt_sort_newest_threads' => 'първо най-новите нишки',
 	'lqt_sort_oldest_threads' => 'първо най-старите нишки',
+	'lqt-date-from' => 'От',
+	'lqt-date-to' => 'До',
+	'lqt-title' => 'Заглавие',
+	'lqt-summary' => 'Резюме',
+	'lqt-older' => 'по-стари',
+	'lqt-newer' => 'по-нови',
+	'lqt-searching' => 'Търсене за нишки',
+	'lqt-read-email' => 'Прочитане',
 );
 
 /** Bengali (বাংলা)
@@ -681,6 +689,7 @@ $messages['eo'] = array(
 	'lqt_sort_newest_changes' => 'laste modifitaj unue',
 	'lqt_sort_newest_threads' => 'Plej novaj fadenoj unue',
 	'lqt_sort_oldest_threads' => 'plej malnovaj fadenoj unue',
+	'lqt-any-date' => 'Ĉiu dato',
 	'lqt-date-from' => 'De',
 	'lqt-date-to' => 'Al',
 	'lqt-title' => 'Titolo',
@@ -689,6 +698,10 @@ $messages['eo'] = array(
 	'lqt-newer' => 'pli novaj',
 	'lqt-read-email' => 'Legi',
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mesaĝo|mesaĝoj}} estis markitaj kiel legitaj.',
+	'lqt-email-undo' => 'Malfari',
+	'lqt-messages-sent' => 'Mesaĝoj senditaj al vi:',
+	'lqt-other-messages' => 'Mesaĝoj en aliaj diskuto-paĝoj:',
+	'lqt-new-messages' => 'Jen novaj mesaĝoj por vi.',
 );
 
 /** Spanish (Español)
