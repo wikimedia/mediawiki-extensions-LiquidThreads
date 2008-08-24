@@ -198,8 +198,8 @@ class LqtDispatch {
 
 	static function setNewtalkHTML($skintemplate, $tpl) {
 		global $wgUser, $wgTitle, $wgOut;
-		$newmsg_t = SpecialPage::getPage('Newmessages')->getTitle();
-		$watchlist_t = SpecialPage::getPage('Watchlist')->getTitle();
+		$newmsg_t = SpecialPage::getTitleFor( 'NewMessages' );
+		$watchlist_t = SpecialPage::getTitleFor( 'Watchlist' );
 		$usertalk_t = $wgUser->getTalkPage();
 		if( $wgUser->getNewtalk()
 				&&! $newmsg_t->equals($wgTitle)
@@ -415,7 +415,7 @@ HTML;
 	}
 
 	function showReplyProtectedNotice($thread) {
-		$log_url = SpecialPage::getPage('Log')->getTitle()->getFullURL(
+		$log_url = SpecialPage::getTitleFor('Log')->getFullURL(
 			"type=protect&user=&page={$thread->title()->getPrefixedURL()}");
 		$this->output->addHTML('<p>' . wfMsg('lqt_protectedfromreply',
 			'<a href="'.$log_url.'">'.wfMsg('lqt_protectedfromreply_link').'</a>'));
@@ -621,7 +621,7 @@ HTML;
 							 'enabled' => true );
 
 		if ( in_array('delete',  $this->user->getRights()) ) {
-			$delete_url = SpecialPage::getPage('Deletethread')->getTitle()->getFullURL()
+			$delete_url = SpecialPage::getTitleFor('DeleteThread')->getFullURL()
 				. '/' . $thread->title()->getPrefixedURL();
 			$commands[] = array( 'label' => $thread->type() == Threads::TYPE_DELETED ? wfMsg('lqt_undelete') : wfMsg('delete'),
 								 'href' =>  $delete_url,
@@ -643,7 +643,7 @@ HTML;
 		                     'enabled' => true );
 
 		if( in_array('move', $this->user->getRights()) ) {
-			$move_href = SpecialPage::getPage('Movethread')->getTitle()->getFullURL()
+			$move_href = SpecialPage::getTitleFor('MoveThread')->getFullURL()
 				. '/' . $thread->title()->getPrefixedURL();
 			$commands[] = array( 'label' => wfMsg('move'),
 			                     'href' => $move_href,

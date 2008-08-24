@@ -446,12 +446,12 @@ HTML
 			unset($content_actions['talk']);
 			if( array_key_exists( 'move', $content_actions ) && $this->thread ) {
 				$content_actions['move']['href'] =
-				SpecialPage::getPage('Movethread')->getTitle()->getFullURL() . '/' .
+				SpecialPage::getTitleFor('MoveThread')->getFullURL() . '/' .
 				$this->thread->title()->getPrefixedURL();
 			}
 			if( array_key_exists( 'delete', $content_actions ) && $this->thread ) {
 				$content_actions['delete']['href'] =
-				SpecialPage::getPage('Deletethread')->getTitle()->getFullURL() . '/' .
+				SpecialPage::getTitleFor('DeleteThread')->getFullURL() . '/' .
 				$this->thread->title()->getPrefixedURL();
 			}
 			
