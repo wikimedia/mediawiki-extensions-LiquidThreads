@@ -214,7 +214,7 @@ $messages['ar'] = array(
 	'lqt_deletethread' => 'حذف أو استرجاع الرسائل',
 	'lqt_browse_archive_without_recent' => 'عرض مجموعة الرسائل المؤرشفة',
 	'lqt_browse_archive_with_recent' => 'أقدم',
-	'lqt_recently_archived' => 'مؤرشف حديثا',
+	'lqt_recently_archived' => 'مؤرشف حديثا:',
 	'lqt_contents_title' => 'المحتويات:',
 	'lqt_add_header' => 'أضف عنوانا',
 	'lqt_new_thread' => 'ابدأ نقاشا جديدا',
@@ -435,6 +435,7 @@ $messages['ch'] = array(
  */
 $messages['cu'] = array(
 	'lqt_delete' => 'поничьжє́ниѥ',
+	'lqt_protectedfromreply_link' => 'ꙁабранєно ѥ́стъ',
 );
 
 /** Welsh (Cymraeg)
