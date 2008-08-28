@@ -2762,6 +2762,7 @@ Du kommer istället vilja $2.',
 	'lqt-marked-read' => "Tråden '''$1''' markerad som läst.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|meddelande markerat som läst|meddelanden markerade som lästa}}.',
 	'lqt-email-undo' => 'Ångra',
+	'lqt-messages-sent' => 'Meddelanden som skickats till dig:',
 );
 
 /** Silesian (Ślůnski)
