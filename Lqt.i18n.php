@@ -504,11 +504,11 @@ $messages['de'] = array(
 	'lqt_change_reply_created' => 'Der hervorgehobene Kommentar wurde in dieser Version erstellt.',
 	'lqt_change_edited_root' => 'Der hervorgehobene Kommentar wurde in dieser Version bearbeitet.',
 	'lqt_youhavenewmessages' => 'Du hast [$1 neue Nachrichten].',
-	'lqt_changes_from' => ' von ',
-	'lqt_changes_summary_of' => ' von ',
+	'lqt_changes_from' => ' von',
+	'lqt_changes_summary_of' => ' von',
 	'lqt_protectedfromreply' => 'Dieser Diskussionsstrang wurde $1. Eine Antwort ist nicht m√∂glich.',
 	'lqt_protectedfromreply_link' => 'gesch√ºtzt',
-	'lqt_subject' => 'Thema: ',
+	'lqt_subject' => 'Thema:',
 	'lqt_nosubject' => '¬´kein Thema¬ª',
 	'lqt_noreason' => 'kein Grund angegeben.',
 	'lqt_thread_deleted_for_sysops' => 'Dieser Thread wurde $1 und ist nur f√ºr Administratoren sichtbar.',
@@ -939,6 +939,14 @@ $messages['gl'] = array(
 	'lqt-summary' => 'Resumo',
 	'lqt-searching' => 'Procurando ameazas',
 	'lqt-read-email' => 'Ler',
+);
+
+/** Gothic (Ì†ÄÌº≤Ì†ÄÌºøÌ†ÄÌΩÑÌ†ÄÌºπÌ†ÄÌΩÉÌ†ÄÌº∫)
+ * @author Jocke Pirat
+ */
+$messages['got'] = array(
+	'lqt_delete' => 'Ta√≠ran',
+	'lqt_move_move' => 'Skiuban',
 );
 
 /** Gujarati (‡™ó‡´Å‡™ú‡™∞‡™æ‡™§‡´Ä)
@@ -1605,6 +1613,19 @@ $messages['lb'] = array(
 	'lqt_header_warning_bold' => 'Iwwerschr√´ft vun enger Diskussiounss√§it',
 	'lqt_header_warning_new_discussion' => 'eng nei Diskussioun uf√§nken.',
 	'lqt_remember_sort' => 'D√´s Astellung verhalen',
+	'lqt-any-date' => 'All Datum',
+	'lqt-only-date' => 'N√´mmen d√´s Datumen:',
+	'lqt-date-from' => 'Vum',
+	'lqt-date-to' => 'Bis',
+	'lqt-title' => 'Titel',
+	'lqt-summary' => 'Resum√©',
+	'lqt-older' => 'm√©i al',
+	'lqt-newer' => 'm√©i nei',
+	'lqt-read-email' => 'Geliest',
+	'lqt-email-undo' => 'Zr√©ck setzen',
+	'lqt-messages-sent' => 'Messagen d√©i dir gesch√©ckt kritt hutt:',
+	'lqt-other-messages' => 'Messagen op aneren Diskussiounss√§iten:',
+	'lqt-new-messages' => 'Dir hutt nei Messagen.',
 );
 
 /** Lozi (Silozi)
@@ -2270,9 +2291,9 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (Portugu√™s)
+ * @author 555
  * @author Lijealso
  * @author Malafaya
- * @author 555
  */
 $messages['pt'] = array(
 	'lqt-desc' => 'Adiciona discuss√µes em linha a p√°ginas de discuss√£o',
