@@ -1523,10 +1523,18 @@ $messages['km'] = array(
 	'lqt_delete_return' => 'ត្រលប់ទៅកាន់ $1 វិញ។',
 	'lqt_delete_return_link' => 'ទំព័រពិភាក្សា',
 	'lqt_header_warning_big' => 'អ្នកកំពុង កែប្រែ $1 ។',
-	'lqt_header_warning_bold' => 'ក្បាល នៃ ទំព័រពិភាក្សា',
-	'lqt_header_warning_new_discussion' => 'ផ្តើម មួយការពិភាក្សាថ្មី',
+	'lqt_header_warning_bold' => 'បឋមកថានៃទំព័រពិភាក្សា',
+	'lqt_header_warning_new_discussion' => 'ចាប់ផ្តើមការពិភាក្សាថ្មី',
 	'lqt_sorting_order' => 'លំដាប់ រៀប ៖',
 	'lqt_remember_sort' => 'ចងចាំ ចំណូលចិត្ត នេះ',
+	'lqt-date-from' => 'ពី',
+	'lqt-date-to' => 'ដល់',
+	'lqt-title' => 'ចំនងជើង',
+	'lqt-older' => 'ចាស់ជាង',
+	'lqt-newer' => 'ថ្មីជាង',
+	'lqt-read-email' => 'អាន',
+	'lqt-messages-sent' => 'សារបានផ្ញើទៅអ្នក៖',
+	'lqt-new-messages' => 'មានសារថ្មីៗសំរាប់អ្នក។',
 );
 
 /** Kinaray-a (Kinaray-a)
