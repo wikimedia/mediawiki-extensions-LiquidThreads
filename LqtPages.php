@@ -1087,19 +1087,39 @@ class NewUserMessagesView extends LqtView {
 	protected $tops;
 	protected $targets;
 	
+	protected function htmlForReadButton($label, $title, $class, $ids) {
+		$ids_s = implode(',', $ids);
+		return <<<HTML
+		<form method="POST" class="{$class}">
+		<input type="hidden" name="lqt_method" value="mark_as_read" />
+		<input type="hidden" name="lqt_operand" value="{$ids_s}" />
+		<input type="submit" value="{$label}" name="lqt_read_button" title="{$title}" />
+		</form>
+HTML;
+	}
+	
+	function showReadAllButton($threads) {
+		$ids =  array_map(create_function('$t', 'return $t->id();'), $threads);
+		$this->output->addHTML(
+			$this->htmlForReadButton(
+				wfMsg('lqt-read-all'),
+				wfMsg('lqt-read-all-tooltip'),
+				"lqt_newmessages_read_all_button",
+				$ids )
+		);
+	}
+	
 	function preShowThread($t) {
 		//		$t_ids = implode(',', array_map(create_function('$t', 'return $t->id();'), $this->targets[$t->id()]));
-		$t_ids = implode(',', $this->targets[$t->id()]);
-		$lqt_read_email = wfMsg ( 'lqt-read-email' );
-		$lqt_remove_thread = wfMsg ( 'lqt-email-remove' );
+		$read_button = $this->htmlForReadButton(
+			wfMsg('lqt-read-message'),
+			wfMsg('lqt-read-message-tooltip'),
+			'lqt_newmessages_read_button',
+			$this->targets[$t->id()]);
 		$this->output->addHTML(<<<HTML
 <table ><tr>
 <td style="padding-right: 1em; vertical-align: top; padding-top: 1em;" >
-<form method="POST">
-<input type="hidden" name="lqt_method" value="mark_as_read" />
-<input type="hidden" name="lqt_operand" value="{$t_ids}" />
-<input type="submit" value="{$lqt_read_email}" name="lqt_read_button" title="{$lqt_remove_thread}" />
-</form>
+$read_button
 </td>
 <td>
 HTML
@@ -1139,9 +1159,9 @@ HTML
 	function postDivClass($thread) {
 		$topid = $thread->topmostThread()->id();
 		if( in_array($thread->id(), $this->targets[$topid]) )
-		return 'lqt_post_new_message';
+			return 'lqt_post_new_message';
 		else
-		return 'lqt_post';
+			return 'lqt_post';
 	}
 	
 	function showOnce() {
@@ -1194,9 +1214,9 @@ HTML
 		foreach( $this->threads as $t ) {
 			$top = $t->topmostThread();
 			if( !in_array($top->id(), $this->tops) )
-			$this->tops[] = $top->id();
+				$this->tops[] = $top->id();
 			if( !array_key_exists($top->id(), $this->targets) )
-			$this->targets[$top->id()] = array();
+				$this->targets[$top->id()] = array();
 			$this->targets[$top->id()][] = $t->id();
 		}
 		
@@ -1244,15 +1264,21 @@ class SpecialNewMessages extends SpecialPage {
 		
 		$view = new NewUserMessagesView( $this->output, new Article($this->title),
 		$this->title, $this->user, $this->request );
+		
+		$first_set = NewMessages::newUserMessages($this->user);
+		$second_set = NewMessages::watchedThreadsForUser($this->user);
+		$both_sets = array_merge($first_set, $second_set);
+		$view->showReadAllButton($both_sets); // ugly hack.
+		
 		$view->setHeaderLevel(3);
-		$view->showOnce();
+		$view->showOnce(); // handles POST etc.
 		
 		$this->output->addHTML('<h2 class="lqt_newmessages_section">'.wfMsg ( 'lqt-messages-sent' ).'</h2>');
-		$view->setThreads( NewMessages::newUserMessages($this->user) );
+		$view->setThreads( $first_set );
 		$view->show();
 		
 		$this->output->addHTML('<h2 class="lqt_newmessages_section">'.wfMsg ( 'lqt-other-messages' ).'</h2>');
-		$view->setThreads( NewMessages::watchedThreadsForUser($this->user) );
+		$view->setThreads( $second_set );
 		$view->show();
 	}
 }

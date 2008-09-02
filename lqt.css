@@ -15,6 +15,12 @@
 
 .lqt_undo_mark_as_read {
 	background-color: #f0f0e3;
+	display: table; width: auto;
+}
+
+.lqt_newmessages_read_all_button {
+	float: right;
+	padding-top: 0.75em; /* To align with heading. */
 }
 
 .lqt_newer_older {
