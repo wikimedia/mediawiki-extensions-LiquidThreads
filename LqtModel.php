@@ -1136,14 +1136,15 @@ class NewMessages {
 	 * If the thread is on a user's talkpage, set that user's newtalk.
 	*/
 	static function writeMessageStateForUpdatedThread($t) {
-		global $wgDBprefix;
+		global $wgDBprefix, $wgUser;
 
 		if( $t->article()->getTitle()->getNamespace() == NS_USER ) {
 			$name = $t->article()->getTitle()->getDBkey();
 			// handle talk subpage case
 			list($name) = split('/', $name);
 			$user = User::newFromName($name);
-			if( $user ) {
+			if( $user
+				   && $user->getID() != $wgUser->getID() ) {
 				$user->setNewtalk(true);
 			}
 		}
