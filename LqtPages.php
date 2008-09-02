@@ -114,58 +114,57 @@ class TalkpageView extends LqtView {
 			}
 		}
 		
-		function show() {
-			global $wgHooks, $wgUser;
-			$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
-			
-			$this->output->setPageTitle( $this->title->getTalkpage()->getPrefixedText() );
-			self::addJSandCSS();
-			$article = new Article( $this->title );
+		function showTalkpageViewOptions($article) {
+			// TODO WTF who wrote this?
 			
 			if( $this->methodApplies('talkpage_sort_order') ) {
-				global $wgRequest;
-				$remember_sort_checked = $wgRequest->getVal('lqt_remember_sort') ? 'checked ' : '';
-				$wgUser->setOption('lqt_sort_order', $this->sort_order);
-				$wgUser->saveSettings();
+				$remember_sort_checked = $this->request->getBool('lqt_remember_sort') ? 'checked ' : '';
+				$this->user->setOption('lqt_sort_order', $this->sort_order);
+				$this->user->saveSettings();
 			} else {
 				$remember_sort_checked = '';
-			}
+			}			
 			
-			global $wgRequest;
-			if( $this->methodApplies('talkpage_new_thread') ) {
-				$this->showNewThreadForm();
-			} else {
-				
-				// Only show sort controls if there is stuff to be sorted
-				if($article->exists()) {
-					$nc_sort = $this->sort_order==LQT_NEWEST_CHANGES ? ' selected' : '';
-					$nt_sort = $this->sort_order==LQT_NEWEST_THREADS ? ' selected' : '';
-					$ot_sort = $this->sort_order==LQT_OLDEST_THREADS ? ' selected' : '';
-					$newest_changes = wfMsg('lqt_sort_newest_changes');
-					$newest_threads = wfMsg('lqt_sort_newest_threads');
-					$oldest_threads = wfMsg('lqt_sort_oldest_threads');
-					$lqt_remember_sort = wfMsg('lqt_remember_sort') ;
-					$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order');
-					$lqt_sorting_order = wfMsg('lqt_sorting_order');
-					$lqt_sort_newest_changes = wfMsg('lqt_sort_newest_changes');
-					$lqt_sort_newest_threads = wfMsg('lqt_sort_newest_threads');
-					$lqt_sort_oldest_threads = wfMsg('lqt_sort_oldest_threads');
-					$go=wfMsg('go');
-					if($wgUser->isLoggedIn()) {
-						$remember_sort =
-						<<<HTML
+			if($article->exists()) {
+				$nc_sort = $this->sort_order==LQT_NEWEST_CHANGES ? ' selected' : '';
+				$nt_sort = $this->sort_order==LQT_NEWEST_THREADS ? ' selected' : '';
+				$ot_sort = $this->sort_order==LQT_OLDEST_THREADS ? ' selected' : '';
+				$newest_changes = wfMsg('lqt_sort_newest_changes');
+				$newest_threads = wfMsg('lqt_sort_newest_threads');
+				$oldest_threads = wfMsg('lqt_sort_oldest_threads');
+				$lqt_remember_sort = wfMsg('lqt_remember_sort') ;
+				$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order');
+				$lqt_sorting_order = wfMsg('lqt_sorting_order');
+				$lqt_sort_newest_changes = wfMsg('lqt_sort_newest_changes');
+				$lqt_sort_newest_threads = wfMsg('lqt_sort_newest_threads');
+				$lqt_sort_oldest_threads = wfMsg('lqt_sort_oldest_threads');
+				$go=wfMsg('go');
+				if($this->user->isLoggedIn()) {
+					$remember_sort =
+					<<<HTML
 <br />
 <label for="lqt_remember_sort_checkbox">
-<input id="lqt_remember_sort_checkbox" name="lqt_remember_sort" type="checkbox" value="1" $remember_sort_checked class="lqt_remember_sort" />
+<input id="lqt_remember_sort_checkbox" name="lqt_remember_sort" type="checkbox" value="1" $remember_sort_checked />
 $lqt_remember_sort</label>
 HTML;
-					} else {
-						$remember_sort = '';
-					}
-					$this->openDiv('lqt_view_options');
-					$this->output->addHTML(
-					
-					<<<HTML
+				} else {
+					$remember_sort = '';
+				}
+				if ( in_array('deletedhistory',  $this->user->getRights()) ) {
+					$show_deleted_checked = $this->request->getBool('lqt_show_deleted_threads') ? 'checked ' : '';
+					$show_deleted = <<<HTML
+<br />
+<label for="lqt_show_deleted_threads_checkbox">
+<input id="lqt_show_deleted_threads_checkbox" name="lqt_show_deleted_threads" type="checkbox" value="1" $show_deleted_checked />
+Show deleted threads</label>
+HTML;
+				} else {
+					$show_deleted = "";
+				}
+				$this->openDiv('lqt_view_options');
+				$this->output->addHTML(
+				
+				<<<HTML
 <form name="lqt_sort" action="$form_action_url" method="post">$lqt_sorting_order
 <select name="lqt_order" class="lqt_sort_select">
 <option value="nc"$nc_sort>$lqt_sort_newest_changes</option>
@@ -173,12 +172,29 @@ HTML;
 <option value="ot"$ot_sort>$lqt_sort_oldest_threads</option>
 </select>
 $remember_sort
+$show_deleted
 <input name="submitsort" type="submit" value="$go" class="lqt_go_sort"/>
 </form>
 HTML
-					);
-					$this->closeDiv();
-				}
+				);
+				$this->closeDiv();
+			}
+		
+		}
+		
+		function show() {
+			global $wgHooks;
+			$wgHooks['SkinTemplateTabs'][] = array($this, 'customizeTabs');
+			
+			$this->output->setPageTitle( $this->title->getTalkpage()->getPrefixedText() );
+			self::addJSandCSS();
+			$article = new Article( $this->title );
+
+			global $wgRequest; // TODO
+			if( $this->methodApplies('talkpage_new_thread') ) {
+				$this->showNewThreadForm();
+			} else {
+				$this->showTalkpageViewOptions($article);
 				$url = $this->talkpageUrl( $this->title, 'talkpage_new_thread' );
 				$this->output->addHTML("<strong><a class=\"lqt_start_discussion\" href=\"$url\">".wfMsg('lqt_new_thread')."</a></strong>");
 			}

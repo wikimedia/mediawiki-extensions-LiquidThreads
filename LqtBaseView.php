@@ -861,6 +861,10 @@ HTML
 	function showThread( $thread ) {
 		global $wgLang; # TODO global.
 
+		if ( $thread->type() == Threads::TYPE_DELETED
+			&& ! $this->request->getBool('lqt_show_deleted_threads') )
+				return;
+
 		if( $this->lastUnindentedSuperthread ) {
 			$tmp = $this->lastUnindentedSuperthread;
 			$msg = wfMsg('lqt_in_response_to',

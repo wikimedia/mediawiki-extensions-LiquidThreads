@@ -447,13 +447,10 @@ li#ca-nstab-thread {
 	font-size:85%;
 	float:right;
 }
-.lqt_sorting_order {
+.lqt_view_options input {
+	/* This doesn't cascade for some reason. */
 	font-size:85%;
 }
 .lqt_go_sort {
-	font-size:85%;
 	font-weight:bold;
-}
-.lqt_remember_sort {
-	font-size:85%;
 }
