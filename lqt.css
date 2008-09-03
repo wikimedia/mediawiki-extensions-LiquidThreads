@@ -19,8 +19,8 @@
 }
 
 .lqt_newmessages_read_all_button {
-	float: right;
-	padding-top: 0.75em; /* To align with heading. */
+	padding-top: 0.75em;
+	padding-bottom: 0.75em;
 }
 
 .lqt_newer_older {
