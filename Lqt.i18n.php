@@ -247,7 +247,8 @@ $messages['ar'] = array(
 	'lqt_hist_moved_talkpage' => 'منقول',
 	'lqt_hist_listing_subtitle' => 'عرض قائمة تاريخ',
 	'lqt_hist_view_whole_thread' => 'عرض تاريخ مجموعة الرسائل بأكملها',
-	'lqt_hist_no_revisions_error' => 'مجموعة الرسائل هذه لا تمتلك أي نسخ في التاريخ. هذا غريب جدا.',
+	'lqt_hist_no_revisions_error' => 'مجموعة الرسائل هذه لا تمتلك أي نسخ في التاريخ.
+هذا غريب جدا.',
 	'lqt_hist_past_last_page_error' => 'أنت تجاوزت عدد صفحات التاريخ الموجودة.',
 	'lqt_hist_tooltip_newer_disabled' => 'هذه الوصلة معطلة لأنك على الصفحة الأولى.',
 	'lqt_hist_tooltip_older_disabled' => 'هذه الوصلة معطلة لأنك على الصفحة الأخيرة.',
@@ -314,7 +315,12 @@ $messages['ar'] = array(
 	'lqt-newer' => 'أجدد',
 	'lqt-searching' => 'بحث عن مجموعات الرسائل',
 	'lqt-read-message' => 'قراءة',
-	'lqt-read-message-tooltip' => 'أزل مجموعة الرسائل هذه من الرسائل الجديدة.',
+	'lqt-read-message-tooltip' => 'أزل مجموعة الرسائل هذه من الرسائل الجديدة.
+ستظل مرئية على صفحة نقاشها الأصلية.',
+	'lqt-read-all' => 'التعليم على الكل كمقروء',
+	'lqt-read-all-tooltip' => 'إزالة كل مجموعات الرسائل من الرسائل الجديدة.
+ستظل مرئية على صفحات نقاشها الأصلية.
+هذه العملية لا يمكن الرجوع عنها.',
 	'lqt-marked-read' => "مجموعة الرسائل '''$1''' تم التعليم عليها كمقروءة.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|رسالة|رسالة}} تم التعليم عليها كمقروءة.',
 	'lqt-email-undo' => 'رجوع',
@@ -569,7 +575,8 @@ Möglicherweise willst du statt dessen eine $2.',
 	'lqt-newer' => 'neuer',
 	'lqt-searching' => 'Suche nach Threads',
 	'lqt-read-message' => 'Gelesen',
-	'lqt-read-message-tooltip' => 'Entferne diesen Thread aus den neuen Nachrichten.',
+	'lqt-read-message-tooltip' => 'Entferne diesen Thread aus den neuen Nachrichten.
+Er wird weiterhin auf der Original-Diskussionsseite zu sehen sein.',
 	'lqt-marked-read' => "Thread '''$1''' wurde als gelesen markiert.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|Nachricht|Nachrichten}} als gelesen markiert.',
 	'lqt-email-undo' => 'Rückgängig',
@@ -826,7 +833,12 @@ $messages['fr'] = array(
 	'lqt-newer' => 'plus récent',
 	'lqt-searching' => 'Recherche des fils de discussion',
 	'lqt-read-message' => 'Lire',
-	'lqt-read-message-tooltip' => 'Retirer ce fil des nouveaux messages.',
+	'lqt-read-message-tooltip' => 'Retirer ce fil des nouveaux messages
+Il sera encore visible dans sa page de discussion originale.',
+	'lqt-read-all' => 'Tout marquer comme lu',
+	'lqt-read-all-tooltip' => 'Enlever tous les fils des nouveaux messages.
+Ils seront encore visible sur leurs pages de discussion originales.
+Cette opération est irréversible.',
 	'lqt-marked-read' => "Fil de discussion '''$1''' marqué comme lu.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|message marqué comme lu|messages marqués comme lus}}',
 	'lqt-email-undo' => 'Défaire',
@@ -873,7 +885,7 @@ $messages['gl'] = array(
 	'lqt_discussion_link' => 'conversa',
 	'lqt_from_talk' => 'de $1',
 	'lqt_newer' => '«máis recente',
-	'lqt_older' => 'máis antigo»',
+	'lqt_older' => 'máis vello»',
 	'lqt_hist_comment_edited' => 'Editouse o texto do comentario',
 	'lqt_hist_summary_changed' => 'Modificouse o resumo',
 	'lqt_hist_reply_created' => 'Creouse unha nova resposta',
@@ -944,8 +956,14 @@ $messages['gl'] = array(
 	'lqt-date-to' => 'Ata',
 	'lqt-title' => 'Título',
 	'lqt-summary' => 'Resumo',
+	'lqt-older' => 'máis vello',
+	'lqt-newer' => 'máis novo',
 	'lqt-searching' => 'Procurando ameazas',
 	'lqt-read-message' => 'Ler',
+	'lqt-read-all' => 'Marcar todo como lido',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mensaxe marcada|mensaxes marcadas}} como {{PLURAL:$1|lida|lidas}}.',
+	'lqt-email-undo' => 'Desfacer',
+	'lqt-new-messages' => 'Hai mensaxes novas para vostede.',
 );
 
 /** Gothic
@@ -1342,6 +1360,7 @@ $messages['is'] = array(
 $messages['it'] = array(
 	'lqt_contents_title' => 'Indice:',
 	'lqt_delete' => 'Cancella',
+	'lqt-title' => 'Titolo',
 );
 
 /** Japanese (日本語)
@@ -1582,6 +1601,7 @@ $messages['ksh'] = array(
 $messages['lb'] = array(
 	'lqt_newmessages' => 'Nei Messagen',
 	'lqt_browse_archive_with_recent' => 'méi al',
+	'lqt_add_header' => 'Iwwerschrëft derbäisetzen',
 	'lqt_new_thread' => 'Eng nei Diskussioun ufänken',
 	'lqt_edited_notice' => 'Verännert',
 	'lqt_reply' => 'Äntwert',
@@ -1817,6 +1837,16 @@ $messages['mt'] = array(
 	'lqt_move_move' => 'Mexxi',
 );
 
+/** Erzya (Эрзянь)
+ * @author Botuzhaleny-sodamo
+ */
+$messages['myv'] = array(
+	'lqt_browse_archive_with_recent' => 'седе умонь',
+	'lqt_hist_deleted' => 'Нардазь',
+	'lqt_thread_deleted_for_sysops_deleted' => 'нардазь',
+	'lqt_move_move' => 'Печтевтемс',
+);
+
 /** Nahuatl (Nāhuatl)
  * @author Fluence
  */
@@ -1942,7 +1972,12 @@ $messages['nl'] = array(
 	'lqt-newer' => 'nieuwer',
 	'lqt-searching' => 'Bezig met zoeken naar threads...',
 	'lqt-read-message' => 'Lezen',
-	'lqt-read-message-tooltip' => 'Deze thread verwijderen uit nieuwe berichten.',
+	'lqt-read-message-tooltip' => 'Deze thread verwijderen uit nieuwe berichten.
+De thread is nog steeds zichtbaar op de oorspronkelijke overlegpagina.',
+	'lqt-read-all' => 'Alles als gelezen markeren',
+	'lqt-read-all-tooltip' => 'Alle threads uit nieuwe berichten verwijderen.
+De thread is nog steeds zichtbaar op de oorspronkelijke overlegpagina.
+Deze handeling is onomkeerbaar.',
 	'lqt-marked-read' => "Thread '''$1''' is gemarkeerd als gelezen.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|bericht|berichten}} gemarkeerd als gelezen.',
 	'lqt-email-undo' => 'Ongedaan maken',
@@ -2620,6 +2655,8 @@ $messages['sk'] = array(
 	'lqt-searching' => 'Hľadajú sa vlákna',
 	'lqt-read-message' => 'Prečítané',
 	'lqt-read-message-tooltip' => 'Odstrániť toto vlákno z nových správ.',
+	'lqt-read-all' => 'Označiť všetky ako prečítané',
+	'lqt-read-all-tooltip' => 'Odstrániť všetky vlákna z nových správ. Budú stále viditeľné na ich pôvodných diskusných stránkach. Túto operáciu možno vrátiť späť.',
 	'lqt-marked-read' => "Vlákno '''$1''' bolo označené ako prečítané.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|správa bola označená ako prečítaná|správy boli označené ako prečítané|správ bolo označených ako prečítané}}.',
 	'lqt-email-undo' => 'Vrátiť',
@@ -2932,10 +2969,12 @@ $messages['tg-cyrl'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Mach
  * @author Srhat
  */
 $messages['tr'] = array(
 	'lqt_discussion_link' => 'tartışma',
+	'lqt_youhavenewmessages' => '[$1 yeni mesajınız] var.',
 );
 
 /** Tatar (Cyrillic) (Tatarça/Татарча (Cyrillic))
@@ -3050,6 +3089,8 @@ $messages['vo'] = array(
 	'lqt_newmessages' => 'Nuns Nulik',
 	'lqt_contents_title' => 'Ninäd:',
 	'lqt_youhavenewmessages' => 'Labol $1.',
+	'lqt_header_warning_big' => 'Redakol $1.',
+	'lqt-title' => 'Tiäd',
 );
 
 /** Yue (粵語)
