@@ -417,6 +417,7 @@ class Thread {
 		$this->type = Threads::TYPE_DELETED;
 		$this->revisionNumber += 1;
 		$this->commitRevision(Threads::CHANGE_DELETED, $this, $reason);
+		/* TODO: mark thread as read by all users, or we get blank thingies in New Messages. */
 	}
 	function undelete($reason) {
 		$this->type = Threads::TYPE_NORMAL;
