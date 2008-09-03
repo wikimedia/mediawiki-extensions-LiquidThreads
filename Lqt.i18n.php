@@ -44,7 +44,8 @@ $messages['en'] = array(
 	'lqt_hist_moved_talkpage' => 'Moved',
 	'lqt_hist_listing_subtitle' => 'Viewing a history listing.',
 	'lqt_hist_view_whole_thread' => 'View history for the entire thread',
-	'lqt_hist_no_revisions_error' => 'This thread does not have any history revisions. That is pretty weird.',
+	'lqt_hist_no_revisions_error' => 'This thread does not have any history revisions.
+That is pretty weird.',
 	'lqt_hist_past_last_page_error' => 'You are beyond the number of pages of history that exist.',
 	'lqt_hist_tooltip_newer_disabled' => 'This link is disabled because you are on the first page.',
 	'lqt_hist_tooltip_older_disabled' => 'This link is disabled because you are on the last page.',
@@ -73,7 +74,8 @@ If it is concluded, you may want to $1.',
 	'lqt_nosuchrevision' => 'There is no such revision of this thread.',
 	'lqt_nosuchthread' => 'There is no such thread.',
 	'lqt_threadrequired' => 'You must specify a thread in the URL.',
-	'lqt_move_movingthread' => 'Moving $1. This thread is part of $2.',
+	'lqt_move_movingthread' => 'Moving $1.
+This thread is part of $2.',
 	'lqt_move_torename' => 'To rename this thread, $1 and change the \'Subject\' field.',
 	'lqt_move_torename_edit' => 'edit it', // substituted above as a link
 	'lqt_move_destinationtitle' => 'Title of destination talkpage:',
@@ -94,7 +96,7 @@ If it is concluded, you may want to $1.',
 	'lqt_delete_unallowed' => 'You are not allowed to delete threads.',
 	'lqt_talkpage_autocreate_summary' => 'Talkpage autocreated when first thread was posted.',
 	'lqt_header_warning_before_big' => '',
-	'lqt_header_warning_big' => 'You are editing a $1. ',
+	'lqt_header_warning_big' => 'You are editing a $1.',
 	'lqt_header_warning_after_big' => 'Headers are for announcements and prefaces.
 You might instead want to $2.',
 	'lqt_header_warning_bold' => 'discussion page header',
@@ -114,9 +116,12 @@ You might instead want to $2.',
 	'lqt-newer'               => 'newer',
 	'lqt-searching'           => 'Searching for threads',
 	'lqt-read-message'        => 'Read',
-	'lqt-read-message-tooltip'=> 'Remove this thread from new messages. It will still be visible on its original talk page.',
+	'lqt-read-message-tooltip'=> 'Remove this thread from new messages.
+It will still be visible on its original talk page.',
 	'lqt-read-all'            => 'Mark all as read',
-	'lqt-read-all-tooltip'    => 'Remove all threads from new messages. They will still be visible on their original talk pages. This operation is undoable.',
+	'lqt-read-all-tooltip'    => 'Remove all threads from new messages.
+They will still be visible on their original talk pages.
+This operation is undoable.',
 	'lqt-marked-read'         => 'Thread \'\'\'$1\'\'\' marked as read.',
 	'lqt-count-marked-read'   => '$1 {{PLURAL:$1|message|messages}} marked as read.',
 	'lqt-email-undo'          => 'Undo',
@@ -943,7 +948,7 @@ $messages['gl'] = array(
 	'lqt-read-message' => 'Ler',
 );
 
-/** Gothic (𐌲𐌿𐍄𐌹𐍃𐌺)
+/** Gothic
  * @author Jocke Pirat
  */
 $messages['got'] = array(
