@@ -118,7 +118,7 @@ You might instead want to $2.',
 	'lqt-read-message'        => 'Read',
 	'lqt-read-message-tooltip'=> 'Remove this thread from new messages.
 It will still be visible on its original talk page.',
-	'lqt-read-all'            => 'Mark All As Read',
+	'lqt-read-all'            => 'Mark all as read',
 	'lqt-read-all-tooltip'    => 'Remove all threads from new messages.
 They will still be visible on their original talk pages.
 This operation is undoable.',
