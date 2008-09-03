@@ -115,7 +115,7 @@ You might instead want to $2.',
 	'lqt-searching'           => 'Searching for threads',
 	'lqt-read-message'        => 'Read',
 	'lqt-read-message-tooltip'=> 'Remove this thread from new messages. It will still be visible on its original talk page.',
-	'lqt-read-all'            => 'Mark All As Read',
+	'lqt-read-all'            => 'Mark all as read',
 	'lqt-read-all-tooltip'    => 'Remove all threads from new messages. They will still be visible on their original talk pages. This operation is undoable.',
 	'lqt-marked-read'         => 'Thread \'\'\'$1\'\'\' marked as read.',
 	'lqt-count-marked-read'   => '$1 {{PLURAL:$1|message|messages}} marked as read.',
@@ -943,7 +943,7 @@ $messages['gl'] = array(
 	'lqt-read-message' => 'Ler',
 );
 
-/** Gothic (í €í¼²í €í¼¿í €í½„í €í¼¹í €í½ƒí €í¼º)
+/** Gothic (ğŒ²ğŒ¿ğ„ğŒ¹ğƒğŒº)
  * @author Jocke Pirat
  */
 $messages['got'] = array(
