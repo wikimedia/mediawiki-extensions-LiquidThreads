@@ -42,7 +42,8 @@ $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
 $wgHooks['SpecialMovepageAfterMove'][] = 'LqtDispatch::onPageMove';
 $wgHooks['LinkerMakeLinkObj'][] = 'LqtDispatch::makeLinkObj';
 $wgHooks['SkinTemplateTabAction'][] = 'LqtDispatch::tabAction';
-$wgHooks['ChangesListInsertArticleLink'][] = 'LqtDispatch::changesListArticleLink';
+//$wgHooks['ChangesListInsertArticleLink'][] = 'LqtDispatch::changesListArticleLink';
+$wgHooks['OldChangesListRecentChangesLine'][] = 'LqtDispatch::customizeOldChangesList';
 $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtDispatch::setNewtalkHTML';
 
 $wgSpecialPages['DeleteThread'] = 'SpecialDeleteThread';

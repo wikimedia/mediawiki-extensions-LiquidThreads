@@ -130,6 +130,9 @@ This operation is undoable.',
 	'lqt-new-messages'        => 'There are new messages for you.',
 	'lqt-email-info-undo'     => 'Bring back the thread you just dismissed.',
 	'lqt-date-info'           => 'This link is disabled because you are viewing threads from all dates.',
+	'lqt_rc_new_discussion'   => "New discussion, $1, on $2. &bull; $3 writes:",
+	'lqt_rc_new_reply'        => "Reply to $1, on $2. &bull; $3 writes:",
+	'lqt_rc_ellipsis'         => ' …'
 );
 
 /** Message documentation (Message documentation)

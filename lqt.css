@@ -454,3 +454,13 @@ li#ca-nstab-thread {
 .lqt_go_sort {
 	font-weight:bold;
 }
+
+.lqt_rc_blockquote {
+	font-style: italic;
+	margin: 0.5em 1em;
+}
+.lqt_rc_ellipsis {
+	font-style: normal;
+	font-weight: bold;
+}
+

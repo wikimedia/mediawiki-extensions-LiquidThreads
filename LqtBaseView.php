@@ -176,22 +176,82 @@ class LqtDispatch {
 
 	static function changesListArticleLink(&$changeslist, &$articlelink, &$s, &$rc, $unpatrolled, $watched) {
 		$thread = null;
-                if( $rc->getTitle()->getNamespace() == NS_LQT_THREAD ) {
-                        $thread = Threads::withRoot(new Post( $rc->getTitle() ));
-                        if($thread) {
-                                $msg = wfMsg('lqt_changes_from');
-                                $link = $thread->article()->getTitle()->getTalkPage();
-                        }
-                }
-                else if( $rc->getTitle()->getNamespace() == NS_LQT_SUMMARY ) {
-                        $thread = Threads::withSummary(new Article( $rc->getTitle() ));
-                        if($thread) {
-                                $msg = wfMsg('lqt_changes_summary_of');
-                                $link = $thread->title();
-                        }
-                }
+
+		/* What an utter crock of shit.
+		The first row for a given date has the date plus the <ul> tag inside what's
+		supposed to be the individual row HTML, $s. */
+
+/*		var_dump($s);
+		$articlelink = '<span style="color:orange;">Yo</span>';
+		return true;*/
+
+		if( $rc->getTitle()->getNamespace() == NS_LQT_THREAD ) {
+			$thread = Threads::withRoot(new Post( $rc->getTitle() ));
+			if($thread) {
+				$msg = wfMsg('lqt_changes_from');
+				$link = $thread->article()->getTitle()->getTalkPage();
+			}
+		}
+		else if( $rc->getTitle()->getNamespace() == NS_LQT_SUMMARY ) {
+			$thread = Threads::withSummary(new Article( $rc->getTitle() ));
+			if($thread) {
+				$msg = wfMsg('lqt_changes_summary_of');
+				$link = $thread->title();
+			}
+		}
 		if($thread) {
 			$articlelink .= $msg . $changeslist->skin->makeKnownLinkObj( $link );
+		}
+		return true;
+	}
+	
+	static function customizeOldChangesList(&$changeslist, &$s, &$rc) {
+		if( $rc->getTitle()->getNamespace() == NS_LQT_THREAD ) {
+			$thread = Threads::withRoot(new Post( $rc->getTitle() ));
+			if( !$thread ) return true;
+			
+			LqtView::addJSandCSS(); // TODO only do this once.
+			
+			if( $rc->mAttribs['rc_type'] != RC_NEW ) {
+				// Leave thread-edits be for now.
+				// Might want to add: talk page; whether the editor is the original author;
+				// whether the thread has any replies yet.
+			}
+			else {
+				$sig = "";
+				$changeslist->insertUserRelatedLinks(&$sig, &$rc);
+
+				// This should be stored in RC.
+				$quote = Revision::newFromId($rc->mAttribs['rc_this_oldid'])->getText();
+				if( strlen($quote) > 230 ) {
+					$quote = substr($quote, 0, 200) .
+						$changeslist->skin->link($thread->title(), wfMsg('lqt_rc_ellipsis'),
+							array('class'=>'lqt_rc_ellipsis'), array(), array('known'));
+				}
+					
+				if( $thread->isTopmostThread() ) {
+					$message_name = 'lqt_rc_new_discussion';
+					$tmp_title = $thread->title();
+				} else {
+					$message_name = 'lqt_rc_new_reply';
+					$tmp_title = $thread->topmostThread()->title();
+					$tmp_title->setFragment( '#' . LqtView::anchorName( $thread ) );
+				}
+				
+				$thread_link = $changeslist->skin->link(
+					$tmp_title,
+					$thread->subjectWithoutIncrement(),
+					array(), array(), array('known'));
+
+				$talkpage_link = $changeslist->skin->link(
+					$thread->article()->getTitle()->getTalkPage(),
+					null, 
+					array(), array(), array('known'));
+				
+				$s = "<li>". wfMsg($message_name, $thread_link, $talkpage_link, $sig)
+					. "<blockquote class=\"lqt_rc_blockquote\">$quote</blockquote>"
+					. "</li>";
+			}
 		}
 		return true;
 	}
@@ -854,7 +914,7 @@ HTML
 		return 'lqt_post';
 	}
 
-	function anchorName($thread) {
+	static function anchorName($thread) {
 		return "lqt_thread_{$thread->id()}";
 	}
 

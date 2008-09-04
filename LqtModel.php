@@ -593,6 +593,10 @@ class Thread {
 		else
 			return Threads::withId( $this->ancestorId );
 	}
+	
+	function isTopmostThread() {
+		return $this->ancestorId == $this->id;
+	}
 
 	function setArticle($a) {
 		$this->articleId = $a->getID();
