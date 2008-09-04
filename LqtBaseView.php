@@ -213,9 +213,16 @@ class LqtDispatch {
 			LqtView::addJSandCSS(); // TODO only do this once.
 			
 			if( $rc->mAttribs['rc_type'] != RC_NEW ) {
-				// Leave thread-edits be for now.
-				// Might want to add: talk page; whether the editor is the original author;
-				// whether the thread has any replies yet.
+				// Add whether it was original author.
+				// TODO: this only asks whether ANY edit has been by another, not this edit.
+				// But maybe that's what we want.
+				if( $thread->editedness() == Threads::EDITED_BY_OTHERS )
+					$appendix = ' <span class="lqt_rc_author_notice lqt_rc_author_notice_others">'.
+						wfMsg('lqt_rc_author_others').'</span>';
+				else
+					$appendix = ' <span class="lqt_rc_author_notice lqt_rc_author_notice_original">'.
+						wfMsg('lqt_rc_author_original').'</span>';
+				$s = preg_replace( '/\<\/li\>$/', $appendix . '</li>', $s );
 			}
 			else {
 				$sig = "";
@@ -228,6 +235,7 @@ class LqtDispatch {
 						$changeslist->skin->link($thread->title(), wfMsg('lqt_rc_ellipsis'),
 							array('class'=>'lqt_rc_ellipsis'), array(), array('known'));
 				}
+				// TODO we must parse or sanitize the quote.
 					
 				if( $thread->isTopmostThread() ) {
 					$message_name = 'lqt_rc_new_discussion';
@@ -242,7 +250,7 @@ class LqtDispatch {
 					$tmp_title,
 					$thread->subjectWithoutIncrement(),
 					array(), array(), array('known'));
-
+					
 				$talkpage_link = $changeslist->skin->link(
 					$thread->article()->getTitle()->getTalkPage(),
 					null, 
