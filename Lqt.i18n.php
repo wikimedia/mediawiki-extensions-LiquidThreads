@@ -280,7 +280,8 @@ $messages['ar'] = array(
 	'lqt_nosuchrevision' => 'لا توجد نسخة كهذه من مجموعة الرسائل هذه.',
 	'lqt_nosuchthread' => 'لا توجد مجموعة رسائل كهذه.',
 	'lqt_threadrequired' => 'يجب عليك تحديد مجموعة رسائل في المسار.',
-	'lqt_move_movingthread' => 'نقل $1. مجموعة الرسائل هذه هي جزء من $2.',
+	'lqt_move_movingthread' => 'نقل $1.
+مجموعة الرسائل هذه هي جزء من $2.',
 	'lqt_move_torename' => "لإعادة تسمية مجموعة الرسائل هذه، $1 وغير حقل 'الموضوع'.",
 	'lqt_move_torename_edit' => 'عدله',
 	'lqt_move_destinationtitle' => 'عنوان صفحة النقاش الهدف:',
@@ -582,6 +583,7 @@ Möglicherweise willst du statt dessen eine $2.',
 	'lqt-read-message' => 'Gelesen',
 	'lqt-read-message-tooltip' => 'Entferne diesen Thread aus den neuen Nachrichten.
 Er wird weiterhin auf der Original-Diskussionsseite zu sehen sein.',
+	'lqt-read-all' => 'Alle als gelesen markieren',
 	'lqt-marked-read' => "Thread '''$1''' wurde als gelesen markiert.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|Nachricht|Nachrichten}} als gelesen markiert.',
 	'lqt-email-undo' => 'Rückgängig',
@@ -739,6 +741,7 @@ $messages['es'] = array(
  * @author Grondin
  * @author Sherbrooke
  * @author Urhixidur
+ * @author Zetud
  */
 $messages['fr'] = array(
 	'lqt-desc' => 'Ajoute des fils de discussion dans les pages de discussion',
@@ -842,7 +845,7 @@ $messages['fr'] = array(
 Il sera encore visible dans sa page de discussion originale.',
 	'lqt-read-all' => 'Tout marquer comme lu',
 	'lqt-read-all-tooltip' => 'Enlever tous les fils des nouveaux messages.
-Ils seront encore visible sur leurs pages de discussion originales.
+Ils seront encore visibles sur leur page de discussion originale.
 Cette opération est irréversible.',
 	'lqt-marked-read' => "Fil de discussion '''$1''' marqué comme lu.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|message marqué comme lu|messages marqués comme lus}}',
@@ -1991,6 +1994,10 @@ Deze handeling is onomkeerbaar.',
 	'lqt-new-messages' => 'U hebt nieuwe berichten.',
 	'lqt-email-info-undo' => 'Terug naar de thread die u zojuist hebt verlaten.',
 	'lqt-date-info' => 'Deze verwijzing is niet actief omdat u threads van alle data bekijkt.',
+	'lqt_rc_new_discussion' => 'Nieuw overleg, $1, op $2. &bull; $3 schrijft:',
+	'lqt_rc_new_reply' => 'Antwoord op $1, op $2. &bull; $3 schrijft:',
+	'lqt_rc_author_original' => '(oorspronkelijke auteur)',
+	'lqt_rc_author_others' => '(niet de auteur)',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -2451,6 +2458,7 @@ $messages['ro'] = array(
 	'lqt_contents_title' => 'Cuprins:',
 	'lqt_delete' => 'Şterge',
 	'lqt_hist_deleted' => 'Şters',
+	'lqt_subject' => 'Subiect:',
 	'lqt_thread_deleted_for_sysops_deleted' => 'şters',
 );
 
@@ -2659,7 +2667,8 @@ $messages['sk'] = array(
 	'lqt-newer' => 'novšie',
 	'lqt-searching' => 'Hľadajú sa vlákna',
 	'lqt-read-message' => 'Prečítané',
-	'lqt-read-message-tooltip' => 'Odstrániť toto vlákno z nových správ.',
+	'lqt-read-message-tooltip' => 'Odstrániť toto vlákno z nových správ.
+Stále bude viditeľné na jeho pôvodnej diskusnej stránke.',
 	'lqt-read-all' => 'Označiť všetky ako prečítané',
 	'lqt-read-all-tooltip' => 'Odstrániť všetky vlákna z nových správ. Budú stále viditeľné na ich pôvodných diskusných stránkach. Túto operáciu možno vrátiť späť.',
 	'lqt-marked-read' => "Vlákno '''$1''' bolo označené ako prečítané.",
