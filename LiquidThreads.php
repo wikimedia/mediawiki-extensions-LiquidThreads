@@ -5,7 +5,7 @@ if (!defined('MEDIAWIKI'))
 
 $wgExtensionCredits['other'][] = array(
 	'name'           => 'Liquid Threads',
-	'version'        => '1.0',
+	'version'        => '1.1',
 	'url'            => 'http://www.mediawiki.org/wiki/Extension:LiquidThreads',
 	'author'         => 'David McCabe',
 	'description'    => 'Add threading discussions to talk pages',
@@ -34,6 +34,7 @@ $wgExtraNamespaces[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
 
 $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'Lqt.i18n.php';
+$wgExtensionAliasesFiles['LiquidThreads'] = $dir . 'Lqt.alias.php';
 
 $wgExtensionFunctions[] = 'wfLqtInitMsg';
 $wgHooks['BeforeWatchlist'][] = 'wfLqtBeforeWatchlistHook';
