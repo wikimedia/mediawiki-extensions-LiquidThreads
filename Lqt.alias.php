@@ -29,6 +29,11 @@ $aliases['arz'] = array(
 	'NewMessages' => array( 'رسائل_جديدة' ),
 );
 
+/** Luxembourgish (Lëtzebuergesch) */
+$aliases['lb'] = array(
+	'NewMessages' => array( 'Nei Messagen' ),
+);
+
 /** Dutch (Nederlands) */
 $aliases['nl'] = array(
 	'DeleteThread' => array( 'ThreadVerwijderen' ),
