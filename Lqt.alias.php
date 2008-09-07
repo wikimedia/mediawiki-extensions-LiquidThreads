@@ -15,14 +15,18 @@ $aliases['en'] = array(
 	'NewMessages' => array( 'NewMessages' ),
 );
 
-/** Arabic (العربية) */
+/** Arabic (العربية)
+ * @author Meno25
+ */
 $aliases['ar'] = array(
 	'DeleteThread' => array( 'حذف_مجموعة_الرسائل' ),
 	'MoveThread' => array( 'نقل_مجموعة_الرسائل' ),
 	'NewMessages' => array( 'رسائل_جديدة' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
 $aliases['arz'] = array(
 	'DeleteThread' => array( 'حذف_مجموعة_الرسائل' ),
 	'MoveThread' => array( 'نقل_مجموعة_الرسائل' ),
