@@ -1106,6 +1106,8 @@ $messages['gl'] = array(
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mensaxe marcada|mensaxes marcadas}} como {{PLURAL:$1|lida|lidas}}.',
 	'lqt-email-undo' => 'Desfacer',
 	'lqt-new-messages' => 'Hai mensaxes novas para vostede.',
+	'lqt_rc_author_original' => '(autor orixinal)',
+	'lqt_rc_author_others' => '(non é o autor)',
 );
 
 /** Gothic
@@ -2822,6 +2824,10 @@ Stále bude viditeľné na jeho pôvodnej diskusnej stránke.',
 	'lqt-new-messages' => 'Máte nové správy.',
 	'lqt-email-info-undo' => 'Vrátiť vlákno, ktoré ste práve zrušili.',
 	'lqt-date-info' => 'Tento odkaz je vypnutý, pretože zobrazujete vlákna bez ohľadu na dátum.',
+	'lqt_rc_new_discussion' => 'Nová diskusia, $1, $2. &bull; $3 napísal:',
+	'lqt_rc_new_reply' => 'Odpoveď na $1, $2. &bull; $3 píše:',
+	'lqt_rc_author_original' => '(pôvodný autor)',
+	'lqt_rc_author_others' => '(nie je autor)',
 );
 
 /** Seeltersk (Seeltersk)
