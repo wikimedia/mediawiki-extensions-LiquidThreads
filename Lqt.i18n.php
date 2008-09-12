@@ -610,6 +610,7 @@ $messages['da'] = array(
 /** German (Deutsch)
  * @author DaSch
  * @author Raimond Spekking
+ * @author Revolus
  */
 $messages['de'] = array(
 	'lqt-desc' => 'Benutzung von Threads für Diskussionsseiten hinzufügen',
@@ -720,6 +721,7 @@ Er wird weiterhin auf der Original-Diskussionsseite zu sehen sein.',
 	'lqt-messages-sent' => 'An dich gesendete Nachrichten:',
 	'lqt-other-messages' => 'Nachrichten auf anderen Diskussionsseiten:',
 	'lqt-new-messages' => 'Du hast neue Nachrichten.',
+	'lqt_rc_author_original' => '(original Autor)',
 );
 
 /** Ewe (Eʋegbe)
@@ -854,6 +856,8 @@ $messages['eo'] = array(
 	'lqt-messages-sent' => 'Mesaĝoj senditaj al vi:',
 	'lqt-other-messages' => 'Mesaĝoj en aliaj diskuto-paĝoj:',
 	'lqt-new-messages' => 'Jen novaj mesaĝoj por vi.',
+	'lqt_rc_author_original' => '(originala aŭtoro)',
+	'lqt_rc_author_others' => '(ne estas la aŭtoro)',
 );
 
 /** Spanish (Español)
@@ -1102,7 +1106,12 @@ $messages['gl'] = array(
 	'lqt-newer' => 'máis novo',
 	'lqt-searching' => 'Procurando ameazas',
 	'lqt-read-message' => 'Ler',
+	'lqt-read-message-tooltip' => 'Eliminar este fío das mensaxes novas.
+Poderá seguir sendo visible na súa páxina de conversa orixinal.',
 	'lqt-read-all' => 'Marcar todo como lido',
+	'lqt-read-all-tooltip' => 'Eliminar todos os fíos das mensaxes novas.
+Poderán seguir sendo visibles nas súas páxinas de conversa orixinais.
+Esta operación non pode ser desfeita.',
 	'lqt-marked-read' => "O fío \"'''\$1'''\" foi marcado como lido.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mensaxe marcada|mensaxes marcadas}} como {{PLURAL:$1|lida|lidas}}.',
 	'lqt-email-undo' => 'Desfacer',
@@ -1110,6 +1119,7 @@ $messages['gl'] = array(
 	'lqt-other-messages' => 'Mensaxes noutras páxinas de conversa:',
 	'lqt-new-messages' => 'Hai mensaxes novas para vostede.',
 	'lqt-email-info-undo' => 'Traer de volta o fío que acaba de rexeitar.',
+	'lqt-date-info' => 'Esta ligazón está deshabilitada porque está a ver fíos de todas as datas.',
 	'lqt_rc_new_discussion' => 'Nova conversa, $1, en $2. &bull; $3 escribe:',
 	'lqt_rc_new_reply' => 'Resposta a $1, en $2. &bull; $3 escribe:',
 	'lqt_rc_author_original' => '(autor orixinal)',
@@ -1767,6 +1777,7 @@ $messages['lb'] = array(
 	'lqt_hist_deleted' => 'Geläscht',
 	'lqt_hist_undeleted' => 'Restauréiert',
 	'lqt_hist_moved_talkpage' => 'Geréckelt',
+	'lqt_hist_tooltip_newer_disabled' => 'Dëse Link ass ausgeschalt well dir op der éischter Säit sidd.',
 	'lqt_hist_tooltip_older_disabled' => 'Dës Link ass ausgeschalt well Dir op der läschter Säit sidd',
 	'lqt_revision_as_of' => 'Versioun vum $1.',
 	'lqt_youhavenewmessages' => 'Dir hutt [$1 nei Messagen]',
