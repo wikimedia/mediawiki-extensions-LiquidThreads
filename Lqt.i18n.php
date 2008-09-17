@@ -94,6 +94,7 @@ This thread is part of $2.',
 	'lqt_delete_return' => 'Return to $1.',
 	'lqt_delete_return_link' => 'the talkpage', // subst above
 	'lqt_delete_unallowed' => 'You are not allowed to delete threads.',
+	'lqt_delete_show' => 'Show deleted threads.',
 	'lqt_talkpage_autocreate_summary' => 'Talkpage autocreated when first thread was posted.',
 	'lqt_header_warning_before_big' => '',
 	'lqt_header_warning_big' => 'You are editing a $1.',

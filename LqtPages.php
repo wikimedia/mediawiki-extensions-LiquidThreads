@@ -152,12 +152,10 @@ HTML;
 				}
 				if ( in_array('deletedhistory',  $this->user->getRights()) ) {
 					$show_deleted_checked = $this->request->getBool('lqt_show_deleted_threads') ? 'checked ' : '';
-					$show_deleted = <<<HTML
-<br />
-<label for="lqt_show_deleted_threads_checkbox">
-<input id="lqt_show_deleted_threads_checkbox" name="lqt_show_deleted_threads" type="checkbox" value="1" $show_deleted_checked />
-Show deleted threads</label>
-HTML;
+					$show_deleted = "<br />\n" .
+									"<label for=\"lqt_show_deleted_threads_checkbox\">\n" .
+									"<input id=\"lqt_show_deleted_threads_checkbox\" name=\"lqt_show_deleted_threads\" type=\"checkbox\" value=\"1\" $show_deleted_checked />\n" .
+									wfMsg( 'lqt_show_deleted' ) . "</label>\n";
 				} else {
 					$show_deleted = "";
 				}
