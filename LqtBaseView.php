@@ -256,9 +256,8 @@ class LqtDispatch {
 					null, 
 					array(), array(), array('known'));
 				
-				$s = "<li>". wfMsg($message_name, $thread_link, $talkpage_link, $sig)
-					. "<blockquote class=\"lqt_rc_blockquote\">$quote</blockquote>"
-					. "</li>";
+				$s = wfMsg($message_name, $thread_link, $talkpage_link, $sig)
+					. "<blockquote class=\"lqt_rc_blockquote\">$quote</blockquote>";
 			}
 		}
 		return true;
