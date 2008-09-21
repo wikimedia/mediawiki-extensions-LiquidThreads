@@ -1145,11 +1145,9 @@ class NewMessages {
 
 		if( $t->article()->getTitle()->getNamespace() == NS_USER ) {
 			$name = $t->article()->getTitle()->getDBkey();
-			// handle talk subpage case
-			list($name) = split('/', $name);
+			list($name) = split('/', $name); // subpages
 			$user = User::newFromName($name);
-			if( $user
-				   && $user->getID() != $wgUser->getID() ) {
+			if( $user && $user->getID() != $wgUser->getID() ) {
 				$user->setNewtalk(true);
 			}
 		}

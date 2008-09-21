@@ -155,7 +155,7 @@ HTML;
 					$show_deleted = "<br />\n" .
 									"<label for=\"lqt_show_deleted_threads_checkbox\">\n" .
 									"<input id=\"lqt_show_deleted_threads_checkbox\" name=\"lqt_show_deleted_threads\" type=\"checkbox\" value=\"1\" $show_deleted_checked />\n" .
-									wfMsg( 'lqt_show_deleted' ) . "</label>\n";
+									wfMsg( 'lqt_delete_show_checkbox' ) . "</label>\n";
 				} else {
 					$show_deleted = "";
 				}
