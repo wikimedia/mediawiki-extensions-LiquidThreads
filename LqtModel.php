@@ -405,8 +405,9 @@ class Thread {
 		     /* WHERE */ array( 'thread_id' => $this->id, ),
 		     __METHOD__);
 
-		NewMessages::writeMessageStateForUpdatedThread($this);
-
+		if( $change_type == Threads::CHANGE_EDITED_ROOT ) {
+			NewMessages::writeMessageStateForUpdatedThread($this);
+		}
 
 	//	RecentChange::notifyEdit( wfTimestampNow(), $this->root(), /*minor*/false, $wgUser, $summary,
 	//		$lastRevision, $this->getModified(), $bot, '', $oldsize, $newsize,
@@ -969,21 +970,14 @@ SQL;
 			if( $line->is_root )
 				// thread is one of those that was directly queried for.
 				$top_level_threads[] = $new_thread;
-			else if( $line->thread_parent !== null ) { // see note below *
+			if( $line->thread_parent !== null ) {
 				if( !array_key_exists( $line->thread_parent, $thread_children ) )
 					$thread_children[$line->thread_parent] = array();
-				$thread_children[$line->thread_parent][] = $new_thread;
+				// Can have duplicate if thread is both top_level and child of another top_level thread.
+				if( !self::arrayContainsThreadWithId($thread_children[$line->thread_parent], $new_thread->id()) )
+					$thread_children[$line->thread_parent][] = $new_thread;
 			}
 		}
-
-		/*
-			The two clauses of the above loop used to be orthogonal, instead of exclusive. The reason
-			they are exclusive is not that 'is_root' indicates a top-level thread -- 'is_root' indicates
-			a thread that directly matches the given criteria, as opposed to a thread that is merely included
-			because it is a child of a selected thread. They are exclusive because a thread can be both, and
-			otherwise you would get duplicate children (since sql will return two rows that differ only in the
-			'is_root' property).
-		*/
 
 		foreach( $threads as $thread ) {
 			if( array_key_exists( $thread->id(), $thread_children ) ) {
@@ -991,7 +985,7 @@ SQL;
 			} else {
 				$thread->initWithReplies( array() );
 			}
-
+			
 			self::$cache_by_root[$thread->root()->getID()] = $thread;
 			self::$cache_by_id[$thread->id()] = $thread;
 		}
@@ -1011,6 +1005,14 @@ SQL;
 			Threads::databaseError("More than one thread with $attribute = $value.");
 			return null;
 		}
+	}
+	
+	private static function arrayContainsThreadWithId( $a, $id ) {
+		// There's gotta be a nice way to express this in PHP. Anyone?
+		foreach($a as $t)
+			if($t->id() == $id)
+				return true;
+		return false;
 	}
 
 	static function withRoot( $post ) {
