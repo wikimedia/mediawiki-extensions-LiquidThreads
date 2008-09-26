@@ -35,6 +35,7 @@
 	display: table; /* Became necessary in Safari recently; don't know why it wasn't before. */
 	vertical-align: middle;
 	font-size:      120%;
+	clear: left;
 }
 
 .lqt_header_notice {

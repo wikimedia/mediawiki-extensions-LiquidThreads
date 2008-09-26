@@ -186,7 +186,10 @@ HTML
 			
 			$this->output->setPageTitle( $this->title->getTalkpage()->getPrefixedText() );
 			self::addJSandCSS();
-			$article = new Article( $this->title );
+			$article = new Article( $this->title ); // Added in r29715 sorting. Why?
+			
+			// Removed in r29715 sorting. Again, why?
+			$this->showHeader();
 
 			global $wgRequest; // TODO
 			if( $this->methodApplies('talkpage_new_thread') ) {
