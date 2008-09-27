@@ -1824,6 +1824,14 @@ $messages['km'] = array(
 	'lqt-new-messages' => 'មានសារថ្មីៗសំរាប់អ្នក។',
 );
 
+/** Krio (Krio)
+ * @author Jose77
+ */
+$messages['kri'] = array(
+	'lqt_delete' => 'Dilit',
+	'lqt_discussion_link' => 'diskohshohn',
+);
+
 /** Kinaray-a (Kinaray-a)
  * @author Jose77
  */
