@@ -59,3 +59,10 @@ $aliases['no'] = array(
 	'NewMessages' => array( 'Nye beskjeder' ),
 );
 
+/** Swedish (Svenska) */
+$aliases['sv'] = array(
+	'DeleteThread' => array( 'Radera tråd' ),
+	'MoveThread' => array( 'Flytta tråd' ),
+	'NewMessages' => array( 'Nya meddelanden' ),
+);
+

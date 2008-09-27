@@ -203,6 +203,14 @@ $messages['niu'] = array(
 	'lqt_move_move' => 'Une',
 );
 
+/** Goanese Konkani (Latin) (कोंकणी/Konknni  (Latin))
+ * @author Deepak D'Souza
+ */
+$messages['gom-latn'] = array(
+	'lqt_newmessages' => 'Noveo sondes',
+	'lqt_delete_return' => '$1 ak patim vos',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  */
@@ -886,6 +894,7 @@ $messages['es'] = array(
 /** French (Français)
  * @author Dereckson
  * @author Grondin
+ * @author McDutchie
  * @author Sherbrooke
  * @author Urhixidur
  * @author Zetud
@@ -962,7 +971,7 @@ $messages['fr'] = array(
 	'lqt_delete_partof' => 'Ce fil fait partie de $1.',
 	'lqt_delete_deleting' => 'Suppression du fil $1 et de $2.',
 	'lqt_delete_deleting_allreplies' => 'toutes les réponses',
-	'lqt_delete_deletethread' => 'Effacer le fil et répondre',
+	'lqt_delete_deletethread' => 'Effacer le fil et ses réponses',
 	'lqt_delete_deleted' => 'Le fil a été effacé.',
 	'lqt_delete_undeleted' => 'Le fil a été récupéré.',
 	'lqt_delete_return' => 'Revenir à $1',
@@ -1512,13 +1521,82 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
+	'lqt-desc' => 'Adde discussiones in filos al paginas de discussion',
+	'lqt-nothread' => 'Non existe filos de discussion in le archivo.',
 	'lqt_newmessages' => 'Nove messages',
+	'lqt_movethread' => 'Displaciar le filo verso un altere pagina',
+	'lqt_deletethread' => 'Deler o recuperar filo',
+	'lqt_browse_archive_without_recent' => 'Vider filos archivate',
+	'lqt_browse_archive_with_recent' => 'plus ancian',
+	'lqt_recently_archived' => 'Recentemente archivate:',
+	'lqt_contents_title' => 'Contento:',
+	'lqt_add_header' => 'Adder capite',
+	'lqt_new_thread' => 'Initiar un nove discussion',
+	'lqt_in_response_to' => 'In responsa a $1 per $2, supra:',
+	'lqt_edited_notice' => 'Modificate',
+	'lqt_move_placeholder' => 'Iste filo es un substitution que indica le displaciamento de un filo, $1, ab iste pagina verso un altere pagina de discussion.
+Iste displaciamento esseva facite per $2 le $3.',
+	'lqt_reply' => 'Responder',
 	'lqt_delete' => 'Deler',
+	'lqt_undelete' => 'Recuperar',
+	'lqt_permalink' => 'Permaligamine',
+	'lqt_fragment' => 'un fragmento de un $1 ab $2',
+	'lqt_discussion_link' => 'discussion',
+	'lqt_from_talk' => 'de $1',
+	'lqt_newer' => '«plus recente',
+	'lqt_older' => 'plus ancian»',
+	'lqt_hist_comment_edited' => 'Texto del commento modificate',
+	'lqt_hist_summary_changed' => 'Summario modificate',
+	'lqt_hist_reply_created' => 'Nove responsa create',
+	'lqt_hist_thread_created' => 'Nove filo create',
 	'lqt_hist_deleted' => 'Delite',
-	'lqt_noreason' => 'Nulle ration date.',
+	'lqt_hist_undeleted' => 'Recuperate',
+	'lqt_hist_moved_talkpage' => 'Displaciate',
+	'lqt_hist_listing_subtitle' => 'Visualisation de un lista historic.',
+	'lqt_hist_view_whole_thread' => 'Vider le historia de tote le filo',
+	'lqt_hist_no_revisions_error' => 'Iste filo non ha alcun versiones historic.
+Es un poco bizarre.',
+	'lqt_hist_past_last_page_error' => 'Tu ha excedite le numero de paginas de historia existente.',
+	'lqt_hist_tooltip_newer_disabled' => 'Iste ligamine non es active post que tu es in le prime pagina.',
+	'lqt_hist_tooltip_older_disabled' => 'Iste ligamine non es active post que tu es in le ultime pagina.',
+	'lqt_revision_as_of' => 'Version datate $1.',
+	'lqt_change_new_thread' => 'Isto es le version initial del filo.',
+	'lqt_change_reply_created' => 'Le commento accentuate ha essite create in iste version.',
+	'lqt_change_edited_root' => 'Le commento accentuate ha essite modificate in iste version.',
+	'lqt_youhavenewmessages' => 'Tu ha [$1 nove messages].',
+	'lqt_changes_from' => '  de',
+	'lqt_changes_summary_of' => '  de',
+	'lqt_protectedfromreply' => 'Iste filo ha essite $1 contra responsas.',
+	'lqt_protectedfromreply_link' => 'protegite',
+	'lqt_subject' => 'Subjecto:',
+	'lqt_nosubject' => '«nulle subjecto»',
+	'lqt_noreason' => 'Nulle motivo specificate.',
+	'lqt_thread_deleted_for_sysops' => 'Iste filo ha essite $1 e es solmente visibile al administratores.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'delite',
+	'lqt_thread_deleted' => 'Iste filo ha essite delite.',
+	'lqt_summary_notice' => 'Il non ha habite cambiamentos in iste discussion durante al minus $2 dies.
+Si isto es concludite, es suggerite $1.',
+	'lqt_summary_notice_link' => 'scriber un summario',
+	'lqt_summary_label' => 'Iste filo ha essite resumite in lo sequente:',
+	'lqt_summary_subtitle' => 'le summario de $1',
+	'lqt_nosuchrevision' => 'Iste version del filo non existe.',
+	'lqt_nosuchthread' => 'Iste filo non existe.',
+	'lqt_threadrequired' => 'Tu debe specificar un filo in le adresse URL.',
+	'lqt_move_movingthread' => 'Displaciamento de $1 in curso.
+Iste filo face parte de $2.',
+	'lqt_move_torename' => "Pro renominar iste filo, $1 e cambia le campo 'Subjecto'.",
+	'lqt_move_torename_edit' => 'modifica lo',
+	'lqt_move_destinationtitle' => 'Titulo del pagina de discussion de destination:',
 	'lqt_move_move' => 'Renominar',
+	'lqt_move_nodestination' => 'Tu debe specificar un destination.',
 	'lqt_move_noreason' => 'Nulle ration date.',
+	'lqt_move_success' => 'Le filo ha essite displaciate verso $1.',
+	'lqt_delete_undeleting' => 'Recuperation de $1 in curso.',
+	'lqt_delete_undeletethread' => 'Recuperar filo',
+	'lqt_delete_partof' => 'Iste filo face parte de $1.',
+	'lqt_delete_deleting' => 'Deletion de $1 e de $2 a illo.',
+	'lqt_delete_deleting_allreplies' => 'tote le responsas',
+	'lqt_delete_deletethread' => 'Deler filo e responsas',
 );
 
 /** Icelandic (Íslenska)
@@ -2317,7 +2395,7 @@ $messages['nso'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'lqt-desc' => 'Apondís de fials de discussion dins las paginas de discussion',
+	'lqt-desc' => 'Apond de fials de discussion dins las paginas de discussion',
 	'lqt-nothread' => 'Existís pas cap de fial de discussion dins los archius.',
 	'lqt_newmessages' => 'Messatges Novèls',
 	'lqt_movethread' => 'Desplaçar lo fial vèrs una autra pagina',
