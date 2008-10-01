@@ -2779,6 +2779,7 @@ $messages['ro'] = array(
 );
 
 /** Russian (Русский)
+ * @author Kaganer
  * @author VasilievVV
  * @author Александр Сигачёв
  */
@@ -2823,7 +2824,7 @@ $messages['ru'] = array(
 	'lqt_change_new_thread' => 'Это изначальная версия ветки.',
 	'lqt_change_reply_created' => 'Выделенный комментарий был создан в этой версии.',
 	'lqt_change_edited_root' => 'Выделенный комментарий был отредактирован в этой версии.',
-	'lqt_youhavenewmessages' => 'Вы получили $1.',
+	'lqt_youhavenewmessages' => 'Вы получили [{{PLURAL:$1|новое сообщение|$1 новых сообщений}}].',
 	'lqt_changes_from' => ' c',
 	'lqt_changes_summary_of' => ' из',
 	'lqt_protectedfromreply' => 'Эта ветка была $1 от ответа на неё.',
