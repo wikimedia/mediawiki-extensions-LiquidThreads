@@ -1814,25 +1814,25 @@ $messages['km'] = array(
 	'lqt_recently_archived' => 'ទើបតែដាក់ជា បណ្ណសារ ៖',
 	'lqt_contents_title' => 'មាតិកា៖',
 	'lqt_add_header' => 'បន្ថែមក្បាលទំព័រ',
-	'lqt_new_thread' => 'ផ្តើម មួយការពិភាក្សា ថ្មី',
+	'lqt_new_thread' => 'បើកការពិភាក្សាថ្មីមួយ',
 	'lqt_in_response_to' => 'ឆ្លើយតប ទៅ $1 ដោយ $2, ខាងលើ ៖',
 	'lqt_edited_notice' => 'បានកែប្រែ',
 	'lqt_reply' => 'ឆ្លើយតប',
 	'lqt_delete' => 'លុបចេញ',
 	'lqt_undelete' => 'ឈប់លុបចេញ',
-	'lqt_permalink' => 'តំណភ្ជាប់អចិន្ត្រៃយ៍',
-	'lqt_fragment' => 'មួយបំណែក របស់ $1 ពី $2',
+	'lqt_permalink' => 'តំនភ្ជាប់អចិន្ត្រៃយ៍',
+	'lqt_fragment' => 'បំនែកមួយរបស់ $1 ពី $2',
 	'lqt_discussion_link' => 'ការពិភាក្សា',
 	'lqt_from_talk' => 'ពី $1',
 	'lqt_newer' => '«ថ្មីជាង',
 	'lqt_older' => 'ចាស់ជាង»',
 	'lqt_hist_comment_edited' => 'វិចារបានត្រូវកែប្រែ',
-	'lqt_hist_summary_changed' => 'សេចក្តីសង្ខេប ត្រូវបាន ផ្លាស់ប្តូរ',
+	'lqt_hist_summary_changed' => 'សេចក្តីសង្ខេបត្រូវបានផ្លាស់ប្តូរ',
 	'lqt_hist_reply_created' => 'ការឆ្លើយតបថ្មី ត្រូវបានបង្កើត',
 	'lqt_hist_deleted' => 'ត្រូវបានលុបចោល',
 	'lqt_hist_undeleted' => 'លែងបានត្រូវលុបចេញ',
 	'lqt_hist_moved_talkpage' => 'បានប្តូរទីតាំង',
-	'lqt_hist_listing_subtitle' => 'មើល បញ្ជីប្រវត្តិ ។',
+	'lqt_hist_listing_subtitle' => 'មើលបញ្ជីប្រវត្តិ ។',
 	'lqt_hist_past_last_page_error' => 'អ្នកបានហួស ចំនួនទំព័រ នៃប្រវត្តិ ដែលមាន',
 	'lqt_hist_tooltip_newer_disabled' => 'តំណភ្ជាប់នេះ អសកម្ម ព្រោះ អ្នកថិតលើ ទំព័រដំបូង ។',
 	'lqt_hist_tooltip_older_disabled' => 'តំណភ្ជាប់នេះ អសកម្ម ព្រោះ អ្នកថិតលើ ទំព័រចុងក្រោយ ។',
@@ -1869,6 +1869,8 @@ $messages['km'] = array(
 	'lqt-read-message' => 'អាន',
 	'lqt-messages-sent' => 'សារបានផ្ញើទៅអ្នក៖',
 	'lqt-new-messages' => 'មានសារថ្មីៗសំរាប់អ្នក។',
+	'lqt_rc_author_original' => '(អ្នកនិពន្ឋដើម)',
+	'lqt_rc_author_others' => '(មិនមែនជាអ្នកនិពន្ឋ)',
 );
 
 /** Krio (Krio)
@@ -3243,6 +3245,8 @@ $messages['te'] = array(
 	'lqt_sort_newest_changes' => 'చివరగా మార్చినవి మొదట',
 	'lqt_sort_newest_threads' => 'కొత్త చర్చాహారాలు మొదట',
 	'lqt_sort_oldest_threads' => 'పాత చర్చాహారాలు మొదట',
+	'lqt-older' => 'పాతవి',
+	'lqt-newer' => 'కొత్తవి',
 );
 
 /** Tetum (Tetun)
