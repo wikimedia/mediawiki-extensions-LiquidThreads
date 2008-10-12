@@ -1003,7 +1003,7 @@ $messages['fr'] = array(
 Il sera encore visible dans sa page de discussion originale.',
 	'lqt-read-all' => 'Tout marquer comme lu',
 	'lqt-read-all-tooltip' => 'Enlever tous les fils des nouveaux messages.
-Ils seront encore visibles sur leurs pages de discussion originales.
+Ils seront encore visibles sur leur page de discussion originale.
 Cette opération est réversible.',
 	'lqt-marked-read' => "Fil de discussion '''$1''' marqué comme lu.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|message marqué comme lu|messages marqués comme lus}}',
