@@ -190,6 +190,7 @@ $messages['krl'] = array(
  * @author Сай
  */
 $messages['mhr'] = array(
+	'lqt_contents_title' => 'Вуйлымаш:',
 	'lqt_delete' => 'Шӧраш',
 	'lqt_protectedfromreply_link' => 'тӧрлаташ чарыме',
 );
@@ -1646,6 +1647,13 @@ Iste operation es reversibile.',
 	'lqt_rc_author_others' => '(non le autor)',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author Rex
+ */
+$messages['id'] = array(
+	'lqt-title' => 'Judul',
+);
+
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
  */
@@ -2157,9 +2165,11 @@ $messages['mt'] = array(
  */
 $messages['myv'] = array(
 	'lqt_browse_archive_with_recent' => 'седе умонь',
+	'lqt_delete' => 'Нардамс',
 	'lqt_hist_deleted' => 'Нардазь',
 	'lqt_thread_deleted_for_sysops_deleted' => 'нардазь',
 	'lqt_move_move' => 'Печтевтемс',
+	'lqt-title' => 'Конякс',
 );
 
 /** Nahuatl (Nāhuatl)
