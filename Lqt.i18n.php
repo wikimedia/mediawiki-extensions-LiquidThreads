@@ -186,15 +186,6 @@ $messages['krl'] = array(
 	'lqt_discussion_link' => 'keskustelu',
 );
 
-/** Eastern Mari (Олык Марий)
- * @author Сай
- */
-$messages['mhr'] = array(
-	'lqt_contents_title' => 'Вуйлымаш:',
-	'lqt_delete' => 'Шӧраш',
-	'lqt_protectedfromreply_link' => 'тӧрлаташ чарыме',
-);
-
 /** Niuean (ko e vagahau Niuē)
  * @author Jose77
  */
@@ -858,6 +849,7 @@ $messages['eo'] = array(
 	'lqt_delete_return' => 'Reiri al $1.',
 	'lqt_delete_return_link' => 'la diskuto-paĝo',
 	'lqt_delete_unallowed' => 'Vi ne estas permesita forigi fadenojn.',
+	'lqt_delete_show_checkbox' => 'Montri forigitajn fadenojn',
 	'lqt_header_warning_big' => 'Vi redaktas $1.',
 	'lqt_header_warning_bold' => 'diskuto-paĝa kaptitolo',
 	'lqt_header_warning_new_discussion' => 'kreu novan diskuton',
@@ -1995,6 +1987,15 @@ $messages['loz'] = array(
  */
 $messages['lt'] = array(
 	'lqt_delete' => 'Ištrinti',
+);
+
+/** Eastern Mari (Олык Марий)
+ * @author Сай
+ */
+$messages['mhr'] = array(
+	'lqt_contents_title' => 'Вуйлымаш:',
+	'lqt_delete' => 'Шӧраш',
+	'lqt_protectedfromreply_link' => 'тӧрлаташ чарыме',
 );
 
 /** Malayalam (മലയാളം)
