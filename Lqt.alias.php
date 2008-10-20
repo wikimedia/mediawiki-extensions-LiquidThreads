@@ -33,6 +33,13 @@ $aliases['arz'] = array(
 	'NewMessages' => array( 'رسائل_جديدة' ),
 );
 
+/** Persian (فارسی) */
+$aliases['fa'] = array(
+	'DeleteThread' => array( 'حذف_رشته' ),
+	'MoveThread' => array( 'انتقال_رشته' ),
+	'NewMessages' => array( 'پیام‌های_جدید' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $aliases['lb'] = array(
 	'NewMessages' => array( 'Nei Messagen' ),
