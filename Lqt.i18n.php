@@ -1330,6 +1330,7 @@ $messages['hil'] = array(
  */
 $messages['hr'] = array(
 	'lqt_delete' => 'Izbriši',
+	'lqt-summary' => 'Sažetak',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -3079,6 +3080,7 @@ $messages['su'] = array(
 /** Swedish (Svenska)
  * @author Jon Harald Søby
  * @author M.M.S.
+ * @author Najami
  */
 $messages['sv'] = array(
 	'lqt-desc' => 'Lägger till trådade diskussioner till diskussionssidor',
@@ -3159,6 +3161,7 @@ Om diskussionen är färdig, kommer du möjligen $1.',
 	'lqt_delete_return' => 'Tillbaka till $1.',
 	'lqt_delete_return_link' => 'diskussionssidan',
 	'lqt_delete_unallowed' => 'Du är inte tillåten att radera diskussionssidor.',
+	'lqt_delete_show_checkbox' => 'Visa raderade trådar',
 	'lqt_talkpage_autocreate_summary' => 'Diskussionssida upprättades automatiskt när första diskussionssidan postades.',
 	'lqt_header_warning_big' => 'Du redigerar en $1.',
 	'lqt_header_warning_after_big' => 'Huvudsektioner är för annonseringar och inledningar.
@@ -3180,11 +3183,17 @@ Du kommer istället vilja $2.',
 	'lqt-newer' => 'nyare',
 	'lqt-searching' => 'Sök efter trådar',
 	'lqt-read-message' => 'Läs',
-	'lqt-read-message-tooltip' => 'Ta bort den här tråden från nya meddelanden.',
+	'lqt-read-message-tooltip' => 'Ta bort den här tråden från nya meddelanden.
+Den kommer fortfarande att visas på dens orginala diskussionssida.',
+	'lqt-read-all' => 'Markera alla som lästa',
 	'lqt-marked-read' => "Tråden '''$1''' markerad som läst.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|meddelande markerat som läst|meddelanden markerade som lästa}}.',
 	'lqt-email-undo' => 'Ångra',
 	'lqt-messages-sent' => 'Meddelanden som skickats till dig:',
+	'lqt-other-messages' => 'Meddelanden på andra diskussionssidor:',
+	'lqt-new-messages' => 'Du har nya meddelanden.',
+	'lqt_rc_new_discussion' => 'Ny diskussion, $1, på $2. &bull; $3 skriver:',
+	'lqt_rc_new_reply' => 'Svar till $1, på $2. &bull; $3 skriver:',
 );
 
 /** Silesian (Ślůnski)
