@@ -1154,6 +1154,8 @@ HTML
 	function showUndo($ids) {
 		if( count($ids) == 1 ) {
 			$t = Threads::withId($ids[0]);
+			if( !$t )
+				return; // empty or just bogus operand.
 			$msg = wfMsg( 'lqt-marked-read',$t->subject()  );
 		} else {
 			$count = count($ids);
@@ -1195,17 +1197,19 @@ HTML
 			$ids = explode(',', $this->request->getVal('lqt_operand', ''));
 			if( $ids !== false ) {
 				foreach($ids as $id) {
-					NewMessages::markThreadAsUnreadByUser(Threads::withId($id), $this->user);
+					$tmp_thread = Threads::withId($id);	if($tmp_thread)
+						NewMessages::markThreadAsReadByUser($tmp_thread, $this->user);
 				}
 				$this->output->redirect( $this->title->getFullURL() );
 			}
 		}
 		
 		else if( $this->request->wasPosted() && $this->methodApplies('mark_as_read') ) {
-			$ids = explode(',', $this->request->getVal('lqt_operand', ''));
+			$ids = explode(',', $this->request->getVal('lqt_operand'));
 			if( $ids !== false ) {
 				foreach($ids as $id) {
-					NewMessages::markThreadAsReadByUser(Threads::withId($id), $this->user);
+					$tmp_thread = Threads::withId($id);	if($tmp_thread)
+						NewMessages::markThreadAsReadByUser($tmp_thread, $this->user);
 				}
 				$query = 'lqt_method=undo_mark_as_read&lqt_operand=' . implode(',', $ids);
 				$this->output->redirect( $this->title->getFullURL($query) );
@@ -1280,15 +1284,20 @@ class SpecialNewMessages extends SpecialPage {
 		$this->setHeaders();
 		
 		$view = new NewUserMessagesView( $this->output, new Article($this->title),
-		$this->title, $this->user, $this->request );
+			$this->title, $this->user, $this->request );
+		
+		$view->showOnce(); // handles POST etc.
 		
 		$first_set = NewMessages::newUserMessages($this->user);
 		$second_set = NewMessages::watchedThreadsForUser($this->user);
 		$both_sets = array_merge($first_set, $second_set);
+		if( count($both_sets) == 0 ) {
+			$wgOut->addWikitext( wfMsg('lqt-no-new-messages') );
+			return;
+		}
 		$view->showReadAllButton($both_sets); // ugly hack.
 		
 		$view->setHeaderLevel(3);
-		$view->showOnce(); // handles POST etc.
 		
 		$this->output->addHTML('<h2 class="lqt_newmessages_section">'.wfMsg ( 'lqt-messages-sent' ).'</h2>');
 		$view->setThreads( $first_set );
