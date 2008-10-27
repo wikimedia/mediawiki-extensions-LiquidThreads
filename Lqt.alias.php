@@ -42,6 +42,8 @@ $aliases['fa'] = array(
 
 /** Luxembourgish (Lëtzebuergesch) */
 $aliases['lb'] = array(
+	'DeleteThread' => array( 'Rubrik läschen' ),
+	'MoveThread' => array( 'Rubrik réckelen' ),
 	'NewMessages' => array( 'Nei Messagen' ),
 );
 
