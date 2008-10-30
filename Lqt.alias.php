@@ -68,6 +68,11 @@ $aliases['no'] = array(
 	'NewMessages' => array( 'Nye beskjeder' ),
 );
 
+/** Occitan (Occitan) */
+$aliases['oc'] = array(
+	'NewMessages' => array( 'Messatges novèls', 'MessatgesNovèls' ),
+);
+
 /** Swedish (Svenska) */
 $aliases['sv'] = array(
 	'DeleteThread' => array( 'Radera tråd' ),

@@ -1919,6 +1919,7 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'lqt-desc' => "Setz Diskussiouns -Rubriken  op d'Diskussiounssäiten derbäi",
 	'lqt-nothread' => 'Et gëtt keng Rubriken am Archiv',
 	'lqt_newmessages' => 'Nei Messagen',
 	'lqt_movethread' => 'Rubrik op eng aner Säit réckelen',
@@ -1933,6 +1934,7 @@ $messages['lb'] = array(
 	'lqt_delete' => 'Läschen',
 	'lqt_undelete' => 'Restauréieren',
 	'lqt_permalink' => 'Permanente Link',
+	'lqt_fragment' => 'en Deel vun $1 vum $2 un',
 	'lqt_discussion_link' => 'Diskussioun',
 	'lqt_from_talk' => 'vun $1',
 	'lqt_newer' => '«méi nei',
@@ -1943,6 +1945,7 @@ $messages['lb'] = array(
 	'lqt_hist_deleted' => 'Geläscht',
 	'lqt_hist_undeleted' => 'Restauréiert',
 	'lqt_hist_moved_talkpage' => 'Geréckelt',
+	'lqt_hist_view_whole_thread' => "All d'Versioune vun der ganzer Rubrik weisen",
 	'lqt_hist_tooltip_newer_disabled' => 'Dëse Link ass ausgeschalt well dir op der éischter Säit sidd.',
 	'lqt_hist_tooltip_older_disabled' => 'Dës Link ass ausgeschalt well Dir op der läschter Säit sidd',
 	'lqt_revision_as_of' => 'Versioun vum $1.',
@@ -1960,6 +1963,7 @@ $messages['lb'] = array(
 	'lqt_summary_subtitle' => 'De Résumé vun $1',
 	'lqt_nosuchrevision' => 'Et gëtt déi Versioun vun deser Rubrik net.',
 	'lqt_nosuchthread' => 'Et gëtt keng Rubrik mat dem Numm.',
+	'lqt_threadrequired' => 'Dir musst eng Rubrik an der URL uginn.',
 	'lqt_move_torename_edit' => 'et änneren',
 	'lqt_move_move' => 'Réckelen',
 	'lqt_move_noreason' => 'Kee Grond uginn',
@@ -1967,6 +1971,7 @@ $messages['lb'] = array(
 	'lqt_delete_undeleting' => '$1 gëtt geläscht.',
 	'lqt_delete_undeletethread' => 'Rubrik restauréieren',
 	'lqt_delete_partof' => 'Dës Rubrik ass en Deel vu(n) $1.',
+	'lqt_delete_deleting' => 'Läsche vun $1 an $2.',
 	'lqt_delete_deleting_allreplies' => 'all Äntwerten',
 	'lqt_delete_deletethread' => "D'Rubrik an d'Äntwerte läschen",
 	'lqt_delete_deleted' => "D'Rubrik gouf geläscht.",
@@ -1979,6 +1984,8 @@ $messages['lb'] = array(
 	'lqt_header_warning_bold' => 'Iwwerschrëft vun enger Diskussiounssäit',
 	'lqt_header_warning_new_discussion' => 'eng nei Diskussioun ufänken.',
 	'lqt_remember_sort' => 'Dës Astellung verhalen',
+	'lqt_sort_newest_changes' => "Fir d'läscht geännerte fir d'éischt",
+	'lqt_sort_newest_threads' => 'neiste Rubrik als éischt',
 	'lqt-any-date' => 'All Datum',
 	'lqt-only-date' => 'Nëmmen dës Datumen:',
 	'lqt-date-from' => 'Vum',
@@ -1987,7 +1994,9 @@ $messages['lb'] = array(
 	'lqt-summary' => 'Resumé',
 	'lqt-older' => 'méi al',
 	'lqt-newer' => 'méi nei',
+	'lqt-searching' => 'No Rubrike sichen',
 	'lqt-read-message' => 'Geliest',
+	'lqt-read-all' => 'All uwesien wéi wa se geliest gi wieren',
 	'lqt-email-undo' => 'Zréck setzen',
 	'lqt-messages-sent' => 'Messagen déi dir geschéckt kritt hutt:',
 	'lqt-other-messages' => 'Messagen op aneren Diskussiounssäiten:',
@@ -2822,6 +2831,7 @@ $messages['ro'] = array(
 );
 
 /** Russian (Русский)
+ * @author Ferrer
  * @author Kaganer
  * @author VasilievVV
  * @author Александр Сигачёв
@@ -2914,6 +2924,17 @@ $messages['ru'] = array(
 	'lqt_sort_newest_changes' => 'последние изменённые вначале',
 	'lqt_sort_newest_threads' => 'новые ветки вначале',
 	'lqt_sort_oldest_threads' => 'старые ветки вначале',
+	'lqt-date-from' => 'От',
+	'lqt-date-to' => 'К',
+	'lqt-title' => 'Заголовок',
+	'lqt-summary' => 'Описание',
+	'lqt-older' => 'старейшие',
+	'lqt-newer' => 'недавние',
+	'lqt-read-message' => 'Читать',
+	'lqt-read-all' => 'Отметить все как прочитанные',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|сообщение|сообщения}} отмечены как прочитанные.',
+	'lqt_rc_author_original' => '(оригинальный автор)',
+	'lqt_rc_author_others' => '(нет автора)',
 );
 
 /** Tachelhit (Tašlḥiyt)
