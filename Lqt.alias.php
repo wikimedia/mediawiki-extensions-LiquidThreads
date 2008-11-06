@@ -33,6 +33,11 @@ $aliases['arz'] = array(
 	'NewMessages' => array( 'رسائل_جديدة' ),
 );
 
+/** Bosnian (Bosanski) */
+$aliases['bs'] = array(
+	'NewMessages' => array( 'NovePoruke' ),
+);
+
 /** Persian (فارسی) */
 $aliases['fa'] = array(
 	'DeleteThread' => array( 'حذف_رشته' ),

@@ -1965,6 +1965,7 @@ $messages['lb'] = array(
 	'lqt_nosuchrevision' => 'Et gëtt déi Versioun vun deser Rubrik net.',
 	'lqt_nosuchthread' => 'Et gëtt keng Rubrik mat dem Numm.',
 	'lqt_threadrequired' => 'Dir musst eng Rubrik an der URL uginn.',
+	'lqt_move_torename' => "Fir dës Rubrik z'änneren, $1 an ännert de 'Sujet'.",
 	'lqt_move_torename_edit' => 'et änneren',
 	'lqt_move_move' => 'Réckelen',
 	'lqt_move_noreason' => 'Kee Grond uginn',
