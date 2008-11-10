@@ -569,6 +569,13 @@ $messages['br'] = array(
 	'lqt_delete' => 'Diverkañ',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'lqt_delete' => 'Obriši',
+);
+
 /** Catalan (Català)
  * @author Jordi Roqué
  * @author SMP
