@@ -574,6 +574,7 @@ $messages['br'] = array(
  */
 $messages['bs'] = array(
 	'lqt_delete' => 'Obriši',
+	'lqt_move_move' => 'Premjesti',
 );
 
 /** Catalan (Català)
