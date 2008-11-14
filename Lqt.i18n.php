@@ -575,6 +575,7 @@ $messages['br'] = array(
 $messages['bs'] = array(
 	'lqt_delete' => 'Obriši',
 	'lqt_move_move' => 'Premjesti',
+	'lqt-any-date' => 'Svaki datum',
 );
 
 /** Catalan (Català)
@@ -2566,8 +2567,8 @@ $messages['oc'] = array(
 	'lqt_summary_notice_link' => 'escriure un resumit',
 	'lqt_summary_label' => 'Aqueste fial es estat resumit per :',
 	'lqt_summary_subtitle' => 'lo resumit de $1.',
-	'lqt_nosuchrevision' => 'Cap de revision per aqueste fial correspon pas.',
-	'lqt_nosuchthread' => 'Cap de fial correspon pas.',
+	'lqt_nosuchrevision' => 'Cap de revision per aqueste fial correspond pas.',
+	'lqt_nosuchthread' => 'Cap de fial correspond pas.',
 	'lqt_threadrequired' => "Vos cal indicar un fial dins l'URL.",
 	'lqt_move_movingthread' => '$1 en deplaçament. Aqueste fial fa partida de $2.',
 	'lqt_move_torename' => "Per tornar nomenar aqueste fial, $1 e modificar lo camp ''Subjècte''.",
