@@ -47,7 +47,7 @@ $wgHooks['OldChangesListRecentChangesLine'][] = 'LqtDispatch::customizeOldChange
 $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtDispatch::setNewtalkHTML';
 
 $wgSpecialPages['DeleteThread'] = 'SpecialDeleteThread';
-$wgSpecialPages['MoveThread'] = 'SpecialMoveThreadToAnotherPage';
+$wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
 
 // Obtained with $ grep -ir 'class .*' *.php | perl -n -e 'if (/(\w+\.php):\s*class (\w+)/) {print "\$wgAutoloadClasses['\''$2'\''] = \$dir.'\''$1'\'';\n";}'
@@ -72,7 +72,7 @@ $wgAutoloadClasses['ThreadProtectionFormView'] = $dir.'LqtPages.php';
 $wgAutoloadClasses['ThreadHistoryListingView'] = $dir.'LqtPages.php';
 $wgAutoloadClasses['ThreadHistoricalRevisionView'] = $dir.'LqtPages.php';
 $wgAutoloadClasses['SummaryPageView'] = $dir.'LqtPages.php';
-$wgAutoloadClasses['SpecialMoveThreadToAnotherPage'] = $dir.'LqtPages.php';
+$wgAutoloadClasses['SpecialMoveThread'] = $dir.'LqtPages.php';
 $wgAutoloadClasses['SpecialDeleteThread'] = $dir.'LqtPages.php';
 $wgAutoloadClasses['NewUserMessagesView'] = $dir.'LqtPages.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir.'LqtPages.php';

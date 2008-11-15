@@ -849,11 +849,11 @@ class SummaryPageView extends LqtView {
 }
 
 
-class SpecialMoveThreadToAnotherPage extends SpecialPage {
+class SpecialMoveThread extends UnlistedSpecialPage {
 	private $user, $output, $request, $title, $thread;
 	
 	function __construct() {
-		SpecialPage::SpecialPage( 'Movethread' );
+		parent::__construct( 'Movethread' );
 		$this->includable( false );
 	}
 	
@@ -973,11 +973,11 @@ HTML
 	}
 }
 
-class SpecialDeleteThread extends SpecialPage {
+class SpecialDeleteThread extends UnlistedSpecialPage {
 	private $user, $output, $request, $title, $thread;
 	
 	function __construct() {
-		SpecialPage::SpecialPage( 'Deletethread' );
+		parent::__construct( 'Deletethread' );
 		$this->includable( false );
 	}
 	
