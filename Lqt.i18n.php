@@ -3523,6 +3523,13 @@ $messages['vo'] = array(
 	'lqt-title' => 'Tiäd',
 );
 
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'lqt_remember_sort' => 'געדענק דעם פרעפֿערענץ',
+);
+
 /** Yue (粵語)
  * @author Shinjiman
  */
