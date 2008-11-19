@@ -38,6 +38,13 @@ $aliases['bs'] = array(
 	'NewMessages' => array( 'NovePoruke' ),
 );
 
+/** German (Deutsch) */
+$aliases['de'] = array(
+	'DeleteThread' => array( 'Thread löschen' ),
+	'MoveThread' => array( 'Thread verschieben' ),
+	'NewMessages' => array( 'Neue Nachrichten' ),
+);
+
 /** Persian (فارسی) */
 $aliases['fa'] = array(
 	'DeleteThread' => array( 'حذف_رشته' ),
