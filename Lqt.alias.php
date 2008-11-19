@@ -45,6 +45,11 @@ $aliases['fa'] = array(
 	'NewMessages' => array( 'پیام‌های_جدید' ),
 );
 
+/** Japanese (日本語) */
+$aliases['ja'] = array(
+	'DeleteThread' => array( 'スレッド削除' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $aliases['lb'] = array(
 	'DeleteThread' => array( 'Rubrik läschen' ),
