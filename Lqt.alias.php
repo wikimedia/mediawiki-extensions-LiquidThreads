@@ -52,6 +52,11 @@ $aliases['fa'] = array(
 	'NewMessages' => array( 'پیام‌های_جدید' ),
 );
 
+/** Galician (Galego) */
+$aliases['gl'] = array(
+	'NewMessages' => array( 'Mensaxes novas' ),
+);
+
 /** Japanese (日本語) */
 $aliases['ja'] = array(
 	'DeleteThread' => array( 'スレッド削除' ),

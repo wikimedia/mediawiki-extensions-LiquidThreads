@@ -1168,6 +1168,17 @@ $messages['got'] = array(
 	'lqt_move_move' => 'Skiuban',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Crazymadlover
+ */
+$messages['grc'] = array(
+	'lqt_newmessages' => 'Νέας ἀγγελίας',
+	'lqt_contents_title' => 'Περιεχόμενα:',
+	'lqt_delete' => 'Σβεννύναι',
+	'lqt_discussion_link' => 'διάλεξις',
+	'lqt_delete_return' => 'Ἐπανιέναι εἰς $1.',
+);
+
 /** Gujarati (ગુજરાતી)
  * @author Dsvyas
  */
