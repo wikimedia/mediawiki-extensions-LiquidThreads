@@ -1170,9 +1170,10 @@ $messages['got'] = array(
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
  * @author Crazymadlover
+ * @author Omnipaedista
  */
 $messages['grc'] = array(
-	'lqt_newmessages' => 'Νέας ἀγγελίας',
+	'lqt_newmessages' => 'Νέαι ἀγγέλιαι',
 	'lqt_contents_title' => 'Περιεχόμενα:',
 	'lqt_delete' => 'Σβεννύναι',
 	'lqt_discussion_link' => 'διάλεξις',
@@ -2650,6 +2651,7 @@ Aquesta operacion es irreversibla.',
 $messages['os'] = array(
 	'lqt_delete' => 'Аппар',
 	'lqt_protectedfromreply_link' => 'æхгæд',
+	'lqt-title' => 'Сæргонд',
 );
 
 /** Pampanga (Kapampangan)
