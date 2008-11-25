@@ -57,6 +57,11 @@ $aliases['gl'] = array(
 	'NewMessages' => array( 'Mensaxes novas' ),
 );
 
+/** Hungarian (Magyar) */
+$aliases['hu'] = array(
+	'NewMessages' => array( 'Új üzenetek' ),
+);
+
 /** Japanese (日本語) */
 $aliases['ja'] = array(
 	'DeleteThread' => array( 'スレッド削除' ),
