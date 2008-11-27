@@ -2856,6 +2856,17 @@ $messages['ro'] = array(
 	'lqt_thread_deleted_for_sysops_deleted' => 'şters',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'lqt_hist_deleted' => 'Scangillete',
+	'lqt_hist_undeleted' => 'Ripristinete',
+	'lqt_hist_moved_talkpage' => 'Spustete',
+	'lqt_changes_from' => '  da',
+	'lqt_changes_summary_of' => ' de',
+);
+
 /** Russian (Русский)
  * @author Ferrer
  * @author Kaganer

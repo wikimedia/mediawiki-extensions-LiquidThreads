@@ -107,3 +107,8 @@ $aliases['sv'] = array(
 	'NewMessages' => array( 'Nya meddelanden' ),
 );
 
+/** Swahili (Kiswahili) */
+$aliases['sw'] = array(
+	'NewMessages' => array( 'MijumbeMipya' ),
+);
+
