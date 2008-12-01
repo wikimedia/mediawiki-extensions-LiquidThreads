@@ -140,6 +140,7 @@ This operation is undoable.',
 );
 
 /** Message documentation (Message documentation)
+ * @author Aotake
  * @author Helix84
  * @author Jon Harald Søby
  * @author Minh Nguyen
@@ -167,6 +168,7 @@ $messages['qqq'] = array(
 	'lqt_move_noreason' => '{{Identical|No reason given}}',
 	'lqt_delete_return' => '{{Identical|Return to $1}}',
 	'lqt_header_warning_new_discussion' => '{{Identical|Start a new discussion}}',
+	'lqt-any-date' => '{{Identical|Date}}',
 	'lqt-title' => '{{Identical|Title}}',
 	'lqt-summary' => '{{Identical|Summary}}',
 	'lqt-older' => '{{Identical|Older}}',
