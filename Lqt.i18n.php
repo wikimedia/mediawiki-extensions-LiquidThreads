@@ -172,6 +172,7 @@ $messages['qqq'] = array(
 	'lqt-title' => '{{Identical|Title}}',
 	'lqt-summary' => '{{Identical|Summary}}',
 	'lqt-older' => '{{Identical|Older}}',
+	'lqt-email-undo' => '{{Identical|Undo}}',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -218,6 +219,14 @@ $messages['af'] = array(
 	'lqt_changes_from' => '  vanaf',
 	'lqt_changes_summary_of' => '  van',
 	'lqt_move_move' => 'Skuif',
+);
+
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'lqt-any-date' => 'En cualsiquier calendata',
+	'lqt-only-date' => 'Nomás istas calendatas:',
 );
 
 /** Arabic (العربية)
@@ -504,6 +513,8 @@ $messages['bg'] = array(
 	'lqt_newer' => '« по-нови',
 	'lqt_older' => 'по-стари »',
 	'lqt_hist_summary_changed' => 'Променено резюме',
+	'lqt_hist_reply_created' => 'Добавен нов отговор',
+	'lqt_hist_thread_created' => 'Започната нова нишка',
 	'lqt_hist_tooltip_newer_disabled' => 'Препратката е неактивна, тъй като сте на първата страница.',
 	'lqt_hist_tooltip_older_disabled' => 'Препратката е неактивна, тъй като сте на последната страница.',
 	'lqt_revision_as_of' => 'Версия към $1.',
@@ -518,6 +529,8 @@ $messages['bg'] = array(
 	'lqt_thread_deleted_for_sysops' => 'Тази нишка е била $1 и е видима само за администратори.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'изтрита',
 	'lqt_thread_deleted' => 'Нишката е била изтрита.',
+	'lqt_summary_notice_link' => 'въведи резюме',
+	'lqt_summary_subtitle' => 'резюмето на $1.',
 	'lqt_nosuchrevision' => 'Не съществува такава версия на тази нишка.',
 	'lqt_nosuchthread' => 'Няма такава нишка.',
 	'lqt_threadrequired' => 'Трябва да се укаже нишка в URL.',
@@ -540,6 +553,8 @@ $messages['bg'] = array(
 	'lqt_delete_return' => 'Връщане към $1.',
 	'lqt_delete_return_link' => 'беседата',
 	'lqt_delete_unallowed' => 'Нямате права да изтривате нишки.',
+	'lqt_delete_show_checkbox' => 'Показване на изтритите нишки',
+	'lqt_talkpage_autocreate_summary' => 'Дискусионната страница е създадена автоматично със започването на първата нишка.',
 	'lqt_header_warning_big' => 'Редактирате $1.',
 	'lqt_header_warning_new_discussion' => 'започване на ново обсъждане',
 	'lqt_sorting_order' => 'Ред за сортиране:',
@@ -547,6 +562,7 @@ $messages['bg'] = array(
 	'lqt_sort_newest_changes' => 'първо последно променените',
 	'lqt_sort_newest_threads' => 'първо най-новите нишки',
 	'lqt_sort_oldest_threads' => 'първо най-старите нишки',
+	'lqt-only-date' => 'Само следните дати:',
 	'lqt-date-from' => 'От',
 	'lqt-date-to' => 'До',
 	'lqt-title' => 'Заглавие',
@@ -555,6 +571,16 @@ $messages['bg'] = array(
 	'lqt-newer' => 'по-нови',
 	'lqt-searching' => 'Търсене за нишки',
 	'lqt-read-message' => 'Прочитане',
+	'lqt-read-message-tooltip' => 'Премахване на тази нишка от новите съобщения.
+Тя ще продължи да се вижда на оригиналната дискусионна страница.',
+	'lqt-read-all' => 'Отбелязване на всички като прочетени',
+	'lqt-marked-read' => "Нишка '''$1''' е отбелязана като прочетена.",
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|съобщение, отбелязано като прочетено|съобщения, отбелязани като прочетени}}.',
+	'lqt-other-messages' => 'Съобщения на други дискусионни страници:',
+	'lqt-no-new-messages' => 'Нямате нови съобщения.',
+	'lqt-new-messages' => 'Имате нови съобщения.',
+	'lqt-date-info' => 'Тази връзка е деактивирана, тъй като преглеждате нишките от всички дати.',
+	'lqt_rc_new_discussion' => 'Нова дискусия, $1, от $2. &bull; $3 написа:',
 );
 
 /** Bengali (বাংলা)
@@ -630,6 +656,7 @@ $messages['da'] = array(
  * @author DaSch
  * @author Raimond Spekking
  * @author Revolus
+ * @author Umherirrender
  */
 $messages['de'] = array(
 	'lqt-desc' => 'Benutzung von Diskussionssträngen auf Diskussionsseiten',
@@ -744,6 +771,7 @@ Diese Operation kann nicht rückgängig gemacht werden.',
 	'lqt-email-undo' => 'Rückgängig',
 	'lqt-messages-sent' => 'An dich gesendete Nachrichten:',
 	'lqt-other-messages' => 'Nachrichten auf anderen Diskussionsseiten:',
+	'lqt-no-new-messages' => 'Du hast keine neuen Nachrichten.',
 	'lqt-new-messages' => 'Du hast neue Nachrichten.',
 	'lqt-email-info-undo' => 'Hole den Diskussionsstrang zurück, den du gerade fortgeschickt hast.',
 	'lqt-date-info' => 'Dieser Link ist nicht aktiv, da du Diskussionsstränge von allen Daten ansiehst.',
