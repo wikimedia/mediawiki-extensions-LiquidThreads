@@ -36,7 +36,6 @@ $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'Lqt.i18n.php';
 $wgExtensionAliasesFiles['LiquidThreads'] = $dir . 'Lqt.alias.php';
 
-$wgExtensionFunctions[] = 'wfLqtInitMsg';
 $wgHooks['BeforeWatchlist'][] = 'wfLqtBeforeWatchlistHook';
 $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
 $wgHooks['SpecialMovepageAfterMove'][] = 'LqtDispatch::onPageMove';

@@ -914,6 +914,7 @@ class Threads {
 		$talkpage = new Article($talkpage_t);
 		if( ! $talkpage->exists() ) {
 			try {
+				wfLoadExtensionMessages( 'LiquidThreads' );
 				$talkpage->doEdit( "", wfMsg('lqt_talkpage_autocreate_summary'), EDIT_NEW | EDIT_SUPPRESS_RC );
 
 			} catch( DBQueryError $e ) {

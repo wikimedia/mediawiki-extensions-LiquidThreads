@@ -14,13 +14,6 @@ function efArrayDefault($name, $key, $default) {
 }
 
 /**
- * Initialize LiquidThreads user interface messages
- */
-function wfLqtInitMsg() {
-	wfLoadExtensionMessages( 'LiquidThreads' );
-}
-
-/**
  * Recreate the original associative array so that a new pair with the given key
  * and value is inserted before the given existing key. $original_array gets
  * modified in-place.
@@ -85,6 +78,7 @@ function wfLqtBeforeWatchlistHook( $options, $user, &$hook_sql ) {
 		return true;
 
 	LqtView::addJSandCSS();
+	wfLoadExtensionMessages( 'LiquidThreads' );
 	$messages_url = SpecialPage::getPage('NewMessages')->getTitle()->getFullURL();
 	$new_messages = wfMsg ( 'lqt-new-messages' );
 	$wgOut->addHTML(<<< HTML
