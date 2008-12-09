@@ -1865,6 +1865,7 @@ $messages['jv'] = array(
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
  * @author Lovekhmer
+ * @author Thearith
  * @author គីមស៊្រុន
  */
 $messages['km'] = array(
@@ -1879,8 +1880,8 @@ $messages['km'] = array(
 	'lqt_reply' => 'ឆ្លើយតប',
 	'lqt_delete' => 'លុបចេញ',
 	'lqt_undelete' => 'ឈប់លុបចេញ',
-	'lqt_permalink' => 'តំនភ្ជាប់អចិន្ត្រៃយ៍',
-	'lqt_fragment' => 'បំនែកមួយរបស់ $1 ពី $2',
+	'lqt_permalink' => 'តំណភ្ជាប់អចិន្ត្រៃយ៍',
+	'lqt_fragment' => 'បំណែកមួយរបស់ $1 ពី $2',
 	'lqt_discussion_link' => 'ការពិភាក្សា',
 	'lqt_from_talk' => 'ពី $1',
 	'lqt_newer' => '«ថ្មីជាង',
@@ -1893,15 +1894,15 @@ $messages['km'] = array(
 	'lqt_hist_moved_talkpage' => 'បានប្តូរទីតាំង',
 	'lqt_hist_listing_subtitle' => 'មើលបញ្ជីប្រវត្តិ ។',
 	'lqt_hist_past_last_page_error' => 'អ្នកបានហួស ចំនួនទំព័រ នៃប្រវត្តិ ដែលមាន',
-	'lqt_hist_tooltip_newer_disabled' => 'តំណភ្ជាប់នេះ អសកម្ម ព្រោះ អ្នកថិតលើ ទំព័រដំបូង ។',
-	'lqt_hist_tooltip_older_disabled' => 'តំណភ្ជាប់នេះ អសកម្ម ព្រោះ អ្នកថិតលើ ទំព័រចុងក្រោយ ។',
+	'lqt_hist_tooltip_newer_disabled' => 'តំណភ្ជាប់នេះ អសកម្ម ព្រោះ អ្នកស្ថិតលើ ទំព័រដំបូង ។',
+	'lqt_hist_tooltip_older_disabled' => 'តំណភ្ជាប់នេះ អសកម្ម ព្រោះ អ្នកស្ថិតលើ ទំព័រចុងក្រោយ ។',
 	'lqt_youhavenewmessages' => 'អ្នកមាន $1​ ។',
 	'lqt_changes_from' => 'ពី',
 	'lqt_changes_summary_of' => 'នៃ',
 	'lqt_protectedfromreply_link' => 'បានការពារ',
 	'lqt_subject' => 'ប្រធានបទ ៖',
 	'lqt_nosubject' => '«មិនមានប្រធានបទទេ»',
-	'lqt_noreason' => 'គ្មានហេតុផល ត្រូវបានផ្តល់អោយ ។',
+	'lqt_noreason' => 'គ្មានហេតុផល ត្រូវបានផ្តល់ឱ្យ ។',
 	'lqt_thread_deleted_for_sysops_deleted' => 'ត្រូវបានលុបចោល',
 	'lqt_summary_notice' => 'គ្មានបំលាស់ប្តូរ ក្នុងការពិភាក្សានេះ តាំងពី យ៉ាងតិច $2 ថ្ងៃ ។ បើចង់ផ្លាស់ប្តូរវា, អ្នកអាចនឹង ត្រូវការ $1 ។',
 	'lqt_summary_notice_link' => 'សរសេរ មួយ សេចក្តីសង្ខេប',
@@ -1910,7 +1911,7 @@ $messages['km'] = array(
 	'lqt_move_destinationtitle' => 'ចំណងជើង នៃ ទំព័រពិភាក្សា​ គោលដៅ ៖',
 	'lqt_move_move' => 'ប្តូរទីតាំង',
 	'lqt_move_nodestination' => 'អ្នកត្រូវតែ សំដៅ មួយគោលដៅ ។',
-	'lqt_move_noreason' => 'គ្មានហេតុផល ត្រូវបានផ្តល់អោយ ។',
+	'lqt_move_noreason' => 'គ្មានហេតុផល ត្រូវបានផ្តល់ឱ្យ ។',
 	'lqt_delete_undeleting' => 'លែងលុបចេញ $1 ។',
 	'lqt_delete_deleting_allreplies' => 'គ្រប់ ការឆ្លើយតប',
 	'lqt_delete_return' => 'ត្រលប់ទៅកាន់ $1 វិញ។',
@@ -1922,12 +1923,12 @@ $messages['km'] = array(
 	'lqt_remember_sort' => 'ចងចាំ ចំណូលចិត្ត នេះ',
 	'lqt-date-from' => 'ពី',
 	'lqt-date-to' => 'ដល់',
-	'lqt-title' => 'ចំនងជើង',
+	'lqt-title' => 'ចំណងជើង',
 	'lqt-older' => 'ចាស់ជាង',
 	'lqt-newer' => 'ថ្មីជាង',
 	'lqt-read-message' => 'អាន',
 	'lqt-messages-sent' => 'សារបានផ្ញើទៅអ្នក៖',
-	'lqt-new-messages' => 'មានសារថ្មីៗសំរាប់អ្នក។',
+	'lqt-new-messages' => 'មានសារថ្មីៗសម្រាប់អ្នក។',
 	'lqt_rc_author_original' => '(អ្នកនិពន្ឋដើម)',
 	'lqt_rc_author_others' => '(មិនមែនជាអ្នកនិពន្ឋ)',
 );
