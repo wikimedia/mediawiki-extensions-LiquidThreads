@@ -75,5 +75,3 @@ $wgAutoloadClasses['SpecialMoveThread'] = $dir.'LqtPages.php';
 $wgAutoloadClasses['SpecialDeleteThread'] = $dir.'LqtPages.php';
 $wgAutoloadClasses['NewUserMessagesView'] = $dir.'LqtPages.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir.'LqtPages.php';
-
-$eqLqtContentPages = array(); // Pages that should never be liquidized

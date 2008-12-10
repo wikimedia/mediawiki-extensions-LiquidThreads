@@ -101,10 +101,7 @@ class LqtDispatch {
 	* as needed and return True. If it's a normal, non-liquid page, return false.
 	*/
 	static function tryPage( $output, $article, $title, $user, $request ) {
-		global $eqLqtContentPages;
-		if ( in_array( $title->getPrefixedText(), $eqLqtContentPages ) ) {
-			return true;
-		} if ( $title->isTalkPage() ) {
+		if ( $title->isTalkPage() ) {
 			return self::talkpageMain ($output, $article, $title, $user, $request);
 		} else if ( $title->getNamespace() == NS_LQT_THREAD ) {
 			return self::threadPermalinkMain($output, $article, $title, $user, $request);
