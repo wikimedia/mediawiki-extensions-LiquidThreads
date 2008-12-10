@@ -57,6 +57,13 @@ $aliases['gl'] = array(
 	'NewMessages' => array( 'Mensaxes novas' ),
 );
 
+/** Swiss German (Alemannisch) */
+$aliases['gsw'] = array(
+	'DeleteThread' => array( 'Thread lesche' ),
+	'MoveThread' => array( 'Thread verschiebe' ),
+	'NewMessages' => array( 'Neji Nochrichte' ),
+);
+
 /** Hungarian (Magyar) */
 $aliases['hu'] = array(
 	'NewMessages' => array( 'Új üzenetek' ),
