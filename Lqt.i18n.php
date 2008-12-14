@@ -1207,7 +1207,10 @@ $messages['grc'] = array(
 	'lqt_contents_title' => 'Περιεχόμενα:',
 	'lqt_delete' => 'Σβεννύναι',
 	'lqt_discussion_link' => 'διάλεξις',
+	'lqt_hist_deleted' => 'Διεγραμμένη',
+	'lqt_thread_deleted_for_sysops_deleted' => 'διεγραμμένη',
 	'lqt_delete_return' => 'Ἐπανιέναι εἰς $1.',
+	'lqt-title' => 'Ἐπιγραφή',
 );
 
 /** Gujarati (ગુજરાતી)
