@@ -35,6 +35,8 @@ $aliases['arz'] = array(
 
 /** Bosnian (Bosanski) */
 $aliases['bs'] = array(
+	'DeleteThread' => array( 'ObrisiTok' ),
+	'MoveThread' => array( 'PremjestiTok' ),
 	'NewMessages' => array( 'NovePoruke' ),
 );
 
