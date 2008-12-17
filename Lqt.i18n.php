@@ -1727,6 +1727,7 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Aotake
+ * @author Fryed-peach
  * @author JtFuruhata
  */
 $messages['ja'] = array(
@@ -1804,7 +1805,7 @@ $messages['ja'] = array(
 	'lqt_delete_deletethread' => 'スレッドと返答の削除',
 	'lqt_delete_deleted' => 'スレッドが削除されました。',
 	'lqt_delete_undeleted' => 'スレッドが復帰しました。',
-	'lqt_delete_return' => '$1に戻る',
+	'lqt_delete_return' => '$1に戻る。',
 	'lqt_delete_return_link' => '{{int:talk}}ページ',
 	'lqt_delete_unallowed' => 'あなたはスレッドの削除処理を許可されていません。',
 	'lqt_talkpage_autocreate_summary' => '最初のスレッドが始まる際、{{int:talk}}ページは自動的に作成されます。',
