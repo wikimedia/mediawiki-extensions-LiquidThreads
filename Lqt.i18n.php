@@ -1818,6 +1818,7 @@ $messages['ja'] = array(
 	'lqt_sort_newest_changes' => '最終更新を上に',
 	'lqt_sort_newest_threads' => '新しいスレッドを上に',
 	'lqt_sort_oldest_threads' => '古いスレッドを上に',
+	'lqt-title' => 'タイトル',
 );
 
 /** Javanese (Basa Jawa)
