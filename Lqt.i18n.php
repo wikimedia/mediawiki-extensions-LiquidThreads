@@ -3572,6 +3572,9 @@ Thay vào đó bạn có thể muốn $2.',
 	'lqt_sort_newest_changes' => 'xem lần cuối sửa đổi trước',
 	'lqt_sort_newest_threads' => 'xem các luồng mới nhất trước',
 	'lqt_sort_oldest_threads' => 'xem các luồng cũ nhất trước',
+	'lqt-any-date' => 'Bất cứ ngày tháng',
+	'lqt-only-date' => 'Chỉ hiện các ngày tháng:',
+	'lqt-date-info' => 'Liên kết này bị tắt vì bạn đang xem các trao đổi bất cứ ngày tháng.',
 );
 
 /** Volapük (Volapük)
