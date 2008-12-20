@@ -1034,11 +1034,11 @@ HTML
 	}
 
 	function openDiv( $class='', $id='' ) {
-		$this->output->addHTML( wfOpenElement( 'div', array('class'=>$class, 'id'=>$id) ) );
+		$this->output->addHTML( Xml::openElement( 'div', array('class'=>$class, 'id'=>$id) ) );
 	}
 
 	function closeDiv() {
-		$this->output->addHTML( wfCloseElement( 'div' ) );
+		$this->output->addHTML( Xml::closeElement( 'div' ) );
 	}
 
 	function showSummary($t) {

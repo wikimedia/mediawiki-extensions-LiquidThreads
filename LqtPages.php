@@ -71,13 +71,13 @@ class TalkpageView extends LqtView {
 	}
 	
 	function outputList( $kind, $class, $id, $contents ) {
-		$this->output->addHTML(wfOpenElement($kind, array('class'=>$class,'id'=>$id)));
+		$this->output->addHTML(Xml::openElement($kind, array('class'=>$class,'id'=>$id)));
 		foreach ($contents as $li) {
-			$this->output->addHTML( wfOpenElement('li') );
+			$this->output->addHTML( Xml::openElement('li') );
 			$this->output->addHTML( $li );
-			$this->output->addHTML( wfCloseElement('li') );
+			$this->output->addHTML( Xml::closeElement('li') );
 		}
-		$this->output->addHTML(wfCloseElement($kind));
+		$this->output->addHTML(Xml::closeElement($kind));
 	}
 	
 	function showTOC($threads) {
