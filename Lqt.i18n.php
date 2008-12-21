@@ -2765,13 +2765,14 @@ $messages['ps'] = array(
 	'lqt_delete' => 'ړنګول',
 	'lqt_from_talk' => 'د $1 لخوا',
 	'lqt_hist_deleted' => 'ړنګ شو',
-	'lqt_youhavenewmessages' => 'تاسو $1 لری.',
+	'lqt_youhavenewmessages' => 'تاسو [$1 نوي پيغامونه] لری.',
 	'lqt_protectedfromreply_link' => 'ژغورلی',
 	'lqt_subject' => 'سکالو:',
 	'lqt_noreason' => 'هېڅ سبب نه دی ورکړ شوی.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'ړنګ شو',
 	'lqt_move_noreason' => 'هېڅ سبب نه دی ورکړ شوی.',
 	'lqt_delete_deleting_allreplies' => 'ټول ځوابونه',
+	'lqt-any-date' => 'هر يو وخت',
 );
 
 /** Portuguese (Português)

@@ -76,6 +76,11 @@ $aliases['ja'] = array(
 	'DeleteThread' => array( 'スレッド削除' ),
 );
 
+/** Khmer (ភាសាខ្មែរ) */
+$aliases['km'] = array(
+	'NewMessages' => array( 'សារថ្មីៗ' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $aliases['lb'] = array(
 	'DeleteThread' => array( 'Rubrik läschen' ),
