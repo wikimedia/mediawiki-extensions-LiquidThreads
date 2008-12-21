@@ -63,15 +63,15 @@ function efThreadTableHelper($t, $indent) {
 		efThreadTableHelper($st, $indent + 1);
 }
 
-function wfLqtBeforeWatchlistHook( $options, $user, &$hook_sql ) {
-	global $wgOut;
+function wfLqtBeforeWatchlistHook( &$conds, &$tables, &$join_conds, &$fields ) {
+	global $wgOut, $wgUser;
 
-	$hook_sql = "AND page_namespace != " . NS_LQT_THREAD;
+	$conds[] = "page_namespace != " . NS_LQT_THREAD;
 
-	$talkpage_messages = NewMessages::newUserMessages($user);
+	$talkpage_messages = NewMessages::newUserMessages($wgUser);
 	$tn = count($talkpage_messages);
 
-	$watch_messages = NewMessages::watchedThreadsForUser($user);
+	$watch_messages = NewMessages::watchedThreadsForUser($wgUser);
 	$wn = count($watch_messages);
 
 	if( $tn == 0 && $wn == 0 )
