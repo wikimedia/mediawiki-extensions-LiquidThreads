@@ -88,6 +88,13 @@ $aliases['lb'] = array(
 	'NewMessages' => array( 'Nei Messagen' ),
 );
 
+/** Macedonian (Македонски) */
+$aliases['mk'] = array(
+	'DeleteThread' => array( 'НишкаНаБришење' ),
+	'MoveThread' => array( 'НишкаНаПреместување' ),
+	'NewMessages' => array( 'НовиПораки' ),
+);
+
 /** Nedersaksisch (Nedersaksisch) */
 $aliases['nds-nl'] = array(
 	'DeleteThread' => array( 'Draod_vortdoon' ),

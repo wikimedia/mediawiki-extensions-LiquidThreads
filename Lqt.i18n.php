@@ -654,6 +654,7 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author DaSch
+ * @author Michawiki
  * @author Raimond Spekking
  * @author Revolus
  * @author Umherirrender
@@ -765,7 +766,7 @@ Er wird weiterhin auf der Original-Diskussionsseite zu sehen sein.',
 	'lqt-read-all' => 'Alle als gelesen markieren',
 	'lqt-read-all-tooltip' => 'Entferne alle Diskussionsstränge von neuen Nachrichten.
 Sie sind weiterhin auf den Original-Diskussionsseiten sichtbar.
-Diese Operation kann nicht rückgängig gemacht werden.',
+Diese Operation kann rückgängig gemacht werden.',
 	'lqt-marked-read' => "Diskussionsstrang '''$1''' wurde als gelesen markiert.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|Nachricht|Nachrichten}} als gelesen markiert.',
 	'lqt-email-undo' => 'Rückgängig',
@@ -1475,6 +1476,7 @@ $messages['hsb'] = array(
 	'lqt_delete_return' => 'Wróć so k $1.',
 	'lqt_delete_return_link' => 'diskusijna strona',
 	'lqt_delete_unallowed' => 'Njesměš nitki wušmórować.',
+	'lqt_delete_show_checkbox' => 'Wušmórnjene nitki pokazać',
 	'lqt_talkpage_autocreate_summary' => 'Diskusijna strona je so awtomatisce wutworiła, hdyž bě so prěnja nitka wotesłała.',
 	'lqt_header_warning_big' => 'Wobdźěłuješ $1.',
 	'lqt_header_warning_after_big' => 'Hłowowe linki su za wozjewjenja a předsłowa. Chceš snano město toho $2.',
@@ -1485,6 +1487,35 @@ $messages['hsb'] = array(
 	'lqt_sort_newest_changes' => 'Poslednje změnjene jako prěnje',
 	'lqt_sort_newest_threads' => 'najnowše nitki jako přenje',
 	'lqt_sort_oldest_threads' => 'najstarše nitki jako prěnje',
+	'lqt-any-date' => 'Někajki datum',
+	'lqt-only-date' => 'Jenož tute datumy:',
+	'lqt-date-from' => 'Wot',
+	'lqt-date-to' => 'Do',
+	'lqt-title' => 'Titul',
+	'lqt-summary' => 'Zjeće',
+	'lqt-older' => 'starše',
+	'lqt-newer' => 'nowše',
+	'lqt-searching' => 'Pytanje za nitkami',
+	'lqt-read-message' => 'Přečitany',
+	'lqt-read-message-tooltip' => 'Wotstroń tutu nitku z nowych powěsćow.
+Budźe dale widźomna na prěnjotnej diskusijnej stronje.',
+	'lqt-read-all' => 'Wšě jako přečitane markěrować',
+	'lqt-read-all-tooltip' => 'Wotstroń wšě nitki z nowych powěsćow.
+Budu dale widźomne na jich prěnjotnych diskusijnych stronach.
+Tuta akcija da so cofnyć.',
+	'lqt-marked-read' => "Nitka '''$1''' bu jako přečitana markěrowana.",
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|powěsć jako přečitana markěrowana|powěsći jako přečitanej markěrowanej|powěsće jako přečitane markěrowane|powěsćow jako přečitane markěrowane}}',
+	'lqt-email-undo' => 'Cofnyć',
+	'lqt-messages-sent' => 'Tebi připósłane powěsće:',
+	'lqt-other-messages' => 'Powěsće na druhich diskusijnych stronach:',
+	'lqt-no-new-messages' => 'Nimaš nowe powěsće.',
+	'lqt-new-messages' => 'Maš nowe powěsće.',
+	'lqt-email-info-undo' => 'Wróć nitku, kotruž sy runje zaćisnył.',
+	'lqt-date-info' => 'tutón wotkaz je znjemóžnjeny, dokelž sej nitki ze wšěch datumow wobhladuješ.',
+	'lqt_rc_new_discussion' => 'Nowa diskusija, $1, na $2. &bull; $3 pisa:',
+	'lqt_rc_new_reply' => 'Wotmołwa na $1, na $2. &bull; $3 pisa:',
+	'lqt_rc_author_original' => '(prěnjotny awtor)',
+	'lqt_rc_author_others' => '(njeje awtor)',
 );
 
 /** Hungarian (Magyar)
