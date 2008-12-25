@@ -3429,6 +3429,10 @@ $messages['te'] = array(
 	'lqt_sort_newest_changes' => 'చివరగా మార్చినవి మొదట',
 	'lqt_sort_newest_threads' => 'కొత్త చర్చాహారాలు మొదట',
 	'lqt_sort_oldest_threads' => 'పాత చర్చాహారాలు మొదట',
+	'lqt-any-date' => 'ఏ తేదీ అయినా',
+	'lqt-only-date' => 'ఈ తేదీలు మాత్రమే:',
+	'lqt-title' => 'శీర్షిక',
+	'lqt-summary' => 'సంగ్రహం',
 	'lqt-older' => 'పాతవి',
 	'lqt-newer' => 'కొత్తవి',
 );
