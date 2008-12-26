@@ -121,6 +121,11 @@ $aliases['oc'] = array(
 	'NewMessages' => array( 'Messatges novèls', 'MessatgesNovèls' ),
 );
 
+/** Brazilian Portuguese (Português do Brasil) */
+$aliases['pt-br'] = array(
+	'NewMessages' => array( 'Novas mensagens' ),
+);
+
 /** Swedish (Svenska) */
 $aliases['sv'] = array(
 	'DeleteThread' => array( 'Radera tråd' ),

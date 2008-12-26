@@ -930,6 +930,13 @@ $messages['es'] = array(
 	'lqt_move_noreason' => 'No se da ninguna razón',
 );
 
+/** Finnish (Suomi)
+ * @author Str4nd
+ */
+$messages['fi'] = array(
+	'lqt_youhavenewmessages' => 'Sinulle on [$1 uusia viestejä].',
+);
+
 /** French (Français)
  * @author Dereckson
  * @author Grondin
@@ -1287,6 +1294,7 @@ $messages['haw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Rotemliss
  * @author YaronSh
  */
 $messages['he'] = array(
@@ -1297,17 +1305,17 @@ $messages['he'] = array(
 	'lqt_deletethread' => 'מחיקת או שחזור שירשור',
 	'lqt_browse_archive_without_recent' => 'צפייה בשירשורים מהארכיון',
 	'lqt_browse_archive_with_recent' => 'ישנים יותר',
-	'lqt_recently_archived' => 'נשמרו בארגיון לאחרונה:',
+	'lqt_recently_archived' => 'נשמרו בארכיון לאחרונה:',
 	'lqt_contents_title' => 'תכנים:',
 	'lqt_add_header' => 'הוספת כותרת',
 	'lqt_new_thread' => 'התחלת דיון חדש',
-	'lqt_in_response_to' => 'בתגובה ל$1 על ידי $1, להלן:',
+	'lqt_in_response_to' => 'בתגובה ל$1 על ידי $2, לעיל:',
 	'lqt_edited_notice' => 'נערך',
 	'lqt_move_placeholder' => 'שירשור זה הינו ממלא מקום המציין כי שירשור, $1, הוסר מדף זה והועבר לדף שיחה אחר.
-העברה זו נעשתה על ידי $2 ב־$3.',
+העברה זו בוצעה על ידי $2 ב־$3.',
 	'lqt_reply' => 'תגובה',
 	'lqt_delete' => 'מחיקה',
-	'lqt_undelete' => 'ביטול המחיקה',
+	'lqt_undelete' => 'שחזור',
 	'lqt_permalink' => 'קישור קבוע',
 	'lqt_discussion_link' => 'דיון',
 	'lqt_newer' => '«חדש יותר',
@@ -1319,45 +1327,45 @@ $messages['he'] = array(
 	'lqt_hist_deleted' => 'נמחקה',
 	'lqt_hist_undeleted' => 'שוחזרה',
 	'lqt_hist_moved_talkpage' => 'הועברה',
-	'lqt_hist_listing_subtitle' => 'הצגת רישום היסטורי.',
+	'lqt_hist_listing_subtitle' => 'הצגת רישום ההיסטוריה.',
 	'lqt_hist_view_whole_thread' => 'צפייה בהיסטוריה עבור השירשור כולו',
-	'lqt_hist_no_revisions_error' => 'לשירשור זה אין מהדורות קודמות.
+	'lqt_hist_no_revisions_error' => 'לשירשור זה אין גרסאות בהיסטוריה.
 מוזר מאוד.',
-	'lqt_hist_past_last_page_error' => 'הינכם חורגים ממספר דפי ההיסטוריה הקיימים.',
-	'lqt_hist_tooltip_newer_disabled' => 'קישור זה מבוטל כיוון שהינכם בדף הראשון.',
-	'lqt_hist_tooltip_older_disabled' => 'קישור זה מבוטל כיוון שהינכם בדף האחרון.',
-	'lqt_revision_as_of' => 'מהדורה נכון ל־$1.',
-	'lqt_change_new_thread' => 'זוהי המהדורה הראשונית של השירשור.',
-	'lqt_change_reply_created' => 'ההערה המודגשת נוצרה במהדורה זו.',
-	'lqt_change_edited_root' => 'ההערה המודגשת נערכה במהדורה זו.',
+	'lqt_hist_past_last_page_error' => 'אתם חורגים ממספר דפי ההיסטוריה הקיימים.',
+	'lqt_hist_tooltip_newer_disabled' => 'קישור זה מבוטל כיוון שאתם בדף הראשון.',
+	'lqt_hist_tooltip_older_disabled' => 'קישור זה מבוטל כיוון שאתם בדף האחרון.',
+	'lqt_revision_as_of' => 'גרסה מתאריך $1.',
+	'lqt_change_new_thread' => 'זוהי הגרסה הראשונית של השירשור.',
+	'lqt_change_reply_created' => 'ההערה המודגשת נוצרה בגרסה זו.',
+	'lqt_change_edited_root' => 'ההערה המודגשת נערכה בגרסה זו.',
 	'lqt_youhavenewmessages' => 'יש לכם [$1 הודעות חדשות].',
 	'lqt_changes_from' => '  מאת',
 	'lqt_changes_summary_of' => '  מתוך',
-	'lqt_protectedfromreply' => 'שירשור זה $1תגובות.',
+	'lqt_protectedfromreply' => 'שירשור זה $1 תגובות.',
 	'lqt_protectedfromreply_link' => 'מוגן מפני',
 	'lqt_subject' => 'נושא:',
 	'lqt_nosubject' => '«אין נושא»',
-	'lqt_noreason' => 'לא צויינה סיבה.',
+	'lqt_noreason' => 'לא צוינה סיבה.',
 	'lqt_thread_deleted_for_sysops' => 'שירשור זה $1 ורק מפעילי מערכת יכולים לצפות בו.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'נמחק',
 	'lqt_thread_deleted' => 'שירשור זה נמחק.',
-	'lqt_summary_notice_link' => 'כתבו תקציר',
+	'lqt_summary_notice_link' => 'כתיבת תקציר',
 	'lqt_summary_label' => 'תקציר שירשור זה מופיע להלן:',
 	'lqt_summary_subtitle' => 'תקציר עבור $1.',
-	'lqt_nosuchrevision' => 'אין מהדורה כזו עבור שירשור זה.',
+	'lqt_nosuchrevision' => 'אין גרסה כזו עבור שירשור זה.',
 	'lqt_nosuchthread' => 'אין שירשור כזה.',
-	'lqt_threadrequired' => 'עליכם לציין שירשור בכתובת.',
+	'lqt_threadrequired' => 'עליכם לציין שירשור בכתובת ה־URL.',
 	'lqt_move_movingthread' => 'העברת $1.
-שירשור זה הינו חלק מ־$2.',
+שירשור זה הוא חלק מ־$2.',
 	'lqt_move_torename' => "כדי לשנות שירשור זה, $1 ושנו את השדה 'נושא'.",
 	'lqt_move_torename_edit' => 'ערכו אותו',
 	'lqt_move_destinationtitle' => 'כותרת דף השיחה המיועד:',
 	'lqt_move_move' => 'העברה',
 	'lqt_move_nodestination' => 'עליכם לציין יעד.',
-	'lqt_move_noreason' => 'לא צויינה סיבה.',
+	'lqt_move_noreason' => 'לא צוינה סיבה.',
 	'lqt_move_success' => 'השירשור הועבר אל $1.',
-	'lqt_delete_undeleting' => 'שיחזור $1.',
-	'lqt_delete_undeletethread' => 'שיחזור השירשור',
+	'lqt_delete_undeleting' => 'שחזור $1.',
+	'lqt_delete_undeletethread' => 'שחזור השירשור',
 	'lqt_delete_partof' => 'שירשור זה הינו חלק מ$1.',
 	'lqt_delete_deleting_allreplies' => 'כל התגובות',
 	'lqt_delete_deletethread' => 'מחיקת השירשור והתגובות',
@@ -2887,6 +2895,7 @@ $messages['ps'] = array(
 	'lqt_move_noreason' => 'هېڅ سبب نه دی ورکړ شوی.',
 	'lqt_delete_deleting_allreplies' => 'ټول ځوابونه',
 	'lqt-any-date' => 'هر يو وخت',
+	'lqt-title' => 'سرليک',
 );
 
 /** Portuguese (Português)
