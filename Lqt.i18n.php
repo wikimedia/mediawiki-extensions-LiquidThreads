@@ -221,6 +221,13 @@ $messages['af'] = array(
 	'lqt_move_move' => 'Skuif',
 );
 
+/** Amharic (አማርኛ)
+ * @author Codex Sinaiticus
+ */
+$messages['am'] = array(
+	'lqt-title' => 'አርዕስት',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
@@ -490,6 +497,14 @@ $messages['arz'] = array(
  */
 $messages['bcc'] = array(
 	'lqt_youhavenewmessages' => 'شما را هست $1.',
+);
+
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ */
+$messages['be-tarask'] = array(
+	'lqt_contents_title' => 'Зьмест:',
+	'lqt-title' => 'Назва',
 );
 
 /** Bulgarian (Български)
@@ -934,7 +949,19 @@ $messages['es'] = array(
  * @author Str4nd
  */
 $messages['fi'] = array(
+	'lqt_newmessages' => 'Uudet viestit',
+	'lqt_browse_archive_with_recent' => 'vanhemmat',
+	'lqt_reply' => 'Vastaa',
+	'lqt_delete' => 'Poista',
+	'lqt_undelete' => 'Palauta',
+	'lqt_newer' => '← uudemmat',
+	'lqt_older' => 'vanhemmat →',
+	'lqt_hist_deleted' => 'Poistettu',
+	'lqt_hist_undeleted' => 'Palautettu',
+	'lqt_hist_moved_talkpage' => 'Siirretty',
 	'lqt_youhavenewmessages' => 'Sinulle on [$1 uusia viestejä].',
+	'lqt_protectedfromreply_link' => 'suojattu',
+	'lqt_subject' => 'Otsikko',
 );
 
 /** French (Français)
@@ -3009,11 +3036,40 @@ $messages['rif'] = array(
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
+	'lqt_newmessages' => 'Mesaje noi',
+	'lqt_browse_archive_with_recent' => 'mai vechi',
 	'lqt_contents_title' => 'Cuprins:',
+	'lqt_new_thread' => 'Începe o nouă discuţie',
+	'lqt_edited_notice' => 'Modificat',
 	'lqt_delete' => 'Şterge',
+	'lqt_discussion_link' => 'discuţie',
+	'lqt_from_talk' => 'de la $1',
+	'lqt_newer' => '«mai noi',
+	'lqt_older' => 'mai vechi»',
 	'lqt_hist_deleted' => 'Şters',
+	'lqt_hist_moved_talkpage' => 'Mutat',
+	'lqt_youhavenewmessages' => 'Aveţi [$1 noi mesaje].',
+	'lqt_protectedfromreply_link' => 'protejat',
 	'lqt_subject' => 'Subiect:',
+	'lqt_nosubject' => '«fără subiect»',
+	'lqt_noreason' => 'Nici un motiv oferit.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'şters',
+	'lqt_move_noreason' => 'Nici un motiv oferit.',
+	'lqt_header_warning_new_discussion' => 'începe o nouă discuţie',
+	'lqt-only-date' => 'Doar aceste date:',
+	'lqt-date-from' => 'De la',
+	'lqt-date-to' => 'Către',
+	'lqt-title' => 'Titlu',
+	'lqt-summary' => 'Rezumat',
+	'lqt-older' => 'mai vechi',
+	'lqt-newer' => 'mai noi',
+	'lqt-read-all' => 'Marchează toate ca citite',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mesaj marcat ca citit|mesaje marcate ca citite}}.',
+	'lqt-messages-sent' => 'Mesaje trimise către dumneavoastră:',
+	'lqt-other-messages' => 'Mesaje pe alte pagini de discuţie:',
+	'lqt-no-new-messages' => 'Nu sunt mesaje noi pentru dumneavoastră.',
+	'lqt-new-messages' => 'Sunt mesaje noi pentru dumneavoastră.',
+	'lqt_rc_author_original' => '(autor original)',
 );
 
 /** Tarandíne (Tarandíne)
