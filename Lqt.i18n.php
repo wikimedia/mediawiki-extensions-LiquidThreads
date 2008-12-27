@@ -147,10 +147,14 @@ This operation is undoable.',
  * @author Jon Harald Søby
  * @author Minh Nguyen
  * @author Purodha
+ * @author Siebrand
  */
 $messages['qqq'] = array(
 	'lqt-desc' => 'Short description of this extension, shown on [[Special:Version]]. Do not translate or change links.',
 	'lqt_newmessages' => '{{Identical|New messages}}',
+	'lqt_archive_month_annotation' => '* $1 is a month name',
+	'lqt_archive_month_range_annotation' => '* $1 is a month name
+* $2 is a month name',
 	'lqt_browse_archive_with_recent' => '{{Identical|Older}}',
 	'lqt_contents_title' => '{{Identical|Contents}}',
 	'lqt_new_thread' => '{{Identical|Start a new discussion}}',
@@ -938,13 +942,29 @@ $messages['eo'] = array(
 );
 
 /** Spanish (Español)
+ * @author Imre
  * @author Piolinfax
  * @author Sanbec
  */
 $messages['es'] = array(
+	'lqt_contents_title' => 'Contenidos:',
+	'lqt_reply' => 'Responder',
 	'lqt_delete' => 'Borrar',
+	'lqt_undelete' => 'Restaurar',
+	'lqt_discussion_link' => 'discusión',
+	'lqt_hist_deleted' => 'Borrado',
+	'lqt_hist_undeleted' => 'Restaurado',
+	'lqt_hist_moved_talkpage' => 'Trasladado',
 	'lqt_noreason' => 'No se da ninguna razón',
+	'lqt_thread_deleted_for_sysops_deleted' => 'borrado',
+	'lqt_move_move' => 'Trasladar',
 	'lqt_move_noreason' => 'No se da ninguna razón',
+	'lqt-date-from' => 'de',
+	'lqt-date-to' => 'a',
+	'lqt-title' => 'Título',
+	'lqt-summary' => 'Sumario',
+	'lqt-read-message' => 'Leer',
+	'lqt-email-undo' => 'Deshacer',
 );
 
 /** Finnish (Suomi)
@@ -2428,13 +2448,25 @@ $messages['myv'] = array(
 $messages['nah'] = array(
 	'lqt_newmessages' => 'Yancuīc tlahcuilōltzintli',
 	'lqt_delete' => 'Ticpolōz',
+	'lqt_newer' => '«yancuīc',
+	'lqt_older' => 'huēhueh»',
 	'lqt_hist_deleted' => 'Ōmopolo',
+	'lqt_hist_moved_talkpage' => 'Ōmozacac',
+	'lqt_changes_from' => ' īhuīcpa',
+	'lqt_changes_summary_of' => ' īhuīcpa',
 	'lqt_protectedfromreply_link' => 'ōmoquīxti',
 	'lqt_noreason' => 'Ahmo cah īxtlamatiliztli.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'ōmopolo',
+	'lqt_move_torename_edit' => 'xicpatla',
 	'lqt_move_move' => 'Ticzacāz',
 	'lqt_move_noreason' => 'Ahmo cah īxtlamatiliztli.',
 	'lqt_delete_return' => 'Timocuepāz īhuīc $1.',
+	'lqt-date-from' => 'Īhuīcpa',
+	'lqt-date-to' => 'Īhuīc',
+	'lqt-title' => 'Tōcāitl',
+	'lqt-older' => 'huēhueh',
+	'lqt-newer' => 'yancuīc',
+	'lqt-read-message' => 'Ticpōhuāz',
 );
 
 /** Nedersaksisch (Nedersaksisch)
