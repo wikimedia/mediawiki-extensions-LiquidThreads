@@ -298,7 +298,14 @@ HTML
 			
 			$this->datespan = $this->starti - $this->endi;
 			
-			$annotations[] = "from {$this->selstart->text()} to {$this->selend->text()}";
+			$formattedFrom = $this->formattedMonth($this->selstart->text());
+			$formattedTo = $this->formattedMonth($this->selend->text());
+			
+			if( $this->datespan == 0 ) {
+				$annotations[] = wfMsg('lqt_archive_month_annotation', $formattedFrom);
+			} else {
+				$annotations[] = wfMsg('lqt_archive_month_range_annotation', $formattedFrom, $formattedTo);
+			}
 		} else if (isset($this->selstart)) {
 			$annotations[] = "after {$this->selstart->text()}";
 		} else if (isset($this->selend)) {
