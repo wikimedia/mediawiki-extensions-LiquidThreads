@@ -244,6 +244,7 @@ $messages['an'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author Ouda
  */
 $messages['ar'] = array(
 	'lqt-desc' => 'يضيف نقاشات في مجموعات إلى صفحات النقاش',
@@ -251,6 +252,8 @@ $messages['ar'] = array(
 	'lqt_newmessages' => 'رسائل جديدة',
 	'lqt_movethread' => 'نقل الرسائل إلى صفحة أخرى',
 	'lqt_deletethread' => 'حذف أو استرجاع الرسائل',
+	'lqt_archive_month_annotation' => 'من $1',
+	'lqt_archive_month_range_annotation' => 'بين $1 و $2',
 	'lqt_browse_archive_without_recent' => 'عرض مجموعة الرسائل المؤرشفة',
 	'lqt_browse_archive_with_recent' => 'أقدم',
 	'lqt_recently_archived' => 'مؤرشف حديثا:',
@@ -686,6 +689,8 @@ $messages['de'] = array(
 	'lqt_newmessages' => 'Neue Nachrichten',
 	'lqt_movethread' => 'Verschiebe Diskussionsstrang auf eine andere Seite',
 	'lqt_deletethread' => 'Lösche oder stelle Diskussionsstrang wieder her',
+	'lqt_archive_month_annotation' => 'ab $1',
+	'lqt_archive_month_range_annotation' => 'zwischen $1 und $2',
 	'lqt_browse_archive_without_recent' => 'Archivierte Diskussionsstränge ansehen',
 	'lqt_browse_archive_with_recent' => 'ältere',
 	'lqt_recently_archived' => 'Kürzlich archiviert:',
@@ -959,6 +964,8 @@ $messages['es'] = array(
 	'lqt_thread_deleted_for_sysops_deleted' => 'borrado',
 	'lqt_move_move' => 'Trasladar',
 	'lqt_move_noreason' => 'No se da ninguna razón',
+	'lqt-any-date' => 'Cualquier fecha',
+	'lqt-only-date' => 'Sólo estas fechas:',
 	'lqt-date-from' => 'de',
 	'lqt-date-to' => 'a',
 	'lqt-title' => 'Título',
@@ -989,6 +996,7 @@ $messages['fi'] = array(
 /** French (Français)
  * @author Dereckson
  * @author Grondin
+ * @author IAlex
  * @author McDutchie
  * @author Sherbrooke
  * @author Urhixidur
@@ -1000,6 +1008,8 @@ $messages['fr'] = array(
 	'lqt_newmessages' => 'Nouveaux messages',
 	'lqt_movethread' => 'Déplacer le fil vers une autre page',
 	'lqt_deletethread' => 'Effacer ou récupérer le fil',
+	'lqt_archive_month_annotation' => 'depuis $1',
+	'lqt_archive_month_range_annotation' => 'entre $1 et $2',
 	'lqt_browse_archive_without_recent' => 'Afficher les sujets archivés',
 	'lqt_browse_archive_with_recent' => 'plus anciens',
 	'lqt_recently_archived' => 'Archivé récemment',
@@ -1133,6 +1143,8 @@ $messages['gl'] = array(
 	'lqt_newmessages' => 'Mensaxes novas',
 	'lqt_movethread' => 'Mover o fío a outra páxina',
 	'lqt_deletethread' => 'Eliminar ou recuperar fío',
+	'lqt_archive_month_annotation' => 'desde $1',
+	'lqt_archive_month_range_annotation' => 'entre $1 e $2',
 	'lqt_browse_archive_without_recent' => 'Ver os fíos arquivados',
 	'lqt_browse_archive_with_recent' => 'máis vello',
 	'lqt_recently_archived' => 'Arquivado recentemente:',
@@ -1398,6 +1410,8 @@ $messages['he'] = array(
 	'lqt_thread_deleted_for_sysops' => 'שירשור זה $1 ורק מפעילי מערכת יכולים לצפות בו.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'נמחק',
 	'lqt_thread_deleted' => 'שירשור זה נמחק.',
+	'lqt_summary_notice' => 'לא חלו שינויים בדיון זה לפחות במשך $2 הימים האחרונים.
+אם הוא הסתייים, אולי תרצו לבצע $1.',
 	'lqt_summary_notice_link' => 'כתיבת תקציר',
 	'lqt_summary_label' => 'תקציר שירשור זה מופיע להלן:',
 	'lqt_summary_subtitle' => 'תקציר עבור $1.',
@@ -1423,6 +1437,47 @@ $messages['he'] = array(
 	'lqt_delete_return' => 'חזרה אל $1.',
 	'lqt_delete_return_link' => 'דף השיחה',
 	'lqt_delete_unallowed' => 'אינכם מורשים למחוק שירשורים.',
+	'lqt_delete_show_checkbox' => 'הצגת שירשורים שנמחקו',
+	'lqt_talkpage_autocreate_summary' => 'דף השיחה נוצר אוטומטית בעת פרסום השירשור הראשון.',
+	'lqt_header_warning_big' => 'הנכם עורכים $1',
+	'lqt_header_warning_after_big' => 'כותרות מיועדות להכרזות ולדברי מבוא.
+אולי תרצו ל$2.',
+	'lqt_header_warning_bold' => 'כותרת דף הדיון',
+	'lqt_header_warning_new_discussion' => 'התחיל בדיון חדש',
+	'lqt_sorting_order' => 'סדר המיון:',
+	'lqt_remember_sort' => 'שמירת העדפה זו',
+	'lqt_sort_newest_changes' => 'קודם אלה ששונו לאחרונה',
+	'lqt_sort_newest_threads' => 'קודם השירשורים החדשים ביותר',
+	'lqt_sort_oldest_threads' => 'קודם השרשורים הישנים ביותר',
+	'lqt-any-date' => 'בכל תאריך שהוא',
+	'lqt-only-date' => 'בתאריכים אלו בלבד:',
+	'lqt-date-from' => 'מ־',
+	'lqt-date-to' => 'עד',
+	'lqt-title' => 'כותרת',
+	'lqt-summary' => 'תקציר',
+	'lqt-older' => 'ישנים יותר',
+	'lqt-newer' => 'חדשים יותר',
+	'lqt-searching' => 'בחיפוש אחר שירשורים',
+	'lqt-read-message' => 'קריאה',
+	'lqt-read-message-tooltip' => 'הסרת שירשור זה מהודעות חדשות.
+השירשור עדיין יופיע בדף השיחה המקורי שלו.',
+	'lqt-read-all' => "סימון הכל כ'נקרא'",
+	'lqt-read-all-tooltip' => 'הסרת כל השישורים מהודעות חדשות.
+הם עדיין יופיעו בדפי השיחה המקוריים שלהם.
+פעולה זו ניתנת לביטול.',
+	'lqt-marked-read' => "השרשור '''$1''' סומן כ'נקרא'.",
+	'lqt-count-marked-read' => "{{PLURAL:$1|הודעה אחת סומנה כ'נקראה'|$1 הודעות סומנו כ'נקראו'}}.",
+	'lqt-email-undo' => 'ביטול',
+	'lqt-messages-sent' => 'הודעות שנשלחו אליכם:',
+	'lqt-other-messages' => 'הודעות בדפי שיחה אחרים:',
+	'lqt-no-new-messages' => 'אין הודעות חדשות עבורכם.',
+	'lqt-new-messages' => 'יש לכם הודעות חדשות.',
+	'lqt-email-info-undo' => 'החזרת השירשור ממנו הרגע התעלמתם.',
+	'lqt-date-info' => 'קישור זה מבוטל כיוון שאתם צופים בשירשורים מכל התאריכים.',
+	'lqt_rc_new_discussion' => 'דיון חדש, $1, ב־$2. &bull; $3 כותב:',
+	'lqt_rc_new_reply' => 'תגובה להודעה $1, ב־$2. &bull; $3 כותב:',
+	'lqt_rc_author_original' => '(המחבר המקורי)',
+	'lqt_rc_author_others' => '(אינו המחבר)',
 );
 
 /** Hindi (हिन्दी)
@@ -1543,6 +1598,8 @@ $messages['hsb'] = array(
 	'lqt_newmessages' => 'Nowe powěsće',
 	'lqt_movethread' => 'Nitku na druhu stronu přesunyć',
 	'lqt_deletethread' => 'Nitku wušmórnyć abo wobnowić',
+	'lqt_archive_month_annotation' => 'wot $1',
+	'lqt_archive_month_range_annotation' => 'mjez $1 a $2',
 	'lqt_browse_archive_without_recent' => 'Archiwowane nitki wobhladać',
 	'lqt_browse_archive_with_recent' => 'starši',
 	'lqt_recently_archived' => 'Runje archiwowany',
@@ -2487,6 +2544,8 @@ $messages['nl'] = array(
 	'lqt_newmessages' => 'Nieuwe berichten',
 	'lqt_movethread' => 'Onderwerpspagina naar andere pagina hernoemen',
 	'lqt_deletethread' => 'Onderwerpspagina verwijderen of terugplaatsen',
+	'lqt_archive_month_annotation' => 'uit $1',
+	'lqt_archive_month_range_annotation' => 'tussen $1 en $2',
 	'lqt_browse_archive_without_recent' => "Gearchiveerde onderwerpspagina's bekijken",
 	'lqt_browse_archive_with_recent' => 'ouder',
 	'lqt_recently_archived' => 'Recent gearchiveerd:',
@@ -3090,6 +3149,7 @@ $messages['ro'] = array(
 	'lqt_thread_deleted_for_sysops_deleted' => 'şters',
 	'lqt_move_noreason' => 'Nici un motiv oferit.',
 	'lqt_header_warning_new_discussion' => 'începe o nouă discuţie',
+	'lqt_sorting_order' => 'Ordine de sortare:',
 	'lqt-only-date' => 'Doar aceste date:',
 	'lqt-date-from' => 'De la',
 	'lqt-date-to' => 'Către',
