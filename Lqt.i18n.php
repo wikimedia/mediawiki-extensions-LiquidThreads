@@ -377,6 +377,7 @@ $messages['ar'] = array(
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Meno25
+ * @author Ouda
  */
 $messages['arz'] = array(
 	'lqt-desc' => 'يضيف نقاشات فى مجموعات إلى صفحات النقاش',
@@ -384,6 +385,8 @@ $messages['arz'] = array(
 	'lqt_newmessages' => 'رسائل جديدة',
 	'lqt_movethread' => 'نقل الرسائل إلى صفحة أخرى',
 	'lqt_deletethread' => 'حذف أو استرجاع الرسائل',
+	'lqt_archive_month_annotation' => 'من $1',
+	'lqt_archive_month_range_annotation' => 'بين $1 و $2',
 	'lqt_browse_archive_without_recent' => 'عرض مجموعة الرسائل المؤرشفة',
 	'lqt_browse_archive_with_recent' => 'أقدم',
 	'lqt_recently_archived' => 'مؤرشف حديثا:',
@@ -886,6 +889,8 @@ $messages['eo'] = array(
 	'lqt_hist_view_whole_thread' => 'Rigardu historion por la tuta fadeno',
 	'lqt_hist_no_revisions_error' => 'Ĉi tiu fadeno ne havas ĉiujn historiajn versiojn. Kiel stranga!',
 	'lqt_hist_past_last_page_error' => 'Vi estas preter la nombro de paĝoj da historio kiu povas ekzisti.',
+	'lqt_hist_tooltip_newer_disabled' => 'Ĉi tiu ligilo estas malŝalta ĉar vi estas en la unua paĝo.',
+	'lqt_hist_tooltip_older_disabled' => 'Ĉi tiu ligilo estas malŝalta ĉar vi estas en la lasta paĝo.',
 	'lqt_revision_as_of' => 'Versio ekde $1.',
 	'lqt_change_new_thread' => 'Jen la unua versio de la fadeno.',
 	'lqt_change_reply_created' => 'La kolorigita komento estis kreita en ĉi tiu versio.',
@@ -940,14 +945,19 @@ $messages['eo'] = array(
 	'lqt-summary' => 'Resumo',
 	'lqt-older' => 'pli malnovaj',
 	'lqt-newer' => 'pli novaj',
+	'lqt-searching' => 'Serĉante fadenojn',
 	'lqt-read-message' => 'Legi',
+	'lqt-read-message-tooltip' => 'Forigi ĉi tiun fadenon de novaj mesaĝoj.
+Ĝi videblos en ĝia originala diskuto-paĝo.',
 	'lqt-read-all' => 'Marki ĉion kiel legitan',
 	'lqt-marked-read' => "Fadeno '''$1''' estis markita kiel legita.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mesaĝo|mesaĝoj}} estis markitaj kiel legitaj.',
 	'lqt-email-undo' => 'Malfari',
 	'lqt-messages-sent' => 'Mesaĝoj senditaj al vi:',
 	'lqt-other-messages' => 'Mesaĝoj en aliaj diskuto-paĝoj:',
+	'lqt-no-new-messages' => 'Estas neniuj novaj mesaĝoj por vi.',
 	'lqt-new-messages' => 'Jen novaj mesaĝoj por vi.',
+	'lqt-date-info' => 'Ĉi tiu ligilo estas malŝaltita ĉar vi estas vidante fadenojn de ĉiuj datoj.',
 	'lqt_rc_new_discussion' => 'Nova diskuto, $1, je $2. &bull; $3 skribas:',
 	'lqt_rc_author_original' => '(originala aŭtoro)',
 	'lqt_rc_author_others' => '(ne estas la aŭtoro)',
@@ -983,6 +993,7 @@ $messages['es'] = array(
 
 /** Finnish (Suomi)
  * @author Crt
+ * @author Nike
  * @author Str4nd
  */
 $messages['fi'] = array(
@@ -1033,7 +1044,7 @@ $messages['fi'] = array(
 	'lqt-older' => 'vanhemmat',
 	'lqt-newer' => 'uudemmat',
 	'lqt-read-message' => 'Lue',
-	'lqt-read-all' => 'Merkkaa kaikki luetuiksi',
+	'lqt-read-all' => 'Merkitse kaikki luetuiksi',
 	'lqt-email-undo' => 'Kumoa',
 );
 
@@ -2147,6 +2158,8 @@ $messages['jv'] = array(
  */
 $messages['km'] = array(
 	'lqt_newmessages' => 'សារថ្មីៗ',
+	'lqt_archive_month_annotation' => 'ពី $1',
+	'lqt_archive_month_range_annotation' => 'ចន្លោះ $1 និង $2',
 	'lqt_browse_archive_with_recent' => 'ចាស់ជាង ៖',
 	'lqt_recently_archived' => 'ទើបតែដាក់ជា​បណ្ណសារ​៖',
 	'lqt_contents_title' => 'មាតិកា៖',
@@ -2173,7 +2186,7 @@ $messages['km'] = array(
 	'lqt_hist_past_last_page_error' => 'អ្នកបានហួស ចំនួនទំព័រ នៃប្រវត្តិ ដែលមាន',
 	'lqt_hist_tooltip_newer_disabled' => 'តំណភ្ជាប់នេះ អសកម្ម ព្រោះ អ្នកស្ថិតលើ ទំព័រដំបូង ។',
 	'lqt_hist_tooltip_older_disabled' => 'តំណភ្ជាប់នេះ អសកម្ម ព្រោះ អ្នកស្ថិតលើ ទំព័រចុងក្រោយ ។',
-	'lqt_youhavenewmessages' => 'អ្នកមាន $1​ ។',
+	'lqt_youhavenewmessages' => 'អ្នកមាន [$1 សារថ្មីៗ]​។',
 	'lqt_changes_from' => 'ពី',
 	'lqt_changes_summary_of' => 'នៃ',
 	'lqt_protectedfromreply_link' => 'បានការពារ',
@@ -2181,30 +2194,51 @@ $messages['km'] = array(
 	'lqt_nosubject' => '«មិនមានប្រធានបទទេ»',
 	'lqt_noreason' => 'គ្មានហេតុផល ត្រូវបានផ្តល់ឱ្យ ។',
 	'lqt_thread_deleted_for_sysops_deleted' => 'ត្រូវបានលុបចោល',
+	'lqt_thread_deleted' => 'ខ្សែស្រឡាយ​នេះ​ត្រូវ​បាន​លុប​។',
 	'lqt_summary_notice' => 'គ្មានបំលាស់ប្តូរ​ក្នុងការពិភាក្សានេះ តាំងពី​យ៉ាងតិច $2 ថ្ងៃ​។ បើចង់ផ្លាស់ប្តូរវា, អ្នកអាចនឹង​ត្រូវការ $1 ។',
 	'lqt_summary_notice_link' => 'សរសេរ​មួយ​សេចក្តីសង្ខេប',
 	'lqt_summary_subtitle' => 'សេចក្តីសង្ខេបនៃ$1 ។',
+	'lqt_nosuchrevision' => 'គ្មាន​ការពិនិត្យឡើងវិញ​នៃ​ខ្សែស្រឡាយ​នេះ​ទេ​។',
+	'lqt_nosuchthread' => 'មិនមាន​ខ្សែស្រឡាយ​ណាមួយ​ទេ។',
+	'lqt_threadrequired' => 'អ្នក​ត្រូវតែ​បញ្ជាក់​ខ្សែស្រឡាយ​មួយ​នីក្នុង URL ។',
+	'lqt_move_movingthread' => 'ខ្សែស្រឡាយ​នេះ​ជា​ផ្នែក​នៃ $2 ។',
 	'lqt_move_torename_edit' => 'កែប្រែវា',
 	'lqt_move_destinationtitle' => 'ចំណងជើង​នៃ​ទំព័រពិភាក្សា​​គោលដៅ​៖',
 	'lqt_move_move' => 'ប្តូរទីតាំង',
 	'lqt_move_nodestination' => 'អ្នកត្រូវតែ​សំដៅ​មួយគោលដៅ​។',
 	'lqt_move_noreason' => 'គ្មានហេតុផល ត្រូវបានផ្តល់ឱ្យ ។',
 	'lqt_delete_undeleting' => 'លែងលុបចេញ $1 ។',
+	'lqt_delete_undeletethread' => 'មិនលុប​ខ្សែស្រឡាយ',
+	'lqt_delete_partof' => 'ខ្សែស្រឡាយ​នេះ​ជា​ផ្នែក​នៃ $1 ។',
+	'lqt_delete_deleting' => 'លុប $1 និង $2 ចំពោះ​វា​។',
 	'lqt_delete_deleting_allreplies' => 'គ្រប់​ការឆ្លើយតប',
+	'lqt_delete_deleted' => 'ខ្សែស្រឡាយ​ដែល​បាន​លុប​។',
+	'lqt_delete_undeleted' => 'ខ្សែស្រឡាយ​ដែល​មិន​ត្រូវ​បាន​លុប​។',
 	'lqt_delete_return' => 'ត្រលប់ទៅកាន់ $1 វិញ។',
 	'lqt_delete_return_link' => 'ទំព័រពិភាក្សា',
+	'lqt_delete_unallowed' => 'អ្នក​មិន​ត្រូវ​បាន​អនុញ្ញាត​ឱ្យ​លុប​ខ្សែស្រឡាយ​ទេ​។',
+	'lqt_delete_show_checkbox' => 'បង្ហាញ​ខ្សែស្រឡាយ​ដេល​បាន​លុប',
 	'lqt_header_warning_big' => 'អ្នកកំពុង​កែប្រែ $1 ។',
 	'lqt_header_warning_bold' => 'បឋមកថានៃទំព័រពិភាក្សា',
 	'lqt_header_warning_new_discussion' => 'ចាប់ផ្តើមការពិភាក្សាថ្មី',
 	'lqt_sorting_order' => 'លំដាប់​រៀប​៖',
 	'lqt_remember_sort' => 'ចងចាំ​ចំណូលចិត្ត​នេះ',
+	'lqt_sort_newest_threads' => 'ខ្សែស្រឡាយ​ថ្មីជាងគេបំផុត',
+	'lqt_sort_oldest_threads' => 'ខ្សែស្រឡាយ​ចាស់​ជាងគេ​បំផុត',
+	'lqt-any-date' => 'កាលបរិច្ឆេទ​ណាមួយ',
 	'lqt-date-from' => 'ពី',
 	'lqt-date-to' => 'ដល់',
 	'lqt-title' => 'ចំណងជើង',
+	'lqt-summary' => 'សេចក្ដីសង្ខេប',
 	'lqt-older' => 'ចាស់ជាង',
 	'lqt-newer' => 'ថ្មីជាង',
+	'lqt-searching' => 'ស្វែងរក​ខ្សែស្រឡាយ',
 	'lqt-read-message' => 'អាន',
+	'lqt-read-all' => 'ដាក់សម្គាល់​ទាំងអស់​ថា​បាន​អាន',
+	'lqt-email-undo' => 'មិនធ្វើវិញ',
 	'lqt-messages-sent' => 'សារបានផ្ញើទៅអ្នក៖',
+	'lqt-other-messages' => 'សារ​នៅលើ​ទំព័រ​ពិភាក្សា​ដទៃ:',
+	'lqt-no-new-messages' => 'មិនមាន​សារ​សម្រាប់​អ្នក​ទេ​។',
 	'lqt-new-messages' => 'មានសារថ្មីៗសម្រាប់អ្នក។',
 	'lqt_rc_author_original' => '(អ្នកនិពន្ឋដើម)',
 	'lqt_rc_author_others' => '(មិនមែនជាអ្នកនិពន្ឋ)',
@@ -3214,11 +3248,33 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'lqt_reply' => 'Respunne',
+	'lqt_delete' => 'Scangille',
+	'lqt_undelete' => 'Repristine',
+	'lqt_from_talk' => 'da $1',
+	'lqt_newer' => '«cchiù nueve',
+	'lqt_older' => 'cchiù vicchije»',
 	'lqt_hist_deleted' => 'Scangillete',
 	'lqt_hist_undeleted' => 'Ripristinete',
 	'lqt_hist_moved_talkpage' => 'Spustete',
 	'lqt_changes_from' => '  da',
 	'lqt_changes_summary_of' => ' de',
+	'lqt_subject' => 'Oggette:',
+	'lqt_summary_notice_link' => "scrive 'nu riepileghe",
+	'lqt_summary_subtitle' => "'u riepileghe de $1.",
+	'lqt_move_move' => 'Spueste',
+	'lqt_move_nodestination' => "Tu a specificà 'na destinazione.",
+	'lqt_move_noreason' => 'Nisciune mutive date.',
+	'lqt-date-from' => 'Da',
+	'lqt-date-to' => 'A',
+	'lqt-title' => 'Titele',
+	'lqt-summary' => 'Riepileghe',
+	'lqt-older' => 'cchiù vicchije',
+	'lqt-newer' => 'cchiù nueve',
+	'lqt-read-all' => 'Signe tutte cumme litte',
+	'lqt-email-undo' => 'Annulle',
+	'lqt_rc_author_original' => '(autore origginele)',
+	'lqt_rc_author_others' => '(senza autore)',
 );
 
 /** Russian (Русский)
@@ -3733,10 +3789,13 @@ $messages['te'] = array(
  */
 $messages['tet'] = array(
 	'lqt_browse_archive_with_recent' => 'tuan liu',
+	'lqt_contents_title' => 'Konteúdu:',
 	'lqt_delete' => 'Halakon',
 	'lqt_older' => 'tuan liu»',
 	'lqt_protectedfromreply_link' => 'naproteje',
+	'lqt_noreason' => 'Laiha motivu.',
 	'lqt_move_move' => 'Book',
+	'lqt_move_noreason' => 'Laiha motivu.',
 	'lqt_delete_return' => 'Fali ba $1.',
 	'lqt-any-date' => 'Tempu/loron ruma',
 );
@@ -3788,6 +3847,13 @@ $messages['tg-cyrl'] = array(
 	'lqt_header_warning_new_discussion' => 'оғози мубоҳисаи ҷадид',
 	'lqt_sort_newest_threads' => 'торҳои навтарин аввал',
 	'lqt_sort_oldest_threads' => 'торҳои кӯҳнатарин аввал',
+);
+
+/** Turkmen (Türkmen)
+ * @author Runningfridgesrule
+ */
+$messages['tk'] = array(
+	'lqt-new-messages' => 'Täze maglumatlaryňyz bar.',
 );
 
 /** Turkish (Türkçe)
