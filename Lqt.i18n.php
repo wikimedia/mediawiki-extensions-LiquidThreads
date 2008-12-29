@@ -231,6 +231,8 @@ $messages['af'] = array(
  * @author Codex Sinaiticus
  */
 $messages['am'] = array(
+	'lqt_noreason' => 'ምንም ምክንያት አልተሰጠም።',
+	'lqt_move_noreason' => 'ምንም ምክንያት አልተሰጠም።',
 	'lqt-title' => 'አርዕስት',
 );
 
@@ -854,6 +856,8 @@ $messages['eo'] = array(
 	'lqt_newmessages' => 'Novaj Mesaĝoj',
 	'lqt_movethread' => 'Movu fadenon al alia paĝo',
 	'lqt_deletethread' => 'Forigi aŭ restarigi fadenon',
+	'lqt_archive_month_annotation' => 'de $1',
+	'lqt_archive_month_range_annotation' => 'inter $1 kaj $2',
 	'lqt_browse_archive_without_recent' => 'Rigardu arkivajn fadenojn',
 	'lqt_browse_archive_with_recent' => 'pli malnova',
 	'lqt_recently_archived' => 'Laste arkivitaj:',
@@ -929,6 +933,7 @@ $messages['eo'] = array(
 	'lqt_sort_newest_threads' => 'Plej novaj fadenoj unue',
 	'lqt_sort_oldest_threads' => 'plej malnovaj fadenoj unue',
 	'lqt-any-date' => 'Ĉiu dato',
+	'lqt-only-date' => 'Nur ĉi tiuj datoj:',
 	'lqt-date-from' => 'De',
 	'lqt-date-to' => 'Al',
 	'lqt-title' => 'Titolo',
@@ -936,12 +941,14 @@ $messages['eo'] = array(
 	'lqt-older' => 'pli malnovaj',
 	'lqt-newer' => 'pli novaj',
 	'lqt-read-message' => 'Legi',
+	'lqt-read-all' => 'Marki ĉion kiel legitan',
 	'lqt-marked-read' => "Fadeno '''$1''' estis markita kiel legita.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mesaĝo|mesaĝoj}} estis markitaj kiel legitaj.',
 	'lqt-email-undo' => 'Malfari',
 	'lqt-messages-sent' => 'Mesaĝoj senditaj al vi:',
 	'lqt-other-messages' => 'Mesaĝoj en aliaj diskuto-paĝoj:',
 	'lqt-new-messages' => 'Jen novaj mesaĝoj por vi.',
+	'lqt_rc_new_discussion' => 'Nova diskuto, $1, je $2. &bull; $3 skribas:',
 	'lqt_rc_author_original' => '(originala aŭtoro)',
 	'lqt_rc_author_others' => '(ne estas la aŭtoro)',
 );
@@ -975,22 +982,59 @@ $messages['es'] = array(
 );
 
 /** Finnish (Suomi)
+ * @author Crt
  * @author Str4nd
  */
 $messages['fi'] = array(
+	'lqt-nothread' => 'Arkistossa ei ole keskusteluketjuja.',
 	'lqt_newmessages' => 'Uudet viestit',
+	'lqt_movethread' => 'Siirrä keskusteluketju toiselle sivulle',
+	'lqt_deletethread' => 'Poista tai palauta keskusteluketju',
+	'lqt_browse_archive_without_recent' => 'Näytä arkistoidut keskusteluketjut',
 	'lqt_browse_archive_with_recent' => 'vanhemmat',
+	'lqt_contents_title' => 'Sisältö:',
+	'lqt_new_thread' => 'Aloita uusi keskustelu',
+	'lqt_edited_notice' => 'Muokattu',
 	'lqt_reply' => 'Vastaa',
 	'lqt_delete' => 'Poista',
 	'lqt_undelete' => 'Palauta',
+	'lqt_discussion_link' => 'keskustelu',
 	'lqt_newer' => '← uudemmat',
 	'lqt_older' => 'vanhemmat →',
+	'lqt_hist_thread_created' => 'Uusi keskusteluketju luotu',
 	'lqt_hist_deleted' => 'Poistettu',
 	'lqt_hist_undeleted' => 'Palautettu',
 	'lqt_hist_moved_talkpage' => 'Siirretty',
+	'lqt_hist_view_whole_thread' => 'Näytä koko keskusteluketjun historia',
 	'lqt_youhavenewmessages' => 'Sinulle on [$1 uusia viestejä].',
 	'lqt_protectedfromreply_link' => 'suojattu',
 	'lqt_subject' => 'Otsikko',
+	'lqt_nosubject' => '«ei aihetta»',
+	'lqt_thread_deleted_for_sysops_deleted' => 'poistettu',
+	'lqt_thread_deleted' => 'Tämä keskusteluketju on poistettu.',
+	'lqt_summary_notice_link' => 'kirjoita yhteenveto',
+	'lqt_nosuchthread' => 'Kyseistä keskusteluketjua ei ole.',
+	'lqt_move_move' => 'Siirrä',
+	'lqt_move_noreason' => 'Syytä ei annettu.',
+	'lqt_delete_undeletethread' => 'Palauta keskusteluketju',
+	'lqt_delete_deleting_allreplies' => 'kaikki vastaukset',
+	'lqt_delete_deletethread' => 'Poista keskusteluketju ja vastaukset',
+	'lqt_delete_deleted' => 'Keskusteluketju on poistettu.',
+	'lqt_delete_undeleted' => 'Keskusteluketju on palautettu.',
+	'lqt_delete_return' => 'Palaa sivulle $1.',
+	'lqt_delete_unallowed' => 'Et ole oikeutettu poistamaan keskusteluketjuja.',
+	'lqt_delete_show_checkbox' => 'Näytä poistetut keskusteluketjut',
+	'lqt_header_warning_new_discussion' => 'aloita uusi keskustelu',
+	'lqt_remember_sort' => 'Muista tämä asetus',
+	'lqt_sort_newest_changes' => 'viimeksi muokattu ensimmäiseksi',
+	'lqt_sort_newest_threads' => 'uusimmat keskusteluketjut ensimmäiseksi',
+	'lqt_sort_oldest_threads' => 'vanhimmat keskusteluketjut ensimmäiseksi',
+	'lqt-summary' => 'Yhteenveto',
+	'lqt-older' => 'vanhemmat',
+	'lqt-newer' => 'uudemmat',
+	'lqt-read-message' => 'Lue',
+	'lqt-read-all' => 'Merkkaa kaikki luetuiksi',
+	'lqt-email-undo' => 'Kumoa',
 );
 
 /** French (Français)
@@ -3691,7 +3735,10 @@ $messages['tet'] = array(
 	'lqt_browse_archive_with_recent' => 'tuan liu',
 	'lqt_delete' => 'Halakon',
 	'lqt_older' => 'tuan liu»',
+	'lqt_protectedfromreply_link' => 'naproteje',
 	'lqt_move_move' => 'Book',
+	'lqt_delete_return' => 'Fali ba $1.',
+	'lqt-any-date' => 'Tempu/loron ruma',
 );
 
 /** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
