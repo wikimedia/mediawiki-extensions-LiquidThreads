@@ -231,6 +231,7 @@ $messages['af'] = array(
  * @author Codex Sinaiticus
  */
 $messages['am'] = array(
+	'lqt_subject' => 'ርዕሰ ጉዳይ:',
 	'lqt_noreason' => 'ምንም ምክንያት አልተሰጠም።',
 	'lqt_move_noreason' => 'ምንም ምክንያት አልተሰጠም።',
 	'lqt-title' => 'አርዕስት',
@@ -1864,6 +1865,8 @@ $messages['ia'] = array(
 	'lqt_newmessages' => 'Nove messages',
 	'lqt_movethread' => 'Displaciar le filo verso un altere pagina',
 	'lqt_deletethread' => 'Deler o restaurar filo',
+	'lqt_archive_month_annotation' => 'desde $1',
+	'lqt_archive_month_range_annotation' => 'inter $1 e $2',
 	'lqt_browse_archive_without_recent' => 'Vider filos archivate',
 	'lqt_browse_archive_with_recent' => 'plus ancian',
 	'lqt_recently_archived' => 'Recentemente archivate:',
@@ -1893,7 +1896,7 @@ Iste displaciamento esseva facite per $2 le $3.',
 	'lqt_hist_listing_subtitle' => 'Visualisation de un lista historic.',
 	'lqt_hist_view_whole_thread' => 'Vider le historia de tote le filo',
 	'lqt_hist_no_revisions_error' => 'Iste filo non ha alcun versiones historic.
-Es un poco bizarre.',
+Isto es assatis bizarre.',
 	'lqt_hist_past_last_page_error' => 'Tu ha excedite le numero de paginas de historia existente.',
 	'lqt_hist_tooltip_newer_disabled' => 'Iste ligamine non es active post que tu es in le prime pagina.',
 	'lqt_hist_tooltip_older_disabled' => 'Iste ligamine non es active post que tu es in le ultime pagina.',
@@ -1973,6 +1976,7 @@ Iste operation es reversibile.',
 	'lqt-email-undo' => 'Disfacer',
 	'lqt-messages-sent' => 'Messages inviate a te:',
 	'lqt-other-messages' => 'Messages in altere paginas de discussion:',
+	'lqt-no-new-messages' => 'Il non ha nove messages pro te.',
 	'lqt-new-messages' => 'Tu ha recipite nove messages.',
 	'lqt-email-info-undo' => 'Restabilir le filo que tu justo dimitteva.',
 	'lqt-date-info' => 'Iste ligamine es disactivate proque tu reguarda le filos de tote le datas.',
@@ -3411,6 +3415,8 @@ $messages['sk'] = array(
 	'lqt_newmessages' => 'Nové správy',
 	'lqt_movethread' => 'Presunúť vlákno na inú stránku',
 	'lqt_deletethread' => 'Zmazať alebo obnoviť zmazané vlákno',
+	'lqt_archive_month_annotation' => 'od $1',
+	'lqt_archive_month_range_annotation' => 'medzi $1 a $2',
 	'lqt_browse_archive_without_recent' => 'Zobraziť archivované vlákna',
 	'lqt_browse_archive_with_recent' => 'staršie',
 	'lqt_recently_archived' => 'Nedávno archivované:',
@@ -3792,12 +3798,13 @@ $messages['tet'] = array(
 	'lqt_contents_title' => 'Konteúdu:',
 	'lqt_delete' => 'Halakon',
 	'lqt_older' => 'tuan liu»',
-	'lqt_protectedfromreply_link' => 'naproteje',
+	'lqt_protectedfromreply_link' => 'proteje tiha',
 	'lqt_noreason' => 'Laiha motivu.',
 	'lqt_move_move' => 'Book',
 	'lqt_move_noreason' => 'Laiha motivu.',
 	'lqt_delete_return' => 'Fali ba $1.',
 	'lqt-any-date' => 'Tempu/loron ruma',
+	'lqt-title' => 'Títulu',
 );
 
 /** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
