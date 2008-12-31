@@ -3805,6 +3805,7 @@ $messages['tet'] = array(
 	'lqt_delete_return' => 'Fali ba $1.',
 	'lqt-any-date' => 'Tempu/loron ruma',
 	'lqt-title' => 'Títulu',
+	'lqt-older' => 'tuan liu',
 );
 
 /** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
