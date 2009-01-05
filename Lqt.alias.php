@@ -95,6 +95,11 @@ $aliases['mk'] = array(
 	'NewMessages' => array( 'НовиПораки' ),
 );
 
+/** Maltese (Malti) */
+$aliases['mt'] = array(
+	'NewMessages' => array( 'MessaġġiĠodda' ),
+);
+
 /** Nedersaksisch (Nedersaksisch) */
 $aliases['nds-nl'] = array(
 	'DeleteThread' => array( 'Draod_vortdoon' ),
