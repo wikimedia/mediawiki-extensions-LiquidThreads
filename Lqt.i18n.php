@@ -56,11 +56,9 @@ That is pretty weird.',
 	'lqt_change_reply_created' => 'The highlighted comment was created in this revision.',
 	'lqt_change_edited_root' => 'The highlighted comment was edited in this revision.',
 	'lqt_youhavenewmessages' => 'You have [$1 new messages].',
-	'lqt_changes_from' => ' from ',
-	'lqt_changes_summary_of' => ' of ',
 	'lqt_protectedfromreply' => 'This thread has been $1 from being replied to.',
 	'lqt_protectedfromreply_link' => 'protected',
-	'lqt_subject' => 'Subject: ',
+	'lqt_subject' => 'Subject:',
 	'lqt_nosubject' => '«no subject»',
 	'lqt_noreason' => 'No reason given.',
 	'lqt_move_placeholder' => 'This thread is a placeholder indicating that a thread, $1, was removed from this page to another talk page.
@@ -2762,7 +2760,7 @@ $messages['nn'] = array(
 	'lqt_new_thread' => 'Start ein ny diskusjon',
 	'lqt_in_response_to' => 'Som svar til $1 av $2, over:',
 	'lqt_edited_notice' => 'Endra',
-	'lqt_move_placeholder' => 'Denne tråden finst berre for å syna at tråden $1 vart flytt frå denne sida til ei anna diskusjonssida. 
+	'lqt_move_placeholder' => 'Denne tråden finst berre for å syna at tråden $1 vart flytt frå denne sida til ei anna diskusjonssida.
 Flyttinga vart gjort av $2 $3.',
 	'lqt_reply' => 'Svar',
 	'lqt_delete' => 'Slett',

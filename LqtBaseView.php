@@ -174,47 +174,14 @@ class LqtDispatch {
 		return true;
 	}
 
-	static function changesListArticleLink(&$changeslist, &$articlelink, &$s, &$rc, $unpatrolled, $watched) {
-		$thread = null;
-
-		/* What an utter crock of shit.
-		The first row for a given date has the date plus the <ul> tag inside what's
-		supposed to be the individual row HTML, $s. */
-
-/*		var_dump($s);
-		$articlelink = '<span style="color:orange;">Yo</span>';
-		return true;*/
-
-		if( $rc->getTitle()->getNamespace() == NS_LQT_THREAD ) {
-			$thread = Threads::withRoot(new Post( $rc->getTitle() ));
-			if($thread) {
-				wfLoadExtensionMessages( 'LiquidThreads' );
-				$msg = wfMsg('lqt_changes_from');
-				$link = $thread->article()->getTitle()->getTalkPage();
-			}
-		}
-		else if( $rc->getTitle()->getNamespace() == NS_LQT_SUMMARY ) {
-			$thread = Threads::withSummary(new Article( $rc->getTitle() ));
-			if($thread) {
-				wfLoadExtensionMessages( 'LiquidThreads' );
-				$msg = wfMsg('lqt_changes_summary_of');
-				$link = $thread->title();
-			}
-		}
-		if($thread) {
-			$articlelink .= $msg . $changeslist->skin->makeKnownLinkObj( $link );
-		}
-		return true;
-	}
-	
 	static function customizeOldChangesList(&$changeslist, &$s, &$rc) {
 		if( $rc->getTitle()->getNamespace() == NS_LQT_THREAD ) {
 			$thread = Threads::withRoot(new Post( $rc->getTitle() ));
 			if( !$thread ) return true;
-			
+
 			LqtView::addJSandCSS(); // TODO only do this once.
 			wfLoadExtensionMessages( 'LiquidThreads' );
-			
+
 			if( $rc->mAttribs['rc_type'] != RC_NEW ) {
 				// Add whether it was original author.
 				// TODO: this only asks whether ANY edit has been by another, not this edit.
@@ -239,7 +206,7 @@ class LqtDispatch {
 							array('class'=>'lqt_rc_ellipsis'), array(), array('known'));
 				}
 				// TODO we must parse or sanitize the quote.
-					
+
 				if( $thread->isTopmostThread() ) {
 					$message_name = 'lqt_rc_new_discussion';
 					$tmp_title = $thread->title();
@@ -248,17 +215,17 @@ class LqtDispatch {
 					$tmp_title = $thread->topmostThread()->title();
 					$tmp_title->setFragment( '#' . LqtView::anchorName( $thread ) );
 				}
-				
+
 				$thread_link = $changeslist->skin->link(
 					$tmp_title,
 					$thread->subjectWithoutIncrement(),
 					array(), array(), array('known'));
-					
+
 				$talkpage_link = $changeslist->skin->link(
 					$thread->article()->getTitle()->getTalkPage(),
-					null, 
+					null,
 					array(), array(), array('known'));
-				
+
 				$s = wfMsg($message_name, $thread_link, $talkpage_link, $sig)
 					. "<blockquote class=\"lqt_rc_blockquote\">$quote</blockquote>";
 			}
