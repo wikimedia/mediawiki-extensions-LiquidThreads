@@ -47,6 +47,11 @@ $aliases['de'] = array(
 	'NewMessages' => array( 'Neue Nachrichten' ),
 );
 
+/** Basque (Euskara) */
+$aliases['eu'] = array(
+	'NewMessages' => array( 'MezuBerriak' ),
+);
+
 /** Persian (فارسی) */
 $aliases['fa'] = array(
 	'DeleteThread' => array( 'حذف_رشته' ),
