@@ -629,7 +629,14 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
+	'lqt_newmessages' => 'Nove poruke',
+	'lqt_archive_month_annotation' => 'od $1',
+	'lqt_archive_month_range_annotation' => 'između $1 i $2',
+	'lqt_browse_archive_with_recent' => 'starije',
+	'lqt_reply' => 'Odgovoriti',
 	'lqt_delete' => 'Obriši',
+	'lqt_from_talk' => 'od $1',
+	'lqt_subject' => 'Tema:',
 	'lqt_move_move' => 'Premjesti',
 	'lqt-any-date' => 'Svaki datum',
 	'lqt-title' => 'Naslov',
