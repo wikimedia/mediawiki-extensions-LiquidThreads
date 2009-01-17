@@ -141,6 +141,7 @@ This operation is undoable.',
 
 /** Message documentation (Message documentation)
  * @author Aotake
+ * @author Fryed-peach
  * @author Helix84
  * @author Jon Harald Søby
  * @author Minh Nguyen
@@ -162,8 +163,10 @@ $messages['qqq'] = array(
 	'lqt_delete' => '{{Identical|Delete}}',
 	'lqt_permalink' => 'Display name for a permanent link to the current revision of a page. When the page is edited, permalink will still link to this revision.',
 	'lqt_discussion_link' => '{{Identical|Discussion}}',
+	'lqt_newer' => '{{Identical|Newer}}',
 	'lqt_older' => '{{Identical|Older}}',
 	'lqt_hist_deleted' => '{{Identical|Deleted}}',
+	'lqt_youhavenewmessages' => '{{Identical|New messages}}',
 	'lqt_protectedfromreply_link' => '{{Identical|Protected}}',
 	'lqt_subject' => '{{Identical|Subject}}',
 	'lqt_noreason' => '{{Identical|No reason given}}',
@@ -176,7 +179,14 @@ $messages['qqq'] = array(
 	'lqt-title' => '{{Identical|Title}}',
 	'lqt-summary' => '{{Identical|Summary}}',
 	'lqt-older' => '{{Identical|Older}}',
+	'lqt-newer' => '{{Identical|Newer}}',
 	'lqt-email-undo' => '{{Identical|Undo}}',
+	'lqt_rc_new_discussion' => '* $1 - thread
+* $2 - talk page
+* $3 - person who has created the thread',
+	'lqt_rc_new_reply' => '* $1 - thread
+* $2 - talk page
+* $3 - person who has written to the thread',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -2026,7 +2036,7 @@ $messages['it'] = array(
 $messages['ja'] = array(
 	'lqt-desc' => '{{int:talk}}ページをスレッド形式の議論ページにする',
 	'lqt-nothread' => '保存されているスレッドはありません。',
-	'lqt_newmessages' => '新しいメッセージ',
+	'lqt_newmessages' => '新しい伝言',
 	'lqt_movethread' => 'スレッドを別のページに移動',
 	'lqt_deletethread' => 'スレッドの削除と復帰',
 	'lqt_archive_month_annotation' => '$1から',
@@ -2066,7 +2076,7 @@ $messages['ja'] = array(
 	'lqt_change_new_thread' => 'このスレッドの最初の版です。',
 	'lqt_change_reply_created' => 'この版で作成されたコメントがハイライト表示されています。',
 	'lqt_change_edited_root' => 'この版で変更されたコメントがハイライト表示されています。',
-	'lqt_youhavenewmessages' => '$1の新しいメッセージがあります。',
+	'lqt_youhavenewmessages' => '[$1 新しい伝言]があります。',
 	'lqt_protectedfromreply' => 'このスレッドは$1されているため返答できません。',
 	'lqt_protectedfromreply_link' => '保護',
 	'lqt_subject' => '表題:',
@@ -2112,8 +2122,32 @@ $messages['ja'] = array(
 	'lqt_sort_newest_changes' => '最終更新を上に',
 	'lqt_sort_newest_threads' => '新しいスレッドを上に',
 	'lqt_sort_oldest_threads' => '古いスレッドを上に',
+	'lqt-any-date' => '任意の日付',
+	'lqt-only-date' => '以下の日付のみ:',
+	'lqt-date-from' => '最古',
+	'lqt-date-to' => '最新',
 	'lqt-title' => 'タイトル',
 	'lqt-summary' => '要約',
+	'lqt-older' => '古いもの',
+	'lqt-newer' => '新しいもの',
+	'lqt-searching' => 'スレッドの検索',
+	'lqt-read-message' => '既読',
+	'lqt-read-message-tooltip' => 'このスレッドを新しい伝言から除きます。元のノートページでは表示され続けます。',
+	'lqt-read-all' => 'すべてを既読とする',
+	'lqt-read-all-tooltip' => 'すべてのスレッドを新しい伝言から除きます。元のノートページでは表示され続けます。この操作は取り消しができます。',
+	'lqt-marked-read' => "スレッド '''$1''' を既読としました。",
+	'lqt-count-marked-read' => '$1件の伝言を既読としました。',
+	'lqt-email-undo' => '取り消し',
+	'lqt-messages-sent' => 'あなたへの伝言:',
+	'lqt-other-messages' => '他のノートページでの伝言:',
+	'lqt-no-new-messages' => 'あなたへの新しい伝言はありません。',
+	'lqt-new-messages' => 'あなたへの新しい伝言があります。',
+	'lqt-email-info-undo' => 'あなたが片付けたばかりのスレッドを復元する。',
+	'lqt-date-info' => 'すべての日付のスレッドを閲覧しているため、このリンクは無効になっています。',
+	'lqt_rc_new_discussion' => '$2 で新規議論 $1。$3 の書き込み:',
+	'lqt_rc_new_reply' => '$2 で $1 に返答。$3 の書き込み:',
+	'lqt_rc_author_original' => '(作成者)',
+	'lqt_rc_author_others' => '(非作成者)',
 );
 
 /** Javanese (Basa Jawa)
@@ -3129,6 +3163,14 @@ Aquesta operacion es irreversibla.',
 	'lqt_rc_author_others' => '(es pas l’autor)',
 );
 
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Jose77
+ */
+$messages['or'] = array(
+	'lqt_discussion_link' => 'ଆଲୋଚନା',
+	'lqt-summary' => 'ସାରକଥା',
+);
+
 /** Ossetic (Иронау)
  * @author Amikeco
  */
@@ -3221,6 +3263,7 @@ $messages['ps'] = array(
 	'lqt_move_noreason' => 'هېڅ سبب نه دی ورکړ شوی.',
 	'lqt_delete_deleting_allreplies' => 'ټول ځوابونه',
 	'lqt-any-date' => 'هر يو وخت',
+	'lqt-only-date' => 'يواځې دا نېټې:',
 	'lqt-title' => 'سرليک',
 );
 
