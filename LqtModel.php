@@ -942,24 +942,37 @@ class Threads {
 			$tables = "";
 		}
 
-		/* Select the client's threads, AND all their children.
-		  The ones the client actually asked for are marked with root_test.
-		  In theory we could also grab the page and revision data, to avoid having
-		  to do an additional query for each page, but Article's prodedure for grabbing
-		  its own data is complicated and it's just not my problem. Plus parser cache.
-		*/
 
-		$root_test = str_replace( 'thread.', 'children.', $where ); // TODO fragile?
-
-		$sql = <<< SQL
-SELECT DISTINCT children.*, child_page.*, ($root_test) as is_root FROM ($tables {$wgDBprefix}thread thread, {$wgDBprefix}thread children, {$wgDBprefix}page child_page) $joins
-WHERE $where
-AND children.thread_ancestor = thread.thread_ancestor
-AND child_page.page_id = children.thread_root
-$options
+		$selection_sql = <<< SQL
+		SELECT DISTINCT thread.* FROM ($tables {$wgDBprefix}thread thread)
+		$joins
+		WHERE $where
+		$options
 SQL;
+		$selection_res = $dbr->query($selection_sql);
 
-		$res = $dbr->query($sql);
+		$ancestor_conds = array();
+		$selection_conds = array();
+		while( $line = $dbr->fetchObject($selection_res) ) {
+			$ancestor_conds[] = $line->thread_ancestor;
+			$selection_conds[] = $line->thread_id;
+		}
+		if( count($selection_conds) == 0 ) {
+			// No threads were found, so we can skip the second query.
+			return array();
+		} // List comprehensions, how I miss thee.
+		$ancestor_clause = join(', ', $ancestor_conds);
+		$selection_clause = join(', ', $selection_conds);
+
+		$children_sql = <<< SQL
+		SELECT DISTINCT thread.*, page.*,
+			thread.thread_id IN($selection_clause) as selected
+		FROM ({$wgDBprefix}thread thread, {$wgDBprefix}page page)
+		WHERE thread.thread_ancestor IN($ancestor_clause)
+			AND page.page_id = thread.thread_root
+		$options
+SQL;
+		$res = $dbr->query($children_sql);
 
 		$threads = array();
 		$top_level_threads = array();
@@ -968,7 +981,7 @@ SQL;
 		while ( $line = $dbr->fetchObject($res) ) {
 			$new_thread = new Thread($line, null);
 			$threads[] = $new_thread;
-			if( $line->is_root )
+			if( $line->selected )
 				// thread is one of those that was directly queried for.
 				$top_level_threads[] = $new_thread;
 			if( $line->thread_parent !== null ) {
@@ -990,6 +1003,7 @@ SQL;
 			self::$cache_by_root[$thread->root()->getID()] = $thread;
 			self::$cache_by_id[$thread->id()] = $thread;
 		}
+		
 		return $top_level_threads;
 	}
 
