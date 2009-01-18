@@ -1324,7 +1324,6 @@ $messages['got'] = array(
 	'lqt_delete' => 'Taíran',
 	'lqt_move_move' => 'Skiuban',
 );
-
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
  * @author Crazymadlover
  * @author Omnipaedista
@@ -1420,6 +1419,8 @@ $messages['he'] = array(
 	'lqt_newmessages' => 'הודעות חדשות',
 	'lqt_movethread' => 'העברת השרשור לדף אחר',
 	'lqt_deletethread' => 'מחיקת או שחזור שירשור',
+	'lqt_archive_month_annotation' => 'מחודש $1',
+	'lqt_archive_month_range_annotation' => 'בין $1 לבין $2',
 	'lqt_browse_archive_without_recent' => 'צפייה בשירשורים מהארכיון',
 	'lqt_browse_archive_with_recent' => 'ישנים יותר',
 	'lqt_recently_archived' => 'נשמרו בארכיון לאחרונה:',
@@ -2309,6 +2310,8 @@ $messages['lb'] = array(
 	'lqt_newmessages' => 'Nei Messagen',
 	'lqt_movethread' => 'Rubrik op eng aner Säit réckelen',
 	'lqt_deletethread' => 'Rubrik läschen oder restauréieren',
+	'lqt_archive_month_annotation' => 'vum $1',
+	'lqt_archive_month_range_annotation' => 'tëschent $1 a(n) $2',
 	'lqt_browse_archive_without_recent' => 'Archivéiert Rubrike weisen',
 	'lqt_browse_archive_with_recent' => 'méi al',
 	'lqt_recently_archived' => 'Rezent archivéiert:',
