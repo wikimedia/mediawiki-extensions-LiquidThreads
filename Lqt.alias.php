@@ -79,6 +79,8 @@ $aliases['hu'] = array(
 /** Japanese (日本語) */
 $aliases['ja'] = array(
 	'DeleteThread' => array( 'スレッド削除' ),
+	'MoveThread' => array( 'スレッド移動' ),
+	'NewMessages' => array( '新しい伝言' ),
 );
 
 /** Khmer (ភាសាខ្មែរ) */
@@ -134,6 +136,13 @@ $aliases['oc'] = array(
 /** Brazilian Portuguese (Português do Brasil) */
 $aliases['pt-br'] = array(
 	'NewMessages' => array( 'Novas mensagens' ),
+);
+
+/** Sanskrit (संस्कृत) */
+$aliases['sa'] = array(
+	'DeleteThread' => array( 'सूत्रपरित्यजति' ),
+	'MoveThread' => array( 'सूत्रस्थानान्तर' ),
+	'NewMessages' => array( 'नूतनसन्देश' ),
 );
 
 /** Swedish (Svenska) */
