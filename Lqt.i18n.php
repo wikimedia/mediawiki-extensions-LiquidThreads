@@ -63,7 +63,7 @@ That is pretty weird.',
 	'lqt_noreason' => 'No reason given.',
 	'lqt_move_placeholder' => 'This thread is a placeholder indicating that a thread, $1, was removed from this page to another talk page.
 This move was made by $2 at $3.',
-	'lqt_thread_deleted_for_sysops' => 'This thread has been $1 and is only visible to sysops.',
+	'lqt_thread_deleted_for_sysops' => 'This thread has been $1 and is only visible to administrators.',
 	'lqt_thread_deleted_for_sysops_deleted' => 'deleted', // substituted above in bold
 	'lqt_thread_deleted' => 'This thread has been deleted.',
 	'lqt_summary_notice' => 'There have been no changes to this discussion for at least $2 days.
