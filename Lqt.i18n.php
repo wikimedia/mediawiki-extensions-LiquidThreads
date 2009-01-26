@@ -998,6 +998,14 @@ $messages['es'] = array(
 	'lqt-email-undo' => 'Deshacer',
 );
 
+/** Basque (Euskara)
+ * @author An13sa
+ */
+$messages['eu'] = array(
+	'lqt_delete' => 'Ezabatu',
+	'lqt_move_move' => 'Mugitu',
+);
+
 /** Finnish (Suomi)
  * @author Crt
  * @author Nike
