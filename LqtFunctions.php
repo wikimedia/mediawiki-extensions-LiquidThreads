@@ -66,6 +66,10 @@ function efThreadTableHelper($t, $indent) {
 function wfLqtBeforeWatchlistHook( &$conds, &$tables, &$join_conds, &$fields ) {
 	global $wgOut, $wgUser;
 
+	if ( !in_array( 'page', $tables ) ) {
+		$tables[] = 'page';
+		$join_conds['page'] = array('LEFT JOIN','rc_cur_id=page_id');
+	}
 	$conds[] = "page_namespace != " . NS_LQT_THREAD;
 
 	$talkpage_messages = NewMessages::newUserMessages($wgUser);
