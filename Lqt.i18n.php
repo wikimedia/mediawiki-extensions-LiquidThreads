@@ -3840,9 +3840,10 @@ Den kommer fortfarande att visas på dens orginala diskussionssida.',
 
 /** Silesian (Ślůnski)
  * @author Herr Kriss
+ * @author Timpul
  */
 $messages['szl'] = array(
-	'lqt_move_move' => 'Přećep',
+	'lqt_move_move' => 'Przećep',
 );
 
 /** Telugu (తెలుగు)
