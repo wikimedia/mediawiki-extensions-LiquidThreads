@@ -83,6 +83,11 @@ $aliases['ja'] = array(
 	'NewMessages' => array( '新しい伝言' ),
 );
 
+/** Georgian (ქართული) */
+$aliases['ka'] = array(
+	'NewMessages' => array( 'ახალი წერილები' ),
+);
+
 /** Khmer (ភាសាខ្មែរ) */
 $aliases['km'] = array(
 	'NewMessages' => array( 'សារថ្មីៗ' ),
