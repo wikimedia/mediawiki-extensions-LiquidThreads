@@ -47,6 +47,13 @@ $aliases['de'] = array(
 	'NewMessages' => array( 'Neue Nachrichten' ),
 );
 
+/** Lower Sorbian (Dolnoserbski) */
+$aliases['dsb'] = array(
+	'DeleteThread' => array( 'Nitku lašowaś' ),
+	'MoveThread' => array( 'Nitku pśesunuś' ),
+	'NewMessages' => array( 'Nowe powěsći' ),
+);
+
 /** Basque (Euskara) */
 $aliases['eu'] = array(
 	'NewMessages' => array( 'MezuBerriak' ),
@@ -69,6 +76,13 @@ $aliases['gsw'] = array(
 	'DeleteThread' => array( 'Thread lesche' ),
 	'MoveThread' => array( 'Thread verschiebe' ),
 	'NewMessages' => array( 'Neji Nochrichte' ),
+);
+
+/** Upper Sorbian (Hornjoserbsce) */
+$aliases['hsb'] = array(
+	'DeleteThread' => array( 'Nitku wušmórnyć' ),
+	'MoveThread' => array( 'Nitku přesunyć' ),
+	'NewMessages' => array( 'Nowe powěsće' ),
 );
 
 /** Hungarian (Magyar) */
@@ -136,6 +150,11 @@ $aliases['no'] = array(
 /** Occitan (Occitan) */
 $aliases['oc'] = array(
 	'NewMessages' => array( 'Messatges novèls', 'MessatgesNovèls' ),
+);
+
+/** Pashto (پښتو) */
+$aliases['ps'] = array(
+	'NewMessages' => array( 'نوي پيغامونه' ),
 );
 
 /** Brazilian Portuguese (Português do Brasil) */
