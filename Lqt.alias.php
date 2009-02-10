@@ -181,3 +181,8 @@ $aliases['sw'] = array(
 	'NewMessages' => array( 'MijumbeMipya' ),
 );
 
+/** Turkish (Türkçe) */
+$aliases['tr'] = array(
+	'NewMessages' => array( 'YeniMesajlar' ),
+);
+
