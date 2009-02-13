@@ -1,7 +1,7 @@
 <?php
-
 if (!defined('MEDIAWIKI')) die;
 
+/** Module of factory methods. */
 class Threads {
 
 	const TYPE_NORMAL = 0;
@@ -33,7 +33,7 @@ class Threads {
 		// SCHEMA changes must be reflected here.
 		// TODO: It's dumb that the commitRevision code isn't used here.
 
-        $dbr =& wfGetDB( DB_MASTER );
+        $dbw =& wfGetDB( DB_MASTER );
 
 		if ( !in_array($type, self::$VALID_TYPES) ) {
 			throw new MWException(__METHOD__ . ": invalid type $type.");
@@ -48,9 +48,11 @@ class Threads {
 		global $wgUser; // TODO global.
 
 		$timestamp = wfTimestampNow();
-
-        $res = $dbr->insert('thread',
-            array('thread_root' => $root->getID(),
+		
+		// TODO PG support
+		$newid = $dbw->nextSequenceValue( 'thread_thread_id' );
+		
+		$row = array('thread_root' => $root->getID(),
                   'thread_parent' => $superthread ? $superthread->id() : null,
 				  'thread_article_namespace' => $article->getTitle()->getNamespace(),
 				  'thread_article_title' => $article->getTitle()->getDBkey(),
@@ -61,26 +63,42 @@ class Threads {
 				  'thread_change_user' => $wgUser->getID(),
 				  'thread_change_user_text' => $wgUser->getName(),
 				  'thread_type' => $type,
-				  'thread_editedness' => self::EDITED_NEVER),
-            __METHOD__);
-
-		$newid = $dbr->insertId();
-
+				  'thread_editedness' => self::EDITED_NEVER);
+				  
 		if( $superthread ) {
-			$ancestor = $superthread->ancestorId();
-			$change_object_clause = 'thread_change_object = ' . $newid;
+			$row['thread_ancestor'] = $superthread->ancestorId();
+			$row['thread_change_object'] = $newid;
 		} else {
-			$ancestor = $newid;
-			$change_object_clause = 'thread_change_object = null';
+			$row['thread_change_object'] = null;
 		}
-		$res = $dbr->update( 'thread',
-			     /* SET */   array( 'thread_ancestor' => $ancestor,
-			                         $change_object_clause ),
-			     /* WHERE */ array( 'thread_id' => $newid, ),
-			     __METHOD__);
 
-		// TODO we could avoid a query here.
-        $newthread =  Threads::withId($newid);
+        $res = $dbw->insert('thread', $row, __METHOD__);
+
+		$newid = $dbw->insertId();
+		
+		$row['thread_id'] = $newid;
+		
+		// Ew, we have to do a SECOND update
+		if ( $superthread ) {
+			$row['thread_change_object'] = $newid;
+			$dbw->update( 'thread',
+				array( 'thread_change_object' => $newid ),
+				array( 'thread_id' => $newid ),
+				__METHOD__ );
+		}
+		
+		// Sigh, convert row to an object
+		$rowObj = new stdClass();
+		foreach( $row as $key => $value ) {
+			$rowObj->$key = $value;
+		}
+
+		// We just created the thread, it won't have any children.
+        $newthread = new Thread( $rowObj, array() );
+        
+        if (!$newthread)
+        	throw new MWException( "No new thread with ID $newid\n" );
+        
 		if($superthread) {
 			$superthread->addReply( $newthread );
 		}
@@ -111,7 +129,8 @@ class Threads {
 		}
 	}
 
-	static function where( $where, $options = array(), $extra_tables = array(), $joins = "" ) {
+	static function where( $where, $options = array(), $extra_tables = array(),
+			$joins = "" ) {
 		global $wgDBprefix;
 		$dbr = wfGetDB( DB_SLAVE );
 		if ( is_array($where) ) $where = $dbr->makeList( $where, LIST_AND );
@@ -196,8 +215,7 @@ SQL;
 
 	private static function databaseError( $msg ) {
 		// TODO tie into MW's error reporting facilities.
-		echo("Corrupt liquidthreads database: $msg");
-		die();
+		throw new MWException("Corrupt liquidthreads database: $msg");
 	}
 
 	private static function assertSingularity( $threads, $attribute, $value ) {
