@@ -1,6 +1,6 @@
 <?php
-
 if (!defined('MEDIAWIKI')) die;
+
 
 class Thread {
 	/* SCHEMA changes must be reflected here. */
@@ -162,16 +162,9 @@ class Thread {
 					'thread_parent' => $this->parentId,
 					'thread_type' => $this->type,
 					'thread_summary_page' => $this->summaryId,
-//					'thread_modified' => wfTimestampNow(),
-//					'thread_revision' => $this->revisionNumber,
 					'thread_article_namespace' => $this->articleNamespace,
 				    'thread_article_title' => $this->articleTitle,
 					'thread_editedness' => $this->editedness,
-//					'thread_change_type' => $this->changeType,
-//					'thread_change_object' => $this->changeObject,
-//					'thread_change_comment' => $this->changeComment,
-//					'thread_change_user' => $this->changeUser,
-//					'thread_change_user_text' => $this->changeUserText,
 					),
 		     /* WHERE */ array( 'thread_id' => $this->id, ),
 		     __METHOD__);
@@ -179,10 +172,6 @@ class Thread {
 		if( $change_type == Threads::CHANGE_EDITED_ROOT ) {
 			NewMessages::writeMessageStateForUpdatedThread($this);
 		}
-
-	//	RecentChange::notifyEdit( wfTimestampNow(), $this->root(), /*minor*/false, $wgUser, $summary,
-	//		$lastRevision, $this->getModified(), $bot, '', $oldsize, $newsize,
-	//		$revisionId );
 	}
 
 	function delete($reason) {

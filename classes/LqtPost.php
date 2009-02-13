@@ -1,7 +1,7 @@
 <?php
-
 if (!defined('MEDIAWIKI')) die;
 
+// TODO get rid of this class. sheesh.
 class Post extends Article {
 	/**
 	* Return the User object representing the author of the first revision

@@ -1,5 +1,4 @@
 <?php
-
 if (!defined('MEDIAWIKI')) die;
 
 class ThreadHistoryIterator extends ArrayIterator {
