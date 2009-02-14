@@ -48,6 +48,7 @@ $wgHooks['TitleGetRestrictions'][] = 'Thread::getRestrictionsForTitle';
 $wgSpecialPages['DeleteThread'] = 'SpecialDeleteThread';
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
+$wgSpecialPageGroups['NewMessages'] = 'wiki';
 
 $wgAutoloadClasses['LqtDispatch'] = $dir . 'LqtBaseView.php';
 $wgAutoloadClasses['LqtView'] = $dir . 'LqtBaseView.php';
