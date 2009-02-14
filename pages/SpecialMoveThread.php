@@ -1,15 +1,15 @@
 <?php
 
-if (!defined('MEDIAWIKI')) die;
+if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class SpecialMoveThread extends UnlistedSpecialPage {
 	private $user, $output, $request, $title, $thread;
-	
+
 	function __construct() {
 		parent::__construct( 'Movethread' );
 		$this->includable( false );
 	}
-	
+
 	/**
 	* @see SpecialPage::getDescription
 	*/
@@ -17,15 +17,15 @@ class SpecialMoveThread extends UnlistedSpecialPage {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		return wfMsg( 'lqt_movethread' );
 	}
-	
+
 	function handleGet() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$form_action = $this->title->getLocalURL() . '/' . $this->thread->title()->getPrefixedURL();
 		$thread_name = $this->thread->title()->getPrefixedText();
 		$article_name = $this->thread->article()->getTitle()->getTalkPage()->getPrefixedText();
-		$edit_url = LqtView::permalinkUrl($this->thread, 'edit', $this->thread);
+		$edit_url = LqtView::permalinkUrl( $this->thread, 'edit', $this->thread );
 		$wfMsg = 'wfMsg'; // functions can only be called within string expansion by variable name.
-		$this->output->addHTML(<<<HTML
+		$this->output->addHTML( <<<HTML
 <p>{$wfMsg('lqt_move_movingthread', "<b>$thread_name</b>", "<b>$article_name</b>")}</p>
 <p>{$wfMsg('lqt_move_torename', "<a href=\"$edit_url\">{$wfMsg('lqt_move_torename_edit')}</a>")}</p>
 <form id="lqt_move_thread_form" action="$form_action" method="POST">
@@ -44,9 +44,9 @@ class SpecialMoveThread extends UnlistedSpecialPage {
 </form>
 HTML
 		);
-		
+
 	}
-	
+
 	function checkUserRights() {
 		if ( !$this->user->isAllowed( 'move' ) ) {
 			$this->output->showErrorPage( 'movenologin', 'movenologintext' );
@@ -67,66 +67,66 @@ HTML
 		/* Am I forgetting anything? */
 		return true;
 	}
-	
-	function redisplayForm($problem_fields, $message) {
-		$this->output->addHTML($message);
+
+	function redisplayForm( $problem_fields, $message ) {
+		$this->output->addHTML( $message );
 		$this->handleGet();
 	}
-	
+
 	function handlePost() {
-		if( !$this->checkUserRights() ) return;
+		if ( !$this->checkUserRights() ) return;
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		
-		$tmp = $this->request->getVal('lqt_move_thread_target_title');
-		if( $tmp === "" ) {
-			$this->redisplayForm(array('lqt_move_thread_target_title'), wfMsg('lqt_move_nodestination'));
+
+		$tmp = $this->request->getVal( 'lqt_move_thread_target_title' );
+		if ( $tmp === "" ) {
+			$this->redisplayForm( array( 'lqt_move_thread_target_title' ), wfMsg( 'lqt_move_nodestination' ) );
 			return;
 		}
 		$newtitle = Title::newFromText( $tmp )->getSubjectPage();
-		
-		$reason = $this->request->getVal('lqt_move_thread_reason', wfMsg('lqt_noreason'));
-		
+
+		$reason = $this->request->getVal( 'lqt_move_thread_reason', wfMsg( 'lqt_noreason' ) );
+
 		// TODO no status code from this method.
 		$this->thread->moveToSubjectPage( $newtitle, $reason, true );
-		
+
 		$this->showSuccessMessage( $newtitle->getTalkPage() );
 	}
-	
+
 	function showSuccessMessage( $target_title ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		$this->output->addHTML(wfMsg('lqt_move_success',
-			'<a href="'.$target_title->getFullURL().'">'.$target_title->getPrefixedText().'</a>'));
+		$this->output->addHTML( wfMsg( 'lqt_move_success',
+			'<a href="' . $target_title->getFullURL() . '">' . $target_title->getPrefixedText() . '</a>' ) );
 	}
-	
+
 	function execute( $par ) {
 		global $wgOut, $wgRequest, $wgTitle, $wgUser;
 		$this->user = $wgUser;
 		$this->output = $wgOut;
 		$this->request = $wgRequest;
 		$this->title = $wgTitle;
-		
+
 		$this->setHeaders();
-		
-		if( $par === null || $par === "") {
+
+		if ( $par === null || $par === "" ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
-			$this->output->addHTML(wfMsg('lqt_threadrequired'));
+			$this->output->addHTML( wfMsg( 'lqt_threadrequired' ) );
 			return;
 		}
 		// TODO should implement Threads::withTitle(...).
-		$thread = Threads::withRoot( new Article(Title::newFromURL($par)) );
-		if (!$thread) {
+		$thread = Threads::withRoot( new Article( Title::newFromURL( $par ) ) );
+		if ( !$thread ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
-			$this->output->addHTML(wfMsg('lqt_nosuchthread'));
+			$this->output->addHTML( wfMsg( 'lqt_nosuchthread' ) );
 			return;
 		}
-		
+
 		$this->thread = $thread;
-		
+
 		if ( $this->request->wasPosted() ) {
 			$this->handlePost();
 		} else {
 			$this->handleGet();
 		}
-		
+
 	}
 }

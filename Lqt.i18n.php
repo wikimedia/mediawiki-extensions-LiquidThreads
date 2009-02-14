@@ -117,7 +117,7 @@ You might instead want to $2.',
 	'lqt-newer'               => 'newer',
 	'lqt-searching'           => 'Searching for threads',
 	'lqt-read-message'        => 'Read',
-	'lqt-read-message-tooltip'=> 'Remove this thread from new messages.
+	'lqt-read-message-tooltip' => 'Remove this thread from new messages.
 It will still be visible on its original talk page.',
 	'lqt-read-all'            => 'Mark all as read',
 	'lqt-read-all-tooltip'    => 'Remove all threads from new messages.
@@ -2910,7 +2910,7 @@ $messages['nn'] = array(
 	'lqt_new_thread' => 'Start ein ny diskusjon',
 	'lqt_in_response_to' => 'Som svar til $1 av $2, over:',
 	'lqt_edited_notice' => 'Endra',
-	'lqt_move_placeholder' => 'Denne tråden finst berre for å syna at tråden $1 vart flytt frå denne sida til ei anna diskusjonssida. 
+	'lqt_move_placeholder' => 'Denne tråden finst berre for å syna at tråden $1 vart flytt frå denne sida til ei anna diskusjonssida.
 Flyttinga vart gjort av $2 $3.',
 	'lqt_reply' => 'Svar',
 	'lqt_delete' => 'Slett',

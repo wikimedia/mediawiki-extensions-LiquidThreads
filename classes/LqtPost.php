@@ -1,5 +1,5 @@
 <?php
-if (!defined('MEDIAWIKI')) die;
+if ( !defined( 'MEDIAWIKI' ) ) die;
 
 // TODO get rid of this class. sheesh.
 class Post extends Article {
@@ -10,14 +10,14 @@ class Post extends Article {
 	function originalAuthor() {
 		$dbr =& wfGetDB( DB_SLAVE );
 
-		$line = $dbr->selectRow( array('revision', 'page'), 'rev_user_text',
-			array('rev_page = page_id',
-			'page_id' => $this->getID()),
+		$line = $dbr->selectRow( array( 'revision', 'page' ), 'rev_user_text',
+			array( 'rev_page = page_id',
+			'page_id' => $this->getID() ),
 			__METHOD__,
-			array('ORDER BY'=> 'rev_timestamp',
-			'LIMIT'   => '1') );
+			array( 'ORDER BY' => 'rev_timestamp',
+			'LIMIT'   => '1' ) );
 		if ( $line )
-			return User::newFromName($line->rev_user_text, false);
+			return User::newFromName( $line->rev_user_text, false );
 		else
 			return null;
 	}
