@@ -90,6 +90,13 @@ $aliases['hu'] = array(
 	'NewMessages' => array( 'Új üzenetek' ),
 );
 
+/** Interlingua (Interlingua) */
+$aliases['ia'] = array(
+	'DeleteThread' => array( 'DelerDiscussion' ),
+	'MoveThread' => array( 'DisplaciarDiscussion' ),
+	'NewMessages' => array( 'NoveMessages' ),
+);
+
 /** Japanese (日本語) */
 $aliases['ja'] = array(
 	'DeleteThread' => array( 'スレッド削除' ),
@@ -181,8 +188,20 @@ $aliases['sw'] = array(
 	'NewMessages' => array( 'MijumbeMipya' ),
 );
 
+/** Tagalog (Tagalog) */
+$aliases['tl'] = array(
+	'DeleteThread' => array( 'Burahin ang bagting' ),
+	'MoveThread' => array( 'Ilipat ang bagting' ),
+	'NewMessages' => array( 'Bagong mga mensahe' ),
+);
+
 /** Turkish (Türkçe) */
 $aliases['tr'] = array(
 	'NewMessages' => array( 'YeniMesajlar' ),
+);
+
+/** Vèneto (Vèneto) */
+$aliases['vec'] = array(
+	'NewMessages' => array( 'MessajiNovi' ),
 );
 
