@@ -30,7 +30,8 @@ class TalkpageHeaderView extends LqtView {
 			wfMsg( 'lqt_header_warning_new_discussion' ) . '</a>';
 			$wgOut->addHTML( '<p class="lqt_header_warning">' .
 			wfMsg( 'lqt_header_warning_before_big', $warn_bold, $warn_link ) .
-			'<big>' . wfMsg( 'lqt_header_warning_big', $warn_bold, $warn_link ) . '</big> ' .
+			'<big>' . wfMsg( 'lqt_header_warning_big', $warn_bold, $warn_link ) . '</big>' .
+			wfMsg( 'word-separator' ) .
 			wfMsg( 'lqt_header_warning_after_big', $warn_bold, $warn_link ) .
 			'</p>' );
 		}
