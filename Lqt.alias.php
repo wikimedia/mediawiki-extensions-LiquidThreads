@@ -92,9 +92,9 @@ $aliases['hu'] = array(
 
 /** Interlingua (Interlingua) */
 $aliases['ia'] = array(
-	'DeleteThread' => array( 'DelerDiscussion' ),
-	'MoveThread' => array( 'DisplaciarDiscussion' ),
-	'NewMessages' => array( 'NoveMessages' ),
+	'DeleteThread' => array( 'Deler discussion' ),
+	'MoveThread' => array( 'Displaciar discussion' ),
+	'NewMessages' => array( 'Nove messages' ),
 );
 
 /** Japanese (日本語) */
