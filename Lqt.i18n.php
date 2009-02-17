@@ -144,6 +144,7 @@ This operation is undoable.',
  * @author Fryed-peach
  * @author Helix84
  * @author Jon Harald Søby
+ * @author Malafaya
  * @author Minh Nguyen
  * @author Purodha
  * @author Siebrand
@@ -167,10 +168,13 @@ $messages['qqq'] = array(
 	'lqt_older' => '{{Identical|Older}}',
 	'lqt_hist_deleted' => '{{Identical|Deleted}}',
 	'lqt_youhavenewmessages' => '{{Identical|New messages}}',
+	'lqt_protectedfromreply' => '$1 is replaced with {{msg-mw|Lqt protectedfromreply link}}',
 	'lqt_protectedfromreply_link' => '{{Identical|Protected}}',
 	'lqt_subject' => '{{Identical|Subject}}',
 	'lqt_noreason' => '{{Identical|No reason given}}',
+	'lqt_thread_deleted_for_sysops' => '$1 is replaced with {{msg-mw|Lqt thread deleted for sysops deleted}}',
 	'lqt_thread_deleted_for_sysops_deleted' => '{{Identical|Deleted}}',
+	'lqt_move_torename' => '$1 is replaced with {{msg-mw|Lqt move torename edit}}',
 	'lqt_move_move' => '{{Identical|Move}}',
 	'lqt_move_noreason' => '{{Identical|No reason given}}',
 	'lqt_delete_return' => '{{Identical|Return to $1}}',
@@ -2255,6 +2259,13 @@ $messages['id'] = array(
 	'lqt-title' => 'Judul',
 );
 
+/** Ido (Ido)
+ * @author Malafaya
+ */
+$messages['io'] = array(
+	'lqt-title' => 'Titulo',
+);
+
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
  */
@@ -4020,6 +4031,8 @@ $messages['sv'] = array(
 	'lqt_newmessages' => 'Nya meddelanden',
 	'lqt_movethread' => 'Flytta diskussionssida till en annan sida',
 	'lqt_deletethread' => 'Radera eller återupprätta diskussionssida',
+	'lqt_archive_month_annotation' => 'från $1',
+	'lqt_archive_month_range_annotation' => 'mellan $1 och $2',
 	'lqt_browse_archive_without_recent' => 'Visa arkiverade diskussionssidor',
 	'lqt_browse_archive_with_recent' => 'äldre',
 	'lqt_recently_archived' => 'Nyligen arkiverade:',
@@ -4116,11 +4129,15 @@ Du kommer istället vilja $2.',
 	'lqt-read-message-tooltip' => 'Ta bort den här tråden från nya meddelanden.
 Den kommer fortfarande att visas på dens orginala diskussionssida.',
 	'lqt-read-all' => 'Markera alla som lästa',
+	'lqt-read-all-tooltip' => 'Ta bort alla trådar från nya meddelanden.
+De kommer fortfarande att vara synliga på dess ursprungliga diskussionssidor.
+Denna handling kan inte göras om.',
 	'lqt-marked-read' => "Tråden '''$1''' markerad som läst.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|meddelande markerat som läst|meddelanden markerade som lästa}}.',
 	'lqt-email-undo' => 'Ångra',
 	'lqt-messages-sent' => 'Meddelanden som skickats till dig:',
 	'lqt-other-messages' => 'Meddelanden på andra diskussionssidor:',
+	'lqt-no-new-messages' => 'Du har inga nya meddelanden.',
 	'lqt-new-messages' => 'Du har nya meddelanden.',
 	'lqt_rc_new_discussion' => 'Ny diskussion, $1, på $2. &bull; $3 skriver:',
 	'lqt_rc_new_reply' => 'Svar till $1, på $2. &bull; $3 skriver:',
