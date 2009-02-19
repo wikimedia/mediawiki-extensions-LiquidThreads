@@ -934,7 +934,8 @@ HTML
 			$this->output->addHTML( wfMsg( 'lqt_move_placeholder',
 				'<a href="' . $target->getFullURL() . '">' . $target->getText() . '</a>',
 				$sig,
-				$wgLang->timeanddate( $thread->modified() )
+				$wgLang->date( $thread->modified() ),
+				$wgLang->time( $thread->modified() )
 				) );
 			return;
 		}
