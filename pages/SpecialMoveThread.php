@@ -25,6 +25,8 @@ class SpecialMoveThread extends UnlistedSpecialPage {
 		$article_name = $this->thread->article()->getTitle()->getTalkPage()->getPrefixedText();
 		$edit_url = LqtView::permalinkUrl( $this->thread, 'edit', $this->thread );
 		$wfMsg = 'wfMsg'; // functions can only be called within string expansion by variable name.
+		// FIXME: awkward message usage and fixed parameter formatting. Would be nicer if all formatting
+		//        was done in the message itself, and the below code would be deweirded.
 		$this->output->addHTML( <<<HTML
 <p>{$wfMsg('lqt_move_movingthread', "<b>$thread_name</b>", "<b>$article_name</b>")}</p>
 <p>{$wfMsg('lqt_move_torename', "<a href=\"$edit_url\">{$wfMsg('lqt_move_torename_edit')}</a>")}</p>

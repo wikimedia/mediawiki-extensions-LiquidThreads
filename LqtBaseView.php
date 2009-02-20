@@ -943,8 +943,7 @@ HTML
 		if ( $thread->type() == Threads::TYPE_DELETED ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			if ( in_array( 'deletedhistory',  $this->user->getRights() ) ) {
-				$this->output->addHTML( '<p>' . wfMsg( 'lqt_thread_deleted_for_sysops',
-					'<b>' . wfMsg( 'lqt_thread_deleted_for_sysops_deleted' ) . '</b>' ) . '</p>' );
+				$this->output->addHTML( '<p>' . wfMsg( 'lqt_thread_deleted_for_sysops' ) . '</p>' );
 			}
 			else {
 				$this->output->addHTML( '<p><em>' . wfMsg( 'lqt_thread_deleted' ) . '</em></p>' );

@@ -30,13 +30,12 @@ class SpecialDeleteThread extends UnlistedSpecialPage {
 		$deleting = $this->thread->type() != Threads::TYPE_DELETED;
 
 		$operation_message = $deleting ?
-		wfMsg( 'lqt_delete_deleting', "<b>$thread_name</b>", '<b>' . wfMsg( 'lqt_delete_deleting_allreplies' ) . '</b>' )
-		//				"Deleting <b>$thread_name</b> and <b>all replies</b> to it."
-		: wfMsg( 'lqt_delete_undeleting', "<b>$thread_name</b>" );
+			wfMsg( 'lqt_delete_deleting', $thread_name )
+			: wfMsg( 'lqt_delete_undeleting', $thread_name );
 		$button_label = $deleting ?
-		wfMsg( 'lqt_delete_deletethread' )
-		: wfMsg( 'lqt_delete_undeletethread' );
-		$part_of = wfMsg( 'lqt_delete_partof', '<b>' . $article_name . '</b>' );
+			wfMsg( 'lqt_delete_deletethread' )
+			: wfMsg( 'lqt_delete_undeletethread' );
+		$part_of = wfMsg( 'lqt_delete_partof', $article_name );
 		$reason = wfMsg( 'movereason' ); // XXX arguably wrong to use movereason.
 
 		$this->output->addHTML( <<<HTML
@@ -95,7 +94,7 @@ HTML
 		// TODO talkpageUrl should accept threads, and look up their talk pages.
 		$talkpage_url = LqtView::talkpageUrl( $this->thread->article()->getTitle()->getTalkpage() );
 		$message = $is_deleted_already ? wfMsg( 'lqt_delete_undeleted' ) : wfMsg( 'lqt_delete_deleted' );
-		$message .= ' ';
+		$message .= wfMsg( 'word-separator' );
 		$message .= wfMsg( 'lqt_delete_return', '<a href="' . $talkpage_url . '">' . wfMsg( 'lqt_delete_return_link' ) . '</a>' );
 		$this->output->addHTML( $message );
 	}

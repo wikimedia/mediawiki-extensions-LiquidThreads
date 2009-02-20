@@ -5,7 +5,7 @@ if ( !defined( 'MEDIAWIKI' ) )
 
 $wgExtensionCredits['other'][] = array(
 	'name'           => 'Liquid Threads',
-	'version'        => '1.1',
+	'version'        => '1.2',
 	'url'            => 'http://www.mediawiki.org/wiki/Extension:LiquidThreads',
 	'author'         => 'David McCabe',
 	'description'    => 'Add threading discussions to talk pages',
@@ -22,11 +22,13 @@ define( 'LQT_NEWEST_CHANGES', 1 );
 define( 'LQT_NEWEST_THREADS', 2 );
 define( 'LQT_OLDEST_THREADS', 3 );
 
+// FIXME: would be neat if it was possible to somehow localise this.
 $wgCanonicalNamespaceNames[NS_LQT_THREAD]		= 'Thread';
 $wgCanonicalNamespaceNames[NS_LQT_THREAD_TALK]	= 'Thread_talk';
 $wgCanonicalNamespaceNames[NS_LQT_SUMMARY]		= 'Summary';
 $wgCanonicalNamespaceNames[NS_LQT_SUMMARY_TALK]	= 'Summary_talk';
 
+// FIXME: would be neat if it was possible to somehow localise this.
 $wgExtraNamespaces[NS_LQT_THREAD]	= 'Thread';
 $wgExtraNamespaces[NS_LQT_THREAD_TALK] = 'Thread_talk';
 $wgExtraNamespaces[NS_LQT_SUMMARY] = 'Summary';

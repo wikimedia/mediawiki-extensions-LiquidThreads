@@ -76,16 +76,7 @@ class Thread {
 		}
 		return $results;
 	}
-/*
-	function ancestors() {
- 		$id_clauses = array();
-		foreach( explode('.', $this->path) as $id ) {
-			$id_clauses[] = "thread_id = $id";
-		}
-		$where = implode(' OR ', $id_clauses);
-		return Threads::where($where);
-	}
-*/
+
 	private function bumpRevisionsOnAncestors( $change_type, $change_object, $change_reason, $timestamp ) {
 		global $wgUser; // TODO global.
 
@@ -247,7 +238,7 @@ class Thread {
 
 		# Purge old title from squid
 		# The new title, and links to the new title, are purged in Article::onArticleCreate()
-#		$this-->purgeSquid();
+		# $this-->purgeSquid();
 	}
 
 

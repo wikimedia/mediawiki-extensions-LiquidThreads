@@ -102,7 +102,6 @@ class TalkpageView extends LqtView {
 		if ( count( $threadlinks ) > 0 ) {
 			$this->openDiv( 'lqt_archive_teaser' );
 			$this->output->addHTML( '<h2 class="lqt_recently_archived">' . wfMsg( 'lqt_recently_archived' ) . '</h2>' );
-			//			$this->output->addHTML("<span class=\"lqt_browse_archive\">[<a href=\"$url\">".wfMsg('lqt_browse_archive_with_recent')."</a>]</span></h2>");
 			$this->outputList( 'ul', '', '', $threadlinks );
 			$this->closeDiv();
 		} else {
