@@ -142,8 +142,8 @@ $aliases['nds-nl'] = array(
 
 /** Dutch (Nederlands) */
 $aliases['nl'] = array(
-	'DeleteThread' => array( 'ThreadVerwijderen' ),
-	'MoveThread' => array( 'ThreadVerplaatsen' ),
+	'DeleteThread' => array( 'OnderwerpVerwijderen' ),
+	'MoveThread' => array( 'OnderwerpVerplaatsen' ),
 	'NewMessages' => array( 'NieuweBerichten' ),
 );
 
