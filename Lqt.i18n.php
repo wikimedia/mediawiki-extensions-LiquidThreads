@@ -2138,7 +2138,7 @@ Isto es assatis bizarre.',
 	'lqt_hist_past_last_page_error' => 'Tu ha excedite le numero de paginas de historia existente.',
 	'lqt_hist_tooltip_newer_disabled' => 'Iste ligamine non es active post que tu es in le prime pagina.',
 	'lqt_hist_tooltip_older_disabled' => 'Iste ligamine non es active post que tu es in le ultime pagina.',
-	'lqt_revision_as_of' => 'Version datate $1.',
+	'lqt_revision_as_of' => 'Version del $2 a $3.',
 	'lqt_change_new_thread' => 'Isto es le version initial del filo.',
 	'lqt_change_reply_created' => 'Le commento accentuate ha essite create in iste version.',
 	'lqt_change_edited_root' => 'Le commento accentuate ha essite modificate in iste version.',
@@ -2150,7 +2150,7 @@ Isto es assatis bizarre.',
 	'lqt_noreason' => 'Nulle motivo specificate.',
 	'lqt_move_placeholder' => 'Iste filo es un substitution que indica le displaciamento de un filo, $1, ab iste pagina verso un altere pagina de discussion.
 Iste displaciamento esseva facite per $2 le $3 $4.',
-	'lqt_thread_deleted_for_sysops' => 'Iste filo ha essite $1 e es solmente visibile al administratores.',
+	'lqt_thread_deleted_for_sysops' => "Iste filo ha essite '''delite''' e es solmente visibile al administratores.",
 	'lqt_thread_deleted' => 'Iste filo ha essite delite.',
 	'lqt_summary_notice' => 'Il non ha habite cambiamentos in iste discussion durante al minus $2 dies.
 Si isto es concludite, es suggerite $1.',
@@ -2169,10 +2169,10 @@ Iste filo face parte de $2.',
 	'lqt_move_nodestination' => 'Tu debe specificar un destination.',
 	'lqt_move_noreason' => 'Nulle ration date.',
 	'lqt_move_success' => 'Le filo ha essite displaciate verso $1.',
-	'lqt_delete_undeleting' => 'Restauration de $1.',
+	'lqt_delete_undeleting' => "Restauration de '''$1'''.",
 	'lqt_delete_undeletethread' => 'Restaurar filo',
-	'lqt_delete_partof' => 'Iste filo face parte de $1.',
-	'lqt_delete_deleting' => 'Deletion de $1 e de $2 a illo.',
+	'lqt_delete_partof' => "Iste filo face parte de '''$1'''.",
+	'lqt_delete_deleting' => "Deletion de '''$1''' e de '''tote le responsas''' a illo.",
 	'lqt_delete_deletethread' => 'Deler filo e responsas',
 	'lqt_delete_deleted' => 'Le filo ha essite delite.',
 	'lqt_delete_undeleted' => 'Le filo ha essite restaurate.',
@@ -4369,12 +4369,17 @@ Hindi na maibabalik pa mula sa pagkakasakatuparan ang gawaing ito.',
 
 /** Turkish (Türkçe)
  * @author Joseph
+ * @author Karduelis
  * @author Mach
  * @author Srhat
  */
 $messages['tr'] = array(
+	'lqt_delete' => 'Sil',
+	'lqt_undelete' => 'Geri al',
 	'lqt_discussion_link' => 'tartışma',
+	'lqt_hist_deleted' => 'Silindi',
 	'lqt_youhavenewmessages' => '[$1 yeni mesajınız] var.',
+	'lqt-summary' => 'Özet',
 	'lqt-email-undo' => 'Geriye al',
 );
 
