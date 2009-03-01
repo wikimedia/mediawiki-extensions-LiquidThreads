@@ -876,7 +876,7 @@ To jo póžiwno.',
 Toś to pśesunjenje jo se pśewjadło wót $2 $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Toś ta nitka jo se '''wulašowała''' a jo jano widobna za administratorow.",
 	'lqt_thread_deleted' => 'Toś ta nitka jo se wulašowała.',
-	'lqt_summary_notice' => 'W toś tej diskusiji njejsu byli nanejmjenjej 2 dnja žedne změny.
+	'lqt_summary_notice' => 'W toś tej diskusiji njejsu byli nanejmjenjej $2 {{PLURAL:$2|źeń|dnja|dny|dnjow}} žedne změny.
 Jolic jo skóńcona, coš snaź $1.',
 	'lqt_summary_notice_link' => 'Zespominanje pisaś',
 	'lqt_summary_label' => 'Toś ta nitka jo se zespominała ako slědujo:',
@@ -885,7 +885,7 @@ Jolic jo skóńcona, coš snaź $1.',
 	'lqt_nosuchthread' => 'Taka nitka njejo.',
 	'lqt_threadrequired' => 'Musyš nitku w URL pódaś.',
 	'lqt_move_movingthread' => '$1 se pśesuwa.
-Toś ta nitka jo źěl z $1.',
+Toś ta nitka jo źěl z $2.',
 	'lqt_move_torename' => "Aby pśemjenił toś tu nitku, $1 a změń pólo 'Tema'.",
 	'lqt_move_torename_edit' => 'ju wobźěłaś',
 	'lqt_move_destinationtitle' => 'Titel celowego diskusijnego boka:',

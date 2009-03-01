@@ -147,6 +147,13 @@ $aliases['nl'] = array(
 	'NewMessages' => array( 'NieuweBerichten' ),
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
+$aliases['nn'] = array(
+	'DeleteThread' => array( 'Slett tråd' ),
+	'MoveThread' => array( 'Flytt tråd' ),
+	'NewMessages' => array( 'Nye meldingar' ),
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
 $aliases['no'] = array(
 	'DeleteThread' => array( 'Slett tråd' ),
