@@ -4235,10 +4235,11 @@ $messages['tg-cyrl'] = array(
 );
 
 /** Turkmen (Türkmen)
+ * @author Hanberke
  * @author Runningfridgesrule
  */
 $messages['tk'] = array(
-	'lqt-new-messages' => 'Täze maglumatlaryňyz bar.',
+	'lqt-new-messages' => 'Size täze habarlar bar.',
 );
 
 /** Tagalog (Tagalog)
