@@ -637,10 +637,19 @@ $messages['bs'] = array(
 	'lqt_delete' => 'Obriši',
 	'lqt_from_talk' => 'od $1',
 	'lqt_hist_deleted' => 'Obrisano',
+	'lqt_hist_moved_talkpage' => 'Premješteno',
 	'lqt_subject' => 'Tema:',
+	'lqt_summary_notice_link' => 'napišite sažetak',
+	'lqt_summary_subtitle' => 'sažetak od $1.',
 	'lqt_move_move' => 'Premjesti',
+	'lqt_move_noreason' => 'Nije naveden razlog.',
+	'lqt_header_warning_big' => 'Uređujete $1.',
 	'lqt-any-date' => 'Svaki datum',
 	'lqt-title' => 'Naslov',
+	'lqt-summary' => 'Sažetak',
+	'lqt-read-message' => 'Čitaj',
+	'lqt-messages-sent' => 'Poruke koje su upućene Vama:',
+	'lqt_rc_author_original' => '(prvobitni autor)',
 );
 
 /** Catalan (Català)
@@ -1702,7 +1711,7 @@ $messages['he'] = array(
 	'lqt_hist_past_last_page_error' => 'אתם חורגים ממספר דפי ההיסטוריה הקיימים.',
 	'lqt_hist_tooltip_newer_disabled' => 'קישור זה מבוטל כיוון שאתם בדף הראשון.',
 	'lqt_hist_tooltip_older_disabled' => 'קישור זה מבוטל כיוון שאתם בדף האחרון.',
-	'lqt_revision_as_of' => 'גרסה נכון לתאריך $2 בשעה $3.',
+	'lqt_revision_as_of' => 'גרסה מ־$3, $2.',
 	'lqt_change_new_thread' => 'זוהי הגרסה הראשונית של השירשור.',
 	'lqt_change_reply_created' => 'ההערה המודגשת נוצרה בגרסה זו.',
 	'lqt_change_edited_root' => 'ההערה המודגשת נערכה בגרסה זו.',
@@ -1714,7 +1723,7 @@ $messages['he'] = array(
 	'lqt_noreason' => 'לא צוינה סיבה.',
 	'lqt_move_placeholder' => 'שירשור זה הינו ממלא מקום המציין כי שירשור, $1, הוסר מדף זה והועבר לדף שיחה אחר.
 העברה זו בוצעה על ידי $2 ב־ $4$3.',
-	'lqt_thread_deleted_for_sysops' => "שירשור זה ''נמחק'' ורק מפעילי מערכת יכולים לצפות בו.",
+	'lqt_thread_deleted_for_sysops' => "שירשור זה '''נמחק''' ורק מפעילי מערכת יכולים לצפות בו.",
 	'lqt_thread_deleted' => 'שירשור זה נמחק.',
 	'lqt_summary_notice' => 'לא חלו שינויים בדיון זה לפחות במשך $2 הימים האחרונים.
 אם הוא הסתייים, אולי תרצו לבצע $1.',
