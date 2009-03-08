@@ -1101,21 +1101,28 @@ $messages['eo'] = array(
 );
 
 /** Spanish (Español)
+ * @author Crazymadlover
  * @author Imre
  * @author Piolinfax
  * @author Sanbec
  */
 $messages['es'] = array(
+	'lqt_newmessages' => 'Nuevos mensajes',
+	'lqt_archive_month_annotation' => 'de $1',
+	'lqt_archive_month_range_annotation' => 'entre $1 y $2',
+	'lqt_browse_archive_with_recent' => 'más antiguo',
 	'lqt_contents_title' => 'Contenidos:',
+	'lqt_edited_notice' => 'Editado',
 	'lqt_reply' => 'Responder',
 	'lqt_delete' => 'Borrar',
 	'lqt_undelete' => 'Restaurar',
 	'lqt_discussion_link' => 'discusión',
+	'lqt_from_talk' => 'de $1',
+	'lqt_newer' => '«más nuevo',
 	'lqt_hist_deleted' => 'Borrado',
 	'lqt_hist_undeleted' => 'Restaurado',
 	'lqt_hist_moved_talkpage' => 'Trasladado',
 	'lqt_noreason' => 'No se da ninguna razón',
-	'lqt_thread_deleted_for_sysops_deleted' => 'borrado',
 	'lqt_move_move' => 'Trasladar',
 	'lqt_move_noreason' => 'No se da ninguna razón',
 	'lqt_delete_return' => 'Volver a $1.',
