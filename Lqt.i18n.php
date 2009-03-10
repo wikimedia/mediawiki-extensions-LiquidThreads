@@ -225,6 +225,21 @@ $messages['gom-latn'] = array(
 	'lqt_delete_return' => '$1 ak patim vos',
 );
 
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'lqt_newmessages' => 'Uded tedotused',
+	'lqt_contents_title' => 'Südäimišt:',
+	'lqt_add_header' => 'Ližata pälkirjutez',
+	'lqt_new_thread' => "Avaita uz' lodu",
+	'lqt_edited_notice' => 'Redaktiruidud',
+	'lqt_reply' => 'Antta vastust',
+	'lqt_delete' => 'Čuta poiš',
+	'lqt_undelete' => 'Endištada',
+	'lqt_permalink' => 'Kaikenaigaine kosketuz',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  */
