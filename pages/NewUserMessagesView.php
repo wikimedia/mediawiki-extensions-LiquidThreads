@@ -142,15 +142,19 @@ HTML
 		$this->tops = array();
 		foreach ( $this->threads as $t ) {
 			$top = $t->topmostThread();
-			if ( !in_array( $top->id(), $this->tops ) )
-				$this->tops[] = $top->id();
+			
+			// It seems that in some cases $top is zero.
+			if (!$top)
+				continue;
+
+			if ( !array_key_exists( $top->id(), $this->tops ) )
+				$this->tops[$top->id()] = $top;
 			if ( !array_key_exists( $top->id(), $this->targets ) )
 				$this->targets[$top->id()] = array();
 			$this->targets[$top->id()][] = $t->id();
 		}
 
-		foreach ( $this->tops as $t_id ) {
-			$t = Threads::withId( $t_id );
+		foreach ( $this->tops as $t ) {
 			// It turns out that with lqtviews composed of threads from various talkpages,
 			// each thread is going to have a different article... this is pretty ugly.
 			$this->article = $t->article();
