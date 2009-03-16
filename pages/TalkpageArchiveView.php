@@ -32,7 +32,8 @@ HTML
 	function loadQueryFromRequest() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		// Begin with with the requirements for being *in* the archive.
-		$startdate = Date::now()->nDaysAgo( $this->archive_start_days )->midnight();
+		global $wgLqtThreadArchiveStartDays;
+		$startdate = Date::now()->nDaysAgo( $wgLqtThreadArchiveStartDays )->midnight();
 		$where = array( Threads::articleClause( $this->article ),
 		'thread.thread_parent is null',
 		'(thread.thread_summary_page is not null' .

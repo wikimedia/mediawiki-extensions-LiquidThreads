@@ -78,3 +78,11 @@ $wgAutoloadClasses['SpecialMoveThread'] = $dir . 'pages/SpecialMoveThread.php';
 $wgAutoloadClasses['SpecialDeleteThread'] = $dir . 'pages/SpecialDeleteThread.php';
 $wgAutoloadClasses['NewUserMessagesView'] = $dir . 'pages/NewUserMessagesView.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir . 'pages/SpecialNewMessages.php';
+
+/** CONFIGURATION SECTION */
+
+/* Number of days a thread needs to have existed to be considered for summarizing and archival */
+$wgLqtThreadArchiveStartDays = 14;
+
+/* Number of days a thread needs to be inactive to be considered for summarizing and archival */
+$wgLqtThreadArchiveInactiveDays = 5;

@@ -273,9 +273,6 @@ class LqtView {
 
 	protected $queries;
 
-	public $archive_start_days = 14;
-	public $archive_recent_days = 5;
-
 	protected $sort_order = LQT_NEWEST_CHANGES;
 
 	function __construct( &$output, &$article, &$title, &$user, &$request ) {
@@ -318,10 +315,10 @@ class LqtView {
 				$this->sort_order = $user_order;
 			}
 		}
-		global $wgOut;
+		global $wgOut, $wgLqtThreadArchiveStartDays, $wgLqtThreadArchiveInactiveDays;
 		$g = new QueryGroup();
-		$startdate = Date::now()->nDaysAgo( $this->archive_start_days )->midnight();
-		$recentstartdate = $startdate->nDaysAgo( $this->archive_recent_days );
+		$startdate = Date::now()->nDaysAgo( $wgLqtThreadArchiveStartDays )->midnight();
+		$recentstartdate = $startdate->nDaysAgo( $wgLqtThreadArchiveInactiveDays );
 		$article_clause = Threads::articleClause( $this->article );
 		if ( $this->sort_order == LQT_NEWEST_CHANGES ) {
 			$sort_clause = 'ORDER BY thread.thread_modified DESC';
@@ -950,17 +947,19 @@ HTML
 				return;
 			}
 		}
+		
+		global $wgLqtThreadArchiveStartDays, $wgLqtThreadArchiveInactiveDays;
 
 		$timestamp = new Date( $thread->modified() );
 		if ( $thread->summary() ) {
 			$this->showSummary( $thread );
-		} else if ( $timestamp->isBefore( Date::now()->nDaysAgo( $this->archive_start_days ) )
+		} else if ( $timestamp->isBefore( Date::now()->nDaysAgo( $wgLqtThreadArchiveStartDays ) )
 		            && !$thread->summary() && !$thread->hasSuperthread() && !$thread->isHistorical() )
 		{
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			$this->output->addHTML( '<p class="lqt_summary_notice">' . wfMsg( 'lqt_summary_notice',
 				'<a href="' . $this->permalinkUrl( $thread, 'summarize' ) . '">' . wfMsg( 'lqt_summary_notice_link' ) . '</a>',
-				$this->archive_start_days
+				$wgLqtThreadArchiveStartDays
 				) . '</p>' );
 		}
 
