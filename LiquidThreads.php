@@ -62,6 +62,7 @@ $wgAutoloadClasses['Thread'] = $dir . 'classes/LqtThread.php';
 $wgAutoloadClasses['Threads'] = $dir . 'classes/LqtThreads.php';
 $wgAutoloadClasses['QueryGroup'] = $dir . 'classes/LqtQueryGroup.php';
 $wgAutoloadClasses['NewMessages'] = $dir . 'classes/LqtNewMessages.php';
+
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
 $wgAutoloadClasses['TalkpageArchiveView'] = $dir . 'pages/TalkpageArchiveView.php';
 $wgAutoloadClasses['ThreadPermalinkView'] = $dir . 'pages/ThreadPermalinkView.php';

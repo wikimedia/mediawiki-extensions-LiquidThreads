@@ -401,8 +401,21 @@ class Thread {
 	}
 
 	function summary() {
-		if ( !$this->summaryId ) return null;
-		if ( !$this->summary ) $this->summary = new Post( Title::newFromID( $this->summaryId ) );
+		if ( !$this->summaryId )
+			return null;
+			
+		if ( !$this->summary ) {
+			$title = Title::newFromID( $this->summaryId );
+			
+			if (!$title) {
+				wfDebug( __METHOD__.": supposed summary doesn't exist" );
+				return null;
+			}
+			
+			$this->summary = new Post( $title );
+
+		}
+			
 		return $this->summary;
 	}
 
@@ -411,7 +424,9 @@ class Thread {
 	}
 
 	function setSummary( $post ) {
-		$this->summary = null;
+		// Weird -- this was setting $this->summary to NULL before I changed it.
+		// If there was some reason why, please tell me! -- Andrew
+		$this->summary = $post;
 		$this->summaryId = $post->getID();
 	}
 

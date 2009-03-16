@@ -115,7 +115,7 @@ class ThreadPermalinkView extends LqtView {
 		$this->output->setSubtitle( $this->getSubtitle() );
 
 		if ( $this->methodApplies( 'summarize' ) )
-		$this->showSummarizeForm( $this->thread );
+			$this->showSummarizeForm( $this->thread );
 
 		$this->showThread( $this->thread );
 		return false;
