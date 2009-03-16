@@ -10,8 +10,10 @@ class ThreadPermalinkView extends LqtView {
 		// Insert fake 'article' and 'discussion' tabs before the thread tab.
 		// If you call the key 'talk', the url gets re-set later. TODO:
 		// the access key for the talk tab doesn't work.
-		$article_t = $this->thread->article()->getTitle();
-		$talk_t = $this->thread->article()->getTitle()->getTalkPage();
+		if ($this->thread) {
+			$article_t = $this->thread->article()->getTitle();
+			$talk_t = $this->thread->article()->getTitle()->getTalkPage();
+		}
 		efInsertIntoAssoc( 'article', array(
 		'text' => wfMsg( $article_t->getNamespaceKey() ),
 		'href' => $article_t->getFullURL(),
@@ -92,7 +94,7 @@ class ThreadPermalinkView extends LqtView {
 
 		}
 		$this->thread = $t;
-		if ( ! $t ) {
+		if ( !$t ) {
 			return; // error reporting is handled in show(). this kinda sucks.
 		}
 
@@ -106,7 +108,7 @@ class ThreadPermalinkView extends LqtView {
 		global $wgHooks;
 		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
 
-		if ( ! $this->thread ) {
+		if ( !$this->thread ) {
 			$this->showMissingThreadPage();
 			return false;
 		}
