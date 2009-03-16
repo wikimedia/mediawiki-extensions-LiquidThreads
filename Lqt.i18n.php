@@ -3400,6 +3400,7 @@ $messages['or'] = array(
  */
 $messages['os'] = array(
 	'lqt_delete' => 'Аппар',
+	'lqt_hist_deleted' => 'Аппæрст',
 	'lqt_protectedfromreply_link' => 'æхгæд',
 	'lqt-title' => 'Сæргонд',
 );
