@@ -777,7 +777,7 @@ HTML;
 		$sig = $this->user->getSkin()->userLink( $author->getID(), $author->getName() ) .
 			   $this->user->getSkin()->userToolLinks( $author->getID(), $author->getName() );
 
-		$timestamp = $wgLang->timeanddate( $thread->created() );
+		$timestamp = $wgLang->timeanddate( $thread->created(), true );
 
 		$this->output->addHTML( <<<HTML
 <ul class="lqt_footer">
