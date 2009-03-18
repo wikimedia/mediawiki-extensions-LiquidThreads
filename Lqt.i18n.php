@@ -975,6 +975,7 @@ Toś ta operacija njedajo se anulěrowaś.',
  */
 $messages['ee'] = array(
 	'lqt_newmessages' => 'Du yeyewo',
+	'lqt_contents_title' => 'Emenyawo:',
 	'lqt_delete' => 'Tutui',
 	'lqt_move_move' => 'Ɖɔli eƒe nɔƒe',
 	'lqt_delete_return' => 'Gbugbɔ yi $1.',
