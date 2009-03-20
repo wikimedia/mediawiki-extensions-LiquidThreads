@@ -238,6 +238,16 @@ $messages['vep'] = array(
 	'lqt_delete' => 'Čuta poiš',
 	'lqt_undelete' => 'Endištada',
 	'lqt_permalink' => 'Kaikenaigaine kosketuz',
+	'lqt_protectedfromreply_link' => 'kaitud',
+	'lqt_move_move' => 'Sirta',
+	'lqt-date-from' => 'Augotaden',
+	'lqt-date-to' => 'Kenele',
+	'lqt-title' => 'Pälkirjutez',
+	'lqt-summary' => 'Ümbrikirjutand',
+	'lqt-older' => 'vanhembad',
+	'lqt-newer' => 'udembad',
+	'lqt-searching' => 'Barboiden ecmine',
+	'lqt-read-message' => 'Lugeda',
 );
 
 /** Afrikaans (Afrikaans)
