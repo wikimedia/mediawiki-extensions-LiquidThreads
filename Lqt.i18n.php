@@ -1717,11 +1717,13 @@ $messages['hak'] = array(
 );
 
 /** Hawaiian (Hawai`i)
+ * @author Kalani
  * @author Singularity
  */
 $messages['haw'] = array(
 	'lqt_contents_title' => 'Papa kuhikuhi',
 	'lqt_discussion_link' => 'kūkākūkā',
+	'lqt-email-undo' => 'Hoʻihoʻi mai',
 );
 
 /** Hebrew (עברית)
