@@ -225,31 +225,6 @@ $messages['gom-latn'] = array(
 	'lqt_delete_return' => '$1 ak patim vos',
 );
 
-/** Veps (Vepsan kel')
- * @author Игорь Бродский
- */
-$messages['vep'] = array(
-	'lqt_newmessages' => 'Uded tedotused',
-	'lqt_contents_title' => 'Südäimišt:',
-	'lqt_add_header' => 'Ližata pälkirjutez',
-	'lqt_new_thread' => "Avaita uz' lodu",
-	'lqt_edited_notice' => 'Redaktiruidud',
-	'lqt_reply' => 'Antta vastust',
-	'lqt_delete' => 'Čuta poiš',
-	'lqt_undelete' => 'Endištada',
-	'lqt_permalink' => 'Kaikenaigaine kosketuz',
-	'lqt_protectedfromreply_link' => 'kaitud',
-	'lqt_move_move' => 'Sirta',
-	'lqt-date-from' => 'Augotaden',
-	'lqt-date-to' => 'Kenele',
-	'lqt-title' => 'Pälkirjutez',
-	'lqt-summary' => 'Ümbrikirjutand',
-	'lqt-older' => 'vanhembad',
-	'lqt-newer' => 'udembad',
-	'lqt-searching' => 'Barboiden ecmine',
-	'lqt-read-message' => 'Lugeda',
-);
-
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  */
@@ -660,9 +635,14 @@ $messages['bs'] = array(
 	'lqt_browse_archive_with_recent' => 'starije',
 	'lqt_reply' => 'Odgovoriti',
 	'lqt_delete' => 'Obriši',
+	'lqt_discussion_link' => 'razgovor',
 	'lqt_from_talk' => 'od $1',
+	'lqt_newer' => '«novije',
+	'lqt_older' => 'starije»',
+	'lqt_hist_summary_changed' => 'Sažetak izmijenjen',
 	'lqt_hist_deleted' => 'Obrisano',
 	'lqt_hist_moved_talkpage' => 'Premješteno',
+	'lqt_youhavenewmessages' => 'Imate [$1 novih poruka].',
 	'lqt_subject' => 'Tema:',
 	'lqt_summary_notice_link' => 'napišite sažetak',
 	'lqt_summary_subtitle' => 'sažetak od $1.',
@@ -4584,6 +4564,31 @@ $messages['tr'] = array(
 $messages['tt-cyrl'] = array(
 	'lqt_subject' => 'Тема:',
 	'lqt_delete_return' => '$1 битенә кайтырга.',
+);
+
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'lqt_newmessages' => 'Uded tedotused',
+	'lqt_contents_title' => 'Südäimišt:',
+	'lqt_add_header' => 'Ližata pälkirjutez',
+	'lqt_new_thread' => "Avaita uz' lodu",
+	'lqt_edited_notice' => 'Redaktiruidud',
+	'lqt_reply' => 'Antta vastust',
+	'lqt_delete' => 'Čuta poiš',
+	'lqt_undelete' => 'Endištada',
+	'lqt_permalink' => 'Kaikenaigaine kosketuz',
+	'lqt_protectedfromreply_link' => 'kaitud',
+	'lqt_move_move' => 'Sirta',
+	'lqt-date-from' => 'Augotaden',
+	'lqt-date-to' => 'Kenele',
+	'lqt-title' => 'Pälkirjutez',
+	'lqt-summary' => 'Ümbrikirjutand',
+	'lqt-older' => 'vanhembad',
+	'lqt-newer' => 'udembad',
+	'lqt-searching' => 'Barboiden ecmine',
+	'lqt-read-message' => 'Lugeda',
 );
 
 /** Vietnamese (Tiếng Việt)
