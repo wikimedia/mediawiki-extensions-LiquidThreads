@@ -517,8 +517,14 @@ $messages['bcc'] = array(
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
+ * @author Jim-by
  */
 $messages['be-tarask'] = array(
+	'lqt-desc' => 'Дадае галіны абмеркаваньняў у старонкі абмеркаваньняў',
+	'lqt-nothread' => 'У архіве няма галінаў абмеркаваньняў.',
+	'lqt_newmessages' => 'Новыя паведамленьні',
+	'lqt_movethread' => 'Перанесьці галіну на іншую старонку',
+	'lqt_deletethread' => 'Выдаліць ці аднавіць галіну',
 	'lqt_contents_title' => 'Зьмест:',
 	'lqt_delete' => 'Выдаліць',
 	'lqt-title' => 'Назва',
