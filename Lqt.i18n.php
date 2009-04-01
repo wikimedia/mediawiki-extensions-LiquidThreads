@@ -544,7 +544,64 @@ $messages['be-tarask'] = array(
 	'lqt_from_talk' => 'з $1',
 	'lqt_newer' => '«навейшае',
 	'lqt_older' => 'старэйшае»',
+	'lqt_hist_comment_edited' => 'Тэкст камэнтара адрэдагаваны',
+	'lqt_hist_summary_changed' => 'Вынік зьменены',
+	'lqt_hist_reply_created' => 'Створаны новы адказ',
+	'lqt_hist_thread_created' => 'Створана новая галіна',
+	'lqt_hist_deleted' => 'Выдалена',
+	'lqt_hist_undeleted' => 'Адноўлена',
+	'lqt_hist_moved_talkpage' => 'Перанесена',
+	'lqt_hist_listing_subtitle' => 'Прагляд гісторыі.',
+	'lqt_hist_view_whole_thread' => 'Паказаць гісторыю для ўсёй галіны',
+	'lqt_hist_no_revisions_error' => 'Гэта галіна ня мае ніякай гісторыі.
+Гэта вельмі дзіўна.',
+	'lqt_hist_past_last_page_error' => 'Вы выйшлі за межы колькасьці старонак гісторыі, якія існуюць.',
+	'lqt_hist_tooltip_newer_disabled' => 'Гэтая спасылка адключаная, таму што Вы знаходзіцеся на першай старонцы.',
+	'lqt_hist_tooltip_older_disabled' => 'Гэта спасылка адключаная, таму што Вы знаходзіцеся на апошняй старонцы.',
+	'lqt_revision_as_of' => 'Вэрсія ад $2, $3.',
+	'lqt_change_new_thread' => 'Гэта пачатковая вэрсія галіны.',
+	'lqt_change_reply_created' => 'Пазначаны камэнтар быў створаны ў гэтай вэрсіі.',
+	'lqt_change_edited_root' => 'Пазначаны камэнтар рэдагаваўся ў гэтай вэрсіі.',
+	'lqt_youhavenewmessages' => 'Вы атрымалі [$1 {{PLURAL:$1|новае паведамленьне|новых паведамленьні|новых паведамленьняў}}].',
+	'lqt_protectedfromreply' => 'Гэта галіна была $1 ад адказаў на яе.',
+	'lqt_protectedfromreply_link' => 'абаронена',
+	'lqt_subject' => 'Тэма:',
+	'lqt_nosubject' => '«бяз тэмы»',
+	'lqt_noreason' => 'Прычына не пазначана.',
+	'lqt_move_placeholder' => 'Гэта галіна паказвае, што галіна $1 была перанесена з гэтай старонкі на іншую старонку абмеркаваньня.
+Гэты перанос быў зроблены $3 $4 {{GENDER:$2|удзельнікам|удзельніцай}} $2.',
+	'lqt_thread_deleted_for_sysops' => "Гэта галіна была '''выдалена''' і бачна толькі адміністратарам.",
+	'lqt_thread_deleted' => 'Гэта галіна была выдалена.',
+	'lqt_summary_notice' => 'У гэтым абмеркаваньні не было зьменаў ужо $2 {{PLURAL:$2|дзень|дні|дзён}}.
+Калі яно скончанае, Вы можаце $1.',
+	'lqt_summary_notice_link' => 'падвесьці вынік',
+	'lqt_summary_label' => 'Для гэтай галіны быў падведзены наступны вынік:',
+	'lqt_summary_subtitle' => 'вынік для $1.',
+	'lqt_nosuchrevision' => 'У гэтай галіне няма такой вэрсіі.',
+	'lqt_nosuchthread' => 'Няма такой галіны.',
+	'lqt_threadrequired' => 'Вам неабходна пазначыць галіну ў URL-адрасе.',
+	'lqt_move_movingthread' => 'Перанос $1.
+Гэтая галіна зьяўляецца часткай $2.',
+	'lqt_move_torename' => 'Каб зьмяніць назву гэтай галіны Вам неабходна $1 і зьмяніць поле «Тэма».',
+	'lqt_move_torename_edit' => 'адрэдагаваць яе',
+	'lqt_move_destinationtitle' => 'Назва мэтавай старонкі абмеркаваньня:',
+	'lqt_move_move' => 'Перанесьці',
+	'lqt_move_nodestination' => 'Вам неабходна пазначыць мэтавую старонку.',
+	'lqt_move_noreason' => 'Прычына не пазначана.',
+	'lqt_move_success' => 'Галіна была перанесена ў $1.',
+	'lqt_delete_undeleting' => "Аднаўленьне '''$1'''.",
+	'lqt_delete_undeletethread' => 'Аднаўленьне галіны',
+	'lqt_delete_partof' => "Гэтая галіна зьяўляецца часткай '''$1'''.",
+	'lqt_delete_deleting' => "Выдаленьне '''$1''' і '''усіх адказаў''' на яе.",
+	'lqt_delete_deletethread' => 'Выдаліць галіну і адказы',
+	'lqt_delete_deleted' => 'Галіна была выдалена.',
+	'lqt_delete_undeleted' => 'Галіна была адноўлена.',
 	'lqt_delete_return' => 'Вярнуцца да $1.',
+	'lqt_delete_return_link' => 'старонка абмеркаваньня',
+	'lqt_delete_unallowed' => 'Вам не дазволена выдаляць галіны.',
+	'lqt_delete_show_checkbox' => 'Паказаць выдаленыя галіны',
+	'lqt_talkpage_autocreate_summary' => 'Старонка абмеркаваньня была створана аўтаматычна, калі было створаная першая галіна.',
+	'lqt_header_warning_big' => 'Вы рэдагуеце $1.',
 	'lqt-title' => 'Назва',
 );
 
@@ -668,6 +725,8 @@ $messages['bs'] = array(
 	'lqt_hist_moved_talkpage' => 'Premješteno',
 	'lqt_youhavenewmessages' => 'Imate [$1 novih poruka].',
 	'lqt_subject' => 'Tema:',
+	'lqt_summary_notice' => 'Nije bilo izmjena na ovoj diskusiji već $2 dana.
+Ako je zaključena, možete je $1.',
 	'lqt_summary_notice_link' => 'napišite sažetak',
 	'lqt_summary_subtitle' => 'sažetak od $1.',
 	'lqt_move_move' => 'Premjesti',
@@ -997,6 +1056,7 @@ $messages['ee'] = array(
 
 /** Greek (Ελληνικά)
  * @author Consta
+ * @author Crazymadlover
  * @author Omnipaedista
  */
 $messages['el'] = array(
@@ -1007,6 +1067,7 @@ $messages['el'] = array(
 	'lqt_delete' => 'Διαγράψτε',
 	'lqt_discussion_link' => 'συζήτηση',
 	'lqt_from_talk' => 'από $1',
+	'lqt_hist_deleted' => 'Διαγραμμένος',
 	'lqt_youhavenewmessages' => 'Έχετε [$1 νέα μηνύματα].',
 	'lqt_protectedfromreply_link' => 'προστατευμένο',
 	'lqt_subject' => 'Θέμα:',
@@ -1019,6 +1080,7 @@ $messages['el'] = array(
 	'lqt_delete_return_link' => 'Η σελίδα συζήτησης',
 	'lqt_header_warning_big' => 'Επεξεργάζεστε το $1.',
 	'lqt_header_warning_new_discussion' => 'ξεκινήστε μια νέα συζήτηση',
+	'lqt-title' => 'Τίτλος',
 );
 
 /** Esperanto (Esperanto)
@@ -2536,7 +2598,8 @@ $messages['km'] = array(
 	'lqt_nosuchrevision' => 'គ្មាន​ការពិនិត្យឡើងវិញ​នៃ​ខ្សែស្រឡាយ​នេះ​ទេ​។',
 	'lqt_nosuchthread' => 'មិនមាន​ខ្សែស្រឡាយ​ណាមួយ​ទេ។',
 	'lqt_threadrequired' => 'អ្នក​ត្រូវតែ​បញ្ជាក់​ខ្សែស្រឡាយ​មួយ​នីក្នុង URL ។',
-	'lqt_move_movingthread' => 'ខ្សែស្រឡាយ​នេះ​ជា​ផ្នែក​នៃ $2 ។',
+	'lqt_move_movingthread' => 'ប្ដូរទីតាំង $1​។
+ខ្សែស្រឡាយ​នេះ​ជា​ផ្នែក​នៃ $2​។',
 	'lqt_move_torename_edit' => 'កែប្រែវា',
 	'lqt_move_destinationtitle' => 'ចំណងជើង​នៃ​ទំព័រពិភាក្សា​​គោលដៅ​៖',
 	'lqt_move_move' => 'ប្តូរទីតាំង',
@@ -2545,7 +2608,7 @@ $messages['km'] = array(
 	'lqt_delete_undeleting' => 'លែងលុបចេញ $1 ។',
 	'lqt_delete_undeletethread' => 'មិនលុប​ខ្សែស្រឡាយ',
 	'lqt_delete_partof' => 'ខ្សែស្រឡាយ​នេះ​ជា​ផ្នែក​នៃ $1 ។',
-	'lqt_delete_deleting' => 'លុប $1 និង $2 ចំពោះ​វា​។',
+	'lqt_delete_deleting' => "លុប '''$1''' និង '''ការ​ឆ្លើយតប​ទាំងអស់''' ចំពោះ​វា​។",
 	'lqt_delete_deleted' => 'ខ្សែស្រឡាយ​ដែល​បាន​លុប​។',
 	'lqt_delete_undeleted' => 'ខ្សែស្រឡាយ​ដែល​មិន​ត្រូវ​បាន​លុប​។',
 	'lqt_delete_return' => 'ត្រលប់ទៅកាន់ $1 វិញ។',
@@ -4605,6 +4668,7 @@ $messages['vep'] = array(
 	'lqt_permalink' => 'Kaikenaigaine kosketuz',
 	'lqt_protectedfromreply_link' => 'kaitud',
 	'lqt_move_move' => 'Sirta',
+	'lqt-any-date' => 'Eraz dat',
 	'lqt-date-from' => 'Augotaden',
 	'lqt-date-to' => 'Kenele',
 	'lqt-title' => 'Pälkirjutez',
