@@ -1597,6 +1597,24 @@ $messages['grc'] = array(
 	'lqt-title' => 'Ἐπιγραφή',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Crazymadlover
+ * @author Omnipaedista
+ */
+$messages['grc'] = array(
+	'lqt_newmessages' => 'Νέαι ἀγγέλιαι',
+	'lqt_contents_title' => 'Περιεχόμενα:',
+	'lqt_delete' => 'Σβεννύναι',
+	'lqt_discussion_link' => 'διάλεξις',
+	'lqt_hist_deleted' => 'Διεγραμμένη',
+	'lqt_subject' => 'Χρῆμα:',
+	'lqt_move_move' => 'Κινεῖν',
+	'lqt_delete_return' => 'Ἐπανιέναι εἰς $1.',
+	'lqt-date-from' => 'Ἀπό',
+	'lqt-title' => 'Ἐπιγραφή',
+	'lqt-summary' => 'Σύνοψις',
+);
+
 /** Swiss German (Alemannisch)
  * @author Als-Holder
  */
