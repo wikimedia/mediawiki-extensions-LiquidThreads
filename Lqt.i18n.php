@@ -64,7 +64,7 @@ That is pretty weird.',
 This move was made by $2 on $3 at $4.',
 	'lqt_thread_deleted_for_sysops' => 'This thread has been \'\'\'deleted\'\'\' and is only visible to administrators.',
 	'lqt_thread_deleted' => 'This thread has been deleted.',
-	'lqt_summary_notice' => 'There have been no changes to this discussion for at least $2 days.
+	'lqt_summary_notice' => 'There have been no changes to this discussion for at least $2 {{PLURAL:$2|day|days}}.
 If it is concluded, you may want to $1.',
 	'lqt_summary_notice_link' => 'write a summary',
 	'lqt_summary_label' => 'This thread has been summarized as follows:',
