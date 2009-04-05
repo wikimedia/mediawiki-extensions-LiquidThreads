@@ -947,23 +947,21 @@ HTML
 				return;
 			}
 		}
-		
+
 		global $wgLqtThreadArchiveStartDays, $wgLqtThreadArchiveInactiveDays;
 
 		$timestamp = new Date( $thread->modified() );
 		if ( $thread->summary() ) {
 			$this->showSummary( $thread );
 		} else if ( $timestamp->isBefore( Date::now()->nDaysAgo( $wgLqtThreadArchiveStartDays ) )
-		            && !$thread->summary() && !$thread->hasSuperthread() && !$thread->isHistorical() )
+			&& !$thread->summary() && !$thread->hasSuperthread() && !$thread->isHistorical() )
 		{
 			wfLoadExtensionMessages( 'LiquidThreads' );
-			$this->output->addHTML( '<p class="lqt_summary_notice">' . wfMsg( 'lqt_summary_notice',
+			$this->output->addHTML( '<p class="lqt_summary_notice">' . wfMsgExt( 'lqt_summary_notice', 'parsemag',
 				'<a href="' . $this->permalinkUrl( $thread, 'summarize' ) . '">' . wfMsg( 'lqt_summary_notice_link' ) . '</a>',
 				$wgLqtThreadArchiveStartDays
 				) . '</p>' );
 		}
-
-
 
 		$this->openDiv( 'lqt_thread', "lqt_thread_id_{$thread->id()}" );
 
@@ -976,7 +974,6 @@ HTML
 		if ( $thread->hasSubthreads() ) $this->unindent( $thread );
 
 		$this->closeDiv();
-
 	}
 
 	function indent( $thread ) {
