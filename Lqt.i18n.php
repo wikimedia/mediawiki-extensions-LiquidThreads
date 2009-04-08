@@ -313,7 +313,7 @@ $messages['ar'] = array(
 هذا النقل تم بواسطة $2 في $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "مجموعة الرسائل هذه تم '''حذفها''' وهي مرئية فقط للإداريين.",
 	'lqt_thread_deleted' => 'مجموعة الرسائل هذه تم حذفها.',
-	'lqt_summary_notice' => 'لا توجد تغييرات لهذا النقاش لفترة $2 يوم على الأقل.
+	'lqt_summary_notice' => 'لا توجد تغييرات لهذا النقاش لفترة $2 {{PLURAL:$2|يوم|يوم}}. على الأقل.
 لو كان النقاش قد انتهى، فربما ترغب في $1.',
 	'lqt_summary_notice_link' => 'اكتب ملخصا',
 	'lqt_summary_label' => 'مجموعة الرسائل هذه تم تلخيصها كالتالي:',
@@ -4551,6 +4551,13 @@ $messages['tg-cyrl'] = array(
 	'lqt_header_warning_new_discussion' => 'оғози мубоҳисаи ҷадид',
 	'lqt_sort_newest_threads' => 'торҳои навтарин аввал',
 	'lqt_sort_oldest_threads' => 'торҳои кӯҳнатарин аввал',
+);
+
+/** Thai (ไทย)
+ * @author Octahedron80
+ */
+$messages['th'] = array(
+	'lqt_delete' => 'ลบ',
 );
 
 /** Turkmen (Türkmen)
