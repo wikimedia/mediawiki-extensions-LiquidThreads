@@ -19,17 +19,16 @@ class SpecialNewMessages extends SpecialPage {
 	}
 
 	function execute( $par ) {
-		global $wgOut, $wgRequest, $wgTitle, $wgUser;
+		global $wgOut, $wgRequest, $wgUser;
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$this->user = $wgUser;
 		$this->output = $wgOut;
 		$this->request = $wgRequest;
-		$this->title = $wgTitle;
 
 		$this->setHeaders();
 
-		$view = new NewUserMessagesView( $this->output, new Article( $this->title ),
-			$this->title, $this->user, $this->request );
+		$view = new NewUserMessagesView( $this->output, new Article( $this->getTitle() ),
+			$this->getTitle(), $this->user, $this->request );
 
 		$view->showOnce(); // handles POST etc.
 

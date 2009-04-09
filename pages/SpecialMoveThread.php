@@ -20,7 +20,7 @@ class SpecialMoveThread extends UnlistedSpecialPage {
 
 	function handleGet() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		$form_action = $this->title->getLocalURL() . '/' . $this->thread->title()->getPrefixedURL();
+		$form_action = $this->getTitle()->getLocalURL() . '/' . $this->thread->title()->getPrefixedURL();
 		$thread_name = $this->thread->title()->getPrefixedText();
 		$article_name = $this->thread->article()->getTitle()->getTalkPage()->getPrefixedText();
 		$edit_url = LqtView::permalinkUrl( $this->thread, 'edit', $this->thread );
@@ -101,11 +101,10 @@ HTML
 	}
 
 	function execute( $par ) {
-		global $wgOut, $wgRequest, $wgTitle, $wgUser;
+		global $wgOut, $wgRequest, $wgUser;
 		$this->user = $wgUser;
 		$this->output = $wgOut;
 		$this->request = $wgRequest;
-		$this->title = $wgTitle;
 
 		$this->setHeaders();
 

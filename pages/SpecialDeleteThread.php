@@ -100,11 +100,11 @@ HTML
 	}
 
 	function execute( $par ) {
-		global $wgOut, $wgRequest, $wgTitle, $wgUser;
+		global $wgOut, $wgRequest, $wgUser;
 		$this->user = $wgUser;
 		$this->output = $wgOut;
 		$this->request = $wgRequest;
-		$this->title = $wgTitle;
+		$this->title = $this->getTitle();
 
 		$this->setHeaders();
 
