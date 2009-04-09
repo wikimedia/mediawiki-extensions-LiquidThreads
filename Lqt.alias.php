@@ -195,6 +195,11 @@ $aliases['sw'] = array(
 	'NewMessages' => array( 'MijumbeMipya' ),
 );
 
+/** Thai (ไทย) */
+$aliases['th'] = array(
+	'NewMessages' => array( 'ข้อควาใหม่' ),
+);
+
 /** Tagalog (Tagalog) */
 $aliases['tl'] = array(
 	'DeleteThread' => array( 'Burahin ang bagting' ),

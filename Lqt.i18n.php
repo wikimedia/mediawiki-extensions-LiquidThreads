@@ -2344,8 +2344,8 @@ Isto es assatis bizarre.',
 Iste displaciamento esseva facite per $2 le $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Iste filo ha essite '''delite''' e es solmente visibile al administratores.",
 	'lqt_thread_deleted' => 'Iste filo ha essite delite.',
-	'lqt_summary_notice' => 'Il non ha habite cambiamentos in iste discussion durante al minus $2 dies.
-Si isto es concludite, es suggerite $1.',
+	'lqt_summary_notice' => 'Nihil ha essite modificate in iste discussion depost al minus $2 {{PLURAL:$2|die|dies}}.
+Si illo ha concludite, tu pote considerar $1.',
 	'lqt_summary_notice_link' => 'scriber un summario',
 	'lqt_summary_label' => 'Iste filo ha essite resumite in lo sequente:',
 	'lqt_summary_subtitle' => 'le summario de $1',
@@ -3240,7 +3240,7 @@ $messages['nn'] = array(
 Flyttinga vart gjort av $2 $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Denne tråden har vorten '''sletta''' og er berre synleg for administratorar.",
 	'lqt_thread_deleted' => 'Denne tråden har vorten sletta.',
-	'lqt_summary_notice' => 'Det har ikkje vore endringar i denne diskusjonen på minst $2 {{PLURAL:$2|dag|dagar}}.
+	'lqt_summary_notice' => 'Det har ikkje vore endringar i denne diskusjonen på minst {{PLURAL:$2|éin dag|$2 dagar}}.
 Om han er slutt, vil du kanskje $1.',
 	'lqt_summary_notice_link' => 'skriva eit samandrag',
 	'lqt_summary_label' => 'Denne tråden har fått fylgjande samandrag:',
@@ -3482,7 +3482,7 @@ $messages['oc'] = array(
 	'lqt_move_placeholder' => "Aqueste fial es una marca substitutiva qu'indica qu'un fial, $1, es estat desplaçat d'aquesta pagina cap a una autra pagina de discussion. Aqueste desplaçament es estat fach per $2 a $3 $4.",
 	'lqt_thread_deleted_for_sysops' => "Aqueste fial es estat '''suprimit''' e sols los administrators o pòdon veire.",
 	'lqt_thread_deleted' => 'Aqueste fial es estat escafat.',
-	'lqt_summary_notice' => 'I a pas agut cap de cambiament dins aquesta discussion dempuèi almens $2 jorns. Se es estada concluïda, podètz aver besonh de $1.',
+	'lqt_summary_notice' => 'I a pas agut cap de cambiament dins aquesta discussion dempuèi almens $2 {{PLURAL:$2|jorn|jorns}}. Se es estada concluïda, podètz aver besonh de $1.',
 	'lqt_summary_notice_link' => 'escriure un resumit',
 	'lqt_summary_label' => 'Aqueste fial es estat resumit per :',
 	'lqt_summary_subtitle' => 'lo resumit de $1.',
