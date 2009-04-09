@@ -227,6 +227,13 @@ $messages['gom-latn'] = array(
 	'lqt_delete_return' => '$1 ak patim vos',
 );
 
+/** Lower Silesian (Schläsch)
+ * @author Timpul
+ */
+$messages['sli'] = array(
+	'lqt_move_move' => 'Verschieba',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  */
@@ -823,7 +830,6 @@ $messages['da'] = array(
 	'lqt_discussion_link' => 'diskussion',
 	'lqt_hist_deleted' => 'Slettet',
 	'lqt_subject' => 'Emne:',
-	'lqt_thread_deleted_for_sysops_deleted' => 'slettet',
 	'lqt_delete_return' => 'Tilbage til $1.',
 );
 
@@ -1328,14 +1334,12 @@ $messages['fi'] = array(
 	'lqt_protectedfromreply_link' => 'suojattu',
 	'lqt_subject' => 'Otsikko',
 	'lqt_nosubject' => '«ei aihetta»',
-	'lqt_thread_deleted_for_sysops_deleted' => 'poistettu',
 	'lqt_thread_deleted' => 'Tämä keskusteluketju on poistettu.',
 	'lqt_summary_notice_link' => 'kirjoita yhteenveto',
 	'lqt_nosuchthread' => 'Kyseistä keskusteluketjua ei ole.',
 	'lqt_move_move' => 'Siirrä',
 	'lqt_move_noreason' => 'Syytä ei annettu.',
 	'lqt_delete_undeletethread' => 'Palauta keskusteluketju',
-	'lqt_delete_deleting_allreplies' => 'kaikki vastaukset',
 	'lqt_delete_deletethread' => 'Poista keskusteluketju ja vastaukset',
 	'lqt_delete_deleted' => 'Keskusteluketju on poistettu.',
 	'lqt_delete_undeleted' => 'Keskusteluketju on palautettu.',
@@ -1617,25 +1621,13 @@ Esta operación non pode ser desfeita.',
 );
 
 /** Gothic
+ * @author Crazymadlover
  * @author Jocke Pirat
+ * @author Omnipaedista
  */
 $messages['got'] = array(
 	'lqt_delete' => 'Taíran',
 	'lqt_move_move' => 'Skiuban',
-);
-/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
- * @author Crazymadlover
- * @author Omnipaedista
- */
-$messages['grc'] = array(
-	'lqt_newmessages' => 'Νέαι ἀγγέλιαι',
-	'lqt_contents_title' => 'Περιεχόμενα:',
-	'lqt_delete' => 'Σβεννύναι',
-	'lqt_discussion_link' => 'διάλεξις',
-	'lqt_hist_deleted' => 'Διεγραμμένη',
-	'lqt_thread_deleted_for_sysops_deleted' => 'διεγραμμένη',
-	'lqt_delete_return' => 'Ἐπανιέναι εἰς $1.',
-	'lqt-title' => 'Ἐπιγραφή',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -1830,7 +1822,6 @@ $messages['gu'] = array(
 $messages['gv'] = array(
 	'lqt_newmessages' => 'Çhaghteraghtyn noa',
 	'lqt_hist_deleted' => 'Scryssit',
-	'lqt_thread_deleted_for_sysops_deleted' => 'scryssit',
 	'lqt_summary_notice_link' => 'screeu giare-choontey',
 );
 
@@ -2732,10 +2723,8 @@ $messages['ksh'] = array(
 	'lqt_older' => 'ällder →',
 	'lqt_protectedfromreply_link' => 'jeschöz',
 	'lqt_noreason' => 'Keine Aanlass aanjejovve.',
-	'lqt_thread_deleted_for_sysops_deleted' => 'fottjeschmesse',
 	'lqt_move_move' => 'Ömnenne',
 	'lqt_move_noreason' => 'Keine Aanlass aanjejovve.',
-	'lqt_delete_deleting_allreplies' => 'all Antwoote',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -3020,7 +3009,6 @@ $messages['myv'] = array(
 	'lqt_browse_archive_with_recent' => 'седе умонь',
 	'lqt_delete' => 'Нардамс',
 	'lqt_hist_deleted' => 'Нардазь',
-	'lqt_thread_deleted_for_sysops_deleted' => 'нардазь',
 	'lqt_move_move' => 'Печтевтемс',
 	'lqt-title' => 'Конякс',
 );
@@ -3585,7 +3573,6 @@ $messages['pam'] = array(
 	'lqt_edited_notice' => 'Me-edit',
 	'lqt_reply' => 'Pakibat',
 	'lqt_move_torename_edit' => 'i-edit ya',
-	'lqt_delete_deleting_allreplies' => 'eganaganang pakibat',
 	'lqt_delete_return' => 'Mibalik king $1.',
 	'lqt_sorting_order' => 'Basi ning pamituki-tuki (sorting order)',
 );
@@ -3643,9 +3630,7 @@ $messages['ps'] = array(
 	'lqt_protectedfromreply_link' => 'ژغورلی',
 	'lqt_subject' => 'سکالو:',
 	'lqt_noreason' => 'هېڅ سبب نه دی ورکړ شوی.',
-	'lqt_thread_deleted_for_sysops_deleted' => 'ړنګ شو',
 	'lqt_move_noreason' => 'هېڅ سبب نه دی ورکړ شوی.',
-	'lqt_delete_deleting_allreplies' => 'ټول ځوابونه',
 	'lqt-any-date' => 'هر يو وخت',
 	'lqt-only-date' => 'يواځې دا نېټې:',
 	'lqt-title' => 'سرليک',
@@ -4277,7 +4262,6 @@ $messages['su'] = array(
 	'lqt_delete' => 'Hapus',
 	'lqt_hist_deleted' => 'Hapus',
 	'lqt_hist_moved_talkpage' => 'Pindah',
-	'lqt_thread_deleted_for_sysops_deleted' => 'hapus',
 	'lqt_move_move' => 'Pindah',
 	'lqt_move_noreason' => 'Henteu di béré alesan.',
 	'lqt_delete_return' => 'Balik deui ka $1.',
@@ -4560,7 +4544,7 @@ $messages['th'] = array(
 	'lqt_delete' => 'ลบ',
 );
 
-/** Turkmen (Türkmen)
+/** Turkmen (Türkmençe)
  * @author Hanberke
  * @author Runningfridgesrule
  */
