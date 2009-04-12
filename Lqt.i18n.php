@@ -3577,6 +3577,13 @@ $messages['pam'] = array(
 	'lqt_sorting_order' => 'Basi ning pamituki-tuki (sorting order)',
 );
 
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'lqt_move_move' => 'Ziehe',
+);
+
 /** Polish (Polski)
  * @author Airwolf
  * @author Maikking
@@ -3820,7 +3827,7 @@ Esse fato é bastante estranho.',
 Esta movimentação foi feita por $2 em $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Este tópico foi '''eliminado''' e está visível apenas para administradores.",
 	'lqt_thread_deleted' => 'Este tópico foi eliminado',
-	'lqt_summary_notice' => 'Não houve alterações a esta discussão há pelo menos $2 dias.
+	'lqt_summary_notice' => 'Não houve alterações a esta discussão há pelo menos $2 {{PLURAL:$2|dia|dias}}.
 Se ela se encontra terminada, talvez queira $1.',
 	'lqt_summary_notice_link' => 'escrever um sumário',
 	'lqt_summary_label' => 'Este tópico foi assim sumarizado:',
