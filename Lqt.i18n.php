@@ -3701,7 +3701,7 @@ Esse facto é bastante estranho.',
 Esta movimentação foi feita por $2 em $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Este tópico foi '''eliminado''' e está visível apenas para administradores.",
 	'lqt_thread_deleted' => 'Este tópico foi eliminado',
-	'lqt_summary_notice' => 'Não houve alterações a esta discussão há pelo menos $2 dias.
+	'lqt_summary_notice' => 'Não houve alterações a esta discussão há pelo menos $2 {{PLURAL:$2|dia|dias}}.
 Se se encontra terminada, talvez queira $1.',
 	'lqt_summary_notice_link' => 'escrever um sumário',
 	'lqt_summary_label' => 'Este tópico foi assim sumarizado:',
@@ -4615,7 +4615,7 @@ Talagang kataka-taka iyan.',
 Ang galaw na ito ay ginawa ni $2 noong $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Ang bagting na ito ay ''nabura na'' at makikita lamang ng mga tagapangasiwa.",
 	'lqt_thread_deleted' => 'Nabura na ang bagting na ito.',
-	'lqt_summary_notice' => 'Walang mga pagbabago sa bagting na ito sa loob ng hindi bumababa sa $2 mga araw.
+	'lqt_summary_notice' => 'Walang mga pagbabago sa bagting na ito sa loob ng hindi bumababa sa $2 {{PLURAL:$2|araw|mga araw}}.
 Kapag nalagom na ito, maaaring naisin mong $1.',
 	'lqt_summary_notice_link' => 'sumulat ng isang buod',
 	'lqt_summary_label' => 'Ibinuod ang bagting na ito bilang sumusunod:',

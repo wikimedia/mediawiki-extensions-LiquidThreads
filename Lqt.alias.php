@@ -97,6 +97,13 @@ $aliases['ia'] = array(
 	'NewMessages' => array( 'Nove messages' ),
 );
 
+/** Italian (Italiano) */
+$aliases['it'] = array(
+	'DeleteThread' => array( 'CancellaThread' ),
+	'MoveThread' => array( 'SpostaThread' ),
+	'NewMessages' => array( 'NuoviMessaggi' ),
+);
+
 /** Japanese (日本語) */
 $aliases['ja'] = array(
 	'DeleteThread' => array( 'スレッド削除' ),
