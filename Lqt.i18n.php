@@ -3581,6 +3581,7 @@ $messages['pam'] = array(
  * @author Xqt
  */
 $messages['pdc'] = array(
+	'lqt_discussion_link' => 'Gschwetz',
 	'lqt_move_move' => 'Ziehe',
 );
 
