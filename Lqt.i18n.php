@@ -760,6 +760,8 @@ $messages['bs'] = array(
 	'lqt_archive_month_annotation' => 'od $1',
 	'lqt_archive_month_range_annotation' => 'između $1 i $2',
 	'lqt_browse_archive_with_recent' => 'starije',
+	'lqt_add_header' => 'Dodaj zaglavlje',
+	'lqt_new_thread' => 'Počni novu diskusiju',
 	'lqt_reply' => 'Odgovoriti',
 	'lqt_delete' => 'Obriši',
 	'lqt_discussion_link' => 'razgovor',
@@ -770,6 +772,7 @@ $messages['bs'] = array(
 	'lqt_hist_deleted' => 'Obrisano',
 	'lqt_hist_moved_talkpage' => 'Premješteno',
 	'lqt_youhavenewmessages' => 'Imate [$1 novih poruka].',
+	'lqt_protectedfromreply_link' => 'zaštićeno',
 	'lqt_subject' => 'Tema:',
 	'lqt_summary_notice' => 'Nije bilo izmjena na ovoj diskusiji već $2 {{PLURAL:$2|dan|dana}}.
 Ako je zaključena, možete $1.',
