@@ -167,7 +167,8 @@ $messages['qqq'] = array(
 	'lqt_revision_as_of' => '* $1 is a timestamp (for backward compatibility)
 * $2 is a date
 * $3 is a time',
-	'lqt_youhavenewmessages' => '{{Identical|New messages}}',
+	'lqt_youhavenewmessages' => '{{Identical|New messages}}
+* $1 is a user to the new message or messages. The number of new messages is unknown.',
 	'lqt_protectedfromreply' => '$1 is replaced with {{msg-mw|Lqt protectedfromreply link}}',
 	'lqt_protectedfromreply_link' => '{{Identical|Protected}}',
 	'lqt_subject' => '{{Identical|Subject}}',
@@ -4220,6 +4221,16 @@ Stále bude viditeľné na jeho pôvodnej diskusnej stránke.',
 	'lqt_rc_new_reply' => 'Odpoveď na $1, $2. &bull; $3 píše:',
 	'lqt_rc_author_original' => '(pôvodný autor)',
 	'lqt_rc_author_others' => '(nie je autor)',
+);
+
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Михајло Анђелковић
+ */
+$messages['sr-ec'] = array(
+	'lqt_newer' => '← новије',
+	'lqt_older' => 'старије →',
+	'lqt_youhavenewmessages' => 'Имате [{{PLURAL:$1|$1 нову поруку|$1 нових порука}}].',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|порука означена као прочитана|порука означених као прочитане}}.',
 );
 
 /** Seeltersk (Seeltersk)
