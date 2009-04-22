@@ -3984,6 +3984,7 @@ $messages['roa-tara'] = array(
 
 /** Russian (Русский)
  * @author Ferrer
+ * @author Innv
  * @author Kaganer
  * @author VasilievVV
  * @author Александр Сигачёв
@@ -3994,6 +3995,7 @@ $messages['ru'] = array(
 	'lqt_newmessages' => 'Новые сообщения',
 	'lqt_movethread' => 'Переместить ветку на другую страницу',
 	'lqt_deletethread' => 'Удалить/восстановить ветку',
+	'lqt_archive_month_range_annotation' => 'между $1 и $2',
 	'lqt_browse_archive_without_recent' => 'Просмотреть архив',
 	'lqt_browse_archive_with_recent' => 'старее',
 	'lqt_recently_archived' => 'Недавно заархивированные:',
