@@ -66,6 +66,13 @@ $aliases['fa'] = array(
 	'NewMessages' => array( 'پیام‌های_جدید' ),
 );
 
+/** Franco-Provençal (Arpetan) */
+$aliases['frp'] = array(
+	'DeleteThread' => array( 'Èfaciér lo fil', 'ÈfaciérLoFil' ),
+	'MoveThread' => array( 'Dèplaciér lo fil', 'DèplaciérLoFil' ),
+	'NewMessages' => array( 'Mèssâjos novéls', 'MèssâjosNovéls' ),
+);
+
 /** Galician (Galego) */
 $aliases['gl'] = array(
 	'NewMessages' => array( 'Mensaxes novas' ),

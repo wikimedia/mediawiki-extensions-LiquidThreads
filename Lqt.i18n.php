@@ -1110,12 +1110,15 @@ $messages['ee'] = array(
  */
 $messages['el'] = array(
 	'lqt_newmessages' => 'Νέα Μηνύματα',
+	'lqt_browse_archive_with_recent' => 'παλαιότερος',
 	'lqt_contents_title' => 'Περιεχόμενα:',
 	'lqt_new_thread' => 'Ξεκινήστε μια νέα συζήτηση',
 	'lqt_reply' => 'Απάντηση',
 	'lqt_delete' => 'Διαγράψτε',
 	'lqt_discussion_link' => 'συζήτηση',
 	'lqt_from_talk' => 'από $1',
+	'lqt_newer' => '← νεότερη',
+	'lqt_older' => 'παλαιότερος →',
 	'lqt_hist_deleted' => 'Διαγραμμένος',
 	'lqt_youhavenewmessages' => 'Έχετε [$1 νέα μηνύματα].',
 	'lqt_protectedfromreply_link' => 'προστατευμένο',
@@ -1130,6 +1133,8 @@ $messages['el'] = array(
 	'lqt_header_warning_big' => 'Επεξεργάζεστε το $1.',
 	'lqt_header_warning_new_discussion' => 'ξεκινήστε μια νέα συζήτηση',
 	'lqt-title' => 'Τίτλος',
+	'lqt-older' => 'παλαιότερος',
+	'lqt-newer' => 'νεότερη',
 );
 
 /** Esperanto (Esperanto)
@@ -1903,8 +1908,8 @@ $messages['he'] = array(
 העברה זו בוצעה על ידי $2 ב־ $4$3.',
 	'lqt_thread_deleted_for_sysops' => "שירשור זה '''נמחק''' ורק מפעילי מערכת יכולים לצפות בו.",
 	'lqt_thread_deleted' => 'שירשור זה נמחק.',
-	'lqt_summary_notice' => 'לא חלו שינויים בדיון זה לפחות במשך $2 הימים האחרונים.
-אם הוא הסתייים, אולי תרצו לבצע $1.',
+	'lqt_summary_notice' => 'לא חלו שינויים בדיון זה לפחות במשך {{PLURAL:$2|היממה האחרונה|$2 הימים האחרונים}} .
+אם הוא הסתיים, אולי תרצו לבצע $1.',
 	'lqt_summary_notice_link' => 'כתיבת תקציר',
 	'lqt_summary_label' => 'תקציר שירשור זה מופיע להלן:',
 	'lqt_summary_subtitle' => 'תקציר עבור $1.',
