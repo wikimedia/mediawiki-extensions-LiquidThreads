@@ -1848,6 +1848,7 @@ $messages['hak'] = array(
 $messages['haw'] = array(
 	'lqt_contents_title' => 'Papa kuhikuhi',
 	'lqt_discussion_link' => 'kūkākūkā',
+	'lqt-summary' => 'Hōʻuluʻulu manaʻo',
 	'lqt-email-undo' => 'Hoʻihoʻi mai',
 );
 
@@ -1908,7 +1909,7 @@ $messages['he'] = array(
 העברה זו בוצעה על ידי $2 ב־ $4$3.',
 	'lqt_thread_deleted_for_sysops' => "שירשור זה '''נמחק''' ורק מפעילי מערכת יכולים לצפות בו.",
 	'lqt_thread_deleted' => 'שירשור זה נמחק.',
-	'lqt_summary_notice' => 'לא חלו שינויים בדיון זה לפחות במשך {{PLURAL:$2|היממה האחרונה|$2 הימים האחרונים}} .
+	'lqt_summary_notice' => 'לא חלו שינויים בדיון זה לפחות במשך {{PLURAL:$2|היום האחרון|$2 הימים האחרונים|היומיים האחרונים}}.
 אם הוא הסתיים, אולי תרצו לבצע $1.',
 	'lqt_summary_notice_link' => 'כתיבת תקציר',
 	'lqt_summary_label' => 'תקציר שירשור זה מופיע להלן:',
