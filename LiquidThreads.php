@@ -4,6 +4,7 @@ if ( !defined( 'MEDIAWIKI' ) )
 	die();
 
 $wgExtensionCredits['other'][] = array(
+	'path'           => __FILE__,
 	'name'           => 'Liquid Threads',
 	'version'        => '1.2',
 	'url'            => 'http://www.mediawiki.org/wiki/Extension:LiquidThreads',
