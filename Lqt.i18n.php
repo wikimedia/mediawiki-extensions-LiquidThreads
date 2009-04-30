@@ -4355,7 +4355,7 @@ $messages['sv'] = array(
 	'lqt_move_placeholder' => 'Den här diskussionssidan existerar endast för att visa att diskussionssidan $1 flyttades från den här sidan till en annan diskussionssida. Den här flytten gjordes av $2 $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Denna tråd har '''raderats''' och är endast synlig för administratörer.",
 	'lqt_thread_deleted' => 'Den här diskussionssidan har blivit raderad.',
-	'lqt_summary_notice' => 'Det har inte varit några ändringar i den här diskussionsen på minst $2 dagar.
+	'lqt_summary_notice' => 'Den här diskussionen har inte ändrats på minst $2 {{PLURAL:$2|dag|dagar}}.
 Om den är avslutad, vill du kanske $1.',
 	'lqt_summary_notice_link' => 'skriva en sammanfattning',
 	'lqt_summary_label' => 'Denna diskussionssida har fått följande sammandrag:',
