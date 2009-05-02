@@ -791,11 +791,19 @@ Ako je zaključena, možete $1.',
 );
 
 /** Catalan (Català)
+ * @author Aleator
  * @author Jordi Roqué
  * @author Loupeter
  * @author SMP
  */
 $messages['ca'] = array(
+	'lqt-desc' => 'Afegeix fils de discussió a les pàgines de discussió',
+	'lqt-nothread' => "No hi ha fils a l'arxiu.",
+	'lqt_newmessages' => 'Nous missatges',
+	'lqt_movethread' => 'Moure el fil a una altra pàgina',
+	'lqt_deletethread' => 'Esborrar o recuperar fil',
+	'lqt_archive_month_annotation' => 'des de $1',
+	'lqt_archive_month_range_annotation' => 'entre $1 i $2',
 	'lqt_contents_title' => 'Contingut:',
 	'lqt_discussion_link' => 'discussió',
 	'lqt-only-date' => 'Només aquestes dates:',
@@ -1264,18 +1272,25 @@ $messages['es'] = array(
 	'lqt_reply' => 'Responder',
 	'lqt_delete' => 'Borrar',
 	'lqt_undelete' => 'Restaurar',
+	'lqt_permalink' => 'Vínculo permanente',
 	'lqt_fragment' => 'un fragmento de un $1 de $2',
 	'lqt_discussion_link' => 'discusión',
 	'lqt_from_talk' => 'de $1',
 	'lqt_newer' => '←más nuevo',
+	'lqt_older' => 'más antiguo →',
+	'lqt_hist_comment_edited' => 'Texto de comentario editado',
 	'lqt_hist_summary_changed' => 'Resumen cambió',
 	'lqt_hist_reply_created' => 'Nueva respuesta creada',
 	'lqt_hist_deleted' => 'Borrado',
 	'lqt_hist_undeleted' => 'Restaurado',
 	'lqt_hist_moved_talkpage' => 'Trasladado',
 	'lqt_hist_listing_subtitle' => 'Viendo un listado de historiales.',
+	'lqt_change_reply_created' => 'El comentario resaltado fue creado en esta revisión.',
+	'lqt_change_edited_root' => 'El comentario resaltado fue editado en esta revisión.',
 	'lqt_youhavenewmessages' => 'Tienes [$1 nuevos mensajes].',
 	'lqt_protectedfromreply_link' => 'protegido',
+	'lqt_subject' => 'Tema:',
+	'lqt_nosubject' => '«sin tema»',
 	'lqt_noreason' => 'No se da ninguna razón',
 	'lqt_summary_notice_link' => 'escribir un resumen',
 	'lqt_summary_subtitle' => 'el resumen de $1.',
@@ -1284,6 +1299,7 @@ $messages['es'] = array(
 	'lqt_move_move' => 'Trasladar',
 	'lqt_move_nodestination' => 'Debes especificar un destino.',
 	'lqt_move_noreason' => 'No se da ninguna razón',
+	'lqt_delete_deleting' => "Borrando '''$1''' y '''todas las respuestas''' a él.",
 	'lqt_delete_return' => 'Volver a $1.',
 	'lqt_delete_return_link' => 'la página de discusión',
 	'lqt_header_warning_big' => 'Estás editando un $1.',
@@ -1294,6 +1310,8 @@ $messages['es'] = array(
 	'lqt-date-to' => 'a',
 	'lqt-title' => 'Título',
 	'lqt-summary' => 'Sumario',
+	'lqt-older' => 'más antiguo',
+	'lqt-newer' => 'más nuevo',
 	'lqt-read-message' => 'Leer',
 	'lqt-read-all' => 'Marcar todos como leídos',
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mensaje|mensajes}} marcados como leídos.',
@@ -1302,7 +1320,10 @@ $messages['es'] = array(
 	'lqt-other-messages' => 'Mensajes en otras páginas de discusión:',
 	'lqt-no-new-messages' => 'No hay nuevos mensajes para ti.',
 	'lqt-new-messages' => 'Hay nuevos mensajes para ti.',
+	'lqt_rc_new_discussion' => 'Nueva discusión, $1, en $2. &bull; $3 escribe:',
+	'lqt_rc_new_reply' => 'Respuesta a $1, en $2. &bull; $3 escribe:',
 	'lqt_rc_author_original' => '(autor original)',
+	'lqt_rc_author_others' => '(no es el autor)',
 );
 
 /** Basque (Euskara)
@@ -4721,7 +4742,7 @@ $messages['tr'] = array(
 	'lqt_hist_deleted' => 'Silindi',
 	'lqt_youhavenewmessages' => '[$1 yeni mesajınız] var.',
 	'lqt-summary' => 'Özet',
-	'lqt-email-undo' => 'Geriye al',
+	'lqt-email-undo' => 'Geri al',
 );
 
 /** Tatar (Cyrillic) (Tatarça/Татарча (Cyrillic))
