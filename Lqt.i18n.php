@@ -857,6 +857,7 @@ $messages['da'] = array(
  * @author Als-Holder
  * @author DaSch
  * @author Michawiki
+ * @author Purodha
  * @author Raimond Spekking
  * @author Revolus
  * @author Umherirrender
@@ -944,7 +945,7 @@ Wenn die Diskussion beendet ist, möchtest du vielleicht eine $1.',
 	'lqt_header_warning_big' => 'Du bearbeitest eine $1.',
 	'lqt_header_warning_after_big' => 'Kopfzeilen sind für Ankündigungen und Einleitungen.
 Möglicherweise willst du statt dessen eine $2.',
-	'lqt_header_warning_bold' => 'Diskussionsseiten Kopfzeile',
+	'lqt_header_warning_bold' => 'Kopfzeile von Diskussionsseiten',
 	'lqt_header_warning_new_discussion' => 'neue Diskussion beginnen',
 	'lqt_sorting_order' => 'Sortierung:',
 	'lqt_remember_sort' => 'Einstellungen merken',
@@ -1269,12 +1270,15 @@ $messages['eo'] = array(
  * @author Sanbec
  */
 $messages['es'] = array(
+	'lqt-nothread' => 'No hay hilos en el archivo.',
 	'lqt_newmessages' => 'Nuevos mensajes',
 	'lqt_archive_month_annotation' => 'de $1',
 	'lqt_archive_month_range_annotation' => 'entre $1 y $2',
+	'lqt_browse_archive_without_recent' => 'Ver hilos archivados',
 	'lqt_browse_archive_with_recent' => 'más antiguo',
 	'lqt_recently_archived' => 'Recientemente archivado:',
 	'lqt_contents_title' => 'Contenidos:',
+	'lqt_add_header' => 'Agregar encabezado',
 	'lqt_new_thread' => 'Comenzar una nueva discusión',
 	'lqt_edited_notice' => 'Editado',
 	'lqt_reply' => 'Responder',
@@ -1289,12 +1293,15 @@ $messages['es'] = array(
 	'lqt_hist_comment_edited' => 'Texto de comentario editado',
 	'lqt_hist_summary_changed' => 'Resumen cambió',
 	'lqt_hist_reply_created' => 'Nueva respuesta creada',
+	'lqt_hist_thread_created' => 'Nuevo hilo creado',
 	'lqt_hist_deleted' => 'Borrado',
 	'lqt_hist_undeleted' => 'Restaurado',
 	'lqt_hist_moved_talkpage' => 'Trasladado',
 	'lqt_hist_listing_subtitle' => 'Viendo un listado de historiales.',
+	'lqt_hist_view_whole_thread' => 'Ver historial del todo el hilo',
 	'lqt_hist_tooltip_newer_disabled' => 'Este vínculo está deshabilitado porque estás en la primera página.',
 	'lqt_hist_tooltip_older_disabled' => 'Este vínculo está deshabilitado porque estás en la última página.',
+	'lqt_change_new_thread' => 'Esta es la revisión inicial del hilo.',
 	'lqt_change_reply_created' => 'El comentario resaltado fue creado en esta revisión.',
 	'lqt_change_edited_root' => 'El comentario resaltado fue editado en esta revisión.',
 	'lqt_youhavenewmessages' => 'Tienes [$1 nuevos mensajes].',
@@ -2762,6 +2769,7 @@ $messages['ksh'] = array(
 	'lqt_browse_archive_with_recent' => 'ällder',
 	'lqt_recently_archived' => 'Köözlesch en et Aschiif jedonn:',
 	'lqt_contents_title' => 'Enhallt:',
+	'lqt_add_header' => 'En Övvershreff dobei donn',
 	'lqt_new_thread' => 'Fang ene neue Klaaf aan',
 	'lqt_in_response_to' => 'Als Antwoot op $1 {{GENDER:$2|vum|vum|vun dämm Metmaacher|vum|Vun dä}} $2 bovve:',
 	'lqt_edited_notice' => 'Jeändert',
@@ -2769,20 +2777,24 @@ $messages['ksh'] = array(
 	'lqt_delete' => 'Fottschmieße',
 	'lqt_undelete' => 'Wider zerök holle',
 	'lqt_permalink' => 'Permalengk',
-	'lqt_fragment' => 'e Shtöckelsche vun ene $1 vum $2',
+	'lqt_fragment' => 'e Shtöckelsche vun enem $1 op $2',
 	'lqt_discussion_link' => 'Klaaf',
 	'lqt_from_talk' => 'fun $1',
 	'lqt_newer' => '← neuer',
 	'lqt_older' => 'ällder →',
+	'lqt_hist_comment_edited' => 'Dä Täx vun däm Kommentaa wood jeändert',
 	'lqt_hist_summary_changed' => 'Zosammefassung jeändert',
 	'lqt_hist_reply_created' => 'En neu Antwoot aanjelaat',
 	'lqt_hist_deleted' => 'Fottjeschmeße',
 	'lqt_hist_undeleted' => 'Wider zerök jehollt',
 	'lqt_hist_moved_talkpage' => 'Ömjenannt',
+	'lqt_hist_listing_subtitle' => 'En Leß met Versione beloore',
 	'lqt_hist_past_last_page_error' => 'Mer sin henger de läzde Sigg en de Verjangeheit hee.',
 	'lqt_hist_tooltip_newer_disabled' => 'Dä Lenk es affjeschalldt, mer sin op de eetßte Sigg hee.',
 	'lqt_hist_tooltip_older_disabled' => 'Dä Lenk es affjeschalldt, mer sin op de läzde Sigg hee.',
 	'lqt_revision_as_of' => 'Version vum $2 öm $3 Uhr.',
+	'lqt_change_reply_created' => 'Dä makeete Kommentaa wood en hee dä Version dobei jeschrevve.',
+	'lqt_change_edited_root' => 'Dä makeete Kommentaa wood en hee dä Version jeändert.',
 	'lqt_youhavenewmessages' => 'Do häs [$1 neu Nohreschte].',
 	'lqt_protectedfromreply_link' => 'jeschöz',
 	'lqt_subject' => 'Övver:',
@@ -2801,6 +2813,9 @@ $messages['ksh'] = array(
 	'lqt_delete_return' => 'Jangk retuur noh $1.',
 	'lqt_delete_return_link' => 'de Klaafsigg',
 	'lqt_header_warning_big' => 'Do bes en $1 aam ändere.',
+	'lqt_header_warning_after_big' => 'Kopp_Reije si för Aankündijunge un Aanfäng.
+Künnt sin, De wells en $2 han.',
+	'lqt_header_warning_bold' => 'Der Siggekopp op Klaafsigge',
 	'lqt_header_warning_new_discussion' => 'fang ene neue Klaaf aan',
 	'lqt_sorting_order' => 'Reijefollesch zom Zoteere:',
 	'lqt_remember_sort' => 'Donn di Enstellung merke',
@@ -4368,7 +4383,7 @@ $messages['stq'] = array(
 	'lqt_hist_tooltip_newer_disabled' => 'Disse Ferbiendenge is deaktivierd, deeruum dät du ap ju eerste Siede bäst.',
 	'lqt_hist_tooltip_older_disabled' => 'Disse Ferbiendenge is deaktivierd, deeruum dät du ap ju lääste Siede bäst.',
 	'lqt_revision_as_of' => 'Versionsgeschichte fon $1.',
-	'lqt_move_placeholder' => "''Steedehoolder, wan die Diskussionsstrang $1 ap ne uur Siede ferschäuwen wuude.''<br>
+	'lqt_move_placeholder' => "''Steedehoolder, wan die Diskussionsstrang $1 ap ne uur Siede ferschäuwen wuude.''<br />
 Disse Ferschuuwenge waas däin fon $2 ap n $3 $4.",
 );
 
@@ -4547,7 +4562,7 @@ $messages['te'] = array(
 	'lqt_hist_view_whole_thread' => 'మొత్తం చర్చాహారానికి చరిత్రని చూడండి',
 	'lqt_hist_tooltip_newer_disabled' => 'మీరు మొదటి పేజీలో ఉన్నందున ఈ లింకుని అచేతనం చేసాం.',
 	'lqt_hist_tooltip_older_disabled' => 'మీరు చివరి పేజీలో ఉన్నారు కనుక ఈ లింకుని అచేతనం చేసాం.',
-	'lqt_revision_as_of' => '$1 నాటి కూర్పు.',
+	'lqt_revision_as_of' => '$2 న $3 కి ఉన్న కూర్పు.',
 	'lqt_change_new_thread' => 'ఇది చర్చాహారం యొక్క మొట్టమొదటి కూర్పు.',
 	'lqt_youhavenewmessages' => 'మీకు $1 ఉన్నాయి.',
 	'lqt_protectedfromreply_link' => 'సంరక్షించారు',
