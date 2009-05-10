@@ -1821,6 +1821,7 @@ Die Operation cha rugggängig gmacht wäre.',
 );
 
 /** Gujarati (ગુજરાતી)
+ * @author Dineshjk
  * @author Dsvyas
  */
 $messages['gu'] = array(
@@ -1862,6 +1863,7 @@ $messages['gu'] = array(
 	'lqt_summary_subtitle' => '$1નો સારાંશ',
 	'lqt_move_torename_edit' => 'ફેરફાર કરો',
 	'lqt_move_move' => 'ખસેડો',
+	'lqt_move_noreason' => 'કોઇ કારણ દર્શાવવામાં આવ્યું નથી',
 );
 
 /** Manx (Gaelg)
