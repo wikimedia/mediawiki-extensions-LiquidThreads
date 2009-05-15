@@ -1408,6 +1408,7 @@ $messages['fi'] = array(
 );
 
 /** French (Français)
+ * @author Crochet.david
  * @author Dereckson
  * @author Grondin
  * @author IAlex
@@ -1467,7 +1468,7 @@ $messages['fr'] = array(
 	'lqt_move_placeholder' => "Ce fil est une marque substitutive indiquant qu'un fil, $1, a été déplacé de cette page vers une autre page de discussion. Ce déplacement a été fait par $2 à $3 $4.",
 	'lqt_thread_deleted_for_sysops' => "Ce fil a été '''supprimé''' et seuls les administrateurs peuvent le voir.",
 	'lqt_thread_deleted' => 'Ce fil a été effacé.',
-	'lqt_summary_notice' => 'Il n’y a eu aucun changement dans cette discussion depuis au moins $2 {{PLURAL:$2|jour|jours}}.
+	'lqt_summary_notice' => 'Il n’y a eu aucun changement dans cette discussion depuis au moins $2 jour{{PLURAL:$2||s}}.
 Si elle a été conclue, vous pouvez avoir besoin de $1.',
 	'lqt_summary_notice_link' => 'écrire un résumé',
 	'lqt_summary_label' => 'Ce fil a été résumé par :',
@@ -1851,14 +1852,14 @@ $messages['gu'] = array(
 	'lqt_hist_past_last_page_error' => 'આપ ઈતિહાસના પ્રવર્તમાન પાનાની સંખ્યા વટાવી ચુક્યા છો',
 	'lqt_hist_tooltip_newer_disabled' => 'આ લિંક કામ નહી કરે, કેમકે આપ પ્રથમ પાના પર છો',
 	'lqt_hist_tooltip_older_disabled' => 'આ લિંક કામ નહી કરે, કેમકે આપ અંતિમ પાના પર છો',
-	'lqt_revision_as_of' => '$1 સુધીમાં સુધારેલ',
+	'lqt_revision_as_of' => '$2એ $3 વાગ્યા સુધીમાં થયેલાં પુનરાવર્તન.',
 	'lqt_change_reply_created' => 'હાઇલાઇટ કરેલી ટિપ્પણીની રચના વર્તમાન સુધારા દરમ્યાન કરવામાં આવી છે',
 	'lqt_change_edited_root' => 'હાઇલાઇટ કરેલી ટિપ્પણીમાં ફેરફાર વર્તમાન સુધારા દરમ્યાન કરવામાં આવ્યો  છે',
 	'lqt_protectedfromreply_link' => 'સુરક્ષિત',
 	'lqt_subject' => 'વિષય',
 	'lqt_nosubject' => '<<વિષય વિના>>',
 	'lqt_noreason' => 'કોઇ કારણ દર્શાવવામાં આવ્યું નથી',
-	'lqt_summary_notice' => 'અહીં છેલ્લા $2 દિવસથી કોઇ ફેરફાર થયા નથી. જો આ ચર્ચા પૂરી થઇ ગયેલી લાગે તો, તમે $1 શકો છો.',
+	'lqt_summary_notice' => 'અહીં છેલ્લા {{PLURAL:$2|દિવસ|દિવસ}} દિવસથી કોઇ ફેરફાર થયા નથી. જો આ ચર્ચા પૂરી થઇ ગયેલી લાગે તો, તમે $1 શકો છો.',
 	'lqt_summary_notice_link' => 'સારાંશ લખો',
 	'lqt_summary_subtitle' => '$1નો સારાંશ',
 	'lqt_move_torename_edit' => 'ફેરફાર કરો',
