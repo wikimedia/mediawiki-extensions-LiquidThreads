@@ -181,6 +181,7 @@ $messages['qqq'] = array(
 	'lqt_summary_notice' => '* $1 is a link with {{msg-mw|lqt_summary_notice_link}} as display text
 * $2 is a number of days',
 	'lqt_move_torename' => '$1 is replaced with {{msg-mw|Lqt move torename edit}}',
+	'lqt_move_torename_edit' => 'This message is used inside {{msg-mw|Lqt move torename}}.',
 	'lqt_move_move' => '{{Identical|Move}}',
 	'lqt_move_noreason' => '{{Identical|No reason given}}',
 	'lqt_delete_return' => '{{Identical|Return to $1}}',
@@ -231,13 +232,6 @@ $messages['niu'] = array(
 $messages['gom-latn'] = array(
 	'lqt_newmessages' => 'Noveo sondes',
 	'lqt_delete_return' => '$1 ak patim vos',
-);
-
-/** Lower Silesian (Schläsch)
- * @author Timpul
- */
-$messages['sli'] = array(
-	'lqt_move_move' => 'Verschieba',
 );
 
 /** Afrikaans (Afrikaans)
@@ -931,7 +925,7 @@ Wenn die Diskussion beendet ist, möchtest du vielleicht eine $1.',
 	'lqt_move_noreason' => 'kein Grund angegeben.',
 	'lqt_move_success' => 'Diskussionsstrang verschoben nach $1.',
 	'lqt_delete_undeleting' => "Wiederherstellen von '''$1.'''",
-	'lqt_delete_undeletethread' => 'Wiederhergestellter Diskussionsstrang',
+	'lqt_delete_undeletethread' => 'Diskussionsstrang wiederherstellen',
 	'lqt_delete_partof' => "Dieser Diskussionsstrang ist Teil von '''$1.'''",
 	'lqt_delete_deleting' => "Löschung von '''$1''' und '''aller zugehörigen Antworten.'''",
 	'lqt_delete_deletethread' => 'Diskussionsstrang und Antworten löschen',
@@ -2765,10 +2759,30 @@ $messages['krj'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'lqt-desc' => 'Määt Jeschprääschs-Fäddeme en Klaaf-Sigge müjjelesch.',
+	'lqt-desc' => ' Määt Jeschprääschs-Fäddeme en Klaaf-Sigge müjjelesch.',
+	'lqt-nothread' => ' mer han keine
+
+thread
+
+en dämm Aschiif.',
 	'lqt_newmessages' => 'Neu Nohreschte',
+	'lqt_movethread' => ' Donn dä
+
+thread
+
+op en ander Sigg ömträke',
+	'lqt_deletethread' => ' Ene
+
+thread
+
+fottschmiiße odder zeröckholle',
 	'lqt_archive_month_annotation' => 'fum $1 aff',
 	'lqt_archive_month_range_annotation' => 'zwesche $1 un $2',
+	'lqt_browse_archive_without_recent' => ' Donn de 
+
+threads
+
+em Aschiif beloore',
 	'lqt_browse_archive_with_recent' => 'ällder',
 	'lqt_recently_archived' => 'Köözlesch en et Aschiif jedonn:',
 	'lqt_contents_title' => 'Enhallt:',
@@ -2788,41 +2802,166 @@ $messages['ksh'] = array(
 	'lqt_hist_comment_edited' => 'Dä Täx vun däm Kommentaa wood jeändert',
 	'lqt_hist_summary_changed' => 'Zosammefassung jeändert',
 	'lqt_hist_reply_created' => 'En neu Antwoot aanjelaat',
+	'lqt_hist_thread_created' => ' Ene neue 
+
+thread
+
+es aanjelaat woode',
 	'lqt_hist_deleted' => 'Fottjeschmeße',
 	'lqt_hist_undeleted' => 'Wider zerök jehollt',
 	'lqt_hist_moved_talkpage' => 'Ömjenannt',
 	'lqt_hist_listing_subtitle' => 'En Leß met Versione beloore',
+	'lqt_hist_view_whole_thread' => ' Donn de Verjangeheit för dä janze
+
+thread
+
+aanloore',
+	'lqt_hist_no_revisions_error' => ' Dä
+
+thread
+
+hät kein Verjangeheit, wi et schingk. Dat es ävver komisch.',
 	'lqt_hist_past_last_page_error' => 'Mer sin henger de läzde Sigg en de Verjangeheit hee.',
 	'lqt_hist_tooltip_newer_disabled' => 'Dä Lenk es affjeschalldt, mer sin op de eetßte Sigg hee.',
 	'lqt_hist_tooltip_older_disabled' => 'Dä Lenk es affjeschalldt, mer sin op de läzde Sigg hee.',
 	'lqt_revision_as_of' => 'Version vum $2 öm $3 Uhr.',
+	'lqt_change_new_thread' => ' Dat hee es däm
+
+thread
+
+sing eezte Version.',
 	'lqt_change_reply_created' => 'Dä makeete Kommentaa wood en hee dä Version dobei jeschrevve.',
 	'lqt_change_edited_root' => 'Dä makeete Kommentaa wood en hee dä Version jeändert.',
 	'lqt_youhavenewmessages' => 'Do häs [$1 neu Nohreschte].',
+	'lqt_protectedfromreply' => ' Dä
+
+thread
+
+es $1, un dröm kam_mer nix dobei donn.',
 	'lqt_protectedfromreply_link' => 'jeschöz',
 	'lqt_subject' => 'Övver:',
 	'lqt_nosubject' => '„kei Teema jenannt“',
 	'lqt_noreason' => 'Keine Aanlass aanjejovve.',
+	'lqt_move_placeholder' => ' Dat hee es ene Plazhallder. Hä shteiht för dä
+
+thread
+
+„$1“, dä {{GENDER:$2|dä|dat|dä Metmaacher|dat|de}} $2 aam $3 öm $4 Uhr op en ander Klaafsigg ömjetrocke hät.',
+	'lqt_thread_deleted_for_sysops' => " Dä
+
+thread
+
+es '''fottjeschmeße''', un kann bloß noch vun de Wiki-Köbeße aanjesinn wääde.",
+	'lqt_thread_deleted' => ' Dä 
+
+thread
+
+es fottjeschmeße.',
 	'lqt_summary_notice' => 'Aan däm Klaaf hee es zick winnischßdens {{PLURAL:$2|einem Daach|$2 Dääsch|unger einem Daach}} nix mieh jeändert woode. Wann dä afjeschloße es, wells De velleijsch $1.',
 	'lqt_summary_notice_link' => 'en Zosammefassung schriive',
+	'lqt_summary_label' => ' Dä
+
+thread
+
+es esu zosamme jevaß woode:',
 	'lqt_summary_subtitle' => 'De Zosammefassung vun $1.',
-	'lqt_move_torename_edit' => 'donn dat ändere',
+	'lqt_nosuchrevision' => ' Dä
+
+thread
+
+hät kein esu en Version.',
+	'lqt_nosuchthread' => ' Esu ene
+
+thread
+
+wood nit jefonge.',
+	'lqt_threadrequired' => ' Do moß ene
+
+thread
+
+en däm <i lang="en">URL</i> aanjävve.',
+	'lqt_move_movingthread' => ' Donn $1 ömtrecke. Dä
+
+thread
+
+es ene Deil vun $2.',
+	'lqt_move_torename' => ' Öm dä
+
+thread
+
+ömzenänne, $1, un tuusch et Teema uß.',
+	'lqt_move_torename_edit' => 'donn dä ändere',
 	'lqt_move_destinationtitle' => 'Dä Tittel vun dä Ziel-Klaafsigg:',
 	'lqt_move_move' => 'Ömnenne',
 	'lqt_move_nodestination' => 'Do moß e Ziel aanjevve.',
 	'lqt_move_noreason' => 'Keine Aanlass aanjejovve.',
+	'lqt_move_success' => ' dä
+
+thread
+
+es noh $1 ömjtrocke woode.',
 	'lqt_delete_undeleting' => "'''$1''' zerök holle.",
+	'lqt_delete_undeletethread' => ' Donn dä
+
+thread
+
+zeröck holle',
+	'lqt_delete_partof' => ' Dä
+
+thread
+
+es ene Deijl vun „$1“',
 	'lqt_delete_deleting' => "'''$1''' un '''all de Antwoote drop''' fottschmiiße.",
+	'lqt_delete_deletethread' => ' Donn dä
+
+thread
+
+un sing Antwoote fott schmiiße',
+	'lqt_delete_deleted' => ' Dä
+
+thread
+
+et fottjeschmeße',
+	'lqt_delete_undeleted' => ' Dä
+
+thread
+
+es wider zerök jehollt',
 	'lqt_delete_return' => 'Jangk retuur noh $1.',
 	'lqt_delete_return_link' => 'de Klaafsigg',
+	'lqt_delete_unallowed' => ' Do häß nit dat Rääsch,
+
+threads
+
+fottzeschmiiße.',
+	'lqt_delete_show_checkbox' => ' Donn de fottjeschmeße 
+
+threads
+
+zeije.',
+	'lqt_talkpage_autocreate_summary' => ' Di Klaafsigg es automattesch aanjelaat woode, wi dä 
+
+first thread
+
+jeschrvve wood.',
 	'lqt_header_warning_big' => 'Do bes en $1 aam ändere.',
-	'lqt_header_warning_after_big' => 'Kopp_Reije si för Aankündijunge un Aanfäng.
+	'lqt_header_warning_after_big' => 'Kopp_Reije sin för Aankündijunge un Aanfäng.
 Künnt sin, De wells en $2 han.',
 	'lqt_header_warning_bold' => 'Der Siggekopp op Klaafsigge',
 	'lqt_header_warning_new_discussion' => 'fang ene neue Klaaf aan',
 	'lqt_sorting_order' => 'Reijefollesch zom Zoteere:',
 	'lqt_remember_sort' => 'Donn di Enstellung merke',
 	'lqt_sort_newest_changes' => 'de zoläz jeänderte et eetß',
+	'lqt_sort_newest_threads' => ' dä neuste 
+
+thread
+
+et eez',
+	'lqt_sort_oldest_threads' => ' dä ählste 
+
+thread
+
+et eez',
 	'lqt-any-date' => 'Jedes Dattum',
 	'lqt-only-date' => 'Blooß di Daate:',
 	'lqt-date-from' => 'Fun',
@@ -2831,14 +2970,45 @@ Künnt sin, De wells en $2 han.',
 	'lqt-summary' => 'Zosammefassung',
 	'lqt-older' => 'älder',
 	'lqt-newer' => 'neuer',
+	'lqt-searching' => ' Noh
+
+threads
+
+söhke',
 	'lqt-read-message' => 'Jelesse',
+	'lqt-read-message-tooltip' => ' Donn dä
+
+thread
+
+vun de neuje Nohreeschte fott nämme.
+Dä weed ävver emmer noch op singe ojinaale Klaafsigg ze sinn sin.',
 	'lqt-read-all' => 'Alles als jelesse makeere',
+	'lqt-read-all-tooltip' => ' Donn all de
+
+threads
+
+vun neue Nohreeschte fottnämme. Se bliive ävver op iere ojinaale Klaafsigge, woh mer se beloore kann. Wann De dat jez deihßt, kanns De et och wider retuur maache.',
+	'lqt-marked-read' => ' Dä
+
+thread
+
+„$1“ es als „jelässe“ makeet.',
 	'lqt-count-marked-read' => '{{PLURAL:$1|Ei Nohresch|$1 Nohreschte|kei Nohresch}} als jelesse makeet.',
 	'lqt-email-undo' => 'Zeröcknämme',
 	'lqt-messages-sent' => 'Nohreschte aan Desch:',
 	'lqt-other-messages' => 'Nohreschte op ander Klaafsigge:',
 	'lqt-no-new-messages' => 'Mer hann kei neu Nohreschte för Desch.',
 	'lqt-new-messages' => 'Mer hann neu Nohreschte för Desch.',
+	'lqt-email-info-undo' => ' Donn dä 
+
+thread
+
+zeröckholle, dä de jraad fott jeschemeße häs.',
+	'lqt-date-info' => 'Dä Lengk es afjeschaldt. De bes ene
+
+thread
+
+vun alle Daate am beloore.',
 	'lqt_rc_new_discussion' => 'Ene neue Klaaf över $1 op $2. • {{GENDER:$3|Dä|Dat|Dä Metmaacher|Dat|De}} $3 hät jeschrevve:',
 	'lqt_rc_new_reply' => 'Antwoot aan $1 op $2. • {{GENDER:$3|Dä|Dat|Dä Metmaacher|Dat|De}} $3 hät jeschrevve:',
 	'lqt_rc_author_original' => '(dä ojinaal Schriiver)',
@@ -4337,6 +4507,13 @@ Stále bude viditeľné na jeho pôvodnej diskusnej stránke.',
 	'lqt_rc_new_reply' => 'Odpoveď na $1, $2. &bull; $3 píše:',
 	'lqt_rc_author_original' => '(pôvodný autor)',
 	'lqt_rc_author_others' => '(nie je autor)',
+);
+
+/** Lower Silesian (Schläsch)
+ * @author Timpul
+ */
+$messages['sli'] = array(
+	'lqt_move_move' => 'Verschieba',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
