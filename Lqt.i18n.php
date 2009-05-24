@@ -3588,6 +3588,7 @@ Denne handlinga kan ikkje verta gjort om.',
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
 	'lqt-desc' => 'Legger til trådede diskusjoner til diskusjonssider',
@@ -3595,6 +3596,8 @@ $messages['no'] = array(
 	'lqt_newmessages' => 'Nye beskjeder',
 	'lqt_movethread' => 'Flytt tråd til en annen side',
 	'lqt_deletethread' => 'Slett eller gjenopprett tråd',
+	'lqt_archive_month_annotation' => 'fra $1',
+	'lqt_archive_month_range_annotation' => 'mellom $1 og $2',
 	'lqt_browse_archive_without_recent' => 'Vis arkiverte tråder',
 	'lqt_browse_archive_with_recent' => 'eldre',
 	'lqt_recently_archived' => 'Nylig arkivert',
@@ -3625,7 +3628,7 @@ $messages['no'] = array(
 	'lqt_hist_past_last_page_error' => 'Det finnes ingen flere sider med historikk.',
 	'lqt_hist_tooltip_newer_disabled' => 'Denne lenken er slått av fordi du er på den første siden.',
 	'lqt_hist_tooltip_older_disabled' => 'Denne lenken er slått av fordi du er på den siste siden.',
-	'lqt_revision_as_of' => 'Revisjon à $1.',
+	'lqt_revision_as_of' => 'Versjon fra $2, klokka $3',
 	'lqt_change_new_thread' => 'Dette er trådens første revisjon.',
 	'lqt_change_reply_created' => 'Den markerte kommentaren ble opprettet i denne revisjonen.',
 	'lqt_change_edited_root' => 'Den markerte kommentaren ble redigert i denne revisjonen.',
@@ -3636,9 +3639,10 @@ $messages['no'] = array(
 	'lqt_nosubject' => '«intet emne»',
 	'lqt_noreason' => 'Ingen grunn gitt.',
 	'lqt_move_placeholder' => 'Denne tråden eksisterer kun for å vise at tråden $1 ble flyttet fra denne siden til en annen diskusjonsside. Denne flyttingen ble foretatt av $2 $3 $4.',
-	'lqt_thread_deleted_for_sysops' => 'Denne tråden har blitt $1 og er kun synlig for administratorer.',
+	'lqt_thread_deleted_for_sysops' => "Denne tråden har blitt '''slettet''' og er kun synlig for administratorer.",
 	'lqt_thread_deleted' => 'Denne tråden har blitt slettet.',
-	'lqt_summary_notice' => 'Det har ikke vært noen endringer på denne diskusjonssiden på minst $2 dager. Om diskusjonen er ferdig, vil du muligens $1.',
+	'lqt_summary_notice' => 'Det har ikke vært noen endringer på denne diskusjonssiden på minst {{PLURAL:$2|én dag|$2 dager}}.
+Om den er avsluttet vil du kanskje $1.',
 	'lqt_summary_notice_link' => 'skrive et sammendrag',
 	'lqt_summary_label' => 'Denne tråden har fått følgende sammendrag:',
 	'lqt_summary_subtitle' => 'sammendraget av $1.',
@@ -3653,16 +3657,17 @@ $messages['no'] = array(
 	'lqt_move_nodestination' => 'Du må angi et mål.',
 	'lqt_move_noreason' => 'Ingen grunn gitt.',
 	'lqt_move_success' => 'Denne tråden ble flyttet til $1.',
-	'lqt_delete_undeleting' => 'Gjenoppretter $1.',
+	'lqt_delete_undeleting' => "Gjenoppretter '''$1'''.",
 	'lqt_delete_undeletethread' => 'Gjenopprett tråd',
-	'lqt_delete_partof' => 'Denne tråden er del av $1.',
-	'lqt_delete_deleting' => 'Sletter $1 og $2 dit.',
+	'lqt_delete_partof' => "Denne tråden er del av '''$1'''.",
+	'lqt_delete_deleting' => "Sletter '''$1''' og '''alle svar''' på den.",
 	'lqt_delete_deletethread' => 'Slett tråd og svar',
 	'lqt_delete_deleted' => 'Tråden ble slettet.',
 	'lqt_delete_undeleted' => 'Tråden ble gjenopprettet.',
 	'lqt_delete_return' => 'Tilbake til $1.',
 	'lqt_delete_return_link' => 'diskusjonssiden',
 	'lqt_delete_unallowed' => 'Du kan ikke slette tråder.',
+	'lqt_delete_show_checkbox' => 'Vis slettede tråder',
 	'lqt_talkpage_autocreate_summary' => 'Diskusjonsside opprettet automatisk da første tråd ble postet.',
 	'lqt_header_warning_big' => 'Du redigerer en $1.',
 	'lqt_header_warning_after_big' => 'Hodeseksjoner er for annonseringer og innledninger. Du vil muligens i stedet $2.',
@@ -3683,15 +3688,25 @@ $messages['no'] = array(
 	'lqt-newer' => 'nyere',
 	'lqt-searching' => 'Søk etter tråder',
 	'lqt-read-message' => 'Les',
-	'lqt-read-message-tooltip' => 'Fjern denne tråden fra nye beskjeder.',
+	'lqt-read-message-tooltip' => 'Fjern denne tråden fra nye beskjeder.
+Den vil fortsatt være synlig fra dens opprinnelige diskusjonsside.',
+	'lqt-read-all' => 'Merk alle som leste',
+	'lqt-read-all-tooltip' => 'Fjern alle trådene fra nye meldinger.
+De vil fortsatt være synlige fra deres opprinnelige diskusjonssider.
+Denne handlingen kan ikke gjøres om.',
 	'lqt-marked-read' => "Tråden '''$1''' markert lest.",
 	'lqt-count-marked-read' => '{{PLURAL:$1|Én beskjed|$1 beskjeder}} markert lest.',
 	'lqt-email-undo' => 'Angre',
 	'lqt-messages-sent' => 'Beskjeder sendt til deg:',
 	'lqt-other-messages' => 'Beskjeder på andre diskusjonssider:',
+	'lqt-no-new-messages' => 'Du har ingen nye meldinger.',
 	'lqt-new-messages' => 'Du har nye beskjeder.',
 	'lqt-email-info-undo' => 'Hent igjen tråden du nettopp fjernet.',
 	'lqt-date-info' => 'Denne lenken er slått av fordi du ser tråder fra alle datoer.',
+	'lqt_rc_new_discussion' => 'Ny diskusjon, $1, på $2. &bull; $3 skriver:',
+	'lqt_rc_new_reply' => 'Svar til $1 på $2. &bull; $3 skriver:',
+	'lqt_rc_author_original' => '(opprinnelig forfatter)',
+	'lqt_rc_author_others' => '(ikke forfatteren)',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
