@@ -51,7 +51,7 @@ HTML
 
 	function checkUserRights() {
 		if ( !$this->user->isAllowed( 'move' ) ) {
-			$this->output->showErrorPage( 'movenologin', 'movenologintext' );
+			$this->output->showPermissionsErrorPage( 'move' );
 			return false;
 		}
 		if ( $this->user->isBlocked() ) {
