@@ -53,8 +53,8 @@ $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
 $wgSpecialPageGroups['NewMessages'] = 'wiki';
 
-$wgAutoloadClasses['LqtDispatch'] = $dir . 'LqtBaseView.php';
-$wgAutoloadClasses['LqtView'] = $dir . 'LqtBaseView.php';
+$wgAutoloadClasses['LqtDispatch'] = $dir . 'classes/LqtDispatch.php';
+$wgAutoloadClasses['LqtView'] = $dir . 'classes/LqtView.php';
 $wgAutoloadClasses['Date'] = $dir . 'classes/LqtDate.php';
 $wgAutoloadClasses['Post'] = $dir . 'classes/LqtPost.php';
 $wgAutoloadClasses['ThreadHistoryIterator'] = $dir . 'classes/LqtThreadHistoryIterator.php';
