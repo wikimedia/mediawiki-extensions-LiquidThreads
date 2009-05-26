@@ -196,8 +196,11 @@ HTML
 			$url = $this->talkpageUrl( $this->title, 'talkpage_new_thread' );
 			$this->output->addHTML( "<strong><a class=\"lqt_start_discussion\" href=\"$url\">" . wfMsg( 'lqt_new_thread' ) . "</a></strong>" );
 		}
-
-		$threads = $this->queries->query( 'fresh' );
+		
+		$queryType =
+			$wgRequest->getBool( 'lqt_show_deleted_threads' )
+			? 'fresh' : 'fresh-undeleted';
+		$threads = $this->queries->query( $queryType );
 
 		$this->openDiv( 'lqt_toc_archive_wrapper' );
 

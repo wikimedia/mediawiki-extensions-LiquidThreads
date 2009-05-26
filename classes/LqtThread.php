@@ -245,28 +245,43 @@ class Thread {
 
 	function __construct( $line, $children ) {
 		/* SCHEMA changes must be reflected here. */
+		
+		$dataLoads = array(
+							'thread_id' => 'id',
+							'thread_root' => 'rootId',
+							'thread_article_namespace' => 'articleNamespace',
+							'thread_article_title' => 'articleTitle',
+							'thread_summary_page' => 'summaryId',
+							'thread_ancestor' => 'ancestorId',
+							'thread_parent' => 'parentId',
+							'thread_modified' => 'modified',
+							'thread_created' => 'created',
+							'thread_revision' => 'revisionNumber',
+							'thread_type' => 'type',
+							'thread_change_type' => 'changeType',
+							'thread_change_object' => 'changeObject',
+							'thread_change_comment' => 'changeComment',
+							'thread_change_user' => 'changeUser',
+							'thread_change_user_text' => 'changeUserText',
+							'thread_editedness' => 'editedness'
+						);
+						
 
-		$this->id = $line->thread_id;
-		$this->rootId = $line->thread_root;
-		$this->articleNamespace = $line->thread_article_namespace;
-		$this->articleTitle = $line->thread_article_title;
-		$this->summaryId = $line->thread_summary_page;
-		$this->ancestorId = $line->thread_ancestor;
-		$this->parentId = $line->thread_parent;
-		$this->modified = $line->thread_modified;
-		$this->created = $line->thread_created;
-		$this->revisionNumber = $line->thread_revision;
-		$this->type = $line->thread_type;
-		$this->changeType = $line->thread_change_type;
-		$this->changeObject = $line->thread_change_object;
-		$this->changeComment = $line->thread_change_comment;
-		$this->changeUser = $line->thread_change_user;
-		$this->changeUserText = $line->thread_change_user_text;
-		$this->editedness = $line->thread_editedness;
+		foreach( $dataLoads as $db_field => $member_field ) {
+			if ( isset($line->$db_field) ) {
+				$this->$member_field = $line->$db_field;
+			}
+		}
+		
+		if ( isset($line->page_namespace) && isset($line->page_title) ) {
+			$root_title = Title::makeTitle( $line->page_namespace, $line->page_title );
+			$this->root = new Post( $root_title );
+			$this->root->loadPageData( $line );
+		} else {
+			$root_title = Title::newFromID( $this->rootId );
+			$this->root = new Post( $root_title );
+		}
 
-		$root_title = Title::makeTitle( $line->page_namespace, $line->page_title );
-		$this->root = new Post( $root_title );
-		$this->root->loadPageData( $line );
 		$this->rootRevision = $this->root->mLatest;
 	}
 
@@ -359,6 +374,7 @@ class Thread {
 
 	function article() {
 		if ( $this->article ) return $this->article;
+		
 		$title = Title::newFromID( $this->articleId );
 		if ( $title ) {
 			$a = new Article( $title );

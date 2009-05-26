@@ -2,7 +2,7 @@
 
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
-class SpecialDeleteThread extends UnlistedSpecialPage {
+class SpecialDeleteThread extends SpecialPage {
 	private $user, $output, $request, $title, $thread;
 
 	function __construct() {
@@ -58,7 +58,7 @@ HTML
 	}
 
 	function checkUserRights() {
-		if ( in_array( 'delete', $this->user->getRights() ) ) {
+		if ( $this->user->isAllowed( 'delete' ) ) {
 			return true;
 		} else {
 			wfLoadExtensionMessages( 'LiquidThreads' );

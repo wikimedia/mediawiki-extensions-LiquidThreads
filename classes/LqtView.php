@@ -48,6 +48,7 @@ class LqtView {
 
 	function initializeQueries() {
 
+		// Determine sort order
 		if ( $this->methodApplies( 'talkpage_sort_order' ) ) {
 			// Sort order is explicitly specified through UI
 			global $wgRequest;
@@ -71,8 +72,12 @@ class LqtView {
 				$this->sort_order = $user_order;
 			}
 		}
+		
+		// Create query group
 		global $wgOut, $wgLqtThreadArchiveStartDays, $wgLqtThreadArchiveInactiveDays;
+		$dbr = wfGetDB( DB_SLAVE );
 		$g = new QueryGroup();
+		
 		$startdate = Date::now()->nDaysAgo( $wgLqtThreadArchiveStartDays )->midnight();
 		$recentstartdate = $startdate->nDaysAgo( $wgLqtThreadArchiveInactiveDays );
 		$article_clause = Threads::articleClause( $this->article );
@@ -83,6 +88,8 @@ class LqtView {
 		} elseif ( $this->sort_order == LQT_OLDEST_THREADS ) {
 			$sort_clause = 'ORDER BY thread.thread_created ASC';
 		}
+		
+		// Add standard queries
 		$g->addQuery( 'fresh',
 		              array( $article_clause,
 							'thread.thread_parent is null',
@@ -90,6 +97,11 @@ class LqtView {
 		 					'  OR (thread.thread_summary_page is NULL' .
 								 ' AND thread.thread_type=' . Threads::TYPE_NORMAL . '))' ),
 		              array( $sort_clause ) );
+		
+		$g->extendQuery( 'fresh', 'fresh-undeleted',
+						array( 'thread_type != '. $dbr->addQuotes( Threads::TYPE_DELETED ) ) );
+						
+						
 		$g->addQuery( 'archived',
 		             array( $article_clause,
 							'thread.thread_parent is null',
@@ -97,12 +109,18 @@ class LqtView {
 			                  ' OR thread.thread_type=' . Threads::TYPE_NORMAL . ')',
 		                   'thread.thread_modified < ' . $startdate->text() ),
 		             array( $sort_clause ) );
+		             
 		$g->extendQuery( 'archived', 'recently-archived',
 		                array( '( thread.thread_modified >=' . $recentstartdate->text() .
 				      '  OR  rev_timestamp >= ' . $recentstartdate->text() . ')',
 				      'summary_page.page_id = thread.thread_summary_page', 'summary_page.page_latest = rev_id' ),
 				array(),
 				array( 'page summary_page', 'revision' ) );
+				
+		$g->addQuery( 'archived', 'archived-undeleted',
+						array( 'thread_type != '. $dbr->addQuotes( Threads::TYPE_DELETED ) ) );
+						
+						
 		return $g;
 	}
 
@@ -454,6 +472,16 @@ HTML;
                                  'href' => $this->permalinkUrlWithQuery( $thread, 'action=unwatch' ),
 			                     'enabled' => true );
 		}
+		
+		if ( $this->user->isAllowed( 'delete' ) ) {
+			$delete_title = SpecialPage::getTitleFor( 'DeleteThread',
+								$thread->title()->getPrefixedText() );
+			$delete_href = $delete_title->getFullURL();
+			
+			$commands[] = array( 'label' => wfMsg( 'delete' ),
+									'href' => $delete_href,
+									'enabled' => true );
+		}
 
 		return $commands;
 	}
@@ -658,6 +686,7 @@ HTML
 	function showThread( $thread ) {
 		global $wgLang; # TODO global.
 
+		// Safeguard
 		if ( $thread->type() == Threads::TYPE_DELETED
 			&& ! $this->request->getBool( 'lqt_show_deleted_threads' ) )
 				return;
