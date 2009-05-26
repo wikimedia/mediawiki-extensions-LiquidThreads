@@ -25,7 +25,7 @@ class SpecialDeleteThread extends UnlistedSpecialPage {
 
 		$form_action = $this->title->getLocalURL() . '/' . $this->thread->title()->getPrefixedURL();
 		$thread_name = $this->thread->title()->getPrefixedText();
-		$article_name = $this->thread->article()->getTitle()->getTalkPage()->getPrefixedText();
+		$article_name = $this->thread->article()->getTitle()->getPrefixedText();
 
 		$deleting = $this->thread->type() != Threads::TYPE_DELETED;
 
@@ -92,7 +92,7 @@ HTML
 	function showSuccessMessage( $is_deleted_already ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		// TODO talkpageUrl should accept threads, and look up their talk pages.
-		$talkpage_url = LqtView::talkpageUrl( $this->thread->article()->getTitle()->getTalkpage() );
+		$talkpage_url = LqtView::talkpageUrl( $this->thread->article()->getTitle() );
 		$message = $is_deleted_already ? wfMsg( 'lqt_delete_undeleted' ) : wfMsg( 'lqt_delete_deleted' );
 		$message .= wfMsg( 'word-separator' );
 		$message .= wfMsg( 'lqt_delete_return', '<a href="' . $talkpage_url . '">' . wfMsg( 'lqt_delete_return_link' ) . '</a>' );

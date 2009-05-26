@@ -22,7 +22,7 @@ class SpecialMoveThread extends UnlistedSpecialPage {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$form_action = $this->getTitle()->getLocalURL() . '/' . $this->thread->title()->getPrefixedURL();
 		$thread_name = $this->thread->title()->getPrefixedText();
-		$article_name = $this->thread->article()->getTitle()->getTalkPage()->getPrefixedText();
+		$article_name = $this->thread->article()->getTitle()->getPrefixedText();
 		$edit_url = LqtView::permalinkUrl( $this->thread, 'edit', $this->thread );
 		$wfMsg = 'wfMsg'; // functions can only be called within string expansion by variable name.
 		// FIXME: awkward message usage and fixed parameter formatting. Would be nicer if all formatting
@@ -84,14 +84,14 @@ HTML
 			$this->redisplayForm( array( 'lqt_move_thread_target_title' ), wfMsg( 'lqt_move_nodestination' ) );
 			return;
 		}
-		$newtitle = Title::newFromText( $tmp )->getSubjectPage();
+		$newtitle = Title::newFromText( $tmp );
 
 		$reason = $this->request->getVal( 'lqt_move_thread_reason', wfMsg( 'lqt_noreason' ) );
 
 		// TODO no status code from this method.
 		$this->thread->moveToSubjectPage( $newtitle, $reason, true );
 
-		$this->showSuccessMessage( $newtitle->getTalkPage() );
+		$this->showSuccessMessage( $newtitle );
 	}
 
 	function showSuccessMessage( $target_title ) {

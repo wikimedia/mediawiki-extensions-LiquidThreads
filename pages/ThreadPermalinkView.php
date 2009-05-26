@@ -12,7 +12,7 @@ class ThreadPermalinkView extends LqtView {
 		// the access key for the talk tab doesn't work.
 		if ($this->thread) {
 			$article_t = $this->thread->article()->getTitle();
-			$talk_t = $this->thread->article()->getTitle()->getTalkPage();
+			$talk_t = $this->thread->article()->getTitle();
 		}
 		efInsertIntoAssoc( 'article', array(
 		'text' => wfMsg( $article_t->getNamespaceKey() ),
@@ -74,7 +74,7 @@ class ThreadPermalinkView extends LqtView {
 		$query = '';
 		else
 		$query = 'lqt_archive_month=' . substr( $this->thread->modified(), 0, 6 );
-		$talkpage = $this->thread->article()->getTitle()->getTalkpage();
+		$talkpage = $this->thread->article()->getTitle();
 		$talkpage_link = $this->user->getSkin()->makeKnownLinkObj( $talkpage, '', $query );
 		if ( $this->thread->hasSuperthread() ) {
 			return wfMsg( 'lqt_fragment', "<a href=\"{$this->permalinkUrl($this->thread->topmostThread())}\">" . wfMsg( 'lqt_discussion_link' ) . "</a>", $talkpage_link );

@@ -18,7 +18,7 @@ class LqtDispatch {
 	static function talkpageMain( &$output, &$talk_article, &$title, &$user, &$request ) {
 		// We are given a talkpage article and title. Find the associated
 		// non-talk article and pass that to the view.
-		$article = new Article( $title->getSubjectPage() );
+		$article = new Article( $title );
 
 		if ( $title->getSubjectPage()->getNamespace() == NS_LQT_THREAD ) {
 			// Threads don't have talk pages; redirect to the thread page.
@@ -89,7 +89,12 @@ class LqtDispatch {
 	* as needed and return True. If it's a normal, non-liquid page, return false.
 	*/
 	static function tryPage( $output, $article, $title, $user, $request ) {
-		if ( $title->isTalkPage() ) {
+		global $wgLqtPages, $wgLqtTalkPages;
+		
+		$isTalkPage = ($title->isTalkPage() && $wgLqtTalkPages) ||
+						in_array( $title->getPrefixedText(), $wgLqtPages );
+		
+		if ( $isTalkPage ) {
 			return self::talkpageMain ( $output, $article, $title, $user, $request );
 		} else if ( $title->getNamespace() == NS_LQT_THREAD ) {
 			return self::threadPermalinkMain( $output, $article, $title, $user, $request );
@@ -121,7 +126,7 @@ class LqtDispatch {
 			return true;
 
 		// Talkpages without headers -- check existance of threads.
-		$article = new Article( $nt->getSubjectPage() );
+		$article = new Article( $nt );
 		$threads = Threads::where( Threads::articleClause( $article ), "LIMIT 1" );
 		if ( count( $threads ) == 0 ) {
 			// We want it to look like a broken link, but not have action=edit, since that
@@ -152,7 +157,7 @@ class LqtDispatch {
 		// It's a talkpage without a header. Get rid of action=edit always,
 		// color as apropriate.
 		$query = "";
-		$article = new Article( $title->getSubjectPage() );
+		$article = new Article( $title );
 		$threads = Threads::where( Threads::articleClause( $article ), "LIMIT 1" );
 		if ( count( $threads ) != 0 ) {
 			$i = array_search( 'new', $classes ); if ( $i !== false ) {
@@ -210,7 +215,7 @@ class LqtDispatch {
 					array(), array(), array( 'known' ) );
 
 				$talkpage_link = $changeslist->skin->link(
-					$thread->article()->getTitle()->getTalkPage(),
+					$thread->article()->getTitle(),
 					null,
 					array(), array(), array( 'known' ) );
 

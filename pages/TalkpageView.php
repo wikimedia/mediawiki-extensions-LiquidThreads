@@ -181,7 +181,7 @@ HTML
 		// Why is a hook added here?
 		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
 
-		$this->output->setPageTitle( $this->title->getTalkpage()->getPrefixedText() );
+		$this->output->setPageTitle( $this->title->getPrefixedText() );
 		self::addJSandCSS();
 		$article = new Article( $this->title ); // Added in r29715 sorting. Why?
 

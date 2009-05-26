@@ -87,3 +87,10 @@ $wgLqtThreadArchiveStartDays = 14;
 
 /* Number of days a thread needs to be inactive to be considered for summarizing and archival */
 $wgLqtThreadArchiveInactiveDays = 5;
+
+/* Allows activation of LiquidThreads on individual pages */
+$wgLqtPages = array();
+
+/* Allows switching LiquidThreads off for regular talk pages
+	(intended for testing and transition) */
+$wgLqtTalkPages = true;

@@ -115,7 +115,7 @@ class Threads {
 	 * will show up blue instead of red. For use upon new thread creation.
 	*/
 	protected static function createTalkpageIfNeeded( $subjectPage ) {
-		$talkpage_t = $subjectPage->getTitle()->getTalkpage();
+		$talkpage_t = $subjectPage->getTitle();
 		$talkpage = new Article( $talkpage_t );
 		if ( ! $talkpage->exists() ) {
 			try {

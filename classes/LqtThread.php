@@ -339,14 +339,15 @@ class Thread {
 		// if we always use Threads::withId instead of returning $this,
 		// the historical revision is not incremented and we get a
 		// duplicate key.
-		if ( $this->ancestorId == $this->id )
+		if ( $this->isTopmostThread() ) {
 			return $this;
-		else
+		} else {
 			return Threads::withId( $this->ancestorId );
+		}
 	}
 
 	function isTopmostThread() {
-		return $this->ancestorId == $this->id;
+		return $this->ancestorId == $this->id || intval($this->ancestorId) === 0;
 	}
 
 	function setArticle( $a ) {
@@ -563,7 +564,7 @@ class Thread {
 		if ( $this->hasSuperthread() ) {
 			$parent_restrictions = $this->superthread()->root()->getTitle()->getRestrictions( $action );
 		} else {
-			$parent_restrictions = $this->article()->getTitle()->getTalkPage()->getRestrictions( $action );
+			$parent_restrictions = $this->article()->getTitle()->getRestrictions( $action );
 		}
 
 		// TODO this may not be the same as asking "are the parent restrictions more restrictive than

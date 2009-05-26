@@ -200,7 +200,7 @@ HTML
 		global $wgHooks;
 		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
 
-		$this->output->setPageTitle( $this->title->getTalkpage()->getPrefixedText() );
+		$this->output->setPageTitle( $this->title->getPrefixedText() );
 		self::addJSandCSS();
 		wfLoadExtensionMessages( 'LiquidThreads' );
 
