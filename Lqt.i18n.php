@@ -797,6 +797,7 @@ Ako je zaključena, možete $1.',
  * @author Jordi Roqué
  * @author Loupeter
  * @author SMP
+ * @author Solde
  */
 $messages['ca'] = array(
 	'lqt-desc' => 'Afegeix fils de discussió a les pàgines de discussió',
@@ -807,7 +808,9 @@ $messages['ca'] = array(
 	'lqt_archive_month_annotation' => 'des de $1',
 	'lqt_archive_month_range_annotation' => 'entre $1 i $2',
 	'lqt_contents_title' => 'Contingut:',
+	'lqt_delete' => 'Elimina',
 	'lqt_discussion_link' => 'discussió',
+	'lqt-any-date' => 'Alguna data',
 	'lqt-only-date' => 'Només aquestes dates:',
 	'lqt-date-info' => 'Aquest enllaç no és actiu perquè veieu els fils de totes les dates.',
 );
