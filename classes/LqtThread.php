@@ -176,7 +176,7 @@ class Thread {
 		$this->commitRevision( Threads::CHANGE_UNDELETED, $this, $reason );
 	}
 
-	function moveToSubjectPage( $title, $reason, $leave_trace ) {
+	function moveToPage( $title, $reason, $leave_trace ) {
 		$dbr =& wfGetDB( DB_MASTER );
 
 		$new_articleNamespace = $title->getNamespace();

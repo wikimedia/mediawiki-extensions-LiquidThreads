@@ -83,18 +83,21 @@ class LqtDispatch {
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		return $view->show();
 	}
+	
+	static function isLqtPage( $title ) {
+		global $wgLqtPages, $wgLqtTalkPages;
+		$isTalkPage = ($title->isTalkPage() && $wgLqtTalkPages) ||
+						in_array( $title->getPrefixedText(), $wgLqtPages );
+		
+		return $isTalkPage;
+	}
 
 	/**
 	* If the page we recieve is a Liquid Threads page of any kind, process it
 	* as needed and return True. If it's a normal, non-liquid page, return false.
 	*/
 	static function tryPage( $output, $article, $title, $user, $request ) {
-		global $wgLqtPages, $wgLqtTalkPages;
-		
-		$isTalkPage = ($title->isTalkPage() && $wgLqtTalkPages) ||
-						in_array( $title->getPrefixedText(), $wgLqtPages );
-		
-		if ( $isTalkPage ) {
+		if ( LqtDispatch::isLqtPage( $title ) ) {
 			return self::talkpageMain ( $output, $article, $title, $user, $request );
 		} else if ( $title->getNamespace() == NS_LQT_THREAD ) {
 			return self::threadPermalinkMain( $output, $article, $title, $user, $request );
@@ -111,7 +114,7 @@ class LqtDispatch {
 		                                  Threads::topLevelClause() ) );
 
 		foreach ( $threads as $t ) {
-			$t->moveToSubjectPage( $nt, false );
+			$t->moveToPage( $nt, false );
 		}
 
 		return true;
