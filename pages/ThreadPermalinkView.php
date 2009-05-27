@@ -13,7 +13,10 @@ class ThreadPermalinkView extends LqtView {
 		if ($this->thread) {
 			$article_t = $this->thread->article()->getTitle();
 			$talk_t = $this->thread->article()->getTitle();
+		} else {
+			return true;
 		}
+		
 		efInsertIntoAssoc( 'article', array(
 		'text' => wfMsg( $article_t->getNamespaceKey() ),
 		'href' => $article_t->getFullURL(),
@@ -64,6 +67,7 @@ class ThreadPermalinkView extends LqtView {
 
 	function showMissingThreadPage() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
+		$this->output->setPageTitle( wfMsg( 'lqt_nosuchthread_title' ) );
 		$this->output->addHTML( wfMsg( 'lqt_nosuchthread' ) );
 	}
 
