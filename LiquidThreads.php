@@ -35,10 +35,12 @@ $wgExtraNamespaces[NS_LQT_THREAD_TALK] = 'Thread_talk';
 $wgExtraNamespaces[NS_LQT_SUMMARY] = 'Summary';
 $wgExtraNamespaces[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
 
+// Localisation
 $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'Lqt.i18n.php';
 $wgExtensionAliasesFiles['LiquidThreads'] = $dir . 'Lqt.alias.php';
 
+// Hooks
 $wgHooks['SpecialWatchlistQuery'][] = 'wfLqtBeforeWatchlistHook';
 $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
 $wgHooks['SpecialMovepageAfterMove'][] = 'LqtDispatch::onPageMove';
@@ -48,11 +50,13 @@ $wgHooks['OldChangesListRecentChangesLine'][] = 'LqtDispatch::customizeOldChange
 $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtDispatch::setNewtalkHTML';
 $wgHooks['TitleGetRestrictions'][] = 'Thread::getRestrictionsForTitle';
 
+// Special pages
 $wgSpecialPages['DeleteThread'] = 'SpecialDeleteThread';
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
 $wgSpecialPageGroups['NewMessages'] = 'wiki';
 
+// Classes
 $wgAutoloadClasses['LqtDispatch'] = $dir . 'classes/LqtDispatch.php';
 $wgAutoloadClasses['LqtView'] = $dir . 'classes/LqtView.php';
 $wgAutoloadClasses['Date'] = $dir . 'classes/LqtDate.php';
@@ -64,6 +68,7 @@ $wgAutoloadClasses['Threads'] = $dir . 'classes/LqtThreads.php';
 $wgAutoloadClasses['QueryGroup'] = $dir . 'classes/LqtQueryGroup.php';
 $wgAutoloadClasses['NewMessages'] = $dir . 'classes/LqtNewMessages.php';
 
+// Page classes
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
 $wgAutoloadClasses['TalkpageArchiveView'] = $dir . 'pages/TalkpageArchiveView.php';
 $wgAutoloadClasses['ThreadPermalinkView'] = $dir . 'pages/ThreadPermalinkView.php';
