@@ -259,17 +259,27 @@ HTML;
 		 can temporarily use a random scratch title. It's fine if the title changes
 		 throughout the edit cycle, since the article doesn't exist yet anyways.
 		*/
+		
+		$valid_summary = true;
+		
 		if ( $edit_type == 'summarize' && $edit_applies_to->summary() ) {
 			$article = $edit_applies_to->summary();
-		} else if ( $edit_type == 'summarize' ) {
+		} elseif ( $edit_type == 'summarize' ) {
 			$t = $this->newSummaryTitle( $edit_applies_to );
 			$article = new Article( $t );
-		} else if ( $thread == null ) {
+		} elseif ( $thread == null ) {
 			$subject = $this->request->getVal( 'lqt_subject_field', '' );
-			if ( $edit_type == 'new' ) {
-				$t = $this->newScratchTitle( $subject );
-			} else if ( $edit_type == 'reply' ) {
-				$t = $this->newReplyTitle( $subject, $edit_applies_to );
+			
+			if ( is_null( Title::makeTitleSafe( NS_LQT_THREAD, $subject ) ) ) {
+				// Dodgy title
+				$valid_summary = false;
+				$t = $this->scratchTitle();
+			} else {			
+				if ( $edit_type == 'new' ) {
+					$t = $this->newScratchTitle( $subject );
+				} elseif ( $edit_type == 'reply' ) {
+					$t = $this->newReplyTitle( $subject, $edit_applies_to );
+				}
 			}
 			$article = new Article( $t );
 		} else {
@@ -277,6 +287,18 @@ HTML;
 		}
 
 		$e = new EditPage( $article );
+		
+		if (!$valid_summary && $subject) {
+			$e->editFormPageTop .= 
+				Xml::tags( 'div', array( 'class' => 'error' ),
+					wfMsgExt( 'lqt_invalid_subject', 'parse' ) );
+		}
+		
+		if (!$valid_summary) {
+			// Dirty hack to prevent saving from going ahead
+			global $wgRequest;
+			$wgRequest->setVal( 'wpPreview', true );
+		}
 
 		$e->suppressIntro = true;
 		$e->editFormTextBeforeContent .=

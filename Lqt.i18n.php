@@ -25,6 +25,10 @@ $messages['en'] = array(
 	'lqt_contents_title' => 'Contents:',
 	'lqt_add_header' => 'Add header',
 	'lqt_new_thread' => 'Start a new discussion',
+	'lqt_invalid_subject' => 'The subject you entered is invalid. It may:
+* Contain invalid characters, such as []{}&lt;&gt;,
+* Be too long, or
+* Conflict with interwiki prefixes or namespace names.',
 	'lqt_in_response_to' => 'In reply to $1 by $2, above:',
 	'lqt_edited_notice' => 	'Edited',
 	'lqt_reply' => 'Reply',
