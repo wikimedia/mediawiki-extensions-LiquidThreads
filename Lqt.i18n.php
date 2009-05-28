@@ -595,8 +595,8 @@ $messages['be-tarask'] = array(
 	'lqt_summary_label' => 'Для гэтай галіны быў падведзены наступны вынік:',
 	'lqt_summary_subtitle' => 'вынік для $1.',
 	'lqt_nosuchrevision' => 'У гэтай галіне няма такой вэрсіі.',
-	'lqt_nosuchthread' => 'Галіна якую Вы выбралі не існуе.',
-	'lqt_nosuchthread_title' => 'Няма такога патока',
+	'lqt_nosuchthread' => 'Галіна, якую Вы ўказалі, не існуе.',
+	'lqt_nosuchthread_title' => 'Няма такога галіны',
 	'lqt_threadrequired' => 'Вам неабходна пазначыць галіну ў URL-адрасе.',
 	'lqt_move_movingthread' => 'Перанос $1.
 Гэтая галіна зьяўляецца часткай $2.',
@@ -605,7 +605,7 @@ $messages['be-tarask'] = array(
 	'lqt_move_destinationtitle' => 'Назва мэтавай старонкі абмеркаваньня:',
 	'lqt_move_move' => 'Перанесьці',
 	'lqt_move_nodestination' => 'Вам неабходна пазначыць мэтавую старонку.',
-	'lqt_move_thread_bad_destination' => 'Мэтавая старонка не зьяўляецца старонкай абмяркаваньня.',
+	'lqt_move_thread_bad_destination' => 'Мэтавая старонка не зьяўляецца старонкай абмеркаваньня.',
 	'lqt_move_noreason' => 'Прычына не пазначана.',
 	'lqt_move_success' => 'Галіна была перанесена ў $1.',
 	'lqt_delete_undeleting' => "Аднаўленьне '''$1'''.",
@@ -927,7 +927,7 @@ Wenn die Diskussion beendet ist, möchtest du vielleicht eine $1.',
 	'lqt_summary_label' => 'Zusammenfassung:',
 	'lqt_summary_subtitle' => 'Zusammenfassung von $1.',
 	'lqt_nosuchrevision' => 'Version des Diskussionsstranges wurde nicht gefunden.',
-	'lqt_nosuchthread' => 'Diskussionsstrang wurde nicht gefunden.',
+	'lqt_nosuchthread' => 'Der angeforderte Diskussionsstrang existiert nicht.',
 	'lqt_threadrequired' => 'In der URL muss ein Diskussionsstrang angegeben werden.',
 	'lqt_move_movingthread' => 'Verschiebe $1. Dieser Thread ist Teil von $2.',
 	'lqt_move_torename' => "Um den Diskussionsstrang umzubennenen, $1 und ändere das 'Thema'.",
@@ -1007,6 +1007,11 @@ $messages['dsb'] = array(
 	'lqt_contents_title' => 'Wopśimjeśe:',
 	'lqt_add_header' => 'Głowu pśidaś',
 	'lqt_new_thread' => 'Nowu diskusiju zachopiś',
+	'lqt_invalid_subject' => 'Tema, kótaruž sy zapódał, jo njepłaśiwa. Snaź:
+* Wopśimujo njepłaśiwe znamuška, ako na pś. []{}&lt;&gt;,
+* jo pśedłujko abo
+* jo konfilikt z interwikijowymi prefiksami abo mjenja mjenjowych rumow.',
+	'lqt_subject_change_forbidden' => 'Njesmějoš temu za toś tu nitku změniś, dokulaž njamóžoš boki pśesunuś.',
 	'lqt_in_response_to' => 'We wótegronje na $1 wót $2, glědaj:',
 	'lqt_edited_notice' => 'Wobźěłany',
 	'lqt_reply' => 'Wótegroniś',
@@ -1441,6 +1446,11 @@ $messages['fr'] = array(
 	'lqt_contents_title' => 'Table des sujets :',
 	'lqt_add_header' => 'Ajouter en-tête',
 	'lqt_new_thread' => 'Lancer une nouvelle discussion',
+	'lqt_invalid_subject' => "Le sujet que vous avez entré est invalide. Il ce peut :
+* qu'il contienne des caractères invalides, comme []{}&lt;&gt;,
+* être trop long ou
+* soit en conflit avec un préfixe interwiki, ou un espace de noms.",
+	'lqt_subject_change_forbidden' => "Vous n'êtes pas autorisé à modifier le sujet de ce fil parce que vous ne pouvez pas renommer des pages.",
 	'lqt_in_response_to' => 'En réponse à $1 par $2, plus haut :',
 	'lqt_edited_notice' => 'Modifié',
 	'lqt_reply' => 'Répondre',
@@ -1576,6 +1586,11 @@ $messages['gl'] = array(
 	'lqt_contents_title' => 'Contidos:',
 	'lqt_add_header' => 'Engadir cabeceira',
 	'lqt_new_thread' => 'Comezar un novo debate',
+	'lqt_invalid_subject' => 'O asunto que introduciu non é válido. Pode:
+* conter caracteres inválidos, como []{}&lt;&gt;,
+* ser demasiado longo ou
+* haber un conflito cos prefixos interwiki ou os nomes dos espazos de nomes.',
+	'lqt_subject_change_forbidden' => 'Non ten permiso para cambiar o asunto deste fío porque non pode mover páxinas.',
 	'lqt_in_response_to' => 'En resposta a $1 por $2, arriba:',
 	'lqt_edited_notice' => 'Editado',
 	'lqt_reply' => 'Resposta',
@@ -2162,6 +2177,11 @@ $messages['hsb'] = array(
 	'lqt_contents_title' => 'Wobsah:',
 	'lqt_add_header' => 'Hłowu přidać',
 	'lqt_new_thread' => 'Nowu diskusiju započeć',
+	'lqt_invalid_subject' => 'Tema, kotryž sy zapodał, je njepłaćiwa. Snano:
+* wobsahuje njepłaćiwe znamješka kaž na př. []{}&lt;&gt;,
+* je předołho abo
+* je konflikt z interwikijowymi prefiksami abo mjenami mjenowych rumow.',
+	'lqt_subject_change_forbidden' => 'Njesměš temu za tutu nitku změnić, dokelž njemóžeš strony přesunyć.',
 	'lqt_in_response_to' => 'Wotmołwjejo na $1 wot $2, horjeka:',
 	'lqt_edited_notice' => 'Wobdźěłany',
 	'lqt_reply' => 'Wotmołwić',
@@ -2370,6 +2390,11 @@ $messages['ia'] = array(
 	'lqt_contents_title' => 'Contento:',
 	'lqt_add_header' => 'Adder capite',
 	'lqt_new_thread' => 'Initiar un nove discussion',
+	'lqt_invalid_subject' => 'Le subjecto que tu entrava es invalide. Illo pote:
+* continer characteres invalide, como []{}&lt;&gt;,
+* esser troppo longe, o
+* confliger con prefixos interwiki o nomines de spatios de nomines.',
+	'lqt_subject_change_forbidden' => 'Tu non ha le permission de cambiar le subjecto de iste filo proque tu non pote renominar paginas.',
 	'lqt_in_response_to' => 'In responsa a $1 per $2, supra:',
 	'lqt_edited_notice' => 'Modificate',
 	'lqt_reply' => 'Responder',
@@ -2534,6 +2559,11 @@ $messages['ja'] = array(
 	'lqt_contents_title' => '目次:',
 	'lqt_add_header' => 'ヘッダの追加',
 	'lqt_new_thread' => '新しい議論を始める',
+	'lqt_invalid_subject' => 'あなたが入力した表題は不正です。以下の可能性があります。
+* []{}&lt;&gt; などの無効な文字を含んでいる
+* 長すぎる
+* インターウィキ用接頭辞や名前空間名と衝突している',
+	'lqt_subject_change_forbidden' => 'あなたはページを移動できないため、このスレッドの表題を変更することはできません。',
 	'lqt_in_response_to' => '$2 が発言した $1 への返答:',
 	'lqt_edited_notice' => '編集済み',
 	'lqt_reply' => '返答',
@@ -3398,6 +3428,11 @@ $messages['nl'] = array(
 	'lqt_contents_title' => 'Inhoud:',
 	'lqt_add_header' => 'Kopje toevoegen',
 	'lqt_new_thread' => 'Nieuw onderwerp starten',
+	'lqt_invalid_subject' => 'Het onderwerp dat u heeft opgegeven is ongeldig. Het kan:
+* ongeldige tekens bevatten, zoals []{}&lt;&gt;,
+* te lang zijn, of
+* conflicteren met interwikivoorvoegsels of naamruimtenamen.',
+	'lqt_subject_change_forbidden' => "U hebt niet de rechten om het onderwerp van deze thread te wijzigen, omdat u geen pagina's kunt hernoemen.",
 	'lqt_in_response_to' => 'In antwoord op $1 door $2 hierboven:',
 	'lqt_edited_notice' => 'Bewerkt',
 	'lqt_reply' => 'Antwoorden',
@@ -3828,7 +3863,8 @@ $messages['oc'] = array(
 	'lqt_summary_label' => 'Aqueste fial es estat resumit per :',
 	'lqt_summary_subtitle' => 'lo resumit de $1.',
 	'lqt_nosuchrevision' => 'Cap de revision per aqueste fial correspond pas.',
-	'lqt_nosuchthread' => 'Cap de fial correspond pas.',
+	'lqt_nosuchthread' => "Lo fial qu'avètz especificat existís pas.",
+	'lqt_nosuchthread_title' => 'Lo fial es introbable',
 	'lqt_threadrequired' => "Vos cal indicar un fial dins l'URL.",
 	'lqt_move_movingthread' => '$1 en deplaçament. Aqueste fial fa partida de $2.',
 	'lqt_move_torename' => "Per tornar nomenar aqueste fial, $1 e modificar lo camp ''Subjècte''.",
@@ -3836,6 +3872,8 @@ $messages['oc'] = array(
 	'lqt_move_destinationtitle' => 'Títol de la pagina de discussion finala :',
 	'lqt_move_move' => 'Desplaçar',
 	'lqt_move_nodestination' => 'Vos cal indicar una destinacion.',
+	'lqt_move_thread_bad_destination' => 'La pagina de destinacion es pas una pagina de discussion.',
+	'lqt_move_samedestination' => 'Lo fial ja es sus aquesta pagina !',
 	'lqt_move_noreason' => 'Cap de rason balhada',
 	'lqt_move_success' => 'Lo fial es estat desplaçat dins $1.',
 	'lqt_delete_undeleting' => "Restabliment de '''$1'''.",
@@ -4471,6 +4509,11 @@ $messages['sk'] = array(
 	'lqt_contents_title' => 'Obsah:',
 	'lqt_add_header' => 'Pridať hlavičku',
 	'lqt_new_thread' => 'Začať novú diskusiu',
+	'lqt_invalid_subject' => 'Predmet, ktorý ste zadali je neplatný. Môže:
+* obsahovať neplatné znaky ako []{}&lt;&gt;,
+* byť príliš dlhý alebo
+* byť v konflikte s predponami interwiki alebo názvami menných priestorov.',
+	'lqt_subject_change_forbidden' => 'Nemôžete zmeniť predmet tohto vlákna, pretože nemáte oprávnenie na presúvanie stránok.',
 	'lqt_in_response_to' => 'Odpoveď na $1 od $2 vyššie:',
 	'lqt_edited_notice' => 'Upravené',
 	'lqt_reply' => 'Odpovedať',
