@@ -298,7 +298,7 @@ HTML;
 					wfMsgExt( 'lqt_invalid_subject', 'parse' ) );
 		}
 		
-		if ( $subject != $thread->subjectWithoutIncrement() &&
+		if ( $subject && $subject != $thread->subjectWithoutIncrement() &&
 				!$this->user->isAllowed( 'move' ) ) {
 			$e->editFormPageTop .= 
 				Xml::tags( 'div', array( 'class' => 'error' ),
@@ -327,10 +327,15 @@ HTML;
 			$db_subject = $thread ? $thread->subjectWithoutIncrement() : '';
 			$subject = $this->request->getVal( 'lqt_subject_field', $db_subject );
 			$subject_label = wfMsg( 'lqt_subject' );
-			$e->editFormTextBeforeContent .= <<<HTML
-			<label for="lqt_subject_field">$subject_label</label>
-			<input type="text" size="60" name="lqt_subject_field" id="lqt_subject_field" value="$subject" tabindex="1"><br />
-HTML;
+			
+			$disableattr = array();
+			if ( !$this->user->isAllowed( 'move' ) ) {
+				$disableattr = array( 'readonly' => 'readonly' );
+			}
+			
+			$e->editFormTextBeforeContent .=
+				Xml::inputLabel( $subject_label, 'lqt_subject_field', 'lqt_subject_field',
+					60, $subject, $disableattr ) . Xml::element( 'br' );
 		}
 
 		$e->edit();
