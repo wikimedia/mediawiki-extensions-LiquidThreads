@@ -26,9 +26,12 @@ class SpecialNewMessages extends SpecialPage {
 		$this->request = $wgRequest;
 
 		$this->setHeaders();
+		
+		$article = new Article( $this->getTitle() );
+		$title = $this->getTitle();
 
-		$view = new NewUserMessagesView( $this->output, new Article( $this->getTitle() ),
-			$this->getTitle(), $this->user, $this->request );
+		$view = new NewUserMessagesView( $this->output, $article,
+			$title, $this->user, $this->request );
 
 		$view->showOnce(); // handles POST etc.
 

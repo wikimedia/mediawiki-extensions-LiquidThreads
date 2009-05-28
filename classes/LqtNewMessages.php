@@ -77,9 +77,14 @@ SQL;
 
 	static function newUserMessages( $user ) {
 		global $wgDBprefix;
+		
+		$talkPage = new Article( $user->getUserPage()->getTalkPage() );
 		return Threads::where( array( 'ums_read_timestamp is null',
-									Threads::articleClause( new Article( $user->getUserPage() ) ) ),
-							 array(), array(), "left outer join {$wgDBprefix}user_message_state on ums_user is null or (ums_user = {$user->getID()} and ums_thread = thread.thread_id)" );
+									Threads::articleClause( $talkPage ) ),
+							 array(), array(),
+							 "left outer join {$wgDBprefix}user_message_state on " .
+							 "ums_user is null or ".
+							 "(ums_user = {$user->getID()} and ums_thread = thread.thread_id)" );
 	}
 
 	static function watchedThreadsForUser( $user ) {
