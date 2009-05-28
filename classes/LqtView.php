@@ -259,8 +259,12 @@ HTML;
 		 can temporarily use a random scratch title. It's fine if the title changes
 		 throughout the edit cycle, since the article doesn't exist yet anyways.
 		*/
+
+		// Stuff that might break the save		
+		$valid_subject = true;
+		$failed_rename = false;
 		
-		$valid_summary = true;
+		$subject = $this->request->getVal( 'lqt_subject_field', '' );
 		
 		if ( $edit_type == 'summarize' && $edit_applies_to->summary() ) {
 			$article = $edit_applies_to->summary();
@@ -268,11 +272,9 @@ HTML;
 			$t = $this->newSummaryTitle( $edit_applies_to );
 			$article = new Article( $t );
 		} elseif ( $thread == null ) {
-			$subject = $this->request->getVal( 'lqt_subject_field', '' );
-			
 			if ( is_null( Title::makeTitleSafe( NS_LQT_THREAD, $subject ) ) ) {
 				// Dodgy title
-				$valid_summary = false;
+				$valid_subject = false;
 				$t = $this->scratchTitle();
 			} else {			
 				if ( $edit_type == 'new' ) {
@@ -288,13 +290,27 @@ HTML;
 
 		$e = new EditPage( $article );
 		
-		if (!$valid_summary && $subject) {
+		
+		// Find errors.
+		if (!$valid_subject && $subject) {
 			$e->editFormPageTop .= 
 				Xml::tags( 'div', array( 'class' => 'error' ),
 					wfMsgExt( 'lqt_invalid_subject', 'parse' ) );
 		}
 		
-		if (!$valid_summary) {
+		if ( $subject != $thread->subjectWithoutIncrement() &&
+				!$this->user->isAllowed( 'move' ) ) {
+			$e->editFormPageTop .= 
+				Xml::tags( 'div', array( 'class' => 'error' ),
+					wfMsgExt( 'lqt_subject_change_forbidden', 'parse' ) );
+			$failed_rename = true;
+			
+			// Reset the subject
+			global $wgRequest;
+			$wgRequest->setVal( 'lqt_subject_field', $thread->subjectWithoutIncrement() ); 
+		}
+		
+		if ( !$valid_subject || $failed_rename ) {
 			// Dirty hack to prevent saving from going ahead
 			global $wgRequest;
 			$wgRequest->setVal( 'wpPreview', true );
