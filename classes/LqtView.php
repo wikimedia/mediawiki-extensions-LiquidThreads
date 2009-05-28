@@ -272,7 +272,7 @@ HTML;
 			$t = $this->newSummaryTitle( $edit_applies_to );
 			$article = new Article( $t );
 		} elseif ( $thread == null ) {
-			if ( is_null( Title::makeTitleSafe( NS_LQT_THREAD, $subject ) ) ) {
+			if ( $subject && is_null( Title::makeTitleSafe( NS_LQT_THREAD, $subject ) ) ) {
 				// Dodgy title
 				$valid_subject = false;
 				$t = $this->scratchTitle();
@@ -298,7 +298,7 @@ HTML;
 					wfMsgExt( 'lqt_invalid_subject', 'parse' ) );
 		}
 		
-		if ( $subject && $subject != $thread->subjectWithoutIncrement() &&
+		if ( $subject && $thread && $subject != $thread->subjectWithoutIncrement() &&
 				!$this->user->isAllowed( 'move' ) ) {
 			$e->editFormPageTop .= 
 				Xml::tags( 'div', array( 'class' => 'error' ),
@@ -310,8 +310,8 @@ HTML;
 			$wgRequest->setVal( 'lqt_subject_field', $thread->subjectWithoutIncrement() ); 
 		}
 		
-		if ( !$valid_subject || $failed_rename ) {
-			// Dirty hack to prevent saving from going ahead
+		if ( (!$valid_subject && $subject) || $failed_rename ) {
+			// Dirty hack to prevent saving from going ahead'
 			global $wgRequest;
 			$wgRequest->setVal( 'wpPreview', true );
 		}
@@ -329,7 +329,7 @@ HTML;
 			$subject_label = wfMsg( 'lqt_subject' );
 			
 			$disableattr = array();
-			if ( !$this->user->isAllowed( 'move' ) ) {
+			if ( $thread && !$this->user->isAllowed( 'move' ) ) {
 				$disableattr = array( 'readonly' => 'readonly' );
 			}
 			
