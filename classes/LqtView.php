@@ -311,7 +311,7 @@ HTML;
 		}
 		
 		if ( (!$valid_subject && $subject) || $failed_rename ) {
-			// Dirty hack to prevent saving from going ahead'
+			// Dirty hack to prevent saving from going ahead
 			global $wgRequest;
 			$wgRequest->setVal( 'wpPreview', true );
 		}
