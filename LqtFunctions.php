@@ -67,7 +67,7 @@ function efThreadTableHelper( $thread, $indent ) {
 	return $html;
 }
 
-function wfLqtBeforeWatchlistHook( &$conds, &$tables, &$join_conds, &$fields ) {
+function efLqtBeforeWatchlistHook( &$conds, &$tables, &$join_conds, &$fields ) {
 	global $wgOut, $wgUser;
 
 	if ( !in_array( 'page', $tables ) ) {

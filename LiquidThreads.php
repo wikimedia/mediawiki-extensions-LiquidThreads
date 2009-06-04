@@ -41,7 +41,7 @@ $wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'Lqt.i18n.php';
 $wgExtensionAliasesFiles['LiquidThreads'] = $dir . 'Lqt.alias.php';
 
 // Hooks
-$wgHooks['SpecialWatchlistQuery'][] = 'wfLqtBeforeWatchlistHook';
+$wgHooks['SpecialWatchlistQuery'][] = 'efLqtBeforeWatchlistHook';
 $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
 $wgHooks['SpecialMovepageAfterMove'][] = 'LqtDispatch::onPageMove';
 $wgHooks['LinkerMakeLinkObj'][] = 'LqtDispatch::makeLinkObj';

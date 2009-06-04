@@ -20,7 +20,7 @@ class LqtDispatch {
 		// non-talk article and pass that to the view.
 		$article = new Article( $title );
 
-		if ( $title->getSubjectPage()->getNamespace() == NS_LQT_THREAD ) {
+		if ( $title->getNamespace() == NS_LQT_THREAD + 1 /* talk page */ ) {
 			// Threads don't have talk pages; redirect to the thread page.
 			$output->redirect( $title->getSubjectPage()->getFullUrl() );
 		}
@@ -34,8 +34,10 @@ class LqtDispatch {
 		if ( $request->getVal( 'lqt_method', null ) === null &&
 				( in_array( $action, $header_actions ) ||
 					$request->getVal( 'diff', null ) !== null ) ) {
+			// Pass through wrapper
 			$viewname = self::$views['TalkpageHeaderView'];
 		} else if ( $action == 'protect' || $action == 'unprotect' ) {
+			// Pass through wrapper
 			$viewname = self::$views['ThreadProtectionFormView'];
 		} else if ( $request->getVal( 'lqt_method' ) == 'talkpage_archive' ) {
 			$viewname = self::$views['TalkpageArchiveView'];

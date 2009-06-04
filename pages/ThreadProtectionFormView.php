@@ -2,6 +2,7 @@
 
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
+// Pass-through wrapper
 class ThreadProtectionFormView {
 	function customizeTabs( $skintemplate, $content_actions ) {
 		unset( $content_actions['edit'] );
