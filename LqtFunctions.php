@@ -38,31 +38,33 @@ function efInsertIntoAssoc( $new_key, $new_value, $before, &$original_array ) {
 }
 
 function efVarDump( $value ) {
-	global $wgOut;
-	ob_start();
-	var_dump( $value );
-	$tmp = ob_get_contents();
-	ob_end_clean();
-	$wgOut->addHTML( /*'<pre>' . htmlspecialchars($tmp,ENT_QUOTES) . '</pre>'*/ $tmp );
+	wfVarDump( $value );
 }
 
 function efThreadTable( $ts ) {
 	global $wgOut;
-	$wgOut->addHTML( '<table>' );
-	foreach ( $ts as $t )
-		efThreadTableHelper( $t, 0 );
-	$wgOut->addHTML( '</table>' );
+	$html = '';
+	foreach ( $ts as $t ) {
+		$html .= efThreadTableHelper( $t, 0 );
+	}
+	$html = "<table><tbody>\n$html\n</tbody></table>";
+	$wgOut->addHTML( $html );
 }
 
-function efThreadTableHelper( $t, $indent ) {
-	global $wgOut;
-	$wgOut->addHTML( '<tr>' );
-	$wgOut->addHTML( '<td>' . $indent );
-	$wgOut->addHTML( '<td>' . $t->id() );
-	$wgOut->addHTML( '<td>' . $t->title()->getPrefixedText() );
-	$wgOut->addHTML( '</tr>' );
-	foreach ( $t->subthreads() as $st )
-		efThreadTableHelper( $st, $indent + 1 );
+function efThreadTableHelper( $thread, $indent ) {
+	$html = '';
+	
+	$html .= Xml::tags( '<td>', null, $indent );
+	$html .= Xml::tags( '<td>', null, $thread->id() );
+	$html .= Xml::tags( '<td>', null, $thread->title()->getPrefixedText() );
+
+	$html = Xml::tags( 'tr', null, $html );
+	
+	foreach ( $t->subthreads() as $subthread ) {
+		$html .= efThreadTableHelper( $subthread, $indent + 1 );
+	}
+	
+	return $html;
 }
 
 function wfLqtBeforeWatchlistHook( &$conds, &$tables, &$join_conds, &$fields ) {
@@ -85,14 +87,13 @@ function wfLqtBeforeWatchlistHook( &$conds, &$tables, &$join_conds, &$fields ) {
 
 	LqtView::addJSandCSS();
 	wfLoadExtensionMessages( 'LiquidThreads' );
-	$messages_url = SpecialPage::getPage( 'NewMessages' )->getTitle()->getFullURL();
+	$messages_title = SpecialPage::getPage( 'NewMessages' )->getTitle();
 	$new_messages = wfMsg ( 'lqt-new-messages' );
-	$wgOut->addHTML( <<< HTML
-		<a href="$messages_url" class="lqt_watchlist_messages_notice">
-			&#x2712; {$new_messages}
-		</a>
-HTML
-	);
+	
+	$sk = $wgUser->getSkin();
+	$link = $sk->link( $messages_title, $new_messages,
+							array( 'class' => 'lqt_watchlist_messages_notice' ) );
+	$wgOut->addHTML( $link );
 
 	return true;
 }
