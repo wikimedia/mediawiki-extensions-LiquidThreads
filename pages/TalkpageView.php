@@ -69,28 +69,53 @@ class TalkpageView extends LqtView {
 		}
 		$this->output->addHTML( Xml::closeElement( $kind ) );
 	}
-
+	
 	function showTOC( $threads ) {
+		global $wgLang;
+		
 		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		$sk = $this->user->getSkin();
-		$toclines = array();
-		$i = 1;
-		$toclines[] = $sk->tocIndent();
-		foreach ( $threads as $t ) {
-			$toclines[] = $sk->tocLine( $this->anchorName( $t ), $t->subjectWithoutIncrement(), $i, 1 );
-			$i++;
+		
+		$title = Xml::tags( 'h2', null, wfMsgExt( 'lqt_contents_title', 'parseinline' ) );
+		$this->output->addHTML( $title );
+		
+		$html = '';
+		
+		// Header row
+		$headerRow = '';
+		$headers = array( 'lqt_toc_thread_title', 'lqt_toc_thread_author',
+							'lqt_toc_thread_replycount', 'lqt_toc_thread_modified' );
+		foreach( $headers as $msg ) {
+			$headerRow .= Xml::tags( 'th', null, wfMsgExt( $msg, 'parseinline' ) );
 		}
-		$toclines[] = $sk->tocUnindent( 1 );
-
-		$this->openDiv( 'lqt_toc_wrapper' );
-		$this->output->addHTML( '<h2 class="lqt_toc_title">' . wfMsg( 'lqt_contents_title' ) . '</h2> <ul>' );
-
-		foreach ( $threads as $t ) {
-			$this->output->addHTML( '<li><a href="#' . $this->anchorName( $t ) . '">' . $t->subjectWithoutIncrement() . '</a></li>' );
+		$headerRow = Xml::tags( 'tr', null, $headerRow );
+		$headerRow = Xml::tags( 'thead', null, $headerRow );
+		
+		// Table body
+		$rows = array();
+		foreach( $threads as $thread ) {
+			$row = '';
+			$subject = $this->output->parseInline( $thread->subjectWithoutIncrement() );
+			$row .= Xml::tags( 'td', null, $subject );
+			
+			$author = $thread->root()->originalAuthor();
+			$authorLink = $sk->userLink( $author->getID(), $author->getName() );
+			$row .= Xml::tags( 'td', null, $authorLink );
+			
+			$row .= Xml::element( 'td', null, count( $thread->replies() ) );
+			
+			$timestamp = $wgLang->timeanddate( $thread->created(), true );
+			$row .= Xml::element( 'td', null, $timestamp );
+			
+			$row = Xml::tags( 'tr', null, $row );
+			$rows[] = $row;
 		}
-
-		$this->output->addHTML( '</ul></div>' );
+		
+		$html = $headerRow . "\n" . Xml::tags( 'tbody', null, implode( "\n", $rows ) );
+		$html = Xml::tags( 'table', array( 'class' => 'lqt_toc' ), $html );
+		
+		$this->output->addHTML( $html );
 	}
 
 	function showArchiveWidget( $threads ) {

@@ -134,7 +134,6 @@ The archive and TOC on talkpages.
 .lqt_toc_archive_wrapper {
 	margin-top:    0.5em;
 	margin-bottom: 1.5em;
-	float:         left;
 }
 .lqt_archive_teaser ul,
 .lqt_toc_wrapper ul {
@@ -441,4 +440,16 @@ li#ca-nstab-thread {
 }
 .lqt_rc_author_notice_others {
 	color: #cd9800;
+}
+
+.lqt_toc {
+	width: 80%;
+	border-collapse: collapse;
+}
+
+.lqt_toc td,.lqt_toc th {
+	margin: 0;
+	padding: 0.2em;
+	border-bottom: 1px solid #aaaaaa;
+	text-align: left;
 }
