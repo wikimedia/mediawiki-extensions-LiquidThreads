@@ -149,9 +149,25 @@ class LqtView {
 	}
 
 	static function permalinkUrl( $thread, $method = null, $operand = null ) {
-		$query = $method ? "lqt_method=$method" : "";
-		$query = $operand ? "$query&lqt_operand={$operand->id()}" : $query;
-		return $thread->root()->getTitle()->getFullUrl( $query );
+		list ($title, $query) = self::permalinkData( $thread, $method, $operand );
+		
+		$queryString = wfArrayToCGI( $query );
+		
+		return $title->getFullUrl( $queryString );
+	}
+	
+	/** Gets an array of (title, query-parameters) for a permalink **/
+	static function permalinkData( $thread, $method = null, $operand = null ) {
+		$query = array();
+		
+		if ($method) {
+			$query['lqt_method'] = $method;
+		}
+		if ($operand) {
+			$query['lqt_operand'] = $operand;
+		}
+		
+		return array( $thread->root()->getTitle(), $query );
 	}
 
 	/* This is used for action=history so that the history tab works, which is
@@ -596,39 +612,42 @@ HTML;
 	}
 
 	function showThreadFooter( $thread ) {
-		global $wgLang; // TODO global.
+		global $wgLang, $wgUser;
+		
+		$sk = $wgUser->getSkin();
+		$html = '';
 
+		// Author signature.
 		$author = $thread->root()->originalAuthor();
-		$color_number = $this->selectNewUserColor( $author );
-
 		$sig = $this->user->getSkin()->userLink( $author->getID(), $author->getName() ) .
 			   $this->user->getSkin()->userToolLinks( $author->getID(), $author->getName() );
+		$html .= Xml::tags( 'li', array( 'class' => 'lqt_author_sig' ), $sig );
 
-		$timestamp = $wgLang->timeanddate( $thread->created(), true );
-
-		$this->output->addHTML( <<<HTML
-<ul class="lqt_footer">
-<span class="lqt_footer_sig">
-<li class="lqt_author_sig lqt_post_color_{$color_number}">$sig</li>
-HTML
-		);
-
+		// Edited flag
 		if ( $thread->editedness() == Threads::EDITED_BY_AUTHOR || $thread->editedness() == Threads::EDITED_BY_OTHERS ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
-			$editedness_url = $this->permalinkUrlWithQuery( $thread, 'action=history' );
-			$editedness_color_number = $thread->editedness() == Threads::EDITED_BY_AUTHOR ?
-				$color_number : ( $color_number == self::number_of_user_colors ? 1 : $color_number + 1 );
-			$this->output->addHTML( "<li class=\"lqt_edited_notice lqt_post_color_{$editedness_color_number}\">" .
-				'<a href="' . $editedness_url . '">' . wfMsg( 'lqt_edited_notice' ) . '</a>' . '</li>' );
+			list($edited_title) = $this->permalinkData( $thread );
+			$edited_text = wfMsgExt( 'lqt_edited_notice', 'parseinline' );
+			$edited_link = $sk->link( $edited_title, $edited_text,
+										array( 'class' => 'lqt_edited_notice'),
+										array( 'action' => 'history' ) );
+										
+			$html .= Xml::tags( 'li', array( 'class' => 'lqt_edited_notice' ), $edited_link );
 		}
+		
+		// Timestamp
+		$timestamp = $wgLang->timeanddate( $thread->created(), true );
+		$html .= Xml::element( 'li', null, $timestamp );		
 
-		$this->output->addHTML( "</span><li>$timestamp</li>" );
+		// Footer commands
+		$footerCommands =
+			$this->listItemsForCommands( $this->threadFooterCommands( $thread ) );
+		$html .=
+			Xml::tags( 'span', array( 'class' => "lqt_footer_commands" ), $footerCommands );
 
-		$this->output->addHTML( '<span class="lqt_footer_commands">' .
-			$this->listItemsForCommands( $this->threadFooterCommands( $thread ) ) .
-			'</span>' );
-
-		$this->output->addHTML( '</ul>' );
+		$html = Xml::tags( 'ul', array( 'class' => 'lqt_footer' ), $html );
+		
+		$this->output->addHTML( $html );
 	}
 
 	function listItemsForCommands( $commands ) {
@@ -645,19 +664,6 @@ HTML
 			}
 		}
 		return join( "", $result );
-	}
-
-	function selectNewUserColor( $user ) {
-		$userkey = $user->isAnon() ? "anon:" . $user->getName() : "user:" . $user->getId();
-
-		if ( !array_key_exists( $userkey, $this->user_colors ) ) {
-			$this->user_colors[$userkey] = $this->user_color_index;
-			$this->user_color_index += 1;
-			if ( $this->user_color_index > self::number_of_user_colors ) {
-				$this->user_color_index = 1;
-			}
-		}
-		return $this->user_colors[$userkey];
 	}
 
 	function showRootPost( $thread ) {
@@ -707,14 +713,17 @@ HTML
 				$commands_html = "";
 			} else {
 				$lis = $this->listItemsForCommands( $this->topLevelThreadCommands( $thread ) );
-				$commands_html = "<ul class=\"lqt_threadlevel_commands\">$lis</ul>";
+				$commands_html = Xml::tags( 'ul',
+											array( 'class' => 'lqt_threadlevel_commands' ),
+											$lis );
 			}
 
-			$html = $thread->subjectWithoutIncrement() .
-			        ' <span class="lqt_subject_increment">(' .
-			        $thread->increment() . ')</span>';
-			$this->output->addHTML( "<h{$this->headerLevel} class=\"lqt_header\">
-				<span class=\"mw-headline\">" . $html . "</span></h{$this->headerLevel}>$commands_html" );
+			$html = $this->output->parseInline( $thread->subjectWithoutIncrement() );
+			$html = Xml::tags( 'span', array( 'class' => 'mw-headline' ), $html );
+			$html = Xml::tags( 'h'.$this->headerLevel, array( 'class' => 'lqt_header' ),
+								$html ) . $commands_html;
+			
+			$this->output->addHTML( $html );
 		}
 	}
 

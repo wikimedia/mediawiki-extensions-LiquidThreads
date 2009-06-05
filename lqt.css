@@ -412,31 +412,6 @@ The archive page.
 	text-decoration: none;
 }
 
-
-/* light, background color scheme:
-.lqt_post_color_1 a { background-color: #E0BF96 !important; }
-.lqt_post_color_2 a { background-color: #D2E096 !important; }
-.lqt_post_color_3 a { background-color: #96E0B4 !important; }
-.lqt_post_color_4 a { background-color: #96CCE0 !important; }
-.lqt_post_color_5 a { background-color: #C096E0 !important; }
-.lqt_post_color_6 a { background-color: #E09696 !important; }
-*/
-
-/* bright, forground color scheme: */
-.lqt_post_color_1 a { color: #cd9800 !important; }
-.lqt_post_color_2 a { color: #cd0098 !important; }
-.lqt_post_color_3 a { color: #98cd00 !important; }
-.lqt_post_color_4 a { color: #9800cd !important; }
-.lqt_post_color_5 a { color: #0098cd !important; }
-.lqt_post_color_6 a { color: #00cd98 !important; }
-
-.lqt_footer_sig:hover .lqt_post_color_1 a { color: #cd9800 !important; }
-.lqt_footer_sig:hover .lqt_post_color_2 a { color: #cd0098 !important; }
-.lqt_footer_sig:hover .lqt_post_color_3 a { color: #98cd00 !important; }
-.lqt_footer_sig:hover .lqt_post_color_4 a { color: #9800cd !important; }
-.lqt_footer_sig:hover .lqt_post_color_5 a { color: #0098cd !important; }
-.lqt_footer_sig:hover .lqt_post_color_6 a { color: #00cd98 !important; }
-
 .lqt_footer_sig:hover a { text-decoration: none; }
 
 li#ca-nstab-thread {
