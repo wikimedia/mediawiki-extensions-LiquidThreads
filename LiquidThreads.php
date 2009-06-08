@@ -85,6 +85,12 @@ $wgAutoloadClasses['SpecialDeleteThread'] = $dir . 'pages/SpecialDeleteThread.ph
 $wgAutoloadClasses['NewUserMessagesView'] = $dir . 'pages/NewUserMessagesView.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir . 'pages/SpecialNewMessages.php';
 
+// Logging
+$wgLogTypes[] = 'liquidthreads';
+$wgLogNames['liquidthreads']          = 'lqt-log-name';
+$wgLogHeaders['liquidthreads']        = 'lqt-log-header';
+$wgLogActionsHandlers['liquidthreads/move'] = 'lqtFormatMoveLogEntry';
+
 /** CONFIGURATION SECTION */
 
 /* Number of days a thread needs to have existed to be considered for summarizing and archival */

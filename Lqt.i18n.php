@@ -146,6 +146,11 @@ This operation is undoable.',
 	'lqt_rc_ellipsis'         => ' …',
 	'lqt_rc_author_original'  => '(original author)',
 	'lqt_rc_author_others'    => '(not the author)',
+	
+	// Logging
+	'lqt-log-name' => 'Threaded discussion log',
+	'lqt-log-header' => 'This log details actions taken on discussion threads.',
+	'lqt-log-action-move' => 'moved [[$1]] from [[$2]] to [[$3]].',
 );
 
 /** Message documentation (Message documentation)

@@ -97,3 +97,8 @@ function efLqtBeforeWatchlistHook( &$conds, &$tables, &$join_conds, &$fields ) {
 
 	return true;
 }
+
+function lqtFormatMoveLogEntry( $type, $action, $title, $sk, $parameters ) {
+	return wfMsgExt( 'lqt-log-action-move', 'parseinline',
+					array( $title->getPrefixedText(), $parameters[0], $parameters[1] ) );
+}

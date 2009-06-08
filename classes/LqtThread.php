@@ -179,6 +179,9 @@ class Thread {
 	function moveToPage( $title, $reason, $leave_trace ) {
 		$dbr =& wfGetDB( DB_MASTER );
 
+		$oldTitle = $this->article()->getTitle();
+		$newTitle = $title;
+		
 		$new_articleNamespace = $title->getNamespace();
 		$new_articleTitle = $title->getDBkey();
 
@@ -196,6 +199,10 @@ class Thread {
 		$this->articleTitle = $new_articleTitle;
 		$this->revisionNumber += 1;
 		$this->commitRevision( Threads::CHANGE_MOVED_TALKPAGE, null, $reason );
+		
+		# Log the move
+		$log = new LogPage( 'liquidthreads' );
+		$log->addEntry( 'move', $this->double->title(), $reason, array( $oldTitle, $newTitle ) );
 
 		if ( $leave_trace ) {
 			$this->leaveTrace( $reason );
@@ -217,10 +224,6 @@ class Thread {
 			'text'    => $redirectText ) );
 		$redirectRevision->insertOn( $dbw );
 		$redirectArticle->updateRevisionOn( $dbw, $redirectRevision, 0 );
-
-		# Log the move
-		$log = new LogPage( 'move' );
-		$log->addEntry( 'move', $this->double->title(), $reason, array( 1 => $this->title()->getPrefixedText() ) );
 
 		# Purge caches as per article creation
 		Article::onArticleCreate( $redirectArticle->getTitle() );
