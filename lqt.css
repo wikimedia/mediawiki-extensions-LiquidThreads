@@ -447,9 +447,16 @@ li#ca-nstab-thread {
 	border-collapse: collapse;
 }
 
+.lqt_toc th {
+	border-bottom: 1px solid #000000;
+}
+
 .lqt_toc td,.lqt_toc th {
 	margin: 0;
 	padding: 0.2em;
-	border-bottom: 1px solid #aaaaaa;
 	text-align: left;
+}
+
+.lqt_toc td {
+	border-bottom: 1px solid #aaaaaa;
 }
