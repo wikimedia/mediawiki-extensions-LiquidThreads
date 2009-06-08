@@ -559,7 +559,7 @@ $messages['be-tarask'] = array(
 	'lqt_contents_title' => 'Зьмест',
 	'lqt_toc_thread_title' => 'Назва галіны',
 	'lqt_toc_thread_author' => 'Пачынаючы з',
-	'lqt_toc_thread_replycount' => 'Адказы',
+	'lqt_toc_thread_replycount' => 'Адказаў',
 	'lqt_toc_thread_modified' => 'Апошняя зьмена',
 	'lqt_add_header' => 'Дадаць загаловак',
 	'lqt_new_thread' => 'Пачаць новае абмеркаваньне',
@@ -1145,6 +1145,9 @@ Toś ta operacija njedajo se anulěrowaś.',
 	'lqt_rc_new_reply' => 'Wótegrono do $1, na $2. &bull; $3 pišo:',
 	'lqt_rc_author_original' => '(originalny awtor)',
 	'lqt_rc_author_others' => '(nic awtor)',
+	'lqt-log-name' => 'Protokol nitkoweje diskusije',
+	'lqt-log-header' => 'Toś ten protokol nalicujo akcije, kótarež su se na diskusijnych nitkach pśewjadli.',
+	'lqt-log-action-move' => 'jo [[$1]] wót [[$2]] do [[$3]] pśesunuł.',
 );
 
 /** Ewe (Eʋegbe)
@@ -1584,6 +1587,9 @@ Cette opération est réversible.',
 	'lqt_rc_new_reply' => 'Répondre à $1, sur $2. &bull; $3 écrit :',
 	'lqt_rc_author_original' => '(auteur original)',
 	'lqt_rc_author_others' => '(n’est pas l’auteur)',
+	'lqt-log-name' => 'Journal des fils de discussion',
+	'lqt-log-header' => 'Ce journal détaille les actions faites sur les fils de discussion.',
+	'lqt-log-action-move' => 'a déplacé [[$1]] de [[$2]] vers [[$3]].',
 );
 
 /** Western Frisian (Frysk)
@@ -1893,6 +1899,9 @@ Die Operation cha rugggängig gmacht wäre.',
 	'lqt_rc_new_reply' => 'Antwort an $1, uf $2. &bull; $3 schrybt:',
 	'lqt_rc_author_original' => '(urspringlige Autor)',
 	'lqt_rc_author_others' => '(nit dr Autor)',
+	'lqt-log-name' => 'Logbuech vu dr Diskussionssträng',
+	'lqt-log-header' => 'Des Logbuech lischtet Aktione uf, wu an Diskussionsträng vorgnuu wore sin.',
+	'lqt-log-action-move' => 'het [[$1]] vu [[$2]] no [[$3]] verschobe.',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -2331,6 +2340,9 @@ Tuta akcija da so cofnyć.',
 	'lqt_rc_new_reply' => 'Wotmołwa na $1, na $2. &bull; $3 pisa:',
 	'lqt_rc_author_original' => '(prěnjotny awtor)',
 	'lqt_rc_author_others' => '(njeje awtor)',
+	'lqt-log-name' => 'Protokol nitkoweje diskusije',
+	'lqt-log-header' => 'Tutón protokol nalistuje akcije, kotrež su so na diskusijnych nitkach přewjedli.',
+	'lqt-log-action-move' => 'přesuny [[$1]] wot [[$2]] do [[$3]].',
 );
 
 /** Hungarian (Magyar)
@@ -2432,6 +2444,10 @@ $messages['ia'] = array(
 	'lqt_browse_archive_with_recent' => 'plus ancian',
 	'lqt_recently_archived' => 'Recentemente archivate:',
 	'lqt_contents_title' => 'Contento',
+	'lqt_toc_thread_title' => 'Titulo del filo',
+	'lqt_toc_thread_author' => 'Comenciate per',
+	'lqt_toc_thread_replycount' => 'Responsas',
+	'lqt_toc_thread_modified' => 'Ultime modification',
 	'lqt_add_header' => 'Adder capite',
 	'lqt_new_thread' => 'Initiar un nove discussion',
 	'lqt_invalid_subject' => 'Le subjecto que tu entrava es invalide. Illo pote:
@@ -2601,6 +2617,10 @@ $messages['ja'] = array(
 	'lqt_browse_archive_with_recent' => '古いもの',
 	'lqt_recently_archived' => '最近保存されたもの:',
 	'lqt_contents_title' => '目次',
+	'lqt_toc_thread_title' => 'スレッドタイトル',
+	'lqt_toc_thread_author' => '開始者',
+	'lqt_toc_thread_replycount' => '返信',
+	'lqt_toc_thread_modified' => '最終更新',
 	'lqt_add_header' => 'ヘッダの追加',
 	'lqt_new_thread' => '新しい議論を始める',
 	'lqt_invalid_subject' => 'あなたが入力した表題は不正です。以下の可能性があります。
@@ -2710,6 +2730,9 @@ $messages['ja'] = array(
 	'lqt_rc_new_reply' => '$2 で $1 に返答。$3 の書き込み:',
 	'lqt_rc_author_original' => '(作成者)',
 	'lqt_rc_author_others' => '(非作成者)',
+	'lqt-log-name' => 'スレッド形式議論の記録',
+	'lqt-log-header' => 'これは議論スレッドで行われた操作の詳細を記録しています。',
+	'lqt-log-action-move' => '[[$1]]を[[$2]]から[[$3]]へ移動しました。',
 );
 
 /** Javanese (Basa Jawa)
@@ -2878,6 +2901,10 @@ $messages['ksh'] = array(
 	'lqt_browse_archive_with_recent' => 'ällder',
 	'lqt_recently_archived' => 'Köözlesch en et Aschiif jedonn:',
 	'lqt_contents_title' => 'Enhallt',
+	'lqt_toc_thread_title' => 'Däm Jeschprääschßfäddem sing Övverschreff',
+	'lqt_toc_thread_author' => 'Aanjevange vum',
+	'lqt_toc_thread_replycount' => 'Beidrähsch',
+	'lqt_toc_thread_modified' => 'Zoläz jeändert',
 	'lqt_add_header' => 'En Övvershreff dobei donn',
 	'lqt_new_thread' => 'Fang ene neue Klaaf aan',
 	'lqt_invalid_subject' => 'Dat Teema, wat De enjejovve häs, jeiht esu nit.
@@ -2989,6 +3016,9 @@ Künnt sin, De wells en $2 han.',
 	'lqt_rc_new_reply' => 'Antwoot aan $1 op $2. • {{GENDER:$3|Dä|Dat|Dä Metmaacher|Dat|De}} $3 hät jeschrevve:',
 	'lqt_rc_author_original' => '(dä ojinaal Schriiver)',
 	'lqt_rc_author_others' => '(nit dä Schriiver)',
+	'lqt-log-name' => 'Logboch övver Jeschprääschßfäddeme',
+	'lqt-log-header' => 'En däm Logbooch heh sin de Einzelheite faßjehallde övver wat met de Jeschprähschßfäddeme jedonn woodt.',
+	'lqt-log-action-move' => '[[$1]] vun [[$2]] noh [[$3]] ömjetroke.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
