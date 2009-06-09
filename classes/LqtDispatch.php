@@ -172,7 +172,7 @@ class LqtDispatch {
 		return true;
 	}
 
-	static function customizeOldChangesList( &$changeslist, &$s, &$rc ) {
+	static function customizeOldChangesList( &$changeslist, &$s, $rc ) {
 		if ( $rc->getTitle()->getNamespace() == NS_LQT_THREAD ) {
 			$thread = Threads::withRoot( new Post( $rc->getTitle() ) );
 			if ( !$thread ) return true;
