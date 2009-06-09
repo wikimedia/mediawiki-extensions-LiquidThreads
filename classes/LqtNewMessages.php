@@ -45,15 +45,6 @@ class NewMessages {
 		
 		wfDebugLog( 'LiquidThreads', 'Doing notifications' );
 
-		if ( $t->article()->getTitle()->getNamespace() == NS_USER ) {
-			$name = $t->article()->getTitle()->getDBkey();
-			list( $name ) = split( '/', $name ); // subpages
-			$user = User::newFromName( $name );
-			if ( $user && $user->getID() != $changeUser->getID() ) {
-				$user->setNewtalk( true );
-			}
-		}
-
 		$dbw =& wfGetDB( DB_MASTER );
 
 		$talkpage_t = $t->article()->getTitle()->getSubjectPage();
@@ -125,6 +116,28 @@ class NewMessages {
 		
 		// Avoids duplicates
 		$update_tuples = array_values( $update_tuples );
+		
+		// Add user talk notification
+		if ( $t->article()->getTitle()->getNamespace() == NS_USER_TALK ) {
+			$name = $t->article()->getTitle()->getText();
+			
+			$user = User::newFromName( $name );
+			if ( $user ) {
+				$user->setNewtalk( true );
+				
+				$dbw->replace( 'user_message_state',
+								array( array( 'ums_user', 'ums_thread' ) ),
+								array( 'ums_user' => $user->getId(),
+										'ums_thread' => $t->id(),
+										'ums_read_timestamp' => null ),
+								__METHOD__ );
+				
+				if ( $user->getOption( 'enotifusertalkpages' ) ) {
+					$notify_users[] = $user->getId();
+				}
+			}
+			
+		}
 		
 		// Do the actual updates
 		if ( count($insert_rows) ) {
