@@ -23,13 +23,14 @@ $messages['en'] = array(
 	'lqt_browse_archive_with_recent' => 'older',
 	'lqt_recently_archived' => 'Recently archived:',
 	'lqt_contents_title' => 'Contents',
-	'lqt_toc_thread_title' => 'Thread Title',
-	'lqt_toc_thread_author' => 'Started By',
+	'lqt_toc_thread_title' => 'Thread title',
+	'lqt_toc_thread_author' => 'Started by',
 	'lqt_toc_thread_replycount' => 'Replies',
-	'lqt_toc_thread_modified' => 'Last Modified',
+	'lqt_toc_thread_modified' => 'Last modified',
 	'lqt_add_header' => 'Add header',
 	'lqt_new_thread' => 'Start a new discussion',
-	'lqt_invalid_subject' => 'The subject you entered is invalid. It may:
+	'lqt_invalid_subject' => 'The subject you entered is invalid.
+It may:
 * Contain invalid characters, such as []{}&lt;&gt;,
 * Be too long, or
 * Conflict with interwiki prefixes or namespace names.',
@@ -143,7 +144,7 @@ This operation is undoable.',
 	'lqt-date-info'           => 'This link is disabled because you are viewing threads from all dates.',
 	'lqt_rc_new_discussion'   => "New discussion, $1, on $2. &bull; $3 writes:",
 	'lqt_rc_new_reply'        => "Reply to $1, on $2. &bull; $3 writes:",
-	'lqt_rc_ellipsis'         => ' …',
+	'lqt_rc_ellipsis'         => ' ...',
 	'lqt_rc_author_original'  => '(original author)',
 	'lqt_rc_author_others'    => '(not the author)',
 	
@@ -153,9 +154,9 @@ This operation is undoable.',
 	'lqt-log-action-move' => 'moved [[$1]] from [[$2]] to [[$3]].',
 	
 	// Preferences
-	'lqt-preference-notify-talk' => 'Email me when somebody replies to a thread I am watching',
+	'lqt-preference-notify-talk' => 'E-mail me on replies to a thread I am watching',
 	
-	// Email notification
+	// E-mail notification
 	'lqt-enotif-subject-reply' => '{{SITENAME}} discussion - Reply: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} discussion - New thread: $1',
 	'lqt-enotif-newthread' => "Hi $1,
