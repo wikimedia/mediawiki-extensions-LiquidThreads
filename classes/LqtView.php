@@ -176,6 +176,18 @@ class LqtView {
 		if ( is_array( $query ) ) $query = self::queryStringFromArray( $query );
 		return $thread->root()->getTitle()->getFullUrl( $query );
 	}
+	
+	static function permalink( $thread, $text = null, $method = null, $operand = null,
+								$sk = null, $attribs = array() ) {
+		if ( is_null($sk) ) {
+			global $wgUser;
+			$sk = $wgUser->getSkin();
+		}
+		
+		list( $title, $query ) = self::permalinkData( $thread, $method, $operand );
+		
+		return $sk->link( $title, $text, $attribs, $query );
+	}
 
 	static function permalinkUrlWithDiff( $thread ) {
 		$changed_thread = $thread->changeObject();

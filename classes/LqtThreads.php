@@ -105,7 +105,7 @@ class Threads {
 
 		self::createTalkpageIfNeeded( $article );
 
-		NewMessages::writeMessageStateForUpdatedThread( $newthread );
+		NewMessages::writeMessageStateForUpdatedThread( $newthread, $change_type, $wgUser );
 
 		return $newthread;
 	}

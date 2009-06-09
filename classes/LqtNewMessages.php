@@ -40,39 +40,166 @@ class NewMessages {
 	 * Write a user_message_state for each user who is watching the thread.
 	 * If the thread is on a user's talkpage, set that user's newtalk.
 	*/
-	static function writeMessageStateForUpdatedThread( $t ) {
+	static function writeMessageStateForUpdatedThread( $t, $type, $changeUser ) {
 		global $wgDBprefix, $wgUser;
+		
+		wfDebugLog( 'LiquidThreads', 'Doing notifications' );
 
 		if ( $t->article()->getTitle()->getNamespace() == NS_USER ) {
 			$name = $t->article()->getTitle()->getDBkey();
 			list( $name ) = split( '/', $name ); // subpages
 			$user = User::newFromName( $name );
-			if ( $user && $user->getID() != $wgUser->getID() ) {
+			if ( $user && $user->getID() != $changeUser->getID() ) {
 				$user->setNewtalk( true );
 			}
 		}
 
 		$dbw =& wfGetDB( DB_MASTER );
 
-		$talkpage_t = $t->article()->getTitle();
+		$talkpage_t = $t->article()->getTitle()->getSubjectPage();
 		$root_t = $t->root()->getTitle();
 
 		$q_talkpage_t = $dbw->addQuotes( $talkpage_t->getDBkey() );
 		$q_root_t = $dbw->addQuotes( $root_t->getDBkey() );
 
 		// Select any applicable watchlist entries for the thread.
-		$where_clause = <<<SQL
-(
-	(wl_namespace = {$talkpage_t->getNamespace()} and wl_title = $q_talkpage_t )
-or	(wl_namespace = {$root_t->getNamespace()} and wl_title = $q_root_t )
-)
-SQL;
+		$talkpageWhere = array( 'wl_namespace' => $talkpage_t->getNamespace(),
+								'wl_title' => $talkpage_t->getDBkey() );
+		$rootWhere = array( 'wl_namespace' => $root_t->getNamespace(),
+								'wl_title' => $root_t->getDBkey() );
+								
+		$talkpageWhere = $dbw->makeList( $talkpageWhere, LIST_AND );
+		$rootWhere = $dbw->makeList( $rootWhere, LIST_AND );
+		
+		$where_clause = $dbw->makeList( array( $talkpageWhere, $rootWhere ), LIST_OR );
 
 		// it sucks to not have 'on duplicate key update'. first update users who already have a ums for this thread
 		// and who have already read it, by setting their state to unread.
-		$dbw->query( "update {$wgDBprefix}user_message_state, {$wgDBprefix}watchlist set ums_read_timestamp = null where ums_user = wl_user and ums_thread = {$t->id()} and $where_clause" );
-
-		$dbw->query( "insert ignore into {$wgDBprefix}user_message_state (ums_user, ums_thread) select user_id, {$t->id()} from {$wgDBprefix}user, {$wgDBprefix}watchlist where user_id = wl_user and $where_clause;" );
+		
+		// Pull users to update the message state for, including whether or not a
+		//  user_message_state row exists for them, and whether or not to send an email
+		//  notification.
+		$dbr = wfGetDB( DB_SLAVE );
+		$res = $dbr->select(  array( 'watchlist', 'user_message_state', 'user_properties' ),
+								array( 'wl_user', 'ums_user', 'ums_read_timestamp', 'up_value' ),
+								$where_clause, __METHOD__, array(),
+								array( 'user_message_state' =>
+									array( 'left join',  array( 'ums_user=wl_user',
+										'ums_thread' => $t->id() ) ),
+									'user_properties' => array(
+										'left join',
+										array( 'up_user=wl_user',
+											'up_property' => 'lqtnotifytalk',
+										)
+									),
+								)
+							);
+		
+		$insert_rows = array();
+		$update_tuples = array();
+		$notify_users = array();
+		while( $row = $dbr->fetchObject( $res ) ) {
+			// Don't notify yourself
+			if ( $changeUser->getId() == $row->wl_user )
+				continue;
+				
+			if ( $row->ums_read_timestamp ) {
+				$conds = array( 'ums_user' => $row->ums_user,
+								'ums_thread' => $t->id() );
+				$update_tuples[$row->ums_user.$t->id()] = $dbw->makeList( $conds, LIST_AND );	
+			} elseif ( $row->ums_user ) {
+				// It's already positive.
+			} else {
+				$insert_rows[] =
+					array(
+						'ums_user' => $row->wl_user,
+						'ums_thread' => $t->id(),
+					);
+			}
+			
+			if ( ( is_null($row->up_value) && User::getDefaultOption( 'lqtnotifytalk' ) )
+					|| $row->up_value ) {
+				$notify_users[] = $row->wl_user;
+			}
+		}
+		
+		// Avoids duplicates
+		$update_tuples = array_values( $update_tuples );
+		
+		// Do the actual updates
+		if ( count($insert_rows) ) {
+			$dbw->insert( 'user_message_state', $insert_rows, __METHOD__, array( 'IGNORE' ) );
+		}
+		if ( count($update_tuples) ) {
+			$where = $dbw->makeList( $update_tuples, LIST_OR );
+			
+			$dbw->update( 'user_message_state', array( 'ums_read_timestamp' => null ),
+							array($where), __METHOD__ );
+		}
+		
+		if ( count($notify_users) ) {
+			self::notifyUsersByMail( $t, $notify_users, wfTimestampNow(), $type );
+		}
+	}
+	
+	static function notifyUsersByMail( $t, $watching_users, $timestamp, $type ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+		$messages = array(
+			Threads::CHANGE_REPLY_CREATED => 'lqt-enotif-reply',
+			Threads::CHANGE_NEW_THREAD => 'lqt-enotif-newthread',
+		);
+		$subjects = array(
+			Threads::CHANGE_REPLY_CREATED => 'lqt-enotif-subject-reply',
+			Threads::CHANGE_NEW_THREAD => 'lqt-enotif-subject-newthread',
+		);
+			
+		if ( !isset($messages[$type]) || !isset($subjects[$type]) ) {
+			wfDebugLog( 'LiquidThreads', "Email notification failed: type $type unrecognised" );
+			return;
+		} else {
+			$msgName = $messages[$type];
+			$subjectMsg = $subjects[$type];
+		}
+		
+		// Send email notification, fetching all the data in one go
+		$dbr = wfGetDB( DB_SLAVE );
+		$res = $dbr->select( array( 'user', 'user_properties' ), '*',
+							array( 'user_id' => $watching_users ), __METHOD__, array(),
+							array( 'user_properties' =>
+								array( 'left join', 
+									array(
+										'up_user=user_id',
+										'up_property' => 'timecorrection'
+									)
+								)
+							)
+						);
+		
+		while( $row = $dbr->fetchObject( $res ) ) {
+			$u = User::newFromRow( $row );
+			
+			global $wgLang;
+			
+			$permalink = LqtView::permalinkUrl( $t );
+			
+			// Adjust with time correction
+			$adjustedTimestamp = $wgLang->userAdjust( $timestamp, $row->up_value );
+			
+			$date = $wgLang->date( $adjustedTimestamp );
+			$time = $wgLang->time( $adjustedTimestamp );
+			
+			$talkPage = $t->article()->getTitle()->getPrefixedText();
+			$msg = wfMsg( $msgName, $u->getName(), $t->subjectWithoutIncrement(),
+							$date, $time, $talkPage, $permalink );
+							
+			global $wgPasswordSender;
+							
+			$from = new MailAddress( $wgPasswordSender, 'WikiAdmin' );
+			$to   = new MailAddress( $u );
+			$subject = wfMsg( $subjectMsg, $t->subjectWithoutIncrement() );
+			
+			UserMailer::send( $to, $from, $subject, $msg );
+		}
 	}
 
 	static function newUserMessages( $user ) {

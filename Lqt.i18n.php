@@ -151,6 +151,23 @@ This operation is undoable.',
 	'lqt-log-name' => 'Threaded discussion log',
 	'lqt-log-header' => 'This log details actions taken on discussion threads.',
 	'lqt-log-action-move' => 'moved [[$1]] from [[$2]] to [[$3]].',
+	
+	// Preferences
+	'lqt-preference-notify-talk' => 'Email me when somebody replies to a thread I am watching',
+	
+	// Email notification
+	'lqt-enotif-subject-reply' => '{{SITENAME}} discussion - Reply: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}} discussion - New thread: $1',
+	'lqt-enotif-newthread' => "Hi $1,
+This is a notification from {{SITENAME}} that a new thread on $5, '$2',
+was created on $3 at $4.
+
+You can see it at <$6>",
+	'lqt-enotif-reply' => "Hi $1,
+This is a notification from {{SITENAME}} that a new reply to '$2' on $5,
+was created on $3 at $4.
+
+You can see it at <$6>",
 );
 
 /** Message documentation (Message documentation)

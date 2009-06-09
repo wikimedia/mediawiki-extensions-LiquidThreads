@@ -102,3 +102,15 @@ function lqtFormatMoveLogEntry( $type, $action, $title, $sk, $parameters ) {
 	return wfMsgExt( 'lqt-log-action-move', 'parseinline',
 					array( $title->getPrefixedText(), $parameters[0], $parameters[1] ) );
 }
+
+function lqtGetPreferences( $user, &$preferences ) {
+	wfLoadExtensionMessages( 'LiquidThreads' );
+	$preferences['lqtnotifytalk'] =
+		array(
+			'type' => 'toggle',
+			'label-message' => 'lqt-preference-notify-talk',
+			'section' => 'personal/email'
+		);
+	
+	return true;
+}

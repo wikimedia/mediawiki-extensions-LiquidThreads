@@ -49,6 +49,7 @@ $wgHooks['SkinTemplateTabAction'][] = 'LqtDispatch::tabAction';
 $wgHooks['OldChangesListRecentChangesLine'][] = 'LqtDispatch::customizeOldChangesList';
 $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtDispatch::setNewtalkHTML';
 $wgHooks['TitleGetRestrictions'][] = 'Thread::getRestrictionsForTitle';
+$wgHooks['GetPreferences'][] = 'lqtGetPreferences';
 
 // Special pages
 $wgSpecialPages['DeleteThread'] = 'SpecialDeleteThread';
@@ -91,6 +92,9 @@ $wgLogNames['liquidthreads']          = 'lqt-log-name';
 $wgLogHeaders['liquidthreads']        = 'lqt-log-header';
 $wgLogActionsHandlers['liquidthreads/move'] = 'lqtFormatMoveLogEntry';
 
+// Preferences
+$wgDefaultUserOptions['lqtnotifytalk'] = true;
+
 /** CONFIGURATION SECTION */
 
 /* Number of days a thread needs to have existed to be considered for summarizing and archival */
@@ -105,3 +109,6 @@ $wgLqtPages = array();
 /* Allows switching LiquidThreads off for regular talk pages
 	(intended for testing and transition) */
 $wgLqtTalkPages = true;
+
+/* Whether or not to activate LiquidThreads email notifications */
+$wgLqtEnotif = true;

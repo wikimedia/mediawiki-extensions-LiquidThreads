@@ -160,7 +160,7 @@ class Thread {
 		     __METHOD__ );
 
 		if ( $change_type == Threads::CHANGE_EDITED_ROOT ) {
-			NewMessages::writeMessageStateForUpdatedThread( $this );
+			NewMessages::writeMessageStateForUpdatedThread( $this, $change_type, $wgUser );
 		}
 	}
 
