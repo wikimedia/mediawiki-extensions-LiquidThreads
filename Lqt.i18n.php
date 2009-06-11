@@ -234,6 +234,27 @@ $messages['qqq'] = array(
 	'lqt_rc_new_reply' => '* $1 - thread
 * $2 - talk page
 * $3 - person who has written to the thread',
+	'lqt-preference-notify-talk' => 'This appears in [[Special:Preferences]].',
+	'lqt-enotif-subject-reply' => 'This is the subject header of an e-mail notification.
+Parameters are:
+* $1 is a thread name or title',
+	'lqt-enotif-subject-newthread' => 'This is the subject header of an e-mail notification.
+Parameters are:
+* $1 is a thread name or title',
+	'lqt-enotif-newthread' => 'This is the text of an e-mail notification. Parameters are:
+* $1 is a user name
+* $2 is a thread name or title
+* $3 is a date
+* $4 is a time
+* $5 is the title of a talk page with the thread $2
+* $6 is a permalink URL',
+	'lqt-enotif-reply' => 'This is the text of an e-mail notification. Parameters are:
+* $1 is a user name
+* $2 is a thread name or title
+* $3 is a date
+* $4 is a time
+* $5 is the title of a talk page with the thread $2
+* $6 is a permalink URL',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -696,6 +717,22 @@ $messages['be-tarask'] = array(
 	'lqt_rc_new_reply' => 'Адказ ў $1 на $2. &bull; напісанае $3:',
 	'lqt_rc_author_original' => '(пачатковы аўтар)',
 	'lqt_rc_author_others' => '(не аўтар)',
+	'lqt-log-name' => 'Журнал галінаў абмеркаваньняў',
+	'lqt-log-header' => 'Гэты журнал утрымлівае дэталі дзеяньняў, якія адбываюцца ў галінах абмеркаваньняў.',
+	'lqt-log-action-move' => 'перанесеная [[$1]] з [[$2]] у [[$3]].',
+	'lqt-preference-notify-talk' => 'Дасылаць мне электронныя лісты ў выпадках адказаў у галіне, за якой я назіраю',
+	'lqt-enotif-subject-reply' => 'Абмеркаваньне {{GRAMMAR:родны|{{SITENAME}}}} — Адказ: $1',
+	'lqt-enotif-subject-newthread' => 'Абмеркаваньне {{GRAMMAR:родны|{{SITENAME}}}} — Новая галіна: $1',
+	'lqt-enotif-newthread' => "Вітаем $1,
+Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новую галіну $5, '$2', 
+створаную $3 $4.
+
+Вы можаце паглядзець яе на <$6>",
+	'lqt-enotif-reply' => "Вітаем $1,
+Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новы адказ $5, '$2', 
+створаны $3 $4.
+
+Вы можаце паглядзець яго на <$6>",
 );
 
 /** Bulgarian (Български)
@@ -1166,6 +1203,17 @@ Toś ta operacija njedajo se anulěrowaś.',
 	'lqt-log-name' => 'Protokol nitkoweje diskusije',
 	'lqt-log-header' => 'Toś ten protokol nalicujo akcije, kótarež su se na diskusijnych nitkach pśewjadli.',
 	'lqt-log-action-move' => 'jo [[$1]] wót [[$2]] do [[$3]] pśesunuł.',
+	'lqt-preference-notify-talk' => 'E-mail wó wótegronach k nitce, kótaraž se wobglědujo, pósłaś',
+	'lqt-enotif-subject-reply' => '{{SITENAME}} diskusija - wótegrono: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}} diskusija - nowa nitka: $1',
+	'lqt-enotif-newthread' => "Witaj $1,
+to jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo se nowa nitka na $5, '$2' $3 $4 napórała.
+
+Móžoš jo na <$6> wiźeś",
+	'lqt-enotif-reply' => "Witaj $1,
+to jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo se nowe wótegrono k '$2' na $5 $3 $4 napórało.
+
+Móžoš jo na <$6> wiźeś",
 );
 
 /** Ewe (Eʋegbe)
@@ -1608,6 +1656,19 @@ Cette opération est réversible.',
 	'lqt-log-name' => 'Journal des fils de discussion',
 	'lqt-log-header' => 'Ce journal détaille les actions faites sur les fils de discussion.',
 	'lqt-log-action-move' => 'a déplacé [[$1]] de [[$2]] vers [[$3]].',
+	'lqt-preference-notify-talk' => "M’avertir par couriel lors d'une réponse sur un sujet que je suis",
+	'lqt-enotif-subject-reply' => 'Discussion sur {{SITENAME}} - Réponse : $1',
+	'lqt-enotif-subject-newthread' => 'Discussion sur {{SITENAME}}  - Nouveau sujet : $1',
+	'lqt-enotif-newthread' => 'Bonjour $1,
+Ceci est une notification de {{SITENAME}}, indiquant un nouveau sujet de $5, « $2 »,
+a été créée le $3 à $4.
+
+Vous pouvez le voir à « $6 »',
+	'lqt-enotif-reply' => "Bonjour $1,
+Ceci est une notification de {{SITENAME}}, qu'une nouvelle réponse à « $2 » sur $5,
+a été créée le $3 à $4.
+
+Vous pouvez le voir a « $6 »",
 );
 
 /** Western Frisian (Frysk)
@@ -1753,6 +1814,22 @@ Esta operación non pode ser desfeita.',
 	'lqt_rc_new_reply' => 'Resposta a $1, en $2. &bull; $3 escribe:',
 	'lqt_rc_author_original' => '(autor orixinal)',
 	'lqt_rc_author_others' => '(non é o autor)',
+	'lqt-log-name' => 'Rexistro de fíos de conversa',
+	'lqt-log-header' => 'Este rexistro detalla as accións feitas nos fíos de conversa.',
+	'lqt-log-action-move' => 'moveu "[[$1]]" de "[[$2]]" a "[[$3]]".',
+	'lqt-preference-notify-talk' => 'Enviádeme un correo electrónico cando haxa respostas nunha conversa que estea vixiando',
+	'lqt-enotif-subject-reply' => 'Conversa {{SITENAME}} - Resposta: $1',
+	'lqt-enotif-subject-newthread' => 'Conversa {{SITENAME}} - Novo fío: $1',
+	'lqt-enotif-newthread' => 'Ola $1:
+Esta é unha notificación de {{SITENAME}} que informa de que un novo fío en $5, "$2",
+foi creado o $3 ás $4.
+
+Pode velo en <$6>',
+	'lqt-enotif-reply' => 'Ola $1:
+Esta é unha notificación de {{SITENAME}} que informa de que unha nova resposta a "$2" en $5
+foi creada o $3 ás $4.
+
+Pode vela en <$6>',
 );
 
 /** Gothic
@@ -1920,6 +1997,18 @@ Die Operation cha rugggängig gmacht wäre.',
 	'lqt-log-name' => 'Logbuech vu dr Diskussionssträng',
 	'lqt-log-header' => 'Des Logbuech lischtet Aktione uf, wu an Diskussionsträng vorgnuu wore sin.',
 	'lqt-log-action-move' => 'het [[$1]] vu [[$2]] no [[$3]] verschobe.',
+	'lqt-preference-notify-talk' => 'Schick mer e Mail iber Antowrte zue Diskussionssträng, wun i beobachte tue',
+	'lqt-enotif-subject-reply' => '{{SITENAME}}-Diskussion - Antwort: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}}-Diskussion - Neje Diskussionstrang: $1',
+	'lqt-enotif-newthread' => "Sali $1,
+Des isch e Nochricht vu {{SITENAME}}, ass e neje Diskussionsstrang iber $5, '$2',
+aagleit woren isch uf $3 am $4.
+Du chasch e säh uf <$6>",
+	'lqt-enotif-reply' => "Sali $1,
+Des isch e Nochricht vu {{SITENAME}}, ass e neji Antwort uf '$2' iber $5,
+aagleit woren isch uf $3 am $4.
+
+Du chasch si säh uf <$6>",
 );
 
 /** Gujarati (ગુજરાતી)
@@ -2361,6 +2450,17 @@ Tuta akcija da so cofnyć.',
 	'lqt-log-name' => 'Protokol nitkoweje diskusije',
 	'lqt-log-header' => 'Tutón protokol nalistuje akcije, kotrež su so na diskusijnych nitkach přewjedli.',
 	'lqt-log-action-move' => 'přesuny [[$1]] wot [[$2]] do [[$3]].',
+	'lqt-preference-notify-talk' => 'E-mejl wo wotmołwach k nitce, kotraž so wobkedźbuje, pósłać',
+	'lqt-enotif-subject-reply' => '{{SITENAME}} diskusija - wotmołwa: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}} diskusija - nowa nitka: $1',
+	'lqt-enotif-newthread' => "Witaj $1,
+to je zdźělenka wot {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa nitka na $5, '$2', $3 $4 wutworiła.
+
+Móžeš ju na <$6> widźeć.",
+	'lqt-enotif-reply' => "Witaj $1,
+to je zdźělenka wot {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa wotmołwa k '$2' na $5 $3 $4 wutworiła.
+
+Móžeš ju na <$6> widźeć",
 );
 
 /** Hungarian (Magyar)
@@ -2584,6 +2684,22 @@ Iste operation es reversibile.',
 	'lqt_rc_ellipsis' => '  …',
 	'lqt_rc_author_original' => '(autor original)',
 	'lqt_rc_author_others' => '(non le autor)',
+	'lqt-log-name' => 'Registro de filos de discussion',
+	'lqt-log-header' => 'Iste registro detalia le actiones prendite in le filos de discussion.',
+	'lqt-log-action-move' => 'moveva [[$1]] ab [[$2]] verso [[$3]].',
+	'lqt-preference-notify-talk' => 'Inviar me un e-mail quando il ha responsas in un filo que io observa',
+	'lqt-enotif-subject-reply' => 'Discussion {{SITENAME}}  - Responsa: $1',
+	'lqt-enotif-subject-newthread' => 'Discussion {{SITENAME}} - Nove filo: $1',
+	'lqt-enotif-newthread' => "Salute $1,
+Isto es un notification ab {{SITENAME}} que un nove filo in $5, '$2',
+esseva create le $3 a $4.
+
+Tu pote vider lo a <$6>",
+	'lqt-enotif-reply' => "Salute $1,
+Isto es un notification ab {{SITENAME}} que un nove responsa a '$2' in $5,
+esseva create le $3 a $4.
+
+Tu pote vider lo a <$6>",
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -2751,6 +2867,14 @@ $messages['ja'] = array(
 	'lqt-log-name' => 'スレッド形式議論の記録',
 	'lqt-log-header' => 'これは議論スレッドで行われた操作の詳細を記録しています。',
 	'lqt-log-action-move' => '[[$1]]を[[$2]]から[[$3]]へ移動しました。',
+	'lqt-enotif-newthread' => 'こんにちは、$1 さん。
+これは {{SITENAME}} からの、$5 でスレッド「$2」が $3 $4 に作成されたことのお知らせです。
+
+<$6> で確認できます。',
+	'lqt-enotif-reply' => 'こんにちは、$1 さん。
+これは {{SITENAME}} からの、$5 でスレッド「$2」への新しい返信が $3 $4 にあったことのお知らせです。
+
+<$6> で確認できます。',
 );
 
 /** Javanese (Basa Jawa)
@@ -3037,6 +3161,29 @@ Künnt sin, De wells en $2 han.',
 	'lqt-log-name' => 'Logboch övver Jeschprääschßfäddeme',
 	'lqt-log-header' => 'En däm Logbooch heh sin de Einzelheite faßjehallde övver wat met de Jeschprähschßfäddeme jedonn woodt.',
 	'lqt-log-action-move' => '[[$1]] vun [[$2]] noh [[$3]] ömjetroke.',
+	'lqt-preference-notify-talk' => 'Donn mer en <i lang="en">e-mail</i> schecke, wann ene Jeschprääschßfäddem op minge Oppaßleß jeändert weet',
+	'lqt-enotif-subject-reply' => 'Klaaf op de {{SITENAME}} - ene neue Beijraach zom Teema: $1',
+	'lqt-enotif-subject-newthread' => 'Klaaf op de {{SITENAME}} - ene neue Jeshprääschßfäddem: $1',
+	'lqt-enotif-newthread' => 'Leeven $1,
+dat hee es en Nohreesch fun de {{SITENAME}},
+dat ene neue Jeshprääschsfäddem zom Teema
+„$2“
+öm $4 Uhr aam $3 op dä Sigg $5
+dobei jekumme es.
+Beloore kanns de dä op
+<$6>
+
+Ene schööne Jrohß!',
+	'lqt-enotif-reply' => 'Leeven $1,
+dat hee es en Nohreesch fun de {{SITENAME}},
+dat ene neue Beijdraach zom Jeshprääschsfäddem zom Teema
+„$2“
+öm $4 Uhr aam $3 op dä Sigg $5
+dobei jekumme es.
+Beloore kanns de dä op
+<$6>
+
+Ene schööne Jrohß!',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -3509,6 +3656,22 @@ Deze handeling is onomkeerbaar.',
 	'lqt_rc_new_reply' => 'Antwoord op $1, op $2 &bull; $3 schrijft:',
 	'lqt_rc_author_original' => '(oorspronkelijke auteur)',
 	'lqt_rc_author_others' => '(niet de auteur)',
+	'lqt-log-name' => 'Overlegthreadlogboek',
+	'lqt-log-header' => 'Dit logboek bevat details over handelingen ten aanzien van overlegthreads.',
+	'lqt-log-action-move' => 'heeft [[$1]] verplaatst van [[$2]] naar [[$3]].',
+	'lqt-preference-notify-talk' => 'Mij e-mailen bij antwoorden op een thread die ik volg',
+	'lqt-enotif-subject-reply' => 'Overleg op {{SITENAME}} - Antwoord: $1',
+	'lqt-enotif-subject-newthread' => 'Overleg op {{SITENAME}} - Nieuw overleg: $1',
+	'lqt-enotif-newthread' => "Hallo $1,
+
+Dit is een kennisgeving van {{SITENAME}}. Er is een nieuw overleg '$2' op $5 geplaatst op $3 om $4.
+
+U kunt het bekijken op <$6>.",
+	'lqt-enotif-reply' => "Hallo $1,
+
+Dit is een kennisgeving van {{SITENAME}}. Er is een nieuw antwoord op '$2' op $5 gekomen op $3 om $4.
+
+U kunt het bekijken op <$6>.",
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -3902,6 +4065,9 @@ Aquesta operacion es irreversibla.',
 	'lqt_rc_new_reply' => 'Respondre a $1, sus $2. &bull; $3 escriu :',
 	'lqt_rc_author_original' => '(autor original)',
 	'lqt_rc_author_others' => '(es pas l’autor)',
+	'lqt-log-name' => 'Jornal dels fials de discussion',
+	'lqt-log-header' => 'Aqueste jornal detalha las accions fachas suls fials de discussion.',
+	'lqt-log-action-move' => 'a desplaçat [[$1]] de [[$2]] cap a [[$3]].',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
@@ -4360,11 +4526,16 @@ $messages['ru'] = array(
 	'lqt_newmessages' => 'Новые сообщения',
 	'lqt_movethread' => 'Переместить ветку на другую страницу',
 	'lqt_deletethread' => 'Удалить/восстановить ветку',
+	'lqt_archive_month_annotation' => 'от $1',
 	'lqt_archive_month_range_annotation' => 'между $1 и $2',
 	'lqt_browse_archive_without_recent' => 'Просмотреть архив',
 	'lqt_browse_archive_with_recent' => 'старее',
 	'lqt_recently_archived' => 'Недавно заархивированные:',
 	'lqt_contents_title' => 'Содержит',
+	'lqt_toc_thread_title' => 'Заголовок ветки',
+	'lqt_toc_thread_author' => 'Начат',
+	'lqt_toc_thread_replycount' => 'Ответы',
+	'lqt_toc_thread_modified' => 'Последнее изменение',
 	'lqt_add_header' => 'Добавить заголовок',
 	'lqt_new_thread' => 'Начать новое обсуждение',
 	'lqt_in_response_to' => 'В ответ на $1 от $2 выше:',
@@ -4391,7 +4562,7 @@ $messages['ru'] = array(
 	'lqt_hist_past_last_page_error' => 'Вы вышли за пределы количества страниц истории которые существуют.',
 	'lqt_hist_tooltip_newer_disabled' => 'Эта ссылка отключена, потому что вы находитесь на первой странице.',
 	'lqt_hist_tooltip_older_disabled' => 'Эта ссылка отключена, потому что вы на последней странице.',
-	'lqt_revision_as_of' => 'Версия как из $1.',
+	'lqt_revision_as_of' => 'Версия как из $2 на $3.',
 	'lqt_change_new_thread' => 'Это изначальная версия ветки.',
 	'lqt_change_reply_created' => 'Выделенный комментарий был создан в этой версии.',
 	'lqt_change_edited_root' => 'Выделенный комментарий был отредактирован в этой версии.',
@@ -4402,14 +4573,16 @@ $messages['ru'] = array(
 	'lqt_nosubject' => '«без темы»',
 	'lqt_noreason' => 'Не было дано причины.',
 	'lqt_move_placeholder' => 'Эта ветка отображает то, что ветка $1 была перемещена на страницу $3 $4 участником $2',
-	'lqt_thread_deleted_for_sysops' => 'Эта ветка была $1 и видима только администраторам.',
+	'lqt_thread_deleted_for_sysops' => "Эта ветка была '''удалена''' и видима только администраторам.",
 	'lqt_thread_deleted' => 'Эта ветка была удалена.',
-	'lqt_summary_notice' => 'Это обсуждение не изменялось как минимум $2 дней. Если оно подошло к концу, вы можете $1.',
+	'lqt_summary_notice' => 'Это обсуждение не изменялось как минимум $2 {{PLURAL:$2|день|дня|дней}}.
+Если оно подошло к концу, вы можете $1.',
 	'lqt_summary_notice_link' => 'подвести итог',
 	'lqt_summary_label' => 'Для этой ветки был подведён следующий итог:',
 	'lqt_summary_subtitle' => 'итог $1',
 	'lqt_nosuchrevision' => 'В этой ветке нет такой версии.',
-	'lqt_nosuchthread' => 'Эта ветка не существует.',
+	'lqt_nosuchthread' => 'Указанная вами ветка не существует.',
+	'lqt_nosuchthread_title' => 'Нет такой ветки',
 	'lqt_threadrequired' => 'Вы должны указать ветку в URL',
 	'lqt_move_movingthread' => 'Перемещение $1. Эта ветка является частью $2.',
 	'lqt_move_torename' => 'Для того, чтобы изменить эту ветку, $1 и измените поле "Тема".',
@@ -4417,18 +4590,21 @@ $messages['ru'] = array(
 	'lqt_move_destinationtitle' => 'Название целевой страницы обсуждения:',
 	'lqt_move_move' => 'Переместить',
 	'lqt_move_nodestination' => 'Вы должны указать целевую страницу.',
+	'lqt_move_thread_bad_destination' => 'Страница назначения не является страницей обсуждения.',
+	'lqt_move_samedestination' => 'Ветка уже на этой странице!',
 	'lqt_move_noreason' => 'Не была указана причина.',
 	'lqt_move_success' => 'Эта ветка была перемещена в $1.',
-	'lqt_delete_undeleting' => 'Восстановление $1.',
+	'lqt_delete_undeleting' => "Восстановление '''$1'''.",
 	'lqt_delete_undeletethread' => 'Восстановление ветки',
-	'lqt_delete_partof' => 'Эта ветка является частью $1.',
-	'lqt_delete_deleting' => 'Удаление $1 и $2 на неё.',
+	'lqt_delete_partof' => "Эта ветка является частью '''$1'''.",
+	'lqt_delete_deleting' => "Удаление '''$1''' и '''всех ответов''' на неё.",
 	'lqt_delete_deletethread' => 'Удалить ветку и ответы',
 	'lqt_delete_deleted' => 'Ветка была удалена.',
 	'lqt_delete_undeleted' => 'Ветка была восстановлена.',
 	'lqt_delete_return' => 'Возвратиться на $1.',
 	'lqt_delete_return_link' => 'страницу обсуждения',
 	'lqt_delete_unallowed' => 'Вы не можете удалять статьи.',
+	'lqt_delete_show_checkbox' => 'Показать удалённые ветки',
 	'lqt_talkpage_autocreate_summary' => 'Страница обсуждения была автоматически созданна когда первое сообщение было отправлено.',
 	'lqt_header_warning_big' => 'Вы редактируете $1.',
 	'lqt_header_warning_after_big' => 'Заголовки служат для объявлений и введений. Вы можете $2.',
@@ -4458,6 +4634,9 @@ $messages['ru'] = array(
 	'lqt_rc_new_reply' => 'В ответ на $1, от $2. &bull; $3 пишет:',
 	'lqt_rc_author_original' => '(первоначальный автор)',
 	'lqt_rc_author_others' => '(нет автора)',
+	'lqt-log-action-move' => 'перемещено [[$1]] из [[$2]] в [[$3]].',
+	'lqt-enotif-subject-reply' => '{{SITENAME}} обсуждение — Ответ: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}} обсуждение — Новая ветка: $1',
 );
 
 /** Tachelhit (Tašlḥiyt)
@@ -4600,6 +4779,22 @@ Stále bude viditeľné na jeho pôvodnej diskusnej stránke.',
 	'lqt_rc_new_reply' => 'Odpoveď na $1, $2. &bull; $3 píše:',
 	'lqt_rc_author_original' => '(pôvodný autor)',
 	'lqt_rc_author_others' => '(nie je autor)',
+	'lqt-log-name' => 'Záznam diskusie vo vláknach',
+	'lqt-log-header' => 'Tento záznam obsahuje podrobnosti o operáciách s diskusnými vláknami.',
+	'lqt-log-action-move' => 'presunul [[$1]] z [[$2]] na [[$3]].',
+	'lqt-preference-notify-talk' => 'Posielať mi odpovede na vlákna, ktoré sledujem emailom',
+	'lqt-enotif-subject-reply' => 'Diskusia {{GRAMMAR:genitív|{{SITENAME}}}} - Odpoveď: $1',
+	'lqt-enotif-subject-newthread' => 'Diskusia {{GRAMMAR:genitív|{{SITENAME}}}} - Nové vlákno: $1',
+	'lqt-enotif-newthread' => 'Ahoj $1,
+toto je oznámenie z {{GRAMMAR:genitív|{{SITENAME}}}}, že nové vlákno $5, „$2“,
+bolo vytvorené $3 $4.
+
+Môžete si ho pozrieť na <$6>',
+	'lqt-enotif-reply' => 'Ahoj $1,
+toto je oznámenie z {{GRAMMAR:genitív|{{SITENAME}}}}, že nová odpoveď na $5, „$2“,
+bola pridaná $3 $4.
+
+Môžete si ho pozrieť na <$6>',
 );
 
 /** Lower Silesian (Schläsch)
