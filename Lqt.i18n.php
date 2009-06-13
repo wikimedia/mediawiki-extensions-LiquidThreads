@@ -4068,6 +4068,19 @@ Aquesta operacion es irreversibla.',
 	'lqt-log-name' => 'Jornal dels fials de discussion',
 	'lqt-log-header' => 'Aqueste jornal detalha las accions fachas suls fials de discussion.',
 	'lqt-log-action-move' => 'a desplaçat [[$1]] de [[$2]] cap a [[$3]].',
+	'lqt-preference-notify-talk' => "M’avisar per corrièr electronic al moment d'una responsa sus un subjècte que segueissi",
+	'lqt-enotif-subject-reply' => 'Discussion sus {{SITENAME}} - Responsa : $1',
+	'lqt-enotif-subject-newthread' => 'Discussion sus {{SITENAME}}  - Subjècte novèl : $1',
+	'lqt-enotif-newthread' => "Bonjorn $1,
+Aquò es una notificacion de {{SITENAME}}, qu'indica un subjècte novèl de $5, « $2 »,
+es estada creada lo $3 a $4.
+
+O podètz veire a « $6 »",
+	'lqt-enotif-reply' => "Bonjorn $1,
+Aquò es una notificacion de {{SITENAME}}, qu'una responsa novèla a « $2 » sus $5,
+es estada creada lo $3 a $4.
+
+O podètz veire a « $6 »",
 );
 
 /** Oriya (ଓଡ଼ିଆ)
@@ -4562,7 +4575,7 @@ $messages['ru'] = array(
 	'lqt_hist_past_last_page_error' => 'Вы вышли за пределы количества страниц истории которые существуют.',
 	'lqt_hist_tooltip_newer_disabled' => 'Эта ссылка отключена, потому что вы находитесь на первой странице.',
 	'lqt_hist_tooltip_older_disabled' => 'Эта ссылка отключена, потому что вы на последней странице.',
-	'lqt_revision_as_of' => 'Версия как из $2 на $3.',
+	'lqt_revision_as_of' => 'Версия от $2 $3.',
 	'lqt_change_new_thread' => 'Это изначальная версия ветки.',
 	'lqt_change_reply_created' => 'Выделенный комментарий был создан в этой версии.',
 	'lqt_change_edited_root' => 'Выделенный комментарий был отредактирован в этой версии.',
@@ -4573,7 +4586,7 @@ $messages['ru'] = array(
 	'lqt_nosubject' => '«без темы»',
 	'lqt_noreason' => 'Не было дано причины.',
 	'lqt_move_placeholder' => 'Эта ветка отображает то, что ветка $1 была перемещена на страницу $3 $4 участником $2',
-	'lqt_thread_deleted_for_sysops' => "Эта ветка была '''удалена''' и видима только администраторам.",
+	'lqt_thread_deleted_for_sysops' => "Эта ветка была '''удалена''' и видна только администраторам.",
 	'lqt_thread_deleted' => 'Эта ветка была удалена.',
 	'lqt_summary_notice' => 'Это обсуждение не изменялось как минимум $2 {{PLURAL:$2|день|дня|дней}}.
 Если оно подошло к концу, вы можете $1.',
@@ -4581,7 +4594,7 @@ $messages['ru'] = array(
 	'lqt_summary_label' => 'Для этой ветки был подведён следующий итог:',
 	'lqt_summary_subtitle' => 'итог $1',
 	'lqt_nosuchrevision' => 'В этой ветке нет такой версии.',
-	'lqt_nosuchthread' => 'Указанная вами ветка не существует.',
+	'lqt_nosuchthread' => 'Указанной вами ветки не существует.',
 	'lqt_nosuchthread_title' => 'Нет такой ветки',
 	'lqt_threadrequired' => 'Вы должны указать ветку в URL',
 	'lqt_move_movingthread' => 'Перемещение $1. Эта ветка является частью $2.',
@@ -4626,11 +4639,13 @@ $messages['ru'] = array(
 	'lqt-searching' => 'Поиск по веткам',
 	'lqt-read-message' => 'Читать',
 	'lqt-read-all' => 'Отметить все как прочитанные',
+	'lqt-marked-read' => "Ветка '''$1''' отмечена как прочитанная.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|сообщение отмечено как прочитанное|сообщения отмечены как прочитанные|сообщений отмечены как прочитанные}}.',
 	'lqt-email-undo' => 'Отменить',
 	'lqt-messages-sent' => 'Сообщения, отправленные вам:',
 	'lqt-no-new-messages' => 'Для вас нет новых сообщений.',
 	'lqt-new-messages' => '&#x2712; Для вас есть новые сообщения.',
+	'lqt_rc_new_discussion' => 'Новое обсуждение, $1, на $2. &bull; $3 написал:',
 	'lqt_rc_new_reply' => 'В ответ на $1, от $2. &bull; $3 пишет:',
 	'lqt_rc_author_original' => '(первоначальный автор)',
 	'lqt_rc_author_others' => '(нет автора)',
