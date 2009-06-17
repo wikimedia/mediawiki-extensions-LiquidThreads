@@ -4729,8 +4729,8 @@ $messages['sk'] = array(
 	'lqt_thread_deleted_for_sysops' => "Vlákno bolo '''zmazané''' a môžu ho vidieť iba správcovia.",
 	'lqt_thread_deleted' => 'Toto vlákno bolo zmazané.',
 	'lqt_summary_notice' => 'V tejto diskusii nenastali zmeny najmenej $2 {{PLURAL:$2|deň|dni|dní}}.
-Ak diskusia skončila, mali by ste ju $1.',
-	'lqt_summary_notice_link' => 'napísať zhrnutie',
+Ak diskusia skončila, mali by ste $1.',
+	'lqt_summary_notice_link' => 'napísať jej zhrnutie',
 	'lqt_summary_label' => 'Toto vlákno bolo zhrnuté nasledovne:',
 	'lqt_summary_subtitle' => 'zhrnutie $1.',
 	'lqt_nosuchrevision' => 'Takáto revízia v tomto vlákne neexistuje.',
