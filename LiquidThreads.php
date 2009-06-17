@@ -50,6 +50,7 @@ $wgHooks['OldChangesListRecentChangesLine'][] = 'LqtDispatch::customizeOldChange
 $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtDispatch::setNewtalkHTML';
 $wgHooks['TitleGetRestrictions'][] = 'Thread::getRestrictionsForTitle';
 $wgHooks['GetPreferences'][] = 'lqtGetPreferences';
+$wgHooks['ArticleEditUpdateNewTalk'][] = 'lqtUpdateNewtalkOnEdit';
 
 // Special pages
 $wgSpecialPages['DeleteThread'] = 'SpecialDeleteThread';

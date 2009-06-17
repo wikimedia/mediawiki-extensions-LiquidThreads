@@ -114,3 +114,14 @@ function lqtGetPreferences( $user, &$preferences ) {
 	
 	return true;
 }
+
+function lqtUpdateNewtalkOnEdit( $article ) {
+	$title = $article->getTitle();
+	
+	if ( LqtDispatch::isLqtPage( $title ) ) {
+		// They're only editing the header, don't update newtalk.
+		return false;
+	}
+	
+	return true;
+}
