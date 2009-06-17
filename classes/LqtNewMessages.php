@@ -94,11 +94,7 @@ class NewMessages {
 			if ( $changeUser->getId() == $row->wl_user )
 				continue;
 				
-			if ( $row->ums_read_timestamp ) {
-				$conds = array( 'ums_user' => $row->ums_user,
-								'ums_thread' => $t->id() );
-				$update_tuples[$row->ums_user.$t->id()] = $dbw->makeList( $conds, LIST_AND );	
-			} elseif ( $row->ums_user ) {
+			if ( $row->ums_user && !$row->ums_read_timestamp ) {
 				// It's already positive.
 			} else {
 				$insert_rows[] =
@@ -114,9 +110,6 @@ class NewMessages {
 			}
 		}
 		
-		// Avoids duplicates
-		$update_tuples = array_values( $update_tuples );
-		
 		// Add user talk notification
 		if ( $t->article()->getTitle()->getNamespace() == NS_USER_TALK ) {
 			$name = $t->article()->getTitle()->getText();
@@ -125,12 +118,9 @@ class NewMessages {
 			if ( $user ) {
 				$user->setNewtalk( true );
 				
-				$dbw->replace( 'user_message_state',
-								array( array( 'ums_user', 'ums_thread' ) ),
-								array( 'ums_user' => $user->getId(),
+				$insert_rows[] = array( 'ums_user' => $user->getId(),
 										'ums_thread' => $t->id(),
-										'ums_read_timestamp' => null ),
-								__METHOD__ );
+										'ums_read_timestamp' => null );
 				
 				if ( $user->getOption( 'enotifusertalkpages' ) ) {
 					$notify_users[] = $user->getId();
@@ -141,13 +131,8 @@ class NewMessages {
 		
 		// Do the actual updates
 		if ( count($insert_rows) ) {
-			$dbw->insert( 'user_message_state', $insert_rows, __METHOD__, array( 'IGNORE' ) );
-		}
-		if ( count($update_tuples) ) {
-			$where = $dbw->makeList( $update_tuples, LIST_OR );
-			
-			$dbw->update( 'user_message_state', array( 'ums_read_timestamp' => null ),
-							array($where), __METHOD__ );
+			$dbw->replace( 'user_message_state', array( array( 'ums_user', 'ums_thread' ) ),
+							$insert_rows, __METHOD__ );
 		}
 		
 		if ( count($notify_users) ) {
