@@ -814,20 +814,19 @@ HTML;
 				return;
 			}
 		}
-
-		global $wgLqtThreadArchiveStartDays, $wgLqtThreadArchiveInactiveDays;
-
-		$timestamp = new Date( $thread->modified() );
 		if ( $thread->summary() ) {
 			$this->showSummary( $thread );
-		} else if ( $timestamp->isBefore( Date::now()->nDaysAgo( $wgLqtThreadArchiveStartDays ) )
-			&& !$thread->summary() && !$thread->hasSuperthread() && !$thread->isHistorical() )
+		} elseif( $thread->isArchiveEligible() )
 		{
 			wfLoadExtensionMessages( 'LiquidThreads' );
-			$this->output->addHTML( '<p class="lqt_summary_notice">' . wfMsgExt( 'lqt_summary_notice', 'parsemag',
-				'<a href="' . $this->permalinkUrl( $thread, 'summarize' ) . '">' . wfMsg( 'lqt_summary_notice_link' ) . '</a>',
-				$wgLqtThreadArchiveStartDays
-				) . '</p>' );
+			
+			$permalink_text = wfMsgNoTrans( 'lqt_summary_notice_link' );
+			$permalink = $this->permalink( $thread, $permalink_text );
+			$html = wfMsgExt( 'lqt_summary_notice', array('parseinline', 'replaceafter'),
+								array( $permalink, $thread->getArchiveStartDays() ) );
+			$html = Xml::tags( 'p', array( 'class' => 'lqt_summary_notice' ), $html );
+			
+			$this->output->addHTML( $html );
 		}
 
 		$this->openDiv( 'lqt_thread', "lqt_thread_id_{$thread->id()}" );

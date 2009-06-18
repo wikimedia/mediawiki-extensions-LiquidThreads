@@ -37,8 +37,11 @@ $wgExtraNamespaces[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
 
 // Localisation
 $dir = dirname( __FILE__ ) . '/';
-$wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'Lqt.i18n.php';
-$wgExtensionAliasesFiles['LiquidThreads'] = $dir . 'Lqt.alias.php';
+$wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'i18n/Lqt.i18n.php';
+$wgExtensionAliasesFiles['LiquidThreads'] = $dir . 'i18n/Lqt.alias.php';
+
+// Parser Function Setup
+$wgExtensionFunctions[] = 'lqtSetupParserFunctions';
 
 // Hooks
 $wgHooks['SpecialWatchlistQuery'][] = 'efLqtBeforeWatchlistHook';
@@ -51,6 +54,7 @@ $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtDispatch::setNewtalkHTML';
 $wgHooks['TitleGetRestrictions'][] = 'Thread::getRestrictionsForTitle';
 $wgHooks['GetPreferences'][] = 'lqtGetPreferences';
 $wgHooks['ArticleEditUpdateNewTalk'][] = 'lqtUpdateNewtalkOnEdit';
+$wgHooks['LanguageGetMagic'][] = 'LiquidThreadsMagicWords::getMagicWords';
 
 // Special pages
 $wgSpecialPages['DeleteThread'] = 'SpecialDeleteThread';
@@ -69,6 +73,8 @@ $wgAutoloadClasses['Thread'] = $dir . 'classes/LqtThread.php';
 $wgAutoloadClasses['Threads'] = $dir . 'classes/LqtThreads.php';
 $wgAutoloadClasses['QueryGroup'] = $dir . 'classes/LqtQueryGroup.php';
 $wgAutoloadClasses['NewMessages'] = $dir . 'classes/LqtNewMessages.php';
+$wgAutoloadClasses['LiquidThreadsMagicWords'] = $dir . 'i18n/LiquidThreads.magic.php';
+$wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/LqtParserFunctions.php';
 
 // Page classes
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';

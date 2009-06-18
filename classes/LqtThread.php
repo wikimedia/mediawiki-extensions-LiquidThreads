@@ -47,6 +47,9 @@ class Thread {
 	protected $double;
 
 	protected $replies;
+	
+	/** static cache of per-page archivestartdays setting */
+	static $archiveStartDays;
 
 	function isHistorical() {
 		return false;
@@ -595,5 +598,69 @@ class Thread {
 			return false;
 		}
 
+	}
+	
+	/**
+	  * Tells you whether or not the thread is eligible for archival
+	  * (includes a check as to whether or not the thread has already been archived.
+	  */
+	function isArchiveEligible( ) {		
+		$startDays = $this->getArchiveStartDays();
+
+		$timestamp = new Date( $this->modified() );
+		$archiveCutoff = Date::now()->nDaysAgo( $startDays );
+		
+		return $timestamp->isBefore( $archiveCutoff ) // X days must have elapsed
+				&& !$this->hasSuperthread() // Must be a primary thread (i.e. not a reply)
+				&& !$this->isHistorical();  // Can't have already been archived, obviously
+	}
+	
+	function getArchiveStartDays() {
+		global $wgLqtThreadArchiveStartDays;
+		
+		$article = $this->article()->getId();
+		
+		// Instance cache
+		if ( isset( self::$archiveStartDays[$article] ) ) {
+			$cacheVal = self::$archiveStartDays[$article];
+			if ( !is_null( $cacheVal ) ) {
+				return $cacheVal;
+			} else {
+				return $wgLqtThreadArchiveStartDays;
+			}
+		}
+		
+		// Memcached: It isn't clear that this is needed yet, but since I already wrote the
+		//  code, I might as well leave it commented out instead of deleting it.
+		//  Main reason I've left this commented out is because it isn't obvious how to
+		//  purge the cache when necessary.
+// 		global $wgMemc;
+// 		$key = wfMemcKey( 'lqt-archive-start-days', $article );
+// 		$cacheVal = $wgMemc->get( $key );
+// 		if ($cacheVal != false) {
+// 			if ( $cacheVal != -1 ) {
+// 				return $cacheVal;
+// 			} else {
+// 				return $wgLqtThreadArchiveStartDays;
+// 			}
+// 		}
+		
+		// Load from the database.
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$dbVal = $dbr->selectField( 'page_props', 'pp_value',
+									array( 'pp_propname' => 'lqt-archivestartdays',
+											'pp_page' => $article ), __METHOD__ );
+		
+		if ($dbVal) {
+			self::$archiveStartDays[$article] = $dbVal;
+#			$wgMemc->set( $key, $dbVal, 1800 );
+			return $dbVal;
+		} else {
+			// Negative caching.
+			self::$archiveStartDays[$article] = null;
+#			$wgMemc->set( $key, -1, 86400 );
+			return $wgLqtThreadArchiveStartDays;
+		}
 	}
 }

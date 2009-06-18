@@ -125,3 +125,10 @@ function lqtUpdateNewtalkOnEdit( $article ) {
 	
 	return true;
 }
+
+function lqtSetupParserFunctions() {
+	global $wgParser;
+	
+	$wgParser->setFunctionHook( 'archivestartdays',
+				array( 'LqtParserFunctions', 'archivestartdays' ) );
+}
