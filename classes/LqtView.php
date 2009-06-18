@@ -365,6 +365,24 @@ HTML;
 				Xml::inputLabel( $subject_label, 'lqt_subject_field', 'lqt_subject_field',
 					60, $subject, $disableattr ) . Xml::element( 'br' );
 		}
+		
+		// Quote the original message if we're replying
+		if ( $edit_type == 'reply' ) {
+			global $wgContLang;
+			
+			$thread_article = new Post( $edit_applies_to->title() );
+			
+			$quote_text = $thread_article->getContent();
+			$timestamp = $edit_applies_to->created();
+			$fTime = $wgContLang->time($timestamp);
+			$fDate = $wgContLang->date($timestamp);
+			$user = $thread_article->originalAuthor()->getName();
+			
+			$quoteIntro = wfMsgForContent( 'lqt-quote-intro', $user, $fTime, $fDate );
+			$quote_text = "$quoteIntro\n<blockquote>\n$quote_text\n</blockquote>\n";
+			
+			$e->setPreloadedText( $quote_text );
+		}
 
 		$e->edit();
 
