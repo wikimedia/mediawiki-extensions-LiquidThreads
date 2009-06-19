@@ -258,6 +258,10 @@ Parameters are:
 * $4 is a time
 * $5 is the title of a talk page with the thread $2
 * $6 is a permalink URL',
+	'lqt-quote-intro' => 'Used as a header in thread entries.
+* $1 is a user name
+* $2 is a date
+* $3 is a time',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -736,6 +740,7 @@ $messages['be-tarask'] = array(
 створаны $3 $4.
 
 Вы можаце паглядзець яго на <$6>",
+	'lqt-quote-intro' => '$2 $3, [[User:$1]] напісаў:',
 );
 
 /** Bulgarian (Български)
@@ -1217,6 +1222,7 @@ Móžoš jo na <$6> wiźeś",
 to jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo se nowe wótegrono k '$2' na $5 $3 $4 napórało.
 
 Móžoš jo na <$6> wiźeś",
+	'lqt-quote-intro' => '$2 $3 jo [[User:$1|$1]] {{GENDER:$1|napisał|napisała|napisał}}:',
 );
 
 /** Ewe (Eʋegbe)
@@ -1672,6 +1678,7 @@ Ceci est une notification de {{SITENAME}}, qu'une nouvelle réponse à « $2 » 
 a été créée le $3 à $4.
 
 Vous pouvez le voir a « $6 »",
+	'lqt-quote-intro' => 'Le $2 à $3, [[User:$1]] a écrit:',
 );
 
 /** Western Frisian (Frysk)
@@ -1833,6 +1840,7 @@ Esta é unha notificación de {{SITENAME}} que informa de que unha nova resposta
 foi creada o $3 ás $4.
 
 Pode vela en <$6>',
+	'lqt-quote-intro' => 'O $2 ás $3, o [[User:$1|usuario $1]] escribiu:',
 );
 
 /** Gothic
@@ -2012,6 +2020,7 @@ Des isch e Nochricht vu {{SITENAME}}, ass e neji Antwort uf '$2' iber $5,
 aagleit woren isch uf $3 am $4.
 
 Du chasch si säh uf <$6>",
+	'lqt-quote-intro' => 'Am $2 am $3, het [[User:$1]] gschribe:',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -2464,6 +2473,7 @@ Móžeš ju na <$6> widźeć.",
 to je zdźělenka wot {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa wotmołwa k '$2' na $5 $3 $4 wutworiła.
 
 Móžeš ju na <$6> widźeć",
+	'lqt-quote-intro' => 'Dnja $2 $3 je [[User:$1|$1]] {{GENDER:$1|napisał|napisała|napisał}}:',
 );
 
 /** Hungarian (Magyar)
@@ -3187,6 +3197,7 @@ Beloore kanns de dä op
 <$6>
 
 Ene schööne Jrohß!',
+	'lqt-quote-intro' => 'Aam $2 hät {{GENDER:$1|dä|dat|dä Metmaacher|dat|de}} [[User:$1|$1]] öm $3 Uhr jeschrevve:',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -3675,6 +3686,7 @@ U kunt het bekijken op <$6>.",
 Dit is een kennisgeving van {{SITENAME}}. Er is een nieuw antwoord op '$2' op $5 gekomen op $3 om $4.
 
 U kunt het bekijken op <$6>.",
+	'lqt-quote-intro' => 'Op $2 om $3 schreef [[User:$1|$1]]:',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -3820,8 +3832,18 @@ $messages['no'] = array(
 	'lqt_browse_archive_with_recent' => 'eldre',
 	'lqt_recently_archived' => 'Nylig arkivert',
 	'lqt_contents_title' => 'Innhold',
+	'lqt_toc_thread_title' => 'Tittel på tråd',
+	'lqt_toc_thread_author' => 'Startet av',
+	'lqt_toc_thread_replycount' => 'Svar',
+	'lqt_toc_thread_modified' => 'Sist endret',
 	'lqt_add_header' => 'Legg til hodeseksjon',
 	'lqt_new_thread' => 'Start en ny diskusjon',
+	'lqt_invalid_subject' => 'Emnet du skrev inn er ugyldig.
+Det kan:
+* Inneholde ugyldige tegn, slik som []{}&lt;&gt;,
+* Være for langt, eller
+* Være i konflikt med andre interwikiprefiks eller navneromnavn.',
+	'lqt_subject_change_forbidden' => 'Du kan ikke endre emnet for denne tråden fordi du ikke er tillatt å flytte sider.',
 	'lqt_in_response_to' => 'Som svar til $1 av $2, over:',
 	'lqt_edited_notice' => 'Redigert',
 	'lqt_reply' => 'Svar',
@@ -3865,7 +3887,8 @@ Om den er avsluttet vil du kanskje $1.',
 	'lqt_summary_label' => 'Denne tråden har fått følgende sammendrag:',
 	'lqt_summary_subtitle' => 'sammendraget av $1.',
 	'lqt_nosuchrevision' => 'Det er ingen slik revisjon av denne tråden.',
-	'lqt_nosuchthread' => 'Det er ingen slik tråd.',
+	'lqt_nosuchthread' => 'Tråden du spesifiserte finnes ikke.',
+	'lqt_nosuchthread_title' => 'Ingen slik tråd',
 	'lqt_threadrequired' => 'Du må angi en tråd i URL-en.',
 	'lqt_move_movingthread' => 'Flytter $1. Denne tråden er del av $2.',
 	'lqt_move_torename' => 'For å omdøpe denne tråden, $1 og endre «Emne»-feltet.',
@@ -3873,6 +3896,8 @@ Om den er avsluttet vil du kanskje $1.',
 	'lqt_move_destinationtitle' => 'Tittel på måldiskusjonsside:',
 	'lqt_move_move' => 'Flytt',
 	'lqt_move_nodestination' => 'Du må angi et mål.',
+	'lqt_move_thread_bad_destination' => 'Målsiden er ikke en diskusjonsside.',
+	'lqt_move_samedestination' => 'Tråden er allerede på denne siden!',
 	'lqt_move_noreason' => 'Ingen grunn gitt.',
 	'lqt_move_success' => 'Denne tråden ble flyttet til $1.',
 	'lqt_delete_undeleting' => "Gjenoppretter '''$1'''.",
@@ -3925,6 +3950,23 @@ Denne handlingen kan ikke gjøres om.',
 	'lqt_rc_new_reply' => 'Svar til $1 på $2. &bull; $3 skriver:',
 	'lqt_rc_author_original' => '(opprinnelig forfatter)',
 	'lqt_rc_author_others' => '(ikke forfatteren)',
+	'lqt-log-name' => 'Trådet diskusjonslogg',
+	'lqt-log-header' => 'Denne loggen detaljerer hendelser foretatt på diskusjonstråder.',
+	'lqt-log-action-move' => 'flyttet [[$1]] fra [[$2]] til [[$3]].',
+	'lqt-preference-notify-talk' => 'Varsle meg på e-post når noen svarer på en tråd jeg overvåker',
+	'lqt-enotif-subject-reply' => '{{SITENAME}}-diskusjon - Svar: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}}-diskusjon - Ny tråd: $1',
+	'lqt-enotif-newthread' => "Hei $1,
+Dette er et varsel fra {{SITENAME}} om at en ny tråd på $5, '$2',
+ble opprettet den $3 klokka $4.
+
+Du kan se den på <$6>",
+	'lqt-enotif-reply' => "Hei $1,
+Dette er et varsel fra {{SITENAME}} om at et nytt svar til '$2' på $5,
+ble opprettet den $3 klokka $4.
+
+Du kan se den på <$6>",
+	'lqt-quote-intro' => 'Den $2 klokka $3 skrev [[User:$1]]:',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -4084,6 +4126,7 @@ Aquò es una notificacion de {{SITENAME}}, qu'una responsa novèla a « $2 » su
 es estada creada lo $3 a $4.
 
 O podètz veire a « $6 »",
+	'lqt-quote-intro' => 'Lo $2 a $3, [[User:$1]] a escrich :',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
@@ -4133,6 +4176,7 @@ $messages['pdc'] = array(
 	'lqt_delete' => 'Lösche',
 	'lqt_discussion_link' => 'Gschwetz',
 	'lqt_move_move' => 'Ziehe',
+	'lqt_delete_return' => 'Zerick zu $1.',
 );
 
 /** Polish (Polski)
@@ -4538,7 +4582,7 @@ $messages['roa-tara'] = array(
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'lqt-desc' => 'Добавляет на страницы обсуждения потоки (ветки) обсуждений',
+	'lqt-desc' => 'Добавляет на страницы обсуждения ветки (потоки) обсуждений',
 	'lqt-nothread' => 'В архиве нет веток обсуждений.',
 	'lqt_newmessages' => 'Новые сообщения',
 	'lqt_movethread' => 'Переместить ветку на другую страницу',
@@ -4548,13 +4592,19 @@ $messages['ru'] = array(
 	'lqt_browse_archive_without_recent' => 'Просмотреть архив',
 	'lqt_browse_archive_with_recent' => 'старее',
 	'lqt_recently_archived' => 'Недавно заархивированные:',
-	'lqt_contents_title' => 'Содержит',
+	'lqt_contents_title' => 'Оглавление',
 	'lqt_toc_thread_title' => 'Заголовок ветки',
-	'lqt_toc_thread_author' => 'Начат',
-	'lqt_toc_thread_replycount' => 'Ответы',
+	'lqt_toc_thread_author' => 'Инициатор',
+	'lqt_toc_thread_replycount' => 'Ответов',
 	'lqt_toc_thread_modified' => 'Последнее изменение',
-	'lqt_add_header' => 'Добавить заголовок',
+	'lqt_add_header' => 'Добавить «шапку»',
 	'lqt_new_thread' => 'Начать новое обсуждение',
+	'lqt_invalid_subject' => 'Указанный вами заголовок ошибочен.
+Возможные причины:
+* Он содержит недопустимые символы, например []{}&lt;&gt;.
+* Он слишком длинен.
+* Он совпадает с интервики-приставками или названиями пространств имён.',
+	'lqt_subject_change_forbidden' => 'Вы не можете изменить заголовок этой ветки, поскольку вы не можете переименовывать страницы.',
 	'lqt_in_response_to' => 'В ответ на $1 от $2 выше:',
 	'lqt_edited_notice' => 'Правил',
 	'lqt_reply' => 'Ответить',
@@ -4586,8 +4636,8 @@ $messages['ru'] = array(
 	'lqt_youhavenewmessages' => 'Вы получили [$1 {{PLURAL:$1|новое сообщение|новых сообщения|новых сообщений}}].',
 	'lqt_protectedfromreply' => 'Эта ветка была $1 от ответа на неё.',
 	'lqt_protectedfromreply_link' => 'защищена',
-	'lqt_subject' => 'Тема:',
-	'lqt_nosubject' => '«без темы»',
+	'lqt_subject' => 'Заголовок:',
+	'lqt_nosubject' => '«без заголовка»',
 	'lqt_noreason' => 'Не было дано причины.',
 	'lqt_move_placeholder' => 'Эта ветка отображает то, что ветка $1 была перемещена на страницу $3 $4 участником $2',
 	'lqt_thread_deleted_for_sysops' => "Эта ветка была '''удалена''' и видна только администраторам.",
@@ -4602,7 +4652,7 @@ $messages['ru'] = array(
 	'lqt_nosuchthread_title' => 'Нет такой ветки',
 	'lqt_threadrequired' => 'Вы должны указать ветку в URL',
 	'lqt_move_movingthread' => 'Перемещение $1. Эта ветка является частью $2.',
-	'lqt_move_torename' => 'Для того, чтобы изменить эту ветку, $1 и измените поле "Тема".',
+	'lqt_move_torename' => 'Для того, чтобы переименовать эту ветку, $1 и измените поле «Заголовок».',
 	'lqt_move_torename_edit' => 'отредактируйте её',
 	'lqt_move_destinationtitle' => 'Название целевой страницы обсуждения:',
 	'lqt_move_move' => 'Переместить',
@@ -4629,33 +4679,55 @@ $messages['ru'] = array(
 	'lqt_header_warning_new_discussion' => 'начать новое обсуждение',
 	'lqt_sorting_order' => 'Порядок сортировки:',
 	'lqt_remember_sort' => 'Запомнить эти настройки',
-	'lqt_sort_newest_changes' => 'последние изменённые вначале',
+	'lqt_sort_newest_changes' => 'изменённые вначале',
 	'lqt_sort_newest_threads' => 'новые ветки вначале',
 	'lqt_sort_oldest_threads' => 'старые ветки вначале',
 	'lqt-any-date' => 'Любая дата',
 	'lqt-only-date' => 'Только эти даты:',
-	'lqt-date-from' => 'От',
-	'lqt-date-to' => 'Кому',
+	'lqt-date-from' => 'С',
+	'lqt-date-to' => 'По',
 	'lqt-title' => 'Заголовок',
 	'lqt-summary' => 'Описание',
-	'lqt-older' => 'старейшие',
-	'lqt-newer' => 'недавние',
+	'lqt-older' => 'более старые',
+	'lqt-newer' => 'более новые',
 	'lqt-searching' => 'Поиск по веткам',
 	'lqt-read-message' => 'Читать',
+	'lqt-read-message-tooltip' => 'Убрать эту ветку из списка новых сообщений.
+Она останется видна на соответствующей странице обсуждения.',
 	'lqt-read-all' => 'Отметить все как прочитанные',
+	'lqt-read-all-tooltip' => 'Убрать все ветки из списка новых сообщений.
+Они останутся видны на соответствующих страницах обсуждений.
+Эта операция необратима.',
 	'lqt-marked-read' => "Ветка '''$1''' отмечена как прочитанная.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|сообщение отмечено как прочитанное|сообщения отмечены как прочитанные|сообщений отмечены как прочитанные}}.',
 	'lqt-email-undo' => 'Отменить',
 	'lqt-messages-sent' => 'Сообщения, отправленные вам:',
+	'lqt-other-messages' => 'Сообщения с других страниц обсуждений:',
 	'lqt-no-new-messages' => 'Для вас нет новых сообщений.',
 	'lqt-new-messages' => '&#x2712; Для вас есть новые сообщения.',
+	'lqt-email-info-undo' => 'Вернуть назад только что убранную ветку.',
+	'lqt-date-info' => 'Эта ссылка отключена, так как вы просматриваете ветки за все даты.',
 	'lqt_rc_new_discussion' => 'Новое обсуждение, $1, на $2. &bull; $3 написал:',
 	'lqt_rc_new_reply' => 'В ответ на $1, от $2. &bull; $3 пишет:',
 	'lqt_rc_author_original' => '(первоначальный автор)',
 	'lqt_rc_author_others' => '(нет автора)',
+	'lqt-log-name' => 'Журнал веток обсуждений',
+	'lqt-log-header' => 'В этот журнал записываются действия, предпринятые в ветках обсуждений.',
 	'lqt-log-action-move' => 'перемещено [[$1]] из [[$2]] в [[$3]].',
+	'lqt-preference-notify-talk' => 'Уведомлять меня по почте о новых ответах на ветке, за которой я слежу',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} обсуждение — Ответ: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} обсуждение — Новая ветка: $1',
+	'lqt-enotif-newthread' => 'Привет, $1.
+Это уведомление с сайта {{SITENAME}} о том, что $3 $4 на странице $5
+была создана новая ветка «$2».
+
+Вы можете увидеть её по адресу <$6>',
+	'lqt-enotif-reply' => 'Привет, $1.
+Это уведомление с сайта {{SITENAME}} о том, что $3 $4 на страницу $5
+был добавлен новый ответ на ветку «$2».
+
+Вы можете увидеть её по адресу <$6>',
+	'lqt-quote-intro' => '$2 $3, [[User:$1]] написал:',
 );
 
 /** Tachelhit (Tašlḥiyt)
