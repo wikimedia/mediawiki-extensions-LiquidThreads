@@ -740,7 +740,7 @@ $messages['be-tarask'] = array(
 створаны $3 $4.
 
 Вы можаце паглядзець яго на <$6>",
-	'lqt-quote-intro' => '$2 $3, [[User:$1]] напісаў:',
+	'lqt-quote-intro' => '$2 $3 [[User:$1]] {{GENDER:$1|напісаў|напісала}}:',
 );
 
 /** Bulgarian (Български)
@@ -2793,7 +2793,7 @@ $messages['ja'] = array(
 	'lqt_hist_deleted' => '削除',
 	'lqt_hist_undeleted' => '復帰',
 	'lqt_hist_moved_talkpage' => '移動',
-	'lqt_hist_listing_subtitle' => '履歴リスト表示',
+	'lqt_hist_listing_subtitle' => '履歴一覧を表示中',
 	'lqt_hist_view_whole_thread' => 'このスレッド全体の履歴を見る',
 	'lqt_hist_no_revisions_error' => 'このスレッドには変更履歴がありません。少々奇妙なことですが。',
 	'lqt_hist_past_last_page_error' => '存在する履歴ページ番号を超えた指定が行われました。',
@@ -2812,7 +2812,7 @@ $messages['ja'] = array(
 	'lqt_move_placeholder' => 'このスレッドは、$1 が別ページの{{int:talk}}ページへ移動したことを示すプレースホルダです。この移動は $3 $4 に $2 によって行われました。',
 	'lqt_thread_deleted_for_sysops' => "このスレッドは'''削除'''されており、{{int:group-sysop}}だけが内容を見ることができます。",
 	'lqt_thread_deleted' => 'このスレッドは削除されました。',
-	'lqt_summary_notice' => 'この議論は少なくとも$2日間進展がありません。議論が終結しているなら、$1のも良いでしょう。',
+	'lqt_summary_notice' => 'この議論は少なくとも$2{{PLURAL:$2|日間}}進展がありません。議論が終結しているなら、$1のも良いでしょう。',
 	'lqt_summary_notice_link' => '要約を記述する',
 	'lqt_summary_label' => 'このスレッドは以下のように要約されました:',
 	'lqt_summary_subtitle' => '$1 の要約です。',
@@ -2827,7 +2827,7 @@ $messages['ja'] = array(
 	'lqt_move_move' => '移動',
 	'lqt_move_nodestination' => '移動先を指定してください。',
 	'lqt_move_thread_bad_destination' => '移動先がノートページではありません。',
-	'lqt_move_samedestination' => 'そのスレッドは既にこのページ上にあります。',
+	'lqt_move_samedestination' => 'そのスレッドは既にこのページ上にあります！',
 	'lqt_move_noreason' => '理由が付記されていません。',
 	'lqt_move_success' => 'このスレッドは $1 に移動しました。',
 	'lqt_delete_undeleting' => "'''$1''' を復帰します。",
@@ -2865,7 +2865,7 @@ $messages['ja'] = array(
 	'lqt-read-all' => 'すべてを既読とする',
 	'lqt-read-all-tooltip' => 'すべてのスレッドを新しい伝言から除きます。元のノートページでは表示され続けます。この操作は取り消しができます。',
 	'lqt-marked-read' => "スレッド '''$1''' を既読としました。",
-	'lqt-count-marked-read' => '$1件の伝言を既読としました。',
+	'lqt-count-marked-read' => '$1件の{{PLURAL:$1|伝言}}を既読としました。',
 	'lqt-email-undo' => '取り消し',
 	'lqt-messages-sent' => 'あなたへの伝言:',
 	'lqt-other-messages' => '他のノートページでの伝言:',
@@ -2880,6 +2880,9 @@ $messages['ja'] = array(
 	'lqt-log-name' => 'スレッド形式議論の記録',
 	'lqt-log-header' => 'これは議論スレッドで行われた操作の詳細を記録しています。',
 	'lqt-log-action-move' => '[[$1]]を[[$2]]から[[$3]]へ移動しました。',
+	'lqt-preference-notify-talk' => '監視しているスレッドへ返答があった時にメールで知らせる',
+	'lqt-enotif-subject-reply' => '{{SITENAME}} の討論 - 返信: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}} の討論 - 新スレッド: $1',
 	'lqt-enotif-newthread' => 'こんにちは、$1 さん。
 これは {{SITENAME}} からの、$5 でスレッド「$2」が $3 $4 に作成されたことのお知らせです。
 
@@ -2888,6 +2891,7 @@ $messages['ja'] = array(
 これは {{SITENAME}} からの、$5 でスレッド「$2」への新しい返信が $3 $4 にあったことのお知らせです。
 
 <$6> で確認できます。',
+	'lqt-quote-intro' => '$2$3に[[User:$1]]が書きました:',
 );
 
 /** Javanese (Basa Jawa)
@@ -4886,6 +4890,7 @@ toto je oznámenie z {{GRAMMAR:genitív|{{SITENAME}}}}, že nová odpoveď na $5
 bola pridaná $3 $4.
 
 Môžete si ho pozrieť na <$6>',
+	'lqt-quote-intro' => '$2 $3 [[User:$1]] napísal:',
 );
 
 /** Lower Silesian (Schläsch)
