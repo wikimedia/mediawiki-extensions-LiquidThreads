@@ -19,9 +19,9 @@ define( 'NS_LQT_THREAD', efArrayDefault( 'egLqtNamespaceNumbers', 'Thread', 90 )
 define( 'NS_LQT_THREAD_TALK', efArrayDefault( 'egLqtNamespaceNumbers', 'Thread_talk', 91 ) );
 define( 'NS_LQT_SUMMARY', efArrayDefault( 'egLqtNamespaceNumbers', 'Summary', 92 ) );
 define( 'NS_LQT_SUMMARY_TALK', efArrayDefault( 'egLqtNamespaceNumbers', 'Summary_talk', 93 ) );
-define( 'LQT_NEWEST_CHANGES', 1 );
-define( 'LQT_NEWEST_THREADS', 2 );
-define( 'LQT_OLDEST_THREADS', 3 );
+define( 'LQT_NEWEST_CHANGES', 'nc' );
+define( 'LQT_NEWEST_THREADS', 'nt' );
+define( 'LQT_OLDEST_THREADS', 'ot' );
 
 // FIXME: would be neat if it was possible to somehow localise this.
 $wgCanonicalNamespaceNames[NS_LQT_THREAD]		= 'Thread';
@@ -74,7 +74,7 @@ $wgAutoloadClasses['Threads'] = $dir . 'classes/LqtThreads.php';
 $wgAutoloadClasses['QueryGroup'] = $dir . 'classes/LqtQueryGroup.php';
 $wgAutoloadClasses['NewMessages'] = $dir . 'classes/LqtNewMessages.php';
 $wgAutoloadClasses['LiquidThreadsMagicWords'] = $dir . 'i18n/LiquidThreads.magic.php';
-#$wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/LqtParserFunctions.php'; // File does not exist
+$wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/LqtParserFunctions.php'; // File does not exist
 
 // Page classes
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
