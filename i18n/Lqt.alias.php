@@ -120,7 +120,7 @@ $aliases['it'] = array(
 $aliases['ja'] = array(
 	'DeleteThread' => array( 'スレッド削除' ),
 	'MoveThread' => array( 'スレッド移動' ),
-	'NewMessages' => array( '新しい伝言' ),
+	'NewMessages' => array( '新規投稿', '新しい伝言' ),
 );
 
 /** Georgian (ქართული) */
