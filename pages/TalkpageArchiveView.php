@@ -118,7 +118,6 @@ class TalkpageArchivePager extends TablePager {
 						Threads::articleClause( $this->article ),
 						Threads::topLevelClause(),
 						$hasSummaryClause,
-						'thread_modified < '. $dbr->addQuotes( $startdate->text() ),
 						'rev_parent_id' => 0,
 					),
 				'join_conds' =>
