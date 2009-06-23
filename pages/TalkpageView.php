@@ -23,14 +23,13 @@ class TalkpageView extends LqtView {
 		return true;
 	}
 
-	function permalinksForThreads( $ts, $method = null, $operand = null ) {
-		$ps = array();
-		foreach ( $ts as $t ) {
-			$u = self::permalinkUrl( $t, $method, $operand );
+	function permalinksForThreads( $threads, $method = null, $operand = null ) {
+		$permalinks = array();
+		foreach ( $threads as $t ) {
 			$l = $t->subjectWithoutIncrement();
-			$ps[] = "<a href=\"$u\">$l</a>";
+			$permalinks[] = self::permalink( $t, $l, $method, $operand );
 		}
-		return $ps;
+		return $permalinks;
 	}
 
 	function showHeader() {
@@ -268,9 +267,12 @@ class TalkpageView extends LqtView {
 										$archiveBrowseLink );
 		
 		$recently_archived_threads = $this->queries->query( 'recently-archived' );
+		
+		$toc = '';
 		if ( count( $threads ) > 3 || count( $recently_archived_threads ) > 0 ) {
 			$toc = $this->getTOC( $threads );
 		}
+		
 		$archiveWidget = $this->getArchiveWidget( $recently_archived_threads );
 
 		$html = Xml::tags( 'div', array( 'class' => 'lqt_toc_archive_wrapper' ),
