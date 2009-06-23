@@ -26,7 +26,7 @@ class TalkpageView extends LqtView {
 	function permalinksForThreads( $ts, $method = null, $operand = null ) {
 		$ps = array();
 		foreach ( $ts as $t ) {
-			$u = $this->permalinkUrl( $t, $method, $operand );
+			$u = self::permalinkUrl( $t, $method, $operand );
 			$l = $t->subjectWithoutIncrement();
 			$ps[] = "<a href=\"$u\">$l</a>";
 		}
@@ -144,7 +144,7 @@ class TalkpageView extends LqtView {
 	function getArchiveWidget( $threads ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		
-		$threadlinks = $this->permalinksForThreads( $threads );
+		$threadlinks = self::permalinksForThreads( $threads );
 
 		if ( count( $threadlinks ) > 0 ) {
 			$url = $this->talkpageUrl( $this->title, 'talkpage_archive' );

@@ -149,7 +149,7 @@ class NewUserMessagesView extends LqtView {
 		
 		// Left-hand column Ñ read button and context link to the full thread.
 		$topmostThread = $t->topmostThread();
-		$contextLink = $this->permalink( $topmostThread,
+		$contextLink = self::permalink( $topmostThread,
 						wfMsgExt( 'lqt-newmessages-context', 'parseinline' ) );
 		$leftColumn = Xml::tags( 'p', null, $read_button ) .
 						Xml::tags( 'p', null, $contextLink );

@@ -69,7 +69,7 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 		$html = '';
 		
 		$linkText = $wgLang->timeanddate( $t->modified(), true );
-		$link = $this->permalink( $this->thread, $linkText, null, null, null, array(),
+		$link = self::permalink( $this->thread, $linkText, null, null, null, array(),
 							array( 'lqt_oldid' => $t->revisionNumber() ) );
 		
 		$html .= Xml::tags( 'td', null, $link );

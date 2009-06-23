@@ -204,12 +204,12 @@ class LqtView {
 
 	static function permalinkUrlWithDiff( $thread ) {
 		$query = self::diffQuery( $thread );
-		return $this->permalinkUrl( $thread->changeObject(), null, null, $query );
+		return self::permalinkUrl( $thread->changeObject(), null, null, $query );
 	}
 	
 	static function diffPermalink( $thread, $text ) {
 		$query = self::diffQuery( $thread );
-		return $this->permalink( $thread, $text, null, null, null, array(), $query );
+		return self::permalink( $thread, $text, null, null, null, array(), $query );
 	}
 	
 	static function talkpageLink( $title, $text = null , $method=null, $operand=null,
@@ -568,11 +568,11 @@ HTML;
 		                     'enabled' => true );
 
 		$commands[] = array( 'label' => wfMsg( 'history_short' ),
-							 'href' =>  $this->permalinkUrlWithQuery( $thread, 'action=history' ),
+							 'href' =>  self::permalinkUrlWithQuery( $thread, 'action=history' ),
 							 'enabled' => true );
 
 		$commands[] = array( 'label' => wfMsg( 'lqt_permalink' ),
-							 'href' =>  $this->permalinkUrl( $thread ),
+							 'href' =>  self::permalinkUrl( $thread ),
 							 'enabled' => true );
 
 		if ( in_array( 'delete',  $this->user->getRights() ) ) {
@@ -595,7 +595,7 @@ HTML;
 		$commands = array();
 
 		$commands[] = array( 'label' => wfMsg( 'history_short' ),
-		                     'href' => $this->permalinkUrl( $thread, 'thread_history' ),
+		                     'href' => self::permalinkUrl( $thread, 'thread_history' ),
 		                     'enabled' => true );
 
 		if ( in_array( 'move', $this->user->getRights() ) ) {
@@ -607,11 +607,11 @@ HTML;
 		}
 		if ( !$this->user->isAnon() && !$thread->title()->userIsWatching() ) {
 			$commands[] = array( 'label' => wfMsg( 'watch' ),
-			                     'href' => $this->permalinkUrlWithQuery( $thread, 'action=watch' ),
+			                     'href' => self::permalinkUrlWithQuery( $thread, 'action=watch' ),
 			                     'enabled' => true );
 		} else if ( !$this->user->isAnon() ) {
 			$commands[] = array( 'label' => wfMsg( 'unwatch' ),
-                                 'href' => $this->permalinkUrlWithQuery( $thread, 'action=unwatch' ),
+                                 'href' => self::permalinkUrlWithQuery( $thread, 'action=unwatch' ),
 			                     'enabled' => true );
 		}
 		
@@ -683,7 +683,7 @@ HTML;
 		// Edited flag
 		if ( $thread->editedness() == Threads::EDITED_BY_AUTHOR || $thread->editedness() == Threads::EDITED_BY_OTHERS ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
-			list($edited_title) = $this->permalinkData( $thread );
+			list($edited_title) = self::permalinkData( $thread );
 			$edited_text = wfMsgExt( 'lqt_edited_notice', 'parseinline' );
 			$edited_link = $sk->link( $edited_title, $edited_text,
 										array( 'class' => 'lqt_edited_notice'),
@@ -875,7 +875,7 @@ HTML;
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			
 			$permalink_text = wfMsgNoTrans( 'lqt_summary_notice_link' );
-			$permalink = $this->permalink( $thread, $permalink_text );
+			$permalink = self::permalink( $thread, $permalink_text );
 			$msg = wfMsgExt( 'lqt_summary_notice', array('parseinline', 'replaceafter'),
 								array( $permalink, $thread->getArchiveStartDays() ) );
 			$msg = Xml::tags( 'p', array( 'class' => 'lqt_summary_notice' ), $msg );
@@ -952,7 +952,7 @@ HTML;
 							$label );
 		
 		$link = $sk->link( $t->summary()->getTitle(), $link_text );
-		$edit_link = $this->permalink( $t, $edit_text, 'summarize' );
+		$edit_link = self::permalink( $t, $edit_text, 'summarize' );
 		$links = "[$link]\n[$edit_link]";
 		$html .= Xml::tags( 'span', array( 'class' => 'lqt_thread_permalink_summary_edit' ),
 							$links );

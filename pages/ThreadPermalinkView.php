@@ -51,7 +51,7 @@ class ThreadPermalinkView extends LqtView {
 		}
 
 		if ( array_key_exists( 'history', $content_actions ) ) {
-			$content_actions['history']['href'] = $this->permalinkUrl( $this->thread, 'thread_history' );
+			$content_actions['history']['href'] = self::permalinkUrl( $this->thread, 'thread_history' );
 			if ( $this->methodApplies( 'thread_history' ) ) {
 				$content_actions['history']['class'] = 'selected';
 			}
@@ -93,7 +93,7 @@ class ThreadPermalinkView extends LqtView {
 		$talkpage_link = $this->user->getSkin()->link( $talkpage );
 		
 		if ( $this->thread->hasSuperthread() ) {
-			$permalink = $this->permalink( $this->thread->topmostThread(),
+			$permalink = self::permalink( $this->thread->topmostThread(),
 							wfMsg( 'lqt_discussion_link' ) );
 							
 			return wfMsg( 'lqt_fragment', $permalink, $talkpage_link );
