@@ -17,25 +17,33 @@ class ThreadPermalinkView extends LqtView {
 			return true;
 		}
 		
-		efInsertIntoAssoc( 'article', array(
-		'text' => wfMsg( $article_t->getNamespaceKey() ),
-		'href' => $article_t->getFullURL(),
-		'class' => $article_t->exists() ? '' : 'new' ),
-		'nstab-thread', $content_actions );
-		efInsertIntoAssoc( 'not_talk', array(
-		// talkpage certainly exists since this thread is from it.
-		'text' => wfMsg( 'talk' ),
-		'href' => $talk_t->getFullURL() ),
-		'nstab-thread', $content_actions );
+		$articleTab =
+			array(
+				'text' => wfMsg( $article_t->getNamespaceKey() ),
+				'href' => $article_t->getFullURL(),
+				'class' => $article_t->exists() ? '' : 'new'
+			);
+		efInsertIntoAssoc( 'article', $articleTab, 'nstab-thread', $content_actions );
+		
+		$talkTab =
+			array(
+				// talkpage certainly exists since this thread is from it.
+				'text' => wfMsg( 'talk' ),
+				'href' => $talk_t->getFullURL()
+			);
+		
+		efInsertIntoAssoc( 'not_talk', $talkTab, 'nstab-thread', $content_actions );
 
 		unset( $content_actions['edit'] );
 		unset( $content_actions['viewsource'] );
 		unset( $content_actions['talk'] );
+		
 		if ( array_key_exists( 'move', $content_actions ) && $this->thread ) {
 			$content_actions['move']['href'] =
 			SpecialPage::getTitleFor( 'MoveThread' )->getFullURL() . '/' .
 			$this->thread->title()->getPrefixedURL();
 		}
+		
 		if ( array_key_exists( 'delete', $content_actions ) && $this->thread ) {
 			$content_actions['delete']['href'] =
 			SpecialPage::getTitleFor( 'DeleteThread' )->getFullURL() . '/' .
@@ -68,20 +76,27 @@ class ThreadPermalinkView extends LqtView {
 	function showMissingThreadPage() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$this->output->setPageTitle( wfMsg( 'lqt_nosuchthread_title' ) );
-		$this->output->addHTML( wfMsg( 'lqt_nosuchthread' ) );
+		$this->output->addWikiMsg( 'lqt_nosuchthread' );
 	}
 
 	function getSubtitle() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		// TODO the archive month part is obsolete.
-		if ( Date::now()->nDaysAgo( 30 )->midnight()->isBefore( new Date( $this->thread->modified() ) ) )
-		$query = '';
-		else
-		$query = 'lqt_archive_month=' . substr( $this->thread->modified(), 0, 6 );
+		
+		if ( $this->thread->isHistorical() ) {
+			// TODO: Point to the relevant part of the archive.
+			$query = '';
+		} else {
+			$query = '';
+		}
+		
 		$talkpage = $this->thread->article()->getTitle();
-		$talkpage_link = $this->user->getSkin()->makeKnownLinkObj( $talkpage, '', $query );
+		$talkpage_link = $this->user->getSkin()->link( $talkpage );
+		
 		if ( $this->thread->hasSuperthread() ) {
-			return wfMsg( 'lqt_fragment', "<a href=\"{$this->permalinkUrl($this->thread->topmostThread())}\">" . wfMsg( 'lqt_discussion_link' ) . "</a>", $talkpage_link );
+			$permalink = $this->permalink( $this->thread->topmostThread(),
+							wfMsg( 'lqt_discussion_link' ) );
+							
+			return wfMsg( 'lqt_fragment', $permalink, $talkpage_link );
 		} else {
 			return wfMsg( 'lqt_from_talk', $talkpage_link );
 		}
@@ -92,11 +107,17 @@ class ThreadPermalinkView extends LqtView {
 		parent::__construct( $output, $article, $title, $user, $request );
 
 		$t = Threads::withRoot( $this->article );
-		$r = $this->request->getVal( 'lqt_oldid', null ); if ( $r ) {
-			$t = $t->atRevision( $r );
-		if ( !$t ) { $this->noSuchRevision(); return; }
-
+		$oldid = $this->request->getVal( 'lqt_oldid', null );
+		
+		if ( $oldid ) {
+			$t = $t->atRevision( $oldid );
+			
+			if ( !$t ) {
+				$this->noSuchRevision();
+				return;
+			}
 		}
+		
 		$this->thread = $t;
 		if ( !$t ) {
 			return; // error reporting is handled in show(). this kinda sucks.

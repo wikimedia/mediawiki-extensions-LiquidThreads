@@ -47,9 +47,6 @@ class Thread {
 	protected $double;
 
 	protected $replies;
-	
-	/** static cache of per-page archivestartdays setting */
-	static $archiveStartDays;
 
 	function isHistorical() {
 		return false;
@@ -400,6 +397,7 @@ class Thread {
 		return $this->ancestorId;
 	}
 
+	// The 'root' is the page in the Thread namespace corresponding to this thread.
 	function root() {
 		if ( !$this->rootId ) return null;
 		if ( !$this->root ) $this->root = new Post( Title::newFromID( $this->rootId ),
@@ -457,7 +455,7 @@ class Thread {
 		return $this->root()->getTitle();
 	}
 
-	private function splitIncrementFromSubject( $subject_string ) {
+	static function splitIncrementFromSubject( $subject_string ) {
 		preg_match( '/^(.*) \((\d+)\)$/', $subject_string, $matches );
 		if ( count( $matches ) != 3 )
 			throw new MWException( __METHOD__ . ": thread subject has no increment: " . $subject_string );
@@ -474,15 +472,21 @@ class Thread {
 	}
 
 	function wikilinkWithoutIncrement() {
-		$tmp = $this->splitIncrementFromSubject( $this->wikilink() ); return $tmp[1];
+		$tmp = self::splitIncrementFromSubject( $this->wikilink() );
+		
+		return $tmp[1];
 	}
 
 	function subjectWithoutIncrement() {
-		$tmp = $this->splitIncrementFromSubject( $this->subject() ); return $tmp[1];
+		$tmp = self::splitIncrementFromSubject( $this->subject() );
+		
+		return $tmp[1];
 	}
 
 	function increment() {
-		$tmp = $this->splitIncrementFromSubject( $this->subject() ); return $tmp[2];
+		$tmp = self::splitIncrementFromSubject( $this->subject() );
+		
+		return $tmp[2];
 	}
 
 	function hasDistinctSubject() {
@@ -616,51 +620,6 @@ class Thread {
 	}
 	
 	function getArchiveStartDays() {
-		global $wgLqtThreadArchiveStartDays;
-		
-		$article = $this->article()->getId();
-		
-		// Instance cache
-		if ( isset( self::$archiveStartDays[$article] ) ) {
-			$cacheVal = self::$archiveStartDays[$article];
-			if ( !is_null( $cacheVal ) ) {
-				return $cacheVal;
-			} else {
-				return $wgLqtThreadArchiveStartDays;
-			}
-		}
-		
-		// Memcached: It isn't clear that this is needed yet, but since I already wrote the
-		//  code, I might as well leave it commented out instead of deleting it.
-		//  Main reason I've left this commented out is because it isn't obvious how to
-		//  purge the cache when necessary.
-// 		global $wgMemc;
-// 		$key = wfMemcKey( 'lqt-archive-start-days', $article );
-// 		$cacheVal = $wgMemc->get( $key );
-// 		if ($cacheVal != false) {
-// 			if ( $cacheVal != -1 ) {
-// 				return $cacheVal;
-// 			} else {
-// 				return $wgLqtThreadArchiveStartDays;
-// 			}
-// 		}
-		
-		// Load from the database.
-		$dbr = wfGetDB( DB_SLAVE );
-		
-		$dbVal = $dbr->selectField( 'page_props', 'pp_value',
-									array( 'pp_propname' => 'lqt-archivestartdays',
-											'pp_page' => $article ), __METHOD__ );
-		
-		if ($dbVal) {
-			self::$archiveStartDays[$article] = $dbVal;
-#			$wgMemc->set( $key, $dbVal, 1800 );
-			return $dbVal;
-		} else {
-			// Negative caching.
-			self::$archiveStartDays[$article] = null;
-#			$wgMemc->set( $key, -1, 86400 );
-			return $wgLqtThreadArchiveStartDays;
-		}
+		return Threads::getArticleArchiveStartDays( $this->article() );
 	}
 }

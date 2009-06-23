@@ -35,52 +35,63 @@ class TalkpageView extends LqtView {
 
 	function showHeader() {
 		/* Show the contents of the actual talkpage article if it exists. */
+		
+		global $wgUser;
+		$sk = $wgUser->getSkin();
 
 		$article = new Article( $this->title );
 		$revision = Revision::newFromId( $article->getLatest() );
 		if ( $revision ) $article_text = $revision->getRawText();
 
 		$oldid = $this->request->getVal( 'oldid', null );
-		$editlink = $this->title->getFullURL( 'action=edit' );
 
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		// If $article_text == "", the talkpage was probably just created
 		// when the first thread was posted to make the links blue.
 		if ( $article->exists() && $article_text != "" ) {
-			$historylink = $this->title->getFullURL( 'action=history' );
-			$this->openDiv( 'lqt_header_content' );
-			$this->showPostBody( $article, $oldid );
-			$this->outputList( 'ul', 'lqt_header_commands', null, array(
-				"[<a href=\"$editlink\">" . wfMsg( 'edit' ) . "&uarr;</a>]",
-				"[<a href=\"$historylink\">" . wfMsg( 'history_short' ) . "&uarr;</a>]"
-				) );
-				$this->closeDiv();
-		} else {
-			$this->output->addHTML( "<p class=\"lqt_header_notice\">[<a href=\"$editlink\">" . wfMsg( 'lqt_add_header' ) . "</a>]</p>" );
-		}
-	}
+			$html = '';
+			
+			$html .= $this->showPostBody( $article, $oldid );
+			
+			$actionLinks = array();
+			$actionLinks[] = $sk->link( $this->title,
+								wfMsgExt( 'edit', 'parseinline' ) . "&uarr;",
+								array(), array( 'action' => 'edit' ) );
+			$actionLinks[] = $sk->link( $this->title,
+								wfMsgExt( 'history_short', 'parseinline' ) . "&uarr;",
+								array(), array( 'action' => 'history' ) );
+			
+			$actions = '';
+			foreach( $actionLinks as $link ) {
+				$actions .= Xml::tags( 'li', null, "[$link]" ) . "\n";
+			}
+			$actions = Xml::tags( 'ul', array( 'class' => 'lqt_header_commands' ), $actions );
+			$html .= $actions;
 
-	function outputList( $kind, $class, $id, $contents ) {
-		$this->output->addHTML( Xml::openElement( $kind, array( 'class' => $class, 'id' => $id ) ) );
-		foreach ( $contents as $li ) {
-			$this->output->addHTML( Xml::openElement( 'li' ) );
-			$this->output->addHTML( $li );
-			$this->output->addHTML( Xml::closeElement( 'li' ) );
+			$html = Xml::tags( 'div', array( 'class' => 'lqt_header_content' ), $html );
+			
+			$this->output->addHTML( $html );
+		} else {
+			
+			$editLink = $sk->link( $this->title, wfMsgExt( 'lqt_add_header', 'parseinline' ),
+									array(), array( 'action' => 'edit' ) );
+			
+			$html = Xml::tags( 'p', array( 'class' => 'lqt_header_notice' ), "[$editLink]" );
+			
+			$this->output->addHTML( $html );
 		}
-		$this->output->addHTML( Xml::closeElement( $kind ) );
 	}
 	
-	function showTOC( $threads ) {
+	function getTOC( $threads ) {
 		global $wgLang;
 		
 		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		$sk = $this->user->getSkin();
 		
-		$title = Xml::tags( 'h2', null, wfMsgExt( 'lqt_contents_title', 'parseinline' ) );
-		$this->output->addHTML( $title );
-		
 		$html = '';
+		
+		$html .= Xml::tags( 'h2', null, wfMsgExt( 'lqt_contents_title', 'parseinline' ) );
 		
 		// Header row
 		$headerRow = '';
@@ -114,33 +125,46 @@ class TalkpageView extends LqtView {
 			$rows[] = $row;
 		}
 		
-		$html = $headerRow . "\n" . Xml::tags( 'tbody', null, implode( "\n", $rows ) );
+		$html .= $headerRow . "\n" . Xml::tags( 'tbody', null, implode( "\n", $rows ) );
 		$html = Xml::tags( 'table', array( 'class' => 'lqt_toc' ), $html );
 		
-		$this->output->addHTML( $html );
+		return $html;
+	}
+	
+	function getList( $kind, $class, $id, $contents ) {
+		$html = '';
+		foreach ( $contents as $li ) {
+			$html .= Xml::tags( 'li', null, $li );
+		}
+		$html = Xml::tags( $kind, array( 'class' => $class, 'id' => $id ), $html );
+		
+		return $html;
 	}
 
-	function showArchiveWidget( $threads ) {
+	function getArchiveWidget( $threads ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-
+		
 		$threadlinks = $this->permalinksForThreads( $threads );
-		$url = $this->talkpageUrl( $this->title, 'talkpage_archive' );
 
 		if ( count( $threadlinks ) > 0 ) {
-			$this->openDiv( 'lqt_archive_teaser' );
-			$this->output->addHTML( '<h2 class="lqt_recently_archived">' . wfMsg( 'lqt_recently_archived' ) . '</h2>' );
-			$this->outputList( 'ul', '', '', $threadlinks );
-			$this->closeDiv();
-		} else {
+			$url = $this->talkpageUrl( $this->title, 'talkpage_archive' );
+		
+			$html = '';
+			$html = Xml::tags( 'h2', array( 'class' => 'lqt_recently_archived' ),
+								wfMsgExt( 'lqt_recently_archived', 'parseinline' ) );
+			$html .= $this->getList( 'ul', '', '', $threadlinks );
+			$html = Xml::tags( 'div', array( 'class' => 'lqt_archive_teaser' ), $html );
+			return $html;
 		}
+		
+		return '';
 	}
 
 	function showTalkpageViewOptions( $article ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		// TODO WTF who wrote this?
 
 		if ( $this->methodApplies( 'talkpage_sort_order' ) ) {
-			$remember_sort_checked = $this->request->getBool( 'lqt_remember_sort' ) ? 'checked ' : '';
+			$remember_sort_checked = $this->request->getBool( 'lqt_remember_sort' );
 			$this->user->setOption( 'lqt_sort_order', $this->sort_order );
 			$this->user->saveSettings();
 		} else {
@@ -148,56 +172,57 @@ class TalkpageView extends LqtView {
 		}
 
 		if ( $article->exists() ) {
-			$nc_sort = $this->sort_order == LQT_NEWEST_CHANGES ? ' selected' : '';
-			$nt_sort = $this->sort_order == LQT_NEWEST_THREADS ? ' selected' : '';
-			$ot_sort = $this->sort_order == LQT_OLDEST_THREADS ? ' selected' : '';
 			$newest_changes = wfMsg( 'lqt_sort_newest_changes' );
 			$newest_threads = wfMsg( 'lqt_sort_newest_threads' );
 			$oldest_threads = wfMsg( 'lqt_sort_oldest_threads' );
 			$lqt_remember_sort = wfMsg( 'lqt_remember_sort' ) ;
 			$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
-			$lqt_sorting_order = wfMsg( 'lqt_sorting_order' );
 			$lqt_sort_newest_changes = wfMsg( 'lqt_sort_newest_changes' );
 			$lqt_sort_newest_threads = wfMsg( 'lqt_sort_newest_threads' );
 			$lqt_sort_oldest_threads = wfMsg( 'lqt_sort_oldest_threads' );
 			$go = wfMsg( 'go' );
-			if ( $this->user->isLoggedIn() ) {
-				$remember_sort =
-				<<<HTML
-<br />
-<label for="lqt_remember_sort_checkbox">
-<input id="lqt_remember_sort_checkbox" name="lqt_remember_sort" type="checkbox" value="1" $remember_sort_checked />
-$lqt_remember_sort</label>
-HTML;
-			} else {
-				$remember_sort = '';
-			}
-			if ( in_array( 'deletedhistory',  $this->user->getRights() ) ) {
-				$show_deleted_checked = $this->request->getBool( 'lqt_show_deleted_threads' ) ? 'checked ' : '';
-				$show_deleted = "<br />\n" .
-								"<label for=\"lqt_show_deleted_threads_checkbox\">\n" .
-								"<input id=\"lqt_show_deleted_threads_checkbox\" name=\"lqt_show_deleted_threads\" type=\"checkbox\" value=\"1\" $show_deleted_checked />\n" .
-								wfMsg( 'lqt_delete_show_checkbox' ) . "</label>\n";
-			} else {
-				$show_deleted = "";
-			}
-			$this->openDiv( 'lqt_view_options' );
-			$this->output->addHTML(
+			
+			$html = '';
+			
+			$html .= Xml::label( wfMsg( 'lqt_sorting_order' ), 'lqt_sort_select' ) . ' ';
 
-			<<<HTML
-<form name="lqt_sort" action="$form_action_url" method="post">$lqt_sorting_order
-<select name="lqt_order" class="lqt_sort_select">
-<option value="nc"$nc_sort>$lqt_sort_newest_changes</option>
-<option value="nt"$nt_sort>$lqt_sort_newest_threads</option>
-<option value="ot"$ot_sort>$lqt_sort_oldest_threads</option>
-</select>
-$remember_sort
-$show_deleted
-<input name="submitsort" type="submit" value="$go" class="lqt_go_sort"/>
-</form>
-HTML
-			);
-			$this->closeDiv();
+			$sortOrderSelect =
+				new XmlSelect( 'lqt_order', 'lqt_sort_select', $this->sort_order );
+			
+			$sortOrderSelect->setAttribute( 'class', 'lqt_sort_select' );
+			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_newest_changes' ),
+											LQT_NEWEST_CHANGES );
+			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_newest_changes' ),
+											LQT_NEWEST_THREADS );
+			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_newest_changes' ),
+											LQT_OLDEST_THREADS );
+			$html .= $sortOrderSelect->getHTML();
+
+			if ( $this->user->isLoggedIn() ) {
+				$html .= Xml::element( 'br' ) .
+									Xml::checkLabel( $lqt_remember_sort, 'lqt_remember_sort',
+										'lqt_remember_sort', $remember_sort_checked );
+			}
+			
+			if ( $this->user->isAllowed( 'deletedhistory' ) ) {
+				$show_deleted_checked = $this->request->getBool( 'lqt_show_deleted_threads' );
+				
+				$html .= Xml::element( 'br' ) .
+							Xml::checkLabel( wfMsg('lqt_delete_show_checkbox' ),
+											'lqt_show_deleted_threads',
+											'lqt_show_deleted_threads',
+											$show_deleted_checked );
+			}
+			
+			$html .= Xml::submitButton( wfMsg( 'go' ), array( 'class' => 'lqt_go_sort',
+										'name' => 'submitsort' ) );
+			
+			$html = Xml::tags( 'form', array( 'action' => $form_action_url,
+												'method' => 'post',
+												'name' => 'lqt_sort' ), $html );
+			$html = Xml::tags( 'div', array( 'class' => 'lqt_view_options' ), $html );
+			
+			$this->output->addHTML( $html );
 		}
 
 	}
@@ -205,23 +230,28 @@ HTML
 	function show() {
 		global $wgHooks;
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		// Why is a hook added here?
+		// FIXME Why is a hook added here?
 		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
 
 		$this->output->setPageTitle( $this->title->getPrefixedText() );
 		self::addJSandCSS();
-		$article = new Article( $this->title ); // Added in r29715 sorting. Why?
+		$article = new Article( $this->title );
 
-		// Removed in r29715 sorting. Again, why?
 		$this->showHeader();
+		
+		$html = '';
 
-		global $wgRequest; // TODO
+		global $wgRequest;
 		if ( $this->methodApplies( 'talkpage_new_thread' ) ) {
 			$this->showNewThreadForm();
 		} else {
 			$this->showTalkpageViewOptions( $article );
-			$url = $this->talkpageUrl( $this->title, 'talkpage_new_thread' );
-			$this->output->addHTML( "<strong><a class=\"lqt_start_discussion\" href=\"$url\">" . wfMsg( 'lqt_new_thread' ) . "</a></strong>" );
+			$newThreadLink = $this->talkpageLink( $this->title,
+												wfMsgExt( 'lqt_new_thread', 'parseinline' ),
+												'talkpage_new_thread', null, true,
+												array( 'class' => 'lqt_start_discussion' ) );
+												
+			$this->output->addHTML( Xml::tags( 'strong', null, $newThreadLink ) );
 		}
 		
 		$queryType =
@@ -229,24 +259,32 @@ HTML
 			? 'fresh' : 'fresh-undeleted';
 		$threads = $this->queries->query( $queryType );
 
-		$this->openDiv( 'lqt_toc_archive_wrapper' );
-
-		$this->openDiv( 'lqt_archive_teaser_empty' );
-		$this->output->addHTML( "<div class=\"lqt_browse_archive\"><a href=\"{$this->talkpageUrl($this->title, 'talkpage_archive')}\">" .
-			wfMsg( 'lqt_browse_archive_without_recent' ) . "</a></div>" );
-		$this->closeDiv();
+		$archiveBrowseLink = $this->talkpageLink( $this->title,
+								wfMsgExt( 'lqt_browse_archive_without_recent', 'parseinline' ),
+								'talkpage_archive' );
+		$archiveBrowseLink = Xml::tags( 'div', array( 'class' => 'lqt_browse_archive' ),
+										$archiveBrowseLink );
+		$archiveBrowseLink = Xml::tags( 'div', array( 'class' => 'lqt_archive_teaser_empty' ),
+										$archiveBrowseLink );
+		
 		$recently_archived_threads = $this->queries->query( 'recently-archived' );
 		if ( count( $threads ) > 3 || count( $recently_archived_threads ) > 0 ) {
-			$this->showTOC( $threads );
+			$toc = $this->getTOC( $threads );
 		}
-		$this->showArchiveWidget( $recently_archived_threads );
-		$this->closeDiv();
-		// Clear any floats
-		$this->output->addHTML( '<br clear="all" />' );
+		$archiveWidget = $this->getArchiveWidget( $recently_archived_threads );
+
+		$html = Xml::tags( 'div', array( 'class' => 'lqt_toc_archive_wrapper' ),
+							$archiveBrowseLink . $toc .
+							$archiveWidget );
+		
+		$html .= Xml::element( 'br', array( 'style' => 'clear: both;' ) );
+		
+		$this->output->addHTML( $html );
 
 		foreach ( $threads as $t ) {
 			$this->showThread( $t );
 		}
+		
 		return false;
 	}
 }

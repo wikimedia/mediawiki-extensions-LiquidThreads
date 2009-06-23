@@ -26,15 +26,28 @@ class TalkpageHeaderView extends LqtView {
 
 		if ( $wgRequest->getVal( 'action' ) === 'edit' ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
-			$warn_bold = '<strong>' . wfMsg( 'lqt_header_warning_bold' ) . '</strong>';
-			$warn_link = '<a href="' . $this->talkpageUrl( $wgTitle, 'talkpage_new_thread' ) . '">' .
-			wfMsg( 'lqt_header_warning_new_discussion' ) . '</a>';
-			$wgOut->addHTML( '<p class="lqt_header_warning">' .
-			wfMsg( 'lqt_header_warning_before_big', $warn_bold, $warn_link ) .
-			'<big>' . wfMsg( 'lqt_header_warning_big', $warn_bold, $warn_link ) . '</big>' .
-			wfMsg( 'word-separator' ) .
-			wfMsg( 'lqt_header_warning_after_big', $warn_bold, $warn_link ) .
-			'</p>' );
+			
+			$html = '';
+			
+			$warn_bold = Xml::tags( 'strong', null,
+									wfMsgExt( 'lqt_header_warning_bold', 'parseinline' ) );
+									
+			$warn_link =
+				$this->talkpageLink( $wgTitle, wfMsgExt( 'lqt_header_warning_new_discussion',
+									'parseinline' ), 'talkpage_new_thread' );
+									
+			$html .= wfMsgExt( 'lqt_header_warning_before_big', 'parseinline',
+								array( $warn_bold, $warn_link ) );
+			$html .= Xml::tags( 'big', null,
+								wfMsgExt( 'lqt_header_warning_big', 'parseinline',
+								array( $warn_bold, $warn_link ) ) );
+			$html .= wfMsg( 'word-separator' );
+			$html .= wfMsgExt( 'lqt_header_warning_after_big', 'parseinline',
+								array( $warn_bold, $warn_link ) );
+			
+			$html = Xml::tags( 'p', array( 'class' => 'lqt_header_warning' ), $html );
+			
+			$wgOut->addHTML( $html );
 		}
 
 		return true;

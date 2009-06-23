@@ -460,3 +460,9 @@ li#ca-nstab-thread {
 .lqt_toc td {
 	border-bottom: 1px solid #aaaaaa;
 }
+
+.lqt-newmessages-left {
+	padding-right: 1em;
+	vertical-align: top;
+	padding-top: 1em;
+}

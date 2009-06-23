@@ -47,15 +47,12 @@ class NewMessages {
 
 		$dbw =& wfGetDB( DB_MASTER );
 
-		$talkpage_t = $t->article()->getTitle()->getSubjectPage();
+		$tpTitle = $t->article()->getTitle();
 		$root_t = $t->root()->getTitle();
 
-		$q_talkpage_t = $dbw->addQuotes( $talkpage_t->getDBkey() );
-		$q_root_t = $dbw->addQuotes( $root_t->getDBkey() );
-
 		// Select any applicable watchlist entries for the thread.
-		$talkpageWhere = array( 'wl_namespace' => $talkpage_t->getNamespace(),
-								'wl_title' => $talkpage_t->getDBkey() );
+		$talkpageWhere = array( 'wl_namespace' => $tpTitle->getNamespace(),
+								'wl_title' => $tpTitle->getDBkey() );
 		$rootWhere = array( 'wl_namespace' => $root_t->getNamespace(),
 								'wl_title' => $root_t->getDBkey() );
 								
@@ -64,9 +61,6 @@ class NewMessages {
 		
 		$where_clause = $dbw->makeList( array( $talkpageWhere, $rootWhere ), LIST_OR );
 
-		// it sucks to not have 'on duplicate key update'. first update users who already have a ums for this thread
-		// and who have already read it, by setting their state to unread.
-		
 		// Pull users to update the message state for, including whether or not a
 		//  user_message_state row exists for them, and whether or not to send an email
 		//  notification.
@@ -126,7 +120,6 @@ class NewMessages {
 					$notify_users[] = $user->getId();
 				}
 			}
-			
 		}
 		
 		// Do the actual updates
@@ -216,7 +209,7 @@ class NewMessages {
 		return Threads::where( array( 'ums_read_timestamp is null',
 			'ums_user' => $user->getID(),
 			'ums_thread = thread.thread_id',
-			'NOT (' . Threads::articleClause( new Article( $user->getUserPage() ) ) . ')' ),
+			'NOT (' . Threads::articleClause( new Article( $user->getTalkPage() ) ) . ')' ),
 			array(), array( 'user_message_state' ) );
 	}
 }

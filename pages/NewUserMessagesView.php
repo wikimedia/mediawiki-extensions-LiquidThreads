@@ -10,76 +10,53 @@ class NewUserMessagesView extends LqtView {
 
 	protected function htmlForReadButton( $label, $title, $class, $ids ) {
 		$ids_s = implode( ',', $ids );
-		return <<<HTML
-		<form method="POST" class="{$class}">
-		<input type="hidden" name="lqt_method" value="mark_as_read" />
-		<input type="hidden" name="lqt_operand" value="{$ids_s}" />
-		<input type="submit" value="{$label}" name="lqt_read_button" title="{$title}" />
-		</form>
-HTML;
+		$html = '';
+		$html .= Xml::hidden( 'lqt_method', 'mark_as_read' );
+		$html .= Xml::hidden( 'lqt_operand', $ids_s );
+		$html .= Xml::submitButton( $label, array( 'name' => 'lqt_read_button',
+									'title' => $title ) );
+		$html = Xml::tags( 'form', array( 'method' => 'post', 'class' => $class ), $html );
+		
+		return $html;
 	}
 
-	function showReadAllButton( $threads ) {
+	function getReadAllButton( $threads ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		$ids =  array_map( create_function( '$t', 'return $t->id();' ), $threads );
-		$this->output->addHTML(
-			$this->htmlForReadButton(
-				wfMsg( 'lqt-read-all' ),
-				wfMsg( 'lqt-read-all-tooltip' ),
-				"lqt_newmessages_read_all_button",
-				$ids )
-		);
+		$ids =  array_map( create_function( '$t', 'return $t->id();' ), $threads ); // ew
+		return $this->htmlForReadButton(
+					wfMsg( 'lqt-read-all' ),
+					wfMsg( 'lqt-read-all-tooltip' ),
+					"lqt_newmessages_read_all_button",
+					$ids
+				);
 	}
 
-	function preShowThread( $t ) {
+	function getUndoButton( $ids ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		//		$t_ids = implode(',', array_map(create_function('$t', 'return $t->id();'), $this->targets[$t->id()]));
-		$read_button = $this->htmlForReadButton(
-			wfMsg( 'lqt-read-message' ),
-			wfMsg( 'lqt-read-message-tooltip' ),
-			'lqt_newmessages_read_button',
-			$this->targets[$t->id()] );
-		$this->output->addHTML( <<<HTML
-<table ><tr>
-<td style="padding-right: 1em; vertical-align: top; padding-top: 1em;" >
-$read_button
-</td>
-<td>
-HTML
-		);
-	}
-
-	function postShowThread( $t ) {
-		$this->output->addHTML( <<<HTML
-</td>
-</tr></table>
-HTML
-		);
-	}
-
-	function showUndo( $ids ) {
-		wfLoadExtensionMessages( 'LiquidThreads' );
+		
 		if ( count( $ids ) == 1 ) {
 			$t = Threads::withId( $ids[0] );
 			if ( !$t )
 				return; // empty or just bogus operand.
-			$msg = wfMsg( 'lqt-marked-read', $t->subject()  );
+			$msg = wfMsgExt( 'lqt-marked-read', 'parseinline', array($t->subject())  );
 		} else {
 			$count = count( $ids );
-			$msg =  wfMsg( 'lqt-count-marked-read', $count );
+			$msg =  wfMsgExt( 'lqt-count-marked-read', 'parseinline', array($count) );
 		}
 		$operand = implode( ',', $ids );
-		$lqt_email_undo = wfMsg ( 'lqt-email-undo' );
-		$lqt_info_undo = wfMsg ( 'lqt-email-info-undo' );
-		$this->output->addHTML( <<<HTML
-<form method="POST" class="lqt_undo_mark_as_read">
-$msg
-<input type="hidden" name="lqt_method" value="mark_as_unread" />
-<input type="hidden" name="lqt_operand" value="{$operand}" />
-<input type="submit" value="{$lqt_email_undo}" name="lqt_read_button" title="{$lqt_info_undo}" />
-</form>
-HTML
-		);
+		
+		$html = '';
+		$html .= $msg;
+		$html .= Xml::hidden( 'lqt_method', 'mark_as_unread' );
+		$html .= Xml::hidden( 'lqt_operand', $operand );
+		$html .= Xml::submitButton( wfMsg('lqt-email-undo'), array( 'name' => 'lqt_read_button',
+					'title' => wfMsg( 'lqt-email-info-undo' ) ) );
+					
+		$html = Xml::tags( 'form',
+							array( 'method' => 'post', 'class' => 'lqt_undo_mark_as_read' ),
+							$html );
+		
+		return $html;
 	}
 
 	function postDivClass( $thread ) {
@@ -102,16 +79,15 @@ HTML
 
 		if ( $this->request->wasPosted() && $this->methodApplies( 'mark_as_unread' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand', '' ) );
+			
 			if ( $ids !== false ) {
 				foreach ( $ids as $id ) {
 					$tmp_thread = Threads::withId( $id );	if ( $tmp_thread )
-						NewMessages::markThreadAsReadByUser( $tmp_thread, $this->user );
+						NewMessages::markThreadAsUnReadByUser( $tmp_thread, $this->user );
 				}
 				$this->output->redirect( $this->title->getFullURL() );
 			}
-		}
-
-		else if ( $this->request->wasPosted() && $this->methodApplies( 'mark_as_read' ) ) {
+		} elseif ( $this->request->wasPosted() && $this->methodApplies( 'mark_as_read' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand' ) );
 			if ( $ids !== false ) {
 				foreach ( $ids as $id ) {
@@ -122,11 +98,9 @@ HTML
 				$query = 'lqt_method=undo_mark_as_read&lqt_operand=' . implode( ',', $ids );
 				$this->output->redirect( $this->title->getFullURL( $query ) );
 			}
-		}
-
-		else if ( $this->methodApplies( 'undo_mark_as_read' ) ) {
+		} elseif ( $this->methodApplies( 'undo_mark_as_read' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand', '' ) );
-			$this->showUndo( $ids );
+			$this->output->addHTML( $this->getUndoButton( $ids ) );
 		}
 	}
 
@@ -159,11 +133,34 @@ HTML
 			// each thread is going to have a different article... this is pretty ugly.
 			$this->article = $t->article();
 
-			$this->preShowThread( $t );
-			$this->showThread( $t );
-			$this->postShowThread( $t );
+			$this->showWrappedThread( $t );
 		}
 		return false;
+	}
+	
+	function showWrappedThread( $t ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+		
+		$read_button = $this->htmlForReadButton(
+			wfMsg( 'lqt-read-message' ),
+			wfMsg( 'lqt-read-message-tooltip' ),
+			'lqt_newmessages_read_button',
+			$this->targets[$t->id()] );
+		
+		// Left-hand column Ñ read button and context link to the full thread.
+		$topmostThread = $t->topmostThread();
+		$contextLink = $this->permalink( $topmostThread,
+						wfMsgExt( 'lqt-newmessages-context', 'parseinline' ) );
+		$leftColumn = Xml::tags( 'p', null, $read_button ) .
+						Xml::tags( 'p', null, $contextLink );
+		$leftColumn = Xml::tags( 'td', array( 'class' => 'mw-lqt-newmessages-left' ),
+									$leftColumn );
+		$html = "<table><tr>$leftColumn<td>";
+		$this->output->addHTML( $html );
+
+		$this->showThread( $t );
+		
+		$this->output->addHTML( "</td></tr></table>" );
 	}
 
 	function setThreads( $threads ) {

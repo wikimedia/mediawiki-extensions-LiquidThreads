@@ -28,6 +28,9 @@ class Threads {
 
 	static $cache_by_root = array();
 	static $cache_by_id = array();
+	
+	/** static cache of per-page archivestartdays setting */
+	static $archiveStartDays;
 
     static function newThread( $root, $article, $superthread = null, $type = self::TYPE_NORMAL ) {
 		// SCHEMA changes must be reflected here.
@@ -148,7 +151,6 @@ class Threads {
 			$tables = "";
 		}
 
-
 		$selection_sql = <<< SQL
 		SELECT DISTINCT thread.* FROM ($tables {$wgDBprefix}thread thread)
 		$joins
@@ -169,6 +171,8 @@ SQL;
 		} // List comprehensions, how I miss thee.
 		$ancestor_clause = join( ', ', $ancestor_conds );
 		$selection_clause = join( ', ', $selection_conds );
+		
+		// TODO uses a subquery, unsupported on Wikimedia
 
 		$children_sql = <<< SQL
 		SELECT DISTINCT thread.*, page.*,
@@ -262,30 +266,91 @@ SQL;
 	}
 
 	/**
-	* Horrible, horrible!
-	* List of months in which there are >0 threads, suitable for threadsOfArticleInMonth. */
+	  * Horrible, horrible!
+	  * List of months in which there are >0 threads, suitable for threadsOfArticleInMonth.
+	  * Returned as an array of months in the format yyyymm
+	  */
 	static function monthsWhereArticleHasThreads( $article ) {
+		// FIXME this probably performs absolutely horribly for pages with lots of threads.
+		
 		$threads = Threads::where( Threads::articleClause( $article ) );
 		$months = array();
+		
 		foreach ( $threads as $t ) {
-			$m = substr( $t->modified(), 0, 6 );
-			if ( !array_key_exists( $m, $months ) ) {
-				if ( !in_array( $m, $months ) ) $months[] = $m;
-			}
+			$month = substr( $t->modified(), 0, 6 );
+			
+			$months[$month] = true;
 		}
-		return $months;
+		
+		// Some code seems to assume that it's sorted by month, make sure it's true.
+		ksort( $months );
+		
+		return array_keys($months);
 	}
 
 	static function articleClause( $article ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		$q_article = $dbr->addQuotes( $article->getTitle()->getDBkey() );
-		return <<<SQL
-(thread.thread_article_title = $q_article
-	AND thread.thread_article_namespace = {$article->getTitle()->getNamespace()})
-SQL;
+		
+		$arr = array( 'thread_article_title' => $article->getTitle()->getDBKey(),
+						'thread_article_namespace' => $article->getTitle()->getNamespace() );
+		
+		return $dbr->makeList( $arr, LIST_AND );
 	}
 
 	static function topLevelClause() {
-		return 'thread.thread_parent is null';
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$arr = array( 'thread_ancestor=thread_id', 'thread_parent' => null );
+		
+		return $dbr->makeList( $arr, LIST_AND );
+	}
+	
+	static function getArticleArchiveStartDays( $article ) {
+		global $wgLqtThreadArchiveStartDays;
+		
+		$article = $article->getId();
+		
+		// Instance cache
+		if ( isset( self::$archiveStartDays[$article] ) ) {
+			$cacheVal = self::$archiveStartDays[$article];
+			if ( !is_null( $cacheVal ) ) {
+				return $cacheVal;
+			} else {
+				return $wgLqtThreadArchiveStartDays;
+			}
+		}
+		
+		// Memcached: It isn't clear that this is needed yet, but since I already wrote the
+		//  code, I might as well leave it commented out instead of deleting it.
+		//  Main reason I've left this commented out is because it isn't obvious how to
+		//  purge the cache when necessary.
+// 		global $wgMemc;
+// 		$key = wfMemcKey( 'lqt-archive-start-days', $article );
+// 		$cacheVal = $wgMemc->get( $key );
+// 		if ($cacheVal != false) {
+// 			if ( $cacheVal != -1 ) {
+// 				return $cacheVal;
+// 			} else {
+// 				return $wgLqtThreadArchiveStartDays;
+// 			}
+// 		}
+		
+		// Load from the database.
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$dbVal = $dbr->selectField( 'page_props', 'pp_value',
+									array( 'pp_propname' => 'lqt-archivestartdays',
+											'pp_page' => $article ), __METHOD__ );
+		
+		if ($dbVal) {
+			self::$archiveStartDays[$article] = $dbVal;
+#			$wgMemc->set( $key, $dbVal, 1800 );
+			return $dbVal;
+		} else {
+			// Negative caching.
+			self::$archiveStartDays[$article] = null;
+#			$wgMemc->set( $key, -1, 86400 );
+			return $wgLqtThreadArchiveStartDays;
+		}
 	}
 }

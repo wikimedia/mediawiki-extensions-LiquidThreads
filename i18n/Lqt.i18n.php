@@ -147,6 +147,13 @@ This operation is undoable.',
 	'lqt_rc_ellipsis'         => ' ...',
 	'lqt_rc_author_original'  => '(original author)',
 	'lqt_rc_author_others'    => '(not the author)',
+	'lqt-newmessages-context' => 'Full thread',
+	'lqt-thread-created'	  => 'Created',
+	'lqt-archive-subtitle'    => 'Discussion archive',
+	'lqt-archive-intro'		  => 'This is the discussion archive for [[$1]].',
+	'lqt-history-time'		  => 'Time',
+	'lqt-history-user' 		  => 'User',
+	'lqt-history-action'	  => 'Activity',
 	
 	// Logging
 	'lqt-log-name' => 'Threaded discussion log',

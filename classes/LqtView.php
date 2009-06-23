@@ -131,15 +131,6 @@ class LqtView {
      * (2) figuring out what page you're on and what you need to do.
 	*************************/
 
-	static function queryStringFromArray( $vars ) {
-		$q = '';
-		if ( $vars && count( $vars ) != 0 ) {
-			foreach ( $vars as $name => $value )
-				$q .= "$name=$value&";
-		}
-		return $q;
-	}
-
 	function methodAppliesToThread( $method, $thread ) {
 		return $this->request->getVal( 'lqt_method' ) == $method &&
 			$this->request->getVal( 'lqt_operand' ) == $thread->id();
@@ -148,8 +139,11 @@ class LqtView {
 		return $this->request->getVal( 'lqt_method' ) == $method;
 	}
 
-	static function permalinkUrl( $thread, $method = null, $operand = null ) {
+	static function permalinkUrl( $thread, $method = null, $operand = null,
+									$uquery = array() ) {
 		list ($title, $query) = self::permalinkData( $thread, $method, $operand );
+		
+		$query = array_merge( $query, $uquery );
 		
 		$queryString = wfArrayToCGI( $query );
 		
@@ -173,12 +167,15 @@ class LqtView {
 	/* This is used for action=history so that the history tab works, which is
 	   why we break the lqt_method paradigm. */
 	static function permalinkUrlWithQuery( $thread, $query ) {
-		if ( is_array( $query ) ) $query = self::queryStringFromArray( $query );
-		return $thread->root()->getTitle()->getFullUrl( $query );
+		if ( !is_array($query) ) {
+			$query = wfCGIToArray( $query );
+		}
+		
+		return self::permalinkUrl( $thread, null, null, $query );
 	}
 	
 	static function permalink( $thread, $text = null, $method = null, $operand = null,
-								$sk = null, $attribs = array() ) {
+								$sk = null, $attribs = array(), $uquery = array() ) {
 		if ( is_null($sk) ) {
 			global $wgUser;
 			$sk = $wgUser->getSkin();
@@ -186,27 +183,83 @@ class LqtView {
 		
 		list( $title, $query ) = self::permalinkData( $thread, $method, $operand );
 		
+		$query = array_merge( $query, $uquery );
+		
 		return $sk->link( $title, $text, $attribs, $query );
 	}
-
-	static function permalinkUrlWithDiff( $thread ) {
+	
+	static function diffQuery( $thread ) {
 		$changed_thread = $thread->changeObject();
 		$curr_rev_id = $changed_thread->rootRevision();
 		$curr_rev = Revision::newFromTitle( $changed_thread->root()->getTitle(), $curr_rev_id );
 		$prev_rev = $curr_rev->getPrevious();
 		$oldid = $prev_rev ? $prev_rev->getId() : "";
-		return self::permalinkUrlWithQuery( $changed_thread, array( 'lqt_method' => 'diff', 'diff' => $curr_rev_id, 'oldid' => $oldid ) );
+		
+		$query = array( 'lqt_method' => 'diff',
+						'diff' => $curr_rev_id,
+						'oldid' => $oldid );
+		
+		return $query;
 	}
 
-	static function talkpageUrl( $title, $method = null, $operand = null, $includeFragment = true ) {
-		global $wgRequest; // TODO global + ugly hack.
-		$query = $method ? "lqt_method=$method" : "";
-		$query = $operand ? "$query&lqt_operand={$operand->id()}" : $query;
-		$oldid = $wgRequest->getVal( 'oldid', null ); if ( $oldid !== null ) {
-			// this is an immensely ugly hack to make editing old revisions work.
-			$query = "$query&oldid=$oldid";
+	static function permalinkUrlWithDiff( $thread ) {
+		$query = self::diffQuery( $thread );
+		return $this->permalinkUrl( $thread->changeObject(), null, null, $query );
+	}
+	
+	static function diffPermalink( $thread, $text ) {
+		$query = self::diffQuery( $thread );
+		return $this->permalink( $thread, $text, null, null, null, array(), $query );
+	}
+	
+	static function talkpageLink( $title, $text = null , $method=null, $operand=null,
+									$includeFragment=true, $attribs = array() ) {
+		list( $title, $query ) = self::talkpageLinkData( $title, $method, $operand,
+									$includeFragment );
+		
+		global $wgUser;
+		$sk = $wgUser->getSkin();
+		
+		return $sk->link( $title, $text, $attribs, $query );
+	}
+	
+	static function talkpageLinkData( $title, $method = null, $operand = null,
+										$includeFragment = true ) {
+		global $wgRequest;
+		$query = array();
+		
+		if ($method) {
+			$query['lqt_method'] = $method;
 		}
-		return $title->getFullURL( $query ) . ( $operand && $includeFragment ? "#lqt_thread_{$operand->id()}" : "" );
+		
+		if ($operand) {
+			$query['lqt_operand'] = $operand->id();
+		}
+		
+		$oldid = $wgRequest->getVal( 'oldid', null );
+		
+		if ( $oldid !== null ) {
+			// this is an immensely ugly hack to make editing old revisions work.
+			$query['oldid'] = $oldid;
+		}
+		
+		// Add fragment if appropriate.
+		if ($operand && $includeFragment) {
+			$title->mFragment = 'lqt_thread_'.$operand->id();
+		}
+		
+		return array( $title, $query );
+	}
+
+	static function talkpageUrl( $title, $method = null, $operand = null,
+									$includeFragment = true ) {
+		global $wgUser;
+		$sk = $wgUser->getSkin();
+		
+		list( $title, $query ) =
+			self::talkpageLinkData( $title, $method, $operand, $includeFragment );
+		
+		return $title->getLinkUrl( $query );
 	}
 
 
@@ -215,21 +268,20 @@ class LqtView {
 	 * with the given replacements made.
      * @param $repls array( 'name'=>new_value, ... )
 	*/
-	function queryReplace( $repls ) {
-		$vs = $this->request->getValues();
-		$rs = array();
-/*		foreach ($vs as $k => $v) {
-			if ( array_key_exists( $k, $repls ) ) {
-				$rs[$k] = $repls[$k];
-			} else {
-				$rs[$k] = $vs[$k];
-			}
+	function queryReplaceLink( $repls ) {
+		$query = $this->getReplacedQuery( $repls );
+		
+		return $this->title->getFullURL( wfArrayToCGI( $vs ) );
+	}
+	
+	function getReplacedQuery( $replacements ) {
+		$values = $this->request->getValues();
+		
+		foreach ( $replacements as $k => $v ) {
+			$values[$k] = $v;
 		}
-*/
-		foreach ( $repls as $k => $v ) {
-			$vs[$k] = $v;
-		}
-		return $this->title->getFullURL( self::queryStringFromArray( $vs ) );
+		
+		return $values;
 	}
 
 	/*************************************************************
@@ -510,7 +562,8 @@ HTML;
 
 		$user_can_edit = $thread->root()->getTitle()->quickUserCan( 'edit' );
 
-		$commands[] = array( 'label' => $user_can_edit ? wfMsg( 'edit' ) : wfMsg( 'viewsource' ),
+		$commands[] = array( 'label' => $user_can_edit
+											? wfMsg( 'edit' ) : wfMsg( 'viewsource' ),
 		                     'href' => $this->talkpageUrl( $this->title, 'edit', $thread ),
 		                     'enabled' => true );
 
@@ -594,43 +647,17 @@ HTML;
 		$wgOut->addScript( $s );
 	}
 
-	/* @return False if the article and revision do not exist and we didn't show it, true if we did. */
+	/* @return False if the article and revision do not exist. The HTML of the page to
+	 * display if it exists. Note that this impacts the state out OutputPage by adding
+	 * all the other relevant parts of the parser output. If you don't want this, call
+	 * $post->getParserOutput. */
 	function showPostBody( $post, $oldid = null ) {
-		/* Why isn't this all encapsulated in Article somewhere? TODO */
-		global $wgEnableParserCache;
-
-		// Should the parser cache be used?
-		$pcache = $wgEnableParserCache &&
-		          intval( $this->user->getOption( 'stubthreshold' ) ) == 0 &&
-		          $post->exists() &&
-				  $oldid === null;
-		wfDebug( 'LqtView::showPostBody using parser cache: ' . ( $pcache ? 'yes' : 'no' ) . "\n" );
-		if ( $this->user->getOption( 'stubthreshold' ) ) {
-			wfIncrStats( 'pcache_miss_stub' );
-		}
-
-		$outputDone = false;
-		if ( $pcache ) {
-			$outputDone = $this->output->tryParserCache( $post, $this->user );
-		}
-
-		if ( !$outputDone ) {
-			// Cache miss; parse and output it.
-			$rev = Revision::newFromTitle( $post->getTitle(), $oldid );
-			if ( $rev && $oldid ) {
-				// don't save oldids in the parser cache.
-				$this->output->addWikiText( $rev->getText() );
-				return true;
-			}
-			else if ( $rev ) {
-				$post->outputWikiText( $rev->getText(), true );
-				return true;
-			} else {
-				return false;
-			}
-		} else {
-			return true;
-		}
+		global $wgOut;
+		
+		$parserOutput = $post->getParserOutput( $oldid );
+		$wgOut->addParserOutputNoText( $parserOutput );
+		
+		return $parserOutput->getText();
 	}
 
 	function colorTest() {
@@ -677,7 +704,7 @@ HTML;
 
 		$html = Xml::tags( 'ul', array( 'class' => 'lqt_footer' ), $html );
 		
-		$this->output->addHTML( $html );
+		return $html;
 	}
 
 	function listItemsForCommands( $commands ) {
@@ -709,6 +736,8 @@ HTML;
 		// or from oldid (which is a page rev). But oldid only applies to the
 		// thread being requested, not any replies.  TODO: eliminate the need
 		// for article-level histories.
+		$divClass = $this->postDivClass( $thread );
+		$html = Xml::openElement( 'div', array( 'class' => $divClass ) );
 		$page_rev = $this->request->getVal( 'oldid', null );
 		if ( $page_rev !== null && $this->title->equals( $thread->root()->getTitle() ) ) {
 			$oldid = $page_rev;
@@ -716,22 +745,30 @@ HTML;
 			$oldid = $thread->isHistorical() ? $thread->rootRevision() : null;
 		}
 
-		$this->openDiv( $this->postDivClass( $thread ) );
-
 		if ( $this->methodAppliesToThread( 'edit', $thread ) ) {
+			$this->output->addHTML( $html );
+			$html = '';
+			
+			// No way am I refactoring EditForm to send its output as HTML.
+			//  so I'm just flushing the HTML and displaying it as-is.
 			$this->showPostEditingForm( $thread );
 		} else {
-			$this->showPostBody( $post, $oldid );
-			$this->showThreadFooter( $thread );
+			$html .= $this->showPostBody( $post, $oldid );
+			$html .= $this->showThreadFooter( $thread );
 		}
 
-		$this->closeDiv();
+		// wish I didn't have to use this open/closeElement cruft.
+		$html .= Xml::closeElement( 'div' );
 
 		if ( $this->methodAppliesToThread( 'reply', $thread ) ) {
-			$this->indent( $thread );
+			// As with above, flush HTML to avoid refactoring EditPage.
+			$html .= $this->indent( $thread );
+			$this->output->addHTML( $html );
 			$this->showReplyForm( $thread );
-			$this->unindent( $thread );
+			$html = $this->unindent( $thread );
 		}
+		
+		$this->output->addHTML( $html );
 
 		$popts->setEditSection( $previous_editsection );
 		$this->output->parserOptions( $popts );
@@ -753,8 +790,10 @@ HTML;
 			$html = Xml::tags( 'h'.$this->headerLevel, array( 'class' => 'lqt_header' ),
 								$html ) . $commands_html;
 			
-			$this->output->addHTML( $html );
+			return $html;
 		}
+		
+		return '';
 	}
 
 	function postDivClass( $thread ) {
@@ -766,130 +805,169 @@ HTML;
 	}
 
 	function showThread( $thread ) {
-		global $wgLang; # TODO global.
+		global $wgLang;
+		
+		$sk = $this->user->getSkin();
+		
+		$html = '';
 
 		// Safeguard
 		if ( $thread->type() == Threads::TYPE_DELETED
-			&& ! $this->request->getBool( 'lqt_show_deleted_threads' ) )
-				return;
+			&& ! ($this->request->getBool( 'lqt_show_deleted_threads' )
+				&& $this->user->isAllowed( 'deletedhistory' ) ) ) {
+			return;
+		}
 
 		if ( $this->lastUnindentedSuperthread ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			$tmp = $this->lastUnindentedSuperthread;
-			$msg = wfMsg( 'lqt_in_response_to',
-				'<a href="#lqt_thread_' . $tmp->id() . '">' . $tmp->title()->getText() . '</a>',
-				$tmp->root()->originalAuthor()->getName() );
-			$this->output->addHTML( '<span class="lqt_nonindent_message">&larr;' . $msg . '</span>' );
+			$replyLink = Xml::tags( 'a', array( 'href' => '#'.$this->anchorName( $tmp ) ),
+									$tmp->subject() );
+			$msg = wfMsgExt( 'lqt_in_response_to', array( 'parseinline', 'replaceafter' ),
+				array( $replyLink, $tmp->root()->originalAuthor()->getName() ) );
+				
+			$html .= Xml::tags( 'span', array( 'class' => 'lqt_nonindent_message' ),
+								"&larr; $msg" );
 		}
 
 
-		$this->showThreadHeading( $thread );
+		$html .= $this->showThreadHeading( $thread );
 
-		$this->output->addHTML( "<a name=\"{$this->anchorName($thread)}\" ></a>" );
+		$html .= Xml::element( 'a', array( 'name' => $this->anchorName($thread) ), ' ' );
 
 		if ( $thread->type() == Threads::TYPE_MOVED ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
+			
 			$revision = Revision::newFromTitle( $thread->title() );
 			$target = Title::newFromRedirect( $revision->getText() );
 			$t_thread = Threads::withRoot( new Article( $target ) );
 			$author = $thread->root()->originalAuthor();
-			$sig = $this->user->getSkin()->userLink( $author->getID(), $author->getName() ) .
-				   $this->user->getSkin()->userToolLinks( $author->getID(), $author->getName() );
-			$this->output->addHTML( wfMsg( 'lqt_move_placeholder',
-				'<a href="' . $target->getFullURL() . '">' . $target->getText() . '</a>',
-				$sig,
-				$wgLang->date( $thread->modified() ),
-				$wgLang->time( $thread->modified() )
-				) );
-			return;
+			$sig = $sk->userLink( $author->getID(), $author->getName() ) .
+				   $sk->userToolLinks( $author->getID(), $author->getName() );
+				   
+			$html .=
+				wfMsgExt( 'lqt_move_placeholder', array( 'parseinline', 'replaceafter' ),
+					$sk->link( $target ),
+					$sig,
+					$wgLang->date( $thread->modified() ),
+					$wgLang->time( $thread->modified() )
+				);
+			return $html;
 		}
 
 		if ( $thread->type() == Threads::TYPE_DELETED ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			if ( in_array( 'deletedhistory',  $this->user->getRights() ) ) {
-				$this->output->addHTML( '<p>' . wfMsg( 'lqt_thread_deleted_for_sysops' ) . '</p>' );
+				$html .= wfMsgExt( 'lqt_thread_deleted_for_sysops', 'parse' );
 			}
 			else {
-				$this->output->addHTML( '<p><em>' . wfMsg( 'lqt_thread_deleted' ) . '</em></p>' );
-				return;
+				$msg = wfMsgExt( 'lqt_thread_deleted', 'parseinline' );
+				$msg = Xml::tags( 'em', null, $msg );
+				$msg = Xml::tags( 'p', null, $msg );
+				$html .= $msg;
+				return $html;
 			}
 		}
 		if ( $thread->summary() ) {
-			$this->showSummary( $thread );
+			$html .= $this->showPostBody( $thread->summary() );
 		} elseif( $thread->isArchiveEligible() )
 		{
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			
 			$permalink_text = wfMsgNoTrans( 'lqt_summary_notice_link' );
 			$permalink = $this->permalink( $thread, $permalink_text );
-			$html = wfMsgExt( 'lqt_summary_notice', array('parseinline', 'replaceafter'),
+			$msg = wfMsgExt( 'lqt_summary_notice', array('parseinline', 'replaceafter'),
 								array( $permalink, $thread->getArchiveStartDays() ) );
-			$html = Xml::tags( 'p', array( 'class' => 'lqt_summary_notice' ), $html );
+			$msg = Xml::tags( 'p', array( 'class' => 'lqt_summary_notice' ), $msg );
 			
-			$this->output->addHTML( $html );
+			$html .= $msg;
 		}
 
-		$this->openDiv( 'lqt_thread', "lqt_thread_id_{$thread->id()}" );
+		// Sigh.
+		$html .= Xml::openElement( 'div', array( 'class' => 'lqt_thread',
+									'id' => 'lqt_thread_id_'. $thread->id() ) );
+									
+		// Unfortunately, I can't rewrite showRootPost() to pass back HTML
+		//  as it would involve rewriting EditPage, which I do NOT intend to do.
 
+		$this->output->addHTML( $html );
+		
 		$this->showRootPost( $thread );
 
-		if ( $thread->hasSubthreads() ) $this->indent( $thread );
-		foreach ( $thread->subthreads() as $st ) {
-			$this->showThread( $st );
+		if ( $thread->hasSubthreads() ) {
+			$this->output->addHTML( $this->indent( $thread ) );
+		
+			foreach ( $thread->subthreads() as $st ) {
+				$this->showThread( $st );
+			}
+		
+			$this->output->addHTML( $this->unindent( $thread ) );
 		}
-		if ( $thread->hasSubthreads() ) $this->unindent( $thread );
 
-		$this->closeDiv();
+		$this->output->addHTML( Xml::closeElement( 'div' ) );
 	}
 
+	// FIXME does indentation need rethinking?
 	function indent( $thread ) {
+		$result = '';
 		if ( $this->headerLevel <= $this->maxIndentationLevel ) {
-			$this->output->addHTML( '<dl class="lqt_replies"><dd>' );
+			$result = '<dl class="lqt_replies"><dd>';
 		} else {
-			$this->output->addHTML( '<div class="lqt_replies_without_indent">' );
+			$result = '<div class="lqt_replies_without_indent">';
 		}
 		$this->lastUnindentedSuperthread = null;
 		$this->headerLevel += 1;
+		
+		return $result;
 	}
+	
 	function unindent( $thread ) {
+		$result = '';
 		if ( $this->headerLevel <= $this->maxIndentationLevel + 1 ) {
-			$this->output->addHTML( '</dd></dl>' );
+			$result = '</dd></dl>';
 		} else {
-			$this->output->addHTML( '</div>' );
+			$result = '</div>';
 		}
 		// See the beginning of showThread().
 		$this->lastUnindentedSuperthread = $thread->superthread();
 		$this->headerLevel -= 1;
+		
+		return $result;
 	}
 
-	function openDiv( $class = '', $id = '' ) {
-		$this->output->addHTML( Xml::openElement( 'div', array( 'class' => $class, 'id' => $id ) ) );
-	}
-
-	function closeDiv() {
-		$this->output->addHTML( Xml::closeElement( 'div' ) );
-	}
-
-	function showSummary( $t ) {
+	function getSummary( $t ) {
 		if ( !$t->summary() ) return;
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		$label = wfMsg( 'lqt_summary_label' );
-		$edit = strtolower( wfMsg( 'edit' ) );
-		$link = strtolower( wfMsg( 'lqt_permalink' ) );
-		$this->output->addHTML( <<<HTML
-			<div class='lqt_thread_permalink_summary'>
-			<span class="lqt_thread_permalink_summary_title">
-			$label
-			</span><span class="lqt_thread_permalink_summary_edit">
-			[<a href="{$t->summary()->getTitle()->getFullURL()}">$link</a>]
-			[<a href="{$this->permalinkUrl($t,'summarize')}">$edit</a>]
-			</span>
-HTML
-		);
-		$this->openDiv( 'lqt_thread_permalink_summary_body' );
-		$this->showPostBody( $t->summary() );
-		$this->closeDiv();
-		$this->closeDiv();
+		global $wgUser;
+		$sk = $wgUser->getSkin();
+		
+		$label = wfMsgExt( 'lqt_summary_label', 'parseinline' );
+		$edit_text = wfMsgExt( 'edit', 'parseinline' );
+		$link_text = wfMsg( 'lqt_permalink', 'parseinline' );
+		
+		$html = '';
+		
+		$html .= Xml::tags( 'span',
+							array( 'class' => 'lqt_thread_permalink_summary_title' ),
+							$label );
+		
+		$link = $sk->link( $t->summary()->getTitle(), $link_text );
+		$edit_link = $this->permalink( $t, $edit_text, 'summarize' );
+		$links = "[$link]\n[$edit_link]";
+		$html .= Xml::tags( 'span', array( 'class' => 'lqt_thread_permalink_summary_edit' ),
+							$links );
+							
+		$summary_body = $this->showPostBody( $t->summary() );
+		$html .= Xml::tags( 'div', array( 'class' => 'lqt_thread_permalink_summary_body' ),
+							$summary_body );
+		
+		$html = Xml::tags( 'div', array( 'class' => 'lqt_thread_permalink_summary' ), $html );
+		
+		return $html;
+	}
+	
+	function showSummary( $t ) {
+		$this->output->addHTML( $this->getSummary( $t ) );
 	}
 
 }
