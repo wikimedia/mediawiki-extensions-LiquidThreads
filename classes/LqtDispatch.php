@@ -29,7 +29,7 @@ class LqtDispatch {
 		   in the database. Drop everything and behave like a normal page if those
 		   actions come up, to avoid hacking the various history, editing, etc. code. */
 		$action =  $request->getVal( 'action' );
-		$header_actions = array( 'history', 'edit', 'submit' );
+		$header_actions = array( 'history', 'edit', 'submit', 'delete' );
 		global $wgRequest;
 		if ( $request->getVal( 'lqt_method', null ) === null &&
 				( in_array( $action, $header_actions ) ||
