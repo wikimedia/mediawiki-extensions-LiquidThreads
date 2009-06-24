@@ -1006,13 +1006,9 @@ HTML;
 		$this->showSingleThread( $thread );
 
 		if ( $thread->hasSubthreads() ) {
-			$this->output->addHTML( $this->indent( $thread ) );
-		
 			foreach ( $thread->subthreads() as $st ) {
 				$this->showThread( $st );
 			}
-		
-			$this->output->addHTML( $this->unindent( $thread ) );
 		}
 
 		$this->output->addHTML( Xml::closeElement( 'div' ) );

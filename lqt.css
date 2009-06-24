@@ -264,7 +264,6 @@ The archive page.
 }
 
 .lqt_post {
-	margin-bottom:  2em;
 	padding:        0;
 	padding-bottom: 0.5em;
 	clear:          both;
@@ -464,6 +463,7 @@ li#ca-nstab-thread {
 	border-bottom: 1px solid #aaaaaa;
 	clear: both;
 	line-height: 2em;
+	background-color: #eeeeee;
 }
 
 .lqt-thread-header-info > span {
@@ -551,4 +551,11 @@ li.lqt-command-reply {
 	display: inline-block;
 	vertical-align: middle;
 	padding-bottom: 0.5em;
+}
+
+.lqt_thread {
+	border: 1px solid #cccccc;
+	padding: 0.2em;
+	margin: 0.3em;
+	margin-left: 2em;
 }
