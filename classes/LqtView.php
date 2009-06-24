@@ -962,7 +962,7 @@ HTML;
 		}
 		
 		if ( $thread->summary() ) {
-			$html .= $this->showPostBody( $thread->summary() );
+			$html .= $this->getSummary( $thread );
 		} elseif ( $thread->isArchiveEligible() ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			
