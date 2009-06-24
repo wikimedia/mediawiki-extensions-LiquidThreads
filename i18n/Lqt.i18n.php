@@ -154,6 +154,9 @@ This operation is undoable.',
 	'lqt-history-time'		  => 'Time',
 	'lqt-history-user' 		  => 'User',
 	'lqt-history-action'	  => 'Activity',
+	'lqt-thread-edited-author'=> 'Edited by author',
+	'lqt-thread-edited-others'=> 'Edited by other users',
+	'lqt-header-actions' 	  => 'Actions',
 	
 	// Logging
 	'lqt-log-name' => 'Threaded discussion log',

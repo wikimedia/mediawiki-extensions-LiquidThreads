@@ -269,7 +269,7 @@ class TalkpageView extends LqtView {
 		$recently_archived_threads = $this->queries->query( 'recently-archived' );
 		
 		$toc = '';
-		if ( count( $threads ) > 3 || count( $recently_archived_threads ) > 0 ) {
+		if ( count( $threads ) > 1 || count( $recently_archived_threads ) > 0 ) {
 			$toc = $this->getTOC( $threads );
 		}
 		

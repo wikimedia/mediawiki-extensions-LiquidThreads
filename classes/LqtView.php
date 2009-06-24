@@ -548,45 +548,59 @@ HTML;
 	/**
 	* Example return value:
 	*   array (
-	*       0 => array( 'label'   => 'Edit',
+	*       edit => array( 'label'   => 'Edit',
 	*                   'href'    => 'http...',
 	*                   'enabled' => false ),
-	*       1 => array( 'label'   => 'Reply',
+	*       reply => array( 'label'   => 'Reply',
 	*                   'href'    => 'http...',
 	*                   'enabled' => true )
 	*   )
 	*/
-	function threadFooterCommands( $thread ) {
+	function threadCommands( $thread ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$commands = array();
 
 		$user_can_edit = $thread->root()->getTitle()->quickUserCan( 'edit' );
+		$editMsg = $user_can_edit ? 'edit' : 'viewsource';
 
-		$commands[] = array( 'label' => $user_can_edit
-											? wfMsg( 'edit' ) : wfMsg( 'viewsource' ),
+		$commands['edit'] = array( 'label' => wfMsgExt( $editMsg, 'parseinline' ),
 		                     'href' => $this->talkpageUrl( $this->title, 'edit', $thread ),
 		                     'enabled' => true );
 
-		$commands[] = array( 'label' => wfMsg( 'history_short' ),
-							 'href' =>  self::permalinkUrlWithQuery( $thread, 'action=history' ),
+		$history_url = self::permalinkUrlWithQuery( $thread, array( 'action' => 'history' ) );
+		$commands['history'] = array( 'label' => wfMsgExt( 'history_short', 'parseinline' ),
+							 'href' => $history_url,
 							 'enabled' => true );
 
-		$commands[] = array( 'label' => wfMsg( 'lqt_permalink' ),
+		$commands['permalink'] = array( 'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
 							 'href' =>  self::permalinkUrl( $thread ),
 							 'enabled' => true );
 
-		if ( in_array( 'delete',  $this->user->getRights() ) ) {
-			$delete_url = SpecialPage::getTitleFor( 'DeleteThread' )->getFullURL()
-				. '/' . $thread->title()->getPrefixedURL();
-			$commands[] = array( 'label' => $thread->type() == Threads::TYPE_DELETED ? wfMsg( 'lqt_undelete' ) : wfMsg( 'delete' ),
-								 'href' =>  $delete_url,
+		if ( $this->user->isAllowed( 'delete' ) ) {
+			$threadText = $thread->title()->getPrefixedText();
+			$deleteTitle = SpecialPage::getTitleFor( 'DeleteThread', $threadText );
+			$delete_url = $deleteTitle->getFullURL();
+			$deleteMsg = $thread->type() == Threads::TYPE_DELETED ? 'lqt_undelete' : 'delete';
+				
+			$commands['delete'] = array( 'label' => wfMsgExt( $deleteMsg, 'parseinline' ),
+								 'href' => $delete_url,
 								 'enabled' => true );
 		}
 
-		$commands[] = array( 'label' => '<b class="lqt_reply_link">' . wfMsg( 'lqt_reply' ) . '</b>',
+		return $commands;
+	}
+	
+	// Commands for the bottom.
+	function threadFooterCommands( $thread ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+		
+		$commands = array();
+		
+		$commands['reply'] = array( 'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
 							 'href' =>  $this->talkpageUrl( $this->title, 'reply', $thread ),
-							 'enabled' => $user_can_edit );
-
+							 'enabled' => true,
+							 'icon' => 'reply.png');
+		
 		return $commands;
 	}
 
@@ -594,23 +608,23 @@ HTML;
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$commands = array();
 
-		$commands[] = array( 'label' => wfMsg( 'history_short' ),
+		$commands['history'] = array( 'label' => wfMsg( 'history_short' ),
 		                     'href' => self::permalinkUrl( $thread, 'thread_history' ),
 		                     'enabled' => true );
 
 		if ( in_array( 'move', $this->user->getRights() ) ) {
 			$move_href = SpecialPage::getTitleFor( 'MoveThread' )->getFullURL()
 				. '/' . $thread->title()->getPrefixedURL();
-			$commands[] = array( 'label' => wfMsg( 'move' ),
+			$commands['move'] = array( 'label' => wfMsg( 'move' ),
 			                     'href' => $move_href,
 			                     'enabled' => true );
 		}
 		if ( !$this->user->isAnon() && !$thread->title()->userIsWatching() ) {
-			$commands[] = array( 'label' => wfMsg( 'watch' ),
+			$commands['watch'] = array( 'label' => wfMsg( 'watch' ),
 			                     'href' => self::permalinkUrlWithQuery( $thread, 'action=watch' ),
 			                     'enabled' => true );
 		} else if ( !$this->user->isAnon() ) {
-			$commands[] = array( 'label' => wfMsg( 'unwatch' ),
+			$commands['unwatch'] = array( 'label' => wfMsg( 'unwatch' ),
                                  'href' => self::permalinkUrlWithQuery( $thread, 'action=unwatch' ),
 			                     'enabled' => true );
 		}
@@ -620,7 +634,7 @@ HTML;
 								$thread->title()->getPrefixedText() );
 			$delete_href = $delete_title->getFullURL();
 			
-			$commands[] = array( 'label' => wfMsg( 'delete' ),
+			$commands['delete'] = array( 'label' => wfMsg( 'delete' ),
 									'href' => $delete_href,
 									'enabled' => true );
 		}
@@ -667,34 +681,70 @@ HTML;
 		}
 		$this->output->addHTML( '</li></div>' );
 	}
+	
+	function showThreadHeader( $thread ) {
+		global $wgLang;
+		
+		$sk = $this->user->getSkin();
+		$html = '';
+		
+		$infoElements = array();
+		
+		// Author name.
+		$author = $thread->root()->originalAuthor();
+		$signature = $sk->userLink( $author->getId(), $author->getName() );
+		$signature = Xml::tags( 'span', array( 'class' => 'lqt-thread-header-author' ),
+								$signature );
+		$signature .= $sk->userToolLinks( $author->getId(), $author->getName() );
+		$infoElements[] = Xml::tags( 'span', array( 'class' => 'lqt-thread-header-signature' ),
+								$signature );
+		
+		$timestamp = $wgLang->timeanddate( $thread->created(), true );
+		$infoElements[] = Xml::element( 'span', array( 'class' => 'lqt-thread-header-timestamp' ),
+									$timestamp );
+									
+		// Check for edited flag.
+		$editedFlag = $thread->editedness();		
+		$ebLookup = array( Threads::EDITED_BY_AUTHOR => 'author',
+							Threads::EDITED_BY_OTHERS => 'others' );
+		if ( isset( $ebLookup[$editedFlag] ) ) {
+
+			$editedBy = $ebLookup[$editedFlag];
+			$editedNotice = wfMsgExt( 'lqt-thread-edited-'.$editedBy, 'parseinline' );
+			$infoElements[] = Xml::element( 'span', array( 'class' =>
+											'lqt-thread-header-edited-'.$editedBy ),
+											$editedNotice );
+		}
+		
+		$html .= Xml::tags( 'span', array( 'class' => 'lqt-thread-header-info' ),
+							$wgLang->pipeList( $infoElements ) );
+							
+		/// RHS Ñ actions. Show as a drop-down
+		$commands = $this->threadCommands( $thread );
+		$commandHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-header-command-list' ),
+									$this->listItemsForCommands( $commands ) );
+
+		$triggerText =	wfMsgExt( 'lqt-header-actions', 'parseinline' ) .
+						Xml::tags( 'span', array('class' => 'lqt-thread-actions-icon'),
+										'&nbsp;');
+		$dropDownTrigger = Xml::tags( 	'span',
+										array( 'class' => 'lqt-thread-actions-trigger' ),
+										$triggerText );
+		$dropDown = Xml::tags( 'div',
+								array( 'class' => 'lqt-thread-header-commands' ),
+								$dropDownTrigger . $commandHTML );
+		$html .= $dropDown;
+							
+		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-header' ), $html );
+		
+		$this->output->addHTML( $html );
+	}
 
 	function showThreadFooter( $thread ) {
 		global $wgLang, $wgUser;
 		
 		$sk = $wgUser->getSkin();
 		$html = '';
-
-		// Author signature.
-		$author = $thread->root()->originalAuthor();
-		$sig = $this->user->getSkin()->userLink( $author->getID(), $author->getName() ) .
-			   $this->user->getSkin()->userToolLinks( $author->getID(), $author->getName() );
-		$html .= Xml::tags( 'li', array( 'class' => 'lqt_author_sig' ), $sig );
-
-		// Edited flag
-		if ( $thread->editedness() == Threads::EDITED_BY_AUTHOR || $thread->editedness() == Threads::EDITED_BY_OTHERS ) {
-			wfLoadExtensionMessages( 'LiquidThreads' );
-			list($edited_title) = self::permalinkData( $thread );
-			$edited_text = wfMsgExt( 'lqt_edited_notice', 'parseinline' );
-			$edited_link = $sk->link( $edited_title, $edited_text,
-										array( 'class' => 'lqt_edited_notice'),
-										array( 'action' => 'history' ) );
-										
-			$html .= Xml::tags( 'li', array( 'class' => 'lqt_edited_notice' ), $edited_link );
-		}
-		
-		// Timestamp
-		$timestamp = $wgLang->timeanddate( $thread->created(), true );
-		$html .= Xml::element( 'li', null, $timestamp );		
 
 		// Footer commands
 		$footerCommands =
@@ -709,35 +759,57 @@ HTML;
 
 	function listItemsForCommands( $commands ) {
 		$result = array();
-		foreach ( $commands as $command ) {
+		foreach ( $commands as $key => $command ) {
 			$label = $command['label'];
 			$href = $command['href'];
 			$enabled = $command['enabled'];
+			
+			if ( isset( $command['icon'] ) ) {
+				global $wgScriptPath;
+				$src = $wgScriptPath . '/extensions/LiquidThreads/icons/'.$command['icon'];
+				$icon = Xml::element( 'img', array( 'src' => $src,
+													'alt' => $label,
+													'class' => 'lqt-command-icon' ) );
+				$label = $icon.'&nbsp;'.$label;
+			}
+			
+			$thisCommand = '';
 
 			if ( $enabled ) {
-				$result[] = "<li><a href=\"$href\">$label</a></li>";
+				$thisCommand = Xml::tags( 'a', array( 'href' => $href ), $label );
 			} else {
-				$result[] = "<li><span class=\"lqt_command_disabled\">$label</span></li>";
+				$thisCommand = Xml::tags( 'span', array( 'class' => 'lqt_command_disabled' ),
+											$label );
 			}
+			
+			$thisCommand = Xml::tags( 	'li',
+										array( 'class' => 'lqt-command lqt-command-'.$key ),
+										$thisCommand );
+			
+			$result[] = $thisCommand;
 		}
-		return join( "", $result );
+		return join( ' ', $result );
 	}
 
-	function showRootPost( $thread ) {
+	/** Shows a normal (i.e. not deleted or moved) thread body */
+	function showThreadBody( $thread ) {
+	
+		// Remove 'editsection', it won't work.
 		$popts = $this->output->parserOptions();
 		$previous_editsection = $popts->getEditSection();
 		$popts->setEditSection( false );
 		$this->output->parserOptions( $popts );
 
 		$post = $thread->root();
+		
+		$divClass = $this->postDivClass( $thread );
+		$html = Xml::openElement( 'div', array( 'class' => $divClass ) );
 
 		// This is a bit of a hack to have individual histories work.
 		// We can grab oldid either from lqt_oldid (which is a thread rev),
 		// or from oldid (which is a page rev). But oldid only applies to the
 		// thread being requested, not any replies.  TODO: eliminate the need
 		// for article-level histories.
-		$divClass = $this->postDivClass( $thread );
-		$html = Xml::openElement( 'div', array( 'class' => $divClass ) );
 		$page_rev = $this->request->getVal( 'oldid', null );
 		if ( $page_rev !== null && $this->title->equals( $thread->root()->getTitle() ) ) {
 			$oldid = $page_rev;
@@ -745,6 +817,7 @@ HTML;
 			$oldid = $thread->isHistorical() ? $thread->rootRevision() : null;
 		}
 
+		// If we're editing the thread, show the editing form.
 		if ( $this->methodAppliesToThread( 'edit', $thread ) ) {
 			$this->output->addHTML( $html );
 			$html = '';
@@ -753,13 +826,17 @@ HTML;
 			//  so I'm just flushing the HTML and displaying it as-is.
 			$this->showPostEditingForm( $thread );
 		} else {
+			$html .= $this->showThreadHeader( $thread );
+			$html .= $this->getReplyContext( $thread );
 			$html .= $this->showPostBody( $post, $oldid );
 			$html .= $this->showThreadFooter( $thread );
 		}
 
 		// wish I didn't have to use this open/closeElement cruft.
 		$html .= Xml::closeElement( 'div' );
-
+		
+		
+		// If we're replying to this thread, show the reply form after it.
 		if ( $this->methodAppliesToThread( 'reply', $thread ) ) {
 			// As with above, flush HTML to avoid refactoring EditPage.
 			$html .= $this->indent( $thread );
@@ -774,6 +851,8 @@ HTML;
 		$this->output->parserOptions( $popts );
 	}
 
+	/** Shows the headING for a thread (as opposed to the headeER for a post within
+		a thread). */
 	function showThreadHeading( $thread ) {
 		if ( $thread->hasDistinctSubject() ) {
 			if ( $thread->hasSuperthread() ) {
@@ -803,21 +882,9 @@ HTML;
 	static function anchorName( $thread ) {
 		return "lqt_thread_{$thread->id()}";
 	}
-
-	function showThread( $thread ) {
-		global $wgLang;
-		
-		$sk = $this->user->getSkin();
-		
-		$html = '';
-
-		// Safeguard
-		if ( $thread->type() == Threads::TYPE_DELETED
-			&& ! ($this->request->getBool( 'lqt_show_deleted_threads' )
-				&& $this->user->isAllowed( 'deletedhistory' ) ) ) {
-			return;
-		}
-
+	
+	// Gets HTML for the 'in reply to' thing if warranted.
+	function getReplyContext( $thread ) {
 		if ( $this->lastUnindentedSuperthread ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			$tmp = $this->lastUnindentedSuperthread;
@@ -826,52 +893,72 @@ HTML;
 			$msg = wfMsgExt( 'lqt_in_response_to', array( 'parseinline', 'replaceafter' ),
 				array( $replyLink, $tmp->root()->originalAuthor()->getName() ) );
 				
-			$html .= Xml::tags( 'span', array( 'class' => 'lqt_nonindent_message' ),
+			return Xml::tags( 'span', array( 'class' => 'lqt_nonindent_message' ),
 								"&larr; $msg" );
 		}
+		
+		return '';
+	}
+	
+	// Display a moved thread
+	function showMovedThread( $thread ) {
+		global $wgLang;
+	
+		// Grab target thread
+		$article = new Article( $thread->title() );
+		$target = Title::newFromRedirect( $article->getText() );
+		$t_thread = Threads::withRoot( new Article( $target ) );
+		
+		// Grab data about the new post.
+		$author = $thread->root()->originalAuthor();
+		$sig = $sk->userLink( $author->getID(), $author->getName() ) .
+			   $sk->userToolLinks( $author->getID(), $author->getName() );
+			   
+		$html =
+			wfMsgExt( 'lqt_move_placeholder', array( 'parseinline', 'replaceafter' ),
+				$sk->link( $target ),
+				$sig,
+				$wgLang->date( $thread->modified() ),
+				$wgLang->time( $thread->modified() )
+			);
+		
+		$this->output->addHTML( $html );
+	}
+	
+	/** Shows a deleted thread. Returns true to show the thread body */
+	function showDeletedThread( $thread ) {
+		if ( $this->user->isAllowed( 'deletedhistory' ) ) {
+			$this->output->addWikiMsg( 'lqt_thread_deleted_for_sysops' );
+			return true;
+		} else {
+			$msg = wfMsgExt( 'lqt_thread_deleted', 'parseinline' );
+			$msg = Xml::tags( 'em', null, $msg );
+			$msg = Xml::tags( 'p', null, $msg );
 
-
-		$html .= $this->showThreadHeading( $thread );
-
-		$html .= Xml::element( 'a', array( 'name' => $this->anchorName($thread) ), ' ' );
-
+			$this->output->addHTML( $msg );
+			return false;
+		}
+	}
+	
+	// Shows a single thread, rather than a thread tree.
+	function showSingleThread( $thread ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+		
+		$html = '';
+	
+		// If it's a 'moved' thread, show the placeholder
 		if ( $thread->type() == Threads::TYPE_MOVED ) {
-			wfLoadExtensionMessages( 'LiquidThreads' );
+			$this->showMovedThread( $thread );
+			return;
+		} elseif ( $thread->type() == Threads::TYPE_DELETED ) {
+			$res = $this->showDeletedThread( $thread );
 			
-			$revision = Revision::newFromTitle( $thread->title() );
-			$target = Title::newFromRedirect( $revision->getText() );
-			$t_thread = Threads::withRoot( new Article( $target ) );
-			$author = $thread->root()->originalAuthor();
-			$sig = $sk->userLink( $author->getID(), $author->getName() ) .
-				   $sk->userToolLinks( $author->getID(), $author->getName() );
-				   
-			$html .=
-				wfMsgExt( 'lqt_move_placeholder', array( 'parseinline', 'replaceafter' ),
-					$sk->link( $target ),
-					$sig,
-					$wgLang->date( $thread->modified() ),
-					$wgLang->time( $thread->modified() )
-				);
-			return $html;
+			if (!$res) return;
 		}
-
-		if ( $thread->type() == Threads::TYPE_DELETED ) {
-			wfLoadExtensionMessages( 'LiquidThreads' );
-			if ( in_array( 'deletedhistory',  $this->user->getRights() ) ) {
-				$html .= wfMsgExt( 'lqt_thread_deleted_for_sysops', 'parse' );
-			}
-			else {
-				$msg = wfMsgExt( 'lqt_thread_deleted', 'parseinline' );
-				$msg = Xml::tags( 'em', null, $msg );
-				$msg = Xml::tags( 'p', null, $msg );
-				$html .= $msg;
-				return $html;
-			}
-		}
+		
 		if ( $thread->summary() ) {
 			$html .= $this->showPostBody( $thread->summary() );
-		} elseif( $thread->isArchiveEligible() )
-		{
+		} elseif ( $thread->isArchiveEligible() ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			
 			$permalink_text = wfMsgNoTrans( 'lqt_summary_notice_link' );
@@ -882,17 +969,41 @@ HTML;
 			
 			$html .= $msg;
 		}
-
-		// Sigh.
-		$html .= Xml::openElement( 'div', array( 'class' => 'lqt_thread',
-									'id' => 'lqt_thread_id_'. $thread->id() ) );
-									
+		
 		// Unfortunately, I can't rewrite showRootPost() to pass back HTML
 		//  as it would involve rewriting EditPage, which I do NOT intend to do.
 
 		$this->output->addHTML( $html );
 		
-		$this->showRootPost( $thread );
+		$this->showThreadBody( $thread );
+	
+	}
+
+	function showThread( $thread ) {
+		global $wgLang;
+		
+		// Safeguard
+		if ( $thread->type() == Threads::TYPE_DELETED
+			&& ! ($this->request->getBool( 'lqt_show_deleted_threads' )
+				&& $this->user->isAllowed( 'deletedhistory' ) ) ) {
+			return;
+		}
+		
+		$sk = $this->user->getSkin();
+		
+		$html = '';
+
+		$html .= Xml::element( 'a', array( 'name' => $this->anchorName($thread) ), ' ' );
+		$html .= $this->showThreadHeading( $thread );
+		
+		// Sigh.
+		$html .= Xml::openElement( 'div', array( 'class' => 'lqt_thread',
+									'id' => 'lqt_thread_id_'. $thread->id() ) );
+
+		// Flush output to display thread
+		$this->output->addHTML( $html );
+		
+		$this->showSingleThread( $thread );
 
 		if ( $thread->hasSubthreads() ) {
 			$this->output->addHTML( $this->indent( $thread ) );

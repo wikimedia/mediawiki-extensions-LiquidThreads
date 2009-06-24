@@ -310,7 +310,6 @@ The archive page.
 
 .lqt_footer {
 	margin:         0;
-	font-size:      smaller;
 	color:          #777;
 	padding-top:    0;
 	padding-bottom: 0;
@@ -322,12 +321,6 @@ The archive page.
 .lqt_footer li {
 	display:         inline;
 	list-style-type: none;
-	padding-right:   0.6em;
-	margin-top:      0;
-	margin-bottom:   0;
-
-	background-color: #efefef;
-	border-bottom:    solid 1px #ddd;
 }
 
 /* This doesn't work in IE, so we need to replace it. What we want is
@@ -465,4 +458,97 @@ li#ca-nstab-thread {
 	padding-right: 1em;
 	vertical-align: top;
 	padding-top: 1em;
+}
+
+.lqt-thread-header {
+	border-bottom: 1px solid #aaaaaa;
+	clear: both;
+	line-height: 2em;
+}
+
+.lqt-thread-header-info > span {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.lqt-thread-header-author {
+	font-weight: bold;
+}
+
+.lqt-thread-header-edited-author {
+	font-weight: bold;
+}
+
+.lqt-thread-header-edited-others {
+	font-weight: bold;
+	color: #880000;
+}
+
+.lqt-command-icon {
+	width: 1.5em;
+	height: 1.5em;
+}
+
+li.lqt-command-reply {
+	text-align: right;
+}
+
+.lqt-thread-header-commands {
+	float: right;
+	font-size: 85%;
+	margin: 0;
+	margin-right: 2em;
+}
+
+.lqt-thread-header-commands:hover {
+	background-color: #eeeeee;
+}
+
+.lqt-thread-actions-trigger {
+	padding: 0.5em;
+}
+
+.lqt-thread-header-commands:hover .lqt-thread-actions-trigger {
+	border: 1px solid #aaaaaa;
+	border-bottom: none;
+}
+
+.lqt-thread-header-commands ul {
+	display: none;
+	position: absolute;
+	list-style-type: none !important;
+	list-style-image: none !important;
+	border: 1px solid #aaaaaa;
+	border-top: none;
+	background-color: #eeeeee;
+	margin: 0 !important;
+}
+
+.lqt-thread-header-commands:hover ul {
+	display: block;
+}
+
+.lqt-thread-header-command-list li {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	margin-top:      0;
+	margin-bottom:   0;
+	list-style-type: none;
+	list-style-image: none;
+}
+
+.lqt-thread-actions-trigger {
+	margin-bottom: 0;
+}
+
+.lqt-thread-actions-icon {
+	background-image: url('icons/arrow-down-icon.png');
+	background-position: center-bottom;
+	background-repeat: no-repeat;
+	height: 80%;
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	vertical-align: middle;
+	padding-bottom: 0.5em;
 }
