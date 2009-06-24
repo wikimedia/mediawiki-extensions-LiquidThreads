@@ -297,9 +297,7 @@ class LqtView {
 	function perpetuate( $name, $as ) {
 		$value = $this->request->getVal( $name, '' );
 		if ( $as == 'hidden' ) {
-			return <<<HTML
-			<input type="hidden" name="$name" id="$name" value="$value">
-HTML;
+			return Xml::hidden( $name, $value );
 		}
 	}
 
@@ -572,10 +570,6 @@ HTML;
 							 'href' => $history_url,
 							 'enabled' => true );
 
-		$commands['permalink'] = array( 'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
-							 'href' =>  self::permalinkUrl( $thread ),
-							 'enabled' => true );
-
 		if ( $this->user->isAllowed( 'delete' ) ) {
 			$threadText = $thread->title()->getPrefixedText();
 			$deleteTitle = SpecialPage::getTitleFor( 'DeleteThread', $threadText );
@@ -724,15 +718,26 @@ HTML;
 		$commandHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-header-command-list' ),
 									$this->listItemsForCommands( $commands ) );
 
+		$headerParts = array();
+		
+		$permalink = $this->permalink( $thread, wfMsgExt( 'lqt_permalink', 'parseinline' ) );
+		$permalink = Xml::tags( 'span', array( 'class' => 'lqt-thread-permalink' ), $permalink );
+		$headerParts[] = $permalink;
+		
+		// Drop-down menu
 		$triggerText =	wfMsgExt( 'lqt-header-actions', 'parseinline' ) .
 						Xml::tags( 'span', array('class' => 'lqt-thread-actions-icon'),
 										'&nbsp;');
 		$dropDownTrigger = Xml::tags( 	'span',
 										array( 'class' => 'lqt-thread-actions-trigger' ),
 										$triggerText );
+		$headerParts[] = Xml::tags( 'div',
+									array( 'class' => 'lqt-thread-header-commands' ),
+									$dropDownTrigger . $commandHTML );
+		
 		$dropDown = Xml::tags( 'div',
-								array( 'class' => 'lqt-thread-header-commands' ),
-								$dropDownTrigger . $commandHTML );
+								array( 'class' => 'lqt-thread-header-rhs' ),
+								$wgLang->pipeList( $headerParts ) );
 		$html .= $dropDown;
 							
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-header' ), $html );

@@ -337,7 +337,12 @@ class Thread {
 
 	function setSuperthread( $thread ) {
 		$this->parentId = $thread->id();
-		$this->ancestorId = $thread->ancestorId();
+		
+		if ( $thread->isTopmostThread() ) {
+			$this->ancestorId = $thread->id();
+		} else {
+			$this->ancestorId = $thread->ancestorId();
+		}
 	}
 
 	function superthread() {
@@ -360,12 +365,37 @@ class Thread {
 		if ( $this->isTopmostThread() ) {
 			return $this;
 		} else {
-			return Threads::withId( $this->ancestorId );
+			$thread = Threads::withId( $this->ancestorId );
+
+			if (!$thread) {
+				$thread = $this->fixMissingAncestor();
+			}
+			
+			return $thread;
 		}
 	}
 
+	// Due to a bug in earlier versions, the topmost thread sometimes isn't there.
+	// Fix the corruption by repeatedly grabbing the parent until we hit the topmost thread.
+	function fixMissingAncestor() {
+		$thread = $this;
+		
+		while ( !$thread->isTopmostThread() ) {
+			$thread = $thread->superthread();
+		}
+		
+		$this->ancestorId = $thread->id();
+		
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->update( 'thread', array( 'thread_ancestor' => $thread->id() ),
+						array( 'thread_id' => $this->id() ), __METHOD__ );
+		
+		return $thread;
+	}
+
 	function isTopmostThread() {
-		return $this->ancestorId == $this->id || intval($this->ancestorId) === 0;
+		return $this->ancestorId == $this->id ||
+				$this->parentId == 0;
 	}
 
 	function setArticle( $a ) {

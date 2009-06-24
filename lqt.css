@@ -493,13 +493,6 @@ li.lqt-command-reply {
 	text-align: right;
 }
 
-.lqt-thread-header-commands {
-	float: right;
-	font-size: 85%;
-	margin: 0;
-	margin-right: 2em;
-}
-
 .lqt-thread-header-commands:hover {
 	background-color: #eeeeee;
 }
@@ -558,4 +551,17 @@ li.lqt-command-reply {
 	padding: 0.2em;
 	margin: 0.3em;
 	margin-left: 2em;
+}
+
+.lqt-thread-header-rhs {
+	float: right;
+	font-size: 85%;
+	margin: 0;
+	text-wrap: suppress;
+}
+
+.lqt-thread-header-commands {
+	padding: 0;
+	margin: 0;
+	display: inline-block;
 }

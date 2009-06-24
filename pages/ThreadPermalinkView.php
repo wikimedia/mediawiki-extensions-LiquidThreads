@@ -82,6 +82,9 @@ class ThreadPermalinkView extends LqtView {
 	function getSubtitle() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		
+		$sk = $this->user->getSkin();
+		$fragment = '#'.$this->anchorName( $this->thread );
+		
 		if ( $this->thread->isHistorical() ) {
 			// TODO: Point to the relevant part of the archive.
 			$query = '';
@@ -90,15 +93,21 @@ class ThreadPermalinkView extends LqtView {
 		}
 		
 		$talkpage = $this->thread->article()->getTitle();
-		$talkpage_link = $this->user->getSkin()->link( $talkpage );
+		$talkpage->setFragment( $fragment );
+		$talkpage_link = $sk->link( $talkpage );
 		
 		if ( $this->thread->hasSuperthread() ) {
-			$permalink = self::permalink( $this->thread->topmostThread(),
-							wfMsg( 'lqt_discussion_link' ) );
+			$topmostTitle = $this->thread->topmostThread()->title();
+			$topmostTitle->setFragment( $fragment );
+			
+			$linkText = wfMsgExt( 'lqt_discussion_link', 'parseinline' );
+			$permalink = $sk->link( $topmostTitle, $linkText );
 							
-			return wfMsg( 'lqt_fragment', $permalink, $talkpage_link );
+			return wfMsgExt( 'lqt_fragment', array('parseinline', 'replaceafter'),
+							array( $permalink, $talkpage_link ) );
 		} else {
-			return wfMsg( 'lqt_from_talk', $talkpage_link );
+			return wfMsgExt( 'lqt_from_talk', array('parseinline', 'replaceafter'),
+							array($talkpage_link) );
 		}
 	}
 
