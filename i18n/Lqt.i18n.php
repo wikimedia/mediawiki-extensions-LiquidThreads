@@ -157,6 +157,7 @@ This operation is undoable.',
 	'lqt-thread-edited-author'=> 'Edited by author',
 	'lqt-thread-edited-others'=> 'Edited by other users',
 	'lqt-header-actions' 	  => 'Actions',
+	'lqt_summarize_link' 	  => 'Summarize',
 	
 	// Logging
 	'lqt-log-name' => 'Threaded discussion log',

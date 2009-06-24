@@ -569,6 +569,12 @@ class LqtView {
 		$commands['history'] = array( 'label' => wfMsgExt( 'history_short', 'parseinline' ),
 							 'href' => $history_url,
 							 'enabled' => true );
+							 
+		$commands['summarize'] = array(
+									'label' => wfMsgExt( 'lqt_summarize_link', 'parseinline' ),
+									'href' => self::permalinkUrl( $thread, 'summarize' ),
+									'enabled' => true,
+								);
 
 		if ( $this->user->isAllowed( 'delete' ) ) {
 			$threadText = $thread->title()->getPrefixedText();
@@ -967,7 +973,7 @@ HTML;
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			
 			$permalink_text = wfMsgNoTrans( 'lqt_summary_notice_link' );
-			$permalink = self::permalink( $thread, $permalink_text );
+			$permalink = self::permalink( $thread, $permalink_text, 'summarize' );
 			$msg = wfMsgExt( 'lqt_summary_notice', array('parseinline', 'replaceafter'),
 								array( $permalink, $thread->getArchiveStartDays() ) );
 			$msg = Xml::tags( 'p', array( 'class' => 'lqt_summary_notice' ), $msg );
