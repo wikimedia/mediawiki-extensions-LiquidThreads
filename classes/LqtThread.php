@@ -136,7 +136,9 @@ class Thread {
 			$this->editedness = Threads::EDITED_HAS_REPLY;
 		}
 		else if ( $change_type == Threads::CHANGE_EDITED_ROOT ) {
-			if ( $wgUser->getId() == 0 || $wgUser->getId() != $this->root()->originalAuthor()->getId() ) {
+			$originalAuthor = $this->root()->originalAuthor();
+			if ( ( $wgUser->getId() == 0 && $originalAuthor->getName() != $wgUser->getName() )
+					|| $wgUser->getId() != $originalAuthor->getId() ) {
 				$this->editedness = Threads::EDITED_BY_OTHERS;
 			} else if ( $this->editedness == Threads::EDITED_HAS_REPLY ) {
 				$this->editedness = Threads::EDITED_BY_AUTHOR;
