@@ -158,6 +158,8 @@ This operation is undoable.',
 	'lqt-thread-edited-others'=> 'Edited by other users',
 	'lqt-header-actions' 	  => 'Actions',
 	'lqt_summarize_link' 	  => 'Summarize',
+	'lqt-summarize-intro'     => 'Please summarize the below thread in the editing box.
+You may use any wikitext in your summary. When you finish, click "{{int:savearticle}}".',
 	
 	// Logging
 	'lqt-log-name' => 'Threaded discussion log',

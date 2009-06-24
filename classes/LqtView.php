@@ -326,6 +326,7 @@ class LqtView {
 	}
 
 	function showSummarizeForm( $thread ) {
+		$this->output->addWikiMsg( 'lqt-summarize-intro' );
 		$this->showEditingFormInGeneral( null, 'summarize', $thread );
 	}
 
@@ -570,9 +571,10 @@ class LqtView {
 							 'href' => $history_url,
 							 'enabled' => true );
 							 
+		$summarizeUrl = self::permalinkUrl( $thread, 'summarize', $thread->id() );
 		$commands['summarize'] = array(
 									'label' => wfMsgExt( 'lqt_summarize_link', 'parseinline' ),
-									'href' => self::permalinkUrl( $thread, 'summarize' ),
+									'href' => $summarizeUrl,
 									'enabled' => true,
 								);
 
@@ -973,7 +975,8 @@ HTML;
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			
 			$permalink_text = wfMsgNoTrans( 'lqt_summary_notice_link' );
-			$permalink = self::permalink( $thread, $permalink_text, 'summarize' );
+			$permalink = self::permalink( $thread, $permalink_text, 'summarize',
+											$thread->id() );
 			$msg = wfMsgExt( 'lqt_summary_notice', array('parseinline', 'replaceafter'),
 								array( $permalink, $thread->getArchiveStartDays() ) );
 			$msg = Xml::tags( 'p', array( 'class' => 'lqt_summary_notice' ), $msg );
@@ -1070,7 +1073,7 @@ HTML;
 							$label );
 		
 		$link = $sk->link( $t->summary()->getTitle(), $link_text );
-		$edit_link = self::permalink( $t, $edit_text, 'summarize' );
+		$edit_link = self::permalink( $t, $edit_text, 'summarize', $t->id() );
 		$links = "[$link]\n[$edit_link]";
 		$html .= Xml::tags( 'span', array( 'class' => 'lqt_thread_permalink_summary_edit' ),
 							$links );
