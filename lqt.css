@@ -530,6 +530,11 @@ li.lqt-command-reply {
 	list-style-image: none;
 }
 
+.lqt-thread-permalink {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
 .lqt-thread-actions-trigger {
 	margin-bottom: 0;
 }
@@ -550,6 +555,10 @@ li.lqt-command-reply {
 	border: 1px solid #cccccc;
 	padding: 0.2em;
 	margin: 0.3em;
+}
+
+/* Only indent subthreads */
+.lqt_thread .lqt_thread {
 	margin-left: 2em;
 }
 
