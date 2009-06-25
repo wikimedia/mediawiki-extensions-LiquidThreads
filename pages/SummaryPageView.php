@@ -10,7 +10,7 @@ class SummaryPageView extends LqtView {
 			global $wgUser;
 			
 			$t = $thread->root()->getTitle();
-			$link = $wgUser->getSkin->link( $t );
+			$link = $wgUser->getSkin()->link( $t );
 			$this->output->setSubtitle(
 			wfMsgExt( 'lqt_summary_subtitle', array( 'parseinline', 'replaceafter' ),
 						$link ) );
