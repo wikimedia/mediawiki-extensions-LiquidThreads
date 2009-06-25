@@ -4,7 +4,7 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class TalkpageView extends LqtView {
 	/* Added to SkinTemplateTabs hook in TalkpageView::show(). */
-	function customizeTabs( $skintemplate, $content_actions ) {
+	function customizeTabs( $skintemplate, &$content_actions ) {
 		// The arguments are passed in by reference.
 		unset( $content_actions['edit'] );
 		unset( $content_actions['viewsource'] );
@@ -21,15 +21,6 @@ class TalkpageView extends LqtView {
 		logged-in users, don't really fit the metaphor. What to do, what to do?
 		*/
 		return true;
-	}
-
-	function permalinksForThreads( $threads, $method = null, $operand = null ) {
-		$permalinks = array();
-		foreach ( $threads as $t ) {
-			$l = $t->subjectWithoutIncrement();
-			$permalinks[] = self::permalink( $t, $l, $method, $operand );
-		}
-		return $permalinks;
 	}
 
 	function showHeader() {
@@ -111,7 +102,7 @@ class TalkpageView extends LqtView {
 			$subject = Xml::tags( 'a', array( 'href' => $anchor ), $subject );
 			$row .= Xml::tags( 'td', null, $subject );
 			
-			$author = $thread->root()->originalAuthor();
+			$author = $thread->author();
 			$authorLink = $sk->userLink( $author->getID(), $author->getName() );
 			$row .= Xml::tags( 'td', null, $authorLink );
 			
@@ -140,23 +131,13 @@ class TalkpageView extends LqtView {
 		return $html;
 	}
 
-	function getArchiveWidget( $threads ) {
+	function getArchiveWidget( ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		
-		$threadlinks = self::permalinksForThreads( $threads );
-
-		if ( count( $threadlinks ) > 0 ) {
-			$url = $this->talkpageUrl( $this->title, 'talkpage_archive' );
-		
-			$html = '';
-			$html = Xml::tags( 'h2', array( 'class' => 'lqt_recently_archived' ),
-								wfMsgExt( 'lqt_recently_archived', 'parseinline' ) );
-			$html .= $this->getList( 'ul', '', '', $threadlinks );
-			$html = Xml::tags( 'div', array( 'class' => 'lqt_archive_teaser' ), $html );
-			return $html;
-		}
-		
-		return '';
+		$url = $this->talkpageUrl( $this->title, 'talkpage_archive' );
+	
+		$html = '';
+		$html = Xml::tags( 'div', array( 'class' => 'lqt_archive_teaser' ), $html );
+		return $html;
 	}
 
 	function showTalkpageViewOptions( $article ) {
@@ -186,7 +167,7 @@ class TalkpageView extends LqtView {
 			$html .= Xml::label( wfMsg( 'lqt_sorting_order' ), 'lqt_sort_select' ) . ' ';
 
 			$sortOrderSelect =
-				new XmlSelect( 'lqt_order', 'lqt_sort_select', $this->sort_order );
+				new XmlSelect( 'lqt_order', 'lqt_sort_select', $this->getSortType() );
 			
 			$sortOrderSelect->setAttribute( 'class', 'lqt_sort_select' );
 			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_newest_changes' ),
@@ -223,7 +204,22 @@ class TalkpageView extends LqtView {
 			
 			$this->output->addHTML( $html );
 		}
+	}
+	
+	function getArchiveTeaser() {
+		$archiveBrowseLink = $this->talkpageLink( $this->title,
+								wfMsgExt( 'lqt_browse_archive_without_recent', 'parseinline' ),
+								'talkpage_archive' );
+		$archiveBrowseLink = Xml::tags( 'div', array( 'class' => 'lqt_browse_archive' ),
+										$archiveBrowseLink );
+		$archiveBrowseLink = Xml::tags( 'div', array( 'class' => 'lqt_archive_teaser_empty' ),
+										$archiveBrowseLink );
+										
+		$archiveWidget = $this->getArchiveWidget( $recently_archived_threads );
 
+		$html = Xml::tags( 'div', array( 'class' => 'lqt_toc_archive_wrapper' ),
+							$archiveBrowseLink . $toc .
+							$archiveWidget );
 	}
 
 	function show() {
@@ -253,33 +249,20 @@ class TalkpageView extends LqtView {
 			$this->output->addHTML( Xml::tags( 'strong', null, $newThreadLink ) );
 		}
 		
-		$queryType =
-			$wgRequest->getBool( 'lqt_show_deleted_threads' )
-			? 'fresh' : 'fresh-undeleted';
-		$threads = $this->queries->query( $queryType );
+		$pager = $this->getPager();
+		
+		$threads = $this->getPageThreads( $pager );
+		
+// 		$html .= $this->getArchiveWidget();
 
-		$archiveBrowseLink = $this->talkpageLink( $this->title,
-								wfMsgExt( 'lqt_browse_archive_without_recent', 'parseinline' ),
-								'talkpage_archive' );
-		$archiveBrowseLink = Xml::tags( 'div', array( 'class' => 'lqt_browse_archive' ),
-										$archiveBrowseLink );
-		$archiveBrowseLink = Xml::tags( 'div', array( 'class' => 'lqt_archive_teaser_empty' ),
-										$archiveBrowseLink );
-		
-		$recently_archived_threads = $this->queries->query( 'recently-archived' );
-		
 		$toc = '';
-		if ( count( $threads ) > 1 || count( $recently_archived_threads ) > 0 ) {
+		if ( count( $threads ) > 1 ) {
 			$toc = $this->getTOC( $threads );
 		}
 		
-		$archiveWidget = $this->getArchiveWidget( $recently_archived_threads );
-
-		$html = Xml::tags( 'div', array( 'class' => 'lqt_toc_archive_wrapper' ),
-							$archiveBrowseLink . $toc .
-							$archiveWidget );
-		
 		$html .= Xml::element( 'br', array( 'style' => 'clear: both;' ) );
+		
+		$html .= $pager->getNavigationBar();
 		
 		$this->output->addHTML( $html );
 
@@ -287,6 +270,183 @@ class TalkpageView extends LqtView {
 			$this->showThread( $t );
 		}
 		
+		$this->output->addHTML( $pager->getNavigationBar() );
+		
 		return false;
+	}
+	
+	function getPager() {
+		$showDeleted = $this->request->getBool( 'lqt_show_deleted_threads' );
+		$showDeleted = $showDeleted && $this->user->isAllowed( 'deletedhistory' );
+		
+		$sortType = $this->getSortType();
+		return new LqtDiscussionPager( $this->article, $sortType, $showDeleted );
+	}
+	
+	function getPageThreads( $pager ) {
+		$rows = $pager->getRows();
+		
+		return Thread::bulkLoad( $rows );
+	}
+	
+	function getSortType() {
+		// Determine sort order
+		if ( $this->methodApplies( 'talkpage_sort_order' ) ) {
+			// Sort order is explicitly specified through UI
+			$lqt_order = $this->request->getVal( 'lqt_order' );
+			switch( $lqt_order ) {
+				case 'nc':
+					return LQT_NEWEST_CHANGES;
+				case 'nt':
+					return LQT_NEWEST_THREADS;
+				case 'ot':
+					return LQT_OLDEST_THREADS;
+			}
+		} else {
+			// Sort order set in user preferences overrides default
+			$user_order = $this->user->getOption( 'lqt_sort_order' ) ;
+			if ( $user_order ) {
+				return $user_order;
+			}
+		}
+		
+		// Default
+		return LQT_NEWEST_CHANGES;
+	}
+}
+
+class LqtDiscussionPager extends IndexPager {
+
+	function __construct( $article, $orderType, $showDeleted ) {
+		$this->article = $article;
+		$this->orderType = $orderType;
+		$this->showDeleted = $showDeleted;
+		
+		parent::__construct();
+	}
+	
+	function getQueryInfo() {
+		$queryInfo =
+			array(
+				'tables' => array( 'thread' ),
+				'fields' => '*',
+				'conds' =>
+					array(
+						Threads::articleClause( $this->article ),
+						Threads::topLevelClause(),
+					),
+			);
+			
+		if ( !$this->showDeleted ) {
+			$queryInfo['where']['thread_deleted'] = 0;
+		}
+			
+		return $queryInfo;
+	}
+	
+	// Adapted from getBody().
+	function getRows() {
+		if ( !$this->mQueryDone ) {
+			$this->doQuery();
+		}
+		
+		# Don't use any extra rows returned by the query
+		$numRows = min( $this->mResult->numRows(), $this->mLimit );
+
+		$rows = array();
+		
+		if ( $numRows ) {
+			if ( $this->mIsBackwards ) {
+				for ( $i = $numRows - 1; $i >= 0; $i-- ) {
+					$this->mResult->seek( $i );
+					$row = $this->mResult->fetchObject();
+					$rows[] = $row;
+				}
+			} else {
+				$this->mResult->seek( 0 );
+				for ( $i = 0; $i < $numRows; $i++ ) {
+					$row = $this->mResult->fetchObject();
+					$rows[] = $row;
+				}
+			}
+		}
+		
+		return $rows;
+	}
+	
+	function formatRow( $row ) {
+		// No-op, we get the list of rows from getRows()
+	}
+	
+	function getIndexField() {
+		switch( $this->orderType ) {
+			case LQT_NEWEST_CHANGES:
+				return 'thread_modified';
+			case LQT_OLDEST_THREADS:
+			case LQT_NEWEST_THREADS:
+				return 'thread_created';
+			default:
+				throw new MWException( "Unknown sort order ".$this->orderType );
+		}
+	}
+	
+	function getDefaultDirections() {
+		switch( $this->orderType ) {
+			case LQT_NEWEST_CHANGES:
+			case LQT_NEWEST_THREADS:
+				return true; // Descending
+			case LQT_OLDEST_THREADS:
+				return false; // Ascending
+			default:
+				throw new MWException( "Unknown sort order ".$this->orderType );
+		}
+	}
+	
+	/**
+	 * A navigation bar with images
+	 * Stolen from TablePager because it's pretty.
+	 */
+	function getNavigationBar() {
+		global $wgStylePath, $wgContLang;
+
+		if ( !$this->isNavigationBarShown() ) return '';
+
+		$path = "$wgStylePath/common/images";
+		$labels = array(
+			'first' => 'table_pager_first',
+			'prev' => 'table_pager_prev',
+			'next' => 'table_pager_next',
+			'last' => 'table_pager_last',
+		);
+		$images = array(
+			'first' => $wgContLang->isRTL() ? 'arrow_last_25.png' : 'arrow_first_25.png',
+			'prev' =>  $wgContLang->isRTL() ? 'arrow_right_25.png' : 'arrow_left_25.png',
+			'next' =>  $wgContLang->isRTL() ? 'arrow_left_25.png' : 'arrow_right_25.png',
+			'last' =>  $wgContLang->isRTL() ? 'arrow_first_25.png' : 'arrow_last_25.png',
+		);
+		$disabledImages = array(
+			'first' => $wgContLang->isRTL() ? 'arrow_disabled_last_25.png' : 'arrow_disabled_first_25.png',
+			'prev' =>  $wgContLang->isRTL() ? 'arrow_disabled_right_25.png' : 'arrow_disabled_left_25.png',
+			'next' =>  $wgContLang->isRTL() ? 'arrow_disabled_left_25.png' : 'arrow_disabled_right_25.png',
+			'last' =>  $wgContLang->isRTL() ? 'arrow_disabled_first_25.png' : 'arrow_disabled_last_25.png',
+		);
+
+		$linkTexts = array();
+		$disabledTexts = array();
+		foreach ( $labels as $type => $label ) {
+			$msgLabel = wfMsgHtml( $label );
+			$linkTexts[$type] = "<img src=\"$path/{$images[$type]}\" alt=\"$msgLabel\"/><br/>$msgLabel";
+			$disabledTexts[$type] = "<img src=\"$path/{$disabledImages[$type]}\" alt=\"$msgLabel\"/><br/>$msgLabel";
+		}
+		$links = $this->getPagingLinks( $linkTexts, $disabledTexts );
+
+		$navClass = htmlspecialchars( $this->getNavClass() );
+		$s = "<table class=\"$navClass\" align=\"center\" cellpadding=\"3\"><tr>\n";
+		$cellAttrs = 'valign="top" align="center" width="' . 100 / count( $links ) . '%"';
+		foreach ( $labels as $type => $label ) {
+			$s .= "<td $cellAttrs>{$links[$type]}</td>\n";
+		}
+		$s .= "</tr></table>\n";
+		return $s;
 	}
 }

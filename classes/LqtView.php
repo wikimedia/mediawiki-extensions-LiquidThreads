@@ -47,31 +47,6 @@ class LqtView {
 	}
 
 	function initializeQueries() {
-
-		// Determine sort order
-		if ( $this->methodApplies( 'talkpage_sort_order' ) ) {
-			// Sort order is explicitly specified through UI
-			global $wgRequest;
-			$lqt_order = $wgRequest->getVal( 'lqt_order' );
-			switch( $lqt_order ) {
-				case 'nc':
-					$this->sort_order = LQT_NEWEST_CHANGES;
-					break;
-				case 'nt':
-					$this->sort_order = LQT_NEWEST_THREADS;
-					break;
-				case 'ot':
-					$this->sort_order = LQT_OLDEST_THREADS;
-					break;
-			}
-		} else {
-			// Sort order set in user preferences overrides default
-			global $wgUser;
-			$user_order = $wgUser->getOption( 'lqt_sort_order' ) ;
-			if ( $user_order ) {
-				$this->sort_order = $user_order;
-			}
-		}
 		
 		// Create query group
 		global $wgOut, $wgLqtThreadArchiveStartDays, $wgLqtThreadArchiveInactiveDays;
@@ -427,7 +402,7 @@ class LqtView {
 			$timestamp = $edit_applies_to->created();
 			$fTime = $wgContLang->time($timestamp);
 			$fDate = $wgContLang->date($timestamp);
-			$user = $thread_article->originalAuthor()->getName();
+			$user = $edit_applies_to->author()->getName();
 			
 			$quoteIntro = wfMsgForContent( 'lqt-quote-intro', $user, $fTime, $fDate );
 			$quote_text = "$quoteIntro\n<blockquote>\n$quote_text\n</blockquote>\n";
@@ -444,24 +419,33 @@ class LqtView {
 		// For replies and new posts, insert the associated thread object into the DB.
 		if ( $edit_type != 'editExisting' && $edit_type != 'summarize' && $e->didSave ) {
 			if ( $edit_type == 'reply' ) {
-				$thread = Threads::newThread( $article, $this->article, $edit_applies_to, $e->summary );
-				$edit_applies_to->commitRevision( Threads::CHANGE_REPLY_CREATED, $thread, $e->summary );
+				$subject = $edit_applies_to->subject();
+				
+				$thread = Threads::newThread( $article, $this->article, $edit_applies_to,
+												Threads::TYPE_NORMAL, $subject );
+				
+				$edit_applies_to->commitRevision( Threads::CHANGE_REPLY_CREATED, $thread,
+													$e->summary );
 			} else {
-				$thread = Threads::newThread( $article, $this->article, null, $e->summary );
+				$thread = Threads::newThread( $article, $this->article, null,
+												Threads::TYPE_NORMAL, $subject);
 			}
 		}
 
 		if ( $edit_type == 'summarize' && $e->didSave ) {
 			$edit_applies_to->setSummary( $article );
-			$edit_applies_to->commitRevision( Threads::CHANGE_EDITED_SUMMARY, $edit_applies_to, $e->summary );
+			$edit_applies_to->commitRevision( Threads::CHANGE_EDITED_SUMMARY,
+												$edit_applies_to, $e->summary );
 		}
 
 		// Move the thread and replies if subject changed.
 		if ( $edit_type == 'editExisting' && $e->didSave ) {
 			$subject = $this->request->getVal( 'lqt_subject_field', '' );
 			if ( $subject && $subject != $thread->subjectWithoutIncrement() ) {
-
-				$this->renameThread( $thread, $subject, $e->summary );
+				$thread->setSubject( $subject );
+				
+				// Disabled page-moving for now.
+				// $this->renameThread( $thread, $subject, $e->summary );
 			}
 			// this is unrelated to the subject change and is for all edits:
 			$thread->setRootRevision( Revision::newFromTitle( $thread->root()->getTitle() ) );
@@ -482,6 +466,7 @@ class LqtView {
 	function renameThread( $t, $s, $reason ) {
 		$this->simplePageMove( $t->root()->getTitle(), $s, $reason );
 		// TODO here create a redirect from old page to new.
+		
 		foreach ( $t->subthreads() as $st ) {
 			$this->renameThread( $st, $s, $reason );
 		}
@@ -491,22 +476,38 @@ class LqtView {
 		$token = md5( uniqid( rand(), true ) );
 		return Title::newFromText( "Thread:$token" );
 	}
+	
 	function newScratchTitle( $subject ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		return $this->incrementedTitle( $subject ? $subject:wfMsg( 'lqt_nosubject' ), NS_LQT_THREAD );
+		$subject = $subject ? $subject : wfMsg( 'lqt_nosubject' );
+		
+		$base = $this->article->getTitle()->getPrefixedText() . "/$subject";
+		
+		return $this->incrementedTitle( $base, NS_LQT_THREAD );
 	}
+	
 	function newSummaryTitle( $t ) {
-		return $this->incrementedTitle( $t->subject(), NS_LQT_SUMMARY );
+		return $this->incrementedTitle( $t->title()->getText(), NS_LQT_SUMMARY );
 	}
+	
 	function newReplyTitle( $s, $t ) {
-		return $this->incrementedTitle( $t->subjectWithoutIncrement(), NS_LQT_THREAD );
+		$topThread = $t->topMostThread();
+		
+		$base = $t->title()->getText() . '/' . $this->user->getName();
+		
+		return $this->incrementedTitle( $base, NS_LQT_THREAD );
 	}
+	
 	/** Keep trying titles starting with $basename until one is unoccupied. */
 	public static function incrementedTitle( $basename, $namespace ) {
-		$i = 1; do {
-			$t = Title::newFromText( $basename . '_(' . $i . ')', $namespace );
+		$i = 2;
+		
+		$t = Title::makeTitleSafe( $namespace, $basename );
+		while ( $t->exists() ||
+				in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) ) {
+			$t = Title::makeTitleSafe( $namespace, $basename . ' (' . $i . ')' );
 			$i++;
-		} while ( $t->exists() || in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) );
+		}
 		return $t;
 	}
 
@@ -524,16 +525,9 @@ class LqtView {
 
 		self::$occupied_titles[] = $nt->getPrefixedDBkey();
 
-		# don't allow moving to pages with # in
-		if ( !$nt || $nt->getFragment() != '' ) {
-			echo "malformed title"; // TODO real error reporting.
-			return false;
-		}
-
 		$error = $ot->moveTo( $nt, true, "Changed thread subject: $reason" );
 		if ( $error !== true ) {
-			var_dump( $error );
-			echo "something bad happened trying to rename the thread."; // TODO
+			throw new MWException( "Got error $error trying to move pages." );
 			return false;
 		}
 
@@ -675,14 +669,6 @@ HTML;
 		
 		return $parserOutput->getText();
 	}
-
-	function colorTest() {
-		$this->output->addHTML( '<div class="lqt_footer"><li class="lqt_footer_sig">' );
-		for ( $i = 1; $i <= self::number_of_user_colors; $i++ ) {
-			$this->output->addHTML( "<span class=\"lqt_post_color_{$i}\"><a href=\"foo\">DavidMcCabe</a></span>" );
-		}
-		$this->output->addHTML( '</li></div>' );
-	}
 	
 	function showThreadHeader( $thread ) {
 		global $wgLang;
@@ -693,7 +679,7 @@ HTML;
 		$infoElements = array();
 		
 		// Author name.
-		$author = $thread->root()->originalAuthor();
+		$author = $thread->author();
 		$signature = $sk->userLink( $author->getId(), $author->getName() );
 		$signature = Xml::tags( 'span', array( 'class' => 'lqt-thread-header-author' ),
 								$signature );
@@ -904,7 +890,7 @@ HTML;
 			$replyLink = Xml::tags( 'a', array( 'href' => '#'.$this->anchorName( $tmp ) ),
 									$tmp->subject() );
 			$msg = wfMsgExt( 'lqt_in_response_to', array( 'parseinline', 'replaceafter' ),
-				array( $replyLink, $tmp->root()->originalAuthor()->getName() ) );
+				array( $replyLink, $tmp->author()->getName() ) );
 				
 			return Xml::tags( 'span', array( 'class' => 'lqt_nonindent_message' ),
 								"&larr; $msg" );
@@ -916,14 +902,16 @@ HTML;
 	// Display a moved thread
 	function showMovedThread( $thread ) {
 		global $wgLang;
+		
+		$sk = $this->user->getSkin();
 	
 		// Grab target thread
 		$article = new Article( $thread->title() );
-		$target = Title::newFromRedirect( $article->getText() );
+		$target = Title::newFromRedirect( $article->getContent() );
 		$t_thread = Threads::withRoot( new Article( $target ) );
 		
 		// Grab data about the new post.
-		$author = $thread->root()->originalAuthor();
+		$author = $thread->author();
 		$sig = $sk->userLink( $author->getID(), $author->getName() ) .
 			   $sk->userToolLinks( $author->getID(), $author->getName() );
 			   
@@ -940,6 +928,7 @@ HTML;
 	
 	/** Shows a deleted thread. Returns true to show the thread body */
 	function showDeletedThread( $thread ) {
+		$sk = $this->user->getSkin();
 		if ( $this->user->isAllowed( 'deletedhistory' ) ) {
 			$this->output->addWikiMsg( 'lqt_thread_deleted_for_sysops' );
 			return true;

@@ -4,6 +4,9 @@ CREATE TABLE /*$wgDBprefix*/thread (
   thread_ancestor int(8) unsigned NOT NULL,
   thread_parent int(8) unsigned NULL,
   thread_summary_page int(8) unsigned NULL,
+  thread_subject varchar(255) NULL,
+  thread_author_id int unsigned NULL,
+  thread_author_name varchar(255) NULL,
 
   thread_modified char(14) binary NOT NULL default '',
   thread_created char(14) binary NOT NULL default '',
@@ -25,11 +28,12 @@ CREATE TABLE /*$wgDBprefix*/thread (
 
   PRIMARY KEY thread_id (thread_id),
   UNIQUE INDEX thread_id (thread_id),
-  INDEX thread_ancestor (thread_ancestor),
+  INDEX thread_ancestor (thread_ancestor, thread_parent),
   INDEX thread_article_title (thread_article_namespace, thread_article_title),
   INDEX thread_modified (thread_modified),
   INDEX thread_created (thread_created),
-  INDEX thread_summary_page (thread_summary_page)
+  INDEX thread_summary_page (thread_summary_page),
+  INDEX thread_root (thread_root)
 ) /*$wgDBTableOptions*/;
 
 CREATE TABLE /*$wgDBprefix*/historical_thread (

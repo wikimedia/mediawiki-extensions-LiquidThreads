@@ -32,7 +32,8 @@ class Threads {
 	/** static cache of per-page archivestartdays setting */
 	static $archiveStartDays;
 
-    static function newThread( $root, $article, $superthread = null, $type = self::TYPE_NORMAL ) {
+    static function newThread( $root, $article, $superthread = null,
+    							$type = self::TYPE_NORMAL, $subject = '' ) {
 		// SCHEMA changes must be reflected here.
 		// TODO: It's dumb that the commitRevision code isn't used here.
 
@@ -48,25 +49,28 @@ class Threads {
 			$change_type = self::CHANGE_NEW_THREAD;
 		}
 
-		global $wgUser; // TODO global.
+		global $wgUser;
 
 		$timestamp = wfTimestampNow();
 
 		// TODO PG support
 		$newid = $dbw->nextSequenceValue( 'thread_thread_id' );
 
-		$row = array( 'thread_root' => $root->getID(),
-			'thread_parent' => $superthread ? $superthread->id() : null,
-			'thread_article_namespace' => $article->getTitle()->getNamespace(),
-			'thread_article_title' => $article->getTitle()->getDBkey(),
-			'thread_modified' => $timestamp,
-			'thread_created' => $timestamp,
-			'thread_change_type' => $change_type,
-			'thread_change_comment' => "", // TODO
-			'thread_change_user' => $wgUser->getID(),
-			'thread_change_user_text' => $wgUser->getName(),
-			'thread_type' => $type,
-			'thread_editedness' => self::EDITED_NEVER );
+		$row = array(
+					'thread_root' => $root->getID(),
+					'thread_parent' => $superthread ? $superthread->id() : null,
+					'thread_article_namespace' => $article->getTitle()->getNamespace(),
+					'thread_article_title' => $article->getTitle()->getDBkey(),
+					'thread_modified' => $timestamp,
+					'thread_created' => $timestamp,
+					'thread_change_type' => $change_type,
+					'thread_change_comment' => "", // TODO
+					'thread_change_user' => $wgUser->getID(),
+					'thread_change_user_text' => $wgUser->getName(),
+					'thread_type' => $type,
+					'thread_editedness' => self::EDITED_NEVER,
+					'thread_subject' => $subject,
+				);
 
 		if ( $superthread ) {
 			$row['thread_ancestor'] = $superthread->ancestorId();
@@ -98,9 +102,6 @@ class Threads {
 
 		// We just created the thread, it won't have any children.
 		$newthread = new Thread( $rowObj, array() );
-
-		if ( !$newthread )
-			throw new MWException( "No new thread with ID $newid\n" );
 
 		if ( $superthread ) {
 			$superthread->addReply( $newthread );
@@ -302,7 +303,7 @@ SQL;
 		
 		$arr = array( 'thread_ancestor=thread_id', 'thread_parent' => null );
 		
-		return $dbr->makeList( $arr, LIST_AND );
+		return $dbr->makeList( $arr, LIST_OR );
 	}
 	
 	static function getArticleArchiveStartDays( $article ) {

@@ -28,6 +28,9 @@ class Thread {
 	protected $id;
 	protected $revisionNumber;
 	protected $type;
+	protected $subject;
+	protected $authorId;
+	protected $authorName;
 
 	/* Flag about who has edited or replied to this thread. */
 	protected $editedness;
@@ -117,16 +120,20 @@ class Thread {
 			self::setChangeOnDescendents( $r, $change_type, $change_object );
 		return $thread;
 	}
+	
+	function getDouble() {
+		if (!$this->double) {
+			$this->double = clone $this;
+		}
+		
+		return $this->double;
+	}
 
 	function commitRevision( $change_type, $change_object = null, $reason = "" ) {
-		global $wgUser; // TODO global.
-		/*
-		$this->changeComment = $reason;
-		$this->changeUser = $wgUser->getID();
-		$this->changeUserText = $wgUser->getName();
-		*/
+		global $wgUser;
+
 		// TODO open a transaction.
-		HistoricalThread::create( $this->double, $change_type, $change_object );
+		HistoricalThread::create( $this->getDouble(), $change_type, $change_object );
 
 		$this->bumpRevisionsOnAncestors( $change_type, $change_object, $reason, wfTimestampNow() );
 		self::setChangeOnDescendents( $this->topmostThread(), $change_type, $change_object );
@@ -136,7 +143,7 @@ class Thread {
 			$this->editedness = Threads::EDITED_HAS_REPLY;
 		}
 		else if ( $change_type == Threads::CHANGE_EDITED_ROOT ) {
-			$originalAuthor = $this->root()->originalAuthor();
+			$originalAuthor = $this->author();
 			if ( ( $wgUser->getId() == 0 && $originalAuthor->getName() != $wgUser->getName() )
 					|| $wgUser->getId() != $originalAuthor->getId() ) {
 				$this->editedness = Threads::EDITED_BY_OTHERS;
@@ -153,6 +160,9 @@ class Thread {
 					'thread_ancestor' => $this->ancestorId,
 					'thread_parent' => $this->parentId,
 					'thread_type' => $this->type,
+					'thread_subject' => $this->subject,
+					'thread_author_id' => $this->authorId,
+					'thread_author_name' => $this->authorName,
 					'thread_summary_page' => $this->summaryId,
 					'thread_article_namespace' => $this->articleNamespace,
 				    'thread_article_title' => $this->articleTitle,
@@ -160,9 +170,25 @@ class Thread {
 					),
 		     /* WHERE */ array( 'thread_id' => $this->id, ),
 		     __METHOD__ );
+		     
+		// Touch the root
+		$this->root()->getTitle()->invalidateCache();
 
 		if ( $change_type == Threads::CHANGE_EDITED_ROOT ) {
 			NewMessages::writeMessageStateForUpdatedThread( $this, $change_type, $wgUser );
+		}
+	}
+	
+	function author() {
+		$this->doLazyUpdates();
+		
+		if ($this->authorId) {
+			return User::newFromId( $this->authorId );
+		} else {
+			$u = new User;
+			$u->mName = $this->authorName;
+			
+			return $u;
 		}
 	}
 
@@ -172,6 +198,7 @@ class Thread {
 		$this->commitRevision( Threads::CHANGE_DELETED, $this, $reason );
 		/* TODO: mark thread as read by all users, or we get blank thingies in New Messages. */
 	}
+	
 	function undelete( $reason ) {
 		$this->type = Threads::TYPE_NORMAL;
 		$this->revisionNumber += 1;
@@ -187,7 +214,7 @@ class Thread {
 		$new_articleNamespace = $title->getNamespace();
 		$new_articleTitle = $title->getDBkey();
 
-		foreach ( $this->replies as $r ) {
+		foreach ( $this->replies() as $r ) {
 			$res = $dbr->update( 'thread',
 			     /* SET */array(
 						'thread_revision' => $r->revisionNumber() + 1,
@@ -268,10 +295,12 @@ class Thread {
 							'thread_change_comment' => 'changeComment',
 							'thread_change_user' => 'changeUser',
 							'thread_change_user_text' => 'changeUserText',
-							'thread_editedness' => 'editedness'
+							'thread_editedness' => 'editedness',
+							'thread_subject' => 'subject',
+							'thread_author_id' => 'authorId',
+							'thread_author_name' => 'authorName',
 						);
 						
-
 		foreach( $dataLoads as $db_field => $member_field ) {
 			if ( isset($line->$db_field) ) {
 				$this->$member_field = $line->$db_field;
@@ -288,6 +317,67 @@ class Thread {
 		}
 
 		$this->rootRevision = $this->root->mLatest;
+		
+		$this->doLazyUpdates( $line );
+	}
+	
+	// Load a list of threads in bulk.
+	static function bulkLoad( $rows ) {
+		$threads = array();
+		
+		foreach( $rows as $row ) {
+			$threads[] = new Thread( $row, null );
+		}
+		
+		return $threads;
+	}
+	
+	// Lazy updates done whenever a thread is loaded.
+	//  Much easier than running a long-running maintenance script.
+	function doLazyUpdates( ) {
+		// This is an invocation guard to avoid infinite recursion when fixing a
+		//  missing ancestor.
+		static $doingUpdates = false;
+		if ($doingUpdates) return;
+		$doingUpdates = true;
+		
+		// Fix missing ancestry information.
+		if ($this->parentId &&!$this->ancestorId) {
+			$this->fixMissingAncestor();
+		}
+		
+		$set = array();
+		
+		// Fix missing subject information
+		if (!$this->subject) {
+			$detectedSubject = $this->root()->getTitle()->getText();
+			$parts = self::splitIncrementFromSubject( $detectedSubject );
+			
+			$this->subject = $detectedSubject = $parts[1];
+			
+			// Update in the DB
+			$set['thread_subject'] = $detectedSubject;
+		}
+		
+		// Fix missing authorship information
+		if ( !$this->authorName ) {
+			$author = $this->root()->originalAuthor();
+			
+			$this->authorId = $author->getId();
+			$this->authorName = $author->getName();
+			
+			$set['thread_author_name'] = $this->authorName;
+			$set['thread_author_id'] = $this->authorId;
+		}
+		
+		if ( count($set) ) {
+			$dbw = wfGetDB( DB_MASTER );
+			
+			$dbw->update( 'thread', $set, array( 'thread_id' => $this->id() ), __METHOD__ );
+		}
+		
+		// Done
+		$doingUpdates = false;
 	}
 
 	function initWithReplies( $children ) {
@@ -319,7 +409,11 @@ class Thread {
 		// historical thread, duh. Why were we doing this?
 //		$this->replies[] = $thread;
 	}
+	
 	function removeReplyWithId( $id ) {
+		// Force load
+		$this->replies();
+		
 		$target = null;
 		foreach ( $this->replies as $k => $r ) {
 			if ( $r->id() == $id ) {
@@ -334,6 +428,24 @@ class Thread {
 		}
 	}
 	function replies() {
+		if ( !is_null($this->replies) ) {
+			return $this->replies;
+		}
+		
+		$this->replies = array();
+		
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$res = $dbr->select( 'thread', '*',
+								array( 'thread_parent' => $this->id() ), __METHOD__ );
+		
+		$rows = array();
+		while ( $row = $dbr->fetchObject($res) ) {
+			$rows[] = $row;
+		}
+		
+		$this->replies = Thread::bulkLoad( $rows );
+		
 		return $this->replies;
 	}
 
@@ -500,25 +612,19 @@ class Thread {
 	}
 
 	function subject() {
-		return $this->root()->getTitle()->getText();
+		return $this->subject;
+	}
+	
+	function setSubject( $subject ) {
+		$this->subject = $subject;
 	}
 
 	function wikilinkWithoutIncrement() {
-		$tmp = self::splitIncrementFromSubject( $this->wikilink() );
-		
-		return $tmp[1];
+		return $this->wikilink();
 	}
 
 	function subjectWithoutIncrement() {
-		$tmp = self::splitIncrementFromSubject( $this->subject() );
-		
-		return $tmp[1];
-	}
-
-	function increment() {
-		$tmp = self::splitIncrementFromSubject( $this->subject() );
-		
-		return $tmp[2];
+		return $this->subject();
 	}
 
 	function hasDistinctSubject() {
@@ -531,11 +637,11 @@ class Thread {
 	}
 
 	function hasSubthreads() {
-		return count( $this->replies ) != 0;
+		return count( $this->replies() ) != 0;
 	}
 
 	function subthreads() {
-		return $this->replies;
+		return $this->replies();
 	}
 
 	function modified() {
@@ -556,7 +662,7 @@ class Thread {
 
 	private function replyWithId( $id ) {
 		if ( $this->id == $id ) return $this;
-		foreach ( $this->replies as $r ) {
+		foreach ( $this->replies() as $r ) {
 			if ( $r->id() == $id ) return $r;
 			else {
 				$s = $r->replyWithId( $id );
