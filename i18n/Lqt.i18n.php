@@ -1100,6 +1100,14 @@ Diese Operation kann rückgängig gemacht werden.',
 	'lqt_rc_new_reply' => 'Antwort an $1, auf $2. • $3 schreibt:',
 	'lqt_rc_author_original' => '(original Autor)',
 	'lqt_rc_author_others' => '(nicht der Autor)',
+	'lqt-archive-intro' => 'Dies ist das Archiv für die Diskussion „[[$1]]“',
+	'lqt-history-time' => 'Zeit',
+	'lqt-history-user' => 'Benutzer',
+	'lqt-history-action' => 'Aktivität',
+	'lqt-thread-edited-author' => 'Vom Autor bearbeitet',
+	'lqt-thread-edited-others' => 'Von andern Benutzern geändert',
+	'lqt-header-actions' => 'Aktionen',
+	'lqt_summarize_link' => 'Zusammenfassen',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -2811,10 +2819,30 @@ Tu pote vider lo a <$6>",
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author Rex
  */
 $messages['id'] = array(
+	'lqt_newmessages' => 'Pesan baru',
+	'lqt_browse_archive_with_recent' => 'lebih lama',
+	'lqt_contents_title' => 'Daftar isi',
+	'lqt_delete' => 'Hapus',
+	'lqt_discussion_link' => 'diskusi',
+	'lqt_newer' => '← lebih baru',
+	'lqt_older' => 'lebih lama →',
+	'lqt_hist_deleted' => 'Dihapus',
+	'lqt_protectedfromreply_link' => 'dilindungi',
+	'lqt_noreason' => 'Tidak ada alasan yang diberikan.',
+	'lqt_move_move' => 'Pindahkan',
+	'lqt_move_noreason' => 'Tidak ada alasan yang diberikan.',
+	'lqt_delete_return' => 'Kembali ke $1.',
 	'lqt-title' => 'Judul',
+	'lqt-older' => 'lebih lama',
+	'lqt-newer' => 'lebih baru',
+	'lqt-email-undo' => 'Batalkan',
+	'lqt-history-time' => 'Waktu',
+	'lqt-history-user' => 'Pengguna',
+	'lqt-header-actions' => 'Tindakan',
 );
 
 /** Ido (Ido)
@@ -3293,6 +3321,7 @@ Künnt sin, De wells en $2 han.',
 	'lqt-thread-edited-others' => 'Vun ander Metmaacher jeändert',
 	'lqt-header-actions' => 'Akßjuhne',
 	'lqt_summarize_link' => 'Zosammefaße',
+	'lqt-summarize-intro' => 'Donn dä Jeschprääschßfäddem heh dronge zosammefaße, un don dat en dat Vält för et Ändere erenn schriive. Dobei kanns De jeede Wikitäx bruche. Wann De domet fäädesc beß, donn op dä Knopp „{{int:savearticle}}“ klecke.',
 	'lqt-log-name' => 'Logboch övver Jeschprääschßfäddeme',
 	'lqt-log-header' => 'En däm Logbooch heh sin de Einzelheite faßjehallde övver wat met de Jeschprähschßfäddeme jedonn woodt.',
 	'lqt-log-action-move' => '[[$1]] vun [[$2]] noh [[$3]] ömjetroke.',
@@ -5043,6 +5072,9 @@ Stále bude viditeľné na jeho pôvodnej diskusnej stránke.',
 	'lqt-thread-edited-author' => 'Upravené autorom',
 	'lqt-thread-edited-others' => 'Upravené inými používateľmi',
 	'lqt-header-actions' => 'Operácie',
+	'lqt_summarize_link' => 'Zhrnúť',
+	'lqt-summarize-intro' => 'Zhrňte prosím dolu uvedené vlákno do poľa na úpravy.
+V zhrnutí môžete použiť wikitext. Keď skončíte, kliknite na „{{int:savearticle}}“.',
 	'lqt-log-name' => 'Záznam diskusie vo vláknach',
 	'lqt-log-header' => 'Tento záznam obsahuje podrobnosti o operáciách s diskusnými vláknami.',
 	'lqt-log-action-move' => 'presunul [[$1]] z [[$2]] na [[$3]].',
