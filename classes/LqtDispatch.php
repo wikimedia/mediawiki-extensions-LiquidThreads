@@ -23,6 +23,14 @@ class LqtDispatch {
 		if ( $title->getNamespace() == NS_LQT_THREAD + 1 /* talk page */ ) {
 			// Threads don't have talk pages; redirect to the thread page.
 			$output->redirect( $title->getSubjectPage()->getFullUrl() );
+			return false;
+		}
+		
+		// If we came here from a red-link, redirect to the thread page.
+		$redlink = $request->getCheck( 'redlink' );
+		if( $redlink ) {
+			$output->redirect( $title->getFullURL() );
+			return false;
 		}
 
 		/* Certain actions apply to the "header", which is stored in the actual talkpage
