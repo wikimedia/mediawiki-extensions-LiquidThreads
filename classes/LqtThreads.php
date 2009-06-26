@@ -135,90 +135,31 @@ class Threads {
 			}
 		}
 	}
+	
+	static function loadFromResult( $res, $db ) {
+		$rows = array();
+		
+		while( $row = $db->fetchObject( $res ) ) {
+			$rows[] = $row;
+		}
+		
+		return Thread::bulkLoad( $rows );
+	}
 
-	static function where( $where, $options = array(), $extra_tables = array(),
-			$joins = "" ) {
+	static function where( $where, $options = array() ) {
 		global $wgDBprefix;
 		$dbr = wfGetDB( DB_SLAVE );
-		if ( is_array( $where ) ) $where = $dbr->makeList( $where, LIST_AND );
-		if ( is_array( $options ) ) $options = implode( ',', $options );
-
-		if ( is_array( $extra_tables ) && count( $extra_tables ) != 0 ) {
-			if ( !empty( $wgDBprefix ) ) {
-				foreach ( $extra_tables as $tablekey => $extra_table )
-					$extra_tables[$tablekey] = $wgDBprefix . $extra_table;
-			}
-			$tables = implode( ',', $extra_tables ) . ', ';
-		} else if ( is_string( $extra_tables ) ) {
-			$tables = $extra_tables . ', ';
-		} else {
-			$tables = "";
-		}
-
-		$selection_sql = <<< SQL
-		SELECT DISTINCT thread.* FROM ($tables {$wgDBprefix}thread thread)
-		$joins
-		WHERE $where
-		$options
-SQL;
-		$selection_res = $dbr->query( $selection_sql );
-
-		$ancestor_conds = array();
-		$selection_conds = array();
-		while ( $line = $dbr->fetchObject( $selection_res ) ) {
-			$ancestor_conds[] = $line->thread_ancestor;
-			$selection_conds[] = $line->thread_id;
-		}
-		if ( count( $selection_conds ) == 0 ) {
-			// No threads were found, so we can skip the second query.
-			return array();
-		} // List comprehensions, how I miss thee.
-		$ancestor_clause = join( ', ', $ancestor_conds );
-		$selection_clause = join( ', ', $selection_conds );
 		
-		// TODO uses a subquery, unsupported on Wikimedia
-
-		$children_sql = <<< SQL
-		SELECT DISTINCT thread.*, page.*,
-			thread.thread_id IN($selection_clause) as selected
-		FROM ({$wgDBprefix}thread thread, {$wgDBprefix}page page)
-		WHERE thread.thread_ancestor IN($ancestor_clause)
-			AND page.page_id = thread.thread_root
-		$options
-SQL;
-		$res = $dbr->query( $children_sql );
-
-		$threads = array();
-		$top_level_threads = array();
-		$thread_children = array();
-
-		while ( $line = $dbr->fetchObject( $res ) ) {
-			$new_thread = new Thread( $line, null );
-			$threads[] = $new_thread;
-			if ( $line->selected )
-				// thread is one of those that was directly queried for.
-				$top_level_threads[] = $new_thread;
-			if ( $line->thread_parent !== null ) {
-				if ( !array_key_exists( $line->thread_parent, $thread_children ) )
-					$thread_children[$line->thread_parent] = array();
-				// Can have duplicate if thread is both top_level and child of another top_level thread.
-				if ( !self::arrayContainsThreadWithId( $thread_children[$line->thread_parent], $new_thread->id() ) )
-					$thread_children[$line->thread_parent][] = $new_thread;
-			}
-		}
+		$res = $dbr->select( 'thread', '*', $where, __METHOD__, $options );
+		
+		$threads = Threads::loadFromResult( $res, $dbr );
 
 		foreach ( $threads as $thread ) {
-			if ( array_key_exists( $thread->id(), $thread_children ) ) {
-				$thread->initWithReplies( $thread_children[$thread->id()] );
-			} else {
-				$thread->initWithReplies( array() );
-			}
-
 			self::$cache_by_root[$thread->root()->getID()] = $thread;
 			self::$cache_by_id[$thread->id()] = $thread;
 		}
 
-		return $top_level_threads;
+		return $threads;
 	}
 
 	private static function databaseError( $msg ) {

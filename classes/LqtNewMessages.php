@@ -95,6 +95,7 @@ class NewMessages {
 					array(
 						'ums_user' => $row->wl_user,
 						'ums_thread' => $t->id(),
+						'ums_read_timestamp' => null,
 					);
 			}
 			
@@ -194,22 +195,42 @@ class NewMessages {
 	}
 
 	static function newUserMessages( $user ) {
-		global $wgDBprefix;
-		
 		$talkPage = new Article( $user->getUserPage()->getTalkPage() );
-		return Threads::where( array( 'ums_read_timestamp is null',
+		
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$joinConds = array( 'ums_user' => null );
+		$joinConds[] = $dbr->makeList( array( 'ums_user' => $user->getId(),
+												'ums_thread=thread_id' ), LIST_AND );
+		$joinClause = $dbr->makeList( $joinConds, LIST_OR );
+		
+		$res = $dbr->select( array( 'thread', 'user_message_state' ), '*',
+							array( 'ums_read_timestamp' => null,
 									Threads::articleClause( $talkPage ) ),
-							 array(), array(),
-							 "left outer join {$wgDBprefix}user_message_state on " .
-							 "ums_user is null or ".
-							 "(ums_user = {$user->getID()} and ums_thread = thread.thread_id)" );
+							__METHOD__, array(),
+							array(
+								'user_message_state' =>
+									array( 'LEFT OUTER JOIN', $joinClause )
+							) );
+							
+		return Threads::loadFromResult( $res, $dbr );
 	}
 
 	static function watchedThreadsForUser( $user ) {
-		return Threads::where( array( 'ums_read_timestamp is null',
-			'ums_user' => $user->getID(),
-			'ums_thread = thread.thread_id',
-			'NOT (' . Threads::articleClause( new Article( $user->getTalkPage() ) ) . ')' ),
-			array(), array( 'user_message_state' ) );
+		$talkPage = new Article( $user->getUserPage()->getTalkPage() );
+		
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$res = $dbr->select( array( 'thread', 'user_message_state' ), '*',
+								array( 'ums_read_timestamp' => null,
+										'ums_user' => $user->getId(),
+										'not (' . Threads::articleClause( $talkPage ) . ')',
+									),
+								__METHOD__, array(),
+								array( 'user_message_state' =>
+									array( 'INNER JOIN', 'ums_thread=thread_id' ),
+								) );
+		
+		return Threads::loadFromResult( $res, $dbr );
 	}
 }
