@@ -318,6 +318,8 @@ class LqtDiscussionPager extends IndexPager {
 		$this->showDeleted = $showDeleted;
 		
 		parent::__construct();
+		
+		$this->mLimit = 20;
 	}
 	
 	function getQueryInfo() {
@@ -443,5 +445,9 @@ class LqtDiscussionPager extends IndexPager {
 		}
 		$s .= "</tr></table>\n";
 		return $s;
+	}
+	
+	function getNavClass() {
+		return 'TalkpagePager_nav';
 	}
 }
