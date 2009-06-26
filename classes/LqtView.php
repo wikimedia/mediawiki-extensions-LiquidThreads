@@ -373,7 +373,24 @@ class LqtView {
 		$e->suppressIntro = true;
 		$e->editFormTextBeforeContent .=
 			$this->perpetuate( 'lqt_method', 'hidden' ) .
-			$this->perpetuate( 'lqt_operand', 'hidden' );
+			$this->perpetuate( 'lqt_operand', 'hidden' ) .
+			Xml::hidden( 'lqt_nonce', wfGenerateToken() );
+			
+		// Add a one-time random string to a hidden field. Store the random string
+		//  in memcached on submit and don't allow the edit to go ahead if it's already
+		//  been added.
+		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
+		if ($submitted_nonce) {
+			global $wgMemc;
+			
+			$key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
+			if ( $wgMemc->get($key) ) {
+				$this->output->redirect( $this->article->getTitle()->getFullURL() );
+				return;
+			}
+			
+			$wgMemc->set( $key, 1, 3600 );
+		}
 
 		if ( $edit_type == 'new' || ( $thread && !$thread->hasSuperthread() ) ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
