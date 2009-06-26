@@ -152,14 +152,9 @@ class TalkpageView extends LqtView {
 		}
 
 		if ( $article->exists() ) {
-			$newest_changes = wfMsg( 'lqt_sort_newest_changes' );
-			$newest_threads = wfMsg( 'lqt_sort_newest_threads' );
-			$oldest_threads = wfMsg( 'lqt_sort_oldest_threads' );
 			$lqt_remember_sort = wfMsg( 'lqt_remember_sort' ) ;
+			
 			$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
-			$lqt_sort_newest_changes = wfMsg( 'lqt_sort_newest_changes' );
-			$lqt_sort_newest_threads = wfMsg( 'lqt_sort_newest_threads' );
-			$lqt_sort_oldest_threads = wfMsg( 'lqt_sort_oldest_threads' );
 			$go = wfMsg( 'go' );
 			
 			$html = '';
@@ -172,9 +167,9 @@ class TalkpageView extends LqtView {
 			$sortOrderSelect->setAttribute( 'class', 'lqt_sort_select' );
 			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_newest_changes' ),
 											LQT_NEWEST_CHANGES );
-			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_newest_changes' ),
+			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_newest_threads' ),
 											LQT_NEWEST_THREADS );
-			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_newest_changes' ),
+			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_oldest_threads' ),
 											LQT_OLDEST_THREADS );
 			$html .= $sortOrderSelect->getHTML();
 

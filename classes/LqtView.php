@@ -676,6 +676,33 @@ HTML;
 		$sk = $this->user->getSkin();
 		$html = '';
 		
+		/// RHS, actions. Show as a drop-down, goes first in the HTML so it floats correctly.
+		$commands = $this->threadCommands( $thread );
+		$commandHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-header-command-list' ),
+									$this->listItemsForCommands( $commands ) );
+
+		$headerParts = array();
+		
+		$permalink = $this->permalink( $thread, wfMsgExt( 'lqt_permalink', 'parseinline' ) );
+		$permalink = Xml::tags( 'span', array( 'class' => 'lqt-thread-permalink' ), $permalink );
+		$headerParts[] = $permalink;
+		
+		// Drop-down menu
+		$triggerText =	wfMsgExt( 'lqt-header-actions', 'parseinline' ) .
+						Xml::tags( 'span', array('class' => 'lqt-thread-actions-icon'),
+										'&nbsp;');
+		$dropDownTrigger = Xml::tags( 	'span',
+										array( 'class' => 'lqt-thread-actions-trigger' ),
+										$triggerText );
+		$headerParts[] = Xml::tags( 'div',
+									array( 'class' => 'lqt-thread-header-commands' ),
+									$dropDownTrigger . $commandHTML );
+		
+		$dropDown = Xml::tags( 'div',
+								array( 'class' => 'lqt-thread-header-rhs' ),
+								$wgLang->pipeList( $headerParts ) );
+		$html .= $dropDown;
+		
 		$infoElements = array();
 		
 		// Author name.
@@ -706,33 +733,6 @@ HTML;
 		
 		$html .= Xml::tags( 'span', array( 'class' => 'lqt-thread-header-info' ),
 							$wgLang->pipeList( $infoElements ) );
-							
-		/// RHS Ñ actions. Show as a drop-down
-		$commands = $this->threadCommands( $thread );
-		$commandHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-header-command-list' ),
-									$this->listItemsForCommands( $commands ) );
-
-		$headerParts = array();
-		
-		$permalink = $this->permalink( $thread, wfMsgExt( 'lqt_permalink', 'parseinline' ) );
-		$permalink = Xml::tags( 'span', array( 'class' => 'lqt-thread-permalink' ), $permalink );
-		$headerParts[] = $permalink;
-		
-		// Drop-down menu
-		$triggerText =	wfMsgExt( 'lqt-header-actions', 'parseinline' ) .
-						Xml::tags( 'span', array('class' => 'lqt-thread-actions-icon'),
-										'&nbsp;');
-		$dropDownTrigger = Xml::tags( 	'span',
-										array( 'class' => 'lqt-thread-actions-trigger' ),
-										$triggerText );
-		$headerParts[] = Xml::tags( 'div',
-									array( 'class' => 'lqt-thread-header-commands' ),
-									$dropDownTrigger . $commandHTML );
-		
-		$dropDown = Xml::tags( 'div',
-								array( 'class' => 'lqt-thread-header-rhs' ),
-								$wgLang->pipeList( $headerParts ) );
-		$html .= $dropDown;
 							
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-header' ), $html );
 		
