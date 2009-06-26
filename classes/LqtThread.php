@@ -50,6 +50,8 @@ class Thread {
 	protected $double;
 
 	protected $replies;
+	
+	static $titleCacheById = array();
 
 	function isHistorical() {
 		return false;
@@ -314,7 +316,11 @@ class Thread {
 			$this->root = new Post( $root_title );
 			$this->root->loadPageData( $line );
 		} else {
-			$root_title = Title::newFromID( $this->rootId );
+			if ( isset( self::$titleCacheById[$this->rootId] ) ) {
+				$root_title = self::$titleCacheById[$this->rootId];
+			} else {
+				$root_title = Title::newFromID( $this->rootId );
+			}
 			$this->root = new Post( $root_title );
 		}
 
@@ -326,6 +332,30 @@ class Thread {
 	// Load a list of threads in bulk.
 	static function bulkLoad( $rows ) {
 		$threads = array();
+		
+		// Preload page data in one swoop.
+		$pageIds = array();
+		
+		foreach( $rows as $row ) {
+			if ($row->thread_root)
+				$pageIds[] = $row->thread_root;
+			if ($row->thread_summary_page)
+				$pageIds[] = $row->thread_summary_page;
+		}
+		
+		if ( count($pageIds) ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$res = $dbr->select( 'page', '*', array( 'page_id' => $pageIds ), __METHOD__ );
+			while( $row = $dbr->fetchObject( $res ) ) {
+				$t = Title::newFromRow( $row );
+				
+				self::$titleCacheById[$t->getArticleId()] = $t;
+				
+				if ( count(self::$titleCacheById) > 1000 ) {
+					self::$titleCacheById = array();
+				}
+			}
+		}
 		
 		foreach( $rows as $row ) {
 			$threads[] = new Thread( $row, null );
