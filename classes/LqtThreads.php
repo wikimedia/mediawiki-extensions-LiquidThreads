@@ -110,6 +110,9 @@ class Threads {
 		self::createTalkpageIfNeeded( $article );
 
 		NewMessages::writeMessageStateForUpdatedThread( $newthread, $change_type, $wgUser );
+		
+		// Touch the article
+		$article->getTitle()->invalidateCache();
 
 		return $newthread;
 	}

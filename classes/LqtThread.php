@@ -173,6 +173,8 @@ class Thread {
 		     
 		// Touch the root
 		$this->root()->getTitle()->invalidateCache();
+		// Touch the talk page, too.
+		$this->article()->getTitle()->invalidateCache();
 
 		if ( $change_type == Threads::CHANGE_EDITED_ROOT ) {
 			NewMessages::writeMessageStateForUpdatedThread( $this, $change_type, $wgUser );
