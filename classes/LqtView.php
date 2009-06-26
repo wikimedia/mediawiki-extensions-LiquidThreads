@@ -417,10 +417,14 @@ class LqtView {
 		// This results in a new Thread object not being created for replies and new discussions,
 		// so $thread is null. In that case, just allow editpage to redirect back to the talk page.
 		if ( $this->output->getRedirect() != '' && $thread ) {
-			$this->output->redirect( $this->title->getFullURL() . '#' . 'lqt_thread_' . $thread->id() );
+			$redirectTitle = clone $this->title;
+			$redirectTitle->setFragment( '#'.$this->anchorName( $thread ) );
+			$this->output->redirect( $this->title->getFullURL() );
 		} else if ( $this->output->getRedirect() != '' && $edit_applies_to ) {
 			// For summaries:
-			$this->output->redirect( $edit_applies_to->title()->getFullURL() . '#' . 'lqt_thread_' . $edit_applies_to->id() );
+			$redirectTitle = clone $edit_applies_to->title();
+			$redirectTitle->setFragment( '#'.$this->anchorName( $edit_applies_to ) );
+			$this->output->redirect( $redirectTitle->getFullURL() );
 		}
 	}
 

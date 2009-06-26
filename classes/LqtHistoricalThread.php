@@ -24,7 +24,7 @@ class HistoricalThread extends Thread {
 		$this->editedness = $t->editedness;
 
 		$this->replies = array();
-		foreach ( $t->replies as $r ) {
+		foreach ( $t->replies() as $r ) {
 			$this->replies[] = new HistoricalThread( $r );
 		}
 	}

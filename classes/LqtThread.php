@@ -426,9 +426,12 @@ class Thread {
 		// Update: this doesn't work for some reason, but why do we update the replies array
 		// in the first place after creating a new reply?
 		$new_array = array();
-		foreach ( $this->replies as $r )
-			$new_array[] = $r;
-		$this->replies = $new_array;
+
+		if( $this->replies ) {
+			foreach ( $this->replies as $r )
+				$new_array[] = $r;
+			$this->replies = $new_array;
+		}
 	}
 
 	/*
