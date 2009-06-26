@@ -734,6 +734,9 @@ HTML;
 		$html .= Xml::tags( 'span', array( 'class' => 'lqt-thread-header-info' ),
 							$wgLang->pipeList( $infoElements ) );
 							
+		// Fix the floating elements by adding a clear.
+		$html .= Xml::tags( 'span', array( 'style' => 'clear: both;' ), '&nbsp;' );
+							
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-header' ), $html );
 		
 		$this->output->addHTML( $html );
