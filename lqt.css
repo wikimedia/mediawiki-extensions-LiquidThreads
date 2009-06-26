@@ -499,6 +499,7 @@ li.lqt-command-reply {
 
 .lqt-thread-actions-trigger {
 	padding: 0.5em;
+	border: 1px transparent;
 }
 
 .lqt-thread-header-commands:hover .lqt-thread-actions-trigger {
