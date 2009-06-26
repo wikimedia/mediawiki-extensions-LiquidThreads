@@ -27,8 +27,6 @@ class LqtView {
 	protected $user_color_index;
 	const number_of_user_colors = 6;
 
-	protected $queries;
-
 	protected $sort_order = LQT_NEWEST_CHANGES;
 
 	function __construct( &$output, &$article, &$title, &$user, &$request ) {
@@ -39,64 +37,10 @@ class LqtView {
 		$this->request = $request;
 		$this->user_colors = array();
 		$this->user_color_index = 1;
-		$this->queries = $this->initializeQueries();
 	}
 
 	function setHeaderLevel( $int ) {
 		$this->headerLevel = $int;
-	}
-
-	function initializeQueries() {
-		
-		// Create query group
-		global $wgOut, $wgLqtThreadArchiveStartDays, $wgLqtThreadArchiveInactiveDays;
-		$dbr = wfGetDB( DB_SLAVE );
-		$g = new QueryGroup();
-		
-		$startdate = Date::now()->nDaysAgo( $wgLqtThreadArchiveStartDays )->midnight();
-		$recentstartdate = $startdate->nDaysAgo( $wgLqtThreadArchiveInactiveDays );
-		$article_clause = Threads::articleClause( $this->article );
-		if ( $this->sort_order == LQT_NEWEST_CHANGES ) {
-			$sort_clause = 'ORDER BY thread.thread_modified DESC';
-		} elseif ( $this->sort_order == LQT_NEWEST_THREADS ) {
-			$sort_clause = 'ORDER BY thread.thread_created DESC';
-		} elseif ( $this->sort_order == LQT_OLDEST_THREADS ) {
-			$sort_clause = 'ORDER BY thread.thread_created ASC';
-		}
-		
-		// Add standard queries
-		$g->addQuery( 'fresh',
-		              array( $article_clause,
-							'thread.thread_parent is null',
-		                    '(thread.thread_modified >= ' . $startdate->text() .
-		 					'  OR (thread.thread_summary_page is NULL' .
-								 ' AND thread.thread_type=' . Threads::TYPE_NORMAL . '))' ),
-		              array( $sort_clause ) );
-		
-		$g->extendQuery( 'fresh', 'fresh-undeleted',
-						array( 'thread_type != '. $dbr->addQuotes( Threads::TYPE_DELETED ) ) );
-						
-						
-		$g->addQuery( 'archived',
-		             array( $article_clause,
-							'thread.thread_parent is null',
-		                   '(thread.thread_summary_page is not null' .
-			                  ' OR thread.thread_type=' . Threads::TYPE_NORMAL . ')',
-		                   'thread.thread_modified < ' . $startdate->text() ),
-		             array( $sort_clause ) );
-		             
-		$g->extendQuery( 'archived', 'recently-archived',
-		                array( '( thread.thread_modified >=' . $recentstartdate->text() .
-				      '  OR  rev_timestamp >= ' . $recentstartdate->text() . ')',
-				      'summary_page.page_id = thread.thread_summary_page', 'summary_page.page_latest = rev_id' ),
-				array(),
-				array( 'page summary_page', 'revision' ) );
-				
-		$g->addQuery( 'archived', 'archived-undeleted',
-						array( 'thread_type != '. $dbr->addQuotes( Threads::TYPE_DELETED ) ) );
-						
-						
-		return $g;
 	}
 
 	static protected $occupied_titles = array();

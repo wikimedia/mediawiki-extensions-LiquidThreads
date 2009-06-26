@@ -71,7 +71,6 @@ $wgAutoloadClasses['ThreadHistoryIterator'] = $dir . 'classes/LqtThreadHistoryIt
 $wgAutoloadClasses['HistoricalThread'] = $dir . 'classes/LqtHistoricalThread.php';
 $wgAutoloadClasses['Thread'] = $dir . 'classes/LqtThread.php';
 $wgAutoloadClasses['Threads'] = $dir . 'classes/LqtThreads.php';
-$wgAutoloadClasses['QueryGroup'] = $dir . 'classes/LqtQueryGroup.php';
 $wgAutoloadClasses['NewMessages'] = $dir . 'classes/LqtNewMessages.php';
 $wgAutoloadClasses['LiquidThreadsMagicWords'] = $dir . 'i18n/LiquidThreads.magic.php';
 $wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/LqtParserFunctions.php'; // File does not exist
