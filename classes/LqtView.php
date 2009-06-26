@@ -343,14 +343,14 @@ class LqtView {
 			$subject = $this->request->getVal( 'lqt_subject_field', $db_subject );
 			$subject_label = wfMsg( 'lqt_subject' );
 			
-			$disableattr = array();
+			$attr = array( 'tabindex' => 1 );
 			if ( $thread && !$this->user->isAllowed( 'move' ) ) {
-				$disableattr = array( 'readonly' => 'readonly' );
+				$attr['readonly'] = 'readonly';
 			}
 			
 			$e->editFormTextBeforeContent .=
 				Xml::inputLabel( $subject_label, 'lqt_subject_field', 'lqt_subject_field',
-					60, $subject, $disableattr ) . Xml::element( 'br' );
+					60, $subject, $attr ) . Xml::element( 'br' );
 		}
 		
 		// Quote the original message if we're replying
