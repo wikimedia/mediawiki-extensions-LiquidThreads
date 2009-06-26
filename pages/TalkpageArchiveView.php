@@ -106,9 +106,6 @@ class TalkpageArchivePager extends TablePager {
 									'thread_type' => Threads::TYPE_MOVED );
 		$hasSummaryClause = $dbr->makeList( $hasSummaryClauses, LIST_OR );
 		
-		$startDays = Threads::getArticleArchiveStartDays( $this->article );
-		$startdate = Date::now()->nDaysAgo( $startDays )->midnight();
-		
 		$queryInfo =
 			array(
 				'tables' => array( 'thread', 'page', 'revision' ),

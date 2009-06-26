@@ -781,10 +781,10 @@ class Thread {
 	function isArchiveEligible( ) {		
 		$startDays = $this->getArchiveStartDays();
 
-		$timestamp = new Date( $this->modified() );
-		$archiveCutoff = Date::now()->nDaysAgo( $startDays );
+		$timestamp = wfTimestamp( TS_UNIX, $this->modified() );
+		$archiveCutoff = time() - $startDays * 86400;
 		
-		return $timestamp->isBefore( $archiveCutoff ) // X days must have elapsed
+		return $timestamp < $archiveCutoff // X days must have elapsed
 				&& !$this->hasSuperthread() // Must be a primary thread (i.e. not a reply)
 				&& !$this->isHistorical();  // Can't have already been archived, obviously
 	}
