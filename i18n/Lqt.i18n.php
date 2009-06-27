@@ -2800,6 +2800,19 @@ Iste operation es reversibile.',
 	'lqt_rc_ellipsis' => '  …',
 	'lqt_rc_author_original' => '(autor original)',
 	'lqt_rc_author_others' => '(non le autor)',
+	'lqt-newmessages-context' => 'Filo complete',
+	'lqt-thread-created' => 'Create',
+	'lqt-archive-subtitle' => 'Archivo del discussion',
+	'lqt-archive-intro' => 'Iste es le archivo del discussion de [[$1]].',
+	'lqt-history-time' => 'Hora',
+	'lqt-history-user' => 'Usator',
+	'lqt-history-action' => 'Activitate',
+	'lqt-thread-edited-author' => 'Modificate per le autor',
+	'lqt-thread-edited-others' => 'Modificate per altere usatores',
+	'lqt-header-actions' => 'Actiones',
+	'lqt_summarize_link' => 'Summarisar',
+	'lqt-summarize-intro' => 'Per favor summarisa le filo ci infra in le quadro de modification.
+Tu pote usar omne wikitexto in tu summario. Quando tu fini, clicca super "{{int:savearticle}}".',
 	'lqt-log-name' => 'Registro de filos de discussion',
 	'lqt-log-header' => 'Iste registro detalia le actiones prendite in le filos de discussion.',
 	'lqt-log-action-move' => 'moveva [[$1]] ab [[$2]] verso [[$3]].',
@@ -2816,6 +2829,7 @@ Isto es un notification ab {{SITENAME}} que un nove responsa a '$2' in $5,
 esseva create le $3 a $4.
 
 Tu pote vider lo a <$6>",
+	'lqt-quote-intro' => 'Le $2 a $3, [[User:$1]] scribeva:',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -4900,7 +4914,7 @@ $messages['ru'] = array(
 	'lqt-thread-edited-author' => 'Отредактировано автором',
 	'lqt-thread-edited-others' => 'Отредактировано другими участниками',
 	'lqt-header-actions' => 'Действия',
-	'lqt_summarize_link' => 'Краткое описание',
+	'lqt_summarize_link' => 'Подвести итог',
 	'lqt-summarize-intro' => 'Пожалуйста, кратко опишите в поле редактирования содержимое данной ветки обсуждения.
 Вы можете использовать любой викитекст. Нажмите «{{int:savearticle}}», когда закончите.',
 	'lqt-log-name' => 'Журнал веток обсуждений',
