@@ -126,7 +126,7 @@ You might instead want to $2.',
 	'lqt-older'               => 'older',
 	'lqt-newer'               => 'newer',
 	'lqt-searching'           => 'Searching for threads',
-	'lqt-read-message'        => 'Read',
+	'lqt-read-message'        => 'Mark as read',
 	'lqt-read-message-tooltip' => 'Remove this thread from new messages.
 It will still be visible on its original talk page.',
 	'lqt-read-all'            => 'Mark all as read',
