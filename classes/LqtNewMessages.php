@@ -60,25 +60,39 @@ class NewMessages {
 		$rootWhere = $dbw->makeList( $rootWhere, LIST_AND );
 		
 		$where_clause = $dbw->makeList( array( $talkpageWhere, $rootWhere ), LIST_OR );
+		
+		// <= 1.15 compatibility, it kinda sucks having to do all this up here.
+		$tables = array( 'watchlist', 'user_message_state' );
+		$joins = array( 'user_message_state' =>
+							array( 'left join',
+								array( 'ums_user=wl_user', 'ums_thread' => $t->id() ) ) );
+		$fields = array( 'wl_user', 'ums_user', 'ums_read_timestamp' );
+		
+		$oldPrefCompat = false;
+		global $wgVersion;
+		if ( version_compare( $wgVersion, '1.15', '<=' ) ) {
+			$oldPrefCompat = true;
+			
+			$tables[] = 'user';
+			$joins['user'] = array( 'left join', 'user_id=wl_user' );
+			$fields[] = 'user_options';
+		} else {
+			$tables[] = 'user_properties';
+			$joins['user_properties'] = 
+				array(
+						'left join',
+						array( 'up_user=wl_user',
+							'up_property' => 'lqtnotifytalk',
+						)
+					);
+			$fields[] = 'up_value';
+		}
 
 		// Pull users to update the message state for, including whether or not a
 		//  user_message_state row exists for them, and whether or not to send an email
 		//  notification.
 		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select(  array( 'watchlist', 'user_message_state', 'user_properties' ),
-								array( 'wl_user', 'ums_user', 'ums_read_timestamp', 'up_value' ),
-								$where_clause, __METHOD__, array(),
-								array( 'user_message_state' =>
-									array( 'left join',  array( 'ums_user=wl_user',
-										'ums_thread' => $t->id() ) ),
-									'user_properties' => array(
-										'left join',
-										array( 'up_user=wl_user',
-											'up_property' => 'lqtnotifytalk',
-										)
-									),
-								)
-							);
+		$res = $dbr->select( $tables, $fields, $where_clause, __METHOD__, array(), $joins);
 		
 		$insert_rows = array();
 		$update_tuples = array();
@@ -99,8 +113,20 @@ class NewMessages {
 					);
 			}
 			
-			if ( ( is_null($row->up_value) && User::getDefaultOption( 'lqtnotifytalk' ) )
-					|| $row->up_value ) {
+			$wantsTalkNotification = false;
+			
+			if ( $oldPrefCompat ) {
+				$decodedOptions = self::decodeUserOptions( $row->user_options );
+				
+				$wantsTalkNotification = ( is_null( $decodedOptions['lqtnotifytalk'] ) && 
+						User::getDefaultOption( 'lqtnotifytalk' ) ) || $row->up_value;
+			} else {
+				$wantsTalkNotification =
+					(is_null($row->up_value) && User::getDefaultOption( 'lqtnotifytalk' ) )
+						|| $row->up_value;
+			}
+			
+			if ( $wantsTalkNotification  ) {
 				$notify_users[] = $row->wl_user;
 			}
 		}
@@ -132,6 +158,21 @@ class NewMessages {
 		if ( count($notify_users) ) {
 			self::notifyUsersByMail( $t, $notify_users, wfTimestampNow(), $type );
 		}
+	}
+	
+	// Would refactor User::decodeOptions, but the whole point is that this is
+	//  compatible with old code :)
+	static function decodeUserOptions( $str ) {
+		$opts = array();
+		$a = explode( "\n", $str );
+		foreach ( $a as $s ) {
+			$m = array();
+			if ( preg_match( "/^(.[^=]*)=(.*)$/", $s, $m ) ) {
+				$opts[$m[1]] = $m[2];
+			}
+		}
+		
+		return $opts;
 	}
 	
 	static function notifyUsersByMail( $t, $watching_users, $timestamp, $type ) {

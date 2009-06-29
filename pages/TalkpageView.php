@@ -407,7 +407,9 @@ class LqtDiscussionPager extends IndexPager {
 	function getNavigationBar() {
 		global $wgStylePath, $wgContLang;
 
-		if ( !$this->isNavigationBarShown() ) return '';
+		if ( method_exists( $this, 'isNavigationBarShown' ) &&
+				!$this->isNavigationBarShown() )
+			return '';
 
 		$path = "$wgStylePath/common/images";
 		$labels = array(
