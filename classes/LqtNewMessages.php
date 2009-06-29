@@ -12,28 +12,28 @@ class NewMessages {
 	}
 
 	private static function writeUserMessageState( $thread, $user, $timestamp ) {
-		global $wgDBprefix;
-		if ( is_object( $thread ) ) $thread_id = $thread->id();
-		else if ( is_integer( $thread ) ) $thread_id = $thread;
-		else throw new MWException( "writeUserMessageState expected Thread or integer but got $thread" );
+		if ( is_object( $thread ) ) {
+			$thread_id = $thread->id();
+		} else if ( is_integer( $thread ) ) {
+			$thread_id = $thread;
+		} else {
+			throw new MWException( "writeUserMessageState expected Thread or integer but got $thread" );
+		}
 
-		if ( is_object( $user ) ) $user_id = $user->getID();
-		else if ( is_integer( $user ) ) $user_id = $user;
-		else throw new MWException( "writeUserMessageState expected User or integer but got $user" );
-
-		if ( $timestamp === null ) $timestamp = "NULL";
+		if ( is_object( $user ) ) {
+			$user_id = $user->getID();
+		} else if ( is_integer( $user ) ) {
+			$user_id = $user;
+		} else {
+			throw new MWException( "writeUserMessageState expected User or integer but got $user" );
+		}
 
 		// use query() directly to pass in 'true' for don't-die-on-errors.
-		$dbr =& wfGetDB( DB_MASTER );
-		$success = $dbr->query( "insert into {$wgDBprefix}user_message_state values ($user_id, $thread_id, $timestamp)",
-			__METHOD__, true );
-
-		if ( !$success ) {
-			// duplicate key; update.
-			$dbr->query( "update {$wgDBprefix}user_message_state set ums_read_timestamp = $timestamp" .
-				" where ums_thread = $thread_id and ums_user = $user_id",
-				__METHOD__ );
-		}
+		$dbw = wfGetDB( DB_MASTER );
+		
+		$dbw->replace( 'user_message_state', array( array( 'ums_user', 'ums_thread' ) ),
+						array( 'ums_user' => $user_id, 'ums_thread' => $thread_id,
+								'ums_read_timestamp' => $timestamp ), __METHOD__ );
 	}
 
 	/**
@@ -41,7 +41,7 @@ class NewMessages {
 	 * If the thread is on a user's talkpage, set that user's newtalk.
 	*/
 	static function writeMessageStateForUpdatedThread( $t, $type, $changeUser ) {
-		global $wgDBprefix, $wgUser;
+		global $wgUser;
 		
 		wfDebugLog( 'LiquidThreads', 'Doing notifications' );
 
