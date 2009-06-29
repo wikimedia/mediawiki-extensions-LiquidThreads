@@ -132,14 +132,15 @@ class LqtView {
 	}
 	
 	static function talkpageLink( $title, $text = null , $method=null, $operand=null,
-									$includeFragment=true, $attribs = array() ) {
+									$includeFragment=true, $attribs = array(),
+									$options = array() ) {
 		list( $title, $query ) = self::talkpageLinkData( $title, $method, $operand,
 									$includeFragment );
 		
 		global $wgUser;
 		$sk = $wgUser->getSkin();
 		
-		return $sk->link( $title, $text, $attribs, $query );
+		return $sk->link( $title, $text, $attribs, $query, $options );
 	}
 	
 	static function talkpageLinkData( $title, $method = null, $operand = null,

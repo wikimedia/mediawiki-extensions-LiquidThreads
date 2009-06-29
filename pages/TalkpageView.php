@@ -239,7 +239,8 @@ class TalkpageView extends LqtView {
 			$newThreadLink = $this->talkpageLink( $this->title,
 												wfMsgExt( 'lqt_new_thread', 'parseinline' ),
 												'talkpage_new_thread', null, true,
-												array( 'class' => 'lqt_start_discussion' ) );
+												array( 'class' => 'lqt_start_discussion' ),
+												array( 'known' ) );
 												
 			$this->output->addHTML( Xml::tags( 'strong', null, $newThreadLink ) );
 		}
