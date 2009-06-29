@@ -557,14 +557,18 @@ class Thread {
 	function article() {
 		if ( $this->article ) return $this->article;
 		
-		$title = Title::newFromID( $this->articleId );
-		if ( $title ) {
-			$a = new Article( $title );
+		if ( !is_null( $this->articleId ) ) {
+			$title = Title::newFromID( $this->articleId );
+			if ( $title ) {
+				$article = new Article( $title );
+			}
 		}
-		if ( isset( $a ) && $a->exists() ) {
-			return $a;
+		if ( isset( $article ) && $article->exists() ) {
+			$this->article = $article;
+			return $article;
 		} else {
-			return new Article( Title::makeTitle( $this->articleNamespace, $this->articleTitle ) );
+			$title = Title::makeTitle( $this->articleNamespace, $this->articleTitle );
+			return new Article( $title );
 		}
 	}
 
