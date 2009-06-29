@@ -54,6 +54,13 @@ $aliases['dsb'] = array(
 	'NewMessages' => array( 'Nowe powěsći' ),
 );
 
+/** Greek (Ελληνικά) */
+$aliases['el'] = array(
+	'DeleteThread' => array( 'ΔιαγραφήΝήματος' ),
+	'MoveThread' => array( 'ΜετακίνησηΝήματος' ),
+	'NewMessages' => array( 'ΝέαΜηνύματα' ),
+);
+
 /** Basque (Euskara) */
 $aliases['eu'] = array(
 	'NewMessages' => array( 'MezuBerriak' ),
@@ -107,6 +114,13 @@ $aliases['ia'] = array(
 	'DeleteThread' => array( 'Deler discussion' ),
 	'MoveThread' => array( 'Displaciar discussion' ),
 	'NewMessages' => array( 'Nove messages' ),
+);
+
+/** Indonesian (Bahasa Indonesia) */
+$aliases['id'] = array(
+	'DeleteThread' => array( 'Hapus topik', 'HapusTopik' ),
+	'MoveThread' => array( 'Pindahkan topik', 'PindahkanTopik' ),
+	'NewMessages' => array( 'Pesan baru', 'PesanBaru' ),
 );
 
 /** Italian (Italiano) */
