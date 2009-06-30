@@ -721,7 +721,7 @@ $messages['be-tarask'] = array(
 	'lqt-older' => 'найстаршыя',
 	'lqt-newer' => 'найноўшыя',
 	'lqt-searching' => 'Пошук па галінах',
-	'lqt-read-message' => 'Чытаць',
+	'lqt-read-message' => 'Пазначанае як прачытанае',
 	'lqt-read-message-tooltip' => 'Выдаліць гэтую галіну з новых паведамленьняў.
 Яна ўсё яшчэ будзе бачна ў пачатковай старонцы абмеркаваньня.',
 	'lqt-read-all' => 'Пазначыць усе як прачытаныя',
@@ -1080,7 +1080,7 @@ Möglicherweise willst du statt dessen eine $2.',
 	'lqt-older' => 'älter',
 	'lqt-newer' => 'neuer',
 	'lqt-searching' => 'Suche nach Diskussionsstrang',
-	'lqt-read-message' => 'Gelesen',
+	'lqt-read-message' => 'Als gelesen markieren',
 	'lqt-read-message-tooltip' => 'Entferne diesen Diskussionsstrang aus den neuen Nachrichten.
 Er wird weiterhin auf der Original-Diskussionsseite zu sehen sein.',
 	'lqt-read-all' => 'Alle als gelesen markieren',
@@ -1226,7 +1226,7 @@ Snaź coš město togo $2.',
 	'lqt-older' => 'staršy',
 	'lqt-newer' => 'nowšy',
 	'lqt-searching' => 'Pytanje za nitkami',
-	'lqt-read-message' => 'Pśecytany',
+	'lqt-read-message' => 'Ako pśecytany markěrowaś',
 	'lqt-read-message-tooltip' => 'Wótpóraj toś tu nitku z nowych powěsćow.
 Buźo jano hyšći na swójem originalnem diskusijnem boku widobne.',
 	'lqt-read-all' => 'Wšykne ako pśecytane markěrowaś',
@@ -1497,7 +1497,7 @@ $messages['es'] = array(
 	'lqt-summary' => 'Sumario',
 	'lqt-older' => 'más antiguo',
 	'lqt-newer' => 'más nuevo',
-	'lqt-read-message' => 'Leer',
+	'lqt-read-message' => 'Marcar como leído',
 	'lqt-read-all' => 'Marcar todos como leídos',
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mensaje|mensajes}} marcados como leídos.',
 	'lqt-email-undo' => 'Deshacer',
@@ -1693,7 +1693,7 @@ Si elle a été conclue, vous pouvez avoir besoin de $1.',
 	'lqt-older' => 'plus ancien',
 	'lqt-newer' => 'plus récent',
 	'lqt-searching' => 'Recherche des fils de discussion',
-	'lqt-read-message' => 'Lire',
+	'lqt-read-message' => 'Marquer comme lu',
 	'lqt-read-message-tooltip' => 'Retirer ce fil des nouveaux messages
 Il sera encore visible dans sa page de discussion originale.',
 	'lqt-read-all' => 'Tout marquer comme lu',
@@ -1868,7 +1868,7 @@ Se xa foi rematada, ao mellor quere $1.',
 	'lqt-older' => 'máis vello',
 	'lqt-newer' => 'máis novo',
 	'lqt-searching' => 'Procurando ameazas',
-	'lqt-read-message' => 'Ler',
+	'lqt-read-message' => 'Marcar como lido',
 	'lqt-read-message-tooltip' => 'Eliminar este fío das mensaxes novas.
 Poderá seguir sendo visible na súa páxina de conversa orixinal.',
 	'lqt-read-all' => 'Marcar todo como lido',
@@ -2062,7 +2062,7 @@ Megligerwyys witt statt däm e $2.',
 	'lqt-older' => 'elter',
 	'lqt-newer' => 'nejer',
 	'lqt-searching' => 'No Diskussionsstrang sueche',
-	'lqt-read-message' => 'Gläse',
+	'lqt-read-message' => 'As gläse markiere',
 	'lqt-read-message-tooltip' => 'Nimm dää Diskussionsstrang us dr neje Nochrichten use.
 Är isch wyter uf dr Original-Diskussionssyte z säh.',
 	'lqt-read-all' => 'Alli as gläse markiere',
@@ -2529,7 +2529,7 @@ $messages['hsb'] = array(
 	'lqt-older' => 'starše',
 	'lqt-newer' => 'nowše',
 	'lqt-searching' => 'Pytanje za nitkami',
-	'lqt-read-message' => 'Přečitany',
+	'lqt-read-message' => 'Jako přečitany markěrować',
 	'lqt-read-message-tooltip' => 'Wotstroń tutu nitku z nowych powěsćow.
 Budźe dale widźomna na prěnjotnej diskusijnej stronje.',
 	'lqt-read-all' => 'Wšě jako přečitane markěrować',
@@ -2779,7 +2779,7 @@ In altere caso es preferite $2.',
 	'lqt-older' => 'plus ancian',
 	'lqt-newer' => 'plus nove',
 	'lqt-searching' => 'Recerca de filos',
-	'lqt-read-message' => 'Leger',
+	'lqt-read-message' => 'Marcar como legite',
 	'lqt-read-message-tooltip' => 'Remover iste filo de nove messages.
 Illo essera ancora visibile in su pagina de discussion original.',
 	'lqt-read-all' => 'Marcar toto como legite',
@@ -3001,7 +3001,7 @@ $messages['ja'] = array(
 	'lqt-older' => '古いもの',
 	'lqt-newer' => '新しいもの',
 	'lqt-searching' => 'スレッドの検索',
-	'lqt-read-message' => '既読',
+	'lqt-read-message' => '既読とする',
 	'lqt-read-message-tooltip' => 'このスレッドを新しい伝言から除きます。元のノートページでは表示され続けます。',
 	'lqt-read-all' => 'すべてを既読とする',
 	'lqt-read-all-tooltip' => 'すべてのスレッドを新しい伝言から除きます。元のノートページでは表示され続けます。この操作は取り消しができます。',
@@ -3049,6 +3049,7 @@ $messages['ja'] = array(
 
 /** Javanese (Basa Jawa)
  * @author Meursault2004
+ * @author Pras
  */
 $messages['jv'] = array(
 	'lqt_newmessages' => 'Pesen anyar',
@@ -3069,8 +3070,8 @@ $messages['jv'] = array(
 	'lqt_hist_deleted' => 'Dibusak',
 	'lqt_hist_undeleted' => 'Batal busak',
 	'lqt_hist_moved_talkpage' => 'Dipindhah',
-	'lqt_revision_as_of' => 'Révisi per $1.',
-	'lqt_youhavenewmessages' => 'Panjenengan ana $1.',
+	'lqt_revision_as_of' => 'Révisi per $2 ing $3.',
+	'lqt_youhavenewmessages' => 'Panjenengan duwé [$1 pesen anyar].',
 	'lqt_protectedfromreply_link' => 'direksa',
 	'lqt_subject' => 'Subyèk:',
 	'lqt_nosubject' => '«ora ana subyèk»',
@@ -3081,7 +3082,7 @@ $messages['jv'] = array(
 	'lqt_move_move' => 'Pindhah',
 	'lqt_move_nodestination' => 'Panjenengan kudu spésifikasi tujuan.',
 	'lqt_move_noreason' => 'Ora mènèhi alesan.',
-	'lqt_delete_undeleting' => 'Mbatalaké pambusakan $1.',
+	'lqt_delete_undeleting' => "Mbatalaké pambusakan '''$1'''.",
 	'lqt_delete_return' => 'Bali menyang $1.',
 	'lqt_header_warning_big' => 'Panjenengan nyunting sawijining $1.',
 	'lqt_header_warning_new_discussion' => 'miwiti dhiskusi anyar',
@@ -3458,7 +3459,7 @@ $messages['lb'] = array(
 	'lqt-older' => 'méi al',
 	'lqt-newer' => 'méi nei',
 	'lqt-searching' => 'No Rubrike sichen',
-	'lqt-read-message' => 'Geliest',
+	'lqt-read-message' => 'Als geliest markéieren',
 	'lqt-read-message-tooltip' => 'Dës Rubrik aus den neie Messagen ewechhuelen.
 Si bleiwt op der Original-Diskussiounssäit ze gesinn.',
 	'lqt-read-all' => 'All uwesien wéi wa se geliest gi wieren',
@@ -3819,7 +3820,7 @@ Dit onderwerp is onderdeel van $2.',
 	'lqt-older' => 'ouder',
 	'lqt-newer' => 'nieuwer',
 	'lqt-searching' => 'Bezig met zoeken naar onderwerpen…',
-	'lqt-read-message' => 'Lezen',
+	'lqt-read-message' => 'Als gelezen markeren',
 	'lqt-read-message-tooltip' => 'Dit onderwerp verwijderen uit nieuwe berichten.
 Het onderwerp is nog steeds zichtbaar op de oorspronkelijke overlegpagina.',
 	'lqt-read-all' => 'Alles als gelezen markeren',
@@ -3977,7 +3978,7 @@ I staden vil du kanskje $2.',
 	'lqt-older' => 'eldre',
 	'lqt-newer' => 'nyare',
 	'lqt-searching' => 'Søkjer etter trådar',
-	'lqt-read-message' => 'Les',
+	'lqt-read-message' => 'Merk som lesen',
 	'lqt-read-message-tooltip' => 'Fjern denne tråden frå nye meldingar.
 Han vil halda fram med å vera synleg på den opphavlege diskusjonssida.',
 	'lqt-read-all' => 'Merk alle som leste',
@@ -4001,6 +4002,7 @@ Denne handlinga kan ikkje verta gjort om.',
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author Laaknor
  * @author Nghtwlkr
  */
 $messages['no'] = array(
@@ -4113,7 +4115,7 @@ Om den er avsluttet vil du kanskje $1.',
 	'lqt-older' => 'eldre',
 	'lqt-newer' => 'nyere',
 	'lqt-searching' => 'Søk etter tråder',
-	'lqt-read-message' => 'Les',
+	'lqt-read-message' => 'Marker som lest',
 	'lqt-read-message-tooltip' => 'Fjern denne tråden fra nye beskjeder.
 Den vil fortsatt være synlig fra dens opprinnelige diskusjonsside.',
 	'lqt-read-all' => 'Merk alle som leste',
@@ -4542,7 +4544,7 @@ Talvez queira em alternativa $2.',
 	'lqt-older' => 'mais antigo',
 	'lqt-newer' => 'mais recente',
 	'lqt-searching' => 'A procurar tópicos',
-	'lqt-read-message' => 'Ler',
+	'lqt-read-message' => 'Marcar como lida',
 	'lqt-read-message-tooltip' => 'Remover este tópico de novas mensagens.
 Ainda estará visível na sua página de discussão original.',
 	'lqt-read-all' => 'Marcar todos como lidos',
@@ -4888,7 +4890,7 @@ $messages['ru'] = array(
 	'lqt-older' => 'более старые',
 	'lqt-newer' => 'более новые',
 	'lqt-searching' => 'Поиск по веткам',
-	'lqt-read-message' => 'Читать',
+	'lqt-read-message' => 'Отметить как прочитанное',
 	'lqt-read-message-tooltip' => 'Убрать эту ветку из списка новых сообщений.
 Она останется видна на соответствующей странице обсуждения.',
 	'lqt-read-all' => 'Отметить все как прочитанные',
@@ -5062,7 +5064,7 @@ Ak diskusia skončila, mali by ste $1.',
 	'lqt-older' => 'staršie',
 	'lqt-newer' => 'novšie',
 	'lqt-searching' => 'Hľadajú sa vlákna',
-	'lqt-read-message' => 'Prečítané',
+	'lqt-read-message' => 'Označiť ako prečítané',
 	'lqt-read-message-tooltip' => 'Odstrániť toto vlákno z nových správ.
 Stále bude viditeľné na jeho pôvodnej diskusnej stránke.',
 	'lqt-read-all' => 'Označiť všetky ako prečítané',
