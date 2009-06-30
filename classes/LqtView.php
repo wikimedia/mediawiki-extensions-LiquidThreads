@@ -530,13 +530,6 @@ class LqtView {
 		$commands['history'] = array( 'label' => wfMsgExt( 'history_short', 'parseinline' ),
 							 'href' => $history_url,
 							 'enabled' => true );
-							 
-		$summarizeUrl = self::permalinkUrl( $thread, 'summarize', $thread->id() );
-		$commands['summarize'] = array(
-									'label' => wfMsgExt( 'lqt_summarize_link', 'parseinline' ),
-									'href' => $summarizeUrl,
-									'enabled' => true,
-								);
 
 		if ( $this->user->isAllowed( 'delete' ) ) {
 			$threadText = $thread->title()->getPrefixedText();
@@ -600,6 +593,13 @@ class LqtView {
 									'href' => $delete_href,
 									'enabled' => true );
 		}
+		
+		$summarizeUrl = self::permalinkUrl( $thread, 'summarize', $thread->id() );
+		$commands['summarize'] = array(
+									'label' => wfMsgExt( 'lqt_summarize_link', 'parseinline' ),
+									'href' => $summarizeUrl,
+									'enabled' => true,
+								);
 
 		return $commands;
 	}
