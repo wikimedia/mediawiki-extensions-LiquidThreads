@@ -146,6 +146,11 @@ class ThreadPermalinkView extends LqtView {
 			$this->showMissingThreadPage();
 			return false;
 		}
+		
+		if ( $this->request->getBool( 'lqt_inline' ) ) {
+			$this->doInlineEditForm();
+			return false;
+		}
 
 		self::addJSandCSS();
 		$this->output->setSubtitle( $this->getSubtitle() );
