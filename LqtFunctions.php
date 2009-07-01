@@ -132,3 +132,4 @@ function lqtSetupParserFunctions() {
 	$wgParser->setFunctionHook( 'archivestartdays',
 				array( 'LqtParserFunctions', 'archivestartdays' ) );
 }
+

@@ -249,6 +249,21 @@ class LqtView {
 		$this->output->addWikiMsg( 'lqt-summarize-intro' );
 		$this->showEditingFormInGeneral( null, 'summarize', $thread );
 	}
+	
+	function doInlineEditForm() {
+		$method = $this->request->getVal( 'lqt_method' );
+		$operand = $this->request->getVal( 'lqt_operand' );
+		
+		$thread = Threads::withId( $operand );
+		
+		if ($method == 'reply') {
+			$this->showReplyForm( $thread );
+		} elseif ($method == 'talkpage_new_thread') {
+			$this->showNewThreadForm();
+		}
+		
+		$this->output->setArticleBodyOnly( true );
+	}
 
 	private function showEditingFormInGeneral( $thread, $edit_type, $edit_applies_to ) {
 		/*
@@ -379,7 +394,7 @@ class LqtView {
 		$this->output->setArticleFlag( false );
 		
 		if ( $e->didSave ) {
-			self::postEditUpdates( $edit_type, $edit_applies_to, $article, $this->article,
+			$thread = self::postEditUpdates( $edit_type, $edit_applies_to, $article, $this->article,
 									$subject, $e->summary, $thread );
 		}
 
@@ -387,7 +402,7 @@ class LqtView {
 		// This results in a new Thread object not being created for replies and new discussions,
 		// so $thread is null. In that case, just allow editpage to redirect back to the talk page.
 		if ( $this->output->getRedirect() != '' && $thread ) {
-			$redirectTitle = clone $this->title;
+			$redirectTitle = clone $thread->article()->getTitle();
 			$redirectTitle->setFragment( '#'.$this->anchorName( $thread ) );
 			$this->output->redirect( $this->title->getFullURL() );
 		} else if ( $this->output->getRedirect() != '' && $edit_applies_to ) {

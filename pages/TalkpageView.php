@@ -226,6 +226,11 @@ class TalkpageView extends LqtView {
 		$this->output->setPageTitle( $this->title->getPrefixedText() );
 		self::addJSandCSS();
 		$article = new Article( $this->title );
+		
+		if ( $this->request->getBool( 'lqt_inline' ) ) {
+			$this->doInlineEditForm();
+			return false;
+		}
 
 		$this->showHeader();
 		
