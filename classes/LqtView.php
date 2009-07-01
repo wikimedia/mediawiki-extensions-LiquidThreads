@@ -377,41 +377,10 @@ class LqtView {
 		// Override what happens in EditPage::showEditForm, called from $e->edit():
 
 		$this->output->setArticleFlag( false );
-
-		// For replies and new posts, insert the associated thread object into the DB.
-		if ( $edit_type != 'editExisting' && $edit_type != 'summarize' && $e->didSave ) {
-			if ( $edit_type == 'reply' ) {
-				$subject = $edit_applies_to->subject();
-				
-				$thread = Threads::newThread( $article, $this->article, $edit_applies_to,
-												Threads::TYPE_NORMAL, $subject );
-				
-				$edit_applies_to->commitRevision( Threads::CHANGE_REPLY_CREATED, $thread,
-													$e->summary );
-			} else {
-				$thread = Threads::newThread( $article, $this->article, null,
-												Threads::TYPE_NORMAL, $subject);
-			}
-		}
-
-		if ( $edit_type == 'summarize' && $e->didSave ) {
-			$edit_applies_to->setSummary( $article );
-			$edit_applies_to->commitRevision( Threads::CHANGE_EDITED_SUMMARY,
-												$edit_applies_to, $e->summary );
-		}
-
-		// Move the thread and replies if subject changed.
-		if ( $edit_type == 'editExisting' && $e->didSave ) {
-			$subject = $this->request->getVal( 'lqt_subject_field', '' );
-			if ( $subject && $subject != $thread->subjectWithoutIncrement() ) {
-				$thread->setSubject( $subject );
-				
-				// Disabled page-moving for now.
-				// $this->renameThread( $thread, $subject, $e->summary );
-			}
-			// this is unrelated to the subject change and is for all edits:
-			$thread->setRootRevision( Revision::newFromTitle( $thread->root()->getTitle() ) );
-			$thread->commitRevision( Threads::CHANGE_EDITED_ROOT, $thread, $e->summary );
+		
+		if ( $e->didSave ) {
+			self::postEditUpdates( $edit_type, $edit_applies_to, $article, $this->article,
+									$subject, $e->summary, $thread );
 		}
 
 		// A redirect without $e->didSave will happen if the new text is blank (EditPage::attemptSave).
@@ -427,6 +396,45 @@ class LqtView {
 			$redirectTitle->setFragment( '#'.$this->anchorName( $edit_applies_to ) );
 			$this->output->redirect( $redirectTitle->getFullURL() );
 		}
+	}
+	
+	static function postEditUpdates($edit_type, $edit_applies_to, $edit_page, $article,
+									$subject, $edit_summary, $thread ) {
+		// For replies and new posts, insert the associated thread object into the DB.
+		if ( $edit_type == 'reply' ) {
+			$subject = $edit_applies_to->subject();
+			
+			$thread = Threads::newThread( $edit_page, $article, $edit_applies_to,
+											Threads::TYPE_NORMAL, $subject );
+			
+			$edit_applies_to->commitRevision( Threads::CHANGE_REPLY_CREATED, $thread,
+												$edit_summary );
+		} elseif ( $edit_type == 'summarize' ) {
+			$edit_applies_to->setSummary( $article );
+			$edit_applies_to->commitRevision( Threads::CHANGE_EDITED_SUMMARY,
+												$edit_applies_to, $edit_summary );
+		} elseif ( $edit_type == 'editExisting' ) {
+			// Move the thread and replies if subject changed.
+			if ( $subject && $subject != $thread->subjectWithoutIncrement() ) {
+				$thread->setSubject( $subject );
+				
+				// Disabled page-moving for now.
+				// $this->renameThread( $thread, $subject, $e->summary );
+			}
+			
+			// For all edits, bump the version number.
+			$thread->setRootRevision( Revision::newFromTitle( $thread->root()->getTitle() ) );
+			$thread->commitRevision( Threads::CHANGE_EDITED_ROOT, $thread, $edit_summary );
+		} else {
+			$thread = Threads::newThread( $edit_page, $article, null,
+											Threads::TYPE_NORMAL, $subject );
+			// Commented-out for now. History needs fixing.
+// 			// Commit the first revision
+// 			$thread->commitRevision( Threads::CHANGE_NEW_THREAD, $thread,
+// 										$edit_summary );
+		}
+		
+		return $thread;
 	}
 
 	function renameThread( $t, $s, $reason ) {
