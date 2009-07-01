@@ -1433,6 +1433,7 @@ $messages['eo'] = array(
 /** Spanish (Español)
  * @author Crazymadlover
  * @author Imre
+ * @author Locos epraix
  * @author Piolinfax
  * @author Sanbec
  */
@@ -1445,6 +1446,7 @@ $messages['es'] = array(
 	'lqt_browse_archive_with_recent' => 'más antiguo',
 	'lqt_recently_archived' => 'Recientemente archivado:',
 	'lqt_contents_title' => 'Contenidos',
+	'lqt_toc_thread_modified' => 'Última modificación',
 	'lqt_add_header' => 'Agregar encabezado',
 	'lqt_new_thread' => 'Comenzar una nueva discusión',
 	'lqt_edited_notice' => 'Editado',
@@ -1509,6 +1511,7 @@ $messages['es'] = array(
 	'lqt_rc_new_reply' => 'Respuesta a $1, en $2. &bull; $3 escribe:',
 	'lqt_rc_author_original' => '(autor original)',
 	'lqt_rc_author_others' => '(no es el autor)',
+	'lqt-history-user' => 'Usuario',
 );
 
 /** Basque (Euskara)
@@ -4275,7 +4278,7 @@ $messages['oc'] = array(
 	'lqt-older' => 'mai ancian',
 	'lqt-newer' => 'mai recent',
 	'lqt-searching' => 'Recèrca dels fials de discussion',
-	'lqt-read-message' => 'Legir',
+	'lqt-read-message' => 'Marcar coma legit',
 	'lqt-read-message-tooltip' => 'Levar aqueste fial dels messatges novèls.
 Serà encara visible dins sa pagina de discussion originala.',
 	'lqt-read-all' => 'Marcar tot coma legit',
