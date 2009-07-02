@@ -256,9 +256,8 @@ class TalkpageView extends LqtView {
 		
 // 		$html .= $this->getArchiveWidget();
 
-		$html .= $this->getTOC( $threads );
-		
 		$html .= Xml::element( 'br', array( 'style' => 'clear: both;' ) );
+		$html .= $this->getTOC( $threads );
 		
 		$html .= $pager->getNavigationBar();
 		
