@@ -6,7 +6,7 @@ class SpecialDeleteThread extends SpecialPage {
 	private $user, $output, $request, $title, $thread;
 
 	function __construct() {
-		parent::__construct( 'Deletethread' );
+		parent::__construct( 'DeleteThread' );
 		$this->includable( false );
 	}
 
