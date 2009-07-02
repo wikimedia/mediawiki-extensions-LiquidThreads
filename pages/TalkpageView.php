@@ -256,10 +256,7 @@ class TalkpageView extends LqtView {
 		
 // 		$html .= $this->getArchiveWidget();
 
-		$toc = '';
-		if ( count( $threads ) > 1 ) {
-			$toc = $this->getTOC( $threads );
-		}
+		$html .= $this->getTOC( $threads );
 		
 		$html .= Xml::element( 'br', array( 'style' => 'clear: both;' ) );
 		
