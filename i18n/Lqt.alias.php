@@ -73,6 +73,12 @@ $aliases['fa'] = array(
 	'NewMessages' => array( 'پیام‌های_جدید' ),
 );
 
+/** Finnish (Suomi) */
+$aliases['fi'] = array(
+	'DeleteThread' => array( 'Poista keskusteluketju' ),
+	'MoveThread' => array( 'Siirrä keskusteluketju' ),
+);
+
 /** French (Français) */
 $aliases['fr'] = array(
 	'NewMessages' => array( 'NouveauxMessages', 'Nouveaux Messages' ),
