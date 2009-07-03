@@ -460,7 +460,7 @@ li#ca-nstab-thread {
 }
 
 .lqt-thread-header {
-	border-bottom: 1px solid #aaaaaa;
+	border: 1px solid #aaaaaa;
 	clear: both;
 	line-height: 2em;
 	background-color: #eeeeee;
@@ -553,7 +553,6 @@ li.lqt-command-reply {
 }
 
 .lqt_thread {
-	border: 1px solid #cccccc;
 	padding: 0.2em;
 	margin: 0.3em;
 }
