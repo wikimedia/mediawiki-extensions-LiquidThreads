@@ -104,13 +104,17 @@ function lqtFormatMoveLogEntry( $type, $action, $title, $sk, $parameters ) {
 }
 
 function lqtGetPreferences( $user, &$preferences ) {
-	wfLoadExtensionMessages( 'LiquidThreads' );
-	$preferences['lqtnotifytalk'] =
-		array(
-			'type' => 'toggle',
-			'label-message' => 'lqt-preference-notify-talk',
-			'section' => 'personal/email'
-		);
+	global $wgEnableEmail;
+	
+	if ($wgEnableEmail) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+		$preferences['lqtnotifytalk'] =
+			array(
+				'type' => 'toggle',
+				'label-message' => 'lqt-preference-notify-talk',
+				'section' => 'personal/email'
+			);
+	}
 	
 	return true;
 }
