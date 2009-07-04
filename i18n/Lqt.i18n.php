@@ -979,6 +979,7 @@ $messages['da'] = array(
  * @author Purodha
  * @author Raimond Spekking
  * @author Revolus
+ * @author Tbleher
  * @author Umherirrender
  */
 $messages['de'] = array(
@@ -1108,6 +1109,7 @@ Diese Operation kann rückgängig gemacht werden.',
 	'lqt-thread-edited-others' => 'Von andern Benutzern geändert',
 	'lqt-header-actions' => 'Aktionen',
 	'lqt_summarize_link' => 'Zusammenfassen',
+	'lqt-quote-intro' => 'Am $2 um $3 Uhr schrieb [[User:$1|Benutzer:$1]]:',
 );
 
 /** Lower Sorbian (Dolnoserbski)
