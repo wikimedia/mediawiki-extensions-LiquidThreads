@@ -994,6 +994,7 @@ $messages['de'] = array(
 	'lqt_browse_archive_with_recent' => 'ältere',
 	'lqt_recently_archived' => 'Kürzlich archiviert:',
 	'lqt_contents_title' => 'Inhalt',
+	'lqt_toc_thread_replycount' => 'Antworten',
 	'lqt_add_header' => 'Ergänze Überschrift',
 	'lqt_new_thread' => 'Beginne eine neue Diskussion',
 	'lqt_in_response_to' => 'In Antwort auf $1 von $2, siehe:',
