@@ -405,7 +405,7 @@ class LqtView {
 			$this->output->redirect( $this->title->getFullURL() );
 		} else if ( $this->output->getRedirect() != '' && $edit_applies_to ) {
 			// For summaries:
-			$redirectTitle = clone $edit_applies_to->title();
+			$redirectTitle = clone $edit_applies_to->article()->title();
 			$redirectTitle->setFragment( '#'.$this->anchorName( $edit_applies_to ) );
 			$this->output->redirect( $redirectTitle->getFullURL() );
 		}
