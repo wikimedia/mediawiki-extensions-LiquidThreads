@@ -23,9 +23,7 @@ class LqtView {
 	protected $maxIndentationLevel = 4;
 	protected $lastUnindentedSuperthread;
 
-	protected $user_colors;
-	protected $user_color_index;
-	const number_of_user_colors = 6;
+	protected $threadNestingLevel = 0;
 
 	protected $sort_order = LQT_NEWEST_CHANGES;
 
@@ -867,7 +865,11 @@ HTML;
 	}
 
 	function postDivClass( $thread ) {
-		return 'lqt_post';
+		$levelClass = 'lqt-thread-nest-'.$this->threadNestingLevel;
+		$alternatingType = ($this->threadNestingLevel % 2) ? 'odd' : 'even';
+		$alternatingClass = "lqt-thread-$alternatingType";
+		
+		return "lqt_post $levelClass $alternatingClass";
 	}
 
 	static function anchorName( $thread ) {
@@ -977,6 +979,8 @@ HTML;
 	function showThread( $thread ) {
 		global $wgLang;
 		
+		$this->threadNestingLevel++;
+		
 		// Safeguard
 		if ( $thread->type() == Threads::TYPE_DELETED
 			&& ! ($this->request->getBool( 'lqt_show_deleted_threads' )
@@ -992,7 +996,7 @@ HTML;
 		$html .= $this->showThreadHeading( $thread );
 		
 		// Sigh.
-		$html .= Xml::openElement( 'div', array( 'class' => 'lqt_thread',
+		$html .= Xml::openElement( 'div', array( 'class' => $this->threadDivClass( $thread ),
 									'id' => 'lqt_thread_id_'. $thread->id() ) );
 
 		// Flush output to display thread
@@ -1007,6 +1011,16 @@ HTML;
 		}
 
 		$this->output->addHTML( Xml::closeElement( 'div' ) );
+		
+		$this->threadNestingLevel--;
+	}
+	
+	function threadDivClass( $thread ) {
+		$levelClass = 'lqt-thread-nest-'.$this->threadNestingLevel;
+		$alternatingType = ($this->threadNestingLevel % 2) ? 'odd' : 'even';
+		$alternatingClass = "lqt-thread-$alternatingType";
+		
+		return "lqt_thread $levelClass $alternatingClass";
 	}
 
 	// FIXME does indentation need rethinking?
