@@ -578,6 +578,11 @@ li.lqt-command-reply {
 .lqt-thread-odd {
 	background-color: #e9e9e9;
 }
+
 .lqt-thread-even {
+	background-color: #ffffff;
+}
+
+.lqt-thread-odd > .lqt-thread-header {
 	background-color: #ffffff;
 }
