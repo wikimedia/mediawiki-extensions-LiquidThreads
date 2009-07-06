@@ -575,14 +575,14 @@ li.lqt-command-reply {
 	display: inline-block;
 }
 
-.lqt-thread-odd {
+.lqt-thread-even {
 	background-color: #e9e9e9;
 }
 
-.lqt-thread-even {
+.lqt-thread-odd {
 	background-color: #ffffff;
 }
 
-.lqt-thread-odd > .lqt-thread-header {
+.lqt-thread-even > .lqt-thread-header {
 	background-color: #ffffff;
 }
