@@ -40,7 +40,7 @@ It may:
 	'lqt_reply' => 'Reply',
 	'lqt_delete' => 'Delete',
 	'lqt_undelete' => 'Undelete',
-	'lqt_permalink' => 'Permalink',
+	'lqt_permalink' => 'Link to this',
 	'lqt_fragment' => 'a fragment of a $1 from $2',
 	'lqt_discussion_link' => 'discussion', // substituted above
 	'lqt_from_talk' => 'from $1',
