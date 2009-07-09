@@ -157,6 +157,8 @@ class ThreadPermalinkView extends LqtView {
 
 		if ( $this->methodApplies( 'summarize' ) )
 			$this->showSummarizeForm( $this->thread );
+		elseif ( $this->methodApplies( 'split' ) )
+			$this->showSplitForm( $this->thread );
 
 		$this->showThread( $this->thread );
 		return false;

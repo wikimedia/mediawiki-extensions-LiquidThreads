@@ -57,9 +57,11 @@ $wgHooks['ArticleEditUpdateNewTalk'][] = 'lqtUpdateNewtalkOnEdit';
 $wgHooks['LanguageGetMagic'][] = 'LiquidThreadsMagicWords::getMagicWords';
 
 // Special pages
+#$wgSpecialPages['UndeleteThread'] = 'SpecialUndeleteThread';
 $wgSpecialPages['DeleteThread'] = 'SpecialDeleteThread';
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
+$wgSpecialPages['SplitThread'] = 'SpecialSplitThread';
 $wgSpecialPageGroups['NewMessages'] = 'wiki';
 
 // Classes
@@ -72,7 +74,7 @@ $wgAutoloadClasses['Thread'] = $dir . 'classes/LqtThread.php';
 $wgAutoloadClasses['Threads'] = $dir . 'classes/LqtThreads.php';
 $wgAutoloadClasses['NewMessages'] = $dir . 'classes/LqtNewMessages.php';
 $wgAutoloadClasses['LiquidThreadsMagicWords'] = $dir . 'i18n/LiquidThreads.magic.php';
-$wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/LqtParserFunctions.php'; // File does not exist
+$wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/LqtParserFunctions.php';
 
 // Page classes
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
@@ -86,10 +88,15 @@ $wgAutoloadClasses['ThreadProtectionFormView'] = $dir . 'pages/ThreadProtectionF
 $wgAutoloadClasses['ThreadHistoryListingView'] = $dir . 'pages/ThreadHistoryListingView.php';
 $wgAutoloadClasses['ThreadHistoricalRevisionView'] = $dir . 'pages/ThreadHistoricalRevisionView.php';
 $wgAutoloadClasses['SummaryPageView'] = $dir . 'pages/SummaryPageView.php';
+$wgAutoloadClasses['NewUserMessagesView'] = $dir . 'pages/NewUserMessagesView.php';
+
+$wgAutoloadClasses['ThreadActionPage'] = "$dir/pages/ThreadActionPage.php";
+
+#$wgAutoloadClasses['SpecialUndeleteThread'] = $dir . "pages/SpecialUndeleteThread.php";
 $wgAutoloadClasses['SpecialMoveThread'] = $dir . 'pages/SpecialMoveThread.php';
 $wgAutoloadClasses['SpecialDeleteThread'] = $dir . 'pages/SpecialDeleteThread.php';
-$wgAutoloadClasses['NewUserMessagesView'] = $dir . 'pages/NewUserMessagesView.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir . 'pages/SpecialNewMessages.php';
+$wgAutoloadClasses['SpecialSplitThread'] = "$dir/pages/SpecialSplitThread.php";
 
 // Logging
 $wgLogTypes[] = 'liquidthreads';

@@ -160,6 +160,12 @@ This operation is undoable.',
 	'lqt_summarize_link' 	  => 'Summarize',
 	'lqt-summarize-intro'     => 'Please summarize the below thread in the editing box.
 You may use any wikitext in your summary. When you finish, click "{{int:savearticle}}".',
+	'lqt-thread-split'		  => 'Split to new thread',
+	'lqt-split-success' 	  => 'You have successfully split off the thread $1.',
+	'lqt_split_thread' 		  => 'Split a thread',
+	'lqt-thread-split-subject'=> 'New thread subject',
+	'lqt-split-submit'		  => 'Split',
+	'lqt_split_badsubject'    => 'The subject you entered is invalid.',
 	
 	// Logging
 	'lqt-log-name' => 'Threaded discussion log',

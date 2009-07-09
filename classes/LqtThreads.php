@@ -16,9 +16,12 @@ class Threads {
 	const CHANGE_DELETED = 4;
 	const CHANGE_UNDELETED = 5;
 	const CHANGE_MOVED_TALKPAGE = 6;
+	const CHANGE_SPLIT = 7;
+	const CHANGE_EDITED_SUBJECT = 8;
+	
 	static $VALID_CHANGE_TYPES = array( self::CHANGE_EDITED_SUMMARY, self::CHANGE_EDITED_ROOT,
 		self::CHANGE_REPLY_CREATED, self::CHANGE_NEW_THREAD, self::CHANGE_DELETED, self::CHANGE_UNDELETED,
-		self::CHANGE_MOVED_TALKPAGE );
+		self::CHANGE_MOVED_TALKPAGE, self::CHANGE_SPLIT, self::CHANGE_EDITED_SUBJECT );
 
 	// Possible values of Thread->editedness.
 	const EDITED_NEVER = 0;
@@ -151,7 +154,6 @@ class Threads {
 		$dbr = wfGetDB( DB_SLAVE );
 		
 		$res = $dbr->select( 'thread', '*', $where, __METHOD__, $options );
-		
 		$threads = Threads::loadFromResult( $res, $dbr );
 
 		foreach ( $threads as $thread ) {
@@ -201,7 +203,8 @@ class Threads {
 		if ( array_key_exists( $id, self::$cache_by_id ) ) {
 			return self::$cache_by_id[$id];
 		}
-		$ts = Threads::where( array( 'thread.thread_id' => $id ) );
+		$ts = Threads::where( array( 'thread_id' => $id ) );
+		
 		return self::assertSingularity( $ts, 'thread_id', $id );
 	}
 

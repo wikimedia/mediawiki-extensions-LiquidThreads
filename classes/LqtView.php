@@ -562,6 +562,13 @@ class LqtView {
 								 'href' => $delete_url,
 								 'enabled' => true );
 		}
+		
+		if ( !$thread->isTopmostThread() ) {
+			$splitUrl = SpecialPage::getTitleFor( 'SplitThread',
+							$thread->title()->getPrefixedText() )->getFullURL();
+			$commands['split'] = array( 'label' => wfMsgExt( 'lqt-thread-split', 'parseinline' ),
+										'href' => $splitUrl, 'enabled' => true );
+		}
 
 		return $commands;
 	}
@@ -873,7 +880,7 @@ HTML;
 	}
 
 	static function anchorName( $thread ) {
-		return "lqt_thread_{$thread->id()}";
+		return $thread->getAnchorName();
 	}
 	
 	// Gets HTML for the 'in reply to' thing if warranted.
@@ -1085,5 +1092,4 @@ HTML;
 	function showSummary( $t ) {
 		$this->output->addHTML( $this->getSummary( $t ) );
 	}
-
 }

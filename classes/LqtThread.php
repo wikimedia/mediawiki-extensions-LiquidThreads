@@ -52,6 +52,7 @@ class Thread {
 	protected $replies;
 	
 	static $titleCacheById = array();
+	static $replyCacheById = array();
 
 	function isHistorical() {
 		return false;
@@ -217,16 +218,17 @@ class Thread {
 		
 		$new_articleNamespace = $title->getNamespace();
 		$new_articleTitle = $title->getDBkey();
-
-		foreach ( $this->replies() as $r ) {
-			$res = $dbr->update( 'thread',
-			     /* SET */array(
-						'thread_revision' => $r->revisionNumber() + 1,
-						'thread_article_namespace' => $new_articleNamespace,
-					    'thread_article_title' => $new_articleTitle ),
-			     /* WHERE */ array( 'thread_id' => $r->id(), ),
-			     __METHOD__ );
-		}
+		
+		// Update on *all* subthreads.
+		$dbr->update( 'thread',
+						array(
+							'thread_revision=thread_revision+1',
+							'thread_article_namespace' => $new_articleNamespace,
+							'thread_article_title' => $new_articleTitle,
+							'thread_modified' => $dbr->timestamp( wfTimestampNow() ),
+						),
+						array( 'thread_ancestor' => $this->id() ),
+						__METHOD__ );
 
 		$this->articleNamespace = $new_articleNamespace;
 		$this->articleTitle = $new_articleTitle;
@@ -270,7 +272,7 @@ class Thread {
 			__METHOD__ );
 
 		$thread = Threads::newThread( $redirectArticle, $this->double->article(), null,
-		 	Threads::TYPE_MOVED, $log );
+		 	Threads::TYPE_MOVED, $this->subject() );
 
 		# Purge old title from squid
 		# The new title, and links to the new title, are purged in Article::onArticleCreate()
@@ -329,22 +331,47 @@ class Thread {
 		$this->doLazyUpdates( $line );
 	}
 	
-	// Load a list of threads in bulk.
-	static function bulkLoad( $rows ) {
-		$threads = array();
-		
-		// Preload page data in one swoop.
+	// Load a list of threads in bulk, including all subthreads.
+	static function bulkLoad( $rows ) {		
+		// Preload subthreads
+		$thread_ids = array();
 		$pageIds = array();
+		$replies_by_id = array();
 		
 		foreach( $rows as $row ) {
+			$thread_ids[] = $row->thread_id;
+			
+			// Grab page data while we're here.
 			if ($row->thread_root)
 				$pageIds[] = $row->thread_root;
 			if ($row->thread_summary_page)
 				$pageIds[] = $row->thread_summary_page;
 		}
 		
-		if ( count($pageIds) ) {
+		if ( count($thread_ids) ) {
 			$dbr = wfGetDB( DB_SLAVE );
+			$res = $dbr->select( 'thread', '*', array( 'thread_ancestor' => $thread_ids ),
+									__METHOD__ );
+									
+			while( $row = $dbr->fetchObject($res) ) {				
+				// Grab page data while we're here.
+				if ($row->thread_root)
+					$pageIds[] = $row->thread_root;
+				if ($row->thread_summary_page)
+					$pageIds[] = $row->thread_summary_page;
+				
+				if (!isset( $replies_by_id[$row->thread_parent] ) ) {
+					$replies_by_id[$row->thread_parent] = array();
+				}
+				
+				$replies_by_id[$row->thread_parent][] = new Thread( $row, null );
+			}
+		}
+		
+		self::$replyCacheById = array_merge( self::$replyCacheById, $replies_by_id );
+		
+		// Preload page data in one swoop.
+		if ( count($pageIds) ) {
 			$res = $dbr->select( 'page', '*', array( 'page_id' => $pageIds ), __METHOD__ );
 			while( $row = $dbr->fetchObject( $res ) ) {
 				$t = Title::newFromRow( $row );
@@ -357,8 +384,11 @@ class Thread {
 			}
 		}
 		
+		$threads = array();
+		
 		foreach( $rows as $row ) {
-			$threads[] = new Thread( $row, null );
+			$threads[] = $thread = new Thread( $row, null );
+			Threads::$cache_by_id[$row->thread_id] = $thread;
 		}
 		
 		return $threads;
@@ -374,13 +404,17 @@ class Thread {
 		$doingUpdates = true;
 		
 		// Fix missing ancestry information.
+		// (there was a bug where this was not saved properly)
 		if ($this->parentId &&!$this->ancestorId) {
 			$this->fixMissingAncestor();
 		}
 		
+		$ancestor = $this->topmostThread();
+		
 		$set = array();
 		
 		// Fix missing subject information
+		// (this information only started to be added later)
 		if (!$this->subject) {
 			$detectedSubject = $this->root()->getTitle()->getText();
 			$parts = self::splitIncrementFromSubject( $detectedSubject );
@@ -391,7 +425,16 @@ class Thread {
 			$set['thread_subject'] = $detectedSubject;
 		}
 		
+		// Fix inconsistent subject information
+		// (in some intermediate versions this was not updated when the subject was changed)
+		if ($this->subject() != $ancestor->subject()) {
+			$set['thread_subject'] = $ancestor->subject();
+			
+			$this->subject = $ancestor->subject();
+		}
+		
 		// Fix missing authorship information
+		// (this information only started to be added later)
 		if ( !$this->authorName ) {
 			$author = $this->root()->originalAuthor();
 			
@@ -400,6 +443,19 @@ class Thread {
 			
 			$set['thread_author_name'] = $this->authorName;
 			$set['thread_author_id'] = $this->authorId;
+		}
+		
+		// Check for article corruption from incomplete thread moves.
+		// (thread moves only updated this on immediate replies, not replies to replies etc)
+		if (! $ancestor->article()->getTitle()->equals( $this->article()->getTitle() ) ) {
+			$title = $ancestor->article()->getTitle();
+			$set['thread_article_namespace'] = $title->getNamespace();
+			$set['thread_article_title'] = $title->getDbKey();
+			
+			$this->articleNamespace = $title->getNamespace();
+			$this->articleTitle = $title->getDbKey();
+			
+			$this->article = $ancestor->article();
 		}
 		
 		if ( count($set) ) {
@@ -467,6 +523,12 @@ class Thread {
 			return $this->replies;
 		}
 		
+		// Check cache
+		if ( isset( self::$replyCacheById[$this->id()] ) ) {
+			$this->replies = self::$replyCacheById[$this->id()];
+			return $this->replies;
+		}
+		
 		$this->replies = array();
 		
 		$dbr = wfGetDB( DB_SLAVE );
@@ -485,6 +547,12 @@ class Thread {
 	}
 
 	function setSuperthread( $thread ) {
+		if ($thread == null) {
+			$this->parentId = null;
+			$this->ancestorId = $this->id();
+			return;
+		}
+	
 		$this->parentId = $thread->id();
 		
 		if ( $thread->isTopmostThread() ) {
@@ -521,6 +589,14 @@ class Thread {
 			}
 			
 			return $thread;
+		}
+	}
+	
+	function setAncestor( $newAncestor ) {
+		if ( is_object( $newAncestor ) ) {
+			$this->ancestorId = $newAncestor->id();
+		} else {
+			$this->ancestorId = $newAncestor;
 		}
 	}
 
@@ -656,6 +732,11 @@ class Thread {
 	
 	function setSubject( $subject ) {
 		$this->subject = $subject;
+		
+		foreach( $this->replies() as $reply ) {
+			$reply->setSubject( $subject );
+			$reply->commitRevision( CHANGE_EDITED_SUBJECT );
+		}
 	}
 
 	function wikilinkWithoutIncrement() {
@@ -667,12 +748,7 @@ class Thread {
 	}
 
 	function hasDistinctSubject() {
-		if ( $this->hasSuperthread() ) {
-			return $this->superthread()->subjectWithoutIncrement()
-				!= $this->subjectWithoutIncrement();
-		} else {
-			return true;
-		}
+		return $this->isTopmostThread();
 	}
 
 	function hasSubthreads() {
@@ -798,5 +874,9 @@ class Thread {
 	
 	function getArchiveStartDays() {
 		return Threads::getArticleArchiveStartDays( $this->article() );
+	}
+	
+	function getAnchorName() {
+		return "lqt_thread_{$this->id()}";
 	}
 }

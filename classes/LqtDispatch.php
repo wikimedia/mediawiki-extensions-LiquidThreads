@@ -80,8 +80,7 @@ class LqtDispatch {
 		}
 		else if ( $action == 'watch' || $action == 'unwatch' ) {
 			$viewname = self::$views['ThreadWatchView'];
-		}
-		else {
+		} else {
 			$viewname = self::$views['ThreadPermalinkView'];
 		}
 		$view = new $viewname( $output, $article, $title, $user, $request );

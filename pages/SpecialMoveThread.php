@@ -2,13 +2,7 @@
 
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
-class SpecialMoveThread extends UnlistedSpecialPage {
-	private $user, $output, $request, $title, $thread;
-
-	function __construct() {
-		parent::__construct( 'Movethread' );
-		$this->includable( false );
-	}
+class SpecialMoveThread extends ThreadActionPage {
 
 	/**
 	* @see SpecialPage::getDescription
@@ -34,53 +28,36 @@ class SpecialMoveThread extends UnlistedSpecialPage {
 					),
 			);
 	}
-
-	function execute( $par ) {
+	
+	function getPageName() { return 'MoveThread'; }
+	
+	function getSubmitText() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		
-		global $wgOut;
-		
-		// Page title
-		$wgOut->setPageTitle( wfMsg( 'lqt_movethread' ) );
-		
-		// Handle parameter
-		$this->mTarget = $par;
-		if ( $par === null || $par === "" ) {
-			wfLoadExtensionMessages( 'LiquidThreads' );
-			$this->output->addHTML( wfMsg( 'lqt_threadrequired' ) );
-			return;
-		}
-		$thread = Threads::withRoot( new Article( Title::newFromURL( $par ) ) );
-		if ( !$thread ) {
-			$this->output->addHTML( wfMsg( 'lqt_nosuchthread' ) );
-			return;
-		}
-		$this->mThread = $thread;
+		return wfMsg( 'lqt_move_move' );
+	}
+	
+	function buildForm() {
+		$form = parent::buildForm();
 		
 		// Generate introduction
 		$intro = '';
 		
 		global $wgUser;
 		$sk = $wgUser->getSkin();
-		$page = $article_name = $thread->article()->getTitle()->getPrefixedText();
+		$page = $article_name = $this->mThread->article()->getTitle()->getPrefixedText();
 		
 		$edit_text = wfMsgExt( 'lqt_move_torename_edit', 'parseinline' );
-		$edit_link = $sk->link( $thread->title(), $edit_text, array(),
-						array( 'lqt_method' => 'edit', 'lqt_operand' => $thread->id() ) );
+		$edit_link = $sk->link( $this->mThread->title(), $edit_text, array(),
+						array( 'lqt_method' => 'edit', 'lqt_operand' => $this->mThread->id() ) );
 		
 		$intro .= wfMsgExt( 'lqt_move_movingthread', 'parse',
 					array('[['.$this->mTarget.']]', '[['.$page.']]') );
 		$intro .= wfMsgExt( 'lqt_move_torename', array( 'parse', 'replaceafter' ),
 							array( $edit_link ) );
-		
-		$form = new HTMLForm( $this->getFormFields(), 'lqt-move' );
-		
-		$form->setSubmitText( wfMsg('lqt_move_move') );
-		$form->setTitle( SpecialPage::getTitleFor( 'MoveThread', $par ) );
-		$form->setSubmitCallback( array( $this, 'trySubmit' ) );
+							
 		$form->setIntro( $intro );
 		
-		$form->show();
+		return $form;
 	}
 	
 	function checkUserRights( $oldTitle, $newTitle ) {
