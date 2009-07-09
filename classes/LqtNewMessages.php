@@ -111,6 +111,10 @@ class NewMessages {
 						'ums_thread' => $t->id(),
 						'ums_read_timestamp' => null,
 					);
+					
+				// Set newtalk
+				$u = User::newFromId( $row->wl_user );
+				$u->setNewtalk( true );
 			}
 			
 			$wantsTalkNotification = false;
