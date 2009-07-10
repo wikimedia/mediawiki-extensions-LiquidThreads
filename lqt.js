@@ -16,7 +16,8 @@ var liquidThreads = {
 		
 		liquidThreads.injectEditForm( query, container, footer_cmds.nextSibling, e.preload );
 	
-		e.preventDefault();
+		if (e.preventDefault)
+			e.preventDefault();
 		
 		return false;
 	},
@@ -34,7 +35,9 @@ var liquidThreads = {
 		
 		liquidThreads.injectEditForm( query, container, link.parentNode.nextSibling );
 		
-		e.preventDefault();
+		if (e.preventDefault)
+			e.preventDefault();
+			
 		return false;
 	},
 	
@@ -97,6 +100,7 @@ var liquidThreads = {
 	},
 	
 	'transformQuote' : function(quote) {
+		quote = quote.trim();
 		var lines = quote.split("\n");
 		var newQuote = '';
 		
@@ -126,24 +130,39 @@ var liquidThreads = {
 		var button;
 		if (e.target) button = e.target;
 		else if (e.srcElement) button = e.srcElement;
+		if (button.nodeType == 3) // defeat Safari bug
+			button = button.parentNode;
+		
+		var thread = button;
+		
+		// Get the post node
+		// Keep walking up until we hit the thread node.
+		while (thread.id.substr(0,13) != 'lqt_thread_id') {
+			thread = thread.parentNode;
+		}
+		var post = getElementsByClassName( thread, 'div', 'lqt_post' )[0];
 		
 		var text = liquidThreads.getSelection();
+		
+		if (text.length == 0) {
+			// Quote the whole post
+			if (post.innerText) {
+				text = post.innerText;
+			} else if (post.textContent) {
+				text = post.textContent;
+			}
+		}
+		
 		text = liquidThreads.transformQuote( text );
 		// TODO auto-generate context info and link.
 		
 		var textbox = document.getElementById( 'wpTextbox1' );
 		if (textbox) {
 			liquidThreads.insertAtCursor( textbox, text );
+			textbox.focus();
 		} else {
 			// Open the reply window
-			var elem = button;
-			
-			// Keep walking up until we hit the thread node.
-			while (elem.id.substr(0,13) != 'lqt_thread_id') {
-				elem = elem.parentNode;
-			}
-			var post = getElementsByClassName( elem, 'div', 'lqt_post' )[0];
-			var replyLI = getElementsByClassName( post, 'li', 'lqt-command-reply' )[0];
+			var replyLI = getElementsByClassName( thread, 'li', 'lqt-command-reply' )[0];
 			var replyLink = replyLI.getElementsByTagName( 'a' )[0];
 			
 			liquidThreads.handleReplyLink( { 'target':replyLink, 'preload':text } );

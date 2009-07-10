@@ -724,7 +724,7 @@ class LqtView {
 							
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-header' ), $html );
 		
-		$this->output->addHTML( $html );
+		return $html;
 	}
 
 	function showThreadFooter( $thread ) {
@@ -790,7 +790,7 @@ class LqtView {
 		$post = $thread->root();
 		
 		$divClass = $this->postDivClass( $thread );
-		$html = Xml::openElement( 'div', array( 'class' => $divClass ) );
+		$html = '';
 
 		// This is a bit of a hack to have individual histories work.
 		// We can grab oldid either from lqt_oldid (which is a thread rev),
@@ -806,21 +806,25 @@ class LqtView {
 
 		// If we're editing the thread, show the editing form.
 		if ( $this->methodAppliesToThread( 'edit', $thread ) ) {
+			$html = Xml::openElement( 'div', array( 'class' => $divClass ) );
 			$this->output->addHTML( $html );
 			$html = '';
 			
 			// No way am I refactoring EditForm to send its output as HTML.
 			//  so I'm just flushing the HTML and displaying it as-is.
 			$this->showPostEditingForm( $thread );
+			$html .= Xml::closeElement( 'div' );
 		} else {
 			$html .= $this->showThreadHeader( $thread );
 			$html .= $this->getReplyContext( $thread );
+			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
 			$html .= $this->showPostBody( $post, $oldid );
+			$html .= Xml::closeElement( 'div' );
 			$html .= $this->showThreadFooter( $thread );
 		}
 
 		// wish I didn't have to use this open/closeElement cruft.
-		$html .= Xml::closeElement( 'div' );
+		
 		
 		
 		// If we're replying to this thread, show the reply form after it.
