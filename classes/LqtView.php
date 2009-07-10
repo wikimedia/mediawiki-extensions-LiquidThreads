@@ -366,24 +366,6 @@ class LqtView {
 				Xml::inputLabel( $subject_label, 'lqt_subject_field', 'lqt_subject_field',
 					60, $subject, $attr ) . Xml::element( 'br' );
 		}
-		
-		// Quote the original message if we're replying
-		if ( $edit_type == 'reply' ) {
-			global $wgContLang;
-			
-			$thread_article = new Post( $edit_applies_to->title() );
-			
-			$quote_text = $thread_article->getContent();
-			$timestamp = $edit_applies_to->created();
-			$fTime = $wgContLang->time($timestamp);
-			$fDate = $wgContLang->date($timestamp);
-			$user = $edit_applies_to->author()->getName();
-			
-			$quoteIntro = wfMsgForContent( 'lqt-quote-intro', $user, $fTime, $fDate );
-			$quote_text = "$quoteIntro\n<blockquote>\n$quote_text\n</blockquote>\n";
-			
-			$e->setPreloadedText( $quote_text );
-		}
 
 		$e->edit();
 
@@ -639,16 +621,25 @@ class LqtView {
 	static function addJSandCSS() {
 		// Changed this to be static so that we can call it from
 		// wfLqtBeforeWatchlistHook.
-		global $wgJsMimeType, $wgScriptPath, $wgStyleVersion; // TODO globals.
 		global $wgOut;
-		$s = <<< HTML
-		<script type="{$wgJsMimeType}" src="{$wgScriptPath}/extensions/LiquidThreads/lqt.js"><!-- lqt js --></script>
-		<style type="text/css" media="screen, projection">/*<![CDATA[*/
-			@import "{$wgScriptPath}/extensions/LiquidThreads/lqt.css?{$wgStyleVersion}";
-		/*]]>*/</style>
+		global $wgScriptPath, $wgStyleVersion;
 
-HTML;
-		$wgOut->addScript( $s );
+		$wgOut->addInlineScript( 'var wgLqtMessages = ' . self::exportJSLocalisation() . ';' );
+		$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/lqt.js" );
+		$wgOut->addExtensionStyle( "{$wgScriptPath}/extensions/LiquidThreads/lqt.css?{$wgStyleVersion}" );
+	}
+	
+	static function exportJSLocalisation() {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+		
+		$messages = array( 'lqt-quote-intro', 'lqt-quote' );
+		$data = array();
+		
+		foreach( $messages as $msg ) {
+			$data[$msg] = wfMsgNoTrans( $msg );
+		}
+		
+		return json_encode( $data );
 	}
 
 	/* @return False if the article and revision do not exist. The HTML of the page to

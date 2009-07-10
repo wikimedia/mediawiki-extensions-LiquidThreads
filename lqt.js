@@ -14,7 +14,7 @@ var liquidThreads = {
 		var footer_cmds = getElementsByClassName( container, '*', 'lqt_post' )[0];
 		var query = '&lqt_method=reply&lqt_operand='+thread_id;
 		
-		liquidThreads.injectEditForm( query, container, footer_cmds.nextSibling );
+		liquidThreads.injectEditForm( query, container, footer_cmds.nextSibling, e.preload );
 	
 		e.preventDefault();
 		
@@ -38,7 +38,7 @@ var liquidThreads = {
 		return false;
 	},
 	
-	'injectEditForm' : function(query, container, before) {
+	'injectEditForm' : function(query, container, before, preload) {
 		var x = sajax_init_object();
 		var url = wgServer+wgScript+'?title='+encodeURIComponent(wgPageName)+
 					query+'&lqt_inline=1'
@@ -48,6 +48,11 @@ var liquidThreads = {
 			function() {
 				if (x.readyState != 4)
 					return;
+					
+				if ( liquidThreads.currentEditForm ) {
+					var f = liquidThreads.currentEditForm;
+					f.parentNode.removeChild( f );
+				}
 				
 				var result = x.responseText;
 				var replyDiv = document.createElement( 'div' );
@@ -59,9 +64,121 @@ var liquidThreads = {
 				} else {
 					container.appendChild( replyDiv );
 				}
+				
+				liquidThreads.currentEditForm = replyDiv;
+				
+				if (preload) {
+					var textbox = document.getElementById( 'wpTextbox1' );
+					textbox.value = preload;
+				}
 			};
 		
 		x.send( null );
+	},
+	
+	//From http://clipmarks.com/clipmark/CEFC94CB-94D6-4495-A7AA-791B7355E284/
+	'insertAtCursor' : function(myField, myValue) {
+		//IE support
+		if (document.selection) {
+			myField.focus();
+			sel = document.selection.createRange();
+			sel.text = myValue;
+		}
+		//MOZILLA/NETSCAPE support
+		else if (myField.selectionStart || myField.selectionStart == '0') {
+			var startPos = myField.selectionStart;
+			var endPos = myField.selectionEnd;
+			myField.value = myField.value.substring(0, startPos)
+			+ myValue
+			+ myField.value.substring(endPos, myField.value.length);
+		} else {
+			myField.value += myValue;
+		}
+	},
+	
+	'transformQuote' : function(quote) {
+		var lines = quote.split("\n");
+		var newQuote = '';
+		
+		for( var i = 0; i<lines.length; ++i ) {
+			newQuote += "> "+lines[i]+"\n";
+		}
+		
+		return newQuote;
+	},
+	
+	'getSelection' : function() {
+		if (window.getSelection) {
+			return window.getSelection().toString();
+		} else if (document.selection) {
+			return document.selection.createRange().text;
+		} else if (document.getSelection) {
+			return document.getSelection();
+		} else {
+			return '';
+		}
+	},
+	
+	'doQuote' : function(e) {
+		if (!e) e = window.event;
+		e.preventDefault();
+		
+		var button;
+		if (e.target) button = e.target;
+		else if (e.srcElement) button = e.srcElement;
+		
+		var text = liquidThreads.getSelection();
+		text = liquidThreads.transformQuote( text );
+		// TODO auto-generate context info and link.
+		
+		var textbox = document.getElementById( 'wpTextbox1' );
+		if (textbox) {
+			liquidThreads.insertAtCursor( textbox, text );
+		} else {
+			// Open the reply window
+			var elem = button;
+			
+			// Keep walking up until we hit the thread node.
+			while (elem.id.substr(0,13) != 'lqt_thread_id') {
+				elem = elem.parentNode;
+			}
+			var post = getElementsByClassName( elem, 'div', 'lqt_post' )[0];
+			var replyLI = getElementsByClassName( post, 'li', 'lqt-command-reply' )[0];
+			var replyLink = replyLI.getElementsByTagName( 'a' )[0];
+			
+			liquidThreads.handleReplyLink( { 'target':replyLink, 'preload':text } );
+		}
+		
+		return false;
+	},
+	
+	'showQuoteButtons' : function() {
+		var elems = getElementsByClassName( document, 'div', 'lqt-thread-header-rhs' );
+		var url = wgScriptPath+'/extensions/LiquidThreads/icons/lqt-icon-quote.png';
+		
+		var length = elems.length;
+		for( var i = 0; i<length; ++i ) {
+			var quoteButton = document.createElement( 'span' );
+			quoteButton.className = 'lqt-header-quote';
+			
+			var img = document.createElement( 'img' );
+			img.src = url;
+			img.className = 'lqt-command-icon';
+			
+			var text = wgLqtMessages['lqt-quote'];
+			var textNode = document.createTextNode( text );
+			
+			var link = document.createElement( 'a' );
+			link.href='#';
+			link.appendChild( img );
+			link.appendChild( textNode );
+			quoteButton.appendChild( link );
+			
+			addHandler( quoteButton, 'click', liquidThreads.doQuote );
+			
+			elems[i].insertBefore( quoteButton, elems[i].firstChild );
+			elems[i].insertBefore( document.createTextNode( '|' ), quoteButton.nextSibling );
+		}
 	}
 }
 
@@ -89,5 +206,8 @@ addOnloadHook( function() {
 	var newThreadLink = getElementsByClassName( document, 'a', 'lqt_start_discussion' )[0];
 	
 	addHandler( newThreadLink, 'click', liquidThreads.handleNewLink );
+	
+	// Show quote buttons
+	liquidThreads.showQuoteButtons();
 } );
 

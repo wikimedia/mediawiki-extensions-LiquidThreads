@@ -487,6 +487,7 @@ li#ca-nstab-thread {
 .lqt-command-icon {
 	width: 1.5em;
 	height: 1.5em;
+	margin-right: 0.2em;
 }
 
 li.lqt-command-reply {
@@ -532,6 +533,11 @@ li.lqt-command-reply {
 }
 
 .lqt-thread-permalink {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+.lqt-header-quote {
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 }
