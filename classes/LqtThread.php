@@ -339,7 +339,10 @@ class Thread {
 		// Preload subthreads
 		$thread_ids = array();
 		$pageIds = array();
-		$replies_by_id = array();
+		
+		if (!is_array(self::$replyCacheById)) {
+			self::$replyCacheById = array();
+		}
 		
 		foreach( $rows as $row ) {
 			$thread_ids[] = $row->thread_id;
@@ -363,15 +366,16 @@ class Thread {
 				if ($row->thread_summary_page)
 					$pageIds[] = $row->thread_summary_page;
 				
-				if (!isset( $replies_by_id[$row->thread_parent] ) ) {
-					$replies_by_id[$row->thread_parent] = array();
+				if ( !is_null($row->thread_parent) ) {
+					if ( !isset( self::$replyCacheById[$row->thread_parent] ) ) {
+						self::$replyCacheById[$row->thread_parent] = array();
+					}
+					
+					self::$replyCacheById[$row->thread_parent][$row->thread_id] =
+										new Thread( $row, null );
 				}
-				
-				$replies_by_id[$row->thread_parent][] = new Thread( $row, null );
 			}
 		}
-		
-		self::$replyCacheById = array_merge( self::$replyCacheById, $replies_by_id );
 		
 		// Preload page data in one swoop.
 		if ( count($pageIds) ) {
@@ -544,6 +548,7 @@ class Thread {
 			return false;
 		}
 	}
+	
 	function replies() {
 		if ( !is_null($this->replies) ) {
 			return $this->replies;
@@ -551,8 +556,7 @@ class Thread {
 		
 		// Check cache
 		if ( isset( self::$replyCacheById[$this->id()] ) ) {
-			$this->replies = self::$replyCacheById[$this->id()];
-			return $this->replies;
+			return self::$replyCacheById[$this->id()];
 		}
 		
 		$this->replies = array();
