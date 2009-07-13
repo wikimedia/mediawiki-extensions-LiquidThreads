@@ -190,8 +190,7 @@ class Thread {
 		if ($this->authorId) {
 			return User::newFromId( $this->authorId );
 		} else {
-			$u = new User;
-			$u->mName = $this->authorName;
+			$u = User::newFromName( $this->authorName );
 			
 			return $u;
 		}
@@ -449,14 +448,18 @@ class Thread {
 		//If the page is non-LiquidThreads and it's in subject-space, we'll assume it's meant
 		// to be on the corresponding talk page, but only if the talk-page is a LQT page.
 		//(Previous versions stored the subject page, for some totally bizarre reason)
+		// Old versions also sometimes store the thread page for trace threads as the
+		//  article, not as the root.
+		//  Trying not to exacerbate this by moving it to be the 'Thread talk' page.
 		$articleTitle = $this->article()->getTitle();
 		if ( !LqtDispatch::isLqtPage( $articleTitle ) && !$articleTitle->isTalkPage() &&
-				LqtDispatch::isLqtPage( $articleTitle->getTalkPage() ) ) {
+				LqtDispatch::isLqtPage( $articleTitle->getTalkPage() ) &&
+				$articleTitle->getNamespace() != NS_THREAD ) {
 			$newTitle = $articleTitle->getTalkPage();
 			$newArticle = new Article( $newTitle );
 			
 			$set['thread_article_namespace'] = $newTitle->getNamespace();
-			$set['thread_article_title'] = $newTitle->getTitle();
+			$set['thread_article_title'] = $newTitle->getDbKey();
 			
 			$this->articleNamespace = $newTitle->getNamespace();
 			$this->articleTitle = $newTitle->getDbKey();

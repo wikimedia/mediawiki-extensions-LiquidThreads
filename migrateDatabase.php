@@ -17,7 +17,7 @@ $threadFieldUpdates = array('thread_article_namespace' => 'split-thread_article.
 							'thread_modified' => 'split-timestamps.sql',
 							'thread_created' => 'split-timestamps.sql',
 							'thread_editedness' => 'store-editedness.sql',
-							'thread_subject' => 'lqt-schema-change-thread_summary.sql',
+							'thread_subject' => 'store_subject-author.sql',
 							'thread_author_id' => 'store_subject-author.sql',
 							'thread_author_name' => 'store_subject-author.sql',
 						);
@@ -49,7 +49,7 @@ do {
 						'lqt-update-script', array( 'LIMIT' => 500, 'FOR UPDATE',
 						'ORDER BY' => 'thread_id asc' ) );
 	
-	$threads = Threads::loadFromResult( $res );
+	$threads = Threads::loadFromResult( $res, $db );
 	
 	foreach( $threads as $thread ) {
 		$thread->doLazyUpdates();
