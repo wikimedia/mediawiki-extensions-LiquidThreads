@@ -200,7 +200,12 @@ class Thread {
 		$this->type = Threads::TYPE_DELETED;
 		$this->revisionNumber += 1;
 		$this->commitRevision( Threads::CHANGE_DELETED, $this, $reason );
-		/* TODO: mark thread as read by all users, or we get blank thingies in New Messages. */
+		/* Mark thread as read by all users, or we get blank thingies in New Messages. */
+		
+		$dbw = wfGetDB( DB_MASTER );
+		
+		$dbw->delete( 'user_message_state', array( 'ums_thread' => $this->id() ),
+						__METHOD__ );
 	}
 	
 	function undelete( $reason ) {
