@@ -184,7 +184,7 @@ class LqtDispatch {
 			$thread = Threads::withRoot( new Post( $rc->getTitle() ) );
 			if ( !$thread ) return true;
 
-			LqtView::addJSandCSS(); // TODO only do this once.
+			LqtView::addJSandCSS();
 			wfLoadExtensionMessages( 'LiquidThreads' );
 
 			if ( $rc->mAttribs['rc_type'] != RC_NEW ) {

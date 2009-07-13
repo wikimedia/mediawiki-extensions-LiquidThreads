@@ -26,6 +26,8 @@ class LqtView {
 	protected $threadNestingLevel = 0;
 
 	protected $sort_order = LQT_NEWEST_CHANGES;
+	
+	static $stylesAndScriptsDone = false;
 
 	function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		$this->article = $article;
@@ -621,12 +623,19 @@ class LqtView {
 	static function addJSandCSS() {
 		// Changed this to be static so that we can call it from
 		// wfLqtBeforeWatchlistHook.
+		
+		if ( self::$stylesAndScriptsDone ) {
+			return;
+		}
+		
 		global $wgOut;
 		global $wgScriptPath, $wgStyleVersion;
 
 		$wgOut->addInlineScript( 'var wgLqtMessages = ' . self::exportJSLocalisation() . ';' );
 		$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/lqt.js" );
 		$wgOut->addExtensionStyle( "{$wgScriptPath}/extensions/LiquidThreads/lqt.css?{$wgStyleVersion}" );
+		
+		self::$stylesAndScriptsDone = true;
 	}
 	
 	static function exportJSLocalisation() {
