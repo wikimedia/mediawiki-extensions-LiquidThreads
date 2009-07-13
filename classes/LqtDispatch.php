@@ -215,10 +215,12 @@ class LqtDispatch {
 				if ( strlen( $quote ) > 230 ) {
 					global $wgOut;
 					$sk = $changeslist->skin;
-					$quote = $wgOut->parseInline( substr( $quote, 0, 200 ) ) .
+					substr( $quote, 0, 200 ) .
 						$sk->link( $thread->title(), wfMsg( 'lqt_rc_ellipsis' ),
 							array( 'class' => 'lqt_rc_ellipsis' ), array(), array( 'known' ) );
 				}
+				
+				$quote = $wgOut->parseInline( $quote );
 
 				if ( $thread->isTopmostThread() ) {
 					$message_name = 'lqt_rc_new_discussion';
