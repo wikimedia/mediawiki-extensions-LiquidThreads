@@ -207,15 +207,16 @@ class LqtDispatch {
 				$s = preg_replace( '/\<\/li\>$/', $appendix . '</li>', $s ); // TODO ew
 			}
 			else {
+				global $wgOut;
+				
 				$sig = "";
 				$changeslist->insertUserRelatedLinks( $sig, $rc );
 
 				// This should be stored in RC.
 				$quote = Revision::newFromId( $rc->mAttribs['rc_this_oldid'] )->getText();
 				if ( strlen( $quote ) > 230 ) {
-					global $wgOut;
 					$sk = $changeslist->skin;
-					substr( $quote, 0, 200 ) .
+					$quote = substr( $quote, 0, 200 ) .
 						$sk->link( $thread->title(), wfMsg( 'lqt_rc_ellipsis' ),
 							array( 'class' => 'lqt_rc_ellipsis' ), array(), array( 'known' ) );
 				}

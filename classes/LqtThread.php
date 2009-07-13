@@ -190,9 +190,8 @@ class Thread {
 		if ($this->authorId) {
 			return User::newFromId( $this->authorId );
 		} else {
-			$u = User::newFromName( $this->authorName );
-			
-			return $u;
+			// Do NOT validate username. If the user did it, they did it.
+			return User::newFromName( $this->authorName, false );
 		}
 	}
 

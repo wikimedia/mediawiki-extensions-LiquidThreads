@@ -103,7 +103,7 @@ class TalkpageView extends LqtView {
 			$row .= Xml::tags( 'td', null, $subject );
 			
 			$author = $thread->author();
-			$authorLink = $sk->userLink( $author->getID(), $author->getName() );
+			$authorLink = $sk->userLink( $author->getId(), $author->getName() );
 			$row .= Xml::tags( 'td', null, $authorLink );
 			
 			$row .= Xml::element( 'td', null, count( $thread->replies() ) );
