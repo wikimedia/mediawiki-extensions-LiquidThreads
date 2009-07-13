@@ -191,13 +191,20 @@ class LqtDispatch {
 				// Add whether it was original author.
 				// TODO: this only asks whether ANY edit has been by another, not this edit.
 				// But maybe that's what we want.
-				if ( $thread->editedness() == Threads::EDITED_BY_OTHERS )
-					$appendix = ' <span class="lqt_rc_author_notice lqt_rc_author_notice_others">' .
-						wfMsg( 'lqt_rc_author_others' ) . '</span>';
-				else
-					$appendix = ' <span class="lqt_rc_author_notice lqt_rc_author_notice_original">' .
-						wfMsg( 'lqt_rc_author_original' ) . '</span>';
-				$s = preg_replace( '/\<\/li\>$/', $appendix . '</li>', $s );
+				if ( $thread->editedness() == Threads::EDITED_BY_OTHERS ) {
+					$appendix = Xml::tags( 'span',
+											array( 'class' => 'lqt_rc_author_notice ' .
+															'lqt_rc_author_notice_others' ),
+											wfMsgExt( 'lqt_rc_author_others', 'parseinline' )
+										);
+				} else {
+					$appendix = Xml::tags( 'span',
+											array( 'class' => 'lqt_rc_author_notice ' .
+															'lqt_rc_author_notice_original' ),
+											wfMsgExt( 'lqt_rc_author_others', 'parseinline' )
+										);
+				}
+				$s = preg_replace( '/\<\/li\>$/', $appendix . '</li>', $s ); // TODO ew
 			}
 			else {
 				$sig = "";
@@ -206,11 +213,12 @@ class LqtDispatch {
 				// This should be stored in RC.
 				$quote = Revision::newFromId( $rc->mAttribs['rc_this_oldid'] )->getText();
 				if ( strlen( $quote ) > 230 ) {
-					$quote = substr( $quote, 0, 200 ) .
-						$changeslist->skin->link( $thread->title(), wfMsg( 'lqt_rc_ellipsis' ),
+					global $wgOut;
+					$sk = $changeslist->skin;
+					$quote = $wgOut->parseInline( substr( $quote, 0, 200 ) ) .
+						$sk->link( $thread->title(), wfMsg( 'lqt_rc_ellipsis' ),
 							array( 'class' => 'lqt_rc_ellipsis' ), array(), array( 'known' ) );
 				}
-				// TODO we must parse or sanitize the quote.
 
 				if ( $thread->isTopmostThread() ) {
 					$message_name = 'lqt_rc_new_discussion';
@@ -223,7 +231,7 @@ class LqtDispatch {
 
 				$thread_link = $changeslist->skin->link(
 					$tmp_title,
-					$thread->subjectWithoutIncrement(),
+					htmlspecialchars($thread->subjectWithoutIncrement()),
 					array(), array(), array( 'known' ) );
 
 				$talkpage_link = $changeslist->skin->link(
@@ -232,7 +240,7 @@ class LqtDispatch {
 					array(), array(), array( 'known' ) );
 
 				$s = wfMsg( $message_name, $thread_link, $talkpage_link, $sig )
-					. "<blockquote class=\"lqt_rc_blockquote\">$quote</blockquote>";
+					. Xml::tags( 'blockquote', array( 'class' => 'lqt_rc_blockquote' ), $quote );
 			}
 		}
 		return true;
