@@ -658,6 +658,9 @@ class LqtView {
 	function showPostBody( $post, $oldid = null ) {
 		global $wgOut;
 		
+		// Load compatibility layer for older versions
+		$post = new Article_LQT_Compat( $post->getTitle() );
+		
 		$parserOutput = $post->getParserOutput( $oldid );
 		$wgOut->addParserOutputNoText( $parserOutput );
 		

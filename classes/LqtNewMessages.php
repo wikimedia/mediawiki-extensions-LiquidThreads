@@ -70,7 +70,7 @@ class NewMessages {
 		
 		$oldPrefCompat = false;
 		global $wgVersion;
-		if ( version_compare( $wgVersion, '1.15', '<=' ) ) {
+		if ( version_compare( $wgVersion, '1.16', '<' ) ) {
 			$oldPrefCompat = true;
 			
 			$tables[] = 'user';

@@ -318,7 +318,7 @@ class Thread {
 		
 		if ( isset($line->page_namespace) && isset($line->page_title) ) {
 			$root_title = Title::makeTitle( $line->page_namespace, $line->page_title );
-			$this->root = new Post( $root_title );
+			$this->root = new Article( $root_title );
 			$this->root->loadPageData( $line );
 		} else {
 			if ( isset( self::$titleCacheById[$this->rootId] ) ) {
@@ -326,7 +326,7 @@ class Thread {
 			} else {
 				$root_title = Title::newFromID( $this->rootId );
 			}
-			$this->root = new Post( $root_title );
+			$this->root = new Article( $root_title );
 		}
 
 		$this->rootRevision = $this->root->mLatest;
@@ -401,6 +401,29 @@ class Thread {
 		return $threads;
 	}
 	
+	/**
+	* Return the User object representing the author of the first revision
+	* (or null, if the database is screwed up).
+	*/
+	function loadOriginalAuthorFromRevision( ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$article = $this->root();
+
+		$line = $dbr->selectRow( 'revision',
+								'rev_user_text',
+								array( 'rev_page' => $article->getID() ),
+								__METHOD__,
+								array(
+									'ORDER BY' => 'rev_timestamp',
+									'LIMIT'   => '1'
+								) );
+		if ( $line )
+			return User::newFromName( $line->rev_user_text, false );
+		else
+			return null;
+	}
+	
 	// Lazy updates done whenever a thread is loaded.
 	//  Much easier than running a long-running maintenance script.
 	function doLazyUpdates( ) {
@@ -443,7 +466,7 @@ class Thread {
 		// Fix missing authorship information
 		// (this information only started to be added later)
 		if ( !$this->authorName ) {
-			$author = $this->root()->originalAuthor();
+			$author = $this->loadOriginalAuthorFromRevision();
 			
 			$this->authorId = $author->getId();
 			$this->authorName = $author->getName();
@@ -689,7 +712,7 @@ class Thread {
 	// The 'root' is the page in the Thread namespace corresponding to this thread.
 	function root() {
 		if ( !$this->rootId ) return null;
-		if ( !$this->root ) $this->root = new Post( Title::newFromID( $this->rootId ),
+		if ( !$this->root ) $this->root = new Article( Title::newFromID( $this->rootId ),
 		                                            $this->rootRevision() );
 		return $this->root;
 	}
@@ -722,7 +745,7 @@ class Thread {
 				return null;
 			}
 			
-			$this->summary = new Post( $title );
+			$this->summary = new Article( $title );
 
 		}
 			
@@ -859,7 +882,7 @@ class Thread {
 
 	// Called from hook in Title::isProtected.
 	static function getRestrictionsForTitle( $title, $action, &$result ) {
-		$thread = Threads::withRoot( new Post( $title ) );
+		$thread = Threads::withRoot( new Article( $title ) );
 		if ( $thread )
 			return $thread->getRestrictions( $action, $result );
 		else

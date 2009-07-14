@@ -232,7 +232,7 @@ class LqtDispatch {
 
 	static function customizeOldChangesList( &$changeslist, &$s, $rc ) {
 		if ( $rc->getTitle()->getNamespace() == NS_LQT_THREAD ) {
-			$thread = Threads::withRoot( new Post( $rc->getTitle() ) );
+			$thread = Threads::withRoot( new Article( $rc->getTitle() ) );
 			if ( !$thread ) return true;
 
 			LqtView::addJSandCSS();

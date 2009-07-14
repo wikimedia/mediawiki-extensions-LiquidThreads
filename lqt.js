@@ -106,10 +106,22 @@ var liquidThreads = {
 		var newQuote = '';
 		
 		for( var i = 0; i<lines.length; ++i ) {
-			newQuote += "> "+lines[i]+"\n";
+			if (lines[i].length) {
+				newQuote += liquidThreads.quoteLine(lines[i])+"\n";
+			}
 		}
 		
 		return newQuote;
+	},
+	
+	'quoteLine' : function(line) {
+		var versionParts = wgVersion.split('.');
+		
+		if (versionParts[0] <= 1 && versionParts[1] < 16) {
+			return '<blockquote>'+line+'</blockquote>';
+		}
+		
+		return '> '+line;
 	},
 	
 	'getSelection' : function() {

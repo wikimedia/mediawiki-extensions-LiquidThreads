@@ -67,7 +67,7 @@ $wgSpecialPageGroups['NewMessages'] = 'wiki';
 // Classes
 $wgAutoloadClasses['LqtDispatch'] = $dir . 'classes/LqtDispatch.php';
 $wgAutoloadClasses['LqtView'] = $dir . 'classes/LqtView.php';
-$wgAutoloadClasses['Post'] = $dir . 'classes/LqtPost.php';
+$wgAutoloadClasses['Article_LQT_Compat'] = $dir . 'classes/LqtCompatArticle.php';
 $wgAutoloadClasses['ThreadHistoryIterator'] = $dir . 'classes/LqtThreadHistoryIterator.php';
 $wgAutoloadClasses['HistoricalThread'] = $dir . 'classes/LqtHistoricalThread.php';
 $wgAutoloadClasses['Thread'] = $dir . 'classes/LqtThread.php';
