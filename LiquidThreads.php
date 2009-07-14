@@ -101,6 +101,7 @@ $wgAutoloadClasses['SpecialSplitThread'] = "$dir/pages/SpecialSplitThread.php";
 $wgAutoloadClasses['Article_LQT_Compat'] = $dir . 'compat/LqtCompatArticle.php';
 if ( version_compare( $wgVersion, '1.16', '<' ) ) {
 	$wgAutoloadClasses['HTMLForm'] = "$dir/compat/HTMLForm.php";
+	$wgExtensionMessagesFiles['Lqt-Compat'] = "$dir/compat/Lqt-compat.i18n.php";
 }
 
 // Logging
