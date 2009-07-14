@@ -224,7 +224,9 @@ addOnloadHook( function() {
 	// Update the new thread link
 	var newThreadLink = getElementsByClassName( document, 'a', 'lqt_start_discussion' )[0];
 	
-	addHandler( newThreadLink, 'click', liquidThreads.handleNewLink );
+	if (newThreadLink) {
+		addHandler( newThreadLink, 'click', liquidThreads.handleNewLink );
+	}
 	
 	// Show quote buttons
 	liquidThreads.showQuoteButtons();
