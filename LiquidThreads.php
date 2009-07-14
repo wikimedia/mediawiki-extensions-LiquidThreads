@@ -67,7 +67,6 @@ $wgSpecialPageGroups['NewMessages'] = 'wiki';
 // Classes
 $wgAutoloadClasses['LqtDispatch'] = $dir . 'classes/LqtDispatch.php';
 $wgAutoloadClasses['LqtView'] = $dir . 'classes/LqtView.php';
-$wgAutoloadClasses['Article_LQT_Compat'] = $dir . 'classes/LqtCompatArticle.php';
 $wgAutoloadClasses['ThreadHistoryIterator'] = $dir . 'classes/LqtThreadHistoryIterator.php';
 $wgAutoloadClasses['HistoricalThread'] = $dir . 'classes/LqtHistoricalThread.php';
 $wgAutoloadClasses['Thread'] = $dir . 'classes/LqtThread.php';
@@ -97,6 +96,12 @@ $wgAutoloadClasses['SpecialMoveThread'] = $dir . 'pages/SpecialMoveThread.php';
 $wgAutoloadClasses['SpecialDeleteThread'] = $dir . 'pages/SpecialDeleteThread.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir . 'pages/SpecialNewMessages.php';
 $wgAutoloadClasses['SpecialSplitThread'] = "$dir/pages/SpecialSplitThread.php";
+
+// Backwards-compatibility
+$wgAutoloadClasses['Article_LQT_Compat'] = $dir . 'compat/LqtCompatArticle.php';
+if ( version_compare( $wgVersion, '1.16', '<' ) ) {
+	$wgAutoloadClasses['HTMLForm'] = "$dir/compat/HTMLForm.php";
+}
 
 // Logging
 $wgLogTypes[] = 'liquidthreads';
