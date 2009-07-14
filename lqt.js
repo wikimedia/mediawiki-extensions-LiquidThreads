@@ -100,7 +100,8 @@ var liquidThreads = {
 	},
 	
 	'transformQuote' : function(quote) {
-		quote = quote.trim();
+		// trim() doesn't work on all browsers
+		quote = quote.replace(/^\s+|\s+$/g, '');
 		var lines = quote.split("\n");
 		var newQuote = '';
 		

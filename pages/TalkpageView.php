@@ -79,7 +79,7 @@ class TalkpageView extends LqtView {
 		
 		$html = '';
 		
-		$html .= Xml::tags( 'h2', null, wfMsgExt( 'lqt_contents_title', 'parseinline' ) );
+		$h2_header = Xml::tags( 'h2', null, wfMsgExt( 'lqt_contents_title', 'parseinline' ) );
 		
 		// Header row
 		$headerRow = '';
@@ -114,7 +114,7 @@ class TalkpageView extends LqtView {
 		}
 		
 		$html .= $headerRow . "\n" . Xml::tags( 'tbody', null, implode( "\n", $rows ) );
-		$html = Xml::tags( 'table', array( 'class' => 'lqt_toc' ), $html );
+		$html = $h2_header . Xml::tags( 'table', array( 'class' => 'lqt_toc' ), $html );
 		
 		return $html;
 	}
