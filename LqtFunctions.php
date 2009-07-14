@@ -135,5 +135,6 @@ function lqtSetupParserFunctions() {
 	
 	$wgParser->setFunctionHook( 'useliquidthreads',
 				array( 'LqtParserFunctions', 'useLiquidThreads' ) );
+	return true;
 }
 
