@@ -337,7 +337,8 @@ class LqtDiscussionPager extends IndexPager {
 			);
 			
 		if ( !$this->showDeleted ) {
-			$queryInfo['conds']['thread_deleted'] = 0;
+			$queryInfo['conds'][] = 'thread_type != '.
+									$this->mDb->addQuotes( Threads::TYPE_DELETED );
 		}
 			
 		return $queryInfo;
