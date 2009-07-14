@@ -762,6 +762,12 @@ $messages['be-tarask'] = array(
 	'lqt_summarize_link' => 'Падвесьці вынік',
 	'lqt-summarize-intro' => 'Калі ласка, падвядзіце вынікі галіны ў полі рэдагаваньня.
 Вы можаце выкарыстоўваць любы вікі-тэкст пры падвядзеньні вынікаў. Калі Вы скончыце, націсьніце «{{int:savearticle}}».',
+	'lqt-thread-split' => 'Выдзеліць у новую галіну',
+	'lqt-split-success' => 'Вы пасьпяхова падзялілі галіну $1.',
+	'lqt_split_thread' => 'Падзяліць галіну',
+	'lqt-thread-split-subject' => 'Тэма новай галіны',
+	'lqt-split-submit' => 'Падзяліць',
+	'lqt_split_badsubject' => 'Уведзеная Вамі назва — няслушная.',
 	'lqt-log-name' => 'Журнал галінаў абмеркаваньняў',
 	'lqt-log-header' => 'Гэты журнал утрымлівае дэталі дзеяньняў, якія адбываюцца ў галінах абмеркаваньняў.',
 	'lqt-log-action-move' => 'перанесеная [[$1]] з [[$2]] у [[$3]].',
@@ -982,6 +988,7 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author Als-Holder
+ * @author ChrisiPK
  * @author DaSch
  * @author Michawiki
  * @author Purodha
@@ -1002,9 +1009,18 @@ $messages['de'] = array(
 	'lqt_browse_archive_with_recent' => 'ältere',
 	'lqt_recently_archived' => 'Kürzlich archiviert:',
 	'lqt_contents_title' => 'Inhalt',
+	'lqt_toc_thread_title' => 'Titel des Diskussionsstrangs',
+	'lqt_toc_thread_author' => 'Eröffnet von',
 	'lqt_toc_thread_replycount' => 'Antworten',
+	'lqt_toc_thread_modified' => 'Zuletzt geändert',
 	'lqt_add_header' => 'Ergänze Überschrift',
 	'lqt_new_thread' => 'Beginne eine neue Diskussion',
+	'lqt_invalid_subject' => 'Der Betreff, den du eingegeben hast, ist ungültig.
+Es ist möglich, dass er
+* ungültige Zeichen enthält, wie beispielsweise []{}&lt;&gt;,
+* zu lang ist oder
+* im Konflikt mit Interwikipräfixen oder Namensraumbezeichnern steht.',
+	'lqt_subject_change_forbidden' => 'Du kannst den Betreff dieses Diskussionsstrangs nicht ändern, weil du keine Seiten verschieben darfst.',
 	'lqt_in_response_to' => 'In Antwort auf $1 von $2, siehe:',
 	'lqt_edited_notice' => 'Bearbeitet',
 	'lqt_reply' => 'Antworten',
@@ -1050,6 +1066,7 @@ Wenn die Diskussion beendet ist, möchtest du vielleicht eine $1.',
 	'lqt_summary_subtitle' => 'Zusammenfassung von $1.',
 	'lqt_nosuchrevision' => 'Version des Diskussionsstranges wurde nicht gefunden.',
 	'lqt_nosuchthread' => 'Der angeforderte Diskussionsstrang existiert nicht.',
+	'lqt_nosuchthread_title' => 'Diskussionsstrang nicht gefunden',
 	'lqt_threadrequired' => 'In der URL muss ein Diskussionsstrang angegeben werden.',
 	'lqt_move_movingthread' => 'Verschiebe $1. Dieser Thread ist Teil von $2.',
 	'lqt_move_torename' => "Um den Diskussionsstrang umzubennenen, $1 und ändere das 'Thema'.",
@@ -1057,6 +1074,8 @@ Wenn die Diskussion beendet ist, möchtest du vielleicht eine $1.',
 	'lqt_move_destinationtitle' => 'Name der Diskussionsseite:',
 	'lqt_move_move' => 'Verschieben',
 	'lqt_move_nodestination' => 'Es muss eine Zielseite angegeben werden.',
+	'lqt_move_thread_bad_destination' => 'Die Zielseite ist keine Diskussionsseite.',
+	'lqt_move_samedestination' => 'Der Diskussionsstrang ist bereits auf dieser Seite!',
 	'lqt_move_noreason' => 'kein Grund angegeben.',
 	'lqt_move_success' => 'Diskussionsstrang verschoben nach $1.',
 	'lqt_delete_undeleting' => "Wiederherstellen von '''$1.'''",
@@ -1110,6 +1129,9 @@ Diese Operation kann rückgängig gemacht werden.',
 	'lqt_rc_new_reply' => 'Antwort an $1, auf $2. • $3 schreibt:',
 	'lqt_rc_author_original' => '(original Autor)',
 	'lqt_rc_author_others' => '(nicht der Autor)',
+	'lqt-newmessages-context' => 'Gesamter Diskussionsstrang',
+	'lqt-thread-created' => 'Erstellt',
+	'lqt-archive-subtitle' => 'Diskussionsarchiv',
 	'lqt-archive-intro' => 'Dies ist das Archiv für die Diskussion „[[$1]]“',
 	'lqt-history-time' => 'Zeit',
 	'lqt-history-user' => 'Benutzer',
@@ -1118,7 +1140,54 @@ Diese Operation kann rückgängig gemacht werden.',
 	'lqt-thread-edited-others' => 'Von andern Benutzern geändert',
 	'lqt-header-actions' => 'Aktionen',
 	'lqt_summarize_link' => 'Zusammenfassen',
+	'lqt-summarize-intro' => 'Bitte fasse den untenstehenden Diskussionsstrang im Bearbeitungsfenster zusammen.
+Du kannst Wikitext in deiner Zusammenfassung verwenden. Wenn du fertig bist, klicke auf „{{int:savearticle}}“.',
+	'lqt-thread-split' => 'In neuen Diskussionsstrang abtrennen',
+	'lqt-split-success' => 'Du hast den Diskussionsstrang $1 erfolgreich aufgetrennt.',
+	'lqt_split_thread' => 'Einen Diskussionsstrang auftrennen',
+	'lqt-thread-split-subject' => 'Betreff des neuen Diskussionsstrangs',
+	'lqt-split-submit' => 'Auftrennen',
+	'lqt_split_badsubject' => 'Der Betreff, den du eingegeben hast, ist ungültig.',
+	'lqt-log-name' => 'Diskussionsstränge-Logbuch',
+	'lqt-log-header' => 'Dieses Logbuch enthält Details zu Aktionen, die auf Diskussionssträngen ausgeführt wurden.',
+	'lqt-log-action-move' => 'hat [[$1]] von [[$2]] nach [[$3]] verschoben.',
+	'lqt-preference-notify-talk' => 'Bei Antworten auf beobachtete Diskussionsstränge E-Mails senden',
+	'lqt-enotif-subject-reply' => '{{SITENAME}}-Diskussion - Antwort: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}}-Diskussion - Neuer Diskussionsstrang: $1',
+	'lqt-enotif-newthread' => 'Hallo $1,
+dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 auf $5 ein neuer Diskussionsstrang „$2“ eröffnet wurde.
+
+Du kannst ihn auf <$6> einsehen.',
+	'lqt-enotif-reply' => 'Hallo $1,
+dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 auf $5 ein neue Antwort auf den Diskussionsstrang „$2“ geschrieben wurde.
+
+Du kannst sie auf <$6> einsehen.',
 	'lqt-quote-intro' => 'Am $2 um $3 Uhr schrieb [[User:$1|Benutzer:$1]]:',
+	'lqt-quote' => 'Zitieren',
+);
+
+/** German (formal address) (Deutsch (Sie-Form))
+ * @author ChrisiPK
+ */
+$messages['de-formal'] = array(
+	'lqt_invalid_subject' => 'Der Betreff, den Sie eingegeben haben, ist ungültig.
+Es ist möglich, dass er
+* ungültige Zeichen enthält, wie beispielsweise []{}&lt;&gt;,
+* zu lang ist oder
+* im Konflikt mit Interwikipräfixen oder Namensraumbezeichnern steht.',
+	'lqt_subject_change_forbidden' => 'Sie können den Betreff dieses Diskussionsstrangs nicht ändern, weil Sie keine Seiten verschieben dürfen.',
+	'lqt-summarize-intro' => 'Bitte fassen Sie den untenstehenden Diskussionsstrang im Bearbeitungsfenster zusammen.
+Sie können Wikitext in Ihrer Zusammenfassung verwenden. Wenn Sie fertig sind, klicken Sie auf „{{int:savearticle}}“.',
+	'lqt-split-success' => 'Sie haben den Diskussionsstrang $1 erfolgreich gespalten.',
+	'lqt_split_badsubject' => 'Der Betreff, den Sie eingegeben haben, ist ungültig.',
+	'lqt-enotif-newthread' => 'Hallo $1,
+dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 auf $5 ein neuer Diskussionsstrang „$2“ eröffnet wurde.
+
+Sie können ihn auf <$6> einsehen.',
+	'lqt-enotif-reply' => 'Hallo $1,
+dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 auf $5 ein neue Antwort auf den Diskussionsstrang „$2“ geschrieben wurde.
+
+Sie können sie auf <$6> einsehen.',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -1330,6 +1399,7 @@ $messages['el'] = array(
 	'lqt-title' => 'Τίτλος',
 	'lqt-older' => 'παλαιότερος',
 	'lqt-newer' => 'νεότερη',
+	'lqt-header-actions' => 'Ενέργειες',
 );
 
 /** Esperanto (Esperanto)
@@ -1445,6 +1515,7 @@ $messages['eo'] = array(
  * @author Crazymadlover
  * @author Imre
  * @author Locos epraix
+ * @author McDutchie
  * @author Piolinfax
  * @author Sanbec
  */
@@ -1465,7 +1536,7 @@ $messages['es'] = array(
 	'lqt_delete' => 'Borrar',
 	'lqt_undelete' => 'Restaurar',
 	'lqt_permalink' => 'Vínculo a esto',
-	'lqt_fragment' => 'un fragmento de un $1 de $2',
+	'lqt_fragment' => 'un fragmento de una $1 de $2',
 	'lqt_discussion_link' => 'discusión',
 	'lqt_from_talk' => 'de $1',
 	'lqt_newer' => '←más nuevo',
@@ -1647,7 +1718,7 @@ $messages['fr'] = array(
 	'lqt_delete' => 'Effacer',
 	'lqt_undelete' => 'Récupérer',
 	'lqt_permalink' => 'Lien vers cette version',
-	'lqt_fragment' => 'un fragment de $1 à partir de $2',
+	'lqt_fragment' => "un fragment d'une $1 de $2",
 	'lqt_discussion_link' => 'discussion',
 	'lqt_from_talk' => 'de $1',
 	'lqt_newer' => '← plus récent',
@@ -1760,6 +1831,12 @@ Cette opération est réversible.',
 	'lqt_summarize_link' => 'Résumé',
 	'lqt-summarize-intro' => 'Résumer le sujet ci-dessus dans la boite d’édition
 Vous pouvez utiliser n’importe quel texte wiki dans votre résumé. Lorsque vous avez terminé, cliquez sur « {{int: Savearticle}}» .',
+	'lqt-thread-split' => 'Scinder vers un nouveau fil',
+	'lqt-split-success' => 'Vous avez scindé avec succès le fil $1.',
+	'lqt_split_thread' => 'Scinder un fil',
+	'lqt-thread-split-subject' => 'Sujet du nouveau fil',
+	'lqt-split-submit' => 'Scinder',
+	'lqt_split_badsubject' => 'Le sujet que vous avez entré est invalide.',
 	'lqt-log-name' => 'Journal des fils de discussion',
 	'lqt-log-header' => 'Ce journal détaille les actions faites sur les fils de discussion.',
 	'lqt-log-action-move' => 'a déplacé [[$1]] de [[$2]] vers [[$3]].',
@@ -1777,6 +1854,7 @@ a été créée le $3 à $4.
 
 Vous pouvez le voir a « $6 »",
 	'lqt-quote-intro' => 'Le $2 à $3, [[User:$1]] a écrit:',
+	'lqt-quote' => 'Citer ceci',
 );
 
 /** Western Frisian (Frysk)
@@ -1935,6 +2013,12 @@ Esta operación non pode ser desfeita.',
 	'lqt_summarize_link' => 'Resumir',
 	'lqt-summarize-intro' => 'Por favor, resuma o seguinte fío na caixa de edición.
 Pode empregar calquera texto wiki no seu resumo. Ao rematar, prema en "{{int:savearticle}}".',
+	'lqt-thread-split' => 'Separar nun novo fío de conversa',
+	'lqt-split-success' => 'Separou con éxito o fío de conversa "$1".',
+	'lqt_split_thread' => 'Separar un fío',
+	'lqt-thread-split-subject' => 'Asunto do novo fío',
+	'lqt-split-submit' => 'Separar',
+	'lqt_split_badsubject' => 'O asunto que inseriu non é válido.',
 	'lqt-log-name' => 'Rexistro de fíos de conversa',
 	'lqt-log-header' => 'Este rexistro detalla as accións feitas nos fíos de conversa.',
 	'lqt-log-action-move' => 'moveu "[[$1]]" de "[[$2]]" a "[[$3]]".',
@@ -1952,6 +2036,7 @@ foi creada o $3 ás $4.
 
 Pode vela en <$6>',
 	'lqt-quote-intro' => 'O $2 ás $3, o [[User:$1|usuario $1]] escribiu:',
+	'lqt-quote' => 'Citar isto',
 );
 
 /** Gothic
@@ -1980,6 +2065,7 @@ $messages['grc'] = array(
 	'lqt-date-from' => 'Ἀπό',
 	'lqt-title' => 'Ἐπιγραφή',
 	'lqt-summary' => 'Σύνοψις',
+	'lqt-header-actions' => 'Δράσεις',
 );
 
 /** Swiss German (Alemannisch)
@@ -2129,6 +2215,12 @@ Die Operation cha rugggängig gmacht wäre.',
 	'lqt_summarize_link' => 'Zämmefasse',
 	'lqt-summarize-intro' => 'Bitte fass dr Diskussionsstrang unte im Bearbeitigs-Chaschte zämme.
 du chasch irged e Wikitekscht fir Dyy Zämmefassig bruche. Wänn Du fertig bisch, druck "{{int:savearticle}}".',
+	'lqt-thread-split' => 'In e neje Diskussionstrang ufteile',
+	'lqt-split-success' => 'Du hesch dr Diskussionstrang $1 erfolgrych ufteilt.',
+	'lqt_split_thread' => 'E Diskussionstrang ufteile',
+	'lqt-thread-split-subject' => 'Nej Diskussionsstrang-Thema',
+	'lqt-split-submit' => 'Ufteile',
+	'lqt_split_badsubject' => 'S Thema, wu du aagee hesch, isch nit giltig.',
 	'lqt-log-name' => 'Logbuech vu dr Diskussionssträng',
 	'lqt-log-header' => 'Des Logbuech lischtet Aktione uf, wu an Diskussionsträng vorgnuu wore sin.',
 	'lqt-log-action-move' => 'het [[$1]] vu [[$2]] no [[$3]] verschobe.',
@@ -2145,6 +2237,7 @@ aagleit woren isch uf $3 am $4.
 
 Du chasch si säh uf <$6>",
 	'lqt-quote-intro' => 'Am $2 am $3, het [[User:$1]] gschribe:',
+	'lqt-quote' => 'Des aagee',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -2349,6 +2442,7 @@ $messages['he'] = array(
 
 /** Hindi (हिन्दी)
  * @author Kaustubh
+ * @author Kiranmayee
  */
 $messages['hi'] = array(
 	'lqt-desc' => 'वार्ता पृष्ठ पर वार्ता के थ्रेड्स बढायें',
@@ -2367,7 +2461,7 @@ $messages['hi'] = array(
 	'lqt_reply' => 'जवाब',
 	'lqt_delete' => 'हटायें',
 	'lqt_undelete' => 'पुनर्स्थापित करें',
-	'lqt_permalink' => 'स्थायी कड़ी',
+	'lqt_permalink' => 'इस के कड़ी',
 	'lqt_fragment' => '$2 से $1 का एक टुकड़ा',
 	'lqt_discussion_link' => 'वार्ता',
 	'lqt_from_talk' => '$1 से',
@@ -2596,6 +2690,12 @@ Tuta akcija da so cofnyć.',
 	'lqt_summarize_link' => 'Zjeć',
 	'lqt-summarize-intro' => 'Prošu zhorń slědowacu nitku we wobdźěłanskim kašćiku.
 Móžeš někajki wikitekst w swojim zjeću wužiwać. Hdyž skónčiš, klikń na "{{int:savearticle}}".',
+	'lqt-thread-split' => 'Do noweje nitki rozšćěpić',
+	'lqt-split-success' => 'Sy wuspěšnje nitku $1 wotšćěpił.',
+	'lqt_split_thread' => 'Nitku šćěpić',
+	'lqt-thread-split-subject' => 'Tema noweje nitki',
+	'lqt-split-submit' => 'Šćěpić',
+	'lqt_split_badsubject' => 'Tema, kotruž sy zapodał, je njepłaćiwa.',
 	'lqt-log-name' => 'Protokol nitkoweje diskusije',
 	'lqt-log-header' => 'Tutón protokol nalistuje akcije, kotrež su so na diskusijnych nitkach přewjedli.',
 	'lqt-log-action-move' => 'přesuny [[$1]] wot [[$2]] do [[$3]].',
@@ -2611,6 +2711,7 @@ to je zdźělenka wot {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa wotmołwa 
 
 Móžeš ju na <$6> widźeć",
 	'lqt-quote-intro' => 'Dnja $2 $3 je [[User:$1|$1]] {{GENDER:$1|napisał|napisała|napisał}}:',
+	'lqt-quote' => 'To citować',
 );
 
 /** Hungarian (Magyar)
@@ -2723,13 +2824,13 @@ $messages['ia'] = array(
 * esser troppo longe, o
 * confliger con prefixos interwiki o nomines de spatios de nomines.',
 	'lqt_subject_change_forbidden' => 'Tu non ha le permission de cambiar le subjecto de iste filo proque tu non pote renominar paginas.',
-	'lqt_in_response_to' => 'In responsa a $1 per $2, supra:',
+	'lqt_in_response_to' => 'In responsa a $1 per $2, ci supra:',
 	'lqt_edited_notice' => 'Modificate',
 	'lqt_reply' => 'Responder',
 	'lqt_delete' => 'Deler',
 	'lqt_undelete' => 'Restaurar',
 	'lqt_permalink' => 'Ligamine a iste version',
-	'lqt_fragment' => 'un fragmento de un $1 ab $2',
+	'lqt_fragment' => 'un fragmento de un $1 ex $2',
 	'lqt_discussion_link' => 'discussion',
 	'lqt_from_talk' => 'de $1',
 	'lqt_newer' => '←plus recente',
@@ -2847,6 +2948,12 @@ Iste operation es reversibile.',
 	'lqt_summarize_link' => 'Summarisar',
 	'lqt-summarize-intro' => 'Per favor summarisa le filo ci infra in le quadro de modification.
 Tu pote usar omne wikitexto in tu summario. Quando tu fini, clicca super "{{int:savearticle}}".',
+	'lqt-thread-split' => 'Scinder in un nove filo',
+	'lqt-split-success' => 'Tu ha scindite le filo $1 con successo.',
+	'lqt_split_thread' => 'Scinder un filo',
+	'lqt-thread-split-subject' => 'Subjecto del nove filo',
+	'lqt-split-submit' => 'Scinder',
+	'lqt_split_badsubject' => 'Le subjecto que tu ha entrate es invalide.',
 	'lqt-log-name' => 'Registro de filos de discussion',
 	'lqt-log-header' => 'Iste registro detalia le actiones prendite in le filos de discussion.',
 	'lqt-log-action-move' => 'moveva [[$1]] ab [[$2]] verso [[$3]].',
@@ -2864,6 +2971,7 @@ esseva create le $3 a $4.
 
 Tu pote vider lo a <$6>",
 	'lqt-quote-intro' => 'Le $2 a $3, [[User:$1]] scribeva:',
+	'lqt-quote' => 'Citar isto',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -3064,6 +3172,13 @@ $messages['ja'] = array(
 	'lqt-header-actions' => '操作',
 	'lqt_summarize_link' => '要約化',
 	'lqt-summarize-intro' => '以下のスレッドを編集ボックス内に要約してください。要約中ではウィキテキストが使用できます。完了したら「{{int:savearticle}}」をクリックします。',
+	'lqt-thread-split' => '新しいスレッドに分割する',
+	'lqt-split-success' => 'スレッド「$1」の分割に成功しました。',
+	'lqt_split_thread' => 'スレッドを分割',
+	'lqt-thread-split-subject' => '新しいスレッドの表題',
+	'lqt-split-submit' => '分割',
+	'lqt_split_badsubject' => 'あなたが入力した表題は不正です。',
+	'lqt-no-threads' => 'このページにはまだスレッドがありません。',
 	'lqt-log-name' => 'スレッド形式議論の記録',
 	'lqt-log-header' => 'これは議論スレッドで行われた操作の詳細を記録しています。',
 	'lqt-log-action-move' => '[[$1]]を[[$2]]から[[$3]]へ移動しました。',
@@ -3079,6 +3194,7 @@ $messages['ja'] = array(
 
 <$6> で確認できます。',
 	'lqt-quote-intro' => '$2$3に[[User:$1]]が書きました:',
+	'lqt-quote' => 'これを引用',
 );
 
 /** Javanese (Basa Jawa)
@@ -3375,6 +3491,12 @@ Künnt sin, De wells en $2 han.',
 	'lqt-header-actions' => 'Akßjuhne',
 	'lqt_summarize_link' => 'Zosammefaße',
 	'lqt-summarize-intro' => 'Donn dä Jeschprääschßfäddem heh dronge zosammefaße, un don dat en dat Vält för et Ändere erenn schriive. Dobei kanns De jeede Wikitäx bruche. Wann De domet fäädesc beß, donn op dä Knopp „{{int:savearticle}}“ klecke.',
+	'lqt-thread-split' => 'Afdeijle en ene neue Jeschpräschßfäddem',
+	'lqt-split-success' => 'Do häs jäz dä Jeschpräschßfäddem „$1“ afjedeilt.',
+	'lqt_split_thread' => 'Ene Jeschpräschßfäddem opdeijle',
+	'lqt-thread-split-subject' => 'Neu Övverschreff för dä Jeschpräschßfäddem',
+	'lqt-split-submit' => 'Opdeijle',
+	'lqt_split_badsubject' => 'Di Övverschreff es Kappes, di De doh enjejovve häs.',
 	'lqt-log-name' => 'Logboch övver Jeschprääschßfäddeme',
 	'lqt-log-header' => 'En däm Logbooch heh sin de Einzelheite faßjehallde övver wat met de Jeschprähschßfäddeme jedonn woodt.',
 	'lqt-log-action-move' => '[[$1]] vun [[$2]] noh [[$3]] ömjetroke.',
@@ -3402,6 +3524,7 @@ Beloore kanns de dä op
 
 Ene schööne Jrohß!',
 	'lqt-quote-intro' => 'Aam $2 hät {{GENDER:$1|dä|dat|dä Metmaacher|dat|de}} [[User:$1|$1]] öm $3 Uhr jeschrevve:',
+	'lqt-quote' => 'Donn dat zitteere',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -3698,6 +3821,13 @@ $messages['mr'] = array(
 	'lqt_sort_oldest_threads' => 'जुने थ्रेड पहिल्यांदा',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aurora
+ */
+$messages['ms'] = array(
+	'lqt-header-actions' => 'Tindakan',
+);
+
 /** Maltese (Malti)
  * @author Roderick Mallia
  */
@@ -3898,6 +4028,12 @@ Deze handeling is onomkeerbaar.',
 	'lqt-summarize-intro' => 'Vat de thread hieronder samen.
 U mag wikitekst gebruiken in uw samenvatting.
 Klik op "{{int:savearticle}}" als u klaar bent.',
+	'lqt-thread-split' => 'Naar nieuwe thread afsplitsen',
+	'lqt-split-success' => 'U hebt de nieuwe thread $1 aangemaakt.',
+	'lqt_split_thread' => 'Thread opsplitsen',
+	'lqt-thread-split-subject' => 'Onderwerp voor nieuwe thread',
+	'lqt-split-submit' => 'Splitsen',
+	'lqt_split_badsubject' => 'Het onderwerp dat u hebt opgegeven is ongeldig.',
 	'lqt-log-name' => 'Overlegthreadlogboek',
 	'lqt-log-header' => 'Dit logboek bevat details over handelingen ten aanzien van overlegthreads.',
 	'lqt-log-action-move' => 'heeft [[$1]] verplaatst van [[$2]] naar [[$3]].',
@@ -3915,6 +4051,7 @@ Dit is een kennisgeving van {{SITENAME}}. Er is een nieuw antwoord op '$2' op $5
 
 U kunt het bekijken op <$6>.",
 	'lqt-quote-intro' => 'Op $2 om $3 schreef [[User:$1|$1]]:',
+	'lqt-quote' => 'Deze tekst kopiëren',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -4352,6 +4489,12 @@ Aquesta operacion es irreversibla.',
 	'lqt_summarize_link' => 'Resumit',
 	'lqt-summarize-intro' => 'Resumir lo subjècte çaisús dins la boita d’edicion
 Podètz utilizar un tèxte wiki quin que siá dins vòstre resumit. Quand avètz acabat, clicatz sus « {{int: Savearticle}}» .',
+	'lqt-thread-split' => 'Separar cap a un fial novèl',
+	'lqt-split-success' => 'Avètz separat amb succès lo fial $1.',
+	'lqt_split_thread' => 'Separar un fial',
+	'lqt-thread-split-subject' => 'Subjècte del fial novèl',
+	'lqt-split-submit' => 'Separar',
+	'lqt_split_badsubject' => "Lo subjècte qu'avètz picat es invalid.",
 	'lqt-log-name' => 'Jornal dels fials de discussion',
 	'lqt-log-header' => 'Aqueste jornal detalha las accions fachas suls fials de discussion.',
 	'lqt-log-action-move' => 'a desplaçat [[$1]] de [[$2]] cap a [[$3]].',
@@ -4369,6 +4512,7 @@ es estada creada lo $3 a $4.
 
 O podètz veire a « $6 »",
 	'lqt-quote-intro' => 'Lo $2 a $3, [[User:$1]] a escrich :',
+	'lqt-quote' => 'Citar aquò',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
@@ -4482,6 +4626,7 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Crazymadlover
  * @author Lijealso
  * @author Malafaya
  */
@@ -4506,7 +4651,7 @@ $messages['pt'] = array(
 	'lqt_reply' => 'Responder',
 	'lqt_delete' => 'Apagar',
 	'lqt_undelete' => 'Recuperar',
-	'lqt_permalink' => 'Ligação permanente',
+	'lqt_permalink' => 'Ligação a isto',
 	'lqt_fragment' => 'um fragmento de $1 de $2',
 	'lqt_discussion_link' => 'discussão',
 	'lqt_from_talk' => 'de $1',
@@ -4980,6 +5125,12 @@ $messages['ru'] = array(
 	'lqt_summarize_link' => 'Подвести итог',
 	'lqt-summarize-intro' => 'Пожалуйста, кратко опишите в поле редактирования содержимое данной ветки обсуждения.
 Вы можете использовать любой викитекст. Нажмите «{{int:savearticle}}», когда закончите.',
+	'lqt-thread-split' => 'Выделить в новую ветку',
+	'lqt-split-success' => 'Вы успешно разделили ветку $1.',
+	'lqt_split_thread' => 'Разделение ветки',
+	'lqt-thread-split-subject' => 'Заголовок новой ветки',
+	'lqt-split-submit' => 'Разделить',
+	'lqt_split_badsubject' => 'Указанный вами заголовок не может быть использован.',
 	'lqt-log-name' => 'Журнал веток обсуждений',
 	'lqt-log-header' => 'В этот журнал записываются действия, предпринятые в ветках обсуждений.',
 	'lqt-log-action-move' => 'перемещено [[$1]] из [[$2]] в [[$3]].',
@@ -4997,6 +5148,7 @@ $messages['ru'] = array(
 
 Вы можете увидеть её по адресу <$6>',
 	'lqt-quote-intro' => '$2 $3, [[User:$1]] написал:',
+	'lqt-quote' => 'Цитировать',
 );
 
 /** Tachelhit (Tašlḥiyt)
@@ -5152,6 +5304,12 @@ Stále bude viditeľné na jeho pôvodnej diskusnej stránke.',
 	'lqt_summarize_link' => 'Zhrnúť',
 	'lqt-summarize-intro' => 'Zhrňte prosím dolu uvedené vlákno do poľa na úpravy.
 V zhrnutí môžete použiť wikitext. Keď skončíte, kliknite na „{{int:savearticle}}“.',
+	'lqt-thread-split' => 'Oddeliť do nového vlákna',
+	'lqt-split-success' => 'Úspešne ste oddelili vlákno $1.',
+	'lqt_split_thread' => 'Oddeliť vlákno',
+	'lqt-thread-split-subject' => 'Predmet nového vlákna',
+	'lqt-split-submit' => 'Oddeliť',
+	'lqt_split_badsubject' => 'Predmet, ktorý ste zadali nie je platný.',
 	'lqt-log-name' => 'Záznam diskusie vo vláknach',
 	'lqt-log-header' => 'Tento záznam obsahuje podrobnosti o operáciách s diskusnými vláknami.',
 	'lqt-log-action-move' => 'presunul [[$1]] z [[$2]] na [[$3]].',
@@ -5169,6 +5327,7 @@ bola pridaná $3 $4.
 
 Môžete si ho pozrieť na <$6>',
 	'lqt-quote-intro' => '$2 $3 [[User:$1]] napísal:',
+	'lqt-quote' => 'Citovať',
 );
 
 /** Lower Silesian (Schläsch)
@@ -5380,6 +5539,7 @@ $messages['szl'] = array(
 );
 
 /** Telugu (తెలుగు)
+ * @author Kiranmayee
  * @author Veeven
  */
 $messages['te'] = array(
@@ -5392,7 +5552,7 @@ $messages['te'] = array(
 	'lqt_new_thread' => 'కొత్త చర్చని ప్రారంభించండి',
 	'lqt_reply' => 'స్పందించు',
 	'lqt_delete' => 'తొలగించు',
-	'lqt_permalink' => 'స్థిరలింకు',
+	'lqt_permalink' => 'ఇక్కడికి లింకు',
 	'lqt_discussion_link' => 'చర్చ',
 	'lqt_from_talk' => '$1 నుండి',
 	'lqt_newer' => '←కొత్తవి',
