@@ -886,22 +886,7 @@ class Thread {
 		}
 
 	}
-	
-	/**
-	  * Tells you whether or not the thread is eligible for archival
-	  * (includes a check as to whether or not the thread has already been archived.
-	  */
-	function isArchiveEligible( ) {		
-		$startDays = $this->getArchiveStartDays();
 
-		$timestamp = wfTimestamp( TS_UNIX, $this->modified() );
-		$archiveCutoff = time() - $startDays * 86400;
-		
-		return $timestamp < $archiveCutoff // X days must have elapsed
-				&& !$this->hasSuperthread() // Must be a primary thread (i.e. not a reply)
-				&& !$this->isHistorical();  // Can't have already been archived, obviously
-	}
-	
 	function getArchiveStartDays() {
 		return Threads::getArticleArchiveStartDays( $this->article() );
 	}

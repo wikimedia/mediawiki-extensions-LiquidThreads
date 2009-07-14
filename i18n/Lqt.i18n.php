@@ -166,6 +166,7 @@ You may use any wikitext in your summary. When you finish, click "{{int:savearti
 	'lqt-thread-split-subject'=> 'New thread subject',
 	'lqt-split-submit'		  => 'Split',
 	'lqt_split_badsubject'    => 'The subject you entered is invalid.',
+	'lqt-no-threads'		  => 'There are no threads on this page yet.',
 	
 	// Logging
 	'lqt-log-name' => 'Threaded discussion log',

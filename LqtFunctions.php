@@ -133,7 +133,7 @@ function lqtUpdateNewtalkOnEdit( $article ) {
 function lqtSetupParserFunctions() {
 	global $wgParser;
 	
-	$wgParser->setFunctionHook( 'archivestartdays',
-				array( 'LqtParserFunctions', 'archivestartdays' ) );
+	$wgParser->setFunctionHook( 'useliquidthreads',
+				array( 'LqtParserFunctions', 'useLiquidThreads' ) );
 }
 

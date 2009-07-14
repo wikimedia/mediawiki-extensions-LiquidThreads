@@ -965,17 +965,6 @@ class LqtView {
 		
 		if ( $thread->summary() ) {
 			$html .= $this->getSummary( $thread );
-		} elseif ( $thread->isArchiveEligible() ) {
-			wfLoadExtensionMessages( 'LiquidThreads' );
-			
-			$permalink_text = wfMsgNoTrans( 'lqt_summary_notice_link' );
-			$permalink = self::permalink( $thread, $permalink_text, 'summarize',
-											$thread->id() );
-			$msg = wfMsgExt( 'lqt_summary_notice', array('parseinline', 'replaceafter'),
-								array( $permalink, $thread->getArchiveStartDays() ) );
-			$msg = Xml::tags( 'p', array( 'class' => 'lqt_summary_notice' ), $msg );
-			
-			$html .= $msg;
 		}
 		
 		// Unfortunately, I can't rewrite showRootPost() to pass back HTML

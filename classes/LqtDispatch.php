@@ -14,6 +14,9 @@ class LqtDispatch {
 		'ThreadWatchView' => 'ThreadWatchView',
 		'SummaryPageView' => 'SummaryPageView'
 		);
+		
+	/** static cache of per-page LiquidThreads activation setting */
+	static $userLQTActivated;
 
 	static function talkpageMain( &$output, &$talk_article, &$title, &$user, &$request ) {
 		// We are given a talkpage article and title. Find the associated
@@ -96,9 +99,57 @@ class LqtDispatch {
 	static function isLqtPage( $title ) {
 		global $wgLqtPages, $wgLqtTalkPages;
 		$isTalkPage = ($title->isTalkPage() && $wgLqtTalkPages) ||
-						in_array( $title->getPrefixedText(), $wgLqtPages );
+						in_array( $title->getPrefixedText(), $wgLqtPages ) ||
+						self::hasUserEnabledLQT( $title->getArticleId() );
 		
 		return $isTalkPage;
+	}
+	
+	static function hasUserEnabledLQT( $article ) {
+	
+		if (is_object($article)) {
+			$article = $article->getId();
+		}
+		
+		// Instance cache
+		if ( isset( self::$userLQTActivated[$article] ) ) {
+			$cacheVal = self::$userLQTActivated[$article];
+
+			return $cacheVal;
+		}
+		
+		// Memcached: It isn't clear that this is needed yet, but since I already wrote the
+		//  code, I might as well leave it commented out instead of deleting it.
+		//  Main reason I've left this commented out is because it isn't obvious how to
+		//  purge the cache when necessary.
+// 		global $wgMemc;
+// 		$key = wfMemcKey( 'lqt-archive-start-days', $article );
+// 		$cacheVal = $wgMemc->get( $key );
+// 		if ($cacheVal != false) {
+// 			if ( $cacheVal != -1 ) {
+// 				return $cacheVal;
+// 			} else {
+// 				return $wgLqtThreadArchiveStartDays;
+// 			}
+// 		}
+		
+		// Load from the database.
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$dbVal = $dbr->selectField( 'page_props', 'pp_value',
+									array( 'pp_propname' => 'use-liquid-threads',
+											'pp_page' => $article ), __METHOD__ );
+		
+		if ($dbVal) {
+			self::$userLQTActivated[$article] = true;
+#			$wgMemc->set( $key, $dbVal, 1800 );
+			return true;
+		} else {
+			// Negative caching.
+			self::$userLQTActivated[$article] = false;
+#			$wgMemc->set( $key, -1, 86400 );
+			return false;
+		}
 	}
 
 	/**

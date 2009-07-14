@@ -8,7 +8,7 @@ class LiquidThreadsMagicWords {
 		 * English
 		 */
 		$words['en'] = array(
-			'archivestartdays' => array( 0, 'archivestartdays' ),
+			'useliquidthreads' => array( 0, 'UseLiquidThreads' ),
 		);
 		
 		$magicWords += ( $lang == 'en' || !isset( $words[$lang] ) )

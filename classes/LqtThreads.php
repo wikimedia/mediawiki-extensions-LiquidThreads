@@ -31,9 +31,6 @@ class Threads {
 
 	static $cache_by_root = array();
 	static $cache_by_id = array();
-	
-	/** static cache of per-page archivestartdays setting */
-	static $archiveStartDays;
 
     static function newThread( $root, $article, $superthread = null,
     							$type = self::TYPE_NORMAL, $subject = '' ) {
@@ -251,54 +248,5 @@ class Threads {
 		$arr = array( 'thread_ancestor=thread_id', 'thread_parent' => null );
 		
 		return $dbr->makeList( $arr, LIST_OR );
-	}
-	
-	static function getArticleArchiveStartDays( $article ) {
-		global $wgLqtThreadArchiveStartDays;
-		
-		$article = $article->getId();
-		
-		// Instance cache
-		if ( isset( self::$archiveStartDays[$article] ) ) {
-			$cacheVal = self::$archiveStartDays[$article];
-			if ( !is_null( $cacheVal ) ) {
-				return $cacheVal;
-			} else {
-				return $wgLqtThreadArchiveStartDays;
-			}
-		}
-		
-		// Memcached: It isn't clear that this is needed yet, but since I already wrote the
-		//  code, I might as well leave it commented out instead of deleting it.
-		//  Main reason I've left this commented out is because it isn't obvious how to
-		//  purge the cache when necessary.
-// 		global $wgMemc;
-// 		$key = wfMemcKey( 'lqt-archive-start-days', $article );
-// 		$cacheVal = $wgMemc->get( $key );
-// 		if ($cacheVal != false) {
-// 			if ( $cacheVal != -1 ) {
-// 				return $cacheVal;
-// 			} else {
-// 				return $wgLqtThreadArchiveStartDays;
-// 			}
-// 		}
-		
-		// Load from the database.
-		$dbr = wfGetDB( DB_SLAVE );
-		
-		$dbVal = $dbr->selectField( 'page_props', 'pp_value',
-									array( 'pp_propname' => 'lqt-archivestartdays',
-											'pp_page' => $article ), __METHOD__ );
-		
-		if ($dbVal) {
-			self::$archiveStartDays[$article] = $dbVal;
-#			$wgMemc->set( $key, $dbVal, 1800 );
-			return $dbVal;
-		} else {
-			// Negative caching.
-			self::$archiveStartDays[$article] = null;
-#			$wgMemc->set( $key, -1, 86400 );
-			return $wgLqtThreadArchiveStartDays;
-		}
 	}
 }
