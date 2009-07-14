@@ -221,7 +221,7 @@ The archive page.
 
 .lqt_post_new_message {
 	padding:          0.5em 1em;
-	background-color: #eeeeee;
+	background-color: #eeeeee !important;
 	border:           solid 1pt #ffaa66;
 	display:          table;
 	width:            auto;
