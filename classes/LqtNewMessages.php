@@ -199,17 +199,29 @@ class NewMessages {
 		}
 		
 		// Send email notification, fetching all the data in one go
+		
+		global $wgVersion;
+		$tables = array( 'user' );
+		$join_conds = array();
+		$oldPreferenceFormat = false;
+		if (version_compare( $wgVersion, '1.16', '<' )) {
+			$oldPreferenceFormat = true;
+		} else {
+			$tables[] = 'user_properties';
+			
+			$join_conds['user_properties'] =
+				array( 'left join', 
+						array(
+							'up_user=user_id',
+							'up_property' => 'timecorrection'
+						)
+					);
+		}
+		
 		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( array( 'user', 'user_properties' ), '*',
+		$res = $dbr->select( array( 'user' ), '*',
 							array( 'user_id' => $watching_users ), __METHOD__, array(),
-							array( 'user_properties' =>
-								array( 'left join', 
-									array(
-										'up_user=user_id',
-										'up_property' => 'timecorrection'
-									)
-								)
-							)
+							$join_conds
 						);
 		
 		while( $row = $dbr->fetchObject( $res ) ) {
@@ -220,7 +232,13 @@ class NewMessages {
 			$permalink = LqtView::permalinkUrl( $t );
 			
 			// Adjust with time correction
-			$adjustedTimestamp = $wgLang->userAdjust( $timestamp, $row->up_value );
+			if ($oldPreferenceFormat) {
+				$u = User::newFromId( $row->user_id );
+				$timeCorrection = $u->getOption( 'timecorrection' );
+			} else {
+				$timeCorrection = $row->up_value;
+			}
+			$adjustedTimestamp = $wgLang->userAdjust( $timestamp, $timeCorrection );
 			
 			$date = $wgLang->date( $adjustedTimestamp );
 			$time = $wgLang->time( $adjustedTimestamp );
