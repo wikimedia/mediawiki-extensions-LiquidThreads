@@ -485,7 +485,7 @@ class Thread {
 		$articleTitle = $this->article()->getTitle();
 		if ( !LqtDispatch::isLqtPage( $articleTitle ) && !$articleTitle->isTalkPage() &&
 				LqtDispatch::isLqtPage( $articleTitle->getTalkPage() ) &&
-				$articleTitle->getNamespace() != NS_THREAD ) {
+				$articleTitle->getNamespace() != NS_LQT_THREAD ) {
 			$newTitle = $articleTitle->getTalkPage();
 			$newArticle = new Article( $newTitle );
 			
