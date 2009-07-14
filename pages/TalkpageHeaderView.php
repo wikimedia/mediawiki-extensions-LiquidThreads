@@ -36,13 +36,16 @@ class TalkpageHeaderView extends LqtView {
 				$this->talkpageLink( $wgTitle, wfMsgExt( 'lqt_header_warning_new_discussion',
 									'parseinline' ), 'talkpage_new_thread' );
 									
-			$html .= wfMsgExt( 'lqt_header_warning_before_big', 'parseinline',
+			$html .= wfMsgExt( 'lqt_header_warning_before_big',
+								array('parseinline', 'replaceafter' ),
 								array( $warn_bold, $warn_link ) );
 			$html .= Xml::tags( 'big', null,
-								wfMsgExt( 'lqt_header_warning_big', 'parseinline',
+								wfMsgExt( 'lqt_header_warning_big',
+								array( 'parseinline', 'replaceafter' ),
 								array( $warn_bold, $warn_link ) ) );
 			$html .= wfMsg( 'word-separator' );
-			$html .= wfMsgExt( 'lqt_header_warning_after_big', 'parseinline',
+			$html .= wfMsgExt( 'lqt_header_warning_after_big',
+								array( 'parseinline', 'replaceafter' ),
 								array( $warn_bold, $warn_link ) );
 			
 			$html = Xml::tags( 'p', array( 'class' => 'lqt_header_warning' ), $html );
