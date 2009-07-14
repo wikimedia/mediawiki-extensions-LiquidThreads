@@ -60,11 +60,14 @@ class NewUserMessagesView extends LqtView {
 	}
 
 	function postDivClass( $thread ) {
+		$origClass = parent::postDivClass( $thread );
+		
 		$topid = $thread->topmostThread()->id();
+		
 		if ( in_array( $thread->id(), $this->targets[$topid] ) )
-			return 'lqt_post_new_message';
-		else
-			return 'lqt_post';
+			return "$origClass lqt_post_new_message";
+		
+		return $origClass;
 	}
 
 	function showOnce() {
