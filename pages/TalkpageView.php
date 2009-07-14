@@ -251,8 +251,6 @@ class TalkpageView extends LqtView {
 		$pager = $this->getPager();
 		
 		$threads = $this->getPageThreads( $pager );
-		
-// 		$html .= $this->getArchiveWidget();
 
 		if ( count($threads) > 0 ) {
 			$html .= Xml::element( 'br', array( 'style' => 'clear: both;' ) );
@@ -339,7 +337,7 @@ class LqtDiscussionPager extends IndexPager {
 			);
 			
 		if ( !$this->showDeleted ) {
-			$queryInfo['where']['thread_deleted'] = 0;
+			$queryInfo['conds']['thread_deleted'] = 0;
 		}
 			
 		return $queryInfo;
