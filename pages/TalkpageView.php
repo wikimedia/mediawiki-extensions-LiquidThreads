@@ -141,17 +141,13 @@ class TalkpageView extends LqtView {
 	function showTalkpageViewOptions( $article ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 
-		if ( $this->methodApplies( 'talkpage_sort_order' ) ) {
+		if ( $this->request->getCheck( 'lqt_sort_order' ) ) {
 			$remember_sort_checked = $this->request->getBool( 'lqt_remember_sort' );
-			$this->user->setOption( 'lqt_sort_order', $this->sort_order );
-			$this->user->saveSettings();
 		} else {
 			$remember_sort_checked = '';
 		}
 
 		if ( $article->exists() ) {
-			$lqt_remember_sort = wfMsg( 'lqt_remember_sort' ) ;
-			
 			$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
 			$go = wfMsg( 'go' );
 			
@@ -170,12 +166,6 @@ class TalkpageView extends LqtView {
 			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_oldest_threads' ),
 											LQT_OLDEST_THREADS );
 			$html .= $sortOrderSelect->getHTML();
-
-			if ( $this->user->isLoggedIn() ) {
-				$html .= Xml::element( 'br' ) .
-									Xml::checkLabel( $lqt_remember_sort, 'lqt_remember_sort',
-										'lqt_remember_sort', $remember_sort_checked );
-			}
 			
 			if ( $this->user->isAllowed( 'deletedhistory' ) ) {
 				$show_deleted_checked = $this->request->getBool( 'lqt_show_deleted_threads' );
@@ -187,11 +177,11 @@ class TalkpageView extends LqtView {
 											$show_deleted_checked );
 			}
 			
-			$html .= Xml::submitButton( wfMsg( 'go' ), array( 'class' => 'lqt_go_sort',
-										'name' => 'submitsort' ) );
+			$html .= Xml::submitButton( wfMsg( 'go' ), array( 'class' => 'lqt_go_sort' ) );
+			$html .= Xml::hidden( 'title', $this->title->getPrefixedText() );
 			
 			$html = Xml::tags( 'form', array( 'action' => $form_action_url,
-												'method' => 'post',
+												'method' => 'get',
 												'name' => 'lqt_sort' ), $html );
 			$html = Xml::tags( 'div', array( 'class' => 'lqt_view_options' ), $html );
 			
@@ -288,7 +278,7 @@ class TalkpageView extends LqtView {
 	
 	function getSortType() {
 		// Determine sort order
-		if ( $this->methodApplies( 'talkpage_sort_order' ) ) {
+		if ( $this->request->getCheck( 'lqt_order' ) ) {
 			// Sort order is explicitly specified through UI
 			$lqt_order = $this->request->getVal( 'lqt_order' );
 			switch( $lqt_order ) {
@@ -298,12 +288,6 @@ class TalkpageView extends LqtView {
 					return LQT_NEWEST_THREADS;
 				case 'ot':
 					return LQT_OLDEST_THREADS;
-			}
-		} else {
-			// Sort order set in user preferences overrides default
-			$user_order = $this->user->getOption( 'lqt_sort_order' ) ;
-			if ( $user_order ) {
-				return $user_order;
 			}
 		}
 		
