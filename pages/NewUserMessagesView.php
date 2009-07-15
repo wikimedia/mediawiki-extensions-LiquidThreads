@@ -111,6 +111,11 @@ class NewUserMessagesView extends LqtView {
 		if ( ! is_array( $this->threads ) ) {
 			throw new MWException( 'You must use NewUserMessagesView::setThreads() before calling NewUserMessagesView::show().' );
 		}
+		
+		if ( $this->request->getBool( 'lqt_inline' ) ) {
+			$this->doInlineEditForm();
+			return false;
+		}
 
 		// Do everything by id, because we can't depend on reference identity; a simple Thread::withId
 		// can change the cached value and screw up your references.
