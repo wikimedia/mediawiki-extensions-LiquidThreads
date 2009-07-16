@@ -18,10 +18,12 @@ class Threads {
 	const CHANGE_MOVED_TALKPAGE = 6;
 	const CHANGE_SPLIT = 7;
 	const CHANGE_EDITED_SUBJECT = 8;
+	const CHANGE_PARENT_DELETED = 9;
 	
 	static $VALID_CHANGE_TYPES = array( self::CHANGE_EDITED_SUMMARY, self::CHANGE_EDITED_ROOT,
 		self::CHANGE_REPLY_CREATED, self::CHANGE_NEW_THREAD, self::CHANGE_DELETED, self::CHANGE_UNDELETED,
-		self::CHANGE_MOVED_TALKPAGE, self::CHANGE_SPLIT, self::CHANGE_EDITED_SUBJECT );
+		self::CHANGE_MOVED_TALKPAGE, self::CHANGE_SPLIT, self::CHANGE_EDITED_SUBJECT,
+		self::CHANGE_PARENT_DELETED);
 
 	// Possible values of Thread->editedness.
 	const EDITED_NEVER = 0;
@@ -154,7 +156,9 @@ class Threads {
 		$threads = Threads::loadFromResult( $res, $dbr );
 
 		foreach ( $threads as $thread ) {
-			self::$cache_by_root[$thread->root()->getID()] = $thread;
+			if ($thread->root()) {
+				self::$cache_by_root[$thread->root()->getID()] = $thread;
+			}
 			self::$cache_by_id[$thread->id()] = $thread;
 		}
 

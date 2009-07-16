@@ -83,8 +83,9 @@ class Thread {
 		return $results;
 	}
 
-	private function bumpRevisionsOnAncestors( $change_type, $change_object, $change_reason, $timestamp ) {
-		global $wgUser; // TODO global.
+	private function bumpRevisionsOnAncestors( $change_type, $change_object, $change_reason,
+												$timestamp ) {
+		global $wgUser;
 
 		$this->revisionNumber += 1;
 		$this->setChangeType( $change_type );
@@ -93,8 +94,12 @@ class Thread {
 		$this->changeUser = $wgUser->getID();
 		$this->changeUserText = $wgUser->getName();
 
-		if ( $this->hasSuperthread() )
-			$this->superthread()->bumpRevisionsOnAncestors( $change_type, $change_object, $change_reason, $timestamp );
+		if ( $this->hasSuperthread() ) {
+			$st = $this->superthread();
+			$st->bumpRevisionsOnAncestors( $change_type, $change_object,
+											$change_reason, $timestamp );
+		}
+		
 		$dbr =& wfGetDB( DB_MASTER );
 		$res = $dbr->update( 'thread',
 		     /* SET */ array( 'thread_revision' => $this->revisionNumber,
@@ -130,6 +135,11 @@ class Thread {
 		}
 		
 		return $this->double;
+	}
+	
+	function setRoot( $article ) {
+		$this->rootId = $article->getId();
+		$this->root = $article;
 	}
 
 	function commitRevision( $change_type, $change_object = null, $reason = "" ) {
@@ -175,7 +185,10 @@ class Thread {
 		     __METHOD__ );
 		     
 		// Touch the root
-		$this->root()->getTitle()->invalidateCache();
+		if ($this->root()) {
+			$this->root()->getTitle()->invalidateCache();
+		}
+		
 		// Touch the talk page, too.
 		$this->article()->getTitle()->invalidateCache();
 
@@ -326,10 +339,12 @@ class Thread {
 			} else {
 				$root_title = Title::newFromID( $this->rootId );
 			}
-			$this->root = new Article( $root_title );
+			
+			if ($root_title) {
+				$this->root = new Article( $root_title );
+				$this->rootRevision = $this->root->mLatest;
+			}
 		}
-
-		$this->rootRevision = $this->root->mLatest;
 		
 		$this->doLazyUpdates( $line );
 	}
@@ -624,7 +639,7 @@ class Thread {
 	}
 
 	function hasSuperthread() {
-		return $this->parentId != null;
+		return !$this->isTopmostThread();
 	}
 
 	function topmostThread() {
@@ -712,8 +727,12 @@ class Thread {
 	// The 'root' is the page in the Thread namespace corresponding to this thread.
 	function root() {
 		if ( !$this->rootId ) return null;
-		if ( !$this->root ) $this->root = new Article( Title::newFromID( $this->rootId ),
-		                                            $this->rootRevision() );
+		if ( !$this->root ) {
+			$title = Title::newFromID( $this->rootId );
+			if (!$title) return null;
+			
+			$this->root = new Article( $title, $this->rootRevision() );
+		}
 		return $this->root;
 	}
 

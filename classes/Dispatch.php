@@ -66,26 +66,24 @@ class LqtDispatch {
 
 		if ( $lqt_method == 'thread_history' ) {
 			$viewname = self::$views['ThreadHistoryListingView'];
-		}
-		else if ( $lqt_method == 'diff' ) { // this clause and the next must be in this order.
+		} else if ( $lqt_method == 'diff' ) { // this clause and the next must be in this order.
 			$viewname = self::$views['ThreadDiffView'];
-		}
-		else if ( $action == 'history'
+		} else if ( $action == 'history'
 			|| $request->getVal( 'diff', null ) !== null
 			|| $request->getVal( 'oldid', null ) !== null ) {
 			$viewname = self::$views['IndividualThreadHistoryView'];
-		}
-		else if ( $action == 'protect' || $action == 'unprotect' ) {
+		} else if ( $action == 'protect' || $action == 'unprotect' ) {
 			$viewname = self::$views['ThreadProtectionFormView'];
-		}
-		else if ( $request->getVal( 'lqt_oldid', null ) !== null ) {
+		} else if ( $request->getVal( 'lqt_oldid', null ) !== null ) {
 			$viewname = self::$views['ThreadHistoricalRevisionView'];
-		}
-		else if ( $action == 'watch' || $action == 'unwatch' ) {
+		} else if ( $action == 'watch' || $action == 'unwatch' ) {
 			$viewname = self::$views['ThreadWatchView'];
+		} elseif ( $action == 'delete' ) {
+			return true;
 		} else {
 			$viewname = self::$views['ThreadPermalinkView'];
 		}
+		
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		return $view->show();
 	}

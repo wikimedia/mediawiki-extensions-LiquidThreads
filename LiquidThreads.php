@@ -60,24 +60,29 @@ $wgHooks['GetPreferences'][] = 'lqtGetPreferences';
 $wgHooks['ArticleEditUpdateNewTalk'][] = 'lqtUpdateNewtalkOnEdit';
 $wgHooks['LanguageGetMagic'][] = 'LiquidThreadsMagicWords::getMagicWords';
 
+// Deletion
+$wgHooks['ArticleDeleteComplete'][] = 'LqtDeletionController::onArticleDeleteComplete';
+$wgHooks['ArticleRevisionUndeleted'][] = 'LqtDeletionController::onArticleRevisionUndeleted';
+$wgHooks['ArticleUndelete'][] = 'LqtDeletionController::onArticleUndelete';
+$wgHooks['ArticleDelete'][] = 'LqtDeletionController::onArticleDelete';
+
 // Special pages
 #$wgSpecialPages['UndeleteThread'] = 'SpecialUndeleteThread';
-$wgSpecialPages['DeleteThread'] = 'SpecialDeleteThread';
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
 $wgSpecialPages['SplitThread'] = 'SpecialSplitThread';
 $wgSpecialPageGroups['NewMessages'] = 'wiki';
 
 // Classes
-$wgAutoloadClasses['LqtDispatch'] = $dir . 'classes/LqtDispatch.php';
-$wgAutoloadClasses['LqtView'] = $dir . 'classes/LqtView.php';
-$wgAutoloadClasses['ThreadHistoryIterator'] = $dir . 'classes/LqtThreadHistoryIterator.php';
-$wgAutoloadClasses['HistoricalThread'] = $dir . 'classes/LqtHistoricalThread.php';
-$wgAutoloadClasses['Thread'] = $dir . 'classes/LqtThread.php';
-$wgAutoloadClasses['Threads'] = $dir . 'classes/LqtThreads.php';
-$wgAutoloadClasses['NewMessages'] = $dir . 'classes/LqtNewMessages.php';
+$wgAutoloadClasses['LqtDispatch'] = $dir . 'classes/Dispatch.php';
+$wgAutoloadClasses['LqtView'] = $dir . 'classes/View.php';
+$wgAutoloadClasses['HistoricalThread'] = $dir . 'classes/HistoricalThread.php';
+$wgAutoloadClasses['Thread'] = $dir . 'classes/Thread.php';
+$wgAutoloadClasses['Threads'] = $dir . 'classes/Threads.php';
+$wgAutoloadClasses['NewMessages'] = $dir . 'classes/NewMessagesController.php';
 $wgAutoloadClasses['LiquidThreadsMagicWords'] = $dir . 'i18n/LiquidThreads.magic.php';
-$wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/LqtParserFunctions.php';
+$wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/ParserFunctions.php';
+$wgAutoloadClasses['LqtDeletionController'] = "$dir/classes/DeletionController.php";
 
 // Page classes
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
@@ -95,9 +100,7 @@ $wgAutoloadClasses['NewUserMessagesView'] = $dir . 'pages/NewUserMessagesView.ph
 
 $wgAutoloadClasses['ThreadActionPage'] = "$dir/pages/ThreadActionPage.php";
 
-#$wgAutoloadClasses['SpecialUndeleteThread'] = $dir . "pages/SpecialUndeleteThread.php";
 $wgAutoloadClasses['SpecialMoveThread'] = $dir . 'pages/SpecialMoveThread.php';
-$wgAutoloadClasses['SpecialDeleteThread'] = $dir . 'pages/SpecialDeleteThread.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir . 'pages/SpecialNewMessages.php';
 $wgAutoloadClasses['SpecialSplitThread'] = "$dir/pages/SpecialSplitThread.php";
 

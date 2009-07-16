@@ -537,9 +537,7 @@ class LqtView {
 							 'enabled' => true );
 
 		if ( $this->user->isAllowed( 'delete' ) ) {
-			$threadText = $thread->title()->getPrefixedText();
-			$deleteTitle = SpecialPage::getTitleFor( 'DeleteThread', $threadText );
-			$delete_url = $deleteTitle->getFullURL();
+			$delete_url = $thread->title()->getFullURL( 'action=delete');
 			$deleteMsg = $thread->type() == Threads::TYPE_DELETED ? 'lqt_undelete' : 'delete';
 				
 			$commands['delete'] = array( 'label' => wfMsgExt( $deleteMsg, 'parseinline' ),
@@ -982,14 +980,14 @@ class LqtView {
 	function showThread( $thread ) {
 		global $wgLang;
 		
-		$this->threadNestingLevel++;
-		
 		// Safeguard
 		if ( $thread->type() == Threads::TYPE_DELETED
 			&& ! ($this->request->getBool( 'lqt_show_deleted_threads' )
 				&& $this->user->isAllowed( 'deletedhistory' ) ) ) {
 			return;
 		}
+		
+		$this->threadNestingLevel++;
 		
 		$sk = $this->user->getSkin();
 		
@@ -1009,7 +1007,9 @@ class LqtView {
 
 		if ( $thread->hasSubthreads() ) {
 			foreach ( $thread->subthreads() as $st ) {
-				$this->showThread( $st );
+				if ($st->type() != Threads::TYPE_DELETED) {
+					$this->showThread( $st );
+				}
 			}
 		}
 
