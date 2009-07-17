@@ -7,7 +7,7 @@ class LqtDeletionController {
 		$title = $article->getTitle();
 		
 		if ($title->getNamespace() != NS_LQT_THREAD) {
-			return;
+			return true;
 		}
 		
 		$threads = Threads::where( array( 'thread_root' => $id ) );
@@ -34,7 +34,7 @@ class LqtDeletionController {
 	static function onArticleDelete( &$article, &$user, &$reason, &$error ) {
 		$thread = Threads::withRoot( $article );
 		
-		if ($thread->isTopmostThread() && count($thread->replies())) {
+		if ( is_object( $thread ) && $thread->isTopmostThread() && count($thread->replies())) {
 			$error = wfMsgExt( 'lqt-delete-has-subthreads', 'parse' );
 			return false;
 		}
