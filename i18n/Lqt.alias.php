@@ -20,9 +20,10 @@ $aliases['en'] = array(
  * @author Meno25
  */
 $aliases['ar'] = array(
-	'DeleteThread' => array( 'حذف_مجموعة_الرسائل' ),
-	'MoveThread' => array( 'نقل_مجموعة_الرسائل' ),
+	'DeleteThread' => array( 'حذف_الخيط' ),
+	'MoveThread' => array( 'نقل_الخيط' ),
 	'NewMessages' => array( 'رسائل_جديدة' ),
+	'SplitThread' => array( 'فصل_الخيط' ),
 );
 
 /** Egyptian Spoken Arabic (مصرى)

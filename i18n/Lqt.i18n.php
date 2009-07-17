@@ -231,7 +231,7 @@ $messages['qqq'] = array(
 * $2 is a date
 * $3 is a time',
 	'lqt_youhavenewmessages' => '{{Identical|New messages}}
-* $1 is a user to the new message or messages. The number of new messages is unknown.',
+* $1 is a link to the new message or messages. The number of new messages is unknown.',
 	'lqt_protectedfromreply' => '$1 is replaced with {{msg-mw|Lqt protectedfromreply link}}',
 	'lqt_protectedfromreply_link' => '{{Identical|Protected}}',
 	'lqt_subject' => '{{Identical|Subject}}',
@@ -474,6 +474,14 @@ $messages['ar'] = array(
 	'lqt_rc_new_reply' => 'رد على $1، في $2. &bull; $3 يكتب:',
 	'lqt_rc_author_original' => '(المؤلف الأصلي)',
 	'lqt_rc_author_others' => '(ليس المؤلف)',
+);
+
+/** Aramaic (ܐܪܡܝܐ)
+ * @author Basharh
+ */
+$messages['arc'] = array(
+	'lqt_archive_month_annotation' => 'ܡܢ $1',
+	'lqt_archive_month_range_annotation' => 'ܒܝܬ $1 ܘ $2',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -764,6 +772,7 @@ $messages['be-tarask'] = array(
 	'lqt-thread-split-subject' => 'Тэма новай галіны',
 	'lqt-split-submit' => 'Падзяліць',
 	'lqt_split_badsubject' => 'Уведзеная Вамі назва — няслушная.',
+	'lqt-no-threads' => 'На гэтай старонцы пакуль няма галінаў.',
 	'lqt-log-name' => 'Журнал галінаў абмеркаваньняў',
 	'lqt-log-header' => 'Гэты журнал утрымлівае дэталі дзеяньняў, якія адбываюцца ў галінах абмеркаваньняў.',
 	'lqt-log-action-move' => 'перанесеная [[$1]] з [[$2]] у [[$3]].',
@@ -781,6 +790,7 @@ $messages['be-tarask'] = array(
 
 Вы можаце паглядзець яго на <$6>",
 	'lqt-quote-intro' => '$2 $3 [[User:$1]] {{GENDER:$1|напісаў|напісала}}:',
+	'lqt-quote' => 'Працытаваць гэта',
 );
 
 /** Bulgarian (Български)
@@ -1827,6 +1837,7 @@ Vous pouvez utiliser n’importe quel texte wiki dans votre résumé. Lorsque vo
 	'lqt-thread-split-subject' => 'Sujet du nouveau fil',
 	'lqt-split-submit' => 'Scinder',
 	'lqt_split_badsubject' => 'Le sujet que vous avez entré est invalide.',
+	'lqt-no-threads' => 'Il n’y a pas encore de fil de discussion sur cette page.',
 	'lqt-log-name' => 'Journal des fils de discussion',
 	'lqt-log-header' => 'Ce journal détaille les actions faites sur les fils de discussion.',
 	'lqt-log-action-move' => 'a déplacé [[$1]] de [[$2]] vers [[$3]].',
@@ -2008,6 +2019,7 @@ Pode empregar calquera texto wiki no seu resumo. Ao rematar, prema en "{{int:sav
 	'lqt-thread-split-subject' => 'Asunto do novo fío',
 	'lqt-split-submit' => 'Separar',
 	'lqt_split_badsubject' => 'O asunto que inseriu non é válido.',
+	'lqt-no-threads' => 'Aínda non hai fíos nesta páxina.',
 	'lqt-log-name' => 'Rexistro de fíos de conversa',
 	'lqt-log-header' => 'Este rexistro detalla as accións feitas nos fíos de conversa.',
 	'lqt-log-action-move' => 'moveu "[[$1]]" de "[[$2]]" a "[[$3]]".',
@@ -2209,6 +2221,7 @@ du chasch irged e Wikitekscht fir Dyy Zämmefassig bruche. Wänn Du fertig bisch
 	'lqt-thread-split-subject' => 'Nej Diskussionsstrang-Thema',
 	'lqt-split-submit' => 'Ufteile',
 	'lqt_split_badsubject' => 'S Thema, wu du aagee hesch, isch nit giltig.',
+	'lqt-no-threads' => 'S git no kei Diskussionssträng uf däre Syte.',
 	'lqt-log-name' => 'Logbuech vu dr Diskussionssträng',
 	'lqt-log-header' => 'Des Logbuech lischtet Aktione uf, wu an Diskussionsträng vorgnuu wore sin.',
 	'lqt-log-action-move' => 'het [[$1]] vu [[$2]] no [[$3]] verschobe.',
@@ -2681,6 +2694,7 @@ Móžeš někajki wikitekst w swojim zjeću wužiwać. Hdyž skónčiš, klikń 
 	'lqt-thread-split-subject' => 'Tema noweje nitki',
 	'lqt-split-submit' => 'Šćěpić',
 	'lqt_split_badsubject' => 'Tema, kotruž sy zapodał, je njepłaćiwa.',
+	'lqt-no-threads' => 'Na tutej stronje hišće nitki njejsu.',
 	'lqt-log-name' => 'Protokol nitkoweje diskusije',
 	'lqt-log-header' => 'Tutón protokol nalistuje akcije, kotrež su so na diskusijnych nitkach přewjedli.',
 	'lqt-log-action-move' => 'přesuny [[$1]] wot [[$2]] do [[$3]].',
@@ -2937,6 +2951,7 @@ Tu pote usar omne wikitexto in tu summario. Quando tu fini, clicca super "{{int:
 	'lqt-thread-split-subject' => 'Subjecto del nove filo',
 	'lqt-split-submit' => 'Scinder',
 	'lqt_split_badsubject' => 'Le subjecto que tu ha entrate es invalide.',
+	'lqt-no-threads' => 'Il non ha ancora filos in iste pagina.',
 	'lqt-log-name' => 'Registro de filos de discussion',
 	'lqt-log-header' => 'Iste registro detalia le actiones prendite in le filos de discussion.',
 	'lqt-log-action-move' => 'moveva [[$1]] ab [[$2]] verso [[$3]].',
@@ -3476,6 +3491,7 @@ Künnt sin, De wells en $2 han.',
 	'lqt-thread-split-subject' => 'Neu Övverschreff för dä Jeschpräschßfäddem',
 	'lqt-split-submit' => 'Opdeijle',
 	'lqt_split_badsubject' => 'Di Övverschreff es Kappes, di De doh enjejovve häs.',
+	'lqt-no-threads' => 'Mer han noch kei Jeschprääschßfäddeme op heh dä Sigg.',
 	'lqt-log-name' => 'Logboch övver Jeschprääschßfäddeme',
 	'lqt-log-header' => 'En däm Logbooch heh sin de Einzelheite faßjehallde övver wat met de Jeschprähschßfäddeme jedonn woodt.',
 	'lqt-log-action-move' => '[[$1]] vun [[$2]] noh [[$3]] ömjetroke.',
@@ -4009,6 +4025,7 @@ Klik op "{{int:savearticle}}" als u klaar bent.',
 	'lqt-thread-split-subject' => 'Onderwerp voor nieuwe thread',
 	'lqt-split-submit' => 'Splitsen',
 	'lqt_split_badsubject' => 'Het onderwerp dat u hebt opgegeven is ongeldig.',
+	'lqt-no-threads' => 'Er staan nog geen threads op deze pagina.',
 	'lqt-log-name' => 'Overlegthreadlogboek',
 	'lqt-log-header' => 'Dit logboek bevat details over handelingen ten aanzien van overlegthreads.',
 	'lqt-log-action-move' => 'heeft [[$1]] verplaatst van [[$2]] naar [[$3]].',
@@ -4467,6 +4484,7 @@ Podètz utilizar un tèxte wiki quin que siá dins vòstre resumit. Quand avètz
 	'lqt-thread-split-subject' => 'Subjècte del fial novèl',
 	'lqt-split-submit' => 'Separar',
 	'lqt_split_badsubject' => "Lo subjècte qu'avètz picat es invalid.",
+	'lqt-no-threads' => 'I a pas encara de fial de discussion sus aquesta pagina.',
 	'lqt-log-name' => 'Jornal dels fials de discussion',
 	'lqt-log-header' => 'Aqueste jornal detalha las accions fachas suls fials de discussion.',
 	'lqt-log-action-move' => 'a desplaçat [[$1]] de [[$2]] cap a [[$3]].',
@@ -4990,7 +5008,7 @@ $messages['ru'] = array(
 	'lqt_hist_comment_edited' => 'Текст комментария отредактирован',
 	'lqt_hist_summary_changed' => 'Итог изменён',
 	'lqt_hist_reply_created' => 'Создан ответ',
-	'lqt_hist_thread_created' => 'Новая ветка создана',
+	'lqt_hist_thread_created' => 'Создана новая ветвь',
 	'lqt_hist_deleted' => 'Удалена',
 	'lqt_hist_undeleted' => 'Восстановлена',
 	'lqt_hist_moved_talkpage' => 'Перемещена',
@@ -5100,6 +5118,7 @@ $messages['ru'] = array(
 	'lqt-thread-split-subject' => 'Заголовок новой ветки',
 	'lqt-split-submit' => 'Разделить',
 	'lqt_split_badsubject' => 'Указанный вами заголовок не может быть использован.',
+	'lqt-no-threads' => 'На этой странице ещё нет веток.',
 	'lqt-log-name' => 'Журнал веток обсуждений',
 	'lqt-log-header' => 'В этот журнал записываются действия, предпринятые в ветках обсуждений.',
 	'lqt-log-action-move' => 'перемещено [[$1]] из [[$2]] в [[$3]].',
@@ -5278,6 +5297,7 @@ V zhrnutí môžete použiť wikitext. Keď skončíte, kliknite na „{{int:sav
 	'lqt-thread-split-subject' => 'Predmet nového vlákna',
 	'lqt-split-submit' => 'Oddeliť',
 	'lqt_split_badsubject' => 'Predmet, ktorý ste zadali nie je platný.',
+	'lqt-no-threads' => 'Na tejto stránke zatiaľ nie sú žiadne vlákna.',
 	'lqt-log-name' => 'Záznam diskusie vo vláknach',
 	'lqt-log-header' => 'Tento záznam obsahuje podrobnosti o operáciách s diskusnými vláknami.',
 	'lqt-log-action-move' => 'presunul [[$1]] z [[$2]] na [[$3]].',
@@ -5576,6 +5596,8 @@ $messages['te'] = array(
 	'lqt-no-new-messages' => 'మీకు కొత్త సందేశాలేమీ లేవు.',
 	'lqt-new-messages' => '&#x2712; మీకు కొత్త సందేశాలు ఉన్నాయి.',
 	'lqt_rc_author_original' => '(అసలు రచయిత)',
+	'lqt-history-time' => 'సమయం',
+	'lqt-history-user' => 'వాడుకరి',
 );
 
 /** Tetum (Tetun)
@@ -5971,7 +5993,7 @@ Có thể lùi lại tác động này.',
 $messages['vo'] = array(
 	'lqt_newmessages' => 'Nuns Nulik',
 	'lqt_contents_title' => 'Ninäd',
-	'lqt_youhavenewmessages' => 'Labol $1.',
+	'lqt_youhavenewmessages' => 'Labol [$1 nunis nulik].',
 	'lqt_header_warning_big' => 'Redakol $1.',
 	'lqt-title' => 'Tiäd',
 );
