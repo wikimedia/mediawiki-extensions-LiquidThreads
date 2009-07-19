@@ -143,6 +143,7 @@ $aliases['ja'] = array(
 	'DeleteThread' => array( 'スレッド削除' ),
 	'MoveThread' => array( 'スレッド移動' ),
 	'NewMessages' => array( '新規投稿', '新しい伝言' ),
+	'SplitThread' => array( 'スレッド分割' ),
 );
 
 /** Georgian (ქართული) */
@@ -160,6 +161,7 @@ $aliases['lb'] = array(
 	'DeleteThread' => array( 'Rubrik läschen' ),
 	'MoveThread' => array( 'Rubrik réckelen' ),
 	'NewMessages' => array( 'Nei Messagen' ),
+	'SplitThread' => array( 'Rubrik opdeelen' ),
 );
 
 /** Macedonian (Македонски) */
@@ -186,6 +188,7 @@ $aliases['nl'] = array(
 	'DeleteThread' => array( 'OnderwerpVerwijderen' ),
 	'MoveThread' => array( 'OnderwerpVerplaatsen' ),
 	'NewMessages' => array( 'NieuweBerichten' ),
+	'SplitThread' => array( 'OnderwerpSplitsen' ),
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
