@@ -1342,6 +1342,13 @@ Toś ta operacija njedajo se anulěrowaś.',
 	'lqt_summarize_link' => 'Zespominaś',
 	'lqt-summarize-intro' => 'Pšosym zespominaj slědujucu nitku we wobźěłowańskem kašćiku.
 Móžoš wikitekst w swójom zespominanju wužywaś. Gaž kóńcyš, klikni na "{{int:savearticle}}".',
+	'lqt-thread-split' => 'Do noweje nitki rozšćěpiś',
+	'lqt-split-success' => 'Sy nitku $1 wuspěšnje wótšćěpił.',
+	'lqt_split_thread' => 'Nitku rozšćěpiś',
+	'lqt-thread-split-subject' => 'Tema noweje nitki',
+	'lqt-split-submit' => 'Rozšćěpiś',
+	'lqt_split_badsubject' => 'Tema, kótaruž sy zapódał, jo njepłaśiwa.',
+	'lqt-no-threads' => 'Hyšći na toś tom boku žedne nitki njejsu.',
 	'lqt-log-name' => 'Protokol nitkoweje diskusije',
 	'lqt-log-header' => 'Toś ten protokol nalicujo akcije, kótarež su se na diskusijnych nitkach pśewjadli.',
 	'lqt-log-action-move' => 'jo [[$1]] wót [[$2]] do [[$3]] pśesunuł.',
@@ -1357,6 +1364,7 @@ to jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo se nowe wótegro
 
 Móžoš jo na <$6> wiźeś",
 	'lqt-quote-intro' => '$2 $3 jo [[User:$1|$1]] {{GENDER:$1|napisał|napisała|napisał}}:',
+	'lqt-quote' => 'Citěrowaś',
 );
 
 /** Ewe (Eʋegbe)

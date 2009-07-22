@@ -156,6 +156,14 @@ $aliases['km'] = array(
 	'NewMessages' => array( 'សារថ្មីៗ' ),
 );
 
+/** Ripoarisch (Ripoarisch) */
+$aliases['ksh'] = array(
+	'DeleteThread' => array( 'JeschprääschßfäddemFottschmiiße' ),
+	'MoveThread' => array( 'JeschprääschßfäddemÖmträke' ),
+	'NewMessages' => array( 'NeuJeschprääschßfäddeme' ),
+	'SplitThread' => array( 'JeschprääschßfäddemOpdeile' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $aliases['lb'] = array(
 	'DeleteThread' => array( 'Rubrik läschen' ),
@@ -225,6 +233,14 @@ $aliases['sa'] = array(
 	'DeleteThread' => array( 'सूत्रपरित्यजति' ),
 	'MoveThread' => array( 'सूत्रस्थानान्तर' ),
 	'NewMessages' => array( 'नूतनसन्देश' ),
+);
+
+/** Slovak (Slovenčina) */
+$aliases['sk'] = array(
+	'DeleteThread' => array( 'ZmazaťVlákno' ),
+	'MoveThread' => array( 'PresunúťVlákno' ),
+	'NewMessages' => array( 'NovéSprávy' ),
+	'SplitThread' => array( 'RozdeliťVlákno' ),
 );
 
 /** Swedish (Svenska) */
