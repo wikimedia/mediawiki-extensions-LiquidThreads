@@ -5402,6 +5402,7 @@ $messages['su'] = array(
 
 /** Swedish (Svenska)
  * @author Boivie
+ * @author Fluff
  * @author Jon Harald Søby
  * @author M.M.S.
  * @author Najami
@@ -5523,6 +5524,7 @@ Denna handling kan inte göras om.',
 	'lqt_rc_new_reply' => 'Svar till $1, på $2. &bull; $3 skriver:',
 	'lqt_rc_author_original' => '(ursprunglig författare)',
 	'lqt_rc_author_others' => '(inte författaren)',
+	'lqt-header-actions' => 'Åtgärder',
 );
 
 /** Silesian (Ślůnski)
