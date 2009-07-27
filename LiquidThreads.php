@@ -59,6 +59,8 @@ $wgHooks['TitleGetRestrictions'][] = 'Thread::getRestrictionsForTitle';
 $wgHooks['GetPreferences'][] = 'lqtGetPreferences';
 $wgHooks['ArticleEditUpdateNewTalk'][] = 'lqtUpdateNewtalkOnEdit';
 $wgHooks['LanguageGetMagic'][] = 'LiquidThreadsMagicWords::getMagicWords';
+$wgHooks['XmlDumpWriterOpenPage'][] = 'lqtDumpThreadData';
+$wgHooks['ModifyExportQuery'][] = 'lqtModifyExportQuery';
 
 // Deletion
 $wgHooks['ArticleDeleteComplete'][] = 'LqtDeletionController::onArticleDeleteComplete';

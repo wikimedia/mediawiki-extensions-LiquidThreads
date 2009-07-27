@@ -138,3 +138,28 @@ function lqtSetupParserFunctions() {
 	return true;
 }
 
+function lqtDumpThreadData( $writer, &$out, $row, $title ) {
+	// Is it a thread
+	if ( $row->thread_id ) {
+		$thread = new Thread( $row );
+		$threadInfo = "\n";
+		$threadInfo .= Xml::element( 'ThreadSubject', null, $thread->subject() ) . "\n";
+		if ($thread->hasSuperThread()) {
+			$threadInfo .= Xml::element( 'ThreadParent', null, $thread->superThread()->id() ) . "\n";
+		}
+		$threadInfo .= Xml::element( 'ThreadAncestor', null, $thread->topmostThread()->id() ) . "\n";
+		$threadInfo .= Xml::element( 'ThreadPage', null, $thread->article()->getId() ) . "\n";
+		
+		$out .= Xml::tags( 'DiscussionThreading', null, $threadInfo ) . "\n";
+	}
+	
+	return true;
+}
+
+function lqtModifyExportQuery( $db, &$tables, &$cond, &$opts, &$join ) {
+	$tables[] = 'thread';
+	
+	$join['thread'] = array( 'left join', array( 'thread_root=page_id' ) );
+	
+	return true;
+}

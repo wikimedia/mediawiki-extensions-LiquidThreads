@@ -297,7 +297,7 @@ class Thread {
 
 
 
-	function __construct( $line, $children ) {
+	function __construct( $line, $unused = null ) {
 		/* SCHEMA changes must be reflected here. */
 		
 		$dataLoads = array(
