@@ -186,23 +186,17 @@ var liquidThreads = {
 	
 	'showQuoteButtons' : function() {
 		var elems = getElementsByClassName( document, 'div', 'lqt-thread-header-rhs' );
-		var url = wgScriptPath+'/extensions/LiquidThreads/icons/lqt-icon-quote.png';
 		
 		var length = elems.length;
 		for( var i = 0; i<length; ++i ) {
 			var quoteButton = document.createElement( 'span' );
 			quoteButton.className = 'lqt-header-quote';
 			
-			var img = document.createElement( 'img' );
-			img.src = url;
-			img.className = 'lqt-command-icon';
-			
 			var text = wgLqtMessages['lqt-quote'];
 			var textNode = document.createTextNode( text );
 			
 			var link = document.createElement( 'a' );
 			link.href='#';
-			link.appendChild( img );
 			link.appendChild( textNode );
 			quoteButton.appendChild( link );
 			
