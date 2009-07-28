@@ -580,15 +580,3 @@ li.lqt-command-reply {
 	margin: 0;
 	display: inline-block;
 }
-
-.lqt-thread-even {
-	background-color: #e9e9e9;
-}
-
-.lqt-thread-odd {
-	background-color: #ffffff;
-}
-
-.lqt-thread-even > .lqt-thread-header {
-	background-color: #ffffff;
-}
