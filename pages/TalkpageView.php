@@ -223,7 +223,7 @@ class TalkpageView extends LqtView {
 		// Search!
 		if ( $this->request->getCheck( 'lqt_search' ) ) {
 			$q = $this->request->getText( 'lqt_search' );
-			$q .= ' ondiscussionpage:'.$article->getID();
+			$q .= ' ondiscussionpage:'.$article->getTitle()->getPrefixedText();
 			
 			$params = array( 'search' => $q,
 							 'fulltext' => 1,
