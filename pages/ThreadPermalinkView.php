@@ -153,6 +153,7 @@ class ThreadPermalinkView extends LqtView {
 		}
 
 		self::addJSandCSS();
+		$this->output->setTitle( $this->thread->subject() );
 		$this->output->setSubtitle( $this->getSubtitle() );
 
 		if ( $this->methodApplies( 'summarize' ) )
