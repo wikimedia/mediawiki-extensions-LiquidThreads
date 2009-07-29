@@ -153,7 +153,6 @@ class ThreadPermalinkView extends LqtView {
 		}
 
 		self::addJSandCSS();
-		$this->output->setTitle( $this->thread->subject() );
 		$this->output->setSubtitle( $this->getSubtitle() );
 
 		if ( $this->methodApplies( 'summarize' ) )
@@ -162,6 +161,9 @@ class ThreadPermalinkView extends LqtView {
 			$this->showSplitForm( $this->thread );
 
 		$this->showThread( $this->thread );
+		
+		// Turns out showThread changes the page title, ouch!
+		$this->output->setPageTitle( $this->thread->subject() );
 		return false;
 	}
 }
