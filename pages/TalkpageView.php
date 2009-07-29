@@ -219,6 +219,23 @@ class TalkpageView extends LqtView {
 			$this->doInlineEditForm();
 			return false;
 		}
+		
+		// Search!
+		if ( $this->request->getCheck( 'lqt_search' ) ) {
+			$q = $this->request->getText( 'lqt_search' );
+			$q .= ' ondiscussionpage:'.$article->getID();
+			
+			$params = array( 'search' => $q,
+							 'fulltext' => 1,
+							 'ns'.NS_LQT_THREAD => 1,
+							);
+			
+			$t = SpecialPage::getTitleFor( 'Search' );
+			$url = $t->getLocalURL( wfArrayToCGI( $params ) );
+			
+			$this->output->redirect( $url );
+			
+		}
 
 		$this->showHeader();
 		
@@ -237,6 +254,8 @@ class TalkpageView extends LqtView {
 												
 			$this->output->addHTML( Xml::tags( 'strong', null, $newThreadLink ) );
 		}
+		
+		$this->showSearchBox();
 		
 		$pager = $this->getPager();
 		
@@ -260,6 +279,24 @@ class TalkpageView extends LqtView {
 		$this->output->addHTML( $pager->getNavigationBar() );
 		
 		return false;
+	}
+	
+	function showSearchBox() {
+		$html = '';
+		$html .= Xml::inputLabel( wfMsg('lqt-search-label'), 'lqt_search', 'lqt-search-box',
+									60 );
+		
+		$html .= ' ' . Xml::submitButton( wfMsg( 'lqt-search-button' ) );
+		$html .= Xml::hidden( 'title', $this->title->getPrefixedText() );
+		$html = Xml::tags( 'form',
+							array( 'action' => $this->title->getLocalURL(),
+									'method' => 'get' ),
+							$html );
+		
+		$html = Xml::fieldset( wfMsg('lqt-search-legend' ), $html,
+								array( 'class' => 'lqt-talkpage-search' ) );
+		
+		$this->output->addHTML( $html );
 	}
 	
 	function getPager() {

@@ -578,3 +578,14 @@ li.lqt-command-reply {
 	margin: 0;
 	display: inline-block;
 }
+
+fieldset.lqt-talkpage-search {
+	width: auto;
+	text-align: center;
+	margin: 0.5em 15%;
+	padding: 1em;
+}
+
+fieldset.lqt-talkpage-search legend {
+	text-align: center;
+}
