@@ -139,16 +139,35 @@ function lqtSetupParserFunctions() {
 }
 
 function lqtDumpThreadData( $writer, &$out, $row, $title ) {
+	$editedStati = array( Threads::EDITED_NEVER => 'never',
+							Threads::EDITED_HAS_REPLY => 'has-reply',
+							Threads::EDITED_BY_AUTHOR => 'by-author',
+							Threads::EDITED_BY_OTHERS => 'by-others' );
+	$threadTypes = array( Threads::TYPE_NORMAL => 'normal',
+							Threads::TYPE_MOVED => 'moved',
+							Threads::TYPE_DELETED => 'deleted' );
 	// Is it a thread
 	if ( $row->thread_id ) {
 		$thread = new Thread( $row );
 		$threadInfo = "\n";
-		$threadInfo .= Xml::element( 'ThreadSubject', null, $thread->subject() ) . "\n";
+		$attribs = array();
+		$attribs['ThreadSubject'] = $thread->subject();
 		if ($thread->hasSuperThread()) {
-			$threadInfo .= Xml::element( 'ThreadParent', null, $thread->superThread()->id() ) . "\n";
+			$attribs['ThreadParent'] = $thread->superThread()->id();
 		}
-		$threadInfo .= Xml::element( 'ThreadAncestor', null, $thread->topmostThread()->id() ) . "\n";
-		$threadInfo .= Xml::element( 'ThreadPage', null, $thread->article()->getId() ) . "\n";
+		$attribs['ThreadAncestor'] = $thread->topmostThread()->id();
+		$attribs['ThreadPage'] = $thread->article()->getId();
+		$attribs['ThreadID'] = $thread->id();
+		if ( $thread->hasSummary() ) {
+			$attribs['ThreadSummaryPage'] = $thread->summary()->getId();
+		}
+		$attribs['ThreadAuthor'] = $thread->author()->getName();
+		$attribs['ThreadEditStatus'] = $editedStati[$thread->editedness()];
+		$attribs['ThreadType'] = $threadTypes[$thread->type()];
+		
+		foreach( $attribs as $key => $value ) {
+			$threadInfo .= "\t".Xml::element( $key, null, $value ) . "\n";
+		}
 		
 		$out .= Xml::tags( 'DiscussionThreading', null, $threadInfo ) . "\n";
 	}
