@@ -192,6 +192,11 @@ You can see it at <$6>",
 	// Quoting functionality
 	'lqt-quote-intro' => 'On $2 at $3, [[User:$1]] wrote:',
 	'lqt-quote' => 'Quote this',
+	
+	// Search
+	'lqt-search-legend' => 'Search discussions on this page',
+	'lqt-search-label' => 'Search terms:',
+	'lqt-search-button' => 'Search',
 );
 
 /** Message documentation (Message documentation)
