@@ -158,7 +158,7 @@ function lqtDumpThreadData( $writer, &$out, $row, $title ) {
 		$attribs['ThreadAncestor'] = $thread->topmostThread()->id();
 		$attribs['ThreadPage'] = $thread->article()->getTitle()->getPrefixedText();
 		$attribs['ThreadID'] = $thread->id();
-		if ( $thread->hasSummary() ) {
+		if ( $thread->hasSummary() && $thread->summary() ) {
 			$attribs['ThreadSummaryPage'] = $thread->summary()->getId();
 		}
 		$attribs['ThreadAuthor'] = $thread->author()->getName();
