@@ -314,6 +314,7 @@ The archive page.
 	display:        table;
 	width:          auto;
 	margin-left:    -0.6em;
+	float: right;
 }
 
 .lqt_footer li {

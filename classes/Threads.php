@@ -33,13 +33,14 @@ class Threads {
 
 	static $cache_by_root = array();
 	static $cache_by_id = array();
+	static protected $occupied_titles = array();
 
     static function newThread( $root, $article, $superthread = null,
     							$type = self::TYPE_NORMAL, $subject = '' ) {
 		// SCHEMA changes must be reflected here.
 		// TODO: It's dumb that the commitRevision code isn't used here.
 
-        $dbw =& wfGetDB( DB_MASTER );
+        $dbw = wfGetDB( DB_MASTER );
 
 		if ( !in_array( $type, self::$VALID_TYPES ) ) {
 			throw new MWException( __METHOD__ . ": invalid type $type." );
@@ -253,4 +254,43 @@ class Threads {
 		
 		return $dbr->makeList( $arr, LIST_OR );
 	}
+	
+	static function scratchTitle() {
+		$token = md5( uniqid( rand(), true ) );
+		return Title::newFromText( "Thread:$token" );
+	}
+	
+	static function newThreadTitle( $subject, $article ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+		$subject = $subject ? $subject : wfMsg( 'lqt_nosubject' );
+		
+		$base = $article->getTitle()->getPrefixedText() . "/$subject";
+		
+		return self::incrementedTitle( $base, NS_LQT_THREAD );
+	}
+	
+	static function newSummaryTitle( $t ) {
+		return self::incrementedTitle( $t->title()->getText(), NS_LQT_SUMMARY );
+	}
+	
+	static function newReplyTitle( $thread, $user) {
+		$topThread = $thread->topMostThread();
+		
+		$base = $thread->title()->getText() . '/' . $user->getName();
+		
+		return self::incrementedTitle( $base, NS_LQT_THREAD );
+	}
+	
+	/** Keep trying titles starting with $basename until one is unoccupied. */
+	public static function incrementedTitle( $basename, $namespace ) {
+		$i = 2;
+		
+		$t = Title::makeTitleSafe( $namespace, $basename );
+		while ( $t->exists() ||
+				in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) ) {
+			$t = Title::makeTitleSafe( $namespace, $basename . ' (' . $i . ')' );
+			$i++;
+		}
+		return $t;
+	}	
 }

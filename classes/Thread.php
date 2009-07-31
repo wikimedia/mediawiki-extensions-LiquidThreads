@@ -71,14 +71,13 @@ class Thread {
 
 	function historicalRevisions() {
 		$dbr =& wfGetDB( DB_SLAVE );
-		$res = $dbr->select(
-			'historical_thread',
-			'hthread_contents',
-			array( 'hthread_id' => $this->id() ),
-			__METHOD__ );
+		$res = $dbr->select( 'historical_thread',
+							'hthread_contents',
+							array( 'hthread_id' => $this->id() ),
+							__METHOD__ );
 		$results = array();
-		while ( $l = $dbr->fetchObject( $res ) ) {
-			$results[] = HistoricalThread::fromTextRepresentation( $l->hthread_contents );
+		while ( $row = $dbr->fetchObject( $res ) ) {
+			$results[] = HistoricalThread::fromTextRepresentation( $row->hthread_contents );
 		}
 		return $results;
 	}
@@ -204,7 +203,7 @@ class Thread {
 			return User::newFromId( $this->authorId );
 		} else {
 			// Do NOT validate username. If the user did it, they did it.
-			return User::newFromName( $this->authorName, false );
+			return User::newFromName( $this->authorName, false /* no validation */ );
 		}
 	}
 
@@ -227,7 +226,10 @@ class Thread {
 	}
 
 	function moveToPage( $title, $reason, $leave_trace ) {
-		$dbr =& wfGetDB( DB_MASTER );
+		if (!$this->isTopmostThread() )
+			throw new MWException( "Attempt to move non-toplevel thread to another page" );
+		
+		$dbr = wfGetDB( DB_MASTER );
 
 		$oldTitle = $this->article()->getTitle();
 		$newTitle = $title;
@@ -253,46 +255,30 @@ class Thread {
 		
 		# Log the move
 		$log = new LogPage( 'liquidthreads' );
-		$log->addEntry( 'move', $this->double->title(), $reason, array( $oldTitle, $newTitle ) );
+		$log->addEntry( 'move', $this->title(), $reason, array( $oldTitle, $newTitle ) );
 
 		if ( $leave_trace ) {
-			$this->leaveTrace( $reason );
+			$this->leaveTrace( $reason, $oldTitle, $newTitle );
 		}
 	}
 
-	function leaveTrace( $reason ) {
-		/* Adapted from Title::moveToNewTitle. But now the new title exists on the old talkpage. */
-		$dbw =& wfGetDB( DB_MASTER );
+	// Drop a note at the source location of a move, noting that a thread was moved from
+	//  there.
+	function leaveTrace( $reason, $oldTitle, $newTitle ) {
+		$dbw = wfGetDB( DB_MASTER );
 
+		// Create redirect text
 		$mwRedir = MagicWord::get( 'redirect' );
 		$redirectText = $mwRedir->getSynonym( 0 ) . ' [[' . $this->title()->getPrefixedText() . "]]\n";
-		$redirectArticle = new Article( LqtView::incrementedTitle( $this->subjectWithoutIncrement(),
-			NS_LQT_THREAD ) ); # # TODO move to model.
-		$newid = $redirectArticle->insertOn( $dbw );
-		$redirectRevision = new Revision( array(
-			'page'    => $newid,
-			'comment' => $reason,
-			'text'    => $redirectText ) );
-		$redirectRevision->insertOn( $dbw );
-		$redirectArticle->updateRevisionOn( $dbw, $redirectRevision, 0 );
+		
+		// Make the article edit.
+		$traceTitle = Threads::newThreadTitle( $this->subject(), new Article($oldTitle) );
+		$redirectArticle = new Article( $traceTitle );
+		$redirectArticle->doEdit( $redirectText, $reason, EDIT_NEW );
 
-		# Purge caches as per article creation
-		Article::onArticleCreate( $redirectArticle->getTitle() );
-
-		# Record the just-created redirect's linking to the page
-		$dbw->insert( 'pagelinks',
-			array(
-				'pl_from'      => $newid,
-				'pl_namespace' => $redirectArticle->getTitle()->getNamespace(),
-				'pl_title'     => $redirectArticle->getTitle()->getDBkey() ),
-			__METHOD__ );
-
-		$thread = Threads::newThread( $redirectArticle, $this->double->article(), null,
+		// Add the trace thread to the tracking table.
+		$thread = Threads::newThread( $redirectArticle, new Article($oldTitle), null,
 		 	Threads::TYPE_MOVED, $this->subject() );
-
-		# Purge old title from squid
-		# The new title, and links to the new title, are purged in Article::onArticleCreate()
-		# $this-->purgeSquid();
 	}
 
 
@@ -569,24 +555,6 @@ class Thread {
 //		$this->replies[] = $thread;
 	}
 	
-	function removeReplyWithId( $id ) {
-		// Force load
-		$this->replies();
-		
-		$target = null;
-		foreach ( $this->replies as $k => $r ) {
-			if ( $r->id() == $id ) {
-				$target = $k; break;
-			}
-		}
-		if ( $target ) {
-			unset( $this->replies[$target] );
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
 	function replies() {
 		if ( !is_null($this->replies) ) {
 			return $this->replies;
@@ -761,6 +729,7 @@ class Thread {
 			
 			if (!$title) {
 				wfDebug( __METHOD__.": supposed summary doesn't exist" );
+				$this->summaryId = null;
 				return null;
 			}
 			
@@ -794,10 +763,6 @@ class Thread {
 			return $matches;
 	}
 
-	function wikilink() {
-		return $this->root()->getTitle()->getPrefixedText();
-	}
-
 	function subject() {
 		return $this->subject;
 	}
@@ -809,10 +774,6 @@ class Thread {
 			$reply->setSubject( $subject );
 			$reply->commitRevision( CHANGE_EDITED_SUBJECT );
 		}
-	}
-
-	function wikilinkWithoutIncrement() {
-		return $this->wikilink();
 	}
 
 	function subjectWithoutIncrement() {
@@ -858,6 +819,7 @@ class Thread {
 		}
 		return null;
 	}
+	
 	function changeObject() {
 		return $this->replyWithId( $this->changeObject );
 	}
@@ -881,7 +843,7 @@ class Thread {
 
 	function changeUser() {
 		if ( $this->changeUser == 0 ) {
-			return User::newFromName( $this->changeUserText, false );
+			return User::newFromName( $this->changeUserText, false /* No validation */ );
 		} else {
 			return User::newFromId( $this->changeUser );
 		}
@@ -897,15 +859,6 @@ class Thread {
 		if ( !$rtitle ) return null;
 		$rthread = Threads::withRoot( new Article( $rtitle ) );
 		return $rthread;
-	}
-
-	// Called from hook in Title::isProtected.
-	static function getRestrictionsForTitle( $title, $action, &$result ) {
-		$thread = Threads::withRoot( new Article( $title ) );
-		if ( $thread )
-			return $thread->getRestrictions( $action, $result );
-		else
-			return true; // not a thread; do normal protection check.
 	}
 
 	// This only makes sense when called from the hook, because it uses the hook's
@@ -927,10 +880,6 @@ class Thread {
 			return false;
 		}
 
-	}
-
-	function getArchiveStartDays() {
-		return Threads::getArticleArchiveStartDays( $this->article() );
 	}
 	
 	function getAnchorName() {

@@ -62,7 +62,7 @@ class ThreadPermalinkView extends LqtView {
 
 	function showThreadHeading( $thread ) {
 		if ( $this->headerLevel == 2 ) {
-			$this->output->setPageTitle( $thread->wikilink() );
+			$this->output->setPageTitle( $thread->root()->getTitle()->getPrefixedText() );
 		} else {
 			parent::showThreadHeading( $thread );
 		}

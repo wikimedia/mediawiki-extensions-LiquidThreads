@@ -28,7 +28,6 @@ class NewMessages {
 			throw new MWException( "writeUserMessageState expected User or integer but got $user" );
 		}
 
-		// use query() directly to pass in 'true' for don't-die-on-errors.
 		$dbw = wfGetDB( DB_MASTER );
 		
 		$dbw->replace( 'user_message_state', array( array( 'ums_user', 'ums_thread' ) ),

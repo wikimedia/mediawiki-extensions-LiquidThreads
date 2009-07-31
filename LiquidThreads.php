@@ -48,19 +48,28 @@ if ( defined( 'MW_SUPPORTS_PARSERFIRSTCALLINIT' ) ) {
 }
 
 // Hooks
-$wgHooks['SpecialWatchlistQuery'][] = 'efLqtBeforeWatchlistHook';
+// Main dispatch hook
 $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
-$wgHooks['SpecialMovepageAfterMove'][] = 'LqtDispatch::onPageMove';
-$wgHooks['LinkerMakeLinkObj'][] = 'LqtDispatch::makeLinkObj';
-$wgHooks['SkinTemplateTabAction'][] = 'LqtDispatch::tabAction';
-$wgHooks['OldChangesListRecentChangesLine'][] = 'LqtDispatch::customizeOldChangesList';
-$wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtDispatch::setNewtalkHTML';
-$wgHooks['TitleGetRestrictions'][] = 'Thread::getRestrictionsForTitle';
-$wgHooks['GetPreferences'][] = 'lqtGetPreferences';
-$wgHooks['ArticleEditUpdateNewTalk'][] = 'lqtUpdateNewtalkOnEdit';
+
+// Miscellaneous
+$wgHooks['SpecialMovepageAfterMove'][] = 'LqtHooks::onPageMove'; // Move threads to new loc
+// Customisation of recentchanges
+$wgHooks['OldChangesListRecentChangesLine'][] = 'LqtHooks::customizeOldChangesList';
+
+// Notification (watchlist, newtalk)
+$wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtHooks::setNewtalkHTML';
+$wgHooks['SpecialWatchlistQuery'][] = 'LqtHooks::beforeWatchlist';
+$wgHooks['ArticleEditUpdateNewTalk'][] = 'LqtHooks::updateNewtalkOnEdit';
+
+// Preferences
+$wgHooks['GetPreferences'][] = 'LqtHooks::getPreferences';
+
+// Export-related
+$wgHooks['XmlDumpWriterOpenPage'][] = 'LqtHooks::dumpThreadData';
+$wgHooks['ModifyExportQuery'][] = 'LqtHooks::modifyExportQuery';
+
+// Magic words
 $wgHooks['LanguageGetMagic'][] = 'LiquidThreadsMagicWords::getMagicWords';
-$wgHooks['XmlDumpWriterOpenPage'][] = 'lqtDumpThreadData';
-$wgHooks['ModifyExportQuery'][] = 'lqtModifyExportQuery';
 
 // Deletion
 $wgHooks['ArticleDeleteComplete'][] = 'LqtDeletionController::onArticleDeleteComplete';
@@ -69,7 +78,6 @@ $wgHooks['ArticleUndelete'][] = 'LqtDeletionController::onArticleUndelete';
 $wgHooks['ArticleDelete'][] = 'LqtDeletionController::onArticleDelete';
 
 // Special pages
-#$wgSpecialPages['UndeleteThread'] = 'SpecialUndeleteThread';
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
 $wgSpecialPages['SplitThread'] = 'SpecialSplitThread';
@@ -85,10 +93,10 @@ $wgAutoloadClasses['NewMessages'] = $dir . 'classes/NewMessagesController.php';
 $wgAutoloadClasses['LiquidThreadsMagicWords'] = $dir . 'i18n/LiquidThreads.magic.php';
 $wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/ParserFunctions.php';
 $wgAutoloadClasses['LqtDeletionController'] = "$dir/classes/DeletionController.php";
+$wgAutoloadClasses['LqtHooks'] = "$dir/classes/Hooks.php";
 
-// Page classes
+// View classes
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
-$wgAutoloadClasses['TalkpageArchiveView'] = $dir . 'pages/TalkpageArchiveView.php';
 $wgAutoloadClasses['ThreadPermalinkView'] = $dir . 'pages/ThreadPermalinkView.php';
 $wgAutoloadClasses['TalkpageHeaderView'] = $dir . 'pages/TalkpageHeaderView.php';
 $wgAutoloadClasses['IndividualThreadHistoryView'] = $dir . 'pages/IndividualThreadHistoryView.php';
@@ -100,8 +108,8 @@ $wgAutoloadClasses['ThreadHistoricalRevisionView'] = $dir . 'pages/ThreadHistori
 $wgAutoloadClasses['SummaryPageView'] = $dir . 'pages/SummaryPageView.php';
 $wgAutoloadClasses['NewUserMessagesView'] = $dir . 'pages/NewUserMessagesView.php';
 
+// Special pages
 $wgAutoloadClasses['ThreadActionPage'] = "$dir/pages/ThreadActionPage.php";
-
 $wgAutoloadClasses['SpecialMoveThread'] = $dir . 'pages/SpecialMoveThread.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir . 'pages/SpecialNewMessages.php';
 $wgAutoloadClasses['SpecialSplitThread'] = "$dir/pages/SpecialSplitThread.php";

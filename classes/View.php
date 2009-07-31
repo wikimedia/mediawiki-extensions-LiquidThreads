@@ -43,8 +43,6 @@ class LqtView {
 		$this->headerLevel = $int;
 	}
 
-	static protected $occupied_titles = array();
-
 	/*************************
      * (1) linking to liquidthreads pages and
      * (2) figuring out what page you're on and what you need to do.
@@ -444,42 +442,19 @@ class LqtView {
 	}
 
 	function scratchTitle() {
-		$token = md5( uniqid( rand(), true ) );
-		return Title::newFromText( "Thread:$token" );
+		return Threads::scratchTitle();
 	}
 	
 	function newScratchTitle( $subject ) {
-		wfLoadExtensionMessages( 'LiquidThreads' );
-		$subject = $subject ? $subject : wfMsg( 'lqt_nosubject' );
-		
-		$base = $this->article->getTitle()->getPrefixedText() . "/$subject";
-		
-		return $this->incrementedTitle( $base, NS_LQT_THREAD );
+		return Threads::newThreadTitle( $subject, $this->article );
 	}
 	
-	function newSummaryTitle( $t ) {
-		return $this->incrementedTitle( $t->title()->getText(), NS_LQT_SUMMARY );
+	function newSummaryTitle( $thread ) {
+		return Threads::newSummaryTitle( $thread );
 	}
 	
-	function newReplyTitle( $s, $t ) {
-		$topThread = $t->topMostThread();
-		
-		$base = $t->title()->getText() . '/' . $this->user->getName();
-		
-		return $this->incrementedTitle( $base, NS_LQT_THREAD );
-	}
-	
-	/** Keep trying titles starting with $basename until one is unoccupied. */
-	public static function incrementedTitle( $basename, $namespace ) {
-		$i = 2;
-		
-		$t = Title::makeTitleSafe( $namespace, $basename );
-		while ( $t->exists() ||
-				in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) ) {
-			$t = Title::makeTitleSafe( $namespace, $basename . ' (' . $i . ')' );
-			$i++;
-		}
-		return $t;
+	function newReplyTitle( $unused, $thread ) {
+		return Threads::newReplyTitle( $thread, $this->user );
 	}
 
 	/* Adapted from MovePageForm::doSubmit in SpecialMovepage.php. */
