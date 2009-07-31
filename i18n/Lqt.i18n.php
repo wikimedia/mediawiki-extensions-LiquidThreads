@@ -201,6 +201,7 @@ You can see it at <$6>",
 
 /** Message documentation (Message documentation)
  * @author Aotake
+ * @author EugeneZelenko
  * @author Fryed-peach
  * @author Helix84
  * @author IAlex
@@ -291,6 +292,7 @@ Parameters are:
 * $1 is a user name
 * $2 is a date
 * $3 is a time',
+	'lqt-search-button' => '{{Identical|Search}}',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -796,6 +798,9 @@ $messages['be-tarask'] = array(
 Вы можаце паглядзець яго на <$6>",
 	'lqt-quote-intro' => '$2 $3 [[User:$1]] {{GENDER:$1|напісаў|напісала}}:',
 	'lqt-quote' => 'Працытаваць гэта',
+	'lqt-search-legend' => 'Пошук абмеркаваньняў на гэтай старонцы',
+	'lqt-search-label' => 'Умовы пошуку:',
+	'lqt-search-button' => 'Знайсьці',
 );
 
 /** Bulgarian (Български)
@@ -1370,6 +1375,9 @@ to jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo se nowe wótegro
 Móžoš jo na <$6> wiźeś",
 	'lqt-quote-intro' => '$2 $3 jo [[User:$1|$1]] {{GENDER:$1|napisał|napisała|napisał}}:',
 	'lqt-quote' => 'Citěrowaś',
+	'lqt-search-legend' => 'Diskusije na toś tom boku pśepytaś',
+	'lqt-search-label' => 'Pytańske wuraze:',
+	'lqt-search-button' => 'Pytaś',
 );
 
 /** Ewe (Eʋegbe)
@@ -2051,6 +2059,9 @@ foi creada o $3 ás $4.
 Pode vela en <$6>',
 	'lqt-quote-intro' => 'O $2 ás $3, o [[User:$1|usuario $1]] escribiu:',
 	'lqt-quote' => 'Citar isto',
+	'lqt-search-legend' => 'Procurar conversas nesta páxina',
+	'lqt-search-label' => 'Procurar os termos:',
+	'lqt-search-button' => 'Buscar',
 );
 
 /** Gothic
@@ -2724,6 +2735,9 @@ to je zdźělenka wot {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa wotmołwa 
 Móžeš ju na <$6> widźeć",
 	'lqt-quote-intro' => 'Dnja $2 $3 je [[User:$1|$1]] {{GENDER:$1|napisał|napisała|napisał}}:',
 	'lqt-quote' => 'To citować',
+	'lqt-search-legend' => 'Diskusije na tutej stronje přepytać',
+	'lqt-search-label' => 'Pytanske zapřijeća:',
+	'lqt-search-button' => 'Pytać',
 );
 
 /** Hungarian (Magyar)
@@ -3205,6 +3219,9 @@ $messages['ja'] = array(
 <$6> で確認できます。',
 	'lqt-quote-intro' => '$2$3に[[User:$1]]が書きました:',
 	'lqt-quote' => 'これを引用',
+	'lqt-search-legend' => 'このページ上の議論を検索する',
+	'lqt-search-label' => '検索語句:',
+	'lqt-search-button' => '検索',
 );
 
 /** Javanese (Basa Jawa)
@@ -3533,6 +3550,9 @@ Beloore kanns de dä op
 Ene schööne Jrohß!',
 	'lqt-quote-intro' => 'Aam $2 hät {{GENDER:$1|dä|dat|dä Metmaacher|dat|de}} [[User:$1|$1]] öm $3 Uhr jeschrevve:',
 	'lqt-quote' => 'Donn dat zitteere',
+	'lqt-search-legend' => 'En dä Klaafe op heh dä Sigg söhke',
+	'lqt-search-label' => 'Söhk noh:',
+	'lqt-search-button' => 'Söhke',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -4057,6 +4077,9 @@ Dit is een kennisgeving van {{SITENAME}}. Er is een nieuw antwoord op '$2' op $5
 U kunt het bekijken op <$6>.",
 	'lqt-quote-intro' => 'Op $2 om $3 schreef [[User:$1|$1]]:',
 	'lqt-quote' => 'Deze tekst kopiëren',
+	'lqt-search-legend' => 'Overleg op deze pagina doorzoeken',
+	'lqt-search-label' => 'Zoektermen:',
+	'lqt-search-button' => 'Zoeken',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -5150,6 +5173,9 @@ $messages['ru'] = array(
 Вы можете увидеть её по адресу <$6>',
 	'lqt-quote-intro' => '$2 $3, [[User:$1]] написал:',
 	'lqt-quote' => 'Цитировать',
+	'lqt-search-legend' => 'Поиск обсуждений на этой странице',
+	'lqt-search-label' => 'Условия поиска:',
+	'lqt-search-button' => 'Найти',
 );
 
 /** Tachelhit (Tašlḥiyt)
@@ -5329,6 +5355,9 @@ bola pridaná $3 $4.
 Môžete si ho pozrieť na <$6>',
 	'lqt-quote-intro' => '$2 $3 [[User:$1]] napísal:',
 	'lqt-quote' => 'Citovať',
+	'lqt-search-legend' => 'Hľadať v diskusiách k tejto stránke',
+	'lqt-search-label' => 'Hľadaný výraz:',
+	'lqt-search-button' => 'Hľadať',
 );
 
 /** Lower Silesian (Schläsch)
