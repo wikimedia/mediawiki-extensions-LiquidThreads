@@ -164,6 +164,11 @@ $aliases['ksh'] = array(
 	'SplitThread' => array( 'JeschprääschßfäddemOpdeile' ),
 );
 
+/** Cornish (Kernewek) */
+$aliases['kw'] = array(
+	'NewMessages' => array( 'MessajowNowyth' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $aliases['lb'] = array(
 	'DeleteThread' => array( 'Rubrik läschen' ),
