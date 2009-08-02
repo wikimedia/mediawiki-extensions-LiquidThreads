@@ -1877,6 +1877,9 @@ a été créée le $3 à $4.
 Vous pouvez le voir a « $6 »",
 	'lqt-quote-intro' => 'Le $2 à $3, [[User:$1]] a écrit:',
 	'lqt-quote' => 'Citer ceci',
+	'lqt-search-legend' => 'Rechercher des discussions sur cette page',
+	'lqt-search-label' => 'Termes de recherche :',
+	'lqt-search-button' => 'Rechercher',
 );
 
 /** Western Frisian (Frysk)
