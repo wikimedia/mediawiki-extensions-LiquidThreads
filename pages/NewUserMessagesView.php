@@ -127,7 +127,7 @@ class NewUserMessagesView extends LqtView {
 			
 			// It seems that in some cases $top is zero.
 			if (!$top)
-				continue;
+				throw new MWException("{$t->id()} seems to have no topmost thread");
 
 			if ( !array_key_exists( $top->id(), $this->tops ) )
 				$this->tops[$top->id()] = $top;
@@ -135,6 +135,8 @@ class NewUserMessagesView extends LqtView {
 				$this->targets[$top->id()] = array();
 			$this->targets[$top->id()][] = $t->id();
 		}
+		
+		$this->output->addHTML( '<table><tbody>' );
 
 		foreach ( $this->tops as $t ) {
 			// It turns out that with lqtviews composed of threads from various talkpages,
@@ -143,6 +145,9 @@ class NewUserMessagesView extends LqtView {
 
 			$this->showWrappedThread( $t );
 		}
+		
+		$this->output->addHTML( '</tbody></table>' );
+		
 		return false;
 	}
 	
@@ -163,12 +168,12 @@ class NewUserMessagesView extends LqtView {
 						Xml::tags( 'p', null, $contextLink );
 		$leftColumn = Xml::tags( 'td', array( 'class' => 'mw-lqt-newmessages-left' ),
 									$leftColumn );
-		$html = "<table><tr>$leftColumn<td>";
+		$html = "<tr>$leftColumn<td>";
 		$this->output->addHTML( $html );
 
 		$this->showThread( $t );
 		
-		$this->output->addHTML( "</td></tr></table>" );
+		$this->output->addHTML( "</td></tr>" );
 	}
 
 	function setThreads( $threads ) {

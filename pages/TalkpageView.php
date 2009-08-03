@@ -12,14 +12,8 @@ class TalkpageView extends LqtView {
 		unset( $content_actions['history'] );
 		unset( $content_actions['watch'] );
 		unset( $content_actions['move'] );
+		unset( $content_actions['delete'] );
 
-		/*
-		TODO:
-		We could make these tabs actually follow the tab metaphor if we repointed
-		the 'history' and 'edit' tabs to the original subject page. That way 'discussion'
-		would just be one of four ways to view the article. But then those other tabs, for
-		logged-in users, don't really fit the metaphor. What to do, what to do?
-		*/
 		return true;
 	}
 
@@ -48,6 +42,9 @@ class TalkpageView extends LqtView {
 			$actionLinks[] = $sk->link( $this->title,
 								wfMsgExt( 'history_short', 'parseinline' ) . "&uarr;",
 								array(), array( 'action' => 'history' ) );
+			$actionLinks[] = $sk->link( $this->title,
+								wfMsgExt( 'delete', 'parseinline' ) . '&uarr;',
+								array(), array( 'action' => 'delete' ) );
 			
 			$actions = '';
 			foreach( $actionLinks as $link ) {

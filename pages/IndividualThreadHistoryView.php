@@ -34,14 +34,7 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 
 	function show() {
 		global $wgHooks;
-		/*
-		$this->oldid = $this->request->getVal('oldid', null);
-		if( $this->oldid !== null ) {
 
-			parent::show();
-			return false;
-		}
-		*/
 		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
 
 		$wgHooks['PageHistoryBeforeList'][] = array( $this, 'customizeSubtitle' );

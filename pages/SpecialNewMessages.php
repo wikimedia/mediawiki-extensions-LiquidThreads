@@ -45,7 +45,7 @@ class SpecialNewMessages extends SpecialPage {
 		
 		$html = '';
 		
-		$html .= $view->getReadAllButton( $both_sets ); // ugly hack.
+		$html .= $view->getReadAllButton( $both_sets );
 
 		$view->setHeaderLevel( 3 );
 

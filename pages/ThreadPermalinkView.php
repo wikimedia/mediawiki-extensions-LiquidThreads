@@ -38,16 +38,16 @@ class ThreadPermalinkView extends LqtView {
 		unset( $content_actions['viewsource'] );
 		unset( $content_actions['talk'] );
 		
+		$subpage = $this->thread->title()->getPrefixedText();
+		
 		if ( array_key_exists( 'move', $content_actions ) && $this->thread ) {
 			$content_actions['move']['href'] =
-			SpecialPage::getTitleFor( 'MoveThread' )->getFullURL() . '/' .
-			$this->thread->title()->getPrefixedURL();
+			SpecialPage::getTitleFor( 'MoveThread', $subpage )->getFullURL();
 		}
 		
 		if ( array_key_exists( 'delete', $content_actions ) && $this->thread ) {
 			$content_actions['delete']['href'] =
-			SpecialPage::getTitleFor( 'DeleteThread' )->getFullURL() . '/' .
-			$this->thread->title()->getPrefixedURL();
+				$this->thread->title()->getFullURL( 'action=delete' );
 		}
 
 		if ( array_key_exists( 'history', $content_actions ) ) {
@@ -61,16 +61,12 @@ class ThreadPermalinkView extends LqtView {
 	}
 
 	function showThreadHeading( $thread ) {
-		if ( $this->headerLevel == 2 ) {
-			$this->output->setPageTitle( $thread->root()->getTitle()->getPrefixedText() );
-		} else {
-			parent::showThreadHeading( $thread );
-		}
+		parent::showThreadHeading( $thread );
 	}
 
 	function noSuchRevision() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		$this->output->addHTML( wfMsg( 'lqt_nosuchrevision' ) );
+		$this->output->addWikiMsg( 'lqt_nosuchrevision' );
 	}
 
 	function showMissingThreadPage() {
@@ -162,7 +158,6 @@ class ThreadPermalinkView extends LqtView {
 
 		$this->showThread( $this->thread );
 		
-		// Turns out showThread changes the page title, ouch!
 		$this->output->setPageTitle( $this->thread->subject() );
 		return false;
 	}
