@@ -1621,10 +1621,13 @@ $messages['es'] = array(
 
 /** Basque (Euskara)
  * @author An13sa
+ * @author Kobazulo
  */
 $messages['eu'] = array(
 	'lqt_delete' => 'Ezabatu',
 	'lqt_move_move' => 'Mugitu',
+	'lqt-title' => 'Izenburua',
+	'lqt-history-user' => 'Erabiltzailea',
 );
 
 /** Finnish (Suomi)
@@ -4542,6 +4545,9 @@ es estada creada lo $3 a $4.
 O podètz veire a « $6 »",
 	'lqt-quote-intro' => 'Lo $2 a $3, [[User:$1]] a escrich :',
 	'lqt-quote' => 'Citar aquò',
+	'lqt-search-legend' => 'Recercar de discussions sus aquesta pagina',
+	'lqt-search-label' => 'Tèrmes de recèrca :',
+	'lqt-search-button' => 'Recercar',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
