@@ -470,6 +470,10 @@ li#ca-nstab-thread {
 	padding-right: 1em;
 }
 
+.lqt-thread-header-signature {
+	padding-left: 0 !important;
+}
+
 .lqt-thread-header-author {
 	font-weight: bold;
 }
