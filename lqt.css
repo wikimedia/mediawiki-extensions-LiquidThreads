@@ -573,7 +573,7 @@ li.lqt-command-reply {
 
 .lqt-thread-header-rhs {
 	/*float: right;*/
-	font-size: 85%;
+	/*font-size: 85%;*/
 	margin: 0;
 	text-wrap: suppress;
 }
