@@ -460,7 +460,7 @@ li#ca-nstab-thread {
 }
 
 .lqt-thread-header {
-	border-bottom: 1px solid #aaaaaa;
+	/*border-bottom: 1px solid #aaaaaa;*/
 	clear: both;
 	line-height: 2em;
 }

@@ -531,7 +531,7 @@ class LqtView {
 	}
 	
 	// Commands for the bottom.
-	function threadFooterCommands( $thread ) {
+	function threadMajorCommands( $thread ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		
 		$commands = array();
@@ -640,7 +640,7 @@ class LqtView {
 		return $parserOutput->getText();
 	}
 	
-	function showThreadHeader( $thread ) {
+	function showThreadToolbar( $thread ) {
 		global $wgLang;
 		
 		$sk = $this->user->getSkin();
@@ -667,6 +667,13 @@ class LqtView {
 		$headerParts[] = Xml::tags( 'div',
 									array( 'class' => 'lqt-thread-header-commands' ),
 									$dropDownTrigger . $commandHTML );
+									
+		foreach( $this->threadMajorCommands( $thread ) as $key => $cmd ) {
+			$content = $this->contentForCommand( $cmd );
+			$headerParts[] = Xml::tags( 'span',
+										array( 'class' => "lqt-command lqt-command-$key" ),
+										$content );
+		}
 		
 		$dropDown = Xml::tags( 'div',
 								array( 'class' => 'lqt-thread-header-rhs' ),
@@ -732,27 +739,7 @@ class LqtView {
 	function listItemsForCommands( $commands ) {
 		$result = array();
 		foreach ( $commands as $key => $command ) {
-			$label = $command['label'];
-			$href = $command['href'];
-			$enabled = $command['enabled'];
-			
-			if ( isset( $command['icon'] ) ) {
-				global $wgScriptPath;
-				$src = $wgScriptPath . '/extensions/LiquidThreads/icons/'.$command['icon'];
-				$icon = Xml::element( 'img', array( 'src' => $src,
-													'alt' => $label,
-													'class' => 'lqt-command-icon' ) );
-				$label = $icon.'&nbsp;'.$label;
-			}
-			
-			$thisCommand = '';
-
-			if ( $enabled ) {
-				$thisCommand = Xml::tags( 'a', array( 'href' => $href ), $label );
-			} else {
-				$thisCommand = Xml::tags( 'span', array( 'class' => 'lqt_command_disabled' ),
-											$label );
-			}
+			$thisCommand = $this->contentForCommand( $command );
 			
 			$thisCommand = Xml::tags( 	'li',
 										array( 'class' => 'lqt-command lqt-command-'.$key ),
@@ -761,6 +748,32 @@ class LqtView {
 			$result[] = $thisCommand;
 		}
 		return join( ' ', $result );
+	}
+	
+	function contentForCommand( $command ) {
+		$label = $command['label'];
+		$href = $command['href'];
+		$enabled = $command['enabled'];
+		
+		if ( isset( $command['icon'] ) ) {
+			global $wgScriptPath;
+			$src = $wgScriptPath . '/extensions/LiquidThreads/icons/'.$command['icon'];
+			$icon = Xml::element( 'img', array( 'src' => $src,
+												'alt' => $label,
+												'class' => 'lqt-command-icon' ) );
+			$label = $icon.'&nbsp;'.$label;
+		}
+		
+		$thisCommand = '';
+	
+		if ( $enabled ) {
+			$thisCommand = Xml::tags( 'a', array( 'href' => $href ), $label );
+		} else {
+			$thisCommand = Xml::tags( 'span', array( 'class' => 'lqt_command_disabled' ),
+										$label );
+		}
+		
+		return $thisCommand;
 	}
 
 	/** Shows a normal (i.e. not deleted or moved) thread body */
@@ -800,12 +813,12 @@ class LqtView {
 			$this->showPostEditingForm( $thread );
 			$html .= Xml::closeElement( 'div' );
 		} else {
-			$html .= $this->showThreadHeader( $thread );
+//			$html .= $this->showThreadHeader( $thread );
 			$html .= $this->getReplyContext( $thread );
 			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
 			$html .= $this->showPostBody( $post, $oldid );
 			$html .= Xml::closeElement( 'div' );
-			$html .= $this->showThreadFooter( $thread );
+			$html .= $this->showThreadToolbar( $thread );
 		}
 
 		// wish I didn't have to use this open/closeElement cruft.
