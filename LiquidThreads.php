@@ -92,8 +92,8 @@ $wgAutoloadClasses['Threads'] = $dir . 'classes/Threads.php';
 $wgAutoloadClasses['NewMessages'] = $dir . 'classes/NewMessagesController.php';
 $wgAutoloadClasses['LiquidThreadsMagicWords'] = $dir . 'i18n/LiquidThreads.magic.php';
 $wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/ParserFunctions.php';
-$wgAutoloadClasses['LqtDeletionController'] = "$dir/classes/DeletionController.php";
-$wgAutoloadClasses['LqtHooks'] = "$dir/classes/Hooks.php";
+$wgAutoloadClasses['LqtDeletionController'] = $dir . 'classes/DeletionController.php';
+$wgAutoloadClasses['LqtHooks'] = $dir . 'classes/Hooks.php';
 
 // View classes
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
