@@ -504,6 +504,7 @@ li.lqt-command-reply {
 .lqt-thread-actions-trigger {
 	padding: 0.5em;
 	border: 1px transparent solid;
+	color: #002BB8;
 }
 
 .lqt-thread-header-commands:hover .lqt-thread-actions-trigger {
