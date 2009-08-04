@@ -675,10 +675,10 @@ class LqtView {
 										$content );
 		}
 		
-		$dropDown = Xml::tags( 'div',
+		$dropDown = Xml::tags( 'span',
 								array( 'class' => 'lqt-thread-header-rhs' ),
 								$wgLang->pipeList( $headerParts ) );
-		$html .= $dropDown;
+#		$html .= $dropDown;
 		
 		$infoElements = array();
 		
@@ -712,7 +712,8 @@ class LqtView {
 							$wgLang->pipeList( $infoElements ) );
 							
 		// Fix the floating elements by adding a clear.
-		$html .= Xml::tags( 'span', array( 'style' => 'clear: both;' ), '&nbsp;' );
+		$html .= $dropDown;
+#		$html .= Xml::tags( 'span', array( 'style' => 'clear: both;' ), '&nbsp;' );
 							
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-header' ), $html );
 		
