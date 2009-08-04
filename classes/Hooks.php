@@ -58,7 +58,8 @@ class LqtHooks {
 			// Make sure it points to the right page. The Pager seems to use the DB
 			//  representation of a timestamp for its offset field, odd.
 			$dbr = wfGetDB( DB_SLAVE );
-			$offset = $dbr->timestamp( $thread->topmostThread()->modified() );
+			$offset = wfTimestamp( TS_UNIX, $thread->topmostThread()->modified() ) + 1;
+			$offset = $dbr->timestamp( $offset );
 
 			$thread_link = $changeslist->skin->link( $tmp_title,
 				htmlspecialchars($thread->subjectWithoutIncrement()),
