@@ -4974,6 +4974,7 @@ $messages['ro'] = array(
 	'lqt-no-new-messages' => 'Nu sunt mesaje noi pentru dumneavoastră.',
 	'lqt-new-messages' => '&#x2712; Sunt mesaje noi pentru dumneavoastră.',
 	'lqt_rc_author_original' => '(autor original)',
+	'lqt-header-actions' => 'Acţiuni',
 );
 
 /** Tarandíne (Tarandíne)
