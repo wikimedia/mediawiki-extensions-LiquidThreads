@@ -632,7 +632,10 @@ class LqtView {
 		global $wgOut;
 		
 		// Load compatibility layer for older versions
-		$post = new Article_LQT_Compat( $post->getTitle() );
+		if ( !($post instanceof Article_LQT_Compat) ) {
+			wfWarn( "No article compatibility layer loaded, inefficiently duplicating information." );
+			$post = new Article_LQT_Compat( $post->getTitle() );
+		}
 		
 		$parserOutput = $post->getParserOutput( $oldid );
 		$wgOut->addParserOutputNoText( $parserOutput );
