@@ -53,6 +53,7 @@ class Thread {
 	
 	static $titleCacheById = array();
 	static $replyCacheById = array();
+	static $articleCacheById = array();
 
 	function isHistorical() {
 		return false;
@@ -272,12 +273,12 @@ class Thread {
 		$redirectText = $mwRedir->getSynonym( 0 ) . ' [[' . $this->title()->getPrefixedText() . "]]\n";
 		
 		// Make the article edit.
-		$traceTitle = Threads::newThreadTitle( $this->subject(), new Article($oldTitle) );
-		$redirectArticle = new Article( $traceTitle );
+		$traceTitle = Threads::newThreadTitle( $this->subject(), new Article_LQT_Compat($oldTitle) );
+		$redirectArticle = new Article_LQT_Compat( $traceTitle );
 		$redirectArticle->doEdit( $redirectText, $reason, EDIT_NEW );
 
 		// Add the trace thread to the tracking table.
-		$thread = Threads::newThread( $redirectArticle, new Article($oldTitle), null,
+		$thread = Threads::newThread( $redirectArticle, new Article_LQT_Compat($oldTitle), null,
 		 	Threads::TYPE_MOVED, $this->subject() );
 	}
 
@@ -317,7 +318,7 @@ class Thread {
 		
 		if ( isset($line->page_namespace) && isset($line->page_title) ) {
 			$root_title = Title::makeTitle( $line->page_namespace, $line->page_title );
-			$this->root = new Article( $root_title );
+			$this->root = new Article_LQT_Compat( $root_title );
 			$this->root->loadPageData( $line );
 		} else {
 			if ( isset( self::$titleCacheById[$this->rootId] ) ) {
@@ -327,7 +328,7 @@ class Thread {
 			}
 			
 			if ($root_title) {
-				$this->root = new Article( $root_title );
+				$this->root = new Article_LQT_Compat( $root_title );
 				$this->rootRevision = $this->root->mLatest;
 			}
 		}
@@ -340,6 +341,7 @@ class Thread {
 		// Preload subthreads
 		$thread_ids = array();
 		$pageIds = array();
+		$linkBatch = new LinkBatch();
 		
 		if (!is_array(self::$replyCacheById)) {
 			self::$replyCacheById = array();
@@ -353,6 +355,10 @@ class Thread {
 				$pageIds[] = $row->thread_root;
 			if ($row->thread_summary_page)
 				$pageIds[] = $row->thread_summary_page;
+				
+			if ( !isset( self::$replyCacheById[$row->thread_id] ) ) {
+				self::$replyCacheById[$row->thread_id] = array();
+			}
 		}
 		
 		if ( count($thread_ids) ) {
@@ -362,31 +368,47 @@ class Thread {
 									
 			while( $row = $dbr->fetchObject($res) ) {				
 				// Grab page data while we're here.
+				$rows[] = $row;
 				if ($row->thread_root)
 					$pageIds[] = $row->thread_root;
 				if ($row->thread_summary_page)
 					$pageIds[] = $row->thread_summary_page;
-				
-				if ( !is_null($row->thread_parent) ) {
-					if ( !isset( self::$replyCacheById[$row->thread_parent] ) ) {
-						self::$replyCacheById[$row->thread_parent] = array();
-					}
 					
-					self::$replyCacheById[$row->thread_parent][$row->thread_id] =
-										new Thread( $row, null );
+				if ( !isset( self::$replyCacheById[$row->thread_id] ) ) {
+					self::$replyCacheById[$row->thread_id] = array();
 				}
 			}
 		}
 		
 		// Preload page data in one swoop.
+		$articlesById = array();
 		if ( count($pageIds) ) {
+			// Pull restriction info. Needs to come first because otherwise it's done per
+			//  page by loadPageData.
+			$restrictionRows = array_fill_keys( $pageIds, array() );
+			$res = $dbr->select( 'page_restrictions', '*', array( 'pr_page' => $pageIds ),
+									__METHOD__ );
+			while( $row = $dbr->fetchObject( $res ) ) {
+				$restrictionRows[$row->pr_page][] = $row;
+			}
+			
 			$res = $dbr->select( 'page', '*', array( 'page_id' => $pageIds ), __METHOD__ );
+			
 			while( $row = $dbr->fetchObject( $res ) ) {
 				$t = Title::newFromRow( $row );
 				
-				self::$titleCacheById[$t->getArticleId()] = $t;
+				if ( isset( $restrictionRows[$t->getArticleId()] ) ) {
+					$t->loadRestrictionsFromRows( $restrictionRows[$t->getArticleId()],
+													$row->page_restrictions );
+				}
 				
-				if ( count(self::$titleCacheById) > 1000 ) {
+				$article = new Article_LQT_Compat( $t );
+				$article->loadPageData( $row );
+				
+				self::$titleCacheById[$t->getArticleId()] = $t;
+				$articlesById[$article->getId()] = $article;
+				
+				if ( count(self::$titleCacheById) > 10000 ) {
 					self::$titleCacheById = array();
 				}
 			}
@@ -395,9 +417,24 @@ class Thread {
 		$threads = array();
 		
 		foreach( $rows as $row ) {
-			$threads[] = $thread = new Thread( $row, null );
+			$threads[$row->thread_id] = $thread = new Thread( $row, null );
+			$thread->root = $articlesById[$thread->rootId];
 			Threads::$cache_by_id[$row->thread_id] = $thread;
+			
+			// User cache data
+			$t = Title::makeTitleSafe( NS_USER, $row->thread_author_name );
+			$linkBatch->addObj( $t );
+			$t = Title::makeTitleSafe( NS_USER_TALK, $row->thread_author_name );
+			$linkBatch->addObj( $t );
+			
+			User::$idCacheByName[$row->thread_author_name] = $row->thread_author_id;
+			
+			if ( $row->thread_parent ) {
+				self::$replyCacheById[$row->thread_parent][$row->thread_id] = $thread;
+			}
 		}
+		
+		$linkBatch->execute();
 		
 		return $threads;
 	}
@@ -488,7 +525,7 @@ class Thread {
 				LqtDispatch::isLqtPage( $articleTitle->getTalkPage() ) &&
 				$articleTitle->getNamespace() != NS_LQT_THREAD ) {
 			$newTitle = $articleTitle->getTalkPage();
-			$newArticle = new Article( $newTitle );
+			$newArticle = new Article_LQT_Compat( $newTitle );
 			
 			$set['thread_article_namespace'] = $newTitle->getNamespace();
 			$set['thread_article_title'] = $newTitle->getDbKey();
@@ -672,7 +709,7 @@ class Thread {
 		if ( !is_null( $this->articleId ) ) {
 			$title = Title::newFromID( $this->articleId );
 			if ( $title ) {
-				$article = new Article( $title );
+				$article = new Article_LQT_Compat( $title );
 			}
 		}
 		if ( isset( $article ) && $article->exists() ) {
@@ -680,7 +717,7 @@ class Thread {
 			return $article;
 		} else {
 			$title = Title::makeTitle( $this->articleNamespace, $this->articleTitle );
-			return new Article( $title );
+			return new Article_LQT_Compat( $title );
 		}
 	}
 
@@ -696,10 +733,20 @@ class Thread {
 	function root() {
 		if ( !$this->rootId ) return null;
 		if ( !$this->root ) {
-			$title = Title::newFromID( $this->rootId );
+			if ( isset(self::$articleCacheById[$this->rootId]) ) {
+				$this->root = self::$articleCacheById[$this->rootId];
+				return $this->root;
+			}
+		
+			if ( isset( self::$titleCacheById[$this->rootId] ) ) {
+				$title = self::$titleCacheById[$this->rootId];
+			} else {
+				$title = Title::newFromID( $this->rootId );
+			}
+			
 			if (!$title) return null;
 			
-			$this->root = new Article( $title, $this->rootRevision() );
+			$this->root = new Article_LQT_Compat( $title, $this->rootRevision() );
 		}
 		return $this->root;
 	}
@@ -733,7 +780,7 @@ class Thread {
 				return null;
 			}
 			
-			$this->summary = new Article( $title );
+			$this->summary = new Article_LQT_Compat( $title );
 
 		}
 			
@@ -857,7 +904,7 @@ class Thread {
 		$rev = Revision::newFromId( $this->root()->getLatest() );
 		$rtitle = Title::newFromRedirect( $rev->getRawText() );
 		if ( !$rtitle ) return null;
-		$rthread = Threads::withRoot( new Article( $rtitle ) );
+		$rthread = Threads::withRoot( new Article_LQT_Compat( $rtitle ) );
 		return $rthread;
 	}
 
