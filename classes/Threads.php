@@ -285,8 +285,11 @@ class Threads {
 	public static function incrementedTitle( $basename, $namespace ) {
 		$i = 2;
 		
+		$replacements = array_fill_keys( array( '[', ']', '{', '}', '|' ), '_' );
+		$basename = strtr( $basename, $replacements );
+		
 		$t = Title::makeTitleSafe( $namespace, $basename );
-		while ( $t->exists() ||
+		while ( !$t || $t->exists() ||
 				in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) ) {
 			$t = Title::makeTitleSafe( $namespace, $basename . ' (' . $i . ')' );
 			$i++;
