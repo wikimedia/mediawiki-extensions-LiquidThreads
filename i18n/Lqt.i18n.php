@@ -1005,6 +1005,7 @@ $messages['da'] = array(
  * @author Als-Holder
  * @author ChrisiPK
  * @author DaSch
+ * @author Merlissimo
  * @author Michawiki
  * @author Purodha
  * @author Raimond Spekking
@@ -1162,6 +1163,7 @@ Du kannst Wikitext in deiner Zusammenfassung verwenden. Wenn du fertig bist, kli
 	'lqt-thread-split-subject' => 'Betreff des neuen Diskussionsstrangs',
 	'lqt-split-submit' => 'Auftrennen',
 	'lqt_split_badsubject' => 'Der Betreff, den du eingegeben hast, ist ungültig.',
+	'lqt-no-threads' => 'Diese Seite enthält noch keine Diskussionsstränge.',
 	'lqt-log-name' => 'Diskussionsstränge-Logbuch',
 	'lqt-log-header' => 'Dieses Logbuch enthält Details zu Aktionen, die auf Diskussionssträngen ausgeführt wurden.',
 	'lqt-log-action-move' => 'hat [[$1]] von [[$2]] nach [[$3]] verschoben.',
@@ -1178,6 +1180,9 @@ dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 auf $5 ein neu
 Du kannst sie auf <$6> einsehen.',
 	'lqt-quote-intro' => 'Am $2 um $3 Uhr schrieb [[User:$1|Benutzer:$1]]:',
 	'lqt-quote' => 'Zitieren',
+	'lqt-search-legend' => 'Durchsuche die Diskussionsbeiträge auf dieser Seite',
+	'lqt-search-label' => 'Suchbegriff:',
+	'lqt-search-button' => 'Suche',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
