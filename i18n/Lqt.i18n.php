@@ -1181,7 +1181,7 @@ Du kannst sie auf <$6> einsehen.',
 	'lqt-quote-intro' => 'Am $2 um $3 Uhr schrieb [[User:$1|Benutzer:$1]]:',
 	'lqt-quote' => 'Zitieren',
 	'lqt-search-legend' => 'Durchsuche die Diskussionsbeiträge auf dieser Seite',
-	'lqt-search-label' => 'Suchbegriff:',
+	'lqt-search-label' => 'Suchbegriffe:',
 	'lqt-search-button' => 'Suche',
 );
 
