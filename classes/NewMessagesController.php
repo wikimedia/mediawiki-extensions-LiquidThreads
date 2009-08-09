@@ -250,7 +250,7 @@ class NewMessages {
 							
 			$from = new MailAddress( $wgPasswordSender, 'WikiAdmin' );
 			$to   = new MailAddress( $u );
-			$subject = wfMsg( $subjectMsg, $t->subjectWithoutIncrement() );
+			$subject = wfMsgExt( $subjectMsg, 'parsemag', $t->subjectWithoutIncrement() );
 			
 			UserMailer::send( $to, $from, $subject, $msg );
 		}
