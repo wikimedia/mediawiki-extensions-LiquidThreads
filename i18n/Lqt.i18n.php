@@ -359,6 +359,7 @@ $messages['an'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author OsamaK
  * @author Ouda
  */
 $messages['ar'] = array(
@@ -373,6 +374,10 @@ $messages['ar'] = array(
 	'lqt_browse_archive_with_recent' => 'أقدم',
 	'lqt_recently_archived' => 'مؤرشف حديثا:',
 	'lqt_contents_title' => 'المحتويات',
+	'lqt_toc_thread_title' => 'عنوان الموضوع',
+	'lqt_toc_thread_author' => 'بدأه',
+	'lqt_toc_thread_replycount' => 'الردود',
+	'lqt_toc_thread_modified' => 'آخر تعديل',
 	'lqt_add_header' => 'أضف عنوانا',
 	'lqt_new_thread' => 'ابدأ نقاشا جديدا',
 	'lqt_in_response_to' => 'كرد على $1 بواسطة $2، بالأعلى:',
@@ -380,7 +385,7 @@ $messages['ar'] = array(
 	'lqt_reply' => 'رد',
 	'lqt_delete' => 'احذف',
 	'lqt_undelete' => 'استرجع',
-	'lqt_permalink' => 'وصلة دائمة',
+	'lqt_permalink' => 'صل بهذا',
 	'lqt_fragment' => 'جزء من $1 من $2',
 	'lqt_discussion_link' => 'نقاش',
 	'lqt_from_talk' => 'من $1',
@@ -420,7 +425,8 @@ $messages['ar'] = array(
 	'lqt_summary_label' => 'مجموعة الرسائل هذه تم تلخيصها كالتالي:',
 	'lqt_summary_subtitle' => 'ملخص $1.',
 	'lqt_nosuchrevision' => 'لا توجد نسخة كهذه من مجموعة الرسائل هذه.',
-	'lqt_nosuchthread' => 'لا توجد مجموعة رسائل كهذه.',
+	'lqt_nosuchthread' => 'لا يوجد موضوع كهذا الذي حدّدت.',
+	'lqt_nosuchthread_title' => 'لا موضوع كهذا',
 	'lqt_threadrequired' => 'يجب عليك تحديد مجموعة رسائل في المسار.',
 	'lqt_move_movingthread' => 'نقل $1.
 مجموعة الرسائل هذه هي جزء من $2.',
@@ -429,6 +435,8 @@ $messages['ar'] = array(
 	'lqt_move_destinationtitle' => 'عنوان صفحة النقاش الهدف:',
 	'lqt_move_move' => 'نقل',
 	'lqt_move_nodestination' => 'يجب عليك تحديد وجهة.',
+	'lqt_move_thread_bad_destination' => 'الصفحة الهدف ليست صفحة نقاش.',
+	'lqt_move_samedestination' => 'الموضوع أصلًا على هذه الصفحة!',
 	'lqt_move_noreason' => 'لا سبب معطى.',
 	'lqt_move_success' => 'مجموعة الرسائل تم نقلها إلى $1.',
 	'lqt_delete_undeleting' => "استرجاع '''$1'''.",
@@ -461,7 +469,7 @@ $messages['ar'] = array(
 	'lqt-older' => 'أقدم',
 	'lqt-newer' => 'أجدد',
 	'lqt-searching' => 'بحث عن مجموعات الرسائل',
-	'lqt-read-message' => 'قراءة',
+	'lqt-read-message' => 'علّم كمقروءة',
 	'lqt-read-message-tooltip' => 'أزل مجموعة الرسائل هذه من الرسائل الجديدة.
 ستظل مرئية على صفحة نقاشها الأصلية.',
 	'lqt-read-all' => 'التعليم على الكل كمقروء',
@@ -474,13 +482,53 @@ $messages['ar'] = array(
 	'lqt-messages-sent' => 'الرسائل المرسلة إليك:',
 	'lqt-other-messages' => 'الرسائل في صفحات النقاش الأخرى:',
 	'lqt-no-new-messages' => 'لا توجد رسائل جديدة لك.',
-	'lqt-new-messages' => 'توجد رسائل جديدة لك.',
+	'lqt-new-messages' => '&#x2712; توجد رسائل جديدة لك.',
 	'lqt-email-info-undo' => 'إعادة مجموعة الرسائل التي صرفتها منذ قليل.',
 	'lqt-date-info' => 'هذه الوصلة معطلة لأنك ترى مجموعات الرسائل من كل التواريخ.',
 	'lqt_rc_new_discussion' => 'نقاش جديد، $1، في $2. &bull; $3 يكتب:',
 	'lqt_rc_new_reply' => 'رد على $1، في $2. &bull; $3 يكتب:',
 	'lqt_rc_author_original' => '(المؤلف الأصلي)',
 	'lqt_rc_author_others' => '(ليس المؤلف)',
+	'lqt-newmessages-context' => 'موضوع كامل',
+	'lqt-archive-subtitle' => 'أرشيف النقاش',
+	'lqt-archive-intro' => 'هذا أرشيف نقاش [[$1]].',
+	'lqt-history-time' => 'الوقت',
+	'lqt-history-user' => 'المستخدم',
+	'lqt-history-action' => 'النشاط',
+	'lqt-thread-edited-author' => 'حرّرها المؤلف',
+	'lqt-thread-edited-others' => 'حرّرها مستخدمون آخرون',
+	'lqt-header-actions' => 'الإجراءات',
+	'lqt_summarize_link' => 'الملخص',
+	'lqt-summarize-intro' => 'من فضلك لخّص الموضوع أدناه في صندوق التحرير.
+تستطيع استخدام أي نص ويكي في ملخّصك. انقر "{{int:savearticle}}" عندما تنتهي.',
+	'lqt-thread-split' => 'افصل إلى موضوع جديد',
+	'lqt-split-success' => 'لقد فصلت بنجاح الموضوع $1.',
+	'lqt_split_thread' => 'افصل موضوعًا',
+	'lqt-thread-split-subject' => 'عنوان الموضوع الجديد',
+	'lqt-split-submit' => 'افصل',
+	'lqt_split_badsubject' => 'العنوان الذي أدخلته غير صحيح.',
+	'lqt-no-threads' => 'لا توجد أي مواضيع في هذه الصفحة إلى الآن.',
+	'lqt-log-name' => 'سجل النقاش ذي الموضوعات',
+	'lqt-log-header' => 'يعرض هذا السجل إجراءات تم اتخاذها في مواضيع النقاش.',
+	'lqt-preference-notify-talk' => 'أرسل لي رسالة بريد إلكتروني عن الردود التي تضاف إلى موضوع أراقبه',
+	'lqt-enotif-subject-reply' => 'نقاش {{SITENAME}} - رد: $1',
+	'lqt-enotif-subject-newthread' => 'نقاش {{SITENAME}} - موضوع جديد: $1',
+	'lqt-enotif-newthread' => "مرحبًا $1.
+
+هذا إخطار من {{SITENAME}} بأن موضوعًا جديدًا في $5 ('$2')
+قد أنشئ في يوم $3 عند $4.
+
+بإمكانك مراجعته عبر <$6>",
+	'lqt-enotif-reply' => "مرحبًا $1.
+
+هذا إخطار من {{SITENAME}} بأن ردًا جديدًا على '$2' في $5
+قد وُضع في يوم $3 عند $4.
+
+بإمكانك مراجعته عبر <$6>",
+	'lqt-quote' => 'اقتبس من هذا التعليق',
+	'lqt-search-legend' => 'ابحث في نقاشات هذه الصفحة',
+	'lqt-search-label' => 'عبارة البحث:',
+	'lqt-search-button' => 'ابحث',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
@@ -1178,7 +1226,7 @@ Du kannst ihn auf <$6> einsehen.',
 dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 auf $5 ein neue Antwort auf den Diskussionsstrang „$2“ geschrieben wurde.
 
 Du kannst sie auf <$6> einsehen.',
-	'lqt-quote-intro' => 'Am $2 um $3 Uhr schrieb [[User:$1|Benutzer:$1]]:',
+	'lqt-quote-intro' => 'Am $2 um $3 Uhr schrieb [[User:$1|$1]]:',
 	'lqt-quote' => 'Zitieren',
 	'lqt-search-legend' => 'Durchsuche die Diskussionsbeiträge auf dieser Seite',
 	'lqt-search-label' => 'Suchbegriffe:',
@@ -1910,7 +1958,7 @@ Ceci est une notification de {{SITENAME}}, qu'une nouvelle réponse à « $2 » 
 a été créée le $3 à $4.
 
 Vous pouvez le voir a « $6 »",
-	'lqt-quote-intro' => 'Le $2 à $3, [[User:$1]] a écrit:',
+	'lqt-quote-intro' => 'Le $2 à $3, [[User:$1]] a écrit :',
 	'lqt-quote' => 'Citer ceci',
 	'lqt-search-legend' => 'Rechercher des discussions sur cette page',
 	'lqt-search-label' => 'Termes de recherche :',
@@ -2301,6 +2349,9 @@ aagleit woren isch uf $3 am $4.
 Du chasch si säh uf <$6>",
 	'lqt-quote-intro' => 'Am $2 am $3, het [[User:$1]] gschribe:',
 	'lqt-quote' => 'Des aagee',
+	'lqt-search-legend' => 'Dursuech d Diskussionsbyytreg uf däre Syte',
+	'lqt-search-label' => 'Suechuusdruck:',
+	'lqt-search-button' => 'Sueche',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -2354,6 +2405,7 @@ $messages['gu'] = array(
  */
 $messages['gv'] = array(
 	'lqt_newmessages' => 'Çhaghteraghtyn noa',
+	'lqt_discussion_link' => 'resoonaght',
 	'lqt_hist_deleted' => 'Scryssit',
 	'lqt_summary_notice_link' => 'screeu giare-choontey',
 );
@@ -3066,6 +3118,7 @@ $messages['id'] = array(
 	'lqt-history-time' => 'Waktu',
 	'lqt-history-user' => 'Pengguna',
 	'lqt-header-actions' => 'Tindakan',
+	'lqt-search-button' => 'Cari',
 );
 
 /** Ido (Ido)
@@ -3085,12 +3138,20 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Melos
  */
 $messages['it'] = array(
 	'lqt_contents_title' => 'Indice',
 	'lqt_delete' => 'Cancella',
+	'lqt_move_move' => 'Sposta',
+	'lqt_delete_return' => 'Ritorna a $1.',
+	'lqt_delete_unallowed' => 'Non sei autorizzato a cancellare argomenti.',
 	'lqt-any-date' => 'Qualsiasi data',
+	'lqt-date-from' => 'Da',
+	'lqt-date-to' => 'A',
 	'lqt-title' => 'Titolo',
+	'lqt-summary' => 'Oggetto',
+	'lqt-search-button' => 'Ricerca',
 );
 
 /** Japanese (日本語)
@@ -3255,7 +3316,7 @@ $messages['ja'] = array(
 これは {{SITENAME}} からの、$5 でスレッド「$2」への新しい返信が $3 $4 にあったことのお知らせです。
 
 <$6> で確認できます。',
-	'lqt-quote-intro' => '$2$3に[[User:$1]]が書きました:',
+	'lqt-quote-intro' => '$2 $3に[[User:$1]]が書きました:',
 	'lqt-quote' => 'これを引用',
 	'lqt-search-legend' => 'このページ上の議論を検索する',
 	'lqt-search-label' => '検索語句:',
@@ -3309,6 +3370,7 @@ $messages['jv'] = array(
  * @author Lovekhmer
  * @author Thearith
  * @author គីមស៊្រុន
+ * @author វ័ណថារិទ្ធ
  */
 $messages['km'] = array(
 	'lqt_newmessages' => 'សារថ្មីៗ',
@@ -3392,6 +3454,15 @@ $messages['km'] = array(
 	'lqt-new-messages' => '&#x2712; មានសារថ្មីៗសម្រាប់អ្នក។',
 	'lqt_rc_author_original' => '(អ្នកនិពន្ឋដើម)',
 	'lqt_rc_author_others' => '(មិនមែនជាអ្នកនិពន្ឋ)',
+	'lqt-thread-created' => 'បាន​បង្កើត​',
+	'lqt-history-time' => 'ពេល​វេលា​',
+	'lqt-history-user' => 'អ្នកប្រើប្រាស់​',
+	'lqt-history-action' => 'សកម្មភាព​',
+	'lqt-thread-edited-author' => 'កែប្រែ​ដោយ​អ្នក​និពន្ធ​',
+	'lqt-thread-edited-others' => 'កែប្រែ​ដោយ​អ្នក​ប្រើប្រាស់​ដទៃ​ទៀត​',
+	'lqt-header-actions' => 'សកម្មភាព​',
+	'lqt_summarize_link' => 'សង្ខេប​',
+	'lqt-search-button' => 'ស្វែង​រក​',
 );
 
 /** Krio (Krio)
@@ -3793,6 +3864,13 @@ $messages['ml'] = array(
 	'lqt_sort_newest_changes' => 'അവസാനം തിരുത്തിയത് ആദ്യം പ്രദര്‍ശിപ്പിക്കുക',
 	'lqt_sort_newest_threads' => 'ഏറ്റവും പുതിയ ത്രെഡുകള്‍ ആദ്യം',
 	'lqt_sort_oldest_threads' => 'ഏറ്റവും പഴയ ത്രെഡുകള്‍ ആദ്യം',
+);
+
+/** Mongolian (Монгол)
+ * @author Chinneeb
+ */
+$messages['mn'] = array(
+	'lqt-email-undo' => 'Цуцлах',
 );
 
 /** Marathi (मराठी)
@@ -4973,15 +5051,20 @@ $messages['rif'] = array(
 );
 
 /** Romanian (Română)
+ * @author Firilacroco
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
 	'lqt_newmessages' => 'Mesaje noi',
 	'lqt_browse_archive_with_recent' => 'mai vechi',
 	'lqt_contents_title' => 'Cuprins',
+	'lqt_toc_thread_author' => 'Început de',
+	'lqt_toc_thread_replycount' => 'Răspunsuri',
 	'lqt_new_thread' => 'Începe o nouă discuţie',
 	'lqt_edited_notice' => 'Modificat',
+	'lqt_reply' => 'Răspunde',
 	'lqt_delete' => 'Şterge',
+	'lqt_undelete' => 'Recuperare',
 	'lqt_discussion_link' => 'discuţie',
 	'lqt_from_talk' => 'de la $1',
 	'lqt_newer' => '←mai noi',
@@ -5423,6 +5506,16 @@ $messages['sr-ec'] = array(
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|порука означена као прочитана|порука означених као прочитане}}.',
 );
 
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'lqt_newer' => '← novije',
+	'lqt_older' => 'starije →',
+	'lqt_youhavenewmessages' => 'Imate [{{PLURAL:$1|$1 novu poruku|$1 novih poruka}}].',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|poruka označena kao pročitana|poruka označenih kao pročitane}}.',
+);
+
 /** Seeltersk (Seeltersk)
  * @author Pyt
  */
@@ -5486,6 +5579,7 @@ $messages['su'] = array(
  * @author Jon Harald Søby
  * @author M.M.S.
  * @author Najami
+ * @author Rotsee
  */
 $messages['sv'] = array(
 	'lqt-desc' => 'Lägger till trådade diskussioner till diskussionssidor',
@@ -5499,8 +5593,18 @@ $messages['sv'] = array(
 	'lqt_browse_archive_with_recent' => 'äldre',
 	'lqt_recently_archived' => 'Nyligen arkiverade:',
 	'lqt_contents_title' => 'Innehåll',
+	'lqt_toc_thread_title' => 'Trådnamn',
+	'lqt_toc_thread_author' => 'Startad av',
+	'lqt_toc_thread_replycount' => 'Svar',
+	'lqt_toc_thread_modified' => 'Senast ändrad',
 	'lqt_add_header' => 'Lägg till rubrik',
 	'lqt_new_thread' => 'Starta en ny diskussion',
+	'lqt_invalid_subject' => 'Ämnet du angivit är oglitigt
+Det kan bero på att:
+* namnet innehåller otillåtna tecken, till exempel []{}&lt;&gt;,
+* namnet är för långt, eller att
+* det sammanfaller med ett interwiki-prefix eller namnrymndsnamn.',
+	'lqt_subject_change_forbidden' => 'Du kan inte byta namn på den här tråden eftersom du inte har behörighet att flytta sidor.',
 	'lqt_in_response_to' => 'Som svar till $1 av $2, över:',
 	'lqt_edited_notice' => 'Redigerad',
 	'lqt_reply' => 'Svara',
@@ -5545,6 +5649,7 @@ Om den är avslutad, vill du kanske $1.',
 	'lqt_summary_subtitle' => 'sammanfattningen av $1.',
 	'lqt_nosuchrevision' => 'Det finns ingen sådan version av den här diskussionssidan.',
 	'lqt_nosuchthread' => 'Det finns ingen sådan diskussionssida.',
+	'lqt_nosuchthread_title' => 'Tråden finns ej',
 	'lqt_threadrequired' => 'Du måste ange en diskussionssida i URL-en.',
 	'lqt_move_movingthread' => 'Flyttar $1. Den här diskussionssidan är en del av $2.',
 	'lqt_move_torename' => 'För att döpa om den här diskussionssidan, $1 och ändra "Ämne"-fältet.',
@@ -5552,6 +5657,8 @@ Om den är avslutad, vill du kanske $1.',
 	'lqt_move_destinationtitle' => 'Titel på måldiskussionssida:',
 	'lqt_move_move' => 'Flytta',
 	'lqt_move_nodestination' => 'Du måste ange ett mål.',
+	'lqt_move_thread_bad_destination' => 'Målsidan är ingen diskussionssida.',
+	'lqt_move_samedestination' => 'Tråden visas redan på denna sida!',
 	'lqt_move_noreason' => 'Ingen anledning given.',
 	'lqt_move_success' => 'Den här diskussionssidan flyttades till $1.',
 	'lqt_delete_undeleting' => "Återställer '''$1'''.",
@@ -5584,7 +5691,7 @@ Du kommer istället vilja $2.',
 	'lqt-older' => 'äldre',
 	'lqt-newer' => 'nyare',
 	'lqt-searching' => 'Sök efter trådar',
-	'lqt-read-message' => 'Läs',
+	'lqt-read-message' => 'Markera som läst',
 	'lqt-read-message-tooltip' => 'Ta bort den här tråden från nya meddelanden.
 Den kommer fortfarande att visas på dens orginala diskussionssida.',
 	'lqt-read-all' => 'Markera alla som lästa',
@@ -5604,7 +5711,30 @@ Denna handling kan inte göras om.',
 	'lqt_rc_new_reply' => 'Svar till $1, på $2. &bull; $3 skriver:',
 	'lqt_rc_author_original' => '(ursprunglig författare)',
 	'lqt_rc_author_others' => '(inte författaren)',
+	'lqt-newmessages-context' => 'Hela tråden',
+	'lqt-thread-created' => 'Skapad',
+	'lqt-archive-subtitle' => 'Diskussionsarkiv',
+	'lqt-archive-intro' => 'Detta är diskussionsarkivet för [[$1]].',
+	'lqt-history-time' => 'Tid',
+	'lqt-history-user' => 'Användare',
+	'lqt-history-action' => 'Aktivitet',
+	'lqt-thread-edited-author' => 'Redigerad av författaren',
+	'lqt-thread-edited-others' => 'Redigerad av andra användare',
 	'lqt-header-actions' => 'Åtgärder',
+	'lqt_summarize_link' => 'Sammanfatta',
+	'lqt-summarize-intro' => 'Sammanfatta tråden nedan i redigeringsfönstret.
+Du kan använda wikitext i sammanfattningen. Klicka på "{{int:savearticle}}" när du är färdig.',
+	'lqt-thread-split' => 'Dela upp till en ny tråd',
+	'lqt-split-success' => 'Du har nu knoppat av tråden $1.',
+	'lqt_split_thread' => 'Dela tråden i två',
+	'lqt-thread-split-subject' => 'Ny trådtitel',
+	'lqt-split-submit' => 'Dela',
+	'lqt_split_badsubject' => 'Angivet ämnesnamn är ogiltigt',
+	'lqt-no-threads' => 'Det finns inga trådar på den här sidan ännu.',
+	'lqt-log-name' => 'Diskussionssidor i trådform',
+	'lqt-log-header' => 'Den här loggen visar händelser i diskussionstrådor.',
+	'lqt-log-action-move' => 'flyttade [[$1]] från [[$2]] till [[$3]].',
+	'lqt-preference-notify-talk' => 'E-posta mig när någon svarar i en tråd jag bevakar',
 );
 
 /** Silesian (Ślůnski)
