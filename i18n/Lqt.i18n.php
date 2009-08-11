@@ -1699,6 +1699,7 @@ $messages['fi'] = array(
 	'lqt_deletethread' => 'Poista tai palauta keskusteluketju',
 	'lqt_browse_archive_without_recent' => 'Näytä arkistoidut keskusteluketjut',
 	'lqt_browse_archive_with_recent' => 'vanhemmat',
+	'lqt_recently_archived' => 'Äskettäin arkistoitu:',
 	'lqt_contents_title' => 'Sisältö',
 	'lqt_toc_thread_title' => 'Viestiketjun otsikko',
 	'lqt_toc_thread_replycount' => 'Vastauksia',
@@ -1771,14 +1772,17 @@ $messages['fi'] = array(
 	'lqt-messages-sent' => 'Sinulle lähetetyt viestit',
 	'lqt_rc_author_original' => '(alkuperäinen tekijä)',
 	'lqt-newmessages-context' => 'Koko viestiketju',
+	'lqt-thread-created' => 'Luotu',
 	'lqt-archive-subtitle' => 'Keskusteluarkisto',
 	'lqt-history-time' => 'Aika',
 	'lqt-history-user' => 'Käyttäjä',
+	'lqt-header-actions' => 'Toiminnot',
 	'lqt-thread-split' => 'Jaa uudeksi viestiketjuksi',
 	'lqt-split-success' => 'Olet jakanut onnistuneesti viestiketjun $1.',
 	'lqt_split_thread' => 'Jaa viestiketju',
 	'lqt-thread-split-subject' => 'Uuden viestiketjun otsikko',
 	'lqt-split-submit' => 'Jaa',
+	'lqt-preference-notify-talk' => 'Lähetä sähköpostia viestiketjun vastauksista, joita tarkkailen',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} – Vastaus keskusteluun $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} – Uusi viestiketju: $1',
 	'lqt-quote' => 'Lainaa tätä',
@@ -2181,6 +2185,9 @@ $messages['grc'] = array(
 	'lqt-date-from' => 'Ἀπό',
 	'lqt-title' => 'Ἐπιγραφή',
 	'lqt-summary' => 'Σύνοψις',
+	'lqt-thread-created' => 'Ποιηθέν',
+	'lqt-history-time' => 'Χρόνος',
+	'lqt-history-user' => 'Χρώμενος',
 	'lqt-header-actions' => 'Δράσεις',
 );
 
@@ -2587,6 +2594,8 @@ $messages['he'] = array(
 	'lqt-thread-split-subject' => 'נושא השרשור החדש',
 	'lqt-split-submit' => 'פיצול',
 	'lqt_split_badsubject' => 'הנושא שהקלדתם אינו תקני.',
+	'lqt-quote-intro' => 'ב־$2 בשעה $3, נכתב על ידי [[User:$1]]:',
+	'lqt-search-legend' => 'חיפוש דיונים בדף זה',
 	'lqt-search-label' => 'ביטויים לחיפוש:',
 	'lqt-search-button' => 'חיפוש',
 );
@@ -3305,6 +3314,9 @@ $messages['is'] = array(
 $messages['it'] = array(
 	'lqt_contents_title' => 'Indice',
 	'lqt_delete' => 'Cancella',
+	'lqt_hist_deleted' => 'Cancellato',
+	'lqt_hist_undeleted' => 'Ripristinato',
+	'lqt_hist_moved_talkpage' => 'Spostato',
 	'lqt_move_move' => 'Sposta',
 	'lqt_delete_return' => 'Ritorna a $1.',
 	'lqt_delete_unallowed' => 'Non sei autorizzato a cancellare argomenti.',
@@ -4033,6 +4045,7 @@ $messages['ml'] = array(
  */
 $messages['mn'] = array(
 	'lqt-email-undo' => 'Цуцлах',
+	'lqt-search-button' => 'Хайх',
 );
 
 /** Marathi (मराठी)
@@ -4790,7 +4803,7 @@ Aquesta operacion es irreversibla.',
 	'lqt-thread-edited-others' => 'Editat per d’autres utilizaires',
 	'lqt-header-actions' => 'Accions',
 	'lqt_summarize_link' => 'Resumit',
-	'lqt-summarize-intro' => 'Resumir lo subjècte çaisús dins la boita d’edicion
+	'lqt-summarize-intro' => 'Resumir lo subjècte çaisús dins la bóstia d’edicion
 Podètz utilizar un tèxte wiki quin que siá dins vòstre resumit. Quand avètz acabat, clicatz sus « {{int: Savearticle}}» .',
 	'lqt-thread-split' => 'Separar cap a un fial novèl',
 	'lqt-split-success' => 'Avètz separat amb succès lo fial $1.',
@@ -5218,6 +5231,8 @@ $messages['rif'] = array(
  */
 $messages['ro'] = array(
 	'lqt_newmessages' => 'Mesaje noi',
+	'lqt_archive_month_annotation' => 'din $1',
+	'lqt_archive_month_range_annotation' => 'între $1 şi $2',
 	'lqt_browse_archive_with_recent' => 'mai vechi',
 	'lqt_contents_title' => 'Cuprins',
 	'lqt_toc_thread_author' => 'Început de',
@@ -5239,8 +5254,15 @@ $messages['ro'] = array(
 	'lqt_nosubject' => '«fără subiect»',
 	'lqt_noreason' => 'Nici un motiv oferit.',
 	'lqt_move_noreason' => 'Nici un motiv oferit.',
+	'lqt_delete_return' => 'Înapoi la $1.',
+	'lqt_delete_return_link' => 'pagina de discuţii',
+	'lqt_delete_show_checkbox' => 'Arată firele şterse',
 	'lqt_header_warning_new_discussion' => 'începe o nouă discuţie',
 	'lqt_sorting_order' => 'Ordine de sortare:',
+	'lqt_sort_newest_changes' => 'ultimul modificat întâi',
+	'lqt_sort_newest_threads' => 'cel mai nou fir întâi',
+	'lqt_sort_oldest_threads' => 'cel mai vechi fir întâi',
+	'lqt-any-date' => 'Orice dată',
 	'lqt-only-date' => 'Doar aceste date:',
 	'lqt-date-from' => 'De la',
 	'lqt-date-to' => 'Către',
@@ -5248,14 +5270,33 @@ $messages['ro'] = array(
 	'lqt-summary' => 'Rezumat',
 	'lqt-older' => 'mai vechi',
 	'lqt-newer' => 'mai noi',
+	'lqt-searching' => 'Căutare fire',
+	'lqt-read-message' => 'Marchează ca citit',
 	'lqt-read-all' => 'Marchează toate ca citite',
+	'lqt-marked-read' => "Firul '''$1''' marcat ca citit.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mesaj marcat ca citit|mesaje marcate ca citite}}.',
 	'lqt-messages-sent' => 'Mesaje trimise către dumneavoastră:',
 	'lqt-other-messages' => 'Mesaje pe alte pagini de discuţie:',
 	'lqt-no-new-messages' => 'Nu sunt mesaje noi pentru dumneavoastră.',
 	'lqt-new-messages' => '&#x2712; Sunt mesaje noi pentru dumneavoastră.',
 	'lqt_rc_author_original' => '(autor original)',
+	'lqt-newmessages-context' => 'Firul întreg',
+	'lqt-thread-created' => 'Creat',
+	'lqt-history-time' => 'Timp',
+	'lqt-history-user' => 'Utilizator',
+	'lqt-history-action' => 'Activitate',
+	'lqt-thread-edited-author' => 'Modificat de autor',
+	'lqt-thread-edited-others' => 'Modificat de alţi utilizatori',
 	'lqt-header-actions' => 'Acţiuni',
+	'lqt-thread-split' => 'Împarte într-un nou fir',
+	'lqt_split_thread' => 'Împarte un fir',
+	'lqt-thread-split-subject' => 'Subiectul firului nou',
+	'lqt-split-submit' => 'Împarte',
+	'lqt_split_badsubject' => 'Subiectul introdus este invalid.',
+	'lqt-no-threads' => 'Încă nu există fire pe această pagină.',
+	'lqt-preference-notify-talk' => 'Trimite-mi e-mail la răspunsurile firelor pe care le urmăresc',
+	'lqt-quote-intro' => 'Pe $2 la $3, [[User:$1]] a scris:',
+	'lqt-search-label' => 'Caută termeni:',
 );
 
 /** Tarandíne (Tarandíne)
@@ -5467,6 +5508,15 @@ $messages['ru'] = array(
 	'lqt-search-legend' => 'Поиск обсуждений на этой странице',
 	'lqt-search-label' => 'Условия поиска:',
 	'lqt-search-button' => 'Найти',
+);
+
+/** Sicilian (Sicilianu)
+ * @author Melos
+ */
+$messages['scn'] = array(
+	'lqt_hist_deleted' => 'Cancillatu',
+	'lqt_hist_undeleted' => 'Ripristinatu',
+	'lqt_hist_moved_talkpage' => 'Spustatu',
 );
 
 /** Tachelhit (Tašlḥiyt)
