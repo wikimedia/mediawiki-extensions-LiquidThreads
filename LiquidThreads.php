@@ -68,9 +68,6 @@ $wgHooks['GetPreferences'][] = 'LqtHooks::getPreferences';
 $wgHooks['XmlDumpWriterOpenPage'][] = 'LqtHooks::dumpThreadData';
 $wgHooks['ModifyExportQuery'][] = 'LqtHooks::modifyExportQuery';
 
-// Magic words
-$wgHooks['LanguageGetMagic'][] = 'LiquidThreadsMagicWords::getMagicWords';
-
 // Deletion
 $wgHooks['ArticleDeleteComplete'][] = 'LqtDeletionController::onArticleDeleteComplete';
 $wgHooks['ArticleRevisionUndeleted'][] = 'LqtDeletionController::onArticleRevisionUndeleted';

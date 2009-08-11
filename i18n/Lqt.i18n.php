@@ -5,9 +5,11 @@
  * @package MediaWiki
  * @addtogroup Extensions
  * @subpackage LiquidThreads
- * @author David McCabe <davemccabe@gmail.com> / I18n file by Erik Moeller and Siebrand Mazeland
+ * @author David McCabe <davemccabe@gmail.com> / i18n file by Erik Moeller and Siebrand Mazeland
  * @licence GPL2
  */
+
+require_once( dirname(__FILE__) . '/LiquidThreads.magic.php' );
 
 $messages = array();
 
