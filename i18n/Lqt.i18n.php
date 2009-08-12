@@ -1609,6 +1609,7 @@ $messages['es'] = array(
 	'lqt_browse_archive_with_recent' => 'más antiguo',
 	'lqt_recently_archived' => 'Recientemente archivado:',
 	'lqt_contents_title' => 'Contenidos',
+	'lqt_toc_thread_replycount' => 'Respuestas',
 	'lqt_toc_thread_modified' => 'Última modificación',
 	'lqt_add_header' => 'Agregar encabezado',
 	'lqt_new_thread' => 'Comenzar una nueva discusión',
@@ -1648,6 +1649,7 @@ $messages['es'] = array(
 	'lqt_move_move' => 'Trasladar',
 	'lqt_move_nodestination' => 'Debes especificar un destino.',
 	'lqt_move_noreason' => 'No se da ninguna razón',
+	'lqt_delete_undeleting' => "Restaurando '''$1'''.",
 	'lqt_delete_deleting' => "Borrando '''$1''' y '''todas las respuestas''' a él.",
 	'lqt_delete_return' => 'Volver a $1.',
 	'lqt_delete_return_link' => 'la página de discusión',
@@ -1674,7 +1676,13 @@ $messages['es'] = array(
 	'lqt_rc_new_reply' => 'Respuesta a $1, en $2. &bull; $3 escribe:',
 	'lqt_rc_author_original' => '(autor original)',
 	'lqt_rc_author_others' => '(no es el autor)',
+	'lqt-thread-created' => 'Creado',
+	'lqt-history-time' => 'Tiempo',
 	'lqt-history-user' => 'Usuario',
+	'lqt-history-action' => 'Actividad',
+	'lqt-header-actions' => 'Acciones',
+	'lqt_summarize_link' => 'Resumir',
+	'lqt-search-button' => 'Buscar',
 );
 
 /** Basque (Euskara)
@@ -1974,6 +1982,18 @@ Vous pouvez le voir a « $6 »",
 	'lqt-search-legend' => 'Rechercher des discussions sur cette page',
 	'lqt-search-label' => 'Termes de recherche :',
 	'lqt-search-button' => 'Rechercher',
+);
+
+/** Franco-Provençal (Arpetan)
+ * @author Cedric31
+ */
+$messages['frp'] = array(
+	'lqt-date-from' => 'Èxpèdior :',
+	'lqt-title' => 'Titro',
+	'lqt-summary' => 'Dèscripcion',
+	'lqt-history-time' => 'Dâta',
+	'lqt-history-user' => 'Utilisator',
+	'lqt-search-button' => 'Rechèrchiér',
 );
 
 /** Western Frisian (Frysk)
@@ -2701,10 +2721,105 @@ $messages['hil'] = array(
 
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
+ * @author Suradnik13
  */
 $messages['hr'] = array(
+	'lqt-desc' => 'Dodaj rasprave na stranice za razgovor',
+	'lqt-nothread' => 'Nema rasprava u arhivu.',
+	'lqt_newmessages' => 'Nove poruke',
+	'lqt_movethread' => 'Premjesti raspravu na drugu stranicu',
+	'lqt_deletethread' => 'Izbriši ili vrati izbrisanu raspravu',
+	'lqt_archive_month_annotation' => 'od $1',
+	'lqt_archive_month_range_annotation' => 'između $1 i $2',
+	'lqt_browse_archive_without_recent' => 'Prikaži arhivirane rasprave',
+	'lqt_browse_archive_with_recent' => 'starije',
+	'lqt_recently_archived' => 'Nedavno arhivirano:',
+	'lqt_contents_title' => 'Sadržaj',
+	'lqt_toc_thread_title' => 'Naslov rasprave',
+	'lqt_toc_thread_author' => 'Započeto od',
+	'lqt_toc_thread_replycount' => 'Odgovori',
+	'lqt_toc_thread_modified' => 'Zadnje izmjenjeno',
+	'lqt_add_header' => 'Dodaj zaglavlje',
+	'lqt_new_thread' => 'Započnite novu raspravu',
+	'lqt_subject_change_forbidden' => 'Ne možete promijeniti temu za ovu raspravu, jer Vam nije dopušteno premještanje stranica.',
+	'lqt_in_response_to' => 'U odgovoru na $1 od $2, iznad:',
+	'lqt_edited_notice' => 'Izmijenjeno',
+	'lqt_reply' => 'Odgovori',
 	'lqt_delete' => 'Izbriši',
+	'lqt_undelete' => 'Vrati izbrisano',
+	'lqt_permalink' => 'Poveži na ovo',
+	'lqt_fragment' => 'dio od $1 sa $2',
+	'lqt_discussion_link' => 'rasprava',
+	'lqt_from_talk' => 'od $1',
+	'lqt_newer' => '← noviji',
+	'lqt_older' => 'starije →',
+	'lqt_hist_comment_edited' => 'Komentiraj uređeni tekst',
+	'lqt_hist_summary_changed' => 'Sažetak promjena',
+	'lqt_hist_reply_created' => 'Novi odgovor dodan',
+	'lqt_hist_thread_created' => 'Nova rasprava započeta',
+	'lqt_hist_deleted' => 'Izbrisano',
+	'lqt_hist_undeleted' => 'Neobrisano',
+	'lqt_hist_moved_talkpage' => 'Premješteno',
+	'lqt_subject' => 'Tema:',
+	'lqt_nosubject' => '«nema teme»',
+	'lqt-any-date' => 'Bilo koji datum',
+	'lqt-only-date' => 'Samo ovi datumi:',
+	'lqt-date-from' => 'Od',
+	'lqt-date-to' => 'Za',
+	'lqt-title' => 'Naslov',
 	'lqt-summary' => 'Sažetak',
+	'lqt-older' => 'starije',
+	'lqt-newer' => 'nikad',
+	'lqt-email-undo' => 'Vrati',
+	'lqt-messages-sent' => 'Poruke poslane Vama:',
+	'lqt-other-messages' => 'Poruke na drugim stranicama za razgovor:',
+	'lqt-no-new-messages' => 'Nemate novih poruka.',
+	'lqt-new-messages' => '&#x2712; Imate novih poruka.',
+	'lqt_rc_new_discussion' => 'Nova rasprava, $1, na $2. &bull; $3 piše:',
+	'lqt_rc_new_reply' => 'Odgovori na $1, na $2. &bull; $3 piše:',
+	'lqt_rc_author_original' => '(originalni autor)',
+	'lqt_rc_author_others' => '(ne autor)',
+	'lqt-newmessages-context' => 'Cijela rasprava',
+	'lqt-thread-created' => 'Započeto',
+	'lqt-archive-subtitle' => 'Arhiv rasprave',
+	'lqt-archive-intro' => 'Ovo je arhiv rasprave za [[$1]].',
+	'lqt-history-time' => 'Vrijeme',
+	'lqt-history-user' => 'Suradnik',
+	'lqt-history-action' => 'Aktivnost',
+	'lqt-thread-edited-author' => 'Izmijenio autor',
+	'lqt-thread-edited-others' => 'Izmijenjeno od strane drugih suradnika',
+	'lqt-header-actions' => 'Radnje',
+	'lqt_summarize_link' => 'Sažimanje',
+	'lqt-summarize-intro' => 'Molimo sažmite donju raspravu u okvir za uređivanje.
+Možete rabiti bilo koji wikitekst. Kada završite, kliknite "{{int:savearticle}}".',
+	'lqt-thread-split' => 'Razdvoji u novu raspravu',
+	'lqt-split-success' => 'Uspješno ste razdvojili raspravu $1.',
+	'lqt_split_thread' => 'Razdvoji raspravu',
+	'lqt-thread-split-subject' => 'Nova tema rasprave',
+	'lqt-split-submit' => 'Razdvoji',
+	'lqt_split_badsubject' => 'Tema koju ste unijeli nije ispravna.',
+	'lqt-no-threads' => 'Na ovoj stranici još uvijek ne postoji rasprava.',
+	'lqt-log-name' => 'Evidencija rasprava',
+	'lqt-log-header' => 'Ova evidenicija prikazuje radnje poduzete na stranicama za raspravu',
+	'lqt-log-action-move' => 'premješteno [[$1]] s [[$2]] na [[$3]].',
+	'lqt-preference-notify-talk' => 'Pošalji mi e-mail prilikom odgovora na raspravi koju pratim',
+	'lqt-enotif-subject-reply' => '{{SITENAME}} rasprava - Odgovor: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}} rasprava - Nova rasprava: $1',
+	'lqt-enotif-newthread' => "Pozdrav $1,
+Ovo je obavijest s {{SITENAME}} da je nova rasprava na $5, '$2',
+započeta $3 u $4.
+
+Možete je vidjeti na <$6>",
+	'lqt-enotif-reply' => "Pozdrav $1,
+Ovo je obavijest s {{SITENAME}} o novom odgovoru na '$2' na $5,
+poslan $3 u $4.
+
+Možete ga vidjeti na <$6>",
+	'lqt-quote-intro' => '$2 u $3, [[User:$1]] je napisao:',
+	'lqt-quote' => 'Citiraj ovo',
+	'lqt-search-legend' => 'Pretraži raspravu na ovoj stranici',
+	'lqt-search-label' => 'Pojmovi pretrage:',
+	'lqt-search-button' => 'Traži',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -3639,6 +3754,13 @@ $messages['km'] = array(
 	'lqt-header-actions' => 'សកម្មភាព​',
 	'lqt_summarize_link' => 'សង្ខេប​',
 	'lqt-search-button' => 'ស្វែង​រក​',
+);
+
+/** Kannada (ಕನ್ನಡ)
+ * @author Nayvik
+ */
+$messages['kn'] = array(
+	'lqt-summary' => 'ಸಾರಾಂಶ',
 );
 
 /** Krio (Krio)
