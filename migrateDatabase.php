@@ -53,7 +53,6 @@ do {
 	
 	foreach( $threads as $thread ) {
 		$thread->doLazyUpdates();
-		$thread->updateHistory();
 		
 		if ( $thread->id() > $upTo ) {
 			$upTo = $thread->id();

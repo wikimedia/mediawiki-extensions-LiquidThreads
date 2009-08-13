@@ -458,31 +458,31 @@ li#ca-nstab-thread {
 	padding-top: 1em;
 }
 
-.lqt-thread-toolbar {
+.lqt-thread-header {
 	/*border-bottom: 1px solid #aaaaaa;*/
 	clear: both;
 	line-height: 2em;
 	margin-bottom: 1em;
 }
 
-.lqt-thread-toolbar-info > span {
+.lqt-thread-header-info > span {
 	padding-left: 1em;
 	padding-right: 1em;
 }
 
-.lqt-thread-toolbar-signature {
+.lqt-thread-header-signature {
 	padding-left: 0 !important;
 }
 
-.lqt-thread-toolbar-author {
+.lqt-thread-header-author {
 	font-weight: bold;
 }
 
-.lqt-thread-toolbar-edited-author {
+.lqt-thread-header-edited-author {
 	font-weight: bold;
 }
 
-.lqt-thread-toolbar-edited-others {
+.lqt-thread-header-edited-others {
 	font-weight: bold;
 	color: #aa8800;
 }
@@ -497,7 +497,7 @@ li.lqt-command-reply {
 	text-align: right;
 }
 
-.lqt-thread-toolbar-commands:hover {
+.lqt-thread-header-commands:hover {
 	background-color: #eeeeee;
 }
 
@@ -507,12 +507,12 @@ li.lqt-command-reply {
 	color: #002BB8;
 }
 
-.lqt-thread-toolbar-commands:hover .lqt-thread-actions-trigger {
+.lqt-thread-header-commands:hover .lqt-thread-actions-trigger {
 	border: 1px solid #aaaaaa;
 	border-bottom: none;
 }
 
-.lqt-thread-toolbar-commands ul {
+.lqt-thread-header-commands ul {
 	display: none;
 	position: absolute;
 	list-style-type: none !important;
@@ -523,11 +523,11 @@ li.lqt-command-reply {
 	margin: 0 !important;
 }
 
-.lqt-thread-toolbar-commands:hover ul {
+.lqt-thread-header-commands:hover ul {
 	display: block;
 }
 
-.lqt-thread-toolbar-command-list li {
+.lqt-thread-header-command-list li {
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 	margin-top:      0;
@@ -572,14 +572,14 @@ li.lqt-command-reply {
 	margin-left: 2em;
 }
 
-.lqt-thread-toolbar-rhs {
+.lqt-thread-header-rhs {
 	/*float: right;*/
 	/*font-size: 85%;*/
 	margin: 0;
 	text-wrap: suppress;
 }
 
-.lqt-thread-toolbar-commands {
+.lqt-thread-header-commands {
 	padding: 0;
 	margin: 0;
 	display: inline-block;

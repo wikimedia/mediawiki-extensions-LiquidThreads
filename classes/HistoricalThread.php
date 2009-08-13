@@ -2,14 +2,6 @@
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class HistoricalThread extends Thread {
-
-	/* Information about what changed in this revision. */
-	protected $changeType;
-	protected $changeObject;
-	protected $changeComment;
-	protected $changeUser;
-	protected $changeUserText;
-
 	function __construct( $t ) {
 		/* SCHEMA changes must be reflected here. */
 		$this->rootId = $t->rootId;
@@ -24,6 +16,11 @@ class HistoricalThread extends Thread {
 		$this->parentId = $t->parentId;
 		$this->id = $t->id;
 		$this->revisionNumber = $t->revisionNumber;
+		$this->changeType = $t->changeType;
+		$this->changeObject = $t->changeObject;
+		$this->changeComment = $t->changeComment;
+		$this->changeUser = $t->changeUser;
+		$this->changeUserText = $t->changeUserText;
 		$this->editedness = $t->editedness;
 
 		$this->replies = array();
@@ -41,6 +38,19 @@ class HistoricalThread extends Thread {
 		return unserialize( $r );
 	}
 
+	static function create( $t, $change_type, $change_object ) {
+		$tmt = $t->topmostThread();
+		$contents = HistoricalThread::textRepresentation( $tmt );
+		$dbr =& wfGetDB( DB_MASTER );
+		$res = $dbr->insert( 'historical_thread', array(
+			'hthread_id' => $tmt->id(),
+			'hthread_revision' => $tmt->revisionNumber(),
+			'hthread_contents' => $contents,
+			'hthread_change_type' => $tmt->changeType(),
+			'hthread_change_object' => $tmt->changeObject() ? $tmt->changeObject()->id() : null ),
+			__METHOD__ );
+	}
+
 	static function withIdAtRevision( $id, $rev ) {
 		$dbr =& wfGetDB( DB_SLAVE );
 		$line = $dbr->selectRow(
@@ -56,48 +66,5 @@ class HistoricalThread extends Thread {
 
 	function isHistorical() {
 		return true;
-	}
-	
-
-	function changeType() {
-		return $this->changeType;
-	}
-	
-	function changeObject() {
-		return $this->replyWithId( $this->changeObject );
-	}
-
-	function setChangeType( $t ) {
-		if ( in_array( $t, Threads::$VALID_CHANGE_TYPES ) ) {
-			$this->changeType = $t;
-		} else {
-			throw new MWException( __METHOD__ . ": invalid changeType $t." );
-		}
-	}
-
-	function setChangeObject( $o ) {
-		# we assume $o to be a Thread.
-		if ( $o === null ) {
-			$this->changeObject = null;
-		} else {
-			$this->changeObject = $o->id();
-		}
-	}
-
-	function changeUser() {
-		if ( $this->changeUser == 0 ) {
-			return User::newFromName( $this->changeUserText, false /* No validation */ );
-		} else {
-			return User::newFromId( $this->changeUser );
-		}
-	}
-
-	function changeComment() {
-		return $this->changeComment;
-	}
-	
-	function setChangeUser( $user ) {
-		$this->changeUser = $user->getId();
-		$this->changeUserText = $user->getName();
 	}
 }

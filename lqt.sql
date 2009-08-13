@@ -10,14 +10,21 @@ CREATE TABLE /*$wgDBprefix*/thread (
 
   thread_modified char(14) binary NOT NULL default '',
   thread_created char(14) binary NOT NULL default '',
+  thread_revision int(8) unsigned NOT NULL default 1,
 
   thread_editedness int(1) NOT NULL default 0,
 
   thread_article_namespace int NOT NULL,
   thread_article_title varchar(255) binary NOT NULL,
 
-  -- Special thread types (deleted/move trace/normal)
+  -- Special thread types such as schrodinger's thread:
   thread_type int(4) unsigned NOT NULL default 0,
+
+  thread_change_type int(4) unsigned NOT NULL,
+  thread_change_object int(8) unsigned NULL,
+  thread_change_comment tinyblob NOT NULL,
+  thread_change_user int unsigned NOT NULL default '0',
+  thread_change_user_text varchar(255) binary NOT NULL default '',
 
   PRIMARY KEY thread_id (thread_id),
   UNIQUE INDEX thread_root_page (thread_root),
@@ -28,9 +35,6 @@ CREATE TABLE /*$wgDBprefix*/thread (
   INDEX thread_summary_page (thread_summary_page)
 ) /*$wgDBTableOptions*/;
 
-
--- Old storage table for "historical" (i.e. non-current) threads
--- Now superseded by thread_history.
 CREATE TABLE /*$wgDBprefix*/historical_thread (
   -- Note that many hthreads can share an id, which is the same as the id
   -- of the live thread. It is only the id/revision combo which must be unique.
@@ -48,27 +52,4 @@ CREATE TABLE /*$wgDBprefix*/user_message_state (
   ums_read_timestamp varbinary(14),
 
   PRIMARY KEY (ums_user, ums_thread)
-) /*$wgDBTableOptions*/;
-
--- "New" storage location for history data.
-CREATE TABLE /*_*/thread_history (
-	th_id int unsigned NOT NULL auto_increment,
-	th_thread int unsigned NOT NULL,
-	
-	th_timestamp varbinary(14) NOT NULL,
-	
-	th_user int unsigned NOT NULL,
-	th_user_text varchar(255) NOT NULL,
-	
-	th_change_type int unsigned NOT NULL,
-	th_change_object int unsigned NOT NULL,
-	th_change_comment TINYTEXT NOT NULL,
-	
-	-- Actual content, stored as a serialised thread row.
-	th_content BLOB NOT NULL,
-	
-	PRIMARY KEY (th_id),
-	KEY (th_thread,th_timestamp),
-	KEY (th_timestamp),
-	KEY (th_user,th_user_text)
 ) /*$wgDBTableOptions*/;
