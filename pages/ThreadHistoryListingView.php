@@ -13,9 +13,12 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 		}
 		self::addJSandCSS();
 		wfLoadExtensionMessages( 'LiquidThreads' );
+		
+		$this->thread->updateHistory();
 
-		$this->output->setSubtitle( $this->getSubtitle() . '<br />' . wfMsg( 'lqt_hist_listing_subtitle' ) );
-
+		$this->output->setPageTitle( wfMsg( 'lqt-history-title' ) );
+		$this->output->setSubtitle( $this->getSubtitle() . '<br />' .
+									wfMsg( 'lqt_hist_listing_subtitle' ) );
 		$this->showThreadHeading( $this->thread );
 		
 		$pager = new ThreadHistoryPager( $this, $this->thread );
@@ -30,111 +33,108 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 		
 		return false;
 	}
-	
-	function rowForThread( $t ) {
-		global $wgLang, $wgOut; // TODO global.
-		wfLoadExtensionMessages( 'LiquidThreads' );
-		/* TODO: best not to refer to LqtView class directly. */
-		/* We don't use oldid because that has side-effects. */
-		
-		$sk = $this->user->getSkin();		
-
-		$change_names =
-			array(
-				Threads::CHANGE_EDITED_ROOT => wfMsg( 'lqt_hist_comment_edited' ),
-				Threads::CHANGE_EDITED_SUMMARY => wfMsg( 'lqt_hist_summary_changed' ),
-				Threads::CHANGE_REPLY_CREATED => wfMsg( 'lqt_hist_reply_created' ),
-				Threads::CHANGE_NEW_THREAD => wfMsg( 'lqt_hist_thread_created' ),
-				Threads::CHANGE_DELETED => wfMsg( 'lqt_hist_deleted' ),
-				Threads::CHANGE_UNDELETED => wfMsg( 'lqt_hist_undeleted' ),
-				Threads::CHANGE_MOVED_TALKPAGE => wfMsg( 'lqt_hist_moved_talkpage' ),
-			);
-			
-		$change_label = '';
-		
-		if( array_key_exists( $t->changeType(), $change_names ) ) {
-			$change_label = $change_names[$t->changeType()];
-		}
-
-		$user_id = $t->changeUser()->getID();
-		$user_text = $t->changeUser()->getName();
-		$userLinks = $sk->userLink( $user_id, $user_text ) .
-						$sk->userToolLinks( $user_id, $user_text );
-
-		$change_comment = $t->changeComment();
-		if ( $change_comment != '' ) {
-			$change_comment = $sk->commentBlock( $change_comment );
-		}
-
-		$html = '';
-		
-		$linkText = $wgLang->timeanddate( $t->modified(), true );
-		$link = self::permalink( $this->thread, $linkText, null, null, null, array(),
-							array( 'lqt_oldid' => $t->revisionNumber() ) );
-		
-		$html .= Xml::tags( 'td', null, $link );
-		$html .= Xml::tags( 'td', null, $userLinks );
-		$html .= Xml::tags( 'td', null, $change_label );
-		$html .= Xml::tags( 'td', null, $change_comment );
-
-		$html = Xml::tags( 'tr', null, $html );
-		
-		return $html;
-	}
 }
 
-class ThreadHistoryPager extends ReverseChronologicalPager {
+class ThreadHistoryPager extends TablePager {
+	static $change_names;
+			
+
 	function __construct( $view, $thread ) {
 		parent::__construct();
 		
 		$this->thread = $thread;
 		$this->view = $view;
+		
+		self::$change_names =
+			array(
+				Threads::CHANGE_EDITED_ROOT => wfMsgNoTrans( 'lqt_hist_comment_edited' ),
+				Threads::CHANGE_EDITED_SUMMARY => wfMsgNoTrans( 'lqt_hist_summary_changed' ),
+				Threads::CHANGE_REPLY_CREATED => wfMsgNoTrans( 'lqt_hist_reply_created' ),
+				Threads::CHANGE_NEW_THREAD => wfMsgNoTrans( 'lqt_hist_thread_created' ),
+				Threads::CHANGE_DELETED => wfMsgNoTrans( 'lqt_hist_deleted' ),
+				Threads::CHANGE_UNDELETED => wfMsgNoTrans( 'lqt_hist_undeleted' ),
+				Threads::CHANGE_MOVED_TALKPAGE => wfMsgNoTrans( 'lqt_hist_moved_talkpage' ),
+				Threads::CHANGE_EDITED_SUBJECT => wfMsgNoTrans( 'lqt_hist_edited_subject' ),
+				Threads::CHANGE_SPLIT => wfMsgNoTrans( 'lqt_hist_split' ),
+			);
 	}
 	
 	function getQueryInfo() {
 		$queryInfo =
 			array(
-				'tables' => array( 'historical_thread' ),
-				'fields' => array( 'hthread_contents', 'hthread_revision' ),
-				'conds' => array( 'hthread_id' => $this->thread->id() ),
-				'options' => array( 'order by' => 'hthread_revision desc' ),
+				'tables' => array( 'thread_history' ),
+				'fields' => '*',
+				'conds' => array( 'th_thread' => $this->thread->id() ),
+				'options' => array( 'order by' => 'th_timestamp desc' ),
 			);
 			
 		return $queryInfo;
 	}
 	
-	function formatRow( $row ) {
-		$hthread = HistoricalThread::fromTextRepresentation( $row->hthread_contents );
-		return $this->view->rowForThread( $hthread );
-	}
-	
-	function getStartBody() {
-		$headers = array(
-						'lqt-history-time',
-						'lqt-history-user',
-						'lqt-history-action',
-					);
+	function getFieldNames() {
+		static $headers = null;
 
-		$html = '';
-		
-		foreach( $headers as $header ) {
-			$html .= Xml::tags( 'th', null,
-								wfMsgExt( $header, 'parseinline' ) );
+		if (!empty($headers)) {
+			return $headers;
 		}
-		
-		$html = Xml::tags( 'tr', null, $html );
-		$html = Xml::tags( 'thead', null, $html );
-		$html = "<table>$html<tbody>";
-		
-		return $html;
+
+		$headers = array( 
+			'th_timestamp' => 'lqt-history-time', 
+			'th_user_text' => 'lqt-history-user', 
+			'th_change_type' => 'lqt-history-action',
+			'th_change_comment' => 'lqt-history-comment', 
+			);
+
+		$headers = array_map( 'wfMsg', $headers );
+
+		return $headers;
 	}
 	
-	function getEndBody() {
-		return "</tbody></table>";
+	function formatValue( $name, $value ) {
+		global $wgOut,$wgLang, $wgTitle;
+
+		static $sk=null;
+
+		if (empty($sk)) {
+			global $wgUser;
+			$sk = $wgUser->getSkin();
+		}
+
+		$row = $this->mCurrentRow;
+
+		$formatted = '';
+
+		switch($name) {
+			case 'th_timestamp':
+				$formatted = $wgLang->timeanddate( $value );
+				return $sk->link( $wgTitle, $formatted, array(),
+									array( 'lqt_oldid' => $row->th_id ) );
+			case 'th_user_text':
+				return $sk->userLink( $row->th_user, $row->th_user_text ) . ' ' .
+						$sk->userToolLinks( $row->th_user, $row->th_user_text );
+			case 'th_change_type':
+				return self::$change_names[$value];
+			case 'th_change_comment':
+				return $sk->commentBlock( $value );
+			default:
+				return "Unable to format $name";
+				break;
+		}
 	}
 	
 	function getIndexField() {
-		return 'hthread_revision';
+		return 'th_timestamp';
 	}
+	
+	function getDefaultSort() {
+		return 'th_timestamp';
+	}
+
+	function isFieldSortable($name) {
+		$sortable_fields = array( 'th_timestamp', 'th_user_text', 'th_change_type' );
+		return in_array( $name, $sortable_fields );
+	}
+	
+	function getDefaultDirections() { return true; /* descending */ }
 }
 
