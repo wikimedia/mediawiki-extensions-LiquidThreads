@@ -135,6 +135,9 @@ $wgDefaultUserOptions['lqtnotifytalk'] = true;
 $wgGroupPermissions['user']['lqt-split'] = true;
 $wgGroupPermissions['user']['lqt-merge'] = true;
 
+$wgAvailableRights[] = 'lqt-split';
+$wgAvailableRights[] = 'lqt-merge';
+
 /* Number of days a thread needs to have existed to be considered for summarizing and archival */
 $wgLqtThreadArchiveStartDays = 14;
 
