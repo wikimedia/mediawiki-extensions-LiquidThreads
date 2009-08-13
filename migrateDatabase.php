@@ -23,6 +23,8 @@ $threadFieldUpdates = array('thread_article_namespace' => 'split-thread_article.
 						);
 $threadIndexUpdates = array('thread_summary_page' => 'index-summary_page.sql');
 
+$newTableUpdates = array( 'thread_history' => 'thread_history_table.sql' );
+
 foreach( $threadFieldUpdates as $field => $patch ) {
 	if (!$db->fieldExists( 'thread', $field, 'lqt-update-script' ) ) {
 		dbsource( dirname( __FILE__ ).'/schema-changes/'.$patch );
@@ -31,6 +33,12 @@ foreach( $threadFieldUpdates as $field => $patch ) {
 
 foreach( $threadIndexUpdates as $index => $patch ) {
 	if (!$db->indexExists( 'thread', $index, 'lqt-update-script' ) ) {
+		dbsource( dirname( __FILE__ ).'/schema-changes/'.$patch );
+	}
+}
+
+foreach( $newTableUpdates as $table => $patch ) {
+	if (!$db->tableExists( $table, 'lqt-update-script' ) ) {
 		dbsource( dirname( __FILE__ ).'/schema-changes/'.$patch );
 	}
 }
@@ -53,6 +61,7 @@ do {
 	
 	foreach( $threads as $thread ) {
 		$thread->doLazyUpdates();
+		$thread->updateHistory();
 		
 		if ( $thread->id() > $upTo ) {
 			$upTo = $thread->id();

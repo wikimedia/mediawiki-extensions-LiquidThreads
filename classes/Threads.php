@@ -7,7 +7,6 @@ class Threads {
 	const TYPE_NORMAL = 0;
 	const TYPE_MOVED = 1;
 	const TYPE_DELETED = 2;
-	static $VALID_TYPES = array( self::TYPE_NORMAL, self::TYPE_MOVED, self::TYPE_DELETED );
 
 	const CHANGE_NEW_THREAD = 0;
 	const CHANGE_REPLY_CREATED = 1;
@@ -37,101 +36,18 @@ class Threads {
 
     static function newThread( $root, $article, $superthread = null,
     							$type = self::TYPE_NORMAL, $subject = '' ) {
-		// SCHEMA changes must be reflected here.
-		// TODO: It's dumb that the commitRevision code isn't used here.
-
-        $dbw = wfGetDB( DB_MASTER );
-
-		if ( !in_array( $type, self::$VALID_TYPES ) ) {
-			throw new MWException( __METHOD__ . ": invalid type $type." );
-		}
-
-		if ( $superthread ) {
-			$change_type = self::CHANGE_REPLY_CREATED;
-		} else {
-			$change_type = self::CHANGE_NEW_THREAD;
-		}
-
-		global $wgUser;
-
-		$timestamp = wfTimestampNow();
-
-		// TODO PG support
-		$newid = $dbw->nextSequenceValue( 'thread_thread_id' );
-
-		$row = array(
-					'thread_root' => $root->getID(),
-					'thread_parent' => $superthread ? $superthread->id() : null,
-					'thread_article_namespace' => $article->getTitle()->getNamespace(),
-					'thread_article_title' => $article->getTitle()->getDBkey(),
-					'thread_modified' => $timestamp,
-					'thread_created' => $timestamp,
-					'thread_change_type' => $change_type,
-					'thread_change_comment' => "", // TODO
-					'thread_change_user' => $wgUser->getID(),
-					'thread_change_user_text' => $wgUser->getName(),
-					'thread_type' => $type,
-					'thread_editedness' => self::EDITED_NEVER,
-					'thread_subject' => $subject,
-				);
-
-		if ( $superthread ) {
-			$row['thread_ancestor'] = $superthread->ancestorId();
-			$row['thread_change_object'] = $newid;
-		} else {
-			$row['thread_change_object'] = null;
-		}
-
-        $res = $dbw->insert( 'thread', $row, __METHOD__ );
-
-		$newid = $dbw->insertId();
-
-		$row['thread_id'] = $newid;
-
-		// Ew, we have to do a SECOND update
-		if ( $superthread ) {
-			$row['thread_change_object'] = $newid;
-			$dbw->update( 'thread',
-				array( 'thread_change_object' => $newid ),
-				array( 'thread_id' => $newid ),
-				__METHOD__ );
-		}
-
-		// Sigh, convert row to an object
-		$rowObj = new stdClass();
-		foreach ( $row as $key => $value ) {
-			$rowObj->$key = $value;
-		}
-
-		// We just created the thread, it won't have any children.
-		$newthread = new Thread( $rowObj, array() );
-
-		if ( $superthread ) {
-			$superthread->addReply( $newthread );
-		}
-
-		self::createTalkpageIfNeeded( $article );
-
-		NewMessages::writeMessageStateForUpdatedThread( $newthread, $change_type, $wgUser );
-		
-		// Touch the article
-		$article->getTitle()->invalidateCache();
-
-		return $newthread;
+		return Thread::create( $root, $article, $superthread, $type, $subject );
 	}
 
 	/**
 	 * Create the talkpage if it doesn't exist so that links to it
 	 * will show up blue instead of red. For use upon new thread creation.
-	*/
-	protected static function createTalkpageIfNeeded( $subjectPage ) {
-		$talkpage_t = $subjectPage->getTitle();
-		$talkpage = new Article( $talkpage_t );
+	 */
+	public static function createTalkpageIfNeeded( $talkpage ) {
 		if ( ! $talkpage->exists() ) {
 			try {
 				wfLoadExtensionMessages( 'LiquidThreads' );
 				$talkpage->doEdit( "", wfMsg( 'lqt_talkpage_autocreate_summary' ), EDIT_NEW | EDIT_SUPPRESS_RC );
-
 			} catch ( DBQueryError $e ) {
 				// The article already existed by now. No need to do anything.
 				wfDebug( __METHOD__ . ": Article already existed by the time we tried to create it." );
@@ -173,7 +89,7 @@ class Threads {
 
 	private static function assertSingularity( $threads, $attribute, $value ) {
 		if ( count( $threads ) == 0 ) { return null; }
-		if ( count( $threads ) == 1 ) { return $threads[0]; }
+		if ( count( $threads ) == 1 ) { return array_pop($threads); }
 		if ( count( $threads ) > 1 ) {
 			Threads::databaseError( "More than one thread with $attribute = $value." );
 			return null;

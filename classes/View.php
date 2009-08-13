@@ -105,10 +105,10 @@ class LqtView {
 		return $sk->link( $title, $text, $attribs, $query );
 	}
 	
-	static function diffQuery( $thread ) {
-		$changed_thread = $thread->changeObject();
-		$curr_rev_id = $changed_thread->rootRevision();
-		$curr_rev = Revision::newFromTitle( $changed_thread->root()->getTitle(), $curr_rev_id );
+	static function diffQuery( $thread, $revision ) {
+		$changed_thread = $revision->getChangeObject();
+		$curr_rev_id = $revision->getThreadObj()->rootRevision();
+		$curr_rev = Revision::newFromId( $curr_rev_id );
 		$prev_rev = $curr_rev->getPrevious();
 		$oldid = $prev_rev ? $prev_rev->getId() : "";
 		
@@ -124,8 +124,8 @@ class LqtView {
 		return self::permalinkUrl( $thread->changeObject(), null, null, $query );
 	}
 	
-	static function diffPermalink( $thread, $text ) {
-		$query = self::diffQuery( $thread );
+	static function diffPermalink( $thread, $text, $revision ) {
+		$query = self::diffQuery( $thread, $revision );
 		return self::permalink( $thread, $text, null, null, null, array(), $query );
 	}
 	
@@ -252,7 +252,7 @@ class LqtView {
 		$method = $this->request->getVal( 'lqt_method' );
 		$operand = $this->request->getVal( 'lqt_operand' );
 		
-		$thread = Threads::withId( $operand );
+		$thread = Threads::withId( intval($operand) );
 		
 		if ($method == 'reply') {
 			$this->showReplyForm( $thread );
@@ -395,15 +395,14 @@ class LqtView {
 	
 	static function postEditUpdates($edit_type, $edit_applies_to, $edit_page, $article,
 									$subject, $edit_summary, $thread ) {
-		// For replies and new posts, insert the associated thread object into the DB.
+		// Update metadata - create and update thread and thread revision objects as
+		//  appropriate.
+		
 		if ( $edit_type == 'reply' ) {
 			$subject = $edit_applies_to->subject();
 			
 			$thread = Threads::newThread( $edit_page, $article, $edit_applies_to,
 											Threads::TYPE_NORMAL, $subject );
-			
-			$edit_applies_to->commitRevision( Threads::CHANGE_REPLY_CREATED, $thread,
-												$edit_summary );
 		} elseif ( $edit_type == 'summarize' ) {
 			$edit_applies_to->setSummary( $article );
 			$edit_applies_to->commitRevision( Threads::CHANGE_EDITED_SUMMARY,
@@ -417,16 +416,11 @@ class LqtView {
 				// $this->renameThread( $thread, $subject, $e->summary );
 			}
 			
-			// For all edits, bump the version number.
-			$thread->setRootRevision( Revision::newFromTitle( $thread->root()->getTitle() ) );
+			// Add the history entry.
 			$thread->commitRevision( Threads::CHANGE_EDITED_ROOT, $thread, $edit_summary );
 		} else {
 			$thread = Threads::newThread( $edit_page, $article, null,
 											Threads::TYPE_NORMAL, $subject );
-			// Commented-out for now. History needs fixing.
-// 			// Commit the first revision
-// 			$thread->commitRevision( Threads::CHANGE_NEW_THREAD, $thread,
-// 										$edit_summary );
 		}
 		
 		return $thread;
@@ -533,6 +527,11 @@ class LqtView {
 	// Commands for the bottom.
 	function threadMajorCommands( $thread ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
+		
+		if ($thread->isHistorical() ) {
+			// No reply link for historical threads.
+			return array();
+		}
 		
 		$commands = array();
 		
@@ -651,7 +650,7 @@ class LqtView {
 		
 		/// RHS, actions. Show as a drop-down, goes first in the HTML so it floats correctly.
 		$commands = $this->threadCommands( $thread );
-		$commandHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-header-command-list' ),
+		$commandHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-command-list' ),
 									$this->listItemsForCommands( $commands ) );
 
 		$headerParts = array();
@@ -668,7 +667,7 @@ class LqtView {
 										array( 'class' => 'lqt-thread-actions-trigger' ),
 										$triggerText );
 		$headerParts[] = Xml::tags( 'div',
-									array( 'class' => 'lqt-thread-header-commands' ),
+									array( 'class' => 'lqt-thread-toolbar-commands' ),
 									$dropDownTrigger . $commandHTML );
 									
 		foreach( $this->threadMajorCommands( $thread ) as $key => $cmd ) {
@@ -679,7 +678,7 @@ class LqtView {
 		}
 		
 		$dropDown = Xml::tags( 'span',
-								array( 'class' => 'lqt-thread-header-rhs' ),
+								array( 'class' => 'lqt-thread-toolbar-rhs' ),
 								$wgLang->pipeList( $headerParts ) );
 #		$html .= $dropDown;
 		
@@ -688,14 +687,14 @@ class LqtView {
 		// Author name.
 		$author = $thread->author();
 		$signature = $sk->userLink( $author->getId(), $author->getName() );
-		$signature = Xml::tags( 'span', array( 'class' => 'lqt-thread-header-author' ),
+		$signature = Xml::tags( 'span', array( 'class' => 'lqt-thread-toolbar-author' ),
 								$signature );
 		$signature .= $sk->userToolLinks( $author->getId(), $author->getName() );
-		$infoElements[] = Xml::tags( 'span', array( 'class' => 'lqt-thread-header-signature' ),
+		$infoElements[] = Xml::tags( 'span', array( 'class' => 'lqt-thread-toolbar-signature' ),
 								$signature );
 		
 		$timestamp = $wgLang->timeanddate( $thread->created(), true );
-		$infoElements[] = Xml::element( 'span', array( 'class' => 'lqt-thread-header-timestamp' ),
+		$infoElements[] = Xml::element( 'span', array( 'class' => 'lqt-thread-toolbar-timestamp' ),
 									$timestamp );
 									
 		// Check for edited flag.
@@ -707,18 +706,18 @@ class LqtView {
 			$editedBy = $ebLookup[$editedFlag];
 			$editedNotice = wfMsgExt( 'lqt-thread-edited-'.$editedBy, 'parseinline' );
 			$infoElements[] = Xml::element( 'span', array( 'class' =>
-											'lqt-thread-header-edited-'.$editedBy ),
+											'lqt-thread-toolbar-edited-'.$editedBy ),
 											$editedNotice );
 		}
 		
-		$html .= Xml::tags( 'span', array( 'class' => 'lqt-thread-header-info' ),
+		$html .= Xml::tags( 'span', array( 'class' => 'lqt-thread-toolbar-info' ),
 							$wgLang->pipeList( $infoElements ) );
 							
 		// Fix the floating elements by adding a clear.
 		$html .= $dropDown;
 #		$html .= Xml::tags( 'span', array( 'style' => 'clear: both;' ), '&nbsp;' );
 							
-		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-header' ), $html );
+		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-toolbar' ), $html );
 		
 		return $html;
 	}
@@ -797,8 +796,7 @@ class LqtView {
 		// This is a bit of a hack to have individual histories work.
 		// We can grab oldid either from lqt_oldid (which is a thread rev),
 		// or from oldid (which is a page rev). But oldid only applies to the
-		// thread being requested, not any replies.  TODO: eliminate the need
-		// for article-level histories.
+		// thread being requested, not any replies.
 		$page_rev = $this->request->getVal( 'oldid', null );
 		if ( $page_rev !== null && $this->title->equals( $thread->root()->getTitle() ) ) {
 			$oldid = $page_rev;
@@ -817,17 +815,12 @@ class LqtView {
 			$this->showPostEditingForm( $thread );
 			$html .= Xml::closeElement( 'div' );
 		} else {
-//			$html .= $this->showThreadHeader( $thread );
 			$html .= $this->getReplyContext( $thread );
 			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
 			$html .= $this->showPostBody( $post, $oldid );
 			$html .= Xml::closeElement( 'div' );
 			$html .= $this->showThreadToolbar( $thread );
-		}
-
-		// wish I didn't have to use this open/closeElement cruft.
-		
-		
+		}		
 		
 		// If we're replying to this thread, show the reply form after it.
 		if ( $this->methodAppliesToThread( 'reply', $thread ) ) {

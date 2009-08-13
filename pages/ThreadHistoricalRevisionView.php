@@ -4,15 +4,21 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 
+	public $mDisplayRevision = null;
+
 	/* TOOD: customize tabs so that History is highlighted. */
 
 	function postDivClass( $thread ) {
-		$is_changed_thread = $thread->changeObject() &&
-								( $thread->changeObject()->id() == $thread->id() );
+		$changedObject = $this->mDisplayRevision->getChangeObject();
+		$is_changed_thread =  $changedObject &&
+								( $changedObject->id() == $thread->id() );
+		
+		$class = parent::postDivClass( $thread );
+		
 		if ( $is_changed_thread ) {
-			return 'lqt_post_changed_by_history';
+			return "$class lqt_post_changed_by_history";
 		} else {
-			return 'lqt_post';
+			return $class;
 		}
 	}
 
@@ -23,22 +29,23 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$html = '';
 		$html .= wfMsgExt( 'lqt_revision_as_of', 'parseinline',
 							array(
-								$wgLang->timeanddate( $this->thread->modified() ),
-								$wgLang->date( $this->thread->modified() ),
-								$wgLang->time( $this->thread->modified() )
+								$wgLang->timeanddate( $this->mDisplayRevision->getTimestamp() ),
+								$wgLang->date( $this->mDisplayRevision->getTimestamp() ),
+								$wgLang->time( $this->mDisplayRevision->getTimestamp() )
 							)
 						);
 		
 		$html .= '<br/>';
 
-		$ct = $this->thread->changeType();
+		$ct = $this->mDisplayRevision->getChangeType();
 		if ( $ct == Threads::CHANGE_NEW_THREAD ) {
 			$msg = wfMsgExt( 'lqt_change_new_thread', 'parseinline' );
 		} else if ( $ct == Threads::CHANGE_REPLY_CREATED ) {
 			$msg = wfMsgExt( 'lqt_change_reply_created', 'parseinline' );
 		} else if ( $ct == Threads::CHANGE_EDITED_ROOT ) {
 			$diff_link = $this->diffPermalink( $this->thread,
-												wfMsgExt( 'diff', 'parseinline' ) );
+												wfMsgExt( 'diff', 'parseinline' ),
+												$this->mDisplayRevision );
 			$msg = wfMsgExt( 'lqt_change_edited_root', 'parseinline' ) .
 					" [$diff_link]";
 		}
@@ -54,6 +61,12 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 			$this->showMissingThreadPage();
 			return false;
 		}
+		
+		$oldid = $this->request->getInt( 'lqt_oldid' );
+		$this->mDisplayRevision = ThreadRevision::loadFromId( $oldid );
+
+		$this->thread = $this->mDisplayRevision->getThreadObj();
+		
 		$this->showHistoryInfo();
 		parent::show();
 		return false;
