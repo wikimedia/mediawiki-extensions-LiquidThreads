@@ -514,11 +514,21 @@ class LqtView {
 								 'enabled' => true );
 		}
 		
-		if ( !$thread->isTopmostThread() ) {
+		if ( !$thread->isTopmostThread() && $this->user->isAllowed( 'lqt-split' ) ) {
 			$splitUrl = SpecialPage::getTitleFor( 'SplitThread',
 							$thread->title()->getPrefixedText() )->getFullURL();
 			$commands['split'] = array( 'label' => wfMsgExt( 'lqt-thread-split', 'parseinline' ),
 										'href' => $splitUrl, 'enabled' => true );
+		}
+		
+		if ( $this->user->isAllowed( 'lqt-merge' ) ) {
+			$mergeParams = $_GET;
+			$mergeParams['lqt_merge_from'] = $thread->id();
+			$mergeUrl = $thread->title()->getFullURL( wfArrayToCGI( $mergeParams ) );
+			$label = wfMsgExt( 'lqt-thread-merge', 'parseinline' );
+			
+			$commands['merge'] = array( 'label' => $label,
+										'href' => $mergeUrl, 'enabled' => true );
 		}
 
 		return $commands;
@@ -529,12 +539,24 @@ class LqtView {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		
 		if ($thread->isHistorical() ) {
-			// No reply link for historical threads.
+			// No links for historical threads.
 			return array();
 		}
 		
 		$commands = array();
 		
+		if ( $this->user->isAllowed( 'lqt-merge' ) &&
+				$this->request->getCheck( 'lqt_merge_from' ) ) {
+			$srcThread = Threads::withId( $this->request->getVal( 'lqt_merge_from' ) );
+			$par = $srcThread->title()->getPrefixedText();
+			$mergeTitle = SpecialPage::getTitleFor( 'MergeThread', $par );
+			$mergeUrl = $mergeTitle->getFullURL( 'dest='.$thread->id() );
+			$label = wfMsgExt( 'lqt-thread-merge-to', 'parseinline' );
+			
+			$commands['merge-to'] = array( 'label' => $label, 'href' => $mergeUrl,
+											'enabled' => true );
+		}
+			
 		$commands['reply'] = array( 'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
 							 'href' =>  $this->talkpageUrl( $this->title, 'reply', $thread ),
 							 'enabled' => true,

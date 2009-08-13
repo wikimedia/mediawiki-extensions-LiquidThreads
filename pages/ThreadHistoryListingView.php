@@ -56,6 +56,9 @@ class ThreadHistoryPager extends TablePager {
 				Threads::CHANGE_MOVED_TALKPAGE => wfMsgNoTrans( 'lqt_hist_moved_talkpage' ),
 				Threads::CHANGE_EDITED_SUBJECT => wfMsgNoTrans( 'lqt_hist_edited_subject' ),
 				Threads::CHANGE_SPLIT => wfMsgNoTrans( 'lqt_hist_split' ),
+				Threads::CHANGE_MERGED_FROM => wfMsgNoTrans( 'lqt_hist_merged_from' ),
+				Threads::CHANGE_MERGED_TO => wfMsgNoTrans( 'lqt_hist_merged_to' ),
+				Threads::CHANGE_SPLIT_FROM => wfMsgNoTrans( 'lqt_hist_split_from' ),
 			);
 	}
 	
@@ -113,7 +116,7 @@ class ThreadHistoryPager extends TablePager {
 				return $sk->userLink( $row->th_user, $row->th_user_text ) . ' ' .
 						$sk->userToolLinks( $row->th_user, $row->th_user_text );
 			case 'th_change_type':
-				return self::$change_names[$value];
+				return $wgOut->parseInline( self::$change_names[$value] );
 			case 'th_change_comment':
 				return $sk->commentBlock( $value );
 			default:

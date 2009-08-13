@@ -78,6 +78,7 @@ $wgHooks['ArticleDelete'][] = 'LqtDeletionController::onArticleDelete';
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
 $wgSpecialPages['SplitThread'] = 'SpecialSplitThread';
+$wgSpecialPages['MergeThread'] = 'SpecialMergeThread';
 $wgSpecialPageGroups['NewMessages'] = 'wiki';
 
 // Classes
@@ -111,6 +112,7 @@ $wgAutoloadClasses['ThreadActionPage'] = "$dir/pages/ThreadActionPage.php";
 $wgAutoloadClasses['SpecialMoveThread'] = $dir . 'pages/SpecialMoveThread.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir . 'pages/SpecialNewMessages.php';
 $wgAutoloadClasses['SpecialSplitThread'] = "$dir/pages/SpecialSplitThread.php";
+$wgAutoloadClasses['SpecialMergeThread'] = "$dir/pages/SpecialMergeThread.php";
 
 // Backwards-compatibility
 $wgAutoloadClasses['Article_LQT_Compat'] = $dir . 'compat/LqtCompatArticle.php';
@@ -129,6 +131,9 @@ $wgLogActionsHandlers['liquidthreads/move'] = 'lqtFormatMoveLogEntry';
 $wgDefaultUserOptions['lqtnotifytalk'] = true;
 
 /** CONFIGURATION SECTION */
+
+$wgGroupPermissions['user']['lqt-split'] = true;
+$wgGroupPermissions['user']['lqt-merge'] = true;
 
 /* Number of days a thread needs to have existed to be considered for summarizing and archival */
 $wgLqtThreadArchiveStartDays = 14;

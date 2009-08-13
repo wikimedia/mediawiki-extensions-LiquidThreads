@@ -48,6 +48,7 @@ It may:
 	'lqt_from_talk' => 'from $1',
 	'lqt_newer' => '← newer',
 	'lqt_older' => 'older →',
+	
 	'lqt-history-title' => 'Thread history',
 	'lqt_hist_comment_edited' => 'Comment text edited',
 	'lqt_hist_summary_changed' => 'Summary changed',
@@ -62,12 +63,27 @@ It may:
 	'lqt_hist_past_last_page_error' => 'You are beyond the number of pages of history that exist.',
 	'lqt_hist_tooltip_newer_disabled' => 'This link is disabled because you are on the first page.',
 	'lqt_hist_tooltip_older_disabled' => 'This link is disabled because you are on the last page.',
-	'lqt_hist_split' => 'Split thread',
+	'lqt_hist_split' => 'Reply split to a new thread',
 	'lqt_hist_edited_subject' => 'Edited subject',
+	'lqt_hist_merged_from' => 'Reply moved to another thread',
+	'lqt_hist_merged_to' => 'Reply moved from another thread',
+	'lqt_hist_split_from' => 'Split to a new thread',
+	
 	'lqt_revision_as_of' => "Revision as of $2 at $3.",
+	
 	'lqt_change_new_thread' => 'This is the thread\'s initial revision.',
 	'lqt_change_reply_created' => 'The highlighted comment was created in this revision.',
 	'lqt_change_edited_root' => 'The highlighted comment was edited in this revision.',
+	'lqt_change_edited_summary' => "The thread's summary was edited",
+	'lqt_change_deleted' => 'This thread or a reply to it was deleted',
+	'lqt_change_undeleted' => 'The highlighted post was undeleted',
+	'lqt_change_moved' => 'This thread was moved to another discussion page',
+	'lqt_change_split' => 'This thread was split from another thread',
+	'lqt_change_subject_edited' => 'The subject of this thread was changed',
+	'lqt_change_merged_from' => 'A reply to this thread was moved to another thread',
+	'lqt_change_merged_to' => 'The highlighted reply was moved from another thread',
+	'lqt_change_split_from' => 'A subthread of this thread was split into its own thread',
+	
 	'lqt_youhavenewmessages' => 'You have [$1 new messages].',
 	'lqt_protectedfromreply' => 'This thread has been $1 from being replied to.',
 	'lqt_protectedfromreply_link' => 'protected',
@@ -171,6 +187,19 @@ You may use any wikitext in your summary. When you finish, click "{{int:savearti
 	'lqt-split-submit'		  => 'Split',
 	'lqt_split_badsubject'    => 'The subject you entered is invalid.',
 	'lqt-no-threads'		  => 'There are no threads on this page yet.',
+	
+	// Rights
+	'right-lqt-split'		  => 'Split threads',
+	'right-lqt-merge' 		  => 'Merge threads',
+	
+	// Merging
+	'lqt-thread-merge' => 'Merge into another thread',
+	'lqt-thread-merge-to' => 'Merge into this thread',
+	'lqt_merge_thread' => 'Merge thread',
+	'lqt-thread-merge-source' => 'Source thread:',
+	'lqt-thread-merge-dest' => 'Destination thread:',
+	'lqt-merge-submit' => 'Merge',
+	'lqt-merge-success' => 'You have successfully merged the thread $1 to underneath $2.',
 	
 	// Logging
 	'lqt-log-name' => 'Threaded discussion log',

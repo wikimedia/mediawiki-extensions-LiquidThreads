@@ -14,6 +14,7 @@ $aliases['en'] = array(
 	'MoveThread' => array( 'MoveThread' ),
 	'NewMessages' => array( 'NewMessages' ),
 	'SplitThread' => array( 'SplitThread' ),
+	'MergeThread' => array( 'MergeThread' ),
 );
 
 /** Arabic (العربية)

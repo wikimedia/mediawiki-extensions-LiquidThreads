@@ -25,7 +25,7 @@ class LqtDeletionController {
 		// Avoid orphaning subthreads, update their parentage.
 		foreach( $thread->replies() as $reply ) {
 			$reply->setSuperthread( $thread->superthread() );
-			$reply->commitRevision( Threads::CHANGE_PARENT_DELETED, null, $reason );
+			$reply->save( );
 		}
 		
 		return true;

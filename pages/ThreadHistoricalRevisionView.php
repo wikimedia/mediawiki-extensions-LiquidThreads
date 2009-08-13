@@ -21,6 +21,27 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 			return $class;
 		}
 	}
+	
+	function getMessageForChangeType( $ct ) {
+		static $messages = array(
+			Threads::CHANGE_NEW_THREAD => 'lqt_change_new_thread',
+			Threads::CHANGE_REPLY_CREATED => 'lqt_change_reply_created',
+			Threads::CHANGE_DELETED => 'lqt_change_deleted',
+			Threads::CHANGE_UNDELETED => 'lqt_change_undeleted',
+			Threads::CHANGE_MOVED_TALKPAGE => 'lqt_change_moved',
+			Threads::CHANGE_SPLIT => 'lqt_change_split',
+			Threads::CHANGE_EDITED_SUBJECT => 'lqt_change_edited_subject',
+			Threads::CHANGE_MERGED_FROM => 'lqt_change_merged_from',
+			Threads::CHANGE_MERGED_TO => 'lqt_change_merged_to',
+			Threads::CHANGE_SPLIT_FROM => 'lqt_change_split_from',
+		);
+		
+		if ( isset($messages[$ct]) ) {
+			return $messages[$ct];
+		}
+		
+		return '';
+	}
 
 	function showHistoryInfo() {
 		global $wgLang;
@@ -38,17 +59,18 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$html .= '<br/>';
 
 		$ct = $this->mDisplayRevision->getChangeType();
-		if ( $ct == Threads::CHANGE_NEW_THREAD ) {
-			$msg = wfMsgExt( 'lqt_change_new_thread', 'parseinline' );
-		} else if ( $ct == Threads::CHANGE_REPLY_CREATED ) {
-			$msg = wfMsgExt( 'lqt_change_reply_created', 'parseinline' );
-		} else if ( $ct == Threads::CHANGE_EDITED_ROOT ) {
+		
+		$msg = '';
+		if ( $ct == Threads::CHANGE_EDITED_ROOT ) {
 			$diff_link = $this->diffPermalink( $this->thread,
 												wfMsgExt( 'diff', 'parseinline' ),
 												$this->mDisplayRevision );
 			$msg = wfMsgExt( 'lqt_change_edited_root', 'parseinline' ) .
 					" [$diff_link]";
+		} else {
+			$msg = wfMsgExt( $this->getMessageForChangeType($ct), 'parseinline' );
 		}
+		
 		$html .=  $msg;
 		
 		$html = Xml::tags( 'div', array( 'class' => 'lqt_history_info' ), $html );

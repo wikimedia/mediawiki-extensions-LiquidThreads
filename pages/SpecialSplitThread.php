@@ -28,12 +28,22 @@ class SpecialSplitThread extends ThreadActionPage {
 		return wfMsg( 'lqt_split_thread' );
 	}
 	
+	protected function getRightRequirement() { return 'lqt-split'; }
+	
 	function trySubmit( $data ) {
 		// Load data
 		$newSubject = $data['subject'];
 		$reason = $data['reason'];
+		
+		$oldTopThread = $this->mThread->topmostThread();
+		$oldParent = $this->mThread->superthread();
 			
-		$this->recursiveSet( $this->mThread, $newSubject, $this->mThread, $reason, 'first' );
+		$this->recursiveSet( $this->mThread, $newSubject, $this->mThread, 'first' );
+		
+		$oldParent->removeReply( $this->mThread );
+		
+		$oldTopThread->commitRevision( Threads::CHANGE_SPLIT_FROM, $this->mThread, $reason );
+		$this->mThread->commitRevision( Threads::CHANGE_SPLIT, null, $reason );
 		
 		$title = clone $this->mThread->article()->getTitle();
 		$title->setFragment( '#'.$this->mThread->getAnchorName() );
@@ -47,7 +57,7 @@ class SpecialSplitThread extends ThreadActionPage {
 		return true;
 	}
 	
-	function recursiveSet( $thread, $subject, $ancestor, $reason, $first = false ) {
+	function recursiveSet( $thread, $subject, $ancestor, $first = false ) {
 		$thread->setSubject( $subject );
 		$thread->setAncestor( $ancestor->id() );
 		
@@ -55,7 +65,7 @@ class SpecialSplitThread extends ThreadActionPage {
 			$thread->setSuperThread( null );
 		}
 		
-		$thread->commitRevision( Threads::CHANGE_SPLIT, null, $reason );
+		$thread->save( );
 		
 		foreach( $thread->replies() as $subThread ) {
 			$this->recursiveSet( $subThread, $subject, $ancestor, $reason );

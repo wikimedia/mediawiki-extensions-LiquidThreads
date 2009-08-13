@@ -598,11 +598,21 @@ class Thread {
 		$thread->setSuperThread( $this );
 		
 		if ( is_array($this->replies) ) {
-			$this->replies[] = $thread;
+			$this->replies[$thread->id()] = $thread;
 		} else {
 			$this->replies();
-			$this->replies[] = $thread;
+			$this->replies[$thread->id()] = $thread;
 		}
+	}
+	
+	function removeReply( $thread ) {
+		if ( is_object($thread) ) {
+			$thread = $thread->id();
+		}
+		
+		$this->replies();
+		
+		unset( $thread->replies[$thread] );
 	}
 	
 	function replies() {
@@ -945,9 +955,6 @@ class Thread {
 	function __sleep() {
 		
 		$this->loadAllData();
-		// Mark as historical.
-		
-		$this->isHistorical = true;
 		
 		$fields = array_keys( get_object_vars( $this ) );
 		
@@ -955,6 +962,11 @@ class Thread {
 		$fields = array_diff( $fields, array( 'root', 'article', 'summary', 'sleeping' ) );
 		
 		return $fields;
+	}
+	
+	function __wakeup() {
+		// Mark as historical.
+		$this->isHistorical = true;
 	}
 	
 	// This is a safety valve that makes sure that the DB is NEVER touched by a historical
