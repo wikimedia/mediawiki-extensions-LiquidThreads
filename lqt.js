@@ -11,7 +11,7 @@ var liquidThreads = {
 		var prefixLength = "lqt-reply-id-".length;
 		var thread_id = link.id.substring( prefixLength );
 		var container = document.getElementById( 'lqt_thread_id_'+thread_id );
-		var footer_cmds = getElementsByClassName( container, '*', 'lqt_post' )[0];
+		var footer_cmds = getElementsByClassName( container, '*', 'lqt-thread-toolbar' )[0];
 		var query = '&lqt_method=reply&lqt_operand='+thread_id;
 		
 		liquidThreads.injectEditForm( query, container, footer_cmds.nextSibling, e.preload );
