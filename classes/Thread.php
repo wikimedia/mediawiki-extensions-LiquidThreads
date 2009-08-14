@@ -446,7 +446,10 @@ class Thread {
 		//  populate the reply cache.
 		foreach( $all_thread_rows as $row ) {		
 			$thread = new Thread( $row, null );
-			$thread->root = $articlesById[$thread->rootId];
+			
+			if ( isset($articlesById[$thread->rootId]) )
+				$thread->root = $articlesById[$thread->rootId];
+			
 			Threads::$cache_by_id[$row->thread_id] = $thread;
 			
 			// User cache data
