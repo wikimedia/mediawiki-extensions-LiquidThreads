@@ -245,7 +245,7 @@ class LqtView {
 
 	function showSummarizeForm( $thread ) {
 		$this->output->addWikiMsg( 'lqt-summarize-intro' );
-		$this->showEditingFormInGeneral( null, 'summarize', $thread );
+		$this->showEditingFormInGeneral( $thread, 'summarize', $thread );
 	}
 	
 	function doInlineEditForm() {
@@ -404,7 +404,7 @@ class LqtView {
 			$thread = Threads::newThread( $edit_page, $article, $edit_applies_to,
 											Threads::TYPE_NORMAL, $subject );
 		} elseif ( $edit_type == 'summarize' ) {
-			$edit_applies_to->setSummary( $article );
+			$edit_applies_to->setSummary( $edit_page );
 			$edit_applies_to->commitRevision( Threads::CHANGE_EDITED_SUMMARY,
 												$edit_applies_to, $edit_summary );
 		} elseif ( $edit_type == 'editExisting' ) {
