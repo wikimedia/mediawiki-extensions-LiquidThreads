@@ -226,4 +226,18 @@ class LqtHooks {
 		
 		return true;
 	}
+	
+	static function customiseSearchResultTitle( &$title, &$text, $result, $terms, $page ) {
+		if ( $title->getNamespace() != NS_LQT_THREAD ) {
+			return true;
+		}
+		
+		$thread = Threads::withRoot( new Article($title) );
+		$text = $thread->subject();
+		
+		$title = clone $thread->topmostThread()->title();
+		$title->setFragment( '#'.$thread->getAnchorName() );
+		
+		return true;
+	}
 }

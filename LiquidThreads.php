@@ -74,6 +74,9 @@ $wgHooks['ArticleRevisionUndeleted'][] = 'LqtDeletionController::onArticleRevisi
 $wgHooks['ArticleUndelete'][] = 'LqtDeletionController::onArticleUndelete';
 $wgHooks['ArticleDelete'][] = 'LqtDeletionController::onArticleDelete';
 
+// Search
+$wgHooks['ShowSearchHitTitle'][] = 'LqtHooks::customiseSearchResultTitle';
+
 // Special pages
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
