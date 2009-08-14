@@ -47,7 +47,7 @@ class NewMessages {
 		$dbw =& wfGetDB( DB_MASTER );
 
 		$tpTitle = $t->article()->getTitle();
-		$root_t = $t->root()->getTitle();
+		$root_t = $t->topmostThread()->root()->getTitle();
 
 		// Select any applicable watchlist entries for the thread.
 		$talkpageWhere = array( 'wl_namespace' => $tpTitle->getNamespace(),

@@ -90,9 +90,15 @@ class Thread {
 		// Add history item.
 		$hthread = ThreadRevision::create( $thread, $change_type );
 		
+		// Create talk page
 		Threads::createTalkpageIfNeeded( $article );
 
+		// Notifications
 		NewMessages::writeMessageStateForUpdatedThread( $thread, $change_type, $wgUser );
+		
+		if ($wgUser->getOption( 'lqt-watch-threads', false ) ) {
+			$thread->topmostThread()->root()->doWatch();
+		}
 
 		return $thread;
 	}

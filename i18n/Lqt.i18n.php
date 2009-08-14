@@ -208,6 +208,7 @@ You may use any wikitext in your summary. When you finish, click "{{int:savearti
 	
 	// Preferences
 	'lqt-preference-notify-talk' => 'E-mail me on replies to a thread I am watching',
+	'lqt-preference-watch-threads' => 'Watch threads that I create or reply to',
 	
 	// E-mail notification
 	'lqt-enotif-subject-reply' => '{{SITENAME}} discussion - Reply: $1',

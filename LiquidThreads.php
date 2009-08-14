@@ -132,6 +132,8 @@ $wgDefaultUserOptions['lqtnotifytalk'] = true;
 
 /** CONFIGURATION SECTION */
 
+$wgDefaultUserOptions['lqt-watch-threads'] = true;
+
 $wgGroupPermissions['user']['lqt-split'] = true;
 $wgGroupPermissions['user']['lqt-merge'] = true;
 

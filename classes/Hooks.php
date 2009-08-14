@@ -149,9 +149,9 @@ class LqtHooks {
 	
 	static function getPreferences( $user, &$preferences ) {
 		global $wgEnableEmail;
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		
 		if ($wgEnableEmail) {
-			wfLoadExtensionMessages( 'LiquidThreads' );
 			$preferences['lqtnotifytalk'] =
 				array(
 					'type' => 'toggle',
@@ -159,6 +159,14 @@ class LqtHooks {
 					'section' => 'personal/email'
 				);
 		}
+		
+		
+		$preferences['lqt-watch-threads'] =
+			array(
+				'type' => 'toggle',
+				'label-message' => 'lqt-preference-watch-threads',
+				'section' => 'watchlist/advancedwatchlist',
+			);
 		
 		return true;
 	}
