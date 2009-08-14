@@ -17,7 +17,7 @@ class LqtDeletionController {
 			return true;
 		}
 		
-		$thread = $threads[0];
+		$thread = array_pop($threads);
 		
 		// Mark the thread as deleted
 		$thread->delete($reason);
