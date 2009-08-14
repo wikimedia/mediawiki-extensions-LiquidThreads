@@ -206,7 +206,7 @@ li#ca-nstab-thread {
 	padding-top: 1em;
 }
 
-.lqt-thread-toolbar {
+.lqt-thread-toolbar * {
 	clear: both;
 	line-height: 2em;
 	margin-bottom: 1em;

@@ -1,11 +1,17 @@
 var liquidThreads = {
 	'handleReplyLink' : function(e) {
-		e.preventDefault();
+		if (e.preventDefault)
+			e.preventDefault();
+
+		var target = this;
 		
-		var prefixLength = "lqt-reply-id-".length;
-		var replyLI = $j(this).closest('.lqt-command-reply')[0];
-		var thread_id = replyLI.id.substring( prefixLength );
-		var container = $j( '#lqt_thread_id_'+thread_id );
+		if ( !this.className && e.target) {
+			target = $j(e.target);
+		}
+		
+		var prefixLength = "lqt_thread_id_".length;
+		var container = $j(target).closest('.lqt_thread')[0];
+		var thread_id = container.id.substring( prefixLength );
 		var query = '&lqt_method=reply&lqt_operand='+thread_id;
 		
 		var replyDiv = $j(container).find('.lqt-reply-form')[0];
@@ -103,24 +109,19 @@ var liquidThreads = {
 	},
 	
 	'doQuote' : function(e) {
-		e.preventDefault();
+		if (e.preventDefault)
+			e.preventDefault();
 		
 		// Get the post node
 		// Keep walking up until we hit the thread node.
-		while (thread.id.substr(0,13) != 'lqt_thread_id') {
-			thread = thread.parentNode;
-		}
-		var post = getElementsByClassName( thread, 'div', 'lqt_post' )[0];
+		var thread = $j(this).closest('.lqt_thread');
+		var post = thread.find('.lqt_post');
 		
 		var text = liquidThreads.getSelection();
 		
 		if (text.length == 0) {
 			// Quote the whole post
-			if (post.innerText) {
-				text = post.innerText;
-			} else if (post.textContent) {
-				text = post.textContent;
-			}
+			text = post.text();
 		}
 		
 		text = liquidThreads.transformQuote( text );
@@ -132,8 +133,8 @@ var liquidThreads = {
 			textbox.focus();
 		} else {
 			// Open the reply window
-			var replyLI = getElementsByClassName( thread, 'li', 'lqt-command-reply' )[0];
-			var replyLink = replyLI.getElementsByTagName( 'a' )[0];
+			var replyLI = thread.find('.lqt-command-reply')[0];
+			var replyLink = $j(replyLI).find('a')[0];
 			
 			liquidThreads.handleReplyLink( { 'target':replyLink, 'preload':text } );
 		}
@@ -142,7 +143,7 @@ var liquidThreads = {
 	},
 	
 	'showQuoteButtons' : function() {
-		var elems = $j('div.lqt-thread-header-rhs');
+		var elems = $j('.lqt-thread-toolbar-rhs');
 		
 		elems.each( function(i) {
 			var quoteButton = $j('<span></span>' );
@@ -154,8 +155,8 @@ var liquidThreads = {
 			
 			quoteButton.click( liquidThreads.doQuote );
 			
-			this.prepend( '|' );
-			this.prepend( quoteButton );
+			$j(this).prepend( ' | ' );
+			$j(this).prepend( quoteButton );
 		} );
 	}
 }
