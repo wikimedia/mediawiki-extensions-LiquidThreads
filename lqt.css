@@ -124,7 +124,6 @@
 }
 
 .lqt_post {
-	padding:        0;
 	clear:          both;
 }
 
@@ -306,17 +305,7 @@ li.lqt-command-reply {
 	height: 1em;
 	display: inline-block;
 	vertical-align: middle;
-	padding-bottom: 0.5em;
-}
-
-.lqt_thread {
-	padding: 0.2em;
-	margin: 0.3em;
-}
-
-/* Only indent subthreads */
-.lqt_thread .lqt_thread {
-	margin-left: 2em;
+	padding-bottom: 0.2em;
 }
 
 .lqt-thread-toolbar-rhs {
@@ -359,4 +348,47 @@ fieldset.lqt-talkpage-search legend {
 	clear: both;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
+}
+
+div.lqt-post-sep {
+	height: 1px;
+	padding: 0;
+	margin: 0;
+	background-image: url(images/break.png);
+	background-position: bottom;
+	background-repeat: repeat-x;
+/*	margin-left: 2em;*/
+}
+
+.lqt-thread-first > .lqt-post-wrapper {
+	background-image: url(images/vertical-fade.png) !important;
+	background-repeat: no-repeat !important;
+	background-position: top left;
+}
+
+.lqt-thread-replies {
+	margin-left: 2em;
+}
+
+#bodyContent > .lqt_thread,
+.lqt-thread-replies {
+	background-image: url(images/edge.png);
+	background-repeat: repeat-y;
+	background-position: left;
+}
+
+.lqt-replies-finish {
+	background-image: url(images/edge.png);
+	background-position: bottom;
+	background-repeat: repeat-x;
+}
+
+.lqt-replies-finish > div {
+	background-image: url(images/corner.png);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+}
+
+.lqt-post-wrapper {
+	padding: 0.5em;
 }

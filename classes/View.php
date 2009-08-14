@@ -953,7 +953,7 @@ class LqtView {
 	
 	}
 
-	function showThread( $thread ) {
+	function showThread( $thread, $levelNum = 1, $totalInLevel = 1 ) {
 		global $wgLang;
 		
 		// Safeguard
@@ -972,25 +972,56 @@ class LqtView {
 		$html .= Xml::element( 'a', array( 'name' => $this->anchorName($thread) ), ' ' );
 		$html .= $this->showThreadHeading( $thread );
 		
-		// Sigh.
-		$html .= Xml::openElement( 'div', array( 'class' => $this->threadDivClass( $thread ),
+		$class = $this->threadDivClass( $thread );
+		if ($levelNum == 1) {
+			$class .= ' lqt-thread-first';
+		} elseif ($levelNum == $totalInLevel) {
+			$class .= ' lqt-thread-last';
+		}
+		$html .= Xml::openElement( 'div', array( 'class' => $class,
 									'id' => 'lqt_thread_id_'. $thread->id() ) );
 
 		// Flush output to display thread
 		$this->output->addHTML( $html );
 		
+		$this->output->addHTML( Xml::openElement( 'div',
+									array( 'class' => 'lqt-post-wrapper' ) ) );
 		$this->showSingleThread( $thread );
+		$this->output->addHTML( Xml::closeElement( 'div' ) );
 
 		if ( $thread->hasSubthreads() ) {
 			$repliesClass = 'lqt-thread-replies lqt-thread-replies-'.$this->threadNestingLevel;
 			$div = Xml::openElement( 'div', array( 'class' => $repliesClass ) );
 			$this->output->addHTML( $div );
+			
+			$subthreadCount = count( $thread->subthreads() );
+			$i = 0;
+			
 			foreach ( $thread->subthreads() as $st ) {
-				if ($st->type() != Threads::TYPE_DELETED) {
-					$this->showThread( $st );
+				++$i;
+				if ($i == 1 || !$lastSubthread->hasSubthreads() ) {
+					$this->output->addHTML(
+						Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&nbsp;' ) );
 				}
+				
+				if ($st->type() != Threads::TYPE_DELETED) {
+					$this->showThread( $st, $i, $subthreadCount );
+				}
+				
+				$lastSubthread = $st;
 			}
-			$this->output->addHTML( Xml::CloseElement( 'div' ) );
+			
+			$finishDiv = Xml::tags( 'div', array( 'class' => 'lqt-replies-finish' ),
+				Xml::tags( 'div', array( 'class' => 'lqt-replies-finish-corner' ), '&nbsp;' ) );
+			
+			$this->output->addHTML( $finishDiv . Xml::CloseElement( 'div' ) );
+		}
+
+		if ($this->threadNestingLevel == 1) {
+			$finishDiv = Xml::tags( 'div', array( 'class' => 'lqt-replies-finish' ),
+				Xml::tags( 'div', array( 'class' => 'lqt-replies-finish-corner' ), '&nbsp;' ) );
+				
+			$this->output->addHTML( $finishDiv );
 		}
 
 		$this->output->addHTML( Xml::closeElement( 'div' ) );
