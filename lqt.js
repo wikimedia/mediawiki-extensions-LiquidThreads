@@ -169,7 +169,7 @@ js2AddOnloadHook( function() {
 		var replyLI = $j(this).find( '.lqt-command-reply' );
 		var threadId = this.id.substring( prefixLength );
 		
-		if (!replyLI) {
+		if (!(replyLI.length)) {
 			return;
 		}
 		
