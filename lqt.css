@@ -23,13 +23,6 @@
 	padding-bottom: 0.75em;
 }
 
-.lqt_start_discussion {
-	display: table; /* Became necessary in Safari recently; don't know why it wasn't before. */
-	vertical-align: middle;
-	font-size:      120%;
-	clear: left;
-}
-
 .lqt_header_notice {
 	font-size:   smaller;
 	float:       right;

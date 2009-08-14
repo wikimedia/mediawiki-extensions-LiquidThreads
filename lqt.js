@@ -37,8 +37,7 @@ var liquidThreads = {
 		var url = wgServer+wgScript+'?lqt_inline=1&title='+encodeURIComponent(wgPageName)+
 					query
 					
-		$j('.lqt-reply-form').not(container).slideUp('slow');
-		$j('.lqt-reply-form').not(container).empty();
+		liquidThreads.cancelEdit( container );
 		
 		$j(container).load(wgServer+wgScript, 'title='+encodeURIComponent(wgPageName)+
 					query+'&lqt_inline=1',
@@ -48,6 +47,9 @@ var liquidThreads = {
 						}
 						
 						$j(container).slideDown('slow');
+						
+						var cancelButton = $j(container).find('#mw-editform-cancel');
+						cancelButton.click( liquidThreads.cancelEdit );
 					} );
 	},
 	
@@ -158,6 +160,15 @@ var liquidThreads = {
 			$j(this).prepend( ' | ' );
 			$j(this).prepend( quoteButton );
 		} );
+	},
+	
+	'cancelEdit' : function( e ) {
+		if (e.preventDefault) {
+			e.preventDefault();
+		}
+		
+		$j('.lqt-reply-form,.lqt-new-thread').not(e).slideUp('slow');
+		$j('.lqt-reply-form,.lqt-new-thread').not(e).empty();
 	}
 }
 

@@ -216,8 +216,8 @@ class TalkpageView extends LqtView {
 		
 		$newThreadText = wfMsgExt( 'lqt_new_thread', 'parseinline' );
 		$newThreadLink = $sk->link( $this->title, $newThreadText,
-									array( 'lqt_method' => 'talkpage_new_thread' ),
 									array( 'class' => 'lqt_start_discussion' ),
+									array( 'lqt_method' => 'talkpage_new_thread' ),
 									array( 'known' ) );
 									
 		$talkpageHeader .= Xml::tags( 'strong', null, $newThreadLink );
@@ -267,7 +267,7 @@ class TalkpageView extends LqtView {
 	function getSearchBox() {
 		$html = '';
 		$html .= Xml::inputLabel( wfMsg('lqt-search-label'), 'lqt_search', 'lqt-search-box',
-									60 );
+									45 );
 		
 		$html .= ' ' . Xml::submitButton( wfMsg( 'lqt-search-button' ) );
 		$html .= Xml::hidden( 'title', $this->title->getPrefixedText() );
