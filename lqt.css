@@ -157,13 +157,10 @@ li#ca-nstab-thread {
 }
 
 .lqt_view_options  {
-	font-size:85%;
-	float:right;
-}
-
-.lqt_view_options input {
-	/* This doesn't cascade for some reason. */
-	font-size:85%;
+	display: inline-block;
+	padding: 0.2em;
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 .lqt_go_sort {
@@ -344,4 +341,22 @@ fieldset.lqt-talkpage-search {
 
 fieldset.lqt-talkpage-search legend {
 	text-align: center;
+}
+
+.lqt-talkpage-search form {
+	display: inline-block;
+}
+
+.lqt-talkpage-search {
+	margin: 1em;
+	padding: 0.2em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.lqt-talkpage-header {
+	border: 1px solid #ddd;
+	clear: both;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
 }

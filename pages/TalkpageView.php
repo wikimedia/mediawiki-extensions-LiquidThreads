@@ -138,12 +138,6 @@ class TalkpageView extends LqtView {
 	function showTalkpageViewOptions( $article ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 
-		if ( $this->request->getCheck( 'lqt_sort_order' ) ) {
-			$remember_sort_checked = $this->request->getBool( 'lqt_remember_sort' );
-		} else {
-			$remember_sort_checked = '';
-		}
-
 		if ( $article->exists() ) {
 			$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
 			$go = wfMsg( 'go' );
@@ -164,42 +158,17 @@ class TalkpageView extends LqtView {
 											LQT_OLDEST_THREADS );
 			$html .= $sortOrderSelect->getHTML();
 			
-			if ( $this->user->isAllowed( 'deletedhistory' ) ) {
-				$show_deleted_checked = $this->request->getBool( 'lqt_show_deleted_threads' );
-				
-				$html .= Xml::element( 'br' ) .
-							Xml::checkLabel( wfMsg('lqt_delete_show_checkbox' ),
-											'lqt_show_deleted_threads',
-											'lqt_show_deleted_threads',
-											$show_deleted_checked );
-			}
-			
 			$html .= Xml::submitButton( wfMsg( 'go' ), array( 'class' => 'lqt_go_sort' ) );
 			$html .= Xml::hidden( 'title', $this->title->getPrefixedText() );
+			
 			
 			$html = Xml::tags( 'form', array( 'action' => $form_action_url,
 												'method' => 'get',
 												'name' => 'lqt_sort' ), $html );
 			$html = Xml::tags( 'div', array( 'class' => 'lqt_view_options' ), $html );
 			
-			$this->output->addHTML( $html );
+			return $html;
 		}
-	}
-	
-	function getArchiveTeaser() {
-		$archiveBrowseLink = $this->talkpageLink( $this->title,
-								wfMsgExt( 'lqt_browse_archive_without_recent', 'parseinline' ),
-								'talkpage_archive' );
-		$archiveBrowseLink = Xml::tags( 'div', array( 'class' => 'lqt_browse_archive' ),
-										$archiveBrowseLink );
-		$archiveBrowseLink = Xml::tags( 'div', array( 'class' => 'lqt_archive_teaser_empty' ),
-										$archiveBrowseLink );
-										
-		$archiveWidget = $this->getArchiveWidget( $recently_archived_threads );
-
-		$html = Xml::tags( 'div', array( 'class' => 'lqt_toc_archive_wrapper' ),
-							$archiveBrowseLink . $toc .
-							$archiveWidget );
 	}
 
 	function show() {
@@ -210,6 +179,9 @@ class TalkpageView extends LqtView {
 
 		$this->output->setPageTitle( $this->title->getPrefixedText() );
 		self::addJSandCSS();
+		
+		$sk = $this->user->getSkin();
+		
 		$article = new Article( $this->title );
 		
 		if ( $this->request->getBool( 'lqt_inline' ) ) {
@@ -237,6 +209,24 @@ class TalkpageView extends LqtView {
 		$this->showHeader();
 		
 		$html = '';
+		
+		// Set up a per-page header for new threads, search box, and sorting stuff.
+		
+		$talkpageHeader = '';
+		
+		$newThreadText = wfMsgExt( 'lqt_new_thread', 'parseinline' );
+		$newThreadLink = $sk->link( $this->title, $newThreadText,
+									array( 'lqt_method' => 'talkpage_new_thread' ),
+									array( 'class' => 'lqt_start_discussion' ),
+									array( 'known' ) );
+									
+		$talkpageHeader .= Xml::tags( 'strong', null, $newThreadLink );
+		$talkpageHeader .= $this->getSearchBox();
+		$talkpageHeader .= $this->showTalkpageViewOptions( $article );
+		$talkpageHeader = Xml::tags( 'div', array( 'class' => 'lqt-talkpage-header' ),
+									$talkpageHeader );
+		
+		$this->output->addHTML( $talkpageHeader );
 
 		global $wgRequest;
 		if ( $this->methodApplies( 'talkpage_new_thread' ) ) {
@@ -246,20 +236,9 @@ class TalkpageView extends LqtView {
 			$this->showNewThreadForm();
 			$this->output->addHTML( Xml::closeElement( 'div' ) );
 		} else {
-			$this->showTalkpageViewOptions( $article );
-			$newThreadLink = $this->talkpageLink( $this->title,
-												wfMsgExt( 'lqt_new_thread', 'parseinline' ),
-												'talkpage_new_thread', null, true,
-												array( 'class' => 'lqt_start_discussion' ),
-												array( 'known' ) );
-												
-			$this->output->addHTML( Xml::tags( 'strong', null, $newThreadLink ) );
-			
 			$this->output->addHTML( Xml::tags( 'div',
 				array( 'class' => 'lqt-new-thread lqt-edit-form' ), '' ) );
 		}
-		
-		$this->showSearchBox();
 		
 		$pager = $this->getPager();
 		
@@ -285,7 +264,7 @@ class TalkpageView extends LqtView {
 		return false;
 	}
 	
-	function showSearchBox() {
+	function getSearchBox() {
 		$html = '';
 		$html .= Xml::inputLabel( wfMsg('lqt-search-label'), 'lqt_search', 'lqt-search-box',
 									60 );
@@ -297,18 +276,18 @@ class TalkpageView extends LqtView {
 									'method' => 'get' ),
 							$html );
 		
-		$html = Xml::fieldset( wfMsg('lqt-search-legend' ), $html,
-								array( 'class' => 'lqt-talkpage-search' ) );
+#		$html = Xml::fieldset( wfMsg('lqt-search-legend' ), $html,
+#								array( 'class' => 'lqt-talkpage-search' ) );
+
+		$html = Xml::tags( 'span', array( 'class' => 'lqt-talkpage-search' ), $html );
 		
-		$this->output->addHTML( $html );
+		return $html;
 	}
 	
 	function getPager() {
-		$showDeleted = $this->request->getBool( 'lqt_show_deleted_threads' );
-		$showDeleted = $showDeleted && $this->user->isAllowed( 'deletedhistory' );
 		
 		$sortType = $this->getSortType();
-		return new LqtDiscussionPager( $this->article, $sortType, $showDeleted );
+		return new LqtDiscussionPager( $this->article, $sortType );
 	}
 	
 	function getPageThreads( $pager ) {
@@ -339,10 +318,9 @@ class TalkpageView extends LqtView {
 
 class LqtDiscussionPager extends IndexPager {
 
-	function __construct( $article, $orderType, $showDeleted ) {
+	function __construct( $article, $orderType ) {
 		$this->article = $article;
 		$this->orderType = $orderType;
-		$this->showDeleted = $showDeleted;
 		
 		parent::__construct();
 		
@@ -358,13 +336,9 @@ class LqtDiscussionPager extends IndexPager {
 					array(
 						Threads::articleClause( $this->article ),
 						Threads::topLevelClause(),
+						'thread_type != '. $this->mDb->addQuotes( Threads::TYPE_DELETED ),
 					),
 			);
-			
-		if ( !$this->showDeleted ) {
-			$queryInfo['conds'][] = 'thread_type != '.
-									$this->mDb->addQuotes( Threads::TYPE_DELETED );
-		}
 			
 		return $queryInfo;
 	}
