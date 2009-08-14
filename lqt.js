@@ -1,82 +1,48 @@
 var liquidThreads = {
 	'handleReplyLink' : function(e) {
-		var link;
-		if (!e) e = window.event;
-		if (e.target) link = e.target;
-		else if (e.srcElement) link = e.srcElement;
-		if (link.nodeType == 3) // defeat Safari bug
-			link = link.parentNode;
-		link = link.parentNode; // Get the enclosing li.
+		e.preventDefault();
 		
 		var prefixLength = "lqt-reply-id-".length;
-		var thread_id = link.id.substring( prefixLength );
-		var container = document.getElementById( 'lqt_thread_id_'+thread_id );
-		var footer_cmds = getElementsByClassName( container, '*', 'lqt-thread-toolbar' )[0];
+		var replyLI = $j(this).closest('.lqt-command-reply')[0];
+		var thread_id = replyLI.id.substring( prefixLength );
+		var container = $j( '#lqt_thread_id_'+thread_id );
 		var query = '&lqt_method=reply&lqt_operand='+thread_id;
 		
-		liquidThreads.injectEditForm( query, container, footer_cmds.nextSibling, e.preload );
-	
-		if (e.preventDefault)
-			e.preventDefault();
+		var replyDiv = $j(container).find('.lqt-reply-form')[0];
+		
+		liquidThreads.injectEditForm( query, replyDiv, e.preload );
 		
 		return false;
 	},
 	
 	'handleNewLink' : function(e) {
-		var link;
-		if (!e) e = window.event;
-		if (e.target) link = e.target;
-		else if (e.srcElement) link = e.srcElement;
-		if (link.nodeType == 3) // defeat Safari bug
-			link = link.parentNode;
-			
+		e.preventDefault();
+		
 		var query = '&lqt_method=talkpage_new_thread';
-		var container = document.getElementById( 'bodyContent' );
 		
-		liquidThreads.injectEditForm( query, container, link.parentNode.nextSibling );
+		var container = $j('.lqt-new-thread' );
 		
-		if (e.preventDefault)
-			e.preventDefault();
+		liquidThreads.injectEditForm( query, container );
 			
 		return false;
 	},
 	
-	'injectEditForm' : function(query, container, before, preload) {
-		var x = sajax_init_object();
-		var url = wgServer+wgScript+'?title='+encodeURIComponent(wgPageName)+
-					query+'&lqt_inline=1'
-		x.open( 'get', url, true );
-		
-		x.onreadystatechange =
-			function() {
-				if (x.readyState != 4)
-					return;
+	'injectEditForm' : function(query, container, preload) {
+		var url = wgServer+wgScript+'?lqt_inline=1&title='+encodeURIComponent(wgPageName)+
+					query
 					
-				if ( liquidThreads.currentEditForm ) {
-					var f = liquidThreads.currentEditForm;
-					f.parentNode.removeChild( f );
-				}
-				
-				var result = x.responseText;
-				var replyDiv = document.createElement( 'div' );
-				replyDiv.className = 'lqt_ajax_reply_form'
-				replyDiv.innerHTML = result;
-				
-				if (before) {
-					container.insertBefore( replyDiv, before );
-				} else {
-					container.appendChild( replyDiv );
-				}
-				
-				liquidThreads.currentEditForm = replyDiv;
-				
-				if (preload) {
-					var textbox = document.getElementById( 'wpTextbox1' );
-					textbox.value = preload;
-				}
-			};
+		$j('.lqt-reply-form').not(container).slideUp('slow');
+		$j('.lqt-reply-form').not(container).empty();
 		
-		x.send( null );
+		$j(container).load(wgServer+wgScript, 'title='+encodeURIComponent(wgPageName)+
+					query+'&lqt_inline=1',
+					function() {
+						if (preload) {
+							$j("textarea", container)[0].value = preload;
+						}
+						
+						$j(container).slideDown('slow');
+					} );
 	},
 	
 	//From http://clipmarks.com/clipmark/CEFC94CB-94D6-4495-A7AA-791B7355E284/
@@ -137,16 +103,7 @@ var liquidThreads = {
 	},
 	
 	'doQuote' : function(e) {
-		if (!e) e = window.event;
 		e.preventDefault();
-		
-		var button;
-		if (e.target) button = e.target;
-		else if (e.srcElement) button = e.srcElement;
-		if (button.nodeType == 3) // defeat Safari bug
-			button = button.parentNode;
-		
-		var thread = button;
 		
 		// Get the post node
 		// Keep walking up until we hit the thread node.
@@ -185,54 +142,48 @@ var liquidThreads = {
 	},
 	
 	'showQuoteButtons' : function() {
-		var elems = getElementsByClassName( document, 'div', 'lqt-thread-header-rhs' );
+		var elems = $j('div.lqt-thread-header-rhs');
 		
-		var length = elems.length;
-		for( var i = 0; i<length; ++i ) {
-			var quoteButton = document.createElement( 'span' );
+		elems.each( function(i) {
+			var quoteButton = $j('<span></span>' );
 			quoteButton.className = 'lqt-header-quote';
 			
-			var text = wgLqtMessages['lqt-quote'];
-			var textNode = document.createTextNode( text );
+			var link = $j('<a href="#"></a>');
+			link.append( wgLqtMessages['lqt-quote'] );
+			quoteButton.append( link );
 			
-			var link = document.createElement( 'a' );
-			link.href='#';
-			link.appendChild( textNode );
-			quoteButton.appendChild( link );
+			quoteButton.click( liquidThreads.doQuote );
 			
-			addHandler( quoteButton, 'click', liquidThreads.doQuote );
-			
-			elems[i].insertBefore( quoteButton, elems[i].firstChild );
-			elems[i].insertBefore( document.createTextNode( '|' ), quoteButton.nextSibling );
-		}
+			this.prepend( '|' );
+			this.prepend( quoteButton );
+		} );
 	}
 }
 
-addOnloadHook( function() {
+js2AddOnloadHook( function() {
 	// Find all the reply links
-	var threadContainers = getElementsByClassName( document, 'div', 'lqt_thread' );
+	var threadContainers = $j('div.lqt_thread');
 	var prefixLength = "lqt_thread_id_".length;
 	
-	for( var i = 0; i < threadContainers.length; ++i ) {
-		var container = threadContainers[i];
-		var replyLI = getElementsByClassName( container, '*', 'lqt-command-reply' )[0];
-		var threadId = container.id.substring( prefixLength );
+	threadContainers.each( function(i) {
+		var replyLI = $j(this).find( '.lqt-command-reply' );
+		var threadId = this.id.substring( prefixLength );
 		
 		if (!replyLI) {
-			continue;
+			return;
 		}
 		
-		replyLI.id = "lqt-reply-id-"+threadId;
-		var replyLink = replyLI.firstChild;
+		replyLI[0].id = "lqt-reply-id-"+threadId;
+		var replyLink = replyLI.find('a');
 		
-		addHandler( replyLink, 'click', liquidThreads.handleReplyLink );
-	}
+		replyLink.click( liquidThreads.handleReplyLink );
+	} );
 	
 	// Update the new thread link
-	var newThreadLink = getElementsByClassName( document, 'a', 'lqt_start_discussion' )[0];
+	var newThreadLink = $j('a.lqt_start_discussion');
 	
 	if (newThreadLink) {
-		addHandler( newThreadLink, 'click', liquidThreads.handleNewLink );
+		newThreadLink.click( liquidThreads.handleNewLink );
 	}
 	
 	// Show quote buttons

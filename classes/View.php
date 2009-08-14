@@ -851,6 +851,11 @@ class LqtView {
 			$this->output->addHTML( $html );
 			$this->showReplyForm( $thread );
 			$html = $this->unindent( $thread );
+		} else {
+			$html .= Xml::tags( 'div',
+						array( 'class' => 'lqt-reply-form lqt-edit-form',
+								'style' => 'display: none;'  ),
+						'' );
 		}
 		
 		$this->output->addHTML( $html );

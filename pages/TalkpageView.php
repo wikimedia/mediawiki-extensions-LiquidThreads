@@ -240,7 +240,11 @@ class TalkpageView extends LqtView {
 
 		global $wgRequest;
 		if ( $this->methodApplies( 'talkpage_new_thread' ) ) {
+			$params = array( 'class' => 'lqt-new-thread lqt-edit-form',
+								'style' => 'display: none;');
+			$this->output->addHTML( Xml::openElement( 'div', $params ) );
 			$this->showNewThreadForm();
+			$this->output->addHTML( Xml::closeElement( 'div' ) );
 		} else {
 			$this->showTalkpageViewOptions( $article );
 			$newThreadLink = $this->talkpageLink( $this->title,
@@ -250,6 +254,9 @@ class TalkpageView extends LqtView {
 												array( 'known' ) );
 												
 			$this->output->addHTML( Xml::tags( 'strong', null, $newThreadLink ) );
+			
+			$this->output->addHTML( Xml::tags( 'div',
+				array( 'class' => 'lqt-new-thread lqt-edit-form' ), '' ) );
 		}
 		
 		$this->showSearchBox();
