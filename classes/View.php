@@ -556,11 +556,20 @@ class LqtView {
 			$commands['merge-to'] = array( 'label' => $label, 'href' => $mergeUrl,
 											'enabled' => true );
 		}
-			
+		
+		$commands['link'] = array( 'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
+							'href' => $thread->title()->getFullURL(),
+							'enabled' => true, 'icon' => 'link.png' );
+		
+		if ( $thread->root()->getTitle()->quickUserCan( 'edit' ) ) {
+			$commands['edit'] = array( 'label' => wfMsgExt( 'edit', 'parseinline' ),
+								'href' => $this->talkpageUrl( $this->title, 'edit', $thread ),
+								'enabled' => true, 'icon' => 'edit.png' );
+		}
+		
 		$commands['reply'] = array( 'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
-							 'href' =>  $this->talkpageUrl( $this->title, 'reply', $thread ),
-							 'enabled' => true,
-							 'icon' => 'reply.png');
+							 'href' => $this->talkpageUrl( $this->title, 'reply', $thread ),
+							 'enabled' => true, 'icon' => 'reply.png');
 		
 		return $commands;
 	}
@@ -669,29 +678,9 @@ class LqtView {
 		
 		$sk = $this->user->getSkin();
 		$html = '';
-		
-		/// RHS, actions. Show as a drop-down, goes first in the HTML so it floats correctly.
-		$commands = $this->threadCommands( $thread );
-		$commandHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-command-list' ),
-									$this->listItemsForCommands( $commands ) );
 
 		$headerParts = array();
 		
-		$permalink = $this->permalink( $thread, wfMsgExt( 'lqt_permalink', 'parseinline' ) );
-		$permalink = Xml::tags( 'span', array( 'class' => 'lqt-thread-permalink' ), $permalink );
-		$headerParts[] = $permalink;
-		
-		// Drop-down menu
-		$triggerText =	wfMsgExt( 'lqt-header-actions', 'parseinline' ) .
-						Xml::tags( 'span', array('class' => 'lqt-thread-actions-icon'),
-										'&nbsp;');
-		$dropDownTrigger = Xml::tags( 	'span',
-										array( 'class' => 'lqt-thread-actions-trigger' ),
-										$triggerText );
-		$headerParts[] = Xml::tags( 'div',
-									array( 'class' => 'lqt-thread-toolbar-commands' ),
-									$dropDownTrigger . $commandHTML );
-									
 		foreach( $this->threadMajorCommands( $thread ) as $key => $cmd ) {
 			$content = $this->contentForCommand( $cmd );
 			$headerParts[] = Xml::tags( 'span',
@@ -699,45 +688,21 @@ class LqtView {
 										$content );
 		}
 		
-		$dropDown = Xml::tags( 'span',
-								array( 'class' => 'lqt-thread-toolbar-rhs' ),
-								$wgLang->pipeList( $headerParts ) );
-#		$html .= $dropDown;
-		
-		$infoElements = array();
-		
-		// Author name.
-		$author = $thread->author();
-		$signature = $sk->userLink( $author->getId(), $author->getName() );
-		$signature = Xml::tags( 'span', array( 'class' => 'lqt-thread-toolbar-author' ),
-								$signature );
-		$signature .= $sk->userToolLinks( $author->getId(), $author->getName() );
-		$infoElements[] = Xml::tags( 'span', array( 'class' => 'lqt-thread-toolbar-signature' ),
-								$signature );
-		
-		$timestamp = $wgLang->timeanddate( $thread->created(), true );
-		$infoElements[] = Xml::element( 'span', array( 'class' => 'lqt-thread-toolbar-timestamp' ),
-									$timestamp );
+		// Drop-down menu
+		$commands = $this->threadCommands( $thread );
+		$commandHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-command-list' ),
+									$this->listItemsForCommands( $commands ) );
 									
-		// Check for edited flag.
-		$editedFlag = $thread->editedness();		
-		$ebLookup = array( Threads::EDITED_BY_AUTHOR => 'author',
-							Threads::EDITED_BY_OTHERS => 'others' );
-		if ( isset( $ebLookup[$editedFlag] ) ) {
-
-			$editedBy = $ebLookup[$editedFlag];
-			$editedNotice = wfMsgExt( 'lqt-thread-edited-'.$editedBy, 'parseinline' );
-			$infoElements[] = Xml::element( 'span', array( 'class' =>
-											'lqt-thread-toolbar-edited-'.$editedBy ),
-											$editedNotice );
-		}
-		
-		$html .= Xml::tags( 'span', array( 'class' => 'lqt-thread-toolbar-info' ),
-							$wgLang->pipeList( $infoElements ) );
+		$triggerText =	Xml::tags( 'span', array('class' => 'lqt-thread-actions-icon'),
+										'&nbsp;');
+		$dropDownTrigger = Xml::tags( 'span',
+										array( 'class' => 'lqt-thread-actions-trigger' ),
+										$triggerText );
+		$headerParts[] = Xml::tags( 'div',
+									array( 'class' => 'lqt-thread-toolbar-commands' ),
+									$dropDownTrigger . $commandHTML );
 							
-		// Fix the floating elements by adding a clear.
-		$html .= $dropDown;
-#		$html .= Xml::tags( 'span', array( 'style' => 'clear: both;' ), '&nbsp;' );
+		$html .= $wgLang->pipeList( $headerParts );
 							
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-toolbar' ), $html );
 		
@@ -768,8 +733,14 @@ class LqtView {
 			$src = $wgScriptPath . '/extensions/LiquidThreads/icons/'.$command['icon'];
 			$icon = Xml::element( 'img', array( 'src' => $src,
 												'alt' => $label,
+												'title' => $label,
 												'class' => 'lqt-command-icon' ) );
-			$label = $icon.'&nbsp;'.$label;
+												
+			if ( !empty($command['showlabel']) ) {
+				$label = $icon.'&nbsp;'.$label;
+			} else {
+				$label = $icon;
+			}
 		}
 		
 		$thisCommand = '';
@@ -797,6 +768,8 @@ class LqtView {
 		
 		$divClass = $this->postDivClass( $thread );
 		$html = '';
+		
+		$this->output->addHTML( $this->threadInfoPanel( $thread ) );
 
 		// This is a bit of a hack to have individual histories work.
 		// We can grab oldid either from lqt_oldid (which is a thread rev),
@@ -824,6 +797,7 @@ class LqtView {
 			$html .= $this->showPostBody( $post, $oldid );
 			$html .= Xml::closeElement( 'div' );
 			$html .= $this->showThreadToolbar( $thread );
+			$html .= $this->threadSignature( $thread );
 		}		
 		
 		// If we're replying to this thread, show the reply form after it.
@@ -843,6 +817,50 @@ class LqtView {
 
 		$popts->setEditSection( $previous_editsection );
 		$this->output->parserOptions( $popts );
+	}
+	
+	function threadSignature( $thread ) {
+		global $wgUser;
+		$sk = $wgUser->getSkin();
+		
+		$author = $thread->author();
+		$signature = $sk->userLink( $author->getId(), $author->getName() );
+		$signature = '&mdash; '. Xml::tags( 'span', array( 'class' => 'lqt-thread-author' ),
+								$signature );
+		$signature .= $sk->userToolLinks( $author->getId(), $author->getName() );
+		
+		$signature = Xml::tags( 'div', array( 'class' => 'lqt-thread-signature' ),
+								$signature );
+		
+		return $signature;
+	}
+	
+	function threadInfoPanel( $thread ) {
+		global $wgUser, $wgLang;
+		
+		$sk = $wgUser->getSkin();
+		
+		$infoElements = array();
+		
+		$timestamp = $wgLang->timeanddate( $thread->created(), true );
+		$infoElements[] = Xml::element( 'div', array( 'class' => 'lqt-thread-toolbar-timestamp' ),
+									$timestamp );
+									
+		// Check for edited flag.
+		$editedFlag = $thread->editedness();		
+		$ebLookup = array( Threads::EDITED_BY_AUTHOR => 'author',
+							Threads::EDITED_BY_OTHERS => 'others' );
+		if ( isset( $ebLookup[$editedFlag] ) ) {
+
+			$editedBy = $ebLookup[$editedFlag];
+			$editedNotice = wfMsgExt( 'lqt-thread-edited-'.$editedBy, 'parseinline' );
+			$infoElements[] = Xml::element( 'div', array( 'class' =>
+											'lqt-thread-toolbar-edited-'.$editedBy ),
+											$editedNotice );
+		}
+		
+		return Xml::tags( 'div', array( 'class' => 'lqt-thread-info-panel' ),
+							implode( "\n", $infoElements ) );
 	}
 
 	/** Shows the headING for a thread (as opposed to the headeER for a post within

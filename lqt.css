@@ -211,6 +211,10 @@ li#ca-nstab-thread {
 	margin-bottom: 1em;
 }
 
+.lqt-thread-toolbar {
+	float: right;
+}
+
 .lqt-thread-toolbar-info > span {
 	padding-left: 1em;
 	padding-right: 1em;
@@ -357,7 +361,6 @@ div.lqt-post-sep {
 	background-image: url(images/break.png);
 	background-position: bottom;
 	background-repeat: repeat-x;
-/*	margin-left: 2em;*/
 }
 
 .lqt-thread-first > .lqt-post-wrapper {
@@ -391,4 +394,12 @@ div.lqt-post-sep {
 
 .lqt-post-wrapper {
 	padding: 0.5em;
+}
+
+.lqt-thread-info-panel {
+	float: right;
+}
+
+.lqt-thread-toolbar-timestamp {
+	color: silver;
 }
