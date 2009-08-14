@@ -34,6 +34,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 			Threads::CHANGE_MERGED_FROM => 'lqt_change_merged_from',
 			Threads::CHANGE_MERGED_TO => 'lqt_change_merged_to',
 			Threads::CHANGE_SPLIT_FROM => 'lqt_change_split_from',
+			Threads::CHANGE_EDITED_SUMMARY => 'lqt_change_edited_summary',
 		);
 		
 		if ( isset($messages[$ct]) ) {
