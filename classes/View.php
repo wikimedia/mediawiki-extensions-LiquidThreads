@@ -744,23 +744,6 @@ class LqtView {
 		return $html;
 	}
 
-	function showThreadFooter( $thread ) {
-		global $wgLang, $wgUser;
-		
-		$sk = $wgUser->getSkin();
-		$html = '';
-
-		// Footer commands
-		$footerCommands =
-			$this->listItemsForCommands( $this->threadFooterCommands( $thread ) );
-		$html .=
-			Xml::tags( 'span', array( 'class' => "lqt_footer_commands" ), $footerCommands );
-
-		$html = Xml::tags( 'ul', array( 'class' => 'lqt_footer' ), $html );
-		
-		return $html;
-	}
-
 	function listItemsForCommands( $commands ) {
 		$result = array();
 		foreach ( $commands as $key => $command ) {
@@ -837,7 +820,6 @@ class LqtView {
 			$this->showPostEditingForm( $thread );
 			$html .= Xml::closeElement( 'div' );
 		} else {
-			$html .= $this->getReplyContext( $thread );
 			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
 			$html .= $this->showPostBody( $post, $oldid );
 			$html .= Xml::closeElement( 'div' );
@@ -847,10 +829,9 @@ class LqtView {
 		// If we're replying to this thread, show the reply form after it.
 		if ( $this->methodAppliesToThread( 'reply', $thread ) ) {
 			// As with above, flush HTML to avoid refactoring EditPage.
-			$html .= $this->indent( $thread );
 			$this->output->addHTML( $html );
 			$this->showReplyForm( $thread );
-			$html = $this->unindent( $thread );
+			$html = '';
 		} else {
 			$html .= Xml::tags( 'div',
 						array( 'class' => 'lqt-reply-form lqt-edit-form',
@@ -898,23 +879,6 @@ class LqtView {
 
 	static function anchorName( $thread ) {
 		return $thread->getAnchorName();
-	}
-	
-	// Gets HTML for the 'in reply to' thing if warranted.
-	function getReplyContext( $thread ) {
-		if ( $this->lastUnindentedSuperthread ) {
-			wfLoadExtensionMessages( 'LiquidThreads' );
-			$tmp = $this->lastUnindentedSuperthread;
-			$replyLink = Xml::tags( 'a', array( 'href' => '#'.$this->anchorName( $tmp ) ),
-									$tmp->subject() );
-			$msg = wfMsgExt( 'lqt_in_response_to', array( 'parseinline', 'replaceafter' ),
-				array( $replyLink, $tmp->author()->getName() ) );
-				
-			return Xml::tags( 'span', array( 'class' => 'lqt_nonindent_message' ),
-								"&larr; $msg" );
-		}
-		
-		return '';
 	}
 	
 	// Display a moved thread
@@ -1018,11 +982,15 @@ class LqtView {
 		$this->showSingleThread( $thread );
 
 		if ( $thread->hasSubthreads() ) {
+			$repliesClass = 'lqt-thread-replies lqt-thread-replies-'.$this->threadNestingLevel;
+			$div = Xml::openElement( 'div', array( 'class' => $repliesClass ) );
+			$this->output->addHTML( $div );
 			foreach ( $thread->subthreads() as $st ) {
 				if ($st->type() != Threads::TYPE_DELETED) {
 					$this->showThread( $st );
 				}
 			}
+			$this->output->addHTML( Xml::CloseElement( 'div' ) );
 		}
 
 		$this->output->addHTML( Xml::closeElement( 'div' ) );
@@ -1036,34 +1004,6 @@ class LqtView {
 		$alternatingClass = "lqt-thread-$alternatingType";
 		
 		return "lqt_thread $levelClass $alternatingClass";
-	}
-
-	// FIXME does indentation need rethinking?
-	function indent( $thread ) {
-		$result = '';
-		if ( $this->headerLevel <= $this->maxIndentationLevel ) {
-			$result = '<dl class="lqt_replies"><dd>';
-		} else {
-			$result = '<div class="lqt_replies_without_indent">';
-		}
-		$this->lastUnindentedSuperthread = null;
-		$this->headerLevel += 1;
-		
-		return $result;
-	}
-	
-	function unindent( $thread ) {
-		$result = '';
-		if ( $this->headerLevel <= $this->maxIndentationLevel + 1 ) {
-			$result = '</dd></dl>';
-		} else {
-			$result = '</div>';
-		}
-		// See the beginning of showThread().
-		$this->lastUnindentedSuperthread = $thread->superthread();
-		$this->headerLevel -= 1;
-		
-		return $result;
 	}
 
 	function getSummary( $t ) {
