@@ -1057,6 +1057,7 @@ class LqtView {
 
 	function getSummary( $t ) {
 		if ( !$t->summary() ) return;
+		if ( !$t->summary()->getContent() ) return; // Blank summary
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		global $wgUser;
 		$sk = $wgUser->getSkin();
