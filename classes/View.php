@@ -699,10 +699,16 @@ class LqtView {
 										array( 'class' => 'lqt-thread-actions-trigger' ),
 										$triggerText );
 		$headerParts[] = Xml::tags( 'div',
-									array( 'class' => 'lqt-thread-toolbar-commands' ),
+									array( 'class' => 'lqt-thread-toolbar-menu' ),
 									$dropDownTrigger . $commandHTML );
 							
-		$html .= $wgLang->pipeList( $headerParts );
+		$html .= implode( ' ', $headerParts );
+		
+		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-toolbar-commands' ), $html );
+		
+		$html = Xml::tags( 'div', array( 'class' => 'lqt-toolbar-lhs' ), '&nbsp;' ) .
+				$html .
+				Xml::tags( 'div', array( 'class' => 'lqt-toolbar-rhs' ), '&nbsp;' );
 							
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-toolbar' ), $html );
 		
@@ -768,8 +774,6 @@ class LqtView {
 		
 		$divClass = $this->postDivClass( $thread );
 		$html = '';
-		
-		$this->output->addHTML( $this->threadInfoPanel( $thread ) );
 
 		// This is a bit of a hack to have individual histories work.
 		// We can grab oldid either from lqt_oldid (which is a thread rev),
@@ -793,10 +797,10 @@ class LqtView {
 			$this->showPostEditingForm( $thread );
 			$html .= Xml::closeElement( 'div' );
 		} else {
+			$html .= $this->showThreadToolbar( $thread );
 			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
 			$html .= $this->showPostBody( $post, $oldid );
 			$html .= Xml::closeElement( 'div' );
-			$html .= $this->showThreadToolbar( $thread );
 			$html .= $this->threadSignature( $thread );
 		}		
 		
@@ -957,6 +961,8 @@ class LqtView {
 			
 			if (!$res) return;
 		}
+		
+		$this->output->addHTML( $this->threadInfoPanel( $thread ) );
 		
 		if ( $thread->summary() ) {
 			$html .= $this->getSummary( $thread );

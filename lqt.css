@@ -62,7 +62,7 @@
 }
 
 .lqt_thread_permalink_summary {
-	margin-right: 5em;
+	margin-right: 12em;
 }
 
 .lqt_thread_permalink_summary_body {
@@ -194,16 +194,6 @@ li#ca-nstab-thread {
 	padding-top: 1em;
 }
 
-.lqt-thread-toolbar * {
-	clear: both;
-	line-height: 2em;
-	margin-bottom: 1em;
-}
-
-.lqt-thread-toolbar {
-	float: right;
-}
-
 .lqt-thread-toolbar-info > span {
 	padding-left: 1em;
 	padding-right: 1em;
@@ -236,7 +226,7 @@ li.lqt-command-reply {
 	text-align: right;
 }
 
-.lqt-thread-toolbar-commands:hover {
+.lqt-thread-toolbar-menu:hover {
 	background-color: #eeeeee;
 }
 
@@ -246,12 +236,11 @@ li.lqt-command-reply {
 	color: #002BB8;
 }
 
-.lqt-thread-toolbar-commands:hover .lqt-thread-actions-trigger {
-	border: 1px solid #aaaaaa;
+.lqt-thread-toolbar-menu:hover .lqt-thread-actions-trigger {
 	border-bottom: none;
 }
 
-.lqt-thread-toolbar-commands ul {
+.lqt-thread-toolbar-menu ul {
 	display: none;
 	position: absolute;
 	list-style-type: none !important;
@@ -262,7 +251,7 @@ li.lqt-command-reply {
 	margin: 0 !important;
 }
 
-.lqt-thread-toolbar-commands:hover ul {
+.lqt-thread-toolbar-menu:hover ul {
 	display: block;
 }
 
@@ -301,14 +290,7 @@ li.lqt-command-reply {
 	padding-bottom: 0.2em;
 }
 
-.lqt-thread-toolbar-rhs {
-	/*float: right;*/
-	/*font-size: 85%;*/
-	margin: 0;
-	text-wrap: suppress;
-}
-
-.lqt-thread-toolbar-commands {
+.lqt-thread-toolbar-menu {
 	padding: 0;
 	margin: 0;
 	display: inline-block;
@@ -350,6 +332,7 @@ div.lqt-post-sep {
 	background-image: url(images/break.png);
 	background-position: bottom;
 	background-repeat: repeat-x;
+	clear: both;
 }
 
 .lqt-thread-first > .lqt-post-wrapper {
@@ -391,4 +374,45 @@ div.lqt-post-sep {
 
 .lqt-thread-toolbar-timestamp {
 	color: silver;
+}
+
+.lqt-thread-toolbar {
+	float: right;
+	clear: right;
+	padding: 0;
+	height: 30px;
+}
+
+.lqt-toolbar-lhs {
+	background-image: url(images/actions-left.png);
+	background-position: right center;
+}
+
+.lqt-toolbar-lhs, .lqt-toolbar-rhs {
+	background-repeat: no-repeat;
+	width: 6px;
+	height: 30px;
+	margin-top: -10px;
+}
+
+.lqt-toolbar-rhs {
+	background-image: url(images/actions-right.png);
+	background-position: left center;
+}
+
+.lqt-thread-toolbar .lqt-command-icon {
+	height: 1.3em;
+	width: 1.3em;
+	vertical-align: bottom;
+}
+
+.lqt-thread-toolbar-commands {
+	background-image: url(images/actions-base.png);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 30px;
+}
+
+.lqt-thread-toolbar div {
+	display: inline-block;
 }
