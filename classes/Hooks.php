@@ -240,4 +240,13 @@ class LqtHooks {
 		
 		return true;
 	}
+	
+	static function onUserRename( $renameUserSQL ) {
+		// Always use the job queue, talk page edits will take forever
+		$renameUserSQL->tablesJob['thread'] =
+				array( 'thread_author_name', 'thread_author_id', 'thread_modified' );
+		$renameUserSQL->tablesJob['thread_history'] =
+				array( 'th_user_text', 'th_user', 'th_timestamp' );
+		return true;
+	}
 }
