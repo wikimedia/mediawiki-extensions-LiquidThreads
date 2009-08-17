@@ -50,6 +50,8 @@ var liquidThreads = {
 						
 						var cancelButton = $j(container).find('#mw-editform-cancel');
 						cancelButton.click( liquidThreads.cancelEdit );
+						
+						$j(container).find('#wpTextbox1')[0].rows = 10;
 					} );
 	},
 	
