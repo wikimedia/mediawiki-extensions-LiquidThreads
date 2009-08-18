@@ -1,4 +1,6 @@
 var liquidThreads = {
+	currentReplyThread : null,
+	
 	'handleReplyLink' : function(e) {
 		if (e.preventDefault)
 			e.preventDefault();
@@ -12,11 +14,18 @@ var liquidThreads = {
 		var prefixLength = "lqt_thread_id_".length;
 		var container = $j(target).closest('.lqt_thread')[0];
 		var thread_id = container.id.substring( prefixLength );
+		
+		if (thread_id == liquidThreads.currentReplyThread) {
+			liquidThreads.cancelEdit({});
+			return;
+		}
+		
 		var query = '&lqt_method=reply&lqt_operand='+thread_id;
 		
 		var replyDiv = $j(container).find('.lqt-reply-form')[0];
 		
 		liquidThreads.injectEditForm( query, replyDiv, e.preload );
+		liquidThreads.currentReplyThread = thread_id;
 		
 		return false;
 	},
@@ -29,6 +38,7 @@ var liquidThreads = {
 		var container = $j('.lqt-new-thread' );
 		
 		liquidThreads.injectEditForm( query, container );
+		liquidThreads.currentReplyThread = 0;
 			
 		return false;
 	},
@@ -175,8 +185,9 @@ var liquidThreads = {
 			e.preventDefault();
 		}
 		
-		$j('.lqt-reply-form,.lqt-new-thread').not(e).slideUp('slow');
-		$j('.lqt-reply-form,.lqt-new-thread').not(e).empty();
+		$j('.lqt-edit-form').not(e).slideUp('slow', function() { $j(this).empty(); } );
+		
+		liquidThreads.currentReplyThread = null;
 	}
 }
 
