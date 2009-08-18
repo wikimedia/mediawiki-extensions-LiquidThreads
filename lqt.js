@@ -166,10 +166,10 @@ var liquidThreads = {
 		var elems = $j('.lqt-thread-toolbar-rhs');
 		
 		elems.each( function(i) {
-			var quoteButton = $j('<span></span>' );
+			var quoteButton = $j('<span/>' );
 			quoteButton.className = 'lqt-header-quote';
 			
-			var link = $j('<a href="#"></a>');
+			var link = $j('<a href="#"/>');
 			link.append( wgLqtMessages['lqt-quote'] );
 			quoteButton.append( link );
 			
