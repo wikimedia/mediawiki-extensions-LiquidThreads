@@ -52,6 +52,12 @@ var liquidThreads = {
 						cancelButton.click( liquidThreads.cancelEdit );
 						
 						$j(container).find('#wpTextbox1')[0].rows = 10;
+						
+						// Scroll to the textbox
+						var targetOffset = $j(container).find('#wpTextbox1').offset().top;
+						// Buffer at the top, roughly enough to see the heading and one line
+						targetOffset -= 100;
+						$j('html,body').animate({scrollTop: targetOffset}, 'slow');
 					} );
 	},
 	
