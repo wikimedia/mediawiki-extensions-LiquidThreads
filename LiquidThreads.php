@@ -80,6 +80,9 @@ $wgHooks['ShowSearchHitTitle'][] = 'LqtHooks::customiseSearchResultTitle';
 // Rename
 $wgHooks['RenameUserSQL'][] = 'LqtHooks::onUserRename';
 
+// Edit-related
+$wgHooks['EditPageBeforeEditChecks'][] = 'LqtHooks::editCheckBoxes';
+
 // Special pages
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';

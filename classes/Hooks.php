@@ -249,4 +249,15 @@ class LqtHooks {
 				array( 'th_user_text', 'th_user', 'th_timestamp' );
 		return true;
 	}
+	
+	static function editCheckboxes( $editPage, &$checkboxes, &$tabIndex ) {
+		$article = $editPage->getArticle();
+		$title = $article->getTitle();
+		
+		if ( !$article->exists() && $title->getNamespace() == NS_LQT_THREAD ) {
+			unset( $checkboxes['minor'] );
+		}
+		
+		return true;
+	}
 }
