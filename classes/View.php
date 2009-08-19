@@ -310,18 +310,6 @@ class LqtView {
 					wfMsgExt( 'lqt_invalid_subject', 'parse' ) );
 		}
 		
-		if ( $subject && $thread && $subject != $thread->subjectWithoutIncrement() &&
-				!$this->user->isAllowed( 'move' ) ) {
-			$e->editFormPageTop .= 
-				Xml::tags( 'div', array( 'class' => 'error' ),
-					wfMsgExt( 'lqt_subject_change_forbidden', 'parse' ) );
-			$failed_rename = true;
-			
-			// Reset the subject
-			global $wgRequest;
-			$wgRequest->setVal( 'lqt_subject_field', $thread->subjectWithoutIncrement() ); 
-		}
-		
 		if ( (!$valid_subject && $subject) || $failed_rename ) {
 			// Dirty hack to prevent saving from going ahead
 			global $wgRequest;
@@ -358,9 +346,6 @@ class LqtView {
 			$subject_label = wfMsg( 'lqt_subject' );
 			
 			$attr = array( 'tabindex' => 1 );
-			if ( $thread && !$this->user->isAllowed( 'move' ) ) {
-				$attr['readonly'] = 'readonly';
-			}
 			
 			$e->editFormTextBeforeContent .=
 				Xml::inputLabel( $subject_label, 'lqt_subject_field', 'lqt_subject_field',
