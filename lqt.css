@@ -403,6 +403,7 @@ div.lqt-post-sep {
 .lqt-thread-toolbar .lqt-command-icon {
 	height: 1.3em;
 	width: 1.3em;
+	display: inline-block;
 	vertical-align: bottom;
 }
 
@@ -417,4 +418,32 @@ div.lqt-post-sep {
 	display: inline-block;
 }
 
+.lqt-command-edit .lqt-command-icon {
+	background-image: url(icons/edit-desat.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
 
+.lqt-command-edit:hover .lqt-command-icon {
+	background-image: url(icons/edit.png) !important;
+}
+
+.lqt-command-reply .lqt-command-icon {
+	background-image: url(icons/reply.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.lqt-command-link .lqt-command-icon {
+	background-image: url(icons/link-desat.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.lqt-command-link:hover .lqt-command-icon {
+	background-image: url(icons/link.png) !important;
+}
+
+.lqt-command:hover, .lqt-command:hover * {
+	text-decoration: none !important;
+}

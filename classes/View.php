@@ -542,6 +542,10 @@ class LqtView {
 											'enabled' => true );
 		}
 		
+		$commands['reply'] = array( 'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
+							 'href' => $this->talkpageUrl( $this->title, 'reply', $thread ),
+							 'enabled' => true, 'icon' => 'reply.png', 'showlabel' => 1);
+		
 		$commands['link'] = array( 'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
 							'href' => $thread->title()->getFullURL(),
 							'enabled' => true, 'icon' => 'link.png' );
@@ -551,10 +555,6 @@ class LqtView {
 								'href' => $this->talkpageUrl( $this->title, 'edit', $thread ),
 								'enabled' => true, 'icon' => 'edit.png' );
 		}
-		
-		$commands['reply'] = array( 'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
-							 'href' => $this->talkpageUrl( $this->title, 'reply', $thread ),
-							 'enabled' => true, 'icon' => 'reply.png');
 		
 		return $commands;
 	}
@@ -721,11 +721,8 @@ class LqtView {
 		
 		if ( isset( $command['icon'] ) ) {
 			global $wgScriptPath;
-			$src = $wgScriptPath . '/extensions/LiquidThreads/icons/'.$command['icon'];
-			$icon = Xml::element( 'img', array( 'src' => $src,
-												'alt' => $label,
-												'title' => $label,
-												'class' => 'lqt-command-icon' ) );
+			$icon = Xml::tags( 'div', array( 'title' => $label,
+												'class' => 'lqt-command-icon' ), '&nbsp;' );
 												
 			if ( !empty($command['showlabel']) ) {
 				$label = $icon.'&nbsp;'.$label;
