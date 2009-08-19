@@ -230,8 +230,7 @@ class TalkpageView extends LqtView {
 
 		global $wgRequest;
 		if ( $this->methodApplies( 'talkpage_new_thread' ) ) {
-			$params = array( 'class' => 'lqt-new-thread lqt-edit-form',
-								'style' => 'display: none;');
+			$params = array( 'class' => 'lqt-new-thread lqt-edit-form' );
 			$this->output->addHTML( Xml::openElement( 'div', $params ) );
 			$this->showNewThreadForm();
 			$this->output->addHTML( Xml::closeElement( 'div' ) );

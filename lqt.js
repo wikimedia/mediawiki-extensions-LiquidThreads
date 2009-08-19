@@ -217,6 +217,8 @@ js2AddOnloadHook( function() {
 		newThreadLink.click( liquidThreads.handleNewLink );
 	}
 	
+	$j('div.lqt-edit-form').each( function() { this.style.display = 'none'; } );
+	
 	// Show quote buttons
 	liquidThreads.showQuoteButtons();
 } );
