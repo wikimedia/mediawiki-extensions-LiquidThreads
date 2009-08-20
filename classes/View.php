@@ -668,7 +668,7 @@ class LqtView {
 		
 		foreach( $this->threadMajorCommands( $thread ) as $key => $cmd ) {
 			$content = $this->contentForCommand( $cmd );
-			$headerParts[] = Xml::tags( 'span',
+			$headerParts[] = Xml::tags( 'li',
 										array( 'class' => "lqt-command lqt-command-$key" ),
 										$content );
 		}
@@ -683,13 +683,13 @@ class LqtView {
 		$dropDownTrigger = Xml::tags( 'span',
 										array( 'class' => 'lqt-thread-actions-trigger' ),
 										$triggerText );
-		$headerParts[] = Xml::tags( 'div',
+		$headerParts[] = Xml::tags( 'li',
 									array( 'class' => 'lqt-thread-toolbar-menu' ),
 									$dropDownTrigger . $commandHTML );
 							
 		$html .= implode( ' ', $headerParts );
 		
-		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-toolbar-commands' ), $html );
+		$html = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-commands' ), $html );
 		
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-toolbar-lhs' ), '&nbsp;' ) .
 				$html .

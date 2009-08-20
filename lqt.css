@@ -447,3 +447,13 @@ div.lqt-post-sep {
 .lqt-command:hover, .lqt-command:hover * {
 	text-decoration: none !important;
 }
+
+ul.lqt-thread-toolbar-commands {
+	list-style-type: none;
+	display: inline-block;
+	margin: 0;
+}
+
+ul.lqt-thread-toolbar-commands li {
+	display: inline-block;
+}
