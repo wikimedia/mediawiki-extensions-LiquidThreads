@@ -584,16 +584,6 @@ class LqtView {
 			                     'enabled' => true );
 		}
 		
-		if ( $this->user->isAllowed( 'delete' ) ) {
-			$delete_title = SpecialPage::getTitleFor( 'DeleteThread',
-								$thread->title()->getPrefixedText() );
-			$delete_href = $delete_title->getFullURL();
-			
-			$commands['delete'] = array( 'label' => wfMsg( 'delete' ),
-									'href' => $delete_href,
-									'enabled' => true );
-		}
-		
 		$summarizeUrl = self::permalinkUrl( $thread, 'summarize', $thread->id() );
 		$commands['summarize'] = array(
 									'label' => wfMsgExt( 'lqt_summarize_link', 'parseinline' ),

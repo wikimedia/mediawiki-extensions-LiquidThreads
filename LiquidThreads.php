@@ -72,7 +72,7 @@ $wgHooks['ModifyExportQuery'][] = 'LqtHooks::modifyExportQuery';
 $wgHooks['ArticleDeleteComplete'][] = 'LqtDeletionController::onArticleDeleteComplete';
 $wgHooks['ArticleRevisionUndeleted'][] = 'LqtDeletionController::onArticleRevisionUndeleted';
 $wgHooks['ArticleUndelete'][] = 'LqtDeletionController::onArticleUndelete';
-$wgHooks['ArticleDelete'][] = 'LqtDeletionController::onArticleDelete';
+$wgHooks['ArticleConfirmDelete'][] = 'LqtDeletionController::onArticleConfirmDelete';
 
 // Search
 $wgHooks['ShowSearchHitTitle'][] = 'LqtHooks::customiseSearchResultTitle';

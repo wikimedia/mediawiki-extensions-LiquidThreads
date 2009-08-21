@@ -187,6 +187,11 @@ You may use any wikitext in your summary. When you finish, click "{{int:savearti
 	'lqt-split-submit'		  => 'Split',
 	'lqt_split_badsubject'    => 'The subject you entered is invalid.',
 	'lqt-no-threads'		  => 'There are no threads on this page yet.',
+	'lqt-delete-parent-warning'=> 'This is a top-level thread with replies.
+Its replies will also be deleted automatically.
+To avoid this, split them from this thread before deleting it.',
+	'lqt-delete-parent-deleted'=> 'Parent thread deleted ($1)',
+	'lqt-delete-replies-done' => 'All replies to this thread have also been deleted.',
 	
 	// Rights
 	'right-lqt-split'		  => 'Split threads',

@@ -23,20 +23,19 @@ class LqtDeletionController {
 		$thread->delete($reason);
 		
 		// Avoid orphaning subthreads, update their parentage.
-		foreach( $thread->replies() as $reply ) {
-			$reply->setSuperthread( $thread->superthread() );
-			$reply->save( );
-		}
-		
-		return true;
-	}
-	
-	static function onArticleDelete( &$article, &$user, &$reason, &$error ) {
-		$thread = Threads::withRoot( $article );
-		
-		if ( is_object( $thread ) && $thread->isTopmostThread() && count($thread->replies())) {
-			$error = wfMsgExt( 'lqt-delete-has-subthreads', 'parse' );
-			return false;
+		wfLoadExtensionMessages( 'LiquidThreads' );
+		if ( $thread->replies() && $thread->isTopmostThread() ) {
+			$reason = wfMsg('lqt-delete-parent-deleted', $reason );
+			foreach( $thread->replies() as $reply ) {
+				$reply->root()->doDeleteArticle( $reason, false, $reply->root()->getId() );
+			}
+			global $wgOut;
+			$wgOut->addWikiMsg( 'lqt-delete-replies-done' );
+		} elseif ( $thread->replies() ) {
+			foreach( $thread->replies() as $reply ) {
+				$reply->setSuperthread( $thread->superthread() );
+				$reply->save( );
+			}
 		}
 		
 		return true;
@@ -68,12 +67,26 @@ class LqtDeletionController {
 			$threads = Threads::loadFromResult( $res, $dbw );
 			
 			if ( count($threads) ) {
-				$thread = $threads[0];
+				$thread = array_pop($threads);
 				$thread->setRoot( new Article( $title ) );
 				$thread->undelete( $comment );
 			} else {
 				wfDebug( __METHOD__. ":No thread found with root set to $pageid (??)\n" );
 			}
+		}
+		
+		return true;
+	}
+	
+	static function onArticleConfirmDelete( $article, $out, &$reason ) {
+		if ($article->getTitle()->getNamespace() != NS_LQT_THREAD) return true;
+		
+		$thread = Threads::withRoot( $article );
+		
+		if ( $thread->isTopmostThread() && count($thread->replies()) ) {
+			wfLoadExtensionMessages( 'LiquidThreads' );
+			$out->wrapWikiMsg( '<strong>$1</strong>',
+								'lqt-delete-parent-warning' );
 		}
 		
 		return true;
