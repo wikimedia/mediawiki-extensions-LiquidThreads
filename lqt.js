@@ -194,10 +194,10 @@ var liquidThreads = {
 		var post = $j(this);
 		
 		var toolbar = post.find('.lqt-thread-toolbar');
-		toolbar.hide();
+		toolbar.fadeTo( 0, 0.5 );
 		
-		post.hover( function() { toolbar.fadeIn(100); } /*over*/,
-					function() { toolbar.fadeOut(100); }/*out */ );
+		post.hover( function() { toolbar.fadeTo('fast', 1.0); } /*over*/,
+					function() { toolbar.fadeTo('fast', 0.5); }/*out */ );
 					
 		var menu = post.find('.lqt-thread-toolbar-command-list');
 		var menuContainer = post.find( '.lqt-thread-toolbar-menu' );
