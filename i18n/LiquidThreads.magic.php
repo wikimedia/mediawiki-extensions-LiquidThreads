@@ -13,3 +13,7 @@ $magicWords['ar'] = array(
 $magicWords['nl'] = array(
 	'useliquidthreads'   => array( '0', 'LiquidThreadsGebruiken', 'UseLiquidThreads' ),
 );
+
+$magicWords['ru'] = array(
+	'useliquidthreads'   => array( '0', 'ИспользоватьLiquidThreads', 'UseLiquidThreads' ),
+);
