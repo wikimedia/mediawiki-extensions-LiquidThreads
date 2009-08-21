@@ -188,7 +188,26 @@ var liquidThreads = {
 		$j('.lqt-edit-form').not(e).slideUp('slow', function() { $j(this).empty(); } );
 		
 		liquidThreads.currentReplyThread = null;
-	}
+	},
+	
+	'setupMenus' : function() {
+		var post = $j(this);
+		
+		var toolbar = post.find('.lqt-thread-toolbar');
+		toolbar.hide();
+		
+		post.hover( function() { toolbar.fadeIn(100); } /*over*/,
+					function() { toolbar.fadeOut(100); }/*out */ );
+					
+		var menu = post.find('.lqt-thread-toolbar-command-list');
+		var menuContainer = post.find( '.lqt-thread-toolbar-menu' );
+		menu.remove().appendTo( menuContainer );
+		menuContainer.find('.lqt-thread-toolbar-command-list').hide();
+		
+		var menuTrigger = menuContainer.find( '.lqt-thread-actions-trigger' );
+		menuTrigger.click( function() { menu.slideToggle(); } );
+		menuTrigger.show();
+	},
 }
 
 js2AddOnloadHook( function() {
@@ -218,6 +237,9 @@ js2AddOnloadHook( function() {
 	}
 	
 	$j('div.lqt-edit-form').each( function() { this.style.display = 'none'; } );
+	
+	// Move menus into their proper location
+	$j('div.lqt-post-wrapper').each( liquidThreads.setupMenus );
 	
 	// Show quote buttons
 	liquidThreads.showQuoteButtons();

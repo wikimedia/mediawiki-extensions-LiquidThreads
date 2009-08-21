@@ -675,27 +675,34 @@ class LqtView {
 		
 		// Drop-down menu
 		$commands = $this->threadCommands( $thread );
-		$commandHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-command-list' ),
+		$menuHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-command-list'),
 									$this->listItemsForCommands( $commands ) );
 									
 		$triggerText =	Xml::tags( 'span', array('class' => 'lqt-thread-actions-icon'),
 										'&nbsp;');
-		$dropDownTrigger = Xml::tags( 'span',
-										array( 'class' => 'lqt-thread-actions-trigger' ),
+		$dropDownTrigger = Xml::tags( 'div',
+										array( 'class' => 'lqt-thread-actions-trigger '.
+											'lqt-command-icon', 'style' => 'display: none;'),
 										$triggerText );
 		$headerParts[] = Xml::tags( 'li',
 									array( 'class' => 'lqt-thread-toolbar-menu' ),
-									$dropDownTrigger . $commandHTML );
+									$dropDownTrigger );
 							
 		$html .= implode( ' ', $headerParts );
 		
 		$html = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-commands' ), $html );
+		$html .= Xml::tags( 'div', array( 'style' => 'clear: both; height: 0;' ), '&nbsp;' );
 		
-		$html = Xml::tags( 'div', array( 'class' => 'lqt-toolbar-lhs' ), '&nbsp;' ) .
-				$html .
-				Xml::tags( 'div', array( 'class' => 'lqt-toolbar-rhs' ), '&nbsp;' );
+		// Box stuff
+		$boxElements = array( 'lqt-thread-toolbar-box-tl', 'lqt-thread-toolbar-box-tr',
+								'lqt-thread-toolbar-box-br', 'lqt-thread-toolbar-box-bl' );
+		foreach( $boxElements as $class ) {
+			$html = Xml::openElement( 'div', array( 'class' => $class ) ) . $html .
+				Xml::closeElement( 'div' );
+		}
 							
-		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-toolbar' ), $html );
+		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-toolbar' ), $html ) .
+				$menuHTML;
 		
 		return $html;
 	}

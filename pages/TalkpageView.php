@@ -216,11 +216,12 @@ class TalkpageView extends LqtView {
 		
 		$newThreadText = wfMsgExt( 'lqt_new_thread', 'parseinline' );
 		$newThreadLink = $sk->link( $this->title, $newThreadText,
-									array( 'class' => 'lqt_start_discussion' ),
+									array( ),
 									array( 'lqt_method' => 'talkpage_new_thread' ),
 									array( 'known' ) );
 									
-		$talkpageHeader .= Xml::tags( 'strong', null, $newThreadLink );
+		$talkpageHeader .= Xml::tags( 'strong', array( 'class' => 'lqt_start_discussion' ),
+										$newThreadLink );
 		$talkpageHeader .= $this->getSearchBox();
 		$talkpageHeader .= $this->showTalkpageViewOptions( $article );
 		$talkpageHeader = Xml::tags( 'div', array( 'class' => 'lqt-talkpage-header' ),
@@ -278,7 +279,7 @@ class TalkpageView extends LqtView {
 #		$html = Xml::fieldset( wfMsg('lqt-search-legend' ), $html,
 #								array( 'class' => 'lqt-talkpage-search' ) );
 
-		$html = Xml::tags( 'span', array( 'class' => 'lqt-talkpage-search' ), $html );
+		$html = Xml::tags( 'div', array( 'class' => 'lqt-talkpage-search' ), $html );
 		
 		return $html;
 	}
