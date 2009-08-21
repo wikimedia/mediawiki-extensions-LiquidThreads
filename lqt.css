@@ -356,10 +356,8 @@ div.lqt-post-sep {
 }
 
 .lqt-thread-toolbar {
-/*	position: absolute;
-	right: 0.5em;*/
-	float: right;
-	clear: both;
+	position: absolute;
+	right: 0.5em;
 	background-image: url(images/box-c.png);
 }
 
