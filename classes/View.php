@@ -657,7 +657,7 @@ class LqtView {
 		$headerParts = array();
 		
 		foreach( $this->threadMajorCommands( $thread ) as $key => $cmd ) {
-			$content = $this->contentForCommand( $cmd );
+			$content = $this->contentForCommand( $cmd, false /* No icon divs */ );
 			$headerParts[] = Xml::tags( 'li',
 										array( 'class' => "lqt-command lqt-command-$key" ),
 										$content );
@@ -711,7 +711,7 @@ class LqtView {
 		return join( ' ', $result );
 	}
 	
-	function contentForCommand( $command ) {
+	function contentForCommand( $command, $icon_divs = true ) {
 		$label = $command['label'];
 		$href = $command['href'];
 		$enabled = $command['enabled'];
@@ -720,11 +720,16 @@ class LqtView {
 			global $wgScriptPath;
 			$icon = Xml::tags( 'div', array( 'title' => $label,
 												'class' => 'lqt-command-icon' ), '&nbsp;' );
-												
-			if ( !empty($command['showlabel']) ) {
-				$label = $icon.'&nbsp;'.$label;
+			if ($icon_divs) {						
+				if ( !empty($command['showlabel']) ) {
+					$label = $icon.'&nbsp;'.$label;
+				} else {
+					$label = $icon;
+				}
 			} else {
-				$label = $icon;
+				if ( empty($command['showlabel']) ) {
+					$label = '';
+				}
 			}
 		}
 		

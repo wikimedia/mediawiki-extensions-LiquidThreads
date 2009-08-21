@@ -279,7 +279,7 @@ li.lqt-command-reply {
 	background-repeat: no-repeat;
 	height: 80%;
 	width: 1em;
-	height: 1em;
+	height: 2em;
 	padding-bottom: 0.2em;
 	padding-left: 26px;
 }
@@ -384,7 +384,7 @@ div.lqt-thread-toolbar-box-tl {
 	padding-right: 8px;
 }
 
-.lqt-thread-toolbar .lqt-command-icon {
+.lqt-thread-toolbar-commands > .lqt-command > a {
 	height: 1.25em;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -398,18 +398,23 @@ div.lqt-thread-toolbar-box-tl {
 	margin-right: 8px;
 }
 
-.lqt-command-edit .lqt-command-icon {
+.lqt-thread-toolbar .lqt-command > a {
+	display: block;
+}
+
+.lqt-thread-toolbar-commands > .lqt-command-edit a {
 	background-image: url(icons/edit.png);
 	padding-left: 26px;
 }
 
-.lqt-command-reply .lqt-command-icon {
+.lqt-thread-toolbar-commands > .lqt-command-reply a {
 	background-image: url(icons/reply.png);
-	padding-left: 24px;
+	background-position: left;
+	padding-left: 26px;
 	margin-left: 8px;
 }
 
-.lqt-command-link .lqt-command-icon {
+.lqt-command-link a {
 	background-image: url(icons/link.png) !important;
 	padding-left: 26px;
 }

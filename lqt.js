@@ -205,7 +205,10 @@ var liquidThreads = {
 		menuContainer.find('.lqt-thread-toolbar-command-list').hide();
 		
 		var menuTrigger = menuContainer.find( '.lqt-thread-actions-trigger' );
-		menuTrigger.click( function() { menu.slideToggle(); } );
+		
+		menuTrigger.hover( function() { menu.slideDown(); } );
+		toolbar.hover( function() {}, function() { menu.slideUp(); } );
+
 		menuTrigger.show();
 	},
 }
