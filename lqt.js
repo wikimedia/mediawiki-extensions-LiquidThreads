@@ -68,6 +68,8 @@ var liquidThreads = {
 						// Buffer at the top, roughly enough to see the heading and one line
 						targetOffset -= 100;
 						$j('html,body').animate({scrollTop: targetOffset}, 'slow');
+						
+						$j(container).find('#wpTextbox1').focus();
 					} );
 	},
 	
