@@ -283,3 +283,35 @@ $aliases['vec'] = array(
 	'NewMessages' => array( 'MessajiNovi' ),
 );
 
+/** /** Chinese (‪中文)
+ * @author PhiLiP
+ */
+$aliases['zh'] = array(
+	'DeleteThread' => array( '删除话题', '刪除話題' ),
+	'MoveThread' => array( '移动话题', '移動話題' ),
+	'NewMessages' => array( '新消息', '新訊息', '新讯息' ),
+	'SplitThread' => array( '分割话题', '分割話題' ),
+	'MergeThread' => array( '合并话题', '合併話題' ),
+);
+
+/** /** Simplified Chinese (‪中文(简体)‬)
+ * @author PhiLiP
+ */
+$aliases['zh-hans'] = array(
+	'DeleteThread' => array( '删除话题' ),
+	'MoveThread' => array( '移动话题' ),
+	'NewMessages' => array( '新消息' ),
+	'SplitThread' => array( '分割话题' ),
+	'MergeThread' => array( '合并话题' ),
+);
+
+/** /** Traditional Chinese (‪中文(繁體)‬)
+ * @author PhiLiP
+ */
+$aliases['zh-hant'] = array(
+	'DeleteThread' => array( '刪除話題' ),
+	'MoveThread' => array( '移動話題' ),
+	'NewMessages' => array( '新訊息' ),
+	'SplitThread' => array( '分割話題' ),
+	'MergeThread' => array( '合併話題' ),
+);
