@@ -378,6 +378,7 @@ $messages['gom-latn'] = array(
  * @author Naudefj
  */
 $messages['af'] = array(
+	'lqt_newmessages' => 'Nuwe boodskappe',
 	'lqt_browse_archive_with_recent' => 'ouer',
 	'lqt_contents_title' => 'Inhoud',
 	'lqt_toc_thread_author' => 'Begin deur',
@@ -387,12 +388,15 @@ $messages['af'] = array(
 	'lqt_newer' => '←nuwer',
 	'lqt_older' => 'ouer→',
 	'lqt_hist_deleted' => 'Geskrap',
+	'lqt_youhavenewmessages' => 'U het [$1 nuwe boodskappe]',
+	'lqt_protectedfromreply_link' => 'beskermd',
 	'lqt_subject' => 'Onderwerp:',
 	'lqt_nosubject' => '«geen onderwerp»',
 	'lqt_noreason' => 'Geen rede verskaf nie.',
 	'lqt_move_torename_edit' => 'wysig dit',
 	'lqt_move_move' => 'Skuif',
 	'lqt_move_noreason' => 'Geen rede verskaf nie.',
+	'lqt_delete_return' => 'Keer terug na $1.',
 	'lqt_header_warning_new_discussion' => "begin 'n nuwe bespreking",
 	'lqt_sorting_order' => 'Sorteervolgorde:',
 	'lqt-any-date' => 'Enige datum',
@@ -403,6 +407,7 @@ $messages['af'] = array(
 	'lqt-summary' => 'Samevatting',
 	'lqt-older' => 'ouer',
 	'lqt-newer' => 'nuwer',
+	'lqt-date-info' => 'Hierdie skakel is nie aktief nie omdat u onderwerpe van alle datums bekyk.',
 	'lqt-history-time' => 'Tyd',
 	'lqt-history-user' => 'Gebruiker',
 	'lqt-history-comment' => 'Opmerking',
@@ -2570,7 +2575,7 @@ Pode vela en <$6>',
 	'lqt-search-button' => 'Buscar',
 );
 
-/** Gothic
+/** Gothic (Gothic)
  * @author Crazymadlover
  * @author Jocke Pirat
  * @author Omnipaedista
@@ -6587,7 +6592,7 @@ $messages['sli'] = array(
 	'lqt_move_move' => 'Verschieba',
 );
 
-/** Serbian Cyrillic ekavian (ћирилица)
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
@@ -6597,7 +6602,7 @@ $messages['sr-ec'] = array(
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|порука означена као прочитана|порука означених као прочитане}}.',
 );
 
-/** latinica (latinica)
+/** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -7174,7 +7179,7 @@ $messages['tr'] = array(
 	'lqt-email-undo' => 'Geri al',
 );
 
-/** Tatar (Cyrillic) (Tatarça/Татарча (Cyrillic))
+/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
  * @author Ерней
  */
 $messages['tt-cyrl'] = array(
