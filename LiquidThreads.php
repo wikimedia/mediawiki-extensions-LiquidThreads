@@ -117,11 +117,11 @@ $wgAutoloadClasses['SummaryPageView'] = $dir . 'pages/SummaryPageView.php';
 $wgAutoloadClasses['NewUserMessagesView'] = $dir . 'pages/NewUserMessagesView.php';
 
 // Special pages
-$wgAutoloadClasses['ThreadActionPage'] = "$dir/pages/ThreadActionPage.php";
+$wgAutoloadClasses['ThreadActionPage'] = $dir . 'pages/ThreadActionPage.php';
 $wgAutoloadClasses['SpecialMoveThread'] = $dir . 'pages/SpecialMoveThread.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir . 'pages/SpecialNewMessages.php';
-$wgAutoloadClasses['SpecialSplitThread'] = "$dir/pages/SpecialSplitThread.php";
-$wgAutoloadClasses['SpecialMergeThread'] = "$dir/pages/SpecialMergeThread.php";
+$wgAutoloadClasses['SpecialSplitThread'] = $dir . 'pages/SpecialSplitThread.php';
+$wgAutoloadClasses['SpecialMergeThread'] = $dir . 'pages/SpecialMergeThread.php';
 
 // Backwards-compatibility
 $wgAutoloadClasses['Article_LQT_Compat'] = $dir . 'compat/LqtCompatArticle.php';
