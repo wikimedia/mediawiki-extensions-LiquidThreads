@@ -1127,23 +1127,146 @@ $messages['ca'] = array(
 	'lqt_deletethread' => 'Esborrar o recuperar fil',
 	'lqt_archive_month_annotation' => 'des de $1',
 	'lqt_archive_month_range_annotation' => 'entre $1 i $2',
+	'lqt_browse_archive_without_recent' => 'Visualitza els fils arxivats',
 	'lqt_browse_archive_with_recent' => 'més antics',
+	'lqt_recently_archived' => 'Recentment arxivats:',
 	'lqt_contents_title' => 'Contingut',
+	'lqt_toc_thread_title' => 'Títol del fil',
+	'lqt_toc_thread_author' => 'Iniciat per',
 	'lqt_toc_thread_replycount' => 'Respostes',
 	'lqt_toc_thread_modified' => 'Darrera modificació',
+	'lqt_add_header' => 'Afegeix capçalera',
+	'lqt_new_thread' => 'Comença una nova discussió',
+	'lqt_invalid_subject' => 'El tema que heu introduït no és vàlid.
+Pot:
+* contenir caràcters no vàlids, com []{}&lt;&gt;,
+* ser massa llarg, o 
+* entrar en conflicte amb prefixos interwiki o altres espai de noms.',
+	'lqt_subject_change_forbidden' => "No podeu canviar el tema d'aquest fil perquè no teniu el permís de moure les pàgines.",
+	'lqt_in_response_to' => 'En resposta a $1 per $2, amunt:',
+	'lqt_edited_notice' => 'Editat',
+	'lqt_reply' => 'Respon',
 	'lqt_delete' => 'Elimina',
+	'lqt_undelete' => 'Restaura',
+	'lqt_permalink' => 'Enllaça a aquest',
+	'lqt_fragment' => "un fragment d'una $1 de $2",
 	'lqt_discussion_link' => 'discussió',
+	'lqt_from_talk' => 'des de $1',
+	'lqt_newer' => '← posteriors',
+	'lqt_older' => 'anteriors →',
+	'lqt-history-title' => 'Historial del fil',
+	'lqt_hist_comment_edited' => 'Comentari editat',
+	'lqt_hist_summary_changed' => 'Resum canviat',
+	'lqt_hist_reply_created' => 'Nova resposta creada',
+	'lqt_hist_thread_created' => 'Nou fil creat',
+	'lqt_hist_deleted' => 'Suprimit',
+	'lqt_hist_undeleted' => 'Restaurat',
+	'lqt_hist_moved_talkpage' => 'Traslladat',
 	'lqt_protectedfromreply_link' => 'protegit',
 	'lqt_subject' => 'Assumpte:',
-	'lqt_move_torename_edit' => "edita'l",
+	'lqt_move_torename' => "Per a canviar el nom d'aquest fil, $1 i canvieu l'apartat «Assumpte».",
+	'lqt_move_torename_edit' => 'editeu-lo',
 	'lqt_move_move' => 'Mou',
+	'lqt_delete_deletethread' => 'Elimina el fil i les respostes',
+	'lqt_delete_deleted' => 'El fil ha estat esborrat.',
+	'lqt_delete_undeleted' => 'El fil ha estat restaurat.',
+	'lqt_delete_return' => 'Torna cap a $1.',
+	'lqt_delete_return_link' => 'la pàgina de discussió',
+	'lqt_delete_unallowed' => 'No esteu autoritzat per eliminar fils.',
+	'lqt_delete_show_checkbox' => 'Mostra els fils eliminats',
+	'lqt_header_warning_big' => 'Esteu editant un $1.',
+	'lqt_header_warning_after_big' => 'Les capçaleres són per anuncis i prefacis.
+Potser preferiu $2.',
+	'lqt_header_warning_bold' => 'encapçalament de pàgina de discussió',
+	'lqt_header_warning_new_discussion' => 'començar una nova discussió',
+	'lqt_sorting_order' => 'Ordenació:',
+	'lqt_sort_newest_changes' => 'primer els modificats recentment',
+	'lqt_sort_newest_threads' => 'primer els fils nous',
+	'lqt_sort_oldest_threads' => 'primer els fils antics',
 	'lqt-any-date' => 'Alguna data',
 	'lqt-only-date' => 'Només aquestes dates:',
 	'lqt-date-from' => 'De',
 	'lqt-date-to' => 'A',
 	'lqt-title' => 'Títol',
 	'lqt-summary' => 'Resum',
-	'lqt-date-info' => 'Aquest enllaç no és actiu perquè veieu els fils de totes les dates.',
+	'lqt-older' => 'més antics',
+	'lqt-newer' => 'més nous',
+	'lqt-searching' => 'Cerca de fils',
+	'lqt-read-message' => 'Marca com a llegit',
+	'lqt-read-message-tooltip' => 'Treu aquest fil dels missatges nous.
+Encara serà visible en la seva pàgina de discussió original.',
+	'lqt-read-all' => "Marca'ls tots com a llegits",
+	'lqt-read-all-tooltip' => 'Treu tots els fils dels missatges nous.
+Encara estaran visibles en llurs pàgines de discussió originals.
+Aquesta operació no es pot desfer.',
+	'lqt-marked-read' => "Fil '''$1''' marcat com a llegit.",
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|missatge marcat com a llegit.|missatges marcats com a llegits.}}',
+	'lqt-email-undo' => 'Desfés',
+	'lqt-messages-sent' => 'Missatges que vos han enviat:',
+	'lqt-other-messages' => 'Missatges en altres pàgines de discussió:',
+	'lqt-no-new-messages' => 'No teniu missatges nous.',
+	'lqt-new-messages' => '&#x2712; Teniu missatges nous.',
+	'lqt-email-info-undo' => 'Retorna el fil que acabeu de treure.',
+	'lqt-date-info' => 'Aquest enllaç està desactivat perquè esteu veient els fils de totes les dates.',
+	'lqt_rc_new_discussion' => 'Nova discussió, $1 a $2. &bull; $3 escriu:',
+	'lqt_rc_new_reply' => 'Resposta a $1, $2. &bull; $3 escriu:',
+	'lqt_rc_author_original' => '(autor original)',
+	'lqt_rc_author_others' => "(no n'és l'autor)",
+	'lqt-newmessages-context' => 'Fil complet',
+	'lqt-thread-created' => 'Creat',
+	'lqt-archive-subtitle' => 'Arxiu de la discussió',
+	'lqt-archive-intro' => "Aquest és l'arxiu de la discussió de [[$1]].",
+	'lqt-history-time' => 'Hora',
+	'lqt-history-user' => 'Usuari',
+	'lqt-history-action' => 'Activitat',
+	'lqt-history-comment' => 'Comentari',
+	'lqt-thread-edited-author' => "Editat per l'autor",
+	'lqt-thread-edited-others' => 'Editat per altres usuaris',
+	'lqt-header-actions' => 'Accions',
+	'lqt_summarize_link' => 'Resum',
+	'lqt-summarize-intro' => "Si us plau, feu un resum del fil següent a la caixa d'edició.
+Podeu usar sintaxi wiki. Quan acabeu, feu clic a «{{int: Savearticle}}».",
+	'lqt-thread-split' => 'Separa-ho a un nou fil',
+	'lqt-split-success' => 'Heu dividit el fil $1.',
+	'lqt_split_thread' => 'Divideix un fil',
+	'lqt-thread-split-subject' => 'Nou tema del fil',
+	'lqt-split-submit' => 'Divideix',
+	'lqt_split_badsubject' => 'El tema no és vàlid.',
+	'lqt-no-threads' => 'En aquesta pàgina encara no hi ha cap fil.',
+	'lqt-delete-parent-warning' => "Açò és el nivell superior d'un fil amb respostes.
+Les seves respostes també s'eliminaran automàticament.
+Si ho voleu evitar, cal que les separeu d'aquest fil abans d'eliminar-lo.",
+	'lqt-delete-parent-deleted' => 'Fil pare esborrat ($1)',
+	'lqt-delete-replies-done' => "Totes les respostes d'aquest fil també s'han suprimit.",
+	'right-lqt-split' => 'Separar fils',
+	'right-lqt-merge' => 'Fusionar fils',
+	'lqt-thread-merge' => 'Fusiona-ho amb un altre fil',
+	'lqt-thread-merge-to' => 'Fusiona en aquest fil',
+	'lqt_merge_thread' => 'Fusiona fils',
+	'lqt-thread-merge-source' => "Fil d'origen:",
+	'lqt-thread-merge-dest' => 'Fil de destinació:',
+	'lqt-merge-submit' => 'Fusiona',
+	'lqt-merge-success' => 'Heu fusionat el fil $1 per sota de $2.',
+	'lqt-log-name' => 'Registre de fils de discussió',
+	'lqt-log-header' => 'Aquest registre detalla les accions realitzades en fils de discussió.',
+	'lqt-log-action-move' => 'desplaçat [[$1]] de [[$2]] a [[$3]].',
+	'lqt-preference-notify-talk' => "Envia'm un missatge de correu electrònic per les respostes dels temes que vigilo",
+	'lqt-preference-watch-threads' => 'Vigila les discussions on hagi participat',
+	'lqt-enotif-subject-reply' => 'Discussió a {{SITENAME}} - Resposta: $1',
+	'lqt-enotif-subject-newthread' => 'Discussió a {{SITENAME}} - Nou tema: $1',
+	'lqt-enotif-newthread' => 'Hola $1,
+Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que un nou fil de de discussió «$2» a $5, ha estat creat el dia $3 a les $4.
+
+El podeu veure a <$6>',
+	'lqt-enotif-reply' => 'Hola $1,
+Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que ha aparegut una resposta al fil «$2» a $5, creada el dia $3 a les $4.
+
+El podeu veure a <$6>',
+	'lqt-quote-intro' => 'El dia $2 a les $3, [[User:$1]] va escriure:',
+	'lqt-quote' => 'Cita-ho',
+	'lqt-search-legend' => 'Cerca discussions en aquesta pàgina',
+	'lqt-search-label' => 'Termes de cerca:',
+	'lqt-search-button' => 'Cerca',
 );
 
 /** Chamorro (Chamoru)
@@ -7015,6 +7138,7 @@ $messages['te'] = array(
 	'lqt-split-submit' => 'విడదీయి',
 	'lqt-delete-parent-deleted' => 'పైన చర్చ తొలగించడమైనది ($1)',
 	'lqt-merge-submit' => 'కలుపు',
+	'lqt-search-button' => 'వెతుకు',
 );
 
 /** Tetum (Tetun)
@@ -7414,6 +7538,13 @@ $messages['vo'] = array(
 	'lqt-title' => 'Tiäd',
 );
 
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'lqt_delete' => 'אויסמעקן',
+);
+
 /** Yue (粵語)
  * @author Shinjiman
  */
@@ -7690,7 +7821,7 @@ $messages['zh-hans'] = array(
 
 您可以访问<$6>阅读之。',
 	'lqt-quote-intro' => '[[User:$1]]在$2 $3时写道：',
-	'lqt-quote' => '引用这个',
+	'lqt-quote' => '引用此段',
 	'lqt-search-legend' => '在本页搜索讨论',
 	'lqt-search-label' => '搜索词语：',
 	'lqt-search-button' => '搜索',
