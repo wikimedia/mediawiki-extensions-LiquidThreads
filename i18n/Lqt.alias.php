@@ -283,7 +283,7 @@ $aliases['vec'] = array(
 	'NewMessages' => array( 'MessajiNovi' ),
 );
 
-/** /** Chinese (‪中文)
+/** Chinese (中文)
  * @author PhiLiP
  */
 $aliases['zh'] = array(
@@ -294,7 +294,7 @@ $aliases['zh'] = array(
 	'MergeThread' => array( '合并话题', '合併話題' ),
 );
 
-/** /** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文(简体)‬)
  * @author PhiLiP
  */
 $aliases['zh-hans'] = array(
@@ -305,7 +305,7 @@ $aliases['zh-hans'] = array(
 	'MergeThread' => array( '合并话题' ),
 );
 
-/** /** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文(繁體)‬)
  * @author PhiLiP
  */
 $aliases['zh-hant'] = array(
@@ -315,3 +315,4 @@ $aliases['zh-hant'] = array(
 	'SplitThread' => array( '分割話題' ),
 	'MergeThread' => array( '合併話題' ),
 );
+
