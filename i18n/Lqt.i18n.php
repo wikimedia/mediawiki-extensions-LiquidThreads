@@ -1169,6 +1169,8 @@ Pot:
 	'lqt_youhavenewmessages' => 'Teniu [$1 missatges nous].',
 	'lqt_protectedfromreply_link' => 'protegit',
 	'lqt_subject' => 'Assumpte:',
+	'lqt_thread_deleted_for_sysops' => "Aquest fil ha estat '''esborrat''' i només és visible pels administradors.",
+	'lqt_thread_deleted' => 'Aquest fil ha estat esborrat.',
 	'lqt_move_torename' => "Per a canviar el nom d'aquest fil, $1 i canvieu l'apartat «Assumpte».",
 	'lqt_move_torename_edit' => 'editeu-lo',
 	'lqt_move_move' => 'Mou',
@@ -1906,6 +1908,8 @@ $messages['el'] = array(
 	'lqt-thread-merge-source' => 'Πηγαία θέμα:',
 	'lqt-thread-merge-dest' => 'Προορισμός θέματος:',
 	'lqt-merge-submit' => 'Συγχώνευση',
+	'lqt-log-name' => 'Αρχείο συζητήσεων χωρισμένο κατά τμήματα',
+	'lqt-log-action-move' => 'μετακίνησε το [[$1]] από [[$2]] σε [[$3]].',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} συζήτηση - Απάντηση: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} συζήτηση - Νέο θέμα: $1',
 	'lqt-quote-intro' => 'Την $2 στις $3, ο [[User:$1]] έγραψε:',
@@ -4846,7 +4850,9 @@ $messages['lb'] = array(
 	'lqt_subject' => 'Sujet:',
 	'lqt_nosubject' => '"kee Sujet"',
 	'lqt_noreason' => 'Kee Grond uginn.',
-	'lqt_move_placeholder' => 'Dës Rubrik ass en Ersatz fir ze weisen datt eng Rubrik, $1, vun dëser Säit op eng aner Diskussiounssäit geréckelt gouf.',
+	'lqt_move_placeholder' => 'Dës Rubrik ass en Ersatz fir ze weisen datt eng Rubrik, $1, vun dëser Säit op eng aner Diskussiounssäit geréckelt gouf.
+
+Dëst Réckele gouf vum $2 den $3 ëm $4 Auer gemaacht.',
 	'lqt_thread_deleted_for_sysops' => "Dës Rubrik gouf 'geläscht''' an ass nëmme fir Administrateuren ze gesinn.",
 	'lqt_thread_deleted' => 'Dës Rubrik gouf geläscht.',
 	'lqt_summary_notice' => 'Et gouf keng Ännerungen un dëser Diskussioun fir mindestens $2 {{PLURAL:$2|Dag|Deeg}}.
