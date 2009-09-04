@@ -41,11 +41,7 @@ $wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'i18n/Lqt.i18n.php';
 $wgExtensionAliasesFiles['LiquidThreads'] = $dir . 'i18n/Lqt.alias.php';
 
 // Parser Function Setup
-if ( defined( 'MW_SUPPORTS_PARSERFIRSTCALLINIT' ) ) {
-	$wgHooks['ParserFirstCallInit'][] = 'lqtSetupParserFunctions';
-} else {
-	$wgExtensionFunctions[] = 'lqtSetupParserFunctions';
-}
+$wgHooks['ParserFirstCallInit'][] = 'lqtSetupParserFunctions';
 
 // Hooks
 // Main dispatch hook
