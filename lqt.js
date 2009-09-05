@@ -137,7 +137,7 @@ var liquidThreads = {
 		// Get the post node
 		// Keep walking up until we hit the thread node.
 		var thread = $j(this).closest('.lqt_thread');
-		var post = thread.find('.lqt_post');
+		var post = $j(thread.find('.lqt_post')[0]);
 		
 		var text = liquidThreads.getSelection();
 		
@@ -165,11 +165,12 @@ var liquidThreads = {
 	},
 	
 	'showQuoteButtons' : function() {
-		var elems = $j('.lqt-thread-toolbar-rhs');
+		var elems = $j('.lqt-thread-toolbar-commands');
 		
 		elems.each( function(i) {
-			var quoteButton = $j('<span/>' );
-			quoteButton.className = 'lqt-header-quote';
+			var quoteButton = $j('<li/>' );
+			quoteButton.addClass('lqt-command');
+			quoteButton.addClass('lqt-command-quote');
 			
 			var link = $j('<a href="#"/>');
 			link.append( wgLqtMessages['lqt-quote'] );
@@ -177,7 +178,6 @@ var liquidThreads = {
 			
 			quoteButton.click( liquidThreads.doQuote );
 			
-			$j(this).prepend( ' | ' );
 			$j(this).prepend( quoteButton );
 		} );
 	},
@@ -240,7 +240,7 @@ js2AddOnloadHook( function() {
 	} );
 	
 	// Update the new thread link
-	var newThreadLink = $j('a.lqt_start_discussion');
+	var newThreadLink = $j('.lqt_start_discussion a');
 	
 	if (newThreadLink) {
 		newThreadLink.click( liquidThreads.handleNewLink );
