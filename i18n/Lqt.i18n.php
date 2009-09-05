@@ -1852,6 +1852,8 @@ $messages['el'] = array(
 	'lqt_nosuchrevision' => 'Δεν υπάρχει τέτοια έκδοση αυτού του θέματος.',
 	'lqt_nosuchthread' => 'Το θέμα που δώσατε δεν υπάρχει.',
 	'lqt_nosuchthread_title' => 'Κανένα τέτοιο θέμα',
+	'lqt_move_movingthread' => 'Μετακινείται το $1.
+Αυτό το τμήμα είναι μέρος του $2.',
 	'lqt_move_torename_edit' => 'επεξεργαστείτε το',
 	'lqt_move_destinationtitle' => 'Τίτλος του προορισμού σελίδας συζήτησης:',
 	'lqt_move_move' => 'Μετακίνηση',
@@ -1909,6 +1911,7 @@ $messages['el'] = array(
 	'lqt_summarize_link' => 'Συνοψίστε',
 	'lqt-thread-split' => 'Διαχωρισμός σε νέο θέμα',
 	'lqt_split_thread' => 'Διαχωρισμός ενός θέματος',
+	'lqt-thread-split-subject' => 'Αντικείμενο νέου τμήματος',
 	'lqt-split-submit' => 'Διαχωρισμός',
 	'right-lqt-split' => 'Διαχωρισμός θεμάτων',
 	'right-lqt-merge' => 'Συγχώνευση θεμάτων',
