@@ -4922,6 +4922,9 @@ Dir wëllt méiglerweis $2',
 	'lqt-read-message-tooltip' => 'Dës Rubrik aus den neie Messagen ewechhuelen.
 Si bleiwt op der Original-Diskussiounssäit ze gesinn.',
 	'lqt-read-all' => 'All uwesien wéi wa se geliest gi wieren',
+	'lqt-read-all-tooltip' => 'All Rubriken aus neie Messagen eraushuelen.
+Si si weiderhinn op hirer Original-Diskussiounssäit ze gesinn.
+Dës Operatioun kann net réckgängeg gemaach ginn.',
 	'lqt-marked-read' => "Ribrik '''$1''' als geliest markéieren.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|Message|Messagen}} als geliest markéieren.',
 	'lqt-email-undo' => 'Zréck setzen',
