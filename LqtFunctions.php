@@ -49,4 +49,3 @@ function lqtSetupParserFunctions() {
 				array( 'LqtParserFunctions', 'useLiquidThreads' ) );
 	return true;
 }
-

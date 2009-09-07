@@ -619,7 +619,8 @@ class LqtView {
 	static function exportJSLocalisation() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		
-		$messages = array( 'lqt-quote-intro', 'lqt-quote' );
+		$messages = array( 'lqt-quote-intro', 'lqt-quote', 'lqt-ajax-updated',
+							'lqt-ajax-update-link' );
 		$data = array();
 		
 		foreach( $messages as $msg ) {
@@ -978,6 +979,7 @@ class LqtView {
 		$html = '';
 
 		$html .= Xml::element( 'a', array( 'name' => $this->anchorName($thread) ), ' ' );
+
 		$html .= $this->showThreadHeading( $thread );
 		
 		$class = $this->threadDivClass( $thread );
@@ -986,12 +988,20 @@ class LqtView {
 		} elseif ($levelNum == $totalInLevel) {
 			$class .= ' lqt-thread-last';
 		}
+		
 		$html .= Xml::openElement( 'div', array( 'class' => $class,
 									'id' => 'lqt_thread_id_'. $thread->id() ) );
 
+		// Modified time for topmost threads...
+		if ( $thread->isTopmostThread() ) {
+			$html .= Xml::hidden( 'lqt-thread-modified-'.$thread->id(),
+									wfTimestamp( TS_MW, $thread->modified() ),
+									array( 'id' => 'lqt-thread-modified-'.$thread->id(),
+											'class' => 'lqt-thread-modified' ) );
+		}								
+
 		// Flush output to display thread
 		$this->output->addHTML( $html );
-		
 		$this->output->addHTML( Xml::openElement( 'div',
 									array( 'class' => 'lqt-post-wrapper' ) ) );
 		$this->showSingleThread( $thread );
@@ -1041,8 +1051,9 @@ class LqtView {
 		$levelClass = 'lqt-thread-nest-'.$this->threadNestingLevel;
 		$alternatingType = ($this->threadNestingLevel % 2) ? 'odd' : 'even';
 		$alternatingClass = "lqt-thread-$alternatingType";
+		$topmostClass = $thread->isTopmostThread() ? ' lqt-thread-topmost' : '';
 		
-		return "lqt_thread $levelClass $alternatingClass";
+		return "lqt_thread $levelClass $alternatingClass$topmostClass";
 	}
 
 	function getSummary( $t ) {

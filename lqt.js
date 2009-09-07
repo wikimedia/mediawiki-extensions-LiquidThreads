@@ -218,6 +218,53 @@ var liquidThreads = {
 
 		menuTrigger.show();
 	},
+	
+	'checkForUpdates' : function() {
+		var threadModifiedTS = {};
+		var threads = [];
+		
+		$j('.lqt-thread-topmost').each( function() {
+			var tsField = $j(this).find('.lqt-thread-modified');
+			var oldTS = tsField.val();
+			// Prefix is lqt-thread-modified-
+			var threadID = tsField.attr('id').substr( "lqt-thread-modified-".length );
+			
+			threadModifiedTS[threadID] = oldTS;
+			threads.push(threadID);
+		} );
+		
+		var getData = { 'action' : 'query', 'list' : 'threads', 'lqtid' : threads.join('|'),
+						'format' : 'json', 'lqtprop' : 'id|subject|parent|modified' };
+		
+		$j.get( wgScriptPath+'/api.php', getData,
+			function(data) {
+				var threads = data.query.threads;
+				
+				$j.each( threads, function( i, thread ) {
+					var threadID = thread.id;
+					var threadModified = thread.modified;
+					
+					if ( threadModified != threadModifiedTS[threadID] ) {
+						liquidThreads.showUpdated(threadID);
+					}
+				} );
+			}, 'json' );
+	},
+	
+	'showUpdated' : function(id) {
+		// Check if there's already an updated marker here
+		var threadObject = $j("#lqt_thread_id_"+id);
+		
+		if ( threadObject.find('.lqt-updated-notification').length ) {
+			return;
+		}
+		
+		var notifier = $j('<div/>');
+		notifier.text( wgLqtMessages['lqt-ajax-updated'] );
+		notifier.addClass( 'lqt-updated-notification' );
+		
+		threadObject.prepend(notifier);
+	}
 }
 
 js2AddOnloadHook( function() {
@@ -253,5 +300,8 @@ js2AddOnloadHook( function() {
 	
 	// Show quote buttons
 	liquidThreads.showQuoteButtons();
+	
+	// Set up periodic update checking
+	setInterval( liquidThreads.checkForUpdates, 30000 );
 } );
 

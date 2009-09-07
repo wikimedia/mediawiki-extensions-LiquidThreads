@@ -237,6 +237,10 @@ You can see it at <$6>",
 	'lqt-search-legend' => 'Search discussions on this page',
 	'lqt-search-label' => 'Search terms:',
 	'lqt-search-button' => 'Search',
+	
+	// Some AJAX stuff
+	'lqt-ajax-updated' => 'This thread has new posts.',
+	'lqt-ajax-update-link' => 'Click here to load the latest posts.',
 );
 
 /** Message documentation (Message documentation)
