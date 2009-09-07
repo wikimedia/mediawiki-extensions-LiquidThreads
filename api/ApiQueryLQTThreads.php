@@ -1,20 +1,20 @@
 <?php
-
-// LiquidThreads API Query module
-
-// Data that can be returned:
-// - ID
-// - Subject
-// - "host page"
-// - parent
-// - ancestor
-// - creation time
-// - modification time
-// - author
-// - summary article ID
-// - "root" page ID
-// - type
-
+/**
+ * LiquidThreads API Query module
+ *
+ * Data that can be returned:
+ * - ID
+ * - Subject
+ * - "host page"
+ * - parent
+ * - ancestor
+ * - creation time
+ * - modification time
+ * - author
+ * - summary article ID
+ * - "root" page ID
+ * - type
+ */
 class ApiQueryLQTThreads extends ApiQueryBase {
 
 	// Property definitions
@@ -22,153 +22,135 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			'id' => 'thread_id',
 			'subject' => 'thread_subject',
 			'page' => array( 'namespace' => 'thread_article_namespace',
-								'title' => 'thread_article_title' ),
+				'title' => 'thread_article_title' ),
 			'parent' => 'thread_parent',
 			'ancestor' => 'thread_ancestor',
 			'created' => 'thread_created',
 			'modified' => 'thread_modified',
 			'author' => array( 'id' => 'thread_author_id',
-								'name' => 'thread_author_name'),
+				'name' => 'thread_author_name'),
 			'summaryid' => 'thread_summary_page',
 			'rootid' => 'thread_root',
 			'type' => 'thread_type',
 		);
 
-	public function __construct($query, $moduleName) {
-		parent :: __construct($query, $moduleName, 'lqt');
+	public function __construct( $query, $moduleName ) {
+		parent :: __construct( $query, $moduleName, 'th' );
 	}
 
 	public function execute() {
 		global $wgUser;
-			
+		
 		$params = $this->extractRequestParams();
-		$prop = array_flip($params['prop']);
-		
+		$prop = array_flip( $params['prop'] );
 		$result = $this->getResult();
-
-		$this->addTables('thread');
+		$this->addTables( 'thread' );
+		$this->addFields( 'thread_id' );
 		
-		$this->addFields('thread_id');
-		
-		foreach( self::$propRelations as $name => $fields ) {
-			$addFields = $fields;
-			
-			if ( is_array($addFields) ) $addFields = array_values($addFields);
-
-			$this->addFieldsIf( $addFields, isset($prop[$name]) );
+		foreach ( self::$propRelations as $name => $fields ) {
+			// Pass a straight array rather than one with string
+			// keys, to be sure that merging it into other added
+			// arrays doesn't mess stuff up
+			$this->addFieldsIf( array_values( (array)$fields ), isset( $prop[$name] ) );
 		}
 		
 		// Check for conditions
 		$conditionFields = array( 'page', 'root', 'summary', 'author', 'id' );
-		
-		foreach( $conditionFields as $field ) {
-			if ( isset($params[$field]) ) {
+		foreach ( $conditionFields as $field ) {
+			if ( isset( $params[$field] ) ) {
 				$this->handleCondition( $field, $params[$field] );
 			}
 		}
 
-		$this->addOption('LIMIT', $params['limit'] + 1);
+		$this->addOption( 'LIMIT', $params['limit'] + 1 );
+		$this->addWhereRange( 'thread_id', $params['dir'],
+			$params['startid'], $params['endid'] );
 		
-		$this->addWhereRange('thread_id', $params['dir'],
-								$params['startid'], $params['endid']);
-		
-		if (!is_null($params['show'])) {		
-			$show = array_flip($params['show']);
-			$delType = $this->getDB()->addQuotes( Threads::TYPE_DELETED );
-			
-			$this->addWhereIf( 'thread_type != '.$delType, isset($show['deleted']) );
+		if ( $params['showdeleted'] ) {
+			$delType = $this->getDB()->addQuotes( Threads::TYPE_DELETED );			
+			$this->addWhere( "thread_type != $delType" );
 		}
 		
 		$res = $this->select( __METHOD__ );
-		
 		$count = 0;
-		while($row = $res->fetchObject())
+		foreach ( $res as $row )
 		{
-			if( ++$count > $params['limit'] ) {
+			if ( ++$count > $params['limit'] ) {
 				// We've had enough
-				$this->setContinueEnumParameter('startid', $row->thread_id);
+				$this->setContinueEnumParameter( 'startid', $row->thread_id );
 				break;
 			}
 			
 			$entry = array();
-			
-			foreach( $prop as $name => $nothing ) {
+			foreach ( $prop as $name => $nothing ) {
 				$fields = self::$propRelations[$name];
-				$entry[$name] = self::formatProperty( $name, $fields, $row );
+				self::formatProperty( $name, $fields, $row, $entry );
 			}
 			
-			if ($entry) {
-				$fit = $result->addValue(array( 'query', $this->getModuleName() ), null,
-											$entry);
-											
-				if(!$fit) {
-					$this->setContinueEnumParameter('startid', $row->thread_id);
+			if ( $entry ) {
+				$fit = $result->addValue( array( 'query',
+						$this->getModuleName() ),
+					null, $entry);
+				if ( !$fit ) {
+					$this->setContinueEnumParameter( 'startid', $row->thread_id );
 					break;
 				}
 			}
 		}
-		$result->setIndexedTagName_internal(array('query', $this->getModuleName()), 'thread');
+		$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'thread' );
 	}
 	
-	static function formatProperty( $name, $fields, $row ) {
-		// Common case.
-		if ( !is_array($fields) ) {
-			return $row->$fields;
-		}
-		
-		// Special cases
-		if ($name == 'page') {
+	static function formatProperty( $name, $fields, $row, &$entry ) {
+		if ( !is_array( $fields ) ) {
+			// Common case.
+			$entry[$name] = $row->$fields;
+		} else if ( $name == 'page' ) {
+			// Special cases
 			$nsField = $fields['namespace'];
 			$tField = $fields['title'];
-			$title = Title::makeTitleSafe( $row->$nsField, $row->$tField );
-			return $title->getPrefixedText();
+			$title = Title::makeTitle( $row->$nsField, $row->$tField );
+			$result = array();
+			ApiQueryBase::addTitleInfo( $entry, $title, 'page' );
+		} else {
+			// Complicated case.
+			$result = array();
+			foreach ( $fields as $part => $field ) {
+				$entry[$name][$part] = $row->$field;
+			}
 		}
-		
-		// Complicated case.
-		$result = array();
-		foreach( $fields as $part => $field ) {
-			$result[$part] = $row->$field;
-		}
-		
-		return $result;
 	}
 	
 	function addPageCond( $prop, $value ) {
-	
-		$value = explode( '|', $value );
-		
-		if ( count($value) === 1 ) {
-			$cond = $this->getPageCond($prop, $value[0]);
+		if ( count( $value ) === 1 ) {
+			$cond = $this->getPageCond( $prop, $value[0] );
 			$this->addWhere( $cond );
 		} else {
 			$conds = array();
-			
-			foreach( $value as $page ) {
+			foreach ( $value as $page ) {
 				$cond = $this->getPageCond( $prop, $page );
 				$conds[] = $this->getDB()->makeList( $cond, LIST_AND );
 			}
 			
 			$cond = $this->getDB()->makeList( $conds, LIST_OR );
-			
 			$this->addWhere( $cond );
 		}
 	}
 	
 	function getPageCond( $prop, $value ) {
-		$fieldMappings = array( 'page' =>
-								array( 'namespace' => 'thread_article_namespace',
-										'title' => 'thread_article_title',
-									),
-								'root' => array( 'id' => 'thread_root' ),
-								'summary' => array( 'id' => 'thread_summary_id' ),
-							);
+		$fieldMappings = array(
+			'page' => array(
+				'namespace' => 'thread_article_namespace',
+				'title' => 'thread_article_title',
+			),
+			'root' => array( 'id' => 'thread_root' ),
+			'summary' => array( 'id' => 'thread_summary_id' ),
+		);
+		
 		// Split.
 		$t = Title::newFromText( $value );
-		
 		$cond = array();
-		
-		foreach( $fieldMappings[$prop] as $type => $field ) {
-			switch($type) {
+		foreach ( $fieldMappings[$prop] as $type => $field ) {
+			switch ( $type ) {
 				case 'namespace':
 					$cond[$field] = $t->getNamespace();
 					break;
@@ -179,37 +161,24 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 					$cond[$field] = $t->getArticleID();
 					break;
 				default:
-					throw new MWException( "Unknown condition type $type" );
+					ApiBase::dieDebug( __METHOD__, "Unknown condition type $type" );
 			}
 		}
-		
 		return $cond;
 	}
 	
 	function handleCondition( $prop, $value ) {
-		// Special cases
 		$titleParams = array( 'page', 'root', 'summary' );
-		
-		if ( in_array( $prop, $titleParams ) ) {
-			return $this->addPageCond( $prop, $value );
-		}
-		
 		$fields = self::$propRelations[$prop];
 		
-		// Some cases where we can pull more than one
-		$multiParams = array( 'id', 'author' );
-		if ( in_array( $prop, $multiParams ) ) {
-			$value = explode( '|', $value );
-		}
-		
-		// Common case
-		if ( !is_array( $fields ) ) {
-			return $this->addWhere( array( $fields => $value ) );
-		}
-		
-		// Other special cases.
-		if ( $prop == 'author' ) {
-			$this->addWhere( array( 'thread_author_name' => $value ) );
+		if ( in_array( $prop, $titleParams ) ) {
+			// Special cases
+			$this->addPageCond( $prop, $value );
+		} else if ( $prop == 'author' ) {
+			$this->addWhereFld( 'thread_author_name', $value );
+		} else if ( !is_array( $fields ) ) {
+			// Common case
+			return $this->addWhereFld( $fields, $value );
 		}
 	}
 
@@ -219,7 +188,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				ApiBase :: PARAM_TYPE => 'integer'
 			),
 			'endid' => array(
-				ApiBase :: PARAM_TYPE => 'integer',
+				ApiBase :: PARAM_TYPE => 'integer'
 			),
 			'dir' => array(
 				ApiBase :: PARAM_TYPE => array(
@@ -228,12 +197,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				),
 				ApiBase :: PARAM_DFLT => 'newer'
 			),
-			'show' => array(
-				ApiBase :: PARAM_ISMULTI => true,
-				ApiBase :: PARAM_TYPE => array (
-					'deleted',
-				),
-			),
+			'showdeleted' => false,
 			'limit' => array(
 				ApiBase :: PARAM_DFLT => 10,
 				ApiBase :: PARAM_TYPE => 'limit',
@@ -243,15 +207,25 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			),
 			'prop' => array(
 				ApiBase :: PARAM_DFLT => 'id|subject|page|parent|author',
-				ApiBase :: PARAM_TYPE => array_keys(self::$propRelations),
+				ApiBase :: PARAM_TYPE => array_keys( self::$propRelations ),
 				ApiBase :: PARAM_ISMULTI => true
 			),
 			
-			'page' => null,
-			'author' => null,
-			'root' => null,
-			'summary' => null,
-			'id' => null,
+			'page' => array(
+				ApiBase :: PARAM_ISMULTI => true
+			),
+			'author' => array(
+				ApiBase :: PARAM_ISMULTI => true
+			),
+			'root' => array(
+				ApiBase :: PARAM_ISMULTI => true
+			),
+			'summary' => array(
+				ApiBase :: PARAM_ISMULTI => true
+			),
+			'id' => array(
+				ApiBase :: PARAM_ISMULTI => true
+			),
 		);
 	}	
 	
@@ -283,6 +257,6 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	}
 
 	public function getVersion() {
-		return __CLASS__;
+		return __CLASS__ . '$Id$';
 	}
 }
