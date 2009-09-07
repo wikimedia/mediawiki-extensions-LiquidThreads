@@ -323,7 +323,8 @@ js2AddOnloadHook( function() {
 		
 		if ( scrollTop > toolbarTop ) {
 			toolbar.css( 'top', scrollTop );
-		} else if ( toolbar.css('top') && scrollTop < toolbarTop ) {
+		} else if ( toolbar.css('top') && toolbar.css('top') != 'auto'
+					&& scrollTop < toolbarTop ) {
 			// Move back either to the start of the post, or to the scroll point
 			if ( scrollTop > postTop ) {
 				toolbar.css( 'top', scrollTop );

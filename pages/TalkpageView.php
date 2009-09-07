@@ -42,9 +42,12 @@ class TalkpageView extends LqtView {
 			$actionLinks[] = $sk->link( $this->title,
 								wfMsgExt( 'history_short', 'parseinline' ) . "&uarr;",
 								array(), array( 'action' => 'history' ) );
-			$actionLinks[] = $sk->link( $this->title,
-								wfMsgExt( 'delete', 'parseinline' ) . '&uarr;',
-								array(), array( 'action' => 'delete' ) );
+								
+			if ( $wgUser->isAllowed( 'delete' ) ) {
+				$actionLinks[] = $sk->link( $this->title,
+									wfMsgExt( 'delete', 'parseinline' ) . '&uarr;',
+									array(), array( 'action' => 'delete' ) );
+			}
 			
 			$actions = '';
 			foreach( $actionLinks as $link ) {
