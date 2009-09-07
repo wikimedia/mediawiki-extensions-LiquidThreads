@@ -49,9 +49,15 @@ var liquidThreads = {
 					
 		liquidThreads.cancelEdit( container );
 		
+		var loadSpinner = $j('<div class="mw-ajax-loader"/>');
+		container.before( loadSpinner );
+		
 		$j(container).load(wgServer+wgScript, 'title='+encodeURIComponent(wgPageName)+
 					query+'&lqt_inline=1',
 					function() {
+						// Kill the loader.
+						loadSpinner.remove();
+						
 						if (preload) {
 							$j("textarea", container)[0].value = preload;
 						}
@@ -233,8 +239,8 @@ var liquidThreads = {
 			threads.push(threadID);
 		} );
 		
-		var getData = { 'action' : 'query', 'list' : 'threads', 'lqtid' : threads.join('|'),
-						'format' : 'json', 'lqtprop' : 'id|subject|parent|modified' };
+		var getData = { 'action' : 'query', 'list' : 'threads', 'thid' : threads.join('|'),
+						'format' : 'json', 'thprop' : 'id|subject|parent|modified' };
 		
 		$j.get( wgScriptPath+'/api.php', getData,
 			function(data) {
