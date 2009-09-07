@@ -85,10 +85,11 @@ class Thread {
 		
 		if ( $superthread ) {
 			$superthread->addReply( $thread );
+			
+			$superthread->commitRevision( $change_type, $thread );
+		} else {
+			$hthread = ThreadRevision::create( $thread, $change_type );
 		}
-		
-		// Add history item.
-		$hthread = ThreadRevision::create( $thread, $change_type );
 		
 		// Create talk page
 		Threads::createTalkpageIfNeeded( $article );
