@@ -338,7 +338,7 @@ class LqtView {
 			$wgMemc->set( $key, 1, 3600 );
 		}
 
-		if ( $edit_type == 'new' || ( $thread && !$thread->hasSuperthread() ) ) {
+		if ( $edit_type == 'new' ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			// This is a top-level post; show the subject line.
 			$db_subject = $thread ? $thread->subjectWithoutIncrement() : '';
