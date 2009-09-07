@@ -1,5 +1,6 @@
 var liquidThreads = {
 	currentReplyThread : null,
+	currentToolbar : null,
 	
 	'handleReplyLink' : function(e) {
 		if (e.preventDefault)
@@ -207,8 +208,14 @@ var liquidThreads = {
 		post.hover(
 					function() {
 						toolbar.fadeIn(100);
-					} /*over*/,
+						liquidThreads.currentToolbar = toolbar;
+					} /* over */,
 					function() {
+						if ( liquidThreads.currentToolbar &&
+								liquidThreads.currentToolbar.is(toolbar) ) {
+							liquidThreads.currentToolbar = null;
+						}
+						
 						toolbar.fadeOut(20);
 					}/*out */ );
 					
@@ -303,6 +310,28 @@ js2AddOnloadHook( function() {
 	
 	// Move menus into their proper location
 	$j('div.lqt-post-wrapper').each( liquidThreads.setupMenus );
+	
+	// Add scrolling handler
+	$j(document).scroll( function() {
+		var toolbar = liquidThreads.currentToolbar;
+		if ( !toolbar ) { return; }
+		
+		var post = toolbar.closest('.lqt_thread');
+		var scrollTop = $j(document).scrollTop();
+		var toolbarTop = toolbar.offset().top;
+		var postTop = post.offset().top;
+		
+		if ( scrollTop > toolbarTop ) {
+			toolbar.css( 'top', scrollTop );
+		} else if ( toolbar.css('top') && scrollTop < toolbarTop ) {
+			// Move back either to the start of the post, or to the scroll point
+			if ( scrollTop > postTop ) {
+				toolbar.css( 'top', scrollTop );
+			} else {
+				toolbar.css( 'top', 'auto' );
+			}
+		}
+	} );
 	
 	// Show quote buttons
 	liquidThreads.showQuoteButtons();
