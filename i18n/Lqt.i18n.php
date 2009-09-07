@@ -414,6 +414,7 @@ $messages['af'] = array(
 	'lqt-summary' => 'Samevatting',
 	'lqt-older' => 'ouer',
 	'lqt-newer' => 'nuwer',
+	'lqt-email-undo' => 'Maak ongedaan',
 	'lqt-date-info' => 'Hierdie skakel is nie aktief nie omdat u onderwerpe van alle datums bekyk.',
 	'lqt-history-time' => 'Tyd',
 	'lqt-history-user' => 'Gebruiker',
@@ -2535,6 +2536,8 @@ Vous pouvez le voir a « $6 »",
 	'lqt-search-legend' => 'Rechercher des discussions sur cette page',
 	'lqt-search-label' => 'Termes de recherche :',
 	'lqt-search-button' => 'Rechercher',
+	'lqt-ajax-updated' => 'Ce fil a de nouveaux messages.',
+	'lqt-ajax-update-link' => 'Charger les derniers messages.',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -2764,6 +2767,8 @@ Pode vela en <$6>',
 	'lqt-search-legend' => 'Procurar conversas nesta páxina',
 	'lqt-search-label' => 'Procurar os termos:',
 	'lqt-search-button' => 'Buscar',
+	'lqt-ajax-updated' => 'Este fío ten novas mensaxes.',
+	'lqt-ajax-update-link' => 'Cargar as últimas mensaxes.',
 );
 
 /** Gothic (Gothic)
@@ -3642,20 +3647,26 @@ Móžeš ju na <$6> widźeć",
 	'lqt-search-legend' => 'Diskusije na tutej stronje přepytać',
 	'lqt-search-label' => 'Pytanske zapřijeća:',
 	'lqt-search-button' => 'Pytać',
+	'lqt-ajax-updated' => 'Tuta nitka ma nowe powěsće.',
+	'lqt-ajax-update-link' => 'Najnowše powěsće začitać.',
 );
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Glanthor Reviol
  * @author Tgr
  */
 $messages['hu'] = array(
+	'lqt-nothread' => 'Nincsenek beszélgetések az archívumban.',
 	'lqt_newmessages' => 'Új üzenetek',
 	'lqt_movethread' => 'Átmozgatás másik lapra',
 	'lqt_deletethread' => 'Beszélgetés törlése vagy visszaállítása',
+	'lqt_archive_month_range_annotation' => '$1 és $2 között',
 	'lqt_browse_archive_without_recent' => 'Archivált beszélgetések megtekintése',
 	'lqt_browse_archive_with_recent' => 'korábbi',
 	'lqt_recently_archived' => 'Legutóbb archivált:',
 	'lqt_contents_title' => 'Tartalom',
+	'lqt_toc_thread_modified' => 'Utoljára módosítva',
 	'lqt_add_header' => 'Fejléc hozzáadása',
 	'lqt_new_thread' => 'Új beszélgetés indítása',
 	'lqt_in_response_to' => 'Válasz: $1, írta $2:',
@@ -3663,7 +3674,7 @@ $messages['hu'] = array(
 	'lqt_reply' => 'válasz',
 	'lqt_delete' => 'törlés',
 	'lqt_undelete' => 'visszaállítás',
-	'lqt_permalink' => 'link erre',
+	'lqt_permalink' => 'Hivatkozás erre',
 	'lqt_discussion_link' => 'beszélgetés',
 	'lqt_from_talk' => '$1 felhasználótól',
 	'lqt_newer' => '←frissebb',
@@ -3681,24 +3692,28 @@ $messages['hu'] = array(
 	'lqt_hist_past_last_page_error' => 'Túl vagy a laptörténet oldalainak számán.',
 	'lqt_hist_tooltip_newer_disabled' => 'A link le van tiltva, mert az első lapon vagy.',
 	'lqt_hist_tooltip_older_disabled' => 'A link le van tiltva, mert az utolsó lapon vagy.',
-	'lqt_revision_as_of' => '$1-kori változat',
+	'lqt_hist_edited_subject' => 'Szerkesztett tárgy',
+	'lqt_revision_as_of' => 'Változat időbélyege: $2 $3',
 	'lqt_change_new_thread' => 'Ez a beszélgetés első változata',
 	'lqt_change_reply_created' => 'A kiemelt megjegyzés ennél a változatnál készült.',
 	'lqt_change_edited_root' => 'A kiemelt megjegyzés ennél a változatnál lett szerkesztve.',
+	'lqt_change_subject_edited' => 'A beszélgetés tárgya megváltozott',
 	'lqt_protectedfromreply' => 'Ez a beszélgetés $1 a válaszlehetőségtől.',
 	'lqt_protectedfromreply_link' => 'le van védve',
 	'lqt_subject' => 'Tárgy',
 	'lqt_nosubject' => '«nincs tárgy»',
 	'lqt_noreason' => 'Nincs ok megadva.',
 	'lqt_move_placeholder' => 'Ez a beszélgetés csupán egy jelzés, hogy a $1 beszélgetést $2 áthelyezte $3 $4-kor egy másik vitalapra.',
-	'lqt_thread_deleted_for_sysops' => 'A beszélgetés $1 és csak adminisztrátorok számára látható.',
+	'lqt_thread_deleted_for_sysops' => "A beszélgetést '''törölték''' és csak adminisztrátorok számára látható.",
 	'lqt_thread_deleted' => 'A beszélgetést törölték.',
-	'lqt_summary_notice' => 'Nem történt változás $2 napja. Ha a beszélgetés befejeződött, $1.',
+	'lqt_summary_notice' => 'Nem történt változás az utóbbi {{PLURAL:$2||$2}} napban.
+Ha a beszélgetés befejeződött, $1.',
 	'lqt_summary_notice_link' => 'írhatsz összefoglalót',
 	'lqt_summary_label' => 'A beszélgetést a következőképpen összegezték:',
 	'lqt_summary_subtitle' => '$1 összegzését.',
 	'lqt_nosuchrevision' => 'A beszélgetésnek nincs ilyen változata.',
-	'lqt_nosuchthread' => 'Nincs ilyen beszélgetés.',
+	'lqt_nosuchthread' => 'A megadott beszélgetés nem létezik.',
+	'lqt_nosuchthread_title' => 'Nincs ilyen beszélgetés',
 	'lqt_threadrequired' => 'Meg kell adnod egy beszélgetést az URL-ben',
 	'lqt_move_torename' => 'A beszélgetés átnevezéséhez a $1 változtasd meg a Tárgy mezőt.',
 	'lqt_move_torename_edit' => 'szerkesztéskor',
@@ -3707,7 +3722,7 @@ $messages['hu'] = array(
 	'lqt_move_nodestination' => 'Meg kell adnod a célt.',
 	'lqt_move_noreason' => 'Nincs ok megadva.',
 	'lqt_move_success' => 'A beszélgetés át lett helyezve a(z) $1 lapra.',
-	'lqt_delete_undeleting' => '$1 visszaállítása.',
+	'lqt_delete_undeleting' => "'''$1''' visszaállítása.",
 	'lqt_delete_undeletethread' => 'Beszélgetés visszaállítása',
 	'lqt_delete_partof' => 'Ez a beszélgetés $1 része.',
 	'lqt_delete_deletethread' => 'Beszélgetés és válaszok törlése',
@@ -3725,6 +3740,16 @@ $messages['hu'] = array(
 	'lqt_sort_newest_changes' => 'utoljára módosított elöl',
 	'lqt_sort_newest_threads' => 'legújabb beszélgetések elöl',
 	'lqt_sort_oldest_threads' => 'legrégebbi beszélgetések elöl',
+	'lqt-any-date' => 'Bármely dátum',
+	'lqt-only-date' => 'Csak a következő dátumok:',
+	'lqt-title' => 'Cím',
+	'lqt-summary' => 'Összefoglaló',
+	'lqt-older' => 'régebbi',
+	'lqt-newer' => 'újabb',
+	'lqt-read-message' => 'Megjelölés olvasottként',
+	'lqt-read-all' => 'Mind megjelölése olvasottként',
+	'lqt-history-time' => 'Idő',
+	'lqt-history-user' => 'Szerkesztő',
 );
 
 /** Interlingua (Interlingua)
@@ -4363,8 +4388,8 @@ $messages['ja'] = array(
 	'lqt-date-info' => 'すべての日付のスレッドを閲覧しているため、このリンクは無効になっています。',
 	'lqt_rc_new_discussion' => '$2 で新規議論 $1。$3 の書き込み:',
 	'lqt_rc_new_reply' => '$2 で $1 に返答。$3 の書き込み:',
-	'lqt_rc_author_original' => '（作成者）',
-	'lqt_rc_author_others' => '（非作成者）',
+	'lqt_rc_author_original' => '(作成者)',
+	'lqt_rc_author_others' => '(非作成者)',
 	'lqt-newmessages-context' => 'スレッド全体',
 	'lqt-thread-created' => '作成',
 	'lqt-archive-subtitle' => '過去の議論',
@@ -4386,7 +4411,7 @@ $messages['ja'] = array(
 	'lqt_split_badsubject' => 'あなたが入力した表題は不正です。',
 	'lqt-no-threads' => 'このページにはまだスレッドがありません。',
 	'lqt-delete-parent-warning' => 'これは返信がある最上位のスレッドです。その返信もまた自動的に削除されます。これを避けるには、削除する前にそれらをこのスレッドから分割してください。',
-	'lqt-delete-parent-deleted' => '親スレッド削除済み（$1）',
+	'lqt-delete-parent-deleted' => '親スレッド削除済み($1)',
 	'lqt-delete-replies-done' => 'このスレッドへの返信もすべて削除されました。',
 	'right-lqt-split' => 'スレッドを分割する',
 	'right-lqt-merge' => 'スレッドを統合する',
@@ -4417,6 +4442,8 @@ $messages['ja'] = array(
 	'lqt-search-legend' => 'このページ上の議論を検索する',
 	'lqt-search-label' => '検索語句:',
 	'lqt-search-button' => '検索',
+	'lqt-ajax-updated' => 'このスレッドには新しい投稿があります。',
+	'lqt-ajax-update-link' => '最新の投稿を読み込む',
 );
 
 /** Javanese (Basa Jawa)
@@ -4817,6 +4844,11 @@ $messages['lb'] = array(
 	'lqt_toc_thread_modified' => "Fir d'lescht geännert",
 	'lqt_add_header' => 'Iwwerschrëft derbäisetzen',
 	'lqt_new_thread' => 'Eng nei Diskussioun ufänken',
+	'lqt_invalid_subject' => 'De Sujet deen Dir aginn hutt ass net valabel.
+Et ass méiglech, datt:
+*net valabel Zeechen esou wéi []{} &lt;&gt; drasinn,
+*en ze laang ass, oder
+* en am Konflikt mat Interwiki-Prefixen oder Nimm vun Nummraim ass.',
 	'lqt_subject_change_forbidden' => 'Dir kënnt de Sujet vun dëse Rubrik net änneren well Dir keng Säite réckelen däerft.',
 	'lqt_in_response_to' => 'Als äntwert op $1 vum $2, uewendriwwer:',
 	'lqt_edited_notice' => 'Verännert',
@@ -5451,6 +5483,8 @@ U kunt het bekijken op <$6>.",
 	'lqt-search-legend' => 'Overleg op deze pagina doorzoeken',
 	'lqt-search-label' => 'Zoektermen:',
 	'lqt-search-button' => 'Zoeken',
+	'lqt-ajax-updated' => 'Er zijn nieuwe berichten in dit onderwerp.',
+	'lqt-ajax-update-link' => 'Meest recente berichten laden.',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -7182,6 +7216,7 @@ $messages['te'] = array(
 	'lqt_archive_month_range_annotation' => '$1 మరియు $2 మధ్య',
 	'lqt_browse_archive_with_recent' => 'పాతవి',
 	'lqt_contents_title' => 'విషయాలు',
+	'lqt_toc_thread_replycount' => 'స్పందనలు',
 	'lqt_new_thread' => 'కొత్త చర్చని ప్రారంభించండి',
 	'lqt_reply' => 'స్పందించు',
 	'lqt_delete' => 'తొలగించు',
@@ -7245,6 +7280,10 @@ $messages['te'] = array(
 	'lqt_rc_author_original' => '(అసలు రచయిత)',
 	'lqt-history-time' => 'సమయం',
 	'lqt-history-user' => 'వాడుకరి',
+	'lqt-history-action' => 'కలాపం',
+	'lqt-history-comment' => 'వ్యాఖ్య',
+	'lqt-header-actions' => 'చర్యలు',
+	'lqt_summarize_link' => 'సంగ్రహించు',
 	'lqt-split-submit' => 'విడదీయి',
 	'lqt-delete-parent-deleted' => 'పైన చర్చ తొలగించడమైనది ($1)',
 	'lqt-merge-submit' => 'కలుపు',
