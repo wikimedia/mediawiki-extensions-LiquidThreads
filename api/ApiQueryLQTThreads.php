@@ -55,7 +55,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			
 			if ( is_array($addFields) ) $addFields = array_values($addFields);
 
-			$this->addFieldsIf( $fields, isset($prop[$name]) );
+			$this->addFieldsIf( $addFields, isset($prop[$name]) );
 		}
 		
 		// Check for conditions
