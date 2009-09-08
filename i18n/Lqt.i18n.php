@@ -1783,6 +1783,10 @@ Móžoš jo na <$6> wiźeś",
 	'lqt-search-legend' => 'Diskusije na toś tom boku pśepytaś',
 	'lqt-search-label' => 'Pytańske wuraze:',
 	'lqt-search-button' => 'Pytaś',
+	'searchprofile-threads' => 'Diskusije',
+	'searchprofile-threads-tooltip' => 'Diskusije w nitkach a diskusijne boki pśepytaś',
+	'lqt-ajax-updated' => 'Toś ta nitka ma nowe powěsći.',
+	'lqt-ajax-update-link' => 'Nejnowše powěsći zacytaś.',
 );
 
 /** Ewe (Eʋegbe)
@@ -3649,6 +3653,8 @@ Móžeš ju na <$6> widźeć",
 	'lqt-search-legend' => 'Diskusije na tutej stronje přepytać',
 	'lqt-search-label' => 'Pytanske zapřijeća:',
 	'lqt-search-button' => 'Pytać',
+	'searchprofile-threads' => 'Diskusije',
+	'searchprofile-threads-tooltip' => 'Diskusije w nitkach a diskusijne strony přepytać',
 	'lqt-ajax-updated' => 'Tuta nitka ma nowe powěsće.',
 	'lqt-ajax-update-link' => 'Najnowše powěsće začitać.',
 );
@@ -4823,6 +4829,10 @@ Ene schööne Jrohß!',
 	'lqt-search-legend' => 'En dä Klaafe op heh dä Sigg söhke',
 	'lqt-search-label' => 'Söhk noh:',
 	'lqt-search-button' => 'Söhke',
+	'searchprofile-threads' => 'Klaaf un Jeschprääshsfäddeme',
+	'searchprofile-threads-tooltip' => 'Donn en Jeschprääschfäddeme un op Klaafsigge söhke',
+	'lqt-ajax-updated' => 'Dä Jeschrääschßfäddem hät neu Beidrääsch.',
+	'lqt-ajax-update-link' => 'De neuste Beidrääsch laade.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -5030,6 +5040,7 @@ Dir kënnt se op <$6> gesinn.",
 	'lqt-search-legend' => 'Diskussiounen zu dëser Säit sichen',
 	'lqt-search-label' => 'Sichbegrëffer:',
 	'lqt-search-button' => 'Sichen',
+	'searchprofile-threads' => 'Diskussiounen',
 );
 
 /** Lozi (Silozi)
@@ -5485,6 +5496,8 @@ U kunt het bekijken op <$6>.",
 	'lqt-search-legend' => 'Overleg op deze pagina doorzoeken',
 	'lqt-search-label' => 'Zoektermen:',
 	'lqt-search-button' => 'Zoeken',
+	'searchprofile-threads' => 'Overleggen',
+	'searchprofile-threads-tooltip' => "Overleggen en overlegpagina's doorzoeken",
 	'lqt-ajax-updated' => 'Er zijn nieuwe berichten in dit onderwerp.',
 	'lqt-ajax-update-link' => 'Meest recente berichten laden.',
 );
@@ -6684,6 +6697,8 @@ $messages['ru'] = array(
 	'lqt-search-legend' => 'Поиск обсуждений на этой странице',
 	'lqt-search-label' => 'Условия поиска:',
 	'lqt-search-button' => 'Найти',
+	'lqt-ajax-updated' => 'В этой ветке есть новые сообщения.',
+	'lqt-ajax-update-link' => 'Загрузить последние сообщения.',
 );
 
 /** Sicilian (Sicilianu)
