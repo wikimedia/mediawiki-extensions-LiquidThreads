@@ -71,6 +71,12 @@ var liquidThreads = {
 			// Add toolbar
 			mwSetupToolbar();
 			
+			// Check for live preview
+			if ( $j('#wpLivePreview').length ) {
+				$j.getScript( stylepath+'/common/preview.js',
+								function() { setupLivePreview(); } );
+			}
+			
 			// Scroll to the textbox
 			var targetOffset = $j(container).find('#wpTextbox1').offset().top;
 			// Buffer at the top, roughly enough to see the heading and one line
