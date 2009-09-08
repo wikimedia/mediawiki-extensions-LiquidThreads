@@ -80,6 +80,8 @@ var liquidThreads = {
 			$j(container).find('#wpTextbox1').focus();
 		};
 		
+		mwEditButtons = [];
+		
 		$j.getScript( stylepath+'/common/edit.js',
 			function() {
 				$j(container).load(wgServer+wgScript, 'title='+encodeURIComponent(wgPageName)+
