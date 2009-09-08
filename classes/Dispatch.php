@@ -41,7 +41,14 @@ class LqtDispatch {
 		$action =  $request->getVal( 'action' );
 		$header_actions = array( 'history', 'edit', 'submit', 'delete' );
 		global $wgRequest;
-		if ( $request->getVal( 'lqt_method', null ) === null &&
+		if ($action == 'edit' && $request->getVal('section') == 'new') {
+			// Hijack section=new for "new thread".
+			$request->setVal( 'lqt_method', 'talkpage_new_thread' );
+			$request->setVal( 'section', '' );
+			
+			$viewname = self::$views['TalkpageView'];
+			
+		} elseif ( $request->getVal( 'lqt_method', null ) === null &&
 				( in_array( $action, $header_actions ) ||
 					$request->getVal( 'diff', null ) !== null ) ) {
 			// Pass through wrapper
