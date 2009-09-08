@@ -308,7 +308,7 @@ js2AddOnloadHook( function() {
 	
 	$j('div.lqt-edit-form').each(
 		function() {
-			if ( this.find('#wpTextbox1').length ) {
+			if ( $j(this).find('#wpTextbox1').length ) {
 				return;
 			}
 			
