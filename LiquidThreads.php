@@ -72,6 +72,7 @@ $wgHooks['ArticleConfirmDelete'][] = 'LqtDeletionController::onArticleConfirmDel
 
 // Search
 $wgHooks['ShowSearchHitTitle'][] = 'LqtHooks::customiseSearchResultTitle';
+$wgHooks['SpecialSearchProfiles'][] = 'LqtHooks::customiseSearchProfiles';
 
 // Rename
 $wgHooks['RenameUserSQL'][] = 'LqtHooks::onUserRename';

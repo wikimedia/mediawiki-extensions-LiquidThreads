@@ -260,4 +260,31 @@ class LqtHooks {
 		
 		return true;
 	}
+	
+	static function customiseSearchProfiles( &$profiles ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+		
+		$namespaces = array( NS_LQT_THREAD, NS_LQT_SUMMARY );
+		
+		// Add odd namespaces
+		foreach( SearchEngine::searchableNamespaces() as $ns => $nsName ) {
+			if ($ns % 2 == 1) {
+				$namespaces[] = $ns;
+			}
+		}
+		
+		$insert = array(
+			'threads' =>
+				array(
+					'message' => 'searchprofile-threads',
+					'tooltip' => 'searchprofile-threads-tooltip',
+					'namespaces' => $namespaces,
+					'namespace-messages' => SearchEngine::namespacesAsText( $namespaces ),
+				),
+		);
+		
+		$profiles = wfArrayInsertAfter( $profiles, $insert, 'help' );
+		
+		return true;
+	}
 }

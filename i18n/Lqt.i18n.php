@@ -237,6 +237,8 @@ You can see it at <$6>",
 	'lqt-search-legend' => 'Search discussions on this page',
 	'lqt-search-label' => 'Search terms:',
 	'lqt-search-button' => 'Search',
+	'searchprofile-threads' => 'Discussions',
+	'searchprofile-threads-tooltip' => 'Search threaded discussions and talk pages',
 	
 	// Some AJAX stuff
 	'lqt-ajax-updated' => 'This thread has new posts.',
