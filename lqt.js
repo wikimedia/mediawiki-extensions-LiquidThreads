@@ -51,33 +51,41 @@ var liquidThreads = {
 		liquidThreads.cancelEdit( container );
 		
 		var loadSpinner = $j('<div class="mw-ajax-loader"/>');
-		container.before( loadSpinner );
+		$j(container).before( loadSpinner );
 		
-		$j(container).load(wgServer+wgScript, 'title='+encodeURIComponent(wgPageName)+
-					query+'&lqt_inline=1',
-					function() {
-						// Kill the loader.
-						loadSpinner.remove();
-						
-						if (preload) {
-							$j("textarea", container)[0].value = preload;
-						}
-						
-						$j(container).slideDown('slow');
-						
-						var cancelButton = $j(container).find('#mw-editform-cancel');
-						cancelButton.click( liquidThreads.cancelEdit );
-						
-						$j(container).find('#wpTextbox1')[0].rows = 10;
-						
-						// Scroll to the textbox
-						var targetOffset = $j(container).find('#wpTextbox1').offset().top;
-						// Buffer at the top, roughly enough to see the heading and one line
-						targetOffset -= 100;
-						$j('html,body').animate({scrollTop: targetOffset}, 'slow');
-						
-						$j(container).find('#wpTextbox1').focus();
-					} );
+		var finishSetup = function() {
+			// Kill the loader.
+			loadSpinner.remove();
+			
+			if (preload) {
+				$j("textarea", container)[0].value = preload;
+			}
+			
+			$j(container).slideDown('slow');
+			
+			var cancelButton = $j(container).find('#mw-editform-cancel');
+			cancelButton.click( liquidThreads.cancelEdit );
+			
+			$j(container).find('#wpTextbox1')[0].rows = 10;
+			
+			// Add toolbar
+			mwSetupToolbar();
+			
+			// Scroll to the textbox
+			var targetOffset = $j(container).find('#wpTextbox1').offset().top;
+			// Buffer at the top, roughly enough to see the heading and one line
+			targetOffset -= 100;
+			$j('html,body').animate({scrollTop: targetOffset}, 'slow');
+			
+			$j(container).find('#wpTextbox1').focus();
+		};
+		
+		$j.getScript( stylepath+'/common/edit.js',
+			function() {
+				$j(container).load(wgServer+wgScript, 'title='+encodeURIComponent(wgPageName)+
+							query+'&lqt_inline=1', finishSetup );
+			} );
+					
 	},
 	
 	//From http://clipmarks.com/clipmark/CEFC94CB-94D6-4495-A7AA-791B7355E284/
