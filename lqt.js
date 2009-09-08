@@ -306,7 +306,14 @@ js2AddOnloadHook( function() {
 		newThreadLink.click( liquidThreads.handleNewLink );
 	}
 	
-	$j('div.lqt-edit-form').each( function() { this.style.display = 'none'; } );
+	$j('div.lqt-edit-form').each(
+		function() {
+			if ( this.find('#wpTextbox1').length ) {
+				return;
+			}
+			
+			this.style.display = 'none';
+		} );
 	
 	// Move menus into their proper location
 	$j('div.lqt-post-wrapper').each( liquidThreads.setupMenus );
