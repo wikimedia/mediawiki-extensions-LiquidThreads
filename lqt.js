@@ -53,6 +53,17 @@ var liquidThreads = {
 		var loadSpinner = $j('<div class="mw-ajax-loader"/>');
 		$j(container).before( loadSpinner );
 		
+		var finishShow = function() {
+			// Scroll to the textbox
+			var targetOffset = $j(container).find('#wpTextbox1').offset().top;
+			
+			// Buffer at the top, roughly enough to see the heading and one line
+			targetOffset -= 100;
+			$j('html,body').animate({scrollTop: targetOffset}, 'slow');
+			
+			$j(container).find('#wpTextbox1').focus();
+		}
+		
 		var finishSetup = function() {
 			// Kill the loader.
 			loadSpinner.remove();
@@ -61,7 +72,7 @@ var liquidThreads = {
 				$j("textarea", container)[0].value = preload;
 			}
 			
-			$j(container).slideDown('slow');
+			$j(container).slideDown( 'slow', finishShow );
 			
 			var cancelButton = $j(container).find('#mw-editform-cancel');
 			cancelButton.click( liquidThreads.cancelEdit );
@@ -76,14 +87,6 @@ var liquidThreads = {
 				$j.getScript( stylepath+'/common/preview.js',
 								function() { setupLivePreview(); } );
 			}
-			
-			// Scroll to the textbox
-			var targetOffset = $j(container).find('#wpTextbox1').offset().top;
-			// Buffer at the top, roughly enough to see the heading and one line
-			targetOffset -= 100;
-			$j('html,body').animate({scrollTop: targetOffset}, 'slow');
-			
-			$j(container).find('#wpTextbox1').focus();
 		};
 		
 		mwEditButtons = [];
@@ -187,22 +190,18 @@ var liquidThreads = {
 		return false;
 	},
 	
-	'showQuoteButtons' : function() {
-		var elems = $j('.lqt-thread-toolbar-commands');
+	'addQuoteButton' : function( toolbar ) {
+		var quoteButton = $j('<li/>' );
+		quoteButton.addClass('lqt-command');
+		quoteButton.addClass('lqt-command-quote');
 		
-		elems.each( function(i) {
-			var quoteButton = $j('<li/>' );
-			quoteButton.addClass('lqt-command');
-			quoteButton.addClass('lqt-command-quote');
-			
-			var link = $j('<a href="#"/>');
-			link.append( wgLqtMessages['lqt-quote'] );
-			quoteButton.append( link );
-			
-			quoteButton.click( liquidThreads.doQuote );
-			
-			$j(this).prepend( quoteButton );
-		} );
+		var link = $j('<a href="#"/>');
+		link.append( wgLqtMessages['lqt-quote'] );
+		quoteButton.append( link );
+		
+		quoteButton.click( liquidThreads.doQuote );
+		
+		$j(toolbar).prepend( quoteButton );
 	},
 	
 	'cancelEdit' : function( e ) {
@@ -293,17 +292,14 @@ var liquidThreads = {
 		notifier.addClass( 'lqt-updated-notification' );
 		
 		threadObject.prepend(notifier);
-	}
-}
-
-js2AddOnloadHook( function() {
-	// Find all the reply links
-	var threadContainers = $j('div.lqt_thread');
-	var prefixLength = "lqt_thread_id_".length;
+	},
 	
-	threadContainers.each( function(i) {
-		var replyLI = $j(this).find( '.lqt-command-reply' );
-		var threadId = this.id.substring( prefixLength );
+	'setupThread' : function(threadContainer) {
+		var prefixLength = "lqt_thread_id_".length;
+		
+		// Update reply links
+		var replyLI = $j(threadContainer).find( '.lqt-command-reply' );
+		var threadId = threadContainer.id.substring( prefixLength );
 		
 		if (!(replyLI.length)) {
 			return;
@@ -313,26 +309,31 @@ js2AddOnloadHook( function() {
 		var replyLink = replyLI.find('a');
 		
 		replyLink.click( liquidThreads.handleReplyLink );
-	} );
+		
+		// Hide edit forms
+		$j(threadContainer).find('div.lqt-edit-form').each(
+			function() {
+				if ( $j(this).find('#wpTextbox1').length ) {
+					return;
+				}
+				
+				this.style.display = 'none';
+			} );
+	
+		// Update menus
+		$j(threadContainer).each( liquidThreads.setupMenus );
+	
+		// Add quote button to menus
+		var toolbar = $j(threadContainer).find('.lqt-thread-toolbar-commands');
+		liquidThreads.addQuoteButton(toolbar);
+	},
+}
+
+js2AddOnloadHook( function() {
+	// One-time setup for the full page
 	
 	// Update the new thread link
 	var newThreadLink = $j('.lqt_start_discussion a');
-	
-	if (newThreadLink) {
-		newThreadLink.click( liquidThreads.handleNewLink );
-	}
-	
-	$j('div.lqt-edit-form').each(
-		function() {
-			if ( $j(this).find('#wpTextbox1').length ) {
-				return;
-			}
-			
-			this.style.display = 'none';
-		} );
-	
-	// Move menus into their proper location
-	$j('div.lqt-post-wrapper').each( liquidThreads.setupMenus );
 	
 	// Add scrolling handler
 	$j(document).scroll( function() {
@@ -357,8 +358,17 @@ js2AddOnloadHook( function() {
 		}
 	} );
 	
-	// Show quote buttons
-	liquidThreads.showQuoteButtons();
+	if (newThreadLink) {
+		newThreadLink.click( liquidThreads.handleNewLink );
+	}
+
+	// Find all threads, and do the appropriate setup for each of them
+	
+	var threadContainers = $j('div.lqt-post-wrapper');
+	
+	threadContainers.each( function(i) {
+		liquidThreads.setupThread( this );
+	} );
 	
 	// Set up periodic update checking
 	setInterval( liquidThreads.checkForUpdates, 30000 );
