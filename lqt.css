@@ -421,6 +421,10 @@ div.lqt-thread-toolbar-box-tl {
 	background-position: left center !important;
 }
 
+.lqt-command-merge-to {
+	margin-left: 8px;
+}
+
 .lqt-command-link a {
 	background-image: url(icons/link.png) !important;
 	padding-left: 26px;

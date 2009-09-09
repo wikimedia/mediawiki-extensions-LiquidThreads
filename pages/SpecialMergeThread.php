@@ -92,7 +92,10 @@ class SpecialMergeThread extends ThreadActionPage {
 		$this->recursiveSet( $srcThread, $newSubject, $dstThread, $dstThread );
 
 		$dstThread->addReply( $srcThread );
-		$oldParent->removeReply( $srcThread );
+		
+		if ($oldParent) {
+			$oldParent->removeReply( $srcThread );
+		}
 		
 		$oldTopThread->commitRevision( Threads::CHANGE_MERGED_FROM, $srcThread, $reason );
 		$dstThread->commitRevision( Threads::CHANGE_MERGED_TO, $srcThread, $reason );
