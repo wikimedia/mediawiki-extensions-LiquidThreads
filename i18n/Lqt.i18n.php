@@ -347,6 +347,7 @@ Parameters are:
 * $2 is a date
 * $3 is a time',
 	'lqt-search-button' => '{{Identical|Search}}',
+	'searchprofile-threads' => '{{Identical|Discussion}}',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -422,8 +423,10 @@ $messages['af'] = array(
 	'lqt-history-user' => 'Gebruiker',
 	'lqt-history-comment' => 'Opmerking',
 	'lqt-header-actions' => 'Aksies',
+	'lqt-delete-parent-deleted' => 'Boliggende bespreking is geskrap ($1)',
 	'lqt-search-label' => 'Soekterme:',
 	'lqt-search-button' => 'Soek',
+	'searchprofile-threads' => 'Besprekings',
 );
 
 /** Amharic (አማርኛ)
@@ -976,6 +979,10 @@ $messages['be-tarask'] = array(
 	'lqt-search-legend' => 'Пошук абмеркаваньняў на гэтай старонцы',
 	'lqt-search-label' => 'Умовы пошуку:',
 	'lqt-search-button' => 'Знайсьці',
+	'searchprofile-threads' => 'Абмеркаваньні',
+	'searchprofile-threads-tooltip' => 'Пошук у абмеркаваньнях па галінам і на старонках абмеркаваньняў',
+	'lqt-ajax-updated' => 'У гэтай галіне ёсьць новыя паведамленьні.',
+	'lqt-ajax-update-link' => 'Загрузіць апошнія паведамленьні.',
 );
 
 /** Bulgarian (Български)
@@ -2542,6 +2549,8 @@ Vous pouvez le voir a « $6 »",
 	'lqt-search-legend' => 'Rechercher des discussions sur cette page',
 	'lqt-search-label' => 'Termes de recherche :',
 	'lqt-search-button' => 'Rechercher',
+	'searchprofile-threads' => 'Discussions',
+	'searchprofile-threads-tooltip' => 'Rechercher dans les fils de discussion et les pages de discussion',
 	'lqt-ajax-updated' => 'Ce fil a de nouveaux messages.',
 	'lqt-ajax-update-link' => 'Charger les derniers messages.',
 );
@@ -2773,6 +2782,8 @@ Pode vela en <$6>',
 	'lqt-search-legend' => 'Procurar conversas nesta páxina',
 	'lqt-search-label' => 'Procurar os termos:',
 	'lqt-search-button' => 'Buscar',
+	'searchprofile-threads' => 'Conversas',
+	'searchprofile-threads-tooltip' => 'Procurar nos fíos e páxinas de conversa',
 	'lqt-ajax-updated' => 'Este fío ten novas mensaxes.',
 	'lqt-ajax-update-link' => 'Cargar as últimas mensaxes.',
 );
@@ -4450,6 +4461,8 @@ $messages['ja'] = array(
 	'lqt-search-legend' => 'このページ上の議論を検索する',
 	'lqt-search-label' => '検索語句:',
 	'lqt-search-button' => '検索',
+	'searchprofile-threads' => '議論',
+	'searchprofile-threads-tooltip' => 'スレッド型議論とノートページを検索',
 	'lqt-ajax-updated' => 'このスレッドには新しい投稿があります。',
 	'lqt-ajax-update-link' => '最新の投稿を読み込む',
 );
@@ -5041,6 +5054,9 @@ Dir kënnt se op <$6> gesinn.",
 	'lqt-search-label' => 'Sichbegrëffer:',
 	'lqt-search-button' => 'Sichen',
 	'searchprofile-threads' => 'Diskussiounen',
+	'searchprofile-threads-tooltip' => 'An den Diskussiouns-Rubriken an op den Diskussiounssäite sichen',
+	'lqt-ajax-updated' => 'An dëser Rubrik gëtt et nei Messagen.',
+	'lqt-ajax-update-link' => 'Déi neiste Message lueden.',
 );
 
 /** Lozi (Silozi)
@@ -6697,6 +6713,8 @@ $messages['ru'] = array(
 	'lqt-search-legend' => 'Поиск обсуждений на этой странице',
 	'lqt-search-label' => 'Условия поиска:',
 	'lqt-search-button' => 'Найти',
+	'searchprofile-threads' => 'Обсуждения',
+	'searchprofile-threads-tooltip' => 'Поиск в обсуждениях по веткам и на страницах обсуждений',
 	'lqt-ajax-updated' => 'В этой ветке есть новые сообщения.',
 	'lqt-ajax-update-link' => 'Загрузить последние сообщения.',
 );
