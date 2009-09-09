@@ -611,8 +611,14 @@ class LqtView {
 		
 		global $wgOut;
 		global $wgScriptPath, $wgStyleVersion;
+		global $wgEnableJS2system;
 
 		$wgOut->addInlineScript( 'var wgLqtMessages = ' . self::exportJSLocalisation() . ';' );
+		
+		if (!$wgEnableJS2system) {
+			$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/js2.combined.js" );
+		}
+		
 		$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/lqt.js" );
 		$wgOut->addExtensionStyle( "{$wgScriptPath}/extensions/LiquidThreads/lqt.css?{$wgStyleVersion}" );
 		
