@@ -287,4 +287,32 @@ class LqtHooks {
 		
 		return true;
 	}
+	
+	public static function onLoadExtensionSchemaUpdates() {
+		global $wgExtNewTables, $wgExtNewFields, $wgExtPGNewFields,
+				$wgExtPGAlteredFields, $wgExtNewIndexes, $wgDBtype;
+
+		$dir = dirname( __FILE__ );
+		
+		// DB updates
+		$wgExtNewTables[] = array( 'thread', "$dir/lqt.sql" );
+		$wgExtNewTables[] = array( 'user_message_state', "$dir/lqt.sql" );
+		$wgExtNewTables[] = array( 'thread_history', "$dir/schema-changes/thread_history_table.sql" );
+		
+		
+		$wgExtNewFields[] = array( "thread", "thread_article_namespace", "$dir/split-thread_article.sql" );
+		$wgExtNewFields[] = array( "thread", "thread_article_title", "$dir/split-thread_article.sql" );
+		$wgExtNewFields[] = array( "thread", "thread_ancestor", "$dir/normalise-ancestry.sql" );
+		$wgExtNewFields[] = array( "thread", "thread_parent", "$dir/normalise-ancestry.sql" );
+		$wgExtNewFields[] = array( "thread", "thread_modified", "$dir/split-timestamps.sql" );
+		$wgExtNewFields[] = array( "thread", "thread_created", "$dir/split-timestamps.sql" );
+		$wgExtNewFields[] = array( "thread", "thread_editedness", "$dir/store-editedness.sql" );
+		$wgExtNewFields[] = array( "thread", "thread_subject", "$dir/store_subject-author.sql" );
+		$wgExtNewFields[] = array( "thread", "thread_author_id", "$dir/store_subject-author.sql" );
+		$wgExtNewFields[] = array( "thread", "thread_author_name", "$dir/store_subject-author.sql" );
+		
+		$wgExtNewIndexes[] = array( 'thread', 'thread_summary_page', '(thread_summary_page)' );
+		
+		return true;
+	}
 }
