@@ -33,6 +33,7 @@ class SpecialMergeThread extends ThreadActionPage {
 	protected function getRightRequirement() { return 'lqt-merge'; }
 	
 	public function checkParameters( $par ) {
+		global $wgOut;
 		if ( !parent::checkParameters($par) ) {
 			return false;
 		}
