@@ -128,7 +128,7 @@ class SpecialMergeThread extends ThreadActionPage {
 		$thread->save();
 		
 		foreach( $thread->replies() as $subThread ) {
-			$this->recursiveSet( $subThread, $subject, $ancestor, $reason );
+			$this->recursiveSet( $subThread, $subject, $ancestor );
 		}
 	}
 	
