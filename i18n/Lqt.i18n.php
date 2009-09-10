@@ -268,6 +268,7 @@ $messages['qqq'] = array(
 * $2 is a month name',
 	'lqt_browse_archive_with_recent' => '{{Identical|Older}}',
 	'lqt_contents_title' => '{{Identical|Contents}}',
+	'lqt_toc_thread_replycount' => '{{Identical|Reply}}',
 	'lqt_new_thread' => '{{Identical|Start a new discussion}}',
 	'lqt_reply' => 'is this noun or verb?
 
@@ -392,6 +393,7 @@ $messages['af'] = array(
 	'lqt_browse_archive_with_recent' => 'ouer',
 	'lqt_contents_title' => 'Inhoud',
 	'lqt_toc_thread_author' => 'Begin deur',
+	'lqt_toc_thread_replycount' => 'Antwoorde',
 	'lqt_new_thread' => 'Nuwe onderwerp begin',
 	'lqt_delete' => 'Skrap',
 	'lqt_discussion_link' => 'bespreking',
@@ -1948,6 +1950,7 @@ $messages['el'] = array(
 	'lqt-search-legend' => 'Αναζήτηση συζητήσεων σε αυτή τη σελίδα',
 	'lqt-search-label' => 'Αναζήτηση όρων:',
 	'lqt-search-button' => 'Αναζήτηση',
+	'searchprofile-threads' => 'Συζητήσεις',
 );
 
 /** Esperanto (Esperanto)
@@ -5020,6 +5023,9 @@ Dir kënnt jidfer Wikitext an Ärem Resumé benotzen. Wann Dir fäerdeg sidd, kl
 	'lqt-split-submit' => 'Opdeelen',
 	'lqt_split_badsubject' => 'The sujet deen Dir aginn hutt ass net valabel.',
 	'lqt-no-threads' => 'Et get nach keng Rubriken op dëser Säit.',
+	'lqt-delete-parent-warning' => 'Dëst ass eng Rubrik vum ieweschte Niveau mat den Äntwerten.
+Hir Äntwerten ginn och automatesch mat geläscht.
+Fir dëst ze verhënneren, trennt se vun dëser Rubrik ier Dir se läscht.',
 	'lqt-delete-parent-deleted' => 'Iwwerrubrik geläscht ($1)',
 	'lqt-delete-replies-done' => 'All Antwerten op dës Rubrik goufen och geläscht.',
 	'right-lqt-split' => 'Rubriken opdeelen',
