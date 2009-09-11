@@ -209,7 +209,7 @@ var liquidThreads = {
 			e.preventDefault();
 		}
 		
-		$j('.lqt-edit-form').not(e).slideUp('slow', function() { $j(this).empty(); } );
+		$j('.lqt-edit-form').not(e).fadeOut('slow', function() { $j(this).empty(); } );
 		
 		liquidThreads.currentReplyThread = null;
 	},
@@ -241,8 +241,8 @@ var liquidThreads = {
 		
 		var menuTrigger = menuContainer.find( '.lqt-thread-actions-trigger' );
 		
-		menuTrigger.hover( function() { menu.slideDown(); } );
-		toolbar.hover( function() {}, function() { menu.slideUp(); } );
+		menuTrigger.hover( function() { menu.fadeIn(); } );
+		toolbar.hover( function() {}, function() { menu.fadeOut(); } );
 
 		menuTrigger.show();
 	},
@@ -299,7 +299,10 @@ var liquidThreads = {
 		
 		// Update reply links
 		var replyLI = $j(threadContainer).find( '.lqt-command-reply' );
-		var threadId = threadContainer.id.substring( prefixLength );
+		var threadWrapper = $j(threadContainer).closest('.lqt_thread')[0]
+		var threadId = threadWrapper.id.substring( prefixLength );
+		
+		$j(threadContainer).data( 'thread-id', threadId );
 		
 		if (!(replyLI.length)) {
 			return;
@@ -326,7 +329,103 @@ var liquidThreads = {
 		// Add quote button to menus
 		var toolbar = $j(threadContainer).find('.lqt-thread-toolbar-commands');
 		liquidThreads.addQuoteButton(toolbar);
+		
+		// Check for a "show replies" button
+		$j('a.lqt-show-replies').click( liquidThreads.showReplies );
+		
+		// "Show more posts" link
+		$j('a.lqt-show-more-posts').click( liquidThreads.showMore );
 	},
+	
+	'showReplies' : function(e) {
+		e.preventDefault();
+		
+		// Grab the closest thread
+		var thread = $j(this).closest('.lqt_thread').find('div.lqt-post-wrapper')[0];
+		thread = $j(thread);
+		var threadId = thread.data('thread-id');
+		var replies = thread.parent().find('.lqt-thread-replies');
+		var loader = $j('<div class="mw-ajax-loader"/>');
+		
+		replies.empty();
+		replies.hide();
+		replies.before( loader );
+		
+		var apiParams = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
+							'format' : 'json', 'thrender' : '1', 'thprop' : 'id' };
+		
+		$j.get( wgScriptPath+'/api.php', apiParams,
+			function(data) {
+				// Interpret
+				var content = data.query.threads[0].content;
+				content = $j(content).find('.lqt-thread-replies')[0];
+				
+				// Inject
+				replies.empty().append( $j(content).contents() );
+				
+				// Remove post separator, if it follows the replies element
+				if ( replies.next().is('.lqt-post-sep') ) {
+					replies.next().remove();
+				}
+				
+				// Set up
+				replies.find('div.lqt-post-wrapper').each( function() {
+					liquidThreads.setupThread( $j(this) );
+				} );
+				
+				// Show
+				loader.remove();
+				replies.fadeIn('slow');
+			}, 'json' );
+	},
+	
+	'showMore' : function(e) {
+		e.preventDefault();
+		
+		// Add spinner
+		var loader = $j('<div class="mw-ajax-loader"/>');
+		$j(this).after(loader);
+		
+		// Grab the appropriate thread
+		var thread = $j(this).closest('.lqt_thread').find('div.lqt-post-wrapper')[0];
+		thread = $j(thread);
+		var threadId = thread.data('thread-id');
+		
+		// Find the hidden field that gives the point to start at.
+		var startAtField = $j(this).siblings().filter('.lqt-thread-start-at');
+		var startAt = startAtField.val();
+		startAtField.remove();
+		
+		// API request
+		var apiParams = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
+							'format' : 'json', 'thrender' : '1', 'thprop' : 'id',
+							'threnderstartrepliesat' : startAt };
+		
+		$j.get( wgScriptPath+'/api.php', apiParams,
+			function(data) {
+				var content = data.query.threads[0].content;
+				content = $j(content).find('.lqt-thread-replies')[0];
+				content = $j(content).contents();
+				content = content.not('.lqt-replies-finish');
+				
+				if ( $j(content[0]).is('.lqt-post-sep') ) {
+					content = content.not($j(content[0]));
+				}
+				
+				// Inject loaded content.
+				content.hide();
+				loader.after( content );
+				
+				content.find('div.lqt-post-wrapper').each( function() {
+					liquidThreads.setupThread( $j(this) );
+				} );
+				
+				content.fadeIn();
+				loader.remove();
+			}, 'json' );
+			
+		$j(this).remove();
+	}
 }
 
 js2AddOnloadHook( function() {

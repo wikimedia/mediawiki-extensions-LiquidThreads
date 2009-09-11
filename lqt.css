@@ -469,3 +469,9 @@ ul.lqt-thread-toolbar-commands {
 .lqt-edit-form {
 	margin-top: 1em;
 }
+
+.lqt-show-replies,
+.lqt-show-more-posts{
+	margin-left: 2em;
+	font-size: 120%;
+}

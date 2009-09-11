@@ -214,6 +214,9 @@ To avoid this, split them from this thread before deleting it.',
 	// Preferences
 	'lqt-preference-notify-talk' => 'E-mail me on replies to a thread I am watching',
 	'lqt-preference-watch-threads' => 'Watch threads that I create or reply to',
+	'prefs-lqt' => 'Threaded Discussion',
+	'lqt-preference-display-depth' => 'Maximum reply depth to show:',
+	'lqt-preference-display-count' => 'Maximum number of replies to show:',
 	
 	// E-mail notification
 	'lqt-enotif-subject-reply' => '{{SITENAME}} discussion - Reply: $1',
@@ -243,6 +246,8 @@ You can see it at <$6>",
 	// Some AJAX stuff
 	'lqt-ajax-updated' => 'This thread has new posts.',
 	'lqt-ajax-update-link' => 'Load the latest posts.',
+	'lqt-thread-show-replies' => 'Show $1 replies',
+	'lqt-thread-show-more' => 'Show more replies',
 );
 
 /** Message documentation (Message documentation)

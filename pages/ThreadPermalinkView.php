@@ -146,7 +146,7 @@ class ThreadPermalinkView extends LqtView {
 		elseif ( $this->methodApplies( 'split' ) )
 			$this->showSplitForm( $this->thread );
 
-		$this->showThread( $this->thread );
+		$this->showThread( $this->thread, 1, 1, array( 'maxDepth' => -1, 'maxCount' => -1 ) );
 		
 		$this->output->setPageTitle( $this->thread->subject() );
 		return false;

@@ -168,6 +168,22 @@ class LqtHooks {
 				'section' => 'watchlist/advancedwatchlist',
 			);
 		
+		// Display depth and count
+		$preferences['lqtdisplaydepth'] =
+			array(
+				'type' => 'int',
+				'label-message' => 'lqt-preference-display-depth',
+				'section' => 'lqt',
+			);
+			
+		// Display depth and count
+		$preferences['lqtdisplaycount'] =
+			array(
+				'type' => 'int',
+				'label-message' => 'lqt-preference-display-count',
+				'section' => 'lqt',
+			);
+		
 		return true;
 	}
 	

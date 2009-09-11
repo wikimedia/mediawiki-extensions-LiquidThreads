@@ -66,9 +66,20 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$this->addWhereRange( 'thread_id', $params['dir'],
 			$params['startid'], $params['endid'] );
 		
-		if ( $params['showdeleted'] ) {
+		if ( !$params['showdeleted'] ) {
 			$delType = $this->getDB()->addQuotes( Threads::TYPE_DELETED );			
 			$this->addWhere( "thread_type != $delType" );
+		}
+		
+		if ( $params['render'] ) {
+			// All fields
+			$allFields = array( 'thread_id', 'thread_root', 'thread_article_namespace',
+				'thread_article_title', 'thread_summary_page', 'thread_ancestor',
+				'thread_parent', 'thread_modified', 'thread_created', 'thread_type',
+				'thread_editedness', 'thread_subject', 'thread_author_id', 
+				'thread_author_name' );
+				
+			$this->addFields( $allFields );
 		}
 		
 		$res = $this->select( __METHOD__ );
@@ -87,6 +98,11 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				self::formatProperty( $name, $fields, $row, $entry );
 			}
 			
+			// Render if requested
+			if ( $params['render'] ) {
+				self::renderThread( $row, $params, &$entry );
+			}
+			
 			if ( $entry ) {
 				$fit = $result->addValue( array( 'query',
 						$this->getModuleName() ),
@@ -98,6 +114,41 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			}
 		}
 		$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'thread' );
+	}
+	
+	static function renderThread( $row, $params, &$entry ) {
+		// Set up OutputPage
+		global $wgOut, $wgUser, $wgRequest;
+		$oldOutputText = $wgOut->getHTML();
+		$wgOut->clearHTML();
+		
+		// Setup
+		$thread = new Thread( $row );
+		$article = $thread->root();
+		$title = $article->getTitle();
+		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );
+		
+		// Parameters
+		$view->threadNestingLevel = $params['renderlevel'];
+		
+		$renderpos = $params['renderthreadpos'];
+		$rendercount = $params['renderthreadcount'];
+		
+		$options = array();
+		if ( isset($params['renderthreadcount']) )
+			$options['maxCount'] = $params['renderthreadcount'];
+		if ( isset($params['rendermaxdepth']) )
+			$options['maxDepth'] = $params['rendermaxdepth'];
+		if ( isset($params['renderstartrepliesat']) )
+			$options['startAt' ] = $params['renderstartrepliesat'];
+		
+		$view->showThread( $thread, $renderpos, $rendercount, $options );
+		
+		$result = $wgOut->getHTML();
+		$wgOut->clearHTML();
+		$wgOut->addHTML( $oldOutputText );
+		
+		$entry['content'] = $result;
 	}
 	
 	static function formatProperty( $name, $fields, $row, &$entry ) {
@@ -225,6 +276,25 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			),
 			'id' => array(
 				ApiBase :: PARAM_ISMULTI => true
+			),
+			'render' => false,
+			'renderlevel' => array(
+				ApiBase :: PARAM_DFLT => 1,
+			),
+			'renderthreadpos' => array(
+				ApiBase :: PARAM_DFLT => 1,
+			),
+			'renderthreadcount' => array(
+				ApiBase :: PARAM_DFLT => 1,
+			),
+			'rendermaxthreadcount' => array(
+				ApiBase :: PARAM_DFLT => 1,
+			),
+			'rendermaxdepth' => array(
+				ApiBase :: PARAM_DFLT => null,
+			),
+			'renderstartrepliesat' => array(
+				ApiBase :: PARAM_DFLT => null,
 			),
 		);
 	}	

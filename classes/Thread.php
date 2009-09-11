@@ -777,7 +777,7 @@ class Thread {
 	}
 
 	// The 'root' is the page in the Thread namespace corresponding to this thread.
-	function root() {
+	function root( ) {
 		if ( !$this->rootId ) return null;
 		if ( !$this->root ) {
 			if ( isset(self::$articleCacheById[$this->rootId]) ) {

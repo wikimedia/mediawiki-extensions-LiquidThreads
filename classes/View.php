@@ -20,10 +20,9 @@ class LqtView {
 	protected $request;
 
 	protected $headerLevel = 2; 	/* h1, h2, h3, etc. */
-	protected $maxIndentationLevel = 4;
 	protected $lastUnindentedSuperthread;
 
-	protected $threadNestingLevel = 0;
+	public $threadNestingLevel = 0;
 
 	protected $sort_order = LQT_NEWEST_CHANGES;
 	
@@ -971,7 +970,7 @@ class LqtView {
 	
 	}
 
-	function showThread( $thread, $levelNum = 1, $totalInLevel = 1 ) {
+	function showThread( $thread, $levelNum = 1, $totalInLevel = 1, $options = array() ) {
 		global $wgLang;
 		
 		// Safeguard
@@ -982,6 +981,21 @@ class LqtView {
 		}
 		
 		$this->threadNestingLevel++;
+		
+		// Figure out which threads *need* to be shown because they're involved in an
+		//  operation
+		static $mustShowThreads = null; // Array of thread IDs
+		if ( is_null($mustShowThreads) ) {
+			$mustShowThreads = array();
+			if ( $this->request->getVal( 'lqt_operand' ) ) {
+				$walk_thread = Threads::withId( $this->request->getVal( 'lqt_operand' ) );
+				
+				do {
+					$mustShowThreads[$walk_thread->id()] = $walk_thread;
+					$walk_thread = $walk_thread->superthread();
+				} while ( $walk_thread );
+			}
+		}
 		
 		$sk = $this->user->getSkin();
 		
@@ -1016,32 +1030,103 @@ class LqtView {
 		$this->showSingleThread( $thread );
 		$this->output->addHTML( Xml::closeElement( 'div' ) );
 
-		if ( $thread->hasSubthreads() ) {
+		// Check depth and count
+		if ( isset($options['maxDepth']) ) {
+			$maxDepth = $options['maxDepth'];
+		} else {
+			$maxDepth = $this->user->getOption( 'lqtdisplaydepth' );
+		}
+		
+		if ( isset($options['maxCount']) ) {
+			$maxCount = $options['maxCount'];
+		} else {
+			$maxCount = $this->user->getOption( 'lqtdisplaycount' );
+		}
+		
+		if ( isset( $options['startAt'] ) ) {
+			$startAt = $options['startAt'];
+		} else {
+			$startAt = 0;
+		}
+		
+		$cascadeOptions = $options;
+		unset($cascadeOptions['startAt']);
+		
+		$showThreads = ($maxDepth == -1) || ( $this->threadNestingLevel <= $maxDepth );
+		
+		// Show subthreads if one of the subthreads is on the must-show list
+		$showThreads = $showThreads ||
+			count( array_intersect( array_keys($mustShowThreads), array_keys( $thread->replies() ) ) );
+		if ( $thread->hasSubthreads() && $showThreads ) {
 			$repliesClass = 'lqt-thread-replies lqt-thread-replies-'.$this->threadNestingLevel;
 			$div = Xml::openElement( 'div', array( 'class' => $repliesClass ) );
 			$this->output->addHTML( $div );
 			
 			$subthreadCount = count( $thread->subthreads() );
 			$i = 0;
+			$showCount = 0;
+			$showThreads = true;
 			
 			foreach ( $thread->subthreads() as $st ) {
 				++$i;
-				if ($i == 1 || !$lastSubthread->hasSubthreads() ) {
-					$this->output->addHTML(
-						Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&nbsp;' ) );
+				
+				// Only show undeleted threads that are above our 'startAt' index.
+				$shown = false;
+				if ($st->type() != Threads::TYPE_DELETED && $i >= $startAt && $showThreads) {
+					if ($showCount > $maxCount && $maxCount > 0) {
+						// We've shown too many threads.
+						$linkText = wfMsgExt( 'lqt-thread-show-more', 'parseinline' );
+						$linkTitle = clone $thread->topmostThread()->title();
+						$linkTitle->setFragment( '#'.$st->getAnchorName() );
+						
+						$link = $sk->link( $linkTitle, $linkText,
+											array( 'class' => 'lqt-show-more-posts' ) );
+						$link .= Xml::hidden( 'lqt-thread-start-at', $i,
+												array( 'class' => 'lqt-thread-start-at' ) );
+						
+						$this->output->addHTML( $link );
+						$showThreads = false;
+					}
+					
+					++$showCount;
+					if ($showCount == 1 ) {
+						$this->output->addHTML(
+							Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&nbsp;' ) );
+					}
+					
+					$this->showThread( $st, $i, $subthreadCount, $cascadeOptions );
+					$shown = true;
 				}
 				
-				if ($st->type() != Threads::TYPE_DELETED) {
-					$this->showThread( $st, $i, $subthreadCount );
+				if ($st->type() != Threads::TYPE_DELETED && !$shown &&
+						array_key_exists( $st->id(), $mustShowThreads ) ) {
+						
+					$this->showThread( $st, $i, $subthreadCount, $cascadeOptions );
 				}
-				
-				$lastSubthread = $st;
 			}
 			
 			$finishDiv = Xml::tags( 'div', array( 'class' => 'lqt-replies-finish' ),
 				Xml::tags( 'div', array( 'class' => 'lqt-replies-finish-corner' ), '&nbsp;' ) );
 			
 			$this->output->addHTML( $finishDiv . Xml::CloseElement( 'div' ) );
+		} elseif ( $thread->hasSubthreads() && !$showThreads ) {
+			// Add a "show subthreads" link.
+			$replies = count($thread->replies());
+			$linkText = wfMsgExt( 'lqt-thread-show-replies', 'parseinline', array($replies) );
+			$linkTitle = clone $thread->topmostThread()->title();
+			$linkTitle->setFragment( '#'.$thread->getAnchorName() );
+			
+			$link = $sk->link( $linkTitle, $linkText, array( 'class' => 'lqt-show-replies' ) );
+			
+			$this->output->addHTML( Xml::tags( 'div', array( 'class' => 'lqt-thread-replies' ), $link ) );
+			
+			if ($levelNum < $totalInLevel) {
+				$this->output->addHTML(
+					Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&nbsp;' ) );
+			}
+		} elseif ($levelNum < $totalInLevel) {
+			$this->output->addHTML(
+				Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&nbsp;' ) );
 		}
 
 		if ($this->threadNestingLevel == 1) {
