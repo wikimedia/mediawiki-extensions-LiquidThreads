@@ -3,7 +3,7 @@
 class LqtHooks {
 	static function onPageMove( $movepage, $ot, $nt ) {
 		// Shortcut for non-LQT pages.
-		if ( !self::isLqtPage( $ot ) )
+		if ( !LqtDispatch::isLqtPage( $ot ) )
 			return true;
 		
 		// Move the threads on that page to the new page.
