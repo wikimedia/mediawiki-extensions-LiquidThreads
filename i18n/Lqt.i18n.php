@@ -325,6 +325,7 @@ $messages['qqq'] = array(
 	'lqt-history-user' => '{{identical|User}}',
 	'lqt-history-comment' => '{{Identical|Comment}}',
 	'lqt-header-actions' => '{{Identical|Action}}',
+	'lqt-delete-parent-deleted' => '$1 is the reason for deletion of the parent.',
 	'right-lqt-split' => '{{doc-right}}',
 	'right-lqt-merge' => '{{doc-right}}',
 	'lqt-preference-notify-talk' => 'This appears in [[Special:Preferences]].',
@@ -1200,8 +1201,11 @@ Pot:
 	'lqt_youhavenewmessages' => 'Teniu [$1 missatges nous].',
 	'lqt_protectedfromreply_link' => 'protegit',
 	'lqt_subject' => 'Assumpte:',
+	'lqt_noreason' => "No s'ha donat cap motiu.",
 	'lqt_thread_deleted_for_sysops' => "Aquest fil ha estat '''esborrat''' i només és visible pels administradors.",
 	'lqt_thread_deleted' => 'Aquest fil ha estat esborrat.',
+	'lqt_nosuchthread' => 'El fil que heu especificat no existeix.',
+	'lqt_nosuchthread_title' => 'No hi ha tal fil',
 	'lqt_move_torename' => "Per a canviar el nom d'aquest fil, $1 i canvieu l'apartat «Assumpte».",
 	'lqt_move_torename_edit' => 'editeu-lo',
 	'lqt_move_move' => 'Mou',
@@ -1782,6 +1786,9 @@ Aby se to wobinuło, wótźěl je wót toś teje nitki, nježli až ju lašujoš
 	'lqt-log-action-move' => 'jo [[$1]] wót [[$2]] do [[$3]] pśesunuł.',
 	'lqt-preference-notify-talk' => 'E-mail wó wótegronach k nitce, kótaraž se wobglědujo, pósłaś',
 	'lqt-preference-watch-threads' => 'Nitki wobglědowaś, kótarež napórajom abo na kótarež wótegranjam',
+	'prefs-lqt' => 'Diskusija w nitkach',
+	'lqt-preference-display-depth' => 'Maksimalny dłym wótegronow, kótaraž ma se pokazaś:',
+	'lqt-preference-display-count' => 'Maksimalna licba wótegronow, kótaraž ma se pokazaś:',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} diskusija - wótegrono: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} diskusija - nowa nitka: $1',
 	'lqt-enotif-newthread' => "Witaj $1,
@@ -1801,6 +1808,8 @@ Móžoš jo na <$6> wiźeś",
 	'searchprofile-threads-tooltip' => 'Diskusije w nitkach a diskusijne boki pśepytaś',
 	'lqt-ajax-updated' => 'Toś ta nitka ma nowe powěsći.',
 	'lqt-ajax-update-link' => 'Nejnowše powěsći zacytaś.',
+	'lqt-thread-show-replies' => '$1 {{PLURAL:$1|wótegrono|wótegronje|wótegrona|wótegronow}} pokazaś',
+	'lqt-thread-show-more' => 'Dalšne wótegrona pokazaś',
 );
 
 /** Ewe (Eʋegbe)
@@ -2350,6 +2359,7 @@ Jos se on päättynyt, voi olla että haluat $1.',
  * @author Grondin
  * @author IAlex
  * @author McDutchie
+ * @author Peter17
  * @author PieRRoMaN
  * @author Sherbrooke
  * @author Urhixidur
@@ -2540,6 +2550,7 @@ Pour éviter cela, séparez les de ce fil de discussion avant de supprimer celui
 	'lqt-log-action-move' => 'a déplacé [[$1]] de [[$2]] vers [[$3]].',
 	'lqt-preference-notify-talk' => "M’avertir par couriel lors d'une réponse sur un sujet que je suis",
 	'lqt-preference-watch-threads' => 'Suivre les fils de discussion que je crée ou auxquels je participe',
+	'lqt-preference-display-count' => 'Nombre maximal de réponses à afficher :',
 	'lqt-enotif-subject-reply' => 'Discussion sur {{SITENAME}} - Réponse : $1',
 	'lqt-enotif-subject-newthread' => 'Discussion sur {{SITENAME}}  - Nouveau sujet : $1',
 	'lqt-enotif-newthread' => 'Bonjour $1,
@@ -2561,6 +2572,8 @@ Vous pouvez le voir a « $6 »",
 	'searchprofile-threads-tooltip' => 'Rechercher dans les fils de discussion et les pages de discussion',
 	'lqt-ajax-updated' => 'Ce fil a de nouveaux messages.',
 	'lqt-ajax-update-link' => 'Charger les derniers messages.',
+	'lqt-thread-show-replies' => 'Montrer $1 réponses',
+	'lqt-thread-show-more' => 'Montrer plus de réponses',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -2826,6 +2839,7 @@ $messages['grc'] = array(
 	'lqt-history-time' => 'Χρόνος',
 	'lqt-history-user' => 'Χρώμενος',
 	'lqt-header-actions' => 'Δράσεις',
+	'lqt-search-button' => 'Ζητεῖν',
 );
 
 /** Swiss German (Alemannisch)
@@ -3657,6 +3671,9 @@ Zo by to wobešoł, wotdźěl je wot tuteje nitki, prjedy hač ju wušmóruješ.
 	'lqt-log-action-move' => 'přesuny [[$1]] wot [[$2]] do [[$3]].',
 	'lqt-preference-notify-talk' => 'E-mejl wo wotmołwach k nitce, kotraž so wobkedźbuje, pósłać',
 	'lqt-preference-watch-threads' => 'Nitki wobkedźbować, kotrež tworju abo na kotrež wotmołwjam',
+	'prefs-lqt' => 'Diskusija w nitkach',
+	'lqt-preference-display-depth' => 'Maksimalna hłubokosć wotmołwow, kotraž ma so pokazać:',
+	'lqt-preference-display-count' => 'Maksimalna ličba wotmołwow, kotraž ma so pokazać:',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} diskusija - wotmołwa: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} diskusija - nowa nitka: $1',
 	'lqt-enotif-newthread' => "Witaj $1,
@@ -3676,6 +3693,8 @@ Móžeš ju na <$6> widźeć",
 	'searchprofile-threads-tooltip' => 'Diskusije w nitkach a diskusijne strony přepytać',
 	'lqt-ajax-updated' => 'Tuta nitka ma nowe powěsće.',
 	'lqt-ajax-update-link' => 'Najnowše powěsće začitać.',
+	'lqt-thread-show-replies' => '$1 {{PLURAL:$1|wotmołwu|wotmołwje|wotmołwy|wotmołwow}} pokazać',
+	'lqt-thread-show-more' => 'Dalše wotmołwy pokazać',
 );
 
 /** Hungarian (Magyar)
@@ -4438,7 +4457,7 @@ $messages['ja'] = array(
 	'lqt_split_badsubject' => 'あなたが入力した表題は不正です。',
 	'lqt-no-threads' => 'このページにはまだスレッドがありません。',
 	'lqt-delete-parent-warning' => 'これは返信がある最上位のスレッドです。その返信もまた自動的に削除されます。これを避けるには、削除する前にそれらをこのスレッドから分割してください。',
-	'lqt-delete-parent-deleted' => '親スレッド削除済み($1)',
+	'lqt-delete-parent-deleted' => '親スレッド削除済み ($1)',
 	'lqt-delete-replies-done' => 'このスレッドへの返信もすべて削除されました。',
 	'right-lqt-split' => 'スレッドを分割する',
 	'right-lqt-merge' => 'スレッドを統合する',
@@ -5506,6 +5525,9 @@ Splits dit overleg alvorens het te verwijderen om dit te voorkomen.',
 	'lqt-log-action-move' => 'heeft [[$1]] verplaatst van [[$2]] naar [[$3]].',
 	'lqt-preference-notify-talk' => 'Mij e-mailen bij antwoorden op een onderwerp dat ik volg',
 	'lqt-preference-watch-threads' => 'Onderwerpen volgen die ik aanmaak of waar ik op antwoord',
+	'prefs-lqt' => 'Gestructureerd overleg',
+	'lqt-preference-display-depth' => 'Maximaal weer te geven diepte:',
+	'lqt-preference-display-count' => 'Maximaal aantal weer te geven reacties:',
 	'lqt-enotif-subject-reply' => 'Overleg op {{SITENAME}} - Antwoord: $1',
 	'lqt-enotif-subject-newthread' => 'Overleg op {{SITENAME}} - Nieuw overleg: $1',
 	'lqt-enotif-newthread' => "Hallo $1,
@@ -5527,6 +5549,8 @@ U kunt het bekijken op <$6>.",
 	'searchprofile-threads-tooltip' => "Overleggen en overlegpagina's doorzoeken",
 	'lqt-ajax-updated' => 'Er zijn nieuwe berichten in dit onderwerp.',
 	'lqt-ajax-update-link' => 'Meest recente berichten laden.',
+	'lqt-thread-show-replies' => '$1 reacties weergeven',
+	'lqt-thread-show-more' => 'Meer reacties weergeven',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
