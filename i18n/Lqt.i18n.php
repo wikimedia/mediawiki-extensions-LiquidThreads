@@ -1965,6 +1965,7 @@ $messages['el'] = array(
 	'lqt-search-label' => 'Αναζήτηση όρων:',
 	'lqt-search-button' => 'Αναζήτηση',
 	'searchprofile-threads' => 'Συζητήσεις',
+	'lqt-thread-show-more' => 'Προβολή περισσότερων απαντήσεων',
 );
 
 /** Esperanto (Esperanto)
@@ -2550,6 +2551,8 @@ Pour éviter cela, séparez les de ce fil de discussion avant de supprimer celui
 	'lqt-log-action-move' => 'a déplacé [[$1]] de [[$2]] vers [[$3]].',
 	'lqt-preference-notify-talk' => "M’avertir par couriel lors d'une réponse sur un sujet que je suis",
 	'lqt-preference-watch-threads' => 'Suivre les fils de discussion que je crée ou auxquels je participe',
+	'prefs-lqt' => 'Discussions en fil',
+	'lqt-preference-display-depth' => 'Profondeur maximale des réponses à afficher :',
 	'lqt-preference-display-count' => 'Nombre maximal de réponses à afficher :',
 	'lqt-enotif-subject-reply' => 'Discussion sur {{SITENAME}} - Réponse : $1',
 	'lqt-enotif-subject-newthread' => 'Discussion sur {{SITENAME}}  - Nouveau sujet : $1',
@@ -2786,6 +2789,9 @@ Para evitar isto, sepáreas deste fío antes de borralo.',
 	'lqt-log-action-move' => 'moveu "[[$1]]" de "[[$2]]" a "[[$3]]".',
 	'lqt-preference-notify-talk' => 'Enviádeme un correo electrónico cando haxa respostas nunha conversa que estea vixiando',
 	'lqt-preference-watch-threads' => 'Vixiar os fíos que creei ou aqueloutros nos que participei',
+	'prefs-lqt' => 'Fío de conversa',
+	'lqt-preference-display-depth' => 'Profundidade máxima de respostas a mostrar:',
+	'lqt-preference-display-count' => 'Número máximo de respostas a mostrar:',
 	'lqt-enotif-subject-reply' => 'Conversa {{SITENAME}} - Resposta: $1',
 	'lqt-enotif-subject-newthread' => 'Conversa {{SITENAME}} - Novo fío: $1',
 	'lqt-enotif-newthread' => 'Ola $1:
@@ -2807,6 +2813,8 @@ Pode vela en <$6>',
 	'searchprofile-threads-tooltip' => 'Procurar nos fíos e páxinas de conversa',
 	'lqt-ajax-updated' => 'Este fío ten novas mensaxes.',
 	'lqt-ajax-update-link' => 'Cargar as últimas mensaxes.',
+	'lqt-thread-show-replies' => 'Mostrar $1 respostas',
+	'lqt-thread-show-more' => 'Mostrar máis respostas',
 );
 
 /** Gothic (Gothic)
@@ -3030,6 +3038,9 @@ Wänn du des witt verhindere, no teil si ab vum Strang, voreb du ne leschesch.',
 	'lqt-log-action-move' => 'het [[$1]] vu [[$2]] no [[$3]] verschobe.',
 	'lqt-preference-notify-talk' => 'Schick mer e Mail iber Antowrte zue Diskussionssträng, wun i beobachte tue',
 	'lqt-preference-watch-threads' => 'Sträng beobachte, wu ich aaleg oder e Antwort druf gib',
+	'prefs-lqt' => 'Diskussionsstrang',
+	'lqt-preference-display-depth' => 'Maximali Antworte-Tiefi, wu soll aazeigt wäre:',
+	'lqt-preference-display-count' => 'Hegschtzahl vu Antworte, wu soll aazeigt wäre:',
 	'lqt-enotif-subject-reply' => '{{SITENAME}}-Diskussion - Antwort: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-Diskussion - Neje Diskussionstrang: $1',
 	'lqt-enotif-newthread' => "Sali $1,
@@ -3046,6 +3057,12 @@ Du chasch si säh uf <$6>",
 	'lqt-search-legend' => 'Dursuech d Diskussionsbyytreg uf däre Syte',
 	'lqt-search-label' => 'Suechuusdruck:',
 	'lqt-search-button' => 'Sueche',
+	'searchprofile-threads' => 'Diskussione',
+	'searchprofile-threads-tooltip' => 'Diskussionssträng un Diskussionssyte sueche',
+	'lqt-ajax-updated' => 'In däm Diskussionsstrang het s neji Byytreg.',
+	'lqt-ajax-update-link' => 'Di nejschte Byytreg lade.',
+	'lqt-thread-show-replies' => '$1 Antworte zeige',
+	'lqt-thread-show-more' => 'Meh Antworte zeige',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -4473,6 +4490,9 @@ $messages['ja'] = array(
 	'lqt-log-action-move' => '[[$1]]を[[$2]]から[[$3]]へ移動しました。',
 	'lqt-preference-notify-talk' => '監視しているスレッドへ返答があった時にメールで知らせる',
 	'lqt-preference-watch-threads' => '自分が作成または返答したスレッドの変更を追跡する',
+	'prefs-lqt' => 'スレッド型議論',
+	'lqt-preference-display-depth' => '表示する最大の返信の深さ:',
+	'lqt-preference-display-count' => '表示する返信の最大数:',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} の討論 - 返信: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} の討論 - 新スレッド: $1',
 	'lqt-enotif-newthread' => 'こんにちは、$1 さん。
@@ -4492,6 +4512,8 @@ $messages['ja'] = array(
 	'searchprofile-threads-tooltip' => 'スレッド型議論とノートページを検索',
 	'lqt-ajax-updated' => 'このスレッドには新しい投稿があります。',
 	'lqt-ajax-update-link' => '最新の投稿を読み込む',
+	'lqt-thread-show-replies' => '$1個の返信を表示',
+	'lqt-thread-show-more' => 'より多くの返信を表示',
 );
 
 /** Javanese (Basa Jawa)
@@ -4842,6 +4864,9 @@ Künnt sin, De wells en $2 han.',
 	'lqt-log-action-move' => '[[$1]] vun [[$2]] noh [[$3]] ömjetroke.',
 	'lqt-preference-notify-talk' => 'Donn mer en <i lang="en">e-mail</i> schecke, wann ene Jeschprääschßfäddem op minge Oppaßleß jeändert weet',
 	'lqt-preference-watch-threads' => 'Donn de Jerschprääschsfäddeme för op ming Oppassles ze donn vörschlonn, woh esch drop antwooden udder di esch aanfangen',
+	'prefs-lqt' => 'Klaaf met Jeschprääschßfäddeme',
+	'lqt-preference-display-depth' => 'Wi wigg Antwoote aanjezeisch wääde sulle',
+	'lqt-preference-display-count' => 'De hühßte Aanzahl Antwoote zom Zeije',
 	'lqt-enotif-subject-reply' => 'Klaaf op de {{SITENAME}} - ene neue Beijraach zom Teema: $1',
 	'lqt-enotif-subject-newthread' => 'Klaaf op de {{SITENAME}} - ene neue Jeshprääschßfäddem: $1',
 	'lqt-enotif-newthread' => 'Leeven $1,
@@ -4873,6 +4898,8 @@ Ene schööne Jrohß!',
 	'searchprofile-threads-tooltip' => 'Donn en Jeschprääschfäddeme un op Klaafsigge söhke',
 	'lqt-ajax-updated' => 'Dä Jeschrääschßfäddem hät neu Beidrääsch.',
 	'lqt-ajax-update-link' => 'De neuste Beidrääsch laade.',
+	'lqt-thread-show-replies' => 'Zeisch {{PLURAL:$1|ein Antwoot|$1 Antwoote|kei Antwoot}}',
+	'lqt-thread-show-more' => 'Zeisch mieh Antwoote',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -5066,6 +5093,9 @@ Fir dëst ze verhënneren, trennt se vun dëser Rubrik ier Dir se läscht.',
 	'lqt-log-action-move' => 'huet [[$1]] vu(n) [[$2]] op [[$3]] geréckelt.',
 	'lqt-preference-notify-talk' => 'Mir eng E-Mail schécke wann op eng Rubrik geäntwert gëtt déi ech iwwerwaachen',
 	'lqt-preference-watch-threads' => 'Rubriken déi ech uleeën oder an deenen ech äntwerten iwwerwaachen',
+	'prefs-lqt' => 'Diskussioun mat Rubriken',
+	'lqt-preference-display-depth' => 'Maximal Déift vun den Äntwerten déi gewise gëtt:',
+	'lqt-preference-display-count' => 'Maximal Zuel vun Äntwerten déi gewise ginn:',
 	'lqt-enotif-subject-reply' => '{{SITENAME}}-Diskussioun - Äntwert: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-Diskussioun - Nei Rubrik: $1',
 	'lqt-enotif-newthread' => "Salut $1,
@@ -5087,6 +5117,8 @@ Dir kënnt se op <$6> gesinn.",
 	'searchprofile-threads-tooltip' => 'An den Diskussiouns-Rubriken an op den Diskussiounssäite sichen',
 	'lqt-ajax-updated' => 'An dëser Rubrik gëtt et nei Messagen.',
 	'lqt-ajax-update-link' => 'Déi neiste Message lueden.',
+	'lqt-thread-show-replies' => 'Weis $1 Äntwerten',
+	'lqt-thread-show-more' => 'Méi Äntwerte weisen',
 );
 
 /** Lozi (Silozi)
