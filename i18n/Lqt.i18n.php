@@ -970,6 +970,9 @@ $messages['be-tarask'] = array(
 	'lqt-log-action-move' => 'перанесеная [[$1]] з [[$2]] у [[$3]].',
 	'lqt-preference-notify-talk' => 'Дасылаць мне электронныя лісты ў выпадках адказаў у галіне, за якой я назіраю',
 	'lqt-preference-watch-threads' => 'Дадаваць у мой сьпіс назіраньня галіны, якія я буду ствараць альбо на якія я буду адказваць',
+	'prefs-lqt' => 'Галіны абмеркаваньняў',
+	'lqt-preference-display-depth' => 'Максымальная глыбіня адказаў для паказу:',
+	'lqt-preference-display-count' => 'Максымальная колькасьць адказаў для паказу:',
 	'lqt-enotif-subject-reply' => 'Абмеркаваньне {{GRAMMAR:родны|{{SITENAME}}}} — Адказ: $1',
 	'lqt-enotif-subject-newthread' => 'Абмеркаваньне {{GRAMMAR:родны|{{SITENAME}}}} — Новая галіна: $1',
 	'lqt-enotif-newthread' => "Вітаем $1,
@@ -991,6 +994,8 @@ $messages['be-tarask'] = array(
 	'searchprofile-threads-tooltip' => 'Пошук у абмеркаваньнях па галінам і на старонках абмеркаваньняў',
 	'lqt-ajax-updated' => 'У гэтай галіне ёсьць новыя паведамленьні.',
 	'lqt-ajax-update-link' => 'Загрузіць апошнія паведамленьні.',
+	'lqt-thread-show-replies' => 'Паказаць $1 {{PLURAL:$1|адказ|адказы|адказаў}}',
+	'lqt-thread-show-more' => 'Паказаць болей адказаў',
 );
 
 /** Bulgarian (Български)
