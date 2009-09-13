@@ -1112,7 +1112,7 @@ class LqtView {
 		} elseif ( $thread->hasSubthreads() && !$showThreads ) {
 			// Add a "show subthreads" link.
 			$replies = count($thread->replies());
-			$linkText = wfMsgExt( 'lqt-thread-show-replies', 'parseinline', array($replies) );
+			$linkText = wfMsgExt( 'lqt-thread-show-replies', 'parseinline', $wgLang->formatNum($replies) );
 			$linkTitle = clone $thread->topmostThread()->title();
 			$linkTitle->setFragment( '#'.$thread->getAnchorName() );
 			
