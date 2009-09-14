@@ -541,21 +541,24 @@ class LqtView {
 			$label = wfMsgExt( 'lqt-thread-merge-to', 'parseinline' );
 			
 			$commands['merge-to'] = array( 'label' => $label, 'href' => $mergeUrl,
-											'enabled' => true );
+											'enabled' => true, 'tooltip' => $label );
 		}
 		
 		$commands['reply'] = array( 'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
 							 'href' => $this->talkpageUrl( $this->title, 'reply', $thread ),
-							 'enabled' => true, 'icon' => 'reply.png', 'showlabel' => 1);
+							 'enabled' => true, 'icon' => 'reply.png', 'showlabel' => 1,
+							 'tooltip' => wfMsg( 'lqt_reply' ) );
 		
 		$commands['link'] = array( 'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
 							'href' => $thread->title()->getFullURL(),
-							'enabled' => true, 'icon' => 'link.png' );
+							'enabled' => true, 'icon' => 'link.png',
+							'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' ) );
 		
 		if ( $thread->root()->getTitle()->quickUserCan( 'edit' ) ) {
 			$commands['edit'] = array( 'label' => wfMsgExt( 'edit', 'parseinline' ),
 								'href' => $this->talkpageUrl( $this->title, 'edit', $thread ),
-								'enabled' => true, 'icon' => 'edit.png' );
+								'enabled' => true, 'icon' => 'edit.png',
+								'tooltip' => wfMsgExt( 'edit', 'parseinline' ) );
 		}
 		
 		return $commands;
@@ -724,6 +727,7 @@ class LqtView {
 		$label = $command['label'];
 		$href = $command['href'];
 		$enabled = $command['enabled'];
+		$tooltip = isset($command['tooltip']) ? $command['tooltip'] : '';
 		
 		if ( isset( $command['icon'] ) ) {
 			global $wgScriptPath;
@@ -745,10 +749,11 @@ class LqtView {
 		$thisCommand = '';
 	
 		if ( $enabled ) {
-			$thisCommand = Xml::tags( 'a', array( 'href' => $href ), $label );
+			$thisCommand = Xml::tags( 'a', array( 'href' => $href, 'title' => $tooltip ),
+					$label );
 		} else {
-			$thisCommand = Xml::tags( 'span', array( 'class' => 'lqt_command_disabled' ),
-										$label );
+			$thisCommand = Xml::tags( 'span', array( 'class' => 'lqt_command_disabled',
+						'title' => $tooltip), $label );
 		}
 		
 		return $thisCommand;
