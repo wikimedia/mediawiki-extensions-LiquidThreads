@@ -5,6 +5,13 @@ class SpecialSplitThread extends ThreadActionPage {
 
 	function getFormFields() {
 		$splitForm = array(
+			'src' =>
+				array(
+					'type' => 'info',
+					'label-message' => 'lqt-thread-split-thread',
+					'default' => LqtView::permalink( $this->mThread ),
+					'raw' => 1,
+				),
 			'subject' =>
 				array(
 					'type' => 'text',
