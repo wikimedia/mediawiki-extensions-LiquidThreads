@@ -214,7 +214,7 @@ To avoid this, split them from this thread before deleting it.',
 	// Preferences
 	'lqt-preference-notify-talk' => 'E-mail me on replies to a thread I am watching',
 	'lqt-preference-watch-threads' => 'Watch threads that I create or reply to',
-	'prefs-lqt' => 'Threaded Discussion',
+	'prefs-lqt' => 'Threaded discussion',
 	'lqt-preference-display-depth' => 'Maximum reply depth to show:',
 	'lqt-preference-display-count' => 'Maximum number of replies to show:',
 	
