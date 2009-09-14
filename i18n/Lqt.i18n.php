@@ -9,7 +9,7 @@
  * @licence GPL2
  */
 
-require_once( dirname(__FILE__) . '/LiquidThreads.magic.php' );
+require_once( dirname( __FILE__ ) . '/LiquidThreads.magic.php' );
 
 $messages = array();
 
@@ -43,12 +43,12 @@ It may:
 	'lqt_delete' => 'Delete',
 	'lqt_undelete' => 'Undelete',
 	'lqt_permalink' => 'Link to this',
-	'lqt_fragment' => 'a fragment of a $1 from $2',
+	'lqt_fragment' => 'Fragment of a $1 from $2',
 	'lqt_discussion_link' => 'discussion', // substituted above
-	'lqt_from_talk' => 'from $1',
+	'lqt_from_talk' => 'From $1',
 	'lqt_newer' => '← newer',
 	'lqt_older' => 'older →',
-	
+
 	'lqt-history-title' => 'Thread history',
 	'lqt_hist_comment_edited' => 'Comment text edited',
 	'lqt_hist_summary_changed' => 'Summary changed',
@@ -57,7 +57,7 @@ It may:
 	'lqt_hist_deleted' => 'Deleted',
 	'lqt_hist_undeleted' => 'Undeleted',
 	'lqt_hist_moved_talkpage' => 'Moved',
-	'lqt_hist_listing_subtitle' => 'Viewing a history listing.',
+	'lqt_hist_listing_subtitle' => 'Viewing a history listing',
 	'lqt_hist_view_whole_thread' => 'View history for the entire thread',
 	'lqt_hist_no_revisions_error' => 'This thread does not have any history revisions.',
 	'lqt_hist_past_last_page_error' => 'You are beyond the number of pages of history that exist.',
@@ -68,9 +68,9 @@ It may:
 	'lqt_hist_merged_from' => 'Reply moved to another thread',
 	'lqt_hist_merged_to' => 'Reply moved from another thread',
 	'lqt_hist_split_from' => 'Split to a new thread',
-	
+
 	'lqt_revision_as_of' => "Revision as of $2 at $3.",
-	
+
 	'lqt_change_new_thread' => 'This is the thread\'s initial revision.',
 	'lqt_change_reply_created' => 'The highlighted comment was created in this revision.',
 	'lqt_change_edited_root' => 'The highlighted comment was edited in this revision.',
@@ -83,7 +83,7 @@ It may:
 	'lqt_change_merged_from' => 'A reply to this thread was moved to another thread',
 	'lqt_change_merged_to' => 'The highlighted reply was moved from another thread',
 	'lqt_change_split_from' => 'A subthread of this thread was split into its own thread',
-	
+
 	'lqt_youhavenewmessages' => 'You have [$1 new messages].',
 	'lqt_protectedfromreply' => 'This thread has been $1 from being replied to.',
 	'lqt_protectedfromreply_link' => 'protected',
@@ -98,7 +98,7 @@ This move was made by $2 on $3 at $4.',
 If it is concluded, you may want to $1.',
 	'lqt_summary_notice_link' => 'write a summary',
 	'lqt_summary_label' => 'This thread has been summarized as follows:',
-	'lqt_summary_subtitle' => 'the summary of $1.',
+	'lqt_summary_subtitle' => 'Summary of "$1"',
 	'lqt_nosuchrevision' => 'There is no such revision of this thread.',
 	'lqt_nosuchthread' => 'The thread you specified does not exist.',
 	'lqt_nosuchthread_title' => 'No such thread',
@@ -136,68 +136,68 @@ You might instead want to $2.',
 	'lqt_sort_newest_changes' => 'last modified first',
 	'lqt_sort_newest_threads' => 'newest threads first',
 	'lqt_sort_oldest_threads' => 'oldest threads first',
-	'lqt-any-date'            => 'Any date',
-	'lqt-only-date'           => 'Only these dates:',
-	'lqt-date-from'           => 'From',
-	'lqt-date-to'             => 'To',
-	'lqt-title'               => 'Title',
-	'lqt-summary'             => 'Summary',
-	'lqt-older'               => 'older',
-	'lqt-newer'               => 'newer',
-	'lqt-searching'           => 'Searching for threads',
-	'lqt-read-message'        => 'Mark as read',
+	'lqt-any-date' => 'Any date',
+	'lqt-only-date' => 'Only these dates:',
+	'lqt-date-from' => 'From',
+	'lqt-date-to' => 'To',
+	'lqt-title' => 'Title',
+	'lqt-summary' => 'Summary',
+	'lqt-older' => 'older',
+	'lqt-newer' => 'newer',
+	'lqt-searching' => 'Searching for threads',
+	'lqt-read-message' => 'Mark as read',
 	'lqt-read-message-tooltip' => 'Remove this thread from new messages.
 It will still be visible on its original talk page.',
-	'lqt-read-all'            => 'Mark all as read',
-	'lqt-read-all-tooltip'    => 'Remove all threads from new messages.
+	'lqt-read-all' => 'Mark all as read',
+	'lqt-read-all-tooltip' => 'Remove all threads from new messages.
 They will still be visible on their original talk pages.
 This operation is undoable.',
-	'lqt-marked-read'         => 'Thread \'\'\'$1\'\'\' marked as read.',
-	'lqt-count-marked-read'   => '$1 {{PLURAL:$1|message|messages}} marked as read.',
-	'lqt-email-undo'          => 'Undo',
-	'lqt-messages-sent'       => 'Messages sent to you:',
-	'lqt-other-messages'      => 'Messages on other talk pages:',
-	'lqt-no-new-messages'     => 'There are no new messages for you.',
-	'lqt-new-messages'        => '&#x2712; There are new messages for you.',
-	'lqt-email-info-undo'     => 'Bring back the thread you just dismissed.',
-	'lqt-date-info'           => 'This link is disabled because you are viewing threads from all dates.',
-	'lqt_rc_new_discussion'   => "New discussion \"$1\" on $2 &bull; $3 writes:",
-	'lqt_rc_new_reply'        => "Reply to \"$1\" on $2 &bull; $3 writes:",
-	'lqt_rc_ellipsis'         => ' ...',
-	'lqt_rc_author_original'  => '(original author)',
-	'lqt_rc_author_others'    => '(not the author)',
+	'lqt-marked-read' => 'Thread \'\'\'$1\'\'\' marked as read.',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|message|messages}} marked as read.',
+	'lqt-email-undo' => 'Undo',
+	'lqt-messages-sent' => 'Messages sent to you:',
+	'lqt-other-messages' => 'Messages on other talk pages:',
+	'lqt-no-new-messages' => 'There are no new messages for you.',
+	'lqt-new-messages' => '&#x2712; There are new messages for you.',
+	'lqt-email-info-undo' => 'Bring back the thread you just dismissed.',
+	'lqt-date-info' => 'This link is disabled because you are viewing threads from all dates.',
+	'lqt_rc_new_discussion' => "New discussion \"$1\" on $2 &bull; $3 writes:",
+	'lqt_rc_new_reply' => "Reply to \"$1\" on $2 &bull; $3 writes:",
+	'lqt_rc_ellipsis' => ' ...',
+	'lqt_rc_author_original' => '(original author)',
+	'lqt_rc_author_others' => '(not the author)',
 	'lqt-newmessages-context' => 'Full thread',
-	'lqt-thread-created'	  => 'Created',
-	'lqt-archive-subtitle'    => 'Discussion archive',
-	'lqt-archive-intro'		  => 'This is the discussion archive for [[$1]].',
-	'lqt-history-time'		  => 'Time',
-	'lqt-history-user' 		  => 'User',
-	'lqt-history-action'	  => 'Activity',
-	'lqt-history-comment'	  => 'Comment',
-	'lqt-thread-edited-author'=> 'Edited by author',
-	'lqt-thread-edited-others'=> 'Edited by other users',
-	'lqt-header-actions' 	  => 'Actions',
-	'lqt_summarize_link' 	  => 'Summarize',
-	'lqt-summarize-intro'     => 'Please summarize the below thread in the editing box.
+	'lqt-thread-created'	 => 'Created',
+	'lqt-archive-subtitle' => 'Discussion archive',
+	'lqt-archive-intro' => 'This is the discussion archive for [[$1]].',
+	'lqt-history-time' => 'Time',
+	'lqt-history-user' => 'User',
+	'lqt-history-action' => 'Activity',
+	'lqt-history-comment' => 'Comment',
+	'lqt-thread-edited-author' => 'Edited by author',
+	'lqt-thread-edited-others' => 'Edited by other users',
+	'lqt-header-actions' => 'Actions',
+	'lqt_summarize_link' => 'Summarize',
+	'lqt-summarize-intro' => 'Please summarize the below thread in the editing box.
 You may use any wikitext in your summary. When you finish, click "{{int:savearticle}}".',
-	'lqt-thread-split'		  => 'Split to new thread',
-	'lqt-split-success' 	  => 'You have successfully split off the thread $1.',
-	'lqt_split_thread' 		  => 'Split a thread',
+	'lqt-thread-split' => 'Split to new thread',
+	'lqt-split-success' => 'You have successfully split off the thread $1.',
+	'lqt_split_thread' => 'Split a thread',
 	'lqt-thread-split-subject'=> 'New thread subject:',
 	'lqt-thread-split-thread' => 'Thread:',
-	'lqt-split-submit'		  => 'Split',
-	'lqt_split_badsubject'    => 'The subject you entered is invalid.',
-	'lqt-no-threads'		  => 'There are no threads on this page yet.',
-	'lqt-delete-parent-warning'=> 'This is a top-level thread with replies.
+	'lqt-split-submit' => 'Split',
+	'lqt_split_badsubject' => 'The subject you entered is invalid.',
+	'lqt-no-threads' => 'There are no threads on this page yet.',
+	'lqt-delete-parent-warning' => 'This is a top-level thread with replies.
 Its replies will also be deleted automatically.
 To avoid this, split them from this thread before deleting it.',
-	'lqt-delete-parent-deleted'=> 'Parent thread deleted ($1)',
+	'lqt-delete-parent-deleted' => 'Parent thread deleted ($1)',
 	'lqt-delete-replies-done' => 'All replies to this thread have also been deleted.',
-	
+
 	// Rights
-	'right-lqt-split'		  => 'Split threads',
-	'right-lqt-merge' 		  => 'Merge threads',
-	
+	'right-lqt-split' => 'Split threads',
+	'right-lqt-merge' => 'Merge threads',
+
 	// Merging
 	'lqt-thread-merge' => 'Merge into another thread',
 	'lqt-thread-merge-to' => 'Merge into this thread',
@@ -206,19 +206,19 @@ To avoid this, split them from this thread before deleting it.',
 	'lqt-thread-merge-dest' => 'Destination thread:',
 	'lqt-merge-submit' => 'Merge',
 	'lqt-merge-success' => 'You have successfully merged the thread $1 to underneath $2.',
-	
+
 	// Logging
 	'lqt-log-name' => 'Threaded discussion log',
 	'lqt-log-header' => 'This log details actions taken on discussion threads.',
 	'lqt-log-action-move' => 'moved [[$1]] from [[$2]] to [[$3]].',
-	
+
 	// Preferences
 	'lqt-preference-notify-talk' => 'E-mail me on replies to a thread I am watching',
 	'lqt-preference-watch-threads' => 'Watch threads that I create or reply to',
 	'prefs-lqt' => 'Threaded discussion',
 	'lqt-preference-display-depth' => 'Maximum reply depth to show:',
 	'lqt-preference-display-count' => 'Maximum number of replies to show:',
-	
+
 	// E-mail notification
 	'lqt-enotif-subject-reply' => '{{SITENAME}} discussion - Reply: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} discussion - New thread: $1',
@@ -236,14 +236,14 @@ You can see it at <$6>",
 	// Quoting functionality
 	'lqt-quote-intro' => 'On $2 at $3, [[User:$1]] wrote:',
 	'lqt-quote' => 'Quote this',
-	
+
 	// Search
 	'lqt-search-legend' => 'Search discussions on this page',
 	'lqt-search-label' => 'Search terms:',
 	'lqt-search-button' => 'Search',
 	'searchprofile-threads' => 'Discussions',
 	'searchprofile-threads-tooltip' => 'Search threaded discussions and talk pages',
-	
+
 	// Some AJAX stuff
 	'lqt-ajax-updated' => 'This thread has new posts.',
 	'lqt-ajax-update-link' => 'Load the latest posts.',
