@@ -308,7 +308,7 @@ class LqtHooks {
 		global $wgExtNewTables, $wgExtNewFields, $wgExtPGNewFields,
 				$wgExtPGAlteredFields, $wgExtNewIndexes, $wgDBtype;
 
-		$dir = dirname( dirname( __FILE__ ) );
+		$dir = realpath( dirname( __FILE__ ) . '/..' );
 		
 		// DB updates
 		$wgExtNewTables[] = array( 'thread', "$dir/lqt.sql" );
