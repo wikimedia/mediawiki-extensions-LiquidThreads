@@ -100,7 +100,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			
 			// Render if requested
 			if ( $params['render'] ) {
-				self::renderThread( $row, $params, &$entry );
+				self::renderThread( $row, $params, $entry );
 			}
 			
 			if ( $entry ) {
