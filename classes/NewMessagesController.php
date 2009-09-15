@@ -225,8 +225,8 @@ class NewMessages {
 		
 		while( $row = $dbr->fetchObject( $res ) ) {
 			$u = User::newFromRow( $row );
-			
-			global $wgLang;
+			$lang = Language::factory( $u->getOption( 'language' ) );
+			$langCode = $lang->getCode();
 			
 			$permalink = LqtView::permalinkUrl( $t );
 			
@@ -237,20 +237,26 @@ class NewMessages {
 			} else {
 				$timeCorrection = $row->up_value;
 			}
-			$adjustedTimestamp = $wgLang->userAdjust( $timestamp, $timeCorrection );
+			$adjustedTimestamp = $lang->userAdjust( $timestamp, $timeCorrection );
 			
-			$date = $wgLang->date( $adjustedTimestamp );
-			$time = $wgLang->time( $adjustedTimestamp );
+			$date = $lang->date( $adjustedTimestamp );
+			$time = $lang->time( $adjustedTimestamp );
 			
 			$talkPage = $t->article()->getTitle()->getPrefixedText();
-			$msg = wfMsg( $msgName, $u->getName(), $t->subjectWithoutIncrement(),
+			$params = array( $u->getName(), $t->subjectWithoutIncrement(),
 							$date, $time, $talkPage, $permalink );
+			
+			// Get message in user's own language, bug 20645
+			$msg = wfMsgReal( $msgName, $params, true /* use DB */, $langCode,
+								true /*transform*/ );
 							
 			global $wgPasswordSender;
 							
 			$from = new MailAddress( $wgPasswordSender, 'WikiAdmin' );
 			$to   = new MailAddress( $u );
-			$subject = wfMsgExt( $subjectMsg, 'parsemag', $t->subjectWithoutIncrement() );
+			$threadSubject = $t->subject();
+			$subject = wfMsgReal( $subjectMsg, array($threadSubject), true /* use DB */,
+									$langCode, true /* transform */);
 			
 			UserMailer::send( $to, $from, $subject, $msg );
 		}
