@@ -194,9 +194,9 @@ class Threads {
 	}
 	
 	static function newReplyTitle( $thread, $user) {
-		$topThread = $thread->topMostThread();
+		$topThread = $thread->topmostThread();
 		
-		$base = $thread->title()->getText() . '/' . $user->getName();
+		$base = $topThread->title()->getText() . '/' . $user->getName();
 		
 		return self::incrementedTitle( $base, NS_LQT_THREAD );
 	}
