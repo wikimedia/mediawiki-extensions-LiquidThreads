@@ -201,48 +201,79 @@ class NewMessages {
 		
 		global $wgVersion;
 		$tables = array( 'user' );
+		$fields = array( 'user.*' );
 		$join_conds = array();
 		$oldPreferenceFormat = false;
 		if (version_compare( $wgVersion, '1.16', '<' )) {
 			$oldPreferenceFormat = true;
 		} else {
-			$tables[] = 'user_properties';
+			$tables[] = 'user_properties as tc_prop';
+			$fields[] = 'tc_prop.up_value as timecorrection';
 			
-			$join_conds['user_properties'] =
+			$join_conds['user_properties as tc_prop'] =
 				array( 'left join', 
 						array(
 							'up_user=user_id',
-							'up_property' => 'timecorrection'
+							'up_property' => 'timecorrection',
+						)
+					);
+					
+			$tables[] = 'user_properties as l_prop';
+			$fields[] = 'l_prop.up_value as language';
+			
+			$join_conds['user_properties as l_prop'] =
+				array( 'left join', 
+						array(
+							'up_user=user_id',
+							'up_property' => 'language',
 						)
 					);
 		}
 		
 		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( array( 'user' ), '*',
+		$res = $dbr->select( $tables, $fields,
 							array( 'user_id' => $watching_users ), __METHOD__, array(),
 							$join_conds
 						);
+						
+		// Set up one-time data.
+		$permalink = LqtView::permalinkUrl( $t );
+		$talkPage = $t->article()->getTitle()->getPrefixedText();
+		$from = new MailAddress( $wgPasswordSender, 'WikiAdmin' );
+		$threadSubject = $t->subject();
+		
+		// Parse content and strip HTML of post content
+		// Doesn't work for some reason (transaction issues?)
+// 		$content = $t->root()->getContent();
+// 		global $wgOut;
+// 		$html = $wgOut->parse( $content );
+// 		$text = StringUtils::delimiterReplace( '<', '>', '', $html );
 		
 		while( $row = $dbr->fetchObject( $res ) ) {
 			$u = User::newFromRow( $row );
-			$lang = Language::factory( $u->getOption( 'language' ) );
-			$langCode = $lang->getCode();
 			
-			$permalink = LqtView::permalinkUrl( $t );
+			if ($oldPreferenceFormat) {
+				$langCode = $u->getOption( 'language' );
+			} elseif ($row->language) {
+				$langCode = $row->language;
+			} else {
+				global $wgLanguageCode;
+				$langCode = $wgLanguageCode;
+			}
+			
+			$lang = Language::factory( $langCode );
 			
 			// Adjust with time correction
 			if ($oldPreferenceFormat) {
-				$u = User::newFromId( $row->user_id );
 				$timeCorrection = $u->getOption( 'timecorrection' );
 			} else {
-				$timeCorrection = $row->up_value;
+				$timeCorrection = $row->timecorrection;
 			}
 			$adjustedTimestamp = $lang->userAdjust( $timestamp, $timeCorrection );
 			
 			$date = $lang->date( $adjustedTimestamp );
 			$time = $lang->time( $adjustedTimestamp );
 			
-			$talkPage = $t->article()->getTitle()->getPrefixedText();
 			$params = array( $u->getName(), $t->subjectWithoutIncrement(),
 							$date, $time, $talkPage, $permalink );
 			
@@ -252,9 +283,7 @@ class NewMessages {
 							
 			global $wgPasswordSender;
 							
-			$from = new MailAddress( $wgPasswordSender, 'WikiAdmin' );
 			$to   = new MailAddress( $u );
-			$threadSubject = $t->subject();
 			$subject = wfMsgReal( $subjectMsg, array($threadSubject), true /* use DB */,
 									$langCode, true /* transform */);
 			
