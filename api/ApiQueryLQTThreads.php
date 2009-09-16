@@ -135,8 +135,8 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$rendercount = $params['renderthreadcount'];
 		
 		$options = array();
-		if ( isset($params['renderthreadcount']) )
-			$options['maxCount'] = $params['renderthreadcount'];
+		if ( isset($params['rendermaxthreadcount']) )
+			$options['maxCount'] = $params['rendermaxthreadcount'];
 		if ( isset($params['rendermaxdepth']) )
 			$options['maxDepth'] = $params['rendermaxdepth'];
 		if ( isset($params['renderstartrepliesat']) )
@@ -279,7 +279,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			),
 			'render' => false,
 			'renderlevel' => array(
-				ApiBase :: PARAM_DFLT => 1,
+				ApiBase :: PARAM_DFLT => 0,
 			),
 			'renderthreadpos' => array(
 				ApiBase :: PARAM_DFLT => 1,
@@ -288,7 +288,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				ApiBase :: PARAM_DFLT => 1,
 			),
 			'rendermaxthreadcount' => array(
-				ApiBase :: PARAM_DFLT => 1,
+				ApiBase :: PARAM_DFLT => null,
 			),
 			'rendermaxdepth' => array(
 				ApiBase :: PARAM_DFLT => null,

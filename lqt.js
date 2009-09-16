@@ -288,10 +288,65 @@ var liquidThreads = {
 		}
 		
 		var notifier = $j('<div/>');
-		notifier.text( wgLqtMessages['lqt-ajax-updated'] );
+		notifier.text( wgLqtMessages['lqt-ajax-updated'] + ' ' );
 		notifier.addClass( 'lqt-updated-notification' );
 		
+		var updateButton = $j('<a href="#"/>');
+		updateButton.text( wgLqtMessages['lqt-ajax-update-link'] );
+		updateButton.addClass( 'lqt-update-link' );
+		updateButton.click( liquidThreads.updateThread );
+		
+		notifier.append( updateButton );
+		
 		threadObject.prepend(notifier);
+	},
+	
+	'updateThread' : function(e) {
+		e.preventDefault();
+		
+		var thread = $j(this).closest('.lqt_thread');
+		var post = thread.find('div.lqt-post-wrapper')[0];
+		post = $j(post);
+		var threadId = post.data('thread-id');
+		var loader = $j('<div class="mw-ajax-loader"/>');
+		var header = $j('#lqt-header-'+threadId);
+		
+		thread.prepend(loader);
+		
+		// Build an AJAX request
+		var apiReq = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
+						'format' : 'json', 'thrender' : 1 };
+						
+		$j.get( wgScriptPath+'/api.php', apiReq,
+			function(data) {
+				// Load data from JSON
+				var html = data.query.threads[0].content;
+				var newContent = $j(html);
+				
+				// Clear old post and header.
+				thread.empty();
+				thread.hide();
+				header.empty();
+				header.hide();
+				
+				// Replace post content
+				var newThread = newContent.filter('div.lqt_thread')[0];
+				var newThreadContent = $j(newThread).contents();
+				thread.append( newThreadContent );
+				
+				// Replace header content
+				var newHeader = newContent.filter('#lqt-header-'+threadId);
+				var newHeaderContent = $j(newHeader).contents();
+				header.append( newHeaderContent );
+				
+				// Set up thread.
+				thread.find('.lqt-post-wrapper').each( function() {
+					liquidThreads.setupThread( $j(this) );
+				} );
+				
+				header.fadeIn();
+				thread.fadeIn();
+			}, 'json' );
 	},
 	
 	'setupThread' : function(threadContainer) {
@@ -470,6 +525,6 @@ js2AddOnloadHook( function() {
 	} );
 	
 	// Set up periodic update checking
-	setInterval( liquidThreads.checkForUpdates, 30000 );
+	setInterval( liquidThreads.checkForUpdates, 60000 );
 } );
 

@@ -246,7 +246,7 @@ You can see it at <$6>",
 
 	// Some AJAX stuff
 	'lqt-ajax-updated' => 'This thread has new posts.',
-	'lqt-ajax-update-link' => 'Load the latest posts.',
+	'lqt-ajax-update-link' => 'Update',
 	'lqt-thread-show-replies' => 'Show $1 replies',
 	'lqt-thread-show-more' => 'Show more replies',
 );

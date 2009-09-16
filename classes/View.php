@@ -877,10 +877,13 @@ class LqtView {
 											array( 'class' => 'lqt_threadlevel_commands' ),
 											$lis );
 			}
+			
+			$id = 'lqt-header-'.$thread->id();
 
 			$html = $this->output->parseInline( $thread->subjectWithoutIncrement() );
 			$html = Xml::tags( 'span', array( 'class' => 'mw-headline' ), $html );
-			$html = Xml::tags( 'h'.$this->headerLevel, array( 'class' => 'lqt_header' ),
+			$html = Xml::tags( 'h'.$this->headerLevel,
+								array( 'class' => 'lqt_header', 'id' => $id),
 								$html ) . $commands_html;
 			
 			return $html;
@@ -1091,6 +1094,7 @@ class LqtView {
 						
 						$this->output->addHTML( $link );
 						$showThreads = false;
+						continue;
 					}
 					
 					++$showCount;
