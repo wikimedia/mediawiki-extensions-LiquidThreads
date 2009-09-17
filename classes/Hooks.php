@@ -5,10 +5,12 @@ class LqtHooks {
 		// Shortcut for non-LQT pages.
 		if ( !LqtDispatch::isLqtPage( $ot ) )
 			return true;
-		
+
 		// Move the threads on that page to the new page.
-		$threads = Threads::where( array( Threads::articleClause( new Article( $ot ) ),
-		                                  Threads::topLevelClause() ) );
+		$threads = Threads::where( array(
+			Threads::articleClause( new Article( $ot ) ),
+			Threads::topLevelClause() )
+		);
 
 		foreach ( $threads as $t ) {
 			$t->moveToPage( $nt, false );
@@ -20,7 +22,7 @@ class LqtHooks {
 	static function customizeOldChangesList( &$changeslist, &$s, $rc ) {
 		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD )
 			return true;
-	
+
 		$thread = Threads::withRoot( new Article( $rc->getTitle() ) );
 		if ( !$thread ) return true;
 
@@ -29,7 +31,7 @@ class LqtHooks {
 
 		if ( $rc->mAttribs['rc_new'] ) {
 			global $wgOut;
-			
+
 			$sig = "";
 			$changeslist->insertUserRelatedLinks( $sig, $rc );
 
@@ -43,7 +45,7 @@ class LqtHooks {
 				$link = $sk->link( $thread->title(), wfMsg( 'lqt_rc_ellipsis' ),
 						array( 'class' => 'lqt_rc_ellipsis' ), array(), array( 'known' ) );
 			}
-			
+
 			$quote = $wgOut->parseInline( $quote ) . $link;
 
 			if ( $thread->isTopmostThread() ) {
@@ -51,10 +53,10 @@ class LqtHooks {
 			} else {
 				$message_name = 'lqt_rc_new_reply';
 			}
-			
+
 			$tmp_title = $thread->article()->getTitle();
 			$tmp_title->setFragment( '#' . LqtView::anchorName( $thread ) );
-			
+
 			// Make sure it points to the right page. The Pager seems to use the DB
 			//  representation of a timestamp for its offset field, odd.
 			$dbr = wfGetDB( DB_SLAVE );
@@ -62,7 +64,7 @@ class LqtHooks {
 			$offset = $dbr->timestamp( $offset );
 
 			$thread_link = $changeslist->skin->link( $tmp_title,
-				htmlspecialchars($thread->subjectWithoutIncrement()),
+				htmlspecialchars( $thread->subjectWithoutIncrement() ),
 				array(), array( 'offset' => $offset ), array( 'known' ) );
 
 			$talkpage_link = $changeslist->skin->link(
@@ -72,19 +74,19 @@ class LqtHooks {
 
 			$s = wfMsg( $message_name, $thread_link, $talkpage_link, $sig )
 				. Xml::tags( 'blockquote', array( 'class' => 'lqt_rc_blockquote' ), $quote );
-				
+
 			$classes = array();
 			$changeslist->insertTags( $s, $rc, $classes );
 			$changeslist->insertExtra( $s, $rc, $classes );
 		} else {
 			// Add whether it was original author.
 			if ( $thread->author()->getName() != $rc->mAttribs['rc_user_text'] ) {
-				$appendix = Xml::tags( 'span',
-										array( 'class' => 'lqt_rc_author_notice ' .
-														'lqt_rc_author_notice_others' ),
-										wfMsgExt( 'lqt_rc_author_others', 'parseinline' )
-									);
-			
+				$appendix = Xml::tags(
+					'span',
+					array( 'class' => 'lqt_rc_author_notice ' . 'lqt_rc_author_notice_others' ),
+					wfMsgExt( 'lqt_rc_author_others', 'parseinline' )
+				);
+
 				$s .= ' ' . $appendix;
 			}
 		}
@@ -102,8 +104,10 @@ class LqtHooks {
 				&& ! $watchlist_t->equals( $wgTitle )
 				&& ! $usertalk_t->equals( $wgTitle )
 				) {
-			$s = wfMsgExt( 'lqt_youhavenewmessages', array( 'parseinline' ),
-							$newmsg_t->getFullURL() );
+			$s = wfMsgExt(
+				'lqt_youhavenewmessages', array( 'parseinline' ),
+				$newmsg_t->getFullURL()
+			);
 			$tpl->set( "newtalk", $s );
 			$wgOut->setSquidMaxage( 0 );
 		} else {
@@ -112,62 +116,64 @@ class LqtHooks {
 
 		return true;
 	}
-	
+
 	static function beforeWatchlist( &$conds, &$tables, &$join_conds, &$fields ) {
 		global $wgOut, $wgUser;
-		
+
 		$db = wfGetDB( DB_SLAVE );
-	
+
 		if ( !in_array( 'page', $tables ) ) {
 			$tables[] = 'page';
 			// Yes, this is the correct field to join to. Weird naming.
 			$join_conds['page'] = array( 'LEFT JOIN', 'rc_cur_id=page_id' );
 		}
-		$conds[] = "page_namespace != " . $db->addQuotes(NS_LQT_THREAD);
-	
+		$conds[] = "page_namespace != " . $db->addQuotes( NS_LQT_THREAD );
+
 		$talkpage_messages = NewMessages::newUserMessages( $wgUser );
 		$tn = count( $talkpage_messages );
-	
+
 		$watch_messages = NewMessages::watchedThreadsForUser( $wgUser );
 		$wn = count( $watch_messages );
-	
+
 		if ( $tn == 0 && $wn == 0 )
 			return true;
-	
+
 		LqtView::addJSandCSS();
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$messages_title = SpecialPage::getTitleFor( 'NewMessages' );
 		$new_messages = wfMsgExt( 'lqt-new-messages', 'parseinline' );
-		
+
 		$sk = $wgUser->getSkin();
-		$link = $sk->link( $messages_title, $new_messages,
-								array( 'class' => 'lqt_watchlist_messages_notice' ) );
+		$link = $sk->link(
+			$messages_title,
+			$new_messages,
+			array( 'class' => 'lqt_watchlist_messages_notice' )
+		);
 		$wgOut->addHTML( $link );
-	
+
 		return true;
 	}
-	
+
 	static function getPreferences( $user, &$preferences ) {
 		global $wgEnableEmail;
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		
-		if ($wgEnableEmail) {
-			$preferences['lqtnotifytalk'] =
-				array(
-					'type' => 'toggle',
-					'label-message' => 'lqt-preference-notify-talk',
-					'section' => 'personal/email'
-				);
+
+		if ( $wgEnableEmail ) {
+			$preferences['lqtnotifytalk'] =	array(
+				'type' => 'toggle',
+				'label-message' => 'lqt-preference-notify-talk',
+				'section' => 'personal/email'
+			);
 		}
-		
-		
+
+
 		$preferences['lqt-watch-threads'] =
 			array(
 				'type' => 'toggle',
 				'label-message' => 'lqt-preference-watch-threads',
 				'section' => 'watchlist/advancedwatchlist',
 			);
-		
+
 		// Display depth and count
 		$preferences['lqtdisplaydepth'] =
 			array(
@@ -175,7 +181,7 @@ class LqtHooks {
 				'label-message' => 'lqt-preference-display-depth',
 				'section' => 'lqt',
 			);
-			
+
 		// Display depth and count
 		$preferences['lqtdisplaycount'] =
 			array(
@@ -183,36 +189,40 @@ class LqtHooks {
 				'label-message' => 'lqt-preference-display-count',
 				'section' => 'lqt',
 			);
-		
+
 		return true;
 	}
-	
+
 	static function updateNewtalkOnEdit( $article ) {
 		$title = $article->getTitle();
-		
+
 		if ( LqtDispatch::isLqtPage( $title ) ) {
 			// They're only editing the header, don't update newtalk.
 			return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	static function dumpThreadData( $writer, &$out, $row, $title ) {
-		$editedStati = array( Threads::EDITED_NEVER => 'never',
-								Threads::EDITED_HAS_REPLY => 'has-reply',
-								Threads::EDITED_BY_AUTHOR => 'by-author',
-								Threads::EDITED_BY_OTHERS => 'by-others' );
-		$threadTypes = array( Threads::TYPE_NORMAL => 'normal',
-								Threads::TYPE_MOVED => 'moved',
-								Threads::TYPE_DELETED => 'deleted' );
+		$editedStati = array(
+			Threads::EDITED_NEVER => 'never',
+			Threads::EDITED_HAS_REPLY => 'has-reply',
+			Threads::EDITED_BY_AUTHOR => 'by-author',
+			Threads::EDITED_BY_OTHERS => 'by-others'
+		);
+		$threadTypes = array(
+			Threads::TYPE_NORMAL => 'normal',
+			Threads::TYPE_MOVED => 'moved',
+			Threads::TYPE_DELETED => 'deleted'
+		);
 		// Is it a thread
 		if ( $row->thread_id ) {
 			$thread = new Thread( $row );
 			$threadInfo = "\n";
 			$attribs = array();
 			$attribs['ThreadSubject'] = $thread->subject();
-			if ($thread->hasSuperThread()) {
+			if ( $thread->hasSuperThread() ) {
 				$attribs['ThreadParent'] = $thread->superThread()->id();
 			}
 			$attribs['ThreadAncestor'] = $thread->topmostThread()->id();
@@ -224,39 +234,39 @@ class LqtHooks {
 			$attribs['ThreadAuthor'] = $thread->author()->getName();
 			$attribs['ThreadEditStatus'] = $editedStati[$thread->editedness()];
 			$attribs['ThreadType'] = $threadTypes[$thread->type()];
-			
-			foreach( $attribs as $key => $value ) {
-				$threadInfo .= "\t".Xml::element( $key, null, $value ) . "\n";
+
+			foreach ( $attribs as $key => $value ) {
+				$threadInfo .= "\t" . Xml::element( $key, null, $value ) . "\n";
 			}
-			
+
 			$out .= Xml::tags( 'DiscussionThreading', null, $threadInfo ) . "\n";
 		}
-		
+
 		return true;
 	}
-	
+
 	static function modifyExportQuery( $db, &$tables, &$cond, &$opts, &$join ) {
 		$tables[] = 'thread';
-		
+
 		$join['thread'] = array( 'left join', array( 'thread_root=page_id' ) );
-		
+
 		return true;
 	}
-	
+
 	static function customiseSearchResultTitle( &$title, &$text, $result, $terms, $page ) {
 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
 			return true;
 		}
-		
-		$thread = Threads::withRoot( new Article($title) );
+
+		$thread = Threads::withRoot( new Article( $title ) );
 		$text = $thread->subject();
-		
+
 		$title = clone $thread->topmostThread()->title();
-		$title->setFragment( '#'.$thread->getAnchorName() );
-		
+		$title->setFragment( '#' . $thread->getAnchorName() );
+
 		return true;
 	}
-	
+
 	static function onUserRename( $renameUserSQL ) {
 		// Always use the job queue, talk page edits will take forever
 		$renameUserSQL->tablesJob['thread'] =
@@ -265,57 +275,55 @@ class LqtHooks {
 				array( 'th_user_text', 'th_user', 'th_timestamp' );
 		return true;
 	}
-	
+
 	static function editCheckboxes( $editPage, &$checkboxes, &$tabIndex ) {
 		$article = $editPage->getArticle();
 		$title = $article->getTitle();
-		
+
 		if ( !$article->exists() && $title->getNamespace() == NS_LQT_THREAD ) {
 			unset( $checkboxes['minor'] );
 		}
-		
+
 		return true;
 	}
-	
+
 	static function customiseSearchProfiles( &$profiles ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		
+
 		$namespaces = array( NS_LQT_THREAD, NS_LQT_SUMMARY );
-		
+
 		// Add odd namespaces
-		foreach( SearchEngine::searchableNamespaces() as $ns => $nsName ) {
-			if ($ns % 2 == 1) {
+		foreach ( SearchEngine::searchableNamespaces() as $ns => $nsName ) {
+			if ( $ns % 2 == 1 ) {
 				$namespaces[] = $ns;
 			}
 		}
-		
+
 		$insert = array(
-			'threads' =>
-				array(
-					'message' => 'searchprofile-threads',
-					'tooltip' => 'searchprofile-threads-tooltip',
-					'namespaces' => $namespaces,
-					'namespace-messages' => SearchEngine::namespacesAsText( $namespaces ),
-				),
+			'threads' => array(
+				'message' => 'searchprofile-threads',
+				'tooltip' => 'searchprofile-threads-tooltip',
+				'namespaces' => $namespaces,
+				'namespace-messages' => SearchEngine::namespacesAsText( $namespaces ),
+			),
 		);
-		
+
 		$profiles = wfArrayInsertAfter( $profiles, $insert, 'help' );
-		
+
 		return true;
 	}
-	
+
 	public static function onLoadExtensionSchemaUpdates() {
 		global $wgExtNewTables, $wgExtNewFields, $wgExtPGNewFields,
 				$wgExtPGAlteredFields, $wgExtNewIndexes, $wgDBtype;
 
 		$dir = realpath( dirname( __FILE__ ) . '/..' );
-		
+
 		// DB updates
 		$wgExtNewTables[] = array( 'thread', "$dir/lqt.sql" );
 		$wgExtNewTables[] = array( 'user_message_state', "$dir/lqt.sql" );
 		$wgExtNewTables[] = array( 'thread_history', "$dir/schema-changes/thread_history_table.sql" );
-		
-		
+
 		$wgExtNewFields[] = array( "thread", "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql" );
 		$wgExtNewFields[] = array( "thread", "thread_article_title", "$dir/schema-changes/split-thread_article.sql" );
 		$wgExtNewFields[] = array( "thread", "thread_ancestor", "$dir/schema-changes/normalise-ancestry.sql" );
@@ -326,9 +334,9 @@ class LqtHooks {
 		$wgExtNewFields[] = array( "thread", "thread_subject", "$dir/schema-changes/store_subject-author.sql" );
 		$wgExtNewFields[] = array( "thread", "thread_author_id", "$dir/schema-changes/store_subject-author.sql" );
 		$wgExtNewFields[] = array( "thread", "thread_author_name", "$dir/schema-changes/store_subject-author.sql" );
-		
+
 		$wgExtNewIndexes[] = array( 'thread', 'thread_summary_page', '(thread_summary_page)' );
-		
+
 		return true;
 	}
 }

@@ -3,7 +3,6 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 
 /** Module of factory methods. */
 class Threads {
-
 	const TYPE_NORMAL = 0;
 	const TYPE_MOVED = 1;
 	const TYPE_DELETED = 2;
@@ -21,7 +20,7 @@ class Threads {
 	const CHANGE_MERGED_FROM = 10;
 	const CHANGE_MERGED_TO = 11;
 	const CHANGE_SPLIT_FROM = 12;
-	
+
 	static $VALID_CHANGE_TYPES = array( self::CHANGE_EDITED_SUMMARY, self::CHANGE_EDITED_ROOT,
 		self::CHANGE_REPLY_CREATED, self::CHANGE_NEW_THREAD, self::CHANGE_DELETED, self::CHANGE_UNDELETED,
 		self::CHANGE_MOVED_TALKPAGE, self::CHANGE_SPLIT, self::CHANGE_EDITED_SUBJECT,
@@ -58,26 +57,26 @@ class Threads {
 			}
 		}
 	}
-	
+
 	static function loadFromResult( $res, $db ) {
 		$rows = array();
-		
-		while( $row = $db->fetchObject( $res ) ) {
+
+		while ( $row = $db->fetchObject( $res ) ) {
 			$rows[] = $row;
 		}
-		
+
 		return Thread::bulkLoad( $rows );
 	}
 
 	static function where( $where, $options = array() ) {
 		global $wgDBprefix;
 		$dbr = wfGetDB( DB_SLAVE );
-		
+
 		$res = $dbr->select( 'thread', '*', $where, __METHOD__, $options );
 		$threads = Threads::loadFromResult( $res, $dbr );
 
 		foreach ( $threads as $thread ) {
-			if ($thread->root()) {
+			if ( $thread->root() ) {
 				self::$cache_by_root[$thread->root()->getID()] = $thread;
 			}
 			self::$cache_by_id[$thread->id()] = $thread;
@@ -93,7 +92,7 @@ class Threads {
 
 	private static function assertSingularity( $threads, $attribute, $value ) {
 		if ( count( $threads ) == 0 ) { return null; }
-		if ( count( $threads ) == 1 ) { return array_pop($threads); }
+		if ( count( $threads ) == 1 ) { return array_pop( $threads ); }
 		if ( count( $threads ) > 1 ) {
 			Threads::databaseError( "More than one thread with $attribute = $value." );
 			return null;
@@ -126,7 +125,7 @@ class Threads {
 			return self::$cache_by_id[$id];
 		}
 		$ts = Threads::where( array( 'thread_id' => $id ) );
-		
+
 		return self::assertSingularity( $ts, 'thread_id', $id );
 	}
 
@@ -136,78 +135,78 @@ class Threads {
 	}
 
 	/**
-	  * Horrible, horrible!
-	  * List of months in which there are >0 threads, suitable for threadsOfArticleInMonth.
-	  * Returned as an array of months in the format yyyymm
-	  */
+	 * Horrible, horrible!
+	 * List of months in which there are >0 threads, suitable for threadsOfArticleInMonth.
+	 * Returned as an array of months in the format yyyymm
+	 */
 	static function monthsWhereArticleHasThreads( $article ) {
 		// FIXME this probably performs absolutely horribly for pages with lots of threads.
-		
+
 		$threads = Threads::where( Threads::articleClause( $article ) );
 		$months = array();
-		
+
 		foreach ( $threads as $t ) {
 			$month = substr( $t->modified(), 0, 6 );
-			
+
 			$months[$month] = true;
 		}
-		
+
 		// Some code seems to assume that it's sorted by month, make sure it's true.
 		ksort( $months );
-		
-		return array_keys($months);
+
+		return array_keys( $months );
 	}
 
 	static function articleClause( $article ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		
+
 		$arr = array( 'thread_article_title' => $article->getTitle()->getDBKey(),
 						'thread_article_namespace' => $article->getTitle()->getNamespace() );
-		
+
 		return $dbr->makeList( $arr, LIST_AND );
 	}
 
 	static function topLevelClause() {
 		$dbr = wfGetDB( DB_SLAVE );
-		
+
 		$arr = array( 'thread_ancestor=thread_id', 'thread_parent' => null );
-		
+
 		return $dbr->makeList( $arr, LIST_OR );
 	}
-	
+
 	static function scratchTitle() {
 		$token = md5( uniqid( rand(), true ) );
 		return Title::newFromText( "Thread:$token" );
 	}
-	
+
 	static function newThreadTitle( $subject, $article ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$subject = $subject ? $subject : wfMsg( 'lqt_nosubject' );
-		
+
 		$base = $article->getTitle()->getPrefixedText() . "/$subject";
-		
+
 		return self::incrementedTitle( $base, NS_LQT_THREAD );
 	}
-	
+
 	static function newSummaryTitle( $t ) {
 		return self::incrementedTitle( $t->title()->getText(), NS_LQT_SUMMARY );
 	}
-	
-	static function newReplyTitle( $thread, $user) {
+
+	static function newReplyTitle( $thread, $user ) {
 		$topThread = $thread->topmostThread();
-		
+
 		$base = $topThread->title()->getText() . '/' . $user->getName();
-		
+
 		return self::incrementedTitle( $base, NS_LQT_THREAD );
 	}
-	
+
 	/** Keep trying titles starting with $basename until one is unoccupied. */
 	public static function incrementedTitle( $basename, $namespace ) {
 		$i = 2;
-		
+
 		$replacements = array_fill_keys( array( '[', ']', '{', '}', '|' ), '_' );
 		$basename = strtr( $basename, $replacements );
-		
+
 		$t = Title::makeTitleSafe( $namespace, $basename );
 		while ( !$t || $t->exists() ||
 				in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) ) {
@@ -215,5 +214,5 @@ class Threads {
 			$i++;
 		}
 		return $t;
-	}	
+	}
 }

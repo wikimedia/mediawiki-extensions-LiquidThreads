@@ -26,7 +26,7 @@ class SpecialNewMessages extends SpecialPage {
 		$this->request = $wgRequest;
 
 		$this->setHeaders();
-		
+
 		$article = new Article( $this->getTitle() );
 		$title = $this->getTitle();
 
@@ -42,21 +42,27 @@ class SpecialNewMessages extends SpecialPage {
 			$wgOut->addWikitext( wfMsg( 'lqt-no-new-messages' ) );
 			return;
 		}
-		
+
 		$html = '';
-		
+
 		$html .= $view->getReadAllButton( $both_sets );
 
 		$view->setHeaderLevel( 3 );
 
-		$html .= Xml::tags( 'h2', array( 'class' => 'lqt_newmessages_section' ),
-							wfMsgExt( 'lqt-messages-sent', 'parseinline' ) );
+		$html .= Xml::tags(
+			'h2',
+			array( 'class' => 'lqt_newmessages_section' ),
+			wfMsgExt( 'lqt-messages-sent', 'parseinline' )
+		);
 		$wgOut->addHTML( $html );
 		$view->setThreads( $first_set );
 		$view->show();
 
-		$wgOut->addHTML( Xml::tags( 'h2', array( 'class' => 'lqt_newmessages_section' ),
-							wfMsgExt( 'lqt-other-messages', 'parseinline' ) ) );
+		$wgOut->addHTML( Xml::tags(
+			'h2',
+			array( 'class' => 'lqt_newmessages_section' ),
+			wfMsgExt( 'lqt-other-messages', 'parseinline' )
+		) );
 		$view->setThreads( $second_set );
 		$view->show();
 	}

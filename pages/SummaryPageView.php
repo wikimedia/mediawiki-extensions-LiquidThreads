@@ -8,12 +8,14 @@ class SummaryPageView extends LqtView {
 		$thread = Threads::withSummary( $this->article );
 		if ( $thread ) {
 			global $wgUser;
-			
+
 			$t = $thread->root()->getTitle();
 			$link = $wgUser->getSkin()->link( $t );
-			$this->output->setSubtitle(
-			wfMsgExt( 'lqt_summary_subtitle', array( 'parseinline', 'replaceafter' ),
-						$link ) );
+			$this->output->setSubtitle( wfMsgExt(
+				'lqt_summary_subtitle',
+				array( 'parseinline', 'replaceafter' ),
+				$link )
+			);
 		}
 		return true;
 	}

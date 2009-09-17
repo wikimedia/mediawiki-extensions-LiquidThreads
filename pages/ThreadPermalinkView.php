@@ -10,13 +10,13 @@ class ThreadPermalinkView extends LqtView {
 		// Insert fake 'article' and 'discussion' tabs before the thread tab.
 		// If you call the key 'talk', the url gets re-set later. TODO:
 		// the access key for the talk tab doesn't work.
-		if ($this->thread) {
+		if ( $this->thread ) {
 			$article_t = $this->thread->article()->getTitle();
 			$talk_t = $this->thread->article()->getTitle();
 		} else {
 			return true;
 		}
-		
+
 		$articleTab =
 			array(
 				'text' => wfMsg( $article_t->getNamespaceKey() ),
@@ -24,27 +24,27 @@ class ThreadPermalinkView extends LqtView {
 				'class' => $article_t->exists() ? '' : 'new'
 			);
 		efInsertIntoAssoc( 'article', $articleTab, 'nstab-thread', $content_actions );
-		
+
 		$talkTab =
 			array(
 				// talkpage certainly exists since this thread is from it.
 				'text' => wfMsg( 'talk' ),
 				'href' => $talk_t->getFullURL()
 			);
-		
+
 		efInsertIntoAssoc( 'not_talk', $talkTab, 'nstab-thread', $content_actions );
 
 		unset( $content_actions['edit'] );
 		unset( $content_actions['viewsource'] );
 		unset( $content_actions['talk'] );
-		
+
 		$subpage = $this->thread->title()->getPrefixedText();
-		
+
 		if ( array_key_exists( 'move', $content_actions ) && $this->thread ) {
 			$content_actions['move']['href'] =
 			SpecialPage::getTitleFor( 'MoveThread', $subpage )->getFullURL();
 		}
-		
+
 		if ( array_key_exists( 'delete', $content_actions ) && $this->thread ) {
 			$content_actions['delete']['href'] =
 				$this->thread->title()->getFullURL( 'action=delete' );
@@ -77,33 +77,39 @@ class ThreadPermalinkView extends LqtView {
 
 	function getSubtitle() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		
+
 		$sk = $this->user->getSkin();
-		$fragment = '#'.$this->anchorName( $this->thread );
-		
+		$fragment = '#' . $this->anchorName( $this->thread );
+
 		if ( $this->thread->isHistorical() ) {
 			// TODO: Point to the relevant part of the archive.
 			$query = '';
 		} else {
 			$query = '';
 		}
-		
+
 		$talkpage = $this->thread->article()->getTitle();
 		$talkpage->setFragment( $fragment );
 		$talkpage_link = $sk->link( $talkpage );
-		
+
 		if ( $this->thread->hasSuperthread() ) {
 			$topmostTitle = $this->thread->topmostThread()->title();
 			$topmostTitle->setFragment( $fragment );
-			
+
 			$linkText = wfMsgExt( 'lqt_discussion_link', 'parseinline' );
 			$permalink = $sk->link( $topmostTitle, $linkText );
-							
-			return wfMsgExt( 'lqt_fragment', array('parseinline', 'replaceafter'),
-							array( $permalink, $talkpage_link ) );
+
+			return wfMsgExt(
+				'lqt_fragment',
+				array( 'parseinline', 'replaceafter' ),
+				array( $permalink, $talkpage_link )
+			);
 		} else {
-			return wfMsgExt( 'lqt_from_talk', array('parseinline', 'replaceafter'),
-							array($talkpage_link) );
+			return wfMsgExt(
+				'lqt_from_talk',
+				array( 'parseinline', 'replaceafter' ),
+				array( $talkpage_link )
+			);
 		}
 	}
 
@@ -112,7 +118,7 @@ class ThreadPermalinkView extends LqtView {
 		parent::__construct( $output, $article, $title, $user, $request );
 
 		$t = Threads::withRoot( $this->article );
-		
+
 		$this->thread = $t;
 		if ( !$t ) {
 			return; // error reporting is handled in show(). this kinda sucks.
@@ -132,7 +138,7 @@ class ThreadPermalinkView extends LqtView {
 			$this->showMissingThreadPage();
 			return false;
 		}
-		
+
 		if ( $this->request->getBool( 'lqt_inline' ) ) {
 			$this->doInlineEditForm();
 			return false;
@@ -146,8 +152,8 @@ class ThreadPermalinkView extends LqtView {
 		elseif ( $this->methodApplies( 'split' ) )
 			$this->showSplitForm( $this->thread );
 
-		$this->showThread( $this->thread, 1, 1, array( 'maxDepth' => -1, 'maxCount' => -1 ) );
-		
+		$this->showThread( $this->thread, 1, 1, array( 'maxDepth' => - 1, 'maxCount' => - 1 ) );
+
 		$this->output->setPageTitle( $this->thread->subject() );
 		return false;
 	}

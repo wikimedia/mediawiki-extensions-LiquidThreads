@@ -26,30 +26,44 @@ class TalkpageHeaderView extends LqtView {
 
 		if ( $wgRequest->getVal( 'action' ) === 'edit' ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
-			
+
 			$html = '';
-			
-			$warn_bold = Xml::tags( 'strong', null,
-									wfMsgExt( 'lqt_header_warning_bold', 'parseinline' ) );
-									
-			$warn_link =
-				$this->talkpageLink( $wgTitle, wfMsgExt( 'lqt_header_warning_new_discussion',
-									'parseinline' ), 'talkpage_new_thread' );
-									
-			$html .= wfMsgExt( 'lqt_header_warning_before_big',
-								array('parseinline', 'replaceafter' ),
-								array( $warn_bold, $warn_link ) );
-			$html .= Xml::tags( 'big', null,
-								wfMsgExt( 'lqt_header_warning_big',
-								array( 'parseinline', 'replaceafter' ),
-								array( $warn_bold, $warn_link ) ) );
+
+			$warn_bold = Xml::tags(
+				'strong',
+				null,
+				wfMsgExt( 'lqt_header_warning_bold', 'parseinline' )
+			);
+
+			$warn_link = $this->talkpageLink(
+				$wgTitle,
+				wfMsgExt( 'lqt_header_warning_new_discussion', 'parseinline' ),
+				'talkpage_new_thread'
+			);
+
+			$html .= wfMsgExt(
+				'lqt_header_warning_before_big',
+				array( 'parseinline', 'replaceafter' ),
+				array( $warn_bold, $warn_link )
+			);
+			$html .= Xml::tags(
+				'big',
+				null,
+				wfMsgExt(
+					'lqt_header_warning_big',
+					array( 'parseinline', 'replaceafter' ),
+					array( $warn_bold, $warn_link )
+				)
+			);
 			$html .= wfMsg( 'word-separator' );
-			$html .= wfMsgExt( 'lqt_header_warning_after_big',
-								array( 'parseinline', 'replaceafter' ),
-								array( $warn_bold, $warn_link ) );
-			
+			$html .= wfMsgExt(
+				'lqt_header_warning_after_big',
+				array( 'parseinline', 'replaceafter' ),
+				array( $warn_bold, $warn_link )
+			);
+
 			$html = Xml::tags( 'p', array( 'class' => 'lqt_header_warning' ), $html );
-			
+
 			$wgOut->addHTML( $html );
 		}
 

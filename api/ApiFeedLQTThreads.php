@@ -17,9 +17,9 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
-if (!defined('MEDIAWIKI')) {
+if ( !defined( 'MEDIAWIKI' ) ) {
 	// Eclipse helper - will be ignored in production
-	require_once ("ApiBase.php");
+	require_once ( "ApiBase.php" );
 }
 
 /**
@@ -29,15 +29,15 @@ if (!defined('MEDIAWIKI')) {
  */
 class ApiFeedLQTThreads extends ApiBase {
 
-	public function __construct($main, $action) {
-		parent :: __construct($main, $action);
+	public function __construct( $main, $action ) {
+		parent :: __construct( $main, $action );
 	}
 
 	/**
 	 * This module uses a custom feed wrapper printer.
 	 */
 	public function getCustomPrinter() {
-		return new ApiFormatFeedWrapper($this->getMain());
+		return new ApiFormatFeedWrapper( $this->getMain() );
 	}
 
 	/**
@@ -46,98 +46,102 @@ class ApiFeedLQTThreads extends ApiBase {
 	 */
 	public function execute() {
 		global $wgFeedClasses, $wgFeedLimit, $wgSitename, $wgContLanguageCode;
-		
+
 		$params = $this->extractRequestParams();
-		
+
 		$db = wfGetDB( DB_SLAVE );
-		
+
 		$feedTitle = self::createFeedTitle( $params );
 		$feedClass = $wgFeedClasses[$params['feedformat']];
 		// TODO need a better URL :)
 		$feedUrl = 'http://www.mediawiki.org/wiki/Extension:LiquidThreads';
 		$feedItems = array();
-		
+
 		$tables = array( 'thread' );
 		$fields = array( 'thread.*' );
 		$conds = $this->getConditions( $params, $db );
 		$options = array( 'LIMIT' => 200, 'ORDER BY' => 'thread_created DESC' );
-		
+
 		$res = $db->select( $tables, $fields, $conds, __METHOD__, $options );
-		
-		foreach( $res as $row ) {
+
+		foreach ( $res as $row ) {
 			$feedItems[] = $this->createFeedItem( $row );
 		}
-		
-		$feed = new $feedClass($feedTitle, '', $feedUrl);
 
-		ApiFormatFeedWrapper :: setResult($this->getResult(), $feed, $feedItems);
+		$feed = new $feedClass( $feedTitle, '', $feedUrl );
+
+		ApiFormatFeedWrapper :: setResult( $this->getResult(), $feed, $feedItems );
 	}
-	
-	private function createFeedItem($row) {
+
+	private function createFeedItem( $row ) {
 		global $wgOut;
 		$thread = new Thread( $row );
 		$linker = new Linker;
-		
+
 		$titleStr = $thread->subject();
 		$completeText = $thread->root()->getContent();
 		$completeText = $wgOut->parse( $completeText );
 		$threadTitle = clone $thread->topmostThread()->title();
-		$threadTitle->setFragment( '#'.$thread->getAnchorName() );
+		$threadTitle->setFragment( '#' . $thread->getAnchorName() );
 		$titleUrl = $threadTitle->getFullURL();
 		$timestamp = $thread->created();
 		$user = $thread->author()->getName();
-		
+
 		// Grab the title for the superthread, if one exists.
 		$stTitle = null;
 		if ( $thread->hasSuperThread() ) {
 			$stTitle = clone $thread->topmostThread()->title();
-			$stTitle->setFragment( '#'.$thread->superthread()->getAnchorName() );
+			$stTitle->setFragment( '#' . $thread->superthread()->getAnchorName() );
 		}
-		
+
 		// Prefix content with a quick description
 		$userLink = $linker->userLink( $thread->author()->getId(), $user );
 		$talkpageLink = $linker->link( $thread->article()->getTitle() );
 		$superthreadLink = $linker->link( $stTitle );
-		
+
 		$description = '';
 		if ( $thread->hasSuperThread() ) {
-			$description = wfMsgExt( 'lqt-feed-reply-intro',
-									array( 'parse', 'replaceafter' ),
-									array( $talkpageLink, $userLink, $superthreadLink ) );
+			$description = wfMsgExt(
+				'lqt-feed-reply-intro',
+				array( 'parse', 'replaceafter' ),
+				array( $talkpageLink, $userLink, $superthreadLink )
+			);
 		} else {
-			$description = wfMsgExt( 'lqt-feed-new-thread-intro',
-									array( 'parse', 'replaceafter' ),
-									array( $talkpageLink, $userLink ) );
+			$description = wfMsgExt(
+				'lqt-feed-new-thread-intro',
+				array( 'parse', 'replaceafter' ),
+				array( $talkpageLink, $userLink )
+			);
 		}
-		
+
 		$completeText = $description . $completeText;
 
-		return new FeedItem($titleStr, $completeText, $titleUrl, $timestamp, $user);
+		return new FeedItem( $titleStr, $completeText, $titleUrl, $timestamp, $user );
 	}
-	
+
 	public static function createFeedTitle( $params ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$fromPlaces = array();
-		
-		foreach( (array)$params['thread'] as $thread ) {
+
+		foreach ( (array)$params['thread'] as $thread ) {
 			$t = Title::newFromText( $thread );
 			$fromPlaces[] = $t->getPrefixedText();
 		}
-		
-		foreach( (array)$params['talkpage'] as $talkpage ) {
+
+		foreach ( (array)$params['talkpage'] as $talkpage ) {
 			$t = Title::newFromText( $talkpage );
 			$fromPlaces[] = $t->getPrefixedText();
 		}
-		
+
 		global $wgLang;
-		$fromCount = count($fromPlaces);
+		$fromCount = count( $fromPlaces );
 		$fromPlaces = $wgLang->commaList( $fromPlaces );
-		
+
 		// What's included?
 		$types = (array)$params['type'];
-		
+
 		$msg = '';
-		
+
 		if ( !count( array_diff( array( 'replies', 'newthreads' ), $types ) ) ) {
 			$msg = 'lqt-feed-title-all';
 		} elseif ( in_array( 'replies', $types ) ) {
@@ -145,67 +149,71 @@ class ApiFeedLQTThreads extends ApiBase {
 		} elseif ( in_array( 'newthreads', $types ) ) {
 			$msg = 'lqt-feed-title-new-threads';
 		} else {
-			throw new MWException( "Unable to determine appropriate display type");
+			throw new MWException( "Unable to determine appropriate display type" );
 		}
-		
+
 		if ( $fromCount ) {
 			$msg .= '-from';
 		}
-		
+
 		return wfMsg( $msg, $fromPlaces, $fromCount );
 	}
-	
+
 	function getConditions( $params, $db ) {
 		$conds = array();
-		
+
 		// Types
 		$conds['thread_type'] = Threads::TYPE_NORMAL;
-		
+
 		// Limit
-		$cutoff = time() - intval($params['days'] * 24 * 3600);
+		$cutoff = time() - intval( $params['days'] * 24 * 3600 );
 		$cutoff = $db->timestamp( $cutoff );
 		$conds[] = 'thread_created > ' . $db->addQuotes( $cutoff );
-		
+
 		// Talkpage conditions
 		$pageConds = array();
-		
+
 		$talkpages = (array)$params['talkpage'];
-		foreach( $talkpages as $page ) {
+		foreach ( $talkpages as $page ) {
 			$title = Title::newFromText( $page );
-			$pageCond = array( 'thread_article_namespace' => $title->getNamespace(),
-								'thread_article_title' => $title->getDBkey() );
+			$pageCond = array(
+				'thread_article_namespace' => $title->getNamespace(),
+				'thread_article_title' => $title->getDBkey()
+			);
 			$pageConds[] = $db->makeList( $pageCond, LIST_AND );
 		}
-		
+
 		// Thread conditions
 		$threadConds = array();
 		$threads = (array)$params['thread'];
-		foreach( $threads as $thread ) {
+		foreach ( $threads as $thread ) {
 			$root = new Article( Title::newFromText( $thread ) );
 			$thread = Threads::withRoot( $root );
-			
-			$threadCond = array( 'thread_ancestor' => $thread->id(),
-									'thread_id' => $thread->id() );
+
+			$threadCond = array(
+				'thread_ancestor' => $thread->id(),
+				'thread_id' => $thread->id()
+			);
 			$pageConds[] = $db->makeList( $threadCond, LIST_OR );
 		}
-		if ( count($pageConds) ) {
+		if ( count( $pageConds ) ) {
 			$conds[] = $db->makeList( $pageConds, LIST_OR );
 		}
-		
+
 		// New thread v. Reply
 		$types = (array)$params['type'];
 		if ( !in_array( 'replies', $types ) ) {
 			$conds[] = Threads::topLevelClause();
 		} elseif ( !in_array( 'newthreads', $types ) ) {
-			$conds[] = '!'.Threads::topLevelClause();
+			$conds[] = '!' . Threads::topLevelClause();
 		}
-		
+
 		return $conds;
 	}
 
 	public function getAllowedParams() {
 		global $wgFeedClasses;
-		$feedFormatNames = array_keys($wgFeedClasses);
+		$feedFormatNames = array_keys( $wgFeedClasses );
 		return array (
 			'feedformat' => array (
 				ApiBase :: PARAM_DFLT => 'rss',

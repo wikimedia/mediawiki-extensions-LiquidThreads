@@ -15,20 +15,25 @@
  * - "root" page ID
  * - type
  */
+
 class ApiQueryLQTThreads extends ApiQueryBase {
 
 	// Property definitions
 	static $propRelations = array(
 			'id' => 'thread_id',
 			'subject' => 'thread_subject',
-			'page' => array( 'namespace' => 'thread_article_namespace',
-				'title' => 'thread_article_title' ),
+			'page' => array(
+				'namespace' => 'thread_article_namespace',
+				'title' => 'thread_article_title'
+			),
 			'parent' => 'thread_parent',
 			'ancestor' => 'thread_ancestor',
 			'created' => 'thread_created',
 			'modified' => 'thread_modified',
-			'author' => array( 'id' => 'thread_author_id',
-				'name' => 'thread_author_name'),
+			'author' => array(
+				'id' => 'thread_author_id',
+				'name' => 'thread_author_name'
+			),
 			'summaryid' => 'thread_summary_page',
 			'rootid' => 'thread_root',
 			'type' => 'thread_type',
@@ -40,20 +45,20 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 
 	public function execute() {
 		global $wgUser;
-		
+
 		$params = $this->extractRequestParams();
 		$prop = array_flip( $params['prop'] );
 		$result = $this->getResult();
 		$this->addTables( 'thread' );
 		$this->addFields( 'thread_id' );
-		
+
 		foreach ( self::$propRelations as $name => $fields ) {
 			// Pass a straight array rather than one with string
 			// keys, to be sure that merging it into other added
 			// arrays doesn't mess stuff up
 			$this->addFieldsIf( array_values( (array)$fields ), isset( $prop[$name] ) );
 		}
-		
+
 		// Check for conditions
 		$conditionFields = array( 'page', 'root', 'summary', 'author', 'id' );
 		foreach ( $conditionFields as $field ) {
@@ -65,23 +70,25 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$this->addOption( 'LIMIT', $params['limit'] + 1 );
 		$this->addWhereRange( 'thread_id', $params['dir'],
 			$params['startid'], $params['endid'] );
-		
+
 		if ( !$params['showdeleted'] ) {
-			$delType = $this->getDB()->addQuotes( Threads::TYPE_DELETED );			
+			$delType = $this->getDB()->addQuotes( Threads::TYPE_DELETED );
 			$this->addWhere( "thread_type != $delType" );
 		}
-		
+
 		if ( $params['render'] ) {
 			// All fields
-			$allFields = array( 'thread_id', 'thread_root', 'thread_article_namespace',
+			$allFields = array(
+				'thread_id', 'thread_root', 'thread_article_namespace',
 				'thread_article_title', 'thread_summary_page', 'thread_ancestor',
 				'thread_parent', 'thread_modified', 'thread_created', 'thread_type',
-				'thread_editedness', 'thread_subject', 'thread_author_id', 
-				'thread_author_name' );
-				
+				'thread_editedness', 'thread_subject', 'thread_author_id',
+				'thread_author_name'
+			);
+
 			$this->addFields( $allFields );
 		}
-		
+
 		$res = $this->select( __METHOD__ );
 		$count = 0;
 		foreach ( $res as $row )
@@ -91,22 +98,22 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				$this->setContinueEnumParameter( 'startid', $row->thread_id );
 				break;
 			}
-			
+
 			$entry = array();
 			foreach ( $prop as $name => $nothing ) {
 				$fields = self::$propRelations[$name];
 				self::formatProperty( $name, $fields, $row, $entry );
 			}
-			
+
 			// Render if requested
 			if ( $params['render'] ) {
 				self::renderThread( $row, $params, $entry );
 			}
-			
+
 			if ( $entry ) {
 				$fit = $result->addValue( array( 'query',
 						$this->getModuleName() ),
-					null, $entry);
+					null, $entry );
 				if ( !$fit ) {
 					$this->setContinueEnumParameter( 'startid', $row->thread_id );
 					break;
@@ -115,42 +122,42 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 		$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'thread' );
 	}
-	
+
 	static function renderThread( $row, $params, &$entry ) {
 		// Set up OutputPage
 		global $wgOut, $wgUser, $wgRequest;
 		$oldOutputText = $wgOut->getHTML();
 		$wgOut->clearHTML();
-		
+
 		// Setup
 		$thread = new Thread( $row );
 		$article = $thread->root();
 		$title = $article->getTitle();
 		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );
-		
+
 		// Parameters
 		$view->threadNestingLevel = $params['renderlevel'];
-		
+
 		$renderpos = $params['renderthreadpos'];
 		$rendercount = $params['renderthreadcount'];
-		
+
 		$options = array();
-		if ( isset($params['rendermaxthreadcount']) )
+		if ( isset( $params['rendermaxthreadcount'] ) )
 			$options['maxCount'] = $params['rendermaxthreadcount'];
-		if ( isset($params['rendermaxdepth']) )
+		if ( isset( $params['rendermaxdepth'] ) )
 			$options['maxDepth'] = $params['rendermaxdepth'];
-		if ( isset($params['renderstartrepliesat']) )
+		if ( isset( $params['renderstartrepliesat'] ) )
 			$options['startAt' ] = $params['renderstartrepliesat'];
-		
+
 		$view->showThread( $thread, $renderpos, $rendercount, $options );
-		
+
 		$result = $wgOut->getHTML();
 		$wgOut->clearHTML();
 		$wgOut->addHTML( $oldOutputText );
-		
+
 		$entry['content'] = $result;
 	}
-	
+
 	static function formatProperty( $name, $fields, $row, &$entry ) {
 		if ( !is_array( $fields ) ) {
 			// Common case.
@@ -170,7 +177,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			}
 		}
 	}
-	
+
 	function addPageCond( $prop, $value ) {
 		if ( count( $value ) === 1 ) {
 			$cond = $this->getPageCond( $prop, $value[0] );
@@ -181,12 +188,12 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				$cond = $this->getPageCond( $prop, $page );
 				$conds[] = $this->getDB()->makeList( $cond, LIST_AND );
 			}
-			
+
 			$cond = $this->getDB()->makeList( $conds, LIST_OR );
 			$this->addWhere( $cond );
 		}
 	}
-	
+
 	function getPageCond( $prop, $value ) {
 		$fieldMappings = array(
 			'page' => array(
@@ -196,7 +203,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			'root' => array( 'id' => 'thread_root' ),
 			'summary' => array( 'id' => 'thread_summary_id' ),
 		);
-		
+
 		// Split.
 		$t = Title::newFromText( $value );
 		$cond = array();
@@ -217,11 +224,11 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 		return $cond;
 	}
-	
+
 	function handleCondition( $prop, $value ) {
 		$titleParams = array( 'page', 'root', 'summary' );
 		$fields = self::$propRelations[$prop];
-		
+
 		if ( in_array( $prop, $titleParams ) ) {
 			// Special cases
 			$this->addPageCond( $prop, $value );
@@ -261,7 +268,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				ApiBase :: PARAM_TYPE => array_keys( self::$propRelations ),
 				ApiBase :: PARAM_ISMULTI => true
 			),
-			
+
 			'page' => array(
 				ApiBase :: PARAM_ISMULTI => true
 			),
@@ -297,8 +304,8 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				ApiBase :: PARAM_DFLT => null,
 			),
 		);
-	}	
-	
+	}
+
 	public function getParamDescription() {
 		return array (
 			'startid' => 'The thread id to start enumerating from',

@@ -19,7 +19,7 @@ class TalkpageView extends LqtView {
 
 	function showHeader() {
 		/* Show the contents of the actual talkpage article if it exists. */
-		
+
 		global $wgUser;
 		$sk = $wgUser->getSkin();
 
@@ -32,107 +32,124 @@ class TalkpageView extends LqtView {
 		// when the first thread was posted to make the links blue.
 		if ( $article->exists() && $article->getContent() ) {
 			$html = '';
-			
+
 			$article->view();
-			
+
 			$actionLinks = array();
-			$actionLinks[] = $sk->link( $this->title,
-								wfMsgExt( 'edit', 'parseinline' ) . "&uarr;",
-								array(), array( 'action' => 'edit' ) );
-			$actionLinks[] = $sk->link( $this->title,
-								wfMsgExt( 'history_short', 'parseinline' ) . "&uarr;",
-								array(), array( 'action' => 'history' ) );
-								
+			$actionLinks[] = $sk->link(
+				$this->title,
+				wfMsgExt( 'edit', 'parseinline' ) . "&uarr;",
+				array(),
+				array( 'action' => 'edit' )
+			);
+			$actionLinks[] = $sk->link(
+				$this->title,
+				wfMsgExt( 'history_short', 'parseinline' ) . "&uarr;",
+				array(),
+				array( 'action' => 'history' )
+			);
+
 			if ( $wgUser->isAllowed( 'delete' ) ) {
-				$actionLinks[] = $sk->link( $this->title,
-									wfMsgExt( 'delete', 'parseinline' ) . '&uarr;',
-									array(), array( 'action' => 'delete' ) );
+				$actionLinks[] = $sk->link(
+					$this->title,
+					wfMsgExt( 'delete', 'parseinline' ) . '&uarr;',
+					array(),
+					array( 'action' => 'delete' )
+				);
 			}
-			
+
 			$actions = '';
-			foreach( $actionLinks as $link ) {
+			foreach ( $actionLinks as $link ) {
 				$actions .= Xml::tags( 'li', null, "[$link]" ) . "\n";
 			}
 			$actions = Xml::tags( 'ul', array( 'class' => 'lqt_header_commands' ), $actions );
 			$html .= $actions;
 
 			$html = Xml::tags( 'div', array( 'class' => 'lqt_header_content' ), $html );
-			
+
 			$this->output->addHTML( $html );
 		} else {
-			
-			$editLink = $sk->link( $this->title, wfMsgExt( 'lqt_add_header', 'parseinline' ),
-									array(), array( 'action' => 'edit' ) );
-			
+
+			$editLink = $sk->link(
+				$this->title,
+				wfMsgExt( 'lqt_add_header', 'parseinline' ),
+				array(),
+				array( 'action' => 'edit' )
+			);
+
 			$html = Xml::tags( 'p', array( 'class' => 'lqt_header_notice' ), "[$editLink]" );
-			
+
 			$this->output->addHTML( $html );
 		}
 	}
-	
+
 	function getTOC( $threads ) {
 		global $wgLang;
-		
+
 		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		$sk = $this->user->getSkin();
-		
+
 		$html = '';
-		
+
 		$h2_header = Xml::tags( 'h2', null, wfMsgExt( 'lqt_contents_title', 'parseinline' ) );
-		
+
 		// Header row
 		$headerRow = '';
-		$headers = array( 'lqt_toc_thread_title', 'lqt_toc_thread_author',
-							'lqt_toc_thread_replycount', 'lqt_toc_thread_modified' );
-		foreach( $headers as $msg ) {
+		$headers = array(
+			'lqt_toc_thread_title',
+			'lqt_toc_thread_author',
+			'lqt_toc_thread_replycount',
+			'lqt_toc_thread_modified'
+		);
+		foreach ( $headers as $msg ) {
 			$headerRow .= Xml::tags( 'th', null, wfMsgExt( $msg, 'parseinline' ) );
 		}
 		$headerRow = Xml::tags( 'tr', null, $headerRow );
 		$headerRow = Xml::tags( 'thead', null, $headerRow );
-		
+
 		// Table body
 		$rows = array();
-		foreach( $threads as $thread ) {
+		foreach ( $threads as $thread ) {
 			$row = '';
-			$anchor = '#'.$this->anchorName( $thread );
+			$anchor = '#' . $this->anchorName( $thread );
 			$subject = $this->output->parseInline( $thread->subjectWithoutIncrement() );
 			$subject = Xml::tags( 'a', array( 'href' => $anchor ), $subject );
 			$row .= Xml::tags( 'td', null, $subject );
-			
+
 			$author = $thread->author();
 			$authorLink = $sk->userLink( $author->getId(), $author->getName() );
 			$row .= Xml::tags( 'td', null, $authorLink );
-			
+
 			$row .= Xml::element( 'td', null, count( $thread->replies() ) );
-			
+
 			$timestamp = $wgLang->timeanddate( $thread->modified(), true );
 			$row .= Xml::element( 'td', null, $timestamp );
-			
+
 			$row = Xml::tags( 'tr', null, $row );
 			$rows[] = $row;
 		}
-		
+
 		$html .= $headerRow . "\n" . Xml::tags( 'tbody', null, implode( "\n", $rows ) );
 		$html = $h2_header . Xml::tags( 'table', array( 'class' => 'lqt_toc' ), $html );
-		
+
 		return $html;
 	}
-	
+
 	function getList( $kind, $class, $id, $contents ) {
 		$html = '';
 		foreach ( $contents as $li ) {
 			$html .= Xml::tags( 'li', null, $li );
 		}
 		$html = Xml::tags( $kind, array( 'class' => $class, 'id' => $id ), $html );
-		
+
 		return $html;
 	}
 
 	function getArchiveWidget( ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$url = $this->talkpageUrl( $this->title, 'talkpage_archive' );
-	
+
 		$html = '';
 		$html = Xml::tags( 'div', array( 'class' => 'lqt_archive_teaser' ), $html );
 		return $html;
@@ -144,32 +161,44 @@ class TalkpageView extends LqtView {
 		if ( $article->exists() ) {
 			$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
 			$go = wfMsg( 'go' );
-			
+
 			$html = '';
-			
+
 			$html .= Xml::label( wfMsg( 'lqt_sorting_order' ), 'lqt_sort_select' ) . ' ';
 
 			$sortOrderSelect =
 				new XmlSelect( 'lqt_order', 'lqt_sort_select', $this->getSortType() );
-			
+
 			$sortOrderSelect->setAttribute( 'class', 'lqt_sort_select' );
-			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_newest_changes' ),
-											LQT_NEWEST_CHANGES );
-			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_newest_threads' ),
-											LQT_NEWEST_THREADS );
-			$sortOrderSelect->addOption( wfMsg( 'lqt_sort_oldest_threads' ),
-											LQT_OLDEST_THREADS );
+			$sortOrderSelect->addOption(
+				wfMsg( 'lqt_sort_newest_changes' ),
+				LQT_NEWEST_CHANGES
+			);
+			$sortOrderSelect->addOption(
+				wfMsg( 'lqt_sort_newest_threads' ),
+				LQT_NEWEST_THREADS
+			);
+			$sortOrderSelect->addOption(
+				wfMsg( 'lqt_sort_oldest_threads' ),
+				LQT_OLDEST_THREADS
+			);
 			$html .= $sortOrderSelect->getHTML();
-			
+
 			$html .= Xml::submitButton( wfMsg( 'go' ), array( 'class' => 'lqt_go_sort' ) );
 			$html .= Xml::hidden( 'title', $this->title->getPrefixedText() );
-			
-			
-			$html = Xml::tags( 'form', array( 'action' => $form_action_url,
-												'method' => 'get',
-												'name' => 'lqt_sort' ), $html );
+
+
+			$html = Xml::tags(
+				'form',
+				array(
+					'action' => $form_action_url,
+					'method' => 'get',
+					'name' => 'lqt_sort'
+				),
+				$html
+			);
 			$html = Xml::tags( 'div', array( 'class' => 'lqt_view_options' ), $html );
-			
+
 			return $html;
 		}
 	}
@@ -182,54 +211,62 @@ class TalkpageView extends LqtView {
 
 		$this->output->setPageTitle( $this->title->getPrefixedText() );
 		self::addJSandCSS();
-		
+
 		$sk = $this->user->getSkin();
-		
+
 		$article = new Article( $this->title );
-		
+
 		if ( $this->request->getBool( 'lqt_inline' ) ) {
 			$this->doInlineEditForm();
 			return false;
 		}
-		
+
 		// Search!
 		if ( $this->request->getCheck( 'lqt_search' ) ) {
 			$q = $this->request->getText( 'lqt_search' );
-			$q .= ' ondiscussionpage:'.$article->getTitle()->getPrefixedText();
-			
-			$params = array( 'search' => $q,
-							 'fulltext' => 1,
-							 'ns'.NS_LQT_THREAD => 1,
-							);
-			
+			$q .= ' ondiscussionpage:' . $article->getTitle()->getPrefixedText();
+
+			$params = array(
+				'search' => $q,
+				'fulltext' => 1,
+				'ns' . NS_LQT_THREAD => 1,
+			);
+
 			$t = SpecialPage::getTitleFor( 'Search' );
 			$url = $t->getLocalURL( wfArrayToCGI( $params ) );
-			
+
 			$this->output->redirect( $url );
-			
 		}
 
 		$this->showHeader();
-		
+
 		$html = '';
-		
+
 		// Set up a per-page header for new threads, search box, and sorting stuff.
-		
+
 		$talkpageHeader = '';
-		
+
 		$newThreadText = wfMsgExt( 'lqt_new_thread', 'parseinline' );
-		$newThreadLink = $sk->link( $this->title, $newThreadText,
-									array( ),
-									array( 'lqt_method' => 'talkpage_new_thread' ),
-									array( 'known' ) );
-									
-		$talkpageHeader .= Xml::tags( 'strong', array( 'class' => 'lqt_start_discussion' ),
-										$newThreadLink );
+		$newThreadLink = $sk->link(
+			$this->title, $newThreadText,
+			array(),
+			array( 'lqt_method' => 'talkpage_new_thread' ),
+			array( 'known' )
+		);
+
+		$talkpageHeader .= Xml::tags(
+			'strong',
+			array( 'class' => 'lqt_start_discussion' ),
+			$newThreadLink
+		);
 		$talkpageHeader .= $this->getSearchBox();
 		$talkpageHeader .= $this->showTalkpageViewOptions( $article );
-		$talkpageHeader = Xml::tags( 'div', array( 'class' => 'lqt-talkpage-header' ),
-									$talkpageHeader );
-		
+		$talkpageHeader = Xml::tags(
+			'div',
+			array( 'class' => 'lqt-talkpage-header' ),
+			$talkpageHeader
+		);
+
 		$this->output->addHTML( $talkpageHeader );
 
 		global $wgRequest;
@@ -242,63 +279,71 @@ class TalkpageView extends LqtView {
 			$this->output->addHTML( Xml::tags( 'div',
 				array( 'class' => 'lqt-new-thread lqt-edit-form' ), '' ) );
 		}
-		
+
 		$pager = $this->getPager();
-		
+
 		$threads = $this->getPageThreads( $pager );
 
-		if ( count($threads) > 0 ) {
+		if ( count( $threads ) > 0 ) {
 			$html .= Xml::element( 'br', array( 'style' => 'clear: both;' ) );
 			$html .= $this->getTOC( $threads );
 		} else {
 			$html .= wfMsgExt( 'lqt-no-threads', 'parseinline' );
 		}
-		
+
 		$html .= $pager->getNavigationBar();
-		
+
 		$this->output->addHTML( $html );
 
 		foreach ( $threads as $t ) {
 			$this->showThread( $t );
 		}
-		
+
 		$this->output->addHTML( $pager->getNavigationBar() );
-		
+
 		return false;
 	}
-	
+
 	function getSearchBox() {
 		$html = '';
-		$html .= Xml::inputLabel( wfMsg('lqt-search-label'), 'lqt_search', 'lqt-search-box',
-									45 );
-		
+		$html .= Xml::inputLabel(
+			wfMsg( 'lqt-search-label' ),
+			'lqt_search',
+			'lqt-search-box',
+			45
+		);
+
 		$html .= ' ' . Xml::submitButton( wfMsg( 'lqt-search-button' ) );
 		$html .= Xml::hidden( 'title', $this->title->getPrefixedText() );
-		$html = Xml::tags( 'form',
-							array( 'action' => $this->title->getLocalURL(),
-									'method' => 'get' ),
-							$html );
-		
+		$html = Xml::tags(
+			'form',
+			array(
+				'action' => $this->title->getLocalURL(),
+				'method' => 'get'
+			),
+			$html
+		);
+
 #		$html = Xml::fieldset( wfMsg('lqt-search-legend' ), $html,
 #								array( 'class' => 'lqt-talkpage-search' ) );
 
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-talkpage-search' ), $html );
-		
+
 		return $html;
 	}
-	
+
 	function getPager() {
-		
+
 		$sortType = $this->getSortType();
 		return new LqtDiscussionPager( $this->article, $sortType );
 	}
-	
+
 	function getPageThreads( $pager ) {
 		$rows = $pager->getRows();
-		
+
 		return Thread::bulkLoad( $rows );
 	}
-	
+
 	function getSortType() {
 		// Determine sort order
 		if ( $this->request->getCheck( 'lqt_order' ) ) {
@@ -313,7 +358,7 @@ class TalkpageView extends LqtView {
 					return LQT_OLDEST_THREADS;
 			}
 		}
-		
+
 		// Default
 		return LQT_NEWEST_CHANGES;
 	}
@@ -324,39 +369,37 @@ class LqtDiscussionPager extends IndexPager {
 	function __construct( $article, $orderType ) {
 		$this->article = $article;
 		$this->orderType = $orderType;
-		
+
 		parent::__construct();
-		
+
 		$this->mLimit = 20;
 	}
-	
+
 	function getQueryInfo() {
-		$queryInfo =
-			array(
-				'tables' => array( 'thread' ),
-				'fields' => '*',
-				'conds' =>
-					array(
-						Threads::articleClause( $this->article ),
-						Threads::topLevelClause(),
-						'thread_type != '. $this->mDb->addQuotes( Threads::TYPE_DELETED ),
-					),
-			);
-			
+		$queryInfo = array(
+			'tables' => array( 'thread' ),
+			'fields' => '*',
+			'conds' => array(
+				Threads::articleClause( $this->article ),
+				Threads::topLevelClause(),
+				'thread_type != ' . $this->mDb->addQuotes( Threads::TYPE_DELETED ),
+			),
+		);
+
 		return $queryInfo;
 	}
-	
+
 	// Adapted from getBody().
 	function getRows() {
 		if ( !$this->mQueryDone ) {
 			$this->doQuery();
 		}
-		
+
 		# Don't use any extra rows returned by the query
 		$numRows = min( $this->mResult->numRows(), $this->mLimit );
 
 		$rows = array();
-		
+
 		if ( $numRows ) {
 			if ( $this->mIsBackwards ) {
 				for ( $i = $numRows - 1; $i >= 0; $i-- ) {
@@ -372,14 +415,14 @@ class LqtDiscussionPager extends IndexPager {
 				}
 			}
 		}
-		
+
 		return $rows;
 	}
-	
+
 	function formatRow( $row ) {
 		// No-op, we get the list of rows from getRows()
 	}
-	
+
 	function getIndexField() {
 		switch( $this->orderType ) {
 			case LQT_NEWEST_CHANGES:
@@ -388,10 +431,10 @@ class LqtDiscussionPager extends IndexPager {
 			case LQT_NEWEST_THREADS:
 				return 'thread_created';
 			default:
-				throw new MWException( "Unknown sort order ".$this->orderType );
+				throw new MWException( "Unknown sort order " . $this->orderType );
 		}
 	}
-	
+
 	function getDefaultDirections() {
 		switch( $this->orderType ) {
 			case LQT_NEWEST_CHANGES:
@@ -400,10 +443,10 @@ class LqtDiscussionPager extends IndexPager {
 			case LQT_OLDEST_THREADS:
 				return false; // Ascending
 			default:
-				throw new MWException( "Unknown sort order ".$this->orderType );
+				throw new MWException( "Unknown sort order " . $this->orderType );
 		}
 	}
-	
+
 	/**
 	 * A navigation bar with images
 	 * Stolen from TablePager because it's pretty.
@@ -453,7 +496,7 @@ class LqtDiscussionPager extends IndexPager {
 		$s .= "</tr></table>\n";
 		return $s;
 	}
-	
+
 	function getNavClass() {
 		return 'TalkpagePager_nav';
 	}
