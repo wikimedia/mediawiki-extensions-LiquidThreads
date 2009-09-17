@@ -168,15 +168,13 @@ class ApiFeedLQTThreads extends ApiBase {
 		
 		// Talkpage conditions
 		$pageConds = array();
+		
 		$talkpages = (array)$params['talkpage'];
 		foreach( $talkpages as $page ) {
 			$title = Title::newFromText( $page );
 			$pageCond = array( 'thread_article_namespace' => $title->getNamespace(),
 								'thread_article_title' => $title->getDBkey() );
 			$pageConds[] = $db->makeList( $pageCond, LIST_AND );
-		}		
-		if ( count($pageConds) ) {
-			$conds[] = $db->makeList( $pageConds, LIST_OR );
 		}
 		
 		// Thread conditions
@@ -188,10 +186,10 @@ class ApiFeedLQTThreads extends ApiBase {
 			
 			$threadCond = array( 'thread_ancestor' => $thread->id(),
 									'thread_id' => $thread->id() );
-			$threadConds[] = $db->makeList( $threadCond, LIST_OR );
+			$pageConds[] = $db->makeList( $threadCond, LIST_OR );
 		}
-		if ( count($threadConds) ) {
-			$conds[] = $db->makeList( $threadConds, LIST_OR );
+		if ( count($pageConds) ) {
+			$conds[] = $db->makeList( $pageConds, LIST_OR );
 		}
 		
 		// New thread v. Reply
