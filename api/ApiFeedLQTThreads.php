@@ -158,6 +158,9 @@ class ApiFeedLQTThreads extends ApiBase {
 	function getConditions( $params, $db ) {
 		$conds = array();
 		
+		// Types
+		$conds['thread_type'] = Threads::TYPE_NORMAL;
+		
 		// Limit
 		$cutoff = time() - intval($params['days'] * 24 * 3600);
 		$cutoff = $db->timestamp( $cutoff );
