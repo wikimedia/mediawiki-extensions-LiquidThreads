@@ -245,7 +245,9 @@ class ApiFeedLQTThreads extends ApiBase {
 
 	protected function getExamples() {
 		return array (
-			'api.php?action=feedthreads'
+			'api.php?action=feedthreads',
+			'api.php?action=feedthreads&type=replies&thread=Thread:Foo',
+			'api.php?action=feedthreads&type=newthreads&talkpage=Talk:Main_Page',
 		);
 	}
 
