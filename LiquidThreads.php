@@ -144,6 +144,8 @@ $wgDefaultUserOptions['lqtdisplaycount'] = 10;
 // API
 $wgAutoloadClasses['ApiQueryLQTThreads'] = "$dir/api/ApiQueryLQTThreads.php";
 $wgAPIListModules['threads'] = 'ApiQueryLQTThreads';
+$wgAutoloadClasses['ApiFeedLQTThreads'] = "$dir/api/ApiFeedLQTThreads.php";
+$wgAPIModules['feedthreads'] = 'ApiFeedLQTThreads';
 
 /** CONFIGURATION SECTION */
 

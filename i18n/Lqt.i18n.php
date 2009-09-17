@@ -249,6 +249,16 @@ You can see it at <$6>",
 	'lqt-ajax-update-link' => 'Update',
 	'lqt-thread-show-replies' => 'Show $1 replies',
 	'lqt-thread-show-more' => 'Show more replies',
+	
+	// Feeds
+	'lqt-feed-title-all' => '{{SITENAME}} — New posts',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — New posts from $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — New threads',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — New threads from $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Replies',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Replies from $1',
+	'lqt-feed-new-thread-intro' => 'New thread on $1 posted by $2',
+	'lqt-feed-reply-intro' => 'Reply to $3 (on $1) posted by $2',
 );
 
 /** Message documentation (Message documentation)
