@@ -51,8 +51,9 @@ class ApiFeedLQTThreads extends ApiBase {
 		
 		$db = wfGetDB( DB_SLAVE );
 		
-		$feedTitle = $this->createFeedTitle( $params );
+		$feedTitle = self::createFeedTitle( $params );
 		$feedClass = $wgFeedClasses[$params['feedformat']];
+		// TODO need a better URL :)
 		$feedUrl = 'http://www.mediawiki.org/wiki/Extension:LiquidThreads';
 		$feedItems = array();
 		
@@ -114,7 +115,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		return new FeedItem($titleStr, $completeText, $titleUrl, $timestamp, $user);
 	}
 	
-	private function createFeedTitle( $params ) {
+	public static function createFeedTitle( $params ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$fromPlaces = array();
 		
@@ -141,10 +142,10 @@ class ApiFeedLQTThreads extends ApiBase {
 			$msg = 'lqt-feed-title-all';
 		} elseif ( in_array( 'replies', $types ) ) {
 			$msg = 'lqt-feed-title-replies';
-		} elseif ( in_array( 'newthrads', $types ) ) {
+		} elseif ( in_array( 'newthreads', $types ) ) {
 			$msg = 'lqt-feed-title-new-threads';
 		} else {
-			throw new MWException( "Unable to determine appropriate display type" );
+			throw new MWException( "Unable to determine appropriate display type");
 		}
 		
 		if ( $fromCount ) {
