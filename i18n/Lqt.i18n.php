@@ -350,8 +350,7 @@ $messages['qqq'] = array(
 	'lqt-enotif-subject-reply' => 'This is the subject header of an e-mail notification.
 Parameters are:
 * $1 is a thread name or title',
-	'lqt-enotif-subject-newthread' => 'This is the subject header of an e-mail notification.
-Parameters are:
+	'lqt-enotif-subject-newthread' => 'This is the subject header of an e-mail notification. Parameters are:
 * $1 is a thread name or title',
 	'lqt-enotif-newthread' => 'This is the text of an e-mail notification. Parameters are:
 * $1 is a user name
@@ -374,7 +373,24 @@ Parameters are:
 	'lqt-search-button' => '{{Identical|Search}}',
 	'searchprofile-threads' => '{{Identical|Discussion}}',
 	'lqt-ajax-update-link' => '{{Identical|Update}}',
-	'lqt-thread-show-replies' => '* you can use PLURAL:$1',
+	'lqt-thread-show-replies' => 'Parameters:
+* $1 is the number of replies. This can be used for PLURAL:$1',
+	'lqt-feed-title-all-from' => 'Parameters:
+* $1 is a comma separated list of all pages with new posts mentioned in the feed
+* $2 is the number of referenced pages in the feed (optional - can be used for PLURAL)',
+	'lqt-feed-title-new-threads-from' => 'Parameters:
+* $1 is comma separated list of all pages with new threads mentioned in the feed
+* $2 is the number of referenced pages in the feed (optional - can be used for PLURAL)',
+	'lqt-feed-title-replies-from' => 'Parameters:
+* $1 is comma separated list of all pages mentioned in the feed
+* $2 is the number of referenced pages in the feed (optional, can be used for PLURAL)',
+	'lqt-feed-new-thread-intro' => 'Parameters:
+* $1 is a link to the talk page with the thread
+* $2 is a link to the user posting in the thread',
+	'lqt-feed-reply-intro' => 'Parameters:
+* $1 is a link to the talk page with the thread
+* $2 is a link to the user posting in the thread
+* $3 is a link to the super thread',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -457,6 +473,11 @@ $messages['af'] = array(
 	'searchprofile-threads' => 'Besprekings',
 	'lqt-ajax-update-link' => 'Bywerk',
 	'lqt-thread-show-replies' => 'Wys $1 {{PLURAL:$1|antwoord|antwoorde}}',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Nuwe boodskappe vanaf $1',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Nuwe onderwerppe van $1',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antwoorde van $1',
+	'lqt-feed-new-thread-intro' => 'Nuwe onderwerp deur $2 op $1',
+	'lqt-feed-reply-intro' => 'Antwoord op $3 (op $1) deur $2',
 );
 
 /** Amharic (አማርኛ)
@@ -1163,6 +1184,20 @@ Marteze :
 	'lqt_hist_listing_subtitle' => 'Gwelet ur roll istor',
 	'lqt_hist_view_whole_thread' => 'Gwelet istor klok an neudennad',
 	'lqt_hist_no_revisions_error' => "N'eo ket bet adwelet an neudennad-mañ gwezh ebet",
+	'lqt_hist_past_last_page_error' => "Aet oc'h dreist d'an niver a bajennoù istor zo.",
+	'lqt_hist_tooltip_newer_disabled' => "Ne'z a ket al liamm-mañ en-dro rak war ar bajenn gentañ emaoc'h.",
+	'lqt_hist_tooltip_older_disabled' => "Ne'z a ket al liamm-mañ en-dro rak war ar bajenn ziwezhañ emaoc'h.",
+	'lqt_hist_split' => "Respont a-ziforc'h en un neudennad kaozioù nevez",
+	'lqt_hist_edited_subject' => 'Danvez bet kemmet',
+	'lqt_hist_merged_from' => "Dilec'hiet eo bet ar respont war-du un neudennad kaozioù all",
+	'lqt_hist_merged_to' => "Dilec'hiet eo bet ar respont adalek un neudennad kaozioù all",
+	'lqt_hist_split_from' => 'Rannañ war-du un neudennad kaozioù all',
+	'lqt_revision_as_of' => 'Adweladenn eus an $2 da $3.',
+	'lqt_change_new_thread' => 'Homañ eo adweladenn gentañ an neudennad.',
+	'lqt_change_reply_created' => 'Savet eo bet an notenn lakaet war wel e-pad an adweladenn-mañ.',
+	'lqt_change_edited_root' => 'Kemmet eo bet an notenn lakaet war wel e-pad an adweladenn-mañ.',
+	'lqt_change_edited_summary' => 'Kemmet eo bet diverradenn  an neudennad kaozioù',
+	'lqt_change_deleted' => 'Diverket eo an neudennad-mañ pe ar respont outi.',
 	'lqt_subject' => 'Danvez :',
 	'lqt_summary_subtitle' => 'Diverrañ eus "$1"',
 	'lqt_move_move' => "Dilec'hiañ",
@@ -2150,6 +2185,7 @@ $messages['eo'] = array(
 	'lqt_recently_archived' => 'Laste arkivitaj:',
 	'lqt_contents_title' => 'Enhavo',
 	'lqt_toc_thread_replycount' => 'Respondoj',
+	'lqt_toc_thread_modified' => 'Laste ŝanĝita',
 	'lqt_add_header' => 'Aldonu titolon',
 	'lqt_new_thread' => 'Kreu novan diskuton',
 	'lqt_in_response_to' => 'Respondante al $1 de $2, supren:',
@@ -2157,10 +2193,10 @@ $messages['eo'] = array(
 	'lqt_reply' => 'Respondu',
 	'lqt_delete' => 'Forigi',
 	'lqt_undelete' => 'Restarigu',
-	'lqt_permalink' => 'Daŭra ligilo',
-	'lqt_fragment' => 'ero de $1 de $2',
+	'lqt_permalink' => 'Ligu al ĉi tiu',
+	'lqt_fragment' => 'Ero de $1 de $2',
 	'lqt_discussion_link' => 'diskuto',
-	'lqt_from_talk' => 'de $1',
+	'lqt_from_talk' => 'De $1',
 	'lqt_newer' => '←pli nova',
 	'lqt_older' => 'pli malnova→',
 	'lqt_hist_comment_edited' => 'Teksto de komento estis redaktita',
@@ -2189,9 +2225,9 @@ $messages['eo'] = array(
 	'lqt_thread_deleted' => 'Ĉi tiu fadeno estis forigita.',
 	'lqt_summary_notice_link' => 'verki resumon',
 	'lqt_summary_label' => 'Ĉi tiu fadeno estis resumita jene:',
-	'lqt_summary_subtitle' => 'resumo de $1.',
+	'lqt_summary_subtitle' => 'Resumo de $1.',
 	'lqt_nosuchrevision' => 'Ne estas tia versio de ĉi tiu fadeno.',
-	'lqt_nosuchthread' => 'Estas neniel fadeno.',
+	'lqt_nosuchthread' => 'La fadeno kiun vi specifigis ne ekzistas.',
 	'lqt_threadrequired' => 'Vi devas enigi fadenon en la URL-o.',
 	'lqt_move_movingthread' => 'Movante $1. Ĉi tiu fadeno estas parto de $2.',
 	'lqt_move_torename_edit' => 'redaktu ĝin',
@@ -2200,7 +2236,7 @@ $messages['eo'] = array(
 	'lqt_move_nodestination' => 'Vi nepre specifigu destinon.',
 	'lqt_move_noreason' => 'Nenia kialo donata',
 	'lqt_move_success' => 'Ĉi tiu fadeno estis movita al $1.',
-	'lqt_delete_undeleting' => 'Restarigante $1.',
+	'lqt_delete_undeleting' => "Restarigante '''$1'''.",
 	'lqt_delete_undeletethread' => 'Restarigu fadenon',
 	'lqt_delete_partof' => 'Ĉi tiu fadeno estas parto de $1.',
 	'lqt_delete_deleting' => 'Forigante $1 kaj $2 al ĝi.',
@@ -2242,6 +2278,7 @@ $messages['eo'] = array(
 	'lqt_rc_new_discussion' => 'Nova diskuto, $1, je $2. &bull; $3 skribas:',
 	'lqt_rc_author_original' => '(originala aŭtoro)',
 	'lqt_rc_author_others' => '(ne estas la aŭtoro)',
+	'lqt-newmessages-context' => 'Plena fadeno',
 	'lqt-thread-created' => 'Kreita',
 	'lqt-archive-subtitle' => 'Diskuta arkivo',
 	'lqt-archive-intro' => 'Jen estas la diskuta arkivo por [[$1]].',
@@ -2252,10 +2289,17 @@ $messages['eo'] = array(
 	'lqt-thread-edited-author' => 'Redaktita de aŭtoro',
 	'lqt-thread-edited-others' => 'Redaktitaj de aliaj uzantoj',
 	'lqt-header-actions' => 'Agoj',
+	'lqt-thread-split-thread' => 'Fadeno:',
+	'lqt-thread-merge-source' => 'Fonta fadeno:',
 	'lqt-merge-submit' => 'Kunigi',
+	'lqt-log-action-move' => 'movis [[$1]] de [[$2]] al [[$3]].',
 	'lqt-search-legend' => 'Serĉi diskutojn en ĉi tiu paĝo',
 	'lqt-search-label' => 'Serĉaj parametroj:',
 	'lqt-search-button' => 'Serĉi',
+	'lqt-feed-title-all' => '{{SITENAME}} — Novaj afiŝoj',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Novaj afiŝoj de $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Novaj fadenoj',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Novaj fadenoj de $1',
 );
 
 /** Spanish (Español)
@@ -2398,10 +2442,22 @@ Eztabaida hau $2-(e)ko zati da.',
 	'lqt-ajax-update-link' => 'Eguneratu',
 );
 
+/** Persian (فارسی)
+ * @author Ladsgroup
+ */
+$messages['fa'] = array(
+	'lqt_newmessages' => 'پیام‌های جدید',
+	'lqt_archive_month_annotation' => 'از $1',
+	'lqt_from_talk' => 'از $1',
+	'lqt_newer' => 'جدیدتر ←',
+	'lqt_older' => '→ قدیمی‌تر',
+);
+
 /** Finnish (Suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Nike
+ * @author Silvonen
  * @author Str4nd
  */
 $messages['fi'] = array(
@@ -2529,7 +2585,7 @@ Jos se on päättynyt, voi olla että haluat $1.',
 	'lqt-thread-split' => 'Jaa uudeksi viestiketjuksi',
 	'lqt-split-success' => 'Olet jakanut onnistuneesti viestiketjun $1.',
 	'lqt_split_thread' => 'Jaa viestiketju',
-	'lqt-thread-split-subject' => 'Uuden viestiketjun otsikko',
+	'lqt-thread-split-subject' => 'Uuden viestiketjun otsikko:',
 	'lqt-split-submit' => 'Jaa',
 	'lqt_split_badsubject' => 'Antamasi aihe ei ole kelvollinen.',
 	'lqt-no-threads' => 'Tällä sivulla ei ole vielä viestiketjuja.',
@@ -2544,10 +2600,12 @@ Jos se on päättynyt, voi olla että haluat $1.',
 	'lqt-preference-watch-threads' => 'Tarkkaile viestiketjuja, jotka olen luonnut tai joihin olen vastannut',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} – Vastaus keskusteluun $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} – Uusi viestiketju: $1',
-	'lqt-quote' => 'Lainaa tätä',
+	'lqt-quote' => 'Lainaa',
 	'lqt-search-legend' => 'Hae keskusteluja tältä sivulta',
 	'lqt-search-label' => 'Hakuehdot',
 	'lqt-search-button' => 'Etsi',
+	'lqt-thread-show-replies' => 'Näytä $1 vastausta',
+	'lqt-thread-show-more' => 'Näytä lisää vastauksia',
 );
 
 /** French (Français)
@@ -2774,6 +2832,14 @@ Vous pouvez le voir a « $6 »",
 	'lqt-ajax-update-link' => 'Mettre à jour',
 	'lqt-thread-show-replies' => 'Montrer $1 réponses',
 	'lqt-thread-show-more' => 'Montrer plus de réponses',
+	'lqt-feed-title-all' => '{{SITENAME}} - Nouveaux messages',
+	'lqt-feed-title-all-from' => '{{SITENAME}} - Nouveaux messages de $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} - Nouveaux fils de discussion',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} - Nouveaux fils de discussion de $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} - Réponses',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} - Réponses de $1',
+	'lqt-feed-new-thread-intro' => 'Nouveau fil de discussion sur $1 posté par $2',
+	'lqt-feed-reply-intro' => 'Réponse à $3 (sur $1) postée par $2',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -3952,27 +4018,32 @@ $messages['hu'] = array(
 	'lqt_from_talk' => 'A(z) $1 lapról',
 	'lqt_newer' => '←frissebb',
 	'lqt_older' => 'korábbi→',
+	'lqt-history-title' => 'Beszélgetésfolyam előzményei',
 	'lqt_hist_comment_edited' => 'Szerkesztette a megjegyzést',
 	'lqt_hist_summary_changed' => 'Megváltoztatta az összefoglalót',
-	'lqt_hist_reply_created' => 'Új választ írt',
+	'lqt_hist_reply_created' => 'Új hozzászólást írt',
 	'lqt_hist_thread_created' => 'Új beszélgetést indított',
 	'lqt_hist_deleted' => 'törölve',
 	'lqt_hist_undeleted' => 'visszaállítva',
 	'lqt_hist_moved_talkpage' => 'áthelyezve',
-	'lqt_hist_listing_subtitle' => 'A beszélgetés előzményeinek megtekintése',
-	'lqt_hist_view_whole_thread' => 'Az egész beszélgetés előzményeinek megtekintése',
-	'lqt_hist_no_revisions_error' => 'A beszélgetésnek nincs laptörténete.',
+	'lqt_hist_listing_subtitle' => 'A beszélgetésfolyam előzményeinek megtekintése',
+	'lqt_hist_view_whole_thread' => 'Az egész beszélgetésfolyam előzményeinek megtekintése',
+	'lqt_hist_no_revisions_error' => 'Ennek a beszélgetésfolyamnek nincs laptörténete.',
 	'lqt_hist_past_last_page_error' => 'Túl vagy a laptörténet oldalainak számán.',
-	'lqt_hist_tooltip_newer_disabled' => 'A link le van tiltva, mert az első lapon vagy.',
-	'lqt_hist_tooltip_older_disabled' => 'A link le van tiltva, mert az utolsó lapon vagy.',
+	'lqt_hist_tooltip_newer_disabled' => 'Ez a hivatkozás le van tiltva, mert az első lapon vagy.',
+	'lqt_hist_tooltip_older_disabled' => 'Ez a hivatkozás le van tiltva, mert az utolsó lapon vagy.',
 	'lqt_hist_edited_subject' => 'Szerkesztette a tárgyat',
 	'lqt_hist_merged_from' => 'Hozzászólás áthelyezve egy másik beszélgetésbe',
 	'lqt_hist_merged_to' => 'Hozzászólás áthelyezve egy másik beszélgetésből',
 	'lqt_revision_as_of' => 'Változat időbélyege: $2 $3',
-	'lqt_change_new_thread' => 'Ez a beszélgetés első változata',
+	'lqt_change_new_thread' => 'Ez a beszélgetésfolyam első változata',
 	'lqt_change_reply_created' => 'A kiemelt megjegyzés ennél a változatnál készült.',
-	'lqt_change_edited_root' => 'A kiemelt megjegyzés ennél a változatnál lett szerkesztve.',
-	'lqt_change_subject_edited' => 'A beszélgetés tárgya megváltozott',
+	'lqt_change_edited_root' => 'A kiemelt megjegyzés ennél a változatnál szerkesztve volt.',
+	'lqt_change_edited_summary' => 'A beszélgetésfolyam összefoglalója szerkesztve volt',
+	'lqt_change_undeleted' => 'A kiemelt hozzászólás helyre lett állítva',
+	'lqt_change_moved' => 'A beszélgetésfolyam át lett helyezve egy másik vitalapra',
+	'lqt_change_subject_edited' => 'A beszélgetésfolyam tárgya megváltozott',
+	'lqt_youhavenewmessages' => '[$1 új üzeneted] érkezett.',
 	'lqt_protectedfromreply' => 'Ez a beszélgetés $1 a válaszlehetőségtől.',
 	'lqt_protectedfromreply_link' => 'le van védve',
 	'lqt_subject' => 'Tárgy:',
@@ -4260,7 +4331,7 @@ $messages['id'] = array(
 	'lqt_delete' => 'Hapus',
 	'lqt_undelete' => 'Batalkan penghapusan',
 	'lqt_permalink' => 'Pranala ke sini',
-	'lqt_fragment' => 'bagian dari $1 di $2',
+	'lqt_fragment' => 'Bagian $1 dari $2',
 	'lqt_discussion_link' => 'diskusi',
 	'lqt_from_talk' => 'Dari $1',
 	'lqt_newer' => '← lebih baru',
@@ -4354,8 +4425,8 @@ Hal ini tidak dapat dibatalkan.',
 	'lqt-new-messages' => '&#x2712; Ada pesan baru untuk Anda.',
 	'lqt-email-info-undo' => 'Kembalikan topik yang baru Anda singkirkan.',
 	'lqt-date-info' => 'Pranala ini dimatikan karena Anda sedang melihat semua topik dari awal hingga sekarang.',
-	'lqt_rc_new_discussion' => 'Diskusi baru, $1, di $2. &bull; $3 menulis:',
-	'lqt_rc_new_reply' => 'Membalas ke $1, di $2. &bull; $3 menulis:',
+	'lqt_rc_new_discussion' => 'Diskusi baru "$1" pada $2. &bull; $3 menulis:',
+	'lqt_rc_new_reply' => 'Membalas ke "$1" di $2 &bull; $3 menulis:',
 	'lqt_rc_author_original' => '(penulis pertama)',
 	'lqt_rc_author_others' => '(bukan penulis pertama)',
 	'lqt-newmessages-context' => 'Topik lengkap',
@@ -4373,7 +4444,7 @@ Hal ini tidak dapat dibatalkan.',
 	'lqt-thread-split' => 'Pisahkan menjadi dua topik',
 	'lqt-split-success' => 'Anda telah berhasil memisahkan topik $1.',
 	'lqt_split_thread' => 'Pisahkan topik',
-	'lqt-thread-split-subject' => 'Judul topik baru',
+	'lqt-thread-split-subject' => 'Topik baru tentang:',
 	'lqt-split-submit' => 'Pisahkan',
 	'lqt_split_badsubject' => 'Judul yang Anda masukkan tidak valid.',
 	'lqt-no-threads' => 'Di halaman ini belum ada topik.',
@@ -4388,6 +4459,11 @@ Hal ini tidak dapat dibatalkan.',
 	'lqt-search-legend' => 'Cari diskusi pada halaman ini',
 	'lqt-search-label' => 'Kata kunci pencarian:',
 	'lqt-search-button' => 'Cari',
+	'searchprofile-threads' => 'Diskusi',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Topik baru',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Topik baru dari $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Balasan',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Balasan dari $1',
 );
 
 /** Ido (Ido)
@@ -4769,6 +4845,14 @@ $messages['ja'] = array(
 	'lqt-ajax-update-link' => '更新',
 	'lqt-thread-show-replies' => '$1個の返信を表示',
 	'lqt-thread-show-more' => 'より多くの返信を表示',
+	'lqt-feed-title-all' => '{{SITENAME}} — 新規投稿',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — $1からの新規投稿',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — 新規スレッド',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — $1からの新規スレッド',
+	'lqt-feed-title-replies' => '{{SITENAME}} — 返信',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1からの返信',
+	'lqt-feed-new-thread-intro' => '$1に$2が投稿した新規スレッド',
+	'lqt-feed-reply-intro' => '$2が$1に投稿した$3への返信',
 );
 
 /** Javanese (Basa Jawa)
@@ -4972,7 +5056,7 @@ $messages['ksh'] = array(
 	'lqt_delete' => 'Fottschmieße',
 	'lqt_undelete' => 'Wider zerök holle',
 	'lqt_permalink' => 'Permalengk',
-	'lqt_fragment' => 'e Shtöckelsche vun enem $1 op $2',
+	'lqt_fragment' => 'E Shtöckelsche vun enem $1 op dä Sigg „$2“',
 	'lqt_discussion_link' => 'Klaaf',
 	'lqt_from_talk' => 'fun $1',
 	'lqt_newer' => '← neuer',
@@ -5157,6 +5241,14 @@ Ene schööne Jrohß!',
 	'lqt-ajax-update-link' => 'De neuste Beidrääsch laade.',
 	'lqt-thread-show-replies' => 'Zeisch {{PLURAL:$1|ein Antwoot|$1 Antwoote|kei Antwoot}}',
 	'lqt-thread-show-more' => 'Zeisch mieh Antwoote',
+	'lqt-feed-title-all' => '{{SITENAME}} — Neu Beidrääsch',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Neu Beidrääsch vum $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Neu Jeshprääschßfäddemme',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Neu Jeschprääschßfäddemme vum $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Antwoote',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antwoote vum $1',
+	'lqt-feed-new-thread-intro' => 'Neu Jeshprääschßfäddemme op dä Sigg „$1“ opjemaat vum $2',
+	'lqt-feed-reply-intro' => 'Antwoot vum $2 aan $3 op dä Sigg „$1“',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -5842,6 +5934,14 @@ U kunt het bekijken op <$6>.",
 	'lqt-ajax-update-link' => 'Bijwerken',
 	'lqt-thread-show-replies' => '$1 {{PLURAL:$1|reactie|reacties}} weergeven',
 	'lqt-thread-show-more' => 'Meer reacties weergeven',
+	'lqt-feed-title-all' => '{{SITENAME}} — Nieuwe berichten',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Nieuwe berichten van $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nieuwe onderwerpen',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Nieuwe onderwerpen van $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Reacties',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Reacties van $1',
+	'lqt-feed-new-thread-intro' => 'Nieuw onderwerp op $1 door $2',
+	'lqt-feed-reply-intro' => 'Reactie op $3 (op $1) door $2',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -6488,7 +6588,7 @@ $messages['pt'] = array(
 	'lqt_permalink' => 'Ligação a isto',
 	'lqt_fragment' => 'um fragmento de $1 de $2',
 	'lqt_discussion_link' => 'discussão',
-	'lqt_from_talk' => 'de $1',
+	'lqt_from_talk' => 'De $1',
 	'lqt_newer' => '←mais recente',
 	'lqt_older' => 'mais antigo→',
 	'lqt_hist_comment_edited' => 'Texto do comentário editado',
@@ -7061,6 +7161,25 @@ $messages['ru'] = array(
 	'lqt-ajax-update-link' => 'Обновить',
 	'lqt-thread-show-replies' => '* Показать $1 ответов',
 	'lqt-thread-show-more' => 'Показать больше ответов',
+	'lqt-feed-title-all' => '{{SITENAME}} — Новые записи',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Новые сообщения $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Новые ветки',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Новые ветки $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Ответы',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Ответы $1',
+	'lqt-feed-new-thread-intro' => 'Новая ветка в $1, размещена $2',
+	'lqt-feed-reply-intro' => 'Ответ на $3 (в $1), размещена $2',
+);
+
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'lqt-desc' => 'Ырытыы сирэйдэригэр салаалары эбэр',
+	'lqt-nothread' => 'Архыыпка ырытыы туһунан салаалара суох.',
+	'lqt_newmessages' => 'Саҥа этиилэр',
+	'lqt_movethread' => 'Салааны атын сирэйгэ көһөрүү',
+	'lqt_deletethread' => 'Салааны соторго/төннөрөргө',
 );
 
 /** Sicilian (Sicilianu)
@@ -7920,7 +8039,18 @@ Sebebi:
 	'lqt_undelete' => 'Geri al',
 	'lqt_permalink' => 'Buna bağlantı ver',
 	'lqt_discussion_link' => 'tartışma',
+	'lqt_newer' => '← daha yeni',
+	'lqt_older' => 'daha eski →',
+	'lqt-history-title' => 'Düğüm geçmişi',
+	'lqt_hist_comment_edited' => 'Yorum metni değiştirildi',
+	'lqt_hist_summary_changed' => 'Özet değiştirildi',
+	'lqt_hist_reply_created' => 'Yeni yanıt oluşturuldu',
+	'lqt_hist_thread_created' => 'Yeni düğüm oluşturuldu',
 	'lqt_hist_deleted' => 'Silindi',
+	'lqt_hist_moved_talkpage' => 'Taşındı',
+	'lqt_hist_listing_subtitle' => 'Geçmiş listesi görüntüleniyor',
+	'lqt_hist_view_whole_thread' => 'Tüm düğüm için geçmişi gör',
+	'lqt_hist_no_revisions_error' => 'Bu düğümün hiç geçmiş revizyonu yok.',
 	'lqt_youhavenewmessages' => '[$1 yeni mesajınız] var.',
 	'lqt-summary' => 'Özet',
 	'lqt-email-undo' => 'Geri al',
