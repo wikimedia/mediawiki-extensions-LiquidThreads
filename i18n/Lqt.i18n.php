@@ -386,11 +386,14 @@ Parameters are:
 * $2 is the number of referenced pages in the feed (optional, can be used for PLURAL)',
 	'lqt-feed-new-thread-intro' => 'Parameters:
 * $1 is a link to the talk page with the thread
-* $2 is a link to the user posting in the thread',
+* $2 is a link to the user posting in the thread
+* $3 -not used- 
+* $4 is the name of the user posting to the thread, optional, can be used for GENDER',
 	'lqt-feed-reply-intro' => 'Parameters:
 * $1 is a link to the talk page with the thread
 * $2 is a link to the user posting in the thread
-* $3 is a link to the super thread',
+* $3 is a link to the super thread
+* $4 is the name of the user posting to the thread, optional, can be used for GENDER',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -677,10 +680,12 @@ $messages['ar'] = array(
 
 بإمكانك مراجعته عبر <$6>",
 	'lqt-quote-intro' => 'في $2 عند $3، كتب [[User:$1]]:',
-	'lqt-quote' => 'اقتبس من هذا التعليق',
+	'lqt-quote' => 'اقتباس',
 	'lqt-search-legend' => 'ابحث في نقاشات هذه الصفحة',
 	'lqt-search-label' => 'عبارة البحث:',
 	'lqt-search-button' => 'ابحث',
+	'searchprofile-threads' => 'نقاشات',
+	'lqt-ajax-update-link' => 'تحديث',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
@@ -1020,12 +1025,12 @@ $messages['be-tarask'] = array(
 	'lqt-enotif-subject-reply' => 'Абмеркаваньне {{GRAMMAR:родны|{{SITENAME}}}} — Адказ: $1',
 	'lqt-enotif-subject-newthread' => 'Абмеркаваньне {{GRAMMAR:родны|{{SITENAME}}}} — Новая галіна: $1',
 	'lqt-enotif-newthread' => "Вітаем $1,
-Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новую галіну $5, '$2',
+Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новую галіну $5, '$2', 
 створаную $3 $4.
 
 Вы можаце паглядзець яе на <$6>",
 	'lqt-enotif-reply' => "Вітаем $1,
-Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новы адказ $5, '$2',
+Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новы адказ $5, '$2', 
 створаны $3 $4.
 
 Вы можаце паглядзець яго на <$6>",
@@ -1040,6 +1045,14 @@ $messages['be-tarask'] = array(
 	'lqt-ajax-update-link' => 'Абнавіць',
 	'lqt-thread-show-replies' => 'Паказаць $1 {{PLURAL:$1|адказ|адказы|адказаў}}',
 	'lqt-thread-show-more' => 'Паказаць болей адказаў',
+	'lqt-feed-title-all' => '{{SITENAME}} — Новыя запісы',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Новыя запісы $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Новыя галіны',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Новыя галіны $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Адказы',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Адказы $1',
+	'lqt-feed-new-thread-intro' => 'Новая галіна на $1 разьмешчаная $2',
+	'lqt-feed-reply-intro' => 'Адказ на $3 (на $1) разьмешчаны $2',
 );
 
 /** Bulgarian (Български)
@@ -2010,6 +2023,14 @@ Móžoš jo na <$6> wiźeś",
 	'lqt-ajax-update-link' => 'Aktualizěrowaś',
 	'lqt-thread-show-replies' => '$1 {{PLURAL:$1|wótegrono|wótegronje|wótegrona|wótegronow}} pokazaś',
 	'lqt-thread-show-more' => 'Dalšne wótegrona pokazaś',
+	'lqt-feed-title-all' => '{{SITENAME}} - nowe powěsći',
+	'lqt-feed-title-all-from' => '{{SITENAME}} - nowe powěsći z $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} - nowe nitki',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} - nowe nitki z $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} - wótegrona',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} - wótegrona z $1',
+	'lqt-feed-new-thread-intro' => 'Nowa nitka na $1 pósłana wót $2',
+	'lqt-feed-reply-intro' => 'Wótegrono na $3 (na $1) pósłane wót $2',
 );
 
 /** Ewe (Eʋegbe)
@@ -2184,6 +2205,7 @@ $messages['eo'] = array(
 	'lqt_browse_archive_with_recent' => 'pli malnova',
 	'lqt_recently_archived' => 'Laste arkivitaj:',
 	'lqt_contents_title' => 'Enhavo',
+	'lqt_toc_thread_title' => 'Fadena titolo',
 	'lqt_toc_thread_replycount' => 'Respondoj',
 	'lqt_toc_thread_modified' => 'Laste ŝanĝita',
 	'lqt_add_header' => 'Aldonu titolon',
@@ -2199,6 +2221,7 @@ $messages['eo'] = array(
 	'lqt_from_talk' => 'De $1',
 	'lqt_newer' => '←pli nova',
 	'lqt_older' => 'pli malnova→',
+	'lqt-history-title' => 'Fadena historio',
 	'lqt_hist_comment_edited' => 'Teksto de komento estis redaktita',
 	'lqt_hist_summary_changed' => 'Resumo ŝanĝita',
 	'lqt_hist_reply_created' => 'Nova respondo kreita',
@@ -2213,10 +2236,11 @@ $messages['eo'] = array(
 	'lqt_hist_tooltip_newer_disabled' => 'Ĉi tiu ligilo estas malŝalta ĉar vi estas en la unua paĝo.',
 	'lqt_hist_tooltip_older_disabled' => 'Ĉi tiu ligilo estas malŝalta ĉar vi estas en la lasta paĝo.',
 	'lqt_hist_edited_subject' => 'Redaktita temo',
-	'lqt_revision_as_of' => 'Versio ekde $1.',
+	'lqt_revision_as_of' => 'Revizio ekde $2, $3.',
 	'lqt_change_new_thread' => 'Jen la unua versio de la fadeno.',
 	'lqt_change_reply_created' => 'La kolorigita komento estis kreita en ĉi tiu versio.',
 	'lqt_change_edited_root' => 'La kolorigita komento estis redaktita en ĉi tiu versio.',
+	'lqt_change_edited_summary' => 'La fadena resumo estis redaktita',
 	'lqt_youhavenewmessages' => 'Vi havas [$1 novajn mesaĝojn].',
 	'lqt_protectedfromreply_link' => 'protektita',
 	'lqt_subject' => 'Subjekto:',
@@ -2398,10 +2422,23 @@ $messages['es'] = array(
 	'lqt_summarize_link' => 'Resumir',
 	'lqt-split-submit' => 'Dividir',
 	'lqt-merge-submit' => 'Juntar',
+	'lqt-preference-display-count' => 'Número máximo de respuestas a mostrar:',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} discusión - Respuesta: $1',
+	'lqt-quote' => 'Citar',
+	'lqt-search-legend' => 'Discusiones de búsqueda en esta página',
+	'lqt-search-label' => 'Términos de búsqueda:',
 	'lqt-search-button' => 'Buscar',
+	'searchprofile-threads' => 'Discusiones',
+	'lqt-ajax-update-link' => 'Actualizar',
 	'lqt-thread-show-replies' => 'Mostrar $1 respuestas',
 	'lqt-thread-show-more' => 'Mostrar más respuestas',
+);
+
+/** Estonian (Eesti)
+ * @author Pikne
+ */
+$messages['et'] = array(
+	'lqt_move_noreason' => 'Põhjust pole antud.',
 );
 
 /** Basque (Euskara)
@@ -3079,6 +3116,14 @@ Pode vela en <$6>',
 	'lqt-ajax-update-link' => 'Actualizar',
 	'lqt-thread-show-replies' => 'Mostrar $1 respostas',
 	'lqt-thread-show-more' => 'Mostrar máis respostas',
+	'lqt-feed-title-all' => '{{SITENAME}} — Novas mensaxes',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Novas mensaxes en $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Novos fíos',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Novos fíos en $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Respostas',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respostas en $1',
+	'lqt-feed-new-thread-intro' => 'Novo fío de conversa en "$1" publicado por $2',
+	'lqt-feed-reply-intro' => 'Resposta a "$3" (en "$1") publicada por $2',
 );
 
 /** Gothic (Gothic)
@@ -3329,6 +3374,14 @@ Du chasch si säh uf <$6>",
 	'lqt-ajax-update-link' => 'Aktualisiere',
 	'lqt-thread-show-replies' => '$1 Antworte zeige',
 	'lqt-thread-show-more' => 'Meh Antworte zeige',
+	'lqt-feed-title-all' => '{{SITENAME}} — Neji Byytreg',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Neji Byytreg vu $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Neji Diskussionssträng',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Neji Diskussionssträng vu $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Antworte',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antworte vu $1',
+	'lqt-feed-new-thread-intro' => 'E neje Diskussionsstrang uf $1, aagleit vu $2',
+	'lqt-feed-reply-intro' => 'Antworte uf $3 (uf $1) vu $2',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -3979,6 +4032,14 @@ Móžeš ju na <$6> widźeć",
 	'lqt-ajax-update-link' => 'Aktualizować',
 	'lqt-thread-show-replies' => '$1 {{PLURAL:$1|wotmołwu|wotmołwje|wotmołwy|wotmołwow}} pokazać',
 	'lqt-thread-show-more' => 'Dalše wotmołwy pokazać',
+	'lqt-feed-title-all' => '{{SITENAME}} - nowe powěsće',
+	'lqt-feed-title-all-from' => '{{SITENAME}} - nowe powěsće z $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} - nowe nitki',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} - nowe nitki z $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} - wotmołwy',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} - wotmołwy z $1',
+	'lqt-feed-new-thread-intro' => 'Nowa nitka na $1 pósłana wot $2',
+	'lqt-feed-reply-intro' => 'Wotmołwa na $3 (na $1) pósłana wot $2',
 );
 
 /** Hungarian (Magyar)
@@ -4160,9 +4221,9 @@ $messages['ia'] = array(
 	'lqt_delete' => 'Deler',
 	'lqt_undelete' => 'Restaurar',
 	'lqt_permalink' => 'Ligamine a iste version',
-	'lqt_fragment' => 'un fragmento de un $1 ex $2',
+	'lqt_fragment' => 'Fragmento de un $1 ex $2',
 	'lqt_discussion_link' => 'discussion',
-	'lqt_from_talk' => 'de $1',
+	'lqt_from_talk' => 'De $1',
 	'lqt_newer' => '←plus recente',
 	'lqt_older' => 'plus ancian→',
 	'lqt_hist_comment_edited' => 'Texto del commento modificate',
@@ -4196,7 +4257,7 @@ Iste displaciamento esseva facite per $2 le $3 $4.',
 Si illo ha concludite, tu pote considerar $1.',
 	'lqt_summary_notice_link' => 'scriber un summario',
 	'lqt_summary_label' => 'Iste filo ha essite resumite in lo sequente:',
-	'lqt_summary_subtitle' => 'le summario de $1',
+	'lqt_summary_subtitle' => 'Summario de "$1"',
 	'lqt_nosuchrevision' => 'Iste version del filo non existe.',
 	'lqt_nosuchthread' => 'Le filo que tu specificava non existe.',
 	'lqt_nosuchthread_title' => 'Filo non existe',
@@ -4258,8 +4319,8 @@ Iste operation es reversibile.',
 	'lqt-new-messages' => '&#x2712; Tu ha recipite nove messages.',
 	'lqt-email-info-undo' => 'Restabilir le filo que tu justo dimitteva.',
 	'lqt-date-info' => 'Iste ligamine es disactivate proque tu reguarda le filos de tote le datas.',
-	'lqt_rc_new_discussion' => 'Nove discussion, $1, le $2. &bull; $3 scribe:',
-	'lqt_rc_new_reply' => 'Responsa a $1, le $2. &bull; $3 scribe:',
+	'lqt_rc_new_discussion' => 'Nove discussion "$1" le $2 &bull; $3 scribe:',
+	'lqt_rc_new_reply' => 'Responsa a "$1" le $2 &bull; $3 scribe:',
 	'lqt_rc_ellipsis' => '  …',
 	'lqt_rc_author_original' => '(autor original)',
 	'lqt_rc_author_others' => '(non le autor)',
@@ -4279,7 +4340,7 @@ Tu pote usar omne wikitexto in tu summario. Quando tu fini, clicca super "{{int:
 	'lqt-thread-split' => 'Scinder in un nove filo',
 	'lqt-split-success' => 'Tu ha scindite le filo $1 con successo.',
 	'lqt_split_thread' => 'Scinder un filo',
-	'lqt-thread-split-subject' => 'Subjecto del nove filo',
+	'lqt-thread-split-subject' => 'Subjecto del nove filo:',
 	'lqt-split-submit' => 'Scinder',
 	'lqt_split_badsubject' => 'Le subjecto que tu ha entrate es invalide.',
 	'lqt-no-threads' => 'Il non ha ancora filos in iste pagina.',
@@ -4300,7 +4361,7 @@ esseva create le $3 a $4.
 
 Tu pote vider lo a <$6>",
 	'lqt-quote-intro' => 'Le $2 a $3, [[User:$1]] scribeva:',
-	'lqt-quote' => 'Citar isto',
+	'lqt-quote' => 'Citar',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -5242,13 +5303,13 @@ Ene schööne Jrohß!',
 	'lqt-thread-show-replies' => 'Zeisch {{PLURAL:$1|ein Antwoot|$1 Antwoote|kei Antwoot}}',
 	'lqt-thread-show-more' => 'Zeisch mieh Antwoote',
 	'lqt-feed-title-all' => '{{SITENAME}} — Neu Beidrääsch',
-	'lqt-feed-title-all-from' => '{{SITENAME}} — Neu Beidrääsch vum $1',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Neu Beidrääsch vun dä {{PLURAL:$2|Sigg|Sigge}}: $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Neu Jeshprääschßfäddemme',
-	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Neu Jeschprääschßfäddemme vum $1',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Neu Jeschprääschßfäddemme vun dä {{PLURAL:$2|Sigg|Sigge}}: $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Antwoote',
-	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antwoote vum $1',
-	'lqt-feed-new-thread-intro' => 'Neu Jeshprääschßfäddemme op dä Sigg „$1“ opjemaat vum $2',
-	'lqt-feed-reply-intro' => 'Antwoot vum $2 aan $3 op dä Sigg „$1“',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antwoote vun dä {{PLURAL:$2|Sigg|Sigge}}: $1',
+	'lqt-feed-new-thread-intro' => 'Ene neuje Jeshprääschßfäddem, dä hät {{GENDER:$3|dä|et|dä Medtmaacher|de|dat}} $2 op dä Sigg „$1“ opjemaat.',
+	'lqt-feed-reply-intro' => '{{GENDER:$4|Dä|Et|Dä Medtmaacher|De|Dat}} $2 hät en Antwoot en dä Jeschprääschßfäddem „$3“ op de Sigg „$1“ jeschrevve.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -5469,6 +5530,13 @@ Dir kënnt se op <$6> gesinn.",
 	'lqt-ajax-update-link' => 'Aktualiséieren',
 	'lqt-thread-show-replies' => 'Weis $1 Äntwerten',
 	'lqt-thread-show-more' => 'Méi Äntwerte weisen',
+	'lqt-feed-title-all' => '{{SITENAME}} — Nei Messagen',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Nei Message vum $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nei Rubriken',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Nei Rubrike vum $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Äntwerten',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Äntwerte vum $1',
+	'lqt-feed-new-thread-intro' => 'Nei Rubrik iwwer $1 geschriwwe vum $2',
 );
 
 /** Lozi (Silozi)
@@ -6419,6 +6487,7 @@ Per evitar aquò, separatz-los d'aqueste fial de discussion abans de suprimir aq
 	'lqt-log-action-move' => 'a desplaçat [[$1]] de [[$2]] cap a [[$3]].',
 	'lqt-preference-notify-talk' => "M’avisar per corrièr electronic al moment d'una responsa sus un subjècte que segueissi",
 	'lqt-preference-watch-threads' => 'Seguir los fials de discussion que crèi o als quals participi',
+	'prefs-lqt' => 'Discussions en fial',
 	'lqt-preference-display-depth' => "Prigondor maximala de las responsas d'afichar :",
 	'lqt-preference-display-count' => "Nombre maximal de responsas d'afichar :",
 	'lqt-enotif-subject-reply' => 'Discussion sus {{SITENAME}} - Responsa : $1',
@@ -6434,13 +6503,24 @@ es estada creada lo $3 a $4.
 
 O podètz veire a « $6 »",
 	'lqt-quote-intro' => 'Lo $2 a $3, [[User:$1]] a escrich :',
-	'lqt-quote' => 'Citar aquò',
+	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Recercar de discussions sus aquesta pagina',
 	'lqt-search-label' => 'Tèrmes de recèrca :',
 	'lqt-search-button' => 'Recercar',
 	'searchprofile-threads' => 'Discussions',
+	'searchprofile-threads-tooltip' => 'Recercar dins los fials de discussion e las paginas de discussion',
+	'lqt-ajax-updated' => 'Aqueste fial a de messatges novèls.',
+	'lqt-ajax-update-link' => 'Metre a jorn',
 	'lqt-thread-show-replies' => 'Far veire $1 responsas',
 	'lqt-thread-show-more' => 'Far veire mai de responsas',
+	'lqt-feed-title-all' => '{{SITENAME}} - Messatges novèls',
+	'lqt-feed-title-all-from' => '{{SITENAME}} - Messatges novèls de $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} - Fials de discussion novèls',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} - Fials de discussion novèls de $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} - Responsas',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} - Responsas de $1',
+	'lqt-feed-new-thread-intro' => 'Fial de discussion novèl sus $1 postat per $2',
+	'lqt-feed-reply-intro' => 'Responsa a $3 (sus $1) postada per $2',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
@@ -7412,6 +7492,14 @@ Môžete si ho pozrieť na <$6>',
 	'lqt-ajax-update-link' => 'Aktualizovať',
 	'lqt-thread-show-replies' => 'Zobraziť $1 odpovedí',
 	'lqt-thread-show-more' => 'Zobraziť ďalšie odpovede',
+	'lqt-feed-title-all' => '{{SITENAME}} — Nové príspevky',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Nové príspevky od $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nové vlákna',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Nové vlákna od $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Odpovede',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Odpovede od $1',
+	'lqt-feed-new-thread-intro' => 'Nové vlákno na tému $1, ktoré poslal $2',
+	'lqt-feed-reply-intro' => 'Odpoveď na $3 (na tému $1), ktorú poslal $2',
 );
 
 /** Lower Silesian (Schläsch)
