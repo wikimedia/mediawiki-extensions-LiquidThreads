@@ -1211,9 +1211,19 @@ Marteze :
 	'lqt_change_edited_root' => 'Kemmet eo bet an notenn lakaet war wel e-pad an adweladenn-mañ.',
 	'lqt_change_edited_summary' => 'Kemmet eo bet diverradenn  an neudennad kaozioù',
 	'lqt_change_deleted' => 'Diverket eo an neudennad-mañ pe ar respont outi.',
+	'lqt_protectedfromreply_link' => 'gwarezet',
 	'lqt_subject' => 'Danvez :',
+	'lqt_nosubject' => '"danvez ebet"',
+	'lqt_noreason' => "N'eus bet roet abeg ebet.",
+	'lqt_thread_deleted' => 'Diverket eo bet an neudennad-mañ',
 	'lqt_summary_subtitle' => 'Diverrañ eus "$1"',
+	'lqt_nosuchthread_title' => "N'eus ket eus an neudennad-mañ",
+	'lqt_move_torename_edit' => 'Kemmañ anezhi',
 	'lqt_move_move' => "Dilec'hiañ",
+	'lqt_delete_undeleting' => "O tiziverkañ '''$1'''.",
+	'lqt_delete_return' => 'Distreiñ da $1.',
+	'lqt_delete_return_link' => 'ar bajenn gaozeal',
+	'lqt_sorting_order' => 'Urzh renkañ :',
 	'lqt-title' => 'Titl',
 	'lqt-older' => "koshoc'h",
 	'lqt-newer' => "nevesoc'h",
@@ -1274,14 +1284,14 @@ bet savet d'an $3 da $4.
 
 E lenn a c'hallit ober war <$6>",
 	'lqt-quote-intro' => "D'an $2 da $3, eo bet skrivet gant [[User:$1]] :",
-	'lqt-quote' => 'Menegiñ kement-mañ',
+	'lqt-quote' => 'Menegiñ',
 	'lqt-search-legend' => 'Klask kaozeadennoù war ar bajenn-mañ',
 	'lqt-search-label' => 'Termenoù enklask',
 	'lqt-search-button' => 'Klask',
 	'searchprofile-threads' => 'Kaozeadennoù',
 	'searchprofile-threads-tooltip' => 'Klask en neudennadoù kaozioù har er pajennoù kaozeal',
 	'lqt-ajax-updated' => "Kemennoù nevez zo d'an neudennad-mañ",
-	'lqt-ajax-update-link' => "Kargañ ar c'hemennoù nevez",
+	'lqt-ajax-update-link' => 'Hizivaat',
 	'lqt-thread-show-replies' => 'Diskouez $1 respont',
 	'lqt-thread-show-more' => 'Diskouez respontoù all',
 );
@@ -1565,6 +1575,7 @@ $messages['da'] = array(
  * @author DaSch
  * @author Imre
  * @author Merlissimo
+ * @author Metalhead64
  * @author Michawiki
  * @author Pill
  * @author Purodha
@@ -1603,9 +1614,9 @@ Es ist möglich, dass er
 	'lqt_delete' => 'Löschen',
 	'lqt_undelete' => 'wiederherstellen',
 	'lqt_permalink' => 'Hierhin verweisen',
-	'lqt_fragment' => 'ein Fragment einer $1 von $2',
+	'lqt_fragment' => 'Fragment einer $1 von $2',
 	'lqt_discussion_link' => 'Diskussion',
-	'lqt_from_talk' => 'von $1',
+	'lqt_from_talk' => 'Von $1',
 	'lqt_newer' => '← jüngere',
 	'lqt_older' => 'ältere →',
 	'lqt-history-title' => 'Threadgeschichte',
@@ -1622,6 +1633,7 @@ Es ist möglich, dass er
 	'lqt_hist_past_last_page_error' => 'Du bist außerhalb des Seitenbereichs der Versionsgeschichte.',
 	'lqt_hist_tooltip_newer_disabled' => 'Der Link ist deaktiviert, da du dich auf der ersten Seite befindest.',
 	'lqt_hist_tooltip_older_disabled' => 'Der Link ist deaktiviert, da du dich auf der letzten Seite befindest.',
+	'lqt_hist_split' => 'Antwort auf einen neuen Diskussionsstrang aufteilen',
 	'lqt_hist_edited_subject' => 'Bearbeitetes Thema',
 	'lqt_hist_merged_from' => 'Antwort zu einem anderen Thread verschoben',
 	'lqt_hist_merged_to' => 'Antwort von einem anderen Thread verschoben',
@@ -1634,6 +1646,7 @@ Es ist möglich, dass er
 	'lqt_change_deleted' => 'Dieser Thread oder eine dazugehörige Antwort wurde gelöscht',
 	'lqt_change_undeleted' => 'Der hervorgehobene Beitrag wurde wiederhergestellt',
 	'lqt_change_moved' => 'Dieser Thread wurde auf eine andere Diskussionsseite verschoben',
+	'lqt_change_split' => 'Dieser Diskussionsstrang wurde von einem anderen Diskussionsstrang aufgeteilt',
 	'lqt_change_subject_edited' => 'Das Thema dieses Threads wurde geändert',
 	'lqt_change_merged_from' => 'Eine Antwort auf diesen Thread wurde zu einem anderen Thread verschoben',
 	'lqt_change_merged_to' => 'Die hervorgehobene Antwort wurde von einem anderen Thread verschoben',
@@ -1712,8 +1725,8 @@ Diese Operation kann rückgängig gemacht werden.',
 	'lqt-new-messages' => '&#x2712; Du hast neue Nachrichten.',
 	'lqt-email-info-undo' => 'Hole den Diskussionsstrang zurück, den du gerade fortgeschickt hast.',
 	'lqt-date-info' => 'Dieser Link ist nicht aktiv, da du Diskussionsstränge von allen Daten ansiehst.',
-	'lqt_rc_new_discussion' => 'Neue Diskussion, $1, auf $2. • $3 schreibt:',
-	'lqt_rc_new_reply' => 'Antwort an $1, auf $2. • $3 schreibt:',
+	'lqt_rc_new_discussion' => 'Neue Diskussion „$1“ auf $2 &bull; $3 schreibt:',
+	'lqt_rc_new_reply' => 'Antwort auf „$1“ auf $2 &bull; $3 schreibt:',
 	'lqt_rc_author_original' => '(original Autor)',
 	'lqt_rc_author_others' => '(nicht der Autor)',
 	'lqt-newmessages-context' => 'Gesamter Diskussionsstrang',
@@ -1753,6 +1766,8 @@ Du kannst Wikitext in deiner Zusammenfassung verwenden. Wenn du fertig bist, kli
 	'lqt-log-action-move' => 'hat [[$1]] von [[$2]] nach [[$3]] verschoben.',
 	'lqt-preference-notify-talk' => 'Bei Antworten auf beobachtete Diskussionsstränge E-Mails senden',
 	'lqt-preference-watch-threads' => 'Selbst erstellte oder von mir beantwortete Threads beobachten',
+	'lqt-preference-display-depth' => 'Maximale Antworttiefe:',
+	'lqt-preference-display-count' => 'Maximale Anzahl der Antworten:',
 	'lqt-enotif-subject-reply' => '{{SITENAME}}-Diskussion - Antwort: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-Diskussion - Neuer Diskussionsstrang: $1',
 	'lqt-enotif-newthread' => 'Hallo $1,
@@ -1768,6 +1783,19 @@ Du kannst sie auf <$6> einsehen.',
 	'lqt-search-legend' => 'Durchsuche die Diskussionsbeiträge auf dieser Seite',
 	'lqt-search-label' => 'Suchbegriffe:',
 	'lqt-search-button' => 'Suche',
+	'searchprofile-threads' => 'Diskussionen',
+	'lqt-ajax-updated' => 'Dieser Diskussionsstrang hat neue Beiträge.',
+	'lqt-ajax-update-link' => 'Aktualisieren',
+	'lqt-thread-show-replies' => '$1 Antwort(en) anzeigen',
+	'lqt-thread-show-more' => 'Mehr Antworten anzeigen',
+	'lqt-feed-title-all' => '{{SITENAME}} — Neue Beiträge',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Neue Beiträge von $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Neue Diskussionsstränge',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Neue Diskussionsstränge von $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Antworten',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antworten von $1',
+	'lqt-feed-new-thread-intro' => 'Neuer Diskussionsstrang auf $1 von $2',
+	'lqt-feed-reply-intro' => 'Antwort auf $3 (auf $1) von $2',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
@@ -2182,11 +2210,12 @@ $messages['el'] = array(
 	'lqt-enotif-subject-reply' => '{{SITENAME}} συζήτηση - Απάντηση: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} συζήτηση - Νέο θέμα: $1',
 	'lqt-quote-intro' => 'Την $2 στις $3, ο [[User:$1]] έγραψε:',
-	'lqt-quote' => 'Παράθεσέ το',
+	'lqt-quote' => 'Απόσπασμα',
 	'lqt-search-legend' => 'Αναζήτηση συζητήσεων σε αυτή τη σελίδα',
 	'lqt-search-label' => 'Αναζήτηση όρων:',
 	'lqt-search-button' => 'Αναζήτηση',
 	'searchprofile-threads' => 'Συζητήσεις',
+	'lqt-ajax-update-link' => 'Ενημέρωση',
 	'lqt-thread-show-more' => 'Προβολή περισσότερων απαντήσεων',
 );
 
@@ -3158,6 +3187,7 @@ $messages['grc'] = array(
 	'lqt-header-actions' => 'Δράσεις',
 	'lqt-thread-split-thread' => 'Νῆμα διαλέξεως:',
 	'lqt-search-button' => 'Ζητεῖν',
+	'lqt-ajax-update-link' => 'Ἐνημεροῦν',
 );
 
 /** Swiss German (Alemannisch)
@@ -5119,7 +5149,7 @@ $messages['ksh'] = array(
 	'lqt_permalink' => 'Permalengk',
 	'lqt_fragment' => 'E Shtöckelsche vun enem $1 op dä Sigg „$2“',
 	'lqt_discussion_link' => 'Klaaf',
-	'lqt_from_talk' => 'fun $1',
+	'lqt_from_talk' => 'Fum $1',
 	'lqt_newer' => '← neuer',
 	'lqt_older' => 'ällder →',
 	'lqt-history-title' => 'Dem Jeshprääschßfäddem sing Verjangeheit un Versione',
@@ -5537,6 +5567,7 @@ Dir kënnt se op <$6> gesinn.",
 	'lqt-feed-title-replies' => '{{SITENAME}} — Äntwerten',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Äntwerte vum $1',
 	'lqt-feed-new-thread-intro' => 'Nei Rubrik iwwer $1 geschriwwe vum $2',
+	'lqt-feed-reply-intro' => 'Äntwert vum $2 op $3 (op $1)',
 );
 
 /** Lozi (Silozi)
@@ -8152,12 +8183,20 @@ $messages['tt-cyrl'] = array(
 	'lqt_delete_return' => '$1 битенә кайтырга.',
 );
 
+/** Vèneto (Vèneto)
+ * @author Candalua
+ */
+$messages['vec'] = array(
+	'searchprofile-threads' => 'Discussion',
+);
+
 /** Veps (Vepsan kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
 	'lqt_newmessages' => 'Uded tedotused',
 	'lqt_contents_title' => 'Südäimišt',
+	'lqt_toc_thread_replycount' => 'Vastused',
 	'lqt_add_header' => 'Ližata pälkirjutez',
 	'lqt_new_thread' => "Avaita uz' lodu",
 	'lqt_edited_notice' => 'Redaktiruidud',
@@ -8165,11 +8204,13 @@ $messages['vep'] = array(
 	'lqt_delete' => 'Čuta poiš',
 	'lqt_undelete' => 'Endištada',
 	'lqt_permalink' => 'Kosketuz tänna',
+	'lqt_discussion_link' => 'lodu',
 	'lqt_newer' => '← udembad',
 	'lqt_older' => 'vanhembad →',
 	'lqt_hist_deleted' => 'Čutud poiš',
 	'lqt_hist_moved_talkpage' => 'Udesnimitadud',
 	'lqt_protectedfromreply_link' => 'kaitud',
+	'lqt_noreason' => 'Süd ei anttihe.',
 	'lqt_move_torename_edit' => 'redaktiruigat se',
 	'lqt_move_move' => 'Sirta',
 	'lqt_delete_return' => 'Pörttas $1-nnoks.',
@@ -8188,8 +8229,14 @@ $messages['vep'] = array(
 	'lqt-history-user' => 'Kävutai',
 	'lqt-history-action' => 'Aktivižuz',
 	'lqt-history-comment' => 'Kommentarii',
+	'lqt-thread-edited-author' => 'Redaktirui avtor',
+	'lqt-header-actions' => 'Tegendad',
 	'lqt-split-submit' => 'Jagada',
+	'lqt-merge-submit' => 'Ühtenzoitta',
+	'lqt-quote' => 'Citiruida',
 	'lqt-search-button' => 'Ectä',
+	'searchprofile-threads' => 'Lodu',
+	'lqt-ajax-update-link' => 'Udištada',
 );
 
 /** Vietnamese (Tiếng Việt)
