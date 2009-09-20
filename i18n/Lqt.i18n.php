@@ -297,7 +297,7 @@ $messages['qqq'] = array(
 <!-- as used in /pages/ThreadPermalinkView.php -->',
 	'lqt_discussion_link' => '{{Identical|Discussion}}',
 	'lqt_from_talk' => 'Used as page subtitle. Parameters:
-* $1 is a link to a talk page (for example "User:Foo")',
+* $1 is a link to a talk page (for example "User talk:Foo")',
 	'lqt_newer' => '{{Identical|Newer}}',
 	'lqt_older' => '{{Identical|Older}}',
 	'lqt_hist_deleted' => '{{Identical|Deleted}}',
@@ -333,7 +333,7 @@ $messages['qqq'] = array(
 	'lqt-email-undo' => '{{Identical|Undo}}',
 	'lqt_rc_new_discussion' => '* $1 - thread
 * $2 - talk page
-* $3 - person who has created the thread',
+* $3 - the person who has created the thread',
 	'lqt_rc_new_reply' => '* $1 - thread
 * $2 - talk page
 * $3 - person who has written to the thread',
@@ -1211,23 +1211,45 @@ Marteze :
 	'lqt_change_edited_root' => 'Kemmet eo bet an notenn lakaet war wel e-pad an adweladenn-mañ.',
 	'lqt_change_edited_summary' => 'Kemmet eo bet diverradenn  an neudennad kaozioù',
 	'lqt_change_deleted' => 'Diverket eo an neudennad-mañ pe ar respont outi.',
+	'lqt_youhavenewmessages' => "[$1 kemennadenn nevez] zo ganeoc'h.",
 	'lqt_protectedfromreply_link' => 'gwarezet',
 	'lqt_subject' => 'Danvez :',
 	'lqt_nosubject' => '"danvez ebet"',
 	'lqt_noreason' => "N'eus bet roet abeg ebet.",
 	'lqt_thread_deleted' => 'Diverket eo bet an neudennad-mañ',
+	'lqt_summary_notice_link' => 'skrivañ un tamm diverrañ',
 	'lqt_summary_subtitle' => 'Diverrañ eus "$1"',
 	'lqt_nosuchthread_title' => "N'eus ket eus an neudennad-mañ",
+	'lqt_threadrequired' => "Ret eo deoc'h spisaat un neudennad en URL",
+	'lqt_move_torename' => "A-benn adenvel an neudennad-mañ, $1 ha kemmañ ar vaezienn 'Danvez'.",
 	'lqt_move_torename_edit' => 'Kemmañ anezhi',
 	'lqt_move_move' => "Dilec'hiañ",
+	'lqt_move_noreason' => "N'eus bet roet abeg ebet.",
 	'lqt_delete_undeleting' => "O tiziverkañ '''$1'''.",
+	'lqt_delete_undeletethread' => 'Diziverkañ an neudennad',
 	'lqt_delete_return' => 'Distreiñ da $1.',
 	'lqt_delete_return_link' => 'ar bajenn gaozeal',
+	'lqt_delete_show_checkbox' => 'Diskouez an neudennadoù diverket',
+	'lqt_header_warning_big' => "Emaoc'h o kemmañ ur $1",
+	'lqt_header_warning_new_discussion' => "boulc'hañ gant ur gaoz nevez",
 	'lqt_sorting_order' => 'Urzh renkañ :',
+	'lqt_sort_newest_threads' => 'an neudennadoù nevesañ da gentañ',
+	'lqt_sort_oldest_threads' => 'an neudennadoù koshañ da gentañ',
+	'lqt-any-date' => 'Ne vern pegoulz',
+	'lqt-only-date' => 'Nemet an deiziadoù-mañ',
 	'lqt-title' => 'Titl',
+	'lqt-summary' => 'Diverrañ',
 	'lqt-older' => "koshoc'h",
 	'lqt-newer' => "nevesoc'h",
 	'lqt-read-message' => 'Merkañ evel lennet',
+	'lqt-email-undo' => 'Dizober',
+	'lqt-messages-sent' => "Kemennadennoù kaset deoc'h :",
+	'lqt-other-messages' => 'Kemennadennoù war pajennoù kaozeal all :',
+	'lqt-no-new-messages' => "N'oc'h eus kemennadenn nevez ebet.",
+	'lqt-new-messages' => "&#x2712; Kemennadennoù nevez zo evidoc'h.",
+	'lqt_rc_author_original' => '(aozer orin)',
+	'lqt_rc_author_others' => '(ket an aozer)',
+	'lqt-newmessages-context' => 'Neudennad klok',
 	'lqt-thread-created' => 'Krouet',
 	'lqt-archive-subtitle' => 'Diell ar gaoz',
 	'lqt-archive-intro' => 'Setu aze diell kaozeadennoù [[$1]].',
@@ -1294,6 +1316,14 @@ E lenn a c'hallit ober war <$6>",
 	'lqt-ajax-update-link' => 'Hizivaat',
 	'lqt-thread-show-replies' => 'Diskouez $1 respont',
 	'lqt-thread-show-more' => 'Diskouez respontoù all',
+	'lqt-feed-title-all' => '{{SITENAME}} — Kemennadennoù nevez',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Kemennadennoù nevez a-berzh $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Neudennadoù kaoz nevez',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Neudennadoù kaoz nevez a-berzh $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Respontoù',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respontoù digant $1',
+	'lqt-feed-new-thread-intro' => 'Neudennadoù nevez war $1 postet gant $2',
+	'lqt-feed-reply-intro' => 'Respontoù da $3 (war $1) postet gant $2',
 );
 
 /** Bosnian (Bosanski)
@@ -5095,6 +5125,15 @@ $messages['kn'] = array(
 	'lqt-summary' => 'ಸಾರಾಂಶ',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'lqt_subject' => '주제:',
+	'lqt_move_move' => '이동',
+	'lqt-split-submit' => '분할',
+);
+
 /** Krio (Krio)
  * @author Jose77
  */
@@ -5254,7 +5293,7 @@ Künnt sin, De wells en $2 han.',
 	'lqt-new-messages' => '&#x2712; Mer hann neu Nohreschte för Desch.',
 	'lqt-email-info-undo' => 'Donn dä Jeschprääschßfäddem zeröckholle, dä De jraad fottjeschemeße häs.',
 	'lqt-date-info' => 'Dä Lengk es afjeschaldt. De bes ene Jeschprääschßfäddem vun alle Daate am beloore.',
-	'lqt_rc_new_discussion' => 'Ene neue Klaaf över $1 op $2. • {{GENDER:$3|Dä|Dat|Dä Metmaacher|Dat|De}} $3 hät jeschrevve:',
+	'lqt_rc_new_discussion' => 'Ene neue Klaaf över „$1“ es op dä Sigg „$2“. • {{GENDER:$3|Dä|Dat|Dä Metmaacher|De|Dat}} [[User:$3|$3]] hät jeschrevve:',
 	'lqt_rc_new_reply' => 'Antwoot aan $1 op $2. • {{GENDER:$3|Dä|Dat|Dä Metmaacher|Dat|De}} $3 hät jeschrevve:',
 	'lqt_rc_author_original' => '(dä ojinaal Schriiver)',
 	'lqt_rc_author_others' => '(nit dä Schriiver)',
@@ -7026,21 +7065,30 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'lqt_archive_month_annotation' => 'da $1',
+	'lqt_archive_month_range_annotation' => "'mbrà $1 e $2",
+	'lqt_contents_title' => 'Condenute',
+	'lqt_toc_thread_replycount' => 'Risposte',
+	'lqt_edited_notice' => 'Cangiate',
 	'lqt_reply' => 'Respunne',
 	'lqt_delete' => 'Scangille',
 	'lqt_undelete' => 'Repristine',
-	'lqt_from_talk' => 'da $1',
+	'lqt_from_talk' => 'Da $1',
 	'lqt_newer' => '←cchiù nueve',
 	'lqt_older' => 'cchiù vicchije→',
 	'lqt_hist_deleted' => 'Scangillete',
 	'lqt_hist_undeleted' => 'Ripristinete',
 	'lqt_hist_moved_talkpage' => 'Spustete',
+	'lqt_protectedfromreply_link' => 'prutette',
 	'lqt_subject' => 'Oggette:',
+	'lqt_noreason' => 'Nisciune mutive lassate.',
 	'lqt_summary_notice_link' => "scrive 'nu riepileghe",
-	'lqt_summary_subtitle' => "'u riepileghe de $1.",
+	'lqt_summary_subtitle' => 'Riepileghe de "$1".',
+	'lqt_move_torename_edit' => 'cangiale',
 	'lqt_move_move' => 'Spueste',
 	'lqt_move_nodestination' => "Tu a specificà 'na destinazione.",
 	'lqt_move_noreason' => 'Nisciune mutive date.',
+	'lqt_delete_return' => 'Retuèrne a $1.',
 	'lqt-date-from' => 'Da',
 	'lqt-date-to' => 'A',
 	'lqt-title' => 'Titele',
