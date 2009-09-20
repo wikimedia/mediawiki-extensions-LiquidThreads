@@ -100,7 +100,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		$superthreadLink = $linker->link( $stTitle );
 		$description = wfMsgExt(
 			$thread->hasSuperThread() 
-				? 'lqt-feed-reply-intro',
+				? 'lqt-feed-reply-intro'
 				: 'lqt-feed-new-thread-intro',
 			array( 'parse', 'replaceafter' ),
 			array( $talkpageLink, $userLink, $superthreadLink, $user )
