@@ -1197,16 +1197,19 @@ class LqtView {
 	function getSignature( $user ) {
 		if ( is_object($user) ) {
 			$uid = $user->getId();
+			$name = $user->getName();
 		} elseif ( is_integer($user) ) {
 			$uid = $user;
-			$user = null;
+			$user = User::newFromId($uid);
+			$name = $user->getName();
 		} else {
 			$user = User::newFromName( $user );
+			$name = $user->getName();
 			$uid = $user->getId();
 		}
 		
-		if ( isset( self::$userSignatureCache[$uid] ) ) {
-			return self::$userSignatureCache[$uid];
+		if ( isset( self::$userSignatureCache[$name] ) ) {
+			return self::$userSignatureCache[$name];
 		}
 		
 		if (!$user) {
@@ -1218,7 +1221,7 @@ class LqtView {
 		$sig = $wgParser->getUserSig( $user );
 		$sig = $wgOut->parseInline( $sig );
 		
-		self::$userSignatureCache[$uid] = $sig;
+		self::$userSignatureCache[$name] = $sig;
 		
 		return $sig;
 	}

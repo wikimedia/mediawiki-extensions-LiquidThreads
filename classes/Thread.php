@@ -487,6 +487,7 @@ class Thread {
 			
 			foreach( $userIds as $uid ) {
 				$user = User::newFromId($uid); // Should pull from UID cache.
+				$name = $user->getName();
 				
 				// Grab sig data
 				$nickname = null;
@@ -503,7 +504,7 @@ class Thread {
 				$sig = $wgOut->parseInline( $sig );
 				
 				// Save into LqtView for later use.
-				LqtView::$userSignatureCache[$uid] = $sig;
+				LqtView::$userSignatureCache[$name] = $sig;
 			}
 		}
 		
