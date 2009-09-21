@@ -6,9 +6,14 @@ require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 
 # # Imports JSON-encoded discussions from parse-wikitext-discussions.pl
 
-$structure = json_decode( file_get_contents( $argv[1] ), true );
+//die( var_dump( $argv ) );
 
-$article = new Article( Title::newFromText( $argv[2] ) );
+$structure = json_decode( file_get_contents( $argv[0] ), true );
+
+$article = new Article( Title::newFromText( $argv[1] ) );
+
+$wgOut->_unstub();
+$wgOut->setTitle( $article->getTitle() );
 
 $subject = '';
 $rootPost = null;

@@ -27,7 +27,7 @@ sub input_line {
 	$line =~ s/\s*$//g;
 	if (!$line) { return; }
 	
-	$line =~ s/^:+//g;
+	$line =~ s/^:+\s*//g;
 	
 	## Add to the content.
 	$current_post->{'content'} .= $line;
