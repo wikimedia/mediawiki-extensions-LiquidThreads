@@ -383,7 +383,7 @@ class LqtDiscussionPager extends IndexPager {
 	function getIndexField() {
 		switch( $this->orderType ) {
 			case LQT_NEWEST_CHANGES:
-				return 'thread_modified';
+				return 'thread_sortkey';
 			case LQT_OLDEST_THREADS:
 			case LQT_NEWEST_THREADS:
 				return 'thread_created';

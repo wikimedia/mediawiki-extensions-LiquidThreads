@@ -18,6 +18,9 @@ CREATE TABLE /*$wgDBprefix*/thread (
 
   -- Special thread types (deleted/move trace/normal)
   thread_type int(4) unsigned NOT NULL default 0,
+  
+  -- Sort key
+  thread_sortkey varchar(255) NOT NULL default '',
 
   PRIMARY KEY thread_id (thread_id),
   UNIQUE INDEX thread_root_page (thread_root),
@@ -26,7 +29,8 @@ CREATE TABLE /*$wgDBprefix*/thread (
   INDEX thread_modified (thread_modified),
   INDEX thread_created (thread_created),
   INDEX thread_summary_page (thread_summary_page),
-  INDEX (thread_author_id,thread_author_name)
+  INDEX (thread_author_id,thread_author_name),
+  INDEX (thread_sortkey)
 ) /*$wgDBTableOptions*/;
 
 

@@ -172,3 +172,9 @@ $wgLqtTalkPages = true;
 
 /* Whether or not to activate LiquidThreads email notifications */
 $wgLqtEnotif = true;
+
+/* Thread actions which do *not* cause threads to be "bumped" to the top */
+/* Using numbers because the change type constants are defined in Thread.php, don't
+	want to have to parse it on every page view */
+$wgThreadActionsNoBump = array( 3 /* Edited summary */, 10 /* Merged from */,
+								12 /* Split from */ );

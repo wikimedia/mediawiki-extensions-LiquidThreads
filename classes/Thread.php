@@ -25,6 +25,7 @@ class Thread {
 	/* Timestamps: */
 	protected $modified;
 	protected $created;
+	protected $sortkey;
 
 	protected $id;
 	protected $type;
@@ -132,6 +133,11 @@ class Thread {
 	function commitRevision( $change_type, $change_object = null, $reason = "" ) {
 		$this->dieIfHistorical();
 		global $wgUser;
+		
+		global $wgThreadActionsNoBump;
+		if ( !in_array( $change_type, $wgThreadActionsNoBump ) ) {
+			$this->sortkey = wfTimestampNow();
+		}
 
 		$this->modified = wfTimestampNow();
 		$this->updateEditedness( $change_type );
@@ -212,6 +218,7 @@ class Thread {
 					'thread_author_name' => $this->authorName,
 					'thread_summary_page' => $this->summaryId,
 					'thread_editedness' => $this->editedness,
+					'thread_sortkey' => $this->sortkey,
 				);
 	}
 	
@@ -311,6 +318,7 @@ class Thread {
 		if ( is_null($line) ) { // For Thread::create().
 			$this->modified = wfTimestampNow();
 			$this->created = wfTimestampNow();
+			$this->sortkey = wfTimestampNow();
 			$this->editedness = Threads::EDITED_NEVER;
 			return;
 		}
@@ -330,6 +338,7 @@ class Thread {
 							'thread_subject' => 'subject',
 							'thread_author_id' => 'authorId',
 							'thread_author_name' => 'authorName',
+							'thread_sortkey' => 'sortkey',
 						);
 						
 		foreach( $dataLoads as $db_field => $member_field ) {
