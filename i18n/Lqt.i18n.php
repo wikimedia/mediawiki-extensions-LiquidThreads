@@ -183,7 +183,7 @@ You may use any wikitext in your summary. When you finish, click "{{int:savearti
 	'lqt-thread-split' => 'Split to new thread',
 	'lqt-split-success' => 'You have successfully split off the thread $1.',
 	'lqt_split_thread' => 'Split a thread',
-	'lqt-thread-split-subject' => 'New thread subject:',
+	'lqt-thread-split-subject'=> 'New thread subject:',
 	'lqt-thread-split-thread' => 'Thread:',
 	'lqt-split-submit' => 'Split',
 	'lqt_split_badsubject' => 'The subject you entered is invalid.',
@@ -249,7 +249,7 @@ You can see it at <$6>",
 	'lqt-ajax-update-link' => 'Update',
 	'lqt-thread-show-replies' => 'Show $1 replies',
 	'lqt-thread-show-more' => 'Show more replies',
-
+	
 	// Feeds
 	'lqt-feed-title-all' => '{{SITENAME}} — New posts',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — New posts from $1',
@@ -1426,7 +1426,7 @@ $messages['ca'] = array(
 	'lqt_invalid_subject' => 'El tema que heu introduït no és vàlid.
 Pot:
 * contenir caràcters no vàlids, com []{}&lt;&gt;,
-* ser massa llarg, o
+* ser massa llarg, o 
 * entrar en conflicte amb prefixos interwiki o altres espai de noms.',
 	'lqt_subject_change_forbidden' => "No podeu canviar el tema d'aquest fil perquè no teniu el permís de moure les pàgines.",
 	'lqt_in_response_to' => 'En resposta a $1 per $2, amunt:',

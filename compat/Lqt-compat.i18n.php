@@ -1,7 +1,7 @@
 <?php
 // This file is generated automatically by generateCompatibilityLocalisation.php
 $messages = array (
-  'ar' =>
+  'ar' => 
   array (
     'htmlform-reset' => 'الرجوع عن التغييرات',
     'htmlform-submit' => 'تنفيذ',
@@ -12,13 +12,13 @@ $messages = array (
     'htmlform-selectorother-other' => 'أخرى',
     'htmlform-invalid-input' => 'توجد مشكلات ضمن بعض من مدخلاتك',
   ),
-  'arc' =>
+  'arc' => 
   array (
     'htmlform-reset' => 'ܠܐ ܥܒܘܕ ܫܘܚܠܦ̈ܐ',
     'htmlform-submit' => 'ܫܕܪ',
     'htmlform-selectorother-other' => 'ܐܚܪܢܐ',
   ),
-  'arz' =>
+  'arz' => 
   array (
     'htmlform-reset' => 'الرجوع فى التغييرات',
     'htmlform-submit' => 'تقديم',
@@ -29,7 +29,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'تانيين',
     'htmlform-invalid-input' => 'فى مشاكل فى المدخلات بتاعتك',
   ),
-  'bcc' =>
+  'bcc' => 
   array (
     'htmlform-reset' => 'ترینگ تغییرات',
     'htmlform-submit' => 'دیم دی',
@@ -40,7 +40,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'دگه',
     'htmlform-invalid-input' => 'لهتی چه ورودی شما مشکل هست',
   ),
-  'be-tarask' =>
+  'be-tarask' => 
   array (
     'htmlform-reset' => 'Адмяніць зьмены',
     'htmlform-submit' => 'Захаваць',
@@ -51,13 +51,13 @@ $messages = array (
     'htmlform-selectorother-other' => 'Іншае',
     'htmlform-invalid-input' => 'Узьніклі праблемы з некаторымі з Вашых уваходных зьвестак',
   ),
-  'bg' =>
+  'bg' => 
   array (
     'htmlform-reset' => 'Отказване на промените',
     'htmlform-submit' => 'Изпращане',
     'htmlform-selectorother-other' => 'Друга',
   ),
-  'br' =>
+  'br' => 
   array (
     'htmlform-reset' => 'Dizober ar c\'hemmoù',
     'htmlform-submit' => 'Kas',
@@ -68,7 +68,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Unan all',
     'htmlform-invalid-input' => 'Kudennoù zo gant talvoudennoù zo merket ganeoc\'h.',
   ),
-  'bs' =>
+  'bs' => 
   array (
     'htmlform-reset' => 'Vrati izmjene',
     'htmlform-submit' => 'Pošalji',
@@ -79,7 +79,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Ostalo',
     'htmlform-invalid-input' => 'Postoje određeni problemi s Vašim unosom',
   ),
-  'ca' =>
+  'ca' => 
   array (
     'htmlform-reset' => 'Desfés els canvis',
     'htmlform-submit' => 'Tramet',
@@ -90,11 +90,11 @@ $messages = array (
     'htmlform-selectorother-other' => 'Altres',
     'htmlform-invalid-input' => 'Hi ha problemes amb alguna de les seves entrades',
   ),
-  'ckb-arab' =>
+  'ckb-arab' => 
   array (
     'htmlform-reset' => 'گەڕانەوەی گۆڕانکاری',
   ),
-  'cs' =>
+  'cs' => 
   array (
     'htmlform-reset' => 'Vrátit změny',
     'htmlform-submit' => 'Odeslat',
@@ -105,12 +105,12 @@ $messages = array (
     'htmlform-selectorother-other' => 'Jiná hodnota',
     'htmlform-invalid-input' => 'Některé vámi zadané údaje jsou chybné',
   ),
-  'cy' =>
+  'cy' => 
   array (
     'htmlform-reset' => 'Datod y newidiadau',
     'htmlform-selectorother-other' => 'Arall',
   ),
-  'da' =>
+  'da' => 
   array (
     'htmlform-reset' => 'Annuller ændringer',
     'htmlform-submit' => 'Gem',
@@ -121,7 +121,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Anden',
     'htmlform-invalid-input' => 'Det er problemer med dine angivelser',
   ),
-  'de' =>
+  'de' => 
   array (
     'htmlform-reset' => 'Änderungen rückgängig machen',
     'htmlform-submit' => 'Übertragen',
@@ -132,7 +132,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Andere',
     'htmlform-invalid-input' => 'Mit einigen Eingaben gibt es Probleme',
   ),
-  'dsb' =>
+  'dsb' => 
   array (
     'htmlform-reset' => 'Změny anulěrowaś',
     'htmlform-submit' => 'Wótpósłaś',
@@ -143,7 +143,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Druge',
     'htmlform-invalid-input' => 'Su někotare problemy z twójim zapodaśim',
   ),
-  'el' =>
+  'el' => 
   array (
     'htmlform-reset' => 'Αναστροφή αλλαγών',
     'htmlform-submit' => 'Υποβολή',
@@ -154,7 +154,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Άλλο',
     'htmlform-invalid-input' => 'Υπάρχουν κάποια προβλήματα με μερικές από τις εισροές σας',
   ),
-  'en' =>
+  'en' => 
   array (
     'htmlform-reset' => 'Undo changes',
     'htmlform-submit' => 'Submit',
@@ -165,7 +165,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Other',
     'htmlform-invalid-input' => 'There are problems with some of your input',
   ),
-  'eo' =>
+  'eo' => 
   array (
     'htmlform-reset' => 'Malfari ŝanĝojn',
     'htmlform-submit' => 'Ek!',
@@ -176,7 +176,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Alia',
     'htmlform-invalid-input' => 'Estas problemoj kun iom da via enigo',
   ),
-  'es' =>
+  'es' => 
   array (
     'htmlform-reset' => 'Deshacer cambios',
     'htmlform-submit' => 'Enviar',
@@ -187,13 +187,13 @@ $messages = array (
     'htmlform-selectorother-other' => 'Otro',
     'htmlform-invalid-input' => 'Hay problemas con alguno de tus ingresos',
   ),
-  'eu' =>
+  'eu' => 
   array (
     'htmlform-reset' => 'Aldaketak desegin',
     'htmlform-submit' => 'Bidali',
     'htmlform-selectorother-other' => 'Beste bat',
   ),
-  'fa' =>
+  'fa' => 
   array (
     'htmlform-reset' => 'خنثی کردن تغییرات',
     'htmlform-submit' => 'ارسال',
@@ -204,7 +204,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'دیگر',
     'htmlform-invalid-input' => 'بخشی از ورودی شما مشکل دارد',
   ),
-  'fi' =>
+  'fi' => 
   array (
     'htmlform-reset' => 'Kumoa muutokset',
     'htmlform-submit' => 'Lähetä',
@@ -215,7 +215,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Muu',
     'htmlform-invalid-input' => 'Antamassasi syötteessä on ongelmia',
   ),
-  'fr' =>
+  'fr' => 
   array (
     'htmlform-reset' => 'Défaire les modifications',
     'htmlform-submit' => 'Soumettre',
@@ -226,7 +226,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Autre',
     'htmlform-invalid-input' => 'Des problèmes sont survenus avec certaines valeurs',
   ),
-  'frp' =>
+  'frp' => 
   array (
     'htmlform-reset' => 'Dèfâre los changements',
     'htmlform-submit' => 'Sometre',
@@ -237,7 +237,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Ôtro',
     'htmlform-invalid-input' => 'Des problèmos sont arrevâs avouéc quârques valors',
   ),
-  'gl' =>
+  'gl' => 
   array (
     'htmlform-reset' => 'Desfacer os cambios',
     'htmlform-submit' => 'Enviar',
@@ -248,7 +248,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Outra',
     'htmlform-invalid-input' => 'Hai algún problema con partes do texto que inseriu',
   ),
-  'grc' =>
+  'grc' => 
   array (
     'htmlform-reset' => 'Ἀναστρέφειν μεταβολάς',
     'htmlform-submit' => 'Ὑποβάλλειν',
@@ -259,7 +259,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Ἄλλον',
     'htmlform-invalid-input' => 'Μέρος τῶν εἰσαγομένων δεδομένων σου προβληματικὸν ἐστίν',
   ),
-  'gsw' =>
+  'gsw' => 
   array (
     'htmlform-reset' => 'Änderige ruckgängig mache',
     'htmlform-submit' => 'Ibertrage',
@@ -270,7 +270,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Anderi',
     'htmlform-invalid-input' => 'Mit e Teil Yygabe git s Probläm',
   ),
-  'he' =>
+  'he' => 
   array (
     'htmlform-reset' => 'ביטול השינויים',
     'htmlform-submit' => 'שליחה',
@@ -281,7 +281,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'אחר',
     'htmlform-invalid-input' => 'יש בעיות עם חלק מהקלט שהכנסתם',
   ),
-  'hr' =>
+  'hr' => 
   array (
     'htmlform-reset' => 'Poništi izmjene',
     'htmlform-submit' => 'Pošalji',
@@ -292,7 +292,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Drugi',
     'htmlform-invalid-input' => 'Postoje problemi s nekim od vaših unosa',
   ),
-  'hsb' =>
+  'hsb' => 
   array (
     'htmlform-reset' => 'Změny cofnyć',
     'htmlform-submit' => 'Wotpósłać',
@@ -303,7 +303,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Druhe',
     'htmlform-invalid-input' => 'Su problemy z twojim zapodaćom',
   ),
-  'hu' =>
+  'hu' => 
   array (
     'htmlform-reset' => 'Változtatások visszavonása',
     'htmlform-submit' => 'Elküldés',
@@ -314,7 +314,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'egyéb',
     'htmlform-invalid-input' => 'Probléma van az általad megadott értékkel',
   ),
-  'ia' =>
+  'ia' => 
   array (
     'htmlform-reset' => 'Disfacer modificationes',
     'htmlform-submit' => 'Submitter',
@@ -325,7 +325,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Altere',
     'htmlform-invalid-input' => 'Il ha problemas con alique que tu entrava',
   ),
-  'id' =>
+  'id' => 
   array (
     'htmlform-reset' => 'Batalkan perubahan',
     'htmlform-submit' => 'Kirim',
@@ -336,7 +336,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Lain-lain',
     'htmlform-invalid-input' => 'Ada kesalahan dalam beberapa input Anda',
   ),
-  'it' =>
+  'it' => 
   array (
     'htmlform-reset' => 'Annulla modifiche',
     'htmlform-submit' => 'Invia',
@@ -347,7 +347,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Altro',
     'htmlform-invalid-input' => 'Ci sono problemi con l\'input inserito',
   ),
-  'ja' =>
+  'ja' => 
   array (
     'htmlform-reset' => '変更を取り消す',
     'htmlform-submit' => '送信',
@@ -358,7 +358,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'その他',
     'htmlform-invalid-input' => '入力になんらかの問題があります',
   ),
-  'jv' =>
+  'jv' => 
   array (
     'htmlform-reset' => 'Batalna pangowahan',
     'htmlform-int-invalid' => 'Aji sing panjenengan lebokaké dudu angka wutuh (integer).',
@@ -368,7 +368,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Liya',
     'htmlform-invalid-input' => 'Ana masalah jroning sawetara input panjenengan',
   ),
-  'ka' =>
+  'ka' => 
   array (
     'htmlform-reset' => 'ცვლილებების გაუქმება',
     'htmlform-submit' => 'შენახვა',
@@ -379,7 +379,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'სხვა',
     'htmlform-invalid-input' => 'თქვენს მიერ შეყვანილი ინფორმაციის ნაწილმა გამოიწვია პრობლემები',
   ),
-  'ko' =>
+  'ko' => 
   array (
     'htmlform-reset' => '변경한 것을 되돌리기',
     'htmlform-submit' => '저장',
@@ -390,7 +390,7 @@ $messages = array (
     'htmlform-selectorother-other' => '기타',
     'htmlform-invalid-input' => '당신이 입력한 값에 문제가 있습니다.',
   ),
-  'ksh' =>
+  'ksh' => 
   array (
     'htmlform-reset' => 'Änderunge retuur nämme',
     'htmlform-submit' => 'Loß Jonn!',
@@ -401,11 +401,11 @@ $messages = array (
     'htmlform-selectorother-other' => 'Annder',
     'htmlform-invalid-input' => 'Mer han e Problem met jet wat De enjejovve häß',
   ),
-  'la' =>
+  'la' => 
   array (
     'htmlform-selectorother-other' => 'Aliud',
   ),
-  'lb' =>
+  'lb' => 
   array (
     'htmlform-reset' => 'Ännerungen zrécksetzen',
     'htmlform-submit' => 'Späicheren',
@@ -416,7 +416,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Anerer',
     'htmlform-invalid-input' => 'Et gëtt Problemer mat de Werter déi dir aginn hutt.',
   ),
-  'lt' =>
+  'lt' => 
   array (
     'htmlform-reset' => 'Atšaukti pakeitimus',
     'htmlform-submit' => 'Siųsti',
@@ -427,7 +427,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Kita',
     'htmlform-invalid-input' => 'Yra problemų su jūsų įvestimi',
   ),
-  'lzh' =>
+  'lzh' => 
   array (
     'htmlform-reset' => '復',
     'htmlform-submit' => '呈',
@@ -438,7 +438,7 @@ $messages = array (
     'htmlform-selectorother-other' => '他',
     'htmlform-invalid-input' => '爾之輸問也',
   ),
-  'mk' =>
+  'mk' => 
   array (
     'htmlform-reset' => 'Откажи промени',
     'htmlform-submit' => 'Зачувај',
@@ -449,11 +449,11 @@ $messages = array (
     'htmlform-selectorother-other' => 'Друго',
     'htmlform-invalid-input' => 'Има проблеми со дел од вашиот внес',
   ),
-  'ml' =>
+  'ml' => 
   array (
     'htmlform-reset' => 'മാറ്റങ്ങള്‍ വേണ്ട',
   ),
-  'ms' =>
+  'ms' => 
   array (
     'htmlform-reset' => 'Undur perubahan',
     'htmlform-submit' => 'Hantar',
@@ -462,7 +462,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Lain-lain',
     'htmlform-invalid-input' => 'Terdapat beberapa masalah dengan input anda',
   ),
-  'mt' =>
+  'mt' => 
   array (
     'htmlform-reset' => 'Annulla l-modifiki',
     'htmlform-submit' => 'Ibgħat',
@@ -473,7 +473,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Oħrajn',
     'htmlform-invalid-input' => 'Hemm xi problemi f\'dak li daħħalt',
   ),
-  'nds' =>
+  'nds' => 
   array (
     'htmlform-reset' => 'Ännern trüchsetten',
     'htmlform-submit' => 'Afspiekern',
@@ -484,7 +484,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Annere',
     'htmlform-invalid-input' => 'Mit welk vun de angeven Weerten gifft dat Problemen',
   ),
-  'nds-nl' =>
+  'nds-nl' => 
   array (
     'htmlform-reset' => 'Wiezigingen ongedaonmaken',
     'htmlform-submit' => 'Opslaon',
@@ -495,7 +495,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Aanders',
     'htmlform-invalid-input' => 'Der bin preblemen mit een paor in-egeven weerden',
   ),
-  'nl' =>
+  'nl' => 
   array (
     'htmlform-reset' => 'Wijzigingen ongedaan maken',
     'htmlform-submit' => 'Opslaan',
@@ -506,7 +506,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Anders',
     'htmlform-invalid-input' => 'Er zijn problemen met enkele ingegeven waarden',
   ),
-  'nn' =>
+  'nn' => 
   array (
     'htmlform-reset' => 'Gjer om endringar',
     'htmlform-submit' => 'Lagre',
@@ -517,7 +517,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Andre',
     'htmlform-invalid-input' => 'Det finst problem med innskrivinga di',
   ),
-  'no' =>
+  'no' => 
   array (
     'htmlform-reset' => 'Omgjør endringer',
     'htmlform-submit' => 'Lagre',
@@ -528,7 +528,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Andre',
     'htmlform-invalid-input' => 'Det er problemer med noen av inndatene dine',
   ),
-  'oc' =>
+  'oc' => 
   array (
     'htmlform-reset' => 'Desfar las modificacions',
     'htmlform-submit' => 'Sometre',
@@ -539,11 +539,11 @@ $messages = array (
     'htmlform-selectorother-other' => 'Autre',
     'htmlform-invalid-input' => 'De problèmas son arribats amb d\'unas valors',
   ),
-  'pdc' =>
+  'pdc' => 
   array (
     'htmlform-selectorother-other' => 'Annere',
   ),
-  'pl' =>
+  'pl' => 
   array (
     'htmlform-reset' => 'Cofnij zmiany',
     'htmlform-submit' => 'Zapisz',
@@ -554,11 +554,11 @@ $messages = array (
     'htmlform-selectorother-other' => 'Inne',
     'htmlform-invalid-input' => 'Wystąpił problem z wprowadzonymi danymi',
   ),
-  'pnt' =>
+  'pnt' => 
   array (
     'htmlform-selectorother-other' => 'Άλλον',
   ),
-  'pt' =>
+  'pt' => 
   array (
     'htmlform-reset' => 'Desfazer alterações',
     'htmlform-submit' => 'Enviar',
@@ -569,7 +569,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Outros',
     'htmlform-invalid-input' => 'Existem problemas com alguns dos dados introduzidos',
   ),
-  'qu' =>
+  'qu' => 
   array (
     'htmlform-reset' => 'Hukchasqakunata kutichiy',
     'htmlform-submit' => 'Kachay',
@@ -580,7 +580,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Wakin',
     'htmlform-invalid-input' => 'Yaykuchisqaykiwanqa sasachakuykunam kachkan',
   ),
-  'ro' =>
+  'ro' => 
   array (
     'htmlform-reset' => 'Anulează modificările',
     'htmlform-submit' => 'Trimite',
@@ -591,7 +591,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Altul',
     'htmlform-invalid-input' => 'Există probleme la valorile introduse',
   ),
-  'roa-tara' =>
+  'roa-tara' => 
   array (
     'htmlform-reset' => 'Annulle le cangiaminde',
     'htmlform-submit' => 'Conferme',
@@ -602,7 +602,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Otre',
     'htmlform-invalid-input' => 'Stonne probbleme cu certe input ca tu è mise',
   ),
-  'ru' =>
+  'ru' => 
   array (
     'htmlform-reset' => 'Отменить изменения',
     'htmlform-submit' => 'Отправить',
@@ -613,7 +613,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Иное',
     'htmlform-invalid-input' => 'Часть введённых вами данных вызвала проблемы',
   ),
-  'sah' =>
+  'sah' => 
   array (
     'htmlform-reset' => 'Уларытыыны төннөр',
     'htmlform-submit' => 'Ыыт',
@@ -624,11 +624,11 @@ $messages = array (
     'htmlform-selectorother-other' => 'Атын',
     'htmlform-invalid-input' => 'Киллэрбит сибидиэнньэҥ сорҕото алҕаһы таһаарда',
   ),
-  'sc' =>
+  'sc' => 
   array (
     'htmlform-selectorother-other' => 'Àteru',
   ),
-  'sh' =>
+  'sh' => 
   array (
     'htmlform-reset' => 'Vrati izmjene',
     'htmlform-submit' => 'Unesi',
@@ -639,7 +639,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Ostalo',
     'htmlform-invalid-input' => 'Postoje određeni problemi sa Vašim unosom',
   ),
-  'si' =>
+  'si' => 
   array (
     'htmlform-reset' => 'වෙනස්කිරීම් අහෝසිකරන්න',
     'htmlform-submit' => 'යොමුකරන්න',
@@ -650,7 +650,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'වෙනත්',
     'htmlform-invalid-input' => 'ඔබගේ සමහරක් ප්‍රදානයන් විෂයයෙහි ගැ‍ටළු ඇත',
   ),
-  'sk' =>
+  'sk' => 
   array (
     'htmlform-reset' => 'Vrátiť zmeny',
     'htmlform-submit' => 'Odoslať',
@@ -661,7 +661,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Iné',
     'htmlform-invalid-input' => 'Niekotrý z údajov, ktoré ste zadali je problematický',
   ),
-  'sr-ec' =>
+  'sr-ec' => 
   array (
     'htmlform-reset' => 'Врати измене',
     'htmlform-submit' => 'Пошаљи',
@@ -672,7 +672,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Друго',
     'htmlform-invalid-input' => 'Има проблема са делом Вашег уноса',
   ),
-  'sv' =>
+  'sv' => 
   array (
     'htmlform-reset' => 'Ogör ändringar',
     'htmlform-submit' => 'Spara',
@@ -683,15 +683,15 @@ $messages = array (
     'htmlform-selectorother-other' => 'Andra',
     'htmlform-invalid-input' => 'Det finns problem med din inmatning',
   ),
-  'sw' =>
+  'sw' => 
   array (
     'htmlform-selectorother-other' => 'Nyingine',
   ),
-  'te' =>
+  'te' => 
   array (
     'htmlform-selectorother-other' => 'ఇతర',
   ),
-  'tr' =>
+  'tr' => 
   array (
     'htmlform-reset' => 'Değişiklikleri geri al',
     'htmlform-submit' => 'Gönder',
@@ -702,7 +702,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Diğer',
     'htmlform-invalid-input' => 'Girdinizin bir kısmıyla ilgili sorunlar var',
   ),
-  'uk' =>
+  'uk' => 
   array (
     'htmlform-reset' => 'Відкотити зміни',
     'htmlform-submit' => 'Відправити',
@@ -713,7 +713,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Інше',
     'htmlform-invalid-input' => 'Частина введених вами даних викликала проблеми',
   ),
-  'vec' =>
+  'vec' => 
   array (
     'htmlform-reset' => 'Scancèla modifiche',
     'htmlform-submit' => 'Manda',
@@ -723,7 +723,7 @@ $messages = array (
     'htmlform-select-badoption' => 'El valor che te ghè indicà no\'l xe mia valido.',
     'htmlform-invalid-input' => 'Ghe xe problemi con l\'input che te ghè inserìo',
   ),
-  'vi' =>
+  'vi' => 
   array (
     'htmlform-reset' => 'Hủy các thay đổi',
     'htmlform-submit' => 'Đăng',
@@ -734,15 +734,15 @@ $messages = array (
     'htmlform-selectorother-other' => 'Khác',
     'htmlform-invalid-input' => 'Có vấn đề trong dữ liệu bạn vừa đưa vào',
   ),
-  'vo' =>
+  'vo' => 
   array (
     'htmlform-selectorother-other' => 'Votik',
   ),
-  'xal' =>
+  'xal' => 
   array (
     'htmlform-reset' => 'Сольлһдудиг уга кех',
   ),
-  'yue' =>
+  'yue' => 
   array (
     'htmlform-reset' => '復原更改',
     'htmlform-submit' => '遞交',
@@ -753,7 +753,7 @@ $messages = array (
     'htmlform-selectorother-other' => '其它',
     'htmlform-invalid-input' => '響你嘅輸入度有一啲問題',
   ),
-  'zh-hans' =>
+  'zh-hans' => 
   array (
     'htmlform-reset' => '撤销更改',
     'htmlform-submit' => '提交',
@@ -764,7 +764,7 @@ $messages = array (
     'htmlform-selectorother-other' => '其他',
     'htmlform-invalid-input' => '您输入的内容存在问题',
   ),
-  'zh-hant' =>
+  'zh-hant' => 
   array (
     'htmlform-reset' => '復原更改',
     'htmlform-submit' => '遞交',

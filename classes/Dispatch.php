@@ -13,42 +13,41 @@ class LqtDispatch {
 		'ThreadProtectionFormView' => 'ThreadProtectionFormView',
 		'ThreadWatchView' => 'ThreadWatchView',
 		'SummaryPageView' => 'SummaryPageView'
-	);
-
+		);
+		
 	/** static cache of per-page LiquidThreads activation setting */
 	static $userLQTActivated;
 
 	static function talkpageMain( &$output, &$article, &$title, &$user, &$request ) {
 		// We are given a talkpage article and title. Fire up a TalkpageView
-
+		
 		if ( $title->getNamespace() == NS_LQT_THREAD + 1 /* talk page */ ) {
 			// Threads don't have talk pages; redirect to the thread page.
 			$output->redirect( $title->getSubjectPage()->getFullUrl() );
 			return false;
 		}
-
+		
 		// If we came here from a red-link, redirect to the thread page.
 		$redlink = $request->getCheck( 'redlink' ) &&
 					$request->getText( 'action' ) == 'edit';
-		if ( $redlink ) {
+		if( $redlink ) {
 			$output->redirect( $title->getFullURL() );
 			return false;
 		}
 
 		/* Certain actions apply to the "header", which is stored in the actual talkpage
-		 * in the database. Drop everything and behave like a normal page if those
-		 * actions come up, to avoid hacking the various history, editing, etc. code.
-		 */
+		   in the database. Drop everything and behave like a normal page if those
+		   actions come up, to avoid hacking the various history, editing, etc. code. */
 		$action =  $request->getVal( 'action' );
 		$header_actions = array( 'history', 'edit', 'submit', 'delete' );
 		global $wgRequest;
-		if ( $action == 'edit' && $request->getVal( 'section' ) == 'new' ) {
+		if ($action == 'edit' && $request->getVal('section') == 'new') {
 			// Hijack section=new for "new thread".
 			$request->setVal( 'lqt_method', 'talkpage_new_thread' );
 			$request->setVal( 'section', '' );
-
+			
 			$viewname = self::$views['TalkpageView'];
-
+			
 		} elseif ( $request->getVal( 'lqt_method', null ) === null &&
 				( in_array( $action, $header_actions ) ||
 					$request->getVal( 'diff', null ) !== null ) ) {
@@ -65,6 +64,7 @@ class LqtDispatch {
 	}
 
 	static function threadPermalinkMain( &$output, &$article, &$title, &$user, &$request ) {
+
 		$action =  $request->getVal( 'action' );
 		$lqt_method = $request->getVal( 'lqt_method' );
 
@@ -88,7 +88,7 @@ class LqtDispatch {
 		} else {
 			$viewname = self::$views['ThreadPermalinkView'];
 		}
-
+		
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		return $view->show();
 	}
@@ -98,28 +98,29 @@ class LqtDispatch {
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		return $view->show();
 	}
-
+	
 	static function isLqtPage( $title ) {
 		global $wgLqtPages, $wgLqtTalkPages;
-		$isTalkPage = ( $title->isTalkPage() && $wgLqtTalkPages ) ||
+		$isTalkPage = ($title->isTalkPage() && $wgLqtTalkPages) ||
 						in_array( $title->getPrefixedText(), $wgLqtPages ) ||
 						self::hasUserEnabledLQT( $title->getArticleId() );
-
+		
 		return $isTalkPage;
 	}
-
+	
 	static function hasUserEnabledLQT( $article ) {
-		if ( is_object( $article ) ) {
+	
+		if (is_object($article)) {
 			$article = $article->getId();
 		}
-
+		
 		// Instance cache
 		if ( isset( self::$userLQTActivated[$article] ) ) {
 			$cacheVal = self::$userLQTActivated[$article];
 
 			return $cacheVal;
 		}
-
+		
 		// Memcached: It isn't clear that this is needed yet, but since I already wrote the
 		//  code, I might as well leave it commented out instead of deleting it.
 		//  Main reason I've left this commented out is because it isn't obvious how to
@@ -134,21 +135,15 @@ class LqtDispatch {
 // 				return $wgLqtThreadArchiveStartDays;
 // 			}
 // 		}
-
+		
 		// Load from the database.
 		$dbr = wfGetDB( DB_SLAVE );
-
-		$dbVal = $dbr->selectField(
-			'page_props',
-			'pp_value',
-			array(
-				'pp_propname' => 'use-liquid-threads',
-				'pp_page' => $article
-			),
-			__METHOD__
-		);
-
-		if ( $dbVal ) {
+		
+		$dbVal = $dbr->selectField( 'page_props', 'pp_value',
+									array( 'pp_propname' => 'use-liquid-threads',
+											'pp_page' => $article ), __METHOD__ );
+		
+		if ($dbVal) {
 			self::$userLQTActivated[$article] = true;
 #			$wgMemc->set( $key, $dbVal, 1800 );
 			return true;

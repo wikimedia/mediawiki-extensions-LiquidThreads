@@ -13,15 +13,10 @@ class NewUserMessagesView extends LqtView {
 		$html = '';
 		$html .= Xml::hidden( 'lqt_method', 'mark_as_read' );
 		$html .= Xml::hidden( 'lqt_operand', $ids_s );
-		$html .= Xml::submitButton(
-			$label,
-			array(
-				'name' => 'lqt_read_button',
-				'title' => $title
-			)
-		);
+		$html .= Xml::submitButton( $label, array( 'name' => 'lqt_read_button',
+									'title' => $title ) );
 		$html = Xml::tags( 'form', array( 'method' => 'post', 'class' => $class ), $html );
-
+		
 		return $html;
 	}
 
@@ -29,56 +24,49 @@ class NewUserMessagesView extends LqtView {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$ids =  array_map( create_function( '$t', 'return $t->id();' ), $threads ); // ew
 		return $this->htmlForReadButton(
-			wfMsg( 'lqt-read-all' ),
-			wfMsg( 'lqt-read-all-tooltip' ),
-			"lqt_newmessages_read_all_button",
-			$ids
-		);
+					wfMsg( 'lqt-read-all' ),
+					wfMsg( 'lqt-read-all-tooltip' ),
+					"lqt_newmessages_read_all_button",
+					$ids
+				);
 	}
 
 	function getUndoButton( $ids ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-
+		
 		if ( count( $ids ) == 1 ) {
 			$t = Threads::withId( $ids[0] );
 			if ( !$t )
 				return; // empty or just bogus operand.
-			$msg = wfMsgExt( 'lqt-marked-read', 'parseinline', array( $t->subject() )  );
+			$msg = wfMsgExt( 'lqt-marked-read', 'parseinline', array($t->subject())  );
 		} else {
 			$count = count( $ids );
-			$msg =  wfMsgExt( 'lqt-count-marked-read', 'parseinline', array( $count ) );
+			$msg =  wfMsgExt( 'lqt-count-marked-read', 'parseinline', array($count) );
 		}
 		$operand = implode( ',', $ids );
-
+		
 		$html = '';
 		$html .= $msg;
 		$html .= Xml::hidden( 'lqt_method', 'mark_as_unread' );
 		$html .= Xml::hidden( 'lqt_operand', $operand );
-		$html .= Xml::submitButton(
-			wfMsg( 'lqt-email-undo' ),
-			array(
-				'name' => 'lqt_read_button',
-				'title' => wfMsg( 'lqt-email-info-undo' )
-			)
-		);
-
-		$html = Xml::tags(
-			'form',
-			array( 'method' => 'post', 'class' => 'lqt_undo_mark_as_read' ),
-			$html
-		);
-
+		$html .= Xml::submitButton( wfMsg('lqt-email-undo'), array( 'name' => 'lqt_read_button',
+					'title' => wfMsg( 'lqt-email-info-undo' ) ) );
+					
+		$html = Xml::tags( 'form',
+							array( 'method' => 'post', 'class' => 'lqt_undo_mark_as_read' ),
+							$html );
+		
 		return $html;
 	}
 
 	function postDivClass( $thread ) {
 		$origClass = parent::postDivClass( $thread );
-
+		
 		$topid = $thread->topmostThread()->id();
-
+		
 		if ( in_array( $thread->id(), $this->targets[$topid] ) )
 			return "$origClass lqt_post_new_message";
-
+		
 		return $origClass;
 	}
 
@@ -94,13 +82,11 @@ class NewUserMessagesView extends LqtView {
 
 		if ( $this->request->wasPosted() && $this->methodApplies( 'mark_as_unread' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand', '' ) );
-
+			
 			if ( $ids !== false ) {
 				foreach ( $ids as $id ) {
-					$tmp_thread = Threads::withId( $id );
-					if ( $tmp_thread ) {
+					$tmp_thread = Threads::withId( $id );	if ( $tmp_thread )
 						NewMessages::markThreadAsUnReadByUser( $tmp_thread, $this->user );
-					}
 				}
 				$this->output->redirect( $this->title->getFullURL() );
 			}
@@ -109,9 +95,8 @@ class NewUserMessagesView extends LqtView {
 			if ( $ids !== false ) {
 				foreach ( $ids as $id ) {
 					$tmp_thread = Threads::withId( $id );
-					if ( $tmp_thread ) {
+					if ( $tmp_thread )
 						NewMessages::markThreadAsReadByUser( $tmp_thread, $this->user );
-					}
 				}
 				$query = 'lqt_method=undo_mark_as_read&lqt_operand=' . implode( ',', $ids );
 				$this->output->redirect( $this->title->getFullURL( $query ) );
@@ -126,7 +111,7 @@ class NewUserMessagesView extends LqtView {
 		if ( ! is_array( $this->threads ) ) {
 			throw new MWException( 'You must use NewUserMessagesView::setThreads() before calling NewUserMessagesView::show().' );
 		}
-
+		
 		if ( $this->request->getBool( 'lqt_inline' ) ) {
 			$this->doInlineEditForm();
 			return false;
@@ -139,10 +124,10 @@ class NewUserMessagesView extends LqtView {
 		$this->tops = array();
 		foreach ( $this->threads as $t ) {
 			$top = $t->topmostThread();
-
+			
 			// It seems that in some cases $top is zero.
-			if ( !$top )
-				throw new MWException( "{$t->id()} seems to have no topmost thread" );
+			if (!$top)
+				throw new MWException("{$t->id()} seems to have no topmost thread");
 
 			if ( !array_key_exists( $top->id(), $this->tops ) )
 				$this->tops[$top->id()] = $top;
@@ -150,7 +135,7 @@ class NewUserMessagesView extends LqtView {
 				$this->targets[$top->id()] = array();
 			$this->targets[$top->id()][] = $t->id();
 		}
-
+		
 		$this->output->addHTML( '<table><tbody>' );
 
 		foreach ( $this->tops as $t ) {
@@ -160,39 +145,34 @@ class NewUserMessagesView extends LqtView {
 
 			$this->showWrappedThread( $t );
 		}
-
+		
 		$this->output->addHTML( '</tbody></table>' );
-
+		
 		return false;
 	}
-
+	
 	function showWrappedThread( $t ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-
+		
 		$read_button = $this->htmlForReadButton(
 			wfMsg( 'lqt-read-message' ),
 			wfMsg( 'lqt-read-message-tooltip' ),
 			'lqt_newmessages_read_button',
 			$this->targets[$t->id()] );
-
+		
 		// Left-hand column Ñ read button and context link to the full thread.
 		$topmostThread = $t->topmostThread();
-		$contextLink = self::permalink(
-			$topmostThread,
-			wfMsgExt( 'lqt-newmessages-context', 'parseinline' )
-		);
+		$contextLink = self::permalink( $topmostThread,
+						wfMsgExt( 'lqt-newmessages-context', 'parseinline' ) );
 		$leftColumn = Xml::tags( 'p', null, $read_button ) .
 						Xml::tags( 'p', null, $contextLink );
-		$leftColumn = Xml::tags(
-			'td',
-			array( 'class' => 'mw-lqt-newmessages-left' ),
-			$leftColumn
-		);
+		$leftColumn = Xml::tags( 'td', array( 'class' => 'mw-lqt-newmessages-left' ),
+									$leftColumn );
 		$html = "<tr>$leftColumn<td>";
 		$this->output->addHTML( $html );
 
 		$this->showThread( $t );
-
+		
 		$this->output->addHTML( "</td></tr>" );
 	}
 

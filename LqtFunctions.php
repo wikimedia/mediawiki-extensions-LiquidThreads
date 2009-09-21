@@ -19,7 +19,7 @@ function efArrayDefault( $name, $key, $default ) {
  * Recreate the original associative array so that a new pair with the given key
  * and value is inserted before the given existing key. $original_array gets
  * modified in-place.
- */
+*/
 function efInsertIntoAssoc( $new_key, $new_value, $before, &$original_array ) {
 	$ordered = array();
 	$i = 0;
@@ -44,7 +44,7 @@ function lqtFormatMoveLogEntry( $type, $action, $title, $sk, $parameters ) {
 
 function lqtSetupParserFunctions() {
 	global $wgParser;
-
+	
 	$wgParser->setFunctionHook( 'useliquidthreads',
 				array( 'LqtParserFunctions', 'useLiquidThreads' ) );
 	return true;
