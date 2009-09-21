@@ -27,6 +27,8 @@ class LqtView {
 	protected $sort_order = LQT_NEWEST_CHANGES;
 	
 	static $stylesAndScriptsDone = false;
+	
+	static $userSignatureCache = array();
 
 	function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		$this->article = $article;
@@ -826,11 +828,8 @@ class LqtView {
 		$sk = $wgUser->getSkin();
 		
 		$author = $thread->author();
-		$signature = $sk->userLink( $author->getId(), $author->getName() );
-		$signature = '&mdash; '. Xml::tags( 'span', array( 'class' => 'lqt-thread-author' ),
-								$signature );
-		$signature .= $sk->userToolLinks( $author->getId(), $author->getName() );
 		
+		$signature = $this->getSignature( $author );
 		$signature = Xml::tags( 'div', array( 'class' => 'lqt-thread-signature' ),
 								$signature );
 		
@@ -1193,5 +1192,34 @@ class LqtView {
 	
 	function showSummary( $t ) {
 		$this->output->addHTML( $this->getSummary( $t ) );
+	}
+	
+	function getSignature( $user ) {
+		if ( is_object($user) ) {
+			$uid = $user->getId();
+		} elseif ( is_integer($user) ) {
+			$uid = $user;
+			$user = null;
+		} else {
+			$user = User::newFromName( $user );
+			$uid = $user->getId();
+		}
+		
+		if ( isset( self::$userSignatureCache[$uid] ) ) {
+			return self::$userSignatureCache[$uid];
+		}
+		
+		if (!$user) {
+			$user = User::newFromId( $uid );
+		}
+		
+		global $wgParser, $wgOut;
+		
+		$sig = $wgParser->getUserSig( $user );
+		$sig = $wgOut->parseInline( $sig );
+		
+		self::$userSignatureCache[$uid] = $sig;
+		
+		return $sig;
 	}
 }

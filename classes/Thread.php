@@ -364,6 +364,7 @@ class Thread {
 		$all_thread_rows = $rows;
 		$pageIds = array();
 		$linkBatch = new LinkBatch();
+		$userIds = array();
 		
 		if (!is_array(self::$replyCacheById)) {
 			self::$replyCacheById = array();
@@ -460,9 +461,49 @@ class Thread {
 			$linkBatch->addObj( $t );
 			
 			User::$idCacheByName[$row->thread_author_name] = $row->thread_author_id;
+			$userIds[$row->thread_author_id] = true;
 			
 			if ( $row->thread_parent ) {
 				self::$replyCacheById[$row->thread_parent][$row->thread_id] = $thread;
+			}
+		}
+		
+		$userIds = array_keys($userIds);
+		
+		// Pull signature data and pre-cache in View object.		
+		if ( count($userIds) ) {
+			$signatureDataCache = array_fill_keys( $userIds, array() );
+			$res = $dbr->select( 'user_properties',
+									array( 'up_user', 'up_property', 'up_value' ),
+									array( 'up_property' => array('nickname', 'fancysig'),
+											'up_user' => $userIds ),
+									__METHOD__ );
+			
+			foreach( $res as $row ) {
+				$signatureDataCache[$row->up_user][$row->up_property] = $row->up_value;
+			}
+			
+			global $wgParser, $wgOut;
+			
+			foreach( $userIds as $uid ) {
+				$user = User::newFromId($uid); // Should pull from UID cache.
+				
+				// Grab sig data
+				$nickname = null;
+				$fancysig = (bool)User::getDefaultOption( 'fancysig' );
+				
+				if ( isset($signatureDataCache[$uid]['nickname']) )
+					$nickname = $signatureDataCache[$uid]['nickname'];
+				if( isset($signatureDataCache[$uid]['fancysig']) )
+					$fancysig = $signatureDataCache[$uid]['fancysig'];
+					
+				// Generate signature from Parser
+				
+				$sig = $wgParser->getUserSig( $user, $nickname, $fancysig );
+				$sig = $wgOut->parseInline( $sig );
+				
+				// Save into LqtView for later use.
+				LqtView::$userSignatureCache[$uid] = $sig;
 			}
 		}
 		
