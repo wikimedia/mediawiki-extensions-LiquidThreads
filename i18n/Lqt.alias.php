@@ -106,6 +106,17 @@ $aliases['gsw'] = array(
 	'NewMessages' => array( 'Neji Nochrichte' ),
 );
 
+/** Hebrew (עברית)
+ * @author Rotem Liss
+ */
+$aliases['he'] = array(
+	'DeleteThread' => array( 'מחיקת_שרשור' ),
+	'MoveThread' => array( 'העברת_שרשור' ),
+	'NewMessages' => array( 'הודעות_חדשות' ),
+	'SplitThread' => array( 'פיצול_שרשור' ),
+	'MergeThread' => array( 'מיזוג_שרשור' ),
+);
+
 /** Upper Sorbian (Hornjoserbsce) */
 $aliases['hsb'] = array(
 	'DeleteThread' => array( 'Nitku wušmórnyć' ),
