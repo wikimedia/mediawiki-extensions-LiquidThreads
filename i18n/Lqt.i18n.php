@@ -272,6 +272,7 @@ You can see it at <$6>",
  * @author Jon Harald Søby
  * @author Malafaya
  * @author Minh Nguyen
+ * @author Mormegil
  * @author Purodha
  * @author SPQRobin
  * @author Siebrand
@@ -290,12 +291,14 @@ $messages['qqq'] = array(
 
 :Probably a verb; see also {{msg-mw|Lqt delete}} and {{msg-mw|Lqt undelete}}.',
 	'lqt_delete' => '{{Identical|Delete}}',
-	'lqt_permalink' => 'Text for a link to the thread summary.',
+	'lqt_permalink' => 'Text for a link to the specific object (e.g. thread summary or discussion fragment).',
 	'lqt_fragment' => 'Parameters:
 * $1 is a link with {{msg-mw|lqt_discussion_link}} as text
 * $2 is a link to the talk page
 <!-- as used in /pages/ThreadPermalinkView.php -->',
-	'lqt_discussion_link' => '{{Identical|Discussion}}',
+	'lqt_discussion_link' => 'Link text inserted into {{msg-mw|lqt_fragment}} as $1
+
+{{Identical|Discussion}}',
 	'lqt_from_talk' => 'Used as page subtitle. Parameters:
 * $1 is a link to a talk page (for example "User talk:Foo")',
 	'lqt_newer' => '{{Identical|Newer}}',
@@ -305,7 +308,9 @@ $messages['qqq'] = array(
 * $2 is a date
 * $3 is a time',
 	'lqt_youhavenewmessages' => '{{Identical|New messages}}
-* $1 is a link to the new message or messages. The number of new messages is unknown.',
+* $1 is a link to the new message or messages.
+
+{{doc-important|No PLURAL here! (The number of new messages is unknown.)}}',
 	'lqt_protectedfromreply' => '$1 is replaced with {{msg-mw|Lqt protectedfromreply link}}',
 	'lqt_protectedfromreply_link' => '{{Identical|Protected}}',
 	'lqt_subject' => '{{Identical|Subject}}',
@@ -322,6 +327,7 @@ $messages['qqq'] = array(
 	'lqt_move_noreason' => '{{Identical|No reason given}}',
 	'lqt_delete_return' => '{{Identical|Return to $1}}',
 	'lqt_header_warning_after_big' => '$2 is {{msg-mw|Lqt header warning new discussion}}',
+	'lqt_header_warning_bold' => 'Bolded text in {{msg-mw|lqt_header_warning_big}}, followed by {{msg-mw|lqt_header_warning_after_big}} + {{msg-mw|lqt_header_warning_new_discussion}}.',
 	'lqt_header_warning_new_discussion' => 'This message is $2 in {{msg-mw|Lqt header warning after big}}
 {{Identical|Start a new discussion}}',
 	'lqt-any-date' => '{{Identical|Date}}',
@@ -831,6 +837,7 @@ $messages['bcc'] = array(
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Mormegil
  */
 $messages['be-tarask'] = array(
 	'lqt-desc' => 'Дадае галіны абмеркаваньняў у старонкі абмеркаваньняў',
@@ -898,7 +905,7 @@ $messages['be-tarask'] = array(
 	'lqt_change_merged_from' => 'Адказ на гэту галіну быў перанесены ў іншую галіну',
 	'lqt_change_merged_to' => 'Пазначаны адказ быў перанесены зь іншай галіны',
 	'lqt_change_split_from' => 'Падгаліна гэтай галіны была выдзелена ў асобную галіну',
-	'lqt_youhavenewmessages' => 'Вы атрымалі [$1 {{PLURAL:$1|новае паведамленьне|новых паведамленьні|новых паведамленьняў}}].',
+	'lqt_youhavenewmessages' => 'Вы атрымалі [$1 новых паведамленьні].',
 	'lqt_protectedfromreply' => 'Гэта галіна была $1 ад адказаў на яе.',
 	'lqt_protectedfromreply_link' => 'абаронена',
 	'lqt_subject' => 'Тэма:',
@@ -1626,6 +1633,123 @@ $messages['ch'] = array(
 	'lqt_discussion_link' => 'kombetsasion',
 );
 
+/** Czech (Česky)
+ * @author Mormegil
+ */
+$messages['cs'] = array(
+	'lqt-desc' => 'Umožňuje uspořádávat diskusní stránky do vláken',
+	'lqt_newmessages' => 'Nové zprávy',
+	'lqt_movethread' => 'Přesunout vlákno na jinou stránku',
+	'lqt_contents_title' => 'Obsah',
+	'lqt_toc_thread_title' => 'Název vlákna',
+	'lqt_toc_thread_author' => 'Zakladatel',
+	'lqt_toc_thread_replycount' => 'Odpovědí',
+	'lqt_toc_thread_modified' => 'Poslední změna',
+	'lqt_add_header' => 'Přidat záhlaví',
+	'lqt_new_thread' => 'Začít novou diskusi',
+	'lqt_invalid_subject' => 'Zadaný předmět není platný.
+Možná, že:
+* obsahuje neplatné znaky, např. []{}&lt;&gt;,
+* je příliš dlouhý,
+* koliduje s prefixem interwiki nebo názvem jmenného prostoru.',
+	'lqt_reply' => 'Odpovědět',
+	'lqt_permalink' => 'Odkaz sem',
+	'lqt_fragment' => 'Fragment $1 z $2',
+	'lqt_discussion_link' => 'diskuse',
+	'lqt_from_talk' => 'Z $1',
+	'lqt-history-title' => 'Historie vlákna',
+	'lqt_hist_comment_edited' => 'Byl editován text komentáře',
+	'lqt_hist_summary_changed' => 'Upraveno shrnutí',
+	'lqt_hist_reply_created' => 'Přidána nová odpověď',
+	'lqt_hist_thread_created' => 'Založeno nové vlákno',
+	'lqt_hist_deleted' => 'Smazáno',
+	'lqt_hist_listing_subtitle' => 'Prohlížení výpisu historie',
+	'lqt_hist_view_whole_thread' => 'Zobrazit historii celého vlákna',
+	'lqt_hist_split' => 'Odpověď oddělena do nového vlákna',
+	'lqt_hist_merged_from' => 'Odpověď přesunuta do jiného vlákna',
+	'lqt_hist_merged_to' => 'Odpověď přesunuta z jiného vlákna',
+	'lqt_hist_split_from' => 'Odděleno do nového vlákna',
+	'lqt_revision_as_of' => 'Verze z $2, $3.',
+	'lqt_change_new_thread' => 'Toto je počáteční verze vlákna.',
+	'lqt_change_reply_created' => 'V této verzi byl vytvořen zvýrazněný komentář.',
+	'lqt_change_edited_root' => 'V této verzi byl změněn zvýrazněný komentář.',
+	'lqt_change_edited_summary' => 'Bylo změněno shrnutí vlákna',
+	'lqt_change_split' => 'Toto vlákno bylo odděleno z jiného',
+	'lqt_change_merged_from' => 'Odpověď v tomto vlákně byla přesunuta do jiného vlákna',
+	'lqt_change_merged_to' => 'Zvýrazněná odpověď byla přesunuta z jiného vlákna',
+	'lqt_change_split_from' => 'Část tohoto vlákna byla oddělena do samostatného vlákna',
+	'lqt_youhavenewmessages' => 'Máte [$1 nové zprávy].',
+	'lqt_subject' => 'Předmět:',
+	'lqt_nosubject' => '«bez předmětu»',
+	'lqt_summary_label' => 'Shrnutí tohoto vlákna:',
+	'lqt_summary_subtitle' => 'Shrnutí „$1“',
+	'lqt_move_movingthread' => 'Přesouvá se $1.
+Toto vlákno je částí $2.',
+	'lqt_move_torename' => 'Pro přejmenování vlákna ho $1 a změňte obsah pole „Předmět“.',
+	'lqt_move_torename_edit' => 'editujte',
+	'lqt_move_destinationtitle' => 'Název cílové diskusní stránky:',
+	'lqt_move_move' => 'Přesunout',
+	'lqt_move_nodestination' => 'Musíte zadat cíl.',
+	'lqt_move_thread_bad_destination' => 'Cílová stránka není diskuse.',
+	'lqt_move_samedestination' => 'Vlákno už na této stránce je!',
+	'lqt_move_noreason' => 'Důvod nebyl zadán.',
+	'lqt_move_success' => 'Vlákno bylo přesunuto na $1.',
+	'lqt_header_warning_big' => 'Editujete $1.',
+	'lqt_header_warning_after_big' => 'Záhlaví jsou určena pro oznámení a úvody.
+Možná chcete spíše $2.',
+	'lqt_header_warning_bold' => 'záhlaví diskusní stránky',
+	'lqt_header_warning_new_discussion' => 'začít novou diskusi',
+	'lqt_sorting_order' => 'Řazení:',
+	'lqt_sort_newest_changes' => 'naposledy změněné nahoře',
+	'lqt_sort_newest_threads' => 'nejnovější vlákna nahoře',
+	'lqt_sort_oldest_threads' => 'nejstarší vlákna nahoře',
+	'lqt-read-message' => 'Označit jako přečtené',
+	'lqt-read-message-tooltip' => 'Odstraní toto vlákno z nových zpráv.
+I nadále bude zobrazeno na původní diskusní stránce.',
+	'lqt-read-all' => 'Označit vše jako přečtené',
+	'lqt-read-all-tooltip' => 'Odstraní všechna vlákna z nových zpráv.
+I nadále budou zobrazena na původních diskusních stránkách.
+Tuto operaci lze vrátit zpět.',
+	'lqt-marked-read' => "Vlákno '''$1''' bylo označeno jako přečtené.",
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|zpráva|zprávy|zpráv}} {{PLURAL:$1|označena za přečtenou|označeno za přečtené}}.',
+	'lqt-email-undo' => 'Vrátit',
+	'lqt-messages-sent' => 'Zprávy poslané vám:',
+	'lqt-other-messages' => 'Zprávy na jiných diskusních stránkách:',
+	'lqt-no-new-messages' => 'Nemáte žádné nové zprávy.',
+	'lqt-new-messages' => '&#x2712; Máte nové zprávy.',
+	'lqt-email-info-undo' => 'Vrátí zpět vlákno, které jste právě {{GENDER:|odbyl|odbyla|odbyli}}.',
+	'lqt-newmessages-context' => 'Celé vlákno',
+	'lqt-history-time' => 'Čas',
+	'lqt-history-user' => 'Uživatel',
+	'lqt-history-action' => 'Událost',
+	'lqt-history-comment' => 'Komentář',
+	'lqt_summarize_link' => 'Shrnout',
+	'lqt-summarize-intro' => 'Napište shrnutí níže zobrazeného vlákna do editačního okna.
+Ve shrnutí můžete používat libovolný wikitext. Až budete {{GENDER:|hotov|hotova|hotovi}}, klikněte na „{{int:savearticle}}“.',
+	'lqt-thread-split' => 'Oddělit do nového vlákna',
+	'lqt-split-success' => 'Úspěšně jste {{GENDER:|oddělil|oddělila|oddělili}} vlákno $1.',
+	'lqt_split_thread' => 'Oddělit vlákno',
+	'lqt-thread-split-subject' => 'Předmět nového vlákna:',
+	'lqt-thread-split-thread' => 'Vlákno:',
+	'lqt-split-submit' => 'Oddělit',
+	'lqt_split_badsubject' => 'Zadaný předmět není platný.',
+	'lqt-no-threads' => 'Na této stránce zatím nejsou žádná diskusní vlákna.',
+	'lqt-thread-merge' => 'Sloučit do jiného vlákna',
+	'lqt-thread-merge-to' => 'Sloučit do tohoto vlákna',
+	'lqt_merge_thread' => 'Sloučit vlákna',
+	'lqt-thread-merge-source' => 'Zdrojové vlákno:',
+	'lqt-thread-merge-dest' => 'Cílové vlákno:',
+	'lqt-merge-submit' => 'Sloučit',
+	'lqt-merge-success' => 'Úspěšně jste {{GENDER:|sloučil|sloučila|sloučili}} vlákno $1 pod $2.',
+	'lqt-quote' => 'Citovat',
+	'lqt-search-label' => 'Hledané výrazy:',
+	'lqt-search-button' => 'Hledat',
+	'searchprofile-threads' => 'Diskuse',
+	'searchprofile-threads-tooltip' => 'Prohledávat diskuse a diskusní vlákna',
+	'lqt-ajax-updated' => 'V tomto vlákně jsou nové příspěvky.',
+	'lqt-ajax-update-link' => 'Aktualizovat',
+);
+
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
@@ -1990,7 +2114,7 @@ $messages['dsb'] = array(
 	'lqt_change_merged_from' => 'Wótegrono w toś tej nitce jo se do drugeje nitki pśesunuło',
 	'lqt_change_merged_to' => 'Wuzwignjone wótegrono jo se z drugeje nitki pśesunuło',
 	'lqt_change_split_from' => 'Pódnitka toś teje nitki jo se do swójeje nitki wótźěliła',
-	'lqt_youhavenewmessages' => 'Maš [$1 {{PLURAL:$1|nowu powěsć|nowej powěsći|nowe powěsći|nowych powěsćow}}].',
+	'lqt_youhavenewmessages' => 'Maš [$1 nowe powěsći].',
 	'lqt_protectedfromreply' => 'Toś ta nitka jo była $1 pśeśiwo wótegrono na nju.',
 	'lqt_protectedfromreply_link' => 'šćitany',
 	'lqt_subject' => 'Tema:',
@@ -2448,19 +2572,24 @@ $messages['eo'] = array(
  * @author Sanbec
  */
 $messages['es'] = array(
+	'lqt-desc' => 'Agregar discusiones en hilos a páginas de discusión',
 	'lqt-nothread' => 'No hay hilos en el archivo.',
 	'lqt_newmessages' => 'Nuevos mensajes',
+	'lqt_movethread' => 'Mover hilo a otra página',
+	'lqt_deletethread' => 'Borrar o reestablecer hilo',
 	'lqt_archive_month_annotation' => 'de $1',
 	'lqt_archive_month_range_annotation' => 'entre $1 y $2',
 	'lqt_browse_archive_without_recent' => 'Ver hilos archivados',
 	'lqt_browse_archive_with_recent' => 'más antiguo',
 	'lqt_recently_archived' => 'Recientemente archivado:',
 	'lqt_contents_title' => 'Contenidos',
+	'lqt_toc_thread_title' => 'Título de hilo',
 	'lqt_toc_thread_author' => 'Comenzado por',
 	'lqt_toc_thread_replycount' => 'Respuestas',
 	'lqt_toc_thread_modified' => 'Última modificación',
 	'lqt_add_header' => 'Agregar encabezado',
 	'lqt_new_thread' => 'Comenzar una nueva discusión',
+	'lqt_subject_change_forbidden' => 'No puedes cambiar el tema para este hilo porque no estás permitido de mover páginas',
 	'lqt_edited_notice' => 'Editado',
 	'lqt_reply' => 'Responder',
 	'lqt_delete' => 'Borrar',
@@ -2471,6 +2600,7 @@ $messages['es'] = array(
 	'lqt_from_talk' => 'De $1',
 	'lqt_newer' => '←más nuevo',
 	'lqt_older' => 'más antiguo →',
+	'lqt-history-title' => 'Historial de hilo',
 	'lqt_hist_comment_edited' => 'Texto de comentario editado',
 	'lqt_hist_summary_changed' => 'Resumen cambió',
 	'lqt_hist_reply_created' => 'Nueva respuesta creada',
@@ -2480,33 +2610,61 @@ $messages['es'] = array(
 	'lqt_hist_moved_talkpage' => 'Trasladado',
 	'lqt_hist_listing_subtitle' => 'Viendo un listado de historiales',
 	'lqt_hist_view_whole_thread' => 'Ver historial del todo el hilo',
+	'lqt_hist_no_revisions_error' => 'Este hilo no tiene revisiones de historial.',
 	'lqt_hist_tooltip_newer_disabled' => 'Este vínculo está deshabilitado porque estás en la primera página.',
 	'lqt_hist_tooltip_older_disabled' => 'Este vínculo está deshabilitado porque estás en la última página.',
 	'lqt_hist_edited_subject' => 'Tema editado',
 	'lqt_change_new_thread' => 'Esta es la revisión inicial del hilo.',
 	'lqt_change_reply_created' => 'El comentario resaltado fue creado en esta revisión.',
 	'lqt_change_edited_root' => 'El comentario resaltado fue editado en esta revisión.',
+	'lqt_change_deleted' => 'Este hilo o una respuesta a él fue borrada',
+	'lqt_change_moved' => 'Este hilo fue movido a otra página de discusión',
+	'lqt_change_subject_edited' => 'El tema de este hilo fue cambiado',
+	'lqt_change_merged_from' => 'Una respuesta a este hilo fue movida a otro hilo',
 	'lqt_youhavenewmessages' => 'Tienes [$1 nuevos mensajes].',
 	'lqt_protectedfromreply_link' => 'protegido',
 	'lqt_subject' => 'Tema:',
 	'lqt_nosubject' => '«sin tema»',
 	'lqt_noreason' => 'No se da ninguna razón',
+	'lqt_thread_deleted_for_sysops' => "Este hilo ha sido '''borrado''' y es solamente visible para los administradores.",
+	'lqt_thread_deleted' => 'Este hilo ha sido borrado.',
 	'lqt_summary_notice_link' => 'escribir un resumen',
+	'lqt_summary_label' => 'Este hilo ha sido resumido como sigue:',
 	'lqt_summary_subtitle' => 'Resumen de "$1"',
+	'lqt_nosuchrevision' => 'No hay tal revisión de este hilo.',
+	'lqt_nosuchthread' => 'El hilo que has especificado no existe.',
+	'lqt_nosuchthread_title' => 'No hay al hilo',
+	'lqt_threadrequired' => 'Debes especificar un hilo en el URL.',
+	'lqt_move_movingthread' => 'Moviendo $1
+Este hilo es parte de $2.',
 	'lqt_move_torename_edit' => 'edítalo',
 	'lqt_move_destinationtitle' => 'Título de la página de discusión de destino:',
 	'lqt_move_move' => 'Trasladar',
 	'lqt_move_nodestination' => 'Debes especificar un destino.',
+	'lqt_move_thread_bad_destination' => 'La página de destino no es una página de discusión.',
+	'lqt_move_samedestination' => 'El hilo ya está en esta página!',
 	'lqt_move_noreason' => 'No se da ninguna razón',
+	'lqt_move_success' => 'El hilo fue movido a $1',
 	'lqt_delete_undeleting' => "Restaurando '''$1'''.",
+	'lqt_delete_undeletethread' => 'Hilo reestablecido',
+	'lqt_delete_partof' => "Este hilo es parte de '''$1'''.",
 	'lqt_delete_deleting' => "Borrando '''$1''' y '''todas las respuestas''' a él.",
+	'lqt_delete_deletethread' => 'Borrar hilo y respuestas',
+	'lqt_delete_deleted' => 'El hilo fue borrado.',
+	'lqt_delete_undeleted' => 'El hilo fue reestablecido.',
 	'lqt_delete_return' => 'Volver a $1.',
 	'lqt_delete_return_link' => 'la página de discusión',
+	'lqt_delete_unallowed' => 'No se te permite borrar hilos',
 	'lqt_delete_show_checkbox' => 'Mostrar hilos borrados',
+	'lqt_talkpage_autocreate_summary' => 'Página de discusión cuando el primer hilo fue creado.',
 	'lqt_header_warning_big' => 'Estás editando un $1.',
+	'lqt_header_warning_after_big' => 'Encabezados son para anuncios y prefacios.
+Tal vez quieras en su lugar $2.',
 	'lqt_header_warning_bold' => 'encabezado de página de discusión',
 	'lqt_header_warning_new_discussion' => 'comenzar una nueva discusión',
 	'lqt_sort_newest_changes' => 'últimos modificados primero',
+	'lqt_sort_newest_threads' => 'Hilos más nuevos primero',
+	'lqt_sort_oldest_threads' => 'Hilos más antiguos primero',
 	'lqt-any-date' => 'Cualquier fecha',
 	'lqt-only-date' => 'Sólo estas fechas:',
 	'lqt-date-from' => 'de',
@@ -2515,39 +2673,74 @@ $messages['es'] = array(
 	'lqt-summary' => 'Sumario',
 	'lqt-older' => 'más antiguo',
 	'lqt-newer' => 'más nuevo',
+	'lqt-searching' => 'Buscar hilos',
 	'lqt-read-message' => 'Marcar como leído',
 	'lqt-read-all' => 'Marcar todos como leídos',
+	'lqt-marked-read' => "Hilo '''$1''' marcado como leído.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mensaje|mensajes}} marcados como leídos.',
 	'lqt-email-undo' => 'Deshacer',
 	'lqt-messages-sent' => 'Mensajes enviados a ti:',
 	'lqt-other-messages' => 'Mensajes en otras páginas de discusión:',
 	'lqt-no-new-messages' => 'No hay nuevos mensajes para ti.',
 	'lqt-new-messages' => '&#x2712; Hay nuevos mensajes para ti.',
+	'lqt-date-info' => 'Este enlace está deshabilitado porque estás viendo hilos de todas las fechas.',
 	'lqt_rc_new_discussion' => 'Nueva discusión "$1", en $2 &bull; $3 escribe:',
 	'lqt_rc_new_reply' => 'Respuesta a "$1", en $2 &bull; $3 escribe:',
 	'lqt_rc_author_original' => '(autor original)',
 	'lqt_rc_author_others' => '(no es el autor)',
+	'lqt-newmessages-context' => 'Hilo completo',
 	'lqt-thread-created' => 'Creado',
 	'lqt-archive-subtitle' => 'Archivo de discusión',
+	'lqt-archive-intro' => 'Este es el archivo de discusión para [[$1]].',
 	'lqt-history-time' => 'Tiempo',
 	'lqt-history-user' => 'Usuario',
 	'lqt-history-action' => 'Actividad',
 	'lqt-history-comment' => 'Comentario',
 	'lqt-thread-edited-author' => 'Editado por el autor',
+	'lqt-thread-edited-others' => 'Editado por otros usuarios',
 	'lqt-header-actions' => 'Acciones',
 	'lqt_summarize_link' => 'Resumir',
+	'lqt-thread-split' => 'Separar a un nuevo hilo',
+	'lqt_split_thread' => 'Dividir un hilo',
+	'lqt-thread-split-subject' => 'Nuevo tema en hilo:',
+	'lqt-thread-split-thread' => 'Hilo:',
 	'lqt-split-submit' => 'Dividir',
+	'lqt_split_badsubject' => 'El tema que has ingresado es inválido.',
+	'lqt-no-threads' => 'No hay hilos en esta página aún.',
+	'lqt-delete-replies-done' => 'Todas las respuestas a este hilo han sido también borradas.',
+	'right-lqt-split' => 'Separar hilos',
+	'right-lqt-merge' => 'Fusionar hilos',
+	'lqt-thread-merge' => 'Fusionar dentro de otro hilo',
+	'lqt-thread-merge-to' => 'Fusionar dentro de este hilo',
+	'lqt_merge_thread' => 'Fusionar hilo',
+	'lqt-thread-merge-source' => 'Hilo de origen:',
+	'lqt-thread-merge-dest' => 'Hilo de destino:',
 	'lqt-merge-submit' => 'Juntar',
+	'lqt-log-name' => 'Registro de discusión en hilo',
+	'lqt-log-action-move' => 'movido [[$1]] de [[$2]] a [[$3]].',
+	'lqt-preference-watch-threads' => 'Vigilar hilos que he creado o respondido',
+	'prefs-lqt' => 'Discusión en hilo',
 	'lqt-preference-display-count' => 'Número máximo de respuestas a mostrar:',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} discusión - Respuesta: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}} discusión - Nuevo hilo: $1',
 	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Discusiones de búsqueda en esta página',
 	'lqt-search-label' => 'Términos de búsqueda:',
 	'lqt-search-button' => 'Buscar',
 	'searchprofile-threads' => 'Discusiones',
+	'searchprofile-threads-tooltip' => 'Buscar discusiones en hilo y páginas de discusión',
+	'lqt-ajax-updated' => 'Este hilo tiene nuevos mensajes.',
 	'lqt-ajax-update-link' => 'Actualizar',
 	'lqt-thread-show-replies' => 'Mostrar $1 respuestas',
 	'lqt-thread-show-more' => 'Mostrar más respuestas',
+	'lqt-feed-title-all' => '{{SITENAME}} — Nuevos mensajes',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Nuevos mensajes de $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nuevos hilos',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Nuevos hilos de $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Respuestas',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respuestas de $1',
+	'lqt-feed-new-thread-intro' => 'Nuevo hilo en $1 enviado por $2',
+	'lqt-feed-reply-intro' => 'Respuesta a $3 (en $1) enviado por $2',
 );
 
 /** Estonian (Eesti)
@@ -2767,6 +2960,7 @@ Jos se on päättynyt, voi olla että haluat $1.',
  * @author Grondin
  * @author IAlex
  * @author McDutchie
+ * @author Mormegil
  * @author Peter17
  * @author PieRRoMaN
  * @author Sherbrooke
@@ -2840,7 +3034,7 @@ $messages['fr'] = array(
 	'lqt_change_merged_from' => 'Une réponse à ce fil de discussion a été déplacée vers un autre fil de discussion',
 	'lqt_change_merged_to' => 'La réponse mise en surbrillance a été déplacée depuis un autre fil de discussion',
 	'lqt_change_split_from' => 'Une sous-branche de ce fil de discussion a été séparée dans son propre fil de discussion',
-	'lqt_youhavenewmessages' => 'Vous avez [$1 {{PLURAL:$1|nouveau message|nouveaux messages}}].',
+	'lqt_youhavenewmessages' => 'Vous avez [$1 nouveaux messages].',
 	'lqt_protectedfromreply' => 'Ce fil a été $1. Vous ne pouvez y répondre.',
 	'lqt_protectedfromreply_link' => 'protégé',
 	'lqt_subject' => 'Sujet :',
@@ -4073,7 +4267,7 @@ $messages['hsb'] = array(
 	'lqt_change_merged_from' => 'Wotmołwa w tutej nitce bu do druheje nitki přesunjena',
 	'lqt_change_merged_to' => 'Wuzběhnjena wotmołwa bu z druheje nitki přesunjena',
 	'lqt_change_split_from' => 'Podnitka tuteje nitki bu do swojeje nitki wotdźělena',
-	'lqt_youhavenewmessages' => 'Maš [$1 {{PLURAL:$1|nowu powěsć|nowej powěsći|nowe powěsće|nowych powěsćow}}].',
+	'lqt_youhavenewmessages' => 'Maš [$1 nowe powěsće].',
 	'lqt_protectedfromreply' => 'Z tuteje nitki je $1 wotmołwił.',
 	'lqt_protectedfromreply_link' => 'škitany',
 	'lqt_subject' => 'Tema:',
@@ -4408,6 +4602,7 @@ $messages['ia'] = array(
 	'lqt_from_talk' => 'De $1',
 	'lqt_newer' => '←plus recente',
 	'lqt_older' => 'plus ancian→',
+	'lqt-history-title' => 'Historia del filo',
 	'lqt_hist_comment_edited' => 'Texto del commento modificate',
 	'lqt_hist_summary_changed' => 'Summario modificate',
 	'lqt_hist_reply_created' => 'Nove responsa create',
@@ -5390,7 +5585,7 @@ Künnt sin, De wells en $2 han.',
 	'lqt_header_warning_bold' => 'Der Siggekopp op Klaafsigge',
 	'lqt_header_warning_new_discussion' => 'fang ene neue Klaaf aan',
 	'lqt_sorting_order' => 'Reijefollesch zom Zoteere:',
-	'lqt_sort_newest_changes' => 'de zoläz jeänderte et eetß',
+	'lqt_sort_newest_changes' => 'de zoläz Jeänderte et eez',
 	'lqt_sort_newest_threads' => 'dä neuste Jeschprääschßfäddem et eez',
 	'lqt_sort_oldest_threads' => 'dä ählste Jeschprääschßfäddem et eez',
 	'lqt-any-date' => 'Jedes Dattum',
@@ -6828,6 +7023,12 @@ $messages['ps'] = array(
 	'lqt-any-date' => 'هر يو وخت',
 	'lqt-only-date' => 'يواځې دا نېټې:',
 	'lqt-title' => 'سرليک',
+	'lqt-summary' => 'لنډيز',
+	'lqt-email-undo' => 'ناکړل',
+	'lqt-history-time' => 'وخت',
+	'lqt-history-user' => 'کارن',
+	'lqt-search-button' => 'پلټل',
+	'lqt-ajax-update-link' => 'اوسمهاله کول',
 );
 
 /** Portuguese (Português)
@@ -7230,6 +7431,7 @@ $messages['roa-tara'] = array(
  * @author Kaganer
  * @author Kv75
  * @author Lockal
+ * @author Mormegil
  * @author VasilievVV
  * @author Александр Сигачёв
  */
@@ -7299,7 +7501,7 @@ $messages['ru'] = array(
 	'lqt_change_merged_from' => 'Ответ на эту ветку был перенесён в другую ветку',
 	'lqt_change_merged_to' => 'Выделенный ответ был перенесён из другой ветки',
 	'lqt_change_split_from' => 'Подветка этой ветки была выделена в собственную ветку',
-	'lqt_youhavenewmessages' => 'Вы получили [$1 {{PLURAL:$1|новое сообщение|новых сообщения|новых сообщений}}].',
+	'lqt_youhavenewmessages' => 'Вы получили [$1 новых сообщения].',
 	'lqt_protectedfromreply' => 'Эта ветка была $1 от ответа на неё.',
 	'lqt_protectedfromreply_link' => 'защищена',
 	'lqt_subject' => 'Заголовок:',
@@ -7583,6 +7785,29 @@ $messages['sah'] = array(
 	'lqt_merge_thread' => 'Салаалары манна холбооһун',
 	'lqt-thread-merge-source' => 'Холбонор салаалар:',
 	'lqt-thread-merge-dest' => 'Ханна холбоноллоро:',
+	'prefs-lqt' => 'Салааларынан ырытыылар',
+	'lqt-preference-display-depth' => 'Хоруйдар көрдөрүллэр дириҥнэрэ:',
+	'lqt-preference-display-count' => 'Хоруйдар көрдөрүллэр ахсааннара',
+	'lqt-enotif-subject-reply' => '{{SITENAME}} ырытыы — Хоруй: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}} ырытыы — Саҥа салаа: $1',
+	'lqt-enotif-newthread' => 'Дорообо, $1.
+Бу $3 $4 {{SITENAME}} саайка баар $5 сирэйгэ «$2» диэн саҥа салаа үөскээбитин туһунан биллэрии. 
+
+Бу аадырыска <$6> көрүөххүн сөп.',
+	'lqt-enotif-reply' => 'Дорообо, $1.
+Бу $3 $4 {{SITENAME}} саайка баар $5 сирэй «$2» салаатыгар саҥа хоруй баар буолбутун туһунан биллэрии. 
+
+Бу аадырыска <$6> көрүөххүн сөп.',
+	'lqt-quote-intro' => '$2 $3, [[User:$1]] суруйбут:',
+	'lqt-quote' => 'Цитааталааһын',
+	'lqt-search-legend' => 'Бу сирэйгэ баар ырытыылары көрдөөһүн',
+	'lqt-search-label' => 'Көрдөөһүн усулуобуйата:',
+	'lqt-search-button' => 'Буларга',
+	'searchprofile-threads' => 'Ырытыылар',
+	'searchprofile-threads-tooltip' => 'Ырытыы салааларыгар уонна ырытыы сирэйдэригэр көрдөөһүн',
+	'lqt-ajax-updated' => 'Бу салааҕа саҥа ырытыылар бааллар.',
+	'lqt-ajax-update-link' => 'Саҥардыы',
+	'lqt-thread-show-replies' => '$1 хоруйу көрдөр',
 );
 
 /** Sicilian (Sicilianu)
@@ -7606,6 +7831,7 @@ $messages['shi'] = array(
 
 /** Slovak (Slovenčina)
  * @author Helix84
+ * @author Mormegil
  */
 $messages['sk'] = array(
 	'lqt-desc' => 'Pridáva organizáciu správ na diskusných stránkach do vlákien',
@@ -7673,7 +7899,7 @@ $messages['sk'] = array(
 	'lqt_change_merged_from' => 'Odpoveď na toto vlákno bola presunutá do iného vlákna',
 	'lqt_change_merged_to' => 'Zvýraznená odpoveď bola presunutá z iného vlákna',
 	'lqt_change_split_from' => 'Podvlákno tohto vlákna bolo oddelené do samostatného vlákna',
-	'lqt_youhavenewmessages' => 'Máte [$1 {{PLURAL:$1|novú správu|nové správy|nových správ}}].',
+	'lqt_youhavenewmessages' => 'Máte [$1 nové správy].',
 	'lqt_protectedfromreply' => 'Toto vlákno bolo $1 proti odpovediam naň.',
 	'lqt_protectedfromreply_link' => 'zamknuté',
 	'lqt_subject' => 'Predmet:',
@@ -7833,22 +8059,24 @@ $messages['sli'] = array(
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
+ * @author Mormegil
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'lqt_newer' => '← новије',
 	'lqt_older' => 'старије →',
-	'lqt_youhavenewmessages' => 'Имате [{{PLURAL:$1|$1 нову поруку|$1 нових порука}}].',
+	'lqt_youhavenewmessages' => 'Имате [$1 нових порука].',
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|порука означена као прочитана|порука означених као прочитане}}.',
 );
 
 /** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
+ * @author Mormegil
  */
 $messages['sr-el'] = array(
 	'lqt_newer' => '← novije',
 	'lqt_older' => 'starije →',
-	'lqt_youhavenewmessages' => 'Imate [{{PLURAL:$1|$1 novu poruku|$1 novih poruka}}].',
+	'lqt_youhavenewmessages' => 'Imate [$1 novih poruka].',
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|poruka označena kao pročitana|poruka označenih kao pročitane}}.',
 );
 
@@ -8634,7 +8862,10 @@ $messages['vi'] = array(
 	'lqt_browse_archive_with_recent' => 'cũ hơn',
 	'lqt_recently_archived' => 'Mới được lưu trữ:',
 	'lqt_contents_title' => 'Nội dung',
+	'lqt_toc_thread_title' => 'Tựa đề của luồng',
+	'lqt_toc_thread_author' => 'Người bắt đầu',
 	'lqt_toc_thread_replycount' => 'Trả lời',
+	'lqt_toc_thread_modified' => 'Lúc sửa đổi cuối',
 	'lqt_add_header' => 'Thêm đầu đề',
 	'lqt_new_thread' => 'Bắt đầu thảo luận mới:',
 	'lqt_invalid_subject' => 'Bạn đã nhập chủ đề không hợp lệ. Có lẽ nó:
@@ -8647,12 +8878,13 @@ $messages['vi'] = array(
 	'lqt_reply' => 'Trả lời',
 	'lqt_delete' => 'Xóa',
 	'lqt_undelete' => 'Phục hồi',
-	'lqt_permalink' => 'Liên kết thường trực',
-	'lqt_fragment' => 'một mảnh của một $1 từ $2',
+	'lqt_permalink' => 'Đặt liên kết tới đây',
+	'lqt_fragment' => 'Mảnh của một $1 từ $2',
 	'lqt_discussion_link' => 'thảo luận',
-	'lqt_from_talk' => 'từ $1',
+	'lqt_from_talk' => 'Từ $1',
 	'lqt_newer' => '←mới hơn',
 	'lqt_older' => 'cũ hơn→',
+	'lqt-history-title' => 'Lịch sử luồng',
 	'lqt_hist_comment_edited' => 'Văn bản bình luận đã sửa',
 	'lqt_hist_summary_changed' => 'Tóm tắt đã thay đổi',
 	'lqt_hist_reply_created' => 'Hồi âm mới đã tạo ra',
@@ -8666,10 +8898,24 @@ $messages['vi'] = array(
 	'lqt_hist_past_last_page_error' => 'Bạn đã vượt quá số trang lịch sử tồn tại.',
 	'lqt_hist_tooltip_newer_disabled' => 'Liên kết này bị tắt vì bạn đang ở trang nhất.',
 	'lqt_hist_tooltip_older_disabled' => 'Liên kết bị tắt vì bạn đang ở trang cuối.',
+	'lqt_hist_split' => 'Trả lời được chia thành luồng mới',
+	'lqt_hist_edited_subject' => 'Sửa đổi tựa đề',
+	'lqt_hist_merged_from' => 'Trả lời được di chuyển đến luồng khác',
+	'lqt_hist_merged_to' => 'Trả lời được di chuyển từ luồng khác',
+	'lqt_hist_split_from' => 'Chia thành luồng mới',
 	'lqt_revision_as_of' => 'Phiên bản vào ngày $2 lúc $3.',
 	'lqt_change_new_thread' => 'Đây là phiên bản khởi đầu của luồng.',
 	'lqt_change_reply_created' => 'Câu bình luận được đánh dấu đã được tạo ra trong phiên bản này.',
 	'lqt_change_edited_root' => 'Câu bình luận được đánh dấu đã được sửa đổi trong phiên bản này.',
+	'lqt_change_edited_summary' => 'Tóm tắt đã thay đổi',
+	'lqt_change_deleted' => 'Luồng này hay trả lời trong nó đã bị xóa',
+	'lqt_change_undeleted' => 'Mục được chọn đã được phục hồi',
+	'lqt_change_moved' => 'Luồng này được di chuyển đến trang thảo luận khác',
+	'lqt_change_split' => 'Luồng này được chia khỏi luồng khác',
+	'lqt_change_subject_edited' => 'Chủ đề của luồng này đã thay đổi',
+	'lqt_change_merged_from' => 'Trả lời trong luồng này được di chuyển đến luồng khác',
+	'lqt_change_merged_to' => 'Trả lời được chọn được di chuyển từ luồng khác',
+	'lqt_change_split_from' => 'Phần của luồng này được chia thành luồng riêng',
 	'lqt_youhavenewmessages' => 'Bạn có [$1 tin nhắn mới].',
 	'lqt_protectedfromreply' => 'Luồng này đã được $1 từ những gì trả lời.',
 	'lqt_protectedfromreply_link' => 'khóa',
@@ -8684,7 +8930,7 @@ Sự di chuyển này do $2 thực hiện vào lúc $3 $4.',
 Nếu nó đã đi đến kết thúc, có thể bạn sẽ muốn $1.',
 	'lqt_summary_notice_link' => 'viết một câu tóm tắt',
 	'lqt_summary_label' => 'Luồng này đã được tóm tắt như sau:',
-	'lqt_summary_subtitle' => 'tóm tắt của $1.',
+	'lqt_summary_subtitle' => 'Tóm tắt của “$1”.',
 	'lqt_nosuchrevision' => 'Không có phiên bản như vậy trong luồng này.',
 	'lqt_nosuchthread' => 'Không có luồng yêu cầu.',
 	'lqt_nosuchthread_title' => 'Không có luồng như vậy',
@@ -8729,7 +8975,7 @@ Thay vào đó bạn có thể muốn $2.',
 	'lqt-older' => 'cũ hơn',
 	'lqt-newer' => 'mới hơn',
 	'lqt-searching' => 'Đang tìm kiếm luồng',
-	'lqt-read-message' => 'Đánh dấu đọc',
+	'lqt-read-message' => 'Đánh dấu đã đọc',
 	'lqt-read-message-tooltip' => 'Dời luồng này khỏi danh sách tin nhắn mới.
 Nó vẫn còn tại trang thảo luận đầu tiên.',
 	'lqt-read-all' => 'Đánh dấu đọc tất cả',
@@ -8745,10 +8991,84 @@ Có thể lùi lại tác động này.',
 	'lqt-new-messages' => '&#x2712; Bạn có tin nhắn mới.',
 	'lqt-email-info-undo' => 'Lấy lại luồng vừa được bỏ qua.',
 	'lqt-date-info' => 'Liên kết này bị tắt vì bạn đang xem các trao đổi bất cứ ngày tháng.',
-	'lqt_rc_new_discussion' => '$3 bắt đầu thảo luận mới “$1” tại “$2”:',
-	'lqt_rc_new_reply' => '$3 trả lời “$1” tại “$2”:',
+	'lqt_rc_new_discussion' => 'Thảo luận mới “$1” tại $2 • $3 viết:',
+	'lqt_rc_new_reply' => 'Trả lời “$1” tại “$2” • $3 viết:',
 	'lqt_rc_author_original' => '(tác giả đầu tiên)',
 	'lqt_rc_author_others' => '(không phải tác giả)',
+	'lqt-newmessages-context' => 'Tất cả luồng',
+	'lqt-thread-created' => 'Được tạo',
+	'lqt-archive-subtitle' => 'Lưu trữ thảo luận',
+	'lqt-archive-intro' => 'Đây là lưu trữ thảo luận về [[$1]].',
+	'lqt-history-time' => 'Thời gian',
+	'lqt-history-user' => 'Người dùng',
+	'lqt-history-action' => 'Hoạt động',
+	'lqt-history-comment' => 'Bình luận',
+	'lqt-thread-edited-author' => 'Tác giả sửa đổi',
+	'lqt-thread-edited-others' => 'Người khác sửa đổi',
+	'lqt-header-actions' => 'Tác vụ',
+	'lqt_summarize_link' => 'Tóm tắt',
+	'lqt-summarize-intro' => 'Xin hãy tóm tắt luồng sau trong hộp sửa đổi.
+Bạn có thể sử dụng cú pháp wiki trong tóm tắt. Khi nào xong, hãy nhấn chuột vào “{{int:savearticle}}”.',
+	'lqt-thread-split' => 'Chia thành luồng mới',
+	'lqt-split-success' => 'Bạn đã chia luồng $1 thành công.',
+	'lqt_split_thread' => 'Chia luồng',
+	'lqt-thread-split-subject' => 'Chủ đề của luồng mới:',
+	'lqt-thread-split-thread' => 'Luồng:',
+	'lqt-split-submit' => 'Chia',
+	'lqt_split_badsubject' => 'Bạn đã nhập chủ đề không hợp lệ.',
+	'lqt-no-threads' => 'Trang này chưa có luồng nào.',
+	'lqt-delete-parent-warning' => 'Đây là luồng ở cấp cao nhất có trả lời.
+Để tránh các trả lời không bị xóa tự động, hãy chia các trả lời khỏi luồng này trước khi xóa.',
+	'lqt-delete-parent-deleted' => 'Luồng mẹ bị xóa ($1)',
+	'lqt-delete-replies-done' => 'Các trả lời trong luồng này cũng bị xóa.',
+	'right-lqt-split' => 'Chia luồng',
+	'right-lqt-merge' => 'Hợp nhất luồng',
+	'lqt-thread-merge' => 'Hợp nhất vào luồng khác',
+	'lqt-thread-merge-to' => 'Hợp nhất vào luồng này.',
+	'lqt_merge_thread' => 'Hợp nhất luồng',
+	'lqt-thread-merge-source' => 'Luồng cũ:',
+	'lqt-thread-merge-dest' => 'Luồng mới:',
+	'lqt-merge-submit' => 'Hợp nhất',
+	'lqt-merge-success' => 'Bạn đã mang luồng $1 dưới $2.',
+	'lqt-log-name' => 'Nhật trình thảo luận theo luồng',
+	'lqt-log-header' => 'Nhật trình này liệt kê các tác vụ luồng thảo luận.',
+	'lqt-log-action-move' => 'di chuyển [[$1]] từ [[$2]] đến [[$3]].',
+	'lqt-preference-notify-talk' => 'Gửi thư cho tôi khi ai trả lời luồng tôi đang theo dõi',
+	'lqt-preference-watch-threads' => 'Theo dõi các luồng tôi tạo hay trả lời',
+	'prefs-lqt' => 'Thảo luận theo luồng',
+	'lqt-preference-display-depth' => 'Độ sâu trả lời tối đa để hiển thị:',
+	'lqt-preference-display-count' => 'Số trả lời tối đa để hiển thị:',
+	'lqt-enotif-subject-reply' => 'Thảo luận {{SITENAME}} – Trả lời: $1',
+	'lqt-enotif-subject-newthread' => 'Thảo luận {{SITENAME}} – Luồng mới: $1',
+	'lqt-enotif-newthread' => 'Chào $1,
+Đây là lời thông báo từ {{SITENAME}} về luồng mới về $5, "$2",
+được tạo ra ngày $3 lúc $4.
+
+Bạn có thể đọc nó tại <$6>',
+	'lqt-enotif-reply' => 'Chào $1,
+Đây là lời thông báo từ {{SITENAME}} rằng "$2" có trả lời mới về $5,
+vào ngày $3 lúc $4.
+
+Bạn có thể đọc nó tại <$6>',
+	'lqt-quote-intro' => 'Ngày $2 lúc $3, [[User:$1|Thành viên:$1]] viết:',
+	'lqt-quote' => 'Trích dẫn',
+	'lqt-search-legend' => 'Tìm kiếm thảo luận tại trang này',
+	'lqt-search-label' => 'Từ khóa tìm kiếm:',
+	'lqt-search-button' => 'Tìm kiếm',
+	'searchprofile-threads' => 'Thảo luận',
+	'searchprofile-threads-tooltip' => 'Tìm kiếm luồng và trang thảo luận',
+	'lqt-ajax-updated' => 'Luồng này có mục mới.',
+	'lqt-ajax-update-link' => 'Cập nhật',
+	'lqt-thread-show-replies' => 'Hiện $1 trả lời nữa',
+	'lqt-thread-show-more' => 'Hiện thêm trả lời',
+	'lqt-feed-title-all' => '{{SITENAME}} – Mục mới',
+	'lqt-feed-title-all-from' => '{{SITENAME}} – Mục mới từ $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} – Luồng mới',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} – Luồng mới từ $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} – Trả lời',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} – Trả lời từ $1',
+	'lqt-feed-new-thread-intro' => 'Luồng mới về $1 do $2 đăng',
+	'lqt-feed-reply-intro' => 'Trả lời $3 (về $1) do $2 đăng',
 );
 
 /** Volapük (Volapük)
@@ -8767,6 +9087,8 @@ $messages['vo'] = array(
  */
 $messages['yi'] = array(
 	'lqt_delete' => 'אויסמעקן',
+	'lqt-history-time' => 'צײַט',
+	'lqt-search-button' => 'זוכן',
 );
 
 /** Yue (粵語)
