@@ -1689,6 +1689,8 @@ El podeu veure a <$6>',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Nous missatges de $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nous fils',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Nous fils de $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Respostes',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respostes de $1',
 );
 
 /** Chamorro (Chamoru)
@@ -6176,7 +6178,7 @@ $messages['ml'] = array(
 	'lqt_undelete' => 'പുനഃസ്ഥാപിക്കുക',
 	'lqt_permalink' => 'സ്ഥിരംകണ്ണി',
 	'lqt_discussion_link' => 'സം‌വാദം',
-	'lqt_from_talk' => '$1ല്‍ നിന്ന്',
+	'lqt_from_talk' => '$1 എന്ന സംവാദം താളിൽ നിന്ന്',
 	'lqt_newer' => '←പുതിയത്',
 	'lqt_older' => 'പഴയത്→',
 	'lqt_hist_summary_changed' => 'ചുരുക്കം മാറ്റി',
@@ -6185,7 +6187,7 @@ $messages['ml'] = array(
 	'lqt_hist_moved_talkpage' => 'തലക്കെട്ട് മാറ്റി',
 	'lqt_hist_tooltip_newer_disabled' => 'നിങ്ങള്‍ ആദ്യത്തെ താളിലായതിനാല്‍ ഈ കണ്ണി നിര്‍‌വീര്യമാക്കി.',
 	'lqt_hist_tooltip_older_disabled' => 'നിങ്ങള്‍ അവസാനത്തെ താളിലായതിനാല്‍ ഈ കണ്ണി നിര്‍‌വീര്യമാക്കി.',
-	'lqt_revision_as_of' => '$1ല്‍ ഉണ്ടായിരുന്ന പതിപ്പ്',
+	'lqt_revision_as_of' => '$2 തീയതിയിൽ $3 സമയത്തുണ്ടായിരുന്ന പതിപ്പ്.',
 	'lqt_change_reply_created' => 'അടയാളപ്പെടുത്തി കാണിച്ചിരിക്കുന്ന അഭിപ്രായം ഈ പതിപ്പില്‍ ചേര്‍ക്കപ്പെട്ടതാണ്‌.',
 	'lqt_change_edited_root' => 'അടയാളപ്പെടുത്തി കാണിച്ചിരിക്കുന്ന അഭിപ്രായം ഈ പതിപ്പില്‍ തിരുത്തപ്പെട്ടിട്ടുണ്ട്.',
 	'lqt_youhavenewmessages' => 'താങ്കൾക്ക് [$1 പുതിയ സന്ദേശങ്ങൾ] ഉണ്ട്.',
