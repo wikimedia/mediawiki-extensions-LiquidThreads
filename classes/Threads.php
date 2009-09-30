@@ -201,16 +201,47 @@ class Threads {
 		return self::incrementedTitle( $base, NS_LQT_THREAD );
 	}
 	
+	// This will attempt to replace invalid characters and sequences in a title with
+	//  a safe replacement (_, currently).
+	public static function makeTitleValid( $text ) {
+		static $rxTc;
+		
+		if ( is_callable( array( 'Title', 'getTitleInvalidRegex' ) ) ) {
+			$rxTc = Title::getTitleInvalidRegex();
+		} elseif (!$rxTc) { // Back-compat
+			$rxTc = '/' .
+				# Any character not allowed is forbidden...
+				'[^' . Title::legalChars() . ']' .
+				# URL percent encoding sequences interfere with the ability
+				# to round-trip titles -- you can't link to them consistently.
+				'|%[0-9A-Fa-f]{2}' .
+				# XML/HTML character references produce similar issues.
+				'|&[A-Za-z0-9\x80-\xff]+;' .
+				'|&#[0-9]+;' .
+				'|&#x[0-9A-Fa-f]+;' .
+				'/S';
+		}
+		
+		$text = preg_replace( $rxTc, '_', $text );
+		
+		return $text;
+	}
+	
 	/** Keep trying titles starting with $basename until one is unoccupied. */
 	public static function incrementedTitle( $basename, $namespace ) {
 		$i = 2;
 		
-		$replacements = array_fill_keys( array( '[', ']', '{', '}', '|' ), '_' );
-		$basename = strtr( $basename, $replacements );
+		// Try to make the title valid.
+		$basename = Threads::makeTitleValid( $basename );
 		
 		$t = Title::makeTitleSafe( $namespace, $basename );
 		while ( !$t || $t->exists() ||
 				in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) ) {
+			
+			if (!$t) {
+				throw new MWException( "Error in creating title for basename $basename" );
+			}
+			
 			$t = Title::makeTitleSafe( $namespace, $basename . ' (' . $i . ')' );
 			$i++;
 		}

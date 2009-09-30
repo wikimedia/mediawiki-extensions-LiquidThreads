@@ -273,27 +273,31 @@ class LqtView {
 		 throughout the edit cycle, since the article doesn't exist yet anyways.
 		*/
 
-		// Stuff that might break the save		
-		$valid_subject = true;
-		$failed_rename = false;
-		
+		// Check if we actually want a subject, pull the submitted subject, and validate it.
+		$subject_expected = ( $edit_type == 'new' || $thread && $thread->isTopmostThread() );
 		$subject = $this->request->getVal( 'lqt_subject_field', '' );
+		$valid_subject = true;
 		
 		if ( $edit_type == 'summarize' && $edit_applies_to->summary() ) {
 			$article = $edit_applies_to->summary();
 		} elseif ( $edit_type == 'summarize' ) {
 			$t = $this->newSummaryTitle( $edit_applies_to );
 			$article = new Article( $t );
-		} elseif ( $thread == null ) {
-			if ( $subject && is_null( Title::makeTitleSafe( NS_LQT_THREAD, $subject ) ) ) {
+		} elseif ( !$thread ) {
+			if ( !$subject ) {
 				// Dodgy title
-				$valid_subject = false;
 				$t = $this->scratchTitle();
-			} else {			
-				if ( $edit_type == 'new' ) {
-					$t = $this->newScratchTitle( $subject );
-				} elseif ( $edit_type == 'reply' ) {
-					$t = $this->newReplyTitle( $subject, $edit_applies_to );
+				$valid_subject = false;
+			} else {
+				try {
+					if ( $edit_type == 'new' ) {
+						$t = $this->newScratchTitle( $subject );
+					} elseif ( $edit_type == 'reply' ) {
+						$t = $this->newReplyTitle( $subject, $edit_applies_to );
+					}
+				} catch( MWException $excep ) {
+					$t = $this->scratchTitle();
+					$valid_subject = false;
 				}
 			}
 			$article = new Article( $t );
@@ -303,15 +307,21 @@ class LqtView {
 
 		$e = new EditPage( $article );
 		
-		
-		// Find errors.
-		if (!$valid_subject && $subject) {
+		// Display an error if a subject is specified but it's invalid
+		if ( $subject_expected && $this->request->wasPosted() && !$valid_subject ) {
+			if ( !$subject ) {
+				$msg = 'lqt_empty_subject';
+ 			} else {
+				$msg = 'lqt_invalid_subject';
+			}
+			
 			$e->editFormPageTop .= 
 				Xml::tags( 'div', array( 'class' => 'error' ),
-					wfMsgExt( 'lqt_invalid_subject', 'parse' ) );
+					wfMsgExt( $msg, 'parse' ) );
 		}
 		
-		if ( (!$valid_subject && $subject) || $failed_rename ) {
+		// Quietly force a preview if no subject has been specified.
+		if ( (!$valid_subject && $subject) || ($subject_expected && !$subject) ) {
 			// Dirty hack to prevent saving from going ahead
 			global $wgRequest;
 			$wgRequest->setVal( 'wpPreview', true );
@@ -339,7 +349,7 @@ class LqtView {
 			$wgMemc->set( $key, 1, 3600 );
 		}
 
-		if ( $edit_type == 'new' ) {
+		if ( $subject_expected ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			// This is a top-level post; show the subject line.
 			$db_subject = $thread ? $thread->subjectWithoutIncrement() : '';
