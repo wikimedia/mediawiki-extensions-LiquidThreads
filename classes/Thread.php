@@ -92,6 +92,14 @@ class Thread {
 			$hthread = ThreadRevision::create( $thread, $change_type );
 		}
 		
+		// Increment appropriate reply counts.
+		$t = $thread->superthread();
+		while ($t) {
+			$t->incrementReplyCount();
+			$t->save();
+			$t = $t->superthread();
+		}
+		
 		// Create talk page
 		Threads::createTalkpageIfNeeded( $article );
 
@@ -219,6 +227,7 @@ class Thread {
 					'thread_summary_page' => $this->summaryId,
 					'thread_editedness' => $this->editedness,
 					'thread_sortkey' => $this->sortkey,
+					'thread_replies' => $this->replyCount,
 				);
 	}
 	
@@ -244,11 +253,24 @@ class Thread {
 		
 		$dbw->delete( 'user_message_state', array( 'ums_thread' => $this->id() ),
 						__METHOD__ );
+		
+		// Fix reply count.
+		$t = $this->superthread();
+		while( $t ) {
+			$t->decrementReplyCount();
+			$t->save();
+		}
 	}
 	
 	function undelete( $reason ) {
 		$this->type = Threads::TYPE_NORMAL;
 		$this->commitRevision( Threads::CHANGE_UNDELETED, $this, $reason );
+		
+		// Fix reply count.
+		$t = $this->superthread();
+		while( $t ) {
+			$t->incrementReplyCount();
+		}
 	}
 
 	function moveToPage( $title, $reason, $leave_trace ) {
@@ -310,7 +332,18 @@ class Thread {
 		 	Threads::TYPE_MOVED, $this->subject() );
 	}
 
-
+	// Lists total reply count, including replies to replies and such
+	function replyCount() {
+		return $this->replyCount;
+	}
+	
+	function incrementReplyCount() {
+		$this->replyCount++;
+	}
+	
+	function decrementReplyCount() {
+		$this->replyCount--;
+	}
 
 	function __construct( $line, $unused = null ) {
 		/* SCHEMA changes must be reflected here. */
@@ -320,6 +353,7 @@ class Thread {
 			$this->created = wfTimestampNow();
 			$this->sortkey = wfTimestampNow();
 			$this->editedness = Threads::EDITED_NEVER;
+			$this->replyCount = 0;
 			return;
 		}
 		
@@ -339,6 +373,7 @@ class Thread {
 							'thread_author_id' => 'authorId',
 							'thread_author_name' => 'authorName',
 							'thread_sortkey' => 'sortkey',
+							'thread_replies' => 'replyCount',
 						);
 						
 		foreach( $dataLoads as $db_field => $member_field ) {
@@ -645,6 +680,17 @@ class Thread {
 			$this->article = $ancestor->article();
 		}
 		
+		// Populate reply count
+		if ( $this->replyCount == -1 ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			
+			$count = $dbr->selectField( 'thread', 'count(*)',
+				array( 'thread_ancestor' => $this->id() ), __METHOD__ );
+				
+			$this->replyCount = $count;
+			$set['thread_replies'] = $count;
+		}
+		
 		if ( count($set) ) {
 			$dbw = wfGetDB( DB_MASTER );
 			
@@ -664,6 +710,9 @@ class Thread {
 			$this->replies();
 			$this->replies[$thread->id()] = $thread;
 		}
+		
+		// Increment reply count.
+		$this->replyCount += $thread->replyCount() + 1;
 	}
 	
 	function removeReply( $thread ) {
@@ -674,6 +723,10 @@ class Thread {
 		$this->replies();
 		
 		unset( $thread->replies[$thread] );
+		
+		// Also, decrement the reply count.
+		$threadObj = Threads::withId($thread);
+		$this->replyCount -= ( 1 + $threadObj->replyCount() );
 	}
 	
 	function replies() {

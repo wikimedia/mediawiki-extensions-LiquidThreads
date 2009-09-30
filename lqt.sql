@@ -21,6 +21,9 @@ CREATE TABLE /*$wgDBprefix*/thread (
   
   -- Sort key
   thread_sortkey varchar(255) NOT NULL default '',
+  
+  -- Reply count, -1 means uninitialised.
+  thread_replies int(8) DEFAULT -1,
 
   PRIMARY KEY thread_id (thread_id),
   UNIQUE INDEX thread_root_page (thread_root),

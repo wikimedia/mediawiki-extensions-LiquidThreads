@@ -104,7 +104,7 @@ class TalkpageView extends LqtView {
 			$authorLink = $sk->userLink( $author->getId(), $author->getName() );
 			$row .= Xml::tags( 'td', null, $authorLink );
 			
-			$row .= Xml::element( 'td', null, count( $thread->replies() ) );
+			$row .= Xml::element( 'td', null, $thread->replyCount() );
 			
 			$timestamp = $wgLang->timeanddate( $thread->modified(), true );
 			$row .= Xml::element( 'td', null, $timestamp );
