@@ -346,6 +346,11 @@ var liquidThreads = {
 				
 				header.fadeIn();
 				thread.fadeIn();
+				
+				// Scroll to the updated thread.
+				var targetOffset = $j(thread).offset().top;
+				$j('html,body').animate({scrollTop: targetOffset}, 'slow');
+				
 			}, 'json' );
 	},
 	
