@@ -324,7 +324,7 @@ div.lqt-post-sep {
 	margin-left: 2em;
 }
 
-#bodyContent > .lqt_thread,
+.lqt-thread-topmost,
 .lqt-thread-replies {
 	background-image: url(images/edge.png);
 	background-repeat: repeat-y;
@@ -479,4 +479,12 @@ ul.lqt-thread-toolbar-commands {
 .lqt-post-sep,
 .lqt-replies-finish {
 	clear: both;
+}
+
+table.lqt-new-messages {
+	width: 100%;
+}
+
+.mw-lqt-newmessages-left {
+	width: 10em	;
 }

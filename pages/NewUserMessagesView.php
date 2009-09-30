@@ -136,7 +136,7 @@ class NewUserMessagesView extends LqtView {
 			$this->targets[$top->id()][] = $t->id();
 		}
 		
-		$this->output->addHTML( '<table><tbody>' );
+		$this->output->addHTML( '<table class="lqt-new-messages"><tbody>' );
 
 		foreach ( $this->tops as $t ) {
 			// It turns out that with lqtviews composed of threads from various talkpages,
