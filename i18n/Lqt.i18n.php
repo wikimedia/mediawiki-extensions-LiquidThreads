@@ -858,9 +858,9 @@ $messages['be-tarask'] = array(
 	'lqt_add_header' => 'Дадаць загаловак',
 	'lqt_new_thread' => 'Пачаць новае абмеркаваньне',
 	'lqt_invalid_subject' => 'Вы ўвялі няслушную назву тэмы. Верагодна яна:
-* Утрымлівае няслушныя сымбалі, напрыклад []{}&lt;&gt;,
 * Занадта доўгая, альбо
 * Канфліктуе з прэфіксамі інтэрвікі альбо прасторамі назваў.',
+	'lqt_empty_subject' => 'Вам неабходна ўвесьці тэму.',
 	'lqt_subject_change_forbidden' => 'Вы ня можаце зьмяніць тэму для гэтай галіны, таму што Вам не дазволена пераносіць старонкі.',
 	'lqt_in_response_to' => 'У адказ на $1 ад $2, раней:',
 	'lqt_edited_notice' => 'Адрэдагаваны',
@@ -1178,7 +1178,6 @@ $messages['br'] = array(
 	'lqt_new_thread' => 'Digeriñ ur gaoz nevez',
 	'lqt_invalid_subject' => "Direizh eo an danvez merket ganeoc'h.
 Marteze :
-* ez eus ennañ arouezennoù dibosupl evel []{}&lt;&gt;,
 * ez eo re hir
 * e sav tabut gant ur rakger etrewiki pe an esaouennoù anv.",
 	'lqt_subject_change_forbidden' => "N'hallit ket kemmañ danvez ar gaoz-mañ rak n'oc'h ket aotreet da adenvel pajennoù.",
@@ -1405,7 +1404,6 @@ $messages['bs'] = array(
 	'lqt_new_thread' => 'Počni novu diskusiju',
 	'lqt_invalid_subject' => 'Tema koju ste unijeli nije validna.
 Možda:
-*Sadrži nevaljane znakove, poput []{}&lt;&gt;,
 *Je predugačka ili
 *Postoji konflikt sa interwiki prefiksima ili imenskim prostorima.',
 	'lqt_in_response_to' => 'U odgovoru na $1 od strane $2, iznad:',
@@ -1501,9 +1499,9 @@ $messages['ca'] = array(
 	'lqt_new_thread' => 'Comença una nova discussió',
 	'lqt_invalid_subject' => 'El tema que heu introduït no és vàlid.
 Pot:
-* contenir caràcters no vàlids, com []{}&lt;&gt;,
 * ser massa llarg, o 
 * entrar en conflicte amb prefixos interwiki o altres espai de noms.',
+	'lqt_empty_subject' => "Heu d'introduir un tema.",
 	'lqt_subject_change_forbidden' => "No podeu canviar el tema d'aquest fil perquè no teniu el permís de moure les pàgines.",
 	'lqt_in_response_to' => 'En resposta a $1 per $2, amunt:',
 	'lqt_edited_notice' => 'Editat',
@@ -1685,6 +1683,8 @@ El podeu veure a <$6>',
 	'lqt-search-button' => 'Cerca',
 	'searchprofile-threads' => 'Discussions',
 	'lqt-ajax-update-link' => 'Actualitza',
+	'lqt-thread-show-replies' => 'Mostra {{PLURAL:$1|una resposta|$1 respostes}}',
+	'lqt-thread-show-more' => 'Mostra més respostes',
 	'lqt-feed-title-all' => '{{SITENAME}} — Nous missatges',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Nous missatges de $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nous fils',
@@ -1717,7 +1717,6 @@ $messages['cs'] = array(
 	'lqt_new_thread' => 'Začít novou diskusi',
 	'lqt_invalid_subject' => 'Zadaný předmět není platný.
 Možná, že:
-* obsahuje neplatné znaky, např. []{}&lt;&gt;,
 * je příliš dlouhý,
 * koliduje s prefixem interwiki nebo názvem jmenného prostoru.',
 	'lqt_reply' => 'Odpovědět',
@@ -1928,7 +1927,6 @@ $messages['de'] = array(
 	'lqt_new_thread' => 'Beginne eine neue Diskussion',
 	'lqt_invalid_subject' => 'Der Betreff, den du eingegeben hast, ist ungültig.
 Es ist möglich, dass er
-* ungültige Zeichen enthält, wie beispielsweise []{}&lt;&gt;,
 * zu lang ist oder
 * im Konflikt mit Interwikipräfixen oder Namensraumbezeichnern steht.',
 	'lqt_subject_change_forbidden' => 'Du kannst den Betreff dieses Diskussionsstrangs nicht ändern, weil du keine Seiten verschieben darfst.',
@@ -2136,7 +2134,6 @@ Du kannst sie auf <$6> einsehen.',
 $messages['de-formal'] = array(
 	'lqt_invalid_subject' => 'Der Betreff, den Sie eingegeben haben, ist ungültig.
 Es ist möglich, dass er
-* ungültige Zeichen enthält, wie beispielsweise []{}&lt;&gt;,
 * zu lang ist oder
 * im Konflikt mit Interwikipräfixen oder Namensraumbezeichnern steht.',
 	'lqt_subject_change_forbidden' => 'Sie können den Betreff dieses Diskussionsstrangs nicht ändern, weil Sie keine Seiten verschieben dürfen.',
@@ -2190,9 +2187,9 @@ $messages['dsb'] = array(
 	'lqt_add_header' => 'Głowu pśidaś',
 	'lqt_new_thread' => 'Nowu diskusiju zachopiś',
 	'lqt_invalid_subject' => 'Tema, kótaruž sy zapódał, jo njepłaśiwa. Snaź:
-* Wopśimujo njepłaśiwe znamuška, ako na pś. []{}&lt;&gt;,
 * jo pśedłujko abo
 * jo konfilikt z interwikijowymi prefiksami abo mjenja mjenjowych rumow.',
+	'lqt_empty_subject' => 'Musyš temowe nadpismo zapódaś.',
 	'lqt_subject_change_forbidden' => 'Njesmějoš temu za toś tu nitku změniś, dokulaž njamóžoš boki pśesunuś.',
 	'lqt_in_response_to' => 'We wótegronje na $1 wót $2, glědaj:',
 	'lqt_edited_notice' => 'Wobźěłany',
@@ -2724,7 +2721,6 @@ $messages['es'] = array(
 	'lqt_new_thread' => 'Comenzar una nueva discusión',
 	'lqt_invalid_subject' => 'El tema que has ingresado es inválido.
 Puede:
-* Contener caracteres inválidos, tales como []{}&lt;&gt;,
 * Ser demasiado largo, o
 * Estar en conflicto con prefijos interwiki o nombres de espacio de nombre.',
 	'lqt_subject_change_forbidden' => 'No puedes cambiar el tema para este hilo porque no estás permitido de mover páginas',
@@ -3138,10 +3134,10 @@ $messages['fr'] = array(
 	'lqt_toc_thread_modified' => 'Dernière modification',
 	'lqt_add_header' => 'Ajouter en-tête',
 	'lqt_new_thread' => 'Lancer une nouvelle discussion',
-	'lqt_invalid_subject' => "Le sujet que vous avez entré est invalide. Il ce peut :
-* qu'il contienne des caractères invalides, comme []{}&lt;&gt;,
+	'lqt_invalid_subject' => 'Le sujet que vous avez entré est invalide. Il ce peut :
 * être trop long ou
-* soit en conflit avec un préfixe interwiki, ou un espace de noms.",
+* soit en conflit avec un préfixe interwiki, ou un espace de noms.',
+	'lqt_empty_subject' => 'Vous devez entrer un objet.',
 	'lqt_subject_change_forbidden' => "Vous n'êtes pas autorisé à modifier le sujet de ce fil parce que vous ne pouvez pas renommer des pages.",
 	'lqt_in_response_to' => 'En réponse à $1 par $2, plus haut :',
 	'lqt_edited_notice' => 'Modifié',
@@ -3386,9 +3382,9 @@ $messages['gl'] = array(
 	'lqt_add_header' => 'Engadir cabeceira',
 	'lqt_new_thread' => 'Comezar un novo debate',
 	'lqt_invalid_subject' => 'O asunto que introduciu non é válido. Pode:
-* conter caracteres inválidos, como []{}&lt;&gt;,
 * ser demasiado longo ou
 * haber un conflito cos prefixos interwiki ou os nomes dos espazos de nomes.',
+	'lqt_empty_subject' => 'Debe inserir un asunto.',
 	'lqt_subject_change_forbidden' => 'Non ten permiso para cambiar o asunto deste fío porque non pode mover páxinas.',
 	'lqt_in_response_to' => 'En resposta a $1 por $2, arriba:',
 	'lqt_edited_notice' => 'Editado',
@@ -3645,9 +3641,9 @@ $messages['gsw'] = array(
 	'lqt_add_header' => 'Iberschrift ergänze',
 	'lqt_new_thread' => 'E neji Diskussion aafange',
 	'lqt_invalid_subject' => 'Dr Diskussionsgegestand, wu du yygee hesch, isch nit giltig. S cha syy, ass es:
-* nit giltigi Zeiche din het wie z. B. []{}&lt;&gt;,
 * ass er z lang isch oder
 * ass es e Konflikt git mit Interwiki-Präfix oder Namensryym',
+	'lqt_empty_subject' => 'Du muesch e Beträff yygee.',
 	'lqt_subject_change_forbidden' => 'Du chasch dr Diskussionsgegestand fir dää Dikussionsstrang nit ändere, wel Du kei Syte verschieebe derfsch.',
 	'lqt_in_response_to' => 'In Antwort uf $1 vou $2, lueg:',
 	'lqt_edited_notice' => 'Bearbeitet',
@@ -3945,7 +3941,6 @@ $messages['he'] = array(
 	'lqt_new_thread' => 'התחלת דיון חדש',
 	'lqt_invalid_subject' => 'הנושא שהזנתם אינו תקין.
 ייתכן שהוא:
-* מכיל תווים בלתי תקינים, כגון []{}&lt;&gt;,
 * ארוך מדי, או
 * מתנגש עם קידומות בינוויקי או שמות של מרחבי שם.',
 	'lqt_subject_change_forbidden' => 'לא תוכלו לשנות את נושא השרשור כיוון שאינכם מורשים להעביר דפים.',
@@ -4372,9 +4367,9 @@ $messages['hsb'] = array(
 	'lqt_add_header' => 'Hłowu přidać',
 	'lqt_new_thread' => 'Nowu diskusiju započeć',
 	'lqt_invalid_subject' => 'Tema, kotryž sy zapodał, je njepłaćiwa. Snano:
-* wobsahuje njepłaćiwe znamješka kaž na př. []{}&lt;&gt;,
 * je předołho abo
 * je konflikt z interwikijowymi prefiksami abo mjenami mjenowych rumow.',
+	'lqt_empty_subject' => 'Dyrbiš temowe nadpismo zapodać.',
 	'lqt_subject_change_forbidden' => 'Njesměš temu za tutu nitku změnić, dokelž njemóžeš strony přesunyć.',
 	'lqt_in_response_to' => 'Wotmołwjejo na $1 wot $2, horjeka:',
 	'lqt_edited_notice' => 'Wobdźěłany',
@@ -4592,7 +4587,6 @@ $messages['hu'] = array(
 	'lqt_add_header' => 'Fejléc hozzáadása',
 	'lqt_new_thread' => 'Új beszélgetésfolyam indítása',
 	'lqt_invalid_subject' => 'A téma, amit megadtál, érvénytelen, mert:
-* érvénytelen karaktert tartalmaz, például a következők egyikét: []{}&lt;&gt;,
 * túl hosszú, vagy
 * ütközik névtérközi hivatkozások előtagjával vagy névterek nevével.',
 	'lqt_subject_change_forbidden' => 'Nem változtathatod meg a beszélgetés témáját, mert nem nevezhetsz át lapokat.',
@@ -4739,7 +4733,6 @@ $messages['ia'] = array(
 	'lqt_add_header' => 'Adder capite',
 	'lqt_new_thread' => 'Initiar un nove discussion',
 	'lqt_invalid_subject' => 'Le subjecto que tu entrava es invalide. Illo pote:
-* continer characteres invalide, como []{}&lt;&gt;,
 * esser troppo longe, o
 * confliger con prefixos interwiki o nomines de spatios de nomines.',
 	'lqt_subject_change_forbidden' => 'Tu non ha le permission de cambiar le subjecto de iste filo proque tu non pote renominar paginas.',
@@ -5146,7 +5139,6 @@ $messages['it'] = array(
 	'lqt_new_thread' => 'Inizia una nuova discussione',
 	'lqt_invalid_subject' => "L'oggetto inserito non è valido.
 Potrebbe:
-* Contenere caratteri non validi come []{}&lt;&gt;,
 * Essere troppo lungo, oppure
 * Essere in conflitto con prefissi interwiki o nomi di namespace.",
 	'lqt_subject_change_forbidden' => 'Non è possibile modificare il tema di questo thread perché non si è autorizzati a spostare le pagine.',
@@ -5304,9 +5296,9 @@ $messages['ja'] = array(
 	'lqt_add_header' => 'ヘッダの追加',
 	'lqt_new_thread' => '新しい議論を始める',
 	'lqt_invalid_subject' => 'あなたが入力した表題は不正です。以下の可能性があります。
-* []{}&lt;&gt; などの無効な文字を含んでいる
 * 長すぎる
 * インターウィキ用接頭辞や名前空間名と衝突している',
+	'lqt_empty_subject' => '表題を入力する必要があります。',
 	'lqt_subject_change_forbidden' => 'あなたはページを移動できないため、このスレッドの表題を変更することはできません。',
 	'lqt_in_response_to' => '$2 が発言した $1 への返答:',
 	'lqt_edited_notice' => '編集済み',
@@ -5695,7 +5687,6 @@ $messages['ksh'] = array(
 	'lqt_add_header' => 'En Övvershreff dobei donn',
 	'lqt_new_thread' => 'Fang ene neue Klaaf aan',
 	'lqt_invalid_subject' => 'Dat Teema, wat De enjejovve häs, jeiht esu nit.
-* Et künnte onjöltijje Zeishe doh dren sin, esu jät wi []{}&lt;&gt; es verbodde.
 * Et künnt ze lang sinn.
 * Et künnt sesch met enem Vörsaz för Engewiki_Lengks biiße.
 * Et künnt sesch met enem Nahme för_e Appachtemang biiße.',
@@ -5924,9 +5915,9 @@ $messages['lb'] = array(
 	'lqt_new_thread' => 'Eng nei Diskussioun ufänken',
 	'lqt_invalid_subject' => 'De Sujet deen Dir aginn hutt ass net valabel.
 Et ass méiglech, datt:
-*net valabel Zeechen esou wéi []{} &lt;&gt; drasinn,
 *en ze laang ass, oder
 * en am Konflikt mat Interwiki-Prefixen oder Nimm vun Nummraim ass.',
+	'lqt_empty_subject' => 'Dir musst e Sujet uginn.',
 	'lqt_subject_change_forbidden' => 'Dir kënnt de Sujet vun dëse Rubrik net änneren well Dir keng Säite réckelen däerft.',
 	'lqt_in_response_to' => 'Als äntwert op $1 vum $2, uewendriwwer:',
 	'lqt_edited_notice' => 'Verännert',
@@ -6399,9 +6390,9 @@ $messages['nl'] = array(
 	'lqt_add_header' => 'Kopje toevoegen',
 	'lqt_new_thread' => 'Nieuw onderwerp starten',
 	'lqt_invalid_subject' => 'Het onderwerp dat u heeft opgegeven is ongeldig. Het kan:
-* ongeldige tekens bevatten, zoals []{}&lt;&gt;,
 * te lang zijn, of
 * conflicteren met interwikivoorvoegsels of naamruimtenamen.',
+	'lqt_empty_subject' => 'U moet een onderwerp ingeven.',
 	'lqt_subject_change_forbidden' => "U hebt niet de rechten om het onderwerp te wijzigen, omdat u geen pagina's kunt hernoemen.",
 	'lqt_in_response_to' => 'In antwoord op $1 door $2 hierboven:',
 	'lqt_edited_notice' => 'Bewerkt',
@@ -6754,7 +6745,6 @@ $messages['no'] = array(
 	'lqt_new_thread' => 'Start en ny diskusjon',
 	'lqt_invalid_subject' => 'Emnet du skrev inn er ugyldig.
 Det kan:
-* Inneholde ugyldige tegn, slik som []{}&lt;&gt;,
 * Være for langt, eller
 * Være i konflikt med andre interwikiprefiks eller navneromnavn.',
 	'lqt_subject_change_forbidden' => 'Du kan ikke endre emnet for denne tråden fordi du ikke er tillatt å flytte sider.',
@@ -6914,7 +6904,6 @@ $messages['oc'] = array(
 	'lqt_add_header' => 'Apondre una entèsta',
 	'lqt_new_thread' => 'Amodar una discussion novèla',
 	'lqt_invalid_subject' => "Lo subjècte qu'avètz picat es invalid. Es possible :
-* que contenga de caractèrs invalids, coma []{}&lt;&gt;,
 * que siá tròp long o
 * siá en conflicte amb un prefix interwiki, o un espaci de noms.",
 	'lqt_subject_change_forbidden' => "Sètz pas autorizat(ada) a modificar lo subjècte d'aqueste fial perque podètz pas tornar nomenar de paginas.",
@@ -7195,7 +7184,6 @@ $messages['pl'] = array(
 	'lqt_add_header' => 'Dodaj nagłówek',
 	'lqt_new_thread' => 'Rozpocznij nową dyskusję',
 	'lqt_invalid_subject' => 'Wprowadzony temat jest nieprawidłowy. Możliwe, że:
-* zawiera nieprawidłowe znaki, takie jak []{}&lt;&gt;,
 * jest za długi,
 * koliduje z prefiksami interwiki lub przestrzeniami nazw.',
 	'lqt_subject_change_forbidden' => 'Nie możesz zmienić tematu wątku, ponieważ nie masz uprawnień do przenoszenia stron.',
@@ -7702,9 +7690,9 @@ $messages['ru'] = array(
 	'lqt_add_header' => 'Добавить «шапку»',
 	'lqt_new_thread' => 'Начать новое обсуждение',
 	'lqt_invalid_subject' => 'Указанный вами заголовок ошибочен, по одной из следующих причин:
-* содержит недопустимые символы, например []{}&lt;&gt;;
 * слишком длинен;
 * совпадает с интервики-приставками или названиями пространств имён.',
+	'lqt_empty_subject' => 'Вы должны указать тему.',
 	'lqt_subject_change_forbidden' => 'Вы не можете изменить заголовок этой ветки, поскольку вы не можете переименовывать страницы.',
 	'lqt_in_response_to' => 'В ответ на $1 от $2 выше:',
 	'lqt_edited_notice' => 'Правил',
@@ -7925,7 +7913,6 @@ $messages['sah'] = array(
 	'lqt_add_header' => 'Аат эбии',
 	'lqt_new_thread' => 'Саҥа ырытыыны саҕалааһын',
 	'lqt_invalid_subject' => 'Эн оҥорбут аатыҥ алҕастаах, төрүөтүнэн балартан биирдэстэрэ буолар:
-* туттуллуо суохтаах бэлиэлэрдээх, холобур []{}&lt;&gt;;
 * наһаа уһун;
 * интервики-приставкалары кытта дуу аат далларын кытта дуу биир.',
 	'lqt_subject_change_forbidden' => 'Бу салаа аатын уларытар кыаҕыҥ суох, тоҕо диэтэххэ сирэйдэр ааттарын уларытарыҥ сатаммат эбит.',
@@ -8161,7 +8148,6 @@ $messages['sk'] = array(
 	'lqt_add_header' => 'Pridať hlavičku',
 	'lqt_new_thread' => 'Začať novú diskusiu',
 	'lqt_invalid_subject' => 'Predmet, ktorý ste zadali je neplatný. Môže:
-* obsahovať neplatné znaky ako []{}&lt;&gt;,
 * byť príliš dlhý alebo
 * byť v konflikte s predponami interwiki alebo názvami menných priestorov.',
 	'lqt_subject_change_forbidden' => 'Nemôžete zmeniť predmet tohto vlákna, pretože nemáte oprávnenie na presúvanie stránok.',
@@ -8474,7 +8460,6 @@ $messages['sv'] = array(
 	'lqt_new_thread' => 'Starta en ny diskussion',
 	'lqt_invalid_subject' => 'Ämnet du angivit är oglitigt
 Det kan bero på att:
-* namnet innehåller otillåtna tecken, till exempel []{}&lt;&gt;,
 * namnet är för långt, eller att
 * det sammanfaller med ett interwiki-prefix eller namnrymndsnamn.',
 	'lqt_subject_change_forbidden' => 'Du kan inte byta namn på den här tråden eftersom du inte har behörighet att flytta sidor.',
@@ -8976,7 +8961,6 @@ $messages['tr'] = array(
 	'lqt_new_thread' => 'Yeni bir tartışma başlat',
 	'lqt_invalid_subject' => 'Girdiğiniz başlık geçersiz.
 Sebebi:
-* Geçersiz karakter içermesi, []{}&lt;&gt;, gibi
 * Çok uzun olması, ya da
 * Vikilerarası bağlantılar ya da ad alanlarıyla çakışma olabilir.',
 	'lqt_subject_change_forbidden' => 'Bu düğümün konusunu değiştiremezsiniz çünkü sayfaları taşımanıza izin verilmiyor.',
@@ -9335,7 +9319,6 @@ $messages['vi'] = array(
 	'lqt_add_header' => 'Thêm đầu đề',
 	'lqt_new_thread' => 'Bắt đầu thảo luận mới:',
 	'lqt_invalid_subject' => 'Bạn đã nhập chủ đề không hợp lệ. Có lẽ nó:
-* Chứa ký tự không hợp lệ, như là []{}&lt;&gt;,
 * Dài quá, hoặc
 * Xung đột với tiền tố liên wiki hay tên của không gian tên.',
 	'lqt_subject_change_forbidden' => 'Bạn không thể thay đổi chủ đề của luồng này vì không có phép di chuyển trang.',
@@ -9664,7 +9647,6 @@ $messages['zh-hans'] = array(
 	'lqt_add_header' => '添加首段',
 	'lqt_new_thread' => '发起新的讨论',
 	'lqt_invalid_subject' => '您输入的主题无效，可能是由下列原因导致的：
-* 包含无效字符，如[]{}&lt;&gt;，
 * 标题太长，或者
 * 与跨wiki前缀或名字空间名称冲突。',
 	'lqt_subject_change_forbidden' => '您无法更改本话题的主题，因为您没有移动页面的权限。',
