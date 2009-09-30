@@ -475,3 +475,8 @@ ul.lqt-thread-toolbar-commands {
 	margin-left: 2em;
 	font-size: 120%;
 }
+
+.lqt-post-sep,
+.lqt-replies-finish {
+	clear: both;
+}
