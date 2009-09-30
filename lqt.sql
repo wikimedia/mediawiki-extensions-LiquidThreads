@@ -28,7 +28,7 @@ CREATE TABLE /*$wgDBprefix*/thread (
   PRIMARY KEY thread_id (thread_id),
   UNIQUE INDEX thread_root_page (thread_root),
   INDEX thread_ancestor (thread_ancestor, thread_parent),
-  INDEX thread_article_title (thread_article_namespace, thread_article_title),
+  INDEX thread_article_title (thread_article_namespace, thread_article_title, thread_sortkey),
   INDEX thread_modified (thread_modified),
   INDEX thread_created (thread_created),
   INDEX thread_summary_page (thread_summary_page),
