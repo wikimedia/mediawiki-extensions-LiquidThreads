@@ -187,7 +187,7 @@ class TalkpageView extends LqtView {
 		global $wgFeedClasses, $wgScriptPath, $wgServer;
 		$apiParams = array( 'action' => 'feedthreads', 'type' => 'replies|newthreads',
 				'talkpage' => $this->title->getPrefixedText() );
-		$urlPrefix = $wgServer . $wgScriptPath."/api.php?";
+		$urlPrefix = wfScript('api').'?';
 		foreach( $wgFeedClasses as $format => $class ) {
 			$theseParams = $apiParams + array( 'feedformat' => $format );
 			$url = $urlPrefix . wfArrayToCGI( $theseParams );

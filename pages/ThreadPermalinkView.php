@@ -143,7 +143,7 @@ class ThreadPermalinkView extends LqtView {
 		$thread = $this->thread->topmostThread()->title()->getPrefixedText();
 		$apiParams = array( 'action' => 'feedthreads', 'type' => 'replies|newthreads',
 				'thread' => $thread );
-		$urlPrefix = $wgServer . $wgScriptPath."/api.php?";
+		$urlPrefix = wfScript('api').'?';
 		foreach( $wgFeedClasses as $format => $class ) {
 			$theseParams = $apiParams + array( 'feedformat' => $format );
 			$url = $urlPrefix . wfArrayToCGI( $theseParams );
