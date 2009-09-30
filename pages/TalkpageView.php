@@ -183,6 +183,17 @@ class TalkpageView extends LqtView {
 		$this->output->setPageTitle( $this->title->getPrefixedText() );
 		self::addJSandCSS();
 		
+		// Expose feed links.
+		global $wgFeedClasses, $wgScriptPath, $wgServer;
+		$apiParams = array( 'action' => 'feedthreads', 'type' => 'replies|newthreads',
+				'talkpage' => $this->title->getPrefixedText() );
+		$urlPrefix = $wgServer . $wgScriptPath."/api.php?";
+		foreach( $wgFeedClasses as $format => $class ) {
+			$theseParams = $apiParams + array( 'feedformat' => $format );
+			$url = $urlPrefix . wfArrayToCGI( $theseParams );
+			$this->output->addFeedLink( $format, $url );
+		}
+		
 		$sk = $this->user->getSkin();
 		
 		$article = new Article( $this->title );

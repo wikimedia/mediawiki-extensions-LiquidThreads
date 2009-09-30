@@ -137,6 +137,18 @@ class ThreadPermalinkView extends LqtView {
 			$this->doInlineEditForm();
 			return false;
 		}
+		
+		// Expose feed links.
+		global $wgFeedClasses, $wgScriptPath, $wgServer;
+		$thread = $this->thread->topmostThread()->title()->getPrefixedText();
+		$apiParams = array( 'action' => 'feedthreads', 'type' => 'replies|newthreads',
+				'thread' => $thread );
+		$urlPrefix = $wgServer . $wgScriptPath."/api.php?";
+		foreach( $wgFeedClasses as $format => $class ) {
+			$theseParams = $apiParams + array( 'feedformat' => $format );
+			$url = $urlPrefix . wfArrayToCGI( $theseParams );
+			$this->output->addFeedLink( $format, $url );
+		}
 
 		self::addJSandCSS();
 		$this->output->setSubtitle( $this->getSubtitle() );
