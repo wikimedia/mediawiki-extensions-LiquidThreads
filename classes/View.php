@@ -284,7 +284,7 @@ class LqtView {
 			$t = $this->newSummaryTitle( $edit_applies_to );
 			$article = new Article( $t );
 		} elseif ( !$thread ) {
-			if ( !$subject ) {
+			if ( !$subject && $subject_expected ) {
 				// Dodgy title
 				$t = $this->scratchTitle();
 				$valid_subject = false;
