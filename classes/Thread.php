@@ -290,10 +290,8 @@ class Thread {
 		// Update on *all* subthreads.
 		$dbr->update( 'thread',
 						array(
-							'thread_revision=thread_revision+1',
 							'thread_article_namespace' => $new_articleNamespace,
 							'thread_article_title' => $new_articleTitle,
-							'thread_modified' => $dbr->timestamp( wfTimestampNow() ),
 						),
 						array( 'thread_ancestor' => $this->id() ),
 						__METHOD__ );
