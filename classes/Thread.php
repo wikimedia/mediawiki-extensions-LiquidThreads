@@ -92,14 +92,6 @@ class Thread {
 			$hthread = ThreadRevision::create( $thread, $change_type );
 		}
 		
-		// Increment appropriate reply counts.
-		$t = $thread->superthread();
-		while ($t) {
-			$t->incrementReplyCount();
-			$t->save();
-			$t = $t->superthread();
-		}
-		
 		// Create talk page
 		Threads::createTalkpageIfNeeded( $article );
 
