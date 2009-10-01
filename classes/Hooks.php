@@ -44,7 +44,7 @@ class LqtHooks {
 						array( 'class' => 'lqt_rc_ellipsis' ), array(), array( 'known' ) );
 			}
 			
-			$quote = $wgOut->parseInline( $quote ) . $link;
+			$quote = htmlspecialchars($quote) . $link;
 
 			if ( $thread->isTopmostThread() ) {
 				$message_name = 'lqt_rc_new_discussion';

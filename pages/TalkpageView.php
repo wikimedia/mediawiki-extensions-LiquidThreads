@@ -96,8 +96,7 @@ class TalkpageView extends LqtView {
 		foreach( $threads as $thread ) {
 			$row = '';
 			$anchor = '#'.$this->anchorName( $thread );
-			$subject = $this->output->parseInline( $thread->subjectWithoutIncrement() );
-			$subject = Xml::tags( 'a', array( 'href' => $anchor ), $subject );
+			$subject = Xml::element( 'a', array( 'href' => $anchor ), $thread->subject() );
 			$row .= Xml::tags( 'td', null, $subject );
 			
 			$author = $thread->author();
