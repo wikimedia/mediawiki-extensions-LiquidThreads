@@ -938,7 +938,11 @@ class Thread {
 	}
 
 	function title() {
-		return $this->root()->getTitle();
+		if ( is_object( $this->root() ) {
+			return $this->root()->getTitle();
+		} else {
+			return null;
+		}
 	}
 
 	static function splitIncrementFromSubject( $subject_string ) {
