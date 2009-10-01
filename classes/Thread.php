@@ -938,7 +938,7 @@ class Thread {
 	}
 
 	function title() {
-		if ( is_object( $this->root() ) {
+		if ( is_object( $this->root() ) ) {
 			return $this->root()->getTitle();
 		} else {
 			return null;
