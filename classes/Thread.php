@@ -149,7 +149,7 @@ class Thread {
 
 		$this->modified = wfTimestampNow();
 		$this->updateEditedness( $change_type );
-		$this->save();
+		$this->save( __METHOD__ . "/" . wfGetCaller());
 		
 		$topmost = $this->topmostThread();
 		$topmost->modified = wfTimestampNow();
@@ -181,15 +181,21 @@ class Thread {
 	}
 	
 	/** Unless you know what you're doing, you want commitRevision */
-	function save() {		
+	function save( $fname = null ) {		
 		$this->dieIfHistorical();
 
 		$dbr = wfGetDB( DB_MASTER );
 		
+		if ( !$fname ) {
+			$fname = __METHOD__ . "/" . wfGetCaller();
+		} else {
+			$fname = __METHOD__ . "/" . $fname;
+		}
+		
 		$res = $dbr->update( 'thread',
 		     /* SET */ $this->getRow(),
 		     /* WHERE */ array( 'thread_id' => $this->id, ),
-		     __METHOD__ );
+		     $fname );
 		     
 		// Touch the root
 		if ($this->root()) {
@@ -262,7 +268,7 @@ class Thread {
 		}
 	}
 	
-	function undelete( $reason ) {
+	function undelete( $reason ) {		
 		$this->type = Threads::TYPE_NORMAL;
 		$this->commitRevision( Threads::CHANGE_UNDELETED, $this, $reason );
 		
@@ -432,7 +438,9 @@ class Thread {
 		//  pre-initialise the reply cache, and stash the row object for later use.
 		if ( count($thread_ids) ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			$res = $dbr->select( 'thread', '*', array( 'thread_ancestor' => $thread_ids ),
+			$res = $dbr->select( 'thread', '*',
+									array( 'thread_ancestor' => $thread_ids,
+										'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ),
 									__METHOD__ );
 									
 			while( $row = $dbr->fetchObject($res) ) {				
@@ -749,7 +757,9 @@ class Thread {
 		$dbr = wfGetDB( DB_SLAVE );
 		
 		$res = $dbr->select( 'thread', '*',
-								array( 'thread_parent' => $this->id() ), __METHOD__ );
+								array( 'thread_parent' => $this->id(),
+								'thread_type != '.$dbr->addQuotes( Threads::TYPE_DELETED ) ),
+								__METHOD__ );
 		
 		$rows = array();
 		while ( $row = $dbr->fetchObject($res) ) {

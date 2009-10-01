@@ -26,9 +26,7 @@ class LqtDeletionController {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		if ( $thread->replies() && $thread->isTopmostThread() ) {
 			$reason = wfMsg('lqt-delete-parent-deleted', $reason );
-			foreach( $thread->replies() as $reply ) {
-				$reply->root()->doDeleteArticle( $reason, false, $reply->root()->getId() );
-			}
+			self::recursivelyDeleteReplies( $thread, $reason );
 			global $wgOut;
 			$wgOut->addWikiMsg( 'lqt-delete-replies-done' );
 		} elseif ( $thread->replies() ) {
@@ -39,6 +37,14 @@ class LqtDeletionController {
 		}
 		
 		return true;
+	}
+	
+	static function recursivelyDeleteReplies( $thread, $reason ) {
+		foreach( $thread->replies() as $reply ) {
+			$reply->root()->doDeleteArticle( $reason, false, $reply->root()->getId() );
+			$reply->delete( $reason );
+			self::recursivelyDeleteReplies( $reply, $reason );
+		}
 	}
 	
 	static function onArticleRevisionUndeleted( &$title, $revision, $page_id ) {

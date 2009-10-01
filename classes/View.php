@@ -561,12 +561,10 @@ class LqtView {
 							 'enabled' => true, 'icon' => 'reply.png', 'showlabel' => 1,
 							 'tooltip' => wfMsg( 'lqt_reply' ) );
 		
-		if ($thread->title()) {		
-			$commands['link'] = array( 'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
-								'href' => $thread->title()->getFullURL(),
-								'enabled' => true, 'icon' => 'link.png',
-								'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' ) );
-		}
+		$commands['link'] = array( 'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
+							'href' => $thread->title()->getFullURL(),
+							'enabled' => true, 'icon' => 'link.png',
+							'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' ) );
 		
 		if ( $thread->root()->getTitle()->quickUserCan( 'edit' ) ) {
 			$commands['edit'] = array( 'label' => wfMsgExt( 'edit', 'parseinline' ),
