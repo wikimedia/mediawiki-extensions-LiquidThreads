@@ -93,6 +93,8 @@ class LqtDeletionController {
 		
 		$thread = Threads::withRoot( $article );
 		
+		if (!$thread) return true;
+		
 		if ( $thread->isTopmostThread() && count($thread->replies()) ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );
 			$out->wrapWikiMsg( '<strong>$1</strong>',
