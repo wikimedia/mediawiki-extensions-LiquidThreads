@@ -1226,7 +1226,12 @@ class LqtView {
 			$user = User::newFromId( $uid );
 		}
 		
-		global $wgParser, $wgOut;
+		global $wgParser, $wgOut, $wgTitle;
+		
+		// Parser gets antsy about parser options here if it hasn't parsed anything before.
+		$wgParser->clearState();
+		$wgParser->setTitle( $wgTitle );
+		$wgParser->mOptions = new ParserOptions;
 		
 		$sig = $wgParser->getUserSig( $user );
 		$sig = $wgOut->parseInline( $sig );
