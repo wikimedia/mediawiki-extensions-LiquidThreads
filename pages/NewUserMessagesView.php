@@ -161,9 +161,21 @@ class NewUserMessagesView extends LqtView {
 			$this->targets[$t->id()] );
 		
 		// Left-hand column Ñ read button and context link to the full thread.
+		global $wgUser;
 		$topmostThread = $t->topmostThread();
-		$contextLink = self::permalink( $topmostThread,
-						wfMsgExt( 'lqt-newmessages-context', 'parseinline' ) );
+		$sk = $wgUser->getSkin();
+		$title = clone $topmostThread->article()->getTitle();
+		$title->setFragment( '#'.$t->getAnchorName() );
+		
+		// Make sure it points to the right page. The Pager seems to use the DB
+		//  representation of a timestamp for its offset field, odd.
+		$dbr = wfGetDB( DB_SLAVE );
+		$offset = wfTimestamp( TS_UNIX, $topmostThread->modified() ) + 1;
+		$offset = $dbr->timestamp( $offset );
+		
+		$contextLink = $sk->link( $title,
+						wfMsgExt( 'lqt-newmessages-context', 'parseinline' ), array(),
+						array( 'offset' => $offset ), array( 'known' ) );
 		$leftColumn = Xml::tags( 'p', null, $read_button ) .
 						Xml::tags( 'p', null, $contextLink );
 		$leftColumn = Xml::tags( 'td', array( 'class' => 'mw-lqt-newmessages-left' ),
