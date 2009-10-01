@@ -249,14 +249,15 @@ class Thread {
 		
 		$dbw = wfGetDB( DB_MASTER );
 		
-// 		$dbw->delete( 'user_message_state', array( 'ums_thread' => $this->id() ),
-// 						__METHOD__ );
+ 		$dbw->delete( 'user_message_state', array( 'ums_thread' => $this->id() ),
+ 						__METHOD__ );
 		
 		// Fix reply count.
 		$t = $this->superthread();
 		while( $t ) {
 			$t->decrementReplyCount();
 			$t->save();
+			$t = $t->superthread();
 		}
 	}
 	
