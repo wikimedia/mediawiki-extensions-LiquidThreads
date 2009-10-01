@@ -269,6 +269,7 @@ class Thread {
 		$t = $this->superthread();
 		while( $t ) {
 			$t->incrementReplyCount();
+			$t = $t->superthread();
 		}
 	}
 
