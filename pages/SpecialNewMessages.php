@@ -32,6 +32,11 @@ class SpecialNewMessages extends SpecialPage {
 
 		$view = new NewUserMessagesView( $this->output, $article,
 			$title, $this->user, $this->request );
+			
+		if ( $this->request->getBool( 'lqt_inline' ) ) {
+			$view->doInlineEditForm();
+			return;
+		}
 
 		$view->showOnce(); // handles POST etc.
 
