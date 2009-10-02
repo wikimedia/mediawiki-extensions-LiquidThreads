@@ -230,7 +230,7 @@ was created on $3 at $4.
 You can see it at <$6>",
 
 	// Quoting functionality
-	'lqt-quote-intro' => 'On $2 at $3, [[User:$1]] wrote:',
+	'lqt-quote-intro' => 'On $2 at $3, [[User:$1|$1]] wrote:',
 	'lqt-quote' => 'Quote',
 
 	// Search
