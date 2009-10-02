@@ -672,7 +672,7 @@ $messages['ar'] = array(
 قد وُضع في يوم $3 عند $4.
 
 بإمكانك مراجعته عبر <$6>",
-	'lqt-quote-intro' => 'في $2 عند $3، كتب [[User:$1]]:',
+	'lqt-quote-intro' => 'في $2 عند $3، كتب [[User:$1|$1]]:',
 	'lqt-quote' => 'اقتباس',
 	'lqt-search-legend' => 'ابحث في نقاشات هذه الصفحة',
 	'lqt-search-label' => 'عبارة البحث:',
@@ -1010,7 +1010,7 @@ $messages['be-tarask'] = array(
 створаны $3 $4.
 
 Вы можаце паглядзець яго на <$6>",
-	'lqt-quote-intro' => '$2 $3 [[User:$1]] {{GENDER:$1|напісаў|напісала}}:',
+	'lqt-quote-intro' => '$2 $3 [[User:$1|$1]] {{GENDER:$1|напісаў|напісала}}:',
 	'lqt-quote' => 'Цытаваць',
 	'lqt-search-legend' => 'Пошук абмеркаваньняў на гэтай старонцы',
 	'lqt-search-label' => 'Умовы пошуку:',
@@ -1322,7 +1322,7 @@ Setu ur c'hemenn a-berzh {{SITENAME}} a embann ez eus ur respont nevez da '$2' w
 bet savet d'an $3 da $4.
 
 E lenn a c'hallit ober war <$6>",
-	'lqt-quote-intro' => "D'an $2 da $3, eo bet skrivet gant [[User:$1]] :",
+	'lqt-quote-intro' => "D'an $2 da $3, eo bet skrivet gant [[User:$1|$1]] :",
 	'lqt-quote' => 'Menegiñ',
 	'lqt-search-legend' => 'Klask kaozeadennoù war ar bajenn-mañ',
 	'lqt-search-label' => 'Termenoù enklask',
@@ -1630,7 +1630,7 @@ El podeu veure a <$6>',
 Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que ha aparegut una resposta al fil «$2» a $5, creada el dia $3 a les $4.
 
 El podeu veure a <$6>',
-	'lqt-quote-intro' => 'El dia $2 a les $3, [[User:$1]] va escriure:',
+	'lqt-quote-intro' => 'El dia $2 a les $3, [[User:$1|$1]] va escriure:',
 	'lqt-quote' => 'Cita-ho',
 	'lqt-search-legend' => 'Cerca discussions en aquesta pàgina',
 	'lqt-search-label' => 'Termes de cerca:',
@@ -1688,6 +1688,7 @@ Možná, že:
 	'lqt_hist_reply_created' => 'Přidána nová odpověď',
 	'lqt_hist_thread_created' => 'Založeno nové vlákno',
 	'lqt_hist_deleted' => 'Smazáno',
+	'lqt_hist_moved_talkpage' => 'Přesunuto',
 	'lqt_hist_listing_subtitle' => 'Prohlížení výpisu historie',
 	'lqt_hist_view_whole_thread' => 'Zobrazit historii celého vlákna',
 	'lqt_hist_split' => 'Odpověď oddělena do nového vlákna',
@@ -1709,10 +1710,13 @@ Možná, že:
 	'lqt_protectedfromreply_link' => 'zamčeno',
 	'lqt_subject' => 'Předmět:',
 	'lqt_nosubject' => '«bez předmětu»',
+	'lqt_move_placeholder' => 'Toto je pozůstatek vlákna $1, které bylo přesunuto z této stránky do jiné diskuse.
+Přesun {{GENDER:$2|provedl|provedla|provedl}} $2 v $4, $3.',
 	'lqt_summary_label' => 'Shrnutí tohoto vlákna:',
 	'lqt_summary_subtitle' => 'Shrnutí „$1“',
 	'lqt_nosuchthread' => 'Uvedené vlákno neexistuje.',
 	'lqt_nosuchthread_title' => 'Neexistující vlákno',
+	'lqt_threadrequired' => 'Musíte v URL určit vlákno.',
 	'lqt_move_movingthread' => 'Přesouvá se $1.
 Toto vlákno je částí $2.',
 	'lqt_move_torename' => 'Pro přejmenování vlákna ho $1 a změňte obsah pole „Předmět“.',
@@ -1742,7 +1746,7 @@ I nadále bude zobrazeno na původní diskusní stránce.',
 I nadále budou zobrazena na původních diskusních stránkách.
 Tuto operaci lze vrátit zpět.',
 	'lqt-marked-read' => "Vlákno '''$1''' bylo označeno jako přečtené.",
-	'lqt-count-marked-read' => '$1 {{PLURAL:$1|zpráva|zprávy|zpráv}} {{PLURAL:$1|označena za přečtenou|označeno za přečtené}}.',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|zpráva označena jako přečtená|zprávy označeny jako přečtené|zpráv označeno jako přečtené}}',
 	'lqt-email-undo' => 'Vrátit',
 	'lqt-messages-sent' => 'Zprávy poslané vám:',
 	'lqt-other-messages' => 'Zprávy na jiných diskusních stránkách:',
@@ -1787,6 +1791,7 @@ Pokud tomu chcete zabránit, tak je před smazáním nejprve oddělte z tohoto v
 	'lqt-merge-success' => 'Úspěšně jste {{GENDER:|sloučil|sloučila|sloučili}} vlákno $1 pod $2.',
 	'lqt-log-name' => 'Kniha diskusí ve vláknech',
 	'lqt-log-header' => 'Toto je záznam operací s diskusními vlákny.',
+	'lqt-log-action-move' => 'přesunuje [[$1]] z [[$2]] do [[$3]].',
 	'lqt-preference-notify-talk' => 'Poslat e-mail při reakcích ve sledovaných vláknech',
 	'lqt-preference-watch-threads' => 'Přidávat vlákna, která založím nebo do kterých odpovím, ke sledovaným',
 	'prefs-lqt' => 'Diskuse ve vláknech',
@@ -2306,6 +2311,7 @@ Aby se to wobinuło, wótźěl je wót toś teje nitki, nježli až ju lašujoš
 	'prefs-lqt' => 'Diskusija w nitkach',
 	'lqt-preference-display-depth' => 'Maksimalny dłym wótegronow, kótaraž ma se pokazaś:',
 	'lqt-preference-display-count' => 'Maksimalna licba wótegronow, kótaraž ma se pokazaś:',
+	'lqt-preference-custom-signatures' => 'Swójske wužywarske signatury pokazaś',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} diskusija - wótegrono: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} diskusija - nowa nitka: $1',
 	'lqt-enotif-newthread' => "Witaj $1,
@@ -2482,7 +2488,7 @@ $messages['el'] = array(
 	'prefs-lqt' => 'Συζήτηση σε νήματα',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} συζήτηση - Απάντηση: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} συζήτηση - Νέο θέμα: $1',
-	'lqt-quote-intro' => 'Την $2 στις $3, ο [[User:$1]] έγραψε:',
+	'lqt-quote-intro' => 'Την $2 στις $3, ο [[User:$1|$1]] έγραψε:',
 	'lqt-quote' => 'Απόσπασμα',
 	'lqt-search-legend' => 'Αναζήτηση συζητήσεων σε αυτή τη σελίδα',
 	'lqt-search-label' => 'Αναζήτηση όρων:',
@@ -3235,6 +3241,7 @@ Pour éviter cela, séparez les de ce fil de discussion avant de supprimer celui
 	'prefs-lqt' => 'Discussions en fil',
 	'lqt-preference-display-depth' => 'Profondeur maximale des réponses à afficher :',
 	'lqt-preference-display-count' => 'Nombre maximal de réponses à afficher :',
+	'lqt-preference-custom-signatures' => 'Montrer les signatures personnalisées des utilisateurs',
 	'lqt-enotif-subject-reply' => 'Discussion sur {{SITENAME}} - Réponse : $1',
 	'lqt-enotif-subject-newthread' => 'Discussion sur {{SITENAME}}  - Nouveau sujet : $1',
 	'lqt-enotif-newthread' => 'Bonjour $1,
@@ -3247,7 +3254,7 @@ Ceci est une notification de {{SITENAME}}, qu'une nouvelle réponse à « $2 » 
 a été créée le $3 à $4.
 
 Vous pouvez le voir a « $6 »",
-	'lqt-quote-intro' => 'Le $2 à $3, [[User:$1]] a écrit :',
+	'lqt-quote-intro' => 'Le $2 à $3, [[User:$1|$1]] a écrit :',
 	'lqt-quote' => 'Citer',
 	'lqt-search-legend' => 'Rechercher des discussions sur cette page',
 	'lqt-search-label' => 'Termes de recherche :',
@@ -3477,6 +3484,7 @@ Para evitar isto, sepáreas deste fío antes de borralo.',
 	'prefs-lqt' => 'Fío de conversa',
 	'lqt-preference-display-depth' => 'Profundidade máxima de respostas a mostrar:',
 	'lqt-preference-display-count' => 'Número máximo de respostas a mostrar:',
+	'lqt-preference-custom-signatures' => 'Mostrar as sinaturas personalizadas de usuario',
 	'lqt-enotif-subject-reply' => 'Conversa {{SITENAME}} - Resposta: $1',
 	'lqt-enotif-subject-newthread' => 'Conversa {{SITENAME}} - Novo fío: $1',
 	'lqt-enotif-newthread' => 'Ola $1:
@@ -3732,6 +3740,7 @@ Wänn du des witt verhindere, no teil si ab vum Strang, voreb du ne leschesch.',
 	'prefs-lqt' => 'Diskussionsstrang',
 	'lqt-preference-display-depth' => 'Maximali Antworte-Tiefi, wu soll aazeigt wäre:',
 	'lqt-preference-display-count' => 'Hegschtzahl vu Antworte, wu soll aazeigt wäre:',
+	'lqt-preference-custom-signatures' => 'Signature fir fortgschritteni Benutzer aazeige',
 	'lqt-enotif-subject-reply' => '{{SITENAME}}-Diskussion - Antwort: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-Diskussion - Neje Diskussionstrang: $1',
 	'lqt-enotif-newthread' => "Sali $1,
@@ -3743,7 +3752,7 @@ Des isch e Nochricht vu {{SITENAME}}, ass e neji Antwort uf '$2' iber $5,
 aagleit woren isch uf $3 am $4.
 
 Du chasch si säh uf <$6>",
-	'lqt-quote-intro' => 'Am $2 am $3, het [[User:$1]] gschribe:',
+	'lqt-quote-intro' => 'Am $2 am $3, het [[User:$1|$1]] gschribe:',
 	'lqt-quote' => 'Zitiere',
 	'lqt-search-legend' => 'Dursuech d Diskussionsbyytreg uf däre Syte',
 	'lqt-search-label' => 'Suechuusdruck:',
@@ -4037,7 +4046,7 @@ $messages['he'] = array(
 נוצרה בתאריך $4, $3.
 
 באפשרותכם לראותה בכתובת <$6>",
-	'lqt-quote-intro' => 'ב־$3, $2, נכתב על ידי [[User:$1]]:',
+	'lqt-quote-intro' => 'ב־$3, $2, נכתב על ידי [[User:$1|$1]]:',
 	'lqt-quote' => 'ציטוט',
 	'lqt-search-legend' => 'חיפוש דיונים בדף זה',
 	'lqt-search-label' => 'ביטויים לחיפוש:',
@@ -4244,7 +4253,7 @@ Ovo je obavijest s {{SITENAME}} o novom odgovoru na '$2' na $5,
 poslan $3 u $4.
 
 Možete ga vidjeti na <$6>",
-	'lqt-quote-intro' => '$2 u $3, [[User:$1]] je napisao:',
+	'lqt-quote-intro' => '$2 u $3, [[User:$1|$1]] je napisao:',
 	'lqt-quote' => 'Citiraj ovo',
 	'lqt-search-legend' => 'Pretraži raspravu na ovoj stranici',
 	'lqt-search-label' => 'Pojmovi pretrage:',
@@ -4435,6 +4444,7 @@ Zo by to wobešoł, wotdźěl je wot tuteje nitki, prjedy hač ju wušmóruješ.
 	'prefs-lqt' => 'Diskusija w nitkach',
 	'lqt-preference-display-depth' => 'Maksimalna hłubokosć wotmołwow, kotraž ma so pokazać:',
 	'lqt-preference-display-count' => 'Maksimalna ličba wotmołwow, kotraž ma so pokazać:',
+	'lqt-preference-custom-signatures' => 'Swójske wužiwarske signatury pokazać',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} diskusija - wotmołwa: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} diskusija - nowa nitka: $1',
 	'lqt-enotif-newthread' => "Witaj $1,
@@ -4600,7 +4610,7 @@ Ez a beszélgetés jelenleg a(z) $2 lap része.',
 	'prefs-lqt' => 'Beszélgetésfolyamok',
 	'lqt-preference-display-depth' => 'A megjelenített válaszok mélysége, legfeljebb:',
 	'lqt-preference-display-count' => 'A megjelenített válaszok száma, legfeljebb:',
-	'lqt-quote-intro' => '$2 $3-kor [[User:$1]] írta:',
+	'lqt-quote-intro' => '$2 $3-kor [[User:$1|$1]] írta:',
 	'lqt-quote' => 'idéz',
 	'lqt-search-label' => 'Keresett kifejezés:',
 	'lqt-search-button' => 'Keresés',
@@ -4809,7 +4819,7 @@ Isto es un notification ab {{SITENAME}} que un nove responsa a '$2' in $5,
 esseva create le $3 a $4.
 
 Tu pote vider lo a <$6>",
-	'lqt-quote-intro' => 'Le $2 a $3, [[User:$1]] scribeva:',
+	'lqt-quote-intro' => 'Le $2 a $3, [[User:$1|$1]] scribeva:',
 	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Cercar in discussiones in iste pagina',
 	'lqt-search-label' => 'Terminos de recerca:',
@@ -4976,7 +4986,7 @@ Hal ini tidak dapat dibatalkan.',
 	'lqt-preference-notify-talk' => 'Kirimi saya surel jika ada balasan pada topik yang saya pantau',
 	'lqt-enotif-subject-reply' => 'Diskusi {{SITENAME}} - Balasan: $1',
 	'lqt-enotif-subject-newthread' => 'Diskusi {{SITENAME}} - Topik baru: $1',
-	'lqt-quote-intro' => 'Pada $2 pukul $3, [[User:$1]] menulis:',
+	'lqt-quote-intro' => 'Pada $2 pukul $3, [[User:$1|$1]] menulis:',
 	'lqt-quote' => 'Kutip',
 	'lqt-search-legend' => 'Cari diskusi pada halaman ini',
 	'lqt-search-label' => 'Kata kunci pencarian:',
@@ -5145,7 +5155,7 @@ Questa operazione non è annullabile.',
 	'lqt-log-action-move' => 'ha spostato [[$1]] da [[$2]] a [[$3]].',
 	'lqt-preference-watch-threads' => 'Guarda le discussioni che ho creato o a cui ho risposto',
 	'lqt-preference-display-count' => 'Numero massimo di risposte da mostrare:',
-	'lqt-quote-intro' => 'Il $2 alle $3, [[User:$1]] ha scritto:',
+	'lqt-quote-intro' => 'Il $2 alle $3, [[User:$1|$1]] ha scritto:',
 	'lqt-quote' => 'Cita',
 	'lqt-search-legend' => 'Cerca discussioni in questa pagina',
 	'lqt-search-label' => 'Termini di ricerca:',
@@ -5345,7 +5355,7 @@ $messages['ja'] = array(
 これは {{SITENAME}} からの、$5 でスレッド「$2」への新しい返信が $3 $4 にあったことのお知らせです。
 
 <$6> で確認できます。',
-	'lqt-quote-intro' => '$2 $3に[[User:$1]]が書きました:',
+	'lqt-quote-intro' => '$2 $3に[[User:$1|$1]]が書きました:',
 	'lqt-quote' => '引用',
 	'lqt-search-legend' => 'このページ上の議論を検索する',
 	'lqt-search-label' => '検索語句:',
@@ -5950,6 +5960,7 @@ Fir dëst ze verhënneren, trennt se vun dëser Rubrik ier Dir se läscht.',
 	'prefs-lqt' => 'Diskussioun mat Rubriken',
 	'lqt-preference-display-depth' => 'Maximal Déift vun den Äntwerten déi gewise gëtt:',
 	'lqt-preference-display-count' => 'Maximal Zuel vun Äntwerten déi gewise ginn:',
+	'lqt-preference-custom-signatures' => 'Déi personaliséiert Ënnerschrëfte vun de Benotzer weisen',
 	'lqt-enotif-subject-reply' => '{{SITENAME}}-Diskussioun - Äntwert: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-Diskussioun - Nei Rubrik: $1',
 	'lqt-enotif-newthread' => "Salut $1,
@@ -5962,7 +5973,7 @@ Dëst ass eng Notifikatioun vu(n) {{SITENAME}} datt eng nei Äntwert op '$2' op 
 den $3 ëm $4 ugeluecht gouf.
 
 Dir kënnt se op <$6> gesinn.",
-	'lqt-quote-intro' => 'De(n) $2 ëm $3 Auer, huet de(n) [[User:$1]] geschriwwen:',
+	'lqt-quote-intro' => 'De(n) $2 ëm $3 Auer, huet de(n) [[User:$1|$1]] geschriwwen:',
 	'lqt-quote' => 'Zitéieren',
 	'lqt-search-legend' => 'Diskussiounen zu dëser Säit sichen',
 	'lqt-search-label' => 'Sichbegrëffer:',
@@ -6414,6 +6425,7 @@ Splits dit overleg alvorens het te verwijderen om dit te voorkomen.',
 	'prefs-lqt' => 'Gestructureerd overleg',
 	'lqt-preference-display-depth' => 'Maximaal weer te geven diepte:',
 	'lqt-preference-display-count' => 'Maximaal aantal weer te geven reacties:',
+	'lqt-preference-custom-signatures' => 'Aangepaste gebruikersondertekeningen weergeven',
 	'lqt-enotif-subject-reply' => 'Overleg op {{SITENAME}} - Antwoord: $1',
 	'lqt-enotif-subject-newthread' => 'Overleg op {{SITENAME}} - Nieuw overleg: $1',
 	'lqt-enotif-newthread' => "Hallo $1,
@@ -6712,7 +6724,7 @@ Dette er et varsel fra {{SITENAME}} om at et nytt svar til '$2' på $5,
 ble opprettet den $3 klokka $4.
 
 Du kan se den på <$6>",
-	'lqt-quote-intro' => 'Den $2 klokka $3 skrev [[User:$1]]:',
+	'lqt-quote-intro' => 'Den $2 klokka $3 skrev [[User:$1|$1]]:',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -6920,7 +6932,7 @@ Aquò es una notificacion de {{SITENAME}}, qu'una responsa novèla a « $2 » su
 es estada creada lo $3 a $4.
 
 O podètz veire a « $6 »",
-	'lqt-quote-intro' => 'Lo $2 a $3, [[User:$1]] a escrich :',
+	'lqt-quote-intro' => 'Lo $2 a $3, [[User:$1|$1]] a escrich :',
 	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Recercar de discussions sus aquesta pagina',
 	'lqt-search-label' => 'Tèrmes de recèrca :',
@@ -7045,6 +7057,7 @@ $messages['pl'] = array(
 	'lqt_hist_merged_from' => 'Odpowiedź przeniesiona do innego wątku',
 	'lqt_hist_merged_to' => 'Odpowiedź przeniesiona z innego wątku',
 	'lqt_hist_split_from' => 'Oddzielono do nowego wątku',
+	'lqt_revision_as_of' => 'Wersja z dnia $2 z $3.',
 	'lqt_change_new_thread' => 'To jest pierwsza wersja wątku.',
 	'lqt_change_edited_summary' => 'Podsumowanie wątku zostało zmienione.',
 	'lqt_change_deleted' => 'Ta wiadomość lub wątek zostały usunięte',
@@ -7557,7 +7570,7 @@ $messages['ro'] = array(
 	'lqt_split_badsubject' => 'Subiectul introdus este invalid.',
 	'lqt-no-threads' => 'Încă nu există fire pe această pagină.',
 	'lqt-preference-notify-talk' => 'Trimite-mi e-mail la răspunsurile firelor pe care le urmăresc',
-	'lqt-quote-intro' => 'Pe $2 la $3, [[User:$1]] a scris:',
+	'lqt-quote-intro' => 'Pe $2 la $3, [[User:$1|$1]] a scris:',
 	'lqt-search-label' => 'Caută termeni:',
 );
 
@@ -7791,6 +7804,7 @@ $messages['ru'] = array(
 	'prefs-lqt' => 'Обсуждения по веткам',
 	'lqt-preference-display-depth' => '* Максимальная глубина ответов для отображения:',
 	'lqt-preference-display-count' => '* Максимальное количество ответов для отображения:',
+	'lqt-preference-custom-signatures' => 'Показать настраиваемые подписи участников',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} обсуждение — Ответ: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} обсуждение — Новая ветка: $1',
 	'lqt-enotif-newthread' => 'Привет, $1.
@@ -7803,7 +7817,7 @@ $messages['ru'] = array(
 был добавлен новый ответ на ветку «$2».
 
 Вы можете увидеть её по адресу <$6>',
-	'lqt-quote-intro' => '$2 $3, [[User:$1]] написал:',
+	'lqt-quote-intro' => '$2 $3, [[User:$1|$1]] написал:',
 	'lqt-quote' => 'Цитировать',
 	'lqt-search-legend' => 'Поиск обсуждений на этой странице',
 	'lqt-search-label' => 'Условия поиска:',
@@ -8013,7 +8027,7 @@ $messages['sah'] = array(
 Бу $3 $4 {{SITENAME}} саайка баар $5 сирэй «$2» салаатыгар саҥа хоруй баар буолбутун туһунан биллэрии. 
 
 Бу аадырыска <$6> көрүөххүн сөп.',
-	'lqt-quote-intro' => '$2 $3, [[User:$1]] суруйбут:',
+	'lqt-quote-intro' => '$2 $3, [[User:$1|$1]] суруйбут:',
 	'lqt-quote' => 'Цитааталааһын',
 	'lqt-search-legend' => 'Бу сирэйгэ баар ырытыылары көрдөөһүн',
 	'lqt-search-label' => 'Көрдөөһүн усулуобуйата:',
@@ -8248,7 +8262,7 @@ toto je oznámenie z {{GRAMMAR:genitív|{{SITENAME}}}}, že nová odpoveď na $5
 bola pridaná $3 $4.
 
 Môžete si ho pozrieť na <$6>',
-	'lqt-quote-intro' => '$2 $3 [[User:$1]] napísal:',
+	'lqt-quote-intro' => '$2 $3 [[User:$1|$1]] napísal:',
 	'lqt-quote' => 'Citovať',
 	'lqt-search-legend' => 'Hľadať v diskusiách k tejto stránke',
 	'lqt-search-label' => 'Hľadaný výraz:',
@@ -8546,7 +8560,7 @@ Du kan läsa tråden på <$6>",
 Detta är ett meddelande från {{SITENAME}} om ett nytt svar på '$2' på $5 skapades den $3 klockan $4.
 
 Du kan läsa svaret på <$6>",
-	'lqt-quote-intro' => 'Den $2 klockan $3 skrev [[User:$1]]:',
+	'lqt-quote-intro' => 'Den $2 klockan $3 skrev [[User:$1|$1]]:',
 	'lqt-quote' => 'Citera detta',
 	'lqt-search-legend' => 'Sök i diskussionerna på den här sidan',
 	'lqt-search-label' => 'Sökord:',
@@ -8861,6 +8875,7 @@ $messages['tr'] = array(
 Sebebi:
 * Çok uzun olması, ya da
 * Vikilerarası bağlantılar ya da ad alanlarıyla çakışma olabilir.',
+	'lqt_empty_subject' => 'Bir konu girmelisiniz.',
 	'lqt_subject_change_forbidden' => 'Bu düğümün konusunu değiştiremezsiniz çünkü sayfaları taşımanıza izin verilmiyor.',
 	'lqt_in_response_to' => '$2 tarafından $1 için cevap, yukarıda:',
 	'lqt_edited_notice' => 'Değiştirildi',
@@ -9030,7 +9045,7 @@ Bundan kaçınmak için, cevapları düğümü silmeden önce düğümden ayır�
 	'lqt-preference-display-count' => 'Gösterilecek azami cevap sayısı:',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} tartışması - Cevap: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} tartışması - Yeni düğüm: $1',
-	'lqt-quote-intro' => '$2 $3 tarihinde, [[User:$1]] yazdı:',
+	'lqt-quote-intro' => '$2 $3 tarihinde, [[User:$1|$1]] yazdı:',
 	'lqt-quote' => 'Alıntı',
 	'lqt-search-legend' => 'Bu sayfadaki tartışmaları ara',
 	'lqt-search-label' => 'Arama terimleri:',
@@ -9121,7 +9136,7 @@ $messages['vec'] = array(
 	'lqt-log-action-move' => 'gà spostà  [[$1]] da [[$2]] a [[$3]].',
 	'lqt-enotif-subject-reply' => 'Discussion su {{SITENAME}} - Risposta: $1',
 	'lqt-enotif-subject-newthread' => 'Discussion su {{SITENAME}} - Argomento novo: $1',
-	'lqt-quote-intro' => 'El $2 a le $3, [[User:$1]] el gà scrito:',
+	'lqt-quote-intro' => 'El $2 a le $3, [[User:$1|$1]] el gà scrito:',
 	'lqt-quote' => 'Cita',
 	'lqt-search-label' => 'Parole da sercar:',
 	'lqt-search-button' => 'Serca',
@@ -9264,7 +9279,7 @@ Sự di chuyển này do $2 thực hiện vào lúc $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Luồng này đã bị '''xóa''' và chỉ có quản lý viên mới thấy được.",
 	'lqt_thread_deleted' => 'Luồng này đã bị xóa.',
 	'lqt_summary_notice' => 'Không có thay đổi nào trong thảo luận này trong ít nhất $2 ngày.
-Nếu nó đã đi đến kết thúc, có thể bạn sẽ muốn $1.',
+Nếu nó đã đi đến kết thúc, có thể bạn sẽ muốn $1.{{PLURAL:$2||}}',
 	'lqt_summary_notice_link' => 'viết một câu tóm tắt',
 	'lqt_summary_label' => 'Luồng này đã được tóm tắt như sau:',
 	'lqt_summary_subtitle' => 'Tóm tắt của “$1”.',
@@ -9694,7 +9709,7 @@ $messages['zh-hans'] = array(
 这是{{SITENAME}}自动发送的一封提醒邮件。$3 $4时$5上的话题“$2”有新回复，
 
 您可以访问<$6>阅读之。',
-	'lqt-quote-intro' => '[[User:$1]]在$2 $3时写道：',
+	'lqt-quote-intro' => '[[User:$1|$1]]在$2 $3时写道：',
 	'lqt-quote' => '引用此段',
 	'lqt-search-legend' => '在本页搜索讨论',
 	'lqt-search-label' => '搜索词语：',
