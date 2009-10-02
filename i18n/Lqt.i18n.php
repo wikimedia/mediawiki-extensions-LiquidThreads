@@ -213,6 +213,7 @@ To avoid this, split them from this thread before deleting it.',
 	'prefs-lqt' => 'Threaded discussion',
 	'lqt-preference-display-depth' => 'Maximum reply depth to show:',
 	'lqt-preference-display-count' => 'Maximum number of replies to show:',
+	'lqt-preference-custom-signatures' => 'Show custom user signatures',
 
 	// E-mail notification
 	'lqt-enotif-subject-reply' => '{{SITENAME}} discussion - Reply: $1',

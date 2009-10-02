@@ -151,6 +151,14 @@ class LqtHooks {
 		global $wgEnableEmail;
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		
+		// Whether or not to show user signatures
+		$preferences['lqtcustomsignatures'] =
+			array(
+				'type' => 'toggle',
+				'label-message' => 'lqt-preference-custom-signatures',
+				'section' => 'lqt',
+			);
+		
 		if ($wgEnableEmail) {
 			$preferences['lqtnotifytalk'] =
 				array(
@@ -176,7 +184,6 @@ class LqtHooks {
 				'section' => 'lqt',
 			);
 			
-		// Display depth and count
 		$preferences['lqtdisplaycount'] =
 			array(
 				'type' => 'int',

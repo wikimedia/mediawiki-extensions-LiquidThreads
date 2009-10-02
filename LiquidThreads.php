@@ -140,6 +140,7 @@ $wgLogActionsHandlers['liquidthreads/move'] = 'lqtFormatMoveLogEntry';
 $wgDefaultUserOptions['lqtnotifytalk'] = true;
 $wgDefaultUserOptions['lqtdisplaydepth'] = 3;
 $wgDefaultUserOptions['lqtdisplaycount'] = 10;
+$wgDefaultUserOptions['lqtcustomsignatures'] = true;
 
 // API
 $wgAutoloadClasses['ApiQueryLQTThreads'] = "$dir/api/ApiQueryLQTThreads.php";

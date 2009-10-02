@@ -29,6 +29,7 @@ class LqtView {
 	static $stylesAndScriptsDone = false;
 	
 	static $userSignatureCache = array();
+	static $boringSignatureCache = array();
 
 	function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		$this->article = $article;
@@ -1217,7 +1218,29 @@ class LqtView {
 			$name = $user->getName();
 			$uid = $user->getId();
 		}
+	
+		if ( $this->user->getOption( 'lqtcustomsignatures' ) ) {
+			return $this->getUserSignature( $user, $uid, $name );
+		} else {
+			return $this->getBoringSignature( $user, $uid, $name );
+		}
+	}
+	
+	function getBoringSignature( $user, $uid, $name ) {
+		if ( isset( self::$boringSignatureCache[$name] ) ) {
+			return self::$boringSignatureCache[$name];
+		}
 		
+		$msg = ($uid > 0) ? 'signature' : 'signature-anon';
+		
+		$sig = wfMsgExt( $msg, 'parseinline', array($name, $name) );
+		
+		self::$boringSignatureCache[$name] = $sig;
+		
+		return $sig;
+	}
+	
+	function getUserSignature( $user, $uid, $name ) {
 		if ( isset( self::$userSignatureCache[$name] ) ) {
 			return self::$userSignatureCache[$name];
 		}
