@@ -485,6 +485,44 @@ var liquidThreads = {
 			}, 'json' );
 			
 		$j(this).remove();
+	},
+	
+	'asyncWatch' : function(e) {
+		var button = $j(this);
+		var tlcOffset = "lqt-threadlevel-commands-".length;
+		
+		// Find the title of the thread
+		var threadLevelCommands = button.closest('.lqt_threadlevel_commands');
+		var threadID = threadLevelCommands.attr('id').substring( tlcOffset );
+		var title = $j('#lqt-thread-title-'+threadID).val();
+		
+		// Check if we're watching or unwatching.
+		var action = '';
+		if ( button.hasClass( 'lqt-command-watch' ) ) {
+			button.removeClass( 'lqt-command-watch' );
+			action = 'watch';
+		} else if ( button.hasClass( 'lqt-command-unwatch' ) ) {
+			button.removeClass( 'lqt-command-unwatch' );
+			action = 'unwatch';
+		}
+		
+		// Replace the watch link with a spinner
+		button.empty().addClass( 'lqt-command-working' );
+		
+		// Do the AJAX call.
+		var apiParams = { 'action' : 'watch', 'title' : title, 'format' : 'json' };
+		
+		if (action == 'unwatch') {
+			apiParams.unwatch = 'yes';
+		}
+		
+		$j.get( wgScriptPath+'/api'+wgScriptExtension, apiParams,
+			function( data ) {
+				threadLevelCommands.load( window.location.href+' '+
+						'#'+threadLevelCommands.attr('id')+' > *' );
+			}, 'json' );
+		
+		e.preventDefault();
 	}
 }
 
@@ -528,6 +566,10 @@ js2AddOnloadHook( function() {
 	threadContainers.each( function(i) {
 		liquidThreads.setupThread( this );
 	} );
+	
+	// Live bind for unwatch/watch stuff.
+	$j('.lqt-command-watch').live( 'click', liquidThreads.asyncWatch );
+	$j('.lqt-command-unwatch').live( 'click', liquidThreads.asyncWatch );
 	
 	// Set up periodic update checking
 	setInterval( liquidThreads.checkForUpdates, 60000 );

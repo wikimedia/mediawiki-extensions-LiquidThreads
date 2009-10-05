@@ -488,3 +488,11 @@ table.lqt-new-messages {
 .mw-lqt-newmessages-left {
 	width: 10em	;
 }
+
+.lqt-command-working {
+	padding: 10px !important;
+	margin-right: 0.6em;
+	background-image: url(../../skins/common/images/spinner.gif);
+	background-position: middle middle;
+	background-repeat: no-repeat;
+}
