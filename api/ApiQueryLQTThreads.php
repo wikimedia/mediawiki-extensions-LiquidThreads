@@ -311,7 +311,6 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			'startid' => 'The thread id to start enumerating from',
 			'endid' => 'The thread id to stop enumerating at',
 			'dir' => 'The direction in which to enumerate',
-			'show' => 'Also show threads which meet these criteria',
 			'limit' => 'The maximum number of threads to list',
 			'prop' => 'Which properties to get',
 			'page' => 'Limit results to threads on a particular page(s)',
@@ -319,6 +318,18 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			'root' => 'Limit results to threads with the given root(s)',
 			'summary' => 'Limit results to threads corresponding to the given summary page(s)',
 			'id' => 'Get threads with the given ID(s)',
+			'showdeleted' => 'Whether or not to show deleted threads',
+			'render' => 'Whether or not to include the rendered thread in the results',
+			'renderlevel' => 'When rendering, the level at which to start (for the sake of depth limits, etc)',
+			'renderthreadpos' => 'When rendering, the position of the thread in the group of '.
+					'threads being rendered at that level (affects display somewhat)',
+			'renderthreadcount' => 'When rendering, the number of threads in that level group',
+			'rendermaxthreadcount' => 'When rendering, the maximum number of replies to show '.
+					'before adding a "Show more replies" link',
+			'rendermaxdepth' => 'When rendering, the maximum depth of replies to show before '.
+					'showing a "Show X replies" link instead of replies',
+			'renderstartrepliesat' => 'When rendering, the point at which to start showing replies '.
+					'(used internally to load extra replies)',
 		);
 	}
 
@@ -328,8 +339,8 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 
 	protected function getExamples() {
  		return array(
- 			'api.php?action=query&list=threads&lqtpage=Talk:Main_Page',
- 			'api.php?action=query&list=threads&lqtid=1|2|3|4&lqtprop=id|subject|modified'
+ 			'api.php?action=query&list=threads&thpage=Talk:Main_Page',
+ 			'api.php?action=query&list=threads&thid=1|2|3|4&thprop=id|subject|modified'
  		);
 	}
 
