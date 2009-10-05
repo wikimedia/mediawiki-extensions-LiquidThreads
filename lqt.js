@@ -507,7 +507,7 @@ var liquidThreads = {
 		}
 		
 		// Replace the watch link with a spinner
-		button.empty().addClass( 'lqt-command-working' );
+		button.empty().addClass( 'mw-small-spinner' );
 		
 		// Do the AJAX call.
 		var apiParams = { 'action' : 'watch', 'title' : title, 'format' : 'json' };
