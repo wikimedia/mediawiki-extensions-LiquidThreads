@@ -171,13 +171,29 @@ class LqtView {
 		return array( $title, $query );
 	}
 
+	/* If you want $perpetuateOffset to perpetuate from a specific request, pass that instead
+	   of true */
 	static function talkpageUrl( $title, $method = null, $operand = null,
-									$includeFragment = true ) {
+									$includeFragment = true, $perpetuateOffset = true ) {
 		global $wgUser;
 		$sk = $wgUser->getSkin();
 		
 		list( $title, $query ) =
 			self::talkpageLinkData( $title, $method, $operand, $includeFragment );
+		
+		$request = $perpetuateOffset;
+		if ($request === true) {
+			global $wgRequest;
+			$request = $wgRequest;
+		}
+		
+		if ( $perpetuateOffset ) {
+			$offset = $request->getVal( 'offset' );
+			
+			if ($offset) {
+				$query['offset'] = $offset;
+			}
+		}
 		
 		return $title->getLinkUrl( $query );
 	}
@@ -327,12 +343,21 @@ class LqtView {
 			global $wgRequest;
 			$wgRequest->setVal( 'wpPreview', true );
 		}
+		
+		// Add an offset so it works if it's on the wrong page.
+		if ( $edit_applies_to ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$offset = wfTimestamp( TS_UNIX, $edit_applies_to->topmostThread()->modified() );
+			$offset++;
+			$offset = $dbr->timestamp( $offset );
+		} else $offset = '';
 
 		$e->suppressIntro = true;
 		$e->editFormTextBeforeContent .=
 			$this->perpetuate( 'lqt_method', 'hidden' ) .
 			$this->perpetuate( 'lqt_operand', 'hidden' ) .
-			Xml::hidden( 'lqt_nonce', wfGenerateToken() );
+			Xml::hidden( 'lqt_nonce', wfGenerateToken() ) .
+			Xml::hidden( 'offset', $offset );
 			
 		// Add a one-time random string to a hidden field. Store the random string
 		//  in memcached on submit and don't allow the edit to go ahead if it's already
@@ -494,7 +519,8 @@ class LqtView {
 		$editMsg = $user_can_edit ? 'edit' : 'viewsource';
 
 		$commands['edit'] = array( 'label' => wfMsgExt( $editMsg, 'parseinline' ),
-		                     'href' => $this->talkpageUrl( $this->title, 'edit', $thread ),
+		                     'href' => $this->talkpageUrl( $this->title, 'edit', $thread,
+		                     	true /* include fragment */ , $this->request ),
 		                     'enabled' => true );
 
 		$history_url = self::permalinkUrlWithQuery( $thread, array( 'action' => 'history' ) );
@@ -558,7 +584,8 @@ class LqtView {
 		}
 		
 		$commands['reply'] = array( 'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
-							 'href' => $this->talkpageUrl( $this->title, 'reply', $thread ),
+							 'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
+							 	true /* include fragment */, $this->request),
 							 'enabled' => true, 'icon' => 'reply.png', 'showlabel' => 1,
 							 'tooltip' => wfMsg( 'lqt_reply' ) );
 		
@@ -569,7 +596,8 @@ class LqtView {
 		
 		if ( $thread->root()->getTitle()->quickUserCan( 'edit' ) ) {
 			$commands['edit'] = array( 'label' => wfMsgExt( 'edit', 'parseinline' ),
-								'href' => $this->talkpageUrl( $this->title, 'edit', $thread ),
+								'href' => $this->talkpageUrl( $this->title, 'edit', $thread,
+									true /* include fragment */, $this->request ),
 								'enabled' => true, 'icon' => 'edit.png',
 								'tooltip' => wfMsgExt( 'edit', 'parseinline' ) );
 		}
