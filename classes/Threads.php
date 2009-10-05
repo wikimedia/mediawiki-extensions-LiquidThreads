@@ -117,7 +117,7 @@ class Threads {
 		if ( array_key_exists( $post->getID(), self::$cache_by_root ) ) {
 			return self::$cache_by_root[$post->getID()];
 		}
-		$ts = Threads::where( array( 'thread.thread_root' => $post->getID() ) );
+		$ts = Threads::where( array( 'thread_root' => $post->getID() ) );
 		return self::assertSingularity( $ts, 'thread_root', $post->getID() );
 	}
 
@@ -131,7 +131,7 @@ class Threads {
 	}
 
 	static function withSummary( $article ) {
-		$ts = Threads::where( array( 'thread.thread_summary_page' => $article->getId() ) );
+		$ts = Threads::where( array( 'thread_summary_page' => $article->getId() ) );
 		return self::assertSingularity( $ts, 'thread_summary_page', $article->getId() );
 	}
 
