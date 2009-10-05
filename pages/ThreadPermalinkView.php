@@ -138,6 +138,13 @@ class ThreadPermalinkView extends LqtView {
 			return false;
 		}
 		
+		// Handle action=edit stuff
+		if ( $this->request->getVal( 'action' ) == 'edit' ) {
+			// Rewrite to lqt_method = edit
+			$this->request->setVal( 'lqt_method', 'edit' );
+			$this->request->setVal( 'lqt_operand', $this->thread->id() );
+		}
+		
 		// Expose feed links.
 		global $wgFeedClasses, $wgScriptPath, $wgServer;
 		$thread = $this->thread->topmostThread()->title()->getPrefixedText();
