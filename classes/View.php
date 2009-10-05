@@ -613,7 +613,7 @@ class LqtView {
 		                     'href' => self::permalinkUrl( $thread, 'thread_history' ),
 		                     'enabled' => true );
 
-		if ( in_array( 'move', $this->user->getRights() ) ) {
+		if ( $this->user->isAllowed( 'move' ) ) {
 			$move_href = SpecialPage::getTitleFor( 'MoveThread' )->getFullURL()
 				. '/' . $thread->title()->getPrefixedURL();
 			$commands['move'] = array( 'label' => wfMsg( 'move' ),
