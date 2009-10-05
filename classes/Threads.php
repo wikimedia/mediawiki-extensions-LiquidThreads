@@ -51,7 +51,8 @@ class Threads {
 		if ( ! $talkpage->exists() ) {
 			try {
 				wfLoadExtensionMessages( 'LiquidThreads' );
-				$talkpage->doEdit( "", wfMsg( 'lqt_talkpage_autocreate_summary' ), EDIT_NEW | EDIT_SUPPRESS_RC );
+				$talkpage->doEdit( "", wfMsgForContent( 'lqt_talkpage_autocreate_summary' ),
+						EDIT_NEW | EDIT_SUPPRESS_RC );
 			} catch ( DBQueryError $e ) {
 				// The article already existed by now. No need to do anything.
 				wfDebug( __METHOD__ . ": Article already existed by the time we tried to create it." );
