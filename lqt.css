@@ -488,3 +488,8 @@ table.lqt-new-messages {
 .mw-lqt-newmessages-left {
 	width: 10em	;
 }
+
+.lqt-thread-link-url,
+.lqt-thread-link-title {
+	font-family: monospace;
+}

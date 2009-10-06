@@ -395,6 +395,9 @@ var liquidThreads = {
 		
 		// "Show more posts" link
 		$j('a.lqt-show-more-posts').click( liquidThreads.showMore );
+		
+		// Handler for "Link to this" button
+		$j('.lqt-command-link').click( liquidThreads.showLinkWindow );
 	},
 	
 	'showReplies' : function(e) {
@@ -521,6 +524,38 @@ var liquidThreads = {
 				threadLevelCommands.load( window.location.href+' '+
 						'#'+threadLevelCommands.attr('id')+' > *' );
 			}, 'json' );
+		
+		e.preventDefault();
+	},
+	
+	'showLinkWindow' : function(e) {
+		var linkURL = $j(this).find('a').attr('href');
+		var thread = $j(this).closest('.lqt_thread');
+		var linkTitle = thread.find('.lqt-thread-title-metadata').val();
+		linkTitle = '[[' + linkTitle + ']]';
+		
+		// Build dialog
+		var urlLabel = $j('<th/>').text(wgLqtMessages['lqt-thread-link-url']);
+		var urlField = $j('<tr/>').text(linkURL).addClass( 'lqt-thread-link-url' );
+		var urlRow = $j('<tr/>').append(urlLabel).append(urlField );
+		
+		var titleLabel = $j('<th/>').text(wgLqtMessages['lqt-thread-link-title']);
+		var titleField = $j('<tr/>').text(linkTitle).addClass( 'lqt-thread-link-title' );
+		var titleRow = $j('<tr/>').append(titleLabel).append(titleField );
+		
+		var table = $j('<table><tbody></tbody></table>');
+		table.find('tbody').append(urlRow).append(titleRow);
+		
+		var dialog = $j('<div/>').append(table);
+		
+		$j(this).prepend(dialog);
+		
+		var dialogOptions = {
+			'AutoOpen' : true,
+			'width' : 600
+		};
+		
+		dialog.dialog( dialogOptions );
 		
 		e.preventDefault();
 	}

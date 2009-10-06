@@ -245,6 +245,9 @@ You can see it at <$6>",
 	'lqt-ajax-update-link' => 'Update',
 	'lqt-thread-show-replies' => 'Show $1 replies',
 	'lqt-thread-show-more' => 'Show more replies',
+	'lqt-thread-link-url' => 'Link URL:',
+	'lqt-thread-link-title' => 'Wikitext link:',
+	'lqt-thread-link-copy' => 'Copy to clipboard',
 	
 	// Feeds
 	'lqt-feed-title-all' => '{{SITENAME}} — New posts',

@@ -659,7 +659,8 @@ class LqtView {
 		$wgOut->addInlineScript( 'var wgLqtMessages = ' . self::exportJSLocalisation() . ';' );
 		
 		if (!$wgEnableJS2system) {
-			$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/js2.combined.js" );
+			$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/jquery/js2.combined.js" );
+			$wgOut->addExtensionStyle( "{$wgScriptPath}/extensions/LiquidThreads/jquery/jquery-ui-1.7.2.css" );
 		}
 		
 		$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/lqt.js" );
@@ -672,7 +673,8 @@ class LqtView {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		
 		$messages = array( 'lqt-quote-intro', 'lqt-quote', 'lqt-ajax-updated',
-							'lqt-ajax-update-link', 'watch', 'unwatch' );
+							'lqt-ajax-update-link', 'watch', 'unwatch', 'lqt-thread-link-url',
+							'lqt-thread-link-title', 'lqt-thread-link-copy');
 		$data = array();
 		
 		foreach( $messages as $msg ) {
