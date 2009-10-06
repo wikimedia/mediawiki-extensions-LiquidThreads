@@ -62,6 +62,8 @@ var liquidThreads = {
 			$j('html,body').animate({scrollTop: targetOffset}, 'slow');
 			
 			$j(container).find('#wpTextbox1').focus();
+			// Focus the subject field if there is one. Overrides previous line.
+			$j(container).find('#lqt_subject_field').focus();
 		}
 		
 		var finishSetup = function() {
