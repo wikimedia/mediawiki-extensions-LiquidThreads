@@ -303,8 +303,7 @@ $messages['qqq'] = array(
 	'lqt_revision_as_of' => '* $1 is a timestamp (for backward compatibility)
 * $2 is a date
 * $3 is a time',
-	'lqt_youhavenewmessages' => '{{Identical|New messages}}
-* $1 is a link to the new message or messages.
+	'lqt_youhavenewmessages' => '* $1 is a link to the new message or messages.
 
 {{doc-important|No PLURAL here! (The number of new messages is unknown.)}}',
 	'lqt_protectedfromreply' => '$1 is replaced with {{msg-mw|Lqt protectedfromreply link}}',
@@ -1126,9 +1125,11 @@ $messages['bg'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Bellayet
  * @author Zaheen
  */
 $messages['bn'] = array(
+	'lqt_newmessages' => 'নতুন বার্তা',
 	'lqt_delete' => 'মুছে ফেলা হোক',
 );
 
@@ -2377,6 +2378,9 @@ Móžoš jo na <$6> wiźeś",
 	'lqt-ajax-update-link' => 'Aktualizěrowaś',
 	'lqt-thread-show-replies' => '$1 {{PLURAL:$1|wótegrono|wótegronje|wótegrona|wótegronow}} pokazaś',
 	'lqt-thread-show-more' => 'Dalšne wótegrona pokazaś',
+	'lqt-thread-link-url' => 'URL wótkaza:',
+	'lqt-thread-link-title' => 'Wikitekstowy wótkaz:',
+	'lqt-thread-link-copy' => 'Do mjazywótkładowaka kopěrowaś',
 	'lqt-feed-title-all' => '{{SITENAME}} - nowe powěsći',
 	'lqt-feed-title-all-from' => '{{SITENAME}} - nowe powěsći z $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} - nowe nitki',
@@ -2611,8 +2615,8 @@ $messages['eo'] = array(
 	'lqt_move_success' => 'Ĉi tiu fadeno estis movita al $1.',
 	'lqt_delete_undeleting' => "Restarigante '''$1'''.",
 	'lqt_delete_undeletethread' => 'Restarigu fadenon',
-	'lqt_delete_partof' => 'Ĉi tiu fadeno estas parto de $1.',
-	'lqt_delete_deleting' => 'Forigante $1 kaj $2 al ĝi.',
+	'lqt_delete_partof' => "Ĉi tiu fadeno estas parto de '''$1'''.",
+	'lqt_delete_deleting' => "Forigante '''$1''' kaj ''ĉiuj respondoj''' al ĝi.",
 	'lqt_delete_deletethread' => 'Forigu fadenon kaj respondojn',
 	'lqt_delete_deleted' => 'La fadeno estis forigita.',
 	'lqt_delete_undeleted' => 'La fadeno estis restarigita.',
@@ -2648,7 +2652,7 @@ $messages['eo'] = array(
 	'lqt-no-new-messages' => 'Estas neniuj novaj mesaĝoj por vi.',
 	'lqt-new-messages' => '&#x2712; Jen novaj mesaĝoj por vi.',
 	'lqt-date-info' => 'Ĉi tiu ligilo estas malŝaltita ĉar vi estas vidante fadenojn de ĉiuj datoj.',
-	'lqt_rc_new_discussion' => 'Nova diskuto, $1, je $2. &bull; $3 skribas:',
+	'lqt_rc_new_discussion' => "Nova diskuto '''$1''', en $2. &bull; $3 skribas:",
 	'lqt_rc_author_original' => '(originala aŭtoro)',
 	'lqt_rc_author_others' => '(ne estas la aŭtoro)',
 	'lqt-newmessages-context' => 'Plena fadeno',
@@ -2664,6 +2668,9 @@ $messages['eo'] = array(
 	'lqt-header-actions' => 'Agoj',
 	'lqt_summarize_link' => 'Resumigi',
 	'lqt-thread-split-thread' => 'Fadeno:',
+	'lqt-delete-parent-warning' => 'Ĉi tiu estas supren-nivela fadeno kun respondoj.
+Ĝiaj respondoj ankaŭ estos forigita aŭtomate.
+Eviti ĉi tion, dividigu ilin de ĉi tiu fadeno antaŭ forigante ĝin.',
 	'lqt-thread-merge-source' => 'Fonta fadeno:',
 	'lqt-merge-submit' => 'Kunigi',
 	'lqt-log-action-move' => 'movis [[$1]] de [[$2]] al [[$3]].',
@@ -3312,6 +3319,9 @@ Vous pouvez le voir a « $6 »",
 	'lqt-ajax-update-link' => 'Mettre à jour',
 	'lqt-thread-show-replies' => 'Montrer $1 réponses',
 	'lqt-thread-show-more' => 'Montrer plus de réponses',
+	'lqt-thread-link-url' => 'URL du lien :',
+	'lqt-thread-link-title' => 'Lien wikitexte :',
+	'lqt-thread-link-copy' => 'Copier dans le presse-papiers',
 	'lqt-feed-title-all' => '{{SITENAME}} - Nouveaux messages',
 	'lqt-feed-title-all-from' => '{{SITENAME}} - Nouveaux messages de $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} - Nouveaux fils de discussion',
@@ -4515,6 +4525,9 @@ Móžeš ju na <$6> widźeć",
 	'lqt-ajax-update-link' => 'Aktualizować',
 	'lqt-thread-show-replies' => '$1 {{PLURAL:$1|wotmołwu|wotmołwje|wotmołwy|wotmołwow}} pokazać',
 	'lqt-thread-show-more' => 'Dalše wotmołwy pokazać',
+	'lqt-thread-link-url' => 'URL wotkaza:',
+	'lqt-thread-link-title' => 'Wikitekstowy wotkaz:',
+	'lqt-thread-link-copy' => 'Do mjezyskłada kopěrować',
 	'lqt-feed-title-all' => '{{SITENAME}} - nowe powěsće',
 	'lqt-feed-title-all-from' => '{{SITENAME}} - nowe powěsće z $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} - nowe nitki',
@@ -4886,6 +4899,9 @@ Tu pote vider lo a <$6>",
 	'lqt-ajax-update-link' => 'Actualisar',
 	'lqt-thread-show-replies' => 'Monstrar $1 responsas',
 	'lqt-thread-show-more' => 'Monstrar plus responsas',
+	'lqt-thread-link-url' => 'URL pro ligamine:',
+	'lqt-thread-link-title' => 'Wikitexto pro ligamine:',
+	'lqt-thread-link-copy' => 'Copiar al area de transferentia',
 	'lqt-feed-title-all' => '{{SITENAME}} — Nove messages',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Nove messages de $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nove filos',
@@ -5580,9 +5596,22 @@ $messages['kn'] = array(
  * @author Kwj2772
  */
 $messages['ko'] = array(
+	'lqt_newmessages' => '새 메시지',
+	'lqt_new_thread' => '새 토론 시작하기',
+	'lqt_invalid_subject' => '당신이 입력한 주제가 잘못되었습니다.
+* 주제가 너무 길거나
+* 인터위키나 이름공간 이름의 충돌로 문제가 발생할 수 있습니다.',
+	'lqt_reply' => '답변',
+	'lqt_delete' => '삭제',
+	'lqt_undelete' => '되살리기',
 	'lqt_subject' => '주제:',
+	'lqt_nosubject' => '(제목 없음)',
 	'lqt_move_move' => '이동',
+	'lqt_delete_return' => '$1로 돌아갑니다.',
+	'lqt_sorting_order' => '정렬 순서:',
 	'lqt-split-submit' => '분할',
+	'lqt-quote-intro' => '[[User:$1|$1]] 사용자가 $2 $3에 남긴 글:',
+	'lqt-quote' => '인용',
 );
 
 /** Krio (Krio)
@@ -6142,6 +6171,16 @@ $messages['ml'] = array(
 	'lqt_sort_newest_changes' => 'അവസാനം തിരുത്തിയത് ആദ്യം പ്രദര്‍ശിപ്പിക്കുക',
 	'lqt_sort_newest_threads' => 'ഏറ്റവും പുതിയ ത്രെഡുകള്‍ ആദ്യം',
 	'lqt_sort_oldest_threads' => 'ഏറ്റവും പഴയ ത്രെഡുകള്‍ ആദ്യം',
+	'lqt_rc_author_original' => '(യഥാർത്ഥ സ്രഷ്ടാവ്)',
+	'lqt_rc_author_others' => '(സ്രഷ്ടാവ് അല്ല)',
+	'lqt-newmessages-context' => 'പൂർണ്ണരൂപം',
+	'lqt-thread-created' => 'സൃഷ്ടിച്ചിരിക്കുന്നു',
+	'lqt-history-time' => 'സമയം',
+	'lqt-history-user' => 'ഉപയോക്താവ്',
+	'lqt-history-action' => 'പ്രവൃത്തി',
+	'lqt-history-comment' => 'കുറിപ്പ്',
+	'lqt-thread-edited-author' => 'സ്രഷ്ടാവ് തിരുത്തിയിരിക്കുന്നു',
+	'lqt-header-actions' => 'പ്രവർത്തനങ്ങൾ',
 );
 
 /** Mongolian (Монгол)
@@ -6507,6 +6546,9 @@ U kunt het bekijken op <$6>.",
 	'lqt-ajax-update-link' => 'Bijwerken',
 	'lqt-thread-show-replies' => '$1 {{PLURAL:$1|reactie|reacties}} weergeven',
 	'lqt-thread-show-more' => 'Meer reacties weergeven',
+	'lqt-thread-link-url' => 'URL-verwijzing',
+	'lqt-thread-link-title' => 'Wikitekstverwijzing:',
+	'lqt-thread-link-copy' => 'Naar klembord kopiëren',
 	'lqt-feed-title-all' => '{{SITENAME}} — Nieuwe berichten',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Nieuwe berichten van $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nieuwe onderwerpen',
