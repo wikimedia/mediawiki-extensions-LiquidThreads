@@ -1,6 +1,13 @@
 <?php
 
 class LqtHooks {
+	// Used to inform hooks about edits that are taking place.
+	public static $editType = null;
+	public static $editThread = null;
+	public static $editAppliesTo = null;
+	public static $editArticle = null;
+	public static $editView = null;
+	
 	static function customizeOldChangesList( &$changeslist, &$s, $rc ) {
 		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD )
 			return true;
@@ -345,6 +352,51 @@ class LqtHooks {
 		
 		
 		$dbw->update( 'thread', $ntCond, $otCond, __METHOD__ );
+		
+		return true;
+	}
+	
+	static function userIsBlockedFrom( $user, $title, &$isBlocked, &$allowUserTalk ) {
+		// Limit applicability
+		if ( !($isBlocked && $allowUserTalk && $title->getNamespace() == NS_LQT_THREAD ) ) {
+			return true;
+		}
+		
+		// Now we're dealing with blocked users with user talk editing allowed editing pages
+		//  in the thread namespace.
+		
+		if ( $title->exists() ) {
+			// If the page actually exists, allow the user to edit posts on their own talk page.
+			$thread = Threads::withRoot( new Article( $title ) );
+			
+			if (!$thread)
+				return true;
+			
+			$articleTitle = $thread->article()->getTitle();
+			
+			if ( $articleTitle->getNamespace() == NS_USER_TALK &&
+					$user->getName() == $title->getText() ) {
+				$isBlocked = false;
+				return true;
+			}
+		} else {
+			// Otherwise, it's a bit trickier. Allow creation of thread titles prefixed by the
+			//  user's talk page.
+			
+			// Figure out if it's on the talk page
+			$talkPage = $user->getTalkPage();
+			$isOnTalkPage = (self::$editThread &&
+					self::$editThread->article()->getTitle()->equals( $talkPage ) );
+			$isOnTalkPage = $isOnTalkPage || (self::$editAppliesTo &&
+					self::$editAppliesTo->article()->getTitle()->equals( $talkPage ) );
+			$isOnTalkPage = $isOnTalkPage ||
+					( self::$editView->article->getTitle()->equals( $talkPage ) );
+			
+			if ( self::$editArticle->getTitle()->equals( $title ) && $isOnTalkPage ) {
+				$isBlocked = false;
+				return true;
+			}
+		}
 		
 		return true;
 	}

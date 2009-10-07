@@ -13,11 +13,11 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 class LqtView {
-	protected $article;
-	protected $output;
-	protected $user;
-	protected $title;
-	protected $request;
+	public $article;
+	public $output;
+	public $user;
+	public $title;
+	public $request;
 
 	protected $headerLevel = 2; 	/* h1, h2, h3, etc. */
 	protected $lastUnindentedSuperthread;
@@ -339,6 +339,12 @@ class LqtView {
 		} else {
 			$article = $thread->root();
 		}
+		
+		LqtHooks::$editArticle = $article;
+		LqtHooks::$editThread = $thread;
+		LqtHooks::$editType = $edit_type;
+		LqtHooks::$editAppliesTo = $edit_applies_to;
+		LqtHooks::$editView = $this;
 
 		$e = new EditPage( $article );
 		

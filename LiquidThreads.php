@@ -84,6 +84,9 @@ $wgHooks['RenameUserSQL'][] = 'LqtHooks::onUserRename';
 // Edit-related
 $wgHooks['EditPageBeforeEditChecks'][] = 'LqtHooks::editCheckBoxes';
 
+// Blocking
+$wgHooks['UserIsBlockedFrom'][] = 'LqtHooks::userIsBlockedFrom';
+
 // Special pages
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
