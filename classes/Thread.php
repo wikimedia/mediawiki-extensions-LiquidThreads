@@ -55,7 +55,7 @@ class Thread {
 	}
 	
 	static function create( $root, $article, $superthread = null,
-    							$type = Threads::TYPE_NORMAL, $subject = '' ) {
+    				$type = Threads::TYPE_NORMAL, $subject = '' ) {
 
         $dbw = wfGetDB( DB_MASTER );
         
@@ -210,23 +210,23 @@ class Thread {
 		// Reflect schema changes here.
 	
 		return array(
-					'thread_id' => $id,
-					'thread_root' => $this->rootId,
-					'thread_parent' => $this->parentId,
-					'thread_article_namespace' => $this->articleNamespace,
-				    'thread_article_title' => $this->articleTitle,
-				    'thread_modified' => $dbw->timestamp($this->modified),
-				    'thread_created' => $dbw->timestamp($this->created),
-					'thread_ancestor' => $this->ancestorId,
-					'thread_type' => $this->type,
-					'thread_subject' => $this->subject,
-					'thread_author_id' => $this->authorId,
-					'thread_author_name' => $this->authorName,
-					'thread_summary_page' => $this->summaryId,
-					'thread_editedness' => $this->editedness,
-					'thread_sortkey' => $this->sortkey,
-					'thread_replies' => $this->replyCount,
-				);
+			'thread_id' => $id,
+			'thread_root' => $this->rootId,
+			'thread_parent' => $this->parentId,
+			'thread_article_namespace' => $this->articleNamespace,
+			'thread_article_title' => $this->articleTitle,
+			'thread_modified' => $dbw->timestamp($this->modified),
+			'thread_created' => $dbw->timestamp($this->created),
+			'thread_ancestor' => $this->ancestorId,
+			'thread_type' => $this->type,
+			'thread_subject' => $this->subject,
+			'thread_author_id' => $this->authorId,
+			'thread_author_name' => $this->authorName,
+			'thread_summary_page' => $this->summaryId,
+			'thread_editedness' => $this->editedness,
+			'thread_sortkey' => $this->sortkey,
+			'thread_replies' => $this->replyCount,
+		);
 	}
 	
 	function author() {
@@ -289,12 +289,12 @@ class Thread {
 		
 		// Update on *all* subthreads.
 		$dbr->update( 'thread',
-						array(
-							'thread_article_namespace' => $new_articleNamespace,
-							'thread_article_title' => $new_articleTitle,
-						),
-						array( 'thread_ancestor' => $this->id() ),
-						__METHOD__ );
+				array(
+					'thread_article_namespace' => $new_articleNamespace,
+					'thread_article_title' => $new_articleTitle,
+				),
+				array( 'thread_ancestor' => $this->id() ),
+				__METHOD__ );
 
 		$this->articleNamespace = $new_articleNamespace;
 		$this->articleTitle = $new_articleTitle;
@@ -318,7 +318,8 @@ class Thread {
 
 		// Create redirect text
 		$mwRedir = MagicWord::get( 'redirect' );
-		$redirectText = $mwRedir->getSynonym( 0 ) . ' [[' . $this->title()->getPrefixedText() . "]]\n";
+		$redirectText = $mwRedir->getSynonym( 0 ) .
+			' [[' . $this->title()->getPrefixedText() . "]]\n";
 		
 		// Make the article edit.
 		$traceTitle = Threads::newThreadTitle( $this->subject(), new Article_LQT_Compat($oldTitle) );
@@ -356,24 +357,24 @@ class Thread {
 		}
 		
 		$dataLoads = array(
-							'thread_id' => 'id',
-							'thread_root' => 'rootId',
-							'thread_article_namespace' => 'articleNamespace',
-							'thread_article_title' => 'articleTitle',
-							'thread_article_id' => 'articleId',
-							'thread_summary_page' => 'summaryId',
-							'thread_ancestor' => 'ancestorId',
-							'thread_parent' => 'parentId',
-							'thread_modified' => 'modified',
-							'thread_created' => 'created',
-							'thread_type' => 'type',
-							'thread_editedness' => 'editedness',
-							'thread_subject' => 'subject',
-							'thread_author_id' => 'authorId',
-							'thread_author_name' => 'authorName',
-							'thread_sortkey' => 'sortkey',
-							'thread_replies' => 'replyCount',
-						);
+					'thread_id' => 'id',
+					'thread_root' => 'rootId',
+					'thread_article_namespace' => 'articleNamespace',
+					'thread_article_title' => 'articleTitle',
+					'thread_article_id' => 'articleId',
+					'thread_summary_page' => 'summaryId',
+					'thread_ancestor' => 'ancestorId',
+					'thread_parent' => 'parentId',
+					'thread_modified' => 'modified',
+					'thread_created' => 'created',
+					'thread_type' => 'type',
+					'thread_editedness' => 'editedness',
+					'thread_subject' => 'subject',
+					'thread_author_id' => 'authorId',
+					'thread_author_name' => 'authorName',
+					'thread_sortkey' => 'sortkey',
+					'thread_replies' => 'replyCount',
+				);
 						
 		foreach( $dataLoads as $db_field => $member_field ) {
 			if ( isset($line->$db_field) ) {
@@ -434,9 +435,9 @@ class Thread {
 		if ( count($thread_ids) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$res = $dbr->select( 'thread', '*',
-									array( 'thread_ancestor' => $thread_ids,
-										'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ),
-									__METHOD__ );
+						array( 'thread_ancestor' => $thread_ids,
+							'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ),
+						__METHOD__ );
 									
 			while( $row = $dbr->fetchObject($res) ) {				
 				// Grab page data while we're here.
@@ -473,7 +474,7 @@ class Thread {
 				
 				if ( isset( $restrictionRows[$t->getArticleId()] ) ) {
 					$t->loadRestrictionsFromRows( $restrictionRows[$t->getArticleId()],
-													$row->page_restrictions );
+									$row->page_restrictions );
 				}
 				
 				$article = new Article_LQT_Compat( $t );
@@ -519,10 +520,10 @@ class Thread {
 		if ( count($userIds) ) {
 			$signatureDataCache = array_fill_keys( $userIds, array() );
 			$res = $dbr->select( 'user_properties',
-									array( 'up_user', 'up_property', 'up_value' ),
-									array( 'up_property' => array('nickname', 'fancysig'),
-											'up_user' => $userIds ),
-									__METHOD__ );
+						array( 'up_user', 'up_property', 'up_value' ),
+						array( 'up_property' => array('nickname', 'fancysig'),
+								'up_user' => $userIds ),
+						__METHOD__ );
 			
 			foreach( $res as $row ) {
 				$signatureDataCache[$row->up_user][$row->up_property] = $row->up_value;
@@ -583,13 +584,13 @@ class Thread {
 		$article = $this->root();
 
 		$line = $dbr->selectRow( 'revision',
-								'rev_user_text',
-								array( 'rev_page' => $article->getID() ),
-								__METHOD__,
-								array(
-									'ORDER BY' => 'rev_timestamp',
-									'LIMIT'   => '1'
-								) );
+					'rev_user_text',
+					array( 'rev_page' => $article->getID() ),
+					__METHOD__,
+					array(
+						'ORDER BY' => 'rev_timestamp',
+						'LIMIT'   => '1'
+					) );
 		if ( $line )
 			return User::newFromName( $line->rev_user_text, false );
 		else
@@ -788,9 +789,9 @@ class Thread {
 		$dbr = wfGetDB( DB_SLAVE );
 		
 		$res = $dbr->select( 'thread', '*',
-								array( 'thread_parent' => $this->id(),
-								'thread_type != '.$dbr->addQuotes( Threads::TYPE_DELETED ) ),
-								__METHOD__ );
+					array( 'thread_parent' => $this->id(),
+					'thread_type != '.$dbr->addQuotes( Threads::TYPE_DELETED ) ),
+					__METHOD__ );
 		
 		$rows = array();
 		while ( $row = $dbr->fetchObject($res) ) {
@@ -877,7 +878,7 @@ class Thread {
 		
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->update( 'thread', array( 'thread_ancestor' => $thread->id() ),
-						array( 'thread_id' => $this->id() ), __METHOD__ );
+				array( 'thread_id' => $this->id() ), __METHOD__ );
 		
 		return $thread;
 	}
