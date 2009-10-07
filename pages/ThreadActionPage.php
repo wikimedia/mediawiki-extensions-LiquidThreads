@@ -32,7 +32,7 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 		// Page title
 		$wgOut->setPageTitle( $this->getDescription() );
 		
-		if ( !$this->checkParameters($par) ) {
+		if ( !$this->checkParameters( $par ) ) {
 			return;
 		}
 		
@@ -64,7 +64,7 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 	abstract function getSubmitText();
 	
 	function buildForm() {
-		$form = new HTMLForm( $this->getFormFields(), 'lqt-'.$this->getPageName() );
+		$form = new HTMLForm( $this->getFormFields(), 'lqt-' . $this->getPageName() );
 		
 		$par = $this->mThread->title()->getPrefixedText();
 		

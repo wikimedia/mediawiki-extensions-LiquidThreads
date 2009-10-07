@@ -77,15 +77,15 @@ class ThreadHistoryPager extends TablePager {
 	function getFieldNames() {
 		static $headers = null;
 
-		if (!empty($headers)) {
+		if ( !empty( $headers ) ) {
 			return $headers;
 		}
 
-		$headers = array( 
-			'th_timestamp' => 'lqt-history-time', 
-			'th_user_text' => 'lqt-history-user', 
+		$headers = array(
+			'th_timestamp' => 'lqt-history-time',
+			'th_user_text' => 'lqt-history-user',
 			'th_change_type' => 'lqt-history-action',
-			'th_change_comment' => 'lqt-history-comment', 
+			'th_change_comment' => 'lqt-history-comment',
 			);
 
 		$headers = array_map( 'wfMsg', $headers );
@@ -94,11 +94,11 @@ class ThreadHistoryPager extends TablePager {
 	}
 	
 	function formatValue( $name, $value ) {
-		global $wgOut,$wgLang, $wgTitle;
+		global $wgOut, $wgLang, $wgTitle;
 
-		static $sk=null;
+		static $sk = null;
 
-		if (empty($sk)) {
+		if ( empty( $sk ) ) {
 			global $wgUser;
 			$sk = $wgUser->getSkin();
 		}
@@ -107,7 +107,7 @@ class ThreadHistoryPager extends TablePager {
 
 		$formatted = '';
 
-		switch($name) {
+		switch( $name ) {
 			case 'th_timestamp':
 				$formatted = $wgLang->timeanddate( $value );
 				return $sk->link( $wgTitle, $formatted, array(),
@@ -133,7 +133,7 @@ class ThreadHistoryPager extends TablePager {
 		return 'th_timestamp';
 	}
 
-	function isFieldSortable($name) {
+	function isFieldSortable( $name ) {
 		$sortable_fields = array( 'th_timestamp', 'th_user_text', 'th_change_type' );
 		return in_array( $name, $sortable_fields );
 	}

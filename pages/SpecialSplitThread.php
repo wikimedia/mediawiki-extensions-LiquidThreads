@@ -53,7 +53,7 @@ class SpecialSplitThread extends ThreadActionPage {
 		$this->mThread->commitRevision( Threads::CHANGE_SPLIT, null, $reason );
 		
 		$title = clone $this->mThread->article()->getTitle();
-		$title->setFragment( '#'.$this->mThread->getAnchorName() );
+		$title->setFragment( '#' . $this->mThread->getAnchorName() );
 		
 		$link = $this->user->getSkin()->link( $title, $this->mThread->subject() );
 		
@@ -68,19 +68,19 @@ class SpecialSplitThread extends ThreadActionPage {
 		$thread->setSubject( $subject );
 		$thread->setAncestor( $ancestor->id() );
 		
-		if ($first) {
+		if ( $first ) {
 			$thread->setSuperThread( null );
 		}
 		
 		$thread->save( );
 		
-		foreach( $thread->replies() as $subThread ) {
+		foreach ( $thread->replies() as $subThread ) {
 			$this->recursiveSet( $subThread, $subject, $ancestor );
 		}
 	}
 	
 	function validateSubject( $target ) {
-		if (!$target) {
+		if ( !$target ) {
 			return wfMsgExt( 'lqt_split_nosubject', 'parseinline' );
 		}
 			

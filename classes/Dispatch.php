@@ -20,7 +20,7 @@ class LqtDispatch {
 
 	static function talkpageMain( &$output, &$article, &$title, &$user, &$request ) {
 		// We are given a talkpage article and title. Fire up a TalkpageView
-		
+
 		if ( $title->getNamespace() == NS_LQT_THREAD + 1 /* talk page */ ) {
 			// Threads don't have talk pages; redirect to the thread page.
 			$output->redirect( $title->getSubjectPage()->getFullUrl() );
@@ -30,7 +30,7 @@ class LqtDispatch {
 		// If we came here from a red-link, redirect to the thread page.
 		$redlink = $request->getCheck( 'redlink' ) &&
 					$request->getText( 'action' ) == 'edit';
-		if( $redlink ) {
+		if ( $redlink ) {
 			$output->redirect( $title->getFullURL() );
 			return false;
 		}
@@ -41,7 +41,7 @@ class LqtDispatch {
 		$action =  $request->getVal( 'action' );
 		$header_actions = array( 'history', 'edit', 'submit', 'delete' );
 		global $wgRequest;
-		if ($action == 'edit' && $request->getVal('section') == 'new') {
+		if ( $action == 'edit' && $request->getVal( 'section' ) == 'new' ) {
 			// Hijack section=new for "new thread".
 			$request->setVal( 'lqt_method', 'talkpage_new_thread' );
 			$request->setVal( 'section', '' );
@@ -101,7 +101,7 @@ class LqtDispatch {
 	
 	static function isLqtPage( $title ) {
 		global $wgLqtPages, $wgLqtTalkPages;
-		$isTalkPage = ($title->isTalkPage() && $wgLqtTalkPages) ||
+		$isTalkPage = ( $title->isTalkPage() && $wgLqtTalkPages ) ||
 						in_array( $title->getPrefixedText(), $wgLqtPages ) ||
 						self::hasUserEnabledLQT( $title->getArticleId() );
 		
@@ -110,7 +110,7 @@ class LqtDispatch {
 	
 	static function hasUserEnabledLQT( $article ) {
 	
-		if (is_object($article)) {
+		if ( is_object( $article ) ) {
 			$article = $article->getId();
 		}
 		
@@ -135,7 +135,7 @@ class LqtDispatch {
 // 				return $wgLqtThreadArchiveStartDays;
 // 			}
 // 		}
-		
+
 		// Load from the database.
 		$dbr = wfGetDB( DB_SLAVE );
 		
@@ -143,7 +143,7 @@ class LqtDispatch {
 									array( 'pp_propname' => 'use-liquid-threads',
 											'pp_page' => $article ), __METHOD__ );
 		
-		if ($dbVal) {
+		if ( $dbVal ) {
 			self::$userLQTActivated[$article] = true;
 #			$wgMemc->set( $key, $dbVal, 1800 );
 			return true;

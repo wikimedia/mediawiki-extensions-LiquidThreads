@@ -14,25 +14,25 @@ if ( version_compare( $wgVersion, '1.16', '<' ) ) {
 				$parserOptions = $wgOut->parserOptions();
 			}
 	
-			$time = -wfTime();
+			$time = - wfTime();
 			$parserOutput = $wgParser->parse( $text, $this->mTitle,
 				$parserOptions, true, true, $this->getRevIdFetched() );
 			$time += wfTime();
 	
 			# Timing hack
-			if( $time > 3 ) {
+			if ( $time > 3 ) {
 				wfDebugLog( 'slow-parse', sprintf( "%-5.2f %s", $time,
-					$this->mTitle->getPrefixedDBkey()));
+					$this->mTitle->getPrefixedDBkey() ) );
 			}
 	
-			if( $wgEnableParserCache && $cache && $this && $parserOutput->getCacheTime() != -1 ) {
+			if ( $wgEnableParserCache && $cache && $this && $parserOutput->getCacheTime() != - 1 ) {
 				$parserCache = ParserCache::singleton();
 				$parserCache->save( $parserOutput, $this, $parserOptions );
 			}
 			// Make sure file cache is not used on uncacheable content.
 			// Output that has magic words in it can still use the parser cache
 			// (if enabled), though it will generally expire sooner.
-			if( $parserOutput->getCacheTime() == -1 || $parserOutput->containsOldMagic() ) {
+			if ( $parserOutput->getCacheTime() == - 1 || $parserOutput->containsOldMagic() ) {
 				$wgUseFileCache = false;
 			}
 			return $parserOutput;
@@ -51,7 +51,7 @@ if ( version_compare( $wgVersion, '1.16', '<' ) ) {
 					  $this->exists() &&
 					  $oldid === null;
 					  
-			wfDebug( __METHOD__.': using parser cache: ' . ( $useParserCache ? 'yes' : 'no' ) . "\n" );
+			wfDebug( __METHOD__ . ': using parser cache: ' . ( $useParserCache ? 'yes' : 'no' ) . "\n" );
 			if ( $wgUser->getOption( 'stubthreshold' ) ) {
 				wfIncrStats( 'pcache_miss_stub' );
 			}
@@ -72,5 +72,5 @@ if ( version_compare( $wgVersion, '1.16', '<' ) ) {
 		}
 	}
 } else {
-	class Article_LQT_Compat extends Article {}
+	class Article_LQT_Compat extends Article { }
 }

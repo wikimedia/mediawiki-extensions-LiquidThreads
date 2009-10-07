@@ -38,10 +38,10 @@ class NewUserMessagesView extends LqtView {
 			$t = Threads::withId( $ids[0] );
 			if ( !$t )
 				return; // empty or just bogus operand.
-			$msg = wfMsgExt( 'lqt-marked-read', 'parseinline', array($t->subject())  );
+			$msg = wfMsgExt( 'lqt-marked-read', 'parseinline', array( $t->subject() )  );
 		} else {
 			$count = count( $ids );
-			$msg =  wfMsgExt( 'lqt-count-marked-read', 'parseinline', array($count) );
+			$msg =  wfMsgExt( 'lqt-count-marked-read', 'parseinline', array( $count ) );
 		}
 		$operand = implode( ',', $ids );
 		
@@ -49,7 +49,7 @@ class NewUserMessagesView extends LqtView {
 		$html .= $msg;
 		$html .= Xml::hidden( 'lqt_method', 'mark_as_unread' );
 		$html .= Xml::hidden( 'lqt_operand', $operand );
-		$html .= Xml::submitButton( wfMsg('lqt-email-undo'), array( 'name' => 'lqt_read_button',
+		$html .= Xml::submitButton( wfMsg( 'lqt-email-undo' ), array( 'name' => 'lqt_read_button',
 					'title' => wfMsg( 'lqt-email-info-undo' ) ) );
 					
 		$html = Xml::tags( 'form',
@@ -121,8 +121,8 @@ class NewUserMessagesView extends LqtView {
 			$top = $t->topmostThread();
 			
 			// It seems that in some cases $top is zero.
-			if (!$top)
-				throw new MWException("{$t->id()} seems to have no topmost thread");
+			if ( !$top )
+				throw new MWException( "{$t->id()} seems to have no topmost thread" );
 
 			if ( !array_key_exists( $top->id(), $this->tops ) )
 				$this->tops[$top->id()] = $top;
@@ -160,7 +160,7 @@ class NewUserMessagesView extends LqtView {
 		$topmostThread = $t->topmostThread();
 		$sk = $wgUser->getSkin();
 		$title = clone $topmostThread->article()->getTitle();
-		$title->setFragment( '#'.$t->getAnchorName() );
+		$title->setFragment( '#' . $t->getAnchorName() );
 		
 		// Make sure it points to the right page. The Pager seems to use the DB
 		//  representation of a timestamp for its offset field, odd.

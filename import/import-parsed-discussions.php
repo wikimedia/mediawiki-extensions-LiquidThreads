@@ -6,7 +6,7 @@ require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 
 # # Imports JSON-encoded discussions from parse-wikitext-discussions.pl
 
-//die( var_dump( $argv ) );
+// die( var_dump( $argv ) );
 
 $structure = json_decode( file_get_contents( $argv[0] ), true );
 

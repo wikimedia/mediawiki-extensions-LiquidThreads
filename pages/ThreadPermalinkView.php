@@ -10,7 +10,7 @@ class ThreadPermalinkView extends LqtView {
 		// Insert fake 'article' and 'discussion' tabs before the thread tab.
 		// If you call the key 'talk', the url gets re-set later. TODO:
 		// the access key for the talk tab doesn't work.
-		if ($this->thread) {
+		if ( $this->thread ) {
 			$article_t = $this->thread->article()->getTitle();
 			$talk_t = $this->thread->article()->getTitle();
 		} else {
@@ -79,7 +79,7 @@ class ThreadPermalinkView extends LqtView {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		
 		$sk = $this->user->getSkin();
-		$fragment = '#'.$this->anchorName( $this->thread );
+		$fragment = '#' . $this->anchorName( $this->thread );
 		
 		if ( $this->thread->isHistorical() ) {
 			// TODO: Point to the relevant part of the archive.
@@ -99,11 +99,11 @@ class ThreadPermalinkView extends LqtView {
 			$linkText = wfMsgExt( 'lqt_discussion_link', 'parseinline' );
 			$permalink = $sk->link( $topmostTitle, $linkText );
 							
-			return wfMsgExt( 'lqt_fragment', array('parseinline', 'replaceafter'),
+			return wfMsgExt( 'lqt_fragment', array( 'parseinline', 'replaceafter' ),
 							array( $permalink, $talkpage_link ) );
 		} else {
-			return wfMsgExt( 'lqt_from_talk', array('parseinline', 'replaceafter'),
-							array($talkpage_link) );
+			return wfMsgExt( 'lqt_from_talk', array( 'parseinline', 'replaceafter' ),
+							array( $talkpage_link ) );
 		}
 	}
 
@@ -150,8 +150,8 @@ class ThreadPermalinkView extends LqtView {
 		$thread = $this->thread->topmostThread()->title()->getPrefixedText();
 		$apiParams = array( 'action' => 'feedthreads', 'type' => 'replies|newthreads',
 				'thread' => $thread );
-		$urlPrefix = wfScript('api').'?';
-		foreach( $wgFeedClasses as $format => $class ) {
+		$urlPrefix = wfScript( 'api' ) . '?';
+		foreach ( $wgFeedClasses as $format => $class ) {
 			$theseParams = $apiParams + array( 'feedformat' => $format );
 			$url = $urlPrefix . wfArrayToCGI( $theseParams );
 			$this->output->addFeedLink( $format, $url );
@@ -165,7 +165,7 @@ class ThreadPermalinkView extends LqtView {
 		elseif ( $this->methodApplies( 'split' ) )
 			$this->showSplitForm( $this->thread );
 
-		$this->showThread( $this->thread, 1, 1, array( 'maxDepth' => -1, 'maxCount' => -1 ) );
+		$this->showThread( $this->thread, 1, 1, array( 'maxDepth' => - 1, 'maxCount' => - 1 ) );
 		
 		$this->output->setPageTitle( $this->thread->subject() );
 		return false;

@@ -37,7 +37,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 			Threads::CHANGE_EDITED_SUMMARY => 'lqt_change_edited_summary',
 		);
 		
-		if ( isset($messages[$ct]) ) {
+		if ( isset( $messages[$ct] ) ) {
 			return $messages[$ct];
 		}
 		
@@ -69,7 +69,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 			$msg = wfMsgExt( 'lqt_change_edited_root', 'parseinline' ) .
 					" [$diff_link]";
 		} else {
-			$msg = wfMsgExt( $this->getMessageForChangeType($ct), 'parseinline' );
+			$msg = wfMsgExt( $this->getMessageForChangeType( $ct ), 'parseinline' );
 		}
 		
 		$html .=  $msg;

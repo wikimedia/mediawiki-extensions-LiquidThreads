@@ -33,7 +33,7 @@ class HTMLForm {
 		$loadedDescriptor = array();
 		$this->mFlatFields = array();
 
-		foreach( $descriptor as $fieldname => $info ) {
+		foreach ( $descriptor as $fieldname => $info ) {
 			$section = '';
 			if ( isset( $info['section'] ) )
 				$section = $info['section'];
@@ -44,10 +44,10 @@ class HTMLForm {
 			$field->mParent = $this;
 
 			$setSection =& $loadedDescriptor;
-			if( $section ) {
+			if ( $section ) {
 				$sectionParts = explode( '/', $section );
 
-				while( count( $sectionParts ) ) {
+				while ( count( $sectionParts ) ) {
 					$newName = array_shift( $sectionParts );
 
 					if ( !isset( $setSection[$newName] ) ) {
@@ -79,7 +79,7 @@ class HTMLForm {
 			$descriptor['class'] = $class;
 		}
 
-		if( !$class ) {
+		if ( !$class ) {
 			throw new MWException( "Descriptor with no class: " . print_r( $descriptor, true ) );
 		}
 
@@ -104,7 +104,7 @@ class HTMLForm {
 		if ( $wgUser->matchEditToken( $editToken ) )
 			$result = $this->trySubmit();
 
-		if( $result === true )
+		if ( $result === true )
 			return $result;
 
 		// Display form.
@@ -118,7 +118,7 @@ class HTMLForm {
 	  */
 	function trySubmit() {
 		// Check for validation
-		foreach( $this->mFlatFields as $fieldname => $field ) {
+		foreach ( $this->mFlatFields as $fieldname => $field ) {
 			if ( !empty( $field->mParams['nodata'] ) ) continue;
 			if ( $field->validate( $this->mFieldData[$fieldname],
 					$this->mFieldData ) !== true ) {
@@ -205,7 +205,7 @@ class HTMLForm {
 
 		$html .= Xml::submitButton( $this->getSubmitText(), $attribs ) . "\n";
 
-		if( $this->mShowReset ) {
+		if ( $this->mShowReset ) {
 			$html .= Xml::element(
 				'input',
 				array(
@@ -238,7 +238,7 @@ class HTMLForm {
 	static function formatErrors( $errors ) {
 		$errorstr = '';
 		foreach ( $errors as $error ) {
-			if( is_array( $error ) ) {
+			if ( is_array( $error ) ) {
 				$msg = array_shift( $error );
 			} else {
 				$msg = $error;
@@ -285,14 +285,14 @@ class HTMLForm {
 		$subsectionHtml = '';
 		$hasLeftColumn = false;
 
-		foreach( $fields as $key => $value ) {
+		foreach ( $fields as $key => $value ) {
 			if ( is_object( $value ) ) {
 				$v = empty( $value->mParams['nodata'] )
 							? $this->mFieldData[$key]
 							: $value->getDefault();
 				$tableHtml .= $value->getTableRow( $v );
 
-				if( $value->getLabel() != '&nbsp;' )
+				if ( $value->getLabel() != '&nbsp;' )
 					$hasLeftColumn = true;
 			} elseif ( is_array( $value ) ) {
 				$section = $this->displaySection( $value );
@@ -302,7 +302,7 @@ class HTMLForm {
 		}
 
 		$classes = array();
-		if( !$hasLeftColumn ) // Avoid strange spacing when no labels exist
+		if ( !$hasLeftColumn ) // Avoid strange spacing when no labels exist
 			$classes[] = 'mw-htmlform-nolabel';
 		$classes = implode( ' ', $classes );
 
@@ -316,7 +316,7 @@ class HTMLForm {
 
 		$fieldData = array();
 
-		foreach( $this->mFlatFields as $fieldname => $field ) {
+		foreach ( $this->mFlatFields as $fieldname => $field ) {
 			if ( !empty( $field->mParams['nodata'] ) ) continue;
 			if ( !empty( $field->mParams['disabled'] ) ) {
 				$fieldData[$fieldname] = $field->getDefault();
@@ -326,7 +326,7 @@ class HTMLForm {
 		}
 
 		// Filter data.
-		foreach( $fieldData as $name => &$value ) {
+		foreach ( $fieldData as $name => &$value ) {
 			$field = $this->mFlatFields[$name];
 			$value = $field->filter( $value, $this->mFlatFields );
 		}
@@ -336,12 +336,12 @@ class HTMLForm {
 
 	function importData( $fieldData ) {
 		// Filter data.
-		foreach( $fieldData as $name => &$value ) {
+		foreach ( $fieldData as $name => &$value ) {
 			$field = $this->mFlatFields[$name];
 			$value = $field->filter( $value, $this->mFlatFields );
 		}
 
-		foreach( $this->mFlatFields as $fieldname => $field ) {
+		foreach ( $this->mFlatFields as $fieldname => $field ) {
 			if ( !isset( $fieldData[$fieldname] ) )
 				$fieldData[$fieldname] = $field->getDefault();
 		}
@@ -370,7 +370,7 @@ abstract class HTMLFormField {
 	}
 
 	function filter( $value, $alldata ) {
-		if( isset( $this->mFilterCallback ) ) {
+		if ( isset( $this->mFilterCallback ) ) {
 			$value = call_user_func( $this->mFilterCallback, $value, $alldata );
 		}
 
@@ -378,7 +378,7 @@ abstract class HTMLFormField {
 	}
 
 	function loadDataFromRequest( $request ) {
-		if( $request->getCheck( $this->mName ) ) {
+		if ( $request->getCheck( $this->mName ) ) {
 			return $request->getText( $this->mName );
 		} else {
 			return $this->getDefault();
@@ -388,7 +388,7 @@ abstract class HTMLFormField {
 	function __construct( $params ) {
 		$this->mParams = $params;
 
-		if( isset( $params['label-message'] ) ) {
+		if ( isset( $params['label-message'] ) ) {
 			$msgInfo = $params['label-message'];
 
 			if ( is_array( $msgInfo ) ) {
@@ -404,8 +404,8 @@ abstract class HTMLFormField {
 		}
 
 		if ( isset( $params['name'] ) ) {
-			$this->mName = 'wp'.$params['name'];
-			$this->mID = 'mw-input-'.$params['name'];
+			$this->mName = 'wp' . $params['name'];
+			$this->mID = 'mw-input-' . $params['name'];
 		}
 
 		if ( isset( $params['default'] ) ) {
@@ -442,7 +442,7 @@ abstract class HTMLFormField {
 					Xml::tags( 'label', array( 'for' => $this->mID ), $this->getLabel() )
 				);
 		$html .= Xml::tags( 'td', array( 'class' => 'mw-input' ),
-							$this->getInputHTML( $value ) ."\n$errors" );
+							$this->getInputHTML( $value ) . "\n$errors" );
 
 		$fieldType = get_class( $this );
 
@@ -455,7 +455,7 @@ abstract class HTMLFormField {
 
 			$text = wfMsgExt( $msg, 'parseinline' );
 
-			if( !wfEmptyMsg( $msg, $text ) ) {
+			if ( !wfEmptyMsg( $msg, $text ) ) {
 				$row = Xml::tags( 'td', array( 'colspan' => 2, 'class' => 'htmlform-tip' ),
 							$text );
 
@@ -483,7 +483,7 @@ abstract class HTMLFormField {
 	static function flattenOptions( $options ) {
 		$flatOpts = array();
 
-		foreach( $options as $key => $value ) {
+		foreach ( $options as $key => $value ) {
 			if ( is_array( $value ) ) {
 				$flatOpts = array_merge( $flatOpts, self::flattenOptions( $value ) );
 			} else {
@@ -508,7 +508,7 @@ class HTMLTextField extends HTMLFormField {
 			$attribs['maxlength'] = $this->mParams['maxlength'];
 		}
 		
-		if( !empty( $this->mParams['disabled'] ) ) {
+		if ( !empty( $this->mParams['disabled'] ) ) {
 			$attribs['disabled'] = 'disabled';
 		}
 
@@ -530,7 +530,7 @@ class HTMLIntField extends HTMLTextField {
 	function validate( $value, $alldata ) {
 		$p = parent::validate( $value, $alldata );
 
-		if( $p !== true ) return $p;
+		if ( $p !== true ) return $p;
 
 		if ( intval( $value ) != $value ) {
 			return wfMsgExt( 'htmlform-int-invalid', 'parse' );
@@ -546,7 +546,7 @@ class HTMLIntField extends HTMLTextField {
 
 		if ( isset( $this->mParams['max'] ) ) {
 			$max = $this->mParams['max'];
-			if( $max < $value )
+			if ( $max < $value )
 				return wfMsgExt( 'htmlform-int-toohigh', 'parse', array( $max ) );
 		}
 
@@ -560,7 +560,7 @@ class HTMLCheckField extends HTMLFormField {
 			$value = !$value;
 
 		$attr = array( 'id' => $this->mID );
-		if( !empty( $this->mParams['disabled'] ) ) {
+		if ( !empty( $this->mParams['disabled'] ) ) {
 			$attr['disabled'] = 'disabled';
 		}
 
@@ -579,7 +579,7 @@ class HTMLCheckField extends HTMLFormField {
 		}
 
 		// GetCheck won't work like we want for checks.
-		if( $request->getCheck( 'wpEditToken' ) ) {
+		if ( $request->getCheck( 'wpEditToken' ) ) {
 			// XOR has the following truth table, which is what we want
 			// INVERT VALUE | OUTPUT
 			// true   true  | false
@@ -597,7 +597,7 @@ class HTMLSelectField extends HTMLFormField {
 
 	function validate( $value, $alldata ) {
 		$p = parent::validate( $value, $alldata );
-		if( $p !== true ) return $p;
+		if ( $p !== true ) return $p;
 
 		$validOptions = HTMLFormField::flattenOptions( $this->mParams['options'] );
 		if ( in_array( $value, $validOptions ) )
@@ -614,7 +614,7 @@ class HTMLSelectField extends HTMLFormField {
 		//  Working around this by forcing all of them to strings.
 		$options = array_map( 'strval', $this->mParams['options'] );
 
-		if( !empty( $this->mParams['disabled'] ) ) {
+		if ( !empty( $this->mParams['disabled'] ) ) {
 			$select->setAttribute( 'disabled', 'disabled' );
 		}
 
@@ -628,7 +628,7 @@ class HTMLSelectOrOtherField extends HTMLTextField {
 	static $jsAdded = false;
 
 	function __construct( $params ) {
-		if( !in_array( 'other', $params['options'] ) ) {
+		if ( !in_array( 'other', $params['options'] ) ) {
 			$params['options'][wfMsg( 'htmlform-selectorother-other' )] = 'other';
 		}
 
@@ -638,7 +638,7 @@ class HTMLSelectOrOtherField extends HTMLTextField {
 	function getInputHTML( $value ) {
 		$valInSelect = false;
 
-		if( $value !== false )
+		if ( $value !== false )
 			$valInSelect = in_array( $value,
 							HTMLFormField::flattenOptions( $this->mParams['options'] ) );
 
@@ -650,7 +650,7 @@ class HTMLSelectOrOtherField extends HTMLTextField {
 		$select->setAttribute( 'class', 'mw-htmlform-select-or-other' );
 
 		$tbAttribs = array( 'id' => $this->mID . '-other' );
-		if( !empty( $this->mParams['disabled'] ) ) {
+		if ( !empty( $this->mParams['disabled'] ) ) {
 			$select->setAttribute( 'disabled', 'disabled' );
 			$tbAttribs['disabled'] = 'disabled';
 		}
@@ -670,10 +670,10 @@ class HTMLSelectOrOtherField extends HTMLTextField {
 	}
 
 	function loadDataFromRequest( $request ) {
-		if( $request->getCheck( $this->mName ) ) {
+		if ( $request->getCheck( $this->mName ) ) {
 			$val = $request->getText( $this->mName );
 
-			if( $val == 'other' ) {
+			if ( $val == 'other' ) {
 				$val = $request->getText( $this->mName . '-other' );
 			}
 
@@ -687,9 +687,9 @@ class HTMLSelectOrOtherField extends HTMLTextField {
 class HTMLMultiSelectField extends HTMLFormField {
 	function validate( $value, $alldata ) {
 		$p = parent::validate( $value, $alldata );
-		if( $p !== true ) return $p;
+		if ( $p !== true ) return $p;
 
-		if( !is_array( $value ) ) return false;
+		if ( !is_array( $value ) ) return false;
 
 		// If all options are valid, array_intersect of the valid options and the provided
 		//  options will return the provided options.
@@ -716,8 +716,8 @@ class HTMLMultiSelectField extends HTMLFormField {
 			$attribs['disabled'] = 'disabled';
 		}
 
-		foreach( $options as $label => $info ) {
-			if( is_array( $info ) ) {
+		foreach ( $options as $label => $info ) {
+			if ( is_array( $info ) ) {
 				$html .= Xml::tags( 'h1', null, $label ) . "\n";
 				$html .= $this->formatOptions( $info, $value );
 			} else {
@@ -736,10 +736,10 @@ class HTMLMultiSelectField extends HTMLFormField {
 
 	function loadDataFromRequest( $request ) {
 		// won't work with getCheck
-		if( $request->getCheck( 'wpEditToken' ) ) {
+		if ( $request->getCheck( 'wpEditToken' ) ) {
 			$arr = $request->getArray( $this->mName );
 
-			if( !$arr )
+			if ( !$arr )
 				$arr = array();
 
 			return $arr;
@@ -760,9 +760,9 @@ class HTMLMultiSelectField extends HTMLFormField {
 class HTMLRadioField extends HTMLFormField {
 	function validate( $value, $alldata ) {
 		$p = parent::validate( $value, $alldata );
-		if( $p !== true ) return $p;
+		if ( $p !== true ) return $p;
 
-		if( !is_string( $value ) && !is_int( $value ) )
+		if ( !is_string( $value ) && !is_int( $value ) )
 			return false;
 
 		$validOptions = HTMLFormField::flattenOptions( $this->mParams['options'] );
@@ -787,8 +787,8 @@ class HTMLRadioField extends HTMLFormField {
 			$attribs['disabled'] = 'disabled';
 		}
 
-		foreach( $options as $label => $info ) {
-			if( is_array( $info ) ) {
+		foreach ( $options as $label => $info ) {
+			if ( is_array( $info ) ) {
 				$html .= Xml::tags( 'h1', null, $label ) . "\n";
 				$html .= $this->formatOptions( $info, $value );
 			} else {

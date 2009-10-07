@@ -37,7 +37,7 @@ class TalkpageHeaderView extends LqtView {
 									'parseinline' ), 'talkpage_new_thread' );
 									
 			$html .= wfMsgExt( 'lqt_header_warning_before_big',
-								array('parseinline', 'replaceafter' ),
+								array( 'parseinline', 'replaceafter' ),
 								array( $warn_bold, $warn_link ) );
 			$html .= Xml::tags( 'big', null,
 								wfMsgExt( 'lqt_header_warning_big',

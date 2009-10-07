@@ -34,20 +34,20 @@ class SpecialMergeThread extends ThreadActionPage {
 	
 	public function checkParameters( $par ) {
 		global $wgOut;
-		if ( !parent::checkParameters($par) ) {
+		if ( !parent::checkParameters( $par ) ) {
 			return false;
 		}
 		
 		$dest = $this->request->getVal( 'dest' );
 		
-		if (!$dest) {
+		if ( !$dest ) {
 			$wgOut->addWikiMsg( 'lqt_threadrequired' );
 			return false;
 		}
 		
 		$thread = Threads::withId( $dest );
 		
-		if (!$thread) {
+		if ( !$thread ) {
 			$wgOut->addWikiMsg( 'lqt_nosuchthread' );
 			return false;
 		}
@@ -59,7 +59,7 @@ class SpecialMergeThread extends ThreadActionPage {
 
 	function formatThreadField( $field, $threadid ) {
 	
-		if ( !is_object($threadid) ) {
+		if ( !is_object( $threadid ) ) {
 			$t = Threads::withId( $threadid );
 		} else {
 			$t = $threadid;
@@ -94,7 +94,7 @@ class SpecialMergeThread extends ThreadActionPage {
 
 		$dstThread->addReply( $srcThread );
 		
-		if ($oldParent) {
+		if ( $oldParent ) {
 			$oldParent->removeReply( $srcThread );
 		}
 		
@@ -102,10 +102,10 @@ class SpecialMergeThread extends ThreadActionPage {
 		$dstThread->commitRevision( Threads::CHANGE_MERGED_TO, $srcThread, $reason );
 		
 		$srcTitle = clone $srcThread->article()->getTitle();
-		$srcTitle->setFragment( '#'.$srcThread->getAnchorName() );
+		$srcTitle->setFragment( '#' . $srcThread->getAnchorName() );
 		
 		$dstTitle = clone $dstThread->article()->getTitle();
-		$dstTitle->setFragment( '#'.$dstThread->getAnchorName() );
+		$dstTitle->setFragment( '#' . $dstThread->getAnchorName() );
 		
 		$srcLink = $this->user->getSkin()->link( $srcTitle, $srcThread->subject() );
 		$dstLink = $this->user->getSkin()->link( $dstTitle, $dstThread->subject() );
@@ -121,13 +121,13 @@ class SpecialMergeThread extends ThreadActionPage {
 		$thread->setSubject( $subject );
 		$thread->setAncestor( $ancestor->id() );
 		
-		if ($superthread) {
+		if ( $superthread ) {
 			$thread->setSuperThread( $superthread );
 		}
 		
 		$thread->save();
 		
-		foreach( $thread->replies() as $subThread ) {
+		foreach ( $thread->replies() as $subThread ) {
 			$this->recursiveSet( $subThread, $subject, $ancestor );
 		}
 	}

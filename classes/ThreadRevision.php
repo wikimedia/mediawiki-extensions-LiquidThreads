@@ -31,7 +31,7 @@ class ThreadRevision {
 	static function loadFromRow( $row ) {
 		$rev = new ThreadRevision;
 		
-		foreach( self::$load as $col => $field ) {
+		foreach ( self::$load as $col => $field ) {
 			$rev->$field = $row->$col;
 		}
 		
@@ -43,12 +43,12 @@ class ThreadRevision {
 	
 	static function create( $thread, $change_type, $change_object = null, $comment = '',
 							$user = null, $timestamp = null ) {
-		if ( is_null($user) ) {
+		if ( is_null( $user ) ) {
 			global $wgUser;
 			$user = $wgUser;
 		}
 		
-		if ( is_null($timestamp) ) {
+		if ( is_null( $timestamp ) ) {
 			$timestamp = wfTimestampNow();
 		}
 		
@@ -66,7 +66,7 @@ class ThreadRevision {
 		if ( $change_object instanceof Thread ) {
 			$rev->mChangeObjectId = $change_object->id();
 			$rev->mChangeObject = $change_object;
-		} elseif ( is_null($change_object) ) {
+		} elseif ( is_null( $change_object ) ) {
 			$rev->mChangeObjectId = $thread->id();
 			$rev->mChangeObject = $thread;
 		} else {
@@ -109,7 +109,7 @@ class ThreadRevision {
 		$dbw = wfGetDB( DB_MASTER );
 		$this->mTimestamp = $dbw->timestamp( $this->mTimestamp );
 		
-		foreach( self::$load as $col => $field ) {
+		foreach ( self::$load as $col => $field ) {
 			$row[$col] = $this->$field;
 		}
 		
@@ -121,7 +121,7 @@ class ThreadRevision {
 	}
 	
 	function getUser() {
-		if ($this->mUserId) {
+		if ( $this->mUserId ) {
 			return User::newFromId( $this->mUserId );
 		}
 		
@@ -151,7 +151,7 @@ class ThreadRevision {
 	function getThreadObj() {
 		if ( !$this->mThreadObj && $this->mObjSer ) {
 			$this->mThreadObj = unserialize( $this->mObjSer );
-		} elseif (!$this->mThreadObj) {
+		} elseif ( !$this->mThreadObj ) {
 			throw new MWException( "Missing mObjSer" );
 		}
 		

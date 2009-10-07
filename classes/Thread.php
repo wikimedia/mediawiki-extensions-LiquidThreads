@@ -59,7 +59,7 @@ class Thread {
 
         $dbw = wfGetDB( DB_MASTER );
         
-        $thread = new Thread(null);
+        $thread = new Thread( null );
 
 		if ( !in_array( $type, self::$VALID_TYPES ) ) {
 			throw new MWException( __METHOD__ . ": invalid change type $type." );
@@ -98,7 +98,7 @@ class Thread {
 		// Notifications
 		NewMessages::writeMessageStateForUpdatedThread( $thread, $change_type, $wgUser );
 		
-		if ($wgUser->getOption( 'lqt-watch-threads', false ) ) {
+		if ( $wgUser->getOption( 'lqt-watch-threads', false ) ) {
 			$thread->topmostThread()->root()->doWatch();
 		}
 
@@ -117,7 +117,7 @@ class Thread {
 		$this->id = $dbw->insertId();
 		
 		// Touch the root
-		if ($this->root()) {
+		if ( $this->root() ) {
 			$this->root()->getTitle()->invalidateCache();
 		}
 		
@@ -141,7 +141,7 @@ class Thread {
 
 		$this->modified = wfTimestampNow();
 		$this->updateEditedness( $change_type );
-		$this->save( __METHOD__ . "/" . wfGetCaller());
+		$this->save( __METHOD__ . "/" . wfGetCaller() );
 		
 		$topmost = $this->topmostThread();
 		$topmost->modified = wfTimestampNow();
@@ -173,7 +173,7 @@ class Thread {
 	}
 	
 	/** Unless you know what you're doing, you want commitRevision */
-	function save( $fname = null ) {		
+	function save( $fname = null ) {
 		$this->dieIfHistorical();
 
 		$dbr = wfGetDB( DB_MASTER );
@@ -190,7 +190,7 @@ class Thread {
 		     $fname );
 		     
 		// Touch the root
-		if ($this->root()) {
+		if ( $this->root() ) {
 			$this->root()->getTitle()->invalidateCache();
 		}
 		
@@ -203,20 +203,20 @@ class Thread {
 		
 		$dbw = wfGetDB( DB_MASTER );
 
-		if (!$id) {
+		if ( !$id ) {
 			$id = $dbw->nextSequenceValue( 'thread_thread_id' );
 		}
 		
 		// Reflect schema changes here.
-	
+
 		return array(
 			'thread_id' => $id,
 			'thread_root' => $this->rootId,
 			'thread_parent' => $this->parentId,
 			'thread_article_namespace' => $this->articleNamespace,
 			'thread_article_title' => $this->articleTitle,
-			'thread_modified' => $dbw->timestamp($this->modified),
-			'thread_created' => $dbw->timestamp($this->created),
+			'thread_modified' => $dbw->timestamp( $this->modified ),
+			'thread_created' => $dbw->timestamp( $this->created ),
 			'thread_ancestor' => $this->ancestorId,
 			'thread_type' => $this->type,
 			'thread_subject' => $this->subject,
@@ -232,7 +232,7 @@ class Thread {
 	function author() {
 		$this->doLazyUpdates();
 		
-		if ($this->authorId) {
+		if ( $this->authorId ) {
 			return User::newFromId( $this->authorId );
 		} else {
 			// Do NOT validate username. If the user did it, they did it.
@@ -254,27 +254,27 @@ class Thread {
 		
 		// Fix reply count.
 		$t = $this->superthread();
-		while( $t ) {
+		while ( $t ) {
 			$t->decrementReplyCount();
 			$t->save();
 			$t = $t->superthread();
 		}
 	}
 	
-	function undelete( $reason ) {		
+	function undelete( $reason ) {
 		$this->type = Threads::TYPE_NORMAL;
 		$this->commitRevision( Threads::CHANGE_UNDELETED, $this, $reason );
 		
 		// Fix reply count.
 		$t = $this->superthread();
-		while( $t ) {
+		while ( $t ) {
 			$t->incrementReplyCount();
 			$t = $t->superthread();
 		}
 	}
 
 	function moveToPage( $title, $reason, $leave_trace ) {
-		if (!$this->isTopmostThread() )
+		if ( !$this->isTopmostThread() )
 			throw new MWException( "Attempt to move non-toplevel thread to another page" );
 			
 		$this->dieIfHistorical();
@@ -322,12 +322,12 @@ class Thread {
 			' [[' . $this->title()->getPrefixedText() . "]]\n";
 		
 		// Make the article edit.
-		$traceTitle = Threads::newThreadTitle( $this->subject(), new Article_LQT_Compat($oldTitle) );
+		$traceTitle = Threads::newThreadTitle( $this->subject(), new Article_LQT_Compat( $oldTitle ) );
 		$redirectArticle = new Article_LQT_Compat( $traceTitle );
 		$redirectArticle->doEdit( $redirectText, $reason, EDIT_NEW );
 
 		// Add the trace thread to the tracking table.
-		$thread = Threads::newThread( $redirectArticle, new Article_LQT_Compat($oldTitle), null,
+		$thread = Threads::newThread( $redirectArticle, new Article_LQT_Compat( $oldTitle ), null,
 		 	Threads::TYPE_MOVED, $this->subject() );
 	}
 
@@ -347,7 +347,7 @@ class Thread {
 	function __construct( $line, $unused = null ) {
 		/* SCHEMA changes must be reflected here. */
 		
-		if ( is_null($line) ) { // For Thread::create().
+		if ( is_null( $line ) ) { // For Thread::create().
 			$this->modified = wfTimestampNow();
 			$this->created = wfTimestampNow();
 			$this->sortkey = wfTimestampNow();
@@ -376,13 +376,13 @@ class Thread {
 					'thread_replies' => 'replyCount',
 				);
 						
-		foreach( $dataLoads as $db_field => $member_field ) {
-			if ( isset($line->$db_field) ) {
+		foreach ( $dataLoads as $db_field => $member_field ) {
+			if ( isset( $line->$db_field ) ) {
 				$this->$member_field = $line->$db_field;
 			}
 		}
 		
-		if ( isset($line->page_namespace) && isset($line->page_title) ) {
+		if ( isset( $line->page_namespace ) && isset( $line->page_title ) ) {
 			$root_title = Title::makeTitle( $line->page_namespace, $line->page_title );
 			$this->root = new Article_LQT_Compat( $root_title );
 			$this->root->loadPageData( $line );
@@ -393,7 +393,7 @@ class Thread {
 				$root_title = Title::newFromID( $this->rootId );
 			}
 			
-			if ($root_title) {
+			if ( $root_title ) {
 				$this->root = new Article_LQT_Compat( $root_title );
 			}
 		}
@@ -402,7 +402,7 @@ class Thread {
 	}
 	
 	// Load a list of threads in bulk, including all subthreads.
-	static function bulkLoad( $rows ) {		
+	static function bulkLoad( $rows ) {
 		// Preload subthreads
 		$thread_ids = array();
 		$all_thread_rows = $rows;
@@ -410,19 +410,19 @@ class Thread {
 		$linkBatch = new LinkBatch();
 		$userIds = array();
 		
-		if (!is_array(self::$replyCacheById)) {
+		if ( !is_array( self::$replyCacheById ) ) {
 			self::$replyCacheById = array();
 		}
 		
 		// Build a list of threads for which to pull replies, and page IDs to pull data for.
 		//  Also, pre-initialise the reply cache.
-		foreach( $rows as $row ) {
+		foreach ( $rows as $row ) {
 			$thread_ids[] = $row->thread_id;
 			
 			// Grab page data while we're here.
-			if ($row->thread_root)
+			if ( $row->thread_root )
 				$pageIds[] = $row->thread_root;
-			if ($row->thread_summary_page)
+			if ( $row->thread_summary_page )
 				$pageIds[] = $row->thread_summary_page;
 				
 			if ( !isset( self::$replyCacheById[$row->thread_id] ) ) {
@@ -432,18 +432,18 @@ class Thread {
 		
 		// Pull replies to the threads provided, and as above, pull page IDs to pull data for,
 		//  pre-initialise the reply cache, and stash the row object for later use.
-		if ( count($thread_ids) ) {
+		if ( count( $thread_ids ) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$res = $dbr->select( 'thread', '*',
 						array( 'thread_ancestor' => $thread_ids,
 							'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ),
 						__METHOD__ );
 									
-			while( $row = $dbr->fetchObject($res) ) {				
+			while ( $row = $dbr->fetchObject( $res ) ) {
 				// Grab page data while we're here.
-				if ($row->thread_root)
+				if ( $row->thread_root )
 					$pageIds[] = $row->thread_root;
-				if ($row->thread_summary_page)
+				if ( $row->thread_summary_page )
 					$pageIds[] = $row->thread_summary_page;
 					
 				$all_thread_rows[] = $row;
@@ -457,19 +457,19 @@ class Thread {
 		// Preload page data (restrictions, and preload Article object with everything from 
 		//  the page table. Also, precache the title and article objects for pulling later.
 		$articlesById = array();
-		if ( count($pageIds) ) {
+		if ( count( $pageIds ) ) {
 			// Pull restriction info. Needs to come first because otherwise it's done per
 			//  page by loadPageData.
 			$restrictionRows = array_fill_keys( $pageIds, array() );
 			$res = $dbr->select( 'page_restrictions', '*', array( 'pr_page' => $pageIds ),
 									__METHOD__ );
-			while( $row = $dbr->fetchObject( $res ) ) {
+			while ( $row = $dbr->fetchObject( $res ) ) {
 				$restrictionRows[$row->pr_page][] = $row;
 			}
 			
 			$res = $dbr->select( 'page', '*', array( 'page_id' => $pageIds ), __METHOD__ );
 			
-			while( $row = $dbr->fetchObject( $res ) ) {
+			while ( $row = $dbr->fetchObject( $res ) ) {
 				$t = Title::newFromRow( $row );
 				
 				if ( isset( $restrictionRows[$t->getArticleId()] ) ) {
@@ -483,7 +483,7 @@ class Thread {
 				self::$titleCacheById[$t->getArticleId()] = $t;
 				$articlesById[$article->getId()] = $article;
 				
-				if ( count(self::$titleCacheById) > 10000 ) {
+				if ( count( self::$titleCacheById ) > 10000 ) {
 					self::$titleCacheById = array();
 				}
 			}
@@ -492,10 +492,10 @@ class Thread {
 		// For every thread we have a row object for, load a Thread object, add the user and
 		//  user talk pages to a link batch, cache the relevant user id/name pair, and
 		//  populate the reply cache.
-		foreach( $all_thread_rows as $row ) {		
+		foreach ( $all_thread_rows as $row ) {
 			$thread = new Thread( $row, null );
 			
-			if ( isset($articlesById[$thread->rootId]) )
+			if ( isset( $articlesById[$thread->rootId] ) )
 				$thread->root = $articlesById[$thread->rootId];
 			
 			Threads::$cache_by_id[$row->thread_id] = $thread;
@@ -514,18 +514,18 @@ class Thread {
 			}
 		}
 		
-		$userIds = array_keys($userIds);
+		$userIds = array_keys( $userIds );
 		
 		// Pull signature data and pre-cache in View object.		
-		if ( count($userIds) ) {
+		if ( count( $userIds ) ) {
 			$signatureDataCache = array_fill_keys( $userIds, array() );
 			$res = $dbr->select( 'user_properties',
 						array( 'up_user', 'up_property', 'up_value' ),
-						array( 'up_property' => array('nickname', 'fancysig'),
+						array( 'up_property' => array( 'nickname', 'fancysig' ),
 								'up_user' => $userIds ),
 						__METHOD__ );
 			
-			foreach( $res as $row ) {
+			foreach ( $res as $row ) {
 				$signatureDataCache[$row->up_user][$row->up_property] = $row->up_value;
 			}
 			
@@ -536,21 +536,21 @@ class Thread {
 			$wgParser->setTitle( $wgTitle );
 			$wgParser->mOptions = new ParserOptions;
 			
-			foreach( $userIds as $uid ) {
-				$user = User::newFromId($uid); // Should pull from UID cache.
+			foreach ( $userIds as $uid ) {
+				$user = User::newFromId( $uid ); // Should pull from UID cache.
 				$name = $user->getName();
 				
 				// Grab sig data
 				$nickname = null;
 				$fancysig = (bool)User::getDefaultOption( 'fancysig' );
 				
-				if ( isset($signatureDataCache[$uid]['nickname']) )
+				if ( isset( $signatureDataCache[$uid]['nickname'] ) )
 					$nickname = $signatureDataCache[$uid]['nickname'];
-				if( isset($signatureDataCache[$uid]['fancysig']) )
+				if ( isset( $signatureDataCache[$uid]['fancysig'] ) )
 					$fancysig = $signatureDataCache[$uid]['fancysig'];
 					
 				// Generate signature from Parser
-				
+
 				$sig = $wgParser->getUserSig( $user, $nickname, $fancysig );
 				$sig = $wgOut->parseInline( $sig );
 				
@@ -565,7 +565,7 @@ class Thread {
 		$threads = array();
 		
 		// Fill and return an array with the threads that were actually requested.
-		foreach( $rows as $row ) {
+		foreach ( $rows as $row ) {
 			$threads[$row->thread_id] = Threads::$cache_by_id[$row->thread_id];
 		}
 		
@@ -602,16 +602,16 @@ class Thread {
 	function doLazyUpdates( ) {
 		if ( $this->isHistorical() )
 			return; // Don't do lazy updates on stored historical threads.
-		
+
 		// This is an invocation guard to avoid infinite recursion when fixing a
 		//  missing ancestor.
 		static $doingUpdates = false;
-		if ($doingUpdates) return;
+		if ( $doingUpdates ) return;
 		$doingUpdates = true;
 		
 		// Fix missing ancestry information.
 		// (there was a bug where this was not saved properly)
-		if ($this->parentId &&!$this->ancestorId) {
+		if ( $this->parentId && !$this->ancestorId ) {
 			$this->fixMissingAncestor();
 		}
 		
@@ -633,7 +633,7 @@ class Thread {
 		
 		// Fix inconsistent subject information
 		// (in some intermediate versions this was not updated when the subject was changed)
-		if ($this->subject() != $ancestor->subject()) {
+		if ( $this->subject() != $ancestor->subject() ) {
 			$set['thread_subject'] = $ancestor->subject();
 			
 			$this->subject = $ancestor->subject();
@@ -651,10 +651,10 @@ class Thread {
 			$set['thread_author_id'] = $this->authorId;
 		}
 		
-		//Check for article being in subject, not talk namespace.
-		//If the page is non-LiquidThreads and it's in subject-space, we'll assume it's meant
+		// Check for article being in subject, not talk namespace.
+		// If the page is non-LiquidThreads and it's in subject-space, we'll assume it's meant
 		// to be on the corresponding talk page, but only if the talk-page is a LQT page.
-		//(Previous versions stored the subject page, for some totally bizarre reason)
+		// (Previous versions stored the subject page, for some totally bizarre reason)
 		// Old versions also sometimes store the thread page for trace threads as the
 		//  article, not as the root.
 		//  Trying not to exacerbate this by moving it to be the 'Thread talk' page.
@@ -676,7 +676,7 @@ class Thread {
 		
 		// Check for article corruption from incomplete thread moves.
 		// (thread moves only updated this on immediate replies, not replies to replies etc)
-		if (! $ancestor->article()->getTitle()->equals( $this->article()->getTitle() ) ) {
+		if ( ! $ancestor->article()->getTitle()->equals( $this->article()->getTitle() ) ) {
 			$title = $ancestor->article()->getTitle();
 			$set['thread_article_namespace'] = $title->getNamespace();
 			$set['thread_article_title'] = $title->getDbKey();
@@ -688,7 +688,7 @@ class Thread {
 		}
 		
 		// Populate reply count
-		if ( $this->replyCount == -1 ) {
+		if ( $this->replyCount == - 1 ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			
 			$count = $dbr->selectField( 'thread', 'count(*)',
@@ -701,11 +701,11 @@ class Thread {
 		// Check for invalid/missing articleId
 		$articleTitle = null;
 		$dbTitle = Title::makeTitleSafe( $this->articleNamespace, $this->articleTitle );
-		if ($this->articleId && isset(self::$titleCacheById[$this->articleId]) ) {
+		if ( $this->articleId && isset( self::$titleCacheById[$this->articleId] ) ) {
 			// If it corresponds to a title, the article obviously exists.
 			$articleTitle = self::$titleCacheById[$this->articleId];
 			$this->article = new Article_LQT_Compat( $articleTitle );
-		} elseif( $this->articleId ) {
+		} elseif ( $this->articleId ) {
 			$articleTitle = Title::newFromID( $this->articleId );
 		}
 		
@@ -734,7 +734,7 @@ class Thread {
 			Threads::synchroniseArticleData( $this->article, 100, 'cascade' );
 		}
 		
-		if ( count($set) ) {
+		if ( count( $set ) ) {
 			$dbw = wfGetDB( DB_MASTER );
 			
 			$dbw->update( 'thread', $set, array( 'thread_id' => $this->id() ), __METHOD__ );
@@ -747,7 +747,7 @@ class Thread {
 	function addReply( $thread ) {
 		$thread->setSuperThread( $this );
 		
-		if ( is_array($this->replies) ) {
+		if ( is_array( $this->replies ) ) {
 			$this->replies[$thread->id()] = $thread;
 		} else {
 			$this->replies();
@@ -759,7 +759,7 @@ class Thread {
 	}
 	
 	function removeReply( $thread ) {
-		if ( is_object($thread) ) {
+		if ( is_object( $thread ) ) {
 			$thread = $thread->id();
 		}
 		
@@ -768,12 +768,12 @@ class Thread {
 		unset( $thread->replies[$thread] );
 		
 		// Also, decrement the reply count.
-		$threadObj = Threads::withId($thread);
+		$threadObj = Threads::withId( $thread );
 		$this->replyCount -= ( 1 + $threadObj->replyCount() );
 	}
 	
 	function replies() {
-		if ( !is_null($this->replies) ) {
+		if ( !is_null( $this->replies ) ) {
 			return $this->replies;
 		}
 		
@@ -790,11 +790,11 @@ class Thread {
 		
 		$res = $dbr->select( 'thread', '*',
 					array( 'thread_parent' => $this->id(),
-					'thread_type != '.$dbr->addQuotes( Threads::TYPE_DELETED ) ),
+					'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ),
 					__METHOD__ );
 		
 		$rows = array();
-		while ( $row = $dbr->fetchObject($res) ) {
+		while ( $row = $dbr->fetchObject( $res ) ) {
 			$rows[] = $row;
 		}
 		
@@ -804,7 +804,7 @@ class Thread {
 	}
 
 	function setSuperthread( $thread ) {
-		if ($thread == null) {
+		if ( $thread == null ) {
 			$this->parentId = null;
 			$this->ancestorId = 0;
 			return;
@@ -838,14 +838,14 @@ class Thread {
 	function topmostThread() {
 		if ( $this->isTopmostThread() ) {
 			return $this->ancestor = $this;
-		} elseif ($this->ancestor) {
+		} elseif ( $this->ancestor ) {
 			return $this->ancestor;
 		} else {
 			$this->dieIfHistorical();
 			
 			$thread = Threads::withId( $this->ancestorId );
 
-			if (!$thread) {
+			if ( !$thread ) {
 				$thread = $this->fixMissingAncestor();
 			}
 			
@@ -929,7 +929,7 @@ class Thread {
 	function root( ) {
 		if ( !$this->rootId ) return null;
 		if ( !$this->root ) {
-			if ( isset(self::$articleCacheById[$this->rootId]) ) {
+			if ( isset( self::$articleCacheById[$this->rootId] ) ) {
 				$this->root = self::$articleCacheById[$this->rootId];
 				return $this->root;
 			}
@@ -940,7 +940,7 @@ class Thread {
 				$title = Title::newFromID( $this->rootId );
 			}
 			
-			if (!$title) return null;
+			if ( !$title ) return null;
 			
 			$this->root = new Article_LQT_Compat( $title );
 		}
@@ -958,8 +958,8 @@ class Thread {
 		if ( !$this->summary ) {
 			$title = Title::newFromID( $this->summaryId );
 			
-			if (!$title) {
-				wfDebug( __METHOD__.": supposed summary doesn't exist" );
+			if ( !$title ) {
+				wfDebug( __METHOD__ . ": supposed summary doesn't exist" );
 				$this->summaryId = null;
 				return null;
 			}
@@ -1037,7 +1037,7 @@ class Thread {
 		return $this->type;
 	}
 	
-	function setType($t) {
+	function setType( $t ) {
 		$this->type = $t;
 	}
 
@@ -1109,7 +1109,7 @@ class Thread {
 		$this->topmostThread();
 		
 		// Make sure replies, and all the data therein, is loaded.
-		foreach( $this->replies() as $reply ) {
+		foreach ( $this->replies() as $reply ) {
 			$reply->loadAllData();
 		}
 	}
@@ -1135,13 +1135,13 @@ class Thread {
 	// This is a safety valve that makes sure that the DB is NEVER touched by a historical
 	//  thread (even for reading, because the data will be out of date).
 	function dieIfHistorical() {
-		if ($this->isHistorical()) {
+		if ( $this->isHistorical() ) {
 			throw new MWException( "Attempted write or DB operation on historical thread" );
 		}
 	}
 	
 	function rootRevision() {
-		if ( !$this->isHistorical() || !isset($this->topmostThread()->threadRevision) ) {
+		if ( !$this->isHistorical() || !isset( $this->topmostThread()->threadRevision ) ) {
 			return null;
 		}
 		
@@ -1151,7 +1151,7 @@ class Thread {
 		$timestamp = $dbr->timestamp( $revision->getTimestamp() );
 		
 		$conds = array(
-				'rev_timestamp<='.$dbr->addQuotes( $timestamp ),
+				'rev_timestamp<=' . $dbr->addQuotes( $timestamp ),
 				'page_namespace' => $this->root()->getTitle()->getNamespace(),
 				'page_title' => $this->root()->getTitle()->getDBKey(),
 			);

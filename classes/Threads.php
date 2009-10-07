@@ -63,7 +63,7 @@ class Threads {
 	static function loadFromResult( $res, $db ) {
 		$rows = array();
 		
-		while( $row = $db->fetchObject( $res ) ) {
+		while ( $row = $db->fetchObject( $res ) ) {
 			$rows[] = $row;
 		}
 		
@@ -78,7 +78,7 @@ class Threads {
 		$threads = Threads::loadFromResult( $res, $dbr );
 
 		foreach ( $threads as $thread ) {
-			if ($thread->root()) {
+			if ( $thread->root() ) {
 				self::$cache_by_root[$thread->root()->getID()] = $thread;
 			}
 			self::$cache_by_id[$thread->id()] = $thread;
@@ -94,7 +94,7 @@ class Threads {
 
 	private static function assertSingularity( $threads, $attribute, $value ) {
 		if ( count( $threads ) == 0 ) { return null; }
-		if ( count( $threads ) == 1 ) { return array_pop($threads); }
+		if ( count( $threads ) == 1 ) { return array_pop( $threads ); }
 		if ( count( $threads ) > 1 ) {
 			Threads::databaseError( "More than one thread with $attribute = $value." );
 			return null;
@@ -143,7 +143,7 @@ class Threads {
 	  */
 	static function monthsWhereArticleHasThreads( $article ) {
 		// FIXME this probably performs absolutely horribly for pages with lots of threads.
-		
+
 		$threads = Threads::where( Threads::articleClause( $article ) );
 		$months = array();
 		
@@ -156,7 +156,7 @@ class Threads {
 		// Some code seems to assume that it's sorted by month, make sure it's true.
 		ksort( $months );
 		
-		return array_keys($months);
+		return array_keys( $months );
 	}
 
 	static function articleClause( $article ) {
@@ -196,7 +196,7 @@ class Threads {
 		return self::incrementedTitle( $t->title()->getText(), NS_LQT_SUMMARY );
 	}
 	
-	static function newReplyTitle( $thread, $user) {
+	static function newReplyTitle( $thread, $user ) {
 		$topThread = $thread->topmostThread();
 		
 		$base = $topThread->title()->getText() . '/' . $user->getName();
@@ -211,7 +211,7 @@ class Threads {
 		
 		if ( is_callable( array( 'Title', 'getTitleInvalidRegex' ) ) ) {
 			$rxTc = Title::getTitleInvalidRegex();
-		} elseif (!$rxTc) { // Back-compat
+		} elseif ( !$rxTc ) { // Back-compat
 			$rxTc = '/' .
 				# Any character not allowed is forbidden...
 				'[^' . Title::legalChars() . ']' .
@@ -241,7 +241,7 @@ class Threads {
 		while ( !$t || $t->exists() ||
 				in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) ) {
 			
-			if (!$t) {
+			if ( !$t ) {
 				throw new MWException( "Error in creating title for basename $basename" );
 			}
 			
@@ -284,11 +284,11 @@ class Threads {
 		$options = array( 'LIMIT' => 500, 'ORDER BY' => 'thread_id DESC' );
 		
 		// Batch in 500s
-		if ($limit) $options['LIMIT'] = min( $limit, 500 );
+		if ( $limit ) $options['LIMIT'] = min( $limit, 500 );
 		
 		$rowsAffected = 0;
 		$roundRowsAffected = 1;
-		while( (!$limit || $rowsAffected < $limit) && $roundRowsAffected > 0 ) {
+		while ( ( !$limit || $rowsAffected < $limit ) && $roundRowsAffected > 0 ) {
 			$roundRowsAffected = 0;
 			
 			// Fix wrong title.
@@ -302,12 +302,12 @@ class Threads {
 			$rowsAffected += $roundRowsAffected;
 		}
 		
-		if ( $limit && ($rowsAffected >= $limit) && $queueMore ) {
+		if ( $limit && ( $rowsAffected >= $limit ) && $queueMore ) {
 			$jobParams = array( 'limit' => $limit, 'cascade' => true );
 			$job = new SynchroniseThreadArticleDataJob( $article->getTitle(), $jobParams );
 			$job->insert();
 		}
 		
-		return $limit ? ($rowsAffected < $limit) : true;
+		return $limit ? ( $rowsAffected < $limit ) : true;
 	}
 }

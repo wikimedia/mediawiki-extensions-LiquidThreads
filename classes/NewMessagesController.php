@@ -77,7 +77,7 @@ class NewMessages {
 			$fields[] = 'user_options';
 		} else {
 			$tables[] = 'user_properties';
-			$joins['user_properties'] = 
+			$joins['user_properties'] =
 				array(
 						'left join',
 						array( 'up_user=wl_user',
@@ -91,12 +91,12 @@ class NewMessages {
 		//  user_message_state row exists for them, and whether or not to send an email
 		//  notification.
 		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( $tables, $fields, $where_clause, __METHOD__, array(), $joins);
+		$res = $dbr->select( $tables, $fields, $where_clause, __METHOD__, array(), $joins );
 		
 		$insert_rows = array();
 		$update_tuples = array();
 		$notify_users = array();
-		while( $row = $dbr->fetchObject( $res ) ) {
+		while ( $row = $dbr->fetchObject( $res ) ) {
 			// Don't notify yourself
 			if ( $changeUser->getId() == $row->wl_user )
 				continue;
@@ -121,11 +121,11 @@ class NewMessages {
 			if ( $oldPrefCompat ) {
 				$decodedOptions = self::decodeUserOptions( $row->user_options );
 				
-				$wantsTalkNotification = ( is_null( $decodedOptions['lqtnotifytalk'] ) && 
+				$wantsTalkNotification = ( is_null( $decodedOptions['lqtnotifytalk'] ) &&
 						User::getDefaultOption( 'lqtnotifytalk' ) ) || $row->up_value;
 			} else {
 				$wantsTalkNotification =
-					(is_null($row->up_value) && User::getDefaultOption( 'lqtnotifytalk' ) )
+					( is_null( $row->up_value ) && User::getDefaultOption( 'lqtnotifytalk' ) )
 						|| $row->up_value;
 			}
 			
@@ -153,12 +153,12 @@ class NewMessages {
 		}
 		
 		// Do the actual updates
-		if ( count($insert_rows) ) {
+		if ( count( $insert_rows ) ) {
 			$dbw->replace( 'user_message_state', array( array( 'ums_user', 'ums_thread' ) ),
 							$insert_rows, __METHOD__ );
 		}
 		
-		if ( count($notify_users) ) {
+		if ( count( $notify_users ) ) {
 			self::notifyUsersByMail( $t, $notify_users, wfTimestampNow(), $type );
 		}
 	}
@@ -189,7 +189,7 @@ class NewMessages {
 			Threads::CHANGE_NEW_THREAD => 'lqt-enotif-subject-newthread',
 		);
 			
-		if ( !isset($messages[$type]) || !isset($subjects[$type]) ) {
+		if ( !isset( $messages[$type] ) || !isset( $subjects[$type] ) ) {
 			wfDebugLog( 'LiquidThreads', "Email notification failed: type $type unrecognised" );
 			return;
 		} else {
@@ -198,20 +198,20 @@ class NewMessages {
 		}
 		
 		// Send email notification, fetching all the data in one go
-		
+
 		global $wgVersion;
 		$tables = array( 'user' );
 		$fields = array( 'user.*' );
 		$join_conds = array();
 		$oldPreferenceFormat = false;
-		if (version_compare( $wgVersion, '1.16', '<' )) {
+		if ( version_compare( $wgVersion, '1.16', '<' ) ) {
 			$oldPreferenceFormat = true;
 		} else {
 			$tables[] = 'user_properties as tc_prop';
 			$fields[] = 'tc_prop.up_value as timecorrection';
 			
 			$join_conds['user_properties as tc_prop'] =
-				array( 'left join', 
+				array( 'left join',
 						array(
 							'up_user=user_id',
 							'up_property' => 'timecorrection',
@@ -222,7 +222,7 @@ class NewMessages {
 			$fields[] = 'l_prop.up_value as language';
 			
 			$join_conds['user_properties as l_prop'] =
-				array( 'left join', 
+				array( 'left join',
 						array(
 							'up_user=user_id',
 							'up_property' => 'language',
@@ -238,7 +238,7 @@ class NewMessages {
 						
 		// Set up one-time data.
 		$link_title = clone $t->article()->getTitle();
-		$link_title->setFragment( '#'.$t->getAnchorName() );
+		$link_title->setFragment( '#' . $t->getAnchorName() );
 		$permalink = $link_title->getFullURL();
 		$talkPage = $t->article()->getTitle()->getPrefixedText();
 		$from = new MailAddress( $wgPasswordSender, 'WikiAdmin' );
@@ -250,13 +250,13 @@ class NewMessages {
 // 		global $wgOut;
 // 		$html = $wgOut->parse( $content );
 // 		$text = StringUtils::delimiterReplace( '<', '>', '', $html );
-		
-		while( $row = $dbr->fetchObject( $res ) ) {
+
+		while ( $row = $dbr->fetchObject( $res ) ) {
 			$u = User::newFromRow( $row );
 			
-			if ($oldPreferenceFormat) {
+			if ( $oldPreferenceFormat ) {
 				$langCode = $u->getOption( 'language' );
-			} elseif ($row->language) {
+			} elseif ( $row->language ) {
 				$langCode = $row->language;
 			} else {
 				global $wgLanguageCode;
@@ -266,7 +266,7 @@ class NewMessages {
 			$lang = Language::factory( $langCode );
 			
 			// Adjust with time correction
-			if ($oldPreferenceFormat) {
+			if ( $oldPreferenceFormat ) {
 				$timeCorrection = $u->getOption( 'timecorrection' );
 			} else {
 				$timeCorrection = $row->timecorrection;
@@ -286,8 +286,8 @@ class NewMessages {
 			global $wgPasswordSender;
 							
 			$to   = new MailAddress( $u );
-			$subject = wfMsgReal( $subjectMsg, array($threadSubject), true /* use DB */,
-									$langCode, true /* transform */);
+			$subject = wfMsgReal( $subjectMsg, array( $threadSubject ), true /* use DB */,
+									$langCode, true /* transform */ );
 			
 			UserMailer::send( $to, $from, $subject, $msg );
 		}

@@ -321,14 +321,14 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			'showdeleted' => 'Whether or not to show deleted threads',
 			'render' => 'Whether or not to include the rendered thread in the results',
 			'renderlevel' => 'When rendering, the level at which to start (for the sake of depth limits, etc)',
-			'renderthreadpos' => 'When rendering, the position of the thread in the group of '.
+			'renderthreadpos' => 'When rendering, the position of the thread in the group of ' .
 					'threads being rendered at that level (affects display somewhat)',
 			'renderthreadcount' => 'When rendering, the number of threads in that level group',
-			'rendermaxthreadcount' => 'When rendering, the maximum number of replies to show '.
+			'rendermaxthreadcount' => 'When rendering, the maximum number of replies to show ' .
 					'before adding a "Show more replies" link',
-			'rendermaxdepth' => 'When rendering, the maximum depth of replies to show before '.
+			'rendermaxdepth' => 'When rendering, the maximum depth of replies to show before ' .
 					'showing a "Show X replies" link instead of replies',
-			'renderstartrepliesat' => 'When rendering, the point at which to start showing replies '.
+			'renderstartrepliesat' => 'When rendering, the point at which to start showing replies ' .
 					'(used internally to load extra replies)',
 		);
 	}

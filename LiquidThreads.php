@@ -107,7 +107,7 @@ $wgAutoloadClasses['LiquidThreadsMagicWords'] = $dir . 'i18n/LiquidThreads.magic
 $wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/ParserFunctions.php';
 $wgAutoloadClasses['LqtDeletionController'] = $dir . 'classes/DeletionController.php';
 $wgAutoloadClasses['LqtHooks'] = $dir . 'classes/Hooks.php';
-$wgAutoloadClasses['ThreadRevision'] = $dir."/classes/ThreadRevision.php";
+$wgAutoloadClasses['ThreadRevision'] = $dir . "/classes/ThreadRevision.php";
 $wgAutoloadClasses['SynchroniseThreadArticleDataJob'] = "$dir/classes/SynchroniseThreadArticleDataJob.php";
 
 // View classes

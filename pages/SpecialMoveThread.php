@@ -51,7 +51,7 @@ class SpecialMoveThread extends ThreadActionPage {
 						array( 'lqt_method' => 'edit', 'lqt_operand' => $this->mThread->id() ) );
 		
 		$intro .= wfMsgExt( 'lqt_move_movingthread', 'parse',
-					array('[['.$this->mTarget.']]', '[['.$page.']]') );
+					array( '[[' . $this->mTarget . ']]', '[[' . $page . ']]' ) );
 		$intro .= wfMsgExt( 'lqt_move_torename', array( 'parse', 'replaceafter' ),
 							array( $edit_link ) );
 							
@@ -69,15 +69,15 @@ class SpecialMoveThread extends ThreadActionPage {
 		// Custom merge/unique function because we don't have the second parameter to
 		// array_unique on Wikimedia.
 		$mergedErrors = array();
-		foreach( array_merge( $oldErrors, $newErrors ) as $key => $value ) {
-			if ( !is_numeric($key) ) {
+		foreach ( array_merge( $oldErrors, $newErrors ) as $key => $value ) {
+			if ( !is_numeric( $key ) ) {
 				$mergedErrors[$key] = $value;
 			} elseif ( !in_array( $value, $mergedErrors ) ) {
 				$mergedErrors[] = $value;
 			}
 		}
 		
-		if ( count($mergedErrors) > 0 ) {
+		if ( count( $mergedErrors ) > 0 ) {
 			return 	$wgOut->parse(
 						$wgOut->formatPermissionsErrorMessage( $mergedErrors, 'move' )
 					);
@@ -94,7 +94,7 @@ class SpecialMoveThread extends ThreadActionPage {
 		
 		$rightsResult = $this->checkUserRights( $this->mThread->title(), $newtitle );
 		
-		if ($rightsResult !== true)
+		if ( $rightsResult !== true )
 			return $rightsResult;
 
 		// TODO no status code from this method.
@@ -109,7 +109,7 @@ class SpecialMoveThread extends ThreadActionPage {
 	}
 	
 	function validateTarget( $target ) {
-		if (!$target) {
+		if ( !$target ) {
 			return wfMsgExt( 'lqt_move_nodestination', 'parseinline' );
 		}
 			
