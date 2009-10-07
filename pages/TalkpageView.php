@@ -8,10 +8,7 @@ class TalkpageView extends LqtView {
 		// The arguments are passed in by reference.
 		unset( $content_actions['edit'] );
 		unset( $content_actions['viewsource'] );
-		unset( $content_actions['addsection'] );
 		unset( $content_actions['history'] );
-		unset( $content_actions['watch'] );
-		unset( $content_actions['move'] );
 		unset( $content_actions['delete'] );
 
 		return true;

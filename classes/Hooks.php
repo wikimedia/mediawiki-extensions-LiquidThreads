@@ -1,22 +1,6 @@
 <?php
 
 class LqtHooks {
-	static function onPageMove( $movepage, $ot, $nt ) {
-		// Shortcut for non-LQT pages.
-		if ( !LqtDispatch::isLqtPage( $ot ) )
-			return true;
-		
-		// Move the threads on that page to the new page.
-		$threads = Threads::where( array( Threads::articleClause( new Article( $ot ) ),
-		                                  Threads::topLevelClause() ) );
-
-		foreach ( $threads as $t ) {
-			$t->moveToPage( $nt, false );
-		}
-
-		return true;
-	}
-
 	static function customizeOldChangesList( &$changeslist, &$s, $rc ) {
 		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD )
 			return true;
@@ -337,6 +321,30 @@ class LqtHooks {
 		$wgExtNewFields[] = array( 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql" );
 		
 		$wgExtNewIndexes[] = array( 'thread', 'thread_summary_page', '(thread_summary_page)' );
+		
+		return true;
+	}
+	
+	static function onArticleMove( &$form, &$ot, &$nt ) {
+		// Check if it's a talk page.
+		if ( !LqtDispatch::isLqtPage( $ot ) && !LqtDispatch::isLqtPage( $nt ) ) {
+			return true;
+		}
+		
+		// Find and move all threads, using the job queue if necessary.
+		$otCond = array( 'thread_article_namespace' => $ot->getNamespace(),
+					'thread_article_title' => $ot->getDBkey() );
+		
+		$ntCond = array( 'thread_article_namespace' => $nt->getNamespace(),
+					'thread_article_title' => $nt->getDBkey() );
+					
+		$dbw = wfGetDB( DB_MASTER );
+		$rowCountEst = $dbw->estimateRowCount( 'thread', '*', $otCond, __METHOD__ );
+		
+		wfDebug( "Row count estimate is $rowCountEst\n" );
+		
+		
+		$dbw->update( 'thread', $ntCond, $otCond, __METHOD__ );
 		
 		return true;
 	}

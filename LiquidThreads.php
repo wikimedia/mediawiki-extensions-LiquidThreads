@@ -47,8 +47,6 @@ $wgHooks['ParserFirstCallInit'][] = 'lqtSetupParserFunctions';
 // Main dispatch hook
 $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
 
-// Miscellaneous
-$wgHooks['SpecialMovepageAfterMove'][] = 'LqtHooks::onPageMove'; // Move threads to new loc
 // Customisation of recentchanges
 $wgHooks['OldChangesListRecentChangesLine'][] = 'LqtHooks::customizeOldChangesList';
 
@@ -69,6 +67,9 @@ $wgHooks['ArticleDeleteComplete'][] = 'LqtDeletionController::onArticleDeleteCom
 $wgHooks['ArticleRevisionUndeleted'][] = 'LqtDeletionController::onArticleRevisionUndeleted';
 $wgHooks['ArticleUndelete'][] = 'LqtDeletionController::onArticleUndelete';
 $wgHooks['ArticleConfirmDelete'][] = 'LqtDeletionController::onArticleConfirmDelete';
+
+// Moving
+$wgHooks['SpecialMovepageAfterMove'][] = 'LqtHooks::onArticleMove';
 
 // Search
 $wgHooks['ShowSearchHitTitle'][] = 'LqtHooks::customiseSearchResultTitle';
