@@ -447,7 +447,6 @@ $messages['af'] = array(
 	'lqt_youhavenewmessages' => 'U het [$1 nuwe boodskappe]',
 	'lqt_protectedfromreply_link' => 'beskermd',
 	'lqt_subject' => 'Onderwerp:',
-	'lqt_nosubject' => '«geen onderwerp»',
 	'lqt_noreason' => 'Geen rede verskaf nie.',
 	'lqt_move_torename_edit' => 'wysig dit',
 	'lqt_move_move' => 'Skuif',
@@ -470,6 +469,7 @@ $messages['af'] = array(
 	'lqt-history-comment' => 'Opmerking',
 	'lqt-header-actions' => 'Aksies',
 	'lqt-delete-parent-deleted' => 'Boliggende bespreking is geskrap ($1)',
+	'lqt-quote-intro' => 'Op $2 om $3 skryf [[User:$1|$1]]:',
 	'lqt-search-label' => 'Soekterme:',
 	'lqt-search-button' => 'Soek',
 	'searchprofile-threads' => 'Besprekings',
@@ -885,7 +885,6 @@ $messages['be-tarask'] = array(
 	'lqt_protectedfromreply' => 'Гэта галіна была $1 ад адказаў на яе.',
 	'lqt_protectedfromreply_link' => 'абаронена',
 	'lqt_subject' => 'Тэма:',
-	'lqt_nosubject' => '«бяз тэмы»',
 	'lqt_noreason' => 'Прычына не пазначана.',
 	'lqt_move_placeholder' => 'Гэта галіна паказвае, што галіна $1 была перанесена з гэтай старонкі на іншую старонку абмеркаваньня.
 Гэты перанос быў зроблены $3 $4 {{GENDER:$2|удзельнікам|удзельніцай}} $2.',
@@ -1029,6 +1028,9 @@ $messages['be-tarask'] = array(
 	'lqt-ajax-update-link' => 'Абнавіць',
 	'lqt-thread-show-replies' => 'Паказаць $1 {{PLURAL:$1|адказ|адказы|адказаў}}',
 	'lqt-thread-show-more' => 'Паказаць болей адказаў',
+	'lqt-thread-link-url' => 'URL-спасылка:',
+	'lqt-thread-link-title' => 'Вікі-спасылка:',
+	'lqt-thread-link-copy' => 'Капіяваць у буфэр абмену',
 	'lqt-feed-title-all' => '{{SITENAME}} — Новыя запісы',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Новыя запісы $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Новыя галіны',
@@ -1424,7 +1426,6 @@ Možda:
 	'lqt_protectedfromreply' => 'Ovaj niz je $1 od odgovaranja na njega.',
 	'lqt_protectedfromreply_link' => 'zaštićen',
 	'lqt_subject' => 'Tema:',
-	'lqt_nosubject' => '«bez teme»',
 	'lqt_noreason' => 'Nije naveden razlog.',
 	'lqt_thread_deleted' => 'Ovaj niz je obrisan.',
 	'lqt_summary_notice' => 'Nije bilo izmjena na ovoj diskusiji već $2 {{PLURAL:$2|dan|dana}}.
@@ -1432,13 +1433,21 @@ Ako je zaključena, možete $1.',
 	'lqt_summary_notice_link' => 'napisati sažetak',
 	'lqt_summary_label' => 'Ovaj niz je sažet kako slijedi:',
 	'lqt_summary_subtitle' => 'Sažetak od $1',
+	'lqt_nosuchrevision' => 'Nema takve revizije ovog niza.',
 	'lqt_nosuchthread' => 'Niz koji ste naveli ne postoji.',
 	'lqt_nosuchthread_title' => 'Nema takvog niza',
 	'lqt_threadrequired' => 'Morate odrediti niz u URL.',
-	'lqt_move_torename_edit' => 'uredi ga',
+	'lqt_move_movingthread' => 'Premještam $1.
+Ovaj niz je dio $2.',
+	'lqt_move_torename' => "Da bi ste promijenili ime niza, $1 i promijenite polje 'Subject'.",
+	'lqt_move_torename_edit' => 'uredite ga',
+	'lqt_move_destinationtitle' => 'Naslov odredišne stranice za razgovor:',
 	'lqt_move_move' => 'Premjesti',
+	'lqt_move_nodestination' => 'Morate navesti odredište.',
 	'lqt_move_noreason' => 'Nije naveden razlog.',
 	'lqt_delete_undeleting' => "Vraćam obrisano '''$1'''.",
+	'lqt_delete_undeletethread' => 'Vrati niz',
+	'lqt_delete_partof' => "Ovaj niz je dio '''$1'''.",
 	'lqt_delete_return' => 'Nazad na $1',
 	'lqt_delete_return_link' => 'stranica za razgovor',
 	'lqt_header_warning_big' => 'Uređujete $1.',
@@ -1978,7 +1987,6 @@ Es ist möglich, dass er
 	'lqt_protectedfromreply' => 'Dieser Diskussionsstrang wurde $1. Eine Antwort ist nicht möglich.',
 	'lqt_protectedfromreply_link' => 'geschützt',
 	'lqt_subject' => 'Thema:',
-	'lqt_nosubject' => '„kein Thema“',
 	'lqt_noreason' => 'kein Grund angegeben.',
 	'lqt_move_placeholder' => 'Dieser Diskussionsstrang ist ein Platzhalter um anzuzeigen, dass ein Diskussionsstrang, $1, von dieser Seite auf eine andere Diskussionsseite verschoben wurde.
 Die Verschiebung erfolgte durch $2 am $3 um $4.',
@@ -2097,7 +2105,7 @@ Um dies zu vermeiden, teile sie von diesem Diskussionsstrang auf, bevor du ihn l
 	'prefs-lqt' => 'Diskussionsstrang',
 	'lqt-preference-display-depth' => 'Maximale Antworttiefe:',
 	'lqt-preference-display-count' => 'Maximale Anzahl der Antworten:',
-	'lqt-preference-custom-signatures' => 'Benutzerunterschriften zeigen',
+	'lqt-preference-custom-signatures' => 'Benutzersignaturen zeigen',
 	'lqt-enotif-subject-reply' => '{{SITENAME}}-Diskussion - Antwort: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-Diskussion - Neuer Diskussionsstrang: $1',
 	'lqt-enotif-newthread' => 'Hallo $1,
@@ -3422,7 +3430,6 @@ $messages['gl'] = array(
 	'lqt_protectedfromreply' => 'Este fío de conversa foi de $1 desde que se respondeu a.',
 	'lqt_protectedfromreply_link' => 'protexido',
 	'lqt_subject' => 'Asunto:',
-	'lqt_nosubject' => '«sen asunto»',
 	'lqt_noreason' => 'Non foi dada ningunha razón.',
 	'lqt_move_placeholder' => 'Este fío é un substituto que indica que outro fío, $1, foi eliminado desta páxina e pasado a outra páxina de conversa.
 Este traslado foi feito por $2 o $3 ás $4.',
@@ -3564,6 +3571,9 @@ Pode vela en <$6>',
 	'lqt-ajax-update-link' => 'Actualizar',
 	'lqt-thread-show-replies' => 'Mostrar $1 respostas',
 	'lqt-thread-show-more' => 'Mostrar máis respostas',
+	'lqt-thread-link-url' => 'URL da ligazón:',
+	'lqt-thread-link-title' => 'Ligazón de texto wiki:',
+	'lqt-thread-link-copy' => 'Copiar no portapapeis',
 	'lqt-feed-title-all' => '{{SITENAME}} — Novas mensaxes',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Novas mensaxes en $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Novos fíos',
@@ -5488,6 +5498,13 @@ $messages['jv'] = array(
 	'lqt_sorting_order' => 'Urutan sortir:',
 );
 
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'lqt-title' => 'სათაური',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
  * @author Lovekhmer
@@ -5592,9 +5609,13 @@ $messages['kn'] = array(
 );
 
 /** Korean (한국어)
+ * @author FriedC
  * @author Kwj2772
+ * @author Ryuch
  */
 $messages['ko'] = array(
+	'lqt-desc' => '토론문서에서 새주제의 토론 추가',
+	'lqt-nothread' => '저장소에 토론이 없습니다.',
 	'lqt_newmessages' => '새 메시지',
 	'lqt_new_thread' => '새 토론 시작하기',
 	'lqt_invalid_subject' => '당신이 입력한 주제가 잘못되었습니다.
@@ -5603,14 +5624,20 @@ $messages['ko'] = array(
 	'lqt_reply' => '답변',
 	'lqt_delete' => '삭제',
 	'lqt_undelete' => '되살리기',
+	'lqt_protectedfromreply_link' => '보호',
 	'lqt_subject' => '주제:',
-	'lqt_nosubject' => '(제목 없음)',
 	'lqt_move_move' => '이동',
 	'lqt_delete_return' => '$1로 돌아갑니다.',
 	'lqt_sorting_order' => '정렬 순서:',
+	'lqt_rc_ellipsis' => '...',
+	'lqt-history-time' => '시간',
+	'lqt-history-user' => '사용자',
+	'lqt_summarize_link' => '요약',
 	'lqt-split-submit' => '분할',
 	'lqt-quote-intro' => '[[User:$1|$1]] 사용자가 $2 $3에 남긴 글:',
 	'lqt-quote' => '인용',
+	'lqt-search-button' => '찾기',
+	'lqt-thread-link-url' => '링크 URL:',
 );
 
 /** Krio (Krio)
