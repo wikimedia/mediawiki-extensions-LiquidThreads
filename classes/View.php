@@ -301,14 +301,32 @@ class LqtView {
 			$t = $this->newSummaryTitle( $edit_applies_to );
 			$article = new Article( $t );
 		} elseif ( !$thread ) {
+			$t = null;
+			
+			$title_subject = $subject;
+			while ( !$t ) {
+				try {
+					if ( $edit_type == 'new' && $title_subject ) {
+						$t = $this->newThreadTitle( $title_subject );
+					} elseif ( $edit_type == 'reply' ) {
+						$t = $this->newReplyTitle( $title_subject, $edit_applies_to );
+					}
+					
+					if ($t)
+						break;
+				} catch (Exception $e) {}
+				
+				$title_subject = md5( mt_rand() ); // Just a random title
+				$subject = false;
+			}
+		
 			if ( !$subject && $subject_expected ) {
 				// Dodgy title
-				$t = $this->scratchTitle();
 				$valid_subject = false;
 			} else {
 				try {
 					if ( $edit_type == 'new' ) {
-						$t = $this->newScratchTitle( $subject );
+						$t = $this->newThreadTitle( $subject );
 					} elseif ( $edit_type == 'reply' ) {
 						$t = $this->newReplyTitle( $subject, $edit_applies_to );
 					}
@@ -456,12 +474,8 @@ class LqtView {
 			$this->renameThread( $st, $s, $reason );
 		}
 	}
-
-	function scratchTitle() {
-		return Threads::scratchTitle();
-	}
 	
-	function newScratchTitle( $subject ) {
+	function newThreadTitle( $subject ) {
 		return Threads::newThreadTitle( $subject, $this->article );
 	}
 	

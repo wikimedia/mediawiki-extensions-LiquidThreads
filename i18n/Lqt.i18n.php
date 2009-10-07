@@ -83,7 +83,6 @@ It may:
 	'lqt_protectedfromreply' => 'This thread has been $1 from being replied to.',
 	'lqt_protectedfromreply_link' => 'protected',
 	'lqt_subject' => 'Subject:',
-	'lqt_nosubject' => '«no subject»',
 	'lqt_noreason' => 'No reason given.',
 	'lqt_move_placeholder' => 'This thread is a placeholder indicating that a thread, $1, was removed from this page to another talk page.
 This move was made by $2 on $3 at $4.',

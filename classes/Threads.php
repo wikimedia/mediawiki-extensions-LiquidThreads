@@ -176,14 +176,8 @@ class Threads {
 		return $dbr->makeList( $arr, LIST_OR );
 	}
 	
-	static function scratchTitle() {
-		$token = md5( uniqid( rand(), true ) );
-		return Title::newFromText( "Thread:$token" );
-	}
-	
 	static function newThreadTitle( $subject, $article ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		$subject = $subject ? $subject : wfMsg( 'lqt_nosubject' );
 		
 		$base = $article->getTitle()->getPrefixedText() . "/$subject";
 		
