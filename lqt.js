@@ -57,6 +57,10 @@ var liquidThreads = {
 			// Scroll to the textbox
 			var targetOffset = $j(container).find('#wpTextbox1').offset().top;
 			
+			if (!targetOffset) {
+				targetOffset = $j(container).offset().top;
+			}
+			
 			// Buffer at the top, roughly enough to see the heading and one line
 			targetOffset -= 100;
 			$j('html,body').animate({scrollTop: targetOffset}, 'slow');
