@@ -162,10 +162,18 @@ class Threads {
 	static function articleClause( $article ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		
-		$arr = array( 'thread_article_title' => $article->getTitle()->getDBKey(),
+		$titleCond = array( 'thread_article_title' => $article->getTitle()->getDBKey(),
 						'thread_article_namespace' => $article->getTitle()->getNamespace() );
+		$titleCond = $dbr->makeList( $titleCond, LIST_AND );
 		
-		return $dbr->makeList( $arr, LIST_AND );
+		$conds = array( $titleCond );
+		
+		if ( $article->getId() ) {
+			$idCond = array( 'thread_article_id' => $article->getId() );
+			$conds[] = $dbr->makeList( $idCond, LIST_AND );
+		}
+		
+		return $dbr->makeList( $conds, LIST_OR );
 	}
 
 	static function topLevelClause() {
@@ -241,5 +249,65 @@ class Threads {
 			$i++;
 		}
 		return $t;
-	}	
+	}
+	
+	// Called just before any function that might cause a loss of article association.
+	//  by breaking either a NS-title reference (by moving the article), or a page-id
+	//  reference (by deleting the article).
+	// Basically ensures that all subthreads have the two stores of article association
+	//  synchronised.
+	// Can also be called with a "limit" parameter to slowly convert old threads. This
+	//  is intended to be used by jobs created by move and create operations to slowly
+	//  propagate the change through the data set without rushing the whole conversion
+	//  when a second breaking change is made. If a limit is set and more rows require
+	//  conversion, this function will return false. Otherwise, true will be returned.
+	// If the queueMore parameter is set and rows are left to update, a job queue item
+	//  will then be added with the same limit, to finish the remainder of the update.
+	static function synchroniseArticleData( $article, $limit = false, $queueMore = false ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$dbw = wfGetDB( DB_MASTER );
+		
+		$title = $article->getTitle();
+		$id = $article->getId();
+		
+		$titleCond = array( 'thread_article_namespace' => $title->getNamespace(),
+				'thread_article_title' => $title->getDBkey() );
+		$titleCondText = $dbr->makeList( $titleCond, LIST_AND );
+		
+		$idCond = array( 'thread_article_id' => $id );
+		$idCondText = $dbr->makeList( $idCond, LIST_AND );
+		
+		$fixTitleCond = array( $idCondText, "NOT ($titleCondText)" );
+		$fixIdCond = array( $titleCondText, "NOT ($idCondText)" );
+		
+		// Try to hit the most recent threads first.
+		$options = array( 'LIMIT' => 500, 'ORDER BY' => 'thread_id DESC' );
+		
+		// Batch in 500s
+		if ($limit) $options['LIMIT'] = min( $limit, 500 );
+		
+		$rowsAffected = 0;
+		$roundRowsAffected = 1;
+		while( (!$limit || $rowsAffected < $limit) && $roundRowsAffected > 0 ) {
+			$roundRowsAffected = 0;
+			
+			// Fix wrong title.
+			$res = $dbw->update( 'thread', $titleCond, $fixTitleCond, __METHOD__, $options );
+			$roundRowsAffected += $dbw->affectedRows();
+			
+			// Fix wrong ID
+			$res = $dbw->update( 'thread', $idCond, $fixIdCond, __METHOD__, $options );
+			$roundRowsAffected += $dbw->affectedRows();
+			
+			$rowsAffected += $roundRowsAffected;
+		}
+		
+		if ( $limit && ($rowsAffected >= $limit) && $queueMore ) {
+			$jobParams = array( 'limit' => $limit, 'cascade' => true );
+			$job = new SynchroniseThreadArticleDataJob( $article->getTitle(), $jobParams );
+			$job->insert();
+		}
+		
+		return $limit ? ($rowsAffected < $limit) : true;
+	}
 }

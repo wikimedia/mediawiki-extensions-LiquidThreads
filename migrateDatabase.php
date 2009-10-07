@@ -9,6 +9,8 @@ require_once ( getenv('MW_INSTALL_PATH') !== false
 	
 $db = wfGetDB( DB_MASTER );
 
+$wgTitle = Title::makeTitleSafe( NS_SPECIAL, 'LiquidThreads' );
+
 // Do database updates
 $threadFieldUpdates = array('thread_article_namespace' => 'split-thread_article.sql',
 							'thread_article_title' => 'split-thread_article.sql',
@@ -22,6 +24,7 @@ $threadFieldUpdates = array('thread_article_namespace' => 'split-thread_article.
 							'thread_author_name' => 'store_subject-author.sql',
 							'thread_sortkey' => 'new-sortkey.sql',
 							'thread_replies' => 'store_reply_count.sql',
+							'thread_article_id' => 'store_article_id.sql',
 						);
 $threadIndexUpdates = array('thread_summary_page' => 'index-summary_page.sql');
 

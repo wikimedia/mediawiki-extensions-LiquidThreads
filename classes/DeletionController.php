@@ -36,6 +36,10 @@ class LqtDeletionController {
 			}
 		}
 		
+		// Synchronise the first 500 threads, in reverse order by thread id. If
+		// there are more threads to synchronise, the job queue will take over.
+		Threads::synchroniseArticleData( $article, 500, 'cascade' );
+		
 		return true;
 	}
 	
@@ -85,6 +89,10 @@ class LqtDeletionController {
 			}
 		}
 		
+		// Synchronise the first 500 threads, in reverse order by thread id. If
+		// there are more threads to synchronise, the job queue will take over.
+		Threads::synchroniseArticleData( new Article( $udTitle ), 500, 'cascade' );
+		
 		return true;
 	}
 	
@@ -100,6 +108,14 @@ class LqtDeletionController {
 			$out->wrapWikiMsg( '<strong>$1</strong>',
 								'lqt-delete-parent-warning' );
 		}
+		
+		return true;
+	}
+	
+	static function onArticleDelete( $article ) {
+		// Synchronise article data so that moving the article doesn't break any
+		//  article association.
+		Threads::synchroniseArticleData( $article );
 		
 		return true;
 	}

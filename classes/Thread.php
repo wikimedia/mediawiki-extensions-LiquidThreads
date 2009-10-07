@@ -360,6 +360,7 @@ class Thread {
 							'thread_root' => 'rootId',
 							'thread_article_namespace' => 'articleNamespace',
 							'thread_article_title' => 'articleTitle',
+							'thread_article_id' => 'articleId',
 							'thread_summary_page' => 'summaryId',
 							'thread_ancestor' => 'ancestorId',
 							'thread_parent' => 'parentId',
@@ -694,6 +695,42 @@ class Thread {
 				
 			$this->replyCount = $count;
 			$set['thread_replies'] = $count;
+		}
+		
+		// Check for invalid/missing articleId
+		$articleTitle = null;
+		$dbTitle = Title::makeTitleSafe( $this->articleNamespace, $this->articleTitle );
+		if ($this->articleId && isset(self::$titleCacheById[$this->articleId]) ) {
+			// If it corresponds to a title, the article obviously exists.
+			$articleTitle = self::$titleCacheById[$this->articleId];
+			$this->article = new Article_LQT_Compat( $articleTitle );
+		} elseif( $this->articleId ) {
+			$articleTitle = Title::newFromID( $this->articleId );
+		}
+		
+		// If still unfilled, the article ID referred to is no longer valid. Re-fill it
+		//  from the namespace/title pair if an article ID is provided
+		if ( !$articleTitle && ( $this->articleId != 0 || $dbTitle->getArticleId() != 0 ) ) {
+			$articleTitle = $dbTitle;
+			$this->articleId = $articleTitle->getArticleId();
+			$this->article = new Article_LQT_Compat( $dbTitle );
+			
+			$set['thread_article_id'] = $this->articleId;
+			wfDebug( "Unfilled or non-existent thread_article_id, refilling to {$this->articleId}\n" );
+			
+			// There are probably problems on the rest of the article, trigger a small update
+			Threads::synchroniseArticleData( $this->article, 100, 'cascade' );
+		} elseif ( $articleTitle && !$articleTitle->equals( $dbTitle ) ) {
+			// The page was probably moved and this was probably not updated.
+			wfDebug( "Article ID/Title discrepancy, resetting NS/Title to article provided by ID\n" );
+			$this->articleNamespace = $articleTitle->getNamespace();
+			$this->articleTitle = $articleTitle->getDBkey();
+			
+			$set['thread_article_namespace'] = $articleTitle->getNamespace();
+			$set['thread_article_title'] = $articleTitle->getDBkey();
+			
+			// There are probably problems on the rest of the article, trigger a small update
+			Threads::synchroniseArticleData( $this->article, 100, 'cascade' );
 		}
 		
 		if ( count($set) ) {

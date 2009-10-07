@@ -67,9 +67,11 @@ $wgHooks['ArticleDeleteComplete'][] = 'LqtDeletionController::onArticleDeleteCom
 $wgHooks['ArticleRevisionUndeleted'][] = 'LqtDeletionController::onArticleRevisionUndeleted';
 $wgHooks['ArticleUndelete'][] = 'LqtDeletionController::onArticleUndelete';
 $wgHooks['ArticleConfirmDelete'][] = 'LqtDeletionController::onArticleConfirmDelete';
+$wgHooks['ArticleDelete'][] = 'LqtDeletionController::onArticleDelete';
 
 // Moving
-$wgHooks['SpecialMovepageAfterMove'][] = 'LqtHooks::onArticleMove';
+$wgHooks['SpecialMovepageAfterMove'][] = 'LqtHooks::onArticleMoveComplete';
+$wgHooks['AbortMove'][] = 'LqtHooks::onArticleMove';
 
 // Search
 $wgHooks['ShowSearchHitTitle'][] = 'LqtHooks::customiseSearchResultTitle';
@@ -106,6 +108,7 @@ $wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/ParserFunctions.php';
 $wgAutoloadClasses['LqtDeletionController'] = $dir . 'classes/DeletionController.php';
 $wgAutoloadClasses['LqtHooks'] = $dir . 'classes/Hooks.php';
 $wgAutoloadClasses['ThreadRevision'] = $dir."/classes/ThreadRevision.php";
+$wgAutoloadClasses['SynchroniseThreadArticleDataJob'] = "$dir/classes/SynchroniseThreadArticleDataJob.php";
 
 // View classes
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
@@ -126,6 +129,9 @@ $wgAutoloadClasses['SpecialMoveThread'] = $dir . 'pages/SpecialMoveThread.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir . 'pages/SpecialNewMessages.php';
 $wgAutoloadClasses['SpecialSplitThread'] = $dir . 'pages/SpecialSplitThread.php';
 $wgAutoloadClasses['SpecialMergeThread'] = $dir . 'pages/SpecialMergeThread.php';
+
+// Job queue
+$wgJobClasses['synchroniseThreadArticleData'] = 'SynchroniseThreadArticleDataJob';
 
 // Backwards-compatibility
 $wgAutoloadClasses['Article_LQT_Compat'] = $dir . 'compat/LqtCompatArticle.php';

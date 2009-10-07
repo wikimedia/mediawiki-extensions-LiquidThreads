@@ -326,32 +326,30 @@ class LqtHooks {
 		$wgExtNewFields[] = array( "thread", "thread_author_name", "$dir/schema-changes/store_subject-author.sql" );
 		$wgExtNewFields[] = array( "thread", "thread_sortkey", "$dir/schema-changes/new-sortkey.sql" );
 		$wgExtNewFields[] = array( 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql" );
+		$wgExtNewFields[] = array( 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql" );
 		
 		$wgExtNewIndexes[] = array( 'thread', 'thread_summary_page', '(thread_summary_page)' );
 		
 		return true;
 	}
 	
-	static function onArticleMove( &$form, &$ot, &$nt ) {
+	static function onArticleMoveComplete( &$form, &$ot, &$nt ) {
 		// Check if it's a talk page.
 		if ( !LqtDispatch::isLqtPage( $ot ) && !LqtDispatch::isLqtPage( $nt ) ) {
 			return true;
 		}
 		
-		// Find and move all threads, using the job queue if necessary.
-		$otCond = array( 'thread_article_namespace' => $ot->getNamespace(),
-					'thread_article_title' => $ot->getDBkey() );
+		// Synchronise the first 500 threads, in reverse order by thread id. If
+		// there are more threads to synchronise, the job queue will take over.
+		Threads::synchroniseArticleData( new Article( $nt ), 500, 'cascade' );
 		
-		$ntCond = array( 'thread_article_namespace' => $nt->getNamespace(),
-					'thread_article_title' => $nt->getDBkey() );
-					
-		$dbw = wfGetDB( DB_MASTER );
-		$rowCountEst = $dbw->estimateRowCount( 'thread', '*', $otCond, __METHOD__ );
-		
-		wfDebug( "Row count estimate is $rowCountEst\n" );
-		
-		
-		$dbw->update( 'thread', $ntCond, $otCond, __METHOD__ );
+		return true;
+	}
+	
+	static function onArticleMove( $ot, $nt, $user, &$err, $reason ) {
+		// Synchronise article data so that moving the article doesn't break any
+		//  article association.
+		Threads::synchroniseArticleData( new Article( $ot ) );
 		
 		return true;
 	}
