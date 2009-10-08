@@ -135,8 +135,9 @@ class Thread {
 		global $wgUser;
 		
 		global $wgThreadActionsNoBump;
-		if ( !in_array( $change_type, $wgThreadActionsNoBump ) ) {
-			$this->sortkey = wfTimestampNow();
+		$bump = !in_array( $change_type, $wgThreadActionsNoBump );
+		if ( $bump ) {
+			$this->sortkey = wfTimestampNow( TS_DB );
 		}
 
 		$this->modified = wfTimestampNow();
@@ -145,6 +146,7 @@ class Thread {
 		
 		$topmost = $this->topmostThread();
 		$topmost->modified = wfTimestampNow();
+		if ( $bump ) $topmost->setSortkey( wfTimestampNow( TS_DB ) );
 		$topmost->save();
 		
 		ThreadRevision::create( $this, $change_type, $change_object, $reason );
@@ -352,7 +354,7 @@ class Thread {
 			$dbr = wfGetDB( DB_SLAVE );
 			$this->modified = $dbr->timestamp( wfTimestampNow() );
 			$this->created = $dbr->timestamp( wfTimestampNow() );
-			$this->sortkey = $dbr->timestamp( wfTimestampNow() );
+			$this->sortkey = wfTimestampNow( TS_DB );
 			$this->editedness = Threads::EDITED_NEVER;
 			$this->replyCount = 0;
 			return;
@@ -1175,7 +1177,7 @@ class Thread {
 	function setSortKey( $k = null ) {
 		if ( is_null($k) ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			$k = $dbr->timestamp( wfTimestampNow() );
+			$k = wfTimestampNow( TS_DB );
 		}
 		
 		$this->sortkey = $k;
