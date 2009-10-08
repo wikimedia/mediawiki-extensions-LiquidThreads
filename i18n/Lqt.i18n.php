@@ -2181,8 +2181,6 @@ Sie können sie auf <$6> einsehen.',
  */
 $messages['dsb'] = array(
 	'lqt-desc' => 'Nitkowe diskusije k diskusijnym bokam pśidaś',
-	'lqt-nothread' => 'Njejsu nitki w archiwje.',
-	'lqt_newmessages' => 'Nowe powěsći',
 	'lqt_movethread' => 'Nitku k druhemu bokoju pśesunuś',
 	'lqt_deletethread' => 'Nitku wulašowaś abo wótnowiś',
 	'lqt_contents_title' => 'Wopśimjeśe',
@@ -2244,7 +2242,6 @@ $messages['dsb'] = array(
 	'lqt_protectedfromreply' => 'Toś ta nitka jo była $1 pśeśiwo wótegrono na nju.',
 	'lqt_protectedfromreply_link' => 'šćitany',
 	'lqt_subject' => 'Tema:',
-	'lqt_nosubject' => '"žedna tema"',
 	'lqt_noreason' => 'Žedna pśicyna pódana.',
 	'lqt_move_placeholder' => 'Toś ta nitka jo zastupnik, kótaryž pódawa, až nitka, $1, jo se wótpórała z toś togo boka k drugemu bokoju.
 Toś to pśesunjenje jo se pśewjadło wót $2 $3 $4.',
@@ -2397,6 +2394,8 @@ Móžoš jo na <$6> wiźeś",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} - wótegrona z $1',
 	'lqt-feed-new-thread-intro' => 'Nowa nitka na $1 pósłana wót $2',
 	'lqt-feed-reply-intro' => 'Wótegrono na $3 (na $1) pósłane wót $2',
+	'lqt-newmessages-n' => 'Nowe powěźeńki ($1)',
+	'lqt_newmessages' => 'Nowe powěsći',
 );
 
 /** Ewe (Eʋegbe)
@@ -3122,8 +3121,6 @@ Jos se on päättynyt, voi olla että haluat $1.',
  */
 $messages['fr'] = array(
 	'lqt-desc' => 'Ajoute des fils de discussion dans les pages de discussion',
-	'lqt-nothread' => 'Il n’existe aucun fil de discussion dans les archives.',
-	'lqt_newmessages' => 'Nouveaux messages',
 	'lqt_movethread' => 'Déplacer le fil vers une autre page',
 	'lqt_deletethread' => 'Effacer ou récupérer le fil',
 	'lqt_contents_title' => 'Sujets',
@@ -3185,7 +3182,6 @@ $messages['fr'] = array(
 	'lqt_protectedfromreply' => 'Ce fil a été $1. Vous ne pouvez y répondre.',
 	'lqt_protectedfromreply_link' => 'protégé',
 	'lqt_subject' => 'Sujet :',
-	'lqt_nosubject' => '« Aucun sujet »',
 	'lqt_noreason' => 'Aucun raison donnée',
 	'lqt_move_placeholder' => 'Ce fil est une marque substitutive indiquant qu’un fil, $1, a été déplacé de cette page vers une autre page de discussion. Ce déplacement a été fait par $2 à $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Ce fil a été '''supprimé''' et seuls les administrateurs peuvent le voir.",
@@ -3338,6 +3334,8 @@ Vous pouvez le voir a « $6 »",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} - Réponses de $1',
 	'lqt-feed-new-thread-intro' => 'Nouveau fil de discussion sur $1 posté par $2',
 	'lqt-feed-reply-intro' => 'Réponse à $3 (sur $1) postée par $2',
+	'lqt-newmessages-n' => 'Nouveaux messages ($1)',
+	'lqt_newmessages' => 'Nouveaux messages',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -3625,8 +3623,6 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'lqt-desc' => 'Diskussionssträng uf Diskussionssyte bruuche',
-	'lqt-nothread' => 'S git kei archivierti Diskussionssträng.',
-	'lqt_newmessages' => 'Neji Nochrichte',
 	'lqt_movethread' => 'Diskussionsstrang uf e anderi Syte verschiebe',
 	'lqt_deletethread' => 'Diskussionsstrang lesche oder widerhärstelle',
 	'lqt_contents_title' => 'Inhalt',
@@ -3688,7 +3684,6 @@ $messages['gsw'] = array(
 	'lqt_protectedfromreply' => 'Dää Diskussionsstrang isch $1 wore. E Antwort isch nit megli.',
 	'lqt_protectedfromreply_link' => 'gschitzt',
 	'lqt_subject' => 'Thema:',
-	'lqt_nosubject' => '„kei Thema“',
 	'lqt_noreason' => 'kei Grund aagee.',
 	'lqt_move_placeholder' => 'Dää Diskussionsstrang isch e Platzhalter zum aazeige, ass e Diskussionsstrang, $1, vu däre Syte uf e anderi Diskussionssyte verschobe woren isch.
 D Verschiebig isch gmacht wore dur $2 am $3 $4.',
@@ -3830,6 +3825,9 @@ Du chasch si säh uf <$6>",
 	'lqt-ajax-update-link' => 'Aktualisiere',
 	'lqt-thread-show-replies' => '$1 Antworte zeige',
 	'lqt-thread-show-more' => 'Meh Antworte zeige',
+	'lqt-thread-link-url' => 'URL-Link:',
+	'lqt-thread-link-title' => 'Wikitext-Link:',
+	'lqt-thread-link-copy' => 'In d Zwischenablag kopiere',
 	'lqt-feed-title-all' => '{{SITENAME}} — Neji Byytreg',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Neji Byytreg vu $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Neji Diskussionssträng',
@@ -3838,6 +3836,8 @@ Du chasch si säh uf <$6>",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antworte vu $1',
 	'lqt-feed-new-thread-intro' => 'E neje Diskussionsstrang uf $1, aagleit vu $2',
 	'lqt-feed-reply-intro' => 'Antworte uf $3 (uf $1) vu $2',
+	'lqt-newmessages-n' => 'Neji Nochrichte ($1)',
+	'lqt_newmessages' => 'Neji Nochrichte',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -3918,8 +3918,6 @@ $messages['haw'] = array(
  */
 $messages['he'] = array(
 	'lqt-desc' => 'הוספת דיונים משורשרים לדפי השיחה',
-	'lqt-nothread' => 'אין שרשורים בארכיון.',
-	'lqt_newmessages' => 'הודעות חדשות',
 	'lqt_movethread' => 'העברת השרשור לדף אחר',
 	'lqt_deletethread' => 'מחיקת או שחזור שרשור',
 	'lqt_contents_title' => 'תכנים',
@@ -3982,7 +3980,6 @@ $messages['he'] = array(
 	'lqt_protectedfromreply' => 'שרשור זה $1 תגובות.',
 	'lqt_protectedfromreply_link' => 'מוגן מפני',
 	'lqt_subject' => 'נושא:',
-	'lqt_nosubject' => '«אין נושא»',
 	'lqt_noreason' => 'לא צוינה סיבה.',
 	'lqt_move_placeholder' => 'שרשור זה הינו ממלא מקום המציין כי שרשור, $1, הוסר מדף זה והועבר לדף שיחה אחר.
 העברה זו בוצעה על ידי $2 ב־$4, $3.',
@@ -4126,6 +4123,9 @@ $messages['he'] = array(
 	'lqt-ajax-update-link' => 'עדכון',
 	'lqt-thread-show-replies' => 'הצגת $1 תגובות',
 	'lqt-thread-show-more' => 'הצגת תגובות נוספות',
+	'lqt-thread-link-url' => 'כתובת הקישור:',
+	'lqt-thread-link-title' => 'קישור ויקיטקסט:',
+	'lqt-thread-link-copy' => 'העתקה ללוח הגזירים',
 	'lqt-feed-title-all' => '{{SITENAME}} — הודעות חדשות',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — הודעות חדשות מתוך $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — שרשורים חדשים',
@@ -4134,6 +4134,7 @@ $messages['he'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — תגובות מתוך $1',
 	'lqt-feed-new-thread-intro' => 'שרשור חדש ב$1 שנוצר על־ידי $2',
 	'lqt-feed-reply-intro' => 'תגובה לשרשור $3 (ב$1) שנוצר על־ידי $2',
+	'lqt_newmessages' => 'הודעות חדשות',
 );
 
 /** Hindi (हिन्दी)
@@ -4334,8 +4335,6 @@ Možete ga vidjeti na <$6>",
  */
 $messages['hsb'] = array(
 	'lqt-desc' => 'Nitkowe diskusije k diskusijnym stronam přidać',
-	'lqt-nothread' => 'W archiwje žane nitki njejsu.',
-	'lqt_newmessages' => 'Nowe powěsće',
 	'lqt_movethread' => 'Nitku na druhu stronu přesunyć',
 	'lqt_deletethread' => 'Nitku wušmórnyć abo wobnowić',
 	'lqt_contents_title' => 'Wobsah',
@@ -4397,7 +4396,6 @@ $messages['hsb'] = array(
 	'lqt_protectedfromreply' => 'Z tuteje nitki je $1 wotmołwił.',
 	'lqt_protectedfromreply_link' => 'škitany',
 	'lqt_subject' => 'Tema:',
-	'lqt_nosubject' => '«žana tema»',
 	'lqt_noreason' => 'Žana pričina podata.',
 	'lqt_move_placeholder' => 'Tuta nitka je naměstnik, kotryž podawa, zo nitka, $1, je so z tuteje strony na druhu diskusijnu stron přesunyła. Tute přesunjenje je $2 pola $3 $4 činił.',
 	'lqt_thread_deleted_for_sysops' => "Tuta nitka je so '''wušmórnyła''' a je jenož za administratorow widźomna.",
@@ -4546,6 +4544,8 @@ Móžeš ju na <$6> widźeć",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} - wotmołwy z $1',
 	'lqt-feed-new-thread-intro' => 'Nowa nitka na $1 pósłana wot $2',
 	'lqt-feed-reply-intro' => 'Wotmołwa na $3 (na $1) pósłana wot $2',
+	'lqt-newmessages-n' => 'Nowe powěsće ($1)',
+	'lqt_newmessages' => 'Nowe powěsće',
 );
 
 /** Hungarian (Magyar)
@@ -4701,8 +4701,6 @@ Ez a beszélgetés jelenleg a(z) $2 lap része.',
  */
 $messages['ia'] = array(
 	'lqt-desc' => 'Adde discussiones in filos al paginas de discussion',
-	'lqt-nothread' => 'Non existe filos de discussion in le archivo.',
-	'lqt_newmessages' => 'Nove messages',
 	'lqt_movethread' => 'Displaciar le filo verso un altere pagina',
 	'lqt_deletethread' => 'Deler o restaurar filo',
 	'lqt_contents_title' => 'Contento',
@@ -4764,7 +4762,6 @@ $messages['ia'] = array(
 	'lqt_protectedfromreply' => 'Iste filo ha essite $1 contra responsas.',
 	'lqt_protectedfromreply_link' => 'protegite',
 	'lqt_subject' => 'Subjecto:',
-	'lqt_nosubject' => '«nulle subjecto»',
 	'lqt_noreason' => 'Nulle motivo specificate.',
 	'lqt_move_placeholder' => 'Iste filo es un substitution que indica le displaciamento de un filo, $1, ab iste pagina verso un altere pagina de discussion.
 Iste displaciamento esseva facite per $2 le $3 $4.',
@@ -4920,6 +4917,8 @@ Tu pote vider lo a <$6>",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Responsas de $1',
 	'lqt-feed-new-thread-intro' => 'Nove filo in $1 publicate per $2',
 	'lqt-feed-reply-intro' => 'Responsa a $3 (super $1) publicate per $2',
+	'lqt-newmessages-n' => 'Nove messages ($1)',
+	'lqt_newmessages' => 'Nove messages',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -5503,6 +5502,8 @@ $messages['jv'] = array(
  * @author BRUTE
  */
 $messages['ka'] = array(
+	'lqt_noreason' => 'მიზეზი ნაჩვენები არაა.',
+	'lqt_move_move' => 'გადატანა',
 	'lqt-title' => 'სათაური',
 );
 
@@ -5665,8 +5666,6 @@ $messages['krj'] = array(
  */
 $messages['ksh'] = array(
 	'lqt-desc' => 'Määt Jeschprääschßfäddeme en Klaaf-Sigge müjjelesch.',
-	'lqt-nothread' => 'Mer han keine Jeschprääschßfäddeme en dämm Aschiif.',
-	'lqt_newmessages' => 'Neu Nohreschte',
 	'lqt_movethread' => 'Donn dä Jeschprääschßfäddem op en ander Sigg ömträke',
 	'lqt_deletethread' => 'Ene Jeschprääschßfäddem fottschmiiße odder zeröckholle',
 	'lqt_contents_title' => 'Enhallt',
@@ -5690,7 +5689,7 @@ $messages['ksh'] = array(
 	'lqt_permalink' => 'Permalengk',
 	'lqt_fragment' => 'E Shtöckelsche vun enem $1 op dä Sigg „$2“',
 	'lqt_discussion_link' => 'Klaaf',
-	'lqt_from_talk' => 'Fum $1',
+	'lqt_from_talk' => 'Fun dä Sigg „$1“',
 	'lqt_newer' => '← neuer',
 	'lqt_older' => 'ällder →',
 	'lqt-history-title' => 'Dem Jeshprääschßfäddem sing Verjangeheit un Versione',
@@ -5729,7 +5728,6 @@ $messages['ksh'] = array(
 	'lqt_protectedfromreply' => 'Dä Jeschprääschßfäddem es $1, un dröm kam_mer nix dobei donn.',
 	'lqt_protectedfromreply_link' => 'jeschöz',
 	'lqt_subject' => 'Övver:',
-	'lqt_nosubject' => '„kei Teema jenannt“',
 	'lqt_noreason' => 'Keine Aanlass aanjejovve.',
 	'lqt_move_placeholder' => 'Dat hee es ene Plazhallder. Hä shteiht för dä Jeschprääschßfäddem „$1“, dä {{GENDER:$2|dä|dat|dä Metmaacher|dat|de}} $2 aam $3 öm $4 Uhr op en ander Klaafsigg ömjetrocke hät.',
 	'lqt_thread_deleted_for_sysops' => "Dä Jeschprääschßfäddem es '''fottjeschmeße''', un kann bloß noch vun de Wiki-Köbeße aanjesinn wääde.",
@@ -5882,6 +5880,7 @@ Ene schööne Jrohß!',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antwoote vun dä {{PLURAL:$2|Sigg|Sigge}}: $1',
 	'lqt-feed-new-thread-intro' => 'Ene neuje Jeshprääschßfäddem, dä hät {{GENDER:$4|dä|et|dä Medtmaacher|de|dat}} $2 op dä Sigg „$1“ opjemaat.',
 	'lqt-feed-reply-intro' => '{{GENDER:$4|Dä|Et|Dä Medtmaacher|De|Dat}} $2 hät en Antwoot en dä Jeschprääschßfäddem „$3“ op de Sigg „$1“ jeschrevve.',
+	'lqt_newmessages' => 'Neu Nohreschte',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -6366,8 +6365,6 @@ $messages['nds-nl'] = array(
  */
 $messages['nl'] = array(
 	'lqt-desc' => "Voegt overleg in onderwerpen op overlegpagina's toe",
-	'lqt-nothread' => 'Er zijn geen onderwerpen in het archief aanwezig.',
-	'lqt_newmessages' => 'Nieuwe berichten',
 	'lqt_movethread' => 'Onderwerp naar andere pagina verplaatsen',
 	'lqt_deletethread' => 'Onderwerp verwijderen of terugplaatsen',
 	'lqt_contents_title' => 'Inhoud',
@@ -6429,7 +6426,6 @@ $messages['nl'] = array(
 	'lqt_protectedfromreply' => 'Dit onderwerp is $1 van te worden beantwoord.',
 	'lqt_protectedfromreply_link' => 'beveiligd',
 	'lqt_subject' => 'Onderwerp:',
-	'lqt_nosubject' => '«geen onderwerp»',
 	'lqt_noreason' => 'Geen reden gegeven.',
 	'lqt_move_placeholder' => 'Dit is een markering die aangeeft dat een onderwerp $1 verplaatst is van deze pagina naar een andere overlegpagina.
 Deze verplaatsing is uitgevoerd door $2 op $3 $4.',
@@ -6584,6 +6580,8 @@ U kunt het bekijken op <$6>.",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Reacties van $1',
 	'lqt-feed-new-thread-intro' => 'Nieuw onderwerp op $1 door $2',
 	'lqt-feed-reply-intro' => 'Reactie op $3 (op $1) door $2',
+	'lqt-newmessages-n' => 'Nieuwe berichten ($1}',
+	'lqt_newmessages' => 'Nieuwe berichten',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -8732,7 +8730,6 @@ $messages['szl'] = array(
  * @author Veeven
  */
 $messages['te'] = array(
-	'lqt_newmessages' => 'కొత్త సందేశాలు',
 	'lqt_movethread' => 'చర్చాహారాన్ని మరో పేజీకి తరలించండి',
 	'lqt_contents_title' => 'విషయాలు',
 	'lqt_toc_thread_replycount' => 'స్పందనలు',
@@ -8758,12 +8755,11 @@ $messages['te'] = array(
 	'lqt_youhavenewmessages' => 'మీకు [$1 క్రొత్త సందేశాలు] ఉన్నాయి.',
 	'lqt_protectedfromreply_link' => 'సంరక్షించారు',
 	'lqt_subject' => 'విషయం:',
-	'lqt_nosubject' => '«విషయం లేదు»',
 	'lqt_noreason' => 'కారణం తెలుపలేదు.',
 	'lqt_thread_deleted' => 'ఈ చర్చాహారాన్ని తొలగించాం.',
 	'lqt_summary_notice_link' => 'సంగ్రహం వ్రాయండి',
 	'lqt_summary_label' => 'ఈ చర్చాహారం యొక్క సారాంశం ఇదీ:',
-	'lqt_summary_subtitle' => '$1 యొక్క సంగ్రహం.',
+	'lqt_summary_subtitle' => '$1 యొక్క సంగ్రహం',
 	'lqt_nosuchrevision' => 'ఈ చర్చాహారానికి అటువంటి కూర్పు లేదు.',
 	'lqt_nosuchthread' => 'మీరు పేర్కొన్నటువంటి చర్చాహారమేదీ లేదు.',
 	'lqt_move_torename' => "ఈ చర్చాహారపు పేరు మార్చడానికి, $1 మరియు 'విషయం' అంశాన్ని మార్చండి.",
@@ -8808,6 +8804,8 @@ $messages['te'] = array(
 	'lqt-merge-submit' => 'కలుపు',
 	'lqt-search-button' => 'వెతుకు',
 	'searchprofile-threads' => 'చర్చలు',
+	'lqt-feed-title-replies' => '{{SITENAME}} — స్పందనలు',
+	'lqt_newmessages' => 'కొత్త సందేశాలు',
 );
 
 /** Tetum (Tetun)
