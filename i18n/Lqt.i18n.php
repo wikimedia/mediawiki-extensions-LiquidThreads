@@ -278,7 +278,6 @@ You can see it at <$6>",
  */
 $messages['qqq'] = array(
 	'lqt-desc' => 'Short description of this extension, shown on [[Special:Version]]. Do not translate or change links.',
-	'lqt_newmessages' => '{{Identical|New messages}}',
 	'lqt_contents_title' => '{{Identical|Contents}}',
 	'lqt_toc_thread_replycount' => '{{Identical|Reply}}',
 	'lqt_new_thread' => '{{Identical|Start a new discussion}}',
@@ -395,14 +394,15 @@ Parameters are:
 * $2 is a link to the user posting in the thread
 * $3 is a link to the super thread
 * $4 is the name of the user posting to the thread, optional, can be used for GENDER',
+	'lqt_newmessages' => '{{Identical|New messages}}',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
  * @author Jose77
  */
 $messages['rtm'] = array(
-	'lqt_newmessages' => "Fäeag fo'ou",
 	'lqt_discussion_link' => 'hạifäega',
+	'lqt_newmessages' => "Fäeag fo'ou",
 );
 
 /** Karelian (Karjala)
@@ -416,18 +416,18 @@ $messages['krl'] = array(
  * @author Jose77
  */
 $messages['niu'] = array(
-	'lqt_newmessages' => 'Tau tohi foou',
 	'lqt_delete' => 'Tamate',
 	'lqt_discussion_link' => 'fakatutala',
 	'lqt_move_move' => 'Une',
+	'lqt_newmessages' => 'Tau tohi foou',
 );
 
 /** Goanese Konkani (Latin) (कोंकणी/Konknni  (Latin))
  * @author Deepak D'Souza
  */
 $messages['gom-latn'] = array(
-	'lqt_newmessages' => 'Noveo sondes',
 	'lqt_delete_return' => '$1 ak patim vos',
+	'lqt_newmessages' => 'Noveo sondes',
 );
 
 /** Afrikaans (Afrikaans)
@@ -435,7 +435,6 @@ $messages['gom-latn'] = array(
  * @author Naudefj
  */
 $messages['af'] = array(
-	'lqt_newmessages' => 'Nuwe boodskappe',
 	'lqt_contents_title' => 'Inhoud',
 	'lqt_toc_thread_author' => 'Begin deur',
 	'lqt_toc_thread_replycount' => 'Antwoorde',
@@ -481,6 +480,7 @@ $messages['af'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antwoorde van $1',
 	'lqt-feed-new-thread-intro' => 'Nuwe onderwerp deur $2 op $1',
 	'lqt-feed-reply-intro' => 'Antwoord op $3 (op $1) deur $2',
+	'lqt_newmessages' => 'Nuwe boodskappe',
 );
 
 /** Amharic (አማርኛ)
@@ -497,8 +497,10 @@ $messages['am'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
+	'lqt_delete' => 'Borrar',
 	'lqt-any-date' => 'En cualsiquier calendata',
 	'lqt-only-date' => 'Nomás istas calendatas:',
+	'lqt-email-undo' => 'Desfer',
 );
 
 /** Arabic (العربية)
@@ -508,8 +510,6 @@ $messages['an'] = array(
  */
 $messages['ar'] = array(
 	'lqt-desc' => 'يضيف نقاشات في مجموعات إلى صفحات النقاش',
-	'lqt-nothread' => 'لا توجد مجموعات رسائل في الأرشيف.',
-	'lqt_newmessages' => 'رسائل جديدة',
 	'lqt_movethread' => 'نقل الرسائل إلى صفحة أخرى',
 	'lqt_deletethread' => 'حذف أو استرجاع الرسائل',
 	'lqt_contents_title' => 'المحتويات',
@@ -555,7 +555,6 @@ $messages['ar'] = array(
 	'lqt_protectedfromreply' => 'مجموعة الرسائل هذه تم $1 من الرد عليها.',
 	'lqt_protectedfromreply_link' => 'حمايتها',
 	'lqt_subject' => 'موضوع:',
-	'lqt_nosubject' => '«لا موضوع»',
 	'lqt_noreason' => 'لا سبب معطى.',
 	'lqt_move_placeholder' => 'مجموعة الرسائل هذه هي لحجز المكان وتعني أن مجموعة رسائل، $1، أزيلت من هذه الصفحة إلى صفحة نقاش أخرى.
 هذا النقل تم بواسطة $2 في $3 $4.',
@@ -687,6 +686,7 @@ $messages['ar'] = array(
 	'lqt-ajax-update-link' => 'حدّث',
 	'lqt-thread-show-replies' => 'أظهر {{PLURAL:$1||ردًا واحدًا|ردّين|$1 ردود|$1 ردًا|$1 رد}}',
 	'lqt-thread-show-more' => 'أظهر مزيدًا من الردود',
+	'lqt_newmessages' => 'رسائل جديدة',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -695,8 +695,6 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'lqt-desc' => 'يضيف نقاشات فى مجموعات إلى صفحات النقاش',
-	'lqt-nothread' => 'لا توجد مجموعات رسائل فى الأرشيف.',
-	'lqt_newmessages' => 'رسائل جديدة',
 	'lqt_movethread' => 'نقل الرسائل إلى صفحة أخرى',
 	'lqt_deletethread' => 'حذف أو استرجاع الرسائل',
 	'lqt_contents_title' => 'المحتويات',
@@ -734,7 +732,6 @@ $messages['arz'] = array(
 	'lqt_protectedfromreply' => 'مجموعة الرسائل هذه تم $1 من الرد عليها.',
 	'lqt_protectedfromreply_link' => 'حمايتها',
 	'lqt_subject' => 'موضوع:',
-	'lqt_nosubject' => '«لا موضوع»',
 	'lqt_noreason' => 'لا سبب معطى.',
 	'lqt_move_placeholder' => 'مجموعة الرسائل هذه هى لحجز المكان وتعنى أن مجموعة رسائل، $1، أزيلت من هذه الصفحة إلى صفحة نقاش أخرى.
 هذا النقل تم بواسطة $2 فى $3 $4.',
@@ -807,6 +804,7 @@ $messages['arz'] = array(
 	'lqt_rc_new_reply' => 'رد على $1، فى $2. &bull; $3 يكتب:',
 	'lqt_rc_author_original' => '(المؤلف الأصلي)',
 	'lqt_rc_author_others' => '(ليس المؤلف)',
+	'lqt_newmessages' => 'رسائل جديدة',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -823,8 +821,6 @@ $messages['bcc'] = array(
  */
 $messages['be-tarask'] = array(
 	'lqt-desc' => 'Дадае галіны абмеркаваньняў у старонкі абмеркаваньняў',
-	'lqt-nothread' => 'У архіве няма галінаў абмеркаваньняў.',
-	'lqt_newmessages' => 'Новыя паведамленьні',
 	'lqt_movethread' => 'Перанесьці галіну на іншую старонку',
 	'lqt_deletethread' => 'Выдаліць ці аднавіць галіну',
 	'lqt_contents_title' => 'Зьмест',
@@ -1040,6 +1036,7 @@ $messages['be-tarask'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Адказы $1',
 	'lqt-feed-new-thread-intro' => 'Новая галіна на $1 разьмешчаная $2',
 	'lqt-feed-reply-intro' => 'Адказ на $3 (на $1) разьмешчаны $2',
+	'lqt_newmessages' => 'Новыя паведамленьні',
 );
 
 /** Bulgarian (Български)
@@ -1047,7 +1044,6 @@ $messages['be-tarask'] = array(
  * @author Spiritia
  */
 $messages['bg'] = array(
-	'lqt_newmessages' => 'Нови съобщения',
 	'lqt_movethread' => 'Преместване на нишка към друга страница',
 	'lqt_deletethread' => 'Изтриване или възстановяване на нишка',
 	'lqt_contents_title' => 'Съдържание',
@@ -1070,7 +1066,6 @@ $messages['bg'] = array(
 	'lqt_protectedfromreply' => 'Тази нишка е била $1 за следващи коментари.',
 	'lqt_protectedfromreply_link' => 'защитена',
 	'lqt_subject' => 'Тема:',
-	'lqt_nosubject' => '«няма тема»',
 	'lqt_noreason' => 'Не е указана причина.',
 	'lqt_thread_deleted_for_sysops' => 'Тази нишка е била $1 и е видима само за администратори.',
 	'lqt_thread_deleted' => 'Нишката е била изтрита.',
@@ -1124,6 +1119,7 @@ $messages['bg'] = array(
 	'lqt-new-messages' => '&#x2712; Имате нови съобщения.',
 	'lqt-date-info' => 'Тази връзка е деактивирана, тъй като преглеждате нишките от всички дати.',
 	'lqt_rc_new_discussion' => 'Нова дискусия, $1, от $2. &bull; $3 написа:',
+	'lqt_newmessages' => 'Нови съобщения',
 );
 
 /** Bengali (বাংলা)
@@ -1131,8 +1127,8 @@ $messages['bg'] = array(
  * @author Zaheen
  */
 $messages['bn'] = array(
-	'lqt_newmessages' => 'নতুন বার্তা',
 	'lqt_delete' => 'মুছে ফেলা হোক',
+	'lqt_newmessages' => 'নতুন বার্তা',
 );
 
 /** Breton (Brezhoneg)
@@ -1140,8 +1136,6 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'lqt-desc' => 'Ouzhpennañ a ra neudennadoù kaozioù er pajennoù kaozeal',
-	'lqt-nothread' => "N'eus neudennad kaozioù ebet en dielloù.",
-	'lqt_newmessages' => 'Kemennoù nevez',
 	'lqt_movethread' => 'Kas an neudennad kaozioù war ur bajenn all',
 	'lqt_deletethread' => 'Diverkañ pe adtapout an neudennad',
 	'lqt_contents_title' => 'Danvezioù',
@@ -1204,7 +1198,6 @@ Marteze :
 	'lqt_protectedfromreply' => "$1 eo bet ar gaoz-mañ. N'hallit ket respont dezhi.",
 	'lqt_protectedfromreply_link' => 'gwarezet',
 	'lqt_subject' => 'Danvez :',
-	'lqt_nosubject' => '"danvez ebet"',
 	'lqt_noreason' => "N'eus bet roet abeg ebet.",
 	'lqt_move_placeholder' => "N'eo an neudennad-mañ nemet ur merk erlec'hiañ a verk ez eus bet kaset ur gaoz, $1, eus ar bajenn-mañ war-du ur bajenn gaozeal all.
 Graet eo bet an dilec'hiañ gant $2 da $3 da $4",
@@ -1356,6 +1349,7 @@ E lenn a c'hallit ober war <$6>",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respontoù digant $1',
 	'lqt-feed-new-thread-intro' => 'Neudennadoù nevez war $1 postet gant $2',
 	'lqt-feed-reply-intro' => 'Respontoù da $3 (war $1) postet gant $2',
+	'lqt_newmessages' => 'Kemennoù nevez',
 );
 
 /** Bosnian (Bosanski)
@@ -1363,8 +1357,6 @@ E lenn a c'hallit ober war <$6>",
  */
 $messages['bs'] = array(
 	'lqt-desc' => 'Dodaj nizane diskusije stranicama za razgovor',
-	'lqt-nothread' => 'Nema nizova u arhivi.',
-	'lqt_newmessages' => 'Nove poruke',
 	'lqt_movethread' => 'Premjesti niz na drugu stranicu',
 	'lqt_deletethread' => 'Obriši ili vrati niz',
 	'lqt_contents_title' => 'Sadržaj',
@@ -1476,6 +1468,7 @@ Ovaj niz je dio $2.',
 	'lqt-search-button' => 'Traži',
 	'searchprofile-threads' => 'Razgovori',
 	'lqt-ajax-update-link' => 'Ažuriranje',
+	'lqt_newmessages' => 'Nove poruke',
 );
 
 /** Catalan (Català)
@@ -1489,8 +1482,6 @@ Ovaj niz je dio $2.',
  */
 $messages['ca'] = array(
 	'lqt-desc' => 'Afegeix fils de discussió a les pàgines de discussió',
-	'lqt-nothread' => "No hi ha fils a l'arxiu.",
-	'lqt_newmessages' => 'Nous missatges',
 	'lqt_movethread' => 'Moure el fil a una altra pàgina',
 	'lqt_deletethread' => 'Esborrar o recuperar fil',
 	'lqt_contents_title' => 'Contingut',
@@ -1553,7 +1544,6 @@ Pot:
 	'lqt_protectedfromreply' => 'Aquest fil ha estat $1 de poder ser respost.',
 	'lqt_protectedfromreply_link' => 'protegit',
 	'lqt_subject' => 'Assumpte:',
-	'lqt_nosubject' => '«sense tema»',
 	'lqt_noreason' => "No s'ha donat cap motiu.",
 	'lqt_move_placeholder' => "Aquest fil és un marcador que indica que un fil, $1, va ser retirat d'aquesta pàgina cap a una altra pàgina de discussió. Aquest trasllat va ser fet per $2 a $3 a $4.",
 	'lqt_thread_deleted_for_sysops' => "Aquest fil ha estat '''esborrat''' i només és visible pels administradors.",
@@ -1701,6 +1691,7 @@ El podeu veure a <$6>',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respostes de $1',
 	'lqt-feed-new-thread-intro' => 'Nou fil a $1 publicat per $2',
 	'lqt-feed-reply-intro' => 'Resposta al fil $3 (dins $1) publicada per $2',
+	'lqt_newmessages' => 'Nous missatges',
 );
 
 /** Chamorro (Chamoru)
@@ -1716,7 +1707,6 @@ $messages['ch'] = array(
  */
 $messages['cs'] = array(
 	'lqt-desc' => 'Umožňuje uspořádávat diskusní stránky do vláken',
-	'lqt_newmessages' => 'Nové zprávy',
 	'lqt_movethread' => 'Přesunout vlákno na jinou stránku',
 	'lqt_contents_title' => 'Obsah',
 	'lqt_toc_thread_title' => 'Název vlákna',
@@ -1761,7 +1751,6 @@ Možná, že:
 	'lqt_protectedfromreply' => 'Toto vlákno je $1, takže na něj nelze odpovídat.',
 	'lqt_protectedfromreply_link' => 'zamčeno',
 	'lqt_subject' => 'Předmět:',
-	'lqt_nosubject' => '«bez předmětu»',
 	'lqt_move_placeholder' => 'Toto je pozůstatek vlákna $1, které bylo přesunuto z této stránky do jiné diskuse.
 Přesun {{GENDER:$2|provedl|provedla|provedl}} $2 v $4, $3.',
 	'lqt_summary_label' => 'Shrnutí tohoto vlákna:',
@@ -1878,6 +1867,7 @@ Můžete si ji prohlédnout na <$6>.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} – Odpovědi z $1',
 	'lqt-feed-new-thread-intro' => '$2 {{GENDER:$4|založil|založila|založil}} na $1 nové vlákno',
 	'lqt-feed-reply-intro' => '$2 {{GENDER:$4|přidal|přidala|přidal}} odpověď k $3 (v $1)',
+	'lqt_newmessages' => 'Nové zprávy',
 );
 
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
@@ -1924,8 +1914,6 @@ $messages['da'] = array(
  */
 $messages['de'] = array(
 	'lqt-desc' => 'Benutzung von Diskussionssträngen auf Diskussionsseiten',
-	'lqt-nothread' => 'Es sind keine archivierten Diskussionsstränge vorhanden.',
-	'lqt_newmessages' => 'Neue Nachrichten',
 	'lqt_movethread' => 'Verschiebe Diskussionsstrang auf eine andere Seite',
 	'lqt_deletethread' => 'Lösche oder stelle Diskussionsstrang wieder her',
 	'lqt_contents_title' => 'Inhalt',
@@ -2136,6 +2124,7 @@ Du kannst sie auf <$6> einsehen.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antworten von $1',
 	'lqt-feed-new-thread-intro' => 'Neuer Diskussionsstrang auf $1 von $2',
 	'lqt-feed-reply-intro' => 'Antwort auf $3 (auf $1) von $2',
+	'lqt_newmessages' => 'Neue Nachrichten',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
@@ -2402,11 +2391,11 @@ Móžoš jo na <$6> wiźeś",
  * @author Natsubee
  */
 $messages['ee'] = array(
-	'lqt_newmessages' => 'Du yeyewo',
 	'lqt_contents_title' => 'Emenyawo',
 	'lqt_delete' => 'Tutui',
 	'lqt_move_move' => 'Ɖɔli eƒe nɔƒe',
 	'lqt_delete_return' => 'Gbugbɔ yi $1.',
+	'lqt_newmessages' => 'Du yeyewo',
 );
 
 /** Greek (Ελληνικά)
@@ -2417,8 +2406,6 @@ $messages['ee'] = array(
  */
 $messages['el'] = array(
 	'lqt-desc' => 'Προσθήκη θεματικών συζητήσεων στις σελίδες συζήτησης',
-	'lqt-nothread' => 'Δεν υπάρχουν θέματα στο αρχείο.',
-	'lqt_newmessages' => 'Νέα Μηνύματα',
 	'lqt_movethread' => 'Μετακίνηση θέματος σε άλλη σελίδα',
 	'lqt_deletethread' => 'Διαγραφή η επαναφορά θέματος',
 	'lqt_contents_title' => 'Περιεχόμενα',
@@ -2459,7 +2446,6 @@ $messages['el'] = array(
 	'lqt_youhavenewmessages' => 'Έχετε [$1 νέα μηνύματα].',
 	'lqt_protectedfromreply_link' => 'προστατευμένο',
 	'lqt_subject' => 'Θέμα:',
-	'lqt_nosubject' => '«Δεν υπάρχει θέμα»',
 	'lqt_noreason' => 'Δεν δίνετε λόγος.',
 	'lqt_thread_deleted' => 'Το θέμα έχει διαγραφεί.',
 	'lqt_summary_notice_link' => 'γράψτε μια περίληψη',
@@ -2552,6 +2538,7 @@ $messages['el'] = array(
 	'lqt-ajax-update-link' => 'Ενημέρωση',
 	'lqt-thread-show-replies' => 'Εμφάνιση $1 απαντἠσεων',
 	'lqt-thread-show-more' => 'Προβολή περισσότερων απαντήσεων',
+	'lqt_newmessages' => 'Νέα Μηνύματα',
 );
 
 /** Esperanto (Esperanto)
@@ -2559,8 +2546,6 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'lqt-desc' => 'Aldonas fadenajn diskutojn al diskuto-paĝoj',
-	'lqt-nothread' => 'Estas neniuj fadenoj en la arkivo.',
-	'lqt_newmessages' => 'Novaj Mesaĝoj',
 	'lqt_movethread' => 'Movu fadenon al alia paĝo',
 	'lqt_deletethread' => 'Forigi aŭ restarigi fadenon',
 	'lqt_contents_title' => 'Enhavo',
@@ -2603,7 +2588,6 @@ $messages['eo'] = array(
 	'lqt_youhavenewmessages' => 'Vi havas [$1 novajn mesaĝojn].',
 	'lqt_protectedfromreply_link' => 'protektita',
 	'lqt_subject' => 'Subjekto:',
-	'lqt_nosubject' => '«neniu subjekto»',
 	'lqt_noreason' => 'Nenia kialo donata',
 	'lqt_thread_deleted' => 'Ĉi tiu fadeno estis forigita.',
 	'lqt_summary_notice_link' => 'verki resumon',
@@ -2693,6 +2677,7 @@ Eviti ĉi tion, dividigu ilin de ĉi tiu fadeno antaŭ forigante ĝin.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Novaj fadenoj de $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Respndoj',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respondoj de $1',
+	'lqt_newmessages' => 'Novaj Mesaĝoj',
 );
 
 /** Spanish (Español)
@@ -2705,8 +2690,6 @@ Eviti ĉi tion, dividigu ilin de ĉi tiu fadeno antaŭ forigante ĝin.',
  */
 $messages['es'] = array(
 	'lqt-desc' => 'Agregar discusiones en hilos a páginas de discusión',
-	'lqt-nothread' => 'No hay hilos en el archivo.',
-	'lqt_newmessages' => 'Nuevos mensajes',
 	'lqt_movethread' => 'Mover hilo a otra página',
 	'lqt_deletethread' => 'Borrar o reestablecer hilo',
 	'lqt_contents_title' => 'Contenidos',
@@ -2766,7 +2749,6 @@ Puede:
 	'lqt_youhavenewmessages' => 'Tienes [$1 nuevos mensajes].',
 	'lqt_protectedfromreply_link' => 'protegido',
 	'lqt_subject' => 'Tema:',
-	'lqt_nosubject' => '«sin tema»',
 	'lqt_noreason' => 'No se da ninguna razón',
 	'lqt_thread_deleted_for_sysops' => "Este hilo ha sido '''borrado''' y es solamente visible para los administradores.",
 	'lqt_thread_deleted' => 'Este hilo ha sido borrado.',
@@ -2886,6 +2868,7 @@ Tal vez quieras en su lugar $2.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respuestas de $1',
 	'lqt-feed-new-thread-intro' => 'Nuevo hilo en $1 enviado por $2',
 	'lqt-feed-reply-intro' => 'Respuesta a $3 (en $1) enviado por $2',
+	'lqt_newmessages' => 'Nuevos mensajes',
 );
 
 /** Estonian (Eesti)
@@ -2900,7 +2883,6 @@ $messages['et'] = array(
  * @author Kobazulo
  */
 $messages['eu'] = array(
-	'lqt_newmessages' => 'Mezu berriak',
 	'lqt_contents_title' => 'Edukiak',
 	'lqt_add_header' => 'Goiburua gehitu',
 	'lqt_new_thread' => 'Eztabaida berria hasi',
@@ -2928,16 +2910,17 @@ Eztabaida hau $2-(e)ko zati da.',
 	'lqt-search-button' => 'Bilatu',
 	'searchprofile-threads' => 'Eztabaidak',
 	'lqt-ajax-update-link' => 'Eguneratu',
+	'lqt_newmessages' => 'Mezu berriak',
 );
 
 /** Persian (فارسی)
  * @author Ladsgroup
  */
 $messages['fa'] = array(
-	'lqt_newmessages' => 'پیام‌های جدید',
 	'lqt_from_talk' => 'از $1',
 	'lqt_newer' => 'جدیدتر ←',
 	'lqt_older' => '→ قدیمی‌تر',
+	'lqt_newmessages' => 'پیام‌های جدید',
 );
 
 /** Finnish (Suomi)
@@ -2949,8 +2932,6 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'lqt-desc' => 'Lisää keskustelusivuille viestiketjut.',
-	'lqt-nothread' => 'Arkistossa ei ole viestiketjuja.',
-	'lqt_newmessages' => 'Uudet viestit',
 	'lqt_movethread' => 'Siirrä viestiketju toiselle sivulle',
 	'lqt_deletethread' => 'Poista tai palauta viestiketju',
 	'lqt_contents_title' => 'Sisältö',
@@ -3000,7 +2981,6 @@ $messages['fi'] = array(
 	'lqt_youhavenewmessages' => 'Sinulle on [$1 uusia viestejä].',
 	'lqt_protectedfromreply_link' => 'suojattu',
 	'lqt_subject' => 'Otsikko',
-	'lqt_nosubject' => '«ei aihetta»',
 	'lqt_noreason' => 'Ei annettua syytä.',
 	'lqt_move_placeholder' => 'Tämä viestiketju on paikanvaraaja, joka osoittaa viestiketjun $1 olevan poistettu tältä sivulta toiselle keskustelusivulle.
 Siirron teki $2 aikana $3 $4.',
@@ -3103,6 +3083,7 @@ Jos se on päättynyt, voi olla että haluat $1.',
 	'lqt-thread-show-replies' => 'Näytä {{PLURAL:$1|vastaus|vastausta}}',
 	'lqt-thread-show-more' => 'Näytä lisää vastauksia',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} – Uudet viestiketjut',
+	'lqt_newmessages' => 'Uudet viestit',
 );
 
 /** French (Français)
@@ -3366,8 +3347,6 @@ $messages['fy'] = array(
  */
 $messages['gl'] = array(
 	'lqt-desc' => 'Engadir os fíos de discusión ás páxinas de conversa',
-	'lqt-nothread' => 'Non hai fíos no arquivo.',
-	'lqt_newmessages' => 'Mensaxes novas',
 	'lqt_movethread' => 'Mover o fío a outra páxina',
 	'lqt_deletethread' => 'Eliminar ou recuperar fío',
 	'lqt_contents_title' => 'Contidos',
@@ -3581,6 +3560,7 @@ Pode vela en <$6>',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respostas en $1',
 	'lqt-feed-new-thread-intro' => 'Novo fío de conversa en "$1" publicado por $2',
 	'lqt-feed-reply-intro' => 'Resposta a "$3" (en "$1") publicada por $2',
+	'lqt_newmessages' => 'Mensaxes novas',
 );
 
 /** Gothic (Gothic)
@@ -3598,7 +3578,6 @@ $messages['got'] = array(
  * @author Omnipaedista
  */
 $messages['grc'] = array(
-	'lqt_newmessages' => 'Νέαι ἀγγέλιαι',
 	'lqt_contents_title' => 'Περιεχόμενα',
 	'lqt_delete' => 'Σβεννύναι',
 	'lqt_discussion_link' => 'διάλεξις',
@@ -3616,6 +3595,7 @@ $messages['grc'] = array(
 	'lqt-thread-split-thread' => 'Νῆμα διαλέξεως:',
 	'lqt-search-button' => 'Ζητεῖν',
 	'lqt-ajax-update-link' => 'Ἐνημεροῦν',
+	'lqt_newmessages' => 'Νέαι ἀγγέλιαι',
 );
 
 /** Swiss German (Alemannisch)
@@ -3845,7 +3825,6 @@ Du chasch si säh uf <$6>",
  * @author Dsvyas
  */
 $messages['gu'] = array(
-	'lqt_newmessages' => 'નવા સંદેશા',
 	'lqt_contents_title' => 'સૂચિ',
 	'lqt_add_header' => 'મથાળુ ઉમેરો',
 	'lqt_new_thread' => 'નવી ચર્ચા શરૂ કરો',
@@ -3874,7 +3853,6 @@ $messages['gu'] = array(
 	'lqt_change_edited_root' => 'હાઇલાઇટ કરેલી ટિપ્પણીમાં ફેરફાર વર્તમાન સુધારા દરમ્યાન કરવામાં આવ્યો  છે',
 	'lqt_protectedfromreply_link' => 'સુરક્ષિત',
 	'lqt_subject' => 'વિષય',
-	'lqt_nosubject' => '<<વિષય વિના>>',
 	'lqt_noreason' => 'કોઇ કારણ દર્શાવવામાં આવ્યું નથી',
 	'lqt_summary_notice' => 'અહીં છેલ્લા {{PLURAL:$2|દિવસ|દિવસ}} દિવસથી કોઇ ફેરફાર થયા નથી. જો આ ચર્ચા પૂરી થઇ ગયેલી લાગે તો, તમે $1 શકો છો.',
 	'lqt_summary_notice_link' => 'સારાંશ લખો',
@@ -3882,16 +3860,17 @@ $messages['gu'] = array(
 	'lqt_move_torename_edit' => 'ફેરફાર કરો',
 	'lqt_move_move' => 'ખસેડો',
 	'lqt_move_noreason' => 'કોઇ કારણ દર્શાવવામાં આવ્યું નથી',
+	'lqt_newmessages' => 'નવા સંદેશા',
 );
 
 /** Manx (Gaelg)
  * @author MacTire02
  */
 $messages['gv'] = array(
-	'lqt_newmessages' => 'Çhaghteraghtyn noa',
 	'lqt_discussion_link' => 'resoonaght',
 	'lqt_hist_deleted' => 'Scryssit',
 	'lqt_summary_notice_link' => 'screeu giare-choontey',
+	'lqt_newmessages' => 'Çhaghteraghtyn noa',
 );
 
 /** Hakka (Hak-kâ-fa)
@@ -4124,8 +4103,8 @@ $messages['he'] = array(
 	'lqt-thread-show-replies' => 'הצגת $1 תגובות',
 	'lqt-thread-show-more' => 'הצגת תגובות נוספות',
 	'lqt-thread-link-url' => 'כתובת הקישור:',
-	'lqt-thread-link-title' => 'קישור ויקיטקסט:',
-	'lqt-thread-link-copy' => 'העתקה ללוח הגזירים',
+	'lqt-thread-link-title' => 'טקסט הוויקי של הקישור:',
+	'lqt-thread-link-copy' => 'העתקה ללוח',
 	'lqt-feed-title-all' => '{{SITENAME}} — הודעות חדשות',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — הודעות חדשות מתוך $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — שרשורים חדשים',
@@ -4143,8 +4122,6 @@ $messages['he'] = array(
  */
 $messages['hi'] = array(
 	'lqt-desc' => 'वार्ता पृष्ठ पर वार्ता के थ्रेड्स बढायें',
-	'lqt-nothread' => 'इस आर्चिव्हमें थ्रेड्स नहीं हैं।',
-	'lqt_newmessages' => 'नये संदेश',
 	'lqt_movethread' => 'थ्रेड दुसरे पन्ने पर डालें',
 	'lqt_deletethread' => 'थ्रेड हटायें या पुनर्स्थापित करें',
 	'lqt_contents_title' => 'अनुक्रम',
@@ -4182,7 +4159,6 @@ $messages['hi'] = array(
 	'lqt_protectedfromreply' => 'यह थ्रेड जवाब देने से $1 हैं।',
 	'lqt_protectedfromreply_link' => 'सुरक्षित',
 	'lqt_subject' => 'विषय:',
-	'lqt_nosubject' => '«विषय नहीं»',
 	'lqt_noreason' => 'कारण दिया नहीं।',
 	'lqt_thread_deleted_for_sysops' => 'यह थ्रेड $1 हैं और सिर्फ प्रबंधकोंको ही दिख सकता हैं।',
 	'lqt_thread_deleted' => 'यह थ्रेड हटाया गया हैं।',
@@ -4220,6 +4196,7 @@ $messages['hi'] = array(
 	'lqt_sort_newest_changes' => 'आखिर में बदले गये पहले',
 	'lqt_sort_newest_threads' => 'नये थ्रेड पहले',
 	'lqt_sort_oldest_threads' => 'पुराने थ्रेड पहले',
+	'lqt_newmessages' => 'नये संदेश',
 );
 
 /** Hiligaynon (Ilonggo)
@@ -4237,8 +4214,6 @@ $messages['hil'] = array(
  */
 $messages['hr'] = array(
 	'lqt-desc' => 'Dodaj rasprave na stranice za razgovor',
-	'lqt-nothread' => 'Nema rasprava u arhivu.',
-	'lqt_newmessages' => 'Nove poruke',
 	'lqt_movethread' => 'Premjesti raspravu na drugu stranicu',
 	'lqt_deletethread' => 'Izbriši ili vrati izbrisanu raspravu',
 	'lqt_contents_title' => 'Sadržaj',
@@ -4269,7 +4244,6 @@ $messages['hr'] = array(
 	'lqt_hist_moved_talkpage' => 'Premješteno',
 	'lqt_protectedfromreply_link' => 'zaštićen',
 	'lqt_subject' => 'Tema:',
-	'lqt_nosubject' => '«nema teme»',
 	'lqt-any-date' => 'Bilo koji datum',
 	'lqt-only-date' => 'Samo ovi datumi:',
 	'lqt-date-from' => 'Od',
@@ -4328,6 +4302,7 @@ Možete ga vidjeti na <$6>",
 	'lqt-search-legend' => 'Pretraži raspravu na ovoj stranici',
 	'lqt-search-label' => 'Pojmovi pretrage:',
 	'lqt-search-button' => 'Traži',
+	'lqt_newmessages' => 'Nove poruke',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -4554,8 +4529,6 @@ Móžeš ju na <$6> widźeć",
  * @author Tgr
  */
 $messages['hu'] = array(
-	'lqt-nothread' => 'Nincsenek beszélgetésfolyamok az archívumban.',
-	'lqt_newmessages' => 'Új üzenetek',
 	'lqt_movethread' => 'Beszélgetésfolyam áthelyezése egy másik lapra',
 	'lqt_deletethread' => 'Beszélgetésfolyam törlése vagy helyreállítása',
 	'lqt_contents_title' => 'Tartalomjegyzék',
@@ -4609,7 +4582,6 @@ $messages['hu'] = array(
 	'lqt_protectedfromreply' => 'Ez a beszélgetés $1 a válaszlehetőségtől.',
 	'lqt_protectedfromreply_link' => 'le van védve',
 	'lqt_subject' => 'Tárgy:',
-	'lqt_nosubject' => '«nincs tárgy»',
 	'lqt_noreason' => 'Nincs ok megadva.',
 	'lqt_move_placeholder' => 'Ez a beszélgetés csupán egy jelzés, hogy a $1 beszélgetést $2 áthelyezte $3 $4-kor egy másik vitalapra.',
 	'lqt_thread_deleted_for_sysops' => "A beszélgetést '''törölték''' és csak adminisztrátorok számára látható.",
@@ -4694,6 +4666,7 @@ Ez a beszélgetés jelenleg a(z) $2 lap része.',
 	'lqt-ajax-update-link' => 'Frissítés',
 	'lqt-thread-show-replies' => '$1 válasz megjelenítése',
 	'lqt-thread-show-more' => 'További válaszok megjelenítése',
+	'lqt_newmessages' => 'Új üzenetek',
 );
 
 /** Interlingua (Interlingua)
@@ -4928,8 +4901,6 @@ Tu pote vider lo a <$6>",
  */
 $messages['id'] = array(
 	'lqt-desc' => 'Menambahkan diskusi bertopik pada halaman pembicaraan',
-	'lqt-nothread' => 'Tidak ada topik pada arsip.',
-	'lqt_newmessages' => 'Pesan baru',
 	'lqt_movethread' => 'Pindahkan topik pembicaraan ke halaman lain',
 	'lqt_deletethread' => 'Hapus atau batalkan penghapusan topik pembicaraan',
 	'lqt_contents_title' => 'Daftar isi',
@@ -4970,7 +4941,6 @@ $messages['id'] = array(
 	'lqt_protectedfromreply' => 'Topik ini telah $1 dari mengirim balasan',
 	'lqt_protectedfromreply_link' => 'dilindungi',
 	'lqt_subject' => 'Perihal:',
-	'lqt_nosubject' => '«tanpa judul»',
 	'lqt_noreason' => 'Tidak ada alasan yang diberikan.',
 	'lqt_thread_deleted_for_sysops' => "Topik ini telah '''dihapus''' dan hanya bisa dilihat oleh pengurus.",
 	'lqt_thread_deleted' => 'Topik ini telah dihapus.',
@@ -5077,6 +5047,7 @@ Hal ini tidak dapat dibatalkan.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Topik baru dari $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Balasan',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Balasan dari $1',
+	'lqt_newmessages' => 'Pesan baru',
 );
 
 /** Ido (Ido)
@@ -5100,8 +5071,6 @@ $messages['is'] = array(
  * @author Melos
  */
 $messages['it'] = array(
-	'lqt-nothread' => 'Non ci sono discussioni in archivio.',
-	'lqt_newmessages' => 'Nuovi messaggi',
 	'lqt_movethread' => "Sposta discussione in un'altra pagina",
 	'lqt_deletethread' => 'Cancellare o recuperare discussione',
 	'lqt_contents_title' => 'Indice',
@@ -5155,7 +5124,6 @@ Potrebbe:
 	'lqt_youhavenewmessages' => 'Hai [$1 nuovi messaggi].',
 	'lqt_protectedfromreply_link' => 'protetto',
 	'lqt_subject' => 'Oggetto:',
-	'lqt_nosubject' => '«Nessun oggetto»',
 	'lqt_noreason' => 'Nessuna motivazione indicata.',
 	'lqt_thread_deleted_for_sysops' => "Questa discussione è stata '''cancellata''' ed è visibile solamente dagli amministratori.",
 	'lqt_thread_deleted' => 'Questa discussione è stata cancellata.',
@@ -5244,6 +5212,7 @@ Questa operazione non è annullabile.',
 	'searchprofile-threads' => 'Discussioni',
 	'lqt-thread-show-replies' => 'Mostra $1 {{PLURAL:$1|risposta|risposte}}',
 	'lqt-thread-show-more' => 'Mostra più risposte',
+	'lqt_newmessages' => 'Nuovi messaggi',
 );
 
 /** Japanese (日本語)
@@ -5253,8 +5222,6 @@ Questa operazione non è annullabile.',
  */
 $messages['ja'] = array(
 	'lqt-desc' => '{{int:talk}}ページをスレッド形式の議論ページにする',
-	'lqt-nothread' => '保存されているスレッドはありません。',
-	'lqt_newmessages' => '新しいメッセージ',
 	'lqt_movethread' => 'スレッドを別のページに移動',
 	'lqt_deletethread' => 'スレッドの削除と復帰',
 	'lqt_contents_title' => '目次',
@@ -5316,7 +5283,6 @@ $messages['ja'] = array(
 	'lqt_protectedfromreply' => 'このスレッドは$1されているため返答できません。',
 	'lqt_protectedfromreply_link' => '保護',
 	'lqt_subject' => '表題:',
-	'lqt_nosubject' => '«無題»',
 	'lqt_noreason' => '理由は付記されていません。',
 	'lqt_move_placeholder' => 'このスレッドは、$1 が別ページの{{int:talk}}ページへ移動したことを示すプレースホルダです。この移動は $3 $4 に $2 によって行われました。',
 	'lqt_thread_deleted_for_sysops' => "このスレッドは'''削除'''されており、{{int:group-sysop}}だけが内容を見ることができます。",
@@ -5456,6 +5422,7 @@ $messages['ja'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1からの返信',
 	'lqt-feed-new-thread-intro' => '$1に$2が投稿した新規スレッド',
 	'lqt-feed-reply-intro' => '$2が$1に投稿した$3への返信',
+	'lqt_newmessages' => '新しいメッセージ',
 );
 
 /** Javanese (Basa Jawa)
@@ -5463,7 +5430,6 @@ $messages['ja'] = array(
  * @author Pras
  */
 $messages['jv'] = array(
-	'lqt_newmessages' => 'Pesen anyar',
 	'lqt_contents_title' => 'Isi',
 	'lqt_new_thread' => 'Miwiti dhiskusi anyar',
 	'lqt_edited_notice' => 'Disunting',
@@ -5483,7 +5449,6 @@ $messages['jv'] = array(
 	'lqt_youhavenewmessages' => 'Panjenengan duwé [$1 pesen anyar].',
 	'lqt_protectedfromreply_link' => 'direksa',
 	'lqt_subject' => 'Subyèk:',
-	'lqt_nosubject' => '«ora ana subyèk»',
 	'lqt_noreason' => 'Ora mènèhi alesan.',
 	'lqt_summary_notice_link' => 'nulis ringkesan',
 	'lqt_summary_subtitle' => 'ringkesan saka $1.',
@@ -5496,6 +5461,7 @@ $messages['jv'] = array(
 	'lqt_header_warning_big' => 'Panjenengan nyunting sawijining $1.',
 	'lqt_header_warning_new_discussion' => 'miwiti dhiskusi anyar',
 	'lqt_sorting_order' => 'Urutan sortir:',
+	'lqt_newmessages' => 'Pesen anyar',
 );
 
 /** Georgian (ქართული)
@@ -5515,7 +5481,6 @@ $messages['ka'] = array(
  * @author វ័ណថារិទ្ធ
  */
 $messages['km'] = array(
-	'lqt_newmessages' => 'សារថ្មីៗ',
 	'lqt_contents_title' => 'មាតិកា',
 	'lqt_add_header' => 'បន្ថែមក្បាលទំព័រ',
 	'lqt_new_thread' => 'បើកការពិភាក្សាថ្មីមួយ',
@@ -5543,7 +5508,6 @@ $messages['km'] = array(
 	'lqt_youhavenewmessages' => 'អ្នកមាន [$1 សារថ្មីៗ]​។',
 	'lqt_protectedfromreply_link' => 'បានការពារ',
 	'lqt_subject' => 'ប្រធានបទ ៖',
-	'lqt_nosubject' => '«មិនមានប្រធានបទទេ»',
 	'lqt_noreason' => 'គ្មានហេតុផល ត្រូវបានផ្តល់ឱ្យ ។',
 	'lqt_thread_deleted' => 'ខ្សែស្រឡាយ​នេះ​ត្រូវ​បាន​លុប​។',
 	'lqt_summary_notice' => 'គ្មានបំលាស់ប្តូរ​ក្នុងការពិភាក្សានេះ តាំងពី​យ៉ាងតិច $2 ថ្ងៃ​។ បើចង់ផ្លាស់ប្តូរវា, អ្នកអាចនឹង​ត្រូវការ $1 ។',
@@ -5601,6 +5565,7 @@ $messages['km'] = array(
 	'lqt-header-actions' => 'សកម្មភាព​',
 	'lqt_summarize_link' => 'សង្ខេប​',
 	'lqt-search-button' => 'ស្វែង​រក​',
+	'lqt_newmessages' => 'សារថ្មីៗ',
 );
 
 /** Kannada (ಕನ್ನಡ)
@@ -5617,8 +5582,6 @@ $messages['kn'] = array(
  */
 $messages['ko'] = array(
 	'lqt-desc' => '토론문서에서 새주제의 토론 추가',
-	'lqt-nothread' => '저장소에 토론이 없습니다.',
-	'lqt_newmessages' => '새 메시지',
 	'lqt_new_thread' => '새 토론 시작하기',
 	'lqt_invalid_subject' => '당신이 입력한 주제가 잘못되었습니다.
 * 주제가 너무 길거나
@@ -5640,6 +5603,7 @@ $messages['ko'] = array(
 	'lqt-quote' => '인용',
 	'lqt-search-button' => '찾기',
 	'lqt-thread-link-url' => '링크 URL:',
+	'lqt_newmessages' => '새 메시지',
 );
 
 /** Krio (Krio)
@@ -5888,8 +5852,6 @@ Ene schööne Jrohß!',
  */
 $messages['lb'] = array(
 	'lqt-desc' => "Setz Diskussiouns -Rubriken  op d'Diskussiounssäiten derbäi",
-	'lqt-nothread' => 'Et gëtt keng Rubriken am Archiv',
-	'lqt_newmessages' => 'Nei Messagen',
 	'lqt_movethread' => 'Rubrik op eng aner Säit réckelen',
 	'lqt_deletethread' => 'Rubrik läschen oder restauréieren',
 	'lqt_contents_title' => 'Inhalter',
@@ -5952,7 +5914,6 @@ Et ass méiglech, datt:
 	'lqt_protectedfromreply' => 'Dës Rubrik gouf $1 vir datt net drop geäntwert ka ginn.',
 	'lqt_protectedfromreply_link' => 'protegéiert',
 	'lqt_subject' => 'Sujet:',
-	'lqt_nosubject' => '"kee Sujet"',
 	'lqt_noreason' => 'Kee Grond uginn.',
 	'lqt_move_placeholder' => 'Dës Rubrik ass en Ersatz fir ze weisen datt eng Rubrik, $1, vun dëser Säit op eng aner Diskussiounssäit geréckelt gouf.
 
@@ -6105,16 +6066,17 @@ Dir kënnt se op <$6> gesinn.",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Äntwerte vum $1',
 	'lqt-feed-new-thread-intro' => 'Nei Rubrik iwwer $1 geschriwwe vum $2',
 	'lqt-feed-reply-intro' => 'Äntwert vum $2 op $3 (op $1)',
+	'lqt_newmessages' => 'Nei Messagen',
 );
 
 /** Lozi (Silozi)
  * @author Ooswesthoesbes
  */
 $messages['loz'] = array(
-	'lqt_newmessages' => 'Nca Mulumiwa',
 	'lqt_revision_as_of' => 'Selt di $1.',
 	'lqt_youhavenewmessages' => 'A sa $1.',
 	'lqt_protectedfromreply_link' => 'sa bukelezi',
+	'lqt_newmessages' => 'Nca Mulumiwa',
 );
 
 /** Lithuanian (Lietuvių)
@@ -6145,7 +6107,6 @@ $messages['mk'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'lqt_newmessages' => 'പുതിയ സന്ദേശങ്ങള്‍',
 	'lqt_movethread' => 'ത്രെഡ് മറ്റൊരു താളിലേക്കു മാറ്റുക',
 	'lqt_contents_title' => 'ഉള്ളടക്കം',
 	'lqt_new_thread' => 'പുതിയൊരു സം‌വാദം ആരംഭിക്കുക',
@@ -6170,7 +6131,6 @@ $messages['ml'] = array(
 	'lqt_youhavenewmessages' => 'താങ്കൾക്ക് [$1 പുതിയ സന്ദേശങ്ങൾ] ഉണ്ട്.',
 	'lqt_protectedfromreply_link' => 'സം‌രക്ഷിക്കപ്പെട്ടിരിക്കുന്നു',
 	'lqt_subject' => 'വിഷയം:',
-	'lqt_nosubject' => '«വിഷയം കൊടുത്തിട്ടില്ല»',
 	'lqt_noreason' => 'കാരണമൊന്നും സൂചിപ്പിച്ചിട്ടില്ല',
 	'lqt_thread_deleted_for_sysops' => "ഈ ത്രെഡ് '''മായ്ച്ചിരിക്കുന്നു''', സിസോപ്പുകള്‍ക്ക് മാത്രമേ ഇതു ദൃശ്യമാവൂ.",
 	'lqt_thread_deleted' => 'ഈ ത്രെഡ് ഒഴിവാക്കി.',
@@ -6207,6 +6167,7 @@ $messages['ml'] = array(
 	'lqt-history-comment' => 'കുറിപ്പ്',
 	'lqt-thread-edited-author' => 'സ്രഷ്ടാവ് തിരുത്തിയിരിക്കുന്നു',
 	'lqt-header-actions' => 'പ്രവർത്തനങ്ങൾ',
+	'lqt_newmessages' => 'പുതിയ സന്ദേശങ്ങള്‍',
 );
 
 /** Mongolian (Монгол)
@@ -6223,8 +6184,6 @@ $messages['mn'] = array(
  */
 $messages['mr'] = array(
 	'lqt-desc' => 'चर्चा पानावर चर्चेचे मुद्दे वाढवा',
-	'lqt-nothread' => 'या आर्चिव्ह मध्ये थ्रेड्स नाहीत.',
-	'lqt_newmessages' => 'नवीन संदेश',
 	'lqt_movethread' => 'थ्रेड दुसर्‍या पानावर हलवा',
 	'lqt_deletethread' => 'थ्रेड वगळा किंवा पुनर्स्थापित करा',
 	'lqt_contents_title' => 'कंटेन्ट्स',
@@ -6262,7 +6221,6 @@ $messages['mr'] = array(
 	'lqt_protectedfromreply' => 'ह्या थ्रेडला उत्तर देणे $1 आहे.',
 	'lqt_protectedfromreply_link' => 'सुरक्षीत',
 	'lqt_subject' => 'विषय:',
-	'lqt_nosubject' => '«विषय नाही»',
 	'lqt_noreason' => 'कारण दिलेले नाही.',
 	'lqt_move_placeholder' => 'हा थ्रेड $1 थ्रेडची जागा दर्शवितो, जो दुसर्‍या चर्चा पानावर हलविण्यात आलेला होता. हे स्थानांतरण $2 ने $3 $4 ला केले.',
 	'lqt_thread_deleted_for_sysops' => 'हा थ्रेड $1 आहे व फक्त प्रबंधकांनाच दिसू शकतो.',
@@ -6301,6 +6259,7 @@ $messages['mr'] = array(
 	'lqt_sort_newest_changes' => 'शेवटी बदललेले पहिल्यांदा',
 	'lqt_sort_newest_threads' => 'नवीन थ्रेड पहिल्यांदा',
 	'lqt_sort_oldest_threads' => 'जुने थ्रेड पहिल्यांदा',
+	'lqt_newmessages' => 'नवीन संदेश',
 );
 
 /** Malay (Bahasa Melayu)
@@ -6331,7 +6290,6 @@ $messages['myv'] = array(
  * @author Fluence
  */
 $messages['nah'] = array(
-	'lqt_newmessages' => 'Yancuīc tlahcuilōltzintli',
 	'lqt_delete' => 'Ticpolōz',
 	'lqt_newer' => '←yancuīc',
 	'lqt_older' => 'huēhueh→',
@@ -6349,6 +6307,7 @@ $messages['nah'] = array(
 	'lqt-older' => 'huēhueh',
 	'lqt-newer' => 'yancuīc',
 	'lqt-read-message' => 'Ticpōhuāz',
+	'lqt_newmessages' => 'Yancuīc tlahcuilōltzintli',
 );
 
 /** Nedersaksisch (Nedersaksisch)
@@ -6591,8 +6550,6 @@ U kunt het bekijken op <$6>.",
  */
 $messages['nn'] = array(
 	'lqt-desc' => 'Legg til tråda diskusjonar til diskusjonssider',
-	'lqt-nothread' => 'Det finst ingen trådar i arkivet.',
-	'lqt_newmessages' => 'Nye meldingar',
 	'lqt_movethread' => 'Flytt tråd til ei anna sida',
 	'lqt_deletethread' => 'Slett ein eller omgjer slettinga av ein tråd',
 	'lqt_contents_title' => 'Innhald',
@@ -6630,7 +6587,6 @@ $messages['nn'] = array(
 	'lqt_protectedfromreply' => 'Denne tråden har vorten $1 for svar.',
 	'lqt_protectedfromreply_link' => 'låst',
 	'lqt_subject' => 'Emne:',
-	'lqt_nosubject' => '«ikkje noko emne»',
 	'lqt_noreason' => 'Inga grunngjeving.',
 	'lqt_move_placeholder' => 'Denne tråden finst berre for å syna at tråden $1 vart flytt frå denne sida til ei anna diskusjonssida.
 Flyttinga vart gjort av $2 $3 $4.',
@@ -6703,6 +6659,7 @@ Denne handlinga kan ikkje verta gjort om.',
 	'lqt_rc_new_reply' => 'Svar til $1 på $2. &bull; $3 skriv:',
 	'lqt_rc_author_original' => '(opphavleg forfattar)',
 	'lqt_rc_author_others' => '(ikkje forfattaren)',
+	'lqt_newmessages' => 'Nye meldingar',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -6712,8 +6669,6 @@ Denne handlinga kan ikkje verta gjort om.',
  */
 $messages['no'] = array(
 	'lqt-desc' => 'Legger til trådede diskusjoner til diskusjonssider',
-	'lqt-nothread' => 'Det er ingen tråder i arkivet.',
-	'lqt_newmessages' => 'Nye beskjeder',
 	'lqt_movethread' => 'Flytt tråd til en annen side',
 	'lqt_deletethread' => 'Slett eller gjenopprett tråd',
 	'lqt_contents_title' => 'Innhold',
@@ -6760,7 +6715,6 @@ Det kan:
 	'lqt_protectedfromreply' => 'Denne tråden har blitt $1 for svar.',
 	'lqt_protectedfromreply_link' => 'låst',
 	'lqt_subject' => 'Emne:',
-	'lqt_nosubject' => '«intet emne»',
 	'lqt_noreason' => 'Ingen grunn gitt.',
 	'lqt_move_placeholder' => 'Denne tråden eksisterer kun for å vise at tråden $1 ble flyttet fra denne siden til en annen diskusjonsside. Denne flyttingen ble foretatt av $2 $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Denne tråden har blitt '''slettet''' og er kun synlig for administratorer.",
@@ -6850,6 +6804,7 @@ ble opprettet den $3 klokka $4.
 
 Du kan se den på <$6>",
 	'lqt-quote-intro' => 'Den $2 klokka $3 skrev [[User:$1|$1]]:',
+	'lqt_newmessages' => 'Nye beskjeder',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -6859,7 +6814,6 @@ $messages['nso'] = array(
 	'lqt_delete' => 'Phumula',
 	'lqt_youhavenewmessages' => 'O nale $1.',
 	'lqt_subject' => 'Tabataba:',
-	'lqt_nosubject' => '«gago tabataba»',
 );
 
 /** Occitan (Occitan)
@@ -6867,8 +6821,6 @@ $messages['nso'] = array(
  */
 $messages['oc'] = array(
 	'lqt-desc' => 'Apond de fials de discussion dins las paginas de discussion',
-	'lqt-nothread' => 'Existís pas cap de fial de discussion dins los archius.',
-	'lqt_newmessages' => 'Messatges Novèls',
 	'lqt_movethread' => 'Desplaçar lo fial cap a una autra pagina',
 	'lqt_deletethread' => 'Escafar o recuperar lo fial',
 	'lqt_contents_title' => 'Taula dels subjèctes',
@@ -6929,7 +6881,6 @@ $messages['oc'] = array(
 	'lqt_protectedfromreply' => 'Aqueste fial es estat $1. I podètz pas respondre.',
 	'lqt_protectedfromreply_link' => 'protegit',
 	'lqt_subject' => 'Subjècte :',
-	'lqt_nosubject' => '« Cap de subjècte »',
 	'lqt_noreason' => 'Cap de motiu balhat',
 	'lqt_move_placeholder' => "Aqueste fial es una marca substitutiva qu'indica qu'un fial, $1, es estat desplaçat d'aquesta pagina cap a una autra pagina de discussion. Aqueste desplaçament es estat fach per $2 a $3 $4.",
 	'lqt_thread_deleted_for_sysops' => "Aqueste fial es estat '''suprimit''' e sols los administrators o pòdon veire.",
@@ -7076,6 +7027,7 @@ O podètz veire a « $6 »",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} - Responsas de $1',
 	'lqt-feed-new-thread-intro' => 'Fial de discussion novèl sus $1 postat per $2',
 	'lqt-feed-reply-intro' => 'Responsa a $3 (sus $1) postada per $2',
+	'lqt_newmessages' => 'Messatges Novèls',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
@@ -7100,8 +7052,6 @@ $messages['os'] = array(
  * @author Katimawan2005
  */
 $messages['pam'] = array(
-	'lqt-nothread' => 'Alang tema (thread) king simpanan (archive).',
-	'lqt_newmessages' => 'Bayung mensahi',
 	'lqt_movethread' => 'Iyalis ya ing tema (thread) king aliwang bulung',
 	'lqt_deletethread' => 'Buran ya o iurung ya pangabura ing sinulad (thread)',
 	'lqt_contents_title' => 'Kalamnan',
@@ -7113,6 +7063,7 @@ $messages['pam'] = array(
 	'lqt_move_torename_edit' => 'i-edit ya',
 	'lqt_delete_return' => 'Mibalik king $1.',
 	'lqt_sorting_order' => 'Basi ning pamituki-tuki (sorting order)',
+	'lqt_newmessages' => 'Bayung mensahi',
 );
 
 /** Deitsch (Deitsch)
@@ -7141,8 +7092,6 @@ $messages['pdc'] = array(
  */
 $messages['pl'] = array(
 	'lqt-desc' => 'Umożliwia prowadzenie na stronach dyskusji korespondencji podzielonej na wątki',
-	'lqt-nothread' => 'Brak wątków w archiwum.',
-	'lqt_newmessages' => 'Nowe wiadomości',
 	'lqt_movethread' => 'Przenieś wątek na inną stronę',
 	'lqt_deletethread' => 'Usuń lub odtwórz wątek',
 	'lqt_contents_title' => 'Zawartość',
@@ -7193,7 +7142,6 @@ $messages['pl'] = array(
 	'lqt_protectedfromreply' => 'Ten wątek został $1 przed odpowiadaniem.',
 	'lqt_protectedfromreply_link' => 'zabezpieczony',
 	'lqt_subject' => 'Temat:',
-	'lqt_nosubject' => '«brak tematu»',
 	'lqt_noreason' => 'Nie podano powodu.',
 	'lqt_move_placeholder' => '$1 został przeniesiony na inną stronę. Przeniesienia dokonał $2 $3 o $4.',
 	'lqt_thread_deleted_for_sysops' => "Ten wątek został '''usunięty''' i jest dostępny jedynie dla administratorów.",
@@ -7305,13 +7253,13 @@ Możesz zobaczyć tę odpowiedz pod adresem: <$6>",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Odpowiedzi ze stron{{plural:$2|y|}} $1',
 	'lqt-feed-new-thread-intro' => 'Nowy wątek $1 napisany przez $2',
 	'lqt-feed-reply-intro' => 'Odpowiedź w wątku $3 (na stronie $1) przez $2',
+	'lqt_newmessages' => 'Nowe wiadomości',
 );
 
 /** Pashto (پښتو)
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
-	'lqt_newmessages' => 'نوي پيغامونه',
 	'lqt_contents_title' => 'مينځپانګه',
 	'lqt_reply' => 'ځوابول',
 	'lqt_delete' => 'ړنګول',
@@ -7331,6 +7279,7 @@ $messages['ps'] = array(
 	'lqt-history-user' => 'کارن',
 	'lqt-search-button' => 'پلټل',
 	'lqt-ajax-update-link' => 'اوسمهاله کول',
+	'lqt_newmessages' => 'نوي پيغامونه',
 );
 
 /** Portuguese (Português)
@@ -7341,8 +7290,6 @@ $messages['ps'] = array(
  */
 $messages['pt'] = array(
 	'lqt-desc' => 'Adiciona discussões em tópicos a páginas de discussão',
-	'lqt-nothread' => 'Não há tópicos no arquivo.',
-	'lqt_newmessages' => 'Novas Mensagens',
 	'lqt_movethread' => 'Mover tópico para outra página',
 	'lqt_deletethread' => 'Apagar ou recuperar tópico',
 	'lqt_contents_title' => 'Conteúdo',
@@ -7387,7 +7334,6 @@ $messages['pt'] = array(
 	'lqt_protectedfromreply' => 'Este tópico foi $1 contra respostas.',
 	'lqt_protectedfromreply_link' => 'protegido',
 	'lqt_subject' => 'Assunto:',
-	'lqt_nosubject' => '«sem assunto»',
 	'lqt_noreason' => 'Nenhum motivo foi especificado.',
 	'lqt_move_placeholder' => 'Este tópico é uma representação que indica que um tópico, $1, foi removido desta página para outra página de discussão.
 Esta movimentação foi feita por $2 em $3 $4.',
@@ -7493,6 +7439,7 @@ Esta operação é reversível.',
 	'lqt-thread-show-more' => 'Mostrar mais respostas',
 	'lqt-feed-new-thread-intro' => 'Novo tópico em $1 colocado por $2',
 	'lqt-feed-reply-intro' => 'Resposta a $3 (em $1) colocada por $2',
+	'lqt_newmessages' => 'Novas Mensagens',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -7502,8 +7449,6 @@ Esta operação é reversível.',
  */
 $messages['pt-br'] = array(
 	'lqt-desc' => 'Adiciona discussões em tópicos a páginas de discussão',
-	'lqt-nothread' => 'Não há tópicos no arquivo.',
-	'lqt_newmessages' => 'Novas Mensagens',
 	'lqt_movethread' => 'Mover tópico para outra página',
 	'lqt_deletethread' => 'Apagar ou recuperar tópico',
 	'lqt_contents_title' => 'Conteúdo',
@@ -7541,7 +7486,6 @@ $messages['pt-br'] = array(
 	'lqt_protectedfromreply' => 'Este tópico foi $1 contra respostas.',
 	'lqt_protectedfromreply_link' => 'protegido',
 	'lqt_subject' => 'Assunto:',
-	'lqt_nosubject' => '«sem assunto»',
 	'lqt_noreason' => 'Nenhum motivo foi especificado.',
 	'lqt_move_placeholder' => 'Este tópico é uma representação que indica que um tópico, $1, foi removido desta página para outra página de discussão.
 Esta movimentação foi feita por $2 em $3 $4.',
@@ -7617,15 +7561,16 @@ Esta operação é reversível.',
 	'lqt-history-action' => 'Atividade',
 	'lqt-header-actions' => 'Ações',
 	'searchprofile-threads' => 'Discussões',
+	'lqt_newmessages' => 'Novas Mensagens',
 );
 
 /** Tarifit (Tarifit)
  * @author Jose77
  */
 $messages['rif'] = array(
-	'lqt_newmessages' => 'Tibratin timaynutin',
 	'lqt_delete' => 'Sfaḍ',
 	'lqt_protectedfromreply_link' => 'twaḥḍa',
+	'lqt_newmessages' => 'Tibratin timaynutin',
 );
 
 /** Romanian (Română)
@@ -7633,7 +7578,6 @@ $messages['rif'] = array(
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
-	'lqt_newmessages' => 'Mesaje noi',
 	'lqt_contents_title' => 'Cuprins',
 	'lqt_toc_thread_author' => 'Început de',
 	'lqt_toc_thread_replycount' => 'Răspunsuri',
@@ -7651,7 +7595,6 @@ $messages['ro'] = array(
 	'lqt_youhavenewmessages' => 'Aveţi [$1 noi mesaje].',
 	'lqt_protectedfromreply_link' => 'protejat',
 	'lqt_subject' => 'Subiect:',
-	'lqt_nosubject' => '«fără subiect»',
 	'lqt_noreason' => 'Nici un motiv oferit.',
 	'lqt_move_noreason' => 'Nici un motiv oferit.',
 	'lqt_delete_return' => 'Înapoi la $1.',
@@ -7697,6 +7640,7 @@ $messages['ro'] = array(
 	'lqt-preference-notify-talk' => 'Trimite-mi e-mail la răspunsurile firelor pe care le urmăresc',
 	'lqt-quote-intro' => 'Pe $2 la $3, [[User:$1|$1]] a scris:',
 	'lqt-search-label' => 'Caută termeni:',
+	'lqt_newmessages' => 'Mesaje noi',
 );
 
 /** Tarandíne (Tarandíne)
@@ -7749,8 +7693,6 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'lqt-desc' => 'Добавляет на страницы обсуждения ветки (потоки) обсуждений',
-	'lqt-nothread' => 'В архиве нет веток обсуждений.',
-	'lqt_newmessages' => 'Новые сообщения',
 	'lqt_movethread' => 'Переместить ветку на другую страницу',
 	'lqt_deletethread' => 'Удалить/восстановить ветку',
 	'lqt_contents_title' => 'Оглавление',
@@ -7812,7 +7754,6 @@ $messages['ru'] = array(
 	'lqt_protectedfromreply' => 'Эта ветка была $1 от ответа на неё.',
 	'lqt_protectedfromreply_link' => 'защищена',
 	'lqt_subject' => 'Заголовок:',
-	'lqt_nosubject' => '«без заголовка»',
 	'lqt_noreason' => 'Не указана причина.',
 	'lqt_move_placeholder' => 'Эта ветка отображает то, что ветка $1 была перемещена на страницу $3 $4 участником $2',
 	'lqt_thread_deleted_for_sysops' => "Эта ветка была '''удалена''' и видна только администраторам.",
@@ -7961,6 +7902,7 @@ $messages['ru'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Ответы $1',
 	'lqt-feed-new-thread-intro' => 'Новая ветка в $1, размещена $2',
 	'lqt-feed-reply-intro' => 'Ответ на $3 (в $1), размещена $2',
+	'lqt_newmessages' => 'Новые сообщения',
 );
 
 /** Yakut (Саха тыла)
@@ -7968,8 +7910,6 @@ $messages['ru'] = array(
  */
 $messages['sah'] = array(
 	'lqt-desc' => 'Ырытыы сирэйдэригэр салаалары эбэр',
-	'lqt-nothread' => 'Архыыпка ырытыы туһунан салаалара суох.',
-	'lqt_newmessages' => 'Саҥа этиилэр',
 	'lqt_movethread' => 'Салааны атын сирэйгэ көһөрүү',
 	'lqt_deletethread' => 'Салааны соторго/төннөрөргө',
 	'lqt_contents_title' => 'Баһа',
@@ -8030,7 +7970,6 @@ $messages['sah'] = array(
 	'lqt_protectedfromreply' => 'Бу салаа киниэхэ хоруйтан $1.',
 	'lqt_protectedfromreply_link' => 'көмүскэммит',
 	'lqt_subject' => 'Аата:',
-	'lqt_nosubject' => '«аата суох»',
 	'lqt_noreason' => 'Төрүөтэ ыйыллыбатах.',
 	'lqt_thread_deleted_for_sysops' => "Бу салаа '''сотуллубут''', дьаһабылларга эрэ костөр кыахтаах.",
 	'lqt_thread_deleted' => 'Бу салаа сотуллубут.',
@@ -8171,6 +8110,7 @@ $messages['sah'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Хоруйдар $1',
 	'lqt-feed-new-thread-intro' => 'Манна $1 $2 оҥорбут саҥа салаата',
 	'lqt-feed-reply-intro' => '$3 сурукка хоруй ($1) манна баар $2',
+	'lqt_newmessages' => 'Саҥа этиилэр',
 );
 
 /** Sicilian (Sicilianu)
@@ -8198,8 +8138,6 @@ $messages['shi'] = array(
  */
 $messages['sk'] = array(
 	'lqt-desc' => 'Pridáva organizáciu správ na diskusných stránkach do vlákien',
-	'lqt-nothread' => 'V archíve sa nenachádzajú žiadne vlákna.',
-	'lqt_newmessages' => 'Nové správy',
 	'lqt_movethread' => 'Presunúť vlákno na inú stránku',
 	'lqt_deletethread' => 'Zmazať alebo obnoviť zmazané vlákno',
 	'lqt_contents_title' => 'Obsah',
@@ -8260,7 +8198,6 @@ $messages['sk'] = array(
 	'lqt_protectedfromreply' => 'Toto vlákno bolo $1 proti odpovediam naň.',
 	'lqt_protectedfromreply_link' => 'zamknuté',
 	'lqt_subject' => 'Predmet:',
-	'lqt_nosubject' => '«bez predmetu»',
 	'lqt_noreason' => 'Nebol udaný dôvod.',
 	'lqt_move_placeholder' => 'Toto vlákno je vyhradené miesto, ktoré označuje, že vlákno $1 bolo odstránené z tejto stránky na inú diskusnú stránku. Tento presun vykonal $2 $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Vlákno bolo '''zmazané''' a môžu ho vidieť iba správcovia.",
@@ -8406,6 +8343,7 @@ Môžete si ho pozrieť na <$6>',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Odpovede od $1',
 	'lqt-feed-new-thread-intro' => 'Nové vlákno na tému $1, ktoré poslal $2',
 	'lqt-feed-reply-intro' => 'Odpoveď na $3 (na tému $1), ktorú poslal $2',
+	'lqt_newmessages' => 'Nové správy',
 );
 
 /** Lower Silesian (Schläsch)
@@ -8441,7 +8379,6 @@ $messages['sr-el'] = array(
  * @author Pyt
  */
 $messages['stq'] = array(
-	'lqt_newmessages' => 'Näie Ättergjuchte',
 	'lqt_movethread' => 'Ferschuuwe Diskussionsstrang ap ne uur Siede',
 	'lqt_deletethread' => 'Läsk Diskussionsstrang of staal ju wier häär',
 	'lqt_contents_title' => 'Inhoold',
@@ -8473,13 +8410,13 @@ $messages['stq'] = array(
 	'lqt_revision_as_of' => 'Versionsgeschichte fon dän $2 uum $3 Uure.',
 	'lqt_move_placeholder' => "''Steedehoolder, wan die Diskussionsstrang $1 ap ne uur Siede ferschäuwen wuude.''<br />
 Disse Ferschuuwenge waas däin fon $2 ap n $3 $4.",
+	'lqt_newmessages' => 'Näie Ättergjuchte',
 );
 
 /** Sundanese (Basa Sunda)
  * @author Irwangatot
  */
 $messages['su'] = array(
-	'lqt_newmessages' => 'Talatah anyar',
 	'lqt_contents_title' => 'Eusi',
 	'lqt_reply' => 'Balesan',
 	'lqt_delete' => 'Hapus',
@@ -8489,6 +8426,7 @@ $messages['su'] = array(
 	'lqt_move_noreason' => 'Henteu di béré alesan.',
 	'lqt_delete_return' => 'Balik deui ka $1.',
 	'lqt_header_warning_big' => 'Anjeun keur ngédit $1',
+	'lqt_newmessages' => 'Talatah anyar',
 );
 
 /** Swedish (Svenska)
@@ -8501,8 +8439,6 @@ $messages['su'] = array(
  */
 $messages['sv'] = array(
 	'lqt-desc' => 'Lägger till trådade diskussioner till diskussionssidor',
-	'lqt-nothread' => 'Det är inga diskussionssidor i arkivet.',
-	'lqt_newmessages' => 'Nya meddelanden',
 	'lqt_movethread' => 'Flytta diskussionssida till en annan sida',
 	'lqt_deletethread' => 'Radera eller återupprätta diskussionssida',
 	'lqt_contents_title' => 'Innehåll',
@@ -8565,7 +8501,6 @@ Det kan bero på att:
 	'lqt_protectedfromreply' => 'Den här diskussionssidan har blivit $1 för svar.',
 	'lqt_protectedfromreply_link' => 'skyddad',
 	'lqt_subject' => 'Ämne:',
-	'lqt_nosubject' => '«inget motiv»',
 	'lqt_noreason' => 'Ingen anledning given.',
 	'lqt_move_placeholder' => 'Den här diskussionssidan existerar endast för att visa att diskussionssidan $1 flyttades från den här sidan till en annan diskussionssida. Den här flytten gjordes av $2 $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Denna tråd har '''raderats''' och är endast synlig för administratörer.",
@@ -8715,6 +8650,7 @@ Du kan läsa svaret på <$6>",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Svar från $1',
 	'lqt-feed-new-thread-intro' => 'Ny tråd på $1 postad av $2',
 	'lqt-feed-reply-intro' => 'Svar till $3 (på $1) postad av $2',
+	'lqt_newmessages' => 'Nya meddelanden',
 );
 
 /** Silesian (Ślůnski)
@@ -8830,8 +8766,6 @@ $messages['tet'] = array(
  */
 $messages['tg-cyrl'] = array(
 	'lqt-desc' => 'Илова кардани баҳси торкашӣ ба саҳифаҳои баҳс',
-	'lqt-nothread' => 'Дар бойгонӣ ҳеҷ торе нест.',
-	'lqt_newmessages' => 'Пайёмҳои нав',
 	'lqt_movethread' => 'Кӯчонидани тор ба дигар саҳифа',
 	'lqt_deletethread' => 'Ҳазф ё барқарор кардани тор',
 	'lqt_contents_title' => 'Мундариҷа',
@@ -8846,7 +8780,6 @@ $messages['tg-cyrl'] = array(
 	'lqt_hist_deleted' => 'Ҳазфшуда',
 	'lqt_protectedfromreply_link' => 'ҳифзшуда',
 	'lqt_subject' => 'Мавзӯъ:',
-	'lqt_nosubject' => '«мавзӯъ нест»',
 	'lqt_noreason' => 'Далеле мушаххас нашудааст.',
 	'lqt_summary_notice_link' => 'навиштани хулоса',
 	'lqt_summary_label' => 'Ин тор ба таври зерин хулоса шудааст:',
@@ -8866,6 +8799,7 @@ $messages['tg-cyrl'] = array(
 	'lqt_header_warning_new_discussion' => 'оғози мубоҳисаи ҷадид',
 	'lqt_sort_newest_threads' => 'торҳои навтарин аввал',
 	'lqt_sort_oldest_threads' => 'торҳои кӯҳнатарин аввал',
+	'lqt_newmessages' => 'Пайёмҳои нав',
 );
 
 /** Thai (ไทย)
@@ -8888,8 +8822,6 @@ $messages['tk'] = array(
  */
 $messages['tl'] = array(
 	'lqt-desc' => 'Magdagdag ng bagting ng mga usapan sa pahina ng usapan',
-	'lqt-nothread' => 'Walang mga bagting sa loob ng sinupan.',
-	'lqt_newmessages' => 'Bagong mga mensahe',
 	'lqt_movethread' => 'Ilipat ang bagting patungo sa iba pang pahina',
 	'lqt_deletethread' => 'Burahin o huwag burahin ang bagting',
 	'lqt_contents_title' => 'Mga nilalaman',
@@ -8927,7 +8859,6 @@ $messages['tl'] = array(
 	'lqt_protectedfromreply' => 'Ang bagting ay $1 mula sa kakayahang makatugon.',
 	'lqt_protectedfromreply_link' => 'nakasanggalang',
 	'lqt_subject' => 'Paksa:',
-	'lqt_nosubject' => '«walang paksa»',
 	'lqt_noreason' => 'Walang ibinigay na dahilan.',
 	'lqt_move_placeholder' => 'Ang bagting na ito ay isang tagapaghawak ng kinalalagyan/kinalulunanan na nagpapahiwatig na ang bagting na $1 ay tinanggal mula sa pahinang ito papunta sa iba pang pahina ng usapan.
 Ang galaw na ito ay ginawa ni $2 noong $3 $4.',
@@ -9000,6 +8931,7 @@ Hindi na maibabalik pa mula sa pagkakasakatuparan ang gawaing ito.',
 	'lqt_rc_new_reply' => 'Tugon sa $1, na nasa $2. &bull; sumulat si $3 ng:',
 	'lqt_rc_author_original' => '(orihinal na may-akda)',
 	'lqt_rc_author_others' => '(hindi ang umakda)',
+	'lqt_newmessages' => 'Bagong mga mensahe',
 );
 
 /** Turkish (Türkçe)
@@ -9010,8 +8942,6 @@ Hindi na maibabalik pa mula sa pagkakasakatuparan ang gawaing ito.',
  */
 $messages['tr'] = array(
 	'lqt-desc' => 'Mesaj sayfalarına düğümlenen tartışmalar ekler',
-	'lqt-nothread' => 'Arşivde hiç düğüm yok.',
-	'lqt_newmessages' => 'Yeni iletiler',
 	'lqt_movethread' => 'Düğümü başka bir sayfaya taşı',
 	'lqt_deletethread' => 'Düğümü sil ya da silmeyi geri al',
 	'lqt_contents_title' => 'İçerikler',
@@ -9074,7 +9004,6 @@ Sebebi:
 	'lqt_protectedfromreply' => 'Bu düğüm cevaplanmaya karşı $1.',
 	'lqt_protectedfromreply_link' => 'koruma altında',
 	'lqt_subject' => 'Konu:',
-	'lqt_nosubject' => '«konu yok»',
 	'lqt_noreason' => 'Sebep belirtilmemiş.',
 	'lqt_move_placeholder' => 'Bu düğüm, bir düğümün, $1, bu sayfadan başka bir tartışma sayfasına çıkarıldığını belirten bir yertutucudur.
 Bu taşıma $3 $4 tarihinde $2 tarafından yapılmıştır.',
@@ -9215,6 +9144,7 @@ Bundan kaçınmak için, cevapları düğümü silmeden önce düğümden ayır�
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1 sayfaları için cevaplar',
 	'lqt-feed-new-thread-intro' => '$1 sayfasında yeni düğüm $2 tarafından gönderildi',
 	'lqt-feed-reply-intro' => '$3 düğümüne cevap ($1 sayfasında) $2 tarafından gönderildi',
+	'lqt_newmessages' => 'Yeni iletiler',
 );
 
 /** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
@@ -9230,8 +9160,6 @@ $messages['tt-cyrl'] = array(
  */
 $messages['vec'] = array(
 	'lqt-desc' => 'Zonta dei argomenti de discussion a le pagine de discussion',
-	'lqt-nothread' => "No ghe xe argomenti in te l'archivio.",
-	'lqt_newmessages' => 'Messagi novi',
 	'lqt_movethread' => "Sposta l'argomento su n'antra pagina",
 	'lqt_deletethread' => 'Scancela o recupera argomento',
 	'lqt_contents_title' => 'Ìndice',
@@ -9336,13 +9264,13 @@ Te pol védarlo qua: $6',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Risposte da $1',
 	'lqt-feed-new-thread-intro' => 'Argomento novo su $1, tacà da $2',
 	'lqt-feed-reply-intro' => 'Risposta a $3 (su $1) mandà da $2',
+	'lqt_newmessages' => 'Messagi novi',
 );
 
 /** Veps (Vepsan kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
-	'lqt_newmessages' => 'Uded tedotused',
 	'lqt_contents_title' => 'Südäimišt',
 	'lqt_toc_thread_replycount' => 'Vastused',
 	'lqt_add_header' => 'Ližata pälkirjutez',
@@ -9385,6 +9313,7 @@ $messages['vep'] = array(
 	'lqt-search-button' => 'Ectä',
 	'searchprofile-threads' => 'Lodu',
 	'lqt-ajax-update-link' => 'Udištada',
+	'lqt_newmessages' => 'Uded tedotused',
 );
 
 /** Vietnamese (Tiếng Việt)
@@ -9393,8 +9322,6 @@ $messages['vep'] = array(
  */
 $messages['vi'] = array(
 	'lqt-desc' => 'Thêm những thảo luận có cấu trúc vào trang thảo luận',
-	'lqt-nothread' => 'Không có luồng nào trong bản lưu.',
-	'lqt_newmessages' => 'Tin nhắn mới',
 	'lqt_movethread' => 'Di chuyển luồng đến trang khác',
 	'lqt_deletethread' => 'Xóa hay phục hồi cuộc thảo luận',
 	'lqt_contents_title' => 'Nội dung',
@@ -9456,7 +9383,6 @@ $messages['vi'] = array(
 	'lqt_protectedfromreply' => 'Luồng này đã được $1 từ những gì trả lời.',
 	'lqt_protectedfromreply_link' => 'khóa',
 	'lqt_subject' => 'Chủ đề:',
-	'lqt_nosubject' => '«không có chủ đề»',
 	'lqt_noreason' => 'Không đưa ra lý do.',
 	'lqt_move_placeholder' => 'Luồng này là một nơi lưu trữ cho thấy rằng một luồng, $1, đã bị xóa khỏi trang này đến trang thảo luận khác.
 Sự di chuyển này do $2 thực hiện vào lúc $3 $4.',
@@ -9606,17 +9532,18 @@ Bạn có thể đọc nó tại <$6>',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} – Trả lời từ $1',
 	'lqt-feed-new-thread-intro' => 'Luồng mới về $1 do $2 đăng',
 	'lqt-feed-reply-intro' => 'Trả lời $3 (về $1) do $2 đăng',
+	'lqt_newmessages' => 'Tin nhắn mới',
 );
 
 /** Volapük (Volapük)
  * @author Malafaya
  */
 $messages['vo'] = array(
-	'lqt_newmessages' => 'Nuns Nulik',
 	'lqt_contents_title' => 'Ninäd',
 	'lqt_youhavenewmessages' => 'Labol [$1 nunis nulik].',
 	'lqt_header_warning_big' => 'Redakol $1.',
 	'lqt-title' => 'Tiäd',
+	'lqt_newmessages' => 'Nuns Nulik',
 );
 
 /** Yiddish (ייִדיש)
@@ -9632,7 +9559,6 @@ $messages['yi'] = array(
  * @author Shinjiman
  */
 $messages['yue'] = array(
-	'lqt_newmessages' => '新訊息',
 	'lqt_movethread' => '搬討論串去另一版',
 	'lqt_deletethread' => '刪除或反刪除討論串',
 	'lqt_contents_title' => '內容',
@@ -9670,7 +9596,6 @@ $messages['yue'] = array(
 	'lqt_protectedfromreply' => '呢個要回覆嘅討論串己經$1。',
 	'lqt_protectedfromreply_link' => '保護咗',
 	'lqt_subject' => '主旨:',
-	'lqt_nosubject' => '«無主旨»',
 	'lqt_noreason' => '無畀到原因。',
 	'lqt_move_placeholder' => '呢個討論串係一個放置指定討論串$1響呢版度刪除咗，搬咗去另一版討論版度。呢次嘅搬動係由$2響$3 $4做嘅。',
 	'lqt_thread_deleted_for_sysops' => '呢個討論串已經$1，只係可以俾操作員睇到。',
@@ -9705,6 +9630,7 @@ $messages['yue'] = array(
 	'lqt_header_warning_after_big' => '用來做公告同埋導言嘅版頭。你可能想去$2。',
 	'lqt_header_warning_bold' => '討論頁版頭',
 	'lqt_header_warning_new_discussion' => '開始一個新討論',
+	'lqt_newmessages' => '新訊息',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
@@ -9715,8 +9641,6 @@ $messages['yue'] = array(
  */
 $messages['zh-hans'] = array(
 	'lqt-desc' => '在讨论页增加话题讨论功能',
-	'lqt-nothread' => '存档中没有话题。',
-	'lqt_newmessages' => '新消息',
 	'lqt_movethread' => '将话题移动到其他页面',
 	'lqt_deletethread' => '删除或恢复话题',
 	'lqt_contents_title' => '内容',
@@ -9777,7 +9701,6 @@ $messages['zh-hans'] = array(
 	'lqt_protectedfromreply' => '此话题已被$1，不能回复。',
 	'lqt_protectedfromreply_link' => '保护',
 	'lqt_subject' => '主题：',
-	'lqt_nosubject' => '«无主题»',
 	'lqt_noreason' => '未给出原因。',
 	'lqt_move_placeholder' => '此话题为占位标志，以表明话题$1已被$2在$3 $4移动到其他讨论页。',
 	'lqt_thread_deleted_for_sysops' => "此话题已被'''删除'''并只对管理员可见。",
@@ -9899,6 +9822,7 @@ $messages['zh-hans'] = array(
 	'lqt-search-legend' => '在本页搜索讨论',
 	'lqt-search-label' => '搜索词语：',
 	'lqt-search-button' => '搜索',
+	'lqt_newmessages' => '新消息',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
@@ -9906,7 +9830,6 @@ $messages['zh-hans'] = array(
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
-	'lqt_newmessages' => '新信息',
 	'lqt_movethread' => '移動討論串到另一頁面',
 	'lqt_deletethread' => '刪除或反刪除討論串',
 	'lqt_contents_title' => '內容',
@@ -9944,7 +9867,6 @@ $messages['zh-hant'] = array(
 	'lqt_protectedfromreply' => '這個要回覆的討論串$1。',
 	'lqt_protectedfromreply_link' => '已保護',
 	'lqt_subject' => '主旨:',
-	'lqt_nosubject' => '«無主旨»',
 	'lqt_noreason' => '無給出原因。',
 	'lqt_move_placeholder' => '這個討論串是一個放置指定討論串$1在這個頁面中刪除了，移動到另一個討論版中。這次的移動是由$2於$3 $4所作的。',
 	'lqt_thread_deleted_for_sysops' => '這個討論串$1，只可以給操作員可見。',
@@ -9979,5 +9901,6 @@ $messages['zh-hant'] = array(
 	'lqt_header_warning_after_big' => '用來作為公告和導言的頁頂。您可能想去$2。',
 	'lqt_header_warning_bold' => '討論頁頁頂',
 	'lqt_header_warning_new_discussion' => '開始一個新的討論',
+	'lqt_newmessages' => '新信息',
 );
 
