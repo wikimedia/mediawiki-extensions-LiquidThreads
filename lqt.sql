@@ -57,7 +57,8 @@ CREATE TABLE /*$wgDBprefix*/user_message_state (
   ums_thread int(8) unsigned NOT NULL,
   ums_read_timestamp varbinary(14),
 
-  PRIMARY KEY (ums_user, ums_thread)
+  PRIMARY KEY (ums_user, ums_thread),
+  KEY (ums_user,ums_read_timestamp)
 ) /*$wgDBTableOptions*/;
 
 -- "New" storage location for history data.
