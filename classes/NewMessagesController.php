@@ -29,10 +29,11 @@ class NewMessages {
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
-		
 		$dbw->replace( 'user_message_state', array( array( 'ums_user', 'ums_thread' ) ),
-						array( 'ums_user' => $user_id, 'ums_thread' => $thread_id,
-								'ums_read_timestamp' => $timestamp ), __METHOD__ );
+				array( 'ums_user' => $user_id, 'ums_thread' => $thread_id,
+					'ums_read_timestamp' => $timestamp ), __METHOD__ );
+								
+		self::recacheMessageCount( $user_id );
 	}
 
 	/**
@@ -110,10 +111,7 @@ class NewMessages {
 						'ums_thread' => $t->id(),
 						'ums_read_timestamp' => null,
 					);
-					
-				// Set newtalk
-				$u = User::newFromId( $row->wl_user );
-				$u->setNewtalk( true );
+				NewMessages::recacheMessageCount( $row->wl_user );
 			}
 			
 			$wantsTalkNotification = false;
@@ -143,8 +141,8 @@ class NewMessages {
 				$user->setNewtalk( true );
 				
 				$insert_rows[] = array( 'ums_user' => $user->getId(),
-										'ums_thread' => $t->id(),
-										'ums_read_timestamp' => null );
+							'ums_thread' => $t->id(),
+							'ums_read_timestamp' => null );
 				
 				if ( $user->getOption( 'enotifusertalkpages' ) ) {
 					$notify_users[] = $user->getId();
@@ -304,15 +302,49 @@ class NewMessages {
 		$joinClause = $dbr->makeList( $joinConds, LIST_OR );
 		
 		$res = $dbr->select( array( 'thread', 'user_message_state' ), '*',
-							array( 'ums_read_timestamp' => null,
-									Threads::articleClause( $talkPage ) ),
-							__METHOD__, array(),
-							array(
-								'user_message_state' =>
-									array( 'LEFT OUTER JOIN', $joinClause )
-							) );
+				array( 'ums_read_timestamp' => null,
+						Threads::articleClause( $talkPage ) ),
+				__METHOD__, array(),
+				array(
+					'user_message_state' =>
+						array( 'LEFT OUTER JOIN', $joinClause )
+				) );
 							
 		return Threads::loadFromResult( $res, $dbr );
+	}
+	
+	static function newMessageCount( $user ) {
+		global $wgMemc;
+		
+		$cval = $wgMemc->get( wfMemcKey( 'lqt-new-messages-count', $user->getId() ) );
+		
+		if ($cval)
+			return $cval;
+		
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$cond = array( 'ums_user' => $user->getId(), 'ums_read_timestamp' => null );
+		$options = array( 'LIMIT' => 500 );
+		
+		$res = $dbr->select( 'user_message_state', '1', $cond, __METHOD__, $options );
+		
+		$count = $res->numRows();
+		
+		if ($count >= 500) {
+			$count = $dbr->estimateRowCount( 'user_message_state', '*', $cond,
+					__METHOD__ );
+		}
+		
+		$wgMemc->set( wfMemcKey( 'lqt-new-messages-count', $user->getId() ),
+				$count, 86400 );
+		
+		return $count;
+	}
+	
+	static function recacheMessageCount( $uid ) {
+		global $wgMemc;
+		
+		$wgMemc->delete( wfMemcKey( 'lqt-new-messages-count', $uid ) );
 	}
 
 	static function watchedThreadsForUser( $user ) {
@@ -321,14 +353,14 @@ class NewMessages {
 		$dbr = wfGetDB( DB_SLAVE );
 		
 		$res = $dbr->select( array( 'thread', 'user_message_state' ), '*',
-								array( 'ums_read_timestamp' => null,
-										'ums_user' => $user->getId(),
-										'not (' . Threads::articleClause( $talkPage ) . ')',
-									),
-								__METHOD__, array(),
-								array( 'user_message_state' =>
-									array( 'INNER JOIN', 'ums_thread=thread_id' ),
-								) );
+				array( 'ums_read_timestamp' => null,
+						'ums_user' => $user->getId(),
+						'not (' . Threads::articleClause( $talkPage ) . ')',
+					),
+				__METHOD__, array(),
+				array( 'user_message_state' =>
+					array( 'INNER JOIN', 'ums_thread=thread_id' ),
+				) );
 		
 		return Threads::loadFromResult( $res, $dbr );
 	}

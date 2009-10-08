@@ -132,7 +132,7 @@ class LqtHooks {
 		
 		$sk = $wgUser->getSkin();
 		$link = $sk->link( $messages_title, $new_messages,
-								array( 'class' => 'lqt_watchlist_messages_notice' ) );
+					array( 'class' => 'lqt_watchlist_messages_notice' ) );
 		$wgOut->addHTML( $link );
 	
 		return true;
@@ -384,17 +384,45 @@ class LqtHooks {
 			// Figure out if it's on the talk page
 			$talkPage = $user->getTalkPage();
 			$isOnTalkPage = ( self::$editThread &&
-					self::$editThread->article()->getTitle()->equals( $talkPage ) );
+				self::$editThread->article()->getTitle()->equals( $talkPage ) );
 			$isOnTalkPage = $isOnTalkPage || ( self::$editAppliesTo &&
-					self::$editAppliesTo->article()->getTitle()->equals( $talkPage ) );
+				self::$editAppliesTo->article()->getTitle()->equals( $talkPage ) );
 			$isOnTalkPage = $isOnTalkPage ||
-					( self::$editView->article->getTitle()->equals( $talkPage ) );
+				( self::$editView->article->getTitle()->equals( $talkPage ) );
 			
 			if ( self::$editArticle->getTitle()->equals( $title ) && $isOnTalkPage ) {
 				$isBlocked = false;
 				return true;
 			}
 		}
+		
+		return true;
+	}
+	
+	static function onPersonalUrls( &$personal_urls, &$title ) {
+		global $wgUser, $wgLang;
+		
+		if ( $wgUser->isAnon() ) return true;
+		
+		wfLoadExtensionMessages( 'LiquidThreads' );
+		
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$newMessagesCount = NewMessages::newMessageCount( $wgUser );
+		
+		// Add new messages link.
+		$url = SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL();
+		$msg = $newMessagesCount ? 'lqt-newmessages-n' : 'lqt_newmessages';
+		$newMessagesLink =
+			array(
+				'href' => $url,
+				'text' => wfMsg( $msg, $wgLang->formatNum( $newMessagesCount ) ),
+				'active' => $newMessagesCount > 0,
+			);
+		
+		$insertUrls = array( 'newmessages' => $newMessagesLink );
+		
+		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'watchlist' );
 		
 		return true;
 	}

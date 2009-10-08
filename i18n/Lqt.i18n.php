@@ -15,8 +15,6 @@ $messages = array();
 
 $messages['en'] = array(
 	'lqt-desc' => 'Add threading discussions to talk pages',
-	'lqt-nothread' => 'There are no threads in the archive.',
-	'lqt_newmessages' => 'New messages',
 	'lqt_movethread' => 'Move thread to another page',
 	'lqt_deletethread' => 'Delete or undelete thread',
 	'lqt_contents_title' => 'Contents',
@@ -257,6 +255,9 @@ You can see it at <$6>",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Replies from $1',
 	'lqt-feed-new-thread-intro' => 'New thread on $1 posted by $2',
 	'lqt-feed-reply-intro' => 'Reply to $3 (on $1) posted by $2',
+	
+	'lqt-newmessages-n' => 'New messages ($1)',
+	'lqt_newmessages' => 'New messages',
 );
 
 /** Message documentation (Message documentation)
