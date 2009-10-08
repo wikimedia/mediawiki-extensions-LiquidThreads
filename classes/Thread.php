@@ -659,9 +659,11 @@ class Thread {
 		//  article, not as the root.
 		//  Trying not to exacerbate this by moving it to be the 'Thread talk' page.
 		$articleTitle = $this->article()->getTitle();
+		global $wgLiquidThreadsMigrate;
 		if ( !LqtDispatch::isLqtPage( $articleTitle ) && !$articleTitle->isTalkPage() &&
 				LqtDispatch::isLqtPage( $articleTitle->getTalkPage() ) &&
-				$articleTitle->getNamespace() != NS_LQT_THREAD ) {
+				$articleTitle->getNamespace() != NS_LQT_THREAD &&
+				$wgLiquidThreadsMigrate ) {
 			$newTitle = $articleTitle->getTalkPage();
 			$newArticle = new Article_LQT_Compat( $newTitle );
 			

@@ -190,3 +190,6 @@ $wgLqtEnotif = true;
 	want to have to parse it on every page view */
 $wgThreadActionsNoBump = array( 3 /* Edited summary */, 10 /* Merged from */,
 								12 /* Split from */, 2 /* Edited root */, );
+
+/** Switch this on if you've migrated from a version before around May 2009 */
+$wgLiquidThreadsMigrate = false;
