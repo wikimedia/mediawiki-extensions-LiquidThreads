@@ -351,7 +351,7 @@ class Thread {
 		if ( is_null( $line ) ) { // For Thread::create().
 			$dbr = wfGetDB( DB_SLAVE );
 			$this->modified = $dbr->timestamp( wfTimestampNow() );
-			$this->created = $dbr->timestamp( wfTimestampNow() ) );
+			$this->created = $dbr->timestamp( wfTimestampNow() );
 			$this->sortkey = $dbr->timestamp( wfTimestampNow() );
 			$this->editedness = Threads::EDITED_NEVER;
 			$this->replyCount = 0;
