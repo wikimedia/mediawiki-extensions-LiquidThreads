@@ -254,11 +254,8 @@ class Thread {
 		
 		// Fix reply count.
 		$t = $this->superthread();
-		while ( $t ) {
-			$t->decrementReplyCount();
-			$t->save();
-			$t = $t->superthread();
-		}
+		$t->decrementReplyCount();
+		$t->save();
 	}
 	
 	function undelete( $reason ) {
@@ -267,10 +264,8 @@ class Thread {
 		
 		// Fix reply count.
 		$t = $this->superthread();
-		while ( $t ) {
-			$t->incrementReplyCount();
-			$t = $t->superthread();
-		}
+		$t->incrementReplyCount( 1 );
+		$t->save();
 	}
 
 	function moveToPage( $title, $reason, $leave_trace ) {
@@ -336,21 +331,28 @@ class Thread {
 		return $this->replyCount;
 	}
 	
-	function incrementReplyCount() {
-		$this->replyCount++;
+	function incrementReplyCount( $val = 1 ) {
+		$thread = $this;
+		while ($thread) {
+			$thread->replyCount += $val;
+			$thread->save();
+			
+			$thread = $thread->superthread();
+		}
 	}
 	
-	function decrementReplyCount() {
-		$this->replyCount--;
+	function decrementReplyCount( $val = 1 ) {
+		$this->incrementReplyCount( - $val );
 	}
 
 	function __construct( $line, $unused = null ) {
 		/* SCHEMA changes must be reflected here. */
 		
 		if ( is_null( $line ) ) { // For Thread::create().
-			$this->modified = wfTimestampNow();
-			$this->created = wfTimestampNow();
-			$this->sortkey = wfTimestampNow();
+			$dbr = wfGetDB( DB_SLAVE );
+			$this->modified = $dbr->timestamp( wfTimestampNow() );
+			$this->created = $dbr->timestamp( wfTimestampNow() ) );
+			$this->sortkey = $dbr->timestamp( wfTimestampNow() );
 			$this->editedness = Threads::EDITED_NEVER;
 			$this->replyCount = 0;
 			return;
@@ -757,7 +759,7 @@ class Thread {
 		}
 		
 		// Increment reply count.
-		$this->replyCount += $thread->replyCount() + 1;
+		$this->incrementReplyCount( $thread->replyCount() + 1 );
 	}
 	
 	function removeReply( $thread ) {
@@ -771,7 +773,7 @@ class Thread {
 		
 		// Also, decrement the reply count.
 		$threadObj = Threads::withId( $thread );
-		$this->replyCount -= ( 1 + $threadObj->replyCount() );
+		$this->decrementReplyCount( 1 + $threadObj->replyCount() );
 	}
 	
 	function replies() {
@@ -1164,5 +1166,18 @@ class Thread {
 							array( 'ORDER BY' => 'rev_timestamp DESC' ), $join_conds );
 							
 		return $row->rev_id;
+	}
+	
+	function sortkey() {
+		return $this->sortkey;
+	}
+	
+	function setSortKey( $k = null ) {
+		if ( is_null($k) ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$k = $dbr->timestamp( wfTimestampNow() );
+		}
+		
+		$this->sortkey = $k;
 	}
 }
