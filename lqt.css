@@ -414,6 +414,10 @@ div.lqt-thread-toolbar-box-tl {
 	margin-left: 8px;
 }
 
+.lqt-thread-toolbar-commands > .lqt-command-history {
+	margin-left: 8px;
+}
+
 .lqt-command-quote a {
 	background-image: url(icons/quote.png);
 	margin-left: 8px;

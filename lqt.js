@@ -370,14 +370,16 @@ var liquidThreads = {
 		
 		$j(threadContainer).data( 'thread-id', threadId );
 		
-		if (!(replyLI.length)) {
-			return;
+		if ( replyLI.length ) {
+			replyLI[0].id = "lqt-reply-id-"+threadId;
+			var replyLink = replyLI.find('a');
+			
+			replyLink.click( liquidThreads.handleReplyLink );
+			
+			// Add quote button to menus
+			var toolbar = $j(threadContainer).find('.lqt-thread-toolbar-commands');
+			liquidThreads.addQuoteButton(toolbar);
 		}
-		
-		replyLI[0].id = "lqt-reply-id-"+threadId;
-		var replyLink = replyLI.find('a');
-		
-		replyLink.click( liquidThreads.handleReplyLink );
 		
 		// Hide edit forms
 		$j(threadContainer).find('div.lqt-edit-form').each(
@@ -391,10 +393,6 @@ var liquidThreads = {
 	
 		// Update menus
 		$j(threadContainer).each( liquidThreads.setupMenus );
-	
-		// Add quote button to menus
-		var toolbar = $j(threadContainer).find('.lqt-thread-toolbar-commands');
-		liquidThreads.addQuoteButton(toolbar);
 		
 		// Check for a "show replies" button
 		$j('a.lqt-show-replies').click( liquidThreads.showReplies );

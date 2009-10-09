@@ -538,7 +538,15 @@ class LqtView {
 	function threadCommands( $thread ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$commands = array();
+		
+		$history_url = self::permalinkUrlWithQuery( $thread, array( 'action' => 'history' ) );
+		$commands['history'] = array( 'label' => wfMsgExt( 'history_short', 'parseinline' ),
+						 'href' => $history_url,
+						 'enabled' => true );
 
+		if ( $thread->isHistorical() ) {
+			return array();
+		}
 		$user_can_edit = $thread->root()->getTitle()->quickUserCan( 'edit' );
 		$editMsg = $user_can_edit ? 'edit' : 'viewsource';
 
@@ -546,11 +554,6 @@ class LqtView {
 		                     'href' => $this->talkpageUrl( $this->title, 'edit', $thread,
 		                     	true /* include fragment */ , $this->request ),
 		                     'enabled' => true );
-
-		$history_url = self::permalinkUrlWithQuery( $thread, array( 'action' => 'history' ) );
-		$commands['history'] = array( 'label' => wfMsgExt( 'history_short', 'parseinline' ),
-						 'href' => $history_url,
-						 'enabled' => true );
 
 		if ( $this->user->isAllowed( 'delete' ) ) {
 			$delete_url = $thread->title()->getFullURL( 'action=delete' );
@@ -590,7 +593,16 @@ class LqtView {
 		
 		if ( $thread->isHistorical() ) {
 			// No links for historical threads.
-			return array();
+			$history_url = self::permalinkUrlWithQuery( $thread,
+					array( 'action' => 'history' ) );
+			$commands = array();
+			
+			$commands['history'] = array(
+				'label' => wfMsgExt( 'history_short', 'parseinline' ),
+				 'href' => $history_url,
+				 'enabled' => true );
+				 
+			return $commands;
 		}
 		
 		$commands = array();
@@ -765,9 +777,12 @@ class LqtView {
 				array( 'class' => 'lqt-thread-actions-trigger ' .
 					'lqt-command-icon', 'style' => 'display: none;' ),
 				$triggerText );
-		$headerParts[] = Xml::tags( 'li',
+		
+		if ( count($commands) ) {
+			$headerParts[] = Xml::tags( 'li',
 						array( 'class' => 'lqt-thread-toolbar-menu' ),
 						$dropDownTrigger );
+		}
 							
 		$html .= implode( ' ', $headerParts );
 		
