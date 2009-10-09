@@ -178,7 +178,9 @@ class NewUserMessagesView extends LqtView {
 		$html = "<tr>$leftColumn<td>";
 		$this->output->addHTML( $html );
 
-		$this->showThread( $t );
+		$mustShowThreads = $this->targets[$t->id()];
+
+		$this->showThread( $t, 1, 1, array( 'mustShowThreads' => $mustShowThreads ) );
 		
 		$this->output->addHTML( "</td></tr>" );
 	}
