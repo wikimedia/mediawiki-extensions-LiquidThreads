@@ -335,7 +335,7 @@ class Thread {
 	
 	function incrementReplyCount( $val = 1 ) {
 		$thread = $this;
-		while ($thread) {
+		while ( $thread ) {
 			$thread->replyCount += $val;
 			$thread->save();
 			
@@ -1175,7 +1175,7 @@ class Thread {
 	}
 	
 	function setSortKey( $k = null ) {
-		if ( is_null($k) ) {
+		if ( is_null( $k ) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$k = wfTimestampNow( TS_DB );
 		}

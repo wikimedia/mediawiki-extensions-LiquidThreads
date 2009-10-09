@@ -318,7 +318,7 @@ class NewMessages {
 		
 		$cval = $wgMemc->get( wfMemcKey( 'lqt-new-messages-count', $user->getId() ) );
 		
-		if ($cval)
+		if ( $cval )
 			return $cval;
 		
 		$dbr = wfGetDB( DB_SLAVE );
@@ -330,7 +330,7 @@ class NewMessages {
 		
 		$count = $res->numRows();
 		
-		if ($count >= 500) {
+		if ( $count >= 500 ) {
 			$count = $dbr->estimateRowCount( 'user_message_state', '*', $cond,
 					__METHOD__ );
 		}

@@ -7,6 +7,7 @@ class Threads {
 	const TYPE_NORMAL = 0;
 	const TYPE_MOVED = 1;
 	const TYPE_DELETED = 2;
+	const TYPE_HIDDEN = 4;
 
 	const CHANGE_NEW_THREAD = 0;
 	const CHANGE_REPLY_CREATED = 1;
@@ -22,11 +23,21 @@ class Threads {
 	const CHANGE_MERGED_TO = 11;
 	const CHANGE_SPLIT_FROM = 12;
 	
-	static $VALID_CHANGE_TYPES = array( self::CHANGE_EDITED_SUMMARY, self::CHANGE_EDITED_ROOT,
-		self::CHANGE_REPLY_CREATED, self::CHANGE_NEW_THREAD, self::CHANGE_DELETED, self::CHANGE_UNDELETED,
-		self::CHANGE_MOVED_TALKPAGE, self::CHANGE_SPLIT, self::CHANGE_EDITED_SUBJECT,
-		self::CHANGE_PARENT_DELETED, self::CHANGE_MERGED_FROM, self::CHANGE_MERGED_TO,
-		self::CHANGE_SPLIT_FROM );
+	static $VALID_CHANGE_TYPES = array(
+		self::CHANGE_EDITED_SUMMARY,
+		self::CHANGE_EDITED_ROOT,
+		self::CHANGE_REPLY_CREATED,
+		self::CHANGE_NEW_THREAD,
+		self::CHANGE_DELETED,
+		self::CHANGE_UNDELETED,
+		self::CHANGE_MOVED_TALKPAGE,
+		self::CHANGE_SPLIT,
+		self::CHANGE_EDITED_SUBJECT,
+		self::CHANGE_PARENT_DELETED,
+		self::CHANGE_MERGED_FROM,
+		self::CHANGE_MERGED_TO,
+		self::CHANGE_SPLIT_FROM,
+		);
 
 	// Possible values of Thread->editedness.
 	const EDITED_NEVER = 0;
@@ -136,7 +147,7 @@ class Threads {
 		$dbr = wfGetDB( DB_SLAVE );
 		
 		$titleCond = array( 'thread_article_title' => $article->getTitle()->getDBKey(),
-						'thread_article_namespace' => $article->getTitle()->getNamespace() );
+				'thread_article_namespace' => $article->getTitle()->getNamespace() );
 		$titleCond = $dbr->makeList( $titleCond, LIST_AND );
 		
 		$conds = array( $titleCond );
@@ -265,7 +276,8 @@ class Threads {
 			$roundRowsAffected = 0;
 			
 			// Fix wrong title.
-			$res = $dbw->update( 'thread', $titleCond, $fixTitleCond, __METHOD__, $options );
+			$res = $dbw->update( 'thread', $titleCond, $fixTitleCond,
+						__METHOD__, $options );
 			$roundRowsAffected += $dbw->affectedRows();
 			
 			// Fix wrong ID
@@ -277,7 +289,8 @@ class Threads {
 		
 		if ( $limit && ( $rowsAffected >= $limit ) && $queueMore ) {
 			$jobParams = array( 'limit' => $limit, 'cascade' => true );
-			$job = new SynchroniseThreadArticleDataJob( $article->getTitle(), $jobParams );
+			$job = new SynchroniseThreadArticleDataJob( $article->getTitle(),
+									$jobParams );
 			$job->insert();
 		}
 		

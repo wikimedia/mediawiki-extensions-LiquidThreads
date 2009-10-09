@@ -699,9 +699,18 @@ class LqtView {
 	static function exportJSLocalisation() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		
-		$messages = array( 'lqt-quote-intro', 'lqt-quote', 'lqt-ajax-updated',
-							'lqt-ajax-update-link', 'watch', 'unwatch', 'lqt-thread-link-url',
-							'lqt-thread-link-title', 'lqt-thread-link-copy' );
+		$messages = array(
+				'lqt-quote-intro',
+				'lqt-quote',
+				'lqt-ajax-updated',
+				'lqt-ajax-update-link',
+				'watch',
+				'unwatch',
+				'lqt-thread-link-url',
+				'lqt-thread-link-title',
+				'lqt-thread-link-copy',
+			);
+				
 		$data = array();
 		
 		foreach ( $messages as $msg ) {
@@ -912,7 +921,8 @@ class LqtView {
 		$infoElements = array();
 		
 		$timestamp = $wgLang->timeanddate( $thread->created(), true );
-		$infoElements[] = Xml::element( 'div', array( 'class' => 'lqt-thread-toolbar-timestamp' ),
+		$infoElements[] = Xml::element( 'div',
+					array( 'class' => 'lqt-thread-toolbar-timestamp' ),
 					$timestamp );
 									
 		// Check for edited flag.
@@ -939,7 +949,8 @@ class LqtView {
 			if ( $thread->hasSuperthread() ) {
 				$commands_html = "";
 			} else {
-				$lis = $this->listItemsForCommands( $this->topLevelThreadCommands( $thread ) );
+				$commands = $this->topLevelThreadCommands( $thread );
+				$lis = $this->listItemsForCommands( $commands );
 				$id = 'lqt-threadlevel-commands-' . $thread->id();
 				$commands_html = Xml::tags( 'ul',
 						array( 'class' => 'lqt_threadlevel_commands',
@@ -1089,15 +1100,16 @@ class LqtView {
 			$class .= ' lqt-thread-last';
 		}
 		
-		$html .= Xml::openElement( 'div', array( 'class' => $class,
-									'id' => 'lqt_thread_id_' . $thread->id() ) );
+		$html .= Xml::openElement( 'div',
+						array( 'class' => $class,
+						'id' => 'lqt_thread_id_' . $thread->id() ) );
 
 		// Modified time for topmost threads...
 		if ( $thread->isTopmostThread() ) {
 			$html .= Xml::hidden( 'lqt-thread-modified-' . $thread->id(),
 						wfTimestamp( TS_MW, $thread->modified() ),
 						array( 'id' => 'lqt-thread-modified-' . $thread->id(),
-								'class' => 'lqt-thread-modified' ) );
+							'class' => 'lqt-thread-modified' ) );
 		}
 		
 		// Add the thread's title
@@ -1139,7 +1151,9 @@ class LqtView {
 		
 		// Show subthreads if one of the subthreads is on the must-show list
 		$showThreads = $showThreads ||
-			count( array_intersect( array_keys( $mustShowThreads ), array_keys( $thread->replies() ) ) );
+			count( array_intersect(
+				array_keys( $mustShowThreads ), array_keys( $thread->replies() )
+			) );
 		if ( $thread->hasSubthreads() && $showThreads ) {
 			$repliesClass = 'lqt-thread-replies lqt-thread-replies-' . $this->threadNestingLevel;
 			$div = Xml::openElement( 'div', array( 'class' => $repliesClass ) );
@@ -1175,7 +1189,9 @@ class LqtView {
 					++$showCount;
 					if ( $showCount == 1 ) {
 						$this->output->addHTML(
-							Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&nbsp;' ) );
+							Xml::tags( 'div',
+								array( 'class' => 'lqt-post-sep' ),
+								'&nbsp;' ) );
 					}
 					
 					$this->showThread( $st, $i, $subthreadCount, $cascadeOptions );
