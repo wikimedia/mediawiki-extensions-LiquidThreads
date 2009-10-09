@@ -288,18 +288,21 @@ class Thread {
 		
 		$new_articleNamespace = $title->getNamespace();
 		$new_articleTitle = $title->getDBkey();
+		$new_articleID = $title->getArticleID();
 		
 		// Update on *all* subthreads.
 		$dbr->update( 'thread',
 				array(
 					'thread_article_namespace' => $new_articleNamespace,
 					'thread_article_title' => $new_articleTitle,
+					'thread_article_id' => $new_articleID,
 				),
 				array( 'thread_ancestor' => $this->id() ),
 				__METHOD__ );
 
 		$this->articleNamespace = $new_articleNamespace;
 		$this->articleTitle = $new_articleTitle;
+		$this->articleId = $new_articleID;
 		$this->commitRevision( Threads::CHANGE_MOVED_TALKPAGE, null, $reason );
 		
 		# Log the move
