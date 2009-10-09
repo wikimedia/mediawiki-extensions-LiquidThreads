@@ -1122,6 +1122,8 @@ class LqtView {
 		$showCount = 0;
 		$showThreads = true;
 		
+		$mustShowThreads = $cascadeOptions['mustShowThreads'];
+		
 		foreach ( $thread->subthreads() as $st ) {
 			++$i;
 			
