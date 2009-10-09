@@ -50,12 +50,12 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 
 		$html = '';
 		$html .= wfMsgExt( 'lqt_revision_as_of', 'parseinline',
-							array(
-								$wgLang->timeanddate( $this->mDisplayRevision->getTimestamp() ),
-								$wgLang->date( $this->mDisplayRevision->getTimestamp() ),
-								$wgLang->time( $this->mDisplayRevision->getTimestamp() )
-							)
-						);
+			array(
+				$wgLang->timeanddate( $this->mDisplayRevision->getTimestamp() ),
+				$wgLang->date( $this->mDisplayRevision->getTimestamp() ),
+				$wgLang->time( $this->mDisplayRevision->getTimestamp() )
+			)
+		);
 		
 		$html .= '<br/>';
 
@@ -64,8 +64,8 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$msg = '';
 		if ( $ct == Threads::CHANGE_EDITED_ROOT ) {
 			$diff_link = $this->diffPermalink( $this->thread,
-												wfMsgExt( 'diff', 'parseinline' ),
-												$this->mDisplayRevision );
+							wfMsgExt( 'diff', 'parseinline' ),
+							$this->mDisplayRevision );
 			$msg = wfMsgExt( 'lqt_change_edited_root', 'parseinline' ) .
 					" [$diff_link]";
 		} else {
