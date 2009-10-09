@@ -770,7 +770,7 @@ class LqtView {
 		$commands = $this->threadCommands( $thread );
 		$menuHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-command-list' ),
 					$this->listItemsForCommands( $commands ) );
-									
+
 		$triggerText =	Xml::tags( 'span', array( 'class' => 'lqt-thread-actions-icon' ),
 					'&nbsp;' );
 		$dropDownTrigger = Xml::tags( 'div',
@@ -1129,13 +1129,18 @@ class LqtView {
 		$replies = $thread->replies();
 		
 		foreach( $replies as $reply ) {
-			$content = $reply->root()->getContent();
+			$content = '';
+			if ( $reply->root() ) $content = $reply->root()->getContent();
 			
 			if ( trim($content) != '' ) {
 				return true;
 			}
 			
 			if ( self::threadContainsRepliesWithContent( $reply ) ) {
+				return true;
+			}
+			
+			if ( $reply->type() == Threads::TYPE_MOVED ) {
 				return true;
 			}
 		}
@@ -1227,8 +1232,10 @@ class LqtView {
 		$options['mustShowThreads'] = $mustShowThreads;
 		
 		// Don't show blank posts unless we have to
-		$content = $thread->root()->getContent();
+		$content = '';
+		if ( $thread->root() ) $content = $thread->root()->getContent();
 		if ( trim($content) == '' &&
+			$thread->type() != Threads::TYPE_MOVED &&
 			! self::threadContainsRepliesWithContent( $thread ) &&
 			! array_key_exists( $thread->id(), $mustShowThreads ) ) {
 			
