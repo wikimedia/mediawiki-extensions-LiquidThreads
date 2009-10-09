@@ -36,10 +36,10 @@ class Threads {
 
 	static $cache_by_root = array();
 	static $cache_by_id = array();
-	static protected $occupied_titles = array();
+	static $occupied_titles = array();
 
-    static function newThread( $root, $article, $superthread = null,
-    							$type = self::TYPE_NORMAL, $subject = '' ) {
+	static function newThread( $root, $article, $superthread = null,
+			$type = self::TYPE_NORMAL, $subject = '' ) {
 		return Thread::create( $root, $article, $superthread, $type, $subject );
 	}
 
@@ -51,11 +51,12 @@ class Threads {
 		if ( ! $talkpage->exists() ) {
 			try {
 				wfLoadExtensionMessages( 'LiquidThreads' );
-				$talkpage->doEdit( "", wfMsgForContent( 'lqt_talkpage_autocreate_summary' ),
-						EDIT_NEW | EDIT_SUPPRESS_RC );
+				$talkpage->doEdit( "",
+					wfMsgForContent( 'lqt_talkpage_autocreate_summary' ),
+					EDIT_NEW | EDIT_SUPPRESS_RC );
 			} catch ( DBQueryError $e ) {
 				// The article already existed by now. No need to do anything.
-				wfDebug( __METHOD__ . ": Article already existed by the time we tried to create it." );
+				wfDebug( __METHOD__ . ": Article already exists." );
 			}
 		}
 	}
@@ -89,7 +90,7 @@ class Threads {
 
 	private static function databaseError( $msg ) {
 		// TODO tie into MW's error reporting facilities.
-		throw new MWException( "Corrupt liquidthreads database: $msg" );
+		throw new MWException( "Corrupt LiquidThreads database: $msg" );
 	}
 
 	private static function assertSingularity( $threads, $attribute, $value ) {
@@ -101,24 +102,18 @@ class Threads {
 		}
 	}
 
-	private static function arrayContainsThreadWithId( $a, $id ) {
-		// There's gotta be a nice way to express this in PHP. Anyone?
-		foreach ( $a as $t )
-			if ( $t->id() == $id )
-				return true;
-		return false;
-	}
-
 	static function withRoot( $post ) {
 		if ( $post->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			// No articles outside the thread namespace have threads associated with them;
-			// avoiding the query saves time during the TitleGetRestrictions hook.
 			return null;
 		}
+		
 		if ( array_key_exists( $post->getID(), self::$cache_by_root ) ) {
 			return self::$cache_by_root[$post->getID()];
 		}
+		
 		$ts = Threads::where( array( 'thread_root' => $post->getID() ) );
+		
 		return self::assertSingularity( $ts, 'thread_root', $post->getID() );
 	}
 
@@ -126,6 +121,7 @@ class Threads {
 		if ( array_key_exists( $id, self::$cache_by_id ) ) {
 			return self::$cache_by_id[$id];
 		}
+		
 		$ts = Threads::where( array( 'thread_id' => $id ) );
 		
 		return self::assertSingularity( $ts, 'thread_id', $id );
@@ -134,29 +130,6 @@ class Threads {
 	static function withSummary( $article ) {
 		$ts = Threads::where( array( 'thread_summary_page' => $article->getId() ) );
 		return self::assertSingularity( $ts, 'thread_summary_page', $article->getId() );
-	}
-
-	/**
-	  * Horrible, horrible!
-	  * List of months in which there are >0 threads, suitable for threadsOfArticleInMonth.
-	  * Returned as an array of months in the format yyyymm
-	  */
-	static function monthsWhereArticleHasThreads( $article ) {
-		// FIXME this probably performs absolutely horribly for pages with lots of threads.
-
-		$threads = Threads::where( Threads::articleClause( $article ) );
-		$months = array();
-		
-		foreach ( $threads as $t ) {
-			$month = substr( $t->modified(), 0, 6 );
-			
-			$months[$month] = true;
-		}
-		
-		// Some code seems to assume that it's sorted by month, make sure it's true.
-		ksort( $months );
-		
-		return array_keys( $months );
 	}
 
 	static function articleClause( $article ) {
