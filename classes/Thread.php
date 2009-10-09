@@ -256,8 +256,11 @@ class Thread {
 		
 		// Fix reply count.
 		$t = $this->superthread();
-		$t->decrementReplyCount();
-		$t->save();
+		
+		if ($t) {
+			$t->decrementReplyCount();
+			$t->save();
+		}
 	}
 	
 	function undelete( $reason ) {
@@ -266,8 +269,10 @@ class Thread {
 		
 		// Fix reply count.
 		$t = $this->superthread();
-		$t->incrementReplyCount( 1 );
-		$t->save();
+		if ($t) {
+			$t->incrementReplyCount( 1 );
+			$t->save();
+		}
 	}
 
 	function moveToPage( $title, $reason, $leave_trace ) {
