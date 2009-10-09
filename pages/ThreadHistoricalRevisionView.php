@@ -11,7 +11,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	function postDivClass( $thread ) {
 		$changedObject = $this->mDisplayRevision->getChangeObject();
 		$is_changed_thread =  $changedObject &&
-								( $changedObject->id() == $thread->id() );
+					( $changedObject->id() == $thread->id() );
 		
 		$class = parent::postDivClass( $thread );
 		
@@ -91,7 +91,25 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$this->thread = $this->mDisplayRevision->getThreadObj();
 		
 		$this->showHistoryInfo();
-		parent::show();
+
+		global $wgHooks;
+		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
+
+		if ( !$this->thread ) {
+			$this->showMissingThreadPage();
+			return false;
+		}
+
+		self::addJSandCSS();
+		$this->output->setSubtitle( $this->getSubtitle() );
+		
+		$changedObject = $this->mDisplayRevision->getChangeObject();
+
+		$this->showThread( $this->thread, 1, 1,
+			array( 'maxDepth' => - 1, 'maxCount' => - 1,
+				'mustShowThreads' => array( $changedObject->id() ) ) );
+		
+		$this->output->setPageTitle( $this->thread->subject() );
 		return false;
 	}
 }

@@ -1110,6 +1110,24 @@ class LqtView {
 		return $link;
 	}
 	
+	static function threadContainsRepliesWithContent( $thread ) {
+		$replies = $thread->replies();
+		
+		foreach( $replies as $reply ) {
+			$content = $reply->root()->getContent();
+			
+			if ( trim($content) != '' ) {
+				return true;
+			}
+			
+			if ( self::threadContainsRepliesWithContent( $reply ) ) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	function showThreadReplies( $thread, $startAt, $maxCount, $showThreads,
 			$cascadeOptions ) {
 		$repliesClass = 'lqt-thread-replies lqt-thread-replies-' .
@@ -1193,6 +1211,16 @@ class LqtView {
 		// For cascading.
 		$options['mustShowThreads'] = $mustShowThreads;
 		
+		// Don't show blank posts unless we have to
+		$content = $thread->root()->getContent();
+		if ( trim($content) == '' &&
+			! self::threadContainsRepliesWithContent( $thread ) &&
+			! array_key_exists( $thread->id(), $mustShowThreads ) ) {
+			
+			$this->threadNestingLevel--;
+			return;
+		}
+		
 		$sk = $this->user->getSkin();
 		$html = '';
 
@@ -1254,17 +1282,25 @@ class LqtView {
 		$cascadeOptions = $options;
 		unset( $cascadeOptions['startAt'] );
 		
-		$showThreads = ( $maxDepth == - 1 ) || ( $this->threadNestingLevel <= $maxDepth );
+		$showThreads = ( $maxDepth == - 1 ) ||
+				( $this->threadNestingLevel <= $maxDepth );
+		
+		$mustShowThreadIds = array_keys( $mustShowThreads );
+		$subthreadIds = array_keys( $thread->replies() );
+		$mustShowSubthreadIds = array_intersect( $mustShowThreadIds, $subthreadIds );
+		
+		$hasSubthreads = self::threadContainsRepliesWithContent( $thread );
+		$hasSubthreads = $hasSubthreads || count( $mustShowSubthreadIds );
 		
 		// Show subthreads if one of the subthreads is on the must-show list
 		$showThreads = $showThreads ||
 			count( array_intersect(
 				array_keys( $mustShowThreads ), array_keys( $thread->replies() )
 			) );
-		if ( $thread->hasSubthreads() && $showThreads ) {
+		if ( $hasSubthreads && $showThreads ) {
 			$this->showThreadReplies( $thread, $startAt, $maxCount, $showThreads,
 				$cascadeOptions );
-		} elseif ( $thread->hasSubthreads() && !$showThreads ) {
+		} elseif ( $hasSubthreads && !$showThreads ) {
 			// Add a "show subthreads" link.
 			$link = $this->getShowReplies( $thread );
 			
