@@ -394,6 +394,7 @@ Parameters are:
 * $2 is a link to the user posting in the thread
 * $3 is a link to the super thread
 * $4 is the name of the user posting to the thread, optional, can be used for GENDER',
+	'lqt-newmessages-n' => '{{Identical|New messages}}',
 	'lqt_newmessages' => '{{Identical|New messages}}',
 );
 
@@ -480,6 +481,7 @@ $messages['af'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antwoorde van $1',
 	'lqt-feed-new-thread-intro' => 'Nuwe onderwerp deur $2 op $1',
 	'lqt-feed-reply-intro' => 'Antwoord op $3 (op $1) deur $2',
+	'lqt-newmessages-n' => 'Nuwe boodskappe ($1)',
 	'lqt_newmessages' => 'Nuwe boodskappe',
 );
 
@@ -1036,6 +1038,7 @@ $messages['be-tarask'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Адказы $1',
 	'lqt-feed-new-thread-intro' => 'Новая галіна на $1 разьмешчаная $2',
 	'lqt-feed-reply-intro' => 'Адказ на $3 (на $1) разьмешчаны $2',
+	'lqt-newmessages-n' => 'Новыя паведамленьні ($1)',
 	'lqt_newmessages' => 'Новыя паведамленьні',
 );
 
@@ -2116,6 +2119,9 @@ Du kannst sie auf <$6> einsehen.',
 	'lqt-ajax-update-link' => 'Aktualisieren',
 	'lqt-thread-show-replies' => '$1 Antwort(en) anzeigen',
 	'lqt-thread-show-more' => 'Mehr Antworten anzeigen',
+	'lqt-thread-link-url' => 'Link-URL:',
+	'lqt-thread-link-title' => 'Wikitext-Link:',
+	'lqt-thread-link-copy' => 'In die Zwischenablage kopieren',
 	'lqt-feed-title-all' => '{{SITENAME}} — Neue Beiträge',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Neue Beiträge von $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Neue Diskussionsstränge',
@@ -2124,6 +2130,7 @@ Du kannst sie auf <$6> einsehen.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antworten von $1',
 	'lqt-feed-new-thread-intro' => 'Neuer Diskussionsstrang auf $1 von $2',
 	'lqt-feed-reply-intro' => 'Antwort auf $3 (auf $1) von $2',
+	'lqt-newmessages-n' => 'Neue Nachrichten ($1)',
 	'lqt_newmessages' => 'Neue Nachrichten',
 );
 
@@ -3091,6 +3098,7 @@ Jos se on päättynyt, voi olla että haluat $1.',
  * @author Dereckson
  * @author Grondin
  * @author IAlex
+ * @author Jean-Frédéric
  * @author McDutchie
  * @author Mormegil
  * @author Peter17
@@ -3111,9 +3119,9 @@ $messages['fr'] = array(
 	'lqt_toc_thread_modified' => 'Dernière modification',
 	'lqt_add_header' => 'Ajouter en-tête',
 	'lqt_new_thread' => 'Lancer une nouvelle discussion',
-	'lqt_invalid_subject' => 'Le sujet que vous avez entré est invalide. Il ce peut :
-* être trop long ou
-* soit en conflit avec un préfixe interwiki, ou un espace de noms.',
+	'lqt_invalid_subject' => 'Le sujet que vous avez entré est invalide. Il peut :
+* être trop long ;
+* entrer en conflit avec un préfixe interwiki, ou un espace de noms.',
 	'lqt_empty_subject' => 'Vous devez entrer un objet.',
 	'lqt_subject_change_forbidden' => "Vous n'êtes pas autorisé à modifier le sujet de ce fil parce que vous ne pouvez pas renommer des pages.",
 	'lqt_in_response_to' => 'En réponse à $1 par $2, plus haut :',
@@ -5059,10 +5067,12 @@ $messages['io'] = array(
 
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
+ * @author Spacebirdy
  */
 $messages['is'] = array(
 	'lqt_noreason' => 'Engin ástæða gefin.',
 	'lqt_move_noreason' => 'Engin ástæða gefin.',
+	'searchprofile-threads' => 'Spjöll',
 );
 
 /** Italian (Italiano)
@@ -5470,7 +5480,16 @@ $messages['jv'] = array(
 $messages['ka'] = array(
 	'lqt_noreason' => 'მიზეზი ნაჩვენები არაა.',
 	'lqt_move_move' => 'გადატანა',
+	'lqt_header_warning_new_discussion' => 'ახალი დისკუსიის დაწყება',
 	'lqt-title' => 'სათაური',
+	'lqt-older' => 'უფრო ძველი',
+	'lqt-newer' => 'უფრო ახალი',
+	'lqt-archive-subtitle' => 'განხილვის არქივი',
+	'lqt-history-user' => 'მომხმარებელი',
+	'lqt-search-button' => 'ძიება',
+	'searchprofile-threads' => 'განხილვები',
+	'lqt-newmessages-n' => 'ახალი შეტყობინებები ($1)',
+	'lqt_newmessages' => 'ახალი შეტყობინებები',
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -5582,6 +5601,7 @@ $messages['kn'] = array(
  */
 $messages['ko'] = array(
 	'lqt-desc' => '토론문서에서 새주제의 토론 추가',
+	'lqt_movethread' => '다른 페이지로 옮기기',
 	'lqt_new_thread' => '새 토론 시작하기',
 	'lqt_invalid_subject' => '당신이 입력한 주제가 잘못되었습니다.
 * 주제가 너무 길거나
@@ -5589,20 +5609,24 @@ $messages['ko'] = array(
 	'lqt_reply' => '답변',
 	'lqt_delete' => '삭제',
 	'lqt_undelete' => '되살리기',
+	'lqt-history-title' => '스레드 역사',
 	'lqt_protectedfromreply_link' => '보호',
 	'lqt_subject' => '주제:',
 	'lqt_move_move' => '이동',
 	'lqt_delete_return' => '$1로 돌아갑니다.',
 	'lqt_sorting_order' => '정렬 순서:',
+	'lqt-read-message' => '읽은 것으로 표시',
 	'lqt_rc_ellipsis' => '...',
 	'lqt-history-time' => '시간',
 	'lqt-history-user' => '사용자',
 	'lqt_summarize_link' => '요약',
 	'lqt-split-submit' => '분할',
+	'lqt-log-action-move' => '[[$1]]을 [[$2]]에서 [[$3]]으로 옮김',
 	'lqt-quote-intro' => '[[User:$1|$1]] 사용자가 $2 $3에 남긴 글:',
 	'lqt-quote' => '인용',
 	'lqt-search-button' => '찾기',
 	'lqt-thread-link-url' => '링크 URL:',
+	'lqt-newmessages-n' => '새 메시지 ($1)',
 	'lqt_newmessages' => '새 메시지',
 );
 
@@ -6539,7 +6563,7 @@ U kunt het bekijken op <$6>.",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Reacties van $1',
 	'lqt-feed-new-thread-intro' => 'Nieuw onderwerp op $1 door $2',
 	'lqt-feed-reply-intro' => 'Reactie op $3 (op $1) door $2',
-	'lqt-newmessages-n' => 'Nieuwe berichten ($1}',
+	'lqt-newmessages-n' => 'Nieuwe berichten ($1)',
 	'lqt_newmessages' => 'Nieuwe berichten',
 );
 
@@ -7104,7 +7128,7 @@ $messages['pl'] = array(
 	'lqt_invalid_subject' => 'Wprowadzony temat jest nieprawidłowy. Możliwe, że:
 * jest za długi,
 * koliduje z prefiksami interwiki lub przestrzeniami nazw.',
-	'lqt_empty_subject' => 'Temat wiadomości jest wymagany.',
+	'lqt_empty_subject' => 'Musisz wpisać temat.',
 	'lqt_subject_change_forbidden' => 'Nie możesz zmienić tematu wątku, ponieważ nie masz uprawnień do przenoszenia stron.',
 	'lqt_edited_notice' => 'Edytowana',
 	'lqt_reply' => 'Odpowiedz',
@@ -7117,43 +7141,43 @@ $messages['pl'] = array(
 	'lqt_newer' => '← nowsze',
 	'lqt_older' => 'starsze →',
 	'lqt-history-title' => 'Historia wątku',
-	'lqt_hist_comment_edited' => 'Wyedytowano komentarz',
+	'lqt_hist_comment_edited' => 'Komentarz został zmieniony',
 	'lqt_hist_summary_changed' => 'Podsumowanie zostało zmienione',
 	'lqt_hist_reply_created' => 'Napisano odpowiedź',
 	'lqt_hist_thread_created' => 'Utworzono wątek',
 	'lqt_hist_deleted' => 'Usunięto',
 	'lqt_hist_undeleted' => 'Odtworzono',
 	'lqt_hist_moved_talkpage' => 'Przeniesiony',
-	'lqt_hist_past_last_page_error' => 'Jesteś poza zakresem stron historii, które istnieją.',
+	'lqt_hist_past_last_page_error' => 'Numer strony jest spoza zakresu istniejącej historii.',
 	'lqt_hist_tooltip_newer_disabled' => 'Link jest niedostępny, ponieważ jesteś na pierwszej stronie.',
 	'lqt_hist_tooltip_older_disabled' => 'Link jest niedostępny, ponieważ jesteś na ostatniej stronie.',
 	'lqt_hist_edited_subject' => 'Zmieniono temat wątku',
 	'lqt_hist_merged_from' => 'Odpowiedź przeniesiona do innego wątku',
 	'lqt_hist_merged_to' => 'Odpowiedź przeniesiona z innego wątku',
 	'lqt_hist_split_from' => 'Oddzielono do nowego wątku',
-	'lqt_revision_as_of' => 'Wersja z dnia $2 z $3.',
+	'lqt_revision_as_of' => 'Wersja z dnia $2 o $3.',
 	'lqt_change_new_thread' => 'To jest pierwsza wersja wątku.',
 	'lqt_change_edited_summary' => 'Podsumowanie wątku zostało zmienione.',
 	'lqt_change_deleted' => 'Ta wiadomość lub wątek zostały usunięte',
 	'lqt_change_undeleted' => 'Zaznaczona wiadomość została odtworzona',
 	'lqt_change_moved' => 'Wątek został przeniesiony na inną stronę dyskusji',
 	'lqt_change_subject_edited' => 'Temat wątku został zmieniony',
-	'lqt_youhavenewmessages' => 'Masz [$1 {{PLURAL:$1|nową wiadomość|nowe wiadomości}}].',
-	'lqt_protectedfromreply' => 'Ten wątek został $1 przed odpowiadaniem.',
+	'lqt_youhavenewmessages' => 'Masz [$1 nowe wiadomości].',
+	'lqt_protectedfromreply' => 'Ten wątek został $1 przed zamieszczaniem odpowiedzi.',
 	'lqt_protectedfromreply_link' => 'zabezpieczony',
 	'lqt_subject' => 'Temat:',
 	'lqt_noreason' => 'Nie podano powodu.',
-	'lqt_move_placeholder' => '$1 został przeniesiony na inną stronę. Przeniesienia dokonał $2 $3 o $4.',
+	'lqt_move_placeholder' => '$2 {{GENDER:$2|przeniósł|przeniosła}} $1 na inną stronę dnia $3 o $4.',
 	'lqt_thread_deleted_for_sysops' => "Ten wątek został '''usunięty''' i jest dostępny jedynie dla administratorów.",
 	'lqt_thread_deleted' => 'Wątek został usunięty.',
 	'lqt_summary_notice' => '{{PLURAL:$2|Od wczoraj|W ciągu ostatnich $2 dni}} nie było zmian w dyskusji.
 Jeżeli dyskusja została zakończona, możesz $1.',
 	'lqt_summary_notice_link' => 'napisać podsumowanie',
-	'lqt_summary_label' => 'Podsumowanie wątku:',
+	'lqt_summary_label' => 'Podsumowanie wątku',
 	'lqt_summary_subtitle' => 'Podsumowanie wątku „$1”',
 	'lqt_nosuchthread' => 'Wybrany przez Ciebie wątek nie istnieje.',
 	'lqt_nosuchthread_title' => 'Nie ma takiego wątku',
-	'lqt_move_torename' => 'Aby zmienić nazwę wątku, kliknij "$1" i zmień zawartość pola "Temat".',
+	'lqt_move_torename' => 'Aby zmienić nazwę wątku, kliknij „$1” i zmień zawartość pola „Temat”.',
 	'lqt_move_torename_edit' => 'edytuj',
 	'lqt_move_destinationtitle' => 'Nazwa docelowej strony dyskusji',
 	'lqt_move_move' => 'Przenieś',
@@ -7166,13 +7190,13 @@ Jeżeli dyskusja została zakończona, możesz $1.',
 	'lqt_delete_return_link' => 'strona dyskusji',
 	'lqt_delete_show_checkbox' => 'Pokaż usunięte wątki',
 	'lqt_header_warning_big' => 'Edytujesz $1.',
-	'lqt_header_warning_after_big' => 'Nagłówki są wykorzystywane do ogłoszeń i informacji. Zamiast tego możesz $2.',
+	'lqt_header_warning_after_big' => 'Nagłówki służą do zamieszczania ogłoszeń lub przedmowy. Zamiast tego możesz $2.',
 	'lqt_header_warning_bold' => 'nagłówek strony dyskusji',
 	'lqt_header_warning_new_discussion' => 'rozpocząć nowy wątek w dyskusji',
-	'lqt_sorting_order' => 'Sortowanie:',
-	'lqt_sort_newest_changes' => 'ostatnia modyfikacja',
-	'lqt_sort_newest_threads' => 'najnowsze wątki najpierw',
-	'lqt_sort_oldest_threads' => 'najstarsze wątki najpierw',
+	'lqt_sorting_order' => 'Sortowanie',
+	'lqt_sort_newest_changes' => 'najpierw ostatnio modyfikowane',
+	'lqt_sort_newest_threads' => 'najpierw najnowsze wątki',
+	'lqt_sort_oldest_threads' => 'najpierw najstarsze wątki',
 	'lqt-date-from' => 'Od',
 	'lqt-date-to' => 'Do',
 	'lqt-title' => 'Tytuł',
@@ -7184,7 +7208,7 @@ Jeżeli dyskusja została zakończona, możesz $1.',
 	'lqt-marked-read' => "Wątek '''$1''' jest oznaczony jako przeczytany.",
 	'lqt-count-marked-read' => 'Oznaczono jako {{PLURAL:$1|przeczytaną|przeczytane}} $1 {{PLURAL:$1|wiadomość|wiadomości}}.',
 	'lqt-email-undo' => 'Cofnij',
-	'lqt-messages-sent' => 'Wiadomości wysłane do ciebie:',
+	'lqt-messages-sent' => 'Wysłane do Ciebie wiadomości:',
 	'lqt-other-messages' => 'Wiadomości na innych stronach dyskusji:',
 	'lqt-no-new-messages' => 'Nie ma dla Ciebie nowych wiadomości.',
 	'lqt-new-messages' => '&#x2712; Nie ma dla Ciebie nowych wiadomości.',
@@ -7192,67 +7216,69 @@ Jeżeli dyskusja została zakończona, możesz $1.',
 	'lqt-history-user' => 'Użytkownik',
 	'lqt-history-action' => 'Działanie',
 	'lqt-history-comment' => 'Komentarz',
-	'lqt-thread-edited-author' => 'edytowana przez autora',
-	'lqt-thread-edited-others' => 'edytowana przez innych użytkowników',
+	'lqt-thread-edited-author' => 'Edytowany przez autora',
+	'lqt-thread-edited-others' => 'Edytowany przez innych użytkowników',
 	'lqt-header-actions' => 'Działania',
 	'lqt_summarize_link' => 'Podsumuj',
-	'lqt-thread-split' => 'Oddziel do nowego wątku',
-	'lqt-split-success' => 'Oddzielenie wątku $1 udane.',
+	'lqt-thread-split' => 'Wydziel do nowego wątku',
+	'lqt-split-success' => 'Rozdzielono wątek $1.',
 	'lqt_split_thread' => 'Oddziel wątek',
-	'lqt-thread-split-subject' => 'Temat nowego wątku:',
-	'lqt-thread-split-thread' => 'Wątek:',
-	'lqt-split-submit' => 'Podziel',
-	'lqt_split_badsubject' => 'Podany przez ciebie temat jest nieprawidłowy.',
-	'lqt-no-threads' => 'Na tej stronie nie ma jeszcze wątków w dyskusji.',
-	'lqt-delete-parent-warning' => 'Na tę wiadomość są odpowiedzi.
-Usuwając ją automatycznie usuniesz wszystkie odpowiedzi.
+	'lqt-thread-split-subject' => 'Temat nowego wątku',
+	'lqt-thread-split-thread' => 'Wątek',
+	'lqt-split-submit' => 'Rozdziel',
+	'lqt_split_badsubject' => 'Podany przez Ciebie temat jest nieprawidłowy.',
+	'lqt-no-threads' => 'Na tej stronie nie ma jeszcze wątków dyskusji.',
+	'lqt-delete-parent-warning' => 'Na tę wiadomość odpowiadano.
+Jej usunięcie spowoduje automatyczne usunięcie wszystkich odpowiedzi.
 Aby tego uniknąć, oddziel odpowiedzi od wiadomości przed jej usunięciem.',
-	'lqt-delete-parent-deleted' => 'Wątek główny usunięty ($1)',
-	'lqt-delete-replies-done' => 'Wszystkie odpowiedzi w tym wątku zostały usunięte.',
+	'lqt-delete-parent-deleted' => 'Wątek został usunięty ($1)',
+	'lqt-delete-replies-done' => 'Wszystkie odpowiedzi w tym wątku zostały również usunięte.',
 	'right-lqt-split' => 'Dzielenie wątków',
 	'right-lqt-merge' => 'Łączenie wątków',
 	'lqt-thread-merge' => 'Połącz z innym wątkiem',
 	'lqt-thread-merge-to' => 'Połącz z tym wątkiem',
-	'lqt_merge_thread' => 'Połącz wątek',
+	'lqt_merge_thread' => 'Przyłącz wątek',
 	'lqt-thread-merge-source' => 'Wątek źródłowy',
-	'lqt-thread-merge-dest' => 'Wątek docelowy:',
+	'lqt-thread-merge-dest' => 'Wątek docelowy',
 	'lqt-merge-submit' => 'Połącz',
-	'lqt-merge-success' => 'Połączenie wątku $1 pod $2 udane.',
+	'lqt-merge-success' => 'Przyłączono wątek $1 na koniec wątku $2.',
 	'lqt-log-name' => 'Rejestr wątków dyskusji',
-	'lqt-log-action-move' => 'przeniesiono [[$1]] z [[$2]] do [[$3]].',
-	'lqt-preference-notify-talk' => 'Wyślij do mnie e‐mail, jeśli obserwowane przeze mnie wątki zostaną zmodyfikowane',
+	'lqt-log-action-move' => 'przeniósł [[$1]] z [[$2]] do [[$3]].',
+	'lqt-preference-notify-talk' => 'Wyślij do mnie e‐mail, jeśli któryś z obserwowanych przeze mnie wątków zostanie zmodyfikowany',
 	'lqt-preference-watch-threads' => 'Dodaj do obserwowanych wątki, w których biorę udział',
 	'prefs-lqt' => 'Wątki w dyskusjach',
-	'lqt-preference-display-depth' => 'Maksymalna głębokość odpowiedzi do pokazania:',
-	'lqt-preference-display-count' => 'Maksymalna liczba odpowiedzi do pokazania:',
-	'lqt-enotif-subject-reply' => 'Dyskusja w serwisie {{SITENAME}} - Odpowiedź na wątek: $1',
-	'lqt-enotif-subject-newthread' => 'Dyskusja w serwisie {{SITENAME}} - Nowy wątek: $1',
+	'lqt-preference-display-depth' => 'Maksymalna wyświetlana głębokość odpowiedzi',
+	'lqt-preference-display-count' => 'Maksymalna wyświetlana liczba odpowiedzi',
+	'lqt-enotif-subject-reply' => 'Dyskusja w {{GRAMMAR:MS.lp|{{SITENAME}}}}. Odpowiedź w wątku $1',
+	'lqt-enotif-subject-newthread' => 'Dyskusja w {{GRAMMAR:MS.lp|{{SITENAME}}}}. Nowy wątek – $1',
 	'lqt-enotif-newthread' => "Witaj $1!
-To jest powiadomienie ze strony {{SITENAME}} o tym, że
-o $4 $3 stworzono nowy wątek '$2' na stronie dyskusji $5.
+To jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że
+o $4 $3 utworzono nowy wątek '$2' na stronie dyskusji $5.
 
-Możesz zobaczyć ten wątek pod adresem: <$6>",
+Możesz go zobaczyć pod adresem <$6>",
 	'lqt-enotif-reply' => "Witaj $1!
-To jest powiadomienie ze strony {{SITENAME}} o tym, że
+To jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że
 o $4 $3 ktoś odpowiedział w wątku '$2' na stronie dyskusji $5.
 
-Możesz zobaczyć tę odpowiedz pod adresem: <$6>",
-	'lqt-quote-intro' => 'Dnia $2, $3 [[User:$1|$1]] napisał(a):',
+Możesz zobaczyć tę odpowiedź pod adresem <$6>",
+	'lqt-quote-intro' => 'Dnia $2 o $3 [[User:$1|$1]] napisał(a):',
 	'lqt-quote' => 'Cytuj',
-	'lqt-search-label' => 'Szukaj w wątkach:',
+	'lqt-search-label' => 'Szukaj frazy',
 	'lqt-search-button' => 'Szukaj',
-	'lqt-ajax-updated' => 'W tym wątku pojawiły się nowe posty.',
+	'searchprofile-threads' => 'Dyskusje',
+	'searchprofile-threads-tooltip' => 'Szukaj wątków dyskusji i stron dyskusji',
+	'lqt-ajax-updated' => 'W tym wątku pojawiły się nowe wpisy.',
 	'lqt-ajax-update-link' => 'Aktualizuj',
-	'lqt-thread-show-replies' => 'Pokaż $1 odpowied{{plural:$1|ź|zi}}',
-	'lqt-thread-show-more' => 'Pokaż więcej odpowiedzi',
-	'lqt-feed-title-all' => '{{SITENAME}} — Nowe posty',
-	'lqt-feed-title-all-from' => '{{SITENAME}} — Nowe posty ze stron{{plural:$2|y|}} $1',
-	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nowe wątki',
-	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Nowe wątki na stron{{plural:$2|ie|ach}} $1',
-	'lqt-feed-title-replies' => '{{SITENAME}} — Odpowiedzi',
-	'lqt-feed-title-replies-from' => '{{SITENAME}} — Odpowiedzi ze stron{{plural:$2|y|}} $1',
-	'lqt-feed-new-thread-intro' => 'Nowy wątek $1 napisany przez $2',
-	'lqt-feed-reply-intro' => 'Odpowiedź w wątku $3 (na stronie $1) przez $2',
+	'lqt-thread-show-replies' => 'Wyświetl $1 {{PLURAL:$1|odpowiedź|odpowiedzi}}',
+	'lqt-thread-show-more' => 'Wyświetl więcej odpowiedzi',
+	'lqt-feed-title-all' => '{{SITENAME}} — nowe wpisy',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — nowe wpisy na {{PLURAL:$2|stronie|stronach:}} $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — nowe wątki',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — nowe wątki na {{PLURAL:$2|stronie|stronach:}} $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — odpowiedzi',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — odpowiedzi na {{PLURAL:$2|stronie|stronach:}} $1',
+	'lqt-feed-new-thread-intro' => 'Nowy wątek na stronie $1 utworzony przez $2',
+	'lqt-feed-reply-intro' => 'Odpowiedź w wątku $3 (na stronie $1) napisana przez $2',
 	'lqt_newmessages' => 'Nowe wiadomości',
 );
 
@@ -7894,6 +7920,9 @@ $messages['ru'] = array(
 	'lqt-ajax-update-link' => 'Обновить',
 	'lqt-thread-show-replies' => '* Показать $1 ответов',
 	'lqt-thread-show-more' => 'Показать больше ответов',
+	'lqt-thread-link-url' => 'Ссылка на URL:',
+	'lqt-thread-link-title' => 'Вики-ссылка:',
+	'lqt-thread-link-copy' => 'Копировать в буфер обмена',
 	'lqt-feed-title-all' => '{{SITENAME}} — Новые записи',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Новые сообщения $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Новые ветки',
@@ -7902,6 +7931,7 @@ $messages['ru'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Ответы $1',
 	'lqt-feed-new-thread-intro' => 'Новая ветка в $1, размещена $2',
 	'lqt-feed-reply-intro' => 'Ответ на $3 (в $1), размещена $2',
+	'lqt-newmessages-n' => 'Новые сообщения ($1)',
 	'lqt_newmessages' => 'Новые сообщения',
 );
 
@@ -8741,6 +8771,7 @@ $messages['te'] = array(
 	'lqt-search-button' => 'వెతుకు',
 	'searchprofile-threads' => 'చర్చలు',
 	'lqt-feed-title-replies' => '{{SITENAME}} — స్పందనలు',
+	'lqt-newmessages-n' => 'కొత్త సందేశాలు ($1)',
 	'lqt_newmessages' => 'కొత్త సందేశాలు',
 );
 
@@ -9136,6 +9167,9 @@ Bundan kaçınmak için, cevapları düğümü silmeden önce düğümden ayır�
 	'lqt-ajax-update-link' => 'Güncelle',
 	'lqt-thread-show-replies' => '$1 cevap göster',
 	'lqt-thread-show-more' => 'Daha fazla cevap göster',
+	'lqt-thread-link-url' => 'Bağlantı URLsi:',
+	'lqt-thread-link-title' => 'Vikimetin bağlantısı:',
+	'lqt-thread-link-copy' => 'Panoya kopyala',
 	'lqt-feed-title-all' => '{{SITENAME}} — Yeni gönderiler',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — $1 sayfaları için yeni gönderiler',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Yeni düğümler',
@@ -9144,6 +9178,7 @@ Bundan kaçınmak için, cevapları düğümü silmeden önce düğümden ayır�
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1 sayfaları için cevaplar',
 	'lqt-feed-new-thread-intro' => '$1 sayfasında yeni düğüm $2 tarafından gönderildi',
 	'lqt-feed-reply-intro' => '$3 düğümüne cevap ($1 sayfasında) $2 tarafından gönderildi',
+	'lqt-newmessages-n' => 'Yeni mesaj ($1)',
 	'lqt_newmessages' => 'Yeni iletiler',
 );
 
