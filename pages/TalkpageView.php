@@ -91,6 +91,11 @@ class TalkpageView extends LqtView {
 		// Table body
 		$rows = array();
 		foreach ( $threads as $thread ) {
+			if ( !$thread->root()->getContent() &&
+				    !LqtView::threadContainsRepliesWithContent( $thread ) ) {
+				continue;
+			}
+		
 			$row = '';
 			$anchor = '#' . $this->anchorName( $thread );
 			$subject = Xml::element( 'a', array( 'href' => $anchor ), $thread->subject() );
