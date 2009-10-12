@@ -338,6 +338,21 @@ class Thread {
 
 	// Lists total reply count, including replies to replies and such
 	function replyCount() {
+		// Populate reply count
+		if ( $this->replyCount == - 1 ) {
+			if ( $this->isTopmostThread() ) {
+				$dbr = wfGetDB( DB_SLAVE );
+				
+				$count = $dbr->selectField( 'thread', 'count(*)',
+					array( 'thread_ancestor' => $this->id() ), __METHOD__ );
+			} else {
+				$count = self::recursiveGetReplyCount( $this );
+			}
+			
+			$this->replyCount = $count;
+			$this->save();
+		}
+	
 		return $this->replyCount;
 	}
 	
@@ -410,6 +425,13 @@ class Thread {
 			}
 		}
 		
+		Threads::$cache_by_id[$line->thread_id] = $this;
+		if ( $line->thread_parent ) {
+			if ( !isset( self::$replyCacheById[$line->thread_parent] ) )
+				self::$replyCacheById[$line->thread_parent] = array();
+			self::$replyCacheById[$line->thread_parent][$line->thread_id] = $this;
+		}
+		
 		$this->doLazyUpdates( $line );
 	}
 	
@@ -459,10 +481,6 @@ class Thread {
 					$pageIds[] = $row->thread_summary_page;
 					
 				$all_thread_rows[] = $row;
-				
-				if ( !isset( self::$replyCacheById[$row->thread_id] ) ) {
-					self::$replyCacheById[$row->thread_id] = array();
-				}
 			}
 		}
 		
@@ -510,8 +528,6 @@ class Thread {
 			if ( isset( $articlesById[$thread->rootId] ) )
 				$thread->root = $articlesById[$thread->rootId];
 			
-			Threads::$cache_by_id[$row->thread_id] = $thread;
-			
 			// User cache data
 			$t = Title::makeTitleSafe( NS_USER, $row->thread_author_name );
 			$linkBatch->addObj( $t );
@@ -520,10 +536,6 @@ class Thread {
 			
 			User::$idCacheByName[$row->thread_author_name] = $row->thread_author_id;
 			$userIds[$row->thread_author_id] = true;
-			
-			if ( $row->thread_parent ) {
-				self::$replyCacheById[$row->thread_parent][$row->thread_id] = $thread;
-			}
 		}
 		
 		$userIds = array_keys( $userIds );
@@ -607,6 +619,21 @@ class Thread {
 			return User::newFromName( $line->rev_user_text, false );
 		else
 			return null;
+	}
+	
+	static function recursiveGetReplyCount( $thread, $level = 1 ) {
+		if ($level > 80) {
+			return 1;
+		}
+		
+		$count = 0;
+		
+		foreach( $thread->replies() as $reply ) {
+			$count++;
+			$count += self::recursiveGetReplyCount( $reply, $level + 1 );
+		}
+		
+		return $count;
 	}
 	
 	// Lazy updates done whenever a thread is loaded.
@@ -699,17 +726,6 @@ class Thread {
 			$this->articleTitle = $title->getDbKey();
 			
 			$this->article = $ancestor->article();
-		}
-		
-		// Populate reply count
-		if ( $this->replyCount == - 1 ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			
-			$count = $dbr->selectField( 'thread', 'count(*)',
-				array( 'thread_ancestor' => $this->id() ), __METHOD__ );
-				
-			$this->replyCount = $count;
-			$set['thread_replies'] = $count;
 		}
 		
 		// Check for invalid/missing articleId
