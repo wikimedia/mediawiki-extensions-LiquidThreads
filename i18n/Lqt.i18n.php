@@ -185,6 +185,7 @@ Its replies will also be deleted automatically.
 To avoid this, split them from this thread before deleting it.',
 	'lqt-delete-parent-deleted' => 'Parent thread deleted ($1)',
 	'lqt-delete-replies-done' => 'All replies to this thread have also been deleted.',
+	'lqt-movethread' => 'Move',
 
 	// Rights
 	'right-lqt-split' => 'Split threads',
@@ -3325,6 +3326,7 @@ Vous pouvez le voir a « $6 »",
 	'lqt-feed-reply-intro' => 'Réponse à $3 (sur $1) postée par $2',
 	'lqt-newmessages-n' => 'Nouveaux messages ($1)',
 	'lqt_newmessages' => 'Nouveaux messages',
+	'lqt-movethread' => 'Déplacer',
 );
 
 /** Franco-Provençal (Arpetan)

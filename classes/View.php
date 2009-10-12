@@ -655,7 +655,7 @@ class LqtView {
 		if ( $this->user->isAllowed( 'move' ) ) {
 			$move_href = SpecialPage::getTitleFor( 'MoveThread' )->getFullURL()
 				. '/' . $thread->title()->getPrefixedURL();
-			$commands['move'] = array( 'label' => wfMsg( 'move' ),
+			$commands['move'] = array( 'label' => wfMsg( 'lqt-movethread' ),
 			                     'href' => $move_href,
 			                     'enabled' => true );
 		}
