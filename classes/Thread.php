@@ -555,6 +555,11 @@ class Thread {
 			
 			global $wgParser, $wgOut, $wgTitle;
 			
+			$setTitle = false;
+			if ( !$wgOut->getTitle() ) {
+				$setTitle = true;
+			}
+			
 			// Parser gets antsy about parser options here if it hasn't parsed anything before.
 			$wgParser->clearState();
 			$wgParser->setTitle( $wgTitle );
@@ -574,9 +579,14 @@ class Thread {
 					$fancysig = $signatureDataCache[$uid]['fancysig'];
 					
 				// Generate signature from Parser
+				
+				if ( $setTitle ) {
+					$user_t = Title::makeTitleSafe( NS_USER, $name );
+					$wgOut->setTitle( $user_t );
+				}
 
 				$sig = $wgParser->getUserSig( $user, $nickname, $fancysig );
-				$sig = $wgOut->parseInline( $sig );
+				$sig = $wgOut->parse( $sig );
 				
 				// Save into LqtView for later use.
 				LqtView::$userSignatureCache[$name] = $sig;
