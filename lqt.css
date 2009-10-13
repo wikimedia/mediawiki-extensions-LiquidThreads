@@ -1,4 +1,10 @@
 
+#wpTextbox1 {
+	/* Textareas in lqt use auto-sizing based on these properties */
+	height: 5em;
+	max-height: 10em;
+	min-height: 5em;
+}
 .lqt_watchlist_messages_notice {
 	background-color: #eee;
 	border:           1px solid #ddd;
@@ -132,14 +138,13 @@
 	list-style-type: none;
 	padding-right:   0.6em;
 }
-
 #lqt_subject_field {
 	margin-top:    0.7em;
 	margin-bottom: 0.5em;
 	width:         80%;
 }
 
-li#ca-nstab-thread {
+body.skin-monobook li#ca-nstab-thread {
 	/* from #ca-talk */
 	margin-right: 1.6em;
 }
@@ -230,9 +235,8 @@ li.lqt-command-reply {
 }
 
 .lqt-thread-actions-trigger {
-	padding: 0.5em;
 	margin-top: 8px;
-	border: 1px transparent solid;
+	border: none;
 	color: #002BB8;
 }
 
@@ -249,15 +253,14 @@ li.lqt-command-reply {
 	list-style: none;
 	padding: 0;
 	z-index: 10;
-	margin-top: 8px;
+	margin-top: 0px;
 
 }
-
 .lqt-thread-toolbar-command-list li {
 	padding-left: 0.5em;
 	padding-right: 0.5em;
-	margin-top:      0;
-	margin-bottom:   0;
+	margin-top: 0;
+	margin-bottom: 0;
 	list-style-type: none;
 	list-style-image: none;
 	display: block;
@@ -274,16 +277,14 @@ li.lqt-command-reply {
 }
 
 .lqt-thread-actions-icon {
-	background-image: url('icons/arrow-down-icon.png');
-	background-position: center-bottom;
-	background-repeat: no-repeat;
-	height: 80%;
-	width: 1em;
+	display: block;
+	width: 1.5em;
 	height: 2em;
-	padding-bottom: 0.2em;
-	padding-left: 26px;
+	padding-left: 0.5em;
+	background-image: url('icons/arrow-down-icon.png');
+	background-position: center center;
+	background-repeat: no-repeat;
 }
-
 .lqt-talkpage-search {
 	/*float: left;*/
 	display: inline-block;
@@ -308,6 +309,8 @@ div.lqt-post-sep {
 	height: 1px;
 	padding: 0;
 	margin: 0;
+	margin-left: 1em;
+	margin-bottom: -1px;
 	background-image: url(images/break.png);
 	background-position: bottom;
 	background-repeat: repeat-x;
@@ -321,7 +324,7 @@ div.lqt-post-sep {
 }
 
 .lqt-thread-replies {
-	margin-left: 2em;
+	margin-left: 1em;
 }
 
 .lqt-thread-topmost,
@@ -341,10 +344,12 @@ div.lqt-post-sep {
 	background-image: url(images/corner.png);
 	background-repeat: no-repeat;
 	background-position: bottom left;
+	/* The space is caused by the use of a non-breaking space, so we need to use line-height here */
+	line-height: 1em;
 }
 
 .lqt-post-wrapper {
-	padding: 0.5em;
+	padding: 0.5em 1em;
 }
 
 .lqt-thread-info-panel {
@@ -383,74 +388,54 @@ div.lqt-thread-toolbar-box-tl {
 	background-repeat: no-repeat;
 	padding-right: 8px;
 }
-
-.lqt-thread-toolbar-commands > .lqt-command > a {
-	height: 1.25em;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-.lqt-thread-toolbar-commands {
-	height: 30px;
-}
-
-.lqt-command-reply {
-	margin-right: 8px;
-}
-
-.lqt-thread-toolbar .lqt-command > a {
-	display: block;
-}
-
-.lqt-thread-toolbar-commands > .lqt-command-edit a {
-	background-image: url(icons/edit.png);
-	padding-left: 26px;
-}
-
-.lqt-thread-toolbar-commands > .lqt-command-reply a {
-	background-image: url(icons/reply.png);
-	background-position: left;
-	padding-left: 26px;
-	margin-left: 8px;
-}
-
-.lqt-thread-toolbar-commands > .lqt-command-history {
-	margin-left: 8px;
-}
-
-.lqt-command-quote a {
-	background-image: url(icons/quote.png);
-	margin-left: 8px;
-	padding-left: 26px;
-	background-position: left center !important;
-}
-
-.lqt-command-merge-to {
-	margin-left: 8px;
-}
-
-.lqt-command-link a {
-	background-image: url(icons/link.png) !important;
-	padding-left: 26px;
-}
-
-ul.lqt-thread-toolbar-commands {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	line-height: 1em;
-}
-
-.lqt-thread-toolbar-commands > .lqt-command,
-.lqt-thread-toolbar-menu {
-	float: left;
-}
-
 .lqt-command {
 	margin-top: 8px;
 	padding: 0;
 }
+.lqt-thread-toolbar .lqt-command > a {
+	display: block;
+}
 
+.lqt-command-link a {
+	margin-left: 1em;
+	height: 2em;
+	width: 2em;
+	background-image: url(icons/link.png) !important;
+	background-repeat: no-repeat;
+}
+.lqt-command-reply a {
+	margin-left: 1em;
+	height: 2em;
+	background-image: url(icons/reply.png);
+	background-position: left center !important;
+	background-repeat: no-repeat;
+	padding-left: 26px;
+	line-height: 2em;
+}
+.lqt-command-quote a {
+	margin-left: 1em;
+	height: 2em;
+	background-image: url(icons/quote.png);
+	background-position: left center !important;
+	background-repeat: no-repeat;
+	padding-left: 26px;
+	line-height: 2em;
+}
+.lqt-thread-toolbar-menu {
+	margin-top: 8px;
+	height: 2em;
+}
+.lqt-thread-toolbar-commands {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	line-height: 1em;
+	height: 1em;
+}
+.lqt-thread-toolbar-commands > .lqt-command,
+.lqt-thread-toolbar-menu {
+	float: left;
+}
 .lqt-thread-toolbar * {
 	text-decoration: none !important;
 }

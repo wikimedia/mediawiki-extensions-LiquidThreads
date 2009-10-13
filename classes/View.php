@@ -631,15 +631,16 @@ class LqtView {
 			'href' => $thread->title()->getFullURL(),
 			'enabled' => true, 'icon' => 'link.png',
 			'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' ) );
-		
+		/*
 		if ( $thread->root()->getTitle()->quickUserCan( 'edit' ) ) {
 			$commands['edit'] = array(
 				'label' => wfMsgExt( 'edit', 'parseinline' ),
 				'href' => $this->talkpageUrl( $this->title, 'edit', $thread,
-					true /* include fragment */, $this->request ),
+					true, $this->request ),
 				'enabled' => true, 'icon' => 'edit.png',
 				'tooltip' => wfMsgExt( 'edit', 'parseinline' ) );
 		}
+		*/
 		
 		return $commands;
 	}
@@ -701,6 +702,8 @@ class LqtView {
 			$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/jquery/js2.combined.js" );
 			$wgOut->addExtensionStyle( "{$wgScriptPath}/extensions/LiquidThreads/jquery/jquery-ui-1.7.2.css" );
 		}
+		
+		$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/jquery/jquery.autogrow.js" );
 		
 		$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/lqt.js" );
 		$wgOut->addExtensionStyle( "{$wgScriptPath}/extensions/LiquidThreads/lqt.css?{$wgStyleVersion}" );
@@ -770,7 +773,7 @@ class LqtView {
 		$commands = $this->threadCommands( $thread );
 		$menuHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-command-list' ),
 					$this->listItemsForCommands( $commands ) );
-
+		
 		$triggerText =	Xml::tags( 'span', array( 'class' => 'lqt-thread-actions-icon' ),
 					'&nbsp;' );
 		$dropDownTrigger = Xml::tags( 'div',
@@ -783,7 +786,7 @@ class LqtView {
 						array( 'class' => 'lqt-thread-toolbar-menu' ),
 						$dropDownTrigger );
 		}
-							
+		
 		$html .= implode( ' ', $headerParts );
 		
 		$html = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-commands' ), $html );

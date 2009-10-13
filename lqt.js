@@ -64,8 +64,8 @@ var liquidThreads = {
 			// Buffer at the top, roughly enough to see the heading and one line
 			targetOffset -= 100;
 			$j('html,body').animate({scrollTop: targetOffset}, 'slow');
-			
-			$j(container).find('#wpTextbox1').focus();
+			// Auto-focus and set to auto-grow as well
+			$j(container).find('#wpTextbox1').focus().autogrow();
 			// Focus the subject field if there is one. Overrides previous line.
 			$j(container).find('#lqt_subject_field').focus();
 		}
@@ -227,30 +227,25 @@ var liquidThreads = {
 		toolbar.hide();
 		
 		post.hover(
-					function() {
-						toolbar.fadeIn(100);
-						liquidThreads.currentToolbar = toolbar;
-					} /* over */,
-					function() {
-						if ( liquidThreads.currentToolbar &&
-								liquidThreads.currentToolbar.is(toolbar) ) {
-							liquidThreads.currentToolbar = null;
-						}
-						
-						toolbar.fadeOut(20);
-					}/*out */ );
+			function() {
+				toolbar.fadeIn(100);
+				liquidThreads.currentToolbar = toolbar;
+			},
+			function() {
+				if ( liquidThreads.currentToolbar &&
+						liquidThreads.currentToolbar.is(toolbar) ) {
+					liquidThreads.currentToolbar = null;
+				}
+				toolbar.fadeOut(20);
+			}
+		);
 					
 		var menu = post.find('.lqt-thread-toolbar-command-list');
 		var menuContainer = post.find( '.lqt-thread-toolbar-menu' );
 		menu.remove().appendTo( menuContainer );
 		menuContainer.find('.lqt-thread-toolbar-command-list').hide();
-		
-		var menuTrigger = menuContainer.find( '.lqt-thread-actions-trigger' );
-		
-		menuTrigger.hover( function() { menu.fadeIn(); } );
-		toolbar.hover( function() {}, function() { menu.fadeOut(); } );
-
-		menuTrigger.show();
+		menuContainer.hover( function() { menu.fadeIn(); }, function() { menu.fadeOut(); } );
+		menuContainer.find( '.lqt-thread-actions-trigger' ).show();
 	},
 	
 	'checkForUpdates' : function() {
@@ -612,5 +607,8 @@ js2AddOnloadHook( function() {
 	
 	// Set up periodic update checking
 	setInterval( liquidThreads.checkForUpdates, 60000 );
+	
+	// Autogrowing textarea - this only affects the new-topic page
+	$j('#wpTextbox1').autogrow();
 } );
 
