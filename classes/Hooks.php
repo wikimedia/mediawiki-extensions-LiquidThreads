@@ -205,7 +205,7 @@ class LqtHooks {
 								Threads::TYPE_MOVED => 'moved',
 								Threads::TYPE_DELETED => 'deleted' );
 		// Is it a thread
-		if ( $row->thread_id ) {
+		if ( !empty($row->thread_id) ) {
 			$thread = new Thread( $row );
 			$threadInfo = "\n";
 			$attribs = array();
@@ -237,6 +237,18 @@ class LqtHooks {
 		$tables[] = 'thread';
 		
 		$join['thread'] = array( 'left join', array( 'thread_root=page_id' ) );
+		
+		return true;
+	}
+	
+	static function modifyOAIQuery( &$tables, &$fields, &$conds,
+					&$options, &$join_conds ) {
+	
+		$tables[] = 'thread';
+		
+		$join_conds['thread'] = array( 'left join', array( 'thread_root=page_id' ) );
+		
+		$fields[] = 'thread.*';
 		
 		return true;
 	}
