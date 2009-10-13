@@ -63,6 +63,7 @@ $wgHooks['GetPreferences'][] = 'LqtHooks::getPreferences';
 $wgHooks['XmlDumpWriterOpenPage'][] = 'LqtHooks::dumpThreadData';
 $wgHooks['ModifyExportQuery'][] = 'LqtHooks::modifyExportQuery';
 $wgHooks['OAIFetchRowsQuery'][] = 'LqtHooks::modifyOAIQuery';
+$wgHooks['OAIFetchRecordQuery'][] = 'LqtHooks::modifyOAIQuery';
 
 // Deletion
 $wgHooks['ArticleDeleteComplete'][] = 'LqtDeletionController::onArticleDeleteComplete';
