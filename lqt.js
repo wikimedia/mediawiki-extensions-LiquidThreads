@@ -422,7 +422,7 @@ var liquidThreads = {
 		replies.before( loader );
 		
 		var apiParams = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
-							'format' : 'json', 'thrender' : '1', 'thprop' : 'id' };
+					'format' : 'json', 'thrender' : '1', 'thprop' : 'id' };
 		
 		$j.get( wgScriptPath+'/api.php', apiParams,
 			function(data) {
@@ -468,8 +468,8 @@ var liquidThreads = {
 		
 		// API request
 		var apiParams = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
-							'format' : 'json', 'thrender' : '1', 'thprop' : 'id',
-							'threnderstartrepliesat' : startAt };
+					'format' : 'json', 'thrender' : '1', 'thprop' : 'id',
+					'threnderstartrepliesat' : startAt };
 		
 		$j.get( wgScriptPath+'/api.php', apiParams,
 			function(data) {
