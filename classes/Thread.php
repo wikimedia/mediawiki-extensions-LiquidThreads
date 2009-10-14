@@ -334,6 +334,9 @@ class Thread {
 		// Add the trace thread to the tracking table.
 		$thread = Threads::newThread( $redirectArticle, new Article_LQT_Compat( $oldTitle ), null,
 		 	Threads::TYPE_MOVED, $this->subject() );
+		 	
+		 $thread->setSortkey( $this->sortkey() );
+		 $thread->save();
 	}
 
 	// Lists total reply count, including replies to replies and such
