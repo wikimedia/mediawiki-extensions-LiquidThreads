@@ -88,6 +88,14 @@ var liquidThreads = {
 			// Add toolbar
 			mwSetupToolbar();
 			
+			currentFocused = $j(container).find('#wpTextbox1');
+			$j(container).find('#wpTextbox1,#wpSummary').focus(
+				function() {
+					currentFocused = this;
+				} );
+			
+			document.editform = $j(container).find('#editform');
+			
 			// Check for live preview
 			if ( $j('#wpLivePreview').length ) {
 				$j.getScript( stylepath+'/common/preview.js',
