@@ -46,20 +46,21 @@ class ThreadHistoryPager extends TablePager {
 		$this->view = $view;
 		
 		self::$change_names =
-			array(
-				Threads::CHANGE_EDITED_ROOT => wfMsgNoTrans( 'lqt_hist_comment_edited' ),
-				Threads::CHANGE_EDITED_SUMMARY => wfMsgNoTrans( 'lqt_hist_summary_changed' ),
-				Threads::CHANGE_REPLY_CREATED => wfMsgNoTrans( 'lqt_hist_reply_created' ),
-				Threads::CHANGE_NEW_THREAD => wfMsgNoTrans( 'lqt_hist_thread_created' ),
-				Threads::CHANGE_DELETED => wfMsgNoTrans( 'lqt_hist_deleted' ),
-				Threads::CHANGE_UNDELETED => wfMsgNoTrans( 'lqt_hist_undeleted' ),
-				Threads::CHANGE_MOVED_TALKPAGE => wfMsgNoTrans( 'lqt_hist_moved_talkpage' ),
-				Threads::CHANGE_EDITED_SUBJECT => wfMsgNoTrans( 'lqt_hist_edited_subject' ),
-				Threads::CHANGE_SPLIT => wfMsgNoTrans( 'lqt_hist_split' ),
-				Threads::CHANGE_MERGED_FROM => wfMsgNoTrans( 'lqt_hist_merged_from' ),
-				Threads::CHANGE_MERGED_TO => wfMsgNoTrans( 'lqt_hist_merged_to' ),
-				Threads::CHANGE_SPLIT_FROM => wfMsgNoTrans( 'lqt_hist_split_from' ),
-			);
+		array(
+			Threads::CHANGE_EDITED_ROOT => wfMsgNoTrans( 'lqt_hist_comment_edited' ),
+			Threads::CHANGE_EDITED_SUMMARY => wfMsgNoTrans( 'lqt_hist_summary_changed' ),
+			Threads::CHANGE_REPLY_CREATED => wfMsgNoTrans( 'lqt_hist_reply_created' ),
+			Threads::CHANGE_NEW_THREAD => wfMsgNoTrans( 'lqt_hist_thread_created' ),
+			Threads::CHANGE_DELETED => wfMsgNoTrans( 'lqt_hist_deleted' ),
+			Threads::CHANGE_UNDELETED => wfMsgNoTrans( 'lqt_hist_undeleted' ),
+			Threads::CHANGE_MOVED_TALKPAGE => wfMsgNoTrans( 'lqt_hist_moved_talkpage' ),
+			Threads::CHANGE_EDITED_SUBJECT => wfMsgNoTrans( 'lqt_hist_edited_subject' ),
+			Threads::CHANGE_SPLIT => wfMsgNoTrans( 'lqt_hist_split' ),
+			Threads::CHANGE_MERGED_FROM => wfMsgNoTrans( 'lqt_hist_merged_from' ),
+			Threads::CHANGE_MERGED_TO => wfMsgNoTrans( 'lqt_hist_merged_to' ),
+			Threads::CHANGE_SPLIT_FROM => wfMsgNoTrans( 'lqt_hist_split_from' ),
+			Threads::CHANGE_ROOT_BLANKED => wfMsgNoTrans( 'lqt_hist_root_blanked' ),
+		);
 	}
 	
 	function getQueryInfo() {

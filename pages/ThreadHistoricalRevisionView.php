@@ -35,6 +35,8 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 			Threads::CHANGE_MERGED_TO => 'lqt_change_merged_to',
 			Threads::CHANGE_SPLIT_FROM => 'lqt_change_split_from',
 			Threads::CHANGE_EDITED_SUMMARY => 'lqt_change_edited_summary',
+			Threads::CHANGE_ROOT_BLANKED => 'lqt_change_root_blanked',
+			Threads::CHANGE_EDITED_ROOT => 'lqt_change_edited_root',
 		);
 		
 		if ( isset( $messages[$ct] ) ) {
@@ -62,14 +64,25 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$ct = $this->mDisplayRevision->getChangeType();
 		
 		$msg = '';
-		if ( $ct == Threads::CHANGE_EDITED_ROOT ) {
-			$diff_link = $this->diffPermalink( $this->thread,
+		
+		$post = $this->mDisplayRevision->getChangeObject();
+		$postLinkURL = LqtView::linkInContextURL( $post );
+		
+		$msg = $this->getMessageForChangeType( $ct );
+		
+		if ( $ct == Threads::CHANGE_EDITED_ROOT ||
+				$ct == Threads::CHANGE_ROOT_BLANKED  ) {
+			$diff_link = $this->diffPermalink( $post,
 							wfMsgExt( 'diff', 'parseinline' ),
 							$this->mDisplayRevision );
-			$msg = wfMsgExt( 'lqt_change_edited_root', 'parseinline' ) .
+			
+			$msg = wfMsgExt( $msg,
+					array( 'parseinline' ),
+					array( $postLinkURL ) ) .
 					" [$diff_link]";
-		} else {
-			$msg = wfMsgExt( $this->getMessageForChangeType( $ct ), 'parseinline' );
+		} else {			
+			$msg = wfMsgExt( $msg, array( 'parseinline' ),
+					array( $postLinkURL ) );
 		}
 		
 		$html .=  $msg;

@@ -22,6 +22,7 @@ class Threads {
 	const CHANGE_MERGED_FROM = 10;
 	const CHANGE_MERGED_TO = 11;
 	const CHANGE_SPLIT_FROM = 12;
+	const CHANGE_ROOT_BLANKED = 13;
 	
 	static $VALID_CHANGE_TYPES = array(
 		self::CHANGE_EDITED_SUMMARY,
@@ -37,6 +38,7 @@ class Threads {
 		self::CHANGE_MERGED_FROM,
 		self::CHANGE_MERGED_TO,
 		self::CHANGE_SPLIT_FROM,
+		self::CHANGE_ROOT_BLANKED,
 		);
 
 	// Possible values of Thread->editedness.

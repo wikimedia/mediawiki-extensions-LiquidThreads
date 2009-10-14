@@ -4,17 +4,17 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 class ThreadRevision {
 	static $load =
 		array(
-			'th_id' 			=> 'mId',
-			'th_thread'			=> 'mThreadId',
+			'th_id' 		=> 'mId',
+			'th_thread'		=> 'mThreadId',
 			
 			'th_timestamp' 		=> 'mTimestamp',
 			
-			'th_user' 			=> 'mUserId',
+			'th_user'		=> 'mUserId',
 			'th_user_text' 		=> 'mUserText',
 			
 			'th_change_type' 	=> 'mChangeType',
 			'th_change_object' 	=> 'mChangeObjectId',
-			'th_change_comment' => 'mChangeComment',
+			'th_change_comment' 	=> 'mChangeComment',
 			'th_content' 		=> 'mObjSer',
 		);
 	
@@ -42,7 +42,7 @@ class ThreadRevision {
 	}
 	
 	static function create( $thread, $change_type, $change_object = null, $comment = '',
-							$user = null, $timestamp = null ) {
+				$user = null, $timestamp = null ) {
 		if ( is_null( $user ) ) {
 			global $wgUser;
 			$user = $wgUser;
@@ -134,7 +134,13 @@ class ThreadRevision {
 	
 	function getChangeObject() {
 		if ( !$this->mChangeObject && $this->mChangeObjectId ) {
-			$this->mChangeObject = Threads::withId( $this->mChangeObjectId );
+			$threadObj = $this->getThreadObj();
+			$objectId = $this->mChangeObjectId;
+			$this->mChangeObject = $threadObj->replyWithId( $objectId );
+			
+			if ( !$this->mChangeObject ) {
+				$this->mChangeObject = Threads::withId( $objectId );
+			}
 		}
 		
 		return $this->mChangeObject;

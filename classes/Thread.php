@@ -1219,4 +1219,18 @@ class Thread {
 		
 		$this->sortkey = $k;
 	}
+	
+	function replyWithId( $id ) {
+		if ( $this->id() == $id ) {
+			return $this;
+		}
+		
+		foreach( $this->replies() as $reply ) {
+			if ( $obj = $reply->replyWithId($id) ) {
+				return $obj;
+			}
+		}
+		
+		return null;
+	}
 }
