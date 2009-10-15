@@ -1234,7 +1234,7 @@ class Thread {
 		return null;
 	}
 	
-	function createdSortCallback( $a, $b ) {
+	static function createdSortCallback( $a, $b ) {
 		$a = $a->created();
 		$b = $b->created();
 		
