@@ -1136,7 +1136,12 @@ class LqtView {
 		foreach ( $threads as $walk_thread ) {
 			do {
 				if ( !is_object( $walk_thread ) ) {
+					$old_walk_thread = $walk_thread;
 					$walk_thread = Threads::withId( $walk_thread );
+				}
+				
+				if (!is_object( $walk_thread ) ) {
+					continue;
 				}
 				
 				$threads[$walk_thread->id()] = $walk_thread;
