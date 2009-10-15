@@ -102,8 +102,8 @@ class LqtDispatch {
 	static function isLqtPage( $title ) {
 		global $wgLqtPages, $wgLqtTalkPages;
 		$isTalkPage = ( $title->isTalkPage() && $wgLqtTalkPages ) ||
-						in_array( $title->getPrefixedText(), $wgLqtPages ) ||
-						self::hasUserEnabledLQT( $title->getArticleId() );
+				in_array( $title->getPrefixedText(), $wgLqtPages ) ||
+				self::hasUserEnabledLQT( $title->getArticleId() );
 		
 		return $isTalkPage;
 	}
