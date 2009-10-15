@@ -1216,7 +1216,10 @@ class LqtView {
 		
 		$mustShowThreads = $cascadeOptions['mustShowThreads'];
 		
-		foreach ( $thread->subthreads() as $st ) {
+		$replies = $thread->subthreads();
+		usort( $replies, array( 'Thread', 'createdSortCallback' ) );
+		
+		foreach ( $replies as $st ) {
 			++$i;
 			
 			// Only show undeleted threads that are above our 'startAt' index.

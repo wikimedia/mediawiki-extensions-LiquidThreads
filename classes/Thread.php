@@ -1233,4 +1233,17 @@ class Thread {
 		
 		return null;
 	}
+	
+	function createdSortCallback( $a, $b ) {
+		$a = $a->created();
+		$b = $b->created();
+		
+		if ( $a == $b ) {
+			return 0;
+		} elseif ( $a > $b ) {
+			return 1;
+		} else {
+			return -1;
+		}
+	}
 }
