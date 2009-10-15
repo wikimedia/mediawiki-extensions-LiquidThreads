@@ -137,7 +137,7 @@ class NewMessages {
 			$name = $t->article()->getTitle()->getText();
 			
 			$user = User::newFromName( $name );
-			if ( $user && $user->getId() != $changeUser->getId() ) {
+			if ( $user && $user->getName() != $changeUser->getName() ) {
 				$user->setNewtalk( true );
 				
 				$insert_rows[] = array( 'ums_user' => $user->getId(),
