@@ -13,7 +13,8 @@ class ApiThreadAction extends ApiBase {
 			'split' => 'actionSplit',
 			'merge' => 'actionMerge',
 //			'reply', // Not implemented
-//			'newtopic', // Not implemented
+			'newthread' => 'actionNewThread',
+//			'setsubject',
 		);
 	}
 	
@@ -26,6 +27,7 @@ class ApiThreadAction extends ApiBase {
 			'subject' => 'The subject to set for the new or split thread',
 			'reason' => 'If applicable, the reason/summary for the action',
 			'newparent' => 'If merging a thread, the ID or title for its new parent',
+			'text' => 'The text of the post to create',
 		);
 	}
 	
@@ -48,10 +50,11 @@ class ApiThreadAction extends ApiBase {
 			'subject' => null,
 			'reason' => null,
 			'newparent' => null,
+			'text' => null,
 		);
 	}
 	
-	public function mustBePosted() { /*return true;*/ }
+	public function mustBePosted() { return true; }
 
 	public function isWriteMode() {
 		return true;
@@ -75,13 +78,15 @@ class ApiThreadAction extends ApiBase {
 		
 		// Pull the threads from the parameters
 		$threads = array();
-		foreach( $params['thread'] as $thread ) {
-			if ( is_numeric( $thread ) ) {
-				$threads[] = Threads::withId( $thread );
-			} else {
-				$title = Title::newFromText( $thread );
-				$article = new Article( $title );
-				$threads[] = Threads::withRoot( $article );
+		if ( !empty( $params['thread'] ) ) {
+			foreach( $params['thread'] as $thread ) {
+				if ( is_numeric( $thread ) ) {
+					$threads[] = Threads::withId( $thread );
+				} else {
+					$title = Title::newFromText( $thread );
+					$article = new Article( $title );
+					$threads[] = Threads::withRoot( $article );
+				}
 			}
 		}
 		
@@ -245,6 +250,106 @@ class ApiThreadAction extends ApiBase {
 		
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
 		$this->getResult()->addValue( null, 'threadaction', $result );
+	}
+	
+	public function actionNewThread( $threads, $params ) {
+		global $wgUser;
+		
+		if ( empty( $params['talkpage'] ) ) {
+			$this->dieUsage( 'You must specify a talk-page to post the thread to',
+				'missing-param' );
+			
+			return;
+		}
+		
+		$talkpageTitle = Title::newFromText( $params['talkpage'] );
+		
+		if (!$talkpageTitle || !LqtDispatch::isLqtPage( $talkpageTitle ) ) {
+			$this->dieUsage( 'The talkpage you specified is invalid, or does not '.
+				'have discussion threading enabled.', 'invalid-talkpage' );
+			return;
+		}
+		$talkpage = new Article( $talkpageTitle );
+		
+		if ( empty( $params['subject'] ) ) {
+			$this->dieUsage( 'You must specify a thread subject',
+				'missing-param' );
+			return;
+		}
+		
+		$subject = $params['subject'];
+		$title = null;
+		$subjectOk = Thread::validateSubject( $subject, &$title, null, $talkpage );
+		
+		if ( !$subjectOk ) {
+			$this->dieUsage( 'The subject you specified is not valid',
+				'invalid-subject' );
+			
+			return;
+		}
+		
+		if ( empty( $params['text'] ) ) {
+			$this->dieUsage( 'You must include text in your post', 'no-text' );
+			return;
+		}
+		
+		$summary = wfMsg( 'lqt-newpost-summary', $subject );
+		
+		if ( !empty( $params['summary'] ) ) {
+			$summary = $params['summary'];
+		}
+		
+		$text = $params['text'];
+		
+		$article = new Article( $title );
+		
+		// Inform hooks what we're doing
+		LqtHooks::$editTalkpage = $talkpage;
+		LqtHooks::$editArticle = $article;
+		LqtHooks::$editThread = null;
+		LqtHooks::$editType = 'new';
+		LqtHooks::$editAppliesTo = null;
+		
+		$token = $params['token'];
+		
+		// All seems in order. Construct an API edit request
+		$requestData = array(
+			'action' => 'edit',
+			'title' => $title->getPrefixedText(),
+			'text' => $text,
+			'summary' => $summary,
+			'token' => $token,
+			'basetimestamp' => wfTimestampNow(),
+			'format' => 'json',
+		);
+		
+		$editReq = new FauxRequest( $requestData, true );
+		$internalApi = new ApiMain( $editReq, true );
+		$internalApi->execute();
+		
+		$editResult = $internalApi->getResultData();
+		
+		if ( $editResult['edit']['result'] != 'Success' ) {
+			$result = array( 'result' => 'EditFailure', 'details' => $editResult );
+			$this->getResult()->addValue( null, $this->getModuleName(), $result );
+			return;
+		}
+		
+		$articleId = $editResult['edit']['pageid'];
+		
+		// Reload article data
+		$article = Article::newFromId( $articleId );
+		
+		$thread = LqtView::postEditUpdates( 'new', null, $article, $talkpage,
+					$subject, $summary, null, $text );
+					
+		$result = array(
+			'result' => 'Success',
+			'thread-id' => $thread->id(),
+			'thread-title' => $thread->title()->getPrefixedText(),
+		);
+		
+		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 	
 	public function getVersion() {

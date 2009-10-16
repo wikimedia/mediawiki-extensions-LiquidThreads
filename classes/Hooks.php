@@ -6,7 +6,7 @@ class LqtHooks {
 	public static $editThread = null;
 	public static $editAppliesTo = null;
 	public static $editArticle = null;
-	public static $editView = null;
+	public static $editTalkpage = null;
 	
 	static function customizeOldChangesList( &$changeslist, &$s, $rc ) {
 		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD )
@@ -400,7 +400,7 @@ class LqtHooks {
 			$isOnTalkPage = $isOnTalkPage || ( self::$editAppliesTo &&
 				self::$editAppliesTo->article()->getTitle()->equals( $talkPage ) );
 			$isOnTalkPage = $isOnTalkPage ||
-				( self::$editView->article->getTitle()->equals( $talkPage ) );
+				( self::$editArticle->getTitle()->equals( $talkPage ) );
 			
 			if ( self::$editArticle->getTitle()->equals( $title ) && $isOnTalkPage ) {
 				$isBlocked = false;

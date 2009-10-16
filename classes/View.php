@@ -367,11 +367,12 @@ class LqtView {
 			$article = $thread->root();
 		}
 		
+		LqtHooks::$editTalkpage = $edit_type == 'new'
+					? $this->article : $edit_applies_to->article();
 		LqtHooks::$editArticle = $article;
 		LqtHooks::$editThread = $thread;
 		LqtHooks::$editType = $edit_type;
 		LqtHooks::$editAppliesTo = $edit_applies_to;
-		LqtHooks::$editView = $this;
 
 		$e = new EditPage( $article );
 		

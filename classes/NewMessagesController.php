@@ -45,7 +45,7 @@ class NewMessages {
 		
 		wfDebugLog( 'LiquidThreads', 'Doing notifications' );
 
-		$dbw =& wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_MASTER );
 
 		$tpTitle = $t->article()->getTitle();
 		$root_t = $t->topmostThread()->root()->getTitle();
