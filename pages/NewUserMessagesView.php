@@ -13,8 +13,9 @@ class NewUserMessagesView extends LqtView {
 		$html = '';
 		$html .= Xml::hidden( 'lqt_method', 'mark_as_read' );
 		$html .= Xml::hidden( 'lqt_operand', $ids_s );
-		$html .= Xml::submitButton( $label, array( 'name' => 'lqt_read_button',
-									'title' => $title ) );
+		$html .= Xml::submitButton( $label,
+						array( 'name' => 'lqt_read_button',
+						'title' => $title, 'class' => 'lqt-read-button' ) );
 		$html = Xml::tags( 'form', array( 'method' => 'post', 'class' => $class ), $html );
 		
 		return $html;
@@ -72,6 +73,13 @@ class NewUserMessagesView extends LqtView {
 
 	function showOnce() {
 		self::addJSandCSS();
+		
+		static $scriptDone = false;
+		
+		if ( !$scriptDone ) {
+			global $wgOut, $wgScriptPath;
+			$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/newmessages.js" );
+		}
 
 		if ( $this->request->wasPosted() ) {
 			// If they just viewed this page, maybe they still want that notice.

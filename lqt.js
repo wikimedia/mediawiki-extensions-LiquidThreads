@@ -424,7 +424,7 @@ var liquidThreads = {
 		var apiParams = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
 					'format' : 'json', 'thrender' : '1', 'thprop' : 'id' };
 		
-		$j.get( wgScriptPath+'/api.php', apiParams,
+		$j.get( wgScriptPath+'/api'+wgScriptExtension, apiParams,
 			function(data) {
 				// Interpret
 				var content = data.query.threads[0].content;

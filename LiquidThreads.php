@@ -160,6 +160,8 @@ $wgAutoloadClasses['ApiQueryLQTThreads'] = "$dir/api/ApiQueryLQTThreads.php";
 $wgAPIListModules['threads'] = 'ApiQueryLQTThreads';
 $wgAutoloadClasses['ApiFeedLQTThreads'] = "$dir/api/ApiFeedLQTThreads.php";
 $wgAPIModules['feedthreads'] = 'ApiFeedLQTThreads';
+$wgAutoloadClasses['ApiThreadAction'] = "$dir/api/ApiThreadAction.php";
+$wgAPIModules['threadaction'] = 'ApiThreadAction';
 
 /** CONFIGURATION SECTION */
 

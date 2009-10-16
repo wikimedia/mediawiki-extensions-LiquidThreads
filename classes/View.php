@@ -728,9 +728,6 @@ class LqtView {
 	*************************/
 
 	static function addJSandCSS() {
-		// Changed this to be static so that we can call it from
-		// wfLqtBeforeWatchlistHook.
-
 		if ( self::$stylesAndScriptsDone ) {
 			return;
 		}
