@@ -88,8 +88,8 @@ class SpecialMergeThread extends ThreadActionPage {
 		
 		$srcThread->moveToParent( $dstThread, $reason );
 		
-		$srcLink = LqtView::inContextLink( $srcThread );
-		$dstLink = LqtView::inContextLink( $dstThread );
+		$srcLink = LqtView::linkInContext( $srcThread );
+		$dstLink = LqtView::linkInContext( $dstThread );
 		
 		global $wgOut;
 		$wgOut->addHTML( wfMsgExt( 'lqt-merge-success', array( 'parseinline', 'replaceafter' ),
