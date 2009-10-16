@@ -57,9 +57,9 @@ class Thread {
 	static function create( $root, $article, $superthread = null,
     				$type = Threads::TYPE_NORMAL, $subject = '' ) {
 
-        $dbw = wfGetDB( DB_MASTER );
-        
-        $thread = new Thread( null );
+		$dbw = wfGetDB( DB_MASTER );
+		
+		$thread = new Thread( null );
 
 		if ( !in_array( $type, self::$VALID_TYPES ) ) {
 			throw new MWException( __METHOD__ . ": invalid change type $type." );
@@ -808,7 +808,7 @@ class Thread {
 		
 		$this->replies();
 		
-		unset( $thread->replies[$thread] );
+		unset( $this->replies[$thread] );
 		
 		// Also, decrement the reply count.
 		$threadObj = Threads::withId( $thread );
@@ -1047,6 +1047,10 @@ class Thread {
 	
 	function setSubject( $subject ) {
 		$this->subject = $subject;
+		
+		foreach( $this->replies() as $reply ) {
+			$reply->setSubject( $subject );
+		}
 	}
 
 	// Deprecated, use subject().
@@ -1245,5 +1249,77 @@ class Thread {
 		} else {
 			return -1;
 		}
+	}
+	
+	public function split( $newSubject, $reason = '' ) {
+		$oldTopThread = $this->topmostThread();
+		$oldParent = $this->superthread();
+			
+		self::recursiveSet( $this, $newSubject, $this, null );
+		
+		$oldParent->removeReply( $this );
+		
+		$oldTopThread->commitRevision( Threads::CHANGE_SPLIT_FROM, $this, $reason );
+		$this->commitRevision( Threads::CHANGE_SPLIT, null, $reason );
+	}
+	
+	public function moveToParent( $newParent, $reason = '' ) {
+		$newSubject = $newParent->subject();
+		
+		$oldTopThread = $newParent->topmostThread();
+		$oldParent = $newParent->superthread();
+			
+		Thread::recursiveSet( $this, $newSubject, $newParent, $newParent );
+
+		$newParent->addReply( $this );
+		
+		if ( $oldParent ) {
+			$oldParent->removeReply( $this );
+		}
+		
+		$oldTopThread->commitRevision( Threads::CHANGE_MERGED_FROM, $this, $reason );
+		$newParent->commitRevision( Threads::CHANGE_MERGED_TO, $this, $reason );
+	}
+	
+	static function recursiveSet( $thread, $subject, $ancestor, $superthread = false ) {
+		$thread->setSubject( $subject );
+		$thread->setAncestor( $ancestor->id() );
+		
+		if ( $superthread !== false ) {
+			$thread->setSuperThread( $superthread );
+		}
+		
+		$thread->save();
+		
+		foreach ( $thread->replies() as $subThread ) {
+			self::recursiveSet( $subThread, $subject, $ancestor );
+		}
+	}
+	
+	static function validateSubject( $subject, &$title, $replyTo, $article ) {
+		$t = null;
+		$ok = true;
+		
+		while ( !$t ) {
+			try {
+				global $wgUser;
+				
+				if ( !$replyTo && $subject ) {
+					$t = Threads::newThreadTitle( $subject, $article );
+				} elseif ( $replyTo ) {
+					$t = Threads::newReplyTitle( $replyTo, $wgUser );
+				}
+				
+				if ( $t )
+					break;
+			} catch ( Exception $e ) { }
+			
+			$subject = md5( mt_rand() ); // Just a random title
+			$ok = false;
+		}
+		
+		$title = $t;
+		
+		return $ok;
 	}
 }

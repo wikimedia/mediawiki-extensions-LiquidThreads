@@ -84,52 +84,18 @@ class SpecialMergeThread extends ThreadActionPage {
 		// Load data
 		$srcThread = $this->mThread;
 		$dstThread = $this->mDestThread;
-		$newSubject = $dstThread->subject();
 		$reason = $data['reason'];
 		
-		$oldTopThread = $srcThread->topmostThread();
-		$oldParent = $srcThread->superthread();
-			
-		$this->recursiveSet( $srcThread, $newSubject, $dstThread, $dstThread );
-
-		$dstThread->addReply( $srcThread );
+		$srcThread->moveToParent( $dstThread, $reason );
 		
-		if ( $oldParent ) {
-			$oldParent->removeReply( $srcThread );
-		}
-		
-		$oldTopThread->commitRevision( Threads::CHANGE_MERGED_FROM, $srcThread, $reason );
-		$dstThread->commitRevision( Threads::CHANGE_MERGED_TO, $srcThread, $reason );
-		
-		$srcTitle = clone $srcThread->article()->getTitle();
-		$srcTitle->setFragment( '#' . $srcThread->getAnchorName() );
-		
-		$dstTitle = clone $dstThread->article()->getTitle();
-		$dstTitle->setFragment( '#' . $dstThread->getAnchorName() );
-		
-		$srcLink = $this->user->getSkin()->link( $srcTitle, $srcThread->subject() );
-		$dstLink = $this->user->getSkin()->link( $dstTitle, $dstThread->subject() );
+		$srcLink = LqtView::inContextLink( $srcThread );
+		$dstLink = LqtView::inContextLink( $dstThread );
 		
 		global $wgOut;
 		$wgOut->addHTML( wfMsgExt( 'lqt-merge-success', array( 'parseinline', 'replaceafter' ),
 							 $srcLink, $dstLink ) );
 		
 		return true;
-	}
-	
-	function recursiveSet( $thread, $subject, $ancestor, $superthread = false ) {
-		$thread->setSubject( $subject );
-		$thread->setAncestor( $ancestor->id() );
-		
-		if ( $superthread ) {
-			$thread->setSuperThread( $superthread );
-		}
-		
-		$thread->save();
-		
-		foreach ( $thread->replies() as $subThread ) {
-			$this->recursiveSet( $subThread, $subject, $ancestor );
-		}
 	}
 	
 	function getPageName() {

@@ -42,20 +42,9 @@ class SpecialSplitThread extends ThreadActionPage {
 		$newSubject = $data['subject'];
 		$reason = $data['reason'];
 		
-		$oldTopThread = $this->mThread->topmostThread();
-		$oldParent = $this->mThread->superthread();
-			
-		$this->recursiveSet( $this->mThread, $newSubject, $this->mThread, 'first' );
+		$this->mThread->split( $newSubject, $reason );
 		
-		$oldParent->removeReply( $this->mThread );
-		
-		$oldTopThread->commitRevision( Threads::CHANGE_SPLIT_FROM, $this->mThread, $reason );
-		$this->mThread->commitRevision( Threads::CHANGE_SPLIT, null, $reason );
-		
-		$title = clone $this->mThread->article()->getTitle();
-		$title->setFragment( '#' . $this->mThread->getAnchorName() );
-		
-		$link = $this->user->getSkin()->link( $title, $this->mThread->subject() );
+		$link = LqtView::linkInContext( $this->mThread );
 		
 		global $wgOut;
 		$wgOut->addHTML( wfMsgExt( 'lqt-split-success', array( 'parseinline', 'replaceafter' ),
@@ -64,29 +53,17 @@ class SpecialSplitThread extends ThreadActionPage {
 		return true;
 	}
 	
-	function recursiveSet( $thread, $subject, $ancestor, $first = false ) {
-		$thread->setSubject( $subject );
-		$thread->setAncestor( $ancestor->id() );
-		
-		if ( $first ) {
-			$thread->setSuperThread( null );
-		}
-		
-		$thread->save( );
-		
-		foreach ( $thread->replies() as $subThread ) {
-			$this->recursiveSet( $subThread, $subject, $ancestor );
-		}
-	}
-	
 	function validateSubject( $target ) {
 		if ( !$target ) {
 			return wfMsgExt( 'lqt_split_nosubject', 'parseinline' );
 		}
-			
-		$title = Title::newFromText( $target );
 		
-		if ( !$title ) {
+		$title = null;
+		$article = $this->mThread->article();
+		
+		$ok = Thread::validateSubject( $target, &$title, null, $article );
+		
+		if ( !$ok ) {
 			return wfMsgExt( 'lqt_split_badsubject', 'parseinline' );
 		}
 			

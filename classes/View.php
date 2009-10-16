@@ -341,27 +341,16 @@ class LqtView {
 		} elseif ( !$thread ) {
 			$t = null;
 			
-			$title_subject = $subject;
-			while ( !$t ) {
-				try {
-					if ( $edit_type == 'new' && $title_subject ) {
-						$t = $this->newThreadTitle( $title_subject );
-					} elseif ( $edit_type == 'reply' ) {
-						$t = $this->newReplyTitle( $title_subject, $edit_applies_to );
-					}
-					
-					if ( $t )
-						break;
-				} catch ( Exception $e ) { }
-				
-				$title_subject = md5( mt_rand() ); // Just a random title
+			$subjectOk = Thread::validateSubject( $subject, &$t,
+							$edit_applies_to, $this->article );
+			if ( ! $subjectOk ) {
 				$subject = false;
 			}
-		
+			
 			if ( !$subject && $subject_expected ) {
 				// Dodgy title
 				$valid_subject = false;
-			} else {
+			} elseif ( ! $t ) {
 				try {
 					if ( $edit_type == 'new' ) {
 						$t = $this->newThreadTitle( $subject );
