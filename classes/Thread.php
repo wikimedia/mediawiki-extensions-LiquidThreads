@@ -76,7 +76,11 @@ class Thread {
 		$timestamp = wfTimestampNow();
 
 		$thread->setAuthor( $wgUser );
-		$thread->setRoot( $root );
+		
+		if ( is_object( $root ) )
+			$thread->setRoot( $root );
+		else
+			$thread->setRootId( $root );
 		$thread->setSuperthread( $superthread );
 		$thread->setArticle( $article );
 		$thread->setSubject( $subject );
@@ -128,6 +132,11 @@ class Thread {
 	function setRoot( $article ) {
 		$this->rootId = $article->getId();
 		$this->root = $article;
+	}
+	
+	function setRootId( $article ) {
+		$this->rootId = $article;
+		$this->root = null;
 	}
 
 	function commitRevision( $change_type, $change_object = null, $reason = "" ) {

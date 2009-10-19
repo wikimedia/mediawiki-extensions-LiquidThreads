@@ -344,10 +344,7 @@ class ApiThreadAction extends ApiBase {
 		
 		$articleId = $editResult['edit']['pageid'];
 		
-		// Reload article data
-		$article = Article::newFromId( $articleId );
-		
-		$thread = LqtView::postEditUpdates( 'new', null, $article, $talkpage,
+		$thread = LqtView::postEditUpdates( 'new', null, $articleId, $talkpage,
 					$subject, $summary, null, $text );
 					
 		$result = array(
@@ -435,10 +432,7 @@ class ApiThreadAction extends ApiBase {
 		
 		$articleId = $editResult['edit']['pageid'];
 		
-		// Reload article data
-		$article = Article::newFromId( $articleId );
-		
-		$thread = LqtView::postEditUpdates( 'reply', $replyTo, $article, $talkpage,
+		$thread = LqtView::postEditUpdates( 'reply', $replyTo, $articleId, $talkpage,
 					$subject, $summary, null, $text );
 					
 		$result = array(

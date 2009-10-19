@@ -101,7 +101,7 @@ var liquidThreads = {
 			}
 			
 			// Add AJAX save handler
-			// $j(container).find('#wpSave').click( liquidThreads.handleAJAXSave );
+			$j(container).find('#wpSave').click( liquidThreads.handleAJAXSave );
 		};
 		
 		mwEditButtons = [];
