@@ -8,7 +8,28 @@ class NewMessages {
 	}
 
 	static function markThreadAsReadByUser( $thread, $user ) {
-		self::writeUserMessageState( $thread, $user, wfTimestampNow() );
+		if ( is_object( $thread ) ) {
+			$thread_id = $thread->id();
+		} else if ( is_integer( $thread ) ) {
+			$thread_id = $thread;
+		} else {
+			throw new MWException( __METHOD__." expected Thread or integer but got $thread" );
+		}
+
+		if ( is_object( $user ) ) {
+			$user_id = $user->getID();
+		} else if ( is_integer( $user ) ) {
+			$user_id = $user;
+		} else {
+			throw new MWException( __METHOD__." expected User or integer but got $user" );
+		}
+	
+		$dbw = wfGetDB( DB_MASTER );
+		
+		$dbw->delete( 'user_message_state',
+				array( 'ums_user' => $user_id, 'ums_thread' => $thread_id ),
+				__METHOD__ );
+				
 	}
 
 	private static function writeUserMessageState( $thread, $user, $timestamp ) {
