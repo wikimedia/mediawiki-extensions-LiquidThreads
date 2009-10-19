@@ -487,6 +487,9 @@ class LqtView {
 			
 			$thread = Threads::newThread( $edit_page, $article, $edit_applies_to,
 							Threads::TYPE_NORMAL, $subject );
+			
+			global $wgUser;
+			NewMessages::markThreadAsReadByUser( $edit_applies_to, $wgUser );
 		} elseif ( $edit_type == 'summarize' ) {
 			$edit_applies_to->setSummary( $edit_page );
 			$edit_applies_to->commitRevision( Threads::CHANGE_EDITED_SUMMARY,
