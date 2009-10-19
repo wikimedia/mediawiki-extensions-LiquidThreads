@@ -63,7 +63,7 @@ var liquidThreads = {
 			
 			$j('html,body').animate({scrollTop: scrollOffset}, 'slow');
 			// Auto-focus and set to auto-grow as well
-			$j(container).find('#wpTextbox1').focus().autogrow();
+			$j(container).find('#wpTextbox1').focus();//.autogrow();
 			// Focus the subject field if there is one. Overrides previous line.
 			$j(container).find('#lqt_subject_field').focus();
 		}
@@ -780,6 +780,6 @@ js2AddOnloadHook( function() {
 	setInterval( liquidThreads.checkForUpdates, 60000 );
 	
 	// Autogrowing textarea - this only affects the new-topic page
-	$j('#wpTextbox1').autogrow();
+//	$j('#wpTextbox1')//.autogrow();
 } );
 
