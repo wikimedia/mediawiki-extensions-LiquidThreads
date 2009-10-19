@@ -846,6 +846,7 @@ $messages['bcc'] = array(
  * @author EugeneZelenko
  * @author Jim-by
  * @author Mormegil
+ * @author Raymond
  * @author Александр Сигачёв
  */
 $messages['be-tarask'] = array(
@@ -1070,6 +1071,8 @@ $messages['be-tarask'] = array(
 	'lqt-feed-reply-intro' => 'Адказ на $3 (на $1) разьмешчаны $2',
 	'lqt-newmessages-n' => 'Новыя паведамленьні ($1)',
 	'lqt_newmessages' => 'Новыя паведамленьні',
+	'lqt-newpost-summary' => 'Новая галіна: $1',
+	'lqt-reply-summary' => 'Адказаць на [[$2|$1]]',
 );
 
 /** Bulgarian (Български)
@@ -4619,6 +4622,7 @@ Móžeš ju na <$6> widźeć",
 /** Hungarian (Magyar)
  * @author Dani
  * @author Glanthor Reviol
+ * @author Raymond
  * @author Tgr
  */
 $messages['hu'] = array(
@@ -4665,11 +4669,11 @@ $messages['hu'] = array(
 	'lqt_hist_merged_to' => 'Hozzászólás áthelyezve egy másik beszélgetésből',
 	'lqt_revision_as_of' => 'Változat időbélyege: $2 $3',
 	'lqt_change_new_thread' => 'Ez a beszélgetésfolyam első változata',
-	'lqt_change_reply_created' => 'A kiemelt megjegyzés ennél a változatnál készült.',
-	'lqt_change_edited_root' => 'A kiemelt megjegyzés ennél a változatnál szerkesztve volt.',
+	'lqt_change_reply_created' => 'A [$1 kiemelt megjegyzés] ennél a változatnál készült.',
+	'lqt_change_edited_root' => 'A [$1 kiemelt megjegyzés] ennél a változatnál szerkesztve volt.',
 	'lqt_change_edited_summary' => 'A beszélgetésfolyam összefoglalója szerkesztve volt',
-	'lqt_change_undeleted' => 'A kiemelt hozzászólás helyre lett állítva',
-	'lqt_change_moved' => 'A beszélgetésfolyam át lett helyezve egy másik vitalapra',
+	'lqt_change_undeleted' => 'A [$1 kiemelt hozzászólás] helyre lett állítva',
+	'lqt_change_moved' => '[$1 A beszélgetésfolyam] át lett helyezve egy másik vitalapra',
 	'lqt_change_subject_edited' => 'A beszélgetésfolyam tárgya megváltozott',
 	'lqt_youhavenewmessages' => '[$1 új üzeneted] érkezett.',
 	'lqt_protectedfromreply' => 'Ez a beszélgetés $1 a válaszlehetőségtől.',
@@ -8161,6 +8165,7 @@ $messages['ru'] = array(
 
 /** Yakut (Саха тыла)
  * @author HalanTul
+ * @author Raymond
  */
 $messages['sah'] = array(
 	'lqt-desc' => 'Ырытыы сирэйдэригэр салаалары эбэр',
@@ -8208,6 +8213,7 @@ $messages['sah'] = array(
 	'lqt_hist_merged_from' => 'Хоруй атын салааҕа көһөрүлүннэ',
 	'lqt_hist_merged_to' => 'Хоруй атын салааттан көһөрүлүннэ',
 	'lqt_hist_split_from' => 'Саҥа салааҕа көһөр',
+	'lqt_hist_root_blanked' => 'Комментарий тиэкиһэ сотуллубут',
 	'lqt_revision_as_of' => 'Барыл $2 $3.',
 	'lqt_change_new_thread' => 'Салаа бастакы барыла',
 	'lqt_change_reply_created' => '[$1 бэлиэтэммит комментарий] бу барылга оҥоһуллубут.',
@@ -8221,11 +8227,13 @@ $messages['sah'] = array(
 	'lqt_change_merged_from' => 'Бу салаа [$1 хоруйа] атын салааҕа көһөрүллүбүт',
 	'lqt_change_merged_to' => '[$1 Бэлиэтэммит хоруй] атын салааттан көһөрүллүбүт',
 	'lqt_change_split_from' => '[$1 Бу салаа] аннынан баар салаа туспа салаа буолбут',
+	'lqt_change_root_blanked' => '[$1 комментарий] тиэкиһэ сотуллубут.',
 	'lqt_youhavenewmessages' => 'Эйиэхэ [$1 саҥа сурук] кэлбит.',
 	'lqt_protectedfromreply' => 'Бу салаа киниэхэ хоруйтан $1.',
 	'lqt_protectedfromreply_link' => 'көмүскэммит',
 	'lqt_subject' => 'Аата:',
 	'lqt_noreason' => 'Төрүөтэ ыйыллыбатах.',
+	'lqt_move_placeholder' => 'Бу салаа $1 салааны $3 $4 сирэйгэ $2 кыттааччы көһөрбүтүн туһунан кэпсиир.',
 	'lqt_thread_deleted_for_sysops' => "Бу салаа '''сотуллубут''', дьаһабылларга эрэ костөр кыахтаах.",
 	'lqt_thread_deleted' => 'Бу салаа сотуллубут.',
 	'lqt_summary_notice' => 'Бу ырытыы $2 хонуктан ордук кэмҥэ уларытыллыбатах.
@@ -8261,6 +8269,8 @@ $messages['sah'] = array(
 	'lqt_delete_show_checkbox' => 'Сотуллубут салаалары көрдөр',
 	'lqt_talkpage_autocreate_summary' => 'Саҥа ырытыы сирэйэ бастакы этии оҥоһуллубутун кэннэ апатмаатынан оҥоһулунна.',
 	'lqt_header_warning_big' => 'Маны эрэдээксийэлиигин $1.',
+	'lqt_header_warning_after_big' => 'Ааттар биллэрии уонна киирии быһыытынан туттуллаллар. 
+Эн маны оҥоруоххун сөп $2.',
 	'lqt_header_warning_bold' => 'ырытар сирэй аата',
 	'lqt_header_warning_new_discussion' => 'саҥа ырытыыны саҕалааһын',
 	'lqt_sorting_order' => 'Наардааһын бэрээдэгэ:',
@@ -8292,6 +8302,8 @@ $messages['sah'] = array(
 	'lqt-new-messages' => '&#x2712; Эйиэхэ саҥа суруктар бааллар.',
 	'lqt-email-info-undo' => 'Билигин көрбүт салаабын төннөр.',
 	'lqt-date-info' => 'Бу сигэ арахса сылдьар, тоҕо диэтэххэ эн туох баар салаалары барытын көрө олороҕун.',
+	'lqt_rc_new_discussion' => 'Манна $2 &bull; Саҥа ырытыы "$1" $3 суруйар:',
+	'lqt_rc_new_reply' => 'Манна "$1" $2 &bull; хоруйдаан  $3 суруйар:',
 	'lqt_rc_author_original' => '(бастакы ааптар)',
 	'lqt_rc_author_others' => '(ааптара суох)',
 	'lqt-newmessages-context' => 'Толору салаа',
@@ -8321,6 +8333,7 @@ $messages['sah'] = array(
 Олору сотуоххун баҕарбат буоллаххына ол хоруйдары бастаан атын салааларга таһаар.',
 	'lqt-delete-parent-deleted' => 'Үөһээ салаа сотулунна ($1)',
 	'lqt-delete-replies-done' => 'Бу салаа хоруйдара эмиэ сотулуннулар.',
+	'lqt-movethread' => 'Аатын уларыт',
 	'right-lqt-split' => 'Салаалары араарыы',
 	'right-lqt-merge' => 'Салаалары холбооһун',
 	'lqt-thread-merge' => 'Атын салааҕа холбооһун',
@@ -8329,13 +8342,16 @@ $messages['sah'] = array(
 	'lqt-thread-merge-source' => 'Холбонор салаалар:',
 	'lqt-thread-merge-dest' => 'Ханна холбоноллоро:',
 	'lqt-merge-submit' => 'Холбоо',
+	'lqt-merge-success' => '$1 салаа $2 салааҕа сөпкө холбонно.',
 	'lqt-log-name' => 'Ырытыы салааларын сурунаала',
 	'lqt-log-header' => 'Бу сурунаалга ырытыы салааларыгар туох буолбута суруллан иһэр.',
+	'lqt-log-action-move' => '[[$1]] мантан [[$2]] манна [[$3]] көспүт.',
 	'lqt-preference-notify-talk' => 'Кэтиир салаабар саҥа этии киирдэҕинэ мин почтабар сурукта ыыт',
 	'lqt-preference-watch-threads' => 'Оҥорбут уонна хоруйдаабыт салааларбын кэтииргэ',
 	'prefs-lqt' => 'Салааларынан ырытыылар',
 	'lqt-preference-display-depth' => 'Хоруйдар көрдөрүллэр дириҥнэрэ:',
 	'lqt-preference-display-count' => 'Хоруйдар көрдөрүллэр ахсааннара',
+	'lqt-preference-custom-signatures' => 'Кыттаачылар улартыллар илии баттааһыннарын көрдөр',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} ырытыы — Хоруй: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} ырытыы — Саҥа салаа: $1',
 	'lqt-enotif-newthread' => 'Дорообо, $1.
@@ -8357,6 +8373,8 @@ $messages['sah'] = array(
 	'lqt-ajax-update-link' => 'Саҥардыы',
 	'lqt-thread-show-replies' => '$1 хоруйу көрдөр',
 	'lqt-thread-show-more' => 'Өссө элбэҕи көрдөр',
+	'lqt-thread-link-url' => 'URL:',
+	'lqt-thread-link-title' => 'Биики сигэ:',
 	'lqt-feed-title-all' => '{{SITENAME}} — Саҥа суруктар',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Саҥа суруктар $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Саҥа салаалар',
@@ -8365,6 +8383,7 @@ $messages['sah'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Хоруйдар $1',
 	'lqt-feed-new-thread-intro' => 'Манна $1 $2 оҥорбут саҥа салаата',
 	'lqt-feed-reply-intro' => '$3 сурукка хоруй ($1) манна баар $2',
+	'lqt-newmessages-n' => 'Саҥа этиилэр ($1)',
 	'lqt_newmessages' => 'Саҥа этиилэр',
 );
 
