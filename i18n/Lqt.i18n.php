@@ -261,6 +261,10 @@ You can see it at <$6>",
 	
 	'lqt-newmessages-n' => 'New messages ($1)',
 	'lqt_newmessages' => 'New messages',
+	
+	// Automatic summaries
+	'lqt-newpost-summary' => 'New thread: $1',
+	'lqt-reply-summary' => 'Reply to [[$2|$1]]',
 );
 
 /** Message documentation (Message documentation)
