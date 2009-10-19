@@ -80,12 +80,17 @@ class ApiThreadAction extends ApiBase {
 		$threads = array();
 		if ( !empty( $params['thread'] ) ) {
 			foreach( $params['thread'] as $thread ) {
+				$threadObj = null;
 				if ( is_numeric( $thread ) ) {
-					$threads[] = Threads::withId( $thread );
+					$threadObj = Threads::withId( $thread );
 				} else {
 					$title = Title::newFromText( $thread );
 					$article = new Article( $title );
-					$threads[] = Threads::withRoot( $article );
+					$threadObj = Threads::withRoot( $article );
+				}
+				
+				if ( $threadObj instanceof Thread ) {
+					$threads[] = $threadObj;
 				}
 			}
 		}

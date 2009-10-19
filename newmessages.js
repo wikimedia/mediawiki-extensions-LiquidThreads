@@ -38,7 +38,9 @@ liquidThreads.doMarkRead =
 				$j.post( wgScriptPath+'/api'+wgScriptExtension,
 					markReadParameters,
 					function(reply) {
-						button.closest('tr').remove();
+						var row = button.closest('tr');
+						row.fadeOut( 'slow',
+							function() { row.remove(); } );
 						spinner.remove();
 					}, 'json' );
 			}, 'json' );
