@@ -27,8 +27,6 @@ var liquidThreads = {
 		
 		liquidThreads.injectEditForm( query, replyDiv, e.preload );
 		liquidThreads.currentReplyThread = thread_id;
-		
-		return false;
 	},
 	
 	'handleNewLink' : function(e) {
@@ -40,8 +38,6 @@ var liquidThreads = {
 		
 		liquidThreads.injectEditForm( query, container );
 		liquidThreads.currentReplyThread = 0;
-			
-		return false;
 	},
 	
 	'injectEditForm' : function(query, container, preload) {
@@ -103,6 +99,9 @@ var liquidThreads = {
 				$j.getScript( stylepath+'/common/preview.js',
 								function() { setupLivePreview(); } );
 			}
+			
+			// Add AJAX save handler
+			$j(container).find('#wpSave').click( liquidThreads.handleAJAXSave );
 		};
 		
 		mwEditButtons = [];
@@ -316,6 +315,11 @@ var liquidThreads = {
 		e.preventDefault();
 		
 		var thread = $j(this).closest('.lqt_thread');
+
+		liquidThreads.doReloadThread( thread );
+	},
+	
+	'doReloadThread' : function( thread /* The .lqt_thread */ ) {
 		var post = thread.find('div.lqt-post-wrapper')[0];
 		post = $j(post);
 		var threadId = post.data('thread-id');
@@ -567,6 +571,163 @@ var liquidThreads = {
 		dialog.dialog( dialogOptions );
 		
 		e.preventDefault();
+	},
+	
+	'getToken' : function( callback ) {
+		var getTokenParams =
+		{
+			'action' : 'query',
+			'prop' : 'info',
+			'intoken' : 'edit',
+			'titles' : 'Some Title',
+			'format' : 'json'
+		};
+		
+		$j.get( wgScriptPath+'/api'+wgScriptExtension, getTokenParams,
+			function( data ) {
+				var token = data.query.pages[-1].edittoken;
+				
+				callback(token);
+			}, 'json' );
+	},
+	
+	'handleAJAXSave' : function( e ) {
+		var editform = $j(this).closest('.lqt-edit-form');
+		var type = editform.find('input[name=lqt_method]').val();
+		
+		var text = editform.find('#wpTextbox1').val();
+		var summary = editform.find('#wpSummary').val();
+		var subject = editform.find( '#lqt_subject_field' ).val();
+		var replyThread = editform.find('input[name=lqt_operand]').val();
+		
+		var spinner = $j('<div class="mw-ajax-loader"/>');
+		editform.prepend(spinner);
+		
+		var replyCallback = function( data ) { 
+			// Grab topmost thread, reload it.
+			var topmostThread = editform.closest('.lqt-thread-topmost');
+			liquidThreads.doReloadThread( topmostThread );
+		}
+		
+		var newCallback = function( data ) {
+			// Grab the thread ID
+			var newThreadID = data.threadaction.thread['thread-id'];
+			
+			var renderParams =
+			{
+				'action' : 'query',
+				'list' : 'threads',
+				'thid' : newThreadID,
+				'thrender' : '1',
+				'format' : 'json'
+			};
+			
+			$j.post( wgScriptPath+'/api'+wgScriptExtension, renderParams,
+				function(data) {
+					var html = data.query.threads[0].content;
+					var newThread = $j(html);
+					
+					$j('.lqt_toc').after(newThread);
+					
+					$j(newThread).find( '.lqt-post-wrapper').each(
+						function() {
+							// Set up thread.
+							liquidThreads.setupThread( $j(this) );
+						}
+					);
+				}, 'json' );
+		}
+		
+		var doneCallback = function(data) {
+			spinner.remove();
+			
+			try {
+				var result = data.threadaction.thread.result;
+			} catch ( err ) {
+				result = 'error';
+			}
+			
+			if ( result != 'Success' ) {
+				// Create a hidden field to mimic the save button, and
+				// submit it normally, so they'll get a real error message.
+				
+				var saveHidden = $j('<input/>');
+				saveHidden.attr( 'type', 'hidden' );
+				saveHidden.attr( 'name', 'wpSave' );
+				saveHidden.attr( 'value', 'Save' );
+				
+				var form = editform.find('#editform');
+				form.append(saveHidden);
+				form.submit();
+				return;
+			}
+			
+			if ( type == 'reply' ) {
+				replyCallback( data );
+			}
+			
+			if ( type == 'talkpage_new_thread' ) {
+				newCallback( data );
+			}
+		};
+		
+		if ( type == 'reply' ) {			
+			liquidThreads.doReply( replyThread, text, summary, doneCallback);
+			
+			e.preventDefault();
+		} else if ( type == 'talkpage_new_thread' ) {
+			liquidThreads.doNewThread( wgPageName, subject, text, summary,
+					doneCallback );
+			
+			e.preventDefault();
+		}
+	},
+	
+	'doNewThread' : function( talkpage, subject, text, summary, callback ) {
+		liquidThreads.getToken(
+			function(token) {
+				var newTopicParams =
+				{
+					'action' : 'threadaction',
+					'threadaction' : 'newthread',
+					'talkpage' : talkpage,
+					'subject' : subject,
+					'text' : text,
+					'token' : token,
+					'format' : 'json',
+					'reason' : summary
+				};
+				
+				$j.post( wgScriptPath+'/api'+wgScriptExtension, newTopicParams,
+					function(data) {
+						if (callback) {
+							callback(data);
+						}
+					}, 'json' );
+			} );
+	},
+	
+	'doReply' : function( thread, text, summary, callback ) {
+		liquidThreads.getToken(
+			function(token) {
+				var replyParams =
+				{
+					'action' : 'threadaction',
+					'threadaction' : 'reply',
+					'thread' : thread,
+					'text' : text,
+					'token' : token,
+					'format' : 'json',
+					'reason' : summary
+				};
+				
+				$j.post( wgScriptPath+'/api'+wgScriptExtension, replyParams,
+					function(data) {
+						if (callback) {
+							callback(data);
+						}
+					}, 'json' );
+			} );
 	}
 }
 
