@@ -14,7 +14,7 @@ class ApiThreadAction extends ApiBase {
 			'merge' => 'actionMerge',
 			'reply' => 'actionReply', // Not implemented
 			'newthread' => 'actionNewThread',
-//			'setsubject',
+			'setsubject' => 'actionSetSubject',
 		);
 	}
 	
@@ -294,7 +294,7 @@ class ApiThreadAction extends ApiBase {
 				'invalid-subject' );
 			
 			return;
-		}		
+		}
 		$article = new Article( $title );
 		
 		// Check for text
@@ -355,6 +355,8 @@ class ApiThreadAction extends ApiBase {
 			'thread-id' => $thread->id(),
 			'thread-title' => $thread->title()->getPrefixedText(),
 		);
+		
+		$result = array( 'thread' => $result );
 		
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
@@ -449,6 +451,54 @@ class ApiThreadAction extends ApiBase {
 			'ancestor-id' => $replyTo->topmostThread()->id(),
 			'ancestor-title' => $replyTo->topmostThread()->title()->getPrefixedText(),
 		);
+		
+		$result = array( 'thread' => $result );
+		
+		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+	
+	public function actionSetSubject( $threads, $params ) {
+		// Validate thread parameter
+		if ( count($threads) > 1 ) {
+			$this->dieUsage( 'You may only change the subject of one thread at a time',
+					'too-many-threads' );
+			return;
+		} elseif ( count($threads) < 1 ) {
+			$this->dieUsage( 'You must specify a thread to change the subject of',
+					'no-specified-threads' );
+			return;
+		}
+		$thread = array_pop( $threads );
+		
+		// Validate subject
+		if ( empty( $params['subject'] ) ) {
+			$this->dieUsage( 'You must specify a thread subject',
+				'missing-param' );
+			return;
+		}
+		
+		$subject = $params['subject'];
+		$title = null;
+		$subjectOk = Thread::validateSubject( $subject, &$title, null, $talkpage );
+		
+		if ( !$subjectOk ) {
+			$this->dieUsage( 'The subject you specified is not valid',
+				'invalid-subject' );
+			
+			return;
+		}
+		
+		$thread->setSubject( $subject );
+		
+		$result = array(
+			'action' => 'setsubject',
+			'result' => 'success',
+			'thread-id' => $thread->id(),
+			'thread-title' => $thread->title(),
+			'new-subject' => $subject,
+		);
+		
+		$result = array( 'thread' => $result );
 		
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
