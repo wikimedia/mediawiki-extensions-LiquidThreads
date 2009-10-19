@@ -56,14 +56,16 @@ var liquidThreads = {
 		var finishShow = function() {
 			// Scroll to the textbox
 			var targetOffset = $j(container).find('#wpTextbox1').offset().top;
+			var windowHeight = $j(window).height();
+			var editBoxHeight = $j(container).height();
 			
 			if (!targetOffset) {
 				targetOffset = $j(container).offset().top;
 			}
 			
-			// Buffer at the top, roughly enough to see the heading and one line
-			targetOffset -= 100;
-			$j('html,body').animate({scrollTop: targetOffset}, 'slow');
+			var scrollOffset = targetOffset - windowHeight + editBoxHeight;
+			
+			$j('html,body').animate({scrollTop: scrollOffset}, 'slow');
 			// Auto-focus and set to auto-grow as well
 			$j(container).find('#wpTextbox1').focus().autogrow();
 			// Focus the subject field if there is one. Overrides previous line.
