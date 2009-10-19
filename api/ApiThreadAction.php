@@ -350,7 +350,7 @@ class ApiThreadAction extends ApiBase {
 		$result = array(
 			'result' => 'Success',
 			'thread-id' => $thread->id(),
-			'thread-title' => $thread->title()->getPrefixedText(),
+			'thread-title' => $title->getPrefixedText(),
 		);
 		
 		$result = array( 'thread' => $result );
@@ -439,7 +439,7 @@ class ApiThreadAction extends ApiBase {
 			'action' => 'reply',
 			'result' => 'Success',
 			'thread-id' => $thread->id(),
-			'thread-title' => $thread->title()->getPrefixedText(),
+			'thread-title' => $title->getPrefixedText(),
 			'parent-id' => $replyTo->id(),
 			'parent-title' => $replyTo->title()->getPrefixedText(),
 			'ancestor-id' => $replyTo->topmostThread()->id(),
