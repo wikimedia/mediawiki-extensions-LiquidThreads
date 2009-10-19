@@ -8,7 +8,7 @@ liquidThreads.doMarkRead =
 		// Find the operand.
 		var form = button.closest('form.lqt_newmessages_read_button');
 		var operand = form.find('input[name=lqt_operand]').val();
-		var threads = operand.replace( ',', '|' );
+		var threads = operand.replace( /\,/g, '|' );
 		
 		var getTokenParams =
 		{
