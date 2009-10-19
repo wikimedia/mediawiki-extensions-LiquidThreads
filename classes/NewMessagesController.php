@@ -30,6 +30,7 @@ class NewMessages {
 				array( 'ums_user' => $user_id, 'ums_thread' => $thread_id ),
 				__METHOD__ );
 				
+		self::recacheMessageCount( $user_id );
 	}
 
 	private static function writeUserMessageState( $thread, $user, $timestamp ) {
