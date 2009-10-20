@@ -642,14 +642,17 @@ var liquidThreads = {
 						function() {
 							// Set up thread.
 							liquidThreads.setupThread( $j(this) );
+							
+							targetOffset = $j(this).offset().top;
+							$j('html,body').animate(
+								{scrollTop: targetOffset},
+								'slow');
 						}
 					);
 				}, 'json' );
 		}
 		
 		var doneCallback = function(data) {
-			spinner.remove();
-			
 			try {
 				var result = data.threadaction.thread.result;
 			} catch ( err ) {
@@ -671,13 +674,20 @@ var liquidThreads = {
 				return;
 			}
 			
+			var timeout = (data.threadaction.thread['max-lag'] + 1) * 1000;
+			var callback;
+			
 			if ( type == 'reply' ) {
-				replyCallback( data );
+				callback = replyCallback;
 			}
 			
 			if ( type == 'talkpage_new_thread' ) {
-				newCallback( data );
+				callback = newCallback;
 			}
+			
+			editform.empty().hide();
+			
+			setTimeout( function() { spinner.remove(); callback(data); }, timeout );
 		};
 		
 		if ( type == 'reply' ) {			

@@ -344,13 +344,24 @@ class ApiThreadAction extends ApiBase {
 		
 		$articleId = $editResult['edit']['pageid'];
 		
+		$article->getTitle()->resetArticleID( $articleId );
+		$title->resetArticleID( $articleId );
+		
 		$thread = LqtView::postEditUpdates( 'new', null, $articleId, $talkpage,
 					$subject, $summary, null, $text );
-					
+
+		$maxLag = wfGetLB()->getMaxLag();
+		$maxLag = $maxLag[1];
+		
+		if ($maxLag == -1) {
+			$maxLag = 0;
+		}
+
 		$result = array(
 			'result' => 'Success',
 			'thread-id' => $thread->id(),
 			'thread-title' => $title->getPrefixedText(),
+			'max-lag' => $maxLag,
 		);
 		
 		$result = array( 'thread' => $result );
@@ -431,9 +442,18 @@ class ApiThreadAction extends ApiBase {
 		}
 		
 		$articleId = $editResult['edit']['pageid'];
+		$article->getTitle()->resetArticleID( $articleId );
+		$title->resetArticleID( $articleId );
 		
 		$thread = LqtView::postEditUpdates( 'reply', $replyTo, $articleId, $talkpage,
 					$subject, $summary, null, $text );
+		
+		$maxLag = wfGetLB()->getMaxLag();
+		$maxLag = $maxLag[1];
+		
+		if ($maxLag == -1) {
+			$maxLag = 0;
+		}
 					
 		$result = array(
 			'action' => 'reply',
@@ -444,6 +464,7 @@ class ApiThreadAction extends ApiBase {
 			'parent-title' => $replyTo->title()->getPrefixedText(),
 			'ancestor-id' => $replyTo->topmostThread()->id(),
 			'ancestor-title' => $replyTo->topmostThread()->title()->getPrefixedText(),
+			'max-lag' => $maxLag,
 		);
 		
 		$result = array( 'thread' => $result );
