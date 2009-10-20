@@ -257,6 +257,7 @@ li.lqt-command-reply {
 	margin-top: 0px;
 
 }
+
 .lqt-thread-toolbar-command-list li {
 	padding-left: 0.5em;
 	padding-right: 0.5em;
@@ -279,12 +280,16 @@ li.lqt-command-reply {
 
 .lqt-thread-actions-icon {
 	display: block;
-	width: 1.5em;
+	width: 3em;
 	height: 2em;
-	padding-left: 0.5em;
+	padding-right: 0.5em;
 	background-image: url('icons/arrow-down-icon.png');
-	background-position: center center;
+	background-position: right center;
 	background-repeat: no-repeat;
+	line-height: 2em;
+	margin-left: 0.5em;
+	color: #666666;
+	cursor: pointer;
 }
 .lqt-talkpage-search {
 	/*float: left;*/
@@ -362,33 +367,11 @@ div.lqt-post-sep {
 }
 
 .lqt-thread-toolbar {
-	position: absolute;
 	right: 0.5em;
-	background-image: url(images/box-c.png);
+	position: absolute;
+	
 }
 
-div.lqt-thread-toolbar-box-bl {
-	background-image: url(images/box-bl.png);
-	background-position: bottom left;
-	background-repeat: no-repeat;
-}
-div.lqt-thread-toolbar-box-br {
-	background-image: url(images/box-br.png);
-	background-position: bottom right;
-	background-repeat: no-repeat;
-}
-div.lqt-thread-toolbar-box-tr {
-	background-image: url(images/box-tr.png);
-	background-position: top right;
-	background-repeat: no-repeat;
-	padding-bottom: 8px;
-}
-div.lqt-thread-toolbar-box-tl {
-	background-image: url(images/box-tl.png);
-	background-position: top left;
-	background-repeat: no-repeat;
-	padding-right: 8px;
-}
 .lqt-command {
 	margin-top: 8px;
 	padding: 0;
@@ -400,9 +383,12 @@ div.lqt-thread-toolbar-box-tl {
 .lqt-command-link a {
 	margin-left: 1em;
 	height: 2em;
-	width: 2em;
+	width: 3em;
+	padding-left: 26px;
 	background-image: url(icons/link.png) !important;
 	background-repeat: no-repeat;
+	background-position: left center !important;
+	line-height: 2em;
 }
 .lqt-command-reply a {
 	margin-left: 1em;

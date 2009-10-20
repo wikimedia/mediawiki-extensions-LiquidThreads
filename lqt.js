@@ -233,28 +233,37 @@ var liquidThreads = {
 		var post = $j(this);
 		
 		var toolbar = post.find('.lqt-thread-toolbar');
-		toolbar.hide();
-		
-		post.hover(
-			function() {
-				toolbar.fadeIn(100);
-				liquidThreads.currentToolbar = toolbar;
-			},
-			function() {
-				if ( liquidThreads.currentToolbar &&
-						liquidThreads.currentToolbar.is(toolbar) ) {
-					liquidThreads.currentToolbar = null;
-				}
-				toolbar.fadeOut(20);
-			}
-		);
 					
 		var menu = post.find('.lqt-thread-toolbar-command-list');
 		var menuContainer = post.find( '.lqt-thread-toolbar-menu' );
 		menu.remove().appendTo( menuContainer );
 		menuContainer.find('.lqt-thread-toolbar-command-list').hide();
-		menuContainer.hover( function() { menu.fadeIn(); }, function() { menu.fadeOut(); } );
-		menuContainer.find( '.lqt-thread-actions-trigger' ).show();
+
+		var trigger = menuContainer.find( '.lqt-thread-actions-trigger' )	
+
+		trigger.show();
+		menu.hide();
+		
+		trigger.click(
+			function() {
+				// Hide the other menus
+				$j('.lqt-thread-toolbar-command-list').not(menu).hide('fast');
+				
+				menu.toggle( 'fast' );
+				
+				var windowHeight = $j(window).height();
+				var toolbarOffset = toolbar.offset().top;
+				var scrollPos = $j(window).scrollTop();
+				
+				var menuBottom = ( toolbarOffset + 150 - scrollPos );
+				
+				if ( menuBottom > windowHeight ) {
+					// Switch to an upwards menu.
+					menu.css( 'bottom', toolbar.height() );
+				} else {
+					menu.css( 'bottom', 'auto' );
+				}
+			} );
 	},
 	
 	'checkForUpdates' : function() {
@@ -386,8 +395,8 @@ var liquidThreads = {
 			replyLink.click( liquidThreads.handleReplyLink );
 			
 			// Add quote button to menus
-			var toolbar = $j(threadContainer).find('.lqt-thread-toolbar-commands');
-			liquidThreads.addQuoteButton(toolbar);
+// 			var toolbar = $j(threadContainer).find('.lqt-thread-toolbar-commands');
+// 			liquidThreads.addQuoteButton(toolbar);
 		}
 		
 		// Hide edit forms

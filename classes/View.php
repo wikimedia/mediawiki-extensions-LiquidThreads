@@ -665,14 +665,20 @@ class LqtView {
 			'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
 			 'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
 				true /* include fragment */, $this->request ),
-			 'enabled' => true, 'icon' => 'reply.png', 'showlabel' => 1,
-			 'tooltip' => wfMsg( 'lqt_reply' ) );
+			 'enabled' => true,
+			 'icon' => 'reply.png',
+			 'showlabel' => 1,
+			 'tooltip' => wfMsg( 'lqt_reply' )
+		);
 		
 		$commands['link'] = array(
 			'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
 			'href' => $thread->title()->getFullURL(),
-			'enabled' => true, 'icon' => 'link.png',
-			'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' ) );
+			'enabled' => true,
+			'icon' => 'link.png',
+			'showlabel' => true,
+			'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' )
+		);
 		/*
 		if ( $thread->root()->getTitle()->quickUserCan( 'edit' ) ) {
 			$commands['edit'] = array(
@@ -814,7 +820,7 @@ class LqtView {
 					$this->listItemsForCommands( $commands ) );
 		
 		$triggerText =	Xml::tags( 'span', array( 'class' => 'lqt-thread-actions-icon' ),
-					'&nbsp;' );
+					wfMsgHTML( 'lqt-menu-trigger' ) );
 		$dropDownTrigger = Xml::tags( 'div',
 				array( 'class' => 'lqt-thread-actions-trigger ' .
 					'lqt-command-icon', 'style' => 'display: none;' ),
@@ -830,14 +836,6 @@ class LqtView {
 		
 		$html = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-commands' ), $html );
 		$html .= Xml::tags( 'div', array( 'style' => 'clear: both; height: 0;' ), '&nbsp;' );
-		
-		// Box stuff
-		$boxElements = array( 'lqt-thread-toolbar-box-tl', 'lqt-thread-toolbar-box-tr',
-					'lqt-thread-toolbar-box-br', 'lqt-thread-toolbar-box-bl' );
-		foreach ( $boxElements as $class ) {
-			$html = Xml::openElement( 'div', array( 'class' => $class ) ) . $html .
-				Xml::closeElement( 'div' );
-		}
 							
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-toolbar' ), $html ) .
 				$menuHTML;
@@ -931,10 +929,10 @@ class LqtView {
 			$this->showPostEditingForm( $thread );
 			$html .= Xml::closeElement( 'div' );
 		} else {
-			$html .= $this->showThreadToolbar( $thread );
 			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
 			$html .= $this->showPostBody( $post, $oldid );
 			$html .= Xml::closeElement( 'div' );
+			$html .= $this->showThreadToolbar( $thread );
 			$html .= $this->threadSignature( $thread );
 		}
 		

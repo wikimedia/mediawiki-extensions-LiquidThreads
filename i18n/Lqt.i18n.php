@@ -35,7 +35,7 @@ It may:
 	'lqt_reply' => 'Reply',
 	'lqt_delete' => 'Delete',
 	'lqt_undelete' => 'Undelete',
-	'lqt_permalink' => 'Link to this',
+	'lqt_permalink' => 'Link to',
 	'lqt_fragment' => 'Fragment of a $1 from $2',
 	'lqt_discussion_link' => 'discussion', // substituted above
 	'lqt_from_talk' => 'From $1',
@@ -188,6 +188,7 @@ To avoid this, split them from this thread before deleting it.',
 	'lqt-delete-parent-deleted' => 'Parent thread deleted ($1)',
 	'lqt-delete-replies-done' => 'All replies to this thread have also been deleted.',
 	'lqt-movethread' => 'Move',
+	'lqt-menu-trigger' => 'More',
 
 	// Rights
 	'right-lqt-split' => 'Split threads',
