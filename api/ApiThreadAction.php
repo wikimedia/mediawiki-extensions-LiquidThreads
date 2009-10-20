@@ -347,7 +347,7 @@ class ApiThreadAction extends ApiBase {
 		$article->getTitle()->resetArticleID( $articleId );
 		$title->resetArticleID( $articleId );
 		
-		$thread = LqtView::postEditUpdates( 'new', null, $articleId, $talkpage,
+		$thread = LqtView::postEditUpdates( 'new', null, $article, $talkpage,
 					$subject, $summary, null, $text );
 
 		$maxLag = wfGetLB()->getMaxLag();
@@ -445,7 +445,7 @@ class ApiThreadAction extends ApiBase {
 		$article->getTitle()->resetArticleID( $articleId );
 		$title->resetArticleID( $articleId );
 		
-		$thread = LqtView::postEditUpdates( 'reply', $replyTo, $articleId, $talkpage,
+		$thread = LqtView::postEditUpdates( 'reply', $replyTo, $article, $talkpage,
 					$subject, $summary, null, $text );
 		
 		$maxLag = wfGetLB()->getMaxLag();
