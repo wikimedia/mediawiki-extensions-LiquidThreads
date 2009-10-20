@@ -847,7 +847,6 @@ $messages['bcc'] = array(
  * @author EugeneZelenko
  * @author Jim-by
  * @author Mormegil
- * @author Raymond
  * @author Александр Сигачёв
  */
 $messages['be-tarask'] = array(
@@ -871,7 +870,7 @@ $messages['be-tarask'] = array(
 	'lqt_reply' => 'Адказаць',
 	'lqt_delete' => 'Выдаліць',
 	'lqt_undelete' => 'Аднавіць',
-	'lqt_permalink' => 'Сталая сюды',
+	'lqt_permalink' => 'Спасылка сюды',
 	'lqt_fragment' => 'Фрагмэнт $1 з $2',
 	'lqt_discussion_link' => 'абмеркаваньне',
 	'lqt_from_talk' => 'З $1',
@@ -1766,7 +1765,7 @@ Možná, že:
 * koliduje s prefixem interwiki nebo názvem jmenného prostoru.',
 	'lqt_empty_subject' => 'Musíte vyplnit předmět.',
 	'lqt_reply' => 'Odpovědět',
-	'lqt_permalink' => 'Odkaz sem',
+	'lqt_permalink' => 'Odkaz',
 	'lqt_fragment' => 'Fragment $1 z $2',
 	'lqt_discussion_link' => 'diskuse',
 	'lqt_from_talk' => 'Z $1',
@@ -2226,6 +2225,56 @@ dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 auf $5 ein neu
 Sie können sie auf <$6> einsehen.',
 );
 
+/** Zazaki (Zazaki)
+ * @author Aspar
+ */
+$messages['diq'] = array(
+	'lqt-desc' => 'werêameyişê ke gırediyayê pelê mesajan, têarê keno',
+	'lqt_movethread' => 'gıre bıheweln yewna pel',
+	'lqt_deletethread' => 'gıre hewna ker ya zi hewnakerdış tepiya bıger',
+	'lqt_contents_title' => 'muhtewayi',
+	'lqt_toc_thread_title' => 'sernameyê gıreyi',
+	'lqt_toc_thread_replycount' => 'cewabi',
+	'lqt_toc_thread_modified' => 'vurnayoxo peyın',
+	'lqt_add_header' => 'sername bıerz cı',
+	'lqt_new_thread' => 'newe yew werîameyiş kewe',
+	'lqt_invalid_subject' => 'sernameyo ke şıma pê kewti cı nemeqbulo..
+Sebebê ey:
+* ya zaf dergo, ya zi
+* cayê nameyan u gıreyê benatewikiyan de pêverdiyayo.',
+	'lqt_empty_subject' => 'gani şıma yew muhtewa bınusi',
+	'lqt_subject_change_forbidden' => 'şıma muhtewayê no gıreyi nêeşkeni bıvurni çunke kırıştışê pelani re destur çino.',
+	'lqt_in_response_to' => 'hetê ıney $2 ra qey ıney $1 cewab, cor de yo:',
+	'lqt_edited_notice' => 'vuriya',
+	'lqt_reply' => 'cewab bıde',
+	'lqt_delete' => 'hewna ker',
+	'lqt_undelete' => 'tepiya bıger',
+	'lqt_permalink' => 'gıre bıde ıney',
+	'lqt_fragment' => 'pelê $2i ra yew parçeyê $1i',
+	'lqt_discussion_link' => 'werêameyiş',
+	'lqt_from_talk' => 'pelê $1i ra',
+	'lqt_newer' => '← neweyer',
+	'lqt_older' => 'kehenêr →',
+	'lqt_hist_comment_edited' => 'metnê mışoreyi vuriya',
+	'lqt_hist_reply_created' => 'cewabo newe bı hazır',
+	'lqt_hist_thread_created' => 'gıreyo newe bı hazır',
+	'lqt_hist_deleted' => 'hewna bı',
+	'lqt_hist_undeleted' => 'hewnabiyayişê ey tepiya geriya',
+	'lqt_hist_moved_talkpage' => 'kırışiya',
+	'lqt_hist_listing_subtitle' => 'listeya halê verin ramociyeno',
+	'lqt_hist_view_whole_thread' => 'qey ın gıre halê verin bıvin',
+	'lqt_hist_no_revisions_error' => 'hal-verinê revizyonê no gıreyi çı çino',
+	'lqt_hist_past_last_page_error' => 'şıma amarê pelê hal-verino mewcudi ra zaf dur î.',
+	'lqt_hist_tooltip_newer_disabled' => 'no gıre (link) battal bı çunke şıma pelo ewwil de yi.',
+	'lqt_hist_tooltip_older_disabled' => 'no gıre (link) battal bı çunke şıma pelo peyin de yi.',
+	'lqt_hist_edited_subject' => 'muhtewa vurna',
+	'lqt_hist_merged_from' => 'cewab kırışiya yewna gıre',
+	'lqt_hist_merged_to' => 'cewab yewna gıre ra kırışiya',
+	'lqt_hist_root_blanked' => 'metnê mışoreyi wedariya/weradiya',
+	'lqt_revision_as_of' => 'revizyonê ke $2 $3 ra pê biyê.',
+	'lqt_change_new_thread' => 'revizyonê gıreyi yo ewwil',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
@@ -2250,7 +2299,7 @@ $messages['dsb'] = array(
 	'lqt_reply' => 'Wótegroniś',
 	'lqt_delete' => 'Wulašowaś',
 	'lqt_undelete' => 'Wótnowiś',
-	'lqt_permalink' => 'Wótkaz k toś tej wersiji',
+	'lqt_permalink' => 'Wótkaz k',
 	'lqt_fragment' => 'Fragment $1 wót $2',
 	'lqt_discussion_link' => 'diskusija',
 	'lqt_from_talk' => 'Wót $1',
@@ -2397,6 +2446,7 @@ Aby se to wobinuło, wótźěl je wót toś teje nitki, nježli až ju lašujoš
 	'lqt-delete-parent-deleted' => 'Nadrědowana nitka wulašowana ($1)',
 	'lqt-delete-replies-done' => 'Wše wótegrona k toś tej nitce su teke južo wulašowane.',
 	'lqt-movethread' => 'Pśesunuś',
+	'lqt-menu-trigger' => 'Wěcej',
 	'right-lqt-split' => 'Nitki rozdźěliś',
 	'right-lqt-merge' => 'Nitki zjadnośiś',
 	'lqt-thread-merge' => 'Z druheju nitku zjadnośiś',
@@ -2449,6 +2499,8 @@ Móžoš jo na <$6> wiźeś",
 	'lqt-feed-reply-intro' => 'Wótegrono na $3 (na $1) pósłane wót $2',
 	'lqt-newmessages-n' => 'Nowe powěźeńki ($1)',
 	'lqt_newmessages' => 'Nowe powěsći',
+	'lqt-newpost-summary' => 'Nowa nitka: $1',
+	'lqt-reply-summary' => 'Wótegrono na [[$2|$1]]',
 );
 
 /** Ewe (Eʋegbe)
@@ -3204,7 +3256,7 @@ $messages['fr'] = array(
 	'lqt_reply' => 'Répondre',
 	'lqt_delete' => 'Effacer',
 	'lqt_undelete' => 'Récupérer',
-	'lqt_permalink' => 'Lien vers cette version',
+	'lqt_permalink' => 'Lien vers',
 	'lqt_fragment' => "Fragment d'une $1 sur $2",
 	'lqt_discussion_link' => 'discussion',
 	'lqt_from_talk' => 'De $1',
@@ -3349,6 +3401,7 @@ Pour éviter cela, séparez les de ce fil de discussion avant de supprimer celui
 	'lqt-delete-parent-deleted' => 'Fil de discussion parent supprimé ($1)',
 	'lqt-delete-replies-done' => 'Toutes les réponses à ce fil de discussion ont aussi été supprimées.',
 	'lqt-movethread' => 'Déplacer',
+	'lqt-menu-trigger' => 'Plus',
 	'right-lqt-split' => 'Scinder les fils de discussion',
 	'right-lqt-merge' => 'Fusionner les fils de discussion',
 	'lqt-thread-merge' => 'Fusionner dans un autre fil',
@@ -3403,6 +3456,8 @@ Vous pouvez le voir a « $6 »",
 	'lqt-feed-reply-intro' => 'Réponse à $3 (sur $1) postée par $2',
 	'lqt-newmessages-n' => 'Nouveaux messages ($1)',
 	'lqt_newmessages' => 'Nouveaux messages',
+	'lqt-newpost-summary' => 'Nouveau fil : $1',
+	'lqt-reply-summary' => 'Répondre à [[$2|$1]]',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -4423,7 +4478,7 @@ $messages['hsb'] = array(
 	'lqt_reply' => 'Wotmołwić',
 	'lqt_delete' => 'Wušmórnyć',
 	'lqt_undelete' => 'Wobnowić',
-	'lqt_permalink' => 'Wotkaz k tutej wersiji',
+	'lqt_permalink' => 'Wotkaz k',
 	'lqt_fragment' => 'Fragment wot $1 z $2',
 	'lqt_discussion_link' => 'diskusija',
 	'lqt_from_talk' => 'Wot $1',
@@ -4566,6 +4621,7 @@ Zo by to wobešoł, wotdźěl je wot tuteje nitki, prjedy hač ju wušmóruješ.
 	'lqt-delete-parent-deleted' => 'Nadrjadowana nitka wušmórnjena ($1)',
 	'lqt-delete-replies-done' => 'Wšě wotmołwy k tutej nitce su tež hižo wušmórnjene.',
 	'lqt-movethread' => 'Přesunyć',
+	'lqt-menu-trigger' => 'Wjace',
 	'right-lqt-split' => 'Nitki rozdźělić',
 	'right-lqt-merge' => 'Nitki zjednoćić',
 	'lqt-thread-merge' => 'Z druhej nitku zjednoćić',
@@ -4618,12 +4674,13 @@ Móžeš ju na <$6> widźeć",
 	'lqt-feed-reply-intro' => 'Wotmołwa na $3 (na $1) pósłana wot $2',
 	'lqt-newmessages-n' => 'Nowe powěsće ($1)',
 	'lqt_newmessages' => 'Nowe powěsće',
+	'lqt-newpost-summary' => 'Nowa nitka: $1',
+	'lqt-reply-summary' => 'Wotmołwa na [[$2|$1]]',
 );
 
 /** Hungarian (Magyar)
  * @author Dani
  * @author Glanthor Reviol
- * @author Raymond
  * @author Tgr
  */
 $messages['hu'] = array(
@@ -4993,6 +5050,8 @@ Tu pote vider lo a <$6>",
 	'lqt-feed-reply-intro' => 'Responsa a $3 (super $1) publicate per $2',
 	'lqt-newmessages-n' => 'Nove messages ($1)',
 	'lqt_newmessages' => 'Nove messages',
+	'lqt-newpost-summary' => 'Nove filo: $1',
+	'lqt-reply-summary' => 'Responder a [[$2|$1]]',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -6274,6 +6333,7 @@ $messages['ml'] = array(
 	'lqt_hist_moved_talkpage' => 'തലക്കെട്ട് മാറ്റി',
 	'lqt_hist_tooltip_newer_disabled' => 'നിങ്ങള്‍ ആദ്യത്തെ താളിലായതിനാല്‍ ഈ കണ്ണി നിര്‍‌വീര്യമാക്കി.',
 	'lqt_hist_tooltip_older_disabled' => 'നിങ്ങള്‍ അവസാനത്തെ താളിലായതിനാല്‍ ഈ കണ്ണി നിര്‍‌വീര്യമാക്കി.',
+	'lqt_hist_edited_subject' => 'വിഷയം തിരുത്തി',
 	'lqt_revision_as_of' => '$2 തീയതിയിൽ $3 സമയത്തുണ്ടായിരുന്ന പതിപ്പ്.',
 	'lqt_change_reply_created' => '[$1 അടയാളപ്പെടുത്തി കാണിച്ചിരിക്കുന്ന അഭിപ്രായം] ഈ പതിപ്പില്‍ ചേര്‍ക്കപ്പെട്ടതാണ്‌.',
 	'lqt_change_edited_root' => '[$1 അടയാളപ്പെടുത്തി കാണിച്ചിരിക്കുന്ന അഭിപ്രായം] ഈ പതിപ്പില്‍ തിരുത്തപ്പെട്ടിട്ടുണ്ട്.',
@@ -6333,6 +6393,7 @@ $messages['ml'] = array(
 	'lqt-thread-edited-author' => 'സ്രഷ്ടാവ് തിരുത്തിയിരിക്കുന്നു',
 	'lqt-thread-edited-others' => 'മറ്റുപയോക്താക്കൾ തിരുത്തിയത്',
 	'lqt-header-actions' => 'പ്രവർത്തനങ്ങൾ',
+	'lqt_summarize_link' => 'ചുരുക്കുക',
 	'lqt-split-submit' => 'വിഘടിപ്പിക്കുക',
 	'lqt_split_badsubject' => 'താങ്കൾ ചേർത്ത വിഷയം അസാധുവാണ്.',
 	'lqt-movethread' => 'മാറ്റുക',
@@ -6535,7 +6596,7 @@ $messages['nl'] = array(
 	'lqt_reply' => 'Antwoorden',
 	'lqt_delete' => 'Verwijderen',
 	'lqt_undelete' => 'Terugplaatsen',
-	'lqt_permalink' => 'Hierheen verwijzen',
+	'lqt_permalink' => 'Verwijzing naar',
 	'lqt_fragment' => 'Fragment van een $1 van $2',
 	'lqt_discussion_link' => 'overleg',
 	'lqt_from_talk' => 'Van $1',
@@ -6682,6 +6743,7 @@ Splits dit overleg alvorens het te verwijderen om dit te voorkomen.',
 	'lqt-delete-parent-deleted' => 'Bovenliggend overleg verwijderd ($1)',
 	'lqt-delete-replies-done' => 'Alle antwoorden in dit overleg zijn ook verwijderd.',
 	'lqt-movethread' => 'Verplaatsen',
+	'lqt-menu-trigger' => 'Meer',
 	'right-lqt-split' => 'Onderwerpen splitsen',
 	'right-lqt-merge' => 'Onderwerpen samenvoegen',
 	'lqt-thread-merge' => 'In een ander onderwerp toevoegen',
@@ -6736,6 +6798,8 @@ U kunt het bekijken op <$6>.",
 	'lqt-feed-reply-intro' => 'Reactie op $3 (op $1) door $2',
 	'lqt-newmessages-n' => 'Nieuwe berichten ($1)',
 	'lqt_newmessages' => 'Nieuwe berichten',
+	'lqt-newpost-summary' => 'Nieuw onderwerp: $1',
+	'lqt-reply-summary' => 'Reactie op [[$2|$1]]',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -8166,7 +8230,6 @@ $messages['ru'] = array(
 
 /** Yakut (Саха тыла)
  * @author HalanTul
- * @author Raymond
  */
 $messages['sah'] = array(
 	'lqt-desc' => 'Ырытыы сирэйдэригэр салаалары эбэр',
@@ -9245,7 +9308,7 @@ Sebebi:
 	'lqt_reply' => 'Cevap ver',
 	'lqt_delete' => 'Sil',
 	'lqt_undelete' => 'Geri al',
-	'lqt_permalink' => 'Buna bağlantı ver',
+	'lqt_permalink' => 'Verilecek bağlantı',
 	'lqt_fragment' => '$2 sayfasından bir $1nın parçası',
 	'lqt_discussion_link' => 'tartışma',
 	'lqt_from_talk' => '$1 sayfasından',
@@ -9392,6 +9455,7 @@ Bundan kaçınmak için, cevapları düğümü silmeden önce düğümden ayır�
 	'lqt-delete-parent-deleted' => 'Ana düğüm silindi ($1)',
 	'lqt-delete-replies-done' => 'Bu düğüme olan tüm cevaplar da silindi.',
 	'lqt-movethread' => 'Taşı',
+	'lqt-menu-trigger' => 'Daha fazla',
 	'right-lqt-split' => 'Düğümleri ayır',
 	'right-lqt-merge' => 'Düğümleri birleştir',
 	'lqt-thread-merge' => 'Diğer bir düğüme birleştir',
@@ -9444,6 +9508,8 @@ Bunu <$6> adresinde görebilirsin.",
 	'lqt-feed-reply-intro' => '$3 düğümüne cevap ($1 sayfasında) $2 tarafından gönderildi',
 	'lqt-newmessages-n' => 'Yeni mesaj ($1)',
 	'lqt_newmessages' => 'Yeni iletiler',
+	'lqt-newpost-summary' => 'Yeni düğüm: $1',
+	'lqt-reply-summary' => '[[$2|$1]] düğümüne cevap ver',
 );
 
 /** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
