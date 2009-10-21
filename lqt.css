@@ -383,12 +383,12 @@ div.lqt-post-sep {
 .lqt-command-link a {
 	margin-left: 1em;
 	height: 2em;
-	width: 3em;
 	padding-left: 26px;
 	background-image: url(icons/link.png) !important;
 	background-repeat: no-repeat;
 	background-position: left center !important;
 	line-height: 2em;
+	overflow: hidden;
 }
 .lqt-command-reply a {
 	margin-left: 1em;
