@@ -88,6 +88,7 @@ $wgHooks['RenameUserSQL'][] = 'LqtHooks::onUserRename';
 
 // Edit-related
 $wgHooks['EditPageBeforeEditChecks'][] = 'LqtHooks::editCheckBoxes';
+$wgHooks['ArticleSaveComplete'][] = 'LqtHooks::onArticleSaveComplete';
 
 // Blocking
 $wgHooks['UserIsBlockedFrom'][] = 'LqtHooks::userIsBlockedFrom';

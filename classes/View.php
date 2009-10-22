@@ -458,6 +458,17 @@ class LqtView {
 		$this->output->setArticleFlag( false );
 		
 		if ( $e->didSave ) {
+			// Move the thread and replies if subject changed.
+			if ( $edit_type == 'editExisting' && $subject &&
+					$subject != $thread->subject() ) {
+				$thread->setSubject( $subject );
+				$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT,
+							$thread, $e->summary );
+				
+				// Disabled page-moving for now.
+				// $this->renameThread( $thread, $subject, $e->summary );
+			}
+			
 			$thread = self::postEditUpdates(
 					$edit_type, $edit_applies_to, $article,
 					$this->article,	$subject, $e->summary, $thread,
@@ -502,14 +513,6 @@ class LqtView {
 			$edit_applies_to->commitRevision( Threads::CHANGE_EDITED_SUMMARY,
 							$edit_applies_to, $edit_summary );
 		} elseif ( $edit_type == 'editExisting' ) {
-			// Move the thread and replies if subject changed.
-			if ( $subject && $subject != $thread->subjectWithoutIncrement() ) {
-				$thread->setSubject( $subject );
-				
-				// Disabled page-moving for now.
-				// $this->renameThread( $thread, $subject, $e->summary );
-			}
-			
 			// Use a separate type if the content is blanked.
 			$type = strlen( trim( $new_text ) )
 					? Threads::CHANGE_EDITED_ROOT

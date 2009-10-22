@@ -438,4 +438,36 @@ class LqtHooks {
 		
 		return true;
 	}
+	
+	static function onArticleSaveComplete( &$article, &$user, $text, $summary,
+			$minoredit, $watchthis, $sectionanchor, &$flags, $revision,
+			&$status, $baseRevId ) {
+ 		if ( !$status->isGood() ) {
+ 			// Failed
+ 			return true;
+ 		}
+ 		
+ 		$title = $article->getTitle();
+ 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
+ 			// Not a thread
+ 			return true;
+ 		}
+ 		
+ 		if (!$baseRevId) {
+ 			// New page
+ 			return true;
+ 		}
+ 		
+ 		$thread = Threads::withRoot( $article );
+ 		
+ 		if (!$thread) {
+ 			// No matching thread.
+ 			return true;
+ 		}
+ 		
+ 		LqtView::postEditUpdates( 'editExisting', null, $article, $thread->article(),
+ 					$thread->article(), $summary, $thread, $text );
+ 					
+ 		return true;
+ 	}
 }
