@@ -503,7 +503,14 @@ class ApiThreadAction extends ApiBase {
 			return;
 		}
 		
+		$reason = null;
+		
+		if ( isset( $params['reason'] ) ) {
+			$reason = $params['reason'];
+		}
+		
 		$thread->setSubject( $subject );
+		$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT, $thread, $reason );
 		
 		$result = array(
 			'action' => 'setsubject',
