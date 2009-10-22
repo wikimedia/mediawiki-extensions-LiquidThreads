@@ -8,8 +8,11 @@ class TalkpageView extends LqtView {
 		// The arguments are passed in by reference.
 		unset( $content_actions['edit'] );
 		unset( $content_actions['viewsource'] );
-		unset( $content_actions['history'] );
 		unset( $content_actions['delete'] );
+		
+		$thisTitle = $this->article->getTitle();
+		$history_url = $thisTitle->getFullURL( 'lqt_method=talkpage_history' );
+		$content_actions['history']['href'] = $history_url;
 
 		return true;
 	}

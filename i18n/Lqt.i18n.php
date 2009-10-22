@@ -168,6 +168,7 @@ This operation is undoable.',
 	'lqt-history-user' => 'User',
 	'lqt-history-action' => 'Activity',
 	'lqt-history-comment' => 'Comment',
+	'lqt-history-thread' => 'Thread',
 	'lqt-thread-edited-author' => 'Edited by author',
 	'lqt-thread-edited-others' => 'Edited by other users',
 	'lqt-header-actions' => 'Actions',
@@ -266,6 +267,10 @@ You can see it at <$6>",
 	// Automatic summaries
 	'lqt-newpost-summary' => 'New thread: $1',
 	'lqt-reply-summary' => 'Reply to [[$2|$1]]',
+	
+	// Talk page history
+	'lqt-talkpage-history-title' => 'Discussion page history',
+	'lqt-talkpage-history-subtitle' => 'For $1',
 );
 
 /** Message documentation (Message documentation)

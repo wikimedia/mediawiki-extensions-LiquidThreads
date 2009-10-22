@@ -1,20 +1,6 @@
 <?php
 
 class LqtDispatch {
-	public static $views = array(
-		'TalkpageArchiveView' => 'TalkpageArchiveView',
-		'TalkpageHeaderView' => 'TalkpageHeaderView',
-		'TalkpageView' => 'TalkpageView',
-		'ThreadHistoryListingView' => 'ThreadHistoryListingView',
-		'ThreadHistoricalRevisionView' => 'ThreadHistoricalRevisionView',
-		'IndividualThreadHistoryView' => 'IndividualThreadHistoryView',
-		'ThreadDiffView' => 'ThreadDiffView',
-		'ThreadPermalinkView' => 'ThreadPermalinkView',
-		'ThreadProtectionFormView' => 'ThreadProtectionFormView',
-		'ThreadWatchView' => 'ThreadWatchView',
-		'SummaryPageView' => 'SummaryPageView'
-		);
-		
 	/** static cache of per-page LiquidThreads activation setting */
 	static $userLQTActivated;
 
@@ -41,23 +27,26 @@ class LqtDispatch {
 		$action =  $request->getVal( 'action' );
 		$header_actions = array( 'history', 'edit', 'submit', 'delete' );
 		global $wgRequest;
+		
+		$lqt_action = $request->getVal( 'lqt_method' );
 		if ( $action == 'edit' && $request->getVal( 'section' ) == 'new' ) {
 			// Hijack section=new for "new thread".
 			$request->setVal( 'lqt_method', 'talkpage_new_thread' );
 			$request->setVal( 'section', '' );
 			
-			$viewname = self::$views['TalkpageView'];
+			$viewname = 'TalkpageView';
 			
-		} elseif ( $request->getVal( 'lqt_method', null ) === null &&
-				( in_array( $action, $header_actions ) ||
-					$request->getVal( 'diff', null ) !== null ) ) {
+		} elseif ( !$lqt_action && ( in_array( $action, $header_actions ) ||
+				$request->getVal( 'diff', null ) !== null ) ) {
 			// Pass through wrapper
-			$viewname = self::$views['TalkpageHeaderView'];
-		} else if ( $action == 'protect' || $action == 'unprotect' ) {
+			$viewname = 'TalkpageHeaderView';
+		} elseif ( $action == 'protect' || $action == 'unprotect' ) {
 			// Pass through wrapper
-			$viewname = self::$views['ThreadProtectionFormView'];
+			$viewname = 'ThreadProtectionFormView';
+		} elseif ( $lqt_action == 'talkpage_history' ) {
+			$viewname = 'TalkpageHistoryView';
 		} else {
-			$viewname = self::$views['TalkpageView'];
+			$viewname = 'TalkpageView';
 		}
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		return $view->show();
@@ -69,24 +58,24 @@ class LqtDispatch {
 		$lqt_method = $request->getVal( 'lqt_method' );
 
 		if ( $lqt_method == 'thread_history' ) {
-			$viewname = self::$views['ThreadHistoryListingView'];
+			$viewname = 'ThreadHistoryListingView';
 		} else if ( $lqt_method == 'diff' ) {
 			// this clause and the next must be in this order.
-			$viewname = self::$views['ThreadDiffView'];
+			$viewname = 'ThreadDiffView';
 		} else if ( $action == 'history'
 			|| $request->getVal( 'diff', null ) !== null
 			|| $request->getVal( 'oldid', null ) !== null ) {
-			$viewname = self::$views['IndividualThreadHistoryView'];
+			$viewname = 'IndividualThreadHistoryView';
 		} else if ( $action == 'protect' || $action == 'unprotect' ) {
-			$viewname = self::$views['ThreadProtectionFormView'];
+			$viewname = 'ThreadProtectionFormView';
 		} else if ( $request->getVal( 'lqt_oldid', null ) !== null ) {
-			$viewname = self::$views['ThreadHistoricalRevisionView'];
+			$viewname = 'ThreadHistoricalRevisionView';
 		} else if ( $action == 'watch' || $action == 'unwatch' ) {
-			$viewname = self::$views['ThreadWatchView'];
+			$viewname = 'ThreadWatchView';
 		} elseif ( $action == 'delete' ) {
 			return true;
 		} else {
-			$viewname = self::$views['ThreadPermalinkView'];
+			$viewname = 'ThreadPermalinkView';
 		}
 		
 		$view = new $viewname( $output, $article, $title, $user, $request );
@@ -94,7 +83,7 @@ class LqtDispatch {
 	}
 
 	static function threadSummaryMain( &$output, &$article, &$title, &$user, &$request ) {
-		$viewname = self::$views['SummaryPageView'];
+		$viewname = 'SummaryPageView';
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		return $view->show();
 	}

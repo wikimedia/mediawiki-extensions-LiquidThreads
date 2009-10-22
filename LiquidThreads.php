@@ -112,6 +112,8 @@ $wgAutoloadClasses['LqtDeletionController'] = $dir . 'classes/DeletionController
 $wgAutoloadClasses['LqtHooks'] = $dir . 'classes/Hooks.php';
 $wgAutoloadClasses['ThreadRevision'] = $dir . "/classes/ThreadRevision.php";
 $wgAutoloadClasses['SynchroniseThreadArticleDataJob'] = "$dir/classes/SynchroniseThreadArticleDataJob.php";
+$wgAutoloadClasses['ThreadHistoryPager'] = "$dir/classes/ThreadHistoryPager.php";
+$wgAutoloadClasses['TalkpageHistoryView'] = "$dir/pages/TalkpageHistoryView.php";
 
 // View classes
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
