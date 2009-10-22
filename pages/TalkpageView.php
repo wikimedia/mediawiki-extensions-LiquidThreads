@@ -83,7 +83,7 @@ class TalkpageView extends LqtView {
 		
 		// Header row
 		$headerRow = '';
-		$headers = array( 'lqt_toc_thread_title', 'lqt_toc_thread_author',
+		$headers = array( 'lqt_toc_thread_title',
 				'lqt_toc_thread_replycount', 'lqt_toc_thread_modified' );
 		foreach ( $headers as $msg ) {
 			$headerRow .= Xml::tags( 'th', null, wfMsgExt( $msg, 'parseinline' ) );
@@ -103,10 +103,6 @@ class TalkpageView extends LqtView {
 			$anchor = '#' . $this->anchorName( $thread );
 			$subject = Xml::element( 'a', array( 'href' => $anchor ), $thread->subject() );
 			$row .= Xml::tags( 'td', null, $subject );
-			
-			$author = $thread->author();
-			$authorLink = $sk->userLink( $author->getId(), $author->getName() );
-			$row .= Xml::tags( 'td', null, $authorLink );
 			
 			$row .= Xml::element( 'td', null, $thread->replyCount() );
 			
