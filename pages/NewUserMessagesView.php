@@ -180,8 +180,14 @@ class NewUserMessagesView extends LqtView {
 		$contextLink = $sk->link( $title,
 						wfMsgExt( 'lqt-newmessages-context', 'parseinline' ), array(),
 						array( 'offset' => $offset ), array( 'known' ) );
+		
+		$talkpageLink = $sk->link( $topmostThread->article()->getTitle() );
+		$talkpageInfo = wfMsgExt( 'lqt-newmessages-from',
+					array( 'parse', 'replaceafter' ), $talkpageLink );
+		
 		$leftColumn = Xml::tags( 'p', null, $read_button ) .
-						Xml::tags( 'p', null, $contextLink );
+						Xml::tags( 'p', null, $contextLink ) .
+						$talkpageInfo;
 		$leftColumn = Xml::tags( 'td', array( 'class' => 'mw-lqt-newmessages-left' ),
 									$leftColumn );
 		$html = "<tr>$leftColumn<td>";

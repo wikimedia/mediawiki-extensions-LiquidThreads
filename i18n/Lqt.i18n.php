@@ -190,6 +190,7 @@ To avoid this, split them from this thread before deleting it.',
 	'lqt-delete-replies-done' => 'All replies to this thread have also been deleted.',
 	'lqt-movethread' => 'Move',
 	'lqt-menu-trigger' => 'More',
+	'lqt-newmessages-from' => 'From $1',
 
 	// Rights
 	'right-lqt-split' => 'Split threads',
