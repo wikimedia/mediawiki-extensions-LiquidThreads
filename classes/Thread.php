@@ -598,7 +598,7 @@ class Thread {
 				}
 
 				$sig = $wgParser->getUserSig( $user, $nickname, $fancysig );
-				$sig = $wgOut->parse( $sig );
+				$sig = $wgOut->parseInline( $sig );
 				
 				// Save into LqtView for later use.
 				LqtView::$userSignatureCache[$name] = $sig;

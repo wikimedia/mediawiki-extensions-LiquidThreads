@@ -966,12 +966,20 @@ class LqtView {
 	}
 	
 	function threadSignature( $thread ) {
-		global $wgUser;
+		global $wgUser, $wgLang;
 		$sk = $wgUser->getSkin();
 		
 		$author = $thread->author();
 		
 		$signature = $this->getSignature( $author );
+		$signature = Xml::tags( 'span', array( 'class' => 'lqt-thread-user-signature' ),
+					$signature );
+					
+ 		$timestamp = $wgLang->timeanddate( $thread->created(), true );
+		$signature .= Xml::element( 'span',
+					array( 'class' => 'lqt-thread-toolbar-timestamp' ),
+					$timestamp );
+		
 		$signature = Xml::tags( 'div', array( 'class' => 'lqt-thread-signature' ),
 					$signature );
 		
@@ -984,11 +992,6 @@ class LqtView {
 		$sk = $wgUser->getSkin();
 		
 		$infoElements = array();
-		
-		$timestamp = $wgLang->timeanddate( $thread->created(), true );
-		$infoElements[] = Xml::element( 'div',
-					array( 'class' => 'lqt-thread-toolbar-timestamp' ),
-					$timestamp );
 									
 		// Check for edited flag.
 		$editedFlag = $thread->editedness();
@@ -1001,6 +1004,10 @@ class LqtView {
 			$infoElements[] = Xml::element( 'div', array( 'class' =>
 						'lqt-thread-toolbar-edited-' . $editedBy ),
 						$editedNotice );
+		}
+		
+		if ( ! count($infoElements) ) {
+			return '';
 		}
 		
 		return Xml::tags( 'div', array( 'class' => 'lqt-thread-info-panel' ),
