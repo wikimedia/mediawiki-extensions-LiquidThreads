@@ -4303,8 +4303,8 @@ $messages['he'] = array(
 	'lqt_protectedfromreply_link' => 'מוגן מפני',
 	'lqt_subject' => 'נושא:',
 	'lqt_noreason' => 'לא צוינה סיבה.',
-	'lqt_move_placeholder' => 'שרשור זה הינו ממלא מקום המציין כי שרשור, $1, הוסר מדף זה והועבר לדף שיחה אחר.
-העברה זו בוצעה על ידי $2 ב־$4, $3.',
+	'lqt_move_placeholder' => 'שרשור זה הינו ממלא מקום המציין כי שרשור, $1, הועבר מדף זה.
+העברה זו בוצעה על ידי $2 ב־$4, $3. השרשור נמצא כעת ב$5.',
 	'lqt_thread_deleted_for_sysops' => "שרשור זה '''נמחק''' ורק מפעילי מערכת יכולים לצפות בו.",
 	'lqt_thread_deleted' => 'שרשור זה נמחק.',
 	'lqt_summary_notice' => 'לא חלו שינויים בדיון זה לפחות במשך {{PLURAL:$2|היום האחרון|$2 הימים האחרונים|היומיים האחרונים}}.
@@ -4385,6 +4385,7 @@ $messages['he'] = array(
 	'lqt-history-user' => 'משתמש',
 	'lqt-history-action' => 'פעילות',
 	'lqt-history-comment' => 'הערה',
+	'lqt-history-thread' => 'שרשור',
 	'lqt-thread-edited-author' => 'נערך על ידי המחבר',
 	'lqt-thread-edited-others' => 'נערך על ידי משתמשים אחרים',
 	'lqt-header-actions' => 'פעולות',
@@ -4406,6 +4407,7 @@ $messages['he'] = array(
 	'lqt-delete-replies-done' => 'כל התגובות לשרשור זה נמחקו גם הן.',
 	'lqt-movethread' => 'העברה',
 	'lqt-menu-trigger' => 'עוד',
+	'lqt-newmessages-from' => 'מתוך $1',
 	'right-lqt-split' => 'פיצול שרשורים',
 	'right-lqt-merge' => 'מיזוג שרשורים',
 	'lqt-thread-merge' => 'מיזוג לשרשור אחר',
@@ -4462,6 +4464,8 @@ $messages['he'] = array(
 	'lqt_newmessages' => 'הודעות חדשות',
 	'lqt-newpost-summary' => 'שרשור חדש: $1',
 	'lqt-reply-summary' => 'תגובה אל [[$2|$1]]',
+	'lqt-talkpage-history-title' => 'היסטוריית דף השיחה',
+	'lqt-talkpage-history-subtitle' => 'עבור $1',
 );
 
 /** Hindi (हिन्दी)
