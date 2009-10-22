@@ -416,6 +416,11 @@ class LqtView {
 			$this->perpetuate( 'lqt_operand', 'hidden' ) .
 			Xml::hidden( 'lqt_nonce', wfGenerateToken() ) .
 			Xml::hidden( 'offset', $offset );
+		
+		$e->editFormTextAfterContent .=
+			Xml::tags( 'p', null, $this->getSignature( $this->user ) );
+		$e->previewTextAfterContent .=
+			Xml::tags( 'p', null, $this->getSignature( $this->user ) );
 			
 		// Add a one-time random string to a hidden field. Store the random string
 		//  in memcached on submit and don't allow the edit to go ahead if it's already
@@ -424,13 +429,11 @@ class LqtView {
 		if ( $submitted_nonce ) {
 			global $wgMemc;
 			
-			$key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-			if ( $wgMemc->get( $key ) ) {
+			$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
+			if ( $wgMemc->get( $nonce_key ) ) {
 				$this->output->redirect( $this->article->getTitle()->getFullURL() );
 				return;
 			}
-			
-			$wgMemc->set( $key, 1, 3600 );
 		}
 
 		if ( $subject_expected ) {
@@ -460,6 +463,10 @@ class LqtView {
 					$this->article,	$subject, $e->summary, $thread,
 					$e->textbox1
 				);
+			
+			if ( $submitted_nonce && $nonce_key ) {
+				$wgMemc->set( $nonce_key, 1, 3600 );
+			}
 		}
 
 		// A redirect without $e->didSave will happen if the new text is blank (EditPage::attemptSave).
