@@ -84,8 +84,8 @@ It may:
 	'lqt_protectedfromreply_link' => 'protected',
 	'lqt_subject' => 'Subject:',
 	'lqt_noreason' => 'No reason given.',
-	'lqt_move_placeholder' => 'This thread is a placeholder indicating that a thread, $1, was removed from this page to another talk page.
-This move was made by $2 on $3 at $4.',
+	'lqt_move_placeholder' => 'This thread is a placeholder indicating that a thread, $1, was moved from this page.
+This move was made by $2 on $3 at $4. The thread is now located at $5.',
 	'lqt_thread_deleted_for_sysops' => 'This thread has been \'\'\'deleted\'\'\' and is only visible to administrators.',
 	'lqt_thread_deleted' => 'This thread has been deleted.',
 	'lqt_summary_notice' => 'There have been no changes to this discussion for at least $2 {{PLURAL:$2|day|days}}.

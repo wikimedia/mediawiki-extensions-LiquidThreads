@@ -1071,13 +1071,16 @@ class LqtView {
 		$author = $thread->author();
 		$sig = $sk->userLink( $author->getID(), $author->getName() ) .
 			   $sk->userToolLinks( $author->getID(), $author->getName() );
+		$newTalkpage = $thread->article()->getTitle();
 			   
 		$html =
-			wfMsgExt( 'lqt_move_placeholder', array( 'parseinline', 'replaceafter' ),
+			wfMsgExt( 'lqt_move_placeholder',
+				array( 'parseinline', 'replaceafter' ),
 				$sk->link( $target ),
 				$sig,
 				$wgLang->date( $thread->modified() ),
-				$wgLang->time( $thread->modified() )
+				$wgLang->time( $thread->modified() ),
+				$sk->link($newTalkpage)
 			);
 		
 		$this->output->addHTML( $html );
