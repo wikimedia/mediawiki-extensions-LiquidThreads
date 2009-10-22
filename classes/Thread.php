@@ -226,6 +226,7 @@ class Thread {
 			'thread_parent' => $this->parentId,
 			'thread_article_namespace' => $this->articleNamespace,
 			'thread_article_title' => $this->articleTitle,
+			'thread_article_id' => $this->articleId,
 			'thread_modified' => $dbw->timestamp( $this->modified ),
 			'thread_created' => $dbw->timestamp( $this->created ),
 			'thread_ancestor' => $this->ancestorId,
@@ -298,6 +299,12 @@ class Thread {
 		$new_articleNamespace = $title->getNamespace();
 		$new_articleTitle = $title->getDBkey();
 		$new_articleID = $title->getArticleID();
+		
+		if ( !$new_articleID ) {
+			$article = new Article( $newTitle );
+			Threads::createTalkpageIfNeeded( $article );
+			$new_articleID = $article->getId();
+		}
 		
 		// Update on *all* subthreads.
 		$dbr->update( 'thread',
@@ -733,6 +740,7 @@ class Thread {
 			
 			$this->articleNamespace = $newTitle->getNamespace();
 			$this->articleTitle = $newTitle->getDbKey();
+			$this->articleId = $newTitle->getArticleId();
 			
 			$this->article = $newArticle;
 		}
@@ -746,6 +754,7 @@ class Thread {
 			
 			$this->articleNamespace = $title->getNamespace();
 			$this->articleTitle = $title->getDbKey();
+			$this->articleId = $title->getArticleId();
 			
 			$this->article = $ancestor->article();
 		}
