@@ -139,12 +139,15 @@ class Thread {
 		$this->root = null;
 	}
 
-	function commitRevision( $change_type, $change_object = null, $reason = "" ) {
+	function commitRevision( $change_type, $change_object = null, $reason = "",
+					$bump = null ) {
 		$this->dieIfHistorical();
 		global $wgUser;
 		
 		global $wgThreadActionsNoBump;
-		$bump = !in_array( $change_type, $wgThreadActionsNoBump );
+		if ( is_null($bump) ) {
+			$bump = !in_array( $change_type, $wgThreadActionsNoBump );
+		}
 		if ( $bump ) {
 			$this->sortkey = wfTimestampNow( TS_DB );
 		}
@@ -376,12 +379,17 @@ class Thread {
 	}
 	
 	function incrementReplyCount( $val = 1 ) {
-		$thread = $this;
-		while ( $thread ) {
-			$thread->replyCount += $val;
+		$this->replyCount += $val;
+		
+		wfDebug( "Incremented reply count for thread ".$this->id()." to ".$this->replyCount."\n" );
+	
+		$thread = $this->superthread();
+		
+		if ( $thread ) {
+			$thread->incrementReplyCount( $val );
+			wfDebug( "Saving Incremented thread ".$thread->id().
+				" with reply count ".$thread->replyCount."\n" );
 			$thread->save();
-			
-			$thread = $thread->superthread();
 		}
 	}
 	
