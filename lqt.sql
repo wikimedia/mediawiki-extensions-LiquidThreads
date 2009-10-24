@@ -80,6 +80,6 @@ CREATE TABLE /*_*/thread_history (
 	
 	PRIMARY KEY (th_id),
 	KEY (th_thread,th_timestamp),
-	KEY (th_timestamp),
+	KEY (th_timestamp,th_thread),
 	KEY (th_user,th_user_text)
 ) /*$wgDBTableOptions*/;

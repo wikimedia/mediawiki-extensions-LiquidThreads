@@ -191,6 +191,7 @@ To avoid this, split them from this thread before deleting it.',
 	'lqt-movethread' => 'Move',
 	'lqt-menu-trigger' => 'More',
 	'lqt-newmessages-from' => 'From $1',
+	'lqt-hot-topics' => 'Hot Topics',
 
 	// Rights
 	'right-lqt-split' => 'Split threads',

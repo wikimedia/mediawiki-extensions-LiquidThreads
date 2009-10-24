@@ -98,6 +98,7 @@ $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
 $wgSpecialPages['SplitThread'] = 'SpecialSplitThread';
 $wgSpecialPages['MergeThread'] = 'SpecialMergeThread';
+//$wgSpecialPages['HotTopics'] = 'SpecialHotTopics';
 $wgSpecialPageGroups['NewMessages'] = 'wiki';
 
 // Classes
@@ -115,6 +116,7 @@ $wgAutoloadClasses['ThreadRevision'] = $dir . "/classes/ThreadRevision.php";
 $wgAutoloadClasses['SynchroniseThreadArticleDataJob'] = "$dir/classes/SynchroniseThreadArticleDataJob.php";
 $wgAutoloadClasses['ThreadHistoryPager'] = "$dir/classes/ThreadHistoryPager.php";
 $wgAutoloadClasses['TalkpageHistoryView'] = "$dir/pages/TalkpageHistoryView.php";
+$wgAutoloadClasses['LqtHotTopicsController'] = "$dir/classes/HotTopics.php";
 
 // View classes
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
@@ -135,6 +137,7 @@ $wgAutoloadClasses['SpecialMoveThread'] = $dir . 'pages/SpecialMoveThread.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir . 'pages/SpecialNewMessages.php';
 $wgAutoloadClasses['SpecialSplitThread'] = $dir . 'pages/SpecialSplitThread.php';
 $wgAutoloadClasses['SpecialMergeThread'] = $dir . 'pages/SpecialMergeThread.php';
+$wgAutoloadClasses['SpecialHotTopics'] = "$dir/pages/SpecialHotTopics.php";
 
 // Job queue
 $wgJobClasses['synchroniseThreadArticleData'] = 'SynchroniseThreadArticleDataJob';
