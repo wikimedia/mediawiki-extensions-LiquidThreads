@@ -396,8 +396,18 @@ class Thread {
 	function decrementReplyCount( $val = 1 ) {
 		$this->incrementReplyCount( - $val );
 	}
+	
+	static function newFromRow( $row ) {
+		$id = $row->thread_id;
+		
+		if ( isset( Threads::$cache_by_id[$id] ) ) {
+			return Threads::$cache_by_id[$id];
+		}
+		
+		return new Thread( $row );
+	}
 
-	function __construct( $line, $unused = null ) {
+	protected function __construct( $line, $unused = null ) {
 		/* SCHEMA changes must be reflected here. */
 		
 		if ( is_null( $line ) ) { // For Thread::create().
@@ -550,7 +560,7 @@ class Thread {
 		//  user talk pages to a link batch, cache the relevant user id/name pair, and
 		//  populate the reply cache.
 		foreach ( $all_thread_rows as $row ) {
-			$thread = new Thread( $row, null );
+			$thread = Thread::newFromRow( $row, null );
 			
 			if ( isset( $articlesById[$thread->rootId] ) )
 				$thread->root = $articlesById[$thread->rootId];

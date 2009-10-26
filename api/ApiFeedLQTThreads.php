@@ -75,7 +75,7 @@ class ApiFeedLQTThreads extends ApiBase {
 
 	private function createFeedItem( $row ) {
 		global $wgOut;
-		$thread = new Thread( $row );
+		$thread = Thread::newFromRow( $row );
 		$linker = new Linker;
 
 		$titleStr = $thread->subject();

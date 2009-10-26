@@ -83,13 +83,18 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				'thread_article_title', 'thread_summary_page', 'thread_ancestor',
 				'thread_parent', 'thread_modified', 'thread_created', 'thread_type',
 				'thread_editedness', 'thread_subject', 'thread_author_id',
-				'thread_author_name'
+				'thread_author_name',
 			);
 
 			$this->addFields( $allFields );
 		}
 
 		$res = $this->select( __METHOD__ );
+		
+		if ( $params['render'] ) {
+			$threads = Threads::loadFromResult( $res, $this->getDB() );
+		}
+		
 		$count = 0;
 		foreach ( $res as $row )
 		{
@@ -130,7 +135,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$wgOut->clearHTML();
 
 		// Setup
-		$thread = new Thread( $row );
+		$thread = Thread::newFromRow( $row );
 		$article = $thread->root();
 		$title = $article->getTitle();
 		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );

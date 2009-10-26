@@ -206,7 +206,7 @@ class LqtHooks {
 								Threads::TYPE_DELETED => 'deleted' );
 		// Is it a thread
 		if ( !empty($row->thread_id) ) {
-			$thread = new Thread( $row );
+			$thread = Thread::newFromRow( $row );
 			$threadInfo = "\n";
 			$attribs = array();
 			$attribs['ThreadSubject'] = $thread->subject();
