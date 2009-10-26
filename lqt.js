@@ -294,6 +294,11 @@ var liquidThreads = {
 			threads.push(threadID);
 		} );
 		
+		// Optimisation: if no threads are to be checked, do not check.
+		if ( ! threads.length ) {
+			return;
+		}
+		
 		var getData = { 'action' : 'query', 'list' : 'threads', 'thid' : threads.join('|'),
 						'format' : 'json', 'thprop' : 'id|subject|parent|modified' };
 		
