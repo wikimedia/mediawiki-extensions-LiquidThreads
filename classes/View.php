@@ -319,6 +319,8 @@ class LqtView {
 			$this->showReplyForm( $thread );
 		} elseif ( $method == 'talkpage_new_thread' ) {
 			$this->showNewThreadForm();
+		} elseif ( $method == 'edit' ) {
+			$this->showPostEditingForm( $thread );
 		}
 		
 		$this->output->setArticleBodyOnly( true );
