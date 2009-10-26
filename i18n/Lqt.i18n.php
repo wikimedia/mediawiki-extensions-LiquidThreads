@@ -301,7 +301,7 @@ $messages['qqq'] = array(
 :Probably a verb; see also {{msg-mw|Lqt delete}} and {{msg-mw|Lqt undelete}}.',
 	'lqt_delete' => '{{Identical|Delete}}',
 	'lqt_undelete' => '{{Identical|Undelete}}',
-	'lqt_permalink' => 'Text for a link to the specific object (e.g. thread summary or discussion fragment).',
+	'lqt_permalink' => "{{doc-important|This message is not followed by a parameter. The English version is short for '''Link to this post'''. It could also be translated as \"Perma[nent ]link\".}} Text for a link to the specific object (e.g. thread summary or discussion fragment).",
 	'lqt_fragment' => 'Parameters:
 * $1 is a link with {{msg-mw|lqt_discussion_link}} as text
 * $2 is a link to the talk page
@@ -1008,6 +1008,7 @@ $messages['be-tarask'] = array(
 	'lqt-history-user' => 'Удзельнік',
 	'lqt-history-action' => 'Актыўнасьць',
 	'lqt-history-comment' => 'Камэнтар',
+	'lqt-history-thread' => 'Галіна',
 	'lqt-thread-edited-author' => 'Рэдагаваная аўтарам',
 	'lqt-thread-edited-others' => 'Рэдагаваная іншымі ўдзельнікамі',
 	'lqt-header-actions' => 'Дзеяньні',
@@ -1029,6 +1030,8 @@ $messages['be-tarask'] = array(
 	'lqt-delete-replies-done' => 'Усе адказы гэтай галіны былі так сама выдаленыя.',
 	'lqt-movethread' => 'Перанесьці',
 	'lqt-menu-trigger' => 'Болей',
+	'lqt-newmessages-from' => 'Ад $1',
+	'lqt-hot-topics' => 'Папулярныя тэмы',
 	'right-lqt-split' => 'падзел галінаў',
 	'right-lqt-merge' => "аб'яднаньне галінаў",
 	'lqt-thread-merge' => "Аб'яднаць у іншую галіну",
@@ -1085,6 +1088,8 @@ $messages['be-tarask'] = array(
 	'lqt_newmessages' => 'Новыя паведамленьні',
 	'lqt-newpost-summary' => 'Новая галіна: $1',
 	'lqt-reply-summary' => 'Адказаць на [[$2|$1]]',
+	'lqt-talkpage-history-title' => 'Гісторыя старонкі абмеркаваньня',
+	'lqt-talkpage-history-subtitle' => 'Для $1',
 );
 
 /** Bulgarian (Български)
@@ -3037,6 +3042,7 @@ $messages['es'] = array(
 Puede:
 * Ser demasiado largo, o
 * Estar en conflicto con prefijos interwiki o nombres de espacio de nombre.',
+	'lqt_empty_subject' => 'Debes escribir un tema.',
 	'lqt_subject_change_forbidden' => 'No puedes cambiar el tema para este hilo porque no estás permitido de mover páginas',
 	'lqt_in_response_to' => 'En respuesta a $1 por $2, arriba:',
 	'lqt_edited_notice' => 'Editado',
@@ -3123,6 +3129,7 @@ Este hilo es parte de $2.',
 Tal vez quieras en su lugar $2.',
 	'lqt_header_warning_bold' => 'encabezado de página de discusión',
 	'lqt_header_warning_new_discussion' => 'comenzar una nueva discusión',
+	'lqt_sorting_order' => 'Orden:',
 	'lqt_sort_newest_changes' => 'últimos modificados primero',
 	'lqt_sort_newest_threads' => 'Hilos más nuevos primero',
 	'lqt_sort_oldest_threads' => 'Hilos más antiguos primero',
@@ -3202,6 +3209,7 @@ Tal vez quieras en su lugar $2.',
 	'lqt-thread-show-more' => 'Mostrar más respuestas',
 	'lqt-thread-link-url' => 'Enlazar URL:',
 	'lqt-thread-link-title' => 'Enlace Wikitexto:',
+	'lqt-thread-link-copy' => 'Copiar al portapapeles',
 	'lqt-feed-title-all' => '{{SITENAME}} — Nuevos mensajes',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Nuevos mensajes de $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nuevos hilos',
@@ -6598,7 +6606,13 @@ $messages['mhr'] = array(
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
+	'lqt_subject' => 'Тема:',
+	'lqt-no-new-messages' => 'Немате нови пораки.',
+	'lqt-new-messages' => '&#x2712; Имате нови пораки.',
 	'lqt-thread-created' => 'Создадено',
+	'lqt-no-threads' => 'Сè уште нема низи на оваа страница.',
+	'lqt-search-label' => 'Услови за пребарување:',
+	'lqt-search-button' => 'Пребарај',
 );
 
 /** Malayalam (മലയാളം)
@@ -6701,6 +6715,7 @@ $messages['ml'] = array(
 	'lqt-movethread' => 'മാറ്റുക',
 	'lqt-menu-trigger' => 'കൂടുതൽ',
 	'lqt-newmessages-from' => '$1 മുതൽ',
+	'lqt-hot-topics' => 'ചൂടുപിടിച്ച വിഷയങ്ങൾ',
 	'lqt-merge-submit' => 'ലയിപ്പിക്കുക',
 	'lqt-log-action-move' => '[[$1]]- [[$2]] എന്നതിൽ നിന്നു  [[$3]] എന്നതിലേയ്ക്കു മാറ്റിയിരിക്കുന്നു.',
 	'lqt-preference-custom-signatures' => 'മാറ്റിയെടുത്ത ഉപയോക്തൃ ഒപ്പുകൾ കാട്ടുക',
@@ -6902,7 +6917,7 @@ $messages['nl'] = array(
 	'lqt_reply' => 'Antwoorden',
 	'lqt_delete' => 'Verwijderen',
 	'lqt_undelete' => 'Terugplaatsen',
-	'lqt_permalink' => 'Verwijzing naar',
+	'lqt_permalink' => 'Permanente verwijzing',
 	'lqt_fragment' => 'Fragment van een $1 van $2',
 	'lqt_discussion_link' => 'overleg',
 	'lqt_from_talk' => 'Van $1',
@@ -8502,6 +8517,7 @@ $messages['ru'] = array(
 	'lqt-movethread' => 'Переименовать',
 	'lqt-menu-trigger' => 'Ещё',
 	'lqt-newmessages-from' => 'От $1',
+	'lqt-hot-topics' => 'Горячие темы',
 	'right-lqt-split' => 'разделение ветвей',
 	'right-lqt-merge' => 'объединение ветвей',
 	'lqt-thread-merge' => 'Присоединить к другой ветке',
