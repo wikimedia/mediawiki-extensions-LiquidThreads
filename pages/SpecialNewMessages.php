@@ -29,6 +29,9 @@ class SpecialNewMessages extends SpecialPage {
 		
 		$article = new Article( $this->getTitle() );
 		$title = $this->getTitle();
+		
+		// Clear newtalk
+		$this->user->setNewtalk( false );
 
 		$view = new NewUserMessagesView( $this->output, $article,
 			$title, $this->user, $this->request );
