@@ -58,7 +58,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		$feedItems = array();
 
 		$tables = array( 'thread' );
-		$fields = array( 'thread.*' );
+		$fields = array( $db->tableName( 'thread' ) . ".*" );
 		$conds = $this->getConditions( $params, $db );
 		$options = array( 'LIMIT' => 200, 'ORDER BY' => 'thread_created DESC' );
 
