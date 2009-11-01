@@ -221,7 +221,8 @@ class NewMessages {
 
 		global $wgVersion;
 		$tables = array( 'user' );
-		$fields = array( 'user.*' );
+		$dbr = wfGetDB( DB_SLAVE );
+		$fields = array( $dbr->tableName( 'user' ) . '.*' );
 		$join_conds = array();
 		$oldPreferenceFormat = false;
 		if ( version_compare( $wgVersion, '1.16', '<' ) ) {
@@ -250,7 +251,6 @@ class NewMessages {
 					);
 		}
 		
-		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( $tables, $fields,
 							array( 'user_id' => $watching_users ), __METHOD__, array(),
 							$join_conds
