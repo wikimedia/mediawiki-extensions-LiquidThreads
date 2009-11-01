@@ -273,6 +273,7 @@ You can see it at <$6>",
 	// Talk page history
 	'lqt-talkpage-history-title' => 'Discussion page history',
 	'lqt-talkpage-history-subtitle' => 'For $1',
+	'lqt-talkpage-history-tab' => 'Header',
 );
 
 /** Message documentation (Message documentation)

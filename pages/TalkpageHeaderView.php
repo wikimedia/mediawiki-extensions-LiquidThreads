@@ -12,9 +12,11 @@ class TalkpageHeaderView extends LqtView {
 		unset( $content_actions['move'] );
 
 		$content_actions['talk']['class'] = false;
-		$content_actions['header'] = array( 'class' => 'selected',
-		'text' => 'header',
-		'href' => '' );
+		$content_actions['header'] = array(
+			'class' => 'selected',
+			'text' => wfMsg( 'lqt-talkpage-history-tab' ),
+			'href' => ''
+		);
 
 		return true;
 	}
