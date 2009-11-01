@@ -38,6 +38,7 @@ $wgExtraNamespaces[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
 // Localisation
 $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'i18n/Lqt.i18n.php';
+$wgExtensionMessagesFiles['LiquidThreadsMagic'] = $dir . 'i18n/LiquidThreads.magic.php';
 $wgExtensionAliasesFiles['LiquidThreads'] = $dir . 'i18n/Lqt.alias.php';
 
 // Parser Function Setup
@@ -108,7 +109,6 @@ $wgAutoloadClasses['HistoricalThread'] = $dir . 'classes/HistoricalThread.php';
 $wgAutoloadClasses['Thread'] = $dir . 'classes/Thread.php';
 $wgAutoloadClasses['Threads'] = $dir . 'classes/Threads.php';
 $wgAutoloadClasses['NewMessages'] = $dir . 'classes/NewMessagesController.php';
-$wgAutoloadClasses['LiquidThreadsMagicWords'] = $dir . 'i18n/LiquidThreads.magic.php';
 $wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/ParserFunctions.php';
 $wgAutoloadClasses['LqtDeletionController'] = $dir . 'classes/DeletionController.php';
 $wgAutoloadClasses['LqtHooks'] = $dir . 'classes/Hooks.php';
