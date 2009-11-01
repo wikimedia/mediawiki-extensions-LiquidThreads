@@ -257,6 +257,7 @@ class NewMessages {
 						);
 						
 		// Set up one-time data.
+		global $wgPasswordSender;
 		$link_title = clone $t->article()->getTitle();
 		$link_title->setFragment( '#' . $t->getAnchorName() );
 		$permalink = $link_title->getFullURL();
@@ -302,8 +303,6 @@ class NewMessages {
 			// Get message in user's own language, bug 20645
 			$msg = wfMsgReal( $msgName, $params, true /* use DB */, $langCode,
 								true /*transform*/ );
-							
-			global $wgPasswordSender;
 							
 			$to   = new MailAddress( $u );
 			$subject = wfMsgReal( $subjectMsg, array( $threadSubject ), true /* use DB */,
