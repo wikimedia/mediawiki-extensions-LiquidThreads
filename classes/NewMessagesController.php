@@ -141,7 +141,7 @@ class NewMessages {
 			if ( $oldPrefCompat ) {
 				$decodedOptions = self::decodeUserOptions( $row->user_options );
 				
-				$wantsTalkNotification = ( is_null( $decodedOptions['lqtnotifytalk'] ) &&
+			$wantsTalkNotification = ( ( !isset( $decodedOptions['lqtnotifytalk'] ) || is_null( $decodedOptions['lqtnotifytalk'] ) ) &&
 						User::getDefaultOption( 'lqtnotifytalk' ) ) || $row->up_value;
 			} else {
 				$wantsTalkNotification =
