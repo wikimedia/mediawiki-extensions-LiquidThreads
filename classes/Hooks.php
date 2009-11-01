@@ -243,13 +243,14 @@ class LqtHooks {
 	
 	static function modifyOAIQuery( &$tables, &$fields, &$conds,
 					&$options, &$join_conds ) {
-	
+
 		$tables[] = 'thread';
-		
+
 		$join_conds['thread'] = array( 'left join', array( 'thread_root=page_id' ) );
-		
-		$fields[] = 'thread.*';
-		
+
+		$db = wfGetDB( DB_SLAVE );
+		$fields[] = $db->tableName( 'thread' ) . '.*';
+
 		return true;
 	}
 	
