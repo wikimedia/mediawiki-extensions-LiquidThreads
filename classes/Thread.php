@@ -852,6 +852,9 @@ class Thread {
 	}
 	
 	function checkReplies( $replies ) {
+		// Fixes a bug where some history pages were not working, before
+		//  superthread was properly instance-cached.
+		if ( $this->isHistorical() ) { return; }
 		foreach( $replies as $reply ) {
 			if ( ! $reply->hasSuperthread() ) {
 				throw new MWException( "Post ".$this->id().
@@ -925,9 +928,12 @@ class Thread {
 	function superthread() {
 		if ( !$this->hasSuperthread() ) {
 			return null;
+		} elseif ( $this->superthread ) {
+			return $this->superthread;
 		} else {
 			$this->dieIfHistorical();
-			return Threads::withId( $this->parentId );
+			$this->superthread = Threads::withId( $this->parentId );
+			return $this->superthread;
 		}
 	}
 

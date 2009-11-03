@@ -83,7 +83,7 @@ class ThreadHistoryPager extends TablePager {
 			case 'th_timestamp':
 				$formatted = $wgLang->timeanddate( $value );
 				return $sk->link( $wgTitle, $formatted, array(),
-									array( 'lqt_oldid' => $row->th_id ) );
+							array( 'lqt_oldid' => $row->th_id ) );
 			case 'th_user_text':
 				return $sk->userLink( $row->th_user, $row->th_user_text ) . ' ' .
 						$sk->userToolLinks( $row->th_user, $row->th_user_text );

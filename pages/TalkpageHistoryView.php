@@ -90,6 +90,13 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 						array( 'known' ) );
 				
 				return $link;
+			case 'th_timestamp':
+				$formatted = $wgLang->timeanddate( $value );
+				$title = Title::makeTitleSafe( $row->page_namespace,
+					$row->page_title );
+				
+				return $sk->link( $title, $formatted, array(),
+							array( 'lqt_oldid' => $row->th_id ) );
 			default:
 				return parent::formatValue( $name, $value );
 		}
