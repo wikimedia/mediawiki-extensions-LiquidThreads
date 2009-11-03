@@ -1091,6 +1091,7 @@ $messages['be-tarask'] = array(
 	'lqt-reply-summary' => 'Адказаць на [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Гісторыя старонкі абмеркаваньня',
 	'lqt-talkpage-history-subtitle' => 'Для $1',
+	'lqt-talkpage-history-tab' => 'Загаловак',
 );
 
 /** Bulgarian (Български)
@@ -1186,7 +1187,9 @@ $messages['bn'] = array(
 );
 
 /** Breton (Brezhoneg)
+ * @author Fohanno
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'lqt-desc' => 'Ouzhpennañ a ra neudennadoù kaozioù er pajennoù kaozeal',
@@ -1354,6 +1357,8 @@ Diverket e vo ar respontoù ent emgefre ivez.
 Kuit na c'hoarvezfe, rannit an neudenndaoù kaozioù a-raok diverkañ homañ.",
 	'lqt-delete-parent-deleted' => 'Neudennad kaozioù kar diverket ($1)',
 	'lqt-delete-replies-done' => "Diverket eo bet ivez an holl respontoù d'an neudennad-mañ",
+	'lqt-movethread' => "Dilec'hiañ",
+	'lqt-menu-trigger' => "Muioc'h",
 	'right-lqt-split' => 'Rannañ an neudennadoù',
 	'right-lqt-merge' => 'Kendeuziñ an neudennadoù',
 	'lqt-thread-merge' => 'Kendeuziñ en un neudennad all',
@@ -1395,6 +1400,7 @@ E lenn a c'hallit ober war <$6>",
 	'lqt-ajax-update-link' => 'Hizivaat',
 	'lqt-thread-show-replies' => 'Diskouez $1 respont',
 	'lqt-thread-show-more' => 'Diskouez respontoù all',
+	'lqt-thread-link-url' => 'URL al liamm :',
 	'lqt-feed-title-all' => '{{SITENAME}} — Kemennadennoù nevez',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Kemennadennoù nevez a-berzh $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Neudennadoù kaoz nevez',
@@ -1403,7 +1409,9 @@ E lenn a c'hallit ober war <$6>",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respontoù digant $1',
 	'lqt-feed-new-thread-intro' => 'Neudennadoù nevez war $1 postet gant $2',
 	'lqt-feed-reply-intro' => 'Respontoù da $3 (war $1) postet gant $2',
+	'lqt-newmessages-n' => 'Kemennadennoù nevez ($1)',
 	'lqt_newmessages' => 'Kemennoù nevez',
+	'lqt-talkpage-history-subtitle' => 'Evit $1',
 );
 
 /** Bosnian (Bosanski)
@@ -2724,6 +2732,7 @@ Móžoš jo na <$6> wiźeś",
 	'lqt-reply-summary' => 'Wótegrono na [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Historija diskusijnego boka',
 	'lqt-talkpage-history-subtitle' => 'Za $1',
+	'lqt-talkpage-history-tab' => 'Głowa',
 );
 
 /** Ewe (Eʋegbe)
@@ -3964,6 +3973,7 @@ Pode vela en <$6>',
 	'lqt-reply-summary' => 'Responder a [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Historial da páxina de conversa',
 	'lqt-talkpage-history-subtitle' => 'Para $1',
+	'lqt-talkpage-history-tab' => 'Cabeceira',
 );
 
 /** Gothic (Gothic)
@@ -4958,6 +4968,7 @@ Móžeš ju na <$6> widźeć",
 	'lqt-reply-summary' => 'Wotmołwa na [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Historija diskusijneje strony',
 	'lqt-talkpage-history-subtitle' => 'Za $1',
+	'lqt-talkpage-history-tab' => 'Hłowa',
 );
 
 /** Hungarian (Magyar)
@@ -5626,6 +5637,7 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Darth Kule
+ * @author Gianfranco
  * @author Marco 27
  * @author Melos
  */
@@ -5648,7 +5660,7 @@ Potrebbe:
 	'lqt_reply' => 'Rispondi',
 	'lqt_delete' => 'Cancella',
 	'lqt_undelete' => 'Recupera',
-	'lqt_permalink' => 'Link a questo',
+	'lqt_permalink' => 'Link permanente',
 	'lqt_fragment' => 'Frammento di una $1 da $2',
 	'lqt_discussion_link' => 'discussione',
 	'lqt_from_talk' => 'Da $1',
@@ -5670,22 +5682,23 @@ Potrebbe:
 	'lqt_hist_merged_to' => "Risposta trasferita da un'altra discussione",
 	'lqt_revision_as_of' => 'Versione del $2 alle $3.',
 	'lqt_change_new_thread' => 'Questa è la versione iniziale della discussione.',
-	'lqt_change_reply_created' => 'Il commento evidenziato è stato aggiunto in questa revisione.',
-	'lqt_change_edited_root' => 'Il commento evidenziato è stato modificato in questa revisione.',
+	'lqt_change_reply_created' => 'Il [$1 commento evidenziato] è stato aggiunto in questa revisione.',
+	'lqt_change_edited_root' => 'Il [$1 commento evidenziato] è stato modificato in questa revisione.',
 	'lqt_change_edited_summary' => "L'oggetto della discussione è stato modificato",
-	'lqt_change_deleted' => 'Questa discussione o una sua risposta è stata cancellata',
-	'lqt_change_undeleted' => 'Il commento evidenziato è stato ripristinato',
-	'lqt_change_moved' => "Questa discussione è stata spostata in un'altra pagina di discussione",
-	'lqt_change_split' => "Questa discussione è stata divisa da un'altra.",
+	'lqt_change_deleted' => '[$1 Questo thread] o il suo livello superiore è stato cancellato',
+	'lqt_change_undeleted' => 'Il [$1 commento evidenziato] è stato recuperato',
+	'lqt_change_moved' => "[$1 Questa discussione] è stata spostata ad un'altra pagina di discussione",
+	'lqt_change_split' => "[$1 Questa discussione] è stata scorporata da un'altra.",
 	'lqt_change_subject_edited' => "L'argomento della discussione è stato modificato",
-	'lqt_change_merged_from' => "Una risposta a questa discussione è stata trasferita ad un'altra",
-	'lqt_change_merged_to' => "La risposta evidenziata è stata trasferita da un'altra discussione.",
+	'lqt_change_merged_from' => "Una [$1 risposta] a questa discussione è stata trasferita ad un'altro thread",
+	'lqt_change_merged_to' => "La [$1 risposta evidenziata] è stata trasferita qui da un'altra discussione.",
 	'lqt_youhavenewmessages' => 'Hai [$1 nuovi messaggi].',
 	'lqt_protectedfromreply_link' => 'protetto',
 	'lqt_subject' => 'Oggetto:',
 	'lqt_noreason' => 'Nessuna motivazione indicata.',
 	'lqt_thread_deleted_for_sysops' => "Questa discussione è stata '''cancellata''' ed è visibile solamente dagli amministratori.",
 	'lqt_thread_deleted' => 'Questa discussione è stata cancellata.',
+	'lqt_summary_notice_link' => 'scrivi un riassunto',
 	'lqt_summary_label' => 'Questa discussione è stata sintetizzata come segue:',
 	'lqt_summary_subtitle' => 'Oggetto di "$1"',
 	'lqt_nosuchthread' => 'La discussione specificata non esiste.',
@@ -5750,6 +5763,7 @@ Questa operazione non è annullabile.',
 	'lqt-split-success' => 'Hai diviso con successo la discussione $1.',
 	'lqt-split-submit' => 'Dividi',
 	'lqt-no-threads' => 'Non ci sono ancora discussioni in questa pagina.',
+	'lqt-movethread' => 'Sposta',
 	'right-lqt-split' => 'Divide discussioni',
 	'right-lqt-merge' => 'Unisce discussioni',
 	'lqt-thread-merge' => "Unisci ad un'altra discussione",
@@ -5769,6 +5783,7 @@ Questa operazione non è annullabile.',
 	'lqt-search-label' => 'Termini di ricerca:',
 	'lqt-search-button' => 'Ricerca',
 	'searchprofile-threads' => 'Discussioni',
+	'lqt-ajax-update-link' => 'Aggiorna',
 	'lqt-thread-show-replies' => 'Mostra $1 {{PLURAL:$1|risposta|risposte}}',
 	'lqt-thread-show-more' => 'Mostra più risposte',
 	'lqt_newmessages' => 'Nuovi messaggi',
@@ -8926,6 +8941,7 @@ $messages['ru'] = array(
 	'lqt-reply-summary' => 'Ответ на [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'История страницы обсуждения',
 	'lqt-talkpage-history-subtitle' => 'Для $1',
+	'lqt-talkpage-history-tab' => 'Заголовок',
 );
 
 /** Yakut (Саха тыла)
@@ -10245,6 +10261,15 @@ Bunu <$6> adresinde görebilirsin.",
 $messages['tt-cyrl'] = array(
 	'lqt_subject' => 'Тема:',
 	'lqt_delete_return' => '$1 битенә кайтырга.',
+);
+
+/** Ukrainian (Українська)
+ * @author Prima klasy4na
+ */
+$messages['uk'] = array(
+	'lqt_toc_thread_replycount' => 'Відповідей',
+	'lqt_move_torename_edit' => 'відредагуйте її',
+	'lqt-summary' => 'Опис',
 );
 
 /** Vèneto (Vèneto)
