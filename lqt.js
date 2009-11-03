@@ -249,9 +249,9 @@ var liquidThreads = {
 		menu.remove().appendTo( menuContainer );
 		menuContainer.find('.lqt-thread-toolbar-command-list').hide();
 		
-		// Add handler for edit link
-		var editLink = menu.find('.lqt-command-edit > a');
-		editLink.click( liquidThreads.handleEditLink );
+		// Add handler for edit link -- Disabled for further tweaking
+//		var editLink = menu.find('.lqt-command-edit > a');
+//		editLink.click( liquidThreads.handleEditLink );
 
 		var trigger = menuContainer.find( '.lqt-thread-actions-trigger' )	
 
