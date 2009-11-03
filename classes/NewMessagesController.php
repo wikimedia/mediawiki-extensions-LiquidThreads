@@ -252,15 +252,14 @@ class NewMessages {
 		}
 		
 		$res = $dbr->select( $tables, $fields,
-							array( 'user_id' => $watching_users ), __METHOD__, array(),
-							$join_conds
-						);
+					array( 'user_id' => $watching_users ), __METHOD__,
+					array(), $join_conds );
 						
 		// Set up one-time data.
 		global $wgPasswordSender;
 		$link_title = clone $t->article()->getTitle();
 		$link_title->setFragment( '#' . $t->getAnchorName() );
-		$permalink = $link_title->getFullURL();
+		$permalink = LqtView::linkInContextURL( $t );
 		$talkPage = $t->article()->getTitle()->getPrefixedText();
 		$from = new MailAddress( $wgPasswordSender, 'WikiAdmin' );
 		$threadSubject = $t->subject();
