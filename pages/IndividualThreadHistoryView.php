@@ -17,11 +17,11 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$msg = wfMsgExt( 'lqt_hist_view_whole_thread', 'parseinline' );
 		$threadhist = $this->permalink( $this->thread->topmostThread(),
-										$msg,
-										'thread_history' );
+						$msg,
+						'thread_history' );
 		$this->output->setSubtitle(  parent::getSubtitle() . '<br />' .
-										$this->output->getSubtitle() .
-										"<br />$threadhist" );
+						$this->output->getSubtitle() .
+						"<br />$threadhist" );
 		return true;
 	}
 
