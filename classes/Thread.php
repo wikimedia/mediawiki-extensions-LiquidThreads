@@ -851,8 +851,27 @@ class Thread {
 		$this->decrementReplyCount( 1 + $threadObj->replyCount() );
 	}
 	
+	function checkReplies( $replies ) {
+		foreach( $replies as $reply ) {
+			if ( ! $reply->hasSuperthread() ) {
+				throw new MWException( "Post ".$this->id().
+				" has contaminated reply ".$reply->id()."\n" );
+			}
+			
+			if ( $reply->superthread()->id() != $this->id() ) {
+				throw new MWException( "Post ". $this->id() . 
+				" has contaminated reply ".$reply->id()."\n" );
+			}
+		}
+	}
+	
 	function replies() {
+		if ( !$this->id() ) {
+			return array();
+		}
+		
 		if ( !is_null( $this->replies ) ) {
+			$this->checkReplies( $this->replies );
 			return $this->replies;
 		}
 		
@@ -878,6 +897,8 @@ class Thread {
 		}
 		
 		$this->replies = Thread::bulkLoad( $rows );
+		
+		$this->checkReplies( $this->replies );
 		
 		return $this->replies;
 	}
@@ -1172,11 +1193,11 @@ class Thread {
 // 
 // 			// Insert a revision into the database.			
 // 			$rev = ThreadRevision::create( $historical_thread,
-// 											$historical_thread->changeType(),
-// 											$historical_thread->changeObject(),
-// 											$historical_thread->changeComment(),
-// 											$historical_thread->changeUser(),
-// 											$historical_thread->modified() );
+// 							$historical_thread->changeType(),
+// 							$historical_thread->changeObject(),
+// 							$historical_thread->changeComment(),
+// 							$historical_thread->changeUser(),
+// 							$historical_thread->modified() );
 // 		}
 	}
 	
