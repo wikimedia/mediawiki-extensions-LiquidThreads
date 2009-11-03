@@ -92,7 +92,7 @@ class NewMessages {
 		
 		$oldPrefCompat = false;
 		global $wgVersion;
-		if ( version_compare( $wgVersion, '1.16', '<' ) ) {
+		if ( version_compare( $wgVersion, '1.15.999', '<=' ) ) {
 			$oldPrefCompat = true;
 			
 			$tables[] = 'user';
