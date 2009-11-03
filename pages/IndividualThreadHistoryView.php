@@ -34,6 +34,11 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 
 	function show() {
 		global $wgHooks;
+		
+		if ( !$this->thread ) {
+			$this->showMissingThreadPage();
+			return false;
+		}
 
 		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
 
