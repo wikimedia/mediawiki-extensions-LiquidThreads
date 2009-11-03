@@ -305,7 +305,7 @@ class ApiThreadAction extends ApiBase {
 		$text = $params['text'];
 		
 		// Generate or pull summary
-		$summary = wfMsg( 'lqt-newpost-summary', $subject );
+		$summary = wfMsgForContent( 'lqt-newpost-summary', $subject );
 		if ( !empty( $params['reason'] ) ) {
 			$summary = $params['reason'];
 		}
@@ -393,7 +393,7 @@ class ApiThreadAction extends ApiBase {
 		$text = $params['text'];
 		
 		// Generate/pull summary
-		$summary = wfMsg( 'lqt-reply-summary', $replyTo->subject(),
+		$summary = wfMsgForContent( 'lqt-reply-summary', $replyTo->subject(),
 				$replyTo->title()->getPrefixedText() );
 		
 		if ( !empty( $params['reason'] ) ) {
