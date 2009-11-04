@@ -1174,6 +1174,8 @@ $messages['bg'] = array(
 	'lqt-new-messages' => '&#x2712; Имате нови съобщения.',
 	'lqt-date-info' => 'Тази връзка е деактивирана, тъй като преглеждате нишките от всички дати.',
 	'lqt_rc_new_discussion' => 'Нова дискусия, $1, от $2. &bull; $3 написа:',
+	'lqt-history-user' => 'Потребител',
+	'lqt-header-actions' => 'Действия',
 	'lqt_newmessages' => 'Нови съобщения',
 );
 
@@ -1411,7 +1413,9 @@ E lenn a c'hallit ober war <$6>",
 	'lqt-feed-reply-intro' => 'Respontoù da $3 (war $1) postet gant $2',
 	'lqt-newmessages-n' => 'Kemennadennoù nevez ($1)',
 	'lqt_newmessages' => 'Kemennoù nevez',
+	'lqt-reply-summary' => 'Respont da [[$2|$1]]',
 	'lqt-talkpage-history-subtitle' => 'Evit $1',
+	'lqt-talkpage-history-tab' => 'Talbenn',
 );
 
 /** Bosnian (Bosanski)
@@ -4990,6 +4994,7 @@ $messages['hu'] = array(
 	'lqt_invalid_subject' => 'A téma, amit megadtál, érvénytelen, mert:
 * túl hosszú, vagy
 * ütközik névtérközi hivatkozások előtagjával vagy névterek nevével.',
+	'lqt_empty_subject' => 'Meg kell adnod a tárgyat.',
 	'lqt_subject_change_forbidden' => 'Nem változtathatod meg a beszélgetés témáját, mert nem nevezhetsz át lapokat.',
 	'lqt_in_response_to' => 'Válasz: $1, írta $2:',
 	'lqt_edited_notice' => 'szerkesztve',
@@ -5140,6 +5145,7 @@ Ez a beszélgetés jelenleg a(z) $2 lap része.',
 	'lqt_newmessages' => 'Új üzenetek',
 	'lqt-newpost-summary' => 'Új beszélgetésfolyam: $1',
 	'lqt-reply-summary' => 'Válasz erre: [[$2|$1]]',
+	'lqt-talkpage-history-tab' => 'Fejléc',
 );
 
 /** Interlingua (Interlingua)
@@ -5616,6 +5622,7 @@ Anda dapat melihatnya di <$6>",
 	'lqt-reply-summary' => 'Balas ke [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Riwayat halaman pembicaraan',
 	'lqt-talkpage-history-subtitle' => 'Untuk $1',
+	'lqt-talkpage-history-tab' => 'Kepala',
 );
 
 /** Ido (Ido)
@@ -6059,6 +6066,7 @@ $messages['jv'] = array(
  * @author BRUTE
  */
 $messages['ka'] = array(
+	'lqt_delete' => 'წაშლა',
 	'lqt_noreason' => 'მიზეზი ნაჩვენები არაა.',
 	'lqt_move_move' => 'გადატანა',
 	'lqt_move_noreason' => 'მიზეზი ნაჩვენები არაა.',
@@ -7093,6 +7101,7 @@ $5 താളിലെ '$2' എന്നതിനു പുതിയൊരു മ
 	'lqt-reply-summary' => '[[$2|$1]] എന്നതിനുള്ള മറുപടി',
 	'lqt-talkpage-history-title' => 'സംവാദം താളിന്റെ നാൾവഴി',
 	'lqt-talkpage-history-subtitle' => 'താൾ $1',
+	'lqt-talkpage-history-tab' => 'തലക്കുറി',
 );
 
 /** Mongolian (Монгол)
@@ -7984,6 +7993,7 @@ O podètz veire a « $6 »",
 	'lqt-reply-summary' => 'Respondre a [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Istoric de la pagina de discussion',
 	'lqt-talkpage-history-subtitle' => 'Per $1',
+	'lqt-talkpage-history-tab' => 'Entèsta',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
