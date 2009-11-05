@@ -5116,6 +5116,9 @@ Ez a beszélgetés jelenleg a(z) $2 lap része.',
 	'lqt_split_badsubject' => 'Az általad megadott tárgy érvénytelen.',
 	'lqt-no-threads' => 'Ezen a lapon még nincsenek beszélgetések.',
 	'lqt-movethread' => 'Áthelyezés',
+	'lqt-menu-trigger' => 'Több',
+	'lqt-newmessages-from' => 'Ettől: $1',
+	'lqt-hot-topics' => 'Aktuális témák',
 	'right-lqt-split' => 'beszélgetésfolyamok szétválasztása',
 	'right-lqt-merge' => 'beszélgetésfolyamok összevonása',
 	'lqt-thread-merge-source' => 'Forrás beszélgetésfolyam:',
@@ -7013,6 +7016,8 @@ $messages['ml'] = array(
 	'lqt_noreason' => 'കാരണമൊന്നും സൂചിപ്പിച്ചിട്ടില്ല',
 	'lqt_thread_deleted_for_sysops' => "ഈ ത്രെഡ് '''മായ്ച്ചിരിക്കുന്നു''', സിസോപ്പുകള്‍ക്ക് മാത്രമേ ഇതു ദൃശ്യമാവൂ.",
 	'lqt_thread_deleted' => 'ഈ ത്രെഡ് ഒഴിവാക്കി.',
+	'lqt_summary_notice' => 'ഈ ചർച്ചയിൽ കഴിഞ്ഞ {{PLURAL:$2|ദിവസം|$2 ദിവസങ്ങളിൽ}} യാതൊരു മാറ്റവും ഉണ്ടായിട്ടില്ല.
+അത് പരിസമാപ്തിയിലെത്തിയെങ്കിൽ, താങ്കൾക്ക് $1 ഉപയോഗിക്കാവുന്നതാണ്.',
 	'lqt_summary_notice_link' => 'സംഗ്രഹം എഴുതുക',
 	'lqt_summary_label' => 'ഈ ത്രെഡ് താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്ന പോലെ സംഗ്രഹിച്ചിരിക്കുന്നു.',
 	'lqt_summary_subtitle' => '"$1" എന്നതിന്റെ സംഗ്രഹം.',
@@ -8316,6 +8321,7 @@ $messages['ps'] = array(
 /** Portuguese (Português)
  * @author 555
  * @author Crazymadlover
+ * @author Heldergeovane
  * @author Lijealso
  * @author Malafaya
  */
@@ -8335,7 +8341,7 @@ $messages['pt'] = array(
 	'lqt_reply' => 'Responder',
 	'lqt_delete' => 'Apagar',
 	'lqt_undelete' => 'Recuperar',
-	'lqt_permalink' => 'Ligação a isto',
+	'lqt_permalink' => 'Ligação para este comentário',
 	'lqt_fragment' => 'um fragmento de $1 de $2',
 	'lqt_discussion_link' => 'discussão',
 	'lqt_from_talk' => 'De $1',
@@ -8476,6 +8482,7 @@ Esta operação é reversível.',
 /** Brazilian Portuguese (Português do Brasil)
  * @author Crazymadlover
  * @author Eduardo.mps
+ * @author Heldergeovane
  * @author Luckas Blade
  */
 $messages['pt-br'] = array(
@@ -8490,7 +8497,7 @@ $messages['pt-br'] = array(
 	'lqt_reply' => 'Responder',
 	'lqt_delete' => 'Apagar',
 	'lqt_undelete' => 'Recuperar',
-	'lqt_permalink' => 'Ligação permanente',
+	'lqt_permalink' => 'Ligação para este comentário',
 	'lqt_fragment' => 'um fragmento de $1 de $2',
 	'lqt_discussion_link' => 'discussão',
 	'lqt_from_talk' => 'de $1',
@@ -8511,15 +8518,15 @@ $messages['pt-br'] = array(
 	'lqt_hist_tooltip_older_disabled' => 'Esta ligação está desativada porque se você está na última página.',
 	'lqt_revision_as_of' => 'Revisão em $2 às $3.',
 	'lqt_change_new_thread' => 'Esta é a revisão inicial deste tópico.',
-	'lqt_change_reply_created' => 'O comentário assinalado foi criado nesta revisão.',
-	'lqt_change_edited_root' => 'O comentário assinalado foi editado nesta revisão.',
+	'lqt_change_reply_created' => 'O [$1 comentário destacado] foi criado nesta revisão.',
+	'lqt_change_edited_root' => 'O [$1 comentário destacado] foi editado nesta revisão.',
 	'lqt_youhavenewmessages' => 'Você tem [$1 novas mensagens].',
 	'lqt_protectedfromreply' => 'Este tópico foi $1 contra respostas.',
 	'lqt_protectedfromreply_link' => 'protegido',
 	'lqt_subject' => 'Assunto:',
 	'lqt_noreason' => 'Nenhum motivo foi especificado.',
-	'lqt_move_placeholder' => 'Este tópico é uma representação que indica que um tópico, $1, foi removido desta página para outra página de discussão.
-Esta movimentação foi feita por $2 em $3 $4.',
+	'lqt_move_placeholder' => 'Este tópico é uma representação que indica que um tópico, $1, foi movido desta página.
+Esta movimentação foi feita por $2 em $3 $4. Agora o tópico está em $5.',
 	'lqt_thread_deleted_for_sysops' => "Este tópico foi '''eliminado''' e está visível apenas para administradores.",
 	'lqt_thread_deleted' => 'Este tópico foi eliminado',
 	'lqt_summary_notice' => 'Não houve alterações a esta discussão há pelo menos $2 {{PLURAL:$2|dia|dias}}.
@@ -8528,7 +8535,7 @@ Se ela se encontra terminada, talvez queira $1.',
 	'lqt_summary_label' => 'Este tópico foi assim sumarizado:',
 	'lqt_summary_subtitle' => 'o sumário de "$1"',
 	'lqt_nosuchrevision' => 'Não existe essa revisão deste tópico.',
-	'lqt_nosuchthread' => 'Não existe esse tópico',
+	'lqt_nosuchthread' => 'O tópico que você especificou não existe',
 	'lqt_threadrequired' => 'Deverá especificar um tópico no URL.',
 	'lqt_move_movingthread' => 'Movendo $1.
 Este tópico é parte de $2.',
@@ -8569,7 +8576,7 @@ Talvez queira em alternativa $2.',
 	'lqt-older' => 'mais antigo',
 	'lqt-newer' => 'mais recente',
 	'lqt-searching' => 'Procurando tópicos',
-	'lqt-read-message' => 'Ler',
+	'lqt-read-message' => 'Lido',
 	'lqt-read-message-tooltip' => 'Remover este tópico das novas mensagens.
 Ainda estará visível na sua página de discussão original.',
 	'lqt-read-all' => 'Marcar todos como lidos',
@@ -10274,12 +10281,15 @@ $messages['tt-cyrl'] = array(
 );
 
 /** Ukrainian (Українська)
+ * @author NickK
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
+	'lqt-desc' => 'Додає на сторінки обговорень гілки обговорень',
 	'lqt_toc_thread_replycount' => 'Відповідей',
 	'lqt_move_torename_edit' => 'відредагуйте її',
 	'lqt-summary' => 'Опис',
+	'lqt-thread-edited-author' => 'Відредаговано автором',
 );
 
 /** Vèneto (Vèneto)
@@ -10628,6 +10638,7 @@ Có thể lùi lại tác động này.',
 	'lqt-date-info' => 'Liên kết này bị tắt vì bạn đang xem các trao đổi bất cứ ngày tháng.',
 	'lqt_rc_new_discussion' => 'Thảo luận mới “$1” tại $2 • $3 viết:',
 	'lqt_rc_new_reply' => 'Trả lời “$1” tại “$2” • $3 viết:',
+	'lqt_rc_ellipsis' => '  …',
 	'lqt_rc_author_original' => '(tác giả đầu tiên)',
 	'lqt_rc_author_others' => '(không phải tác giả)',
 	'lqt-newmessages-context' => 'Tất cả luồng',
