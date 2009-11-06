@@ -152,11 +152,11 @@ This operation is undoable.',
 	'lqt-messages-sent' => 'Messages sent to you:',
 	'lqt-other-messages' => 'Messages on other talk pages:',
 	'lqt-no-new-messages' => 'There are no new messages for you.',
-	'lqt-new-messages' => '&#x2712; There are new messages for you.',
+	'lqt-new-messages' => '✒ There are new messages for you.',
 	'lqt-email-info-undo' => 'Bring back the thread you just dismissed.',
 	'lqt-date-info' => 'This link is disabled because you are viewing threads from all dates.',
-	'lqt_rc_new_discussion' => "New discussion \"$1\" on $2 &bull; $3 writes:",
-	'lqt_rc_new_reply' => "Reply to \"$1\" on $2 &bull; $3 writes:",
+	'lqt_rc_new_discussion' => "New discussion \"$1\" on $2 • $3 writes:",
+	'lqt_rc_new_reply' => "Reply to \"$1\" on $2 • $3 writes:",
 	'lqt_rc_ellipsis' => ' ...',
 	'lqt_rc_author_original' => '(original author)',
 	'lqt_rc_author_others' => '(not the author)',
@@ -252,7 +252,7 @@ You can see it at <$6>",
 	'lqt-thread-link-url' => 'Link URL:',
 	'lqt-thread-link-title' => 'Wikitext link:',
 	'lqt-thread-link-copy' => 'Copy to clipboard',
-	
+
 	// Feeds
 	'lqt-feed-title-all' => '{{SITENAME}} — New posts',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — New posts from $1',
@@ -262,28 +262,25 @@ You can see it at <$6>",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Replies from $1',
 	'lqt-feed-new-thread-intro' => 'New thread on $1 posted by $2',
 	'lqt-feed-reply-intro' => 'Reply to $3 (on $1) posted by $2',
-	
+
 	'lqt-newmessages-n' => 'New messages ($1)',
 	'lqt_newmessages' => 'New messages',
-	
+
 	// Automatic summaries
 	'lqt-newpost-summary' => 'New thread: $1',
 	'lqt-reply-summary' => 'Reply to [[$2|$1]]',
-	
+
 	// Talk page history
 	'lqt-talkpage-history-title' => 'Discussion page history',
 	'lqt-talkpage-history-subtitle' => 'For $1',
 	'lqt-talkpage-history-tab' => 'Header',
-	
+
 	// Protection
 	'restriction-reply' => 'Post replies',
 	'restriction-newthread' => 'Post new threads',
-	'lqt-protected-reply-thread' => 'You cannot post in this thread because it has been '.
-		'protected from new posts.',
-	'lqt-protected-reply-talkpage' => 'You cannot post in this thread because this '.
-		'discussion page has been protected from replies to its threads.',
-	'lqt-protected-newthread' => 'You cannot post new threads to this discussion '.
-		'page because it has been protected from new threads.',
+	'lqt-protected-reply-thread' => 'You cannot post in this thread because it has been protected from new posts.',
+	'lqt-protected-reply-talkpage' => 'You cannot post in this thread because this discussion page has been protected from replies to its threads.',
+	'lqt-protected-newthread' => 'You cannot post new threads to this discussion page because it has been protected from new threads.',
 );
 
 /** Message documentation (Message documentation)
