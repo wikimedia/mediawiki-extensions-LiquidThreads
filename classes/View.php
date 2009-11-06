@@ -334,6 +334,21 @@ class LqtView {
 		 can temporarily use a random scratch title. It's fine if the title changes
 		 throughout the edit cycle, since the article doesn't exist yet anyways.
 		*/
+		
+		// Check permissions
+		if ( $edit_type == 'new' ) {
+			if ( Thread::canUserPost( $this->user, $this->article ) !== true ) {
+				$this->output->addWikiMsg( 'lqt-protected-newthread' );
+				return;
+			}
+		} elseif ( $edit_type == 'reply' ) {
+			$perm_result = $edit_applies_to->canUserReply( $this->user );
+			if ( $perm_result !== true ) {
+				$msg = "lqt-protected-reply-$perm_result";
+				$this->output->addWikiMsg( $msg );
+				return;
+			}
+		}
 
 		// Check if we actually want a subject, pull the submitted subject, and validate it.
 		$subject_expected = ( $edit_type == 'new' || $thread && $thread->isTopmostThread() );
@@ -678,15 +693,17 @@ class LqtView {
 							'enabled' => true, 'tooltip' => $label );
 		}
 		
-		$commands['reply'] = array(
-			'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
-			 'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
-				true /* include fragment */, $this->request ),
-			 'enabled' => true,
-			 'icon' => 'reply.png',
-			 'showlabel' => 1,
-			 'tooltip' => wfMsg( 'lqt_reply' )
-		);
+		if ( $thread->canUserReply( $this->user ) === true ) {
+			$commands['reply'] = array(
+				'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
+				 'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
+					true /* include fragment */, $this->request ),
+				 'enabled' => true,
+				 'icon' => 'reply.png',
+				 'showlabel' => 1,
+				 'tooltip' => wfMsg( 'lqt_reply' )
+			);
+		}
 		
 		$commands['link'] = array(
 			'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
@@ -725,6 +742,22 @@ class LqtView {
 			                     'href' => $move_href,
 			                     'enabled' => true );
 		}
+		
+		if ( $this->user->isAllowed( 'protect' ) ) {
+			$protect_href = $thread->title()->getFullURL( 'action=protect' );
+			
+			// Check if it's already protected
+			if ( !$thread->title()->isProtected() ) {
+				$label = wfMsg( 'protect' );
+			} else {
+				$label = wfMsg( 'unprotect' );
+			}
+			
+			$commands['protect'] = array( 'label' => $label,
+							'href' => $protect_href,
+							'enabled' => true, );
+		}
+		
 		if ( !$this->user->isAnon() && !$thread->title()->userIsWatching() ) {
 			$commands['watch'] = array( 'label' => wfMsg( 'watch' ),
 			                     'href' => self::permalinkUrlWithQuery( $thread, 'action=watch' ),

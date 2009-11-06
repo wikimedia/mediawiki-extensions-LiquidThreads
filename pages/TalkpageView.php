@@ -228,14 +228,18 @@ class TalkpageView extends LqtView {
 
 		$talkpageHeader = '';
 		
-		$newThreadText = wfMsgExt( 'lqt_new_thread', 'parseinline' );
-		$newThreadLink = $sk->link( $this->title, $newThreadText,
-									array( ),
-									array( 'lqt_method' => 'talkpage_new_thread' ),
-									array( 'known' ) );
-									
-		$talkpageHeader .= Xml::tags( 'strong', array( 'class' => 'lqt_start_discussion' ),
-										$newThreadLink );
+		if ( Thread::canUserPost( $this->user, $this->article ) ) {
+			$newThreadText = wfMsgExt( 'lqt_new_thread', 'parseinline' );
+			$newThreadLink = $sk->link( $this->title, $newThreadText,
+							array( ),
+							array( 'lqt_method' => 'talkpage_new_thread' ),
+							array( 'known' ) );
+										
+			$talkpageHeader .= Xml::tags( 'strong',
+						array( 'class' => 'lqt_start_discussion' ),
+						$newThreadLink );			
+		}
+					
 		$talkpageHeader .= $this->getSearchBox();
 		$talkpageHeader .= $this->showTalkpageViewOptions( $article );
 		$talkpageHeader = Xml::tags( 'div', array( 'class' => 'lqt-talkpage-header' ),

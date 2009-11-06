@@ -74,22 +74,31 @@ class Threads {
 		}
 	}
 	
-	static function loadFromResult( $res, $db ) {
+	static function loadFromResult( $res, $db, $bulkLoad ) {
 		$rows = array();
+		$threads = array();
 		
 		while ( $row = $db->fetchObject( $res ) ) {
 			$rows[] = $row;
+			
+			if (!$bulkLoad) {
+				$threads[$row->thread_id] = Thread::newFromRow( $row );
+			}
+		}
+		
+		if (!$bulkLoad) {
+			return $threads;
 		}
 		
 		return Thread::bulkLoad( $rows );
 	}
 
-	static function where( $where, $options = array() ) {
+	static function where( $where, $options = array(), $bulkLoad = true ) {
 		global $wgDBprefix;
 		$dbr = wfGetDB( DB_SLAVE );
 		
 		$res = $dbr->select( 'thread', '*', $where, __METHOD__, $options );
-		$threads = Threads::loadFromResult( $res, $dbr );
+		$threads = Threads::loadFromResult( $res, $dbr, $bulkLoad );
 
 		foreach ( $threads as $thread ) {
 			if ( $thread->root() ) {
@@ -115,7 +124,7 @@ class Threads {
 		}
 	}
 
-	static function withRoot( $post ) {
+	static function withRoot( $post, $bulkLoad = true ) {
 		if ( $post->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			// No articles outside the thread namespace have threads associated with them;
 			return null;
@@ -125,23 +134,25 @@ class Threads {
 			return self::$cache_by_root[$post->getID()];
 		}
 		
-		$ts = Threads::where( array( 'thread_root' => $post->getID() ) );
+		$ts = Threads::where( array( 'thread_root' => $post->getID() ), array(),
+					$bulkLoad );
 		
 		return self::assertSingularity( $ts, 'thread_root', $post->getID() );
 	}
 
-	static function withId( $id ) {
+	static function withId( $id, $bulkLoad = true ) {
 		if ( array_key_exists( $id, self::$cache_by_id ) ) {
 			return self::$cache_by_id[$id];
 		}
 		
-		$ts = Threads::where( array( 'thread_id' => $id ) );
+		$ts = Threads::where( array( 'thread_id' => $id ), array(), $bulkLoad );
 		
 		return self::assertSingularity( $ts, 'thread_id', $id );
 	}
 
-	static function withSummary( $article ) {
-		$ts = Threads::where( array( 'thread_summary_page' => $article->getId() ) );
+	static function withSummary( $article, $bulkLoad = true ) {
+		$ts = Threads::where( array( 'thread_summary_page' => $article->getId() ),
+					array(), $bulkLoad);
 		return self::assertSingularity( $ts, 'thread_summary_page', $article->getId() );
 	}
 

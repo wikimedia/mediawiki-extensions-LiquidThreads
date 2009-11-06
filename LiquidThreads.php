@@ -24,10 +24,10 @@ define( 'LQT_NEWEST_THREADS', 'nt' );
 define( 'LQT_OLDEST_THREADS', 'ot' );
 
 // FIXME: would be neat if it was possible to somehow localise this.
-$wgCanonicalNamespaceNames[NS_LQT_THREAD]		= 'Thread';
-$wgCanonicalNamespaceNames[NS_LQT_THREAD_TALK]	= 'Thread_talk';
-$wgCanonicalNamespaceNames[NS_LQT_SUMMARY]		= 'Summary';
-$wgCanonicalNamespaceNames[NS_LQT_SUMMARY_TALK]	= 'Summary_talk';
+$wgCanonicalNamespaceNames[NS_LQT_THREAD] = 		'Thread';
+$wgCanonicalNamespaceNames[NS_LQT_THREAD_TALK]	= 	'Thread_talk';
+$wgCanonicalNamespaceNames[NS_LQT_SUMMARY] = 		'Summary';
+$wgCanonicalNamespaceNames[NS_LQT_SUMMARY_TALK]	= 	'Summary_talk';
 
 // FIXME: would be neat if it was possible to somehow localise this.
 $wgExtraNamespaces[NS_LQT_THREAD]	= 'Thread';
@@ -93,6 +93,9 @@ $wgHooks['ArticleSaveComplete'][] = 'LqtHooks::onArticleSaveComplete';
 
 // Blocking
 $wgHooks['UserIsBlockedFrom'][] = 'LqtHooks::userIsBlockedFrom';
+
+// Protection
+$wgHooks['ProtectionFormGetApplicableTypes'][] = 'LqtHooks::getProtectionTypes';
 
 // Special pages
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';

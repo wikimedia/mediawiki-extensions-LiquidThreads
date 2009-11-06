@@ -274,6 +274,16 @@ You can see it at <$6>",
 	'lqt-talkpage-history-title' => 'Discussion page history',
 	'lqt-talkpage-history-subtitle' => 'For $1',
 	'lqt-talkpage-history-tab' => 'Header',
+	
+	// Protection
+	'restriction-reply' => 'Post replies',
+	'restriction-newthread' => 'Post new threads',
+	'lqt-protected-reply-thread' => 'You cannot post in this thread because it has been '.
+		'protected from new posts.',
+	'lqt-protected-reply-talkpage' => 'You cannot post in this thread because this '.
+		'discussion page has been protected from replies to its threads.',
+	'lqt-protected-newthread' => 'You cannot post new threads to this discussion '.
+		'page because it has been protected from new threads.',
 );
 
 /** Message documentation (Message documentation)

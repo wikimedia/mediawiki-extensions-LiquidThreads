@@ -1385,4 +1385,36 @@ class Thread {
 		
 		return $ok;
 	}
+	
+	/* N.B. Returns true, or a string with either thread or talkpage, noting which is
+	   protected */
+	public function canUserReply( $user ) {
+		$threadRestrictions = $this->topmostThread()->title()->getRestrictions('reply');
+		$talkpageRestrictions = $this->article()->getTitle()->getRestrictions('reply');
+		
+		$threadRestrictions = array_fill_keys( $threadRestrictions, 'thread' );
+		$talkpageRestrictions = array_fill_keys( $talkpageRestrictions, 'talkpage' );
+		
+		$restrictions = array_merge( $threadRestrictions, $talkpageRestrictions );
+		
+		foreach( $restrictions as $right => $source ) {
+			if ( !$user->isAllowed( $right ) ) {
+				return $source;
+			}
+		}
+		
+		return true;
+	}
+	
+	public static function canUserPost( $user, $talkpage ) {
+		$restrictions = $talkpage->getTitle()->getRestrictions('newthread');
+		
+		foreach( $restrictions as $right ) {
+			if ( !$user->isAllowed( $right ) ) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
 }

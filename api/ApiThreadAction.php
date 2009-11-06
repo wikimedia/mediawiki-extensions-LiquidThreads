@@ -277,6 +277,12 @@ class ApiThreadAction extends ApiBase {
 		}
 		$talkpage = new Article( $talkpageTitle );
 		
+		// Check if we can post.
+		if ( Thread::canUserPost( $wgUser, $talkpage ) !== true ) {
+			$this->dieUsage( 'You cannot post to the specified talkpage, '.
+				'because it is protected from new posts', 'talkpage-protected' );
+			return;
+		}
 		
 		// Validate subject, generate a title
 		if ( empty( $params['subject'] ) ) {
@@ -383,6 +389,15 @@ class ApiThreadAction extends ApiBase {
 			return;
 		}
 		$replyTo = array_pop( $threads );
+		
+		// Check if we can reply to that thread.
+		$perm_result = $replyTo->canUserReply( $wgUser );
+		if ( $perm_result !== true ) {
+			$this->dieUsage( "You cannot reply to this thread, because the ".
+				$perm_result." is protected from replies.",
+				$perm_result.'-protected' );
+			return;
+		}
 		
 		// Validate text parameter
 		if ( empty( $params['text'] ) ) {
