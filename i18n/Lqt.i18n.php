@@ -4273,6 +4273,11 @@ Du chasch si säh uf <$6>",
 	'lqt-talkpage-history-title' => 'Diskussionssyte-Versionsgschicht',
 	'lqt-talkpage-history-subtitle' => 'Fir $1',
 	'lqt-talkpage-history-tab' => 'Chopfzyyle',
+	'restriction-reply' => 'Antworte abschicke',
+	'restriction-newthread' => 'Neji Diskussionssträng abschicke',
+	'lqt-protected-reply-thread' => 'Du chasch nyt zue däm Strang byytrage, wel er gschitzt woren isch vor neje Byytreg.',
+	'lqt-protected-reply-talkpage' => 'Du chasch nyt zue däm Strang byytrage, wel die Diskussionssyte gschitzt woren isch vor Antworte uf dr Sträng, wu s din het.',
+	'lqt-protected-newthread' => 'Du chasch keini neji Sträng zue däre Diskussionssyte byytrage, wel si gschitzt woren isch vor neje Sträng.',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -5417,6 +5422,11 @@ Tu pote vider lo a <$6>",
 	'lqt-talkpage-history-title' => 'Historia del pagina de discussion',
 	'lqt-talkpage-history-subtitle' => 'Pro $1',
 	'lqt-talkpage-history-tab' => 'Titulo',
+	'restriction-reply' => 'Publicar responsas',
+	'restriction-newthread' => 'Publicar nove filos',
+	'lqt-protected-reply-thread' => 'Tu non pote participar in iste filo proque illo ha essite protegite contra nove messages.',
+	'lqt-protected-reply-talkpage' => 'Tu non pote participar in iste filo proque iste pagina de discussion ha essite protegite contra responsas a su filos.',
+	'lqt-protected-newthread' => 'Tu non pote initiar nove filos in iste pagina de discussion proque illo ha essite protegite contra nove filos.',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -6060,6 +6070,11 @@ $messages['ja'] = array(
 	'lqt-talkpage-history-title' => '議論ページ履歴',
 	'lqt-talkpage-history-subtitle' => 'ページ: $1',
 	'lqt-talkpage-history-tab' => 'ヘッダー',
+	'restriction-reply' => '返信の投稿',
+	'restriction-newthread' => '新規スレッドの投稿',
+	'lqt-protected-reply-thread' => 'このスレッドは新規投稿から保護されているため、投稿できません。',
+	'lqt-protected-reply-talkpage' => 'この議論ページのスレッドへの返信は保護されているため、このスレッドには投稿できません。',
+	'lqt-protected-newthread' => 'この議論ページは新規スレッド作成から保護されているため、新規スレッドの投稿はできません。',
 );
 
 /** Javanese (Basa Jawa)
@@ -6740,6 +6755,11 @@ Dir kënnt se op <$6> gesinn.",
 	'lqt-talkpage-history-title' => 'Versioune vun der Diskussiounssäit',
 	'lqt-talkpage-history-subtitle' => 'Fir $1',
 	'lqt-talkpage-history-tab' => 'Iwwerschrëft',
+	'restriction-reply' => 'Äntwerte schreiwen',
+	'restriction-newthread' => 'Nei Rubriken opmaachen',
+	'lqt-protected-reply-thread' => 'Dir kënnt näischt an dës Rubrik schreiwe well se fir all nei Message gespaart ass.',
+	'lqt-protected-reply-talkpage' => 'Dir kënnt näischt an dës Rubrik schreiwen well dës Diskussiounssäit fir Äntwerten an hir rubrike gespaart ass.',
+	'lqt-protected-newthread' => 'Dir kënnt keng nei Rubriken op dëser Diskusiounssäit opmaache well se fir nei Rubrike gespaart ass.',
 );
 
 /** Lozi (Silozi)
@@ -7002,6 +7022,11 @@ You can see it at <$6>',
 	'lqt-talkpage-history-title' => 'Историја на страницата за разговор',
 	'lqt-talkpage-history-subtitle' => 'За $1',
 	'lqt-talkpage-history-tab' => 'Наслов',
+	'restriction-reply' => 'Испрати одговори',
+	'restriction-newthread' => 'Испрати нови нишки',
+	'lqt-protected-reply-thread' => 'Не можете да ја испратите оваа нишка бидејќи е заштитена од нови пораки.',
+	'lqt-protected-reply-talkpage' => 'Не можете да ја испратите оваа нишка бидејќи оваа страница за разговор е заштитена од одговори на нејзините нишки.',
+	'lqt-protected-newthread' => 'Не можете да испраќате нови нишки на оваа страница за разговор бидејќи таа е заштитена од нови нишки.',
 );
 
 /** Malayalam (മലയാളം)
@@ -7530,6 +7555,11 @@ U kunt het bekijken op <$6>.",
 	'lqt-talkpage-history-title' => 'Geschiedenis van de overlegpagina',
 	'lqt-talkpage-history-subtitle' => 'Voor $1',
 	'lqt-talkpage-history-tab' => 'Koptekst',
+	'restriction-reply' => 'Antwoorden',
+	'restriction-newthread' => 'Nieuwe onderwerpen maken',
+	'lqt-protected-reply-thread' => 'U kunt niet deelnemen aan dit onderwerp omdat het gesloten is.',
+	'lqt-protected-reply-talkpage' => 'U kunt niet deelnemen aan dit onderwerp omdat de onderwerpen op deze pagina gesloten zijn.',
+	'lqt-protected-newthread' => 'U kunt geen nieuwe onderwerpen aanmaken op deze overlegpagina omdat deze pagina gesloten is voor nieuwe onderwerpen.',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -8036,6 +8066,11 @@ O podètz veire a « $6 »",
 	'lqt-talkpage-history-title' => 'Istoric de la pagina de discussion',
 	'lqt-talkpage-history-subtitle' => 'Per $1',
 	'lqt-talkpage-history-tab' => 'Entèsta',
+	'restriction-reply' => 'Postar de responsas',
+	'restriction-newthread' => 'Postar de fials de discussion novèls',
+	'lqt-protected-reply-thread' => 'Podètz pas postar dins aqueste fial de discussion perque es estat protegit contra los messatges novèls.',
+	'lqt-protected-reply-talkpage' => 'Podètz pas postar dins aqueste fial perque aquesta pagina de discussion es estada protegida contra las responsas a sos fials.',
+	'lqt-protected-newthread' => 'Podètz pas postar de fials novèls dins aquesta pagina de discussion perque es estada protegida contra los fials novèls.',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
@@ -10395,6 +10430,7 @@ $messages['vec'] = array(
 	'lqt_hist_deleted' => 'Scancelà',
 	'lqt_hist_undeleted' => 'Recuperà',
 	'lqt_hist_moved_talkpage' => 'Spostà',
+	'lqt_hist_view_whole_thread' => "Varda la storia de tuto l'argomento",
 	'lqt_hist_edited_subject' => 'Sogeto canbià',
 	'lqt_hist_split_from' => 'Dividi verso un argomento novo',
 	'lqt_revision_as_of' => 'Version de $2 a le $3.',
@@ -10471,6 +10507,7 @@ Ti fòrsi te voléi $2.',
 	'lqt-thread-split-thread' => 'Argomento:',
 	'lqt-split-submit' => 'Dividi',
 	'lqt-no-threads' => 'Su sta pagina no ghe xe gnancora argomenti.',
+	'lqt-delete-parent-deleted' => 'Argomento padre scancelà ($1)',
 	'lqt-movethread' => 'Sposta',
 	'lqt-menu-trigger' => 'Piassè',
 	'lqt-newmessages-from' => 'Da $1',
@@ -10518,6 +10555,7 @@ Te pol védarlo qua: $6',
 	'lqt-reply-summary' => 'Rispóndighe a [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Storico de la pagina de discussion',
 	'lqt-talkpage-history-subtitle' => 'De $1',
+	'lqt-talkpage-history-tab' => 'Intestassion',
 );
 
 /** Veps (Vepsan kel')
