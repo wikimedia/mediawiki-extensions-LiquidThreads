@@ -10,6 +10,10 @@ $magicWords['ar'] = array(
 	'useliquidthreads'   => array( '0', 'استخدم_الخيوط_السائلة', 'UseLiquidThreads' ),
 );
 
+$magicWords['nds-nl'] = array(
+	'useliquidthreads'   => array( '0', 'LiquidThread_gebruken', 'LiquidThreadsGebruiken', 'UseLiquidThreads' ),
+);
+
 $magicWords['nl'] = array(
 	'useliquidthreads'   => array( '0', 'LiquidThreadsGebruiken', 'UseLiquidThreads' ),
 );
