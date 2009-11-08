@@ -1185,7 +1185,12 @@ $messages['bg'] = array(
 	'lqt_rc_new_discussion' => 'Нова дискусия, $1, от $2. • $3 написа:',
 	'lqt-history-user' => 'Потребител',
 	'lqt-header-actions' => 'Действия',
+	'lqt-search-button' => 'Търсене',
+	'searchprofile-threads' => 'Дискусии',
+	'lqt-ajax-updated' => 'Тази нишка има нови публикации.',
+	'lqt-ajax-update-link' => 'Актуализиране',
 	'lqt_newmessages' => 'Нови съобщения',
+	'lqt-talkpage-history-subtitle' => 'За $1',
 );
 
 /** Bengali (বাংলা)
@@ -2513,6 +2518,7 @@ ti ney, adresa <$6>'i de eşkêni bıvini.",
 	'lqt-reply-summary' => "gıreyê [[$2|$1]]'i re cewab bıd'",
 	'lqt-talkpage-history-title' => 'hal-verinê pelê werêameyişi',
 	'lqt-talkpage-history-subtitle' => 'seba $1',
+	'lqt-talkpage-history-tab' => 'Ser',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -2909,6 +2915,7 @@ $messages['el'] = array(
 );
 
 /** Esperanto (Esperanto)
+ * @author Michawiki
  * @author Yekrats
  */
 $messages['eo'] = array(
@@ -2961,14 +2968,14 @@ $messages['eo'] = array(
 	'lqt_summary_label' => 'Ĉi tiu fadeno estis resumita jene:',
 	'lqt_summary_subtitle' => 'Resumo de $1.',
 	'lqt_nosuchrevision' => 'Ne estas tia versio de ĉi tiu fadeno.',
-	'lqt_nosuchthread' => 'La fadeno kiun vi specifigis ne ekzistas.',
+	'lqt_nosuchthread' => 'La fadeno, kiun vi specifis, ne ekzistas.',
 	'lqt_nosuchthread_title' => 'Nenia fadeno',
 	'lqt_threadrequired' => 'Vi devas enigi fadenon en la URL-o.',
 	'lqt_move_movingthread' => 'Movante $1. Ĉi tiu fadeno estas parto de $2.',
 	'lqt_move_torename_edit' => 'redaktu ĝin',
 	'lqt_move_destinationtitle' => 'Titolo de destina diskuto-paĝo:',
 	'lqt_move_move' => 'Alinomigi',
-	'lqt_move_nodestination' => 'Vi nepre specifigu destinon.',
+	'lqt_move_nodestination' => 'Vi nepre specifu destinon.',
 	'lqt_move_noreason' => 'Nenia kialo donata',
 	'lqt_move_success' => 'Ĉi tiu fadeno estis movita al $1.',
 	'lqt_delete_undeleting' => "Restarigante '''$1'''.",
@@ -5620,7 +5627,7 @@ Untuk menghindarinya, pisahkan mereka dari utas ini sebelum menghapusnya.',
 	'lqt-log-name' => 'Log diskusi bertingkat',
 	'lqt-log-header' => 'Log ini menjelaskan seluruh tindakan yang dilakukan pada topik diskusi.',
 	'lqt-log-action-move' => 'memindahkan [[$1]] dari [[$2]] ke [[$3]].',
-	'lqt-preference-notify-talk' => 'Kirimi saya surel jika ada balasan pada topik yang saya pantau',
+	'lqt-preference-notify-talk' => 'Kirimkan saya surel jika ada balasan pada topik yang saya pantau',
 	'lqt-preference-watch-threads' => 'Pantau utas yang saya buat atau balas',
 	'prefs-lqt' => 'Diskusi berutas',
 	'lqt-preference-display-depth' => 'Kedalaman balasan maksimum yang ditampilkan:',
@@ -7063,6 +7070,7 @@ $messages['ml'] = array(
 	'lqt_hist_deleted' => 'മായ്ച്ചു',
 	'lqt_hist_undeleted' => 'മായ്ച്ചതു പുനഃസ്ഥാപിച്ചു',
 	'lqt_hist_moved_talkpage' => 'തലക്കെട്ട് മാറ്റി',
+	'lqt_hist_listing_subtitle' => 'നാൾവഴി പട്ടിക കാണുന്നു',
 	'lqt_hist_tooltip_newer_disabled' => 'നിങ്ങള്‍ ആദ്യത്തെ താളിലായതിനാല്‍ ഈ കണ്ണി നിര്‍‌വീര്യമാക്കി.',
 	'lqt_hist_tooltip_older_disabled' => 'നിങ്ങള്‍ അവസാനത്തെ താളിലായതിനാല്‍ ഈ കണ്ണി നിര്‍‌വീര്യമാക്കി.',
 	'lqt_hist_edited_subject' => 'വിഷയം തിരുത്തി',
@@ -7090,6 +7098,7 @@ $messages['ml'] = array(
 	'lqt_move_destinationtitle' => 'ലക്ഷ്യ സം‌വാദം താളിന്റെ തലക്കെട്ട്:',
 	'lqt_move_move' => 'തലക്കെട്ടു്‌ മാറ്റുക',
 	'lqt_move_nodestination' => 'ഒരു ലക്ഷ്യം നിര്‍ബന്ധമായും ചേര്‍ത്തിരിക്കണം.',
+	'lqt_move_thread_bad_destination' => 'ലക്ഷ്യം വെച്ച താൾ സംവാദം താൾ അല്ല.',
 	'lqt_move_noreason' => 'കാരണമൊന്നും സൂചിപ്പിച്ചിട്ടില്ല',
 	'lqt_move_success' => 'ത്രെഡ് $1ലേക്കു മാറ്റി.',
 	'lqt_delete_undeleting' => "'''$1''' പുനഃസ്ഥാപിക്കുന്നു.",
@@ -7098,6 +7107,8 @@ $messages['ml'] = array(
 	'lqt_delete_return' => '$1 എന്ന താളിലേക്ക് തിരിച്ചുപോവുക.',
 	'lqt_delete_return_link' => 'സം‌വാദം താള്‍',
 	'lqt_header_warning_big' => 'താങ്കള്‍ തിരുത്തി കൊണ്ടിരിക്കുന്നത് ഒരു $1 ആണ്‌.',
+	'lqt_header_warning_after_big' => 'തലക്കുറിപ്പുകൾ അറിയിപ്പുകൾക്കും ആമുഖങ്ങൾക്കുമുള്ളതാണ്.
+താങ്കൾക്ക് $2 ആയിരിക്കാം ആവശ്യം.',
 	'lqt_header_warning_bold' => 'സംവാദം താളിന്റെ തലക്കെട്ട്',
 	'lqt_header_warning_new_discussion' => 'പുതിയൊരു സം‌വാദം ആരംഭിക്കുക',
 	'lqt_sorting_order' => 'സോര്‍ട്ടിങ്ങ് ക്രമം:',
@@ -7115,6 +7126,7 @@ $messages['ml'] = array(
 	'lqt-read-message' => 'വായിച്ചതായി അടയാളപ്പെടുത്തുക',
 	'lqt-read-all' => 'എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്തുക',
 	'lqt-count-marked-read' => '{{PLURAL:$1|ഒരു സന്ദേശം|$1 സന്ദേശങ്ങൾ}} വായിച്ചതായി അടയാളപ്പെടുത്തി.',
+	'lqt-email-undo' => 'പ്രവൃത്തി തിരസ്കരിക്കുക',
 	'lqt-messages-sent' => 'താങ്കൾക്ക് അയച്ചിട്ടുള്ള സന്ദേശങ്ങൾ',
 	'lqt-other-messages' => 'മറ്റു സംവാദം താളുകളിലുള്ള സന്ദേശങ്ങൾ',
 	'lqt-no-new-messages' => 'താങ്കൾക്ക് പുതിയ സന്ദേശങ്ങൾ ഒന്നുമില്ല.',
@@ -8121,6 +8133,14 @@ $messages['pdc'] = array(
 	'lqt-date-to' => 'Bis',
 	'lqt-history-time' => 'Zeit',
 	'lqt-history-user' => 'Yuuser',
+	'lqt-movethread' => 'Ziehe',
+	'lqt-newmessages-from' => 'Vun $1',
+	'lqt-thread-link-url' => 'Gleecher-URL:',
+	'lqt-thread-link-title' => 'Wikitext-Gleecher:',
+	'lqt-newmessages-n' => 'Neiichkeede ($1)',
+	'lqt_newmessages' => 'Neiichkeede',
+	'lqt-talkpage-history-subtitle' => 'Fer $1',
+	'lqt-talkpage-history-tab' => 'Iwwerschrift',
 );
 
 /** Polish (Polski)
@@ -10396,6 +10416,7 @@ $messages['uk'] = array(
 	'lqt_toc_thread_replycount' => 'Відповідей',
 	'lqt_move_torename_edit' => 'відредагуйте її',
 	'lqt-summary' => 'Опис',
+	'lqt-email-undo' => 'Скасувати',
 	'lqt-thread-edited-author' => 'Відредаговано автором',
 );
 
