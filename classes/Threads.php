@@ -74,7 +74,7 @@ class Threads {
 		}
 	}
 	
-	static function loadFromResult( $res, $db, $bulkLoad ) {
+	static function loadFromResult( $res, $db, $bulkLoad = false ) {
 		$rows = array();
 		$threads = array();
 		
