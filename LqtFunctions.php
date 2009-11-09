@@ -42,10 +42,11 @@ function lqtFormatMoveLogEntry( $type, $action, $title, $sk, $parameters ) {
 					array( $title->getPrefixedText(), $parameters[0], $parameters[1] ) );
 }
 
-function lqtSetupParserFunctions() {
-	global $wgParser;
-	
-	$wgParser->setFunctionHook( 'useliquidthreads',
-				array( 'LqtParserFunctions', 'useLiquidThreads' ) );
+function lqtSetupParserFunctions( &$parser ) {
+	$parser->setFunctionHook(
+		'useliquidthreads',
+		array( 'LqtParserFunctions', 'useLiquidThreads' )
+	);
+
 	return true;
 }
