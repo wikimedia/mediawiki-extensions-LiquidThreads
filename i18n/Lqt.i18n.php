@@ -29,9 +29,6 @@ It may:
 * Be too long, or
 * Conflict with interwiki prefixes or namespace names.',
 	'lqt_empty_subject' => 'You must enter a subject.',
-	'lqt_subject_change_forbidden' => 'You cannot change the subject for this thread because you are not allowed to move pages.',
-	'lqt_in_response_to' => 'In reply to $1 by $2, above:',
-	'lqt_edited_notice' => 	'Edited',
 	'lqt_reply' => 'Reply',
 	'lqt_delete' => 'Delete',
 	'lqt_undelete' => 'Undelete',
