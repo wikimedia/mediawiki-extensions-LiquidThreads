@@ -95,7 +95,7 @@ $wgHooks['ArticleSaveComplete'][] = 'LqtHooks::onArticleSaveComplete';
 $wgHooks['UserIsBlockedFrom'][] = 'LqtHooks::userIsBlockedFrom';
 
 // Protection
-$wgHooks['ProtectionFormGetApplicableTypes'][] = 'LqtHooks::getProtectionTypes';
+$wgHooks['TitleGetRestrictionTypes'][] = 'LqtHooks::getProtectionTypes';
 
 // Special pages
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
