@@ -159,7 +159,7 @@ $wgLogHeaders['liquidthreads']        = 'lqt-log-header';
 $wgLogActionsHandlers['liquidthreads/move'] = 'lqtFormatMoveLogEntry';
 
 // Preferences
-$wgDefaultUserOptions['lqtnotifytalk'] = true;
+$wgDefaultUserOptions['lqtnotifytalk'] = false;
 $wgDefaultUserOptions['lqtdisplaydepth'] = 6;
 $wgDefaultUserOptions['lqtdisplaycount'] = 25;
 $wgDefaultUserOptions['lqtcustomsignatures'] = true;
