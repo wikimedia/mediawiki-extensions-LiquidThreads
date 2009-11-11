@@ -9,10 +9,13 @@ class TalkpageView extends LqtView {
 		unset( $content_actions['edit'] );
 		unset( $content_actions['viewsource'] );
 		unset( $content_actions['delete'] );
-		
-		$thisTitle = $this->article->getTitle();
-		$history_url = $thisTitle->getFullURL( 'lqt_method=talkpage_history' );
-		$content_actions['history']['href'] = $history_url;
+
+		# Protection against non-SkinTemplate skins
+		if ( isset( $content_actions['history'] ) ) {
+			$thisTitle = $this->article->getTitle();
+			$history_url = $thisTitle->getFullURL( 'lqt_method=talkpage_history' );
+			$content_actions['history']['href'] = $history_url;
+		}
 
 		return true;
 	}
