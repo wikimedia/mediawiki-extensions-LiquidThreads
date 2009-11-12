@@ -147,7 +147,7 @@ class ApiFeedLQTThreads extends ApiBase {
 			$msg .= '-from';
 		}
 
-		return wfMsg( $msg, $fromPlaces, $fromCount );
+		return wfMsgExt( $msg, array( 'parsemag' ), $fromPlaces, $fromCount );
 	}
 
 	function getConditions( $params, $db ) {
