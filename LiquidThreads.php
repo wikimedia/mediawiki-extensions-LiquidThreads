@@ -172,6 +172,9 @@ $wgAPIModules['feedthreads'] = 'ApiFeedLQTThreads';
 $wgAutoloadClasses['ApiThreadAction'] = "$dir/api/ApiThreadAction.php";
 $wgAPIModules['threadaction'] = 'ApiThreadAction';
 
+// Name of the extension (wmf-specific, for splitting to versions)
+$wgLiquidThreadsExtensionName = 'LiquidThreads';
+
 /** CONFIGURATION SECTION */
 
 $wgDefaultUserOptions['lqt-watch-threads'] = true;

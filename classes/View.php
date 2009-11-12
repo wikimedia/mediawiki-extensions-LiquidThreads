@@ -790,18 +790,21 @@ class LqtView {
 		global $wgOut;
 		global $wgScriptPath, $wgStyleVersion;
 		global $wgEnableJS2system;
+		global $wgLiquidThreadsExtensionName;
 
 		$wgOut->addInlineScript( 'var wgLqtMessages = ' . self::exportJSLocalisation() . ';' );
 		
+		$basePath = "$wgScriptPath/extensions/$wgLiquidThreadsExtensionName";
+		
 		if ( !$wgEnableJS2system ) {
-			$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/jquery/js2.combined.js" );
-			$wgOut->addExtensionStyle( "{$wgScriptPath}/extensions/LiquidThreads/jquery/jquery-ui-1.7.2.css" );
+			$wgOut->addScriptFile( "$basePath/jquery/js2.combined.js" );
+			$wgOut->addExtensionStyle( "$basePath/jquery/jquery-ui-1.7.2.css" );
 		}
 		
-		$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/jquery/jquery.autogrow.js" );
+		$wgOut->addScriptFile( "$basePath/jquery/jquery.autogrow.js" );
 		
-		$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/lqt.js" );
-		$wgOut->addExtensionStyle( "{$wgScriptPath}/extensions/LiquidThreads/lqt.css?{$wgStyleVersion}" );
+		$wgOut->addScriptFile( "$basePath/lqt.js" );
+		$wgOut->addExtensionStyle( "$basePath/lqt.css?{$wgStyleVersion}" );
 		
 		self::$stylesAndScriptsDone = true;
 	}
