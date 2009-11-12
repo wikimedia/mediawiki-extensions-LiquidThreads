@@ -511,7 +511,7 @@ class ApiThreadAction extends ApiBase {
 		$title = $article->getTitle();
 		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );
 		
-		$view->showThread( $thread, 1, $rendercount, $options );
+		$view->showThread( $thread );
 
 		$result = $wgOut->getHTML();
 		$wgOut->clearHTML();
