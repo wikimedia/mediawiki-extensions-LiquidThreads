@@ -634,41 +634,53 @@ var liquidThreads = {
 		var replyCallback = function( data ) { 
 			// Grab topmost thread, reload it.
 			var topmostThread = editform.closest('.lqt-thread-topmost');
-			liquidThreads.doReloadThread( topmostThread );
+			var post = topmostThread.find('.lqt-post-wrapper');
+//			var threadID = post.data('thread-id'); Unused, but useful
+			var newPostID = data.threadaction.thread['thread-id'];
+			
+			// Load data from JSON
+			var html = data.threadaction.thread['html']
+			var newContent = $j(html);
+				
+			// Clear old post.
+			topmostThread.empty();
+				
+			// Replace post content
+			var newThread = newContent.filter('div.lqt_thread')[0];
+			var newThreadContent = $j(newThread).contents();
+			topmostThread.append( newThreadContent );
+				
+			// Set up thread.
+			topmostThread.find('.lqt-post-wrapper').each( function() {
+				liquidThreads.setupThread( $j(this) );
+			} );
+				
+			// Scroll to the new post.
+			var newPost = $j('#lqt_thread_id_'+newPostID);
+			var targetOffset = $j(newPost).offset().top;
+			$j('html,body').animate({scrollTop: targetOffset}, 'slow');
 		}
 		
 		var newCallback = function( data ) {
 			// Grab the thread ID
 			var newThreadID = data.threadaction.thread['thread-id'];
+			var html = data.threadaction.thread['html'];
 			
-			var renderParams =
-			{
-				'action' : 'query',
-				'list' : 'threads',
-				'thid' : newThreadID,
-				'thrender' : '1',
-				'format' : 'json'
-			};
+			var newThread = $j(html);
 			
-			$j.post( wgScriptPath+'/api'+wgScriptExtension, renderParams,
-				function(data) {
-					var html = data.query.threads[0].content;
-					var newThread = $j(html);
+			$j('.lqt_toc').after(newThread);
+			
+			$j(newThread).find( '.lqt-post-wrapper').each(
+				function() {
+					// Set up thread.
+					liquidThreads.setupThread( $j(this) );
 					
-					$j('.lqt_toc').after(newThread);
-					
-					$j(newThread).find( '.lqt-post-wrapper').each(
-						function() {
-							// Set up thread.
-							liquidThreads.setupThread( $j(this) );
-							
-							targetOffset = $j(this).offset().top;
-							$j('html,body').animate(
-								{scrollTop: targetOffset},
-								'slow');
-						}
-					);
-				}, 'json' );
+					targetOffset = $j(this).offset().top;
+					$j('html,body').animate(
+						{scrollTop: targetOffset},
+						'slow');
+				}
+			);
 		}
 		
 		var doneCallback = function(data) {
@@ -692,8 +704,7 @@ var liquidThreads = {
 				form.submit();
 				return;
 			}
-			
-			var timeout = (data.threadaction.thread['max-lag'] + 1) * 1000;
+
 			var callback;
 			
 			if ( type == 'reply' ) {
@@ -706,7 +717,7 @@ var liquidThreads = {
 			
 			editform.empty().hide();
 			
-			setTimeout( function() { spinner.remove(); callback(data); }, timeout );
+			callback(data);
 		};
 		
 		if ( type == 'reply' ) {			
@@ -733,6 +744,7 @@ var liquidThreads = {
 					'text' : text,
 					'token' : token,
 					'format' : 'json',
+					'render' : '1',
 					'reason' : summary
 				};
 				
@@ -756,6 +768,7 @@ var liquidThreads = {
 					'text' : text,
 					'token' : token,
 					'format' : 'json',
+					'render' : '1',
 					'reason' : summary
 				};
 				
