@@ -363,8 +363,8 @@ class LqtView {
 		} elseif ( !$thread ) {
 			$t = null;
 			
-			$subjectOk = Thread::validateSubject( $subject, &$t,
-							$edit_applies_to, $this->article );
+			$subjectOk = Thread::validateSubject( $subject, $t,
+						$edit_applies_to, $this->article );
 			if ( ! $subjectOk ) {
 				$subject = false;
 			}
