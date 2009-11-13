@@ -2,7 +2,7 @@
 
 class LqtDispatch {
 	/** static cache of per-page LiquidThreads activation setting */
-	static $userLQTActivated;
+	static $userLqtOverride;
 
 	static function talkpageMain( &$output, &$article, &$title, &$user, &$request ) {
 		// We are given a talkpage article and title. Fire up a TalkpageView
@@ -91,21 +91,25 @@ class LqtDispatch {
 	static function isLqtPage( $title ) {
 		global $wgLqtPages, $wgLqtTalkPages;
 		$isTalkPage = ( $title->isTalkPage() && $wgLqtTalkPages ) ||
-				in_array( $title->getPrefixedText(), $wgLqtPages ) ||
-				self::hasUserEnabledLQT( $title->getArticleId() );
+				in_array( $title->getPrefixedText(), $wgLqtPages );
+				
+		$override = self::getUserLqtOverride( $title->getArticleId() );
+		
+		if ( !is_null($override) ) {
+			$isTalkPage = $override;
+		}
 		
 		return $isTalkPage;
 	}
 	
-	static function hasUserEnabledLQT( $article ) {
-	
+	static function getUserLqtOverride( $article ) {
 		if ( is_object( $article ) ) {
 			$article = $article->getId();
 		}
 		
 		// Instance cache
-		if ( isset( self::$userLQTActivated[$article] ) ) {
-			$cacheVal = self::$userLQTActivated[$article];
+		if ( isset( self::$userLqtOverride[$article] ) ) {
+			$cacheVal = self::$userLqtOverride[$article];
 
 			return $cacheVal;
 		}
@@ -128,19 +132,21 @@ class LqtDispatch {
 		// Load from the database.
 		$dbr = wfGetDB( DB_SLAVE );
 		
-		$dbVal = $dbr->selectField( 'page_props', 'pp_value',
-									array( 'pp_propname' => 'use-liquid-threads',
-											'pp_page' => $article ), __METHOD__ );
+		$row = $dbr->selectRow( 'page_props', 'pp_value',
+					array( 'pp_propname' => 'use-liquid-threads',
+						'pp_page' => $article ), __METHOD__ );
 		
-		if ( $dbVal ) {
-			self::$userLQTActivated[$article] = true;
+		if ( $row ) {
+			$dbVal = $row->pp_value;
+			
+			self::$userLqtOverride[$article] = $dbVal;
 #			$wgMemc->set( $key, $dbVal, 1800 );
-			return true;
+			return $dbVal;
 		} else {
 			// Negative caching.
-			self::$userLQTActivated[$article] = false;
+			self::$userLqtOverride[$article] = null;
 #			$wgMemc->set( $key, -1, 86400 );
-			return false;
+			return null;
 		}
 	}
 
