@@ -681,6 +681,12 @@ var liquidThreads = {
 						'slow');
 				}
 			);
+			
+			// Load the new TOC
+			var loadTOCSpinner = $j('<div class="mw-ajax-loader"/>');
+			$j('.lqt_toc').empty().append( loadTOCSpinner );
+			$j('.lqt_toc').load( window.location.href + ' .lqt_toc > *',
+				function() { loadTOCSpinner.remove(); } );
 		}
 		
 		var doneCallback = function(data) {
