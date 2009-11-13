@@ -668,7 +668,11 @@ var liquidThreads = {
 			
 			var newThread = $j(html);
 			
-			$j('.lqt_toc').after(newThread);
+			if ( $j('.lqt_toc').length ) {
+				$j('.lqt_toc').after(newThread);
+			} else {
+				$j('.lqt-no-threads').replaceWith( newThread );
+			}
 			
 			$j(newThread).find( '.lqt-post-wrapper').each(
 				function() {

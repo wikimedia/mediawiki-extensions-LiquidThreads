@@ -269,7 +269,8 @@ class TalkpageView extends LqtView {
 			$html .= Xml::element( 'br', array( 'style' => 'clear: both;' ) );
 			$html .= $this->getTOC( $threads );
 		} else {
-			$html .= wfMsgExt( 'lqt-no-threads', 'parseinline' );
+			$html .= Xml::tags( 'div', array( 'class' => 'lqt-no-threads' ),
+					wfMsgExt( 'lqt-no-threads', 'parseinline' ) );
 		}
 		
 		$html .= $pager->getNavigationBar();
