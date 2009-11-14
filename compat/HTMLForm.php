@@ -666,7 +666,7 @@ class HTMLSelectOrOtherField extends HTMLTextField {
 							$valInSelect ? '' : $value,
 							$tbAttribs );
 
-		return "$select<br/>\n$textbox";
+		return "$select<br />\n$textbox";
 	}
 
 	function loadDataFromRequest( $request ) {
@@ -797,7 +797,7 @@ class HTMLRadioField extends HTMLFormField {
 				$html .= '&nbsp;' .
 						Xml::tags( 'label', array( 'for' => $this->mID . "-$info" ), $label );
 
-				$html .= "<br/>\n";
+				$html .= "<br />\n";
 			}
 		}
 

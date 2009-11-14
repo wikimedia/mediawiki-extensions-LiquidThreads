@@ -59,7 +59,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 			)
 		);
 		
-		$html .= '<br/>';
+		$html .= '<br />';
 
 		$ct = $this->mDisplayRevision->getChangeType();
 		
