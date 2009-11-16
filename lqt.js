@@ -109,9 +109,6 @@ var liquidThreads = {
 				$j.getScript( stylepath+'/common/preview.js',
 								function() { setupLivePreview(); } );
 			}
-			
-			// Add AJAX save handler
-			$j(container).find('#wpSave').click( liquidThreads.handleAJAXSave );
 		};
 		
 		mwEditButtons = [];
@@ -842,5 +839,7 @@ js2AddOnloadHook( function() {
 	
 	// Autogrowing textarea - this only affects the new-topic page
 //	$j('#wpTextbox1')//.autogrow();
+
+	$j('#wpSave').live( 'click', liquidThreads.handleAJAXSave );
 } );
 
