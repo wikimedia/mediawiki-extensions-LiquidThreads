@@ -65,7 +65,7 @@ class NewUserMessagesView extends LqtView {
 		
 		$topid = $thread->topmostThread()->id();
 		
-		if ( isset( $this->targets[$topid] && is_array( $this->targets[$topid] ) &&
+		if ( isset( $this->targets[$topid] ) && is_array( $this->targets[$topid] ) &&
 				in_array( $thread->id(), $this->targets[$topid] ) )
 			return "$origClass lqt_post_new_message";
 		
