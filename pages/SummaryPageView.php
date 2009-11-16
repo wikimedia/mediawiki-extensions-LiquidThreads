@@ -6,7 +6,7 @@ class SummaryPageView extends LqtView {
 	function show() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$thread = Threads::withSummary( $this->article );
-		if ( $thread ) {
+		if ( $thread && $thread->root() ) {
 			global $wgUser;
 			
 			$t = $thread->root()->getTitle();
