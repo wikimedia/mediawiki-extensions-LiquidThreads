@@ -351,7 +351,9 @@ class LqtView {
 		}
 
 		// Check if we actually want a subject, pull the submitted subject, and validate it.
-		$subject_expected = ( $edit_type == 'new' || $thread && $thread->isTopmostThread() );
+		$subject_expected = ( $edit_type == 'new' ||
+						$thread && $thread->isTopmostThread() ) &&
+					$edit_type != 'summarize';
 		$subject = $this->request->getVal( 'lqt_subject_field', '' );
 		$valid_subject = true;
 		
