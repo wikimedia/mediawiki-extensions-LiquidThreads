@@ -172,7 +172,7 @@ class ApiThreadAction extends ApiBase {
 		$title = null;
 		$article = $thread->article();
 		if ( empty($params['subject'] ) ||
-			! Thread::validateSubject( $params['subject'], &$title, null, $article ) ) {
+			! Thread::validateSubject( $params['subject'], $title, null, $article ) ) {
 			
 			$this->dieUsage( 'No subject, or an invalid subject, was specified',
 				'no-valid-subject' );
@@ -296,7 +296,7 @@ class ApiThreadAction extends ApiBase {
 		
 		$subject = $params['subject'];
 		$title = null;
-		$subjectOk = Thread::validateSubject( $subject, &$title, null, $talkpage );
+		$subjectOk = Thread::validateSubject( $subject, $title, null, $talkpage );
 		
 		if ( !$subjectOk ) {
 			$this->dieUsage( 'The subject you specified is not valid',
@@ -542,7 +542,7 @@ class ApiThreadAction extends ApiBase {
 		
 		$subject = $params['subject'];
 		$title = null;
-		$subjectOk = Thread::validateSubject( $subject, &$title, null, $talkpage );
+		$subjectOk = Thread::validateSubject( $subject, $title, null, $talkpage );
 		
 		if ( !$subjectOk ) {
 			$this->dieUsage( 'The subject you specified is not valid',
