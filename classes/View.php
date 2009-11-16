@@ -1108,6 +1108,10 @@ class LqtView {
 		$sk = $this->user->getSkin();
 	
 		// Grab target thread
+		if ( !$thread->title() ) {
+			return; // Odd case: moved thread with no title?
+		}
+		
 		$article = new Article( $thread->title() );
 		$target = Title::newFromRedirect( $article->getContent() );
 		$t_thread = Threads::withRoot( new Article( $target ) );
