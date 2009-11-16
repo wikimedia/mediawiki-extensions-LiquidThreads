@@ -163,9 +163,9 @@ class LqtView {
 		return $query;
 	}
 
-	static function permalinkUrlWithDiff( $thread ) {
-		$query = self::diffQuery( $thread );
-		return self::permalinkUrl( $thread->changeObject(), null, null, $query );
+	static function diffPermalinkURL( $thread, $revision ) {
+		$query = self::diffQuery( $thread, $revision );
+		return self::permalinkUrl( $thread, null, null, $query );
 	}
 	
 	static function diffPermalink( $thread, $text, $revision ) {
@@ -789,7 +789,7 @@ class LqtView {
 			return;
 		}
 		
-		global $wgOut;
+		global $wgOut, $wgStylePath;
 		global $wgScriptPath, $wgStyleVersion;
 		global $wgEnableJS2system;
 		global $wgLiquidThreadsExtensionName;
@@ -807,6 +807,7 @@ class LqtView {
 		
 		$wgOut->addScriptFile( "$basePath/lqt.js" );
 		$wgOut->addExtensionStyle( "$basePath/lqt.css?{$wgStyleVersion}" );
+		$wgOut->addScriptFile( "{$wgStylePath}/common/preview.js" );
 		
 		self::$stylesAndScriptsDone = true;
 	}

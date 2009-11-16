@@ -165,4 +165,26 @@ class ThreadRevision {
 		
 		return $this->mThreadObj;
 	}
+	
+	function prev() {
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$cond = 'th_id<' . $dbr->addQuotes( intval($this->getId()) );
+		$row = $dbr->selectRow( 'thread_history', '*',
+				array( $cond, 'th_thread' => $this->mThreadId ),
+				__METHOD__ );
+		
+		return self::loadFromRow( $row );
+	}
+	
+	function next() {
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$cond = 'th_id>' . $dbr->addQuotes( intval($this->getId()) );
+		$row = $dbr->selectRow( 'thread_history', '*',
+				array( $cond, 'th_thread' => $this->mThreadId ),
+				__METHOD__ );
+		
+		return self::loadFromRow( $row );
+	}
 }

@@ -88,13 +88,39 @@ class ThreadHistoryPager extends TablePager {
 				return $sk->userLink( $row->th_user, $row->th_user_text ) . ' ' .
 						$sk->userToolLinks( $row->th_user, $row->th_user_text );
 			case 'th_change_type':
-				return $wgOut->parseInline( self::$change_names[$value] );
+				return $this->getActionDescription( $value );
 			case 'th_change_comment':
 				return $sk->commentBlock( $value );
 			default:
 				return "Unable to format $name";
 				break;
 		}
+	}
+	
+	function getActionDescription( $type ) {
+		global $wgOut;
+		
+		$args = array();
+		$revision = ThreadRevision::loadFromRow( $this->mCurrentRow );
+		
+		$args[] = $revision->getChangeObject()->title()->getPrefixedText();
+		
+		switch( $type ) {
+			case Threads::CHANGE_EDITED_SUBJECT:
+				$args[] = $revision->prev()->getChangeObject()->subject();
+				$args[] = $revision->getChangeObject()->subject();
+				break;
+			case Threads::CHANGE_EDITED_ROOT:
+			case Threads::CHANGE_ROOT_BLANKED:
+				$post = $revision->getChangeObject();
+				$view = $this->view;
+				$diffLink = $view->diffPermalinkURL( $post, $revision );
+				$args[] = $diffLink;
+				break;
+		}
+		
+		$content = wfMsgReplaceArgs( self::$change_names[$type], $args );
+		return $wgOut->parseInline( $content );
 	}
 	
 	function getIndexField() {

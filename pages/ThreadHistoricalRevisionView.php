@@ -60,36 +60,45 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		);
 		
 		$html .= '<br />';
-
-		$ct = $this->mDisplayRevision->getChangeType();
 		
-		$msg = '';
-		
-		$post = $this->mDisplayRevision->getChangeObject();
-		$postLinkURL = LqtView::linkInContextURL( $post );
-		
-		$msg = $this->getMessageForChangeType( $ct );
-		
-		if ( $ct == Threads::CHANGE_EDITED_ROOT ||
-				$ct == Threads::CHANGE_ROOT_BLANKED  ) {
-			$diff_link = $this->diffPermalink( $post,
-							wfMsgExt( 'diff', 'parseinline' ),
-							$this->mDisplayRevision );
-			
-			$msg = wfMsgExt( $msg,
-					array( 'parseinline' ),
-					array( $postLinkURL ) ) .
-					" [$diff_link]";
-		} else {			
-			$msg = wfMsgExt( $msg, array( 'parseinline' ),
-					array( $postLinkURL ) );
-		}
-		
-		$html .=  $msg;
+		$html .=  $this->getChangeDescription();
 		
 		$html = Xml::tags( 'div', array( 'class' => 'lqt_history_info' ), $html );
 		
 		$this->output->addHTML( $html );
+	}
+	
+	function getChangeDescription( ) {
+		$args = array();
+		
+		$revision = $this->mDisplayRevision;
+		$change_type = $revision->getChangeType();
+		
+		$post = $revision->getChangeObject();
+		$args[] = LqtView::linkInContextURL( $post );
+		
+		$msg = $this->getMessageForChangeType( $change_type );
+		
+		switch( $change_type ) {
+			case Threads::CHANGE_EDITED_SUBJECT:
+				$args[] = $revision->prev()->getChangeObject()->subject();
+				$args[] = $revision->getChangeObject()->subject();
+				break;
+		}
+		
+		$html = wfMsgExt( $msg, 'parseinline', $args );
+		
+		if ( $change_type == Threads::CHANGE_ROOT_BLANKED ||
+				$change_type == Threads::CHANGE_EDITED_ROOT ) {
+			$diff_link = $this->diffPermalink( $post,
+							wfMsgExt( 'diff', 'parseinline' ),
+							$this->mDisplayRevision );
+			
+			$html .= " [$diff_link]";
+
+		}
+		
+		return $html;
 	}
 
 	function show() {
