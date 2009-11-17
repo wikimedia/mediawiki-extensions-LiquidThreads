@@ -52,9 +52,11 @@ var liquidThreads = {
 	
 	'injectEditForm' : function(query, container, preload) {
 		var url = wgServer+wgScript+'?lqt_inline=1&title='+encodeURIComponent(wgPageName)+
-					query
+					query;
 					
 		liquidThreads.cancelEdit( container );
+		
+		var isIE7 = $j.browser.msie && $j.browser.version.substr(0,1) == '7';
 		
 		var loadSpinner = $j('<div class="mw-ajax-loader"/>');
 		$j(container).before( loadSpinner );
@@ -86,7 +88,11 @@ var liquidThreads = {
 				$j("textarea", container)[0].value = preload;
 			}
 			
-			$j(container).slideDown( 'slow', finishShow );
+			if ( isIE7 ) {
+				setTimeout( finishShow, 500 );
+			} else {
+				$j(container).slideDown( 'slow', finishShow );
+			}
 			
 			var cancelButton = $j(container).find('#mw-editform-cancel');
 			cancelButton.click( liquidThreads.cancelEdit );
@@ -113,8 +119,16 @@ var liquidThreads = {
 		
 		$j.getScript( stylepath+'/common/edit.js',
 			function() {
-				$j(container).load(wgServer+wgScript, 'title='+encodeURIComponent(wgPageName)+
+				if ( isIE7 ) {
+					$j(container).empty().show();
+					$j(container).load(wgServer+wgScript,
+							'title='+encodeURIComponent(wgPageName)+
 							query+'&lqt_inline=1', finishSetup );
+				} else {
+					$j(container).load(wgServer+wgScript,
+							'title='+encodeURIComponent(wgPageName)+
+							query+'&lqt_inline=1', finishSetup );
+				}
 			} );
 					
 	},
