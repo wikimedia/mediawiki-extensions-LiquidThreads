@@ -102,8 +102,6 @@ var liquidThreads = {
 					currentFocused = this;
 				} );
 			
-			document.editform = $j(container).find('#editform');
-			
 			// Check for live preview
 			if ( $j('#wpLivePreview').length ) {
 				$j.getScript( stylepath+'/common/preview.js',
