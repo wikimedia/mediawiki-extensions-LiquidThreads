@@ -475,7 +475,7 @@ class Thread {
 	// Load a list of threads in bulk, including all subthreads.
 	static function bulkLoad( $rows ) {
 		// Preload subthreads
-		$thread_ids = array();
+		$top_thread_ids = array();
 		$all_thread_rows = $rows;
 		$pageIds = array();
 		$linkBatch = new LinkBatch();
@@ -488,7 +488,11 @@ class Thread {
 		// Build a list of threads for which to pull replies, and page IDs to pull data for.
 		//  Also, pre-initialise the reply cache.
 		foreach ( $rows as $row ) {
-			$thread_ids[] = $row->thread_id;
+			if ( $row->thread_ancestor ) {
+				$top_thread_ids[] = $row->thread_ancestor;
+			} else {
+				$top_thread_ids[] = $row->thread_id;
+			}
 			
 			// Grab page data while we're here.
 			if ( $row->thread_root )
@@ -503,10 +507,10 @@ class Thread {
 		
 		// Pull replies to the threads provided, and as above, pull page IDs to pull data for,
 		//  pre-initialise the reply cache, and stash the row object for later use.
-		if ( count( $thread_ids ) ) {
+		if ( count( $top_thread_ids ) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$res = $dbr->select( 'thread', '*',
-						array( 'thread_ancestor' => $thread_ids,
+						array( 'thread_ancestor' => $top_thread_ids,
 							'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ),
 						__METHOD__ );
 									
