@@ -103,7 +103,11 @@ class ThreadHistoryPager extends TablePager {
 		$args = array();
 		$revision = ThreadRevision::loadFromRow( $this->mCurrentRow );
 		
-		$args[] = $revision->getChangeObject()->title()->getPrefixedText();
+		if ( $revision->getChangeObject()->title() ) {
+			$args[] = $revision->getChangeObject()->title()->getPrefixedText();
+		} else {
+			$args[] = '';
+		}
 		
 		switch( $type ) {
 			case Threads::CHANGE_EDITED_SUBJECT:
@@ -114,8 +118,13 @@ class ThreadHistoryPager extends TablePager {
 			case Threads::CHANGE_ROOT_BLANKED:
 				$post = $revision->getChangeObject();
 				$view = $this->view;
-				$diffLink = $view->diffPermalinkURL( $post, $revision );
-				$args[] = $diffLink;
+				
+				if ( $post->title() ) {
+					$diffLink = $view->diffPermalinkURL( $post, $revision );
+					$args[] = $diffLink;
+				} else {
+					$args[] = '';
+				}
 				break;
 		}
 		
