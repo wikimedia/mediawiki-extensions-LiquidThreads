@@ -799,7 +799,7 @@ class LqtView {
 		$basePath = "$wgScriptPath/extensions/$wgLiquidThreadsExtensionName";
 		
 		if ( !$wgEnableJS2system ) {
-			$wgOut->addScriptFile( "$basePath/jquery/js2.combined.js" );
+			$wgOut->addScriptFile( "{$wgScriptPath}/js2/js2stopgap.js" );
 			$wgOut->addExtensionStyle( "$basePath/jquery/jquery-ui-1.7.2.css" );
 		}
 		
