@@ -53,9 +53,9 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		$feedTitle = self::createFeedTitle( $params );
 		$feedClass = $wgFeedClasses[$params['feedformat']];
-		// TODO need a better URL :)
-		$feedUrl = 'http://www.mediawiki.org/wiki/Extension:LiquidThreads';
 		$feedItems = array();
+		
+		$feedUrl = Title::newMainPage()->getFullURL();
 
 		$tables = array( 'thread' );
 		$fields = array( $db->tableName( 'thread' ) . ".*" );
