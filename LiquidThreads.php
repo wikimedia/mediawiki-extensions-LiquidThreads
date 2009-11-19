@@ -49,7 +49,7 @@ $wgHooks['ParserFirstCallInit'][] = 'lqtSetupParserFunctions';
 $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
 
 // Customisation of recentchanges
-$wgHooks['OldChangesListRecentChangesLine'][] = 'LqtHooks::customizeOldChangesList';
+//$wgHooks['OldChangesListRecentChangesLine'][] = 'LqtHooks::customizeOldChangesList';
 
 // Notification (watchlist, newtalk)
 $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtHooks::setNewtalkHTML';
