@@ -625,7 +625,12 @@ class Thread {
 					$user_t = Title::makeTitleSafe( NS_USER, $name );
 					$wgOut->setTitle( $user_t );
 				}
+				
+				$title = Title::newFromText( 'Main Page' );
 
+				$sig = $wgParser->preSaveTransform( $nickname, $title,
+								$user, $wgParser->mOptions,
+								false );
 				$sig = $wgParser->getUserSig( $user, $nickname, $fancysig );
 				$sig = $wgOut->parseInline( $sig );
 				

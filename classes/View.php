@@ -1572,6 +1572,8 @@ class LqtView {
 		$wgParser->mOptions = new ParserOptions;
 		
 		$sig = $wgParser->getUserSig( $user );
+		$sig = $wgParser->preSaveTransform( $sig, $this->title, $user,
+							$wgParser->mOptions, false );
 		$sig = $wgOut->parseInline( $sig );
 		
 		self::$userSignatureCache[$name] = $sig;
