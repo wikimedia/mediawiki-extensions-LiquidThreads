@@ -268,7 +268,9 @@ var liquidThreads = {
 		menu.hide();
 		
 		trigger.click(
-			function() {
+			function(e) {
+				e.stopImmediatePropagation();
+				
 				// Hide the other menus
 				$j('.lqt-thread-toolbar-command-list').not(menu).hide('fast');
 				
@@ -287,6 +289,11 @@ var liquidThreads = {
 					menu.css( 'bottom', 'auto' );
 				}
 			} );
+	},
+		
+	'handleDocumentClick' : function(e) {
+		// Collapse all menus
+		$j('.lqt-thread-toolbar-command-list').hide('fast');
 	},
 	
 	'checkForUpdates' : function() {
@@ -874,5 +881,6 @@ js2AddOnloadHook( function() {
 
 	$j('#wpSave').live( 'click', liquidThreads.handleAJAXSave );
 	$j('#wpTextbox1').live( 'keyup', liquidThreads.onTextboxKeyUp );
+	$j(document).click( liquidThreads.handleDocumentClick );
 } );
 
