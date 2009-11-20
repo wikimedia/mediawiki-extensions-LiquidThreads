@@ -82,7 +82,8 @@ It may:
 	'lqt_subject' => 'Subject:',
 	'lqt_noreason' => 'No reason given.',
 	'lqt_move_placeholder' => 'This thread is a placeholder indicating that a thread, $1, was moved from this page.
-This move was made by $2 on $3 at $4. The thread is now located at $5.',
+This move was made by $2 on $3 at $4.
+The thread is now located at $5.',
 	'lqt_thread_deleted_for_sysops' => 'This thread has been \'\'\'deleted\'\'\' and is only visible to administrators.',
 	'lqt_thread_deleted' => 'This thread has been deleted.',
 	'lqt_summary_notice' => 'There have been no changes to this discussion for at least $2 {{PLURAL:$2|day|days}}.
@@ -165,7 +166,8 @@ This operation is undoable.',
 	'lqt-header-actions' => 'Actions',
 	'lqt_summarize_link' => 'Summarize',
 	'lqt-summarize-intro' => 'Please summarize the below thread in the editing box.
-You may use any wikitext in your summary. When you finish, click "{{int:savearticle}}".',
+You may use any wikitext in your summary.
+When you finish, click "{{int:savearticle}}".',
 	'lqt-thread-split' => 'Split to new thread',
 	'lqt-split-success' => 'You have successfully split off the thread $1.',
 	'lqt_split_thread' => 'Split a thread',
@@ -243,8 +245,7 @@ You can see it at <$6>",
 	'lqt-thread-link-url' => 'Link URL:',
 	'lqt-thread-link-title' => 'Wikitext link:',
 	'lqt-thread-link-copy' => 'Copy to clipboard',
-	'lqt-sign-not-necessary' => 'It is not necessary to sign your posts with four tildes,'.
-					' the signature is shown automatically by the software',
+	'lqt-sign-not-necessary' => 'It is not necessary to sign your posts with four tildes, the signature is shown automatically by the software.',
 
 	// Feeds
 	'lqt-feed-title-all' => '{{SITENAME}} — New posts',
