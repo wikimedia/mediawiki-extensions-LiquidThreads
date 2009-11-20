@@ -826,6 +826,8 @@ class LqtView {
 				'lqt-thread-link-title',
 				'lqt-thread-link-copy',
 				'lqt-sign-not-necessary',
+				'lqt-marked-as-read-placeholder',
+				'lqt-email-undo',
 			);
 				
 		$data = array();

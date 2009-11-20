@@ -54,8 +54,8 @@ class NewUserMessagesView extends LqtView {
 					'title' => wfMsg( 'lqt-email-info-undo' ) ) );
 					
 		$html = Xml::tags( 'form',
-							array( 'method' => 'post', 'class' => 'lqt_undo_mark_as_read' ),
-							$html );
+				array( 'method' => 'post', 'class' => 'lqt_undo_mark_as_read' ),
+				$html );
 		
 		return $html;
 	}
@@ -81,15 +81,10 @@ class NewUserMessagesView extends LqtView {
 			global $wgOut, $wgScriptPath;
 			$wgOut->addScriptFile( "{$wgScriptPath}/extensions/LiquidThreads/newmessages.js" );
 		}
+		
+		$this->user->setNewtalk( false );
 
-		if ( $this->request->wasPosted() ) {
-			// If they just viewed this page, maybe they still want that notice.
-			// But if they took the time to dismiss even one message, they
-			// probably don't anymore.
-			$this->user->setNewtalk( false );
-		}
-
-		if ( $this->request->wasPosted() && $this->methodApplies( 'mark_as_unread' ) ) {
+		if ( $this->methodApplies( 'mark_as_unread' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand', '' ) );
 			
 			if ( $ids !== false ) {
@@ -99,7 +94,7 @@ class NewUserMessagesView extends LqtView {
 				}
 				$this->output->redirect( $this->title->getFullURL() );
 			}
-		} elseif ( $this->request->wasPosted() && $this->methodApplies( 'mark_as_read' ) ) {
+		} elseif ( $this->methodApplies( 'mark_as_read' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand' ) );
 			if ( $ids !== false ) {
 				foreach ( $ids as $id ) {
@@ -188,9 +183,9 @@ class NewUserMessagesView extends LqtView {
 		$leftColumn = Xml::tags( 'p', null, $read_button ) .
 						Xml::tags( 'p', null, $contextLink ) .
 						$talkpageInfo;
-		$leftColumn = Xml::tags( 'td', array( 'class' => 'mw-lqt-newmessages-left' ),
+		$leftColumn = Xml::tags( 'td', array( 'class' => 'lqt-newmessages-left' ),
 									$leftColumn );
-		$html = "<tr>$leftColumn<td>";
+		$html = "<tr>$leftColumn<td class='lqt-newmessages-right'>";
 		$this->output->addHTML( $html );
 
 		$mustShowThreads = $this->targets[$t->id()];
