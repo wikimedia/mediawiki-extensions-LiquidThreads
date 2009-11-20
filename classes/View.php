@@ -825,6 +825,7 @@ class LqtView {
 				'lqt-thread-link-url',
 				'lqt-thread-link-title',
 				'lqt-thread-link-copy',
+				'lqt-sign-not-necessary',
 			);
 				
 		$data = array();

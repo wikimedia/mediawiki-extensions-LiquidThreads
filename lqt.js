@@ -798,6 +798,26 @@ var liquidThreads = {
 						}
 					}, 'json' );
 			} );
+	},
+	
+	'onTextboxKeyUp' : function(e) {
+		// Check if a user has signed their post, and if so, tell them they don't have to.
+		var text = $j(this).val().trim();
+		var prevWarning = $j('#lqt-sign-warning');
+		if ( text.match(/~~~~$/) ) {
+			if ( prevWarning.length ) {
+				return;
+			}
+			
+			// Show the warning
+			var msg = wgLqtMessages['lqt-sign-not-necessary'];
+			var elem = $j('<div id="lqt-sign-warning" class="error"/>');
+			elem.text(msg);
+			
+			$j(this).before( elem );
+		} else {
+			prevWarning.remove();
+		}
 	}
 }
 
@@ -853,5 +873,6 @@ js2AddOnloadHook( function() {
 //	$j('#wpTextbox1')//.autogrow();
 
 	$j('#wpSave').live( 'click', liquidThreads.handleAJAXSave );
+	$j('#wpTextbox1').live( 'keyup', liquidThreads.onTextboxKeyUp );
 } );
 

@@ -243,6 +243,8 @@ You can see it at <$6>",
 	'lqt-thread-link-url' => 'Link URL:',
 	'lqt-thread-link-title' => 'Wikitext link:',
 	'lqt-thread-link-copy' => 'Copy to clipboard',
+	'lqt-sign-not-necessary' => 'It is not necessary to sign your posts with four tildes,'.
+					' the signature is shown automatically by the software',
 
 	// Feeds
 	'lqt-feed-title-all' => '{{SITENAME}} — New posts',
