@@ -84,6 +84,11 @@ class LqtHooks {
 
 	static function setNewtalkHTML( $skintemplate, $tpl ) {
 		global $wgUser, $wgTitle, $wgOut;
+		
+		if ( ! LqtDispatch::isLqtPage( $wgUser->getTalkPage() ) ) {
+			return true;
+		}
+		
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$newmsg_t = SpecialPage::getTitleFor( 'NewMessages' );
 		$watchlist_t = SpecialPage::getTitleFor( 'Watchlist' );
