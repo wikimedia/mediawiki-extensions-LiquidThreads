@@ -35,7 +35,6 @@ liquidThreads.markReadDone =
 		
 		// Add the "undo" link.
 		var undoURL = wgArticlePath.replace( '$1', wgPageName );
-		alert( undoURL );
 		var query = 'lqt_method=mark_as_unread&lqt_operand='+operand;
 		if ( undoURL.indexOf('?') == -1 ) {
 			query = '?'+query;
