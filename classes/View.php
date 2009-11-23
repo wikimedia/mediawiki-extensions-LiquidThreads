@@ -419,11 +419,28 @@ class LqtView {
 					wfMsgExt( $msg, 'parse' ) );
 		}
 		
+		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
 		if ( ( !$valid_subject && $subject ) || ( $subject_expected && !$subject ) ) {
 			// Dirty hack to prevent saving from going ahead
-			global $wgRequest;
 			$wgRequest->setVal( 'wpPreview', true );
+		}
+		
+		// For new posts and replies, remove the summary field and use a boilerplate
+		//  default.
+		if ( $edit_type == 'new' ) {
+			$e->mShowSummaryField = false;
+			
+			$summary = wfMsgForContent( 'lqt-newpost-summary', $subject );
+			$wgRequest->setVal( 'wpSummary', $summary );
+		} elseif ( $edit_type == 'reply' ) {
+			$e->mShowSummaryField = false;
+			
+			$reply_subject = $edit_applies_to->subject();
+			$reply_title = $edit_applies_to->title()->getPrefixedText();
+			$summary = wfMsgForContent( 'lqt-reply-summary',
+					$reply_subject, $reply_title );
+			$wgRequest->setVal( 'wpSummary', $summary );
 		}
 		
 		// Add an offset so it works if it's on the wrong page.
