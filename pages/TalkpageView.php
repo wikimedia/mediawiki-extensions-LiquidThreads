@@ -4,7 +4,7 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class TalkpageView extends LqtView {
 	/* Added to SkinTemplateTabs hook in TalkpageView::show(). */
-	function customizeTabs( $skintemplate, &$content_actions ) {
+	static function customizeTalkpageTabs( $skintemplate, &$content_actions, $view ) {
 		// The arguments are passed in by reference.
 		unset( $content_actions['edit'] );
 		unset( $content_actions['viewsource'] );
@@ -12,12 +12,33 @@ class TalkpageView extends LqtView {
 
 		# Protection against non-SkinTemplate skins
 		if ( isset( $content_actions['history'] ) ) {
-			$thisTitle = $this->article->getTitle();
+			$thisTitle = $view->article->getTitle();
 			$history_url = $thisTitle->getFullURL( 'lqt_method=talkpage_history' );
 			$content_actions['history']['href'] = $history_url;
 		}
-
-		return true;
+	}
+	
+	static function customizeTalkpageNavigation( $skin, &$links, $view ) {
+		$remove = array( 'views/edit', 'views/viewsource', 'actions/delete' );
+		
+		foreach( $remove as $rem ) {
+			list($section, $item) = explode( '/', $rem, 2 );
+			unset( $links[$section][$item] );
+		}
+		
+		if ( isset( $links['views']['history'] ) ) {
+			$title = $view->article->getTitle();
+			$history_url = $title->getFullURL( 'lqt_method=talkpage_history' );
+			$links['views']['history']['href'] = $history_url;
+		}
+	}
+	
+	function customizeTabs( $skintemplate, &$links ) {
+		self::customizeTalkpageTabs( $skintemplate, $links, $this );
+	}
+	
+	function customizeNavigation( $skintemplate, &$links ) {
+		self::customizeTalkpageNavigation( $skintemplate, $links, $this );
 	}
 
 	function showHeader() {
@@ -178,10 +199,7 @@ class TalkpageView extends LqtView {
 	}
 
 	function show() {
-		global $wgHooks;
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		// FIXME Why is a hook added here?
-		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
 
 		$this->output->setPageTitle( $this->title->getPrefixedText() );
 		self::addJSandCSS();

@@ -15,16 +15,28 @@ class TalkpageHeaderView extends LqtView {
 		$content_actions['header'] = array(
 			'class' => 'selected',
 			'text' => wfMsg( 'lqt-talkpage-history-tab' ),
-			'href' => ''
+			'href' => '',
 		);
-
-		return true;
+	}
+	
+	function customizeNavigation( $skin, &$links ) {
+		$remove = array( 'actions/edit', 'actions/addsection', 'views/history',
+					'actions/watch', 'actions/move' );
+		
+		foreach( $remove as $rem ) {
+			list($section, $item) = explode( '/', $rem, 2 );
+			unset( $links[$section][$item] );
+		}
+		
+		$links['views']['header'] = array(
+			'class' => 'selected',
+			'text' => wfMsg( 'lqt-talkpage-history-tab' ),
+			'href' => '',
+		);
 	}
 
 	function show() {
-		global $wgHooks, $wgOut, $wgTitle, $wgRequest;
-		// Why is a hook added here?
-		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
+		global $wgOut, $wgTitle, $wgRequest;
 
 		if ( $wgRequest->getVal( 'action' ) === 'edit' ) {
 			wfLoadExtensionMessages( 'LiquidThreads' );

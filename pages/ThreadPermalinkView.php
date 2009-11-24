@@ -4,60 +4,129 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class ThreadPermalinkView extends LqtView {
 	protected $thread;
+	
+	function customizeTabs( $skin, &$links ) {
+		self::customizeThreadTabs( $skin, $links, $this );
+	}
+	
+	function customizeNavigation( $skin, &$links ) {
+		self::customizeThreadNavigation( $skin, $links, $this );
+	}
 
-	function customizeTabs( $skintemplate, $content_actions ) {
+	static function customizeThreadTabs( $skintemplate, &$content_actions, $view ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		// Insert fake 'article' and 'discussion' tabs before the thread tab.
-		// If you call the key 'talk', the url gets re-set later. TODO:
-		// the access key for the talk tab doesn't work.
-		if ( $this->thread ) {
-			$article_t = $this->thread->article()->getTitle();
-			$talk_t = $this->thread->article()->getTitle();
-		} else {
+		
+		if ( !$view->thread ) {
 			return true;
 		}
 		
-		$articleTab =
-			array(
-				'text' => wfMsg( $article_t->getNamespaceKey() ),
-				'href' => $article_t->getFullURL(),
-				'class' => $article_t->exists() ? '' : 'new'
-			);
-		efInsertIntoAssoc( 'article', $articleTab, 'nstab-thread', $content_actions );
+		// Insert 'article' and 'discussion' tabs before the thread tab.
 		
-		$talkTab =
-			array(
-				// talkpage certainly exists since this thread is from it.
-				'text' => wfMsg( 'talk' ),
-				'href' => $talk_t->getFullURL()
-			);
-		
-		efInsertIntoAssoc( 'not_talk', $talkTab, 'nstab-thread', $content_actions );
+		$tabs = self::getCustomTabs( $view );
+		$content_actions = $tabs + $content_actions;
 
 		unset( $content_actions['edit'] );
 		unset( $content_actions['viewsource'] );
 		unset( $content_actions['talk'] );
 		
-		$subpage = $this->thread->title()->getPrefixedText();
+		$subpage = $view->thread->title()->getPrefixedText();
 		
-		if ( array_key_exists( 'move', $content_actions ) && $this->thread ) {
+		// Repoint move/delete/history tabs
+		if ( array_key_exists( 'move', $content_actions ) && $view->thread ) {
 			$content_actions['move']['href'] =
-			SpecialPage::getTitleFor( 'MoveThread', $subpage )->getFullURL();
+				SpecialPage::getTitleFor( 'MoveThread', $subpage )->getFullURL();
 		}
 		
-		if ( array_key_exists( 'delete', $content_actions ) && $this->thread ) {
+		if ( array_key_exists( 'delete', $content_actions ) && $view->thread ) {
 			$content_actions['delete']['href'] =
-				$this->thread->title()->getFullURL( 'action=delete' );
+				$view->thread->title()->getFullURL( 'action=delete' );
 		}
 
 		if ( array_key_exists( 'history', $content_actions ) ) {
-			$content_actions['history']['href'] = self::permalinkUrl( $this->thread, 'thread_history' );
-			if ( $this->methodApplies( 'thread_history' ) ) {
+			$content_actions['history']['href'] = self::permalinkUrl( $view->thread, 'thread_history' );
+			if ( $view->methodApplies( 'thread_history' ) ) {
 				$content_actions['history']['class'] = 'selected';
 			}
 		}
 
 		return true;
+	}
+	
+	static function customizeThreadNavigation( $skin, &$links, $view ) {
+		if ( !$view->thread ) {
+			return true;
+		}
+		
+		// Insert 'article' and 'discussion' namespace-tabs
+		$new_nstabs = self::getCustomTabs( $view );
+		
+		$nstabs =& $links['namespaces'];
+
+		$talkKey = $view->thread->title()->getNamespaceKey('').'_talk';
+		unset( $nstabs[$talkKey] );
+		$nstabs = $new_nstabs + $nstabs;
+		
+		// Remove some views.
+		$views =& $links['views'];
+		unset( $views['viewsource'] );
+		unset( $views['edit'] );
+		
+		// Re-point move, delete and history actions
+		$subpage = $view->thread->title()->getPrefixedText();
+		$actions =& $links['actions'];
+		if ( isset($actions['move']) ) {
+			$actions['move']['href'] =
+			SpecialPage::getTitleFor( 'MoveThread', $subpage )->getFullURL();
+		}
+		
+		if ( isset($actions['delete']) ) {
+			$actions['delete']['href'] =
+				$view->thread->title()->getFullURL( 'action=delete' );
+		}
+		
+		if ( isset($views['history']) ) {
+			$views['history']['href'] =
+				self::permalinkUrl( $view->thread, 'thread_history' );
+			if ( $view->methodApplies( 'thread_history' ) ) {
+				$views['history']['class'] = 'selected';
+			}
+		}
+	}
+	
+	// Pre-generates the tabs to be included, for customizeTabs and customizeNavigation
+	//  to insert in the appropriate place
+	static function getCustomTabs( $view ) {
+		$tabs = array();
+		
+		$articleTitle = $view->thread->article()->getTitle()->getSubjectPage();
+		$talkTitle = $view->thread->article()->getTitle()->getTalkPage();
+		
+		$articleClasses = array();
+		if ( !$articleTitle->exists() ) $articleClasses[] = 'new';
+		if ( $articleTitle->equals( $view->thread->article()->getTitle() ) )
+			$articleClasses[] = 'selected';
+		
+		$talkClasses = array();
+		if ( !$talkTitle->exists() ) $talkClasses[] = 'new';
+		if ( $talkTitle->equals( $view->thread->article()->getTitle() ) )
+			$talkClasses[] = 'selected';
+		
+		$tabs['article'] =
+			array(
+				'text' => wfMsg( $articleTitle->getNamespaceKey() ),
+				'href' => $articleTitle->getFullURL(),
+				'class' => implode( ' ', $articleClasses ),
+			);
+			
+		$tabs['lqt_talk'] =
+			array(
+				// talkpage certainly exists since this thread is from it.
+				'text' => wfMsg( 'talk' ),
+				'href' => $talkTitle->getFullURL(),
+				'class' => implode( ' ', $talkClasses ),
+			);
+		
+		return $tabs;
 	}
 
 	function showThreadHeading( $thread ) {
@@ -108,26 +177,21 @@ class ThreadPermalinkView extends LqtView {
 	}
 
 	function __construct( &$output, &$article, &$title, &$user, &$request ) {
-
 		parent::__construct( $output, $article, $title, $user, $request );
 
 		$t = Threads::withRoot( $this->article );
 		
 		$this->thread = $t;
 		if ( !$t ) {
-			return; // error reporting is handled in show(). this kinda sucks.
+			return;
 		}
 
 		// $this->article gets saved to thread_article, so we want it to point to the
 		// subject page associated with the talkpage, always, not the permalink url.
 		$this->article = $t->article(); # for creating reply threads.
-
 	}
 
 	function show() {
-		global $wgHooks;
-		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
-
 		if ( !$this->thread ) {
 			$this->showMissingThreadPage();
 			return false;

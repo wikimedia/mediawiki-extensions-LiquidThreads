@@ -4,9 +4,8 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class TalkpageHistoryView extends TalkpageView {
 	function show() {
-		global $wgHooks, $wgUser;
-		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
-
+		global $wgUser;
+		
 		self::addJSandCSS();
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		
@@ -31,6 +30,19 @@ class TalkpageHistoryView extends TalkpageView {
 		$this->output->addHTML( $html );
 		
 		return false;
+	}
+	
+	function customizeTabs( $skin, &$links ) {
+		TalkpageView::customizeTalkpageTabs( $skin, $links, $this );
+		
+		$tabid = $this->article->getTitle()->getNamespaceKey();
+		$links['history']['class'] = 'selected';
+	}
+	
+	function customizeNavigation( $skin, &$links ) {
+		TalkpageView::customizeTalkpageNavigation( $skin, $links, $this );
+		$links['views']['history']['class'] = 'selected';
+		$links['views']['view']['class'] = '';
 	}
 }
 

@@ -3,6 +3,7 @@
 class LqtDispatch {
 	/** static cache of per-page LiquidThreads activation setting */
 	static $userLqtOverride;
+	static $primaryView = null;
 
 	static function talkpageMain( &$output, &$article, &$title, &$user, &$request ) {
 		// We are given a talkpage article and title. Fire up a TalkpageView
@@ -48,7 +49,9 @@ class LqtDispatch {
 		} else {
 			$viewname = 'TalkpageView';
 		}
+		
 		$view = new $viewname( $output, $article, $title, $user, $request );
+		self::$primaryView = $view;
 		return $view->show();
 	}
 
@@ -79,12 +82,14 @@ class LqtDispatch {
 		}
 		
 		$view = new $viewname( $output, $article, $title, $user, $request );
+		self::$primaryView = $view;
 		return $view->show();
 	}
 
 	static function threadSummaryMain( &$output, &$article, &$title, &$user, &$request ) {
 		$viewname = 'SummaryPageView';
 		$view = new $viewname( $output, $article, $title, $user, $request );
+		self::$primaryView = $view;
 		return $view->show();
 	}
 	
@@ -165,6 +170,22 @@ class LqtDispatch {
 			// Summary pages, Summary:X
 			return self::threadSummaryMain( $output, $article, $title, $user, $request );
 		}
+		return true;
+	}
+	
+	static function onSkinTemplateNavigation( $skinTemplate, &$links ) {
+		if ( !self::$primaryView ) return;
+		
+		self::$primaryView->customizeNavigation( $skinTemplate, $links );
+		
+		return true;
+	}
+	
+	static function onSkinTemplateTabs( $skinTemplate, &$links ) {
+		if ( !self::$primaryView ) return;
+		
+		self::$primaryView->customizeTabs( $skinTemplate, $links );
+		
 		return true;
 	}
 }

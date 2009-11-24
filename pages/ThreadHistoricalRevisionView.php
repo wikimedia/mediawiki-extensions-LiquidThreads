@@ -114,9 +114,6 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		
 		$this->showHistoryInfo();
 
-		global $wgHooks;
-		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
-
 		if ( !$this->thread ) {
 			$this->showMissingThreadPage();
 			return false;

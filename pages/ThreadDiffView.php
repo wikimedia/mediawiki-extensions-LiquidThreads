@@ -3,20 +3,22 @@
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class ThreadDiffView {
-	function customizeTabs( $skintemplate, $content_actions ) {
+	function customizeTabs( $skintemplate, &$content_actions ) {
 		unset( $content_actions['edit'] );
 		unset( $content_actions['viewsource'] );
 		unset( $content_actions['talk'] );
 
-		$content_actions['talk']['class'] = false;
 		$content_actions['history']['class'] = 'selected';
-
-		return true;
 	}
+	
+	function customizeNavigation( $skin, &$links ) {
+		$remove = array( 'views/edit', 'views/viewsource' );
 
-	function show() {
-		global $wgHooks;
-		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
-		return true;
+		foreach( $remove as $rem ) {
+			list($section, $item) = explode( '/', $rem, 2 );
+			unset( $links[$section][$item] );
+		}
+		
+		$links['views']['history']['class'] = 'selected';
 	}
 }

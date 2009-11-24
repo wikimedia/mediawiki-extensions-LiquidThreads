@@ -5,9 +5,15 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 class IndividualThreadHistoryView extends ThreadPermalinkView {
 	protected $oldid;
 
-	function customizeTabs( $skintemplate, $content_actions ) {
+	function customizeTabs( $skintemplate, &$content_actions ) {
 		$content_actions['history']['class'] = 'selected';
 		parent::customizeTabs( $skintemplate, $content_actions );
+		return true;
+	}
+	
+	function customizeNavigation( $skin, &$links ) {
+		$links['views']['history']['class'] = 'selected';
+		parent::customizeNavigation( $skin, $links );
 		return true;
 	}
 
@@ -39,8 +45,6 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 			$this->showMissingThreadPage();
 			return false;
 		}
-
-		$wgHooks['SkinTemplateTabs'][] = array( $this, 'customizeTabs' );
 
 		$wgHooks['PageHistoryBeforeList'][] = array( $this, 'customizeSubtitle' );
 

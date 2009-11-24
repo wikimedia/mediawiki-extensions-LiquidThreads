@@ -47,6 +47,8 @@ $wgHooks['ParserFirstCallInit'][] = 'lqtSetupParserFunctions';
 // Hooks
 // Main dispatch hook
 $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
+$wgHooks['SkinTemplateTabs'][] = 'LqtDispatch::onSkinTemplateTabs';
+$wgHooks['SkinTemplateNavigation'][] = 'LqtDispatch::onSkinTemplateNavigation';
 
 // Customisation of recentchanges
 //$wgHooks['OldChangesListRecentChangesLine'][] = 'LqtHooks::customizeOldChangesList';
