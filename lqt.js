@@ -643,6 +643,7 @@ var liquidThreads = {
 		var summary = editform.find('#wpSummary').val();
 		var subject = editform.find( '#lqt_subject_field' ).val();
 		var replyThread = editform.find('input[name=lqt_operand]').val();
+		var bump = editform.find('#wpBumpThread').is(':checked') ? 1 : 0;
 		
 		var spinner = $j('<div class="mw-ajax-loader"/>');
 		editform.prepend(spinner);
@@ -747,18 +748,19 @@ var liquidThreads = {
 		};
 		
 		if ( type == 'reply' ) {			
-			liquidThreads.doReply( replyThread, text, summary, doneCallback);
+			liquidThreads.doReply( replyThread, text, summary,
+						doneCallback, bump );
 			
 			e.preventDefault();
 		} else if ( type == 'talkpage_new_thread' ) {
 			liquidThreads.doNewThread( wgPageName, subject, text, summary,
-					doneCallback );
+					doneCallback, bump );
 			
 			e.preventDefault();
 		}
 	},
 	
-	'doNewThread' : function( talkpage, subject, text, summary, callback ) {
+	'doNewThread' : function( talkpage, subject, text, summary, callback, bump ) {
 		liquidThreads.getToken(
 			function(token) {
 				var newTopicParams =
@@ -771,7 +773,8 @@ var liquidThreads = {
 					'token' : token,
 					'format' : 'json',
 					'render' : '1',
-					'reason' : summary
+					'reason' : summary,
+					'bump' : bump
 				};
 				
 				$j.post( wgScriptPath+'/api'+wgScriptExtension, newTopicParams,
@@ -783,7 +786,7 @@ var liquidThreads = {
 			} );
 	},
 	
-	'doReply' : function( thread, text, summary, callback ) {
+	'doReply' : function( thread, text, summary, callback, bump ) {
 		liquidThreads.getToken(
 			function(token) {
 				var replyParams =
@@ -795,7 +798,8 @@ var liquidThreads = {
 					'token' : token,
 					'format' : 'json',
 					'render' : '1',
-					'reason' : summary
+					'reason' : summary,
+					'bump' : bump
 				};
 				
 				$j.post( wgScriptPath+'/api'+wgScriptExtension, replyParams,

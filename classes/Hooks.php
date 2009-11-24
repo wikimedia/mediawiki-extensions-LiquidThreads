@@ -283,11 +283,31 @@ class LqtHooks {
 	}
 	
 	static function editCheckboxes( $editPage, &$checkboxes, &$tabIndex ) {
+		global $wgRequest;
 		$article = $editPage->getArticle();
 		$title = $article->getTitle();
 		
 		if ( !$article->exists() && $title->getNamespace() == NS_LQT_THREAD ) {
 			unset( $checkboxes['minor'] );
+		}
+		
+		if ( $title->getNamespace() == NS_LQT_THREAD && self::$editType != 'new' ) {
+			wfLoadExtensionMessages( 'LiquidThreads' );
+			$label = wfMsgExt( 'lqt-edit-bump', 'parseinline' );
+			$tooltip = wfMsgExt( 'lqt-edit-bump-tooltip', 'parsemag' );
+			
+			$checked = ! $wgRequest->wasPosted() ||
+					$wgRequest->getBool( 'wpBumpThread' );
+			
+			$html =
+				Xml::check( 'wpBumpThread', $checked, array(
+						'title' => $tooltip, 'id' => 'wpBumpThread'
+					) );
+			
+			$html .= Xml::tags( 'label', array( 'for' => 'wpBumpThread',
+					'title' => $tooltip ), $label );
+					
+			$checkboxes['bump'] = $html;
 		}
 		
 		return true;

@@ -55,7 +55,8 @@ class Thread {
 	}
 	
 	static function create( $root, $article, $superthread = null,
-    				$type = Threads::TYPE_NORMAL, $subject = '' ) {
+    				$type = Threads::TYPE_NORMAL, $subject = '',
+    				$summary = '', $bump = null ) {
 
 		$dbw = wfGetDB( DB_MASTER );
 		
@@ -91,7 +92,7 @@ class Thread {
 		if ( $superthread ) {
 			$superthread->addReply( $thread );
 			
-			$superthread->commitRevision( $change_type, $thread );
+			$superthread->commitRevision( $change_type, $thread, $summary, $bump );
 		} else {
 			$hthread = ThreadRevision::create( $thread, $change_type );
 		}

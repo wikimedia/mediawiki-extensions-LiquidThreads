@@ -51,11 +51,6 @@ class Threads {
 	static $cache_by_id = array();
 	static $occupied_titles = array();
 
-	static function newThread( $root, $article, $superthread = null,
-			$type = self::TYPE_NORMAL, $subject = '' ) {
-		return Thread::create( $root, $article, $superthread, $type, $subject );
-	}
-
 	/**
 	 * Create the talkpage if it doesn't exist so that links to it
 	 * will show up blue instead of red. For use upon new thread creation.

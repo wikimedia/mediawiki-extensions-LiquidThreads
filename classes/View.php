@@ -510,10 +510,12 @@ class LqtView {
 				// $this->renameThread( $thread, $subject, $e->summary );
 			}
 			
+			$bump = $this->request->getBool( 'wpBumpThread' );
+			
 			$thread = self::postEditUpdates(
 					$edit_type, $edit_applies_to, $article,
 					$this->article,	$subject, $e->summary, $thread,
-					$e->textbox1
+					$e->textbox1, $bump
 				);
 			
 			if ( $submitted_nonce && $nonce_key ) {
@@ -537,22 +539,25 @@ class LqtView {
 	}
 	
 	static function postEditUpdates( $edit_type, $edit_applies_to, $edit_page, $article,
-					$subject, $edit_summary, $thread, $new_text ) {
+					$subject, $edit_summary, $thread, $new_text,
+					$bump = null ) {
 		// Update metadata - create and update thread and thread revision objects as
 		//  appropriate.
 
 		if ( $edit_type == 'reply' ) {
 			$subject = $edit_applies_to->subject();
 			
-			$thread = Threads::newThread( $edit_page, $article, $edit_applies_to,
-							Threads::TYPE_NORMAL, $subject );
+			$thread = Thread::create( $edit_page, $article, $edit_applies_to,
+							Threads::TYPE_NORMAL, $subject,
+							$edit_summary, $bump );
 			
 			global $wgUser;
 			NewMessages::markThreadAsReadByUser( $edit_applies_to, $wgUser );
 		} elseif ( $edit_type == 'summarize' ) {
 			$edit_applies_to->setSummary( $edit_page );
 			$edit_applies_to->commitRevision( Threads::CHANGE_EDITED_SUMMARY,
-							$edit_applies_to, $edit_summary );
+							$edit_applies_to, $edit_summary,
+							$bump);
 		} elseif ( $edit_type == 'editExisting' ) {
 			// Use a separate type if the content is blanked.
 			$type = strlen( trim( $new_text ) )
@@ -560,10 +565,11 @@ class LqtView {
 					: Threads::CHANGE_ROOT_BLANKED;
 			
 			// Add the history entry.
-			$thread->commitRevision( $type, $thread, $edit_summary );
+			$thread->commitRevision( $type, $thread, $edit_summary, $bump );
 		} else {
-			$thread = Threads::newThread( $edit_page, $article, null,
-							Threads::TYPE_NORMAL, $subject );
+			$thread = Thread::create( $edit_page, $article, null,
+							Threads::TYPE_NORMAL, $subject,
+							$edit_summary );
 		}
 		
 		return $thread;

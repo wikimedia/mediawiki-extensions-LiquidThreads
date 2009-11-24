@@ -30,6 +30,11 @@ class ApiThreadAction extends ApiBase {
 			'text' => 'The text of the post to create',
 			'render' => 'If set, on post/reply methods, the top-level thread '.
 				'after the change will be rendered and returned in the result.',
+			'bump' => 'If set, overrides default behaviour as to whether or not to ',
+				"increase the thread's sort key. If true, sets it to current ".
+				"timestamp. If false, does not set it. Default depends on ".
+				"the action being taken. Presently only works for newthread ".
+				"and reply actions.",
 		);
 	}
 	
@@ -54,6 +59,7 @@ class ApiThreadAction extends ApiBase {
 			'newparent' => null,
 			'text' => null,
 			'render' => null,
+			'bump' => null,
 		);
 	}
 	
@@ -294,6 +300,8 @@ class ApiThreadAction extends ApiBase {
 			return;
 		}
 		
+		$bump = isset($params['bump']) ? $params['bump'] : null;
+		
 		$subject = $params['subject'];
 		$title = null;
 		$subjectOk = Thread::validateSubject( $subject, $title, null, $talkpage );
@@ -357,7 +365,7 @@ class ApiThreadAction extends ApiBase {
 		$title->resetArticleID( $articleId );
 		
 		$thread = LqtView::postEditUpdates( 'new', null, $article, $talkpage,
-					$subject, $summary, null, $text );
+					$subject, $summary, null, $text, $bump );
 
 		$maxLag = wfGetLB()->getMaxLag();
 		$maxLag = $maxLag[1];
@@ -414,6 +422,8 @@ class ApiThreadAction extends ApiBase {
 		
 		$text = $params['text'];
 		
+		$bump = isset($params['bump']) ? $params['bump'] : null;
+		
 		// Generate/pull summary
 		$summary = wfMsgForContent( 'lqt-reply-summary', $replyTo->subject(),
 				$replyTo->title()->getPrefixedText() );
@@ -468,7 +478,7 @@ class ApiThreadAction extends ApiBase {
 		$title->resetArticleID( $articleId );
 		
 		$thread = LqtView::postEditUpdates( 'reply', $replyTo, $article, $talkpage,
-					$subject, $summary, null, $text );
+					$subject, $summary, null, $text, $bump );
 		
 		$maxLag = wfGetLB()->getMaxLag();
 		$maxLag = $maxLag[1];

@@ -277,6 +277,9 @@ The signature is shown automatically.',
 	'lqt-protected-reply-thread' => 'You cannot post in this thread because it has been protected from new posts.',
 	'lqt-protected-reply-talkpage' => 'You cannot post in this thread because this discussion page has been protected from replies to its threads.',
 	'lqt-protected-newthread' => 'You cannot post new threads to this discussion page because it has been protected from new threads.',
+	
+	'lqt-edit-bump' => 'Bump this thread',
+	'lqt-edit-bump-tooltip' => 'Move this thread to the top of its discussion page',
 );
 
 /** Message documentation (Message documentation)
