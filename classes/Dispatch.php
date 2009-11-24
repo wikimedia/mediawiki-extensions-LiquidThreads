@@ -174,7 +174,7 @@ class LqtDispatch {
 	}
 	
 	static function onSkinTemplateNavigation( $skinTemplate, &$links ) {
-		if ( !self::$primaryView ) return;
+		if ( !self::$primaryView ) return true;
 		
 		self::$primaryView->customizeNavigation( $skinTemplate, $links );
 		
@@ -182,7 +182,7 @@ class LqtDispatch {
 	}
 	
 	static function onSkinTemplateTabs( $skinTemplate, &$links ) {
-		if ( !self::$primaryView ) return;
+		if ( !self::$primaryView ) return true;
 		
 		self::$primaryView->customizeTabs( $skinTemplate, $links );
 		
