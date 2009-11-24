@@ -4,7 +4,7 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 // Pass-through wrapper with an extra note at the top
 
 class TalkpageHeaderView extends LqtView {
-	function customizeTabs( $skintemplate, $content_actions ) {
+	function customizeTabs( $skintemplate, &$content_actions ) {
 		unset( $content_actions['edit'] );
 		unset( $content_actions['addsection'] );
 		unset( $content_actions['history'] );
