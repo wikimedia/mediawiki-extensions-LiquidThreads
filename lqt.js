@@ -641,6 +641,12 @@ var liquidThreads = {
 		
 		var text = editform.find('#wpTextbox1').val();
 		var summary = editform.find('#wpSummary').val();
+		
+		// Check if summary is undefined
+		if (summary === undefined) {
+			summary = '';
+		}
+		
 		var subject = editform.find( '#lqt_subject_field' ).val();
 		var replyThread = editform.find('input[name=lqt_operand]').val();
 		var bump = editform.find('#wpBumpThread').is(':checked') ? 1 : 0;
