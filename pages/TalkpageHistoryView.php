@@ -70,7 +70,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 			array(
 				'tables' => array( 'thread_history', 'thread', 'page' ),
 				'fields' => '*',
-				'conds' => Threads::articleClause( $this->talkpage ),
+				'conds' => array( Threads::articleClause( $this->talkpage ) ),
 				'options' => array( 'order by' => 'th_timestamp desc' ),
 				'join_conds' => array(
 					'thread' => array( 'LEFT JOIN', 'thread_id=th_thread' ),
