@@ -1,11 +1,3 @@
-
-#wpTextbox1 {
-	/* Textareas in lqt use auto-sizing based on these properties */
-	height: 7.5em;
-	max-height: 30em;
-	min-height: 7.5em;
-}
-
 .lqt_watchlist_messages_notice {
 	background-color: #eee;
 	border:           1px solid #ddd;
