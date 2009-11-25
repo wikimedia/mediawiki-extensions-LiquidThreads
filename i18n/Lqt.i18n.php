@@ -1251,6 +1251,8 @@ $messages['be-tarask'] = array(
 	'lqt-protected-reply-thread' => 'Вы ня можаце пісаць у гэтай галіне, таму што яна была абароненая ад новых запісаў.',
 	'lqt-protected-reply-talkpage' => 'Вы ня можаце пісаць у гэтай галіне, таму што гэта старонка абмеркаваньня была абароненая ад адказаў у яе галінах.',
 	'lqt-protected-newthread' => 'Вы ня можаце ствараць новыя галіны на гэтай старонцы абмеркаваньня, таму што яна была абароненая ад стварэньня новых галінаў.',
+	'lqt-edit-bump' => 'Узьняць гэту галіну',
+	'lqt-edit-bump-tooltip' => 'Перанесьці гэту галіну ў верхнюю частку старонкі абмеркаваньня',
 );
 
 /** Bulgarian (Български)
@@ -3026,6 +3028,8 @@ Pódpis pokazujo se awtomatiski.',
 	'lqt-protected-reply-thread' => 'Njamóžoš w toś tej nitce powěsć pósłaś, dokulaž jo se šćitała pśeśiwo nowym powěsćam.',
 	'lqt-protected-reply-talkpage' => 'Njamóžoš w toś tej nitce powěsć pósłaś, dokulaž toś ten diskusijny bok jo se šćitał pśeśiwo wótegronam do jogo nitkow.',
 	'lqt-protected-newthread' => 'Njamóžoš nowe nitki do toś togo diskusijnego boka pósłaś, dokulaž jo se šćitał pśeśiwo nowym nitkam.',
+	'lqt-edit-bump' => 'Toś tu nitku aktiwěrowaś',
+	'lqt-edit-bump-tooltip' => 'Toś tu nitku do zachopjeńka jeje diskusijnego boka pśesunuś',
 );
 
 /** Ewe (Eʋegbe)
@@ -4171,6 +4175,7 @@ La signature est affichée automatiquement.",
 	'lqt-protected-reply-thread' => 'Vous ne pouvez pas poster dans ce fil de discussion car il a été protégé contre les nouveaux messages.',
 	'lqt-protected-reply-talkpage' => 'Vous ne pouvez pas poster dans ce fil car cette page de discussion a été protégée contre les réponses à ses fils.',
 	'lqt-protected-newthread' => 'Vous ne pouvez pas poster des nouveaux fils dans cette page de discussion car elle a été protégée contre les nouveaux fils.',
+	'lqt-edit-bump' => 'Réactiver ce fil',
 	'lqt-edit-bump-tooltip' => 'Déplacer ce fil en haut de la page de discussion.',
 );
 
@@ -5403,6 +5408,8 @@ Podpis pokazuje so awtomatisce.',
 	'lqt-protected-reply-thread' => 'Njemóžeš w tutej nitce powěsć słać, dokelž so přećiwo nowym powěsćam škituje.',
 	'lqt-protected-reply-talkpage' => 'Njemóžeš w tutej nitce powěsć słać, dokelž je so diskusijna strona přećiwo wotmołwam do jeje nitki škitała.',
 	'lqt-protected-newthread' => 'Njemóžeš nowe nitki do diskusijneje strony słać, dokelž je so přećiwo nowym nitkam škitała.',
+	'lqt-edit-bump' => 'Tutu nitku aktiwizować',
+	'lqt-edit-bump-tooltip' => 'Tutu nitku do spočatka jeje diskusijneje strony přesunyć',
 );
 
 /** Hungarian (Magyar)
@@ -6113,6 +6120,8 @@ Tanda tangan akan dimunculkan secara otomatis.',
 	'lqt-protected-reply-thread' => 'Anda tidak dapat mengirim di topik ini karena telah dilindungi dari pengiriman baru.',
 	'lqt-protected-reply-talkpage' => 'Anda tidak dapat mengirim di topik ini karena halaman diskusi ini telah di lindungi dari balasan kedalam topik ini.',
 	'lqt-protected-newthread' => 'Anda tidak dapat mengirim topik baru ke halaman diskuisi ini karena telah dilindungi dari topik baru.',
+	'lqt-edit-bump' => 'Sundul utas ini',
+	'lqt-edit-bump-tooltip' => 'Pindahkan utas ini ke atas halaman pembicaraannya',
 );
 
 /** Ido (Ido)
@@ -7526,6 +7535,8 @@ You can see it at <$6>',
 	'lqt-protected-reply-thread' => 'Не можете да ја испратите оваа нишка бидејќи е заштитена од нови пораки.',
 	'lqt-protected-reply-talkpage' => 'Не можете да ја испратите оваа нишка бидејќи оваа страница за разговор е заштитена од одговори на нејзините нишки.',
 	'lqt-protected-newthread' => 'Не можете да испраќате нови нишки на оваа страница за разговор бидејќи таа е заштитена од нови нишки.',
+	'lqt-edit-bump' => 'Постави ја нишката на врвот од страницата',
+	'lqt-edit-bump-tooltip' => 'Премести ја нишкава на врвот од нејзината страницата за разговор',
 );
 
 /** Malayalam (മലയാളം)
@@ -7754,6 +7765,7 @@ $5 താളിലെ '$2' എന്നതിനു പുതിയൊരു മ
 	'lqt-protected-reply-thread' => 'പുതിയ പ്രസിദ്ധപ്പെടുത്തലുകളിൽ നിന്ന് സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നതിനാൽ ഈ ചരടിൽ പ്രസിദ്ധപ്പെടുത്താൻ താങ്കൾക്ക് കഴിയില്ല.',
 	'lqt-protected-reply-talkpage' => 'ഈ സംവാദം താൾ അതിലെ ചരടുകൾക്കുള്ള മറുപടികളിൽ നിന്നും സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നതിനാൽ താങ്കൾക്ക് ഈ ചരടിൽ ഇടാൻ സാധിക്കില്ല.',
 	'lqt-protected-newthread' => 'ഈ സംവാദം താൾ പുതിയ ചരടുകളിൽ നിന്നും സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നതിനാൽ താങ്കൾക്ക് പുതിയ ചരട് ഇവിടെ പ്രസിദ്ധീകരിക്കാൻ കഴിയില്ല.',
+	'lqt-edit-bump-tooltip' => 'ഈ ചരട് അതിന്റെ സംവാദം താളിന്റെ ഏറ്റവും മുകളിലേയ്ക്ക് മാറ്റുക',
 );
 
 /** Mongolian (Монгол)
@@ -9260,6 +9272,8 @@ A assinatura é apresentada automaticamente.',
 	'lqt-protected-reply-thread' => 'Não pode responder porque este tópico foi protegido contra novas mensagens.',
 	'lqt-protected-reply-talkpage' => 'Não pode responder porque esta página de discussão foi protegida contra respostas aos tópicos.',
 	'lqt-protected-newthread' => 'Não pode criar tópicos porque esta página de discussão foi protegida contra novos tópicos.',
+	'lqt-edit-bump' => 'Puxar este tópico',
+	'lqt-edit-bump-tooltip' => 'Mover este tópico para o topo da página de discussão',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -9704,7 +9718,7 @@ $messages['ru'] = array(
 	'lqt-delete-parent-deleted' => 'Вышестоящая ветка удалена ($1)',
 	'lqt-delete-replies-done' => 'Также были удалены все ответы на эту ветку.',
 	'lqt-movethread' => 'Переименовать',
-	'lqt-menu-trigger' => 'Ещё',
+	'lqt-menu-trigger' => 'Дополнительно',
 	'lqt-newmessages-from' => 'Со страницы $1',
 	'lqt-hot-topics' => 'Горячие темы',
 	'right-lqt-split' => 'разделение ветвей',
@@ -9774,6 +9788,8 @@ $messages['ru'] = array(
 	'lqt-protected-reply-thread' => 'Вы не можете писать в эту ветку, так как она была защищена от новых записей.',
 	'lqt-protected-reply-talkpage' => 'Вы не можете писать в эту ветку, так как эта страница обсуждения была защищена от ответов в её ветках.',
 	'lqt-protected-newthread' => 'Вы не можете создавать новые ветки в этой странице обсуждения, так как она была защищена от создания новых веток.',
+	'lqt-edit-bump' => 'Поднять эту ветку',
+	'lqt-edit-bump-tooltip' => 'Перенести эту ветку в начало её страницы обсуждения',
 );
 
 /** Yakut (Саха тыла)
