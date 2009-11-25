@@ -1302,7 +1302,7 @@ class LqtView {
 		$repliesClass = 'lqt-thread-replies lqt-thread-replies-' .
 					$this->threadNestingLevel;
 		$div = Xml::openElement( 'div', array( 'class' => $repliesClass ) );
-		$this->output->addHTML( $div );
+		$sep = Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&nbsp;' );
 		
 		$subthreadCount = count( $thread->subthreads() );
 		$i = 0;
@@ -1326,7 +1326,7 @@ class LqtView {
 					// We've shown too many threads.
 					$link = $this->getShowMore( $thread, $st, $i );
 					
-					$this->output->addHTML( $link );
+					$this->output->addHTML( $div.$link );
 					$showThreads = false;
 					continue;
 				}
@@ -1335,10 +1335,7 @@ class LqtView {
 				if ( $showCount == 1 ) {
 					// There's a post sep before each reply group to
 					//  separate from the parent thread.
-					$this->output->addHTML(
-						Xml::tags( 'div',
-							array( 'class' => 'lqt-post-sep' ),
-							'&nbsp;' ) );
+					$this->output->addHTML( $sep.$div );
 				}
 				
 				$this->showThread( $st, $i, $subthreadCount, $cascadeOptions );

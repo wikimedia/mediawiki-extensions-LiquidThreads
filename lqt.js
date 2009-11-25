@@ -466,6 +466,7 @@ var liquidThreads = {
 		var threadId = thread.data('thread-id');
 		var replies = thread.parent().find('.lqt-thread-replies');
 		var loader = $j('<div class="mw-ajax-loader"/>');
+		var sep = $j('<div class="lqt-post-sep">&nbsp;</div>');
 		
 		replies.empty();
 		replies.hide();
@@ -492,6 +493,8 @@ var liquidThreads = {
 				replies.find('div.lqt-post-wrapper').each( function() {
 					liquidThreads.setupThread( $j(this) );
 				} );
+				
+				replies.before(sep);
 				
 				// Show
 				loader.remove();

@@ -304,7 +304,6 @@ li.lqt-command-reply {
 }
 
 div.lqt-post-sep {
-	height: 1px;
 	padding: 0;
 	margin: 0;
 	margin-left: 1em;
@@ -313,6 +312,7 @@ div.lqt-post-sep {
 	background-position: bottom;
 	background-repeat: repeat-x;
 	clear: both;
+	line-height: 1em;
 }
 
 .lqt-thread-first > .lqt-post-wrapper {
