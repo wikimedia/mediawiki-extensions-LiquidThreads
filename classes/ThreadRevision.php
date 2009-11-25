@@ -161,6 +161,11 @@ class ThreadRevision {
 			throw new MWException( "Missing mObjSer" );
 		}
 		
+		if ( !($this->mThreadObj instanceof Thread) ) {
+			throw new MWException( "Expected mThreadObj to be a Thread, but it ".
+						"is actually a ".gettype($this->mThreadObj) );
+		}
+		
 		$this->mThreadObj->threadRevision = $this;
 		
 		return $this->mThreadObj;
