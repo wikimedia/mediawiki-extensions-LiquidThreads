@@ -112,12 +112,15 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 
 		$this->thread = $this->mDisplayRevision->getThreadObj();
 		
-		$this->showHistoryInfo();
-
-		if ( !$this->thread ) {
+		if (!$this->mDisplayRevision) {
 			$this->showMissingThreadPage();
 			return false;
+		} elseif ( !$this->thread ) {
+			$this->output->addWikiMsg( 'lqt-historicalrevision-error' );
+			return false;
 		}
+		
+		$this->showHistoryInfo();
 
 		self::addJSandCSS();
 		$this->output->setSubtitle( $this->getSubtitle() );

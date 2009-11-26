@@ -55,6 +55,7 @@ It may:
 	'lqt_hist_tooltip_older_disabled' => 'This link is disabled because you are on the last page.',
 	'lqt_hist_split' => 'Reply split to a new thread',
 	'lqt_hist_edited_subject' => 'Changed subject from "$2" to "$3"',
+	'lqt_hist_edited_subject_corrupt' => 'Changed subject',
 	'lqt_hist_merged_from' => '[[$1|Reply]] moved to another thread',
 	'lqt_hist_merged_to' => '[[$1|Reply]] moved from another thread',
 	'lqt_hist_split_from' => 'Split to a new thread',
@@ -280,6 +281,9 @@ The signature is shown automatically.',
 	
 	'lqt-edit-bump' => 'Bump this thread',
 	'lqt-edit-bump-tooltip' => 'Move this thread to the top of its discussion page',
+	
+	'lqt-historicalrevision-error' => 'The revision you have selected is corrupt, '.
+		' and cannot be viewed.',
 );
 
 /** Message documentation (Message documentation)

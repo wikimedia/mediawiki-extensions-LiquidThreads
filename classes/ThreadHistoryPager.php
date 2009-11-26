@@ -102,25 +102,35 @@ class ThreadHistoryPager extends TablePager {
 		
 		$args = array();
 		$revision = ThreadRevision::loadFromRow( $this->mCurrentRow );
+		$changeObject = $revision->getChangeObject();
 		
-		if ( $revision->getChangeObject()->title() ) {
-			$args[] = $revision->getChangeObject()->title()->getPrefixedText();
+		if ( $revision && $revision->prev() ) {
+			$lastChangeObject = $revision->prev()->getChangeObject();
+		}
+		
+		if ( $changeObject && $changeObject->title() ) {
+			$args[] = $changeObject->title()->getPrefixedText();
 		} else {
 			$args[] = '';
 		}
 		
+		$msg = self::$change_names[$type];
+		
 		switch( $type ) {
 			case Threads::CHANGE_EDITED_SUBJECT:
-				$args[] = $revision->prev()->getChangeObject()->subject();
-				$args[] = $revision->getChangeObject()->subject();
+				if ($changeObject && $lastChangeObject) {
+					$args[] = $lastChangeObject->subject();
+					$args[] = $changeObject->subject();
+				} else {
+					$msg = wfMsg( 'lqt_hist_edited_subject_corrupt', 'parseinline' );
+				}
 				break;
 			case Threads::CHANGE_EDITED_ROOT:
 			case Threads::CHANGE_ROOT_BLANKED:
-				$post = $revision->getChangeObject();
 				$view = $this->view;
 				
-				if ( $post->title() ) {
-					$diffLink = $view->diffPermalinkURL( $post, $revision );
+				if ( $changeObject && $changeObject->title() ) {
+					$diffLink = $view->diffPermalinkURL( $changeObject, $revision );
 					$args[] = $diffLink;
 				} else {
 					$args[] = '';
@@ -128,7 +138,7 @@ class ThreadHistoryPager extends TablePager {
 				break;
 		}
 		
-		$content = wfMsgReplaceArgs( self::$change_names[$type], $args );
+		$content = wfMsgReplaceArgs( $msg, $args );
 		return $wgOut->parseInline( $content );
 	}
 	

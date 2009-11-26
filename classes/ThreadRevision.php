@@ -25,10 +25,14 @@ class ThreadRevision {
 		$dbr = wfGetDB( DB_SLAVE );
 		$row = $dbr->selectRow( 'thread_history', '*', array( 'th_id' => $id ), __METHOD__ );
 		
+		if (!$row) return null;
+		
 		return self::loadFromRow( $row );
 	}
 		
 	static function loadFromRow( $row ) {
+		if (!$row) return null;
+		
 		$rev = new ThreadRevision;
 		
 		foreach ( self::$load as $col => $field ) {
@@ -133,13 +137,16 @@ class ThreadRevision {
 	}
 	
 	function getChangeObject() {
-		if ( !$this->mChangeObject && $this->mChangeObjectId ) {
+		if ( is_null($this->mChangeObject) && $this->mChangeObjectId ) {
 			$threadObj = $this->getThreadObj();
-			$objectId = $this->mChangeObjectId;
-			$this->mChangeObject = $threadObj->replyWithId( $objectId );
+			
+			if ( $threadObj instanceof Thread ) {
+				$objectId = $this->mChangeObjectId;
+				$this->mChangeObject = $threadObj->replyWithId( $objectId );
+			}
 			
 			if ( !$this->mChangeObject ) {
-				$this->mChangeObject = Threads::withId( $objectId );
+				$this->mChangeObject = false;
 			}
 		}
 		
@@ -155,16 +162,16 @@ class ThreadRevision {
 	}
 	
 	function getThreadObj() {
-		if ( !$this->mThreadObj && $this->mObjSer ) {
+		if ( is_null($this->mThreadObj) && !is_null($this->mObjSer) ) {
 			$this->mThreadObj = unserialize( $this->mObjSer );
-		} elseif ( !$this->mThreadObj ) {
+		} elseif ( is_null($this->mThreadObj) && is_null($this->mObjSer) ) {
+			var_dump($this);
 			throw new MWException( "Missing mObjSer" );
 		}
 		
 		if ( !($this->mThreadObj instanceof Thread) ) {
-			throw new MWException( "Expected mThreadObj for rev ".$this->getId().
-						"to be a Thread, but it is actually a ".
-						gettype($this->mThreadObj) );
+			$this->mThreadObj = false;
+			return false;
 		}
 		
 		$this->mThreadObj->threadRevision = $this;
