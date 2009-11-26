@@ -822,7 +822,7 @@ var liquidThreads = {
 	
 	'onTextboxKeyUp' : function(e) {
 		// Check if a user has signed their post, and if so, tell them they don't have to.
-		var text = $j(this).val().trim();
+		var text = $j(this).val().replace(/^\s+|\s+$/g, '');
 		var prevWarning = $j('#lqt-sign-warning');
 		if ( text.match(/~~~~$/) ) {
 			if ( prevWarning.length ) {
