@@ -282,8 +282,7 @@ The signature is shown automatically.',
 	'lqt-edit-bump' => 'Bump this thread',
 	'lqt-edit-bump-tooltip' => 'Move this thread to the top of its discussion page',
 	
-	'lqt-historicalrevision-error' => 'The revision you have selected is corrupt, '.
-		' and cannot be viewed.',
+	'lqt-historicalrevision-error' => 'The revision you have selected is corrupt, and cannot be viewed.',
 );
 
 /** Message documentation (Message documentation)
