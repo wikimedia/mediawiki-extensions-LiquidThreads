@@ -1,3 +1,8 @@
+// Prototype in string.trim on browsers that haven't yet implemented
+// See http://blog.stevenlevithan.com/archives/faster-trim-javascript for the reason why /^\s+|\s+$/g is not used as the regex
+if ( typeof String.prototype.trim !== "function" )
+	String.prototype.trim = function(str) { return str.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); };
+
 var liquidThreads = {
 	currentReplyThread : null,
 	currentToolbar : null,
@@ -154,8 +159,7 @@ var liquidThreads = {
 	},
 	
 	'transformQuote' : function(quote) {
-		// trim() doesn't work on all browsers
-		quote = quote.replace(/^\s+|\s+$/g, '');
+		quote = quote.trim();
 		var lines = quote.split("\n");
 		var newQuote = '';
 		
@@ -822,7 +826,7 @@ var liquidThreads = {
 	
 	'onTextboxKeyUp' : function(e) {
 		// Check if a user has signed their post, and if so, tell them they don't have to.
-		var text = $j(this).val().replace(/^\s+|\s+$/g, '');
+		var text = $j(this).val().trim();
 		var prevWarning = $j('#lqt-sign-warning');
 		if ( text.match(/~~~~$/) ) {
 			if ( prevWarning.length ) {
