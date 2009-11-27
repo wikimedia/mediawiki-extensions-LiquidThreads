@@ -1064,6 +1064,7 @@ $messages['be-tarask'] = array(
 	'lqt_hist_tooltip_older_disabled' => 'Гэта спасылка адключаная, таму што Вы знаходзіцеся на апошняй старонцы.',
 	'lqt_hist_split' => 'Падзел адказу ў новую галіну',
 	'lqt_hist_edited_subject' => 'Тэма зьмененая з «$2» на «$3»',
+	'lqt_hist_edited_subject_corrupt' => 'Зьмененая тэма',
 	'lqt_hist_merged_from' => '[[$1|Адказ]] перанесены ў іншую галіну',
 	'lqt_hist_merged_to' => '[[$1|Адказ]] перанесены з іншай галіны',
 	'lqt_hist_split_from' => 'Выдзелены ў новую галіну',
@@ -1256,6 +1257,7 @@ $messages['be-tarask'] = array(
 	'lqt-protected-newthread' => 'Вы ня можаце ствараць новыя галіны на гэтай старонцы абмеркаваньня, таму што яна была абароненая ад стварэньня новых галінаў.',
 	'lqt-edit-bump' => 'Узьняць гэту галіну',
 	'lqt-edit-bump-tooltip' => 'Перанесьці гэту галіну ў верхнюю частку старонкі абмеркаваньня',
+	'lqt-historicalrevision-error' => 'Вэрсія, якую Вы выбралі, пашкоджаная і ня можа быць паказаная.',
 );
 
 /** Bulgarian (Български)
@@ -2372,8 +2374,9 @@ Wenn die Diskussion beendet ist, möchtest du vielleicht eine $1.',
 	'lqt_nosuchthread' => 'Der angeforderte Diskussionsstrang existiert nicht.',
 	'lqt_nosuchthread_title' => 'Diskussionsstrang nicht gefunden',
 	'lqt_threadrequired' => 'In der URL muss ein Diskussionsstrang angegeben werden.',
-	'lqt_move_movingthread' => 'Verschiebe $1. Dieser Thread ist Teil von $2.',
-	'lqt_move_torename' => "Um den Diskussionsstrang umzubennenen, $1 und ändere das 'Thema'.",
+	'lqt_move_movingthread' => 'Verschiebe $1.
+Dieser Diskussionsstrang ist Teil der Seite „$2“.',
+	'lqt_move_torename' => 'Um den Diskussionsstrang umzubennenen, $1 und ändere das Feld „Thema“',
 	'lqt_move_torename_edit' => 'bearbeite ihn',
 	'lqt_move_destinationtitle' => 'Name der Diskussionsseite:',
 	'lqt_move_move' => 'Verschieben',
@@ -2610,6 +2613,7 @@ Sebebê ey:
 	'lqt_hist_tooltip_older_disabled' => 'no gıre (link) battal bı çunke şıma pelo peyin de yi.',
 	'lqt_hist_split' => 'qey newe yew gıre re cewab ciya bıker',
 	'lqt_hist_edited_subject' => 'Mewzu "$2" ra vurna be "$3"i',
+	'lqt_hist_edited_subject_corrupt' => 'Mewzuyo vurnae',
 	'lqt_hist_merged_from' => '[[$1|Cewab]] kırışiya be yewna destêki',
 	'lqt_hist_merged_to' => '[[$1|Cewab]] yewna destêki ra kırışiya',
 	'lqt_hist_split_from' => 'qey newe yew gıre re ciya ker',
@@ -2798,6 +2802,9 @@ ti ney, adresa <$6>'i de eşkêni bıvini.",
 	'lqt-protected-reply-thread' => 'Ti nişkenê itiya de binuse cunki ena pele kilit biyo.',
 	'lqt-protected-reply-talkpage' => 'Ti nişkenê itiya de binuse cunki ena pele kilit biyo.',
 	'lqt-protected-newthread' => 'Ti nişkenê itiya de binuse cunki ena pele kilit biyo.',
+	'lqt-edit-bump' => 'Ena thread berz bike',
+	'lqt-edit-bump-tooltip' => 'Ena deştêki bere be pela werênayışiê dae',
+	'lqt-historicalrevision-error' => 'Çımraviyarnayışo ke to çinıto we xırabeo, u nêşeno bıvêniyo.',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -3989,6 +3996,7 @@ $messages['fr'] = array(
 	'lqt_hist_tooltip_older_disabled' => 'Ce lien est inactif car vous êtes sur la dernière page.',
 	'lqt_hist_split' => 'Réponse séparée dans un nouveau fil de discussion',
 	'lqt_hist_edited_subject' => 'Sujet modifié de « $2 » à « $3 »',
+	'lqt_hist_edited_subject_corrupt' => 'Sujet modifié',
 	'lqt_hist_merged_from' => '[[$1|Réponse]] déplacée dans un autre fil de discussion',
 	'lqt_hist_merged_to' => '[[$1|Réponse]] déplacée depuis un autre fil de discussion',
 	'lqt_hist_split_from' => 'Séparer vers un nouveau fil de discussion',
@@ -4180,6 +4188,7 @@ La signature est affichée automatiquement.",
 	'lqt-protected-newthread' => 'Vous ne pouvez pas poster des nouveaux fils dans cette page de discussion car elle a été protégée contre les nouveaux fils.',
 	'lqt-edit-bump' => 'Réactiver ce fil',
 	'lqt-edit-bump-tooltip' => 'Déplacer ce fil en haut de la page de discussion.',
+	'lqt-historicalrevision-error' => 'La révision que vous avez sélectionné est corrompue et ne peut pas être affichée.',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -4519,6 +4528,7 @@ $messages['gsw'] = array(
 	'lqt_hist_tooltip_older_disabled' => 'Des Gleich Link isch deaktiviert, weil Du uf dr letschte Syte bisch.',
 	'lqt_hist_split' => 'Antwort abteile in e neje Strang',
 	'lqt_hist_edited_subject' => 'S Thema isch vu „$2“ uf „$3“ gänderet wore',
+	'lqt_hist_edited_subject_corrupt' => 'Diskussionsgegestand gänderet',
 	'lqt_hist_merged_from' => '[[$1|Antwort]] in e andere Strang verschobe',
 	'lqt_hist_merged_to' => '[[$1|Antwort]] us eme andere Strang dohär verschobe',
 	'lqt_hist_split_from' => 'In e neje Strang ufteile',
@@ -4709,6 +4719,7 @@ D Signatur wird automatisch aazeigt.',
 	'lqt-protected-newthread' => 'Du chasch keini neji Sträng zue däre Diskussionssyte byytrage, wel si gschitzt woren isch vor neje Sträng.',
 	'lqt-edit-bump' => 'Dää Strang aktiviere',
 	'lqt-edit-bump-tooltip' => 'Dää Strang obe uf d Diskussionssyte derzue verschiebe',
+	'lqt-historicalrevision-error' => 'D Version, wu Du uusgwehlt hesch, isch hii, un cha nit aagluegt wäre',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -5227,6 +5238,7 @@ $messages['hsb'] = array(
 	'lqt_hist_tooltip_older_disabled' => 'Tutón wotkaz je znjemóžnjeny, dokelž sy na poslednjej stronje.',
 	'lqt_hist_split' => 'Wotmołwu do noweje nitki rozdźělić',
 	'lqt_hist_edited_subject' => 'Tema změnjena wot "$2" do "$3"',
+	'lqt_hist_edited_subject_corrupt' => 'Změnjena tema',
 	'lqt_hist_merged_from' => '[[$1|Wotmołwa]] do druheje nitki přesunjena',
 	'lqt_hist_merged_to' => '[[$1|Wotmołwa]] z druheje nitki přesunjena',
 	'lqt_hist_split_from' => 'Do noweje nitki rozdźělić',
@@ -5413,6 +5425,7 @@ Podpis pokazuje so awtomatisce.',
 	'lqt-protected-newthread' => 'Njemóžeš nowe nitki do diskusijneje strony słać, dokelž je so přećiwo nowym nitkam škitała.',
 	'lqt-edit-bump' => 'Tutu nitku aktiwizować',
 	'lqt-edit-bump-tooltip' => 'Tutu nitku do spočatka jeje diskusijneje strony přesunyć',
+	'lqt-historicalrevision-error' => 'Wersija, kotruž sy wubrał, je wobškodźena a njeda so pokazać.',
 );
 
 /** Hungarian (Magyar)
@@ -5646,6 +5659,7 @@ Az aláírásod automatikusan meg fog jelenni.',
 	'lqt-protected-reply-thread' => 'Nem szólhatsz hozzá ehhez a beszélgetésfolyamhoz, mert le van védve az új hozzászólások ellen.',
 	'lqt-protected-reply-talkpage' => 'Nem szólhatsz hozzá ehhez a beszélgetésfolyamhoz, mert a lap le van védve a hozzászólások ellen.',
 	'lqt-protected-newthread' => 'Nem indíthatsz új beszélgetésfolyamokat ezen a lapon, mert le van védve az újak létrehozása ellen.',
+	'lqt-edit-bump-tooltip' => 'Beszélgetésfolyam áthelyezése a vitalap tetejére',
 );
 
 /** Interlingua (Interlingua)
@@ -5691,6 +5705,7 @@ $messages['ia'] = array(
 	'lqt_hist_tooltip_older_disabled' => 'Iste ligamine non es active post que tu es in le ultime pagina.',
 	'lqt_hist_split' => 'Responsa separate in un nove filo',
 	'lqt_hist_edited_subject' => 'Subjecto cambiate de "$2" a "$3"',
+	'lqt_hist_edited_subject_corrupt' => 'Subjecto cambiate',
 	'lqt_hist_merged_from' => '[[$1|Responsa]] transferite in un altere filo',
 	'lqt_hist_merged_to' => '[[$1|Responsa]] transferite ex un altere filo',
 	'lqt_hist_split_from' => 'Separar in un nove filo',
@@ -5798,12 +5813,12 @@ Iste operation es reversibile.',
 	'lqt_summarize_link' => 'Summarisar',
 	'lqt-summarize-intro' => 'Per favor summarisa le filo ci infra in le quadro de modification.
 Tu pote usar qualcunque wikitexto in tu summario. Quando tu fini, clicca super "{{int:savearticle}}".',
-	'lqt-thread-split' => 'Scinder in un nove filo',
+	'lqt-thread-split' => 'Separar in un nove filo',
 	'lqt-split-success' => 'Tu ha scindite le filo $1 con successo.',
-	'lqt_split_thread' => 'Scinder un filo',
+	'lqt_split_thread' => 'Separar un filo',
 	'lqt-thread-split-subject' => 'Subjecto del nove filo:',
 	'lqt-thread-split-thread' => 'Filo:',
-	'lqt-split-submit' => 'Scinder',
+	'lqt-split-submit' => 'Separar',
 	'lqt_split_badsubject' => 'Le subjecto que tu ha entrate es invalide.',
 	'lqt-no-threads' => 'Il non ha ancora filos in iste pagina.',
 	'lqt-delete-parent-warning' => 'Isto es un filo de alte nivello con responsas.
@@ -5884,6 +5899,7 @@ Le signatura es adjungite automaticamente.',
 	'lqt-protected-newthread' => 'Tu non pote initiar nove filos in iste pagina de discussion proque illo ha essite protegite contra nove filos.',
 	'lqt-edit-bump' => 'Altiar iste filo',
 	'lqt-edit-bump-tooltip' => 'Displaciar iste filo in alto del pagina de discussion',
+	'lqt-historicalrevision-error' => 'Le version que tu ha seligite es defecte e non pote esser visualisate.',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -5933,6 +5949,7 @@ Mungkin:
 	'lqt_hist_tooltip_older_disabled' => 'Pranala ini dimatikan karena Anda berada pada halaman terakhir.',
 	'lqt_hist_split' => 'Balasan dipisah ke utas baru',
 	'lqt_hist_edited_subject' => 'Mengganti subjek dari "$2" menjadi "$3"',
+	'lqt_hist_edited_subject_corrupt' => 'Subjek berubah',
 	'lqt_hist_merged_from' => '[[$1|Balasan]] dipindah ke utas lain',
 	'lqt_hist_merged_to' => '[[$1|Balasan]] dipindah dari utas lain',
 	'lqt_hist_split_from' => 'Pisahkan ke utas baru',
@@ -6125,6 +6142,7 @@ Tanda tangan akan dimunculkan secara otomatis.',
 	'lqt-protected-newthread' => 'Anda tidak dapat mengirim topik baru ke halaman diskuisi ini karena telah dilindungi dari topik baru.',
 	'lqt-edit-bump' => 'Sundul utas ini',
 	'lqt-edit-bump-tooltip' => 'Pindahkan utas ini ke atas halaman pembicaraannya',
+	'lqt-historicalrevision-error' => 'Revisi yang Anda pilih korup dan tidak dapat dilihat.',
 );
 
 /** Ido (Ido)
@@ -6132,9 +6150,12 @@ Tanda tangan akan dimunculkan secara otomatis.',
  */
 $messages['io'] = array(
 	'lqt_undelete' => 'Rekuperar',
+	'lqt_youhavenewmessages' => 'Vu havas [$1 nova messaji].',
+	'lqt_move_move' => 'Movar',
 	'lqt-title' => 'Titulo',
 	'lqt-summary' => 'Rezumo',
 	'lqt-email-undo' => 'Desfacar',
+	'lqt-no-new-messages' => 'Ne existas nova messaji por vu.',
 	'lqt-new-messages' => '✒ Existas nova mesaji por vu',
 	'lqt-history-time' => 'Tempo',
 	'lqt-history-user' => 'Uzanto',
@@ -6818,7 +6839,7 @@ $messages['ksh'] = array(
 	'lqt_reply' => 'Antwoote',
 	'lqt_delete' => 'Fottschmieße',
 	'lqt_undelete' => 'Wider zerök holle',
-	'lqt_permalink' => 'Permalengk',
+	'lqt_permalink' => 'Permalengk noh heh',
 	'lqt_fragment' => 'E Shtöckelsche vun enem $1 op dä Sigg „$2“',
 	'lqt_discussion_link' => 'Klaaf',
 	'lqt_from_talk' => 'Fun dä Sigg „$1“',
@@ -7028,6 +7049,8 @@ De „Ongerschreff“ weed automattesch jezeijsch.',
 	'lqt-protected-reply-thread' => 'Do kanns nit en dämm {{int:lqt-history-thread}} schriive. Dä es jäje Veränderunge jeschöz.',
 	'lqt-protected-reply-talkpage' => 'Do kanns nit en dämm {{int:lqt-history-thread}} schriive. Heh di Klaafsigg es jäje Antwoote en {{int:lqt-history-thread}}e jeschöz.',
 	'lqt-protected-newthread' => 'Do kanns heh keine neue {{int:lqt-history-thread}} opmaache. Heh di Klaafsigg es jäje neu {{int:lqt-history-thread}}e jeschöz.',
+	'lqt-edit-bump' => 'Jeschprääschßfäddem noh bovve',
+	'lqt-edit-bump-tooltip' => 'Donn heh dä Jeschprääschßfäddem op singe Klaafsigg noh janz bovve.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -7265,6 +7288,7 @@ Dir kënnt se op <$6> gesinn.",
 	'lqt-protected-reply-thread' => 'Dir kënnt näischt an dës Rubrik schreiwe well se fir all nei Message gespaart ass.',
 	'lqt-protected-reply-talkpage' => 'Dir kënnt näischt an dës Rubrik schreiwen well dës Diskussiounssäit fir Äntwerten an hir rubrike gespaart ass.',
 	'lqt-protected-newthread' => 'Dir kënnt keng nei Rubriken op dëser Diskusiounssäit opmaache well se fir nei Rubrike gespaart ass.',
+	'lqt-edit-bump' => 'Dës Rubrik reaktivéieren',
 	'lqt-edit-bump-tooltip' => 'Dës Rubrik uewen op hir Diskusiounssäit réckelen',
 );
 
@@ -7349,6 +7373,7 @@ $messages['mk'] = array(
 	'lqt_hist_tooltip_older_disabled' => 'Оваа врска е оневозможена бидејќи се наоѓате на последната страница.',
 	'lqt_hist_split' => 'Одговорот е разделен во нова нишка',
 	'lqt_hist_edited_subject' => 'Промени го насловот од „$2“ на „$3“',
+	'lqt_hist_edited_subject_corrupt' => 'Променет наслов',
 	'lqt_hist_merged_from' => '[[$1|Одговорот]] е преместен на друга нишка',
 	'lqt_hist_merged_to' => '[[$1|Одговорот]] е преместен од друга нишка',
 	'lqt_hist_split_from' => 'Раздели во нова нишка',
@@ -7540,6 +7565,7 @@ You can see it at <$6>',
 	'lqt-protected-newthread' => 'Не можете да испраќате нови нишки на оваа страница за разговор бидејќи таа е заштитена од нови нишки.',
 	'lqt-edit-bump' => 'Постави ја нишката на врвот од страницата',
 	'lqt-edit-bump-tooltip' => 'Премести ја нишкава на врвот од нејзината страницата за разговор',
+	'lqt-historicalrevision-error' => 'Ревизијата која ја одбравте има грешки, и не може да се прегледа.',
 );
 
 /** Malayalam (മലയാളം)
@@ -7586,6 +7612,7 @@ $messages['ml'] = array(
 	'lqt_hist_tooltip_older_disabled' => 'നിങ്ങള്‍ അവസാനത്തെ താളിലായതിനാല്‍ ഈ കണ്ണി നിര്‍‌വീര്യമാക്കി.',
 	'lqt_hist_split' => 'പുതിയൊരു ചരടായി വിഘടിപ്പിച്ച് മറുപടി നൽകുക',
 	'lqt_hist_edited_subject' => 'വിഷയം "$2" എന്നതിൽ നിന്ന് "$3" എന്നാക്കി മാറ്റി',
+	'lqt_hist_edited_subject_corrupt' => 'വിഷയം മാറ്റിയിരിക്കുന്നു',
 	'lqt_hist_merged_from' => '[[$1|മറുപടി]] മറ്റൊരു ചരടിലേയ്ക്ക് മാറ്റിയിരിക്കുന്നു',
 	'lqt_hist_merged_to' => '[[$1|മറുപടി]] മറ്റൊരു ചരടിൽ നിന്ന് മാറ്റിയിരിക്കുന്നു',
 	'lqt_hist_split_from' => 'പുതിയൊരു ചരടായി വിഘടിപ്പിക്കുക',
@@ -7769,6 +7796,7 @@ $5 താളിലെ '$2' എന്നതിനു പുതിയൊരു മ
 	'lqt-protected-reply-talkpage' => 'ഈ സംവാദം താൾ അതിലെ ചരടുകൾക്കുള്ള മറുപടികളിൽ നിന്നും സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നതിനാൽ താങ്കൾക്ക് ഈ ചരടിൽ ഇടാൻ സാധിക്കില്ല.',
 	'lqt-protected-newthread' => 'ഈ സംവാദം താൾ പുതിയ ചരടുകളിൽ നിന്നും സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നതിനാൽ താങ്കൾക്ക് പുതിയ ചരട് ഇവിടെ പ്രസിദ്ധീകരിക്കാൻ കഴിയില്ല.',
 	'lqt-edit-bump-tooltip' => 'ഈ ചരട് അതിന്റെ സംവാദം താളിന്റെ ഏറ്റവും മുകളിലേയ്ക്ക് മാറ്റുക',
+	'lqt-historicalrevision-error' => 'താങ്കൾ തിരഞ്ഞെടുത്ത നാൾപ്പതിപ്പിൽ പിശകുണ്ട്, അത് കാണാൻ സാധ്യമല്ല.',
 );
 
 /** Mongolian (Монгол)
@@ -7962,6 +7990,7 @@ $messages['nl'] = array(
 	'lqt_hist_tooltip_older_disabled' => 'Deze verwijzing is niet actief omdat u op de laatste pagina bent.',
 	'lqt_hist_split' => 'Antwoord naar een nieuw onderwerp afsplitsen',
 	'lqt_hist_edited_subject' => 'Onderwerp gewijzigd van "$2" naar "$3"',
+	'lqt_hist_edited_subject_corrupt' => 'Onderwerp gewijzigd',
 	'lqt_hist_merged_from' => 'Het [[$1|antwoord]] is verplaatst naar een ander onderwerp',
 	'lqt_hist_merged_to' => 'Het [[$1|antwoord]] is verplaatst vanuit een ander onderwerp',
 	'lqt_hist_split_from' => 'Naar een nieuw onderwerp afsplitsen',
@@ -8153,6 +8182,7 @@ U kunt het bekijken op <$6>.",
 	'lqt-protected-newthread' => 'U kunt geen nieuwe onderwerpen aanmaken op deze overlegpagina omdat deze pagina gesloten is voor nieuwe onderwerpen.',
 	'lqt-edit-bump' => 'Overleg activeren',
 	'lqt-edit-bump-tooltip' => 'Dit overleg activeren door het bovenaan de overlegpagina te plaatsen',
+	'lqt-historicalrevision-error' => 'De door u geselecteerde versie is beschadigd en kan niet bekeken worden.',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -9047,7 +9077,7 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'lqt-desc' => 'Adiciona discussões na forma de tópicos a páginas de discussão',
+	'lqt-desc' => 'Adicionar discussões em formato de tópicos às páginas de discussão',
 	'lqt_movethread' => 'Mover tópico para outra página',
 	'lqt_deletethread' => 'Apagar ou recuperar tópico',
 	'lqt_contents_title' => 'Conteúdo',
@@ -9087,6 +9117,7 @@ Pode:
 	'lqt_hist_tooltip_older_disabled' => 'Esta ligação está desactivada porque se encontra na última página.',
 	'lqt_hist_split' => 'Resposta separada num novo tópico',
 	'lqt_hist_edited_subject' => 'Assunto alterado de "$2" para "$3"',
+	'lqt_hist_edited_subject_corrupt' => 'Assunto alterado',
 	'lqt_hist_merged_from' => '[[$1|Resposta]] movida para outro tópico',
 	'lqt_hist_merged_to' => '[[$1|Resposta]] movida de outro tópico',
 	'lqt_hist_split_from' => 'Separar para um novo tópico',
@@ -9204,7 +9235,7 @@ Pode usar wikitexto no resumo. Quando terminar, clique "{{int:savearticle}}".',
 	'lqt-delete-parent-warning' => 'Este tópico está no nível de topo e tem respostas.
 As respostas também serão automaticamente apagadas.
 Para o evitar, separe-as antes de apagar o tópico.',
-	'lqt-delete-parent-deleted' => 'Tópico mãe apagado ($1)',
+	'lqt-delete-parent-deleted' => 'Tópico de origem apagado ($1)',
 	'lqt-delete-replies-done' => 'Todas as respostas a este tópico foram também apagadas.',
 	'lqt-movethread' => 'Mover',
 	'lqt-menu-trigger' => 'Mais',
@@ -9277,6 +9308,7 @@ A assinatura é apresentada automaticamente.',
 	'lqt-protected-newthread' => 'Não pode criar tópicos porque esta página de discussão foi protegida contra novos tópicos.',
 	'lqt-edit-bump' => 'Puxar este tópico',
 	'lqt-edit-bump-tooltip' => 'Mover este tópico para o topo da página de discussão',
+	'lqt-historicalrevision-error' => 'A revisão que seleccionou está corrompida e não pode ser vista.',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -11139,6 +11171,7 @@ O xe parché el xe massa longo, opure se vede che el va in conflito con un prefi
 	'lqt_hist_tooltip_older_disabled' => "Sto colegamento no'l va, parché te sì in te l'ultima pagina.",
 	'lqt_hist_split' => 'La risposta la xe stà separà e messa drento un argomento novo',
 	'lqt_hist_edited_subject' => 'Sogeto canbià da "$2" a "$3"',
+	'lqt_hist_edited_subject_corrupt' => 'Canbià titolo',
 	'lqt_hist_merged_from' => "[[$1|Risposta]] spostà in te n'antro argomento",
 	'lqt_hist_merged_to' => "[[$1|Risposta]] spostà da n'antro argomento",
 	'lqt_hist_split_from' => 'Dividi verso un argomento novo',
@@ -11224,6 +11257,7 @@ Na olta fata sta operassion, no se pole mia anularla.',
 	'lqt-other-messages' => 'Messagi su altre pagine de discussion:',
 	'lqt-no-new-messages' => 'No ghe xe messagi novi par ti.',
 	'lqt-new-messages' => '✒ Ghe xe dei messagi novi par ti.',
+	'lqt-email-info-undo' => "Recùpera l'argomento che te ghè pena butà via.",
 	'lqt-date-info' => "Sto colegamento no'l va, parché te sì drio védar i argomenti de tute le date.",
 	'lqt_rc_new_discussion' => 'Discussion nova "$1" in $2 • $3 ga scrito:',
 	'lqt_rc_new_reply' => 'Risposta a "$1" in $2 • $3 ga scrito:',
@@ -11319,6 +11353,8 @@ La firma la vien fora da sola.',
 	'lqt-protected-reply-thread' => 'No se pole mia scrivarghe, in sto argomento, parché el xe stà proteto.',
 	'lqt-protected-reply-talkpage' => 'No se pole mia scrivarghe, in sto argomento, parché sta pagina de discussion la xe stà proteta.',
 	'lqt-protected-newthread' => 'No se pole mia zontarghe argomenti, in sta pagina de discussion, parché la xe stà proteta.',
+	'lqt-edit-bump' => 'Sburta sù sto argomento',
+	'lqt-edit-bump-tooltip' => 'Móvi sto argomento in zima a la pagina de discussion',
 );
 
 /** Veps (Vepsan kel')
