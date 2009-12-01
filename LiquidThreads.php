@@ -211,3 +211,6 @@ $wgThreadActionsNoBump = array( 3 /* Edited summary */, 10 /* Merged from */,
 
 /** Switch this on if you've migrated from a version before around May 2009 */
 $wgLiquidThreadsMigrate = false;
+
+/** The default number of threads per page */
+$wgLiquidThreadsDefaultPageLimit = 20;

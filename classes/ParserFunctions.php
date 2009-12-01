@@ -14,4 +14,10 @@ class LqtParserFunctions {
 		
 		$parser->mOutput->setProperty( 'use-liquid-threads', $param );
 	}
+	
+	static function lqtPageLimit( &$parser, $param = null ) {
+		if ($param && $param > 0) {
+			$parser->mOutput->setProperty( 'lqt-page-limit', $param );
+		}
+	}
 }

@@ -4,6 +4,7 @@ $magicWords = array();
 
 $magicWords['en'] = array(
 	'useliquidthreads' => array( 0, 'UseLiquidThreads' ),
+	'lqtpagelimit' => array( 0, 'lqtpagelimit' ),
 );
 
 $magicWords['ar'] = array(
