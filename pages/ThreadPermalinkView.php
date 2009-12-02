@@ -108,8 +108,6 @@ class ThreadPermalinkView extends LqtView {
 		
 		$talkClasses = array();
 		if ( !$talkTitle->exists() ) $talkClasses[] = 'new';
-		if ( $talkTitle->equals( $view->thread->article()->getTitle() ) )
-			$talkClasses[] = 'selected';
 		
 		$tabs['article'] =
 			array(
