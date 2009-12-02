@@ -175,10 +175,11 @@ class LqtView {
 	
 	static function talkpageLink( $title, $text = null , $method = null, $operand = null,
 					$includeFragment = true, $attribs = array(),
-					$options = array() )
+					$options = array(), $perpetuateOffset = true )
 	{
 		list( $title, $query ) = self::talkpageLinkData( $title, $method, $operand,
-								$includeFragment );
+								$includeFragment,
+								$perpetuateOffset );
 		
 		global $wgUser;
 		$sk = $wgUser->getSkin();
@@ -187,7 +188,8 @@ class LqtView {
 	}
 	
 	static function talkpageLinkData( $title, $method = null, $operand = null,
-						$includeFragment = true ) {
+						$includeFragment = true,
+						$perpetuateOffset = true ) {
 		global $wgRequest;
 		$query = array();
 		
@@ -206,6 +208,20 @@ class LqtView {
 			$query['oldid'] = $oldid;
 		}
 		
+		$request = $perpetuateOffset;
+		if ( $request === true ) {
+			global $wgRequest;
+			$request = $wgRequest;
+		}
+		
+		if ( $perpetuateOffset ) {
+			$offset = $request->getVal( 'offset' );
+			
+			if ( $offset ) {
+				$query['offset'] = $offset;
+			}
+		}
+		
 		// Add fragment if appropriate.
 		if ( $operand && $includeFragment ) {
 			$title->mFragment = 'lqt_thread_' . $operand->id();
@@ -222,21 +238,8 @@ class LqtView {
 		$sk = $wgUser->getSkin();
 		
 		list( $title, $query ) =
-			self::talkpageLinkData( $title, $method, $operand, $includeFragment );
-		
-		$request = $perpetuateOffset;
-		if ( $request === true ) {
-			global $wgRequest;
-			$request = $wgRequest;
-		}
-		
-		if ( $perpetuateOffset ) {
-			$offset = $request->getVal( 'offset' );
-			
-			if ( $offset ) {
-				$query['offset'] = $offset;
-			}
-		}
+			self::talkpageLinkData( $title, $method, $operand, $includeFragment,
+						$perpetuateOffset );
 		
 		return $title->getLinkUrl( $query );
 	}
@@ -638,6 +641,17 @@ class LqtView {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$commands = array();
 		
+		if ( $thread->canUserReply( $this->user ) === true ) {
+			$commands['reply'] = array(
+				'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
+				 'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
+					true /* include fragment */, $this->request ),
+				 'enabled' => true,
+				 'showlabel' => 1,
+				 'tooltip' => wfMsg( 'lqt_reply' )
+			);
+		}
+		
 		$history_url = self::permalinkUrlWithQuery( $thread, array( 'action' => 'history' ) );
 		$commands['history'] = array( 'label' => wfMsgExt( 'history_short', 'parseinline' ),
 						 'href' => $history_url,
@@ -716,18 +730,6 @@ class LqtView {
 			
 			$commands['merge-to'] = array( 'label' => $label, 'href' => $mergeUrl,
 							'enabled' => true, 'tooltip' => $label );
-		}
-		
-		if ( $thread->canUserReply( $this->user ) === true ) {
-			$commands['reply'] = array(
-				'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
-				 'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
-					true /* include fragment */, $this->request ),
-				 'enabled' => true,
-				 'icon' => 'reply.png',
-				 'showlabel' => 1,
-				 'tooltip' => wfMsg( 'lqt_reply' )
-			);
 		}
 		
 		$commands['link'] = array(
@@ -1016,19 +1018,6 @@ class LqtView {
 			$html .= Xml::closeElement( 'div' );
 			$html .= $this->showThreadToolbar( $thread );
 			$html .= $this->threadSignature( $thread );
-		}
-		
-		// If we're replying to this thread, show the reply form after it.
-		if ( $this->methodAppliesToThread( 'reply', $thread ) ) {
-			// As with above, flush HTML to avoid refactoring EditPage.
-			$this->output->addHTML( $html );
-			$this->showReplyForm( $thread );
-			$html = '';
-		} else {
-			$html .= Xml::tags( 'div',
-					array( 'class' => 'lqt-reply-form lqt-edit-form',
-						'style' => 'display: none;'  ),
-					'' );
 		}
 		
 		$this->output->addHTML( $html );
@@ -1352,7 +1341,11 @@ class LqtView {
 			}
 		}
 		
-		$finishDiv = Xml::tags( 'div', array( 'class' => 'lqt-replies-finish' ),
+		// Show reply stuff
+		$this->showReplyBox( $thread );
+		
+		$finishDiv = '';
+		$finishDiv .= Xml::tags( 'div', array( 'class' => 'lqt-replies-finish' ),
 			Xml::tags( 'div', array( 'class' => 'lqt-replies-finish-corner' ), '&nbsp;' ) );
 		
 		$this->output->addHTML( $finishDiv . Xml::CloseElement( 'div' ) );
@@ -1392,6 +1385,42 @@ class LqtView {
 			return;
 		}
 		
+		// Grab options
+		if ( isset( $options['maxDepth'] ) ) {
+			$maxDepth = $options['maxDepth'];
+		} else {
+			$maxDepth = $this->user->getOption( 'lqtdisplaydepth' );
+		}
+		
+		if ( isset( $options['maxCount'] ) ) {
+			$maxCount = $options['maxCount'];
+		} else {
+			$maxCount = $this->user->getOption( 'lqtdisplaycount' );
+		}
+		
+		if ( isset( $options['startAt'] ) ) {
+			$startAt = $options['startAt'];
+		} else {
+			$startAt = 0;
+		}
+		
+		
+		// Figure out if we have replies to show or not.
+		$showThreads = ( $maxDepth == - 1 ) ||
+				( $this->threadNestingLevel <= $maxDepth );
+		$mustShowThreadIds = array_keys( $mustShowThreads );
+		$subthreadIds = array_keys( $thread->replies() );
+		$mustShowSubthreadIds = array_intersect( $mustShowThreadIds, $subthreadIds );
+		
+		$hasSubthreads = self::threadContainsRepliesWithContent( $thread );
+		$hasSubthreads = $hasSubthreads || count( $mustShowSubthreadIds );
+		// Show subthreads if one of the subthreads is on the must-show list
+		$showThreads = $showThreads ||
+			count( array_intersect(
+				array_keys( $mustShowThreads ), array_keys( $thread->replies() )
+			) );
+		$replyTo = $this->methodAppliesToThread( 'reply', $thread );
+		
 		$sk = $this->user->getSkin();
 		$html = '';
 
@@ -1403,6 +1432,12 @@ class LqtView {
 			$class .= ' lqt-thread-first';
 		} elseif ( $levelNum == $totalInLevel ) {
 			$class .= ' lqt-thread-last';
+		}
+		
+		if ( $hasSubthreads && $showThreads ) {
+			$class .= ' lqt-thread-with-subthreads';
+		} else {
+			$class .= ' lqt-thread-no-subthreads';
 		}
 		
 		$html .= Xml::openElement( 'div',
@@ -1430,45 +1465,11 @@ class LqtView {
 					array( 'class' => 'lqt-post-wrapper' ) ) );
 		$this->showSingleThread( $thread );
 		$this->output->addHTML( Xml::closeElement( 'div' ) );
-
-		// Check depth and count
-		if ( isset( $options['maxDepth'] ) ) {
-			$maxDepth = $options['maxDepth'];
-		} else {
-			$maxDepth = $this->user->getOption( 'lqtdisplaydepth' );
-		}
-		
-		if ( isset( $options['maxCount'] ) ) {
-			$maxCount = $options['maxCount'];
-		} else {
-			$maxCount = $this->user->getOption( 'lqtdisplaycount' );
-		}
-		
-		if ( isset( $options['startAt'] ) ) {
-			$startAt = $options['startAt'];
-		} else {
-			$startAt = 0;
-		}
 		
 		$cascadeOptions = $options;
 		unset( $cascadeOptions['startAt'] );
 		
-		$showThreads = ( $maxDepth == - 1 ) ||
-				( $this->threadNestingLevel <= $maxDepth );
-		
-		$mustShowThreadIds = array_keys( $mustShowThreads );
-		$subthreadIds = array_keys( $thread->replies() );
-		$mustShowSubthreadIds = array_intersect( $mustShowThreadIds, $subthreadIds );
-		
-		$hasSubthreads = self::threadContainsRepliesWithContent( $thread );
-		$hasSubthreads = $hasSubthreads || count( $mustShowSubthreadIds );
-		
-		// Show subthreads if one of the subthreads is on the must-show list
-		$showThreads = $showThreads ||
-			count( array_intersect(
-				array_keys( $mustShowThreads ), array_keys( $thread->replies() )
-			) );
-		if ( $hasSubthreads && $showThreads ) {
+		if ( ($hasSubthreads && $showThreads) ) {
 			$this->showThreadReplies( $thread, $startAt, $maxCount, $showThreads,
 				$cascadeOptions );
 		} elseif ( $hasSubthreads && !$showThreads ) {
@@ -1484,18 +1485,79 @@ class LqtView {
 		} elseif ( $levelNum < $totalInLevel ) {
 			$this->output->addHTML(
 				Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&nbsp;' ) );
+			
+			if ( $replyTo ) {
+				$class = 'lqt-thread-replies lqt-thread-replies-'.
+						$this->threadNestingLevel;
+				$html = Xml::openElement( 'div', array( 'class' => $class ) );
+				$html .= Xml::openElement( 'div',
+							array( 'class' => 'lqt-reply-form' ) );
+				$this->output->addHTML( $html );
+				
+				$this->showReplyForm( $thread );
+							
+				$finishDiv = Xml::tags( 'div',
+						array( 'class' => 'lqt-replies-finish' ),
+						Xml::tags( 'div',
+							array( 'class' =>
+								'lqt-replies-finish-corner'
+							), '&nbsp;' ) );
+				// Layout plus close div.lqt-thread-replies
+				
+				$finishHTML = Xml::closeElement( 'div' ); // lqt-reply-form
+				$finishHTML .= $finishDiv; // Layout
+				$finishHTML .= Xml::closeElement( 'div' ); // lqt-thread-replies
+				$this->output->addHTML( $finishHTML );
+			}
 		}
 
 		if ( $this->threadNestingLevel == 1 ) {
-			$finishDiv = Xml::tags( 'div', array( 'class' => 'lqt-replies-finish' ),
-				Xml::tags( 'div', array( 'class' => 'lqt-replies-finish-corner' ), '&nbsp;' ) );
-				
-			$this->output->addHTML( $finishDiv );
+			if ( !($hasSubthreads && $showThreads) ) {
+				$this->showReplyBox( $thread );
+				$finishDiv = '';
+				$finishDiv .= Xml::tags( 'div', array( 'class' => 'lqt-replies-finish' ),
+					Xml::tags( 'div', array( 'class' => 'lqt-replies-finish-corner' ), '&nbsp;' ) );
+					
+				$this->output->addHTML( $finishDiv );
+			}
 		}
 
 		$this->output->addHTML( Xml::closeElement( 'div' ) );
 		
 		$this->threadNestingLevel--;
+	}
+	
+	function showReplyBox( $thread ) {	
+	
+		// Check if we're actually replying to this thread.
+		if ( $this->methodAppliesToThread( 'reply', $thread ) ) {
+			// As with above, flush HTML to avoid refactoring EditPage.
+			$this->output->addHTML( Xml::openElement( 'div',
+				array( 'class' => 'lqt-reply-form' ) ) );
+			$this->showReplyForm( $thread );
+			$this->output->addHTML( Xml::closeElement( 'div' ) );
+			return;
+		} elseif ( !$thread->canUserReply( $this->user ) ) {
+			return;
+		}
+		
+		$sk = $this->user->getSkin();
+		$html = '';
+		$html .= Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&nbsp;' );
+
+		$text = wfMsgExt( 'lqt-add-reply', 'parseinline' );
+		$link = $this->talkpageLink( $this->title, $text, 'reply', $thread,
+					true /* include fragment */, array(), array(),
+					$this->request );
+					
+		$html .= Xml::tags( 'div', array( 'class' => 'lqt-add-reply' ), $link );
+		
+		$html .= Xml::tags( 'div',
+				array( 'class' => 'lqt-reply-form lqt-edit-form',
+					'style' => 'display: none;'  ),
+				'' );
+				
+		$this->output->addHTML( $html );
 	}
 	
 	function threadDivClass( $thread ) {

@@ -223,10 +223,6 @@ body.skin-monobook li#ca-nstab-thread {
 	display: inline;
 }
 
-li.lqt-command-reply {
-	text-align: right;
-}
-
 .lqt-thread-actions-trigger {
 	margin-top: 8px;
 	border: none;
@@ -315,7 +311,8 @@ div.lqt-post-sep {
 	line-height: 1em;
 }
 
-.lqt-thread-first > .lqt-post-wrapper {
+.lqt-thread-replies > .lqt-thread-first > .lqt-post-wrapper,
+.lqt-thread-no-subthreads.lqt-thread-topmost > .lqt-post-wrapper {
 	background-image: url(images/vertical-fade.png) !important;
 	background-repeat: no-repeat !important;
 	background-position: top left;
@@ -325,11 +322,11 @@ div.lqt-post-sep {
 	margin-left: 1em;
 }
 
-.lqt-thread-topmost,
-.lqt-thread-replies {
+.lqt-thread-replies,
+.lqt-thread-no-subthreads.lqt-thread-topmost {
 	background-image: url(images/edge.png);
 	background-repeat: repeat-y;
-	background-position: left;
+	background-position: left center;
 }
 
 .lqt-replies-finish {
@@ -382,15 +379,7 @@ div.lqt-post-sep {
 	line-height: 2em;
 	overflow: hidden;
 }
-.lqt-command-reply a {
-	margin-left: 1em;
-	height: 2em;
-	background-image: url(icons/reply.png);
-	background-position: left center !important;
-	background-repeat: no-repeat;
-	padding-left: 26px;
-	line-height: 2em;
-}
+
 .lqt-command-quote a {
 	margin-left: 1em;
 	height: 2em;
@@ -468,4 +457,15 @@ table.lqt-new-messages {
 
 .lqt-command {
 	line-height: 2em;
+}
+
+.lqt-add-reply {
+	margin-left: 1em;
+	margin-right: 1em;
+	margin-top: 0.2em;
+	font-size: 120%;
+}
+
+.lqt-reply-form {
+	padding: 0.5em 1em;
 }
