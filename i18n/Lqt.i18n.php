@@ -242,7 +242,7 @@ You can see it at <$6>",
 	// Some AJAX stuff
 	'lqt-ajax-updated' => 'This thread has new posts.',
 	'lqt-ajax-update-link' => 'Update',
-	'lqt-thread-show-replies' => 'Show $1 replies',
+	'lqt-thread-show-replies' => 'Show $1 {{PLURAL:$1|reply|replies}}',
 	'lqt-thread-show-more' => 'Show more replies',
 	'lqt-thread-link-url' => 'Link URL:',
 	'lqt-thread-link-title' => 'Wikitext link:',
