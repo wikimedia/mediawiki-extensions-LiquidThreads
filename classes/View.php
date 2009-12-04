@@ -409,24 +409,23 @@ class LqtView {
 
 		$e = new EditPage( $article );
 		
-		// Display an error if a subject is specified but it's invalid
-		if ( $subject_expected && $this->request->wasPosted() && !$valid_subject ) {
-			if ( !$subject ) {
-				$msg = 'lqt_empty_subject';
- 			} else {
-				$msg = 'lqt_invalid_subject';
-			}
-			
-			$e->editFormPageTop .=
-				Xml::tags( 'div', array( 'class' => 'error' ),
-					wfMsgExt( $msg, 'parse' ) );
-		}
-		
 		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
 		if ( ( !$valid_subject && $subject ) || ( $subject_expected && !$subject ) ) {
 			// Dirty hack to prevent saving from going ahead
 			$wgRequest->setVal( 'wpPreview', true );
+			
+			if ( $this->request->wasPosted() ) {
+				if ( !$subject ) {
+					$msg = 'lqt_empty_subject';
+				} else {
+					$msg = 'lqt_invalid_subject';
+				}
+				
+				$e->editFormPageTop .=
+					Xml::tags( 'div', array( 'class' => 'error' ),
+						wfMsgExt( $msg, 'parse' ) );
+			}
 		}
 		
 		// For new posts and replies, remove the summary field and use a boilerplate

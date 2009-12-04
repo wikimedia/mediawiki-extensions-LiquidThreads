@@ -255,7 +255,7 @@ class TalkpageView extends LqtView {
 							array( ),
 							array( 'lqt_method' => 'talkpage_new_thread' ),
 							array( 'known' ) );
-										
+					
 			$talkpageHeader .= Xml::tags( 'strong',
 						array( 'class' => 'lqt_start_discussion' ),
 						$newThreadLink );			
