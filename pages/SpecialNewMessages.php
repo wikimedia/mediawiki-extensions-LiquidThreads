@@ -15,7 +15,7 @@ class SpecialNewMessages extends SpecialPage {
 	*/
 	function getDescription() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		return wfMsg( 'lqt_newmessages' );
+		return wfMsg( 'lqt_newmessages-title' );
 	}
 
 	function execute( $par ) {

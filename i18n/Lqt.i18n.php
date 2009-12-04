@@ -263,6 +263,7 @@ The signature is shown automatically.',
 
 	'lqt-newmessages-n' => 'New messages ($1)',
 	'lqt_newmessages' => 'New messages',
+	'lqt_newmessages-title' => 'New messages',
 
 	// Automatic summaries
 	'lqt-newpost-summary' => 'New thread: $1',
