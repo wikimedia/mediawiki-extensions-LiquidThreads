@@ -333,6 +333,132 @@ var liquidThreads = {
 				}
 			} );
 	},
+	
+	'setupThreadMenu' : function( menu, id ) {
+		if ( menu.find('.lqt-command-edit-subject').length ) {
+			return;
+		}
+		
+		var editSubjectField = $j('<li/>');
+		var editSubjectLink = $j('<a href="#"/>');
+		editSubjectLink.text( wgLqtMessages['lqt-change-subject'] );
+		editSubjectField.append( editSubjectLink );
+		editSubjectField.click( liquidThreads.handleChangeSubject );
+		editSubjectField.data( 'thread-id', id )
+		
+		editSubjectField.addClass( 'lqt-command-edit-subject' );
+		
+		menu.append( editSubjectField );
+	},
+	
+	'handleChangeSubject' : function(e) {
+		e.preventDefault();
+
+		// Grab the h2
+		var threadId = $j(this).data('thread-id');
+		var header = $j('#lqt-header-'+threadId);
+		var headerText = header.find("input[name='raw-header']").val();
+		
+		var textbox = $j('<input type="textbox" />').val(headerText);
+		textbox.attr('id', 'lqt-subject-input-'+threadId);
+		textbox.attr('size', '75');
+		textbox.val(headerText);
+		
+		var saveText = wgLqtMessages['lqt-save-subject'];
+		var saveButton = $j('<input type="button" />');
+		saveButton.val( saveText );
+		saveButton.click( liquidThreads.handleSubjectSave );
+		
+		var cancelButton = $j('<input type="button" />');
+		cancelButton.val( wgLqtMessages['lqt-cancel-subject-edit'] );
+		cancelButton.click( function(e) {
+			var form = $j(this).closest('.mw-subject-editor');
+			var header = form.closest('.lqt_header');
+			header.contents().filter('.mw-headline').show();
+			form.remove();
+			
+		} );
+		
+		header.contents().filter('span.mw-headline').hide();
+		
+		var subjectForm = $j('<span class="mw-subject-editor"/>');
+		subjectForm.append(textbox);
+		subjectForm.append( '&nbsp;' );
+		subjectForm.append(saveButton);
+		subjectForm.append( '&nbsp;' );
+		subjectForm.append( cancelButton );
+		subjectForm.data( 'thread-id', threadId );
+		
+		header.append(subjectForm);
+		
+	},
+	
+	'handleSubjectSave' : function(e) {
+		var button = $j(this);
+		var subjectForm = button.closest('.mw-subject-editor');
+		var header = subjectForm.closest('.lqt_header');
+		var threadId = subjectForm.data('thread-id');
+		var textbox = $j('#lqt-subject-input-'+threadId);
+		var newSubject = textbox.val().trim();
+		
+		if (!newSubject) {
+			alert( wgLqtMessages['lqt-ajax-no-subject'] );
+			return;
+		}
+		
+		// Add a spinner
+		var spinner = $j('<div class="mw-ajax-loader"/>');
+		header.append(spinner);
+		subjectForm.hide();
+		
+		var request = {
+			'action' : 'threadaction',
+			'threadaction' : 'setsubject',
+			'subject' : newSubject.trim(),
+			'thread' : threadId
+		};
+		
+		var errorHandler = function(reply) {
+			try {
+				code = reply.error.code;
+				description = reply.error.info;
+				
+				if (code == 'invalid-subject') {
+					alert( wgLqtMessages['lqt-ajax-invalid-subject'] );
+				} else {
+					var msg = wgLqtMessages['lqt-save-subject-failed'];
+					msg.replace( '$1', description );
+				}
+				
+				subjectForm.show();
+				spinner.remove();
+			} catch (err) {
+				alert( wgLqtMessages['lqt-save-subject-error-unknown'] );
+				subjectForm.remove();
+				spinner.remove();
+				header.contents().filter('.mw-headline').show();
+			}
+		}
+		
+		// Set new subject through API.
+		liquidThreads.apiRequest( request, function(reply) {
+			var result;
+			
+			try {
+				result = reply.threadaction.thread.result;
+			} catch (err) {
+				result = 'error';
+			}
+			
+			if ( result == 'success' ) {
+				spinner.remove();
+				var thread = $j('#lqt_thread_id_'+threadId);
+				liquidThreads.doReloadThread( thread );
+			} else {
+				errorHandler(reply);
+			}
+		} );
+	},
 		
 	'handleDocumentClick' : function(e) {
 		// Collapse all menus
@@ -482,6 +608,14 @@ var liquidThreads = {
 	
 		// Update menus
 		$j(threadContainer).each( liquidThreads.setupMenus );
+		
+		// Update thread-level menu, if appropriate
+		if ( $j(threadWrapper).hasClass( 'lqt-thread-topmost' ) ) {
+			var threadLevelCommandSelector = '#lqt-threadlevel-commands-'+threadId;
+			
+			var menu = $j(threadLevelCommandSelector);
+			liquidThreads.setupThreadMenu( menu, threadId );
+		}
 		
 		// Check for a "show replies" button
 		$j('a.lqt-show-replies').click( liquidThreads.showReplies );
@@ -876,6 +1010,28 @@ var liquidThreads = {
 		} else {
 			prevWarning.remove();
 		}
+	},
+	
+	'apiRequest' : function( request, callback ) {
+		// Set new subject through API.
+		liquidThreads.getToken( function(token) {
+			
+			if ( typeof request == 'function' ) {
+				request = request(token);
+			} else {
+				request.token = token;
+			}
+			
+			request.format = 'json';
+			
+			var path = wgScriptPath+'/api'+wgScriptExtension;
+			$j.post( path, request,
+					function(data) {
+						if (callback) {
+							callback(data);
+						}
+					}, 'json' );
+		} );
 	}
 }
 

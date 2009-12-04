@@ -56,6 +56,10 @@ class ThreadRevision {
 			$timestamp = wfTimestampNow();
 		}
 		
+		if ( is_null( $comment ) ) {
+			$comment = '';
+		}
+		
 		$rev = new ThreadRevision;
 		
 		$rev->mThreadId = $thread->topmostThread()->id();

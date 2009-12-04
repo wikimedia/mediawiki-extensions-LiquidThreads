@@ -852,6 +852,12 @@ class LqtView {
 				'lqt-sign-not-necessary',
 				'lqt-marked-as-read-placeholder',
 				'lqt-email-undo',
+				'lqt-change-subject',
+				'lqt-save-subject',
+				'lqt-ajax-no-subject',
+				'lqt-ajax-invalid-subject',
+				'lqt-save-subject-error-unknown',
+				'lqt-cancel-subject-edit',
 			);
 				
 		$data = array();
@@ -1092,8 +1098,9 @@ class LqtView {
 			
 			$id = 'lqt-header-' . $thread->id();
 
-			$html = $this->output->parseInline( $thread->subjectWithoutIncrement() );
+			$html = $this->output->parseInline( $thread->subject() );
 			$html = Xml::tags( 'span', array( 'class' => 'mw-headline' ), $html );
+			$html .= Xml::hidden( 'raw-header', $thread->subject() );
 			$html = Xml::tags( 'h' . $this->headerLevel,
 					array( 'class' => 'lqt_header', 'id' => $id ),
 					$html ) . $commands_html;

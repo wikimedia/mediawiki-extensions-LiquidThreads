@@ -550,6 +550,8 @@ class ApiThreadAction extends ApiBase {
 			return;
 		}
 		
+		$talkpage = $thread->article();
+		
 		$subject = $params['subject'];
 		$title = null;
 		$subjectOk = Thread::validateSubject( $subject, $title, null, $talkpage );
