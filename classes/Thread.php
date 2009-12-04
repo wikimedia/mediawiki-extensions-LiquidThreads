@@ -1408,6 +1408,7 @@ class Thread {
 		$restrictions = array_merge( $threadRestrictions, $talkpageRestrictions );
 		
 		foreach( $restrictions as $right => $source ) {
+			if ( $right == 'sysop' ) $right = 'protect';
 			if ( !$user->isAllowed( $right ) ) {
 				return $source;
 			}
