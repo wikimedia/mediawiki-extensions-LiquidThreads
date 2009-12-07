@@ -160,7 +160,7 @@ class NewUserMessagesView extends LqtView {
 			'lqt_newmessages_read_button',
 			$this->targets[$t->id()] );
 		
-		// Left-hand column Ñ read button and context link to the full thread.
+		// Left-hand column read button and context link to the full thread.
 		global $wgUser;
 		$topmostThread = $t->topmostThread();
 		$sk = $wgUser->getSkin();
