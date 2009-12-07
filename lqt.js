@@ -1,5 +1,4 @@
 // Prototype in string.trim on browsers that haven't yet implemented
-// See http://blog.stevenlevithan.com/archives/faster-trim-javascript for the reason why /^\s+|\s+$/g is not used as the regex
 if ( typeof String.prototype.trim !== "function" )
 	String.prototype.trim = function(str) { return str.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); };
 
