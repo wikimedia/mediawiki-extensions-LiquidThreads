@@ -883,12 +883,6 @@ var liquidThreads = {
 						'slow');
 				}
 			);
-			
-			// Load the new TOC
-			var loadTOCSpinner = $j('<div class="mw-ajax-loader"/>');
-			$j('.lqt_toc').empty().append( loadTOCSpinner );
-			$j('.lqt_toc').load( window.location.href + ' .lqt_toc > *',
-				function() { loadTOCSpinner.remove(); } );
 		}
 		
 		var doneCallback = function(data) {
@@ -926,6 +920,9 @@ var liquidThreads = {
 			editform.empty().hide();
 			
 			callback(data);
+			
+			// Load the new TOC
+			liquidThreads.reloadTOC();
 		};
 		
 		if ( type == 'reply' ) {			
@@ -939,6 +936,17 @@ var liquidThreads = {
 			
 			e.preventDefault();
 		}
+	},
+	
+	'reloadTOC' : function() {
+		var toc = $j('.lqt_toc');
+		var loadTOCSpinner = $j('<div class="mw-ajax-loader"/>');
+		loadTOCSpinner.css( 'height', toc.height() );
+		toc.empty().append( loadTOCSpinner );
+		toc.load( window.location.href + ' .lqt_toc > *',
+			function() {
+				loadTOCSpinner.remove();
+			} );
 	},
 	
 	'doNewThread' : function( talkpage, subject, text, summary, callback, bump ) {
