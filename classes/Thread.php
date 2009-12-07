@@ -1193,7 +1193,8 @@ class Thread {
 	}
 	
 	function getAnchorName() {
-		return "lqt_thread_{$this->id()}";
+		$wantedId = $this->subject()."_{$this->id()}";
+		return Sanitizer::escapeId( $wantedId );
 	}
 	
 	function updateHistory() {

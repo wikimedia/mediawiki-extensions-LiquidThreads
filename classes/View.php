@@ -224,7 +224,7 @@ class LqtView {
 		
 		// Add fragment if appropriate.
 		if ( $operand && $includeFragment ) {
-			$title->mFragment = 'lqt_thread_' . $operand->id();
+			$title->mFragment = $operand->getAnchorName();
 		}
 		
 		return array( $title, $query );
