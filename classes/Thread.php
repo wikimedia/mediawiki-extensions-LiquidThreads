@@ -352,7 +352,7 @@ class Thread {
 		$redirectArticle->doEdit( $redirectText, $reason, EDIT_NEW );
 
 		// Add the trace thread to the tracking table.
-		$thread = Threads::newThread( $redirectArticle, new Article_LQT_Compat( $oldTitle ), null,
+		$thread = Thread::create( $redirectArticle, new Article_LQT_Compat( $oldTitle ), null,
 		 	Threads::TYPE_MOVED, $this->subject() );
 		 	
 		 $thread->setSortkey( $this->sortkey() );
