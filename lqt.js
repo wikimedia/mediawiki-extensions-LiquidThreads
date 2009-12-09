@@ -28,6 +28,7 @@ var liquidThreads = {
 		
 		var repliesElement = $j(container).contents().filter('.lqt-thread-replies');
 		var replyDiv = repliesElement.contents().filter('.lqt-reply-form');
+		replyDiv = replyDiv.add( $j(container).contents().filter('.lqt-reply-form') );
 		if (!replyDiv.length) {
 			// Create a div for it
 			replyDiv = $j('<div class="lqt-reply-form lqt-edit-form"/>');
@@ -46,6 +47,7 @@ var liquidThreads = {
 			
 			repliesElement.find('.lqt-replies-finish').before( replyDiv );
 		}
+		replyDiv.show();
 		
 		replyDiv = replyDiv[0];
 		
