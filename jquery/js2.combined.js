@@ -7870,6 +7870,6 @@ $j = jQuery.noConflict();
  * Provides js2 compatible onload hook
  * @param func Function to call when ready
  */
-function mw.addOnloadHook( func ) {
+mw.addOnloadHook = function( func ) {
 	$j(document).ready( func );
 }
