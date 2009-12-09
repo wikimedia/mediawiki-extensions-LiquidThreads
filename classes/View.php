@@ -831,7 +831,6 @@ class LqtView {
 		
 		$wgOut->addScriptFile( "$basePath/lqt.js" );
 		$wgOut->addExtensionStyle( "$basePath/lqt.css?{$wgStyleVersion}" );
-		$wgOut->addScriptFile( "{$wgStylePath}/common/preview.js" );
 		
 		self::$stylesAndScriptsDone = true;
 	}
