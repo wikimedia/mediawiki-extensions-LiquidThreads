@@ -2,7 +2,7 @@
 
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
-class ThreadDiffView {
+class ThreadDiffView extends LqtView {
 	function customizeTabs( $skintemplate, &$content_actions ) {
 		unset( $content_actions['edit'] );
 		unset( $content_actions['viewsource'] );
