@@ -1,6 +1,6 @@
 // Prototype in string.trim on browsers that haven't yet implemented
 if ( typeof String.prototype.trim !== "function" )
-	String.prototype.trim = function(str) { return str.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); };
+	String.prototype.trim = function() { return this.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); };
 
 var liquidThreads = {
 	currentReplyThread : null,
