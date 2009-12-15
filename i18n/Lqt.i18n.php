@@ -60,6 +60,7 @@ It may:
 	'lqt_hist_merged_to' => '[[$1|Reply]] moved from another thread',
 	'lqt_hist_split_from' => 'Split to a new thread',
 	'lqt_hist_root_blanked' => 'Removed comment text',
+	'lqt_hist_adjusted_sortkey' => 'Adjusted thread position',
 
 	'lqt_revision_as_of' => "Revision as of $2 at $3.",
 
@@ -260,6 +261,17 @@ The signature is shown automatically.',
 	'lqt-save-subject-error-unknown' => 'An unknown error occurred when attempting '.
 'to set the subject of this thread. Please try to do this by clicking "edit" on the top post.',
 	'lqt-cancel-subject-edit' => 'Cancel',
+	'lqt-drag-activate' => 'Drag to new location',
+	'lqt-drag-drop-zone' => 'Drop here',
+	'lqt-drag-confirm' => 'To complete the following actions, please fill in a reason '.
+		'and click "Confirm".',
+	'lqt-drag-reparent' => "Move post to underneath a new parent.",
+	'lqt-drag-split' => 'Move post to its own thread',
+	'lqt-drag-setsortkey' => "Adjust post's position on the page",
+	'lqt-drag-bump' => 'Move post to top of discussion page',
+	'lqt-drag-save' => 'Confirm',
+	'lqt-drag-reason' => 'Reason for change: ',
+	'lqt-drag-subject' => 'Subject for new thread: ',
 
 	// Feeds
 	'lqt-feed-title-all' => '{{SITENAME}} — New posts',

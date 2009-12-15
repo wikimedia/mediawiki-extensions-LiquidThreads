@@ -150,7 +150,7 @@ class Thread {
 			$bump = !in_array( $change_type, $wgThreadActionsNoBump );
 		}
 		if ( $bump ) {
-			$this->sortkey = wfTimestampNow( TS_DB );
+			$this->sortkey = wfTimestamp( TS_MW );
 		}
 
 		$this->modified = wfTimestampNow();
@@ -159,7 +159,7 @@ class Thread {
 		
 		$topmost = $this->topmostThread();
 		$topmost->modified = wfTimestampNow();
-		if ( $bump ) $topmost->setSortkey( wfTimestampNow( TS_DB ) );
+		if ( $bump ) $topmost->setSortkey( wfTimestamp( TS_MW ) );
 		$topmost->save();
 		
 		ThreadRevision::create( $this, $change_type, $change_object, $reason );
@@ -415,7 +415,7 @@ class Thread {
 			$dbr = wfGetDB( DB_SLAVE );
 			$this->modified = $dbr->timestamp( wfTimestampNow() );
 			$this->created = $dbr->timestamp( wfTimestampNow() );
-			$this->sortkey = wfTimestampNow( TS_DB );
+			$this->sortkey = wfTimestamp( TS_MW );
 			$this->editedness = Threads::EDITED_NEVER;
 			$this->replyCount = 0;
 			return;
@@ -868,12 +868,15 @@ class Thread {
 		foreach( $replies as $reply ) {
 			if ( ! $reply->hasSuperthread() ) {
 				throw new MWException( "Post ".$this->id().
-				" has contaminated reply ".$reply->id()."\n" );
+				" has contaminated reply ".$reply->id().
+				". Found no superthread.");
 			}
 			
 			if ( $reply->superthread()->id() != $this->id() ) {
 				throw new MWException( "Post ". $this->id() . 
-				" has contaminated reply ".$reply->id()."\n" );
+				" has contaminated reply ".$reply->id().
+				". Expected ".$this->id().", got ".
+				$reply->superthread()->id() );
 			}
 		}
 	}
@@ -1292,7 +1295,7 @@ class Thread {
 	function setSortKey( $k = null ) {
 		if ( is_null( $k ) ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			$k = wfTimestampNow( TS_DB );
+			$k = wfTimestamp( TS_MW );
 		}
 		
 		$this->sortkey = $k;
@@ -1325,7 +1328,7 @@ class Thread {
 		}
 	}
 	
-	public function split( $newSubject, $reason = '' ) {
+	public function split( $newSubject, $reason = '', $newSortkey = null ) {
 		$oldTopThread = $this->topmostThread();
 		$oldParent = $this->superthread();
 			
@@ -1333,15 +1336,21 @@ class Thread {
 		
 		$oldParent->removeReply( $this );
 		
+		$bump = null;
+		if ( !is_null($newSortkey) ) {
+			$this->setSortkey( $newSortkey );
+			$bump = false;
+		}
+		
 		$oldTopThread->commitRevision( Threads::CHANGE_SPLIT_FROM, $this, $reason );
-		$this->commitRevision( Threads::CHANGE_SPLIT, null, $reason );
+		$this->commitRevision( Threads::CHANGE_SPLIT, null, $reason, $bump );
 	}
 	
 	public function moveToParent( $newParent, $reason = '' ) {
 		$newSubject = $newParent->subject();
 		
 		$oldTopThread = $newParent->topmostThread();
-		$oldParent = $newParent->superthread();
+		$oldParent = $this->superthread();
 			
 		Thread::recursiveSet( $this, $newSubject, $newParent, $newParent );
 

@@ -25,6 +25,7 @@ class ThreadHistoryPager extends TablePager {
 			Threads::CHANGE_MERGED_TO => wfMsgNoTrans( 'lqt_hist_merged_to' ),
 			Threads::CHANGE_SPLIT_FROM => wfMsgNoTrans( 'lqt_hist_split_from' ),
 			Threads::CHANGE_ROOT_BLANKED => wfMsgNoTrans( 'lqt_hist_root_blanked' ),
+			Threads::CHANGE_ADJUSTED_SORTKEY => wfMsgNoTrans( 'lqt_hist_adjusted_sortkey' ),
 		);
 	}
 	

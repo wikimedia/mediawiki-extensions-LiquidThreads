@@ -855,6 +855,16 @@ class LqtView {
 				'lqt-ajax-invalid-subject',
 				'lqt-save-subject-error-unknown',
 				'lqt-cancel-subject-edit',
+				'lqt-drag-activate',
+				'lqt-drag-drop-zone',
+				'lqt-drag-confirm',
+				'lqt-drag-reparent',
+				'lqt-drag-split',
+				'lqt-drag-setsortkey',
+				'lqt-drag-bump',
+				'lqt-drag-save',
+				'lqt-drag-reason',
+				'lqt-drag-subject',
 			);
 				
 		$data = array();
@@ -1454,6 +1464,10 @@ class LqtView {
 						wfTimestamp( TS_MW, $thread->modified() ),
 						array( 'id' => 'lqt-thread-modified-' . $thread->id(),
 							'class' => 'lqt-thread-modified' ) );
+			$html .= Xml::hidden( 'lqt-thread-sortkey',
+						$thread->sortkey(),
+						array( 'id' => 'lqt-thread-sortkey-' . $thread->id() )
+					);
 		}
 		
 		// Add the thread's title

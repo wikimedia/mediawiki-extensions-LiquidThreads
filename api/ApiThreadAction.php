@@ -12,9 +12,10 @@ class ApiThreadAction extends ApiBase {
 			'markunread' => 'actionMarkUnread',
 			'split' => 'actionSplit',
 			'merge' => 'actionMerge',
-			'reply' => 'actionReply', // Not implemented
+			'reply' => 'actionReply',
 			'newthread' => 'actionNewThread',
 			'setsubject' => 'actionSetSubject',
+			'setsortkey' => 'actionSetSortkey',
 		);
 	}
 	
@@ -35,6 +36,9 @@ class ApiThreadAction extends ApiBase {
 				"timestamp. If false, does not set it. Default depends on ".
 				"the action being taken. Presently only works for newthread ".
 				"and reply actions.",
+			'sortkey' => "Specifies the timestamp to which to set a thread's ".
+					"sort  key. Must be in the form YYYYMMddhhmmss, ".
+					"a unix timestamp or 'now'.",
 		);
 	}
 	
@@ -60,6 +64,7 @@ class ApiThreadAction extends ApiBase {
 			'text' => null,
 			'render' => null,
 			'bump' => null,
+			'sortkey' => null,
 		);
 	}
 	
@@ -192,8 +197,17 @@ class ApiThreadAction extends ApiBase {
 			$reason = $params['reason'];
 		}
 		
+		// Check if they specified a sortkey
+		$sortkey = null;
+		if ( !empty($params['sortkey']) ) {
+			$ts = $params['sortkey'];
+			$ts = wfTimestamp( TS_MW, $ts );
+			
+			$sortkey = $ts;
+		}
+		
 		// Do the split
-		$thread->split( $subject, $reason );
+		$thread->split( $subject, $reason, $sortkey );
 		
 		$result = array();
 		$result[] =
@@ -576,8 +590,60 @@ class ApiThreadAction extends ApiBase {
 			'action' => 'setsubject',
 			'result' => 'success',
 			'thread-id' => $thread->id(),
-			'thread-title' => $thread->title(),
+			'thread-title' => $thread->title()->getPrefixedText(),
 			'new-subject' => $subject,
+		);
+		
+		$result = array( 'thread' => $result );
+		
+		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+	
+	public function actionSetSortkey( $threads, $params ) {
+		// First check for threads
+		if ( !count($threads) ) {
+			$this->dieUsage( 'You must specify a thread to set the sortkey of',
+					'no-specified-threads' );
+			return;
+		}
+		
+		// Validate timestamp
+		if ( empty( $params['sortkey'] ) ) {
+			$this->dieUsage( 'You must specify a valid timestamp for the sortkey'.
+				'parameter. It should be in the form YYYYMMddhhmmss, a '.
+				'unix timestamp or "now".', 'invalid-sortkey' );
+			return;
+		}
+		
+		$ts = $params['sortkey'];
+		
+		if ($ts == 'now') $ts = wfTimestampNow();
+		
+		$ts = wfTimestamp( TS_MW, $ts );
+		
+		if ( !$ts ) {
+			$this->dieUsage( 'You must specify a valid timestamp for the sortkey'.
+				'parameter. It should be in the form YYYYMMddhhmmss, a '.
+				'unix timestamp or "now".', 'invalid-sortkey' );
+			return;
+		}
+		
+		$reason = null;
+		
+		if ( isset( $params['reason'] ) ) {
+			$reason = $params['reason'];
+		}
+		
+		$thread = array_pop($threads);
+		$thread->setSortkey( $ts );
+		$thread->commitRevision( Threads::CHANGE_ADJUSTED_SORTKEY, null, $reason );
+		
+		$result = array(
+			'action' => 'setsortkey',
+			'result' => 'success',
+			'thread-id' => $thread->id(),
+			'thread-title' => $thread->title()->getPrefixedText(),
+			'new-sortkey' => $ts,
 		);
 		
 		$result = array( 'thread' => $result );
