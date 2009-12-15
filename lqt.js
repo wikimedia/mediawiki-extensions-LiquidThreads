@@ -630,7 +630,6 @@ var liquidThreads = {
 		
 		$j(threadContainer).data( 'thread-id', threadId );
 		$j(threadWrapper).data( 'thread-id', threadId );
-		console.log( "Set up thread "+threadId );
 		
 		// Set up reply link
 		var replyLinks = $j(threadWrapper).find('.lqt-add-reply');
