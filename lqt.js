@@ -114,13 +114,9 @@ var liquidThreads = {
 		
 		var finishShow = function() {
 			// Scroll to the textbox
-			var targetOffset = $j(container).find('#wpTextbox1').offset().top;
+			var targetOffset = $j(container).offset().top;
 			var windowHeight = $j(window).height();
 			var editBoxHeight = $j(container).height();
-			
-			if (!targetOffset) {
-				targetOffset = $j(container).offset().top;
-			}
 			
 			var scrollOffset = targetOffset - windowHeight + editBoxHeight;
 			
