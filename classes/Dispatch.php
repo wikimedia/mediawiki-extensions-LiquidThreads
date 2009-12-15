@@ -104,6 +104,8 @@ class LqtDispatch {
 			$isTalkPage = $override;
 		}
 		
+		$isTalkPage = $isTalkPage && !$title->isRedirect();
+		
 		return $isTalkPage;
 	}
 	
