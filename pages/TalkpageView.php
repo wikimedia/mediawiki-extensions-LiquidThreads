@@ -284,7 +284,6 @@ class TalkpageView extends LqtView {
 		$threads = $this->getPageThreads( $pager );
 
 		if ( count( $threads ) > 0 ) {
-			$html .= Xml::element( 'br', array( 'style' => 'clear: both;' ) );
 			$html .= $this->getTOC( $threads );
 		} else {
 			$html .= Xml::tags( 'div', array( 'class' => 'lqt-no-threads' ),
