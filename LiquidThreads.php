@@ -162,7 +162,7 @@ $wgLogActionsHandlers['liquidthreads/move'] = 'lqtFormatMoveLogEntry';
 
 // Preferences
 $wgDefaultUserOptions['lqtnotifytalk'] = false;
-$wgDefaultUserOptions['lqtdisplaydepth'] = 6;
+$wgDefaultUserOptions['lqtdisplaydepth'] = 2;
 $wgDefaultUserOptions['lqtdisplaycount'] = 25;
 $wgDefaultUserOptions['lqtcustomsignatures'] = true;
 
