@@ -100,7 +100,8 @@ class LqtDispatch {
 				
 		$override = self::getUserLqtOverride( $title->getArticleId() );
 		
-		if ( !is_null($override) ) {
+		global $wgLiquidThreadsAllowUserControl;
+		if ( !is_null($override) && $wgLiquidThreadsAllowUserControl ) {
 			$isTalkPage = $override;
 		}
 		

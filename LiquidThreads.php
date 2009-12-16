@@ -215,3 +215,6 @@ $wgLiquidThreadsMigrate = false;
 
 /** The default number of threads per page */
 $wgLiquidThreadsDefaultPageLimit = 20;
+
+/** Whether or not to allow users to activate/deactivate LiquidThreads per-page */
+$wgLiquidThreadsAllowUserControl = true;

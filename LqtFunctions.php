@@ -43,6 +43,10 @@ function lqtFormatMoveLogEntry( $type, $action, $title, $sk, $parameters ) {
 }
 
 function lqtSetupParserFunctions( &$parser ) {
+	global $wgLiquidThreadsAllowUserControl;
+	
+	if (!$wgLiquidThreadsAllowUserControl) return true;
+
 	$parser->setFunctionHook(
 		'useliquidthreads',
 		array( 'LqtParserFunctions', 'useLiquidThreads' )
