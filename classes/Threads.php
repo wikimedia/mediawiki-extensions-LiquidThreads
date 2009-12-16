@@ -191,9 +191,10 @@ class Threads {
 	}
 	
 	static function newReplyTitle( $thread, $user ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		$topThread = $thread->topmostThread();
 		
-		$base = $topThread->title()->getText() . '/reply';
+		$base = $topThread->title()->getText() . '/' . wfMsg('lqt-reply-subpage');
 		
 		return self::incrementedTitle( $base, NS_LQT_THREAD );
 	}

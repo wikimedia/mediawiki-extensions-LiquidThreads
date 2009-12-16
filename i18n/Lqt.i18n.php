@@ -306,6 +306,9 @@ The signature is shown automatically.',
 	'lqt-edit-bump-tooltip' => 'Move this thread to the top of its discussion page',
 	
 	'lqt-historicalrevision-error' => 'The revision you have selected is corrupt, and cannot be viewed.',
+	
+	// Reply subpage name
+	'lqt-reply-subpage' => 'reply',
 );
 
 /** Message documentation (Message documentation)
