@@ -25,6 +25,9 @@ CREATE TABLE /*$wgDBprefix*/thread (
   
   -- Reply count, -1 means uninitialised.
   thread_replies int(8) DEFAULT -1,
+  
+  -- Signature
+  thread_signature TINYBLOB NULL,
 
   PRIMARY KEY thread_id (thread_id),
   UNIQUE INDEX thread_root_page (thread_root),

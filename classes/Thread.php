@@ -32,6 +32,7 @@ class Thread {
 	protected $subject;
 	protected $authorId;
 	protected $authorName;
+	protected $signature;
 	
 	protected $allDataLoaded;
 	
@@ -56,7 +57,7 @@ class Thread {
 	
 	static function create( $root, $article, $superthread = null,
     				$type = Threads::TYPE_NORMAL, $subject = '',
-    				$summary = '', $bump = null ) {
+    				$summary = '', $bump = null, $signature = null ) {
 
 		$dbw = wfGetDB( DB_MASTER );
 		
@@ -86,6 +87,10 @@ class Thread {
 		$thread->setArticle( $article );
 		$thread->setSubject( $subject );
 		$thread->setType( $type );
+		
+		if ( !is_null($signature) ) {
+			$thread->setSignature( $signature );
+		}
 		
 		$thread->insert();
 		
@@ -242,6 +247,7 @@ class Thread {
 			'thread_editedness' => $this->editedness,
 			'thread_sortkey' => $this->sortkey,
 			'thread_replies' => $this->replyCount,
+			'thread_signature' => $this->signature,
 		);
 	}
 	
@@ -439,6 +445,7 @@ class Thread {
 					'thread_author_name' => 'authorName',
 					'thread_sortkey' => 'sortkey',
 					'thread_replies' => 'replyCount',
+					'thread_signature' => 'signature',
 				);
 						
 		foreach ( $dataLoads as $db_field => $member_field ) {
@@ -581,64 +588,6 @@ class Thread {
 		}
 		
 		$userIds = array_keys( $userIds );
-		
-		// Pull signature data and pre-cache in View object.		
-		if ( count( $userIds ) ) {
-			$signatureDataCache = array_fill_keys( $userIds, array() );
-			$res = $dbr->select( 'user_properties',
-						array( 'up_user', 'up_property', 'up_value' ),
-						array( 'up_property' => array( 'nickname', 'fancysig' ),
-								'up_user' => $userIds ),
-						__METHOD__ );
-			
-			foreach ( $res as $row ) {
-				$signatureDataCache[$row->up_user][$row->up_property] = $row->up_value;
-			}
-			
-			global $wgParser, $wgOut, $wgTitle;
-			
-			$setTitle = false;
-			if ( !$wgOut->getTitle() ) {
-				$setTitle = true;
-			}
-			
-			// Parser gets antsy about parser options here if it hasn't parsed anything before.
-			$wgParser->clearState();
-			$wgParser->setTitle( $wgTitle );
-			$wgParser->mOptions = new ParserOptions;
-			
-			foreach ( $userIds as $uid ) {
-				$user = User::newFromId( $uid ); // Should pull from UID cache.
-				$name = $user->getName();
-				
-				// Grab sig data
-				$nickname = null;
-				$fancysig = (bool)User::getDefaultOption( 'fancysig' );
-				
-				if ( isset( $signatureDataCache[$uid]['nickname'] ) )
-					$nickname = $signatureDataCache[$uid]['nickname'];
-				if ( isset( $signatureDataCache[$uid]['fancysig'] ) )
-					$fancysig = $signatureDataCache[$uid]['fancysig'];
-					
-				// Generate signature from Parser
-				
-				if ( $setTitle ) {
-					$user_t = Title::makeTitleSafe( NS_USER, $name );
-					$wgOut->setTitle( $user_t );
-				}
-				
-				$title = Title::newFromText( 'Main Page' );
-
-				$sig = $wgParser->preSaveTransform( $nickname, $title,
-								$user, $wgParser->mOptions,
-								false );
-				$sig = $wgParser->getUserSig( $user, $nickname, $fancysig );
-				$sig = $wgOut->parseInline( $sig );
-				
-				// Save into LqtView for later use.
-				LqtView::$userSignatureCache[$name] = $sig;
-			}
-		}
 		
 		// Pull link batch data.
 		$linkBatch->execute();
@@ -821,6 +770,16 @@ class Thread {
 			
 			// There are probably problems on the rest of the article, trigger a small update
 			Threads::synchroniseArticleData( $this->article, 100, 'cascade' );
+		}
+		
+		// Check for unfilled signature field. This field hasn't existed until
+		//  recently.
+		if ( is_null( $this->signature ) ) {
+			// Grab our signature.
+			$sig = LqtView::getUserSignature( $this->author() );
+
+			$set['thread_signature'] = $sig;
+			$this->setSignature( $sig );
 		}
 		
 		if ( count( $set ) ) {
@@ -1437,5 +1396,14 @@ class Thread {
 		}
 		
 		return true;
+	}
+	
+	public function signature() {
+		return $this->signature;
+	}
+	
+	public function setSignature($sig) {
+		$sig = LqtView::signaturePST( $sig, $this->author() );
+		$this->signature = $sig;
 	}
 }

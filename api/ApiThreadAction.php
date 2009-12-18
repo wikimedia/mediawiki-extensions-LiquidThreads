@@ -39,6 +39,8 @@ class ApiThreadAction extends ApiBase {
 			'sortkey' => "Specifies the timestamp to which to set a thread's ".
 					"sort  key. Must be in the form YYYYMMddhhmmss, ".
 					"a unix timestamp or 'now'.",
+			'signature' => 'Specifies the signature to use for that post. Can be '.
+					'NULL to specify the default signature',
 		);
 	}
 	
@@ -65,6 +67,7 @@ class ApiThreadAction extends ApiBase {
 			'render' => null,
 			'bump' => null,
 			'sortkey' => null,
+			'signature' => null,
 		);
 	}
 	
@@ -341,6 +344,11 @@ class ApiThreadAction extends ApiBase {
 			$summary = $params['reason'];
 		}
 		
+		$signature = null;
+		if ( isset( $params['signature'] ) ) {
+			$signature = $params['signature'];
+		}
+		
 		// Inform hooks what we're doing
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
@@ -379,7 +387,7 @@ class ApiThreadAction extends ApiBase {
 		$title->resetArticleID( $articleId );
 		
 		$thread = LqtView::postEditUpdates( 'new', null, $article, $talkpage,
-					$subject, $summary, null, $text, $bump );
+					$subject, $summary, null, $text, $bump, $signature );
 
 		$maxLag = wfGetLB()->getMaxLag();
 		$maxLag = $maxLag[1];
@@ -446,6 +454,11 @@ class ApiThreadAction extends ApiBase {
 			$summary = $params['reason'];
 		}
 		
+		$signature = null;
+		if ( isset( $params['signature'] ) ) {
+			$signature = $params['signature'];
+		}
+		
 		// Grab data from parent
 		$talkpage = $replyTo->article();
 		$subject = $replyTo->subject();
@@ -492,7 +505,7 @@ class ApiThreadAction extends ApiBase {
 		$title->resetArticleID( $articleId );
 		
 		$thread = LqtView::postEditUpdates( 'reply', $replyTo, $article, $talkpage,
-					$subject, $summary, null, $text, $bump );
+					$subject, $summary, null, $text, $bump, $signature );
 		
 		$maxLag = wfGetLB()->getMaxLag();
 		$maxLag = $maxLag[1];

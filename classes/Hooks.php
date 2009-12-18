@@ -7,80 +7,6 @@ class LqtHooks {
 	public static $editAppliesTo = null;
 	public static $editArticle = null;
 	public static $editTalkpage = null;
-	
-	static function customizeOldChangesList( &$changeslist, &$s, $rc ) {
-		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD )
-			return true;
-	
-		$thread = Threads::withRoot( new Article( $rc->getTitle() ) );
-		if ( !$thread ) return true;
-
-		LqtView::addJSandCSS();
-		wfLoadExtensionMessages( 'LiquidThreads' );
-
-		if ( $rc->mAttribs['rc_new'] ) {
-			global $wgOut;
-			
-			$sig = "";
-			$changeslist->insertUserRelatedLinks( $sig, $rc );
-
-			// This should be stored in RC.
-			$rev = Revision::newFromId( $rc->mAttribs['rc_this_oldid'] );
-			$quote = $rev->getText();
-			$link = '';
-			if ( strlen( $quote ) > 230 ) {
-				$sk = $changeslist->skin;
-				$quote = substr( $quote, 0, 200 );
-				$link = $sk->link( $thread->title(), wfMsg( 'lqt_rc_ellipsis' ),
-						array( 'class' => 'lqt_rc_ellipsis' ), array(), array( 'known' ) );
-			}
-			
-			$quote = htmlspecialchars( $quote ) . $link;
-
-			if ( $thread->isTopmostThread() ) {
-				$message_name = 'lqt_rc_new_discussion';
-			} else {
-				$message_name = 'lqt_rc_new_reply';
-			}
-			
-			$tmp_title = $thread->article()->getTitle();
-			$tmp_title->setFragment( '#' . LqtView::anchorName( $thread ) );
-			
-			// Make sure it points to the right page. The Pager seems to use the DB
-			//  representation of a timestamp for its offset field, odd.
-			$dbr = wfGetDB( DB_SLAVE );
-			$offset = wfTimestamp( TS_UNIX, $thread->topmostThread()->sortkey() ) + 1;
-			$offset = $dbr->timestamp( $offset );
-
-			$thread_link = $changeslist->skin->link( $tmp_title,
-				htmlspecialchars( $thread->subjectWithoutIncrement() ),
-				array(), array( 'offset' => $offset ), array( 'known' ) );
-
-			$talkpage_link = $changeslist->skin->link(
-				$thread->article()->getTitle(),
-				null,
-				array(), array(), array( 'known' ) );
-
-			$s = wfMsg( $message_name, $thread_link, $talkpage_link, $sig )
-				. Xml::tags( 'blockquote', array( 'class' => 'lqt_rc_blockquote' ), $quote );
-				
-			$classes = array();
-			$changeslist->insertTags( $s, $rc, $classes );
-			$changeslist->insertExtra( $s, $rc, $classes );
-		} else {
-			// Add whether it was original author.
-			if ( $thread->author()->getName() != $rc->mAttribs['rc_user_text'] ) {
-				$appendix = Xml::tags( 'span',
-										array( 'class' => 'lqt_rc_author_notice ' .
-														'lqt_rc_author_notice_others' ),
-										wfMsgExt( 'lqt_rc_author_others', 'parseinline' )
-									);
-			
-				$s .= ' ' . $appendix;
-			}
-		}
-		return true;
-	}
 
 	static function setNewtalkHTML( $skintemplate, $tpl ) {
 		global $wgUser, $wgTitle, $wgOut;
@@ -146,14 +72,6 @@ class LqtHooks {
 	static function getPreferences( $user, &$preferences ) {
 		global $wgEnableEmail;
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		
-		// Whether or not to show user signatures
-		$preferences['lqtcustomsignatures'] =
-			array(
-				'type' => 'toggle',
-				'label-message' => 'lqt-preference-custom-signatures',
-				'section' => 'lqt',
-			);
 		
 		if ( $wgEnableEmail ) {
 			$preferences['lqtnotifytalk'] =
@@ -351,7 +269,6 @@ class LqtHooks {
 		$wgExtNewTables[] = array( 'user_message_state', "$dir/lqt.sql" );
 		$wgExtNewTables[] = array( 'thread_history', "$dir/schema-changes/thread_history_table.sql" );
 		
-		
 		$wgExtNewFields[] = array( "thread", "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql" );
 		$wgExtNewFields[] = array( "thread", "thread_article_title", "$dir/schema-changes/split-thread_article.sql" );
 		$wgExtNewFields[] = array( "thread", "thread_ancestor", "$dir/schema-changes/normalise-ancestry.sql" );
@@ -365,6 +282,7 @@ class LqtHooks {
 		$wgExtNewFields[] = array( "thread", "thread_sortkey", "$dir/schema-changes/new-sortkey.sql" );
 		$wgExtNewFields[] = array( 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql" );
 		$wgExtNewFields[] = array( 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql" );
+		$wgExtNewFields[] = array( 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql" );
 		
 		$wgExtNewIndexes[] = array( 'thread', 'thread_summary_page', '(thread_summary_page)' );
 		

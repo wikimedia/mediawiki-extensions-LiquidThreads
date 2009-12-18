@@ -27,9 +27,6 @@ class LqtView {
 	protected $sort_order = LQT_NEWEST_CHANGES;
 	
 	static $stylesAndScriptsDone = false;
-	
-	static $userSignatureCache = array();
-	static $boringSignatureCache = array();
 
 	function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		$this->article = $article;
@@ -460,10 +457,32 @@ class LqtView {
 			Xml::hidden( 'lqt_nonce', wfGenerateToken() ) .
 			Xml::hidden( 'offset', $offset );
 		
+		$signatureText = $this->request->getVal( 'wpLqtSignature', null );
+		
+		if ( is_null($signatureText) ) {
+			if ( !$thread && $edit_type != 'summarize' ) {
+				$signatureText = LqtView::getUserSignature( $this->user );
+			} else {
+				$signatureText = $thread->signature();
+			}
+		}
+		
+		$signatureHTML = LqtView::parseSignature( $signatureText );
+		
+		// Signature edit box
+		$signaturePreview = Xml::tags( 'span',
+						array( 'class' => 'lqt-signature-preview',
+							'style' => 'display: none;' ),
+						$signatureHTML );
+		$signatureEditBox = Xml::input( 'wpLqtSignature', 45, $signatureText,
+						array( 'class' => 'lqt-signature-edit' ) );
+		
+		$signatureEditor = $signaturePreview . $signatureEditBox;
+		
 		$e->editFormTextAfterContent .=
-			Xml::tags( 'p', null, $this->getSignature( $this->user ) );
+			$signatureEditor;
 		$e->previewTextAfterContent .=
-			Xml::tags( 'p', null, $this->getSignature( $this->user ) );
+			Xml::tags( 'p', null, $signatureHTML );
 			
 		// Add a one-time random string to a hidden field. Store the random string
 		//  in memcached on submit and don't allow the edit to go ahead if it's already
@@ -517,7 +536,7 @@ class LqtView {
 			$thread = self::postEditUpdates(
 					$edit_type, $edit_applies_to, $article,
 					$this->article,	$subject, $e->summary, $thread,
-					$e->textbox1, $bump
+					$e->textbox1, $bump, $signatureText
 				);
 			
 			if ( $submitted_nonce && $nonce_key ) {
@@ -542,16 +561,23 @@ class LqtView {
 	
 	static function postEditUpdates( $edit_type, $edit_applies_to, $edit_page, $article,
 					$subject, $edit_summary, $thread, $new_text,
-					$bump = null ) {
+					$bump = null, $signature = null ) {
 		// Update metadata - create and update thread and thread revision objects as
 		//  appropriate.
+		
+		$noSignature = false;
+		if ( is_null($signature) ) {
+			global $wgUser;
+			$signature = LqtView::getUserSignature( $wgUser );
+			$noSignature = true;
+		}
 
 		if ( $edit_type == 'reply' ) {
 			$subject = $edit_applies_to->subject();
 			
 			$thread = Thread::create( $edit_page, $article, $edit_applies_to,
 							Threads::TYPE_NORMAL, $subject,
-							$edit_summary, $bump );
+							$edit_summary, $bump, $signature );
 			
 			global $wgUser;
 			NewMessages::markThreadAsReadByUser( $edit_applies_to, $wgUser );
@@ -566,12 +592,16 @@ class LqtView {
 					? Threads::CHANGE_EDITED_ROOT
 					: Threads::CHANGE_ROOT_BLANKED;
 			
+			if ( $signature && !$noSignature ) {
+				$thread->setSignature( $signature );
+			}
+			
 			// Add the history entry.
 			$thread->commitRevision( $type, $thread, $edit_summary, $bump );
 		} else {
 			$thread = Thread::create( $edit_page, $article, null,
 							Threads::TYPE_NORMAL, $subject,
-							$edit_summary );
+							$edit_summary, null, $signature );
 		}
 		
 		return $thread;
@@ -865,6 +895,8 @@ class LqtView {
 				'lqt-drag-save',
 				'lqt-drag-reason',
 				'lqt-drag-subject',
+				'lqt-edit-signature',
+				'lqt-preview-signature',
 			);
 				
 		$data = array();
@@ -1042,9 +1074,9 @@ class LqtView {
 		global $wgUser, $wgLang;
 		$sk = $wgUser->getSkin();
 		
-		$author = $thread->author();
-		
-		$signature = $this->getSignature( $author );
+		$signature = $thread->signature();
+		$signature = LqtView::parseSignature( $signature );		
+
 		$signature = Xml::tags( 'span', array( 'class' => 'lqt-thread-user-signature' ),
 					$signature );
 					
@@ -1643,29 +1675,40 @@ class LqtView {
 		}
 	}
 	
-	function getBoringSignature( $user, $uid, $name ) {
-		if ( isset( self::$boringSignatureCache[$name] ) ) {
-			return self::$boringSignatureCache[$name];
-		}
-		
-		$msg = ( $uid > 0 ) ? 'signature' : 'signature-anon';
-		
-		$sig = wfMsgExt( $msg, 'parseinline', array( $name, $name ) );
-		
-		self::$boringSignatureCache[$name] = $sig;
-		
-		return $sig;
-	}
-	
-	function getUserSignature( $user, $uid, $name ) {
-		if ( isset( self::$userSignatureCache[$name] ) ) {
-			return self::$userSignatureCache[$name];
-		}
-		
+	static function getUserSignature( $user, $uid = null ) {
+		global $wgParser, $wgOut, $wgTitle;
 		if ( !$user ) {
 			$user = User::newFromId( $uid );
 		}
 		
+		$sig = $wgParser->getUserSig( $user );
+		
+		return $sig;
+	}
+	
+	static function parseSignature( $sig ) {
+		global $wgParser, $wgOut, $wgTitle;
+		
+		static $parseCache = array();
+		$sigKey = md5($sig);
+		
+		if ( isset( $parseCache[$sigKey] ) ) {
+			return $parseCache[$sigKey];
+		}
+		
+		// Parser gets antsy about parser options here if it hasn't parsed anything before.
+		$wgParser->clearState();
+		$wgParser->setTitle( $wgTitle );
+		$wgParser->mOptions = new ParserOptions;
+		
+		$sig = $wgOut->parseInline( $sig );
+		
+		$parseCache[$sigKey] = $sig;
+		
+		return $sig;
+	}
+	
+	static function signaturePST( $sig, $user ) {
 		global $wgParser, $wgOut, $wgTitle;
 		
 		// Parser gets antsy about parser options here if it hasn't parsed anything before.
@@ -1673,12 +1716,8 @@ class LqtView {
 		$wgParser->setTitle( $wgTitle );
 		$wgParser->mOptions = new ParserOptions;
 		
-		$sig = $wgParser->getUserSig( $user );
-		$sig = $wgParser->preSaveTransform( $sig, $this->title, $user,
+		$sig = $wgParser->preSaveTransform( $sig, $wgTitle, $user,
 							$wgParser->mOptions, false );
-		$sig = $wgOut->parseInline( $sig );
-		
-		self::$userSignatureCache[$name] = $sig;
 		
 		return $sig;
 	}

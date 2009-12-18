@@ -125,6 +125,16 @@ var liquidThreads = {
 			$j(container).find('#wpTextbox1').focus();//.autogrow();
 			// Focus the subject field if there is one. Overrides previous line.
 			$j(container).find('#lqt_subject_field').focus();
+			
+			// Update signature editor
+			$j(container).find('input[name=wpLqtSignature]').hide();
+			$j(container).find('.lqt-signature-preview').show();
+			var editLink = $j('<a class="lqt-signature-edit-button"/>' );
+			editLink.text( wgLqtMessages['lqt-edit-signature'] );
+			editLink.click( liquidThreads.handleEditSignature );
+			editLink.attr('href', '#');
+			$j(container).find('.lqt-signature-preview').after(editLink);
+			editLink.before(' ');
 		}
 		
 		var finishSetup = function() {
@@ -158,7 +168,7 @@ var liquidThreads = {
 			// Check for live preview
 			if ( $j('#wpLivePreview').length ) {
 				$j.getScript( stylepath+'/common/preview.js',
-								function() { setupLivePreview(); } );
+						function() { setupLivePreview(); } );
 			}
 		};
 		
@@ -845,11 +855,19 @@ var liquidThreads = {
 	},
 	
 	'handleAJAXSave' : function( e ) {
+		e.preventDefault();
 		var editform = $j(this).closest('.lqt-edit-form');
 		var type = editform.find('input[name=lqt_method]').val();
 		
 		var text = editform.find('#wpTextbox1').val();
 		var summary = editform.find('#wpSummary').val();
+		
+		var signature;
+		if ( editform.find('input[name=wpLqtSignature]').length ) {
+			signature = editform.find('input[name=wpLqtSignature]').val();
+		} else {
+			signature = undefined
+		}
 		
 		// Check if summary is undefined
 		if (summary === undefined) {
@@ -963,12 +981,12 @@ var liquidThreads = {
 		
 		if ( type == 'reply' ) {			
 			liquidThreads.doReply( replyThread, text, summary,
-						doneCallback, bump );
+						doneCallback, bump, signature );
 			
 			e.preventDefault();
 		} else if ( type == 'talkpage_new_thread' ) {
 			liquidThreads.doNewThread( wgPageName, subject, text, summary,
-					doneCallback, bump );
+					doneCallback, bump, signature );
 			
 			e.preventDefault();
 		}
@@ -985,7 +1003,7 @@ var liquidThreads = {
 			} );
 	},
 	
-	'doNewThread' : function( talkpage, subject, text, summary, callback, bump ) {
+	'doNewThread' : function( talkpage, subject, text, summary, callback, bump, signature ) {
 		liquidThreads.getToken(
 			function(token) {
 				var newTopicParams =
@@ -1002,6 +1020,10 @@ var liquidThreads = {
 					'bump' : bump
 				};
 				
+				if ( typeof signature != 'undefined' ) {
+					newTopicParams.signature = signature;
+				}
+				
 				$j.post( wgScriptPath+'/api'+wgScriptExtension, newTopicParams,
 					function(data) {
 						if (callback) {
@@ -1011,7 +1033,7 @@ var liquidThreads = {
 			} );
 	},
 	
-	'doReply' : function( thread, text, summary, callback, bump ) {
+	'doReply' : function( thread, text, summary, callback, bump, signature ) {
 		liquidThreads.getToken(
 			function(token) {
 				var replyParams =
@@ -1026,6 +1048,10 @@ var liquidThreads = {
 					'reason' : summary,
 					'bump' : bump
 				};
+				
+				if ( typeof signature != 'undefined' ) {
+					replyParams.signature = signature;
+				}
 				
 				$j.post( wgScriptPath+'/api'+wgScriptExtension, replyParams,
 					function(data) {
@@ -1459,6 +1485,60 @@ var liquidThreads = {
 			
 			liquidThreads.apiRequest( apiRequest, doneCallback );
 		}
+	},
+	
+	'handleEditSignature' : function(e) {
+		e.preventDefault();
+		
+		var container = $j(this).parent();
+		
+		container.find('.lqt-signature-preview').hide();
+		container.find('input[name=wpLqtSignature]').show();
+		$j(this).hide();
+		
+		// Add a save button
+		var saveButton = $j('<a href="#"/>');
+		saveButton.text( wgLqtMessages['lqt-preview-signature'] );
+		saveButton.click( liquidThreads.handlePreviewSignature );
+		
+		container.find('input[name=wpLqtSignature]').after(saveButton);
+	},
+	
+	'handlePreviewSignature' : function(e) {
+		e.preventDefault();
+		
+		var container = $j(this).parent();
+		
+		var spinner = $j('<span class="mw-small-spinner"/>');
+		$j(this).replaceWith(spinner);
+
+		var textbox = container.find('input[name=wpLqtSignature]');
+		var preview = container.find('.lqt-signature-preview');
+		
+		textbox.hide();
+		var text = textbox.val();
+
+		var apiReq =
+		{
+			'action' : 'parse',
+			'text' : text,
+			'pst' : '1',
+			'prop' : 'text'
+		};
+		
+		liquidThreads.apiRequest( function() { return apiReq; },
+			function(data) {
+				var html = $j(data.parse.text['*'].trim());
+				
+				if (html.length == 2) { // Not 1, because of the NewPP report
+					html = html.contents();
+				}
+				
+				preview.empty().append(html);
+				preview.show();
+				spinner.remove();
+				container.find('.lqt-signature-edit-button').show();
+			} );
 	}
 }
 

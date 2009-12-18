@@ -271,6 +271,8 @@ The signature is shown automatically.',
 	'lqt-drag-save' => 'Confirm',
 	'lqt-drag-reason' => 'Reason:',
 	'lqt-drag-subject' => 'Subject for new thread:',
+	'lqt-edit-signature' => '(edit signature)',
+	'lqt-preview-signature' => '(preview)',
 
 	// Feeds
 	'lqt-feed-title-all' => '{{SITENAME}} — New posts',
