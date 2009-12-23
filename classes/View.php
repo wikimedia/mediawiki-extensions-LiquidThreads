@@ -1713,6 +1713,8 @@ class LqtView {
 			$user = User::newFromId( $uid );
 		}
 
+		$wgParser->mOptions = new ParserOptions;
+
 		$sig = $wgParser->getUserSig( $user );
 
 		return $sig;
