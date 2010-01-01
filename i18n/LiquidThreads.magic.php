@@ -9,6 +9,17 @@ $magicWords['en'] = array(
 
 $magicWords['ar'] = array(
 	'useliquidthreads'   => array( '0', 'استخدم_الخيوط_السائلة', 'UseLiquidThreads' ),
+	'lqtpagelimit'       => array( '0', 'حد_صفحة_خس', 'lqtpagelimit' ),
+);
+
+$magicWords['arz'] = array(
+	'useliquidthreads'   => array( '0', 'استخدم_الخيوط_السائلة', 'UseLiquidThreads' ),
+	'lqtpagelimit'       => array( '0', 'حد_صفحة_خس', 'lqtpagelimit' ),
+);
+
+$magicWords['bs'] = array(
+	'useliquidthreads'   => array( '0', 'KoristiTekuceNizove', 'UseLiquidThreads' ),
+	'lqtpagelimit'       => array( '0', 'tnogranicenjestranica', 'lqtpagelimit' ),
 );
 
 $magicWords['nds-nl'] = array(
@@ -17,6 +28,7 @@ $magicWords['nds-nl'] = array(
 
 $magicWords['nl'] = array(
 	'useliquidthreads'   => array( '0', 'LiquidThreadsGebruiken', 'UseLiquidThreads' ),
+	'lqtpagelimit'       => array( '0', 'lqtaginalimiet', 'lqtpagelimit' ),
 );
 
 $magicWords['ru'] = array(
