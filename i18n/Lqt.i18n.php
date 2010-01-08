@@ -8428,12 +8428,14 @@ $messages['kn'] = array(
 
 /** Korean (한국어)
  * @author FriedC
+ * @author Klutzy
  * @author Kwj2772
  * @author Ryuch
  */
 $messages['ko'] = array(
 	'lqt-desc' => '토론 문서에서 스레드를 이용하는 토론을 이용',
-	'lqt_movethread' => '다른 페이지로 옮기기',
+	'lqt_movethread' => '스레드를 다른 페이지로 이동',
+	'lqt_deletethread' => '스레드 삭제/복구',
 	'lqt_toc_thread_title' => '스레드 제목',
 	'lqt_toc_thread_replycount' => '답글',
 	'lqt_toc_thread_modified' => '마지막으로 수정된 시각',
@@ -8457,6 +8459,7 @@ $messages['ko'] = array(
 	'lqt_hist_view_whole_thread' => '전체 스레드의 역사 보기',
 	'lqt_hist_merged_from' => '[[$1|답글]]이 다른 스레드로 옮겨짐',
 	'lqt_hist_merged_to' => '[[$1|답글]]이 다른 스레드에서 옮겨옴',
+	'lqt_youhavenewmessages' => '[$1 새 메시지]가 있습니다.',
 	'lqt_protectedfromreply_link' => '보호',
 	'lqt_subject' => '주제:',
 	'lqt_noreason' => '이유를 입력하지 않았습니다.',
@@ -8464,6 +8467,7 @@ $messages['ko'] = array(
 	'lqt_thread_deleted' => '이 스레드는 삭제되었습니다.',
 	'lqt_summary_notice_link' => '요약 작성하기',
 	'lqt_summary_label' => '다음은 이 스레드의 내용을 요약한 것입니다:',
+	'lqt_summary_subtitle' => '‘$1’ 요약',
 	'lqt_move_movingthread' => '$1을(를) 옮깁니다.
 이 스레드는 $2 문서에 속해 있습니다.',
 	'lqt_move_torename' => '이 스레드의 이름을 바꾸려면, $1하여 주제를 바꾸십시오.',
@@ -14362,7 +14366,7 @@ O xe parché el xe massa longo, opure se vede che el va in conflito con un prefi
 	'lqt_reply' => 'Rispóndighe',
 	'lqt_delete' => 'Scancela',
 	'lqt_undelete' => 'Recupera',
-	'lqt_permalink' => 'Colegamento a',
+	'lqt_permalink' => 'Colegamento',
 	'lqt_fragment' => 'Tochetin de $1 da $2',
 	'lqt_discussion_link' => 'discussion',
 	'lqt_from_talk' => 'Da $1',
