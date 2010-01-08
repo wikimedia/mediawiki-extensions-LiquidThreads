@@ -1542,7 +1542,7 @@ var liquidThreads = {
 	}
 }
 
-mw.addOnloadHook( function() {
+mw.ready( function() {
 	// One-time setup for the full page
 	
 	// Update the new thread link
