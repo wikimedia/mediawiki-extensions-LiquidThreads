@@ -8337,6 +8337,13 @@ $messages['ka'] = array(
 	'lqt-talkpage-history-subtitle' => '$1-სთვის',
 );
 
+/** Kalaallisut (Kalaallisut)
+ * @author Piivaat
+ */
+$messages['kl'] = array(
+	'lqt-history-user' => 'Atuisoq',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
  * @author Lovekhmer
@@ -10239,6 +10246,7 @@ For å unngå dette, kan du kløyva av svara før du slettar tråden.',
 	'lqt-thread-merge-dest' => 'Måltråd:',
 	'lqt-merge-submit' => 'Flett',
 	'lqt-log-action-move' => 'flytta [[$1]] frå [[$2]] til [[$3]].',
+	'lqt-preference-notify-talk' => 'Send meg e-post når det vert lagt til svar i trådar som eg overvakar',
 	'prefs-lqt' => 'Tråda diskusjon',
 	'lqt-preference-custom-signatures' => 'Vis eigendefinerte brukarsignaturar',
 	'lqt-enotif-reply' => 'Hei $1,
@@ -10255,6 +10263,7 @@ Du kan lesa svaret på <$6>',
 	'lqt-ajax-update-link' => 'Oppdater',
 	'lqt-thread-show-replies' => 'Vis $1 {{PLURAL:$1|svar}}',
 	'lqt-thread-show-more' => 'Vis fleire svar',
+	'lqt-thread-link-url' => 'Lenkje-URL:',
 	'lqt-thread-link-copy' => 'Kopier til utklipsstavla',
 	'lqt-marked-as-read-placeholder' => 'Tråden «$1» vart merkt som lesen.',
 	'lqt-change-subject' => 'Endra emne',
@@ -10268,6 +10277,8 @@ Du kan lesa svaret på <$6>',
 	'lqt-drag-save' => 'Stadfest',
 	'lqt-drag-reason' => 'Årsak:',
 	'lqt-drag-subject' => 'Emne for ny tråd:',
+	'lqt-edit-signature' => '(endra signatur)',
+	'lqt-preview-signature' => '(førehandsvis)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Nye innlegg',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Nye innlegg frå $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nye trådar',
@@ -10282,6 +10293,7 @@ Du kan lesa svaret på <$6>',
 	'lqt-talkpage-history-title' => 'Diskusjonssidehistorikk',
 	'restriction-reply' => 'Skriva svar',
 	'restriction-newthread' => 'Oppretta nye trådar',
+	'lqt-edit-bump' => 'Flytt denne tråden opp',
 	'lqt-reply-subpage' => 'svar',
 );
 
