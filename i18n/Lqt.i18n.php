@@ -5117,6 +5117,7 @@ Allekirjoitus näytetään automaattisesti.',
  * @author Crochet.david
  * @author Dereckson
  * @author Grondin
+ * @author Hercule
  * @author IAlex
  * @author Jean-Frédéric
  * @author McDutchie
@@ -5161,9 +5162,9 @@ $messages['fr'] = array(
 	'lqt_hist_undeleted' => 'Récupéré',
 	'lqt_hist_moved_talkpage' => 'Déplacé',
 	'lqt_hist_listing_subtitle' => 'Visualiser un historique',
-	'lqt_hist_view_whole_thread' => 'Voir l’historique de tout le fil',
-	'lqt_hist_no_revisions_error' => 'Ce fil n’a pas d’historique de révisions.',
-	'lqt_hist_past_last_page_error' => 'Vous avez dépassé le nombre de pages de l’historique.',
+	'lqt_hist_view_whole_thread' => "Voir l'historique de tout le fil",
+	'lqt_hist_no_revisions_error' => "Ce fil n’a pas d'historique de révisions.",
+	'lqt_hist_past_last_page_error' => "Vous avez dépassé le nombre de pages de l'historique.",
 	'lqt_hist_tooltip_newer_disabled' => 'Ce lien est inactif car vous êtes sur la première page.',
 	'lqt_hist_tooltip_older_disabled' => 'Ce lien est inactif car vous êtes sur la dernière page.',
 	'lqt_hist_split' => 'Réponse séparée dans un nouveau fil de discussion',
@@ -5175,7 +5176,7 @@ $messages['fr'] = array(
 	'lqt_hist_root_blanked' => 'Texte de commentaire supprimé',
 	'lqt_hist_adjusted_sortkey' => 'Position du file de discussion modifiée',
 	'lqt_revision_as_of' => 'Révision en date du $2 à $3.',
-	'lqt_change_new_thread' => 'C’est la première révision du fil.',
+	'lqt_change_new_thread' => "C'est la première révision du fil.",
 	'lqt_change_reply_created' => 'Le [$1 commentaire en surbrillance] a été créé dans cette révision.',
 	'lqt_change_edited_root' => 'Le [$1 commentaire en surbrillance] a été modifié dans cette révision.',
 	'lqt_change_edited_summary' => 'Le résumé du fil de discussion a été modifié',
