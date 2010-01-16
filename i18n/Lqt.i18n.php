@@ -13191,6 +13191,9 @@ Signaturen visas automatiskt.',
 	'lqt-protected-reply-thread' => 'Du kan inte posta i denna tråd eftersom den har skyddats från nya poster.',
 	'lqt-protected-reply-talkpage' => 'Du kan inte posta i denna tråd eftersom denna diskussionssida har skyddats från svar på dess trådar.',
 	'lqt-protected-newthread' => 'Du kan inte posta nya trådar till denna diskussionssida eftersom den har skyddats från nya trådar.',
+	'lqt-edit-bump' => 'Bumpa denna tråd',
+	'lqt-edit-bump-tooltip' => 'Flytta denna tråd till överst på sin diskussionssida',
+	'lqt-historicalrevision-error' => 'Versionen du har valt är korrupt, och kan inte visas.',
 	'lqt-reply-subpage' => 'svara',
 );
 
