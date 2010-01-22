@@ -8329,9 +8329,12 @@ $messages['ka'] = array(
 	'lqt-history-time' => 'დრო',
 	'lqt-history-user' => 'მომხმარებელი',
 	'lqt-history-comment' => 'კომენტარი',
+	'lqt-thread-edited-author' => 'რედაქტირებული ავტორის მიერ',
+	'lqt-thread-edited-others' => 'რედაქტირებული სხვა მომხმარებლების მიერ',
 	'lqt-header-actions' => 'მოქმედება',
 	'lqt-movethread' => 'გადატანა',
 	'lqt-menu-trigger' => 'მეტი',
+	'lqt-newmessages-from' => '$1-დან',
 	'lqt-log-action-move' => 'გადატანილია [[$1]] [[$2]]-დან [[$3]]-ზე.',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} განხილვა - პასუხი: $1',
 	'lqt-quote' => 'ციტირება',
@@ -8344,7 +8347,7 @@ $messages['ka'] = array(
 );
 
 /** Kalaallisut (Kalaallisut)
- * @author Piivaat
+ * @author Qaqqalik
  */
 $messages['kl'] = array(
 	'lqt-history-user' => 'Atuisoq',
@@ -9137,6 +9140,13 @@ $messages['lt'] = array(
 	'lqt_newmessages' => 'Naujos žinutės',
 );
 
+/** Malagasy (Malagasy)
+ * @author Jagwar
+ */
+$messages['mg'] = array(
+	'right-lqt-split' => 'Mizara ny resaka',
+);
+
 /** Eastern Mari (Олык Марий)
  * @author Сай
  */
@@ -9676,7 +9686,9 @@ $5 താളിലെ '$2' എന്നതിനു പുതിയൊരു മ
  * @author Chinneeb
  */
 $messages['mn'] = array(
+	'lqt-summary' => 'Товч агуулга',
 	'lqt-email-undo' => 'Цуцлах',
+	'lqt-history-comment' => 'Тайлбар',
 	'lqt-search-button' => 'Хайх',
 );
 
