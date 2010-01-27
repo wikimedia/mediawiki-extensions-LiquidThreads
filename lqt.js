@@ -657,20 +657,34 @@ var liquidThreads = {
 		
 		// Update thread-level menu, if appropriate
 		if ( $j(threadWrapper).hasClass( 'lqt-thread-topmost' ) ) {
+			// To perform better, check the 3 elements before the top-level thread container before
+			//  scanning the whole document
+			var menu = undefined;
 			var threadLevelCommandSelector = '#lqt-threadlevel-commands-'+threadId;
+			var traverseElement = $j(threadWrapper);
 			
-			var menu = $j(threadLevelCommandSelector);
+			for( i=0;i<3 && typeof menu == 'undefined';++i ) {
+				traverseElement = traverseElement.prev();
+				if ( traverseElement.is(threadLevelCommandSelector) ) {
+					menu = traverseElement
+				}
+			}
+			
+			if ( typeof menu == 'undefined' ) {
+				menu = $j(threadLevelCommandSelector);
+			}
+			
 			liquidThreads.setupThreadMenu( menu, threadId );
 		}
 		
 		// Check for a "show replies" button
-		$j('a.lqt-show-replies').click( liquidThreads.showReplies );
+		$j(threadContainer).find('a.lqt-show-replies').click( liquidThreads.showReplies );
 		
 		// "Show more posts" link
-		$j('a.lqt-show-more-posts').click( liquidThreads.showMore );
+		$j(threadContainer).find('a.lqt-show-more-posts').click( liquidThreads.showMore );
 		
 		// Handler for "Link to this" button
-		$j('.lqt-command-link').click( liquidThreads.showLinkWindow );
+		$j(threadContainer).find('.lqt-command-link').click( liquidThreads.showLinkWindow );
 	},
 	
 	'showReplies' : function(e) {
