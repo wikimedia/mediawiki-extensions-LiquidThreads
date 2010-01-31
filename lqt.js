@@ -1557,7 +1557,6 @@ var liquidThreads = {
 }
 
 mw.addOnloadHook( function() {
-	console.profile('Setup');
 	// One-time setup for the full page
 	
 	// Update the new thread link
@@ -1611,6 +1610,5 @@ mw.addOnloadHook( function() {
 	$j('#wpSave').live( 'click', liquidThreads.handleAJAXSave );
 	$j('#wpTextbox1').live( 'keyup', liquidThreads.onTextboxKeyUp );
 	$j(document).click( liquidThreads.handleDocumentClick );
-	console.profileEnd();
 } );
 
