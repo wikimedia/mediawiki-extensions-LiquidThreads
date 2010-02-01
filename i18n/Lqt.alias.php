@@ -177,7 +177,7 @@ $aliases['ksh'] = array(
 	'SplitThread' => array( 'JeschprääschßfäddemOpdeile' ),
 );
 
-/** Cornish (Kernowek) */
+/** Cornish (Kernewek) */
 $aliases['kw'] = array(
 	'NewMessages' => array( 'MessajowNowyth' ),
 );
