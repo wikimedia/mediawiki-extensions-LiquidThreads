@@ -418,11 +418,6 @@ class LqtHooks {
  	static function getProtectionTypes( $title, &$types ) {
  		$isLqtPage = LqtDispatch::isLqtPage( $title );
  		$isThread = $title->getNamespace() == NS_LQT_THREAD;
-
-		// Bulk load is a no-no, causes infinite recursion.
-		$thread = Threads::withRoot( new Article( $title ), false );
-		
-		$isThread = $isThread && $thread && $thread->isTopmostThread();
  		
  		if ( !$isLqtPage && !$isThread ) {
  			return true;

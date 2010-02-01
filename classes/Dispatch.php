@@ -2,7 +2,7 @@
 
 class LqtDispatch {
 	/** static cache of per-page LiquidThreads activation setting */
-	static $userLqtOverride;
+	static $userLqtOverride = array();
 	static $primaryView = null;
 
 	static function talkpageMain( &$output, &$article, &$title, &$user, &$request ) {
@@ -50,6 +50,8 @@ class LqtDispatch {
 			$viewname = 'TalkpageView';
 		}
 		
+		Thread::$titleCacheById[$article->getId()] = $title;
+		
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		self::$primaryView = $view;
 		return $view->show();
@@ -94,11 +96,21 @@ class LqtDispatch {
 	}
 	
 	static function isLqtPage( $title ) {
+		// Ignore it if it's a thread or a summary, makes no sense to have LiquidThreads there.
+		if ( $title->getNamespace() == NS_LQT_THREAD ||
+				$title->getNamespace() == NS_LQT_SUMMARY ) {
+			return false;
+		}
+	
 		global $wgLqtPages, $wgLqtTalkPages;
 		$isTalkPage = ( $title->isTalkPage() && $wgLqtTalkPages ) ||
 				in_array( $title->getPrefixedText(), $wgLqtPages );
-				
-		$override = self::getUserLqtOverride( $title->getArticleId() );
+		
+		if ( $title->exists() ) {
+			$override = self::getUserLqtOverride( $title->getArticleId() );
+		} else {
+			$override = null;
+		}
 		
 		global $wgLiquidThreadsAllowUserControl;
 		if ( !is_null($override) && $wgLiquidThreadsAllowUserControl ) {
@@ -115,8 +127,8 @@ class LqtDispatch {
 			$article = $article->getId();
 		}
 		
-		// Instance cache
-		if ( isset( self::$userLqtOverride[$article] ) ) {
+		// Check instance cache.
+		if ( array_key_exists( $article, self::$userLqtOverride ) ) {
 			$cacheVal = self::$userLqtOverride[$article];
 
 			return $cacheVal;
@@ -143,6 +155,7 @@ class LqtDispatch {
 		$row = $dbr->selectRow( 'page_props', 'pp_value',
 					array( 'pp_propname' => 'use-liquid-threads',
 						'pp_page' => $article ), __METHOD__ );
+
 		
 		if ( $row ) {
 			$dbVal = $row->pp_value;

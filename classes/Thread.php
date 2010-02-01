@@ -981,11 +981,23 @@ class Thread {
 		if ( $this->article ) return $this->article;
 		
 		if ( !is_null( $this->articleId ) ) {
-			$title = Title::newFromID( $this->articleId );
+			if ( isset( self::$articleCacheById[$this->articleId] ) ) {
+				return self::$articleCacheById[$this->articleId];
+			}
+		
+			if ( isset( self::$titleCacheById[$this->articleId] ) ) {
+				$title = self::$titleCacheById[$this->articleId];
+			} else {
+				$title = Title::newFromID( $this->articleId );
+			}
+			
 			if ( $title ) {
 				$article = new Article_LQT_Compat( $title );
 			}
+			
+			self::$articleCacheById[$this->articleId] = $article;
 		}
+		
 		if ( isset( $article ) && $article->exists() ) {
 			$this->article = $article;
 			return $article;
