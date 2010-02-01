@@ -502,6 +502,13 @@ Parameters are:
 	'lqt-reply-subpage' => 'Part of the page title when a LiquidThread answer is given. Should probably be translated as a noun and not as a verb.
 
 {{Identical|Reply}}',
+	'lqt-hot-topics' => 'A page title, used for a special page with "hot" (most-commented-on)
+threads on a wiki',
+	'lqt-thread-link-url' => 'A form label, for the URL to a thread',
+	'lqt-thread-link-title' => 'A form label, for the wikitext link to a thread',
+	'lqt-drag-reparent' => 'Description of the action of moving a thread underneath a new parent.
+Displayed in a list of actions to confirm in a confirmation dialog.',
+	'lqt-talkpage-history-tab' => 'The text for the tab pointing to a discussion page header',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
