@@ -178,7 +178,8 @@ class NewMessages {
 							$insert_rows, __METHOD__ );
 		}
 		
-		if ( count( $notify_users ) ) {
+		global $wgLqtEnotif;
+		if ( count( $notify_users ) && $wgLqtEnotif ) {
 			self::notifyUsersByMail( $t, $notify_users, wfTimestampNow(), $type );
 		}
 	}
