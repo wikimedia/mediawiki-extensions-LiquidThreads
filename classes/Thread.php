@@ -993,9 +993,8 @@ class Thread {
 			
 			if ( $title ) {
 				$article = new Article_LQT_Compat( $title );
+				self::$articleCacheById[$this->articleId] = $article;
 			}
-			
-			self::$articleCacheById[$this->articleId] = $article;
 		}
 		
 		if ( isset( $article ) && $article->exists() ) {
