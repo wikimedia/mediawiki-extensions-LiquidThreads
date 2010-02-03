@@ -392,6 +392,8 @@ var liquidThreads = {
 	
 	'handleChangeSubject' : function(e) {
 		e.preventDefault();
+		
+		$j(this).closest('.lqt-command-edit-subject').hide();
 
 		// Grab the h2
 		var threadId = $j(this).data('thread-id');
@@ -414,6 +416,7 @@ var liquidThreads = {
 			var form = $j(this).closest('.mw-subject-editor');
 			var header = form.closest('.lqt_header');
 			header.contents().filter('.mw-headline').show();
+			header.next().find('.lqt-command-edit-subject').show();
 			form.remove();
 			
 		} );
@@ -476,6 +479,7 @@ var liquidThreads = {
 				subjectForm.remove();
 				spinner.remove();
 				header.contents().filter('.mw-headline').show();
+				header.next().find('.lqt-command-edit-subject').show();
 			}
 		}
 		
@@ -491,6 +495,8 @@ var liquidThreads = {
 			
 			if ( result == 'success' ) {
 				spinner.remove();
+				header.next().find('.lqt-command-edit-subject').show();
+				
 				var thread = $j('#lqt_thread_id_'+threadId);
 				liquidThreads.doReloadThread( thread );
 			} else {
