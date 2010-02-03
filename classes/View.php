@@ -1181,8 +1181,7 @@ class LqtView {
 		$author = $thread->author();
 		$sig = $sk->userLink( $author->getID(), $author->getName() ) .
 			$sk->userToolLinks( $author->getID(), $author->getName() );
-		// FIXME: this is a link to the old talk page, not the new one.
-		$newTalkpage = $thread->article()->getTitle();
+		$newTalkpage = $t_thread->article()->getTitle();
 
 		$html = wfMsgExt( 'lqt_move_placeholder',
 			array( 'parseinline', 'replaceafter' ),
