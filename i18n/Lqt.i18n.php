@@ -7774,6 +7774,18 @@ Tanda tangan akan dimunculkan secara otomatis.',
 	'lqt-reply-subpage' => 'balas',
 );
 
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'lqt_youhavenewmessages' => 'I nwere [$1 ókò ohúrù].',
+	'lqt-read-message-tooltip' => 'Wéfu ahiri nka na ókò ohúrù.
+Madu nwere I ki hü ya na ihü akíkó nke sinambu.',
+	'lqt-newmessages-n' => 'Ókò ohúrù ($1)',
+	'lqt_newmessages' => 'Ókò ohúrù',
+	'lqt_newmessages-title' => 'Ókò ohúrù',
+);
+
 /** Ido (Ido)
  * @author Malafaya
  */
