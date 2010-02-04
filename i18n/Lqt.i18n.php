@@ -7778,12 +7778,12 @@ Tanda tangan akan dimunculkan secara otomatis.',
  * @author Ukabia
  */
 $messages['ig'] = array(
-	'lqt_youhavenewmessages' => 'I nwere [$1 ókò ohúrù].',
-	'lqt-read-message-tooltip' => 'Wéfu ahiri nka na ókò ohúrù.
+	'lqt_youhavenewmessages' => 'I nwere [$1 ozi ohúrù].',
+	'lqt-read-message-tooltip' => 'Wéfu ahiri nka na ozi ohúrù.
 Madu nwere I ki hü ya na ihü akíkó nke sinambu.',
-	'lqt-newmessages-n' => 'Ókò ohúrù ($1)',
-	'lqt_newmessages' => 'Ókò ohúrù',
-	'lqt_newmessages-title' => 'Ókò ohúrù',
+	'lqt-newmessages-n' => 'Ozi ohúrù ($1)',
+	'lqt_newmessages' => 'Ozi ohúrù',
+	'lqt_newmessages-title' => 'Ozi ohúrù',
 );
 
 /** Ido (Ido)
@@ -8554,6 +8554,7 @@ $messages['ko'] = array(
 	'right-lqt-split' => '스레드 분할하기',
 	'right-lqt-merge' => '스레드 합치기',
 	'lqt-thread-merge' => '다른 스레드로 합치기',
+	'lqt_merge_thread' => '스레드 합치기',
 	'lqt-merge-submit' => '합치기',
 	'lqt-log-name' => '스레드식 토론 기록',
 	'lqt-log-action-move' => '[[$1]]을 [[$2]]에서 [[$3]]으로 옮김',
