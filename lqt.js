@@ -875,7 +875,6 @@ var liquidThreads = {
 	},
 	
 	'handleAJAXSave' : function( e ) {
-		e.preventDefault();
 		var editform = $j(this).closest('.lqt-edit-form');
 		var type = editform.find('input[name=lqt_method]').val();
 		
