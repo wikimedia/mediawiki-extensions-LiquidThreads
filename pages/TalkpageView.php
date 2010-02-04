@@ -3,6 +3,8 @@
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class TalkpageView extends LqtView {
+	protected $mShowItems = array( 'toc', 'options', 'header' );
+
 	/* Added to SkinTemplateTabs hook in TalkpageView::show(). */
 	static function customizeTalkpageTabs( $skintemplate, &$content_actions, $view ) {
 		// The arguments are passed in by reference.
@@ -241,7 +243,9 @@ class TalkpageView extends LqtView {
 			
 		}
 
-		$this->showHeader();
+		if ( $this->shouldShow('header') ) {
+			$this->showHeader();
+		}
 		
 		$html = '';
 		
@@ -266,7 +270,9 @@ class TalkpageView extends LqtView {
 		$talkpageHeader = Xml::tags( 'div', array( 'class' => 'lqt-talkpage-header' ),
 									$talkpageHeader );
 		
-		$this->output->addHTML( $talkpageHeader );
+		if ( $this->shouldShow('options') ) {
+			$this->output->addHTML( $talkpageHeader );
+		}
 
 		global $wgRequest;
 		if ( $this->methodApplies( 'talkpage_new_thread' ) ) {
@@ -283,9 +289,9 @@ class TalkpageView extends LqtView {
 		
 		$threads = $this->getPageThreads( $pager );
 
-		if ( count( $threads ) > 0 ) {
+		if ( count( $threads ) > 0 && $this->shouldShow('toc') ) {
 			$html .= $this->getTOC( $threads );
-		} else {
+		} elseif ( count($threads) == 0 ) {
 			$html .= Xml::tags( 'div', array( 'class' => 'lqt-no-threads' ),
 					wfMsgExt( 'lqt-no-threads', 'parseinline' ) );
 		}
@@ -352,6 +358,28 @@ class TalkpageView extends LqtView {
 		
 		// Default
 		return LQT_NEWEST_CHANGES;
+	}
+	
+	// Hide a number of items from the view
+	// Valid values: toc, options, header
+	function hideItems( $items ) {
+		$this->mShowItems = array_diff( $this->mShowItems, (array)$items );
+	}
+	
+	// Show a number of items in the view
+	// Valid values: toc, options, header
+	function showItems( $items ) {
+		$this->mShowItems = array_merge( $this->mShowItems, (array)$items );
+	}
+	
+	// Whether or not to show an item
+	function shouldShow( $item ) {
+		return in_array( $item, $this->mShowItems );
+	}
+	
+	// Set the items shown
+	function setShownItems( $items ) {
+		$this->mShowItems = $items;
 	}
 }
 

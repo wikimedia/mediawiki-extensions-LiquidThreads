@@ -212,3 +212,6 @@ $wgLiquidThreadsDefaultPageLimit = 20;
 
 /** Whether or not to allow users to activate/deactivate LiquidThreads per-page */
 $wgLiquidThreadsAllowUserControl = true;
+
+/** Allow embedding */
+$wgLiquidThreadsAllowEmbedding = true;
