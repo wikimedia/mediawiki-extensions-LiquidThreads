@@ -206,6 +206,11 @@ To avoid this, split them from this thread before deleting it.',
 	'lqt-log-name' => 'Threaded discussion log',
 	'lqt-log-header' => 'This log details actions taken on discussion threads.',
 	'lqt-log-action-move' => 'moved [[$1]] from [[$2]] to [[$3]].',
+	'lqt-log-action-split' => 'split [[$1]] from under [[$3]], with the new subject "$2".',
+	'lqt-log-action-merge-across' => 'moved [[$1]] from under [[$2]] to under [[$3]].',
+	'lqt-log-action-merge-down' => 'merged [[$1]] to underneath [[$3]]',
+	'lqt-log-action-subjectedit' => 'changed the subject of [[$1]] from "$2" to "$3"',
+	'lqt-log-action-resort' => 'modified the sort order of [[$1]]. Changed sort key from $2 to $3.',
 
 	// Preferences
 	'lqt-preference-notify-talk' => 'E-mail me on replies to a thread I am watching',

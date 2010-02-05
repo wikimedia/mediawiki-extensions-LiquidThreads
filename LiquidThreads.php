@@ -122,6 +122,7 @@ $wgAutoloadClasses['SynchroniseThreadArticleDataJob'] = "$dir/classes/Synchronis
 $wgAutoloadClasses['ThreadHistoryPager'] = "$dir/classes/ThreadHistoryPager.php";
 $wgAutoloadClasses['TalkpageHistoryView'] = "$dir/pages/TalkpageHistoryView.php";
 $wgAutoloadClasses['LqtHotTopicsController'] = "$dir/classes/HotTopics.php";
+$wgAutoloadClasses['LqtLogFormatter'] = "$dir/classes/LogFormatter.php";
 
 // View classes
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
@@ -158,7 +159,10 @@ if ( version_compare( $wgVersion, '1.16', '<' ) ) {
 $wgLogTypes[] = 'liquidthreads';
 $wgLogNames['liquidthreads']          = 'lqt-log-name';
 $wgLogHeaders['liquidthreads']        = 'lqt-log-header';
-$wgLogActionsHandlers['liquidthreads/move'] = 'lqtFormatMoveLogEntry';
+
+foreach( array( 'move', 'split', 'merge', 'subjectedit', 'resort' ) as $action ) {
+	$wgLogActionsHandlers["liquidthreads/$action"] = 'LqtLogFormatter::formatLogEntry';
+}
 
 // Preferences
 $wgDefaultUserOptions['lqtnotifytalk'] = false;

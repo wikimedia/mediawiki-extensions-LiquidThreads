@@ -37,11 +37,6 @@ function efInsertIntoAssoc( $new_key, $new_value, $before, &$original_array ) {
 	$original_array = $new_assoc;
 }
 
-function lqtFormatMoveLogEntry( $type, $action, $title, $sk, $parameters ) {
-	return wfMsgExt( 'lqt-log-action-move', 'parseinline',
-					array( $title->getPrefixedText(), $parameters[0], $parameters[1] ) );
-}
-
 function lqtSetupParserFunctions( &$parser ) {
 	global $wgLiquidThreadsAllowUserControl;
 	

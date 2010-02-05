@@ -45,6 +45,8 @@ class Thread {
 
 	protected $replies;
 	
+	public $dbVersion; // A copy of the thread as it exists in the database.
+	
 	static $titleCacheById = array();
 	static $replyCacheById = array();
 	static $articleCacheById = array();
@@ -133,6 +135,9 @@ class Thread {
 		
 		// Touch the talk page, too.
 		$this->article()->getTitle()->invalidateCache();
+		
+		$this->dbVersion = clone $this;
+		unset( $this->dbVersion->dbVersion );
 	}
 	
 	function setRoot( $article ) {
@@ -157,6 +162,8 @@ class Thread {
 		if ( $bump ) {
 			$this->sortkey = wfTimestamp( TS_MW );
 		}
+		
+		$original = $this->dbVersion;
 
 		$this->modified = wfTimestampNow();
 		$this->updateEditedness( $change_type );
@@ -168,9 +175,48 @@ class Thread {
 		$topmost->save();
 		
 		ThreadRevision::create( $this, $change_type, $change_object, $reason );
+		$this->logChange( $change_type, $original, $change_object, $reason );
 
 		if ( $change_type == Threads::CHANGE_EDITED_ROOT ) {
 			NewMessages::writeMessageStateForUpdatedThread( $this, $change_type, $wgUser );
+		}
+	}
+	
+	function logChange( $change_type, $original, $change_object = null, $reason = '' ) {
+		$log = new LogPage( 'liquidthreads' );
+		
+		if ( is_null($reason) ) {
+			$reason = '';
+		}
+		
+		switch( $change_type ) {
+			case Threads::CHANGE_MOVED_TALKPAGE:
+				$log->addEntry( 'move', $this->title(), $reason,
+					array( $original->article()->getTitle(),
+						$this->article()->getTitle() ) );
+				break;
+			case Threads::CHANGE_SPLIT:
+				$log->addEntry( 'split', $this->title(), $reason,
+					array( $this->subject(),
+						$original->superthread()->title()
+					) );
+				break;
+			case Threads::CHANGE_EDITED_SUBJECT:
+				$log->addEntry( 'subjectedit', $this->title(), $reason,
+					array( $original->subject(), $this->subject() ) );
+				break;
+			case Threads::CHANGE_MERGED_TO:
+				$oldParent = $change_object->dbVersion->isTopmostThread()
+						? ''
+						: $change_object->dbVersion->superthread()->title();
+				
+				
+				$log->addEntry( 'merge', $this->title(), $reason,
+					array( $oldParent, $change_object->superthread()->title() ) );
+				break;
+			case Threads::CHANGE_ADJUSTED_SORTKEY:
+				$log->addEntry( 'resort', $this->title(), $reason,
+					array( $original->sortkey(), $this->sortkey() ) );
 		}
 	}
 	
@@ -216,6 +262,9 @@ class Thread {
 		
 		// Touch the talk page, too.
 		$this->article()->getTitle()->invalidateCache();
+		
+		$this->dbVersion = clone $this;
+		unset( $this->dbVersion->dbVersion );
 	}
 	
 	function getRow() {
@@ -329,11 +378,9 @@ class Thread {
 		$this->articleNamespace = $new_articleNamespace;
 		$this->articleTitle = $new_articleTitle;
 		$this->articleId = $new_articleID;
-		$this->commitRevision( Threads::CHANGE_MOVED_TALKPAGE, null, $reason );
+		$this->article = null;
 		
-		# Log the move
-		$log = new LogPage( 'liquidthreads' );
-		$log->addEntry( 'move', $this->title(), $reason, array( $oldTitle, $newTitle ) );
+		$this->commitRevision( Threads::CHANGE_MOVED_TALKPAGE, null, $reason );
 
 		if ( $leave_trace ) {
 			$this->leaveTrace( $reason, $oldTitle, $newTitle );
@@ -355,7 +402,7 @@ class Thread {
 		// Make the article edit.
 		$traceTitle = Threads::newThreadTitle( $this->subject(), new Article_LQT_Compat( $oldTitle ) );
 		$redirectArticle = new Article_LQT_Compat( $traceTitle );
-		$redirectArticle->doEdit( $redirectText, $reason, EDIT_NEW );
+		$redirectArticle->doEdit( $redirectText, $reason, EDIT_NEW | EDIT_SUPPRESS_RC );
 
 		// Add the trace thread to the tracking table.
 		$thread = Thread::create( $redirectArticle, new Article_LQT_Compat( $oldTitle ), null,
@@ -478,6 +525,9 @@ class Thread {
 		}
 		
 		$this->doLazyUpdates( $line );
+		
+		$this->dbVersion = clone $this;
+		unset( $this->dbVersion->dbVersion );
 	}
 	
 	// Load a list of threads in bulk, including all subthreads.
@@ -1210,13 +1260,13 @@ class Thread {
 	
 	// On serialization, load all data because it will be different in the DB when we wake up.
 	function __sleep() {
-		
 		$this->loadAllData();
 		
 		$fields = array_keys( get_object_vars( $this ) );
 		
 		// Filter out article objects, there be dragons (or unserialization problems)
-		$fields = array_diff( $fields, array( 'root', 'article', 'summary', 'sleeping' ) );
+		$fields = array_diff( $fields, array( 'root', 'article', 'summary', 'sleeping',
+							'dbVersion' ) );
 		
 		return $fields;
 	}
@@ -1301,6 +1351,8 @@ class Thread {
 	public function split( $newSubject, $reason = '', $newSortkey = null ) {
 		$oldTopThread = $this->topmostThread();
 		$oldParent = $this->superthread();
+		
+		$original = $this->dbVersion;
 			
 		self::recursiveSet( $this, $newSubject, $this, null );
 		
@@ -1312,12 +1364,17 @@ class Thread {
 			$bump = false;
 		}
 		
-		$oldTopThread->commitRevision( Threads::CHANGE_SPLIT_FROM, $this, $reason );
+		// For logging purposes, will be reset by the time this call returns.
+		$this->dbVersion = $original;
+		
 		$this->commitRevision( Threads::CHANGE_SPLIT, null, $reason, $bump );
+		$oldTopThread->commitRevision( Threads::CHANGE_SPLIT_FROM, $this, $reason );
 	}
 	
 	public function moveToParent( $newParent, $reason = '' ) {
 		$newSubject = $newParent->subject();
+		
+		$original = $this->dbVersion;
 		
 		$oldTopThread = $newParent->topmostThread();
 		$oldParent = $this->superthread();
@@ -1329,6 +1386,8 @@ class Thread {
 		if ( $oldParent ) {
 			$oldParent->removeReply( $this );
 		}
+		
+		$this->dbVersion = $original;
 		
 		$oldTopThread->commitRevision( Threads::CHANGE_MERGED_FROM, $this, $reason );
 		$newParent->commitRevision( Threads::CHANGE_MERGED_TO, $this, $reason );
