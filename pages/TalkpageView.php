@@ -369,6 +369,12 @@ class LqtDiscussionPager extends IndexPager {
 	function getPageLimit() {
 		$article = $this->article;
 		
+		global $wgRequest;
+		$requestedLimit = $wgRequest->getVal( 'limit', null );
+		if ( $requestedLimit ) {
+			return $requestedLimit;
+		}
+		
 		if ( $article->exists() ) {
 			$pout = $article->getParserOutput();
 			$setLimit = $pout->getProperty('lqt-page-limit');
