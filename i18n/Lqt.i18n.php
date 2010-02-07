@@ -91,7 +91,7 @@ The thread is now located at $5.',
 	'lqt_summary_notice' => 'There have been no changes to this discussion for at least $2 {{PLURAL:$2|day|days}}.
 If it is concluded, you may want to $1.',
 	'lqt_summary_notice_link' => 'write a summary',
-	'lqt_summary_label' => 'This thread has been summarized as follows:',
+	'lqt_summary_label' => 'Thread summary:',
 	'lqt_summary_subtitle' => 'Summary of "$1"',
 	'lqt_nosuchrevision' => 'There is no such revision of this thread.',
 	'lqt_nosuchthread' => 'The thread you specified does not exist.',
