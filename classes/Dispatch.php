@@ -107,7 +107,7 @@ class LqtDispatch {
 				in_array( $title->getPrefixedText(), $wgLqtPages );
 		
 		if ( $title->exists() ) {
-			$override = self::getUserLqtOverride( $title->getArticleId() );
+			$override = self::getUserLqtOverride( $title );
 		} else {
 			$override = null;
 		}
@@ -122,13 +122,12 @@ class LqtDispatch {
 		return $isTalkPage;
 	}
 	
-	static function getUserLqtOverride( $article ) {
-		if ( !is_object( $article ) ) {
-			$article = Article::newFromId( $article );
+	static function getUserLqtOverride( $title ) {
+		if ( ! is_object($title) ) {
+			return null;
 		}
 		
-		$title = $article->getTitle();
-		$articleid = $article->getId();
+		$articleid = $title->getArticleId();
 		
 		global $wgLiquidThreadsAllowUserControlNamespaces;
 		global $wgLiquidThreadsAllowUserControl;
