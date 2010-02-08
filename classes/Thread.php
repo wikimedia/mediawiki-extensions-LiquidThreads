@@ -1303,7 +1303,7 @@ class Thread {
 		$join_conds = array( 'page' => array( 'JOIN', 'rev_page=page_id' ) );
 		
 		$row = $dbr->selectRow( array( 'revision', 'page' ), '*', $conds, __METHOD__,
-							array( 'ORDER BY' => 'rev_timestamp DESC' ), $join_conds );
+				array( 'ORDER BY' => 'rev_timestamp DESC' ), $join_conds );
 							
 		return $row->rev_id;
 	}
