@@ -7,6 +7,47 @@ class LqtHooks {
 	public static $editAppliesTo = null;
 	public static $editArticle = null;
 	public static $editTalkpage = null;
+	
+	static function customizeOldChangesList( &$changeslist, &$s, $rc ) {
+		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD )
+			return true;
+	
+		$thread = Threads::withRoot( new Article( $rc->getTitle() ) );
+		if ( !$thread ) return true;
+
+		LqtView::addJSandCSS();
+		wfLoadExtensionMessages( 'LiquidThreads' );
+		
+		global $wgUser, $wgLang;
+		$sk = $wgUser->getSkin();
+
+		// Custom display for new posts.
+		if ( $rc->mAttribs['rc_new'] ) {
+			global $wgOut;
+			
+			// Article link, timestamp, user
+			$s = '';
+			$s .= $sk->link( $thread->article()->getTitle() );
+			$changeslist->insertTimestamp( $s, $rc );
+			$changeslist->insertUserRelatedLinks( $s, $rc );
+			
+			// Action text
+			$msg = $thread->isTopmostThread()
+				? 'lqt_rc_new_discussion' : 'lqt_rc_new_reply';
+			$link = LqtView::linkInContext( $thread );
+			$s .= ' '. wfMsgExt( $msg, array( 'parseinline', 'replaceafter' ), $link );
+			
+			// add the truncated post content
+			$quote = $thread->root()->getContent();
+			$quote = $wgLang->truncate( $quote, 200 );
+			$s .= ' ' . $sk->commentBlock( $quote );
+			
+			$classes = array();
+			$changeslist->insertTags( $s, $rc, $classes );
+			$changeslist->insertExtra( $s, $rc, $classes );
+		}
+		return true;
+	}
 
 	static function setNewtalkHTML( $skintemplate, $tpl ) {
 		global $wgUser, $wgTitle, $wgOut;

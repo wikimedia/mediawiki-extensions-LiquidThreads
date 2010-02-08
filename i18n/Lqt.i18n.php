@@ -151,11 +151,6 @@ This operation is undoable.',
 	'lqt-new-messages' => '✒ There are new messages for you.',
 	'lqt-email-info-undo' => 'Bring back the thread you just dismissed.',
 	'lqt-date-info' => 'This link is disabled because you are viewing threads from all dates.',
-	'lqt_rc_new_discussion' => "New discussion \"$1\" on $2 • $3 writes:",
-	'lqt_rc_new_reply' => "Reply to \"$1\" on $2 • $3 writes:",
-	'lqt_rc_ellipsis' => ' ...',
-	'lqt_rc_author_original' => '(original author)',
-	'lqt_rc_author_others' => '(not the author)',
 	'lqt-newmessages-context' => 'Full thread',
 	'lqt-thread-created'	 => 'Created',
 	'lqt-history-time' => 'Time',
@@ -188,6 +183,10 @@ To avoid this, split them from this thread before deleting it.',
 	'lqt-newmessages-from' => 'From $1',
 	'lqt-hot-topics' => 'Hot topics',
 	'lqt-add-reply' => 'Add a reply',
+	
+	// Recent changes display
+	'lqt_rc_new_discussion' => "posted a new thread, \"$1\"",
+	'lqt_rc_new_reply' => "posted a reply to \"$1\"",
 
 	// Rights
 	'right-lqt-split' => 'Split threads',

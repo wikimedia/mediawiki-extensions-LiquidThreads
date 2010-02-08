@@ -51,7 +51,7 @@ $wgHooks['SkinTemplateTabs'][] = 'LqtDispatch::onSkinTemplateTabs';
 $wgHooks['SkinTemplateNavigation'][] = 'LqtDispatch::onSkinTemplateNavigation';
 
 // Customisation of recentchanges
-//$wgHooks['OldChangesListRecentChangesLine'][] = 'LqtHooks::customizeOldChangesList';
+$wgHooks['OldChangesListRecentChangesLine'][] = 'LqtHooks::customizeOldChangesList';
 
 // Notification (watchlist, newtalk)
 $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtHooks::setNewtalkHTML';
