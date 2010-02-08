@@ -133,6 +133,10 @@ class LqtView {
 
 	static function linkInContext( $thread, $contextType = 'page', $text = null ) {
 		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
+		
+		if ( is_null($text) ) {
+			$text = $thread->subject();
+		}
 
 		global $wgUser;
 		$sk = $wgUser->getSkin();
