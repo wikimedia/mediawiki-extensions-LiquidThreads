@@ -135,7 +135,7 @@ class LqtView {
 		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
 		
 		if ( is_null($text) ) {
-			$text = $thread->subject();
+			$text = htmlspecialchars( $thread->subject() );
 		}
 
 		global $wgUser;
