@@ -241,6 +241,10 @@ class Threads {
 		return $text;
 	}
 	
+	public static function stripHTML( $text ) {
+		return StringUtils::delimiterReplace( '<', '>', '', $text );
+	}
+	
 	/** Keep trying titles starting with $basename until one is unoccupied. */
 	public static function incrementedTitle( $basename, $namespace ) {
 		$i = 2;

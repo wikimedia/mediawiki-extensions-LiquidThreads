@@ -125,7 +125,8 @@ class TalkpageView extends LqtView {
 		
 			$row = '';
 			$anchor = '#' . $this->anchorName( $thread );
-			$subject = Xml::element( 'a', array( 'href' => $anchor ), $thread->subject() );
+			$subject = Xml::tags( 'a', array( 'href' => $anchor ),
+					Threads::stripHTML( $thread->formattedSubject() ) );
 			$row .= Xml::tags( 'td', null, $subject );
 			
 			$row .= Xml::element( 'td', null, $thread->replyCount() );

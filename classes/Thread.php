@@ -1141,6 +1141,10 @@ class Thread {
 		return $this->subject;
 	}
 	
+	function formattedSubject() {
+		return LqtView::formatSubject( $this->subject() );
+	}
+	
 	function setSubject( $subject ) {
 		$this->subject = $subject;
 		
