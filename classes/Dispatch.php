@@ -123,50 +123,48 @@ class LqtDispatch {
 	}
 	
 	static function getUserLqtOverride( $article ) {
-		if ( is_object( $article ) ) {
-			$article = $article->getId();
+		if ( !is_object( $article ) ) {
+			$article = Article::newFromId( $article );
+		}
+		
+		$title = $article->getTitle();
+		$articleid = $article->getId();
+		
+		global $wgLiquidThreadsAllowUserControlNamespaces;
+		global $wgLiquidThreadsAllowUserControl;
+		if (!$wgLiquidThreadsAllowUserControl) {
+			return null;
+		}
+		
+		$namespaces = $wgLiquidThreadsAllowUserControlNamespaces;
+		
+		if ( !is_null( $namespaces ) && !in_array( $title->getNamespace(), $namespaces ) ) {
+			return null;
 		}
 		
 		// Check instance cache.
-		if ( array_key_exists( $article, self::$userLqtOverride ) ) {
-			$cacheVal = self::$userLqtOverride[$article];
+		if ( array_key_exists( $articleid, self::$userLqtOverride ) ) {
+			$cacheVal = self::$userLqtOverride[$articleid];
 
 			return $cacheVal;
 		}
-		
-		// Memcached: It isn't clear that this is needed yet, but since I already wrote the
-		//  code, I might as well leave it commented out instead of deleting it.
-		//  Main reason I've left this commented out is because it isn't obvious how to
-		//  purge the cache when necessary.
-// 		global $wgMemc;
-// 		$key = wfMemcKey( 'lqt-archive-start-days', $article );
-// 		$cacheVal = $wgMemc->get( $key );
-// 		if ($cacheVal != false) {
-// 			if ( $cacheVal != -1 ) {
-// 				return $cacheVal;
-// 			} else {
-// 				return $wgLqtThreadArchiveStartDays;
-// 			}
-// 		}
 
 		// Load from the database.
 		$dbr = wfGetDB( DB_SLAVE );
 		
 		$row = $dbr->selectRow( 'page_props', 'pp_value',
 					array( 'pp_propname' => 'use-liquid-threads',
-						'pp_page' => $article ), __METHOD__ );
+						'pp_page' => $articleid ), __METHOD__ );
 
 		
 		if ( $row ) {
 			$dbVal = $row->pp_value;
 			
-			self::$userLqtOverride[$article] = $dbVal;
-#			$wgMemc->set( $key, $dbVal, 1800 );
+			self::$userLqtOverride[$articleid] = $dbVal;
 			return $dbVal;
 		} else {
 			// Negative caching.
-			self::$userLqtOverride[$article] = null;
-#			$wgMemc->set( $key, -1, 86400 );
+			self::$userLqtOverride[$articleid] = null;
 			return null;
 		}
 	}
