@@ -1184,6 +1184,13 @@ class LqtView {
 
 		$article = new Article( $thread->title() );
 		$target = Title::newFromRedirect( $article->getContent() );
+		
+		if (!$target) {
+			throw new MWException( "Thread ".$thread->id().' purports to be moved, '.
+				'but no redirect found in text of '.
+				$thread->title()->getPrefixedText().'. Dying.' );
+		}
+		
 		$t_thread = Threads::withRoot( new Article( $target ) );
 
 		// Grab data about the new post.
