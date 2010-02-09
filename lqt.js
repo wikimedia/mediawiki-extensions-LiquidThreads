@@ -168,12 +168,6 @@ var liquidThreads = {
 				function() {
 					currentFocused = this;
 				} );
-			
-			// Check for live preview
-			if ( $j('#wpLivePreview').length ) {
-				$j.getScript( stylepath+'/common/preview.js',
-						function() { setupLivePreview(); } );
-			}
 		};
 		
 		mwEditButtons = [];
