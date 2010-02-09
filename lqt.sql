@@ -79,7 +79,7 @@ CREATE TABLE /*_*/thread_history (
 	th_change_comment TINYTEXT NOT NULL,
 	
 	-- Actual content, stored as a serialised thread row.
-	th_content BLOB NOT NULL,
+	th_content LONGBLOB NOT NULL,
 	
 	PRIMARY KEY (th_id),
 	KEY (th_thread,th_timestamp),
