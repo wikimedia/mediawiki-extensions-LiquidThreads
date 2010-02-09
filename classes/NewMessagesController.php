@@ -32,6 +32,24 @@ class NewMessages {
 				
 		self::recacheMessageCount( $user_id );
 	}
+	
+	static function markAllReadByUser( $user ) {
+		if ( is_object( $user ) ) {
+			$user_id = $user->getID();
+		} else if ( is_integer( $user ) ) {
+			$user_id = $user;
+		} else {
+			throw new MWException( __METHOD__." expected User or integer but got $user" );
+		}
+		
+		$dbw = wfGetDB( DB_MASTER );
+		
+		$dbw->delete( 'user_message_state',
+				array( 'ums_user' => $user_id ),
+				__METHOD__ );
+				
+		self::recacheMessageCount( $user_id );
+	}
 
 	private static function writeUserMessageState( $thread, $user, $timestamp ) {
 		if ( is_object( $thread ) ) {

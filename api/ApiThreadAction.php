@@ -93,6 +93,9 @@ class ApiThreadAction extends ApiBase {
 			return;
 		}
 		
+		$allowedAllActions = array( 'markread' );
+		$action = $params['threadaction'];
+		
 		// Pull the threads from the parameters
 		$threads = array();
 		if ( !empty( $params['thread'] ) ) {
@@ -100,6 +103,9 @@ class ApiThreadAction extends ApiBase {
 				$threadObj = null;
 				if ( is_numeric( $thread ) ) {
 					$threadObj = Threads::withId( $thread );
+				} elseif ( $thread == 'all' &&
+						in_array( $action, $allowedAllActions ) ) {
+					$threads = array('all');
 				} else {
 					$title = Title::newFromText( $thread );
 					$article = new Article( $title );
@@ -113,7 +119,6 @@ class ApiThreadAction extends ApiBase {
 		}
 		
 		// Find the appropriate module
-		$action = $params['threadaction'];
 		$actions = $this->getActions();
 		
 		$method = $actions[$action];
@@ -126,15 +131,24 @@ class ApiThreadAction extends ApiBase {
 		
 		$result = array();
 		
-		foreach( $threads as $t ) {
-			NewMessages::markThreadAsReadByUser( $t, $wgUser );
-			$result[] =
-				array(
-					'result' => 'Success',
-					'action' => 'markread',
-					'id' => $t->id(),
-					'title' => $t->title()->getPrefixedText()
-				);
+		if ( in_array( 'all', $threads ) ) {
+			NewMessages::markAllReadByUser( $wgUser );
+			$result[] = array(
+				'result' => 'Success',
+				'action' => 'markread',
+				'threads' => 'all',
+			);
+		} else {
+			foreach( $threads as $t ) {
+				NewMessages::markThreadAsReadByUser( $t, $wgUser );
+				$result[] =
+					array(
+						'result' => 'Success',
+						'action' => 'markread',
+						'id' => $t->id(),
+						'title' => $t->title()->getPrefixedText()
+					);
+			}
 		}
 		
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
