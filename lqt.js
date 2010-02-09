@@ -356,6 +356,7 @@ var liquidThreads = {
 		trigger.click(
 			function(e) {
 				e.stopImmediatePropagation();
+				e.preventDefault();
 				
 				// Hide the other menus
 				$j('.lqt-thread-toolbar-command-list').not(menu).hide('fast');

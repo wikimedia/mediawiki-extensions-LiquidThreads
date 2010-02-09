@@ -956,7 +956,8 @@ class LqtView {
 		$menuHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-command-list' ),
 					$this->listItemsForCommands( $commands ) );
 
-		$triggerText =	Xml::tags( 'span', array( 'class' => 'lqt-thread-actions-icon' ),
+		$triggerText =	Xml::tags( 'a', array( 'class' => 'lqt-thread-actions-icon',
+							'href' => '#' ),
 					wfMsgHTML( 'lqt-menu-trigger' ) );
 		$dropDownTrigger = Xml::tags( 'div',
 				array( 'class' => 'lqt-thread-actions-trigger ' .
