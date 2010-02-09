@@ -70,13 +70,17 @@ var liquidThreads = {
 		return repliesElement;
 	},
 	
-	'checkEmptyReplies' : function( element ) {
+	'checkEmptyReplies' : function( element, action ) {
 		var contents = element.contents();
 		
 		contents = contents.not('.lqt-replies-finish,.lqt-post-sep,.lqt-edit-form');
 		
 		if ( !contents.length ) {
-			element.remove();
+			if ( typeof action == 'undefined' || action == 'remove' ) {
+				element.remove();
+			} else {
+				element.hide();
+			}
 		}
 	},
 	
@@ -1234,18 +1238,23 @@ var liquidThreads = {
 		
 		setTimeout( function() { thread.draggable('destroy'); }, 1 );
 		
-		// Now, let's do our updates
-		liquidThreads.confirmDragDrop( thread, params );
-		
+		// Remove drop points and schedule removal of empty replies elements.
+		var emptyChecks = [];
 		$j('.lqt-drop-zone').each( function() {
 			var repliesHolder = $j(this).closest('.lqt-thread-replies');
 			
 			$j(this).remove();
 			
 			if (repliesHolder.length) {
-				liquidThreads.checkEmptyReplies(repliesHolder);
+				liquidThreads.checkEmptyReplies( repliesHolder, 'hide' );
+				emptyChecks = $j.merge( emptyChecks, repliesHolder );
 			}
 		} );
+		
+		params.emptyChecks = emptyChecks;
+		
+		// Now, let's do our updates
+		liquidThreads.confirmDragDrop( thread, params );
 	},
 	
 	'confirmDragDrop' : function( thread, params ) {
@@ -1352,6 +1361,12 @@ var liquidThreads = {
 		var topLevel = (newParent == 'top');
 		var wasTopLevel = thread.hasClass( 'lqt-thread-topmost' );
 		
+		var doEmptyChecks = function() {
+			$j.each( params.emptyChecks, function( k, element ) {
+				liquidThreads.checkEmptyReplies( $j(element) );
+			} );
+		};
+		
 		var doneCallback =
 			function(data) {
 				// TODO error handling
@@ -1369,6 +1384,7 @@ var liquidThreads = {
 				
 				if (result != 'success') {
 					alert( "Error: "+result );
+					doEmptyChecks();
 					return;
 				}
 				
@@ -1392,7 +1408,6 @@ var liquidThreads = {
 				if ( topmost ) {
 					var heading = $j('#lqt-header-'+threadId);
 				}
-				
 				
 				// Assorted ways of returning a thread to its proper place.
 				if ( typeof params.insertAfter != 'undefined' ) {					
@@ -1463,6 +1478,8 @@ var liquidThreads = {
 				if ( typeof callback == 'function' ) {
 					callback();
 				}
+				
+				doEmptyChecks();
 			}
 		
 		if ( !topLevel || !wasTopLevel ) {
