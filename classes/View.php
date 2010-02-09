@@ -1673,12 +1673,14 @@ class LqtView {
 			$label
 		);
 
-		$link = $sk->link( $t->summary()->getTitle(), $link_text );
+		$link = $sk->link( $t->summary()->getTitle(), $link_text,
+				array( 'class' => 'lqt-summary-link' ) );
+		$link .= Xml::hidden( 'summary-title', $t->summary()->getTitle()->getPrefixedText() );
 		$edit_link = self::permalink( $t, $edit_text, 'summarize', $t->id() );
 		$links = "[$link]\n[$edit_link]";
 		$html .= Xml::tags(
 			'span',
-			array( 'class' => 'lqt_thread_permalink_summary_edit' ),
+			array( 'class' => 'lqt_thread_permalink_summary_actions' ),
 			$links
 		);
 

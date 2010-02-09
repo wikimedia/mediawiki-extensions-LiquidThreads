@@ -41,7 +41,7 @@ class ApiFeedLQTThreads extends ApiBase {
 	}
 
 	/**
-	 * Make a nested call to the API to request watchlist items in the last $hours.
+	 * Make a nested call to the API to request items in the last $hours.
 	 * Wrap the result as an RSS/Atom feed.
 	 */
 	public function execute() {

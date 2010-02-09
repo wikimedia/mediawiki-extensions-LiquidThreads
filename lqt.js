@@ -284,20 +284,6 @@ var liquidThreads = {
 		return false;
 	},
 	
-	'addQuoteButton' : function( toolbar ) {
-		var quoteButton = $j('<li/>' );
-		quoteButton.addClass('lqt-command');
-		quoteButton.addClass('lqt-command-quote');
-		
-		var link = $j('<a href="#"/>');
-		link.append( wgLqtMessages['lqt-quote'] );
-		quoteButton.append( link );
-		
-		quoteButton.click( liquidThreads.doQuote );
-		
-		$j(toolbar).prepend( quoteButton );
-	},
-	
 	'cancelEdit' : function( e ) {
 		if ( typeof e != 'undefined' && typeof e.preventDefault == 'function' ) {
 			e.preventDefault();
@@ -326,10 +312,6 @@ var liquidThreads = {
 		var menuContainer = post.find( '.lqt-thread-toolbar-menu' );
 		menu.remove().appendTo( menuContainer );
 		menuContainer.find('.lqt-thread-toolbar-command-list').hide();
-		
-		// Add handler for edit link -- Disabled for further tweaking
-//		var editLink = menu.find('.lqt-command-edit > a');
-//		editLink.click( liquidThreads.handleEditLink );
 
 		// Add handler for reply link
 		var replyLink = menu.find('.lqt-command-reply > a');
@@ -687,15 +669,6 @@ var liquidThreads = {
 			
 			liquidThreads.setupThreadMenu( menu, threadId );
 		}
-		
-		// Check for a "show replies" button
-		$j(threadContainer).find('a.lqt-show-replies').click( liquidThreads.showReplies );
-		
-		// "Show more posts" link
-		$j(threadContainer).find('a.lqt-show-more-posts').click( liquidThreads.showMore );
-		
-		// Handler for "Link to this" button
-		$j(threadContainer).find('.lqt-command-link').click( liquidThreads.showLinkWindow );
 	},
 	
 	'showReplies' : function(e) {
@@ -829,19 +802,33 @@ var liquidThreads = {
 		e.preventDefault();
 	},
 	
-	'showLinkWindow' : function(e) {
+	'showThreadLinkWindow' : function(e) {
+		e.preventDefault();
 		var linkURL = $j(this).find('a').attr('href');
 		var thread = $j(this).closest('.lqt_thread');
 		var linkTitle = thread.find('.lqt-thread-title-metadata').val();
-		linkTitle = '[[' + linkTitle + ']]';
+		liquidThreads.showLinkWindow( linkTitle, linkURL );
+	},
+	
+	'showSummaryLinkWindow' : function(e) {
+		e.preventDefault();
+		var linkURL = $j(this).attr('href');
+		var linkTitle = $j(this).parent().find('input[name=summary-title]').val();
+		liquidThreads.showLinkWindow( linkTitle, linkURL );
+	},
+	
+	'showLinkWindow' : function(linkTitle, linkURL) {
+		linkTitle = '[['+linkTitle+']]';
 		
 		// Build dialog
 		var urlLabel = $j('<th/>').text(wgLqtMessages['lqt-thread-link-url']);
-		var urlField = $j('<tr/>').text(linkURL).addClass( 'lqt-thread-link-url' );
+		var urlField = $j('<td/>').addClass( 'lqt-thread-link-url' );
+		urlField.text(linkURL);
 		var urlRow = $j('<tr/>').append(urlLabel).append(urlField );
 		
 		var titleLabel = $j('<th/>').text(wgLqtMessages['lqt-thread-link-title']);
-		var titleField = $j('<tr/>').text(linkTitle).addClass( 'lqt-thread-link-title' );
+		var titleField = $j('<td/>').addClass( 'lqt-thread-link-title' );
+		titleField.text(linkTitle);
 		var titleRow = $j('<tr/>').append(titleLabel).append(titleField );
 		
 		var table = $j('<table><tbody></tbody></table>');
@@ -849,7 +836,7 @@ var liquidThreads = {
 		
 		var dialog = $j('<div/>').append(table);
 		
-		$j(this).prepend(dialog);
+		$j('body').prepend(dialog);
 		
 		var dialogOptions = {
 			'AutoOpen' : true,
@@ -857,8 +844,6 @@ var liquidThreads = {
 		};
 		
 		dialog.dialog( dialogOptions );
-		
-		e.preventDefault();
 	},
 	
 	'getToken' : function( callback ) {
@@ -1624,14 +1609,26 @@ mw.addOnloadHook( function() {
 	$j('.lqt-command-watch').live( 'click', liquidThreads.asyncWatch );
 	$j('.lqt-command-unwatch').live( 'click', liquidThreads.asyncWatch );
 	
-	// Set up periodic update checking
-	setInterval( liquidThreads.checkForUpdates, 60000 );
+	// Live bind for link window
+	$j('.lqt-command-link').live( 'click', liquidThreads.showThreadLinkWindow );
 	
-	// Autogrowing textarea - this only affects the new-topic page
-//	$j('#wpTextbox1')//.autogrow();
-
+	// Live bind for summary links
+	$j('.lqt-summary-link').live( 'click', liquidThreads.showSummaryLinkWindow );
+	
+	// For "show replies"
+	$j('a.lqt-show-replies').live( 'click', liquidThreads.showReplies );
+	
+	// "Show more posts" link
+	$j('a.lqt-show-more-posts').live( 'click', liquidThreads.showMore );
+	
+	// Save handlers
 	$j('#wpSave').live( 'click', liquidThreads.handleAJAXSave );
 	$j('#wpTextbox1').live( 'keyup', liquidThreads.onTextboxKeyUp );
+	
+	// Hide menus when a click happens outside them
 	$j(document).click( liquidThreads.handleDocumentClick );
+	
+	// Set up periodic update checking
+	setInterval( liquidThreads.checkForUpdates, 60000 );
 } );
 
