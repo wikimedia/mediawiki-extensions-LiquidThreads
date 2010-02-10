@@ -1,11 +1,10 @@
 <?php
 
 class ApiThreadAction extends ApiBase {
-	
 	public function getDescription() {
 		return 'Allows actions to be taken on threads and posts in threaded discussions.';
 	}
-	
+
 	public function getActions() {
 		return array(
 			'markread' => 'actionMarkRead',
@@ -18,7 +17,7 @@ class ApiThreadAction extends ApiBase {
 			'setsortkey' => 'actionSetSortkey',
 		);
 	}
-	
+
 	protected function getParamDescription() {
 		return array(
 			'thread' => 'A list (pipe-separated) of thread IDs or titles to act on',
@@ -29,36 +28,35 @@ class ApiThreadAction extends ApiBase {
 			'reason' => 'If applicable, the reason/summary for the action',
 			'newparent' => 'If merging a thread, the ID or title for its new parent',
 			'text' => 'The text of the post to create',
-			'render' => 'If set, on post/reply methods, the top-level thread '.
+			'render' => 'If set, on post/reply methods, the top-level thread ' .
 				'after the change will be rendered and returned in the result.',
 			'bump' => 'If set, overrides default behaviour as to whether or not to ',
-				"increase the thread's sort key. If true, sets it to current ".
-				"timestamp. If false, does not set it. Default depends on ".
-				"the action being taken. Presently only works for newthread ".
+				"increase the thread's sort key. If true, sets it to current " .
+				"timestamp. If false, does not set it. Default depends on " .
+				"the action being taken. Presently only works for newthread " .
 				"and reply actions.",
-			'sortkey' => "Specifies the timestamp to which to set a thread's ".
-					"sort  key. Must be in the form YYYYMMddhhmmss, ".
+			'sortkey' => "Specifies the timestamp to which to set a thread's " .
+					"sort  key. Must be in the form YYYYMMddhhmmss, " .
 					"a unix timestamp or 'now'.",
-			'signature' => 'Specifies the signature to use for that post. Can be '.
+			'signature' => 'Specifies the signature to use for that post. Can be ' .
 					'NULL to specify the default signature',
 		);
 	}
-	
+
 	public function getExamples() {
 		return array(
-		
 		);
 	}
-	
+
 	public function getAllowedParams() {
 		return array(
 			'thread' => array(
-					ApiBase::PARAM_ISMULTI => true,
-				),
+				ApiBase::PARAM_ISMULTI => true,
+			),
 			'talkpage' => null,
 			'threadaction' => array(
-					ApiBase::PARAM_TYPE => array_keys( $this->getActions() ),
-				),
+				ApiBase::PARAM_TYPE => array_keys( $this->getActions() ),
+			),
 			'token' => null,
 			'subject' => null,
 			'reason' => null,
@@ -70,67 +68,67 @@ class ApiThreadAction extends ApiBase {
 			'signature' => null,
 		);
 	}
-	
+
 	public function mustBePosted() { return true; }
 
 	public function isWriteMode() {
 		return true;
 	}
-	
+
 	public function execute() {
 		$params = $this->extractRequestParams();
-		
+
 		global $wgUser;
-		
+
 		if ( empty( $params['token'] ) ||
 				!$wgUser->matchEditToken( $params['token'] ) ) {
 			$this->dieUsage( 'sessionfailure' );
 			return;
 		}
-		
+
 		if ( empty( $params['threadaction'] ) ) {
 			$this->dieUsage( 'missing-param', 'action' );
 			return;
 		}
-		
+
 		$allowedAllActions = array( 'markread' );
 		$action = $params['threadaction'];
-		
+
 		// Pull the threads from the parameters
 		$threads = array();
 		if ( !empty( $params['thread'] ) ) {
-			foreach( $params['thread'] as $thread ) {
+			foreach ( $params['thread'] as $thread ) {
 				$threadObj = null;
 				if ( is_numeric( $thread ) ) {
 					$threadObj = Threads::withId( $thread );
 				} elseif ( $thread == 'all' &&
 						in_array( $action, $allowedAllActions ) ) {
-					$threads = array('all');
+					$threads = array( 'all' );
 				} else {
 					$title = Title::newFromText( $thread );
 					$article = new Article( $title );
 					$threadObj = Threads::withRoot( $article );
 				}
-				
+
 				if ( $threadObj instanceof Thread ) {
 					$threads[] = $threadObj;
 				}
 			}
 		}
-		
+
 		// Find the appropriate module
 		$actions = $this->getActions();
-		
+
 		$method = $actions[$action];
-		
+
 		call_user_func_array( array( $this, $method ), array( $threads, $params ) );
 	}
-	
+
 	public function actionMarkRead( $threads, $params ) {
 		global $wgUser;
-		
+
 		$result = array();
-		
+
 		if ( in_array( 'all', $threads ) ) {
 			NewMessages::markAllReadByUser( $wgUser );
 			$result[] = array(
@@ -139,122 +137,119 @@ class ApiThreadAction extends ApiBase {
 				'threads' => 'all',
 			);
 		} else {
-			foreach( $threads as $t ) {
+			foreach ( $threads as $t ) {
 				NewMessages::markThreadAsReadByUser( $t, $wgUser );
-				$result[] =
-					array(
-						'result' => 'Success',
-						'action' => 'markread',
-						'id' => $t->id(),
-						'title' => $t->title()->getPrefixedText()
-					);
-			}
-		}
-		
-		$this->getResult()->setIndexedTagName( $result, 'thread' );
-		$this->getResult()->addValue( null, 'threadactions', $result );
-	}
-	
-	public function actionMarkUnread( $threads, $params ) {
-		global $wgUser;
-		
-		$result = array();
-		
-		foreach( $threads as $t ) {
-			NewMessages::markThreadAsUnreadByUser( $t, $wgUser );
-			
-			$result[] =
-				array(
+				$result[] = array(
 					'result' => 'Success',
-					'action' => 'markunread',
+					'action' => 'markread',
 					'id' => $t->id(),
 					'title' => $t->title()->getPrefixedText()
 				);
+			}
 		}
-		
-		
+
+		$this->getResult()->setIndexedTagName( $result, 'thread' );
+		$this->getResult()->addValue( null, 'threadactions', $result );
+	}
+
+	public function actionMarkUnread( $threads, $params ) {
+		global $wgUser;
+
+		$result = array();
+
+		foreach ( $threads as $t ) {
+			NewMessages::markThreadAsUnreadByUser( $t, $wgUser );
+
+			$result[] = array(
+				'result' => 'Success',
+				'action' => 'markunread',
+				'id' => $t->id(),
+				'title' => $t->title()->getPrefixedText()
+			);
+		}
+
+
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
-	
+
 	public function actionSplit( $threads, $params ) {
 		global $wgUser;
-		
-		if ( count($threads) > 1 ) {
+
+		if ( count( $threads ) > 1 ) {
 			$this->dieUsage( 'You may only split one thread at a time',
 					'too-many-threads' );
 			return;
-		} elseif ( count($threads) < 1 ) {
+		} elseif ( count( $threads ) < 1 ) {
 			$this->dieUsage( 'You must specify a thread to split',
 					'no-specified-threads' );
 			return;
 		}
-		
+
 		$thread = array_pop( $threads );
-		
+
 		if ( $thread->isTopmostThread() ) {
 			$this->dieUsage( 'This thread is already a top-level thread.',
 				'already-top-level' );
 		}
-		
+
 		$title = null;
 		$article = $thread->article();
-		if ( empty($params['subject'] ) ||
+		if ( empty( $params['subject'] ) ||
 			! Thread::validateSubject( $params['subject'], $title, null, $article ) ) {
-			
+
 			$this->dieUsage( 'No subject, or an invalid subject, was specified',
 				'no-valid-subject' );
 		}
-		
+
 		$subject = $params['subject'];
-		
+
 		// Pull a reason, if applicable.
 		$reason = '';
-		if ( !empty($params['reason']) ) {
+		if ( !empty( $params['reason'] ) ) {
 			$reason = $params['reason'];
 		}
-		
+
 		// Check if they specified a sortkey
 		$sortkey = null;
-		if ( !empty($params['sortkey']) ) {
+		if ( !empty( $params['sortkey'] ) ) {
 			$ts = $params['sortkey'];
 			$ts = wfTimestamp( TS_MW, $ts );
-			
+
 			$sortkey = $ts;
 		}
-		
+
 		// Do the split
 		$thread->split( $subject, $reason, $sortkey );
-		
+
 		$result = array();
-		$result[] =
-			array(
-				'result' => 'Success',
-				'action' => 'split',
-				'id' => $thread->id(),
-				'title' => $thread->title()->getPrefixedText(),
-				'newsubject' => $subject,
-			);
-		
+		$result[] = array(
+			'result' => 'Success',
+			'action' => 'split',
+			'id' => $thread->id(),
+			'title' => $thread->title()->getPrefixedText(),
+			'newsubject' => $subject,
+		);
+
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
-	
+
 	public function actionMerge( $threads, $params ) {
 		global $wgUser;
-		
+
 		if ( count( $threads ) < 1 ) {
 			$this->dieUsage( 'You must specify a thread to merge',
 				'no-specified-threads' );
 			return;
 		}
-		
+
 		if ( empty( $params['newparent'] ) ) {
 			$this->dieUsage( 'You must specify a new parent thread to merge beneath',
-				'no-parent-thread' );		
+				'no-parent-thread' );
 			return;
 		}
-		
+
 		$newParent = $params['newparent'];
 		if ( is_numeric( $newParent ) ) {
 			$newParent = Threads::withId( $newParent );
@@ -263,115 +258,114 @@ class ApiThreadAction extends ApiBase {
 			$article = new Article( $title );
 			$newParent = Threads::withRoot( $article );
 		}
-		
+
 		if ( !$newParent ) {
-			$this->dieUsage( 'The parent thread you specified was neither the title '.
+			$this->dieUsage( 'The parent thread you specified was neither the title ' .
 					'of a thread, nor a thread ID.', 'invalid-parent-thread' );
 			return;
 		}
-		
+
 		// Pull a reason, if applicable.
 		$reason = '';
-		if ( !empty($params['reason']) ) {
+		if ( !empty( $params['reason'] ) ) {
 			$reason = $params['reason'];
 		}
-		
+
 		$result = array();
-		
-		foreach( $threads as $thread ) {
+
+		foreach ( $threads as $thread ) {
 			$thread->moveToParent( $newParent, $reason );
-			$result[] = 
-				array(
-					'result' => 'Success',
-					'action' => 'merge',
-					'id' => $thread->id(),
-					'title' => $thread->title()->getPrefixedText(),
-					'new-parent-id' => $newParent->id(),
-					'new-parent-title' => $newParent->title()->getPrefixedText(),
-					'new-ancestor-id' => $newParent->topmostThread()->id(),
-					'new-ancestor-title' => $newParent->topmostThread()->title()->getPrefixedText(),
-				);
+			$result[] = array(
+				'result' => 'Success',
+				'action' => 'merge',
+				'id' => $thread->id(),
+				'title' => $thread->title()->getPrefixedText(),
+				'new-parent-id' => $newParent->id(),
+				'new-parent-title' => $newParent->title()->getPrefixedText(),
+				'new-ancestor-id' => $newParent->topmostThread()->id(),
+				'new-ancestor-title' => $newParent->topmostThread()->title()->getPrefixedText(),
+			);
 		}
-		
+
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
-	
+
 	public function actionNewThread( $threads, $params ) {
 		global $wgUser;
-		
+
 		// Validate talkpage parameters
 		if ( empty( $params['talkpage'] ) ) {
 			$this->dieUsage( 'You must specify a talk-page to post the thread to',
 				'missing-param' );
-			
+
 			return;
 		}
-		
+
 		$talkpageTitle = Title::newFromText( $params['talkpage'] );
-		
-		if (!$talkpageTitle || !LqtDispatch::isLqtPage( $talkpageTitle ) ) {
-			$this->dieUsage( 'The talkpage you specified is invalid, or does not '.
+
+		if ( !$talkpageTitle || !LqtDispatch::isLqtPage( $talkpageTitle ) ) {
+			$this->dieUsage( 'The talkpage you specified is invalid, or does not ' .
 				'have discussion threading enabled.', 'invalid-talkpage' );
 			return;
 		}
 		$talkpage = new Article( $talkpageTitle );
-		
+
 		// Check if we can post.
 		if ( Thread::canUserPost( $wgUser, $talkpage ) !== true ) {
-			$this->dieUsage( 'You cannot post to the specified talkpage, '.
+			$this->dieUsage( 'You cannot post to the specified talkpage, ' .
 				'because it is protected from new posts', 'talkpage-protected' );
 			return;
 		}
-		
+
 		// Validate subject, generate a title
 		if ( empty( $params['subject'] ) ) {
 			$this->dieUsage( 'You must specify a thread subject',
 				'missing-param' );
 			return;
 		}
-		
-		$bump = isset($params['bump']) ? $params['bump'] : null;
-		
+
+		$bump = isset( $params['bump'] ) ? $params['bump'] : null;
+
 		$subject = $params['subject'];
 		$title = null;
 		$subjectOk = Thread::validateSubject( $subject, $title, null, $talkpage );
-		
+
 		if ( !$subjectOk ) {
 			$this->dieUsage( 'The subject you specified is not valid',
 				'invalid-subject' );
-			
+
 			return;
 		}
 		$article = new Article( $title );
-		
+
 		// Check for text
 		if ( empty( $params['text'] ) ) {
 			$this->dieUsage( 'You must include text in your post', 'no-text' );
 			return;
 		}
 		$text = $params['text'];
-		
+
 		// Generate or pull summary
 		$summary = wfMsgForContent( 'lqt-newpost-summary', $subject );
 		if ( !empty( $params['reason'] ) ) {
 			$summary = $params['reason'];
 		}
-		
+
 		$signature = null;
 		if ( isset( $params['signature'] ) ) {
 			$signature = $params['signature'];
 		}
-		
+
 		// Inform hooks what we're doing
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
 		LqtHooks::$editThread = null;
 		LqtHooks::$editType = 'new';
 		LqtHooks::$editAppliesTo = null;
-		
+
 		$token = $params['token'];
-		
+
 		// All seems in order. Construct an API edit request
 		$requestData = array(
 			'action' => 'edit',
@@ -382,31 +376,31 @@ class ApiThreadAction extends ApiBase {
 			'basetimestamp' => wfTimestampNow(),
 			'format' => 'json',
 		);
-		
+
 		$editReq = new FauxRequest( $requestData, true );
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
-		
+
 		$editResult = $internalApi->getResultData();
-		
+
 		if ( $editResult['edit']['result'] != 'Success' ) {
 			$result = array( 'result' => 'EditFailure', 'details' => $editResult );
 			$this->getResult()->addValue( null, $this->getModuleName(), $result );
 			return;
 		}
-		
+
 		$articleId = $editResult['edit']['pageid'];
-		
+
 		$article->getTitle()->resetArticleID( $articleId );
 		$title->resetArticleID( $articleId );
-		
+
 		$thread = LqtView::postEditUpdates( 'new', null, $article, $talkpage,
 					$subject, $summary, null, $text, $bump, $signature );
 
 		$maxLag = wfGetLB()->getMaxLag();
 		$maxLag = $maxLag[1];
-		
-		if ($maxLag == -1) {
+
+		if ( $maxLag == - 1 ) {
 			$maxLag = 0;
 		}
 
@@ -416,81 +410,81 @@ class ApiThreadAction extends ApiBase {
 			'thread-title' => $title->getPrefixedText(),
 			'max-lag' => $maxLag,
 		);
-		
+
 		if ( !empty( $params['render'] ) ) {
 			$result['html'] = self::renderThreadPostAction( $thread );
 		}
-		
+
 		$result = array( 'thread' => $result );
-		
+
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
-	
+
 	public function actionReply( $threads, $params ) {
 		global $wgUser;
-		
+
 		// Validate thread parameter
-		if ( count($threads) > 1 ) {
+		if ( count( $threads ) > 1 ) {
 			$this->dieUsage( 'You may only reply to one thread at a time',
 					'too-many-threads' );
 			return;
-		} elseif ( count($threads) < 1 ) {
+		} elseif ( count( $threads ) < 1 ) {
 			$this->dieUsage( 'You must specify a thread to reply to',
 					'no-specified-threads' );
 			return;
 		}
 		$replyTo = array_pop( $threads );
-		
+
 		// Check if we can reply to that thread.
 		$perm_result = $replyTo->canUserReply( $wgUser );
 		if ( $perm_result !== true ) {
-			$this->dieUsage( "You cannot reply to this thread, because the ".
-				$perm_result." is protected from replies.",
-				$perm_result.'-protected' );
+			$this->dieUsage( "You cannot reply to this thread, because the " .
+				$perm_result . " is protected from replies.",
+				$perm_result . '-protected' );
 			return;
 		}
-		
+
 		// Validate text parameter
 		if ( empty( $params['text'] ) ) {
 			$this->dieUsage( 'You must include text in your post', 'no-text' );
 			return;
 		}
-		
+
 		$text = $params['text'];
-		
-		$bump = isset($params['bump']) ? $params['bump'] : null;
-		
+
+		$bump = isset( $params['bump'] ) ? $params['bump'] : null;
+
 		// Generate/pull summary
 		$summary = wfMsgForContent( 'lqt-reply-summary', $replyTo->subject(),
 				$replyTo->title()->getPrefixedText() );
-		
+
 		if ( !empty( $params['reason'] ) ) {
 			$summary = $params['reason'];
 		}
-		
+
 		$signature = null;
 		if ( isset( $params['signature'] ) ) {
 			$signature = $params['signature'];
 		}
-		
+
 		// Grab data from parent
 		$talkpage = $replyTo->article();
 		$subject = $replyTo->subject();
-		
+
 		// Generate a reply title.
 		$title = Threads::newReplyTitle( $replyTo, $wgUser );
 		$article = new Article( $title );
-		
+
 		// Inform hooks what we're doing
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
 		LqtHooks::$editThread = null;
 		LqtHooks::$editType = 'reply';
 		LqtHooks::$editAppliesTo = $replyTo;
-		
+
 		// Pull token in
 		$token = $params['token'];
-		
+
 		// All seems in order. Construct an API edit request
 		$requestData = array(
 			'action' => 'edit',
@@ -501,33 +495,33 @@ class ApiThreadAction extends ApiBase {
 			'basetimestamp' => wfTimestampNow(),
 			'format' => 'json',
 		);
-		
+
 		$editReq = new FauxRequest( $requestData, true );
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
-		
+
 		$editResult = $internalApi->getResultData();
-		
+
 		if ( $editResult['edit']['result'] != 'Success' ) {
 			$result = array( 'result' => 'EditFailure', 'details' => $editResult );
 			$this->getResult()->addValue( null, $this->getModuleName(), $result );
 			return;
 		}
-		
+
 		$articleId = $editResult['edit']['pageid'];
 		$article->getTitle()->resetArticleID( $articleId );
 		$title->resetArticleID( $articleId );
-		
+
 		$thread = LqtView::postEditUpdates( 'reply', $replyTo, $article, $talkpage,
 					$subject, $summary, null, $text, $bump, $signature );
-		
+
 		$maxLag = wfGetLB()->getMaxLag();
 		$maxLag = $maxLag[1];
-		
-		if ($maxLag == -1) {
+
+		if ( $maxLag == - 1 ) {
 			$maxLag = 0;
 		}
-					
+
 		$result = array(
 			'action' => 'reply',
 			'result' => 'Success',
@@ -539,19 +533,19 @@ class ApiThreadAction extends ApiBase {
 			'ancestor-title' => $replyTo->topmostThread()->title()->getPrefixedText(),
 			'max-lag' => $maxLag,
 		);
-		
+
 		if ( !empty( $params['render'] ) ) {
 			$result['html'] = self::renderThreadPostAction( $thread );
 		}
-		
+
 		$result = array( 'thread' => $result );
-		
+
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
-	
+
 	static function renderThreadPostAction( $thread ) {
 		$thread = $thread->topmostThread();
-		
+
 		// Set up OutputPage
 		global $wgOut, $wgUser, $wgRequest;
 		$oldOutputText = $wgOut->getHTML();
@@ -561,58 +555,58 @@ class ApiThreadAction extends ApiBase {
 		$article = $thread->root();
 		$title = $article->getTitle();
 		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );
-		
+
 		$view->showThread( $thread );
 
 		$result = $wgOut->getHTML();
 		$wgOut->clearHTML();
 		$wgOut->addHTML( $oldOutputText );
-		
+
 		return $result;
 	}
-	
+
 	public function actionSetSubject( $threads, $params ) {
 		// Validate thread parameter
-		if ( count($threads) > 1 ) {
+		if ( count( $threads ) > 1 ) {
 			$this->dieUsage( 'You may only change the subject of one thread at a time',
 					'too-many-threads' );
 			return;
-		} elseif ( count($threads) < 1 ) {
+		} elseif ( count( $threads ) < 1 ) {
 			$this->dieUsage( 'You must specify a thread to change the subject of',
 					'no-specified-threads' );
 			return;
 		}
 		$thread = array_pop( $threads );
-		
+
 		// Validate subject
 		if ( empty( $params['subject'] ) ) {
 			$this->dieUsage( 'You must specify a thread subject',
 				'missing-param' );
 			return;
 		}
-		
+
 		$talkpage = $thread->article();
-		
+
 		$subject = $params['subject'];
 		$title = null;
 		$subjectOk = Thread::validateSubject( $subject, $title, null, $talkpage );
-		
+
 		if ( !$subjectOk ) {
 			$this->dieUsage( 'The subject you specified is not valid',
 				'invalid-subject' );
-			
+
 			return;
 		}
-		
+
 		$reason = null;
-		
+
 		if ( isset( $params['reason'] ) ) {
 			$reason = $params['reason'];
 		}
-		
+
 		$thread->setSubject( $subject );
 		$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT, $thread, $reason );
-		
+
 		$result = array(
 			'action' => 'setsubject',
 			'result' => 'success',
@@ -620,51 +614,51 @@ class ApiThreadAction extends ApiBase {
 			'thread-title' => $thread->title()->getPrefixedText(),
 			'new-subject' => $subject,
 		);
-		
+
 		$result = array( 'thread' => $result );
-		
+
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
-	
+
 	public function actionSetSortkey( $threads, $params ) {
 		// First check for threads
-		if ( !count($threads) ) {
+		if ( !count( $threads ) ) {
 			$this->dieUsage( 'You must specify a thread to set the sortkey of',
 					'no-specified-threads' );
 			return;
 		}
-		
+
 		// Validate timestamp
 		if ( empty( $params['sortkey'] ) ) {
-			$this->dieUsage( 'You must specify a valid timestamp for the sortkey'.
-				'parameter. It should be in the form YYYYMMddhhmmss, a '.
+			$this->dieUsage( 'You must specify a valid timestamp for the sortkey' .
+				'parameter. It should be in the form YYYYMMddhhmmss, a ' .
 				'unix timestamp or "now".', 'invalid-sortkey' );
 			return;
 		}
-		
+
 		$ts = $params['sortkey'];
-		
-		if ($ts == 'now') $ts = wfTimestampNow();
-		
+
+		if ( $ts == 'now' ) $ts = wfTimestampNow();
+
 		$ts = wfTimestamp( TS_MW, $ts );
-		
+
 		if ( !$ts ) {
-			$this->dieUsage( 'You must specify a valid timestamp for the sortkey'.
-				'parameter. It should be in the form YYYYMMddhhmmss, a '.
+			$this->dieUsage( 'You must specify a valid timestamp for the sortkey' .
+				'parameter. It should be in the form YYYYMMddhhmmss, a ' .
 				'unix timestamp or "now".', 'invalid-sortkey' );
 			return;
 		}
-		
+
 		$reason = null;
-		
+
 		if ( isset( $params['reason'] ) ) {
 			$reason = $params['reason'];
 		}
-		
-		$thread = array_pop($threads);
+
+		$thread = array_pop( $threads );
 		$thread->setSortkey( $ts );
 		$thread->commitRevision( Threads::CHANGE_ADJUSTED_SORTKEY, null, $reason );
-		
+
 		$result = array(
 			'action' => 'setsortkey',
 			'result' => 'success',
@@ -672,12 +666,12 @@ class ApiThreadAction extends ApiBase {
 			'thread-title' => $thread->title()->getPrefixedText(),
 			'new-sortkey' => $ts,
 		);
-		
+
 		$result = array( 'thread' => $result );
-		
+
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
-	
+
 	public function getVersion() {
 		return __CLASS__ . ': $Id: $';
 	}

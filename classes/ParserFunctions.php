@@ -1,5 +1,4 @@
 <?php
-
 class LqtParserFunctions {
 	static function useLiquidThreads( &$parser, $param = '1' ) {
 		$offParams = array( 'no', 'off', 'disable' );
@@ -16,7 +15,7 @@ class LqtParserFunctions {
 	}
 	
 	static function lqtPageLimit( &$parser, $param = null ) {
-		if ($param && $param > 0) {
+		if ( $param && $param > 0 ) {
 			$parser->mOutput->setProperty( 'lqt-page-limit', $param );
 		}
 	}

@@ -1,13 +1,13 @@
 <?php
-
 class HTMLForm {
-
 	static $jsAdded = false;
 
 	/* The descriptor is an array of arrays.
 		i.e. array(
-			'fieldname' => array( 'section' => 'section/subsection',
-								properties... ),
+			'fieldname' => array(
+				'section' => 'section/subsection',
+				properties...
+			),
 			...
 		)
 	 */
@@ -26,7 +26,7 @@ class HTMLForm {
 
 	function __construct( $descriptor, $messagePrefix ) {
 		wfLoadExtensionMessages( 'Lqt-Compat' );
-		
+
 		$this->mMessagePrefix = $messagePrefix;
 
 		// Expand out into a tree.
@@ -112,18 +112,21 @@ class HTMLForm {
 	}
 
 	/** Return values:
-	  * TRUE == Successful submission
-	  * FALSE == No submission attempted
-	  * Anything else == Error to display.
-	  */
+	 * TRUE == Successful submission
+	 * FALSE == No submission attempted
+	 * Anything else == Error to display.
+	 */
 	function trySubmit() {
 		// Check for validation
 		foreach ( $this->mFlatFields as $fieldname => $field ) {
 			if ( !empty( $field->mParams['nodata'] ) ) continue;
-			if ( $field->validate( $this->mFieldData[$fieldname],
-					$this->mFieldData ) !== true ) {
-				return isset( $this->mValidationErrorMessage ) ?
-						$this->mValidationErrorMessage : array( 'htmlform-invalid-input' );
+			if ( $field->validate(
+				$this->mFieldData[$fieldname],
+				$this->mFieldData ) !== true )
+			{
+				return isset( $this->mValidationErrorMessage )
+					? $this->mValidationErrorMessage
+					: array( 'htmlform-invalid-input' );
 			}
 		}
 
@@ -214,7 +217,7 @@ class HTMLForm {
 				)
 			) . "\n";
 		}
-		
+
 		return $html;
 	}
 
@@ -228,7 +231,7 @@ class HTMLForm {
 		} else {
 			$errorstr = $errors;
 		}
-		
+
 		$errorstr = Xml::tags( 'div', array( 'class' => 'error' ), $errorstr );
 
 		global $wgOut;
@@ -288,8 +291,8 @@ class HTMLForm {
 		foreach ( $fields as $key => $value ) {
 			if ( is_object( $value ) ) {
 				$v = empty( $value->mParams['nodata'] )
-							? $this->mFieldData[$key]
-							: $value->getDefault();
+					? $this->mFieldData[$key]
+					: $value->getDefault();
 				$tableHtml .= $value->getTableRow( $v );
 
 				if ( $value->getLabel() != '&nbsp;' )
@@ -456,8 +459,11 @@ abstract class HTMLFormField {
 			$text = wfMsgExt( $msg, 'parseinline' );
 
 			if ( !wfEmptyMsg( $msg, $text ) ) {
-				$row = Xml::tags( 'td', array( 'colspan' => 2, 'class' => 'htmlform-tip' ),
-							$text );
+				$row = Xml::tags(
+					'td',
+					array( 'colspan' => 2, 'class' => 'htmlform-tip' ),
+					$text
+				);
 
 				$row = Xml::tags( 'tr', null, $row );
 
@@ -507,7 +513,7 @@ class HTMLTextField extends HTMLFormField {
 		if ( isset( $this->mParams['maxlength'] ) ) {
 			$attribs['maxlength'] = $this->mParams['maxlength'];
 		}
-		
+
 		if ( !empty( $this->mParams['disabled'] ) ) {
 			$attribs['disabled'] = 'disabled';
 		}
@@ -519,7 +525,6 @@ class HTMLTextField extends HTMLFormField {
 			$attribs
 		);
 	}
-
 }
 
 class HTMLIntField extends HTMLTextField {
@@ -661,10 +666,12 @@ class HTMLSelectOrOtherField extends HTMLTextField {
 			$tbAttribs['maxlength'] = $this->mParams['maxlength'];
 		}
 
-		$textbox = Xml::input( $this->mName . '-other',
-							$this->getSize(),
-							$valInSelect ? '' : $value,
-							$tbAttribs );
+		$textbox = Xml::input(
+			$this->mName . '-other',
+			$this->getSize(),
+			$valInSelect ? '' : $value,
+			$tbAttribs
+		);
 
 		return "$select<br />\n$textbox";
 	}
@@ -722,9 +729,11 @@ class HTMLMultiSelectField extends HTMLFormField {
 				$html .= $this->formatOptions( $info, $value );
 			} else {
 				$thisAttribs = array( 'id' => $this->mID . "-$info", 'value' => $info );
-				
-				$checkbox = Xml::check( $this->mName . '[]', in_array( $info, $value ),
-								$attribs + $thisAttribs );
+
+				$checkbox = Xml::check(
+					$this->mName . '[]', in_array( $info, $value ),
+					$attribs + $thisAttribs
+				);
 				$checkbox .= '&nbsp;' . Xml::tags( 'label', array( 'for' => $this->mID . "-$info" ), $label );
 
 				$html .= $checkbox . '<br />';
@@ -778,7 +787,7 @@ class HTMLRadioField extends HTMLFormField {
 
 		return $html;
 	}
-	
+
 	function formatOptions( $options, $value ) {
 		$html = '';
 

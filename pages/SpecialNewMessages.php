@@ -1,5 +1,4 @@
 <?php
-
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class SpecialNewMessages extends SpecialPage {
@@ -26,16 +25,16 @@ class SpecialNewMessages extends SpecialPage {
 		$this->request = $wgRequest;
 
 		$this->setHeaders();
-		
+
 		$article = new Article( $this->getTitle() );
 		$title = $this->getTitle();
-		
+
 		// Clear newtalk
 		$this->user->setNewtalk( false );
 
 		$view = new NewUserMessagesView( $this->output, $article,
 			$title, $this->user, $this->request );
-			
+
 		if ( $this->request->getBool( 'lqt_inline' ) ) {
 			$view->doInlineEditForm();
 			return;
@@ -50,21 +49,27 @@ class SpecialNewMessages extends SpecialPage {
 			$wgOut->addWikitext( wfMsg( 'lqt-no-new-messages' ) );
 			return;
 		}
-		
+
 		$html = '';
-		
+
 		$html .= $view->getReadAllButton( $both_sets );
 
 		$view->setHeaderLevel( 3 );
 
-		$html .= Xml::tags( 'h2', array( 'class' => 'lqt_newmessages_section' ),
-							wfMsgExt( 'lqt-messages-sent', 'parseinline' ) );
+		$html .= Xml::tags(
+			'h2',
+			array( 'class' => 'lqt_newmessages_section' ),
+			wfMsgExt( 'lqt-messages-sent', 'parseinline' )
+		);
 		$wgOut->addHTML( $html );
 		$view->setThreads( $first_set );
 		$view->show();
 
-		$wgOut->addHTML( Xml::tags( 'h2', array( 'class' => 'lqt_newmessages_section' ),
-							wfMsgExt( 'lqt-other-messages', 'parseinline' ) ) );
+		$wgOut->addHTML( Xml::tags(
+			'h2',
+			array( 'class' => 'lqt_newmessages_section' ),
+			wfMsgExt( 'lqt-other-messages', 'parseinline' )
+		) );
 		$view->setThreads( $second_set );
 		$view->show();
 	}

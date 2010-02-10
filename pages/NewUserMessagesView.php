@@ -1,9 +1,7 @@
 <?php
-
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class NewUserMessagesView extends LqtView {
-
 	protected $threads;
 	protected $tops;
 	protected $targets;
@@ -13,11 +11,16 @@ class NewUserMessagesView extends LqtView {
 		$html = '';
 		$html .= Xml::hidden( 'lqt_method', 'mark_as_read' );
 		$html .= Xml::hidden( 'lqt_operand', $ids_s );
-		$html .= Xml::submitButton( $label,
-						array( 'name' => 'lqt_read_button',
-						'title' => $title, 'class' => 'lqt-read-button' ) );
+		$html .= Xml::submitButton(
+			$label,
+			array(
+				'name' => 'lqt_read_button',
+				'title' => $title,
+				'class' => 'lqt-read-button'
+			)
+		);
 		$html = Xml::tags( 'form', array( 'method' => 'post', 'class' => $class ), $html );
-		
+
 		return $html;
 	}
 
@@ -25,16 +28,16 @@ class NewUserMessagesView extends LqtView {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$ids =  array_map( create_function( '$t', 'return $t->id();' ), $threads ); // ew
 		return $this->htmlForReadButton(
-					wfMsg( 'lqt-read-all' ),
-					wfMsg( 'lqt-read-all-tooltip' ),
-					"lqt_newmessages_read_all_button",
-					$ids
-				);
+			wfMsg( 'lqt-read-all' ),
+			wfMsg( 'lqt-read-all-tooltip' ),
+			"lqt_newmessages_read_all_button",
+			$ids
+		);
 	}
 
 	function getUndoButton( $ids ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		
+
 		if ( count( $ids ) == 1 ) {
 			$t = Threads::withId( $ids[0] );
 			if ( !$t )
@@ -45,49 +48,56 @@ class NewUserMessagesView extends LqtView {
 			$msg =  wfMsgExt( 'lqt-count-marked-read', 'parseinline', array( $count ) );
 		}
 		$operand = implode( ',', $ids );
-		
+
 		$html = '';
 		$html .= $msg;
 		$html .= Xml::hidden( 'lqt_method', 'mark_as_unread' );
 		$html .= Xml::hidden( 'lqt_operand', $operand );
-		$html .= Xml::submitButton( wfMsg( 'lqt-email-undo' ), array( 'name' => 'lqt_read_button',
-					'title' => wfMsg( 'lqt-email-info-undo' ) ) );
-					
-		$html = Xml::tags( 'form',
-				array( 'method' => 'post', 'class' => 'lqt_undo_mark_as_read' ),
-				$html );
-		
+		$html .= Xml::submitButton(
+			wfMsg( 'lqt-email-undo' ),
+			array(
+				'name' => 'lqt_read_button',
+				'title' => wfMsg( 'lqt-email-info-undo' )
+			)
+		);
+
+		$html = Xml::tags(
+			'form',
+			array( 'method' => 'post', 'class' => 'lqt_undo_mark_as_read' ),
+			$html
+		);
+
 		return $html;
 	}
 
 	function postDivClass( $thread ) {
 		$origClass = parent::postDivClass( $thread );
-		
+
 		$topid = $thread->topmostThread()->id();
-		
+
 		if ( isset( $this->targets[$topid] ) && is_array( $this->targets[$topid] ) &&
 				in_array( $thread->id(), $this->targets[$topid] ) )
 			return "$origClass lqt_post_new_message";
-		
+
 		return $origClass;
 	}
 
 	function showOnce() {
 		self::addJSandCSS();
-		
+
 		static $scriptDone = false;
-		
+
 		if ( !$scriptDone ) {
 			global $wgOut, $wgScriptPath, $wgLiquidThreadsExtensionName;
 			$prefix = "{$wgScriptPath}/extensions/{$wgLiquidThreadsExtensionName}";
 			$wgOut->addScriptFile( "$prefix/newmessages.js" );
 		}
-		
+
 		$this->user->setNewtalk( false );
 
 		if ( $this->methodApplies( 'mark_as_unread' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand', '' ) );
-			
+
 			if ( $ids !== false ) {
 				foreach ( $ids as $id ) {
 					$tmp_thread = Threads::withId( $id );	if ( $tmp_thread )
@@ -124,7 +134,7 @@ class NewUserMessagesView extends LqtView {
 		$this->tops = array();
 		foreach ( $this->threads as $t ) {
 			$top = $t->topmostThread();
-			
+
 			// It seems that in some cases $top is zero.
 			if ( !$top )
 				throw new MWException( "{$t->id()} seems to have no topmost thread" );
@@ -135,7 +145,7 @@ class NewUserMessagesView extends LqtView {
 				$this->targets[$top->id()] = array();
 			$this->targets[$top->id()][] = $t->id();
 		}
-		
+
 		$this->output->addHTML( '<table class="lqt-new-messages"><tbody>' );
 
 		foreach ( $this->tops as $t ) {
@@ -145,42 +155,49 @@ class NewUserMessagesView extends LqtView {
 
 			$this->showWrappedThread( $t );
 		}
-		
+
 		$this->output->addHTML( '</tbody></table>' );
-		
+
 		return false;
 	}
-	
+
 	function showWrappedThread( $t ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		
+
 		$read_button = $this->htmlForReadButton(
 			wfMsg( 'lqt-read-message' ),
 			wfMsg( 'lqt-read-message-tooltip' ),
 			'lqt_newmessages_read_button',
 			$this->targets[$t->id()] );
-		
+
 		// Left-hand column read button and context link to the full thread.
 		global $wgUser;
 		$topmostThread = $t->topmostThread();
 		$sk = $wgUser->getSkin();
 		$title = clone $topmostThread->article()->getTitle();
 		$title->setFragment( '#' . $t->getAnchorName() );
-		
+
 		// Make sure it points to the right page. The Pager seems to use the DB
 		//  representation of a timestamp for its offset field, odd.
 		$dbr = wfGetDB( DB_SLAVE );
 		$offset = wfTimestamp( TS_UNIX, $topmostThread->modified() ) + 1;
 		$offset = $dbr->timestamp( $offset );
-		
-		$contextLink = $sk->link( $title,
-						wfMsgExt( 'lqt-newmessages-context', 'parseinline' ), array(),
-						array( 'offset' => $offset ), array( 'known' ) );
-		
+
+		$contextLink = $sk->link(
+			$title,
+			wfMsgExt( 'lqt-newmessages-context', 'parseinline' ),
+			array(),
+			array( 'offset' => $offset ),
+			array( 'known' )
+		);
+
 		$talkpageLink = $sk->link( $topmostThread->article()->getTitle() );
-		$talkpageInfo = wfMsgExt( 'lqt-newmessages-from',
-					array( 'parse', 'replaceafter' ), $talkpageLink );
-		
+		$talkpageInfo = wfMsgExt(
+			'lqt-newmessages-from',
+			array( 'parse', 'replaceafter' ),
+			$talkpageLink
+		);
+
 		$leftColumn = Xml::tags( 'p', null, $read_button ) .
 						Xml::tags( 'p', null, $contextLink ) .
 						$talkpageInfo;
@@ -192,7 +209,7 @@ class NewUserMessagesView extends LqtView {
 		$mustShowThreads = $this->targets[$t->id()];
 
 		$this->showThread( $t, 1, 1, array( 'mustShowThreads' => $mustShowThreads ) );
-		
+
 		$this->output->addHTML( "</td></tr>" );
 	}
 

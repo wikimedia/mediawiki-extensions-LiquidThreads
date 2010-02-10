@@ -18,27 +18,27 @@ class LqtLogFormatter {
 				}
 				break;
 			default:
-				$msg = 'lqt-log-action-'.$action;
+				$msg = 'lqt-log-action-' . $action;
 				break;
 		}
-	
-		$options = array('parseinline');
-		
+
+		$options = array( 'parseinline' );
+
 		$forIRC = self::isForIRC();
-		
-		if ($forIRC) {
+
+		if ( $forIRC ) {
 			global $wgContLang;
 			$options['language'] = $wgContLang->getCode();
 		}
-		
+
 		$replacements = array_merge( array( $title->getPrefixedText() ), $parameters );
-		
+
 		$html = wfMsgExt( $msg, $options, $replacements );
-				
-		if ($forIRC) {
+
+		if ( $forIRC ) {
 			$html = StringUtils::delimiterReplace( '<', '>', '', $html );
 		}
-				
+
 		return $html;
 	}
 }

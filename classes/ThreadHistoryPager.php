@@ -2,14 +2,13 @@
 
 class ThreadHistoryPager extends TablePager {
 	static $change_names;
-			
 
 	function __construct( $view, $thread ) {
 		parent::__construct();
-		
+
 		$this->thread = $thread;
 		$this->view = $view;
-		
+
 		self::$change_names =
 		array(
 			Threads::CHANGE_EDITED_ROOT => wfMsgNoTrans( 'lqt_hist_comment_edited' ),
@@ -28,19 +27,18 @@ class ThreadHistoryPager extends TablePager {
 			Threads::CHANGE_ADJUSTED_SORTKEY => wfMsgNoTrans( 'lqt_hist_adjusted_sortkey' ),
 		);
 	}
-	
+
 	function getQueryInfo() {
-		$queryInfo =
-			array(
-				'tables' => array( 'thread_history' ),
-				'fields' => '*',
-				'conds' => array( 'th_thread' => $this->thread->id() ),
-				'options' => array( 'order by' => 'th_timestamp desc' ),
-			);
-			
+		$queryInfo = array(
+			'tables' => array( 'thread_history' ),
+			'fields' => '*',
+			'conds' => array( 'th_thread' => $this->thread->id() ),
+			'options' => array( 'order by' => 'th_timestamp desc' ),
+		);
+
 		return $queryInfo;
 	}
-	
+
 	function getFieldMessages() {
 		$headers = array(
 			'th_timestamp' => 'lqt-history-time',
@@ -48,24 +46,24 @@ class ThreadHistoryPager extends TablePager {
 			'th_change_type' => 'lqt-history-action',
 			'th_change_comment' => 'lqt-history-comment',
 			);
-		
+
 		return $headers;
 	}
-	
+
 	function getFieldNames() {
 		static $headers = null;
 
 		if ( !empty( $headers ) ) {
 			return $headers;
 		}
-		
+
 		$headers = $this->getFieldMessages();
 
 		$headers = array_map( 'wfMsg', $headers );
 
 		return $headers;
 	}
-	
+
 	function formatValue( $name, $value ) {
 		global $wgOut, $wgLang, $wgTitle;
 
@@ -83,11 +81,18 @@ class ThreadHistoryPager extends TablePager {
 		switch( $name ) {
 			case 'th_timestamp':
 				$formatted = $wgLang->timeanddate( $value );
-				return $sk->link( $wgTitle, $formatted, array(),
-							array( 'lqt_oldid' => $row->th_id ) );
+				return $sk->link(
+					$wgTitle,
+					$formatted,
+					array(),
+					array( 'lqt_oldid' => $row->th_id )
+				);
 			case 'th_user_text':
-				return $sk->userLink( $row->th_user, $row->th_user_text ) . ' ' .
-						$sk->userToolLinks( $row->th_user, $row->th_user_text );
+				return $sk->userLink(
+						$row->th_user,
+						$row->th_user_text
+					) .
+					' ' . $sk->userToolLinks( $row->th_user, $row->th_user_text );
 			case 'th_change_type':
 				return $this->getActionDescription( $value );
 			case 'th_change_comment':
@@ -97,29 +102,29 @@ class ThreadHistoryPager extends TablePager {
 				break;
 		}
 	}
-	
+
 	function getActionDescription( $type ) {
 		global $wgOut;
-		
+
 		$args = array();
 		$revision = ThreadRevision::loadFromRow( $this->mCurrentRow );
 		$changeObject = $revision->getChangeObject();
-		
+
 		if ( $revision && $revision->prev() ) {
 			$lastChangeObject = $revision->prev()->getChangeObject();
 		}
-		
+
 		if ( $changeObject && $changeObject->title() ) {
 			$args[] = $changeObject->title()->getPrefixedText();
 		} else {
 			$args[] = '';
 		}
-		
+
 		$msg = self::$change_names[$type];
-		
+
 		switch( $type ) {
 			case Threads::CHANGE_EDITED_SUBJECT:
-				if ($changeObject && $lastChangeObject) {
+				if ( $changeObject && $lastChangeObject ) {
 					$args[] = $lastChangeObject->subject();
 					$args[] = $changeObject->subject();
 				} else {
@@ -129,7 +134,7 @@ class ThreadHistoryPager extends TablePager {
 			case Threads::CHANGE_EDITED_ROOT:
 			case Threads::CHANGE_ROOT_BLANKED:
 				$view = $this->view;
-				
+
 				if ( $changeObject && $changeObject->title() ) {
 					$diffLink = $view->diffPermalinkURL( $changeObject, $revision );
 					$args[] = $diffLink;
@@ -138,15 +143,15 @@ class ThreadHistoryPager extends TablePager {
 				}
 				break;
 		}
-		
+
 		$content = wfMsgReplaceArgs( $msg, $args );
 		return $wgOut->parseInline( $content );
 	}
-	
+
 	function getIndexField() {
 		return 'th_timestamp';
 	}
-	
+
 	function getDefaultSort() {
 		return 'th_timestamp';
 	}
@@ -155,6 +160,6 @@ class ThreadHistoryPager extends TablePager {
 		$sortable_fields = array( 'th_timestamp', 'th_user_text', 'th_change_type' );
 		return in_array( $name, $sortable_fields );
 	}
-	
+
 	function getDefaultDirections() { return true; /* descending */ }
 }

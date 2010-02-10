@@ -1,5 +1,4 @@
 <?php
-
 if ( !defined( 'MEDIAWIKI' ) )
 	die();
 
@@ -24,15 +23,15 @@ define( 'LQT_NEWEST_THREADS', 'nt' );
 define( 'LQT_OLDEST_THREADS', 'ot' );
 
 // FIXME: would be neat if it was possible to somehow localise this.
-$wgCanonicalNamespaceNames[NS_LQT_THREAD] = 		'Thread';
-$wgCanonicalNamespaceNames[NS_LQT_THREAD_TALK]	= 	'Thread_talk';
-$wgCanonicalNamespaceNames[NS_LQT_SUMMARY] = 		'Summary';
-$wgCanonicalNamespaceNames[NS_LQT_SUMMARY_TALK]	= 	'Summary_talk';
+$wgCanonicalNamespaceNames[NS_LQT_THREAD]       = 'Thread';
+$wgCanonicalNamespaceNames[NS_LQT_THREAD_TALK]  = 'Thread_talk';
+$wgCanonicalNamespaceNames[NS_LQT_SUMMARY]      = 'Summary';
+$wgCanonicalNamespaceNames[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
 
 // FIXME: would be neat if it was possible to somehow localise this.
-$wgExtraNamespaces[NS_LQT_THREAD]	= 'Thread';
-$wgExtraNamespaces[NS_LQT_THREAD_TALK] = 'Thread_talk';
-$wgExtraNamespaces[NS_LQT_SUMMARY] = 'Summary';
+$wgExtraNamespaces[NS_LQT_THREAD]       = 'Thread';
+$wgExtraNamespaces[NS_LQT_THREAD_TALK]  = 'Thread_talk';
+$wgExtraNamespaces[NS_LQT_SUMMARY]      = 'Summary';
 $wgExtraNamespaces[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
 
 // Localisation
@@ -104,7 +103,7 @@ $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
 $wgSpecialPages['SplitThread'] = 'SpecialSplitThread';
 $wgSpecialPages['MergeThread'] = 'SpecialMergeThread';
-//$wgSpecialPages['HotTopics'] = 'SpecialHotTopics';
+// $wgSpecialPages['HotTopics'] = 'SpecialHotTopics';
 $wgSpecialPageGroups['NewMessages'] = 'wiki';
 
 // Classes
@@ -160,7 +159,7 @@ $wgLogTypes[] = 'liquidthreads';
 $wgLogNames['liquidthreads']          = 'lqt-log-name';
 $wgLogHeaders['liquidthreads']        = 'lqt-log-header';
 
-foreach( array( 'move', 'split', 'merge', 'subjectedit', 'resort' ) as $action ) {
+foreach ( array( 'move', 'split', 'merge', 'subjectedit', 'resort' ) as $action ) {
 	$wgLogActionsHandlers["liquidthreads/$action"] = 'LqtLogFormatter::formatLogEntry';
 }
 
@@ -204,9 +203,13 @@ $wgLqtEnotif = true;
 /* Thread actions which do *not* cause threads to be "bumped" to the top */
 /* Using numbers because the change type constants are defined in Threads.php, don't
 	want to have to parse it on every page view */
-$wgThreadActionsNoBump = array( 3 /* Edited summary */, 10 /* Merged from */,
-				12 /* Split from */, 2 /* Edited root */,
-				14 /* Adjusted sortkey */ );
+$wgThreadActionsNoBump = array(
+	3 /* Edited summary */,
+	10 /* Merged from */,
+	12 /* Split from */,
+	2 /* Edited root */,
+	14 /* Adjusted sortkey */
+);
 
 /** Switch this on if you've migrated from a version before around May 2009 */
 $wgLiquidThreadsMigrate = false;

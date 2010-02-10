@@ -2,7 +2,6 @@
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class HistoricalThread extends Thread {
-
 	/* Information about what changed in this revision. */
 	protected $changeType;
 	protected $changeObject;
@@ -46,7 +45,10 @@ class HistoricalThread extends Thread {
 		$line = $dbr->selectRow(
 			'historical_thread',
 			'hthread_contents',
-			array( 'hthread_id' => $id, 'hthread_revision' => $rev ),
+			array(
+				'hthread_id' => $id,
+				'hthread_revision' => $rev
+			),
 			__METHOD__ );
 		if ( $line )
 			return HistoricalThread::fromTextRepresentation( $line->hthread_contents );
@@ -57,12 +59,12 @@ class HistoricalThread extends Thread {
 	function isHistorical() {
 		return true;
 	}
-	
+
 
 	function changeType() {
 		return $this->changeType;
 	}
-	
+
 	function changeObject() {
 		return $this->replyWithId( $this->changeObject );
 	}
@@ -95,7 +97,7 @@ class HistoricalThread extends Thread {
 	function changeComment() {
 		return $this->changeComment;
 	}
-	
+
 	function setChangeUser( $user ) {
 		$this->changeUser = $user->getId();
 		$this->changeUserText = $user->getName();

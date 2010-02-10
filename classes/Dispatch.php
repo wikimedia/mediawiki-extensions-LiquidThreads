@@ -1,5 +1,4 @@
 <?php
-
 class LqtDispatch {
 	/** static cache of per-page LiquidThreads activation setting */
 	static $userLqtOverride = array();
@@ -13,7 +12,7 @@ class LqtDispatch {
 			$output->redirect( $title->getSubjectPage()->getFullUrl() );
 			return false;
 		}
-		
+
 		// If we came here from a red-link, redirect to the thread page.
 		$redlink = $request->getCheck( 'redlink' ) &&
 					$request->getText( 'action' ) == 'edit';
@@ -22,21 +21,22 @@ class LqtDispatch {
 			return false;
 		}
 
-		/* Certain actions apply to the "header", which is stored in the actual talkpage
-		   in the database. Drop everything and behave like a normal page if those
-		   actions come up, to avoid hacking the various history, editing, etc. code. */
+		/**
+		 * Certain actions apply to the "header", which is stored in the actual talkpage
+		 * in the database. Drop everything and behave like a normal page if those
+		 * actions come up, to avoid hacking the various history, editing, etc. code.
+		 */
 		$action =  $request->getVal( 'action' );
 		$header_actions = array( 'history', 'edit', 'submit', 'delete' );
 		global $wgRequest;
-		
+
 		$lqt_action = $request->getVal( 'lqt_method' );
 		if ( $action == 'edit' && $request->getVal( 'section' ) == 'new' ) {
 			// Hijack section=new for "new thread".
 			$request->setVal( 'lqt_method', 'talkpage_new_thread' );
 			$request->setVal( 'section', '' );
-			
+
 			$viewname = 'TalkpageView';
-			
 		} elseif ( !$lqt_action && ( in_array( $action, $header_actions ) ||
 				$request->getVal( 'diff', null ) !== null ) ) {
 			// Pass through wrapper
@@ -49,16 +49,15 @@ class LqtDispatch {
 		} else {
 			$viewname = 'TalkpageView';
 		}
-		
+
 		Thread::$titleCacheById[$article->getId()] = $title;
-		
+
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		self::$primaryView = $view;
 		return $view->show();
 	}
 
 	static function threadPermalinkMain( &$output, &$article, &$title, &$user, &$request ) {
-
 		$action =  $request->getVal( 'action' );
 		$lqt_method = $request->getVal( 'lqt_method' );
 
@@ -82,7 +81,7 @@ class LqtDispatch {
 		} else {
 			$viewname = 'ThreadPermalinkView';
 		}
-		
+
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		self::$primaryView = $view;
 		return $view->show();
@@ -94,53 +93,54 @@ class LqtDispatch {
 		self::$primaryView = $view;
 		return $view->show();
 	}
-	
+
 	static function isLqtPage( $title ) {
 		// Ignore it if it's a thread or a summary, makes no sense to have LiquidThreads there.
 		if ( $title->getNamespace() == NS_LQT_THREAD ||
 				$title->getNamespace() == NS_LQT_SUMMARY ) {
 			return false;
 		}
-	
+
 		global $wgLqtPages, $wgLqtTalkPages;
 		$isTalkPage = ( $title->isTalkPage() && $wgLqtTalkPages ) ||
 				in_array( $title->getPrefixedText(), $wgLqtPages );
-		
+
 		if ( $title->exists() ) {
 			$override = self::getUserLqtOverride( $title );
 		} else {
 			$override = null;
 		}
-		
+
 		global $wgLiquidThreadsAllowUserControl;
-		if ( !is_null($override) && $wgLiquidThreadsAllowUserControl ) {
+		if ( !is_null( $override ) && $wgLiquidThreadsAllowUserControl ) {
 			$isTalkPage = $override;
 		}
-		
+
 		$isTalkPage = $isTalkPage && !$title->isRedirect();
-		
+
 		return $isTalkPage;
 	}
-	
+
 	static function getUserLqtOverride( $title ) {
-		if ( ! is_object($title) ) {
+		if ( ! is_object( $title ) ) {
 			return null;
 		}
-		
+
 		$articleid = $title->getArticleId();
-		
+
 		global $wgLiquidThreadsAllowUserControlNamespaces;
 		global $wgLiquidThreadsAllowUserControl;
-		if (!$wgLiquidThreadsAllowUserControl) {
+
+		if ( !$wgLiquidThreadsAllowUserControl ) {
 			return null;
 		}
-		
+
 		$namespaces = $wgLiquidThreadsAllowUserControlNamespaces;
-		
+
 		if ( !is_null( $namespaces ) && !in_array( $title->getNamespace(), $namespaces ) ) {
 			return null;
 		}
-		
+
 		// Check instance cache.
 		if ( array_key_exists( $articleid, self::$userLqtOverride ) ) {
 			$cacheVal = self::$userLqtOverride[$articleid];
@@ -150,15 +150,20 @@ class LqtDispatch {
 
 		// Load from the database.
 		$dbr = wfGetDB( DB_SLAVE );
-		
-		$row = $dbr->selectRow( 'page_props', 'pp_value',
-					array( 'pp_propname' => 'use-liquid-threads',
-						'pp_page' => $articleid ), __METHOD__ );
 
-		
+		$row = $dbr->selectRow(
+			'page_props',
+			'pp_value',
+			array(
+				'pp_propname' => 'use-liquid-threads',
+				'pp_page' => $articleid
+			),
+			__METHOD__
+		);
+
 		if ( $row ) {
 			$dbVal = $row->pp_value;
-			
+
 			self::$userLqtOverride[$articleid] = $dbVal;
 			return $dbVal;
 		} else {
@@ -185,20 +190,20 @@ class LqtDispatch {
 		}
 		return true;
 	}
-	
+
 	static function onSkinTemplateNavigation( $skinTemplate, &$links ) {
 		if ( !self::$primaryView ) return true;
-		
+
 		self::$primaryView->customizeNavigation( $skinTemplate, $links );
-		
+
 		return true;
 	}
-	
+
 	static function onSkinTemplateTabs( $skinTemplate, &$links ) {
 		if ( !self::$primaryView ) return true;
-		
+
 		self::$primaryView->customizeTabs( $skinTemplate, $links );
-		
+
 		return true;
 	}
 }

@@ -1,42 +1,41 @@
 <?php
-
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class ThreadPermalinkView extends LqtView {
 	protected $thread;
-	
+
 	function customizeTabs( $skin, &$links ) {
 		self::customizeThreadTabs( $skin, $links, $this );
 	}
-	
+
 	function customizeNavigation( $skin, &$links ) {
 		self::customizeThreadNavigation( $skin, $links, $this );
 	}
 
 	static function customizeThreadTabs( $skintemplate, &$content_actions, $view ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		
+
 		if ( !$view->thread ) {
 			return true;
 		}
-		
+
 		// Insert 'article' and 'discussion' tabs before the thread tab.
-		
+
 		$tabs = self::getCustomTabs( $view );
 		$content_actions = $tabs + $content_actions;
 
 		unset( $content_actions['edit'] );
 		unset( $content_actions['viewsource'] );
 		unset( $content_actions['talk'] );
-		
+
 		$subpage = $view->thread->title()->getPrefixedText();
-		
+
 		// Repoint move/delete/history tabs
 		if ( array_key_exists( 'move', $content_actions ) && $view->thread ) {
 			$content_actions['move']['href'] =
 				SpecialPage::getTitleFor( 'MoveThread', $subpage )->getFullURL();
 		}
-		
+
 		if ( array_key_exists( 'delete', $content_actions ) && $view->thread ) {
 			$content_actions['delete']['href'] =
 				$view->thread->title()->getFullURL( 'action=delete' );
@@ -51,40 +50,40 @@ class ThreadPermalinkView extends LqtView {
 
 		return true;
 	}
-	
+
 	static function customizeThreadNavigation( $skin, &$links, $view ) {
 		if ( !$view->thread ) {
 			return true;
 		}
-		
+
 		// Insert 'article' and 'discussion' namespace-tabs
 		$new_nstabs = self::getCustomTabs( $view );
-		
+
 		$nstabs =& $links['namespaces'];
 
-		$talkKey = $view->thread->title()->getNamespaceKey('').'_talk';
+		$talkKey = $view->thread->title()->getNamespaceKey( '' ) . '_talk';
 		unset( $nstabs[$talkKey] );
 		$nstabs = $new_nstabs + $nstabs;
-		
+
 		// Remove some views.
 		$views =& $links['views'];
 		unset( $views['viewsource'] );
 		unset( $views['edit'] );
-		
+
 		// Re-point move, delete and history actions
 		$subpage = $view->thread->title()->getPrefixedText();
 		$actions =& $links['actions'];
-		if ( isset($actions['move']) ) {
+		if ( isset( $actions['move'] ) ) {
 			$actions['move']['href'] =
 			SpecialPage::getTitleFor( 'MoveThread', $subpage )->getFullURL();
 		}
-		
-		if ( isset($actions['delete']) ) {
+
+		if ( isset( $actions['delete'] ) ) {
 			$actions['delete']['href'] =
 				$view->thread->title()->getFullURL( 'action=delete' );
 		}
-		
-		if ( isset($views['history']) ) {
+
+		if ( isset( $views['history'] ) ) {
 			$views['history']['href'] =
 				self::permalinkUrl( $view->thread, 'thread_history' );
 			if ( $view->methodApplies( 'thread_history' ) ) {
@@ -92,30 +91,30 @@ class ThreadPermalinkView extends LqtView {
 			}
 		}
 	}
-	
+
 	// Pre-generates the tabs to be included, for customizeTabs and customizeNavigation
 	//  to insert in the appropriate place
 	static function getCustomTabs( $view ) {
 		$tabs = array();
-		
+
 		$articleTitle = $view->thread->article()->getTitle()->getSubjectPage();
 		$talkTitle = $view->thread->article()->getTitle()->getTalkPage();
-		
+
 		$articleClasses = array();
 		if ( !$articleTitle->exists() ) $articleClasses[] = 'new';
 		if ( $articleTitle->equals( $view->thread->article()->getTitle() ) )
 			$articleClasses[] = 'selected';
-		
+
 		$talkClasses = array();
 		if ( !$talkTitle->exists() ) $talkClasses[] = 'new';
-		
+
 		$tabs['article'] =
 			array(
 				'text' => wfMsg( $articleTitle->getNamespaceKey() ),
 				'href' => $articleTitle->getFullURL(),
 				'class' => implode( ' ', $articleClasses ),
 			);
-			
+
 		$tabs['lqt_talk'] =
 			array(
 				// talkpage certainly exists since this thread is from it.
@@ -123,7 +122,7 @@ class ThreadPermalinkView extends LqtView {
 				'href' => $talkTitle->getFullURL(),
 				'class' => implode( ' ', $talkClasses ),
 			);
-		
+
 		return $tabs;
 	}
 
@@ -144,33 +143,39 @@ class ThreadPermalinkView extends LqtView {
 
 	function getSubtitle() {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		
+
 		$sk = $this->user->getSkin();
 		$fragment = '#' . $this->anchorName( $this->thread );
-		
+
 		if ( $this->thread->isHistorical() ) {
 			// TODO: Point to the relevant part of the archive.
 			$query = '';
 		} else {
 			$query = '';
 		}
-		
+
 		$talkpage = $this->thread->article()->getTitle();
 		$talkpage->setFragment( $fragment );
 		$talkpage_link = $sk->link( $talkpage );
-		
+
 		if ( $this->thread->hasSuperthread() ) {
 			$topmostTitle = $this->thread->topmostThread()->title();
 			$topmostTitle->setFragment( $fragment );
-			
+
 			$linkText = wfMsgExt( 'lqt_discussion_link', 'parseinline' );
 			$permalink = $sk->link( $topmostTitle, $linkText );
-							
-			return wfMsgExt( 'lqt_fragment', array( 'parseinline', 'replaceafter' ),
-							array( $permalink, $talkpage_link ) );
+
+			return wfMsgExt(
+				'lqt_fragment',
+				array( 'parseinline', 'replaceafter' ),
+				array( $permalink, $talkpage_link )
+			);
 		} else {
-			return wfMsgExt( 'lqt_from_talk', array( 'parseinline', 'replaceafter' ),
-							array( $talkpage_link ) );
+			return wfMsgExt(
+				'lqt_from_talk',
+				array( 'parseinline', 'replaceafter' ),
+				array( $talkpage_link )
+			);
 		}
 	}
 
@@ -178,7 +183,7 @@ class ThreadPermalinkView extends LqtView {
 		parent::__construct( $output, $article, $title, $user, $request );
 
 		$t = Threads::withRoot( $this->article );
-		
+
 		$this->thread = $t;
 		if ( !$t ) {
 			return;
@@ -194,24 +199,27 @@ class ThreadPermalinkView extends LqtView {
 			$this->showMissingThreadPage();
 			return false;
 		}
-		
+
 		if ( $this->request->getBool( 'lqt_inline' ) ) {
 			$this->doInlineEditForm();
 			return false;
 		}
-		
+
 		// Handle action=edit stuff
 		if ( $this->request->getVal( 'action' ) == 'edit' ) {
 			// Rewrite to lqt_method = edit
 			$this->request->setVal( 'lqt_method', 'edit' );
 			$this->request->setVal( 'lqt_operand', $this->thread->id() );
 		}
-		
+
 		// Expose feed links.
 		global $wgFeedClasses, $wgScriptPath, $wgServer;
 		$thread = $this->thread->topmostThread()->title()->getPrefixedText();
-		$apiParams = array( 'action' => 'feedthreads', 'type' => 'replies|newthreads',
-				'thread' => $thread );
+		$apiParams = array(
+			'action' => 'feedthreads',
+			'type' => 'replies|newthreads',
+			'thread' => $thread
+		);
 		$urlPrefix = wfScript( 'api' ) . '?';
 		foreach ( $wgFeedClasses as $format => $class ) {
 			$theseParams = $apiParams + array( 'feedformat' => $format );
@@ -228,7 +236,7 @@ class ThreadPermalinkView extends LqtView {
 			$this->showSplitForm( $this->thread );
 
 		$this->showThread( $this->thread, 1, 1, array( 'maxDepth' => - 1, 'maxCount' => - 1 ) );
-		
+
 		$this->output->setPageTitle( $this->thread->subject() );
 		return false;
 	}

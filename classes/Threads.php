@@ -3,7 +3,6 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 
 /** Module of factory methods. */
 class Threads {
-
 	const TYPE_NORMAL = 0;
 	const TYPE_MOVED = 1;
 	const TYPE_DELETED = 2;
@@ -24,7 +23,7 @@ class Threads {
 	const CHANGE_SPLIT_FROM = 12;
 	const CHANGE_ROOT_BLANKED = 13;
 	const CHANGE_ADJUSTED_SORTKEY = 14;
-	
+
 	static $VALID_CHANGE_TYPES = array(
 		self::CHANGE_EDITED_SUMMARY,
 		self::CHANGE_EDITED_ROOT,
@@ -61,39 +60,41 @@ class Threads {
 		if ( ! $talkpage->exists() ) {
 			try {
 				wfLoadExtensionMessages( 'LiquidThreads' );
-				$talkpage->doEdit( "",
+				$talkpage->doEdit(
+					"",
 					wfMsgForContent( 'lqt_talkpage_autocreate_summary' ),
-					EDIT_NEW | EDIT_SUPPRESS_RC );
+					EDIT_NEW | EDIT_SUPPRESS_RC
+				);
 			} catch ( DBQueryError $e ) {
 				// The article already existed by now. No need to do anything.
 				wfDebug( __METHOD__ . ": Article already exists." );
 			}
 		}
 	}
-	
+
 	static function loadFromResult( $res, $db, $bulkLoad = false ) {
 		$rows = array();
 		$threads = array();
-		
+
 		while ( $row = $db->fetchObject( $res ) ) {
 			$rows[] = $row;
-			
-			if (!$bulkLoad) {
+
+			if ( !$bulkLoad ) {
 				$threads[$row->thread_id] = Thread::newFromRow( $row );
 			}
 		}
-		
-		if (!$bulkLoad) {
+
+		if ( !$bulkLoad ) {
 			return $threads;
 		}
-		
+
 		return Thread::bulkLoad( $rows );
 	}
 
 	static function where( $where, $options = array(), $bulkLoad = true ) {
 		global $wgDBprefix;
 		$dbr = wfGetDB( DB_SLAVE );
-		
+
 		$res = $dbr->select( 'thread', '*', $where, __METHOD__, $options );
 		$threads = Threads::loadFromResult( $res, $dbr, $bulkLoad );
 
@@ -113,8 +114,14 @@ class Threads {
 	}
 
 	private static function assertSingularity( $threads, $attribute, $value ) {
-		if ( count( $threads ) == 0 ) { return null; }
-		if ( count( $threads ) == 1 ) { return array_pop( $threads ); }
+		if ( count( $threads ) == 0 ) {
+			return null;
+		}
+
+		if ( count( $threads ) == 1 ) {
+			return array_pop( $threads );
+		}
+
 		if ( count( $threads ) > 1 ) {
 			Threads::databaseError( "More than one thread with $attribute = $value." );
 			return null;
@@ -126,14 +133,14 @@ class Threads {
 			// No articles outside the thread namespace have threads associated with them;
 			return null;
 		}
-		
+
 		if ( array_key_exists( $post->getID(), self::$cache_by_root ) ) {
 			return self::$cache_by_root[$post->getID()];
 		}
-		
+
 		$ts = Threads::where( array( 'thread_root' => $post->getID() ), array(),
 					$bulkLoad );
-		
+
 		return self::assertSingularity( $ts, 'thread_root', $post->getID() );
 	}
 
@@ -141,65 +148,65 @@ class Threads {
 		if ( array_key_exists( $id, self::$cache_by_id ) ) {
 			return self::$cache_by_id[$id];
 		}
-		
+
 		$ts = Threads::where( array( 'thread_id' => $id ), array(), $bulkLoad );
-		
+
 		return self::assertSingularity( $ts, 'thread_id', $id );
 	}
 
 	static function withSummary( $article, $bulkLoad = true ) {
 		$ts = Threads::where( array( 'thread_summary_page' => $article->getId() ),
-					array(), $bulkLoad);
+					array(), $bulkLoad );
 		return self::assertSingularity( $ts, 'thread_summary_page', $article->getId() );
 	}
 
 	static function articleClause( $article ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		
+
 		$titleCond = array( 'thread_article_title' => $article->getTitle()->getDBKey(),
 				'thread_article_namespace' => $article->getTitle()->getNamespace() );
 		$titleCond = $dbr->makeList( $titleCond, LIST_AND );
-		
+
 		$conds = array( $titleCond );
-		
+
 		if ( $article->getId() ) {
 			$idCond = array( 'thread_article_id' => $article->getId() );
 			$conds[] = $dbr->makeList( $idCond, LIST_AND );
 		}
-		
+
 		return $dbr->makeList( $conds, LIST_OR );
 	}
 
 	static function topLevelClause() {
 		$dbr = wfGetDB( DB_SLAVE );
-		
+
 		$arr = array( 'thread_ancestor=thread_id', 'thread_parent' => null );
-		
+
 		return $dbr->makeList( $arr, LIST_OR );
 	}
-	
+
 	static function newThreadTitle( $subject, $article ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		
+
 		$base = $article->getTitle()->getPrefixedText() . "/$subject";
-		
+
 		return self::incrementedTitle( $base, NS_LQT_THREAD );
 	}
-	
+
 	static function newSummaryTitle( $t ) {
 		return self::incrementedTitle( $t->title()->getText(), NS_LQT_SUMMARY );
 	}
-	
+
 	static function newReplyTitle( $thread, $user ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$topThread = $thread->topmostThread();
-		
+
 		$base = $topThread->title()->getText() . '/'
-			. wfMsgForContent('lqt-reply-subpage');
-		
+			. wfMsgForContent( 'lqt-reply-subpage' );
+
 		return self::incrementedTitle( $base, NS_LQT_THREAD );
 	}
-	
+
 	// This will attempt to replace invalid characters and sequences in a title with
 	//  a safe replacement (_, currently). Before doing this, it will parse any wikitext
 	//  and strip the HTML, before converting HTML entities back into their corresponding
@@ -207,9 +214,9 @@ class Threads {
 	public static function makeTitleValid( $text ) {
 		$text = self::stripWikitext( $text );
 		$text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
-	
+
 		static $rxTc;
-		
+
 		if ( is_callable( array( 'Title', 'getTitleInvalidRegex' ) ) ) {
 			$rxTc = Title::getTitleInvalidRegex();
 		} elseif ( !$rxTc ) { // Back-compat
@@ -225,47 +232,47 @@ class Threads {
 				'|&#x[0-9A-Fa-f]+;' .
 				'/S';
 		}
-		
+
 		$text = preg_replace( $rxTc, '_', $text );
-		
+
 		return $text;
 	}
-	
+
 	// This will strip wikitext of its formatting.
 	public static function stripWikitext( $text ) {
 		global $wgOut;
 		$text = $wgOut->parseInline( $text );
-		
+
 		$text = StringUtils::delimiterReplace( '<', '>', '', $text );
-		
+
 		return $text;
 	}
-	
+
 	public static function stripHTML( $text ) {
 		return StringUtils::delimiterReplace( '<', '>', '', $text );
 	}
-	
+
 	/** Keep trying titles starting with $basename until one is unoccupied. */
 	public static function incrementedTitle( $basename, $namespace ) {
 		$i = 2;
-		
+
 		// Try to make the title valid.
 		$basename = Threads::makeTitleValid( $basename );
-		
+
 		$t = Title::makeTitleSafe( $namespace, $basename );
 		while ( !$t || $t->exists() ||
 				in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) ) {
-			
+
 			if ( !$t ) {
 				throw new MWException( "Error in creating title for basename $basename" );
 			}
-			
+
 			$t = Title::makeTitleSafe( $namespace, $basename . ' (' . $i . ')' );
 			$i++;
 		}
 		return $t;
 	}
-	
+
 	// Called just before any function that might cause a loss of article association.
 	//  by breaking either a NS-title reference (by moving the article), or a page-id
 	//  reference (by deleting the article).
@@ -281,50 +288,50 @@ class Threads {
 	static function synchroniseArticleData( $article, $limit = false, $queueMore = false ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$dbw = wfGetDB( DB_MASTER );
-		
+
 		$title = $article->getTitle();
 		$id = $article->getId();
-		
+
 		$titleCond = array( 'thread_article_namespace' => $title->getNamespace(),
 				'thread_article_title' => $title->getDBkey() );
 		$titleCondText = $dbr->makeList( $titleCond, LIST_AND );
-		
+
 		$idCond = array( 'thread_article_id' => $id );
 		$idCondText = $dbr->makeList( $idCond, LIST_AND );
-		
+
 		$fixTitleCond = array( $idCondText, "NOT ($titleCondText)" );
 		$fixIdCond = array( $titleCondText, "NOT ($idCondText)" );
-		
+
 		// Try to hit the most recent threads first.
 		$options = array( 'LIMIT' => 500, 'ORDER BY' => 'thread_id DESC' );
-		
+
 		// Batch in 500s
 		if ( $limit ) $options['LIMIT'] = min( $limit, 500 );
-		
+
 		$rowsAffected = 0;
 		$roundRowsAffected = 1;
 		while ( ( !$limit || $rowsAffected < $limit ) && $roundRowsAffected > 0 ) {
 			$roundRowsAffected = 0;
-			
+
 			// Fix wrong title.
 			$res = $dbw->update( 'thread', $titleCond, $fixTitleCond,
 						__METHOD__, $options );
 			$roundRowsAffected += $dbw->affectedRows();
-			
+
 			// Fix wrong ID
 			$res = $dbw->update( 'thread', $idCond, $fixIdCond, __METHOD__, $options );
 			$roundRowsAffected += $dbw->affectedRows();
-			
+
 			$rowsAffected += $roundRowsAffected;
 		}
-		
+
 		if ( $limit && ( $rowsAffected >= $limit ) && $queueMore ) {
 			$jobParams = array( 'limit' => $limit, 'cascade' => true );
 			$job = new SynchroniseThreadArticleDataJob( $article->getTitle(),
 									$jobParams );
 			$job->insert();
 		}
-		
+
 		return $limit ? ( $rowsAffected < $limit ) : true;
 	}
 }

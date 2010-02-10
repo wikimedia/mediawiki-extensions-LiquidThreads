@@ -17,27 +17,26 @@
  */
 
 class ApiQueryLQTThreads extends ApiQueryBase {
-
 	// Property definitions
 	static $propRelations = array(
-			'id' => 'thread_id',
-			'subject' => 'thread_subject',
-			'page' => array(
-				'namespace' => 'thread_article_namespace',
-				'title' => 'thread_article_title'
-			),
-			'parent' => 'thread_parent',
-			'ancestor' => 'thread_ancestor',
-			'created' => 'thread_created',
-			'modified' => 'thread_modified',
-			'author' => array(
-				'id' => 'thread_author_id',
-				'name' => 'thread_author_name'
-			),
-			'summaryid' => 'thread_summary_page',
-			'rootid' => 'thread_root',
-			'type' => 'thread_type',
-		);
+		'id' => 'thread_id',
+		'subject' => 'thread_subject',
+		'page' => array(
+			'namespace' => 'thread_article_namespace',
+			'title' => 'thread_article_title'
+		),
+		'parent' => 'thread_parent',
+		'ancestor' => 'thread_ancestor',
+		'created' => 'thread_created',
+		'modified' => 'thread_modified',
+		'author' => array(
+			'id' => 'thread_author_id',
+			'name' => 'thread_author_name'
+		),
+		'summaryid' => 'thread_summary_page',
+		'rootid' => 'thread_root',
+		'type' => 'thread_type',
+	);
 
 	public function __construct( $query, $moduleName ) {
 		parent :: __construct( $query, $moduleName, 'th' );
@@ -90,11 +89,11 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 
 		$res = $this->select( __METHOD__ );
-		
+
 		if ( $params['render'] ) {
 			$threads = Threads::loadFromResult( $res, $this->getDB() );
 		}
-		
+
 		$count = 0;
 		foreach ( $res as $row )
 		{

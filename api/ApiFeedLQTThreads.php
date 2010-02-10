@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,7 +27,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
  * @ingroup API
  */
 class ApiFeedLQTThreads extends ApiBase {
-
 	public function __construct( $main, $action ) {
 		parent :: __construct( $main, $action );
 	}
@@ -54,7 +52,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		$feedTitle = self::createFeedTitle( $params );
 		$feedClass = $wgFeedClasses[$params['feedformat']];
 		$feedItems = array();
-		
+
 		$feedUrl = Title::newMainPage()->getFullURL();
 
 		$tables = array( 'thread' );

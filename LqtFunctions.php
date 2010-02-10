@@ -44,7 +44,7 @@ function lqtSetupParserFunctions( &$parser ) {
 		'useliquidthreads',
 		array( 'LqtParserFunctions', 'useLiquidThreads' )
 	);
-	
+
 	$parser->setFunctionHook(
 		'lqtpagelimit',
 		array( 'LqtParserFunctions', 'lqtPageLimit' )
