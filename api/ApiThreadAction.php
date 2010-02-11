@@ -15,6 +15,7 @@ class ApiThreadAction extends ApiBase {
 			'newthread' => 'actionNewThread',
 			'setsubject' => 'actionSetSubject',
 			'setsortkey' => 'actionSetSortkey',
+			'edit' => 'actionEdit',
 		);
 	}
 
@@ -419,7 +420,119 @@ class ApiThreadAction extends ApiBase {
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
+	
+	public function actionEdit( $threads, $params ) {
+		if ( count($threads) > 1 ) {
+			$this->dieUsage( 'You may only edit one thread at a time',
+					'too-many-threads' );
+			return;
+		} elseif ( count($threads) < 1 ) {
+			$this->dieUsage( 'You must specify a thread to edit',
+					'no-specified-threads' );
+			return;
+		}
+		
+		$thread = array_pop( $threads );
+		$talkpage = $thread->article();
+		
+		$bump = isset( $params['bump'] ) ? $params['bump'] : null;
 
+		// Validate subject
+		$subjectOk = true;
+		if ( !empty($params['subject']) ) {
+			$subject = $params['subject'];
+			$title = null;
+			$subjectOk = empty($subject) ||
+				Thread::validateSubject( $subject, $title, null, $talkpage );
+		} else {
+			$subject = $thread->subject();
+		}
+
+		if ( !$subjectOk ) {
+			$this->dieUsage( 'The subject you specified is not valid',
+				'invalid-subject' );
+
+			return;
+		}
+		
+		// Check for text
+		if ( empty( $params['text'] ) ) {
+			$this->dieUsage( 'You must include text in your post', 'no-text' );
+			return;
+		}
+		$text = $params['text'];
+		
+		$summary = '';
+		if ( !empty( $params['reason'] ) ) {
+			$summary = $params['reason'];
+		}
+		
+		$article = $thread->root();
+		$title = $article->getTitle();
+		
+		$signature = null;
+		if ( isset( $params['signature'] ) ) {
+			$signature = $params['signature'];
+		}
+
+		// Inform hooks what we're doing
+		LqtHooks::$editTalkpage = $talkpage;
+		LqtHooks::$editArticle = $article;
+		LqtHooks::$editThread = $thread;
+		LqtHooks::$editType = 'edit';
+		LqtHooks::$editAppliesTo = null;
+
+		$token = $params['token'];
+		
+		// All seems in order. Construct an API edit request
+		$requestData = array(
+			'action' => 'edit',
+			'title' => $title->getPrefixedText(),
+			'text' => $text,
+			'summary' => $summary,
+			'token' => $token,
+			'basetimestamp' => wfTimestampNow(),
+			'format' => 'json',
+		);
+
+		$editReq = new FauxRequest( $requestData, true );
+		$internalApi = new ApiMain( $editReq, true );
+		$internalApi->execute();
+
+		$editResult = $internalApi->getResultData();
+
+		if ( $editResult['edit']['result'] != 'Success' ) {
+			$result = array( 'result' => 'EditFailure', 'details' => $editResult );
+			$this->getResult()->addValue( null, $this->getModuleName(), $result );
+			return;
+		}
+		
+		$thread = LqtView::postEditUpdates( 'editExisting', null, $article, $talkpage,
+					$subject, $summary, $thread, $text, $bump, $signature );
+
+		$maxLag = wfGetLB()->getMaxLag();
+		$maxLag = $maxLag[1];
+
+		if ( $maxLag == - 1 ) {
+			$maxLag = 0;
+		}
+
+		$result = array(
+			'result' => 'Success',
+			'thread-id' => $thread->id(),
+			'thread-title' => $title->getPrefixedText(),
+			'max-lag' => $maxLag,
+		);
+
+		if ( !empty( $params['render'] ) ) {
+			$result['html'] = self::renderThreadPostAction( $thread );
+		}
+
+		$result = array( 'thread' => $result );
+
+		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+	
 	public function actionReply( $threads, $params ) {
 		global $wgUser;
 

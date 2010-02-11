@@ -82,7 +82,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				'thread_article_title', 'thread_summary_page', 'thread_ancestor',
 				'thread_parent', 'thread_modified', 'thread_created', 'thread_type',
 				'thread_editedness', 'thread_subject', 'thread_author_id',
-				'thread_author_name',
+				'thread_author_name', 'thread_signature'
 			);
 
 			$this->addFields( $allFields );

@@ -99,8 +99,12 @@ var liquidThreads = {
 		e.preventDefault();
 		
 		// Grab the container.
-		var container = $j(this).closest('.lqt-post-wrapper');
-		var query='&lqt_method=edit&lqt_operand='+container.data('thread-id');
+		var parent = $j(this).closest('.lqt-post-wrapper');
+		
+		var container = $j('<div/>').addClass('lqt-edit-form');
+		parent.contents().fadeOut();
+		parent.append(container);
+		var query='&lqt_method=edit&lqt_operand='+parent.data('thread-id');
 		
 		liquidThreads.injectEditForm( query, container );
 	},
@@ -241,6 +245,11 @@ var liquidThreads = {
 				$j(this).fadeOut('slow',
 					function() {
 						$j(this).empty();
+						
+						if ( $j(this).parent().is('.lqt-post-wrapper') ) {
+							$j(this).parent().contents().fadeIn();
+							$j(this).remove();
+						}
 						
 						liquidThreads.checkEmptyReplies( repliesElement );
 					} )
@@ -866,7 +875,7 @@ var liquidThreads = {
 			var newPost = $j('#lqt_thread_id_'+newPostID);
 			var targetOffset = $j(newPost).offset().top;
 			$j('html,body').animate({scrollTop: targetOffset}, 'slow');
-		}
+		};
 		
 		var newCallback = function( data ) {
 			// Grab the thread ID
@@ -892,6 +901,12 @@ var liquidThreads = {
 						'slow');
 				}
 			);
+		};
+		
+		var editCallback = function( data ) {
+			var thread = editform.closest('.lqt-thread-topmost');
+			
+			liquidThreads.doReloadThread( thread );
 		}
 		
 		var doneCallback = function(data) {
@@ -926,6 +941,10 @@ var liquidThreads = {
 				callback = newCallback;
 			}
 			
+			if ( type == 'edit' ) {
+				callback = editCallback;
+			}
+			
 			editform.empty().hide();
 			
 			callback(data);
@@ -943,6 +962,10 @@ var liquidThreads = {
 			liquidThreads.doNewThread( wgPageName, subject, text, summary,
 					doneCallback, bump, signature );
 			
+			e.preventDefault();
+		} else if ( type == 'edit' ) {
+			liquidThreads.doEditThread( replyThread, subject, text, summary,
+					doneCallback, bump, signature );
 			e.preventDefault();
 		}
 	},
@@ -1015,6 +1038,28 @@ var liquidThreads = {
 						}
 					}, 'json' );
 			} );
+	},
+	
+	'doEditThread' : function( thread, subject, text, summary,
+					callback, bump, signature ) {
+		var request =
+		{
+			'action' : 'threadaction',
+			'threadaction' : 'edit',
+			'thread' : thread,
+			'text'   : text,
+			'format' : 'json',
+			'render' : 1,
+			'reason' : summary,
+			'bump'   : bump,
+			'subject':subject
+		};
+		
+		if ( typeof signature != 'undefined' ) {
+			request.signature = signature;
+		}
+		
+		liquidThreads.apiRequest( request, callback );
 	},
 	
 	'onTextboxKeyUp' : function(e) {
@@ -1566,6 +1611,9 @@ mw.addOnloadHook( function() {
 	
 	// "Show more posts" link
 	$j('a.lqt-show-more-posts').live( 'click', liquidThreads.showMore );
+	
+	// Edit link handler
+	$j('.lqt-command-edit > a').live( 'click', liquidThreads.handleEditLink );
 	
 	// Save handlers
 	$j('#wpSave').live( 'click', liquidThreads.handleAJAXSave );

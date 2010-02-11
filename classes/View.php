@@ -539,17 +539,6 @@ class LqtView {
 		$this->output->setArticleFlag( false );
 
 		if ( $e->didSave ) {
-			// Move the thread and replies if subject changed.
-			if ( $edit_type == 'editExisting' && $subject &&
-					$subject != $thread->subject() ) {
-				$thread->setSubject( $subject );
-				$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT,
-							$thread, $e->summary );
-
-				// Disabled page-moving for now.
-				// $this->renameThread( $thread, $subject, $e->summary );
-			}
-
 			$bump = $this->request->getBool( 'wpBumpThread' );
 
 			$thread = self::postEditUpdates(
@@ -614,13 +603,23 @@ class LqtView {
 			$type = strlen( trim( $new_text ) )
 					? Threads::CHANGE_EDITED_ROOT
 					: Threads::CHANGE_ROOT_BLANKED;
-
+					
 			if ( $signature && !$noSignature ) {
 				$thread->setSignature( $signature );
 			}
 
 			// Add the history entry.
 			$thread->commitRevision( $type, $thread, $edit_summary, $bump );
+			
+			// Update subject if applicable.
+			if ( $subject && $subject != $thread->subject() ) {
+				$thread->setSubject( $subject );
+				$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT,
+							$thread, $e->summary );
+
+				// Disabled page-moving for now.
+				// $this->renameThread( $thread, $subject, $e->summary );
+			}
 		} else {
 			$thread = Thread::create(
 				$edit_page, $article, null,
