@@ -188,6 +188,16 @@ var liquidThreads = {
 					
 	},
 	
+	'doLivePreview' : function( e ) {
+		e.preventDefault();
+		if ( typeof doLivePreview == 'function' ) {
+			doLivePreview(e);
+		} else {
+			$j.getScript( stylepath+'/common/preview.js',
+				function() { doLivePreview(e); });
+		}
+	},
+	
 	//From http://clipmarks.com/clipmark/CEFC94CB-94D6-4495-A7AA-791B7355E284/
 	'insertAtCursor' : function(myField, myValue) {
 		//IE support
@@ -208,30 +218,6 @@ var liquidThreads = {
 		}
 	},
 	
-	'transformQuote' : function(quote) {
-		quote = quote.trim();
-		var lines = quote.split("\n");
-		var newQuote = '';
-		
-		for( var i = 0; i<lines.length; ++i ) {
-			if (lines[i].length) {
-				newQuote += liquidThreads.quoteLine(lines[i])+"\n";
-			}
-		}
-		
-		return newQuote;
-	},
-	
-	'quoteLine' : function(line) {
-		var versionParts = wgVersion.split('.');
-		
-		if (versionParts[0] <= 1 && versionParts[1] < 16) {
-			return '<blockquote>'+line+'</blockquote>';
-		}
-		
-		return '> '+line;
-	},
-	
 	'getSelection' : function() {
 		if (window.getSelection) {
 			return window.getSelection().toString();
@@ -242,40 +228,6 @@ var liquidThreads = {
 		} else {
 			return '';
 		}
-	},
-	
-	'doQuote' : function(e) {
-		if (e.preventDefault)
-			e.preventDefault();
-		
-		// Get the post node
-		// Keep walking up until we hit the thread node.
-		var thread = $j(this).closest('.lqt_thread');
-		var post = $j(thread.find('.lqt_post')[0]);
-		
-		var text = liquidThreads.getSelection();
-		
-		if (text.length == 0) {
-			// Quote the whole post
-			text = post.text();
-		}
-		
-		text = liquidThreads.transformQuote( text );
-		// TODO auto-generate context info and link.
-		
-		var textbox = document.getElementById( 'wpTextbox1' );
-		if (textbox) {
-			liquidThreads.insertAtCursor( textbox, text );
-			textbox.focus();
-		} else {
-			// Open the reply window
-			var replyLI = thread.find('.lqt-command-reply')[0];
-			var replyLink = $j(replyLI).find('a')[0];
-			
-			liquidThreads.handleReplyLink( { 'target':replyLink, 'preload':text } );
-		}
-		
-		return false;
 	},
 	
 	'cancelEdit' : function( e ) {
@@ -1618,6 +1570,7 @@ mw.addOnloadHook( function() {
 	// Save handlers
 	$j('#wpSave').live( 'click', liquidThreads.handleAJAXSave );
 	$j('#wpTextbox1').live( 'keyup', liquidThreads.onTextboxKeyUp );
+	$j('#wpPreview').live('click', liquidThreads.doLivePreview );
 	
 	// Hide menus when a click happens outside them
 	$j(document).click( liquidThreads.handleDocumentClick );
