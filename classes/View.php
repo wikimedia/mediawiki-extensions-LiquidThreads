@@ -895,7 +895,13 @@ class LqtView {
 
 		$basePath = "$wgScriptPath/extensions/$wgLiquidThreadsExtensionName";
 
-		$wgOut->addScriptFile( "$basePath/jquery/js2.combined.js" );
+		if ( method_exists( $wgOut, 'includeJQuery' ) ) {
+			$wgOut->includeJQuery();
+			$wgOut->addScriptFile( "$basePath/jquery/plugins.js" );
+		} else {
+			$wgOut->addScriptFile( "$basePath/jquery/js2.combined.js" );
+		}
+		
 		$wgOut->addExtensionStyle( "$basePath/jquery/jquery-ui-1.7.2.css" );
 
 		$wgOut->addScriptFile( "$basePath/jquery/jquery.autogrow.js" );
