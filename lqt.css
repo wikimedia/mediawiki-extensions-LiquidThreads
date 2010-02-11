@@ -345,6 +345,7 @@ div.lqt-post-sep {
 
 .lqt-post-wrapper {
 	padding: 0.5em 1em;
+	overflow: auto;
 }
 
 .lqt-thread-info-panel {
