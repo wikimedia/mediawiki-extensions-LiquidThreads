@@ -41,7 +41,7 @@ class HistoricalThread extends Thread {
 	}
 
 	static function withIdAtRevision( $id, $rev ) {
-		$dbr =& wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_SLAVE );
 		$line = $dbr->selectRow(
 			'historical_thread',
 			'hthread_contents',
