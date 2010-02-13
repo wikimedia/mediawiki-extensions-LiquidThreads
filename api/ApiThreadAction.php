@@ -63,7 +63,7 @@ class ApiThreadAction extends ApiBase {
 			array( 'code' => 'no-text', 'info' => 'You must include text in your post' ),
 			array( 'code' => 'too-many-threads', 'info' => 'You may only edit one thread at a time' ),
 			array( 'code' => 'invalid-subject', 'info' => 'You must specify a thread to edit' ),
-			array( 'code' => 'no-specified-threads', 'info' => '' ), 'You must specify a thread to reply to'
+			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to reply to' ),
 			array( 'code' => 'perm_result-protected', 'info' => 'You cannot reply to this thread, because the perm_result is protected from replies.' ),
 			array( 'code' => 'too-many-threads', 'info' => 'You may only change the subject of one thread at a time' ),
 			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to change the subject of' ),
