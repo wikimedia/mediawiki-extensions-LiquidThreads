@@ -3198,7 +3198,7 @@ Um dies zu vermeiden, teile sie von diesem Thema ab, bevor du es löscht.',
 	'lqt-hot-topics' => 'Heiße Themen',
 	'lqt-add-reply' => 'Antwort hinzufügen',
 	'lqt_rc_new_discussion' => 'Neue Diskussion „$1“',
-	'lqt_rc_new_reply' => 'Antwort auf „$1“ auf $2 • $3 schreibt:',
+	'lqt_rc_new_reply' => 'Antwort auf „$1“',
 	'right-lqt-split' => 'Thema teilen',
 	'right-lqt-merge' => 'Diskussionen zusammenführen',
 	'lqt-thread-merge' => 'Mit einem anderen Diskussionsstrang zusammenführen',
@@ -4311,6 +4311,7 @@ La nomskribo estas montrata aŭtomate.',
  * @author Heldergeovane
  * @author Imre
  * @author Locos epraix
+ * @author Manuelt15
  * @author McDutchie
  * @author Piolinfax
  * @author Sanbec
@@ -4470,7 +4471,7 @@ Tal vez quieras en su lugar $2.',
 	'lqt-hot-topics' => 'Temas populares',
 	'lqt-add-reply' => 'Agregar una respuesta',
 	'lqt_rc_new_discussion' => 'ha publicado un nuevo hilo: "$1"',
-	'lqt_rc_new_reply' => 'Respuesta a "$1", en $2 • $3 escribe:',
+	'lqt_rc_new_reply' => 'Publicada una respuesta para "$1"',
 	'right-lqt-split' => 'Separar hilos',
 	'right-lqt-merge' => 'Fusionar hilos',
 	'lqt-thread-merge' => 'Fusionar dentro de otro hilo',
@@ -4513,7 +4514,7 @@ Puedes verla en <$6>",
 La firma es mostrada automaticamente.',
 	'lqt-marked-as-read-placeholder' => 'El hilo $1 se ha marcado como leído.',
 	'lqt-change-subject' => 'Cambiar tema',
-	'lqt-save-subject' => 'Grabar',
+	'lqt-save-subject' => 'Guardar',
 	'lqt-save-subject-failed' => 'Ha ocurrido el siguiente error al intentar cambiar el asunto de este hilo: $1',
 	'lqt-ajax-no-subject' => 'Debes especificar un tema',
 	'lqt-cancel-subject-edit' => 'Cancelar',
