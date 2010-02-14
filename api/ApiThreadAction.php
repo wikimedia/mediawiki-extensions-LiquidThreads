@@ -46,7 +46,7 @@ class ApiThreadAction extends ApiBase {
 	
 	public function getPossibleErrors() {
 		return array(
-			array( 'code' => 'sessionfailure', 'info' => '' ),
+			array( 'sessionfailure' ),
 			array( 'code' => 'action', 'info' => 'missing-param' ),
 			array( 'code' => 'too-many-threads', 'info' => 'You may only split one thread at a time' ),
 			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to split' ),
@@ -112,8 +112,7 @@ class ApiThreadAction extends ApiBase {
 
 		if ( empty( $params['token'] ) ||
 				!$wgUser->matchEditToken( $params['token'] ) ) {
-			$this->dieUsage( 'sessionfailure' );
-			return;
+			$this->dieUsageMsg( array( 'sessionfailure' ) )
 		}
 
 		if ( empty( $params['threadaction'] ) ) {
