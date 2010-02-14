@@ -48,6 +48,8 @@ class ApiThreadAction extends ApiBase {
 		return array(
 			array( 'sessionfailure' ),
 			array( 'missingparam', 'action' ),
+			array( 'missingparam', 'talkpage' ),
+			array( 'missingparam', 'subject' ),
 			array( 'code' => 'too-many-threads', 'info' => 'You may only split one thread at a time' ),
 			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to split' ),
 			array( 'code' => 'already-top-level', 'info' => 'This thread is already a top-level thread.' ),
@@ -55,10 +57,8 @@ class ApiThreadAction extends ApiBase {
 			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to merge' ),
 			array( 'code' => 'no-parent-thread', 'info' => 'You must specify a new parent thread to merge beneath' ),
 			array( 'code' => 'invalid-parent-thread', 'info' => 'The parent thread you specified was neither the title of a thread, nor a thread ID.' ),
-			array( 'code' => 'missing-param', 'info' => 'You must specify a talk-page to post the thread to' ),
 			array( 'code' => 'invalid-talkpage', 'info' => 'The talkpage you specified is invalid, or does not have discussion threading enabled.' ),
 			array( 'code' => 'talkpage-protected', 'info' => 'You cannot post to the specified talkpage, because it is protected from new posts' ),
-			array( 'code' => 'missing-param', 'info' => 'You must specify a thread subject' ),
 			array( 'code' => 'invalid-subject', 'info' => 'The subject you specified is not valid' ),
 			array( 'code' => 'no-text', 'info' => 'You must include text in your post' ),
 			array( 'code' => 'too-many-threads', 'info' => 'You may only edit one thread at a time' ),
@@ -67,7 +67,6 @@ class ApiThreadAction extends ApiBase {
 			array( 'code' => 'perm_result-protected', 'info' => 'You cannot reply to this thread, because the perm_result is protected from replies.' ),
 			array( 'code' => 'too-many-threads', 'info' => 'You may only change the subject of one thread at a time' ),
 			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to change the subject of' ),
-			array( 'code' => 'missing-param', 'info' => 'You must specify a thread subject' ),
 			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to set the sortkey of' ),
 			array( 'code' => 'invalid-sortkey', 'info' => 'You must specify a valid timestamp for the sortkey parameter. It should be in the form YYYYMMddhhmmss, a unix timestamp or "now".' ),
 		);
@@ -207,11 +206,9 @@ class ApiThreadAction extends ApiBase {
 		if ( count( $threads ) > 1 ) {
 			$this->dieUsage( 'You may only split one thread at a time',
 					'too-many-threads' );
-			return;
 		} elseif ( count( $threads ) < 1 ) {
 			$this->dieUsage( 'You must specify a thread to split',
 					'no-specified-threads' );
-			return;
 		}
 
 		$thread = array_pop( $threads );
@@ -269,13 +266,11 @@ class ApiThreadAction extends ApiBase {
 		if ( count( $threads ) < 1 ) {
 			$this->dieUsage( 'You must specify a thread to merge',
 				'no-specified-threads' );
-			return;
 		}
 
 		if ( empty( $params['newparent'] ) ) {
 			$this->dieUsage( 'You must specify a new parent thread to merge beneath',
 				'no-parent-thread' );
-			return;
 		}
 
 		$newParent = $params['newparent'];
@@ -290,7 +285,6 @@ class ApiThreadAction extends ApiBase {
 		if ( !$newParent ) {
 			$this->dieUsage( 'The parent thread you specified was neither the title ' .
 					'of a thread, nor a thread ID.', 'invalid-parent-thread' );
-			return;
 		}
 
 		// Pull a reason, if applicable.
@@ -324,10 +318,7 @@ class ApiThreadAction extends ApiBase {
 
 		// Validate talkpage parameters
 		if ( empty( $params['talkpage'] ) ) {
-			$this->dieUsage( 'You must specify a talk-page to post the thread to',
-				'missing-param' );
-
-			return;
+			$this->dieUsageMsg( array( 'missingparam', 'talkpage' ) );
 		}
 
 		$talkpageTitle = Title::newFromText( $params['talkpage'] );
@@ -335,7 +326,6 @@ class ApiThreadAction extends ApiBase {
 		if ( !$talkpageTitle || !LqtDispatch::isLqtPage( $talkpageTitle ) ) {
 			$this->dieUsage( 'The talkpage you specified is invalid, or does not ' .
 				'have discussion threading enabled.', 'invalid-talkpage' );
-			return;
 		}
 		$talkpage = new Article( $talkpageTitle );
 
@@ -343,14 +333,11 @@ class ApiThreadAction extends ApiBase {
 		if ( Thread::canUserPost( $wgUser, $talkpage ) !== true ) {
 			$this->dieUsage( 'You cannot post to the specified talkpage, ' .
 				'because it is protected from new posts', 'talkpage-protected' );
-			return;
 		}
 
 		// Validate subject, generate a title
 		if ( empty( $params['subject'] ) ) {
-			$this->dieUsage( 'You must specify a thread subject',
-				'missing-param' );
-			return;
+			$this->dieUsageMsg( array( 'missingparam', 'subject' ) );
 		}
 
 		$bump = isset( $params['bump'] ) ? $params['bump'] : null;
@@ -362,15 +349,12 @@ class ApiThreadAction extends ApiBase {
 		if ( !$subjectOk ) {
 			$this->dieUsage( 'The subject you specified is not valid',
 				'invalid-subject' );
-
-			return;
 		}
 		$article = new Article( $title );
 
 		// Check for text
 		if ( empty( $params['text'] ) ) {
 			$this->dieUsage( 'You must include text in your post', 'no-text' );
-			return;
 		}
 		$text = $params['text'];
 
@@ -452,11 +436,9 @@ class ApiThreadAction extends ApiBase {
 		if ( count($threads) > 1 ) {
 			$this->dieUsage( 'You may only edit one thread at a time',
 					'too-many-threads' );
-			return;
 		} elseif ( count($threads) < 1 ) {
 			$this->dieUsage( 'You must specify a thread to edit',
 					'no-specified-threads' );
-			return;
 		}
 		
 		$thread = array_pop( $threads );
@@ -478,14 +460,11 @@ class ApiThreadAction extends ApiBase {
 		if ( !$subjectOk ) {
 			$this->dieUsage( 'The subject you specified is not valid',
 				'invalid-subject' );
-
-			return;
 		}
 		
 		// Check for text
 		if ( empty( $params['text'] ) ) {
 			$this->dieUsage( 'You must include text in your post', 'no-text' );
-			return;
 		}
 		$text = $params['text'];
 		
@@ -567,11 +546,9 @@ class ApiThreadAction extends ApiBase {
 		if ( count( $threads ) > 1 ) {
 			$this->dieUsage( 'You may only reply to one thread at a time',
 					'too-many-threads' );
-			return;
 		} elseif ( count( $threads ) < 1 ) {
 			$this->dieUsage( 'You must specify a thread to reply to',
 					'no-specified-threads' );
-			return;
 		}
 		$replyTo = array_pop( $threads );
 
@@ -581,13 +558,11 @@ class ApiThreadAction extends ApiBase {
 			$this->dieUsage( "You cannot reply to this thread, because the " .
 				$perm_result . " is protected from replies.",
 				$perm_result . '-protected' );
-			return;
 		}
 
 		// Validate text parameter
 		if ( empty( $params['text'] ) ) {
 			$this->dieUsage( 'You must include text in your post', 'no-text' );
-			return;
 		}
 
 		$text = $params['text'];
@@ -710,19 +685,15 @@ class ApiThreadAction extends ApiBase {
 		if ( count( $threads ) > 1 ) {
 			$this->dieUsage( 'You may only change the subject of one thread at a time',
 					'too-many-threads' );
-			return;
 		} elseif ( count( $threads ) < 1 ) {
 			$this->dieUsage( 'You must specify a thread to change the subject of',
 					'no-specified-threads' );
-			return;
 		}
 		$thread = array_pop( $threads );
 
 		// Validate subject
 		if ( empty( $params['subject'] ) ) {
-			$this->dieUsage( 'You must specify a thread subject',
-				'missing-param' );
-			return;
+			$this->dieUsageMsg( array( 'missingparam', 'subject' ) );
 		}
 
 		$talkpage = $thread->article();
@@ -734,8 +705,6 @@ class ApiThreadAction extends ApiBase {
 		if ( !$subjectOk ) {
 			$this->dieUsage( 'The subject you specified is not valid',
 				'invalid-subject' );
-
-			return;
 		}
 
 		$reason = null;
@@ -765,7 +734,6 @@ class ApiThreadAction extends ApiBase {
 		if ( !count( $threads ) ) {
 			$this->dieUsage( 'You must specify a thread to set the sortkey of',
 					'no-specified-threads' );
-			return;
 		}
 
 		// Validate timestamp
@@ -773,7 +741,6 @@ class ApiThreadAction extends ApiBase {
 			$this->dieUsage( 'You must specify a valid timestamp for the sortkey ' .
 				'parameter. It should be in the form YYYYMMddhhmmss, a ' .
 				'unix timestamp or "now".', 'invalid-sortkey' );
-			return;
 		}
 
 		$ts = $params['sortkey'];
@@ -786,7 +753,6 @@ class ApiThreadAction extends ApiBase {
 			$this->dieUsage( 'You must specify a valid timestamp for the sortkey' .
 				'parameter. It should be in the form YYYYMMddhhmmss, a ' .
 				'unix timestamp or "now".', 'invalid-sortkey' );
-			return;
 		}
 
 		$reason = null;
