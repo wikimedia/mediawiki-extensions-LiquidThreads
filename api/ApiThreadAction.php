@@ -111,11 +111,11 @@ class ApiThreadAction extends ApiBase {
 
 		if ( empty( $params['token'] ) ||
 				!$wgUser->matchEditToken( $params['token'] ) ) {
-			$this->dieUsageMsg( array( 'sessionfailure' ) )
+			$this->dieUsageMsg( array( 'sessionfailure' ) );
 		}
 
 		if ( empty( $params['threadaction'] ) ) {
-			$this->dieUsageMsg( array( 'missingparam', 'action' ) )
+			$this->dieUsageMsg( array( 'missingparam', 'action' ) );
 		}
 
 		$allowedAllActions = array( 'markread' );
