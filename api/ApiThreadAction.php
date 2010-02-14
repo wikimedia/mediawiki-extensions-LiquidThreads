@@ -47,7 +47,7 @@ class ApiThreadAction extends ApiBase {
 	public function getPossibleErrors() {
 		return array(
 			array( 'sessionfailure' ),
-			array( 'code' => 'action', 'info' => 'missing-param' ),
+			array( 'missingparam', 'action' ),
 			array( 'code' => 'too-many-threads', 'info' => 'You may only split one thread at a time' ),
 			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to split' ),
 			array( 'code' => 'already-top-level', 'info' => 'This thread is already a top-level thread.' ),
@@ -116,8 +116,7 @@ class ApiThreadAction extends ApiBase {
 		}
 
 		if ( empty( $params['threadaction'] ) ) {
-			$this->dieUsage( 'missing-param', 'action' );
-			return;
+			$this->dieUsageMsg( array( 'missingparam', 'action' ) )
 		}
 
 		$allowedAllActions = array( 'markread' );
