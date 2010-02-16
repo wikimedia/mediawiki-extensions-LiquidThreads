@@ -777,6 +777,6 @@ class ApiThreadAction extends ApiBase {
 	}
 
 	public function getVersion() {
-		return __CLASS__ . '$Id: ApiThreadAction.php $';
+		return __CLASS__ . '$Id$';
 	}
 }
