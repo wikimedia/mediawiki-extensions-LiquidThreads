@@ -46,7 +46,6 @@ class ApiThreadAction extends ApiBase {
 	
 	public function getPossibleErrors() {
 		return array(
-			array( 'sessionfailure' ),
 			array( 'missingparam', 'action' ),
 			array( 'missingparam', 'talkpage' ),
 			array( 'missingparam', 'subject' ),
@@ -76,6 +75,10 @@ class ApiThreadAction extends ApiBase {
 		return array(
 		);
 	}
+	
+	public function getTokenSalt() {
+		return null;
+	}
 
 	public function getAllowedParams() {
 		return array(
@@ -98,7 +101,9 @@ class ApiThreadAction extends ApiBase {
 		);
 	}
 
-	public function mustBePosted() { return true; }
+	public function mustBePosted() { 
+		return true;
+	}
 
 	public function isWriteMode() {
 		return true;
@@ -106,13 +111,6 @@ class ApiThreadAction extends ApiBase {
 
 	public function execute() {
 		$params = $this->extractRequestParams();
-
-		global $wgUser;
-
-		if ( empty( $params['token'] ) ||
-				!$wgUser->matchEditToken( $params['token'] ) ) {
-			$this->dieUsageMsg( array( 'sessionfailure' ) );
-		}
 
 		if ( empty( $params['threadaction'] ) ) {
 			$this->dieUsageMsg( array( 'missingparam', 'action' ) );
