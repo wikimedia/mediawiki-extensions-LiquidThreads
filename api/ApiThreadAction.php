@@ -41,7 +41,7 @@ class ApiThreadAction extends ApiBase {
 					"a unix timestamp or 'now'.",
 			'signature' => 'Specifies the signature to use for that post. Can be ' .
 					'NULL to specify the default signature',
-		);
+		) );
 	}
 	
 	public function getPossibleErrors() {
