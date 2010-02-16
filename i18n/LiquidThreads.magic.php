@@ -22,6 +22,11 @@ $magicWords['bs'] = array(
 	'lqtpagelimit'       => array( '0', 'tnogranicenjestranica', 'lqtpagelimit' ),
 );
 
+$magicWords['es'] = array(
+	'useliquidthreads'   => array( '0', 'UsarHilosLiquidos', 'UsarHilosLíquidos', 'UseLiquidThreads' ),
+	'lqtpagelimit'       => array( '0', 'limitedepaginasdehlq', 'límitedepáginasdehlq', 'lqtpagelimit' ),
+);
+
 $magicWords['nds-nl'] = array(
 	'useliquidthreads'   => array( '0', 'LiquidThread_gebruken', 'LiquidThreadsGebruiken', 'UseLiquidThreads' ),
 );
