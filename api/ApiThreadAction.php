@@ -20,7 +20,7 @@ class ApiThreadAction extends ApiBase {
 	}
 
 	public function getParamDescription() {
-		return array_merge( parent::getPossibleErrors(), array(
+		return array(
 			'thread' => 'A list (pipe-separated) of thread IDs or titles to act on',
 			'threadaction' => 'The action to take',
 			'token' => 'An edit token (from ?action=query&prop=info&intoken=edit)',
@@ -45,7 +45,7 @@ class ApiThreadAction extends ApiBase {
 	}
 	
 	public function getPossibleErrors() {
-		return array(
+		return array_merge( parent::getPossibleErrors(), array( 
 			array( 'missingparam', 'action' ),
 			array( 'missingparam', 'talkpage' ),
 			array( 'missingparam', 'subject' ),
