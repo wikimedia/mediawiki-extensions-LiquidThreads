@@ -19,8 +19,8 @@ class ApiThreadAction extends ApiBase {
 		);
 	}
 
-	protected function getParamDescription() {
-		return array(
+	public function getParamDescription() {
+		return array_merge( parent::getPossibleErrors(), array(
 			'thread' => 'A list (pipe-separated) of thread IDs or titles to act on',
 			'threadaction' => 'The action to take',
 			'token' => 'An edit token (from ?action=query&prop=info&intoken=edit)',
