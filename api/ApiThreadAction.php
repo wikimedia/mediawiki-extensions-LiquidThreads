@@ -77,7 +77,7 @@ class ApiThreadAction extends ApiBase {
 	}
 	
 	public function getTokenSalt() {
-		return null;
+		return '';
 	}
 
 	public function getAllowedParams() {
