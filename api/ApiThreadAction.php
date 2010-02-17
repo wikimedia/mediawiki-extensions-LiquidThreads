@@ -41,7 +41,7 @@ class ApiThreadAction extends ApiBase {
 					"a unix timestamp or 'now'.",
 			'signature' => 'Specifies the signature to use for that post. Can be ' .
 					'NULL to specify the default signature',
-		) );
+		);
 	}
 	
 	public function getPossibleErrors() {
@@ -68,7 +68,7 @@ class ApiThreadAction extends ApiBase {
 			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to change the subject of' ),
 			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to set the sortkey of' ),
 			array( 'code' => 'invalid-sortkey', 'info' => 'You must specify a valid timestamp for the sortkey parameter. It should be in the form YYYYMMddhhmmss, a unix timestamp or "now".' ),
-		);
+		) );
 	}
 
 	public function getExamples() {
