@@ -972,6 +972,16 @@ var liquidThreads = {
 	
 	'reloadTOC' : function() {
 		var toc = $j('.lqt_toc');
+		
+		if ( !toc.length ) {
+			toc = $j('<table/>').addClass('lqt_toc');
+			$j('.lqt-new-thread').after(toc);
+			
+			var contentsHeading = $j('<h2/>');
+			contentsHeading.text(wgLqtMessages['lqt_contents_title']);
+			toc.before(contentsHeading);
+		}
+		
 		var loadTOCSpinner = $j('<div class="mw-ajax-loader"/>');
 		loadTOCSpinner.css( 'height', toc.height() );
 		toc.empty().append( loadTOCSpinner );
