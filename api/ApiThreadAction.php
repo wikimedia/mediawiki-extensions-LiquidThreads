@@ -1,113 +1,6 @@
 <?php
 
 class ApiThreadAction extends ApiBase {
-	public function getDescription() {
-		return 'Allows actions to be taken on threads and posts in threaded discussions.';
-	}
-
-	public function getActions() {
-		return array(
-			'markread' => 'actionMarkRead',
-			'markunread' => 'actionMarkUnread',
-			'split' => 'actionSplit',
-			'merge' => 'actionMerge',
-			'reply' => 'actionReply',
-			'newthread' => 'actionNewThread',
-			'setsubject' => 'actionSetSubject',
-			'setsortkey' => 'actionSetSortkey',
-			'edit' => 'actionEdit',
-		);
-	}
-
-	public function getParamDescription() {
-		return array(
-			'thread' => 'A list (pipe-separated) of thread IDs or titles to act on',
-			'threadaction' => 'The action to take',
-			'token' => 'An edit token (from ?action=query&prop=info&intoken=edit)',
-			'talkpage' => 'The talkpage to act on (if applicable)',
-			'subject' => 'The subject to set for the new or split thread',
-			'reason' => 'If applicable, the reason/summary for the action',
-			'newparent' => 'If merging a thread, the ID or title for its new parent',
-			'text' => 'The text of the post to create',
-			'render' => 'If set, on post/reply methods, the top-level thread ' .
-				'after the change will be rendered and returned in the result.',
-			'bump' => 'If set, overrides default behaviour as to whether or not to ',
-				"increase the thread's sort key. If true, sets it to current " .
-				"timestamp. If false, does not set it. Default depends on " .
-				"the action being taken. Presently only works for newthread " .
-				"and reply actions.",
-			'sortkey' => "Specifies the timestamp to which to set a thread's " .
-					"sort  key. Must be in the form YYYYMMddhhmmss, " .
-					"a unix timestamp or 'now'.",
-			'signature' => 'Specifies the signature to use for that post. Can be ' .
-					'NULL to specify the default signature',
-		);
-	}
-	
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array( 
-			array( 'missingparam', 'action' ),
-			array( 'missingparam', 'talkpage' ),
-			array( 'missingparam', 'subject' ),
-			array( 'code' => 'too-many-threads', 'info' => 'You may only split one thread at a time' ),
-			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to split' ),
-			array( 'code' => 'already-top-level', 'info' => 'This thread is already a top-level thread.' ),
-			array( 'code' => 'no-valid-subject', 'info' => 'No subject, or an invalid subject, was specified' ),
-			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to merge' ),
-			array( 'code' => 'no-parent-thread', 'info' => 'You must specify a new parent thread to merge beneath' ),
-			array( 'code' => 'invalid-parent-thread', 'info' => 'The parent thread you specified was neither the title of a thread, nor a thread ID.' ),
-			array( 'code' => 'invalid-talkpage', 'info' => 'The talkpage you specified is invalid, or does not have discussion threading enabled.' ),
-			array( 'code' => 'talkpage-protected', 'info' => 'You cannot post to the specified talkpage, because it is protected from new posts' ),
-			array( 'code' => 'invalid-subject', 'info' => 'The subject you specified is not valid' ),
-			array( 'code' => 'no-text', 'info' => 'You must include text in your post' ),
-			array( 'code' => 'too-many-threads', 'info' => 'You may only edit one thread at a time' ),
-			array( 'code' => 'invalid-subject', 'info' => 'You must specify a thread to edit' ),
-			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to reply to' ),
-			array( 'code' => 'perm_result-protected', 'info' => 'You cannot reply to this thread, because the perm_result is protected from replies.' ),
-			array( 'code' => 'too-many-threads', 'info' => 'You may only change the subject of one thread at a time' ),
-			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to change the subject of' ),
-			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to set the sortkey of' ),
-			array( 'code' => 'invalid-sortkey', 'info' => 'You must specify a valid timestamp for the sortkey parameter. It should be in the form YYYYMMddhhmmss, a unix timestamp or "now".' ),
-		) );
-	}
-
-	public function getExamples() {
-		return array(
-		);
-	}
-	
-	public function getTokenSalt() {
-		return '';
-	}
-
-	public function getAllowedParams() {
-		return array(
-			'thread' => array(
-				ApiBase::PARAM_ISMULTI => true,
-			),
-			'talkpage' => null,
-			'threadaction' => array(
-				ApiBase::PARAM_TYPE => array_keys( $this->getActions() ),
-			),
-			'token' => null,
-			'subject' => null,
-			'reason' => null,
-			'newparent' => null,
-			'text' => null,
-			'render' => null,
-			'bump' => null,
-			'sortkey' => null,
-			'signature' => null,
-		);
-	}
-
-	public function mustBePosted() { 
-		return true;
-	}
-
-	public function isWriteMode() {
-		return true;
-	}
 
 	public function execute() {
 		$params = $this->extractRequestParams();
@@ -774,6 +667,114 @@ class ApiThreadAction extends ApiBase {
 		$result = array( 'thread' => $result );
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+	
+	public function getDescription() {
+		return 'Allows actions to be taken on threads and posts in threaded discussions.';
+	}
+
+	public function getActions() {
+		return array(
+			'markread' => 'actionMarkRead',
+			'markunread' => 'actionMarkUnread',
+			'split' => 'actionSplit',
+			'merge' => 'actionMerge',
+			'reply' => 'actionReply',
+			'newthread' => 'actionNewThread',
+			'setsubject' => 'actionSetSubject',
+			'setsortkey' => 'actionSetSortkey',
+			'edit' => 'actionEdit',
+		);
+	}
+
+	public function getParamDescription() {
+		return array(
+			'thread' => 'A list (pipe-separated) of thread IDs or titles to act on',
+			'threadaction' => 'The action to take',
+			'token' => 'An edit token (from ?action=query&prop=info&intoken=edit)',
+			'talkpage' => 'The talkpage to act on (if applicable)',
+			'subject' => 'The subject to set for the new or split thread',
+			'reason' => 'If applicable, the reason/summary for the action',
+			'newparent' => 'If merging a thread, the ID or title for its new parent',
+			'text' => 'The text of the post to create',
+			'render' => 'If set, on post/reply methods, the top-level thread ' .
+				'after the change will be rendered and returned in the result.',
+			'bump' => 'If set, overrides default behaviour as to whether or not to ',
+				"increase the thread's sort key. If true, sets it to current " .
+				"timestamp. If false, does not set it. Default depends on " .
+				"the action being taken. Presently only works for newthread " .
+				"and reply actions.",
+			'sortkey' => "Specifies the timestamp to which to set a thread's " .
+					"sort  key. Must be in the form YYYYMMddhhmmss, " .
+					"a unix timestamp or 'now'.",
+			'signature' => 'Specifies the signature to use for that post. Can be ' .
+					'NULL to specify the default signature',
+		);
+	}
+	
+	public function getPossibleErrors() {
+		return array_merge( parent::getPossibleErrors(), array( 
+			array( 'missingparam', 'action' ),
+			array( 'missingparam', 'talkpage' ),
+			array( 'missingparam', 'subject' ),
+			array( 'code' => 'too-many-threads', 'info' => 'You may only split one thread at a time' ),
+			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to split' ),
+			array( 'code' => 'already-top-level', 'info' => 'This thread is already a top-level thread.' ),
+			array( 'code' => 'no-valid-subject', 'info' => 'No subject, or an invalid subject, was specified' ),
+			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to merge' ),
+			array( 'code' => 'no-parent-thread', 'info' => 'You must specify a new parent thread to merge beneath' ),
+			array( 'code' => 'invalid-parent-thread', 'info' => 'The parent thread you specified was neither the title of a thread, nor a thread ID.' ),
+			array( 'code' => 'invalid-talkpage', 'info' => 'The talkpage you specified is invalid, or does not have discussion threading enabled.' ),
+			array( 'code' => 'talkpage-protected', 'info' => 'You cannot post to the specified talkpage, because it is protected from new posts' ),
+			array( 'code' => 'invalid-subject', 'info' => 'The subject you specified is not valid' ),
+			array( 'code' => 'no-text', 'info' => 'You must include text in your post' ),
+			array( 'code' => 'too-many-threads', 'info' => 'You may only edit one thread at a time' ),
+			array( 'code' => 'invalid-subject', 'info' => 'You must specify a thread to edit' ),
+			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to reply to' ),
+			array( 'code' => 'perm_result-protected', 'info' => 'You cannot reply to this thread, because the perm_result is protected from replies.' ),
+			array( 'code' => 'too-many-threads', 'info' => 'You may only change the subject of one thread at a time' ),
+			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to change the subject of' ),
+			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to set the sortkey of' ),
+			array( 'code' => 'invalid-sortkey', 'info' => 'You must specify a valid timestamp for the sortkey parameter. It should be in the form YYYYMMddhhmmss, a unix timestamp or "now".' ),
+		) );
+	}
+
+	public function getExamples() {
+		return array(
+		);
+	}
+	
+	public function getTokenSalt() {
+		return '';
+	}
+
+	public function getAllowedParams() {
+		return array(
+			'thread' => array(
+				ApiBase::PARAM_ISMULTI => true,
+			),
+			'talkpage' => null,
+			'threadaction' => array(
+				ApiBase::PARAM_TYPE => array_keys( $this->getActions() ),
+			),
+			'token' => null,
+			'subject' => null,
+			'reason' => null,
+			'newparent' => null,
+			'text' => null,
+			'render' => null,
+			'bump' => null,
+			'sortkey' => null,
+			'signature' => null,
+		);
+	}
+
+	public function mustBePosted() { 
+		return true;
+	}
+
+	public function isWriteMode() {
+		return true;
 	}
 
 	public function getVersion() {
