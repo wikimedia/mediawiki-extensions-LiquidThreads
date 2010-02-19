@@ -1173,6 +1173,7 @@ class LqtView {
 				'lqt-drag-subject',
 				'lqt-edit-signature',
 				'lqt-preview-signature',
+				'lqt_contents_title',
 			);
 
 		$data = array();
@@ -1386,11 +1387,33 @@ class LqtView {
 		$editedFlag = $thread->editedness();
 		$ebLookup = array( Threads::EDITED_BY_AUTHOR => 'author',
 					Threads::EDITED_BY_OTHERS => 'others' );
+		$lastEdit = $thread->root()->getTimestamp();
+		$lastEdit = $wgLang->timeanddate( $lastEdit, true );
+		$editors = '';
+		$editorCount = 0;
+		
+		if ( $editedFlag > Threads::EDITED_BY_AUTHOR ) {
+			$editors = $thread->editors();
+			$editorCount = count( $editors );
+			$formattedEditors = array();
+			
+			foreach( $editors as $ed ) {
+				$id = IP::isIPAddress( $ed ) ? 0 : 1;
+				$fEditor = $sk->userLink( $id, $ed ) .
+					$sk->userToolLinks( $id, $ed );
+				$formattedEditors[] = $fEditor;
+			}
+			
+			$editors = $wgLang->commaList( $formattedEditors );
+		}
+		
 		if ( isset( $ebLookup[$editedFlag] ) ) {
-
 			$editedBy = $ebLookup[$editedFlag];
-			$editedNotice = wfMsgExt( 'lqt-thread-edited-' . $editedBy, 'parseinline' );
-			$infoElements[] = Xml::element( 'div', array( 'class' =>
+			$editedNotice = wfMsgExt( 'lqt-thread-edited-' . $editedBy,
+					array( 'parseinline' ),
+					array( $lastEdit, $editorCount ) );
+			$editedNotice = str_replace( '$3', $editors, $editedNotice );
+			$infoElements[] = Xml::tags( 'div', array( 'class' =>
 						'lqt-thread-toolbar-edited-' . $editedBy ),
 						$editedNotice );
 		}

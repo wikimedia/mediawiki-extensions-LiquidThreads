@@ -42,6 +42,7 @@ class Thread {
 
 	/* Flag about who has edited or replied to this thread. */
 	protected $editedness;
+	protected $editors = null;
 
 	protected $replies;
 
@@ -542,6 +543,9 @@ class Thread {
 		$pageIds = array();
 		$linkBatch = new LinkBatch();
 		$userIds = array();
+		$loadEditorsFor = array();
+		
+		$dbr = wfGetDB( DB_SLAVE );
 
 		if ( !is_array( self::$replyCacheById ) ) {
 			self::$replyCacheById = array();
@@ -570,7 +574,6 @@ class Thread {
 		// Pull replies to the threads provided, and as above, pull page IDs to pull data for,
 		//  pre-initialise the reply cache, and stash the row object for later use.
 		if ( count( $top_thread_ids ) ) {
-			$dbr = wfGetDB( DB_SLAVE );
 			$res = $dbr->select( 'thread', '*',
 						array( 'thread_ancestor' => $top_thread_ids,
 							'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ),
@@ -639,6 +642,26 @@ class Thread {
 
 			User::$idCacheByName[$row->thread_author_name] = $row->thread_author_id;
 			$userIds[$row->thread_author_id] = true;
+			
+			if ( $row->thread_editedness > Threads::EDITED_BY_AUTHOR ) {
+				$loadEditorsFor[$row->thread_root] = $thread;
+				$thread->setEditors( array() );
+			}
+		}
+		
+		// Pull list of users who have edited
+		if ( count($loadEditorsFor) ) {
+			$res = $dbr->select( 'revision', array( 'rev_user_text', 'rev_page' ),
+				array( 'rev_page' => array_keys($loadEditorsFor),
+					'rev_parent_id != '.$dbr->addQuotes(0) ),
+					__METHOD__ );
+			foreach( $res as $row ) {
+				$pageid = $row->rev_page;
+				$editor = $row->rev_user_text;
+				$t = $loadEditorsFor[$pageid];
+				
+				$t->addEditor($editor);
+			}
 		}
 
 		$userIds = array_keys( $userIds );
@@ -1467,5 +1490,40 @@ class Thread {
 	public function setSignature( $sig ) {
 		$sig = LqtView::signaturePST( $sig, $this->author() );
 		$this->signature = $sig;
+	}
+	
+	public function editors() {
+		if ( is_null($this->editors) ) {
+			if ( $this->editedness() < Threads::EDITED_BY_AUTHOR ) {
+				return array();
+			} elseif ( $this->editedness == Threads::EDITED_BY_AUTHOR ) {
+				return array( $this->author()->getName() );
+			}
+			
+			// Load editors
+			$this->editors = array();
+			
+			$dbr = wfGetDB( DB_SLAVE );
+			$res = $dbr->select( 'revision', 'rev_user_text',
+				array( 'rev_page' => $this->root()->getId(),
+				'rev_parent_id != '.$dbr->addQuotes(0) ), __METHOD__ );
+			
+			foreach( $res as $row ) {
+				$this->editors[$row->rev_user_text] = 1;
+			}
+			
+			$this->editors = array_keys( $this->editors );
+		}
+		
+		return $this->editors;
+	}
+	
+	public function setEditors($e) {
+		$this->editors = $e;
+	}
+	
+	public function addEditor($e) {
+		$this->editors[] = $e;
+		$this->editors = array_unique($this->editors);
 	}
 }

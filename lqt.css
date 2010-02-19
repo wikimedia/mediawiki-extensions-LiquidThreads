@@ -207,12 +207,11 @@ body.skin-monobook li#ca-nstab-thread {
 }
 
 .lqt-thread-toolbar-edited-author {
-	font-weight: bold;
+	font-size: 80%;
 }
 
 .lqt-thread-toolbar-edited-others {
-	font-weight: bold;
-	color: #aa8800;
+	font-size: 80%;
 }
 
 .lqt-command-icon {
