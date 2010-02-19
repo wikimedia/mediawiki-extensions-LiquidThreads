@@ -304,7 +304,7 @@ class TalkpageView extends LqtView {
 		if ( $this->methodApplies( 'talkpage_new_thread' ) ) {
 			$params = array( 'class' => 'lqt-new-thread lqt-edit-form' );
 			$this->output->addHTML( Xml::openElement( 'div', $params ) );
-			$this->showNewThreadForm();
+			$this->showNewThreadForm( $this->article );
 			$this->output->addHTML( Xml::closeElement( 'div' ) );
 		} else {
 			$this->output->addHTML( Xml::tags( 'div',

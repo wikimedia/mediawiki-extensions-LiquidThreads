@@ -283,7 +283,7 @@ class LqtView {
 	 * Return an HTML form element whose value is gotten from the request.
 	 * TODO: figure out a clean way to expand this to other forms.
 	 */
-	function perpetuate( $name, $as ) {
+	function perpetuate( $name, $as = 'hidden' ) {
 		$value = $this->request->getVal( $name, '' );
 		if ( $as == 'hidden' ) {
 			return Xml::hidden( $name, $value );
@@ -298,27 +298,6 @@ class LqtView {
 			'<a href="' . $log_url . '">' . wfMsg( 'lqt_protectedfromreply_link' ) . '</a>' ) );
 	}
 
-	function showNewThreadForm() {
-		$this->showEditingFormInGeneral( null, 'new', null );
-	}
-
-	function showPostEditingForm( $thread ) {
-		$this->showEditingFormInGeneral( $thread, 'editExisting', null );
-	}
-
-	function showReplyForm( $thread ) {
-		if ( $thread->root()->getTitle()->userCan( 'edit' ) ) {
-			$this->showEditingFormInGeneral( null, 'reply', $thread );
-		} else {
-			$this->showReplyProtectedNotice( $thread );
-		}
-	}
-
-	function showSummarizeForm( $thread ) {
-		$this->output->addWikiMsg( 'lqt-summarize-intro' );
-		$this->showEditingFormInGeneral( $thread, 'summarize', $thread );
-	}
-
 	function doInlineEditForm() {
 		$method = $this->request->getVal( 'lqt_method' );
 		$operand = $this->request->getVal( 'lqt_operand' );
@@ -328,155 +307,406 @@ class LqtView {
 		if ( $method == 'reply' ) {
 			$this->showReplyForm( $thread );
 		} elseif ( $method == 'talkpage_new_thread' ) {
-			$this->showNewThreadForm();
+			$this->showNewThreadForm( $this->article );
 		} elseif ( $method == 'edit' ) {
 			$this->showPostEditingForm( $thread );
 		}
 
 		$this->output->setArticleBodyOnly( true );
 	}
-
-	private function showEditingFormInGeneral( $thread, $edit_type, $edit_applies_to ) {
-		/**
-		 * EditPage needs an Article. If there isn't a real one, as for new posts,
-		 * replies, and new summaries, we need to generate a title. Auto-generated
-		 * titles are based on the subject line. If the subject line is blank, we
-		 * can temporarily use a random scratch title. It's fine if the title changes
-		 * throughout the edit cycle, since the article doesn't exist yet anyways.
-		 */
-
-		// Check permissions
-		if ( $edit_type == 'new' ) {
-			if ( Thread::canUserPost( $this->user, $this->article ) !== true ) {
-				$this->output->addWikiMsg( 'lqt-protected-newthread' );
-				return;
-			}
-		} elseif ( $edit_type == 'reply' ) {
-			$perm_result = $edit_applies_to->canUserReply( $this->user );
-			if ( $perm_result !== true ) {
-				$msg = "lqt-protected-reply-$perm_result";
-				$this->output->addWikiMsg( $msg );
-				return;
+	
+	function showNewThreadForm( $talkpage ) {
+		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
+		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
+		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
+		
+		if ( Thread::canUserPost( $this->user, $this->article ) !== true ) {
+			$this->output->addWikiMsg( 'lqt-protected-newthread' );
+			return;
+		}
+		$subject = $this->request->getVal( 'lqt_subject_field', false );
+		
+		$t = null;
+		
+		$subjectOk = Thread::validateSubject( $subject, $t,
+					null, $this->article );
+		if ( ! $subjectOk ) {
+			try {
+				$t = $this->newThreadTitle( $subject );
+			} catch ( MWException $excep ) {
+				$t = $this->scratchTitle();
 			}
 		}
-
-		// Check if we actually want a subject, pull the submitted subject, and validate it.
-		$subject_expected = ( $edit_type == 'new' ||
-						$thread && $thread->isTopmostThread() ) &&
-					$edit_type != 'summarize';
-		$subject = $this->request->getVal( 'lqt_subject_field', '' );
-		$valid_subject = true;
-
-		if ( $edit_type == 'summarize' && $edit_applies_to->summary() ) {
-			$article = $edit_applies_to->summary();
-		} elseif ( $edit_type == 'summarize' ) {
-			$t = $this->newSummaryTitle( $edit_applies_to );
-			$article = new Article( $t );
-		} elseif ( !$thread ) {
-			$t = null;
-
-			$subjectOk = Thread::validateSubject( $subject, $t,
-						$edit_applies_to, $this->article );
-			if ( ! $subjectOk ) {
-				$subject = false;
-			}
-
-			if ( !$subject && $subject_expected ) {
-				// Dodgy title
-				$valid_subject = false;
-			} elseif ( ! $t ) {
-				try {
-					if ( $edit_type == 'new' ) {
-						$t = $this->newThreadTitle( $subject );
-					} elseif ( $edit_type == 'reply' ) {
-						$t = $this->newReplyTitle( $subject, $edit_applies_to );
-					}
-				} catch ( MWException $excep ) {
-					$t = $this->scratchTitle();
-					$valid_subject = false;
-				}
-			}
-			$article = new Article( $t );
-		} else {
-			$article = $thread->root();
-		}
-
-		$talkpage = $this->article;
-		if ( $thread ) {
-			$talkpage = $thread->article();
-		} elseif ( $edit_applies_to ) {
-			$talkpage = $edit_applies_to->article();
-		}
-
+		
+		$article = new Article( $t );
+		
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
-		LqtHooks::$editThread = $thread;
-		LqtHooks::$editType = $edit_type;
-		LqtHooks::$editAppliesTo = $edit_applies_to;
-
+		LqtHooks::$editThread = null;
+		LqtHooks::$editType = 'new';
+		LqtHooks::$editAppliesTo = null;
+		
 		$e = new EditPage( $article );
-
+		
 		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
-		if ( ( !$valid_subject && $subject ) || ( $subject_expected && !$subject ) ) {
+		if ( !$subjectOk ) {
 			// Dirty hack to prevent saving from going ahead
 			$wgRequest->setVal( 'wpPreview', true );
-
+		
 			if ( $this->request->wasPosted() ) {
 				if ( !$subject ) {
 					$msg = 'lqt_empty_subject';
 				} else {
 					$msg = 'lqt_invalid_subject';
 				}
-
+		
 				$e->editFormPageTop .=
 					Xml::tags( 'div', array( 'class' => 'error' ),
 						wfMsgExt( $msg, 'parse' ) );
 			}
 		}
-
-		// For new posts and replies, remove the summary field and use a boilerplate
-		//  default.
-		if ( $edit_type == 'new' ) {
-			$e->mShowSummaryField = false;
-
-			$summary = wfMsgForContent( 'lqt-newpost-summary', $subject );
-			$wgRequest->setVal( 'wpSummary', $summary );
-		} elseif ( $edit_type == 'reply' ) {
-			$e->mShowSummaryField = false;
-
-			$reply_subject = $edit_applies_to->subject();
-			$reply_title = $edit_applies_to->title()->getPrefixedText();
-			$summary = wfMsgForContent(
-				'lqt-reply-summary',
-				$reply_subject,
-				$reply_title
+		
+		$e->suppressIntro = true;
+		$e->editFormTextBeforeContent .=
+			$this->perpetuate( 'lqt_method', 'hidden' ) .
+			$this->perpetuate( 'lqt_operand', 'hidden' ) .
+			Xml::hidden( 'lqt_nonce', wfGenerateToken() );
+		
+		$e->mShowSummaryField = false;
+		
+		$summary = wfMsgForContent( 'lqt-newpost-summary', $subject );
+		$wgRequest->setVal( 'wpSummary', $summary );
+		
+		list( $signatureEditor, $signatureHTML ) = $this->getSignatureEditor( $this->user );
+		
+		$e->editFormTextAfterContent .=
+			$signatureEditor;
+		$e->previewTextAfterContent .=
+			Xml::tags( 'p', null, $signatureHTML );
+			
+		$e->editFormTextBeforeContent .= $this->getSubjectEditor( '', $subject );
+		
+		$e->edit();
+		
+		if ( $e->didSave ) {
+			$signature = $this->request->getVal( 'wpLqtSignature', null );
+			
+			$thread = LqtView::newPostMetadataUpdates(
+				array(
+					'talkpage' => $talkpage,
+					'text' => $e->textbox1,
+					'summary' => $e->summary,
+					'signature' => $signature,
+					'root' => $article,
+					'subject' => $subject,
+				)
 			);
-			$wgRequest->setVal( 'wpSummary', $summary );
+			
+			if ( $submitted_nonce && $nonce_key ) {
+				global $wgMemc;
+				$wgMemc->set( $nonce_key, 1, 3600 );
+			}
 		}
-
+		
+		if ( $this->output->getRedirect() != '' ) {
+		       $redirectTitle = clone $talkpage->getTitle();
+		       $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
+		       $this->output->redirect( $this->title->getFullURL() );
+		}
+	
+	}
+	
+	function showReplyForm( $thread ) {
+		global $wgRequest;
+		
+		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
+		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
+		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
+		
+		$perm_result = $thread->canUserReply( $this->user );
+		if ( $perm_result !== true ) {
+			$this->showReplyProtectedNotice( $thread );
+			return;
+		}
+		
+		try {
+			$t = $this->newReplyTitle( null, $thread );
+		} catch ( MWException $excep ) {
+			$t = $this->scratchTitle();
+			$valid_subject = false;
+		}
+		
+		$article = new Article( $t );
+		$talkpage = $thread->article();
+		
+		LqtHooks::$editTalkpage = $talkpage;
+		LqtHooks::$editArticle = $article;
+		LqtHooks::$editThread = $thread;
+		LqtHooks::$editType = 'reply';
+		LqtHooks::$editAppliesTo = $thread;
+		
+		$e = new EditPage( $article );
+		
+		$e->mShowSummaryField = false;
+		
+		$reply_subject = $thread->subject();
+		$reply_title = $thread->title()->getPrefixedText();
+		$summary = wfMsgForContent(
+			'lqt-reply-summary',
+			$reply_subject,
+			$reply_title
+		);
+		$wgRequest->setVal( 'wpSummary', $summary );
+		
 		// Add an offset so it works if it's on the wrong page.
-		if ( $edit_applies_to ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$offset = wfTimestamp( TS_UNIX, $edit_applies_to->topmostThread()->modified() );
-			$offset++;
-			$offset = $dbr->timestamp( $offset );
-		} else $offset = '';
-
+		$dbr = wfGetDB( DB_SLAVE );
+		$offset = wfTimestamp( TS_UNIX, $thread->topmostThread()->sortkey() );
+		$offset++;
+		$offset = $dbr->timestamp( $offset );
+		
 		$e->suppressIntro = true;
 		$e->editFormTextBeforeContent .=
 			$this->perpetuate( 'lqt_method', 'hidden' ) .
 			$this->perpetuate( 'lqt_operand', 'hidden' ) .
 			Xml::hidden( 'lqt_nonce', wfGenerateToken() ) .
 			Xml::hidden( 'offset', $offset );
+		
+		list( $signatureEditor, $signatureHTML ) = $this->getSignatureEditor( $this->user );
+		
+		$e->editFormTextAfterContent .=
+			$signatureEditor;
+		$e->previewTextAfterContent .=
+			Xml::tags( 'p', null, $signatureHTML );
+			
+		$e->edit();
+		
+		if ( $e->didSave ) {
+			$bump = $this->request->getBool( 'wpBumpThread' );
+			$signature = $this->request->getVal( 'wpLqtSignature', null );
+			
+			$newThread = LqtView::replyMetadataUpdates(
+				array(
+					'replyTo' => $thread,
+					'text' => $e->textbox1,
+					'summary' => $e->summary,
+					'bump' => $bump,
+					'signature' => $signature,
+					'root' => $article,
+				)
+			);
+			
+			if ( $submitted_nonce && $nonce_key ) {
+				global $wgMemc;
+				$wgMemc->set( $nonce_key, 1, 3600 );
+			}
+		}
+		
+		if ( $this->output->getRedirect() != '' ) {
+		       $redirectTitle = clone $talkpage->getTitle();
+		       $redirectTitle->setFragment( '#' . $this->anchorName( $newThread ) );
+		       $this->output->redirect( $this->title->getFullURL() );
+		}
+	}
+	
+	function showPostEditingForm( $thread ) {
+		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
+		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
+		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
+		
+		$subject_expected = $thread->isTopmostThread();
+		$subject = $this->request->getVal( 'lqt_subject_field', '' );
+		
+		if (!$subject) {
+			$subject = $thread->subject();
+		}
+		
+		$t = null;
+		$subjectOk = Thread::validateSubject( $subject, $t,
+					$thread->superthread(), $this->article );
+		if ( ! $subjectOk ) {
+			$subject = false;
+		}
+		
+		$article = $thread->root();
+		$talkpage = $thread->article();
+		
+		LqtHooks::$editTalkpage = $talkpage;
+		LqtHooks::$editArticle = $article;
+		LqtHooks::$editThread = $thread;
+		LqtHooks::$editType = 'edit';
+		LqtHooks::$editAppliesTo = $thread;
+		
+		$e = new EditPage( $article );
+		
+		global $wgRequest;
+		// Quietly force a preview if no subject has been specified.
+		if ( !$subjectOk ) {
+			// Dirty hack to prevent saving from going ahead
+			$wgRequest->setVal( 'wpPreview', true );
+		
+			if ( $this->request->wasPosted() ) {
+				$e->editFormPageTop .=
+					Xml::tags( 'div', array( 'class' => 'error' ),
+						wfMsgExt( 'lqt_invalid_subject', 'parse' ) );
+			}
+		}
+		
+		// Add an offset so it works if it's on the wrong page.
+		$dbr = wfGetDB( DB_SLAVE );
+		$offset = wfTimestamp( TS_UNIX, $thread->topmostThread()->sortkey() );
+		$offset++;
+		$offset = $dbr->timestamp( $offset );
+		
+		$e->suppressIntro = true;
+		$e->editFormTextBeforeContent .=
+			$this->perpetuate( 'lqt_method', 'hidden' ) .
+			$this->perpetuate( 'lqt_operand', 'hidden' ) .
+			Xml::hidden( 'lqt_nonce', wfGenerateToken() ) .
+			Xml::hidden( 'offset', $offset );
+		
+		list( $signatureEditor, $signatureHTML ) = $this->getSignatureEditor( $thread );
+		
+		$e->editFormTextAfterContent .=
+			$signatureEditor;
+		$e->previewTextAfterContent .=
+			Xml::tags( 'p', null, $signatureHTML );
+			
+		$e->editFormTextBeforeContent .= $this->getSubjectEditor( $thread->subject(), $subject );
+		
+		$e->edit();
+		
+		if ( $e->didSave ) {
+			$bump = $this->request->getBool( 'wpBumpThread' );
+			$signature = $this->request->getVal( 'wpLqtSignature', null );
+			
+			LqtView::editMetadataUpdates(
+				array(
+					'thread' => $thread,
+					'text' => $e->textbox1,
+					'summary' => $e->summary,
+					'bump' => $bump,
+					'subject' => $subject,
+					'signature' => $signature,
+					'root' => $article,
+				)
+			);
+			
+			if ( $submitted_nonce && $nonce_key ) {
+				global $wgMemc;
+				$wgMemc->set( $nonce_key, 1, 3600 );
+			}
+		}
+		
+		if ( $this->output->getRedirect() != '' ) {
+		       $redirectTitle = clone $talkpage->getTitle();
+		       $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
+		       $this->output->redirect( $this->title->getFullURL() );
+		}
+	
+	}
+	
+	function showSummarizeForm( $thread ) {
+		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
+		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
+		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
+		
+		if ( $thread->summary() ) {
+			$article = $thread->summary();
+		} else {
+			$t = $this->newSummaryTitle( $thread );
+			$article = new Article( $t );
+		}
+		
+		$this->output->addWikiMsg( 'lqt-summarize-intro' );
+		
+		$talkpage = $thread->article();
+		
+		LqtHooks::$editTalkpage = $talkpage;
+		LqtHooks::$editArticle = $article;
+		LqtHooks::$editThread = $thread;
+		LqtHooks::$editType = 'summarize';
+		LqtHooks::$editAppliesTo = $thread;
+		
+		$e = new EditPage( $article );
+		
+		// Add an offset so it works if it's on the wrong page.
+		$dbr = wfGetDB( DB_SLAVE );
+		$offset = wfTimestamp( TS_UNIX, $thread->topmostThread()->sortkey() );
+		$offset++;
+		$offset = $dbr->timestamp( $offset );
+		
+		$e->suppressIntro = true;
+		$e->editFormTextBeforeContent .=
+			$this->perpetuate( 'lqt_method', 'hidden' ) .
+			$this->perpetuate( 'lqt_operand', 'hidden' ) .
+			Xml::hidden( 'lqt_nonce', wfGenerateToken() ) .
+			Xml::hidden( 'offset', $offset );
+			
+		$e->edit();
+		
+		if ( $e->didSave ) {
+			$bump = $this->request->getBool( 'wpBumpThread' );
+			
+			LqtView::summarizeMetadataUpdates(
+				array(
+					'thread' => $thread,
+					'article' => $article,
+					'summary' => $e->summary,
+					'bump' => $bump,
+				)
+			);
+			
+			if ( $submitted_nonce && $nonce_key ) {
+				global $wgMemc;
+				$wgMemc->set( $nonce_key, 1, 3600 );
+			}
+		}
+		
+		if ( $this->output->getRedirect() != '' ) {
+		       $redirectTitle = clone $talkpage->getTitle();
+		       $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
+		       $this->output->redirect( $this->title->getFullURL() );
+		}
+	
+	}
+	
+	public function handleNonce( $submitted_nonce, $nonce_key ) {
+		// Add a one-time random string to a hidden field. Store the random string
+		//  in memcached on submit and don't allow the edit to go ahead if it's already
+		//  been added.
+		if ( $submitted_nonce ) {
+			global $wgMemc;
 
+			if ( $wgMemc->get( $nonce_key ) ) {
+				$this->output->redirect( $this->article->getTitle()->getFullURL() );
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	public function getSubjectEditor( $db_subject, $subject ) {
+		if ( $subject === false ) $subject = $db_subject;
+		
+		$subject_label = wfMsg( 'lqt_subject' );
+
+		$attr = array( 'tabindex' => 1 );
+
+		return Xml::inputLabel( $subject_label, 'lqt_subject_field',
+				'lqt_subject_field', 60, $subject, $attr ) .
+			Xml::element( 'br' );
+	}
+	
+	public function getSignatureEditor( $from ) {
 		$signatureText = $this->request->getVal( 'wpLqtSignature', null );
 
 		if ( is_null( $signatureText ) ) {
-			if ( !$thread && $edit_type != 'summarize' ) {
-				$signatureText = LqtView::getUserSignature( $this->user );
-			} else {
-				$signatureText = $thread->signature();
+			if ( $from instanceof User || $from instanceof StubUser ) {
+				$signatureText = LqtView::getUserSignature( $from );
+			} elseif ( $from instanceof Thread ) {
+				$signatureText = $from->signature();
 			}
 		}
 
@@ -497,136 +727,134 @@ class LqtView {
 		);
 
 		$signatureEditor = $signaturePreview . $signatureEditBox;
-
-		$e->editFormTextAfterContent .=
-			$signatureEditor;
-		$e->previewTextAfterContent .=
-			Xml::tags( 'p', null, $signatureHTML );
-
-		// Add a one-time random string to a hidden field. Store the random string
-		//  in memcached on submit and don't allow the edit to go ahead if it's already
-		//  been added.
-		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
-		if ( $submitted_nonce ) {
-			global $wgMemc;
-
-			$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-			if ( $wgMemc->get( $nonce_key ) ) {
-				$this->output->redirect( $this->article->getTitle()->getFullURL() );
-				return;
-			}
-		}
-
-		if ( $subject_expected ) {
-			wfLoadExtensionMessages( 'LiquidThreads' );
-			// This is a top-level post; show the subject line.
-			$db_subject = $thread ? $thread->subjectWithoutIncrement() : '';
-			$subject = $this->request->getVal( 'lqt_subject_field', $db_subject );
-			$subject_label = wfMsg( 'lqt_subject' );
-
-			$attr = array( 'tabindex' => 1 );
-
-			$e->editFormTextBeforeContent .=
-				Xml::inputLabel( $subject_label, 'lqt_subject_field',
-					'lqt_subject_field', 60, $subject, $attr ) .
-				Xml::element( 'br' );
-		}
-
-		$e->edit();
-
-		// Override what happens in EditPage::showEditForm, called from $e->edit():
-
-		$this->output->setArticleFlag( false );
-
-		if ( $e->didSave ) {
-			$bump = $this->request->getBool( 'wpBumpThread' );
-
-			$thread = self::postEditUpdates(
-					$edit_type, $edit_applies_to, $article,
-					$this->article,	$subject, $e->summary, $thread,
-					$e->textbox1, $bump, $signatureText
-				);
-
-			if ( $submitted_nonce && $nonce_key ) {
-				$wgMemc->set( $nonce_key, 1, 3600 );
-			}
-		}
-
-		// A redirect without $e->didSave will happen if the new text is blank (EditPage::attemptSave).
-		// This results in a new Thread object not being created for replies and new discussions,
-		// so $thread is null. In that case, just allow editpage to redirect back to the talk page.
-		if ( $this->output->getRedirect() != '' && $thread ) {
-			$redirectTitle = clone $thread->article()->getTitle();
-			$redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
-			$this->output->redirect( $this->title->getFullURL() );
-		} else if ( $this->output->getRedirect() != '' && $edit_applies_to ) {
-			// For summaries:
-			$redirectTitle = clone $edit_applies_to->article()->getTitle();
-			$redirectTitle->setFragment( '#' . $this->anchorName( $edit_applies_to ) );
-			$this->output->redirect( $redirectTitle->getFullURL() );
-		}
+		
+		return array( $signatureEditor, $signatureHTML );
 	}
-
-	static function postEditUpdates( $edit_type, $edit_applies_to, $edit_page, $article,
-		$subject, $edit_summary, $thread, $new_text, $bump = null, $signature = null )
-	{
-		// Update metadata - create and update thread and thread revision objects as
-		//  appropriate.
-
-		$noSignature = false;
-		if ( is_null( $signature ) ) {
+	
+	static function replyMetadataUpdates( $data = array() ) {
+		$requiredFields = array( 'replyTo', 'root', 'text' );
+		
+		foreach( $requiredFields as $f ) {
+			if ( !isset($data[$f]) ) {
+				throw new MWException( "Missing required field $f" );
+			}
+		}
+		
+		$signature = null;
+		if ( isset( $data['signature'] ) ) {
+			$signature = $data['signature'];
+		} else {
 			global $wgUser;
 			$signature = LqtView::getUserSignature( $wgUser );
-			$noSignature = true;
 		}
-
-		if ( $edit_type == 'reply' ) {
-			$subject = $edit_applies_to->subject();
-
-			$thread = Thread::create(
-				$edit_page, $article, $edit_applies_to,
-				Threads::TYPE_NORMAL, $subject,
-				$edit_summary, $bump, $signature
-			);
-
-			global $wgUser;
-			NewMessages::markThreadAsReadByUser( $edit_applies_to, $wgUser );
-		} elseif ( $edit_type == 'summarize' ) {
-			$edit_applies_to->setSummary( $edit_page );
-			$edit_applies_to->commitRevision(
-				Threads::CHANGE_EDITED_SUMMARY,
-				$edit_applies_to, $edit_summary,
-				$bump
-			);
-		} elseif ( $edit_type == 'editExisting' ) {
-			// Use a separate type if the content is blanked.
-			$type = strlen( trim( $new_text ) )
-					? Threads::CHANGE_EDITED_ROOT
-					: Threads::CHANGE_ROOT_BLANKED;
-					
-			if ( $signature && !$noSignature ) {
-				$thread->setSignature( $signature );
+		
+		$summary = isset($data['summary']) ? $data['summary'] : '';
+		
+		$replyTo = $data['replyTo'];
+		$root = $data['root'];
+		$text = $data['text'];
+		$bump = !empty($data['bump']);
+		
+		$subject = $replyTo->subject();
+		$talkpage = $replyTo->article();
+		
+		$thread = Thread::create(
+			$root, $talkpage, $replyTo, Threads::TYPE_NORMAL, $subject,
+			$summary, $bump, $signature
+		);
+		
+		return $thread;	
+	}
+	
+	static function summarizeMetadataUpdates( $data = array() ) {
+		$requiredFields = array( 'thread', 'article', 'summary' );
+		
+		foreach( $requiredFields as $f ) {
+			if ( !isset($data[$f]) ) {
+				throw new MWException( "Missing required field $f" );
 			}
-
-			// Add the history entry.
-			$thread->commitRevision( $type, $thread, $edit_summary, $bump );
+		}
+		
+		extract( $data );
+		
+		$bump = isset($bump) ? $bump : null;
+		
+		$thread->setSummary( $article );
+		$thread->commitRevision(
+			Threads::CHANGE_EDITED_SUMMARY, $thread, $summary, $bump );
 			
-			// Update subject if applicable.
-			if ( $subject && $subject != $thread->subject() ) {
-				$thread->setSubject( $subject );
-				$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT,
-							$thread, $e->summary );
-
-				// Disabled page-moving for now.
-				// $this->renameThread( $thread, $subject, $e->summary );
+		return $thread;
+	}
+	
+	static function editMetadataUpdates( $data = array() ) {
+		$requiredFields = array( 'thread', 'text', 'summary' );
+		
+		foreach( $requiredFields as $f ) {
+			if ( !isset($data[$f]) ) {
+				throw new MWException( "Missing required field $f" );
 			}
-		} else {
-			$thread = Thread::create(
-				$edit_page, $article, null,
-				Threads::TYPE_NORMAL, $subject,
-				$edit_summary, null, $signature
-			);
 		}
+		
+		$thread = $data['thread'];
+		
+		// Use a separate type if the content is blanked.
+		$type = strlen( trim( $data['text'] ) )
+				? Threads::CHANGE_EDITED_ROOT
+				: Threads::CHANGE_ROOT_BLANKED;
+				
+		if ( isset( $data['signature'] ) ) {
+			$thread->setSignature( $data['signature'] );
+		}
+		
+		$bump = !empty($data['bump']);
+
+		// Add the history entry.
+		$thread->commitRevision( $type, $thread, $data['summary'], $bump );
+		
+		// Update subject if applicable.
+		if ( $thread->isTopmostThread() && !empty( $data['subject'] ) &&
+				$data['subject'] != $thread->subject() ) {
+			$thread->setSubject( $data['subject'] );
+			$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT,
+						$thread, $summary );
+
+			// Disabled page-moving for now.
+			// $this->renameThread( $thread, $subject, $e->summary );
+		}
+		
+		return $thread;
+	}
+
+	static function newPostMetadataUpdates( $data )
+	{
+		$requiredFields = array( 'talkpage', 'root', 'text', 'subject' );
+		
+		foreach( $requiredFields as $f ) {
+			if ( !isset($data[$f]) ) {
+				throw new MWException( "Missing required field $f" );
+			}
+		}
+		
+		$signature = null;
+		if ( isset( $data['signature'] ) ) {
+			$signature = $data['signature'];
+		} else {
+			global $wgUser;
+			$signature = LqtView::getUserSignature( $wgUser );
+		}
+		
+		$summary = isset($data['summary']) ? $data['summary'] : '';
+		
+		$talkpage = $data['talkpage'];
+		$root = $data['root'];
+		$text = $data['text'];
+		$subject = $data['subject'];
+
+		$thread = Thread::create(
+			$root, $talkpage, null,
+			Threads::TYPE_NORMAL, $subject,
+			$summary, null, $signature
+		);
 
 		return $thread;
 	}

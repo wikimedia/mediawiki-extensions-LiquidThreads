@@ -206,7 +206,8 @@ class ThreadPermalinkView extends LqtView {
 		}
 
 		// Handle action=edit stuff
-		if ( $this->request->getVal( 'action' ) == 'edit' ) {
+		if ( $this->request->getVal( 'action' ) == 'edit' &&
+				!$this->request->getVal( 'lqt_method', null ) ) {
 			// Rewrite to lqt_method = edit
 			$this->request->setVal( 'lqt_method', 'edit' );
 			$this->request->setVal( 'lqt_operand', $this->thread->id() );

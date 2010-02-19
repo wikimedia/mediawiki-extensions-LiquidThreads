@@ -297,8 +297,15 @@ class ApiThreadAction extends ApiBase {
 		$article->getTitle()->resetArticleID( $articleId );
 		$title->resetArticleID( $articleId );
 
-		$thread = LqtView::postEditUpdates( 'new', null, $article, $talkpage,
-					$subject, $summary, null, $text, $bump, $signature );
+		$thread = LqtView::newPostMetadataUpdates(
+			array( 
+				'root' => $article,
+				'talkpage' => $talkpage,
+				'subject' => $subject,
+				'signature' => $signature,
+				'summary' => $summary,
+				'text' => $text,
+			) );
 
 		$maxLag = wfGetLB()->getMaxLag();
 		$maxLag = $maxLag[1];
@@ -404,8 +411,16 @@ class ApiThreadAction extends ApiBase {
 			return;
 		}
 		
-		$thread = LqtView::postEditUpdates( 'editExisting', null, $article, $talkpage,
-					$subject, $summary, $thread, $text, $bump, $signature );
+		$thread = LqtView::editMetadataUpdates(
+			array( 
+				'root' => $article,
+				'thread' => $thread,
+				'subject' => $subject,
+				'signature' => $signature,
+				'summary' => $summary,
+				'text' => $text,
+				'bump' => $bump,
+			) );
 
 		$maxLag = wfGetLB()->getMaxLag();
 		$maxLag = $maxLag[1];
@@ -518,8 +533,15 @@ class ApiThreadAction extends ApiBase {
 		$article->getTitle()->resetArticleID( $articleId );
 		$title->resetArticleID( $articleId );
 
-		$thread = LqtView::postEditUpdates( 'reply', $replyTo, $article, $talkpage,
-					$subject, $summary, null, $text, $bump, $signature );
+		$thread = LqtView::replyMetadataUpdates(
+			array( 
+				'root' => $article,
+				'replyTo' => $replyTo,
+				'signature' => $signature,
+				'summary' => $summary,
+				'text' => $text,
+				'bump' => $bump,
+			) );
 
 		$maxLag = wfGetLB()->getMaxLag();
 		$maxLag = $maxLag[1];

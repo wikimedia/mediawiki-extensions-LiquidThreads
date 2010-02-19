@@ -67,8 +67,7 @@ class LqtDispatch {
 			// this clause and the next must be in this order.
 			$viewname = 'ThreadDiffView';
 		} else if ( $action == 'history'
-			|| $request->getVal( 'diff', null ) !== null
-			|| $request->getVal( 'oldid', null ) !== null ) {
+			|| $request->getVal( 'diff', null ) !== null ) {
 			$viewname = 'IndividualThreadHistoryView';
 		} else if ( $action == 'protect' || $action == 'unprotect' ) {
 			$viewname = 'ThreadProtectionFormView';
