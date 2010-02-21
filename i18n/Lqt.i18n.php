@@ -2867,8 +2867,10 @@ Tuto operaci lze vrátit zpět.',
 	'lqt-history-action' => 'Událost',
 	'lqt-history-comment' => 'Komentář',
 	'lqt-history-thread' => 'Vlákno',
-	'lqt-thread-edited-author' => 'Upraveno autorem',
-	'lqt-thread-edited-others' => 'Upraveno jinými uživateli',
+	'lqt-thread-edited-author' => 'Upraveno autorem.<br />
+Poslední editace: $1',
+	'lqt-thread-edited-others' => 'Upraveno {{PLURAL:$2|jiným uživatelem|jinými uživateli}}.<br />
+Poslední editace: $1',
 	'lqt-header-actions' => 'Akce',
 	'lqt_summarize_link' => 'Shrnout',
 	'lqt-summarize-intro' => 'Napište shrnutí níže zobrazeného vlákna do editačního okna.
@@ -3176,7 +3178,8 @@ Diese Operation kann rückgängig gemacht werden.',
 	'lqt-history-action' => 'Aktivität',
 	'lqt-history-comment' => 'Kommentar',
 	'lqt-history-thread' => 'Diskussionsstrang',
-	'lqt-thread-edited-author' => 'Vom Autor bearbeitet',
+	'lqt-thread-edited-author' => 'Vom Autor bearbeitet<br/>
+Letzte Bearbeitung: $1',
 	'lqt-thread-edited-others' => 'Von anderen Benutzern geändert',
 	'lqt-header-actions' => 'Aktionen',
 	'lqt_summarize_link' => 'Zusammenfassen',
@@ -4455,8 +4458,10 @@ Tal vez quieras en su lugar $2.',
 	'lqt-history-action' => 'Actividad',
 	'lqt-history-comment' => 'Comentario',
 	'lqt-history-thread' => 'Hilo',
-	'lqt-thread-edited-author' => 'Editado por el autor',
-	'lqt-thread-edited-others' => 'Editado por otros usuarios',
+	'lqt-thread-edited-author' => 'Editado por el autor<br />
+Ultima edición: $1',
+	'lqt-thread-edited-others' => 'Editado por $2 usuarios<br />
+Ultima edición: $1',
 	'lqt-header-actions' => 'Acciones',
 	'lqt_summarize_link' => 'Resumir',
 	'lqt-thread-split' => 'Separar a un nuevo hilo',
@@ -5262,8 +5267,10 @@ Cette opération est réversible.',
 	'lqt-history-action' => 'Activité',
 	'lqt-history-comment' => 'Commentaire',
 	'lqt-history-thread' => 'Fil de discussion',
-	'lqt-thread-edited-author' => 'Modifié par l’auteur',
-	'lqt-thread-edited-others' => 'Modifié par d’autres utilisateurs',
+	'lqt-thread-edited-author' => 'Modifié par l’auteur<br />
+Dernière modification : $1',
+	'lqt-thread-edited-others' => 'Modifié $2 utilisateurs<br />
+Dernière modification : $1',
 	'lqt-header-actions' => 'Actions',
 	'lqt_summarize_link' => 'Résumé',
 	'lqt-summarize-intro' => 'Résumer le sujet ci-dessus dans la boite d’édition
@@ -6167,8 +6174,10 @@ Die Operation cha rugggängig gmacht wäre.',
 	'lqt-history-action' => 'Aktivitet',
 	'lqt-history-comment' => 'Kommentar',
 	'lqt-history-thread' => 'Strang',
-	'lqt-thread-edited-author' => 'Bearbeitet dur dr Autor',
-	'lqt-thread-edited-others' => 'Bearbeitet dur anderi Benutzer',
+	'lqt-thread-edited-author' => 'Bearbeitet dur dr Autor<br />
+Letschti Bearbeitig : $1',
+	'lqt-thread-edited-others' => 'Bearbeitet dur $2 Benutzer<br />
+Letschti Bearbeitig : $1',
 	'lqt-header-actions' => 'Aktione',
 	'lqt_summarize_link' => 'Zämmefasse',
 	'lqt-summarize-intro' => 'Bitte fass dr Diskussionsstrang unte im Bearbeitigs-Chaschte zämme.
@@ -9643,8 +9652,10 @@ $messages['ml'] = array(
 	'lqt-history-action' => 'പ്രവൃത്തി',
 	'lqt-history-comment' => 'കുറിപ്പ്',
 	'lqt-history-thread' => 'ചരട്',
-	'lqt-thread-edited-author' => 'സ്രഷ്ടാവ് തിരുത്തിയിരിക്കുന്നു',
-	'lqt-thread-edited-others' => 'മറ്റുപയോക്താക്കൾ തിരുത്തിയത്',
+	'lqt-thread-edited-author' => 'മാറ്റം വരുത്തിയത് രചയിതാവ് ആണ്.<br/>
+അവസാന തിരുത്തൽ: $1',
+	'lqt-thread-edited-others' => '{{PLURAL:$2|മറ്റൊരുപയോക്താവ്|മറ്റ് $2 ഉപയോക്താക്കൾ}} തിരുത്തിയിരിക്കുന്നു.<br/>
+അവസാന തിരുത്തൽ: $1',
 	'lqt-header-actions' => 'പ്രവർത്തനങ്ങൾ',
 	'lqt_summarize_link' => 'സംഗ്രഹിക്കുക',
 	'lqt-summarize-intro' => 'ചരടിനു താഴെ തിരുത്തുവാനുള്ള പെട്ടിയിൽ ദയവായി ചുരുക്കരൂപം നൽകുക.
@@ -10054,8 +10065,10 @@ Deze handeling is onomkeerbaar.',
 	'lqt-history-action' => 'Activiteit',
 	'lqt-history-comment' => 'Opmerking',
 	'lqt-history-thread' => 'Onderwerp',
-	'lqt-thread-edited-author' => 'Bewerkt door auteur',
-	'lqt-thread-edited-others' => 'Bewerkt door andere gebruikers',
+	'lqt-thread-edited-author' => 'Bewerkt door auteur<br />
+Laatste bewerking: $1',
+	'lqt-thread-edited-others' => 'Bewerkt door {{PLURAL:$2|een andere gebruiker|$2 andere gebruikers}}.<br />
+Laatste bewerking: $1',
 	'lqt-header-actions' => 'Handelingen',
 	'lqt_summarize_link' => 'Samenvatten',
 	'lqt-summarize-intro' => 'Vat het onderwerp hieronder samen.
@@ -10546,8 +10559,10 @@ Denne handlingen kan ikke gjøres om.',
 	'lqt-history-action' => 'Aktivitet',
 	'lqt-history-comment' => 'Kommentar',
 	'lqt-history-thread' => 'Tråd',
-	'lqt-thread-edited-author' => 'Redigert av opphavsperson',
-	'lqt-thread-edited-others' => 'Redigert av andre',
+	'lqt-thread-edited-author' => 'Redigert av opphavsperson.<br />
+Forrige endring: $1',
+	'lqt-thread-edited-others' => 'Redigert av {{PLURAL:$2|en annen bruker|$2 andre brukere}}.<br />
+Siste endring: $1',
 	'lqt-header-actions' => 'Handlinger',
 	'lqt_summarize_link' => 'Lag sammendrag',
 	'lqt-summarize-intro' => 'Du kan oppsummere denne tråden i redigeringsboksen.
@@ -12033,8 +12048,10 @@ Queste operazione no se pò annullà.",
 	'lqt-history-action' => 'Attività',
 	'lqt-history-comment' => 'Commende',
 	'lqt-history-thread' => 'Argomende',
-	'lqt-thread-edited-author' => "Cangiate da l'autore",
-	'lqt-thread-edited-others' => 'Cangiate da otre utinde',
+	'lqt-thread-edited-author' => "Cangiate da l'autore<br />
+Urteme cangiamende: $1",
+	'lqt-thread-edited-others' => 'Cangiate da $2 utinde<br />
+Urteme cangiamende: $1',
 	'lqt-header-actions' => 'Aziune',
 	'lqt_summarize_link' => 'Riepileghe',
 	'lqt-summarize-intro' => "Pe piacere riepileghe l'argomende d'aqquà sotte jndr'à sckatele de le cangiaminde.<br />
@@ -12074,6 +12091,9 @@ Pe evità stu fatte, apprime de scangellà divide l'argomende.",
 	'lqt-log-action-move' => 'spustate [[$1]] da [[$2]] a [[$3]].',
 	'lqt-log-action-split' => 'devide [[$1]] da sotte a [[$3]], cu \'u suggette nuève "$2"',
 	'lqt-log-action-merge-across' => 'spustate [[$1]] da sotte a [[$2]], sotte a [[$3]]',
+	'lqt-log-action-merge-down' => 'scuagghiate [[$1]] sotte a [[$3]]',
+	'lqt-log-action-subjectedit' => 'cangiate \'u suggette de [[$1]] da "$2" a "$3"',
+	'lqt-log-action-resort' => "cangiate l'ordenamende de [[$1]]. Cangiate chiave d'ordinamende da $2 a $3",
 	'lqt-preference-notify-talk' => "Manname 'na mail sus a le resposte a 'n'argomende ca ije stoche a condrolle",
 	'lqt-preference-watch-threads' => 'Condrolle le argumende ca ije ccreje o responne',
 	'prefs-lqt' => "'Ngazzamende argomendate",
@@ -12564,8 +12584,10 @@ $messages['sah'] = array(
 	'lqt-history-action' => 'Көҕө',
 	'lqt-history-comment' => 'Этии',
 	'lqt-history-thread' => 'Салаа',
-	'lqt-thread-edited-author' => 'Бу ааптар уларыппыт',
-	'lqt-thread-edited-others' => 'Атын кыттаачылар уларытыылара',
+	'lqt-thread-edited-author' => 'Бу ааптар уларыппыт<br/>
+Бүтэһик уларытыы: $1',
+	'lqt-thread-edited-others' => '$2 кыттааччы уларыппыт<br/>
+Бүтэһик уларытыы: $1',
 	'lqt-header-actions' => 'Дьайыылар',
 	'lqt_summarize_link' => 'Түмүк таһаарыы',
 	'lqt-summarize-intro' => 'Бука диэн, кылгастык бу салаа туһунан суруй эрэ.
@@ -14090,8 +14112,10 @@ Bu operasyon gerialınabilirdir.',
 	'lqt-history-action' => 'Eylem',
 	'lqt-history-comment' => 'Yorum',
 	'lqt-history-thread' => 'Düğüm',
-	'lqt-thread-edited-author' => 'Yazar tarafından değiştirildi',
-	'lqt-thread-edited-others' => 'Diğer kullanıcılar tarafından değiştirildi',
+	'lqt-thread-edited-author' => 'Yazar tarafından değiştirildi<br/>
+Son değişiklik: $1',
+	'lqt-thread-edited-others' => '$2 kullanıcı tarafından değiştirildi<br/>
+Son değişiklik: $1',
 	'lqt-header-actions' => 'Eylemler',
 	'lqt_summarize_link' => 'Özetle',
 	'lqt-summarize-intro' => 'Lütfen aşağıdaki düğümü, değiştirme kutusunda özetleyin.
@@ -14129,6 +14153,8 @@ Bundan kaçınmak için, cevapları düğümü silmeden önce düğümden ayır�
 	'lqt-log-name' => 'Düğümlenmiş tartışma günlüğü',
 	'lqt-log-header' => 'Bu günlük tartışma düğümlerinde alınan eylemleri detaylandırır.',
 	'lqt-log-action-move' => '[[$1]] düğümünü [[$2]] sayfasından [[$3]] sayfasına taşıdı.',
+	'lqt-log-action-subjectedit' => '[[$1]] düğümünün konusunu "$2" iken "$3" olarak değiştirdi',
+	'lqt-log-action-resort' => '[[$1]] düğümünün sıralama düzenini değiştirdi. Sıralama anahtarı $2 iken $3 olarak değiştirildi.',
 	'lqt-preference-notify-talk' => 'İzlediğim bir düğüme cevap geldiğinde bana e-posta gönder',
 	'lqt-preference-watch-threads' => 'Oluşturduğum ya da cevap verdiğim düğümleri izle',
 	'prefs-lqt' => 'Düğümlü tartışma',
@@ -14360,8 +14386,10 @@ $messages['uk'] = array(
 	'lqt-history-action' => 'Дії',
 	'lqt-history-comment' => 'Коментар',
 	'lqt-history-thread' => 'Гілка',
-	'lqt-thread-edited-author' => 'Відредаговано автором',
-	'lqt-thread-edited-others' => 'Відредаговано іншими користувачами',
+	'lqt-thread-edited-author' => 'Редаговано автором<br/>
+Останнє редагування: $1',
+	'lqt-thread-edited-others' => 'Редаговано $2 користувачами<br/>
+Останнє редагування: $1',
 	'lqt-header-actions' => 'Дії',
 	'lqt_summarize_link' => 'Резюмувати',
 	'lqt-summarize-intro' => 'Будь ласка, надайте коротку інформацію про зміст гілки у полі редагування.
