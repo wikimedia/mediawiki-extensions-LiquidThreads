@@ -1478,8 +1478,10 @@ $messages['be-tarask'] = array(
 	'lqt-history-action' => 'Актыўнасьць',
 	'lqt-history-comment' => 'Камэнтар',
 	'lqt-history-thread' => 'Галіна',
-	'lqt-thread-edited-author' => 'Рэдагаваная аўтарам',
-	'lqt-thread-edited-others' => 'Рэдагаваная іншымі ўдзельнікамі',
+	'lqt-thread-edited-author' => 'Рэдагаваная аўтарам.<br />
+Апошняе рэдагаваньне: $1',
+	'lqt-thread-edited-others' => 'Рэдагаваная $2  {{PLURAL:$2|іншым удзельнікам|іншымі ўдзельнікамі|іншымі ўдзельнікамі}}.<br />
+Апошняе рэдагаваньне: $1',
 	'lqt-header-actions' => 'Дзеяньні',
 	'lqt_summarize_link' => 'Падвесьці вынік',
 	'lqt-summarize-intro' => 'Калі ласка, падвядзіце вынікі галіны ў полі рэдагаваньня.
@@ -2115,7 +2117,8 @@ N'haller ket dizober an oberiadenn-mañ ur wezh kaset da bet.",
 	'lqt-history-action' => 'Obererezh',
 	'lqt-history-comment' => 'Notenn',
 	'lqt-history-thread' => 'Neudennad',
-	'lqt-thread-edited-author' => 'Kemmet gant an aozer',
+	'lqt-thread-edited-author' => 'Kemmet gant an aozer.<br />
+Kemm ziwezhañ : $1',
 	'lqt-thread-edited-others' => 'Kemmet gant implijerien all',
 	'lqt-header-actions' => 'Obererezhioù',
 	'lqt_summarize_link' => 'Diverrañ',
@@ -3180,7 +3183,8 @@ Diese Operation kann rückgängig gemacht werden.',
 	'lqt-history-thread' => 'Diskussionsstrang',
 	'lqt-thread-edited-author' => 'Vom Autor bearbeitet<br/>
 Letzte Bearbeitung: $1',
-	'lqt-thread-edited-others' => 'Von anderen Benutzern geändert',
+	'lqt-thread-edited-others' => 'Von {{PLURAL:$2|einem anderen Benutzer|$2 anderen Benutzern}} geändert.<br />
+Letzte Bearbeitung: $1',
 	'lqt-header-actions' => 'Aktionen',
 	'lqt_summarize_link' => 'Zusammenfassen',
 	'lqt-summarize-intro' => 'Bitte fasse den untenstehenden Diskussionsstrang im Bearbeitungsfenster zusammen.
@@ -4629,7 +4633,7 @@ See võib olla:
 	'lqt_summary_notice' => 'Seda arutelu pole vähemalt {{PLURAL:$2|päeva|$2 päeva}} jooksul muudetud.
 Kui see on lõpule jõudnud, võid tahta $1.',
 	'lqt_summary_notice_link' => 'kokkuvõtte kirjutada',
-	'lqt_summary_label' => 'See lõim on järgnevaga kokku võetud:',
+	'lqt_summary_label' => 'Lõime kokkuvõte:',
 	'lqt_summary_subtitle' => 'Lõime "$1" kokkuvõte',
 	'lqt_nosuchrevision' => 'Lõime sellist redaktsiooni pole.',
 	'lqt_nosuchthread' => 'Määratud lõime pole.',
@@ -4689,8 +4693,10 @@ Seda toimingut ei saa tagasi võtta.',
 	'lqt-history-action' => 'Tegevus',
 	'lqt-history-comment' => 'Märkus',
 	'lqt-history-thread' => 'Lõim',
-	'lqt-thread-edited-author' => 'Autori muudetud',
-	'lqt-thread-edited-others' => 'Teiste kasutajate muudetud',
+	'lqt-thread-edited-author' => 'Autori muudetud.<br />
+Viimane muudatus: $1',
+	'lqt-thread-edited-others' => '{{PLURAL:$2|Teise|$2 teise}} kasutaja muudetud.<br />
+Viimane muudatus: $1',
 	'lqt_summarize_link' => 'Võta kokku',
 	'lqt-summarize-intro' => 'Palun võta allpool toodud lõim toimetamiskastis kokku.
 Võid oma kokkuvõttes vikiteksti kasutada. Kui oled lõpetanud, klõpsa nuppu "{{int:savearticle}}".',
@@ -4927,7 +4933,7 @@ Siirron teki $2 – $3 kello $4. Ketju sijaitsee nyt sivulla $5.',
 	'lqt_summary_notice' => 'Tähän keskusteluun ei ole tehty muutoksia ainakaan $2 {{PLURAL:$2|päivänä}}.
 Jos se on päättynyt, voi olla että haluat $1.',
 	'lqt_summary_notice_link' => 'kirjoittaa yhteenvedon',
-	'lqt_summary_label' => 'Tämä ketju on tiivistetty seuraavasti:',
+	'lqt_summary_label' => 'Ketjun yhteenveto:',
 	'lqt_summary_subtitle' => 'Yhteenveto kohteelle $1',
 	'lqt_nosuchrevision' => 'Tässä ketjussa ei ole kyseistä versiota.',
 	'lqt_nosuchthread' => 'Määrittämääsi viestiketjua ei ole.',
@@ -4993,8 +4999,10 @@ Tätä toimintoa ei voi perua.',
 	'lqt-history-action' => 'Aktiivisuus',
 	'lqt-history-comment' => 'Kommentti',
 	'lqt-history-thread' => 'Ketju',
-	'lqt-thread-edited-author' => 'Aloittajan muokkaama',
-	'lqt-thread-edited-others' => 'Muiden käyttäjien muokkaama',
+	'lqt-thread-edited-author' => 'Aloittajan muokkaama.<br />
+Viimeisin muokkaus: $1',
+	'lqt-thread-edited-others' => '{{PLURAL:$2|Muun käyttäjän|$2 muun käyttäjän}} muokkaama.<br />
+Viimeisin muokkaus: $1',
 	'lqt-header-actions' => 'Toiminnot',
 	'lqt_summarize_link' => 'Tiivistä',
 	'lqt-summarize-intro' => 'Tee yhteenveto alla olevasta ketjusta muokkauskenttään.
@@ -5018,8 +5026,8 @@ Välttääksesi tämän, jaa ne tästä ketjusta erilleen ennen sen poistamista.
 	'lqt-newmessages-from' => 'Sivulta $1',
 	'lqt-hot-topics' => 'Kuumat aiheet',
 	'lqt-add-reply' => 'Lisää vastaus',
-	'lqt_rc_new_discussion' => 'Uusi keskustelu ”$1” sivulla $2 • $3 kirjoitti:',
-	'lqt_rc_new_reply' => 'Vastaus ketjuun ”$1” sivulla $2 • $3 kirjoitti:',
+	'lqt_rc_new_discussion' => 'aloitti uuden ketjun ”$1”',
+	'lqt_rc_new_reply' => 'vastasi ketjuun ”$1”',
 	'right-lqt-split' => 'Jakaa viestiketjuja',
 	'right-lqt-merge' => 'Yhdistää viestiketjuja',
 	'lqt-thread-merge' => 'Yhdistä toiseen viestiketjuun',
@@ -9652,9 +9660,9 @@ $messages['ml'] = array(
 	'lqt-history-action' => 'പ്രവൃത്തി',
 	'lqt-history-comment' => 'കുറിപ്പ്',
 	'lqt-history-thread' => 'ചരട്',
-	'lqt-thread-edited-author' => 'മാറ്റം വരുത്തിയത് രചയിതാവ് ആണ്.<br/>
+	'lqt-thread-edited-author' => 'മാറ്റം വരുത്തിയത് രചയിതാവ് ആണ്.<br />
 അവസാന തിരുത്തൽ: $1',
-	'lqt-thread-edited-others' => '{{PLURAL:$2|മറ്റൊരുപയോക്താവ്|മറ്റ് $2 ഉപയോക്താക്കൾ}} തിരുത്തിയിരിക്കുന്നു.<br/>
+	'lqt-thread-edited-others' => '{{PLURAL:$2|മറ്റൊരുപയോക്താവ്|മറ്റ് $2 ഉപയോക്താക്കൾ}} തിരുത്തിയിരിക്കുന്നു.<br />
 അവസാന തിരുത്തൽ: $1',
 	'lqt-header-actions' => 'പ്രവർത്തനങ്ങൾ',
 	'lqt_summarize_link' => 'സംഗ്രഹിക്കുക',
@@ -14243,6 +14251,7 @@ $messages['tt-cyrl'] = array(
 );
 
 /** Ukrainian (Українська)
+ * @author AS
  * @author NickK
  * @author Prima klasy4na
  */
@@ -14388,7 +14397,7 @@ $messages['uk'] = array(
 	'lqt-history-thread' => 'Гілка',
 	'lqt-thread-edited-author' => 'Редаговано автором<br/>
 Останнє редагування: $1',
-	'lqt-thread-edited-others' => 'Редаговано $2 користувачами<br/>
+	'lqt-thread-edited-others' => 'Редаговано {{PLURAL:$2|одним користувачем|$2 користувачами}}.<br/>
 Останнє редагування: $1',
 	'lqt-header-actions' => 'Дії',
 	'lqt_summarize_link' => 'Резюмувати',
@@ -14891,7 +14900,7 @@ Sự di chuyển này do $2 thực hiện vào ngày $3 lúc $4. Luồng hiện 
 	'lqt_summary_notice' => 'Không có thay đổi nào trong thảo luận này trong ít nhất $2 ngày.
 Nếu nó đã đi đến kết thúc, có thể bạn sẽ muốn $1.{{PLURAL:$2||}}',
 	'lqt_summary_notice_link' => 'viết một câu tóm tắt',
-	'lqt_summary_label' => 'Luồng này đã được tóm tắt như sau:',
+	'lqt_summary_label' => 'Tóm tắt luồng:',
 	'lqt_summary_subtitle' => 'Tóm tắt của “$1”.',
 	'lqt_nosuchrevision' => 'Không có phiên bản như vậy trong luồng này.',
 	'lqt_nosuchthread' => 'Không có luồng yêu cầu.',
@@ -14956,8 +14965,10 @@ Có thể lùi lại tác động này.',
 	'lqt-history-action' => 'Hoạt động',
 	'lqt-history-comment' => 'Bình luận',
 	'lqt-history-thread' => 'Luồng',
-	'lqt-thread-edited-author' => 'Tác giả sửa đổi',
-	'lqt-thread-edited-others' => 'Người khác sửa đổi',
+	'lqt-thread-edited-author' => 'Tác giả đã sửa đổi.<br />
+Sửa đổi lần cuối lúc $1.',
+	'lqt-thread-edited-others' => '{{PLURAL:$2|Người dùng khác|$2 người dùng khác}} đã sửa đổi.<br />
+Sửa đổi lần cuối lúc $1.',
 	'lqt-header-actions' => 'Tác vụ',
 	'lqt_summarize_link' => 'Tóm tắt',
 	'lqt-summarize-intro' => 'Xin hãy tóm tắt luồng sau trong hộp sửa đổi.
@@ -14979,8 +14990,8 @@ Bạn có thể sử dụng cú pháp wiki trong tóm tắt. Khi nào xong, hãy
 	'lqt-newmessages-from' => 'Từ $1',
 	'lqt-hot-topics' => 'Chủ đề nóng',
 	'lqt-add-reply' => 'Ghi trả lời',
-	'lqt_rc_new_discussion' => 'Thảo luận mới “$1” tại $2 • $3 viết:',
-	'lqt_rc_new_reply' => 'Trả lời “$1” tại “$2” • $3 viết:',
+	'lqt_rc_new_discussion' => 'đã bắt đầu luồng mới, “$1”',
+	'lqt_rc_new_reply' => 'đã trả lời “$1”',
 	'right-lqt-split' => 'Chia luồng',
 	'right-lqt-merge' => 'Hợp nhất luồng',
 	'lqt-thread-merge' => 'Hợp nhất vào luồng khác',
