@@ -8,7 +8,6 @@ $wgExtensionCredits['other'][] = array(
 	'version'        => '2.0-alpha',
 	'url'            => 'http://www.mediawiki.org/wiki/Extension:LiquidThreads',
 	'author'         => array( 'David McCabe', 'Andrew Garrett' ),
-	'description'    => 'Add threading discussions to talk pages',
 	'descriptionmsg' => 'lqt-desc',
 );
 
