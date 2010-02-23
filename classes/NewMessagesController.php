@@ -267,10 +267,12 @@ class NewMessages {
 		if ( version_compare( $wgVersion, '1.16', '<' ) ) {
 			$oldPreferenceFormat = true;
 		} else {
-			$tables[] = 'user_properties as tc_prop';
+			$tableNameUserProperties = $dbr->tableName( 'user_properties' );
+
+			$tables[] = $tableNameUserProperties . ' as tc_prop';
 			$fields[] = 'tc_prop.up_value as timecorrection';
 
-			$join_conds['user_properties as tc_prop'] = array(
+			$join_conds[$tableNameUserProperties . ' as tc_prop'] = array(
 				'left join',
 				array(
 					'up_user=user_id',
@@ -278,10 +280,10 @@ class NewMessages {
 				)
 			);
 
-			$tables[] = 'user_properties as l_prop';
+			$tables[] = $tableNameUserProperties . ' as l_prop';
 			$fields[] = 'l_prop.up_value as language';
 
-			$join_conds['user_properties as l_prop'] = array(
+			$join_conds[$tableNameUserProperties . ' as l_prop'] = array(
 				'left join',
 				array(
 					'up_user=user_id',
