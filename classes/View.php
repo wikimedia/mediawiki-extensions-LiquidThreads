@@ -816,7 +816,7 @@ class LqtView {
 				$data['subject'] != $thread->subject() ) {
 			$thread->setSubject( $data['subject'] );
 			$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT,
-						$thread, $summary );
+						$thread, $data['summary'] );
 
 			// Disabled page-moving for now.
 			// $this->renameThread( $thread, $subject, $e->summary );
