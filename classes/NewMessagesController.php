@@ -275,8 +275,8 @@ class NewMessages {
 			$join_conds[$tableNameUserProperties . ' as tc_prop'] = array(
 				'left join',
 				array(
-					'up_user=user_id',
-					'up_property' => 'timecorrection',
+					'tc_prop.up_user=user_id',
+					'tc_prop.up_property' => 'timecorrection',
 				)
 			);
 
@@ -286,8 +286,8 @@ class NewMessages {
 			$join_conds[$tableNameUserProperties . ' as l_prop'] = array(
 				'left join',
 				array(
-					'up_user=user_id',
-					'up_property' => 'language',
+					'l_prop.up_user=user_id',
+					'l_prop.up_property' => 'language',
 				)
 			);
 		}
