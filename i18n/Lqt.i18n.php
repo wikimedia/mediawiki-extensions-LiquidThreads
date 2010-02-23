@@ -4196,8 +4196,10 @@ Ili ankoraŭ estos videbla en ties originalaj diskuto-paĝoj.
 	'lqt-history-action' => 'Aktiveco',
 	'lqt-history-comment' => 'Komento',
 	'lqt-history-thread' => 'Fadeno',
-	'lqt-thread-edited-author' => 'Redaktita de aŭtoro',
-	'lqt-thread-edited-others' => 'Redaktitaj de aliaj uzantoj',
+	'lqt-thread-edited-author' => 'Redaktita de aŭtoro.<br />
+Lasta redakto: $1',
+	'lqt-thread-edited-others' => 'Redaktita de {{PLURAL:$2|alia uzanto|$2 aliaj uzantoj}}.<br />
+Lasta redakto: $1',
 	'lqt-header-actions' => 'Agoj',
 	'lqt_summarize_link' => 'Resumigi',
 	'lqt-summarize-intro' => 'Bonvolu resumi la jenan fadenon en la redaktujo.
@@ -4221,7 +4223,7 @@ Eviti ĉi tion, dividigu ilin de ĉi tiu fadeno antaŭ forigante ĝin.',
 	'lqt-newmessages-from' => 'De $1',
 	'lqt-hot-topics' => 'Furoraj temoj',
 	'lqt-add-reply' => 'Aldoni respondon',
-	'lqt_rc_new_discussion' => "Nova diskuto '''$1''', en $2. • $3 skribas:",
+	'lqt_rc_new_discussion' => 'faris novan fadenon, "$1"',
 	'lqt_rc_new_reply' => 'afiŝis respondon al "$1"',
 	'right-lqt-split' => 'Dividi fadenojn',
 	'right-lqt-merge' => 'Kunigi fadenojn',
@@ -11281,6 +11283,7 @@ $messages['ps'] = array(
 /** Portuguese (Português)
  * @author 555
  * @author Crazymadlover
+ * @author Giro720
  * @author Hamilton Abreu
  * @author Heldergeovane
  * @author Lijealso
@@ -11304,7 +11307,7 @@ Pode:
 	'lqt_empty_subject' => 'Deve inserir um assunto.',
 	'lqt_reply' => 'Responder',
 	'lqt_delete' => 'Apagar',
-	'lqt_undelete' => 'Recuperar',
+	'lqt_undelete' => 'Restaurar',
 	'lqt_permalink' => 'Ligação para este comentário',
 	'lqt_fragment' => 'Fragmento de uma $1 de $2',
 	'lqt_discussion_link' => 'discussão',
@@ -12328,8 +12331,10 @@ $messages['ru'] = array(
 	'lqt-history-action' => 'Действия',
 	'lqt-history-comment' => 'Комментарий',
 	'lqt-history-thread' => 'Ветка',
-	'lqt-thread-edited-author' => 'Отредактировано автором',
-	'lqt-thread-edited-others' => 'Отредактировано другими участниками',
+	'lqt-thread-edited-author' => 'Исправлено автором.<br />
+Последняя правка: $1',
+	'lqt-thread-edited-others' => 'Исправлено {{PLURAL:$2|1 другим участником|$2 другими участниками|$2 другими участниками}}.<br />
+Последняя правка: $1',
 	'lqt-header-actions' => 'Действия',
 	'lqt_summarize_link' => 'Подвести итог',
 	'lqt-summarize-intro' => 'Пожалуйста, кратко опишите в поле редактирования содержимое данной ветки обсуждения.
@@ -14395,9 +14400,9 @@ $messages['uk'] = array(
 	'lqt-history-action' => 'Дії',
 	'lqt-history-comment' => 'Коментар',
 	'lqt-history-thread' => 'Гілка',
-	'lqt-thread-edited-author' => 'Редаговано автором<br/>
+	'lqt-thread-edited-author' => 'Редаговано автором.<br />
 Останнє редагування: $1',
-	'lqt-thread-edited-others' => 'Редаговано {{PLURAL:$2|одним користувачем|$2 користувачами}}.<br/>
+	'lqt-thread-edited-others' => 'Редаговано {{PLURAL:$2|іншим користувачем|$2 іншими користувачами}}.<br />
 Останнє редагування: $1',
 	'lqt-header-actions' => 'Дії',
 	'lqt_summarize_link' => 'Резюмувати',
