@@ -2119,7 +2119,8 @@ N'haller ket dizober an oberiadenn-mañ ur wezh kaset da bet.",
 	'lqt-history-thread' => 'Neudennad',
 	'lqt-thread-edited-author' => 'Kemmet gant an aozer.<br />
 Kemm ziwezhañ : $1',
-	'lqt-thread-edited-others' => 'Kemmet gant implijerien all',
+	'lqt-thread-edited-others' => 'Kemmet gant $2 implijer{PLURAL:$2||}} all.<br />
+Kemm ziwezhañ : $1',
 	'lqt-header-actions' => 'Obererezhioù',
 	'lqt_summarize_link' => 'Diverrañ',
 	'lqt-summarize-intro' => 'Savit un tamm diverrañ a-us er prenestr skridaozañ.
@@ -11428,8 +11429,10 @@ Esta operação é irreversível.',
 	'lqt-history-action' => 'Acção',
 	'lqt-history-comment' => 'Comentário',
 	'lqt-history-thread' => 'Tópico',
-	'lqt-thread-edited-author' => 'Editado pelo autor',
-	'lqt-thread-edited-others' => 'Editado por outros utilizadores',
+	'lqt-thread-edited-author' => 'Editado pelo autor.<br />
+Última edição: $1',
+	'lqt-thread-edited-others' => 'Editado por {{PLURAL:$2|outro utilizador|$2 outros utilizadores}}.<br />
+Última edição: $1',
 	'lqt-header-actions' => 'Acções',
 	'lqt_summarize_link' => 'Resumir',
 	'lqt-summarize-intro' => 'Por favor, resuma o tópico na caixa de edição.
