@@ -1495,7 +1495,7 @@ class LqtView {
 		$author = $thread->author();
 		$sig = $sk->userLink( $author->getID(), $author->getName() ) .
 			$sk->userToolLinks( $author->getID(), $author->getName() );
-		$newTalkpage = $t_thread->article()->getTitle();
+		$newTalkpage = is_object($t_thread) ? $t_thread->article()->getTitle() : '';
 
 		$html = wfMsgExt( 'lqt_move_placeholder',
 			array( 'parseinline', 'replaceafter' ),
