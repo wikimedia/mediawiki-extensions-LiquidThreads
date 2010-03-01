@@ -304,8 +304,6 @@ class Thread {
 	}
 
 	function author() {
-		$this->doLazyUpdates();
-
 		if ( $this->authorId ) {
 			return User::newFromId( $this->authorId );
 		} else {
@@ -529,7 +527,11 @@ class Thread {
 			self::$replyCacheById[$line->thread_parent][$line->thread_id] = $this;
 		}
 
-		$this->doLazyUpdates( $line );
+		try {
+			$this->doLazyUpdates( $line );
+		} catch ( Exception $excep ) {
+			trigger_error( "Exception doing lazy updates: ".$excep->toString() );
+		}
 
 		$this->dbVersion = clone $this;
 		unset( $this->dbVersion->dbVersion );
