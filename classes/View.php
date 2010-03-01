@@ -2059,15 +2059,17 @@ class LqtView {
 
 	static function signaturePST( $sig, $user ) {
 		global $wgParser, $wgOut, $wgTitle;
+		
+		$title = $wgTitle ? $wgTitle : $user->getUserPage()->getTitle();
 
 		// Parser gets antsy about parser options here if it hasn't parsed anything before.
 		$wgParser->clearState();
-		$wgParser->setTitle( $wgTitle );
+		$wgParser->setTitle( $title );
 		$wgParser->mOptions = new ParserOptions;
 
 		$sig = $wgParser->preSaveTransform(
 			$sig,
-			$wgTitle,
+			$title,
 			$user,
 			$wgParser->mOptions,
 			false
