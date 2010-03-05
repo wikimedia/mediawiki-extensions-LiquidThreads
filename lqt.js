@@ -267,9 +267,9 @@ var liquidThreads = {
 		var menuContainer = post.find( '.lqt-thread-toolbar-menu' );
 		menu.remove().appendTo( menuContainer );
 		menuContainer.find('.lqt-thread-toolbar-command-list').hide();
-
+		
 		// Add handler for reply link
-		var replyLink = menu.find('.lqt-command-reply > a');
+		var replyLink = toolbar.find('.lqt-command-reply > a');
 		replyLink.data( 'thread-id', threadID );
 		replyLink.click( liquidThreads.handleReplyLink );
 		
@@ -1120,6 +1120,15 @@ var liquidThreads = {
 		// Set up draggability.
 		var thread = $j(this).closest('.lqt_thread');
 		var threadID = thread.find('.lqt-post-wrapper').data('thread-id');
+		var scrollOffset;
+		
+		$j('html,body').each(
+			function() {
+				if ( $j(this).attr('scrollTop') )
+					scrollOffset = $j(this).attr('scrollTop');
+			} );
+		
+		scrollOffset = scrollOffset - thread.offset().top;
 		
 		var helperFunc;
 		if ( thread.hasClass( 'lqt-thread-topmost' ) ) {
@@ -1200,6 +1209,11 @@ var liquidThreads = {
 		};
 		
 		$j('.lqt-drop-zone').droppable( droppableOptions );
+		
+		scrollOffset = scrollOffset + thread.offset().top;
+		
+		// Reset scroll position
+		$j('html,body').attr( 'scrollTop', scrollOffset );
 	},
 	
 	'completeDragDrop' : function( e, ui ) {
@@ -1570,29 +1584,6 @@ $j(document).ready( function() {
 	
 	// Update the new thread link
 	var newThreadLink = $j('.lqt_start_discussion a');
-	
-	// Add scrolling handler
-	$j(document).scroll( function() {
-		var toolbar = liquidThreads.currentToolbar;
-		if ( !toolbar ) { return; }
-		
-		var post = toolbar.closest('.lqt_thread');
-		var scrollTop = $j(document).scrollTop();
-		var toolbarTop = toolbar.offset().top;
-		var postTop = post.offset().top;
-		
-		if ( scrollTop > toolbarTop ) {
-			toolbar.css( 'top', scrollTop );
-		} else if ( toolbar.css('top') && toolbar.css('top') != 'auto'
-					&& scrollTop < toolbarTop ) {
-			// Move back either to the start of the post, or to the scroll point
-			if ( scrollTop > postTop ) {
-				toolbar.css( 'top', scrollTop );
-			} else {
-				toolbar.css( 'top', 'auto' );
-			}
-		}
-	} );
 	
 	if (newThreadLink) {
 		newThreadLink.click( liquidThreads.handleNewLink );
