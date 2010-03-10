@@ -905,6 +905,10 @@ class LqtView {
 
 		return true;
 	}
+	
+	function scratchTitle() {
+		return Title::makeTitle( NS_LQT_THREAD, wfGenerateToken() );
+	}
 
 	/**
 	* Example return value:
@@ -920,17 +924,6 @@ class LqtView {
 	function threadCommands( $thread ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		$commands = array();
-
-		if ( $thread->canUserReply( $this->user ) === true ) {
-			$commands['reply'] = array(
-				'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
-				 'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
-					true /* include fragment */, $this->request ),
-				 'enabled' => true,
-				 'showlabel' => 1,
-				 'tooltip' => wfMsg( 'lqt_reply' )
-			);
-		}
 
 		$history_url = self::permalinkUrlWithQuery( $thread, array( 'action' => 'history' ) );
 		$commands['history'] = array( 'label' => wfMsgExt(
@@ -992,6 +985,14 @@ class LqtView {
 				'enabled' => true
 			);
 		}
+		
+		$commands['link'] = array(
+			'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
+			'href' => $thread->title()->getFullURL(),
+			'enabled' => true,
+			'showlabel' => true,
+			'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' )
+		);
 
 		return $commands;
 	}
@@ -1030,15 +1031,31 @@ class LqtView {
 				'tooltip' => $label
 			);
 		}
-
-		$commands['link'] = array(
-			'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
-			'href' => $thread->title()->getFullURL(),
-			'enabled' => true,
-			'icon' => 'link.png',
-			'showlabel' => true,
-			'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' )
-		);
+		
+		if ( $thread->canUserReply( $this->user ) === true ) {
+			$commands['reply'] = array(
+				'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
+				 'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
+					true /* include fragment */, $this->request ),
+				 'enabled' => true,
+				 'showlabel' => 1,
+				 'tooltip' => wfMsg( 'lqt_reply' ),
+				 'icon' => 'reply.png',
+			);
+		}
+		
+		// Parent post link
+		if ( !$thread->isTopmostThread() ) {
+			$parent = $thread->superthread();
+			$anchor = $parent->getAnchorName();
+			
+			$commands['parent'] = array(
+				'label' => wfMsgExt( 'lqt-parent', 'parseinline' ),
+				'href' => '#'.$anchor,
+				'enabled' => true,
+				'showlabel' => 1,
+			);
+		}
 
 		return $commands;
 	}
@@ -1645,9 +1662,14 @@ class LqtView {
 	}
 
 	function showThreadReplies( $thread, $startAt, $maxCount, $showThreads,
-			$cascadeOptions ) {
+			$cascadeOptions, $interruption = false ) {
 		$repliesClass = 'lqt-thread-replies lqt-thread-replies-' .
 					$this->threadNestingLevel;
+		
+		if ( $interruption ) {
+			$repliesClass .= ' lqt-thread-replies-interruption';
+		}
+		
 		$div = Xml::openElement( 'div', array( 'class' => $repliesClass ) );
 		$sep = Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&nbsp;' );
 
@@ -1706,11 +1728,7 @@ class LqtView {
 		$finishDiv .= Xml::tags(
 			'div',
 			array( 'class' => 'lqt-replies-finish' ),
-			Xml::tags(
-				'div',
-				array( 'class' => 'lqt-replies-finish-corner' ),
-				'&nbsp;'
-			)
+			'&nbsp;'
 		);
 
 		$this->output->addHTML( $finishDiv . Xml::CloseElement( 'div' ) );
@@ -1851,10 +1869,12 @@ class LqtView {
 
 		$cascadeOptions = $options;
 		unset( $cascadeOptions['startAt'] );
+		
+		$replyInterruption = $levelNum < $totalInLevel;
 
 		if ( ( $hasSubthreads && $showThreads ) ) {
 			$this->showThreadReplies( $thread, $startAt, $maxCount, $showThreads,
-				$cascadeOptions );
+				$cascadeOptions, $replyInterruption );
 		} elseif ( $hasSubthreads && !$showThreads ) {
 			// Add a "show subthreads" link.
 			$link = $this->getShowReplies( $thread );
@@ -1881,10 +1901,7 @@ class LqtView {
 
 				$finishDiv = Xml::tags( 'div',
 						array( 'class' => 'lqt-replies-finish' ),
-						Xml::tags( 'div',
-							array( 'class' =>
-								'lqt-replies-finish-corner'
-							), '&nbsp;' ) );
+						'&nbsp;');
 				// Layout plus close div.lqt-thread-replies
 
 				$finishHTML = Xml::closeElement( 'div' ); // lqt-reply-form
@@ -1923,17 +1940,7 @@ class LqtView {
 			return;
 		}
 
-		$sk = $this->user->getSkin();
 		$html = '';
-		$html .= Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&nbsp;' );
-
-		$text = wfMsgExt( 'lqt-add-reply', 'parseinline' );
-		$link = $this->talkpageLink( $this->title, $text, 'reply', $thread,
-					true /* include fragment */, array(), array(),
-					$this->request );
-
-		$html .= Xml::tags( 'div', array( 'class' => 'lqt-add-reply' ), $link );
-
 		$html .= Xml::tags( 'div',
 				array( 'class' => 'lqt-reply-form lqt-edit-form',
 					'style' => 'display: none;'  ),

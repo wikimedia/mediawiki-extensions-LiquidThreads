@@ -28,6 +28,7 @@ It may:
 * Conflict with interwiki prefixes or namespace names.',
 	'lqt_empty_subject' => 'You must enter a subject.',
 	'lqt_reply' => 'Reply',
+	'lqt-parent' => 'Parent',
 	'lqt_delete' => 'Delete',
 	'lqt_undelete' => 'Undelete',
 	'lqt_permalink' => 'Link to',

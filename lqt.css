@@ -298,53 +298,26 @@ body.skin-monobook li#ca-nstab-thread {
 	padding-right: 0.5em;
 }
 
-div.lqt-post-sep {
-	padding: 0;
-	margin: 0;
-	margin-left: 1em;
-	margin-bottom: -1px;
-	background-image: url(images/break.png);
-	background-position: bottom;
-	background-repeat: repeat-x;
-	clear: both;
-	line-height: 1em;
-}
-
-.lqt-thread-replies > .lqt-thread-first > .lqt-post-wrapper,
-.lqt-thread-no-subthreads.lqt-thread-topmost > .lqt-post-wrapper {
-	background-image: url(images/vertical-fade.png) !important;
-	background-repeat: no-repeat !important;
-	background-position: top left;
-}
-
 .lqt-thread-replies {
-	margin-left: 1em;
+	padding-left: 1em;
+	
 }
 
-.lqt-thread-replies,
-.lqt-thread-no-subthreads.lqt-thread-topmost {
-	background-image: url(images/edge.png);
-	background-repeat: repeat-y;
-	background-position: left center;
-}
-
-.lqt-replies-finish {
-	background-image: url(images/edge.png);
-	background-position: bottom;
-	background-repeat: repeat-x;
-}
-
-.lqt-replies-finish > div {
-	background-image: url(images/corner.png);
-	background-repeat: no-repeat;
-	background-position: bottom left;
-	/* The space is caused by the use of a non-breaking space, so we need to use line-height here */
-	line-height: 1em;
+.lqt-thread-replies-interruption {
+	border-left: 0.2em solid #eeeeee;
 }
 
 .lqt-post-wrapper {
 	padding: 0.5em 1em;
+	padding-bottom: 1em;
+	padding-right: 1em;
 	overflow: auto;
+	border: 0.2em solid silver;
+	border-top: none;
+}
+
+.lqt-thread-topmost > .lqt-post-wrapper {
+	border-top: 0.2em solid silver;
 }
 
 .lqt-thread-info-panel {
@@ -356,9 +329,17 @@ div.lqt-post-sep {
 }
 
 .lqt-thread-toolbar {
-	right: 0.5em;
+	right: 1.5em;
 	position: absolute;
 	
+}
+
+.lqt-post-sep {
+	height: 0;
+}
+
+.lqt-replies-finish {
+	height: 0;
 }
 
 .lqt-command {
@@ -369,15 +350,17 @@ div.lqt-post-sep {
 	display: block;
 }
 
-.lqt-command-link a {
-	margin-left: 1em;
-	height: 2em;
+.lqt-command-reply a {
 	padding-left: 26px;
-	background-image: url(icons/link.png) !important;
+	background-image: url(icons/reply.png) !important;
 	background-repeat: no-repeat;
 	background-position: left center !important;
+}
+
+.lqt-thread-toolbar-commands > li.lqt-command {
+	margin-left: 0.5em;
+	margin-right: 0.5em;
 	line-height: 2em;
-	overflow: hidden;
 }
 
 .lqt-command-quote a {
