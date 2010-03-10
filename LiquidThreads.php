@@ -164,7 +164,7 @@ foreach ( array( 'move', 'split', 'merge', 'subjectedit', 'resort' ) as $action 
 
 // Preferences
 $wgDefaultUserOptions['lqtnotifytalk'] = false;
-$wgDefaultUserOptions['lqtdisplaydepth'] = 2;
+$wgDefaultUserOptions['lqtdisplaydepth'] = 5;
 $wgDefaultUserOptions['lqtdisplaycount'] = 25;
 $wgDefaultUserOptions['lqtcustomsignatures'] = true;
 
