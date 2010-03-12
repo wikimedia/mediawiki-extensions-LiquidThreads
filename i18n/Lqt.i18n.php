@@ -2761,6 +2761,7 @@ Možná, že:
 * koliduje s prefixem interwiki nebo názvem jmenného prostoru.',
 	'lqt_empty_subject' => 'Musíte vyplnit předmět.',
 	'lqt_reply' => 'Odpovědět',
+	'lqt-parent' => 'Předchozí',
 	'lqt_delete' => 'Smazat',
 	'lqt_undelete' => 'Obnovit',
 	'lqt_permalink' => 'Odkaz',
@@ -8960,6 +8961,13 @@ De „Ongerschreff“ weed automattesch jezeijsch.',
 	'lqt-reply-subpage' => 'Antwoot',
 );
 
+/** Cornish (Kernewek)
+ * @author Nicky.ker
+ */
+$messages['kw'] = array(
+	'lqt_newmessages' => 'Messajys nowyth',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby
@@ -10015,6 +10023,7 @@ $messages['nl'] = array(
 * conflicteren met interwikivoorvoegsels of naamruimtenamen.',
 	'lqt_empty_subject' => 'U moet een onderwerp ingeven.',
 	'lqt_reply' => 'Antwoorden',
+	'lqt-parent' => 'Bovenliggend bericht',
 	'lqt_delete' => 'Verwijderen',
 	'lqt_undelete' => 'Terugplaatsen',
 	'lqt_permalink' => 'Permanente verwijzing',
