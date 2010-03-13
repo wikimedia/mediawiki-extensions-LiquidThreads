@@ -5777,6 +5777,7 @@ $messages['gl'] = array(
 * haber un conflito cos prefixos interwiki ou os nomes dos espazos de nomes.',
 	'lqt_empty_subject' => 'Debe inserir un asunto.',
 	'lqt_reply' => 'Resposta',
+	'lqt-parent' => 'Pai',
 	'lqt_delete' => 'Eliminar',
 	'lqt_undelete' => 'Recuperar',
 	'lqt_permalink' => 'Ligazón a',
@@ -6854,6 +6855,7 @@ $messages['hsb'] = array(
 * je konflikt z interwikijowymi prefiksami abo mjenami mjenowych rumow.',
 	'lqt_empty_subject' => 'Dyrbiš temowe nadpismo zapodać.',
 	'lqt_reply' => 'Wotmołwić',
+	'lqt-parent' => 'Nadrjadowany',
 	'lqt_delete' => 'Wušmórnyć',
 	'lqt_undelete' => 'Wobnowić',
 	'lqt_permalink' => 'Trajny wotkaz',
@@ -7012,6 +7014,11 @@ Zo by to wobešoł, wotdźěl je wot tuteje nitki, prjedy hač ju wušmóruješ.
 	'lqt-log-name' => 'Protokol nitkoweje diskusije',
 	'lqt-log-header' => 'Tutón protokol nalistuje akcije, kotrež su so na diskusijnych nitkach přewjedli.',
 	'lqt-log-action-move' => 'přesuny [[$1]] wot [[$2]] do [[$3]].',
+	'lqt-log-action-split' => 'wotdźěli [[$1]] z [[$3]] z nowej temu "$2"',
+	'lqt-log-action-merge-across' => 'přesuny [[$1]] z [[$2]] do [[$3]]',
+	'lqt-log-action-merge-down' => 'zapřija [[$1]] pod [[$3]]',
+	'lqt-log-action-subjectedit' => 'změni temu wot [[$1]] z "$2" to "$3"',
+	'lqt-log-action-resort' => 'změni sortěrowanski porjad wot [[$1]]. Změni sortěrowanski kluč wot $2 do $3',
 	'lqt-preference-notify-talk' => 'E-mejl wo wotmołwach k nitce, kotraž so wobkedźbuje, pósłać',
 	'lqt-preference-watch-threads' => 'Nitki wobkedźbować, kotrež tworju abo na kotrež wotmołwjam',
 	'prefs-lqt' => 'Diskusija w nitkach',
@@ -13144,6 +13151,7 @@ $messages['su'] = array(
  * @author Najami
  * @author Per
  * @author Rotsee
+ * @author Sertion
  * @author Skalman
  */
 $messages['sv'] = array(
@@ -13220,7 +13228,7 @@ Tråden finns nu på $5.',
 	'lqt_summary_notice' => 'Den här diskussionen har inte ändrats på minst $2 {{PLURAL:$2|dag|dagar}}.
 Om den är avslutad, vill du kanske $1.',
 	'lqt_summary_notice_link' => 'skriva en sammanfattning',
-	'lqt_summary_label' => 'Denna diskussionssida har fått följande sammandrag:',
+	'lqt_summary_label' => 'Diskussionssammanfattning:',
 	'lqt_summary_subtitle' => 'Sammanfattning av "$1"',
 	'lqt_nosuchrevision' => 'Det finns ingen sådan version av den här diskussionssidan.',
 	'lqt_nosuchthread' => 'Tråden du angav finns inte.',
@@ -13285,7 +13293,8 @@ Denna handling kan inte göras om.',
 	'lqt-history-action' => 'Aktivitet',
 	'lqt-history-comment' => 'Kommentar',
 	'lqt-history-thread' => 'Tråd',
-	'lqt-thread-edited-author' => 'Redigerad av författaren',
+	'lqt-thread-edited-author' => 'Redigerad av författaren.<br />
+Senast redigerad: $1',
 	'lqt-thread-edited-others' => 'Redigerad av andra användare',
 	'lqt-header-actions' => 'Åtgärder',
 	'lqt_summarize_link' => 'Sammanfatta',
@@ -14078,6 +14087,7 @@ Sebebi:
 * Vikilerarası bağlantılar ya da ad alanlarıyla çakışma olabilir.',
 	'lqt_empty_subject' => 'Bir konu girmelisiniz.',
 	'lqt_reply' => 'Cevap ver',
+	'lqt-parent' => 'Üst düğüm',
 	'lqt_delete' => 'Sil',
 	'lqt_undelete' => 'Geri al',
 	'lqt_permalink' => 'Bağlantı ver',
@@ -14200,9 +14210,9 @@ Bu operasyon gerialınabilirdir.',
 	'lqt-history-action' => 'Eylem',
 	'lqt-history-comment' => 'Yorum',
 	'lqt-history-thread' => 'Düğüm',
-	'lqt-thread-edited-author' => 'Yazar tarafından değiştirildi<br/>
+	'lqt-thread-edited-author' => 'Yazar tarafından değiştirildi.<br />
 Son değişiklik: $1',
-	'lqt-thread-edited-others' => '$2 kullanıcı tarafından değiştirildi<br/>
+	'lqt-thread-edited-others' => '{{PLURAL:$2|Başka bir kullanıcı|Başka $2 kullanıcı}} tarafından değiştirildi.<br />
 Son değişiklik: $1',
 	'lqt-header-actions' => 'Eylemler',
 	'lqt_summarize_link' => 'Özetle',
@@ -14241,6 +14251,9 @@ Bundan kaçınmak için, cevapları düğümü silmeden önce düğümden ayır�
 	'lqt-log-name' => 'Düğümlenmiş tartışma günlüğü',
 	'lqt-log-header' => 'Bu günlük tartışma düğümlerinde alınan eylemleri detaylandırır.',
 	'lqt-log-action-move' => '[[$1]] düğümünü [[$2]] sayfasından [[$3]] sayfasına taşıdı.',
+	'lqt-log-action-split' => '[[$1]] düğümünü [[$3]] düğümünün altından ayırdı, yeni konu: "$2"',
+	'lqt-log-action-merge-across' => '[[$1]] düğümünü [[$2]] düğümünün altından [[$3]] düğümünün altına taşıdı',
+	'lqt-log-action-merge-down' => '[[$1]] düğümünü [[$3]] düğümünün altına birleştirdi',
 	'lqt-log-action-subjectedit' => '[[$1]] düğümünün konusunu "$2" iken "$3" olarak değiştirdi',
 	'lqt-log-action-resort' => '[[$1]] düğümünün sıralama düzenini değiştirdi. Sıralama anahtarı $2 iken $3 olarak değiştirildi.',
 	'lqt-preference-notify-talk' => 'İzlediğim bir düğüme cevap geldiğinde bana e-posta gönder',
