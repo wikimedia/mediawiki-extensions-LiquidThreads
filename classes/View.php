@@ -1439,6 +1439,7 @@ class LqtView {
 		
 		if ( isset( $ebLookup[$editedFlag] ) ) {
 			$editedBy = $ebLookup[$editedFlag];
+			// Used messages: lqt-thread-edited-author, lqt-thread-edited-others
 			$editedNotice = wfMsgExt( 'lqt-thread-edited-' . $editedBy,
 					array( 'parseinline' ),
 					array( $lastEdit, $editorCount, $lastEditTime,
