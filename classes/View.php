@@ -1367,7 +1367,11 @@ class LqtView {
 			$html .= Xml::closeElement( 'div' );
 		} else {
 			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
-			$html .= $this->showPostBody( $post, $oldid );
+			
+			$show = wfRunHooks( 'LiquidThreadsShowThreadBody', array( $thread, &$post ) );
+			if ($show) {
+				$html .= $this->showPostBody( $post, $oldid );
+			}
 			$html .= Xml::closeElement( 'div' );
 			$html .= $this->showThreadToolbar( $thread );
 			$html .= $this->threadSignature( $thread );
@@ -1444,6 +1448,8 @@ class LqtView {
 						'lqt-thread-toolbar-edited-' . $editedBy ),
 						$editedNotice );
 		}
+		
+		wfRunHooks( 'LiquidThreadsThreadInfoPanel', array( $thread, &$infoElements ) );
 
 		if ( ! count( $infoElements ) ) {
 			return '';
