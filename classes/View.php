@@ -1406,6 +1406,8 @@ class LqtView {
 					Threads::EDITED_BY_OTHERS => 'others' );
 		$lastEdit = $thread->root()->getTimestamp();
 		$lastEdit = $wgLang->timeanddate( $lastEdit, true );
+		$lastEditTime = $wgLang->time( $lastEdit, true );
+		$lastEditDate = $wgLang->date( $lastEdit, true );
 		$editors = '';
 		$editorCount = 0;
 		
@@ -1428,7 +1430,8 @@ class LqtView {
 			$editedBy = $ebLookup[$editedFlag];
 			$editedNotice = wfMsgExt( 'lqt-thread-edited-' . $editedBy,
 					array( 'parseinline' ),
-					array( $lastEdit, $editorCount ) );
+					array( $lastEdit, $editorCount, $lastEditTime,
+						$lastEditDate ) );
 			$editedNotice = str_replace( '$3', $editors, $editedNotice );
 			$infoElements[] = Xml::tags( 'div', array( 'class' =>
 						'lqt-thread-toolbar-edited-' . $editedBy ),

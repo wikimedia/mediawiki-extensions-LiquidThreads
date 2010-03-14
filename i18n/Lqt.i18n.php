@@ -158,7 +158,7 @@ This operation is undoable.',
 	'lqt-history-comment' => 'Comment',
 	'lqt-history-thread' => 'Thread',
 	'lqt-thread-edited-author' => "Edited by author.<br />\nLast edit: $1",
-	'lqt-thread-edited-others' => "Edited by {{PLURAL:$2|another user|$2 other users}}.<br />\nLast edit: $1",
+	'lqt-thread-edited-others' => "Edited by {{PLURAL:$2|another user|$2 users}}.<br />\nLast edit: $1",
 	'lqt-header-actions' => 'Actions',
 	'lqt_summarize_link' => 'Summarize',
 	'lqt-summarize-intro' => 'Please summarize the below thread in the editing box.
