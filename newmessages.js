@@ -25,6 +25,7 @@ $j.extend( liquidThreads,
 				var titleSel = '.lqt-thread-topmost > .lqt-thread-title-metadata';
 				var subject = right_col.find('h3').text();
 				var title = right_col.find(titleSel).val();
+				title = encodeURIComponent(title);
 				var url = wgArticlePath.replace( '$1', title );
 				var link = $j('<a/>').attr('href', url).text(subject);
 				elem.append(link);
