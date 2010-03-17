@@ -8141,6 +8141,7 @@ La firma è mostrata automaticamente.',
 /** Japanese (日本語)
  * @author Aotake
  * @author Fryed-peach
+ * @author Hosiryuhosi
  * @author JtFuruhata
  * @author Whym
  */
@@ -8214,7 +8215,7 @@ $messages['ja'] = array(
 	'lqt_thread_deleted' => 'このスレッドは削除されました。',
 	'lqt_summary_notice' => 'この議論は少なくとも$2{{PLURAL:$2|日間}}進展がありません。議論が終結しているなら、$1のも良いでしょう。',
 	'lqt_summary_notice_link' => '要約を記述する',
-	'lqt_summary_label' => 'このスレッドは下記のように要約されています:',
+	'lqt_summary_label' => 'スレッドの要約:',
 	'lqt_summary_subtitle' => '「$1」の要約',
 	'lqt_nosuchrevision' => '指定された版はこのスレッドに存在しません。',
 	'lqt_nosuchthread' => '指定されたスレッドは存在しません。',
@@ -8275,8 +8276,10 @@ $messages['ja'] = array(
 	'lqt-history-action' => '活動',
 	'lqt-history-comment' => 'コメント',
 	'lqt-history-thread' => 'スレッド',
-	'lqt-thread-edited-author' => '開始者による編集',
-	'lqt-thread-edited-others' => '他の利用者による編集',
+	'lqt-thread-edited-author' => '著者による編集。<br />
+最後の編集: $1',
+	'lqt-thread-edited-others' => '{{PLURAL:$2|他の利用者|$2 利用者}}による編集。<br />
+最後の編集: $1',
 	'lqt-header-actions' => '操作',
 	'lqt_summarize_link' => '要約',
 	'lqt-summarize-intro' => '以下のスレッドを編集ボックス内に要約してください。要約中ではウィキテキストが使用できます。完了したら「{{int:savearticle}}」をクリックします。',
@@ -8297,7 +8300,7 @@ $messages['ja'] = array(
 	'lqt-hot-topics' => 'ホットな話題',
 	'lqt-add-reply' => '返信',
 	'lqt_rc_new_discussion' => '$2 で新規議論「$1」。$3 の書き込み:',
-	'lqt_rc_new_reply' => '$2 で「$1」に返答。$3 の書き込み:',
+	'lqt_rc_new_reply' => '"$1"への返信を投稿',
 	'right-lqt-split' => 'スレッドを分割する',
 	'right-lqt-merge' => 'スレッドを統合する',
 	'lqt-thread-merge' => '別のスレッドに統合する',

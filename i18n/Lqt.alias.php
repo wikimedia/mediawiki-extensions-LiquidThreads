@@ -205,7 +205,7 @@ $aliases['ko'] = array(
 	'NewMessages' => array( '새 메시지' ),
 );
 
-/** Ripoarisch (Ripoarisch) */
+/** Colognian (Ripoarisch) */
 $aliases['ksh'] = array(
 	'DeleteThread' => array( 'JeschprääschßfäddemFottschmiiße' ),
 	'MoveThread' => array( 'JeschprääschßfäddemÖmträke' ),
