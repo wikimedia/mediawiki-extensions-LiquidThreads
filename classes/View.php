@@ -483,6 +483,8 @@ class LqtView {
 			$signatureEditor;
 		$e->previewTextAfterContent .=
 			Xml::tags( 'p', null, $signatureHTML );
+		
+		$wgRequest->setVal( 'wpWatchThis', false );
 			
 		$e->edit();
 		

@@ -248,6 +248,7 @@ class LqtHooks {
 
 		if ( !$article->exists() && $title->getNamespace() == NS_LQT_THREAD ) {
 			unset( $checkboxes['minor'] );
+			unset( $checkboxes['watch'] );
 		}
 
 		if ( $title->getNamespace() == NS_LQT_THREAD && self::$editType != 'new' ) {
