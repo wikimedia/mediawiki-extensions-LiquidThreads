@@ -168,6 +168,7 @@ var liquidThreads = {
 			cancelButton.click( liquidThreads.cancelEdit );
 			
 			$j(container).find('#wpTextbox1').attr( 'rows', 12 );
+			$j(container).find('#wpDiff').hide();
 			
 			// Add toolbar
 			mwSetupToolbar();
