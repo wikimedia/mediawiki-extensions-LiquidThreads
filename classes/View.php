@@ -591,8 +591,11 @@ class LqtView {
 			$signatureEditor;
 		$e->previewTextAfterContent .=
 			Xml::tags( 'p', null, $signatureHTML );
-			
-		$e->editFormTextBeforeContent .= $this->getSubjectEditor( $thread->subject(), $subject );
+		
+		if ( $thread->isTopmostThread() ) {
+			$e->editFormTextBeforeContent .=
+				$this->getSubjectEditor( $thread->subject(), $subject );
+		}
 		
 		$e->edit();
 		
