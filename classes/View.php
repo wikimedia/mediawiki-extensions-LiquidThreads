@@ -346,6 +346,8 @@ class LqtView {
 		LqtHooks::$editType = 'new';
 		LqtHooks::$editAppliesTo = null;
 		
+		wfRunHooks( 'LiquidThreadsShowNewThreadForm', array( &$e, $talkpage ) );
+		
 		$e = new EditPage( $article );
 		
 		global $wgRequest;
@@ -392,7 +394,7 @@ class LqtView {
 		if ( $e->didSave ) {
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
 			
-			$thread = LqtView::newPostMetadataUpdates(
+			$info =
 				array(
 					'talkpage' => $talkpage,
 					'text' => $e->textbox1,
@@ -400,8 +402,12 @@ class LqtView {
 					'signature' => $signature,
 					'root' => $article,
 					'subject' => $subject,
-				)
-			);
+				);
+			
+			wfRunHooks( 'LiquidThreadsSaveNewThread',
+					array( &$info, &$e, &$talkpage ) );
+			
+			$thread = LqtView::newPostMetadataUpdates( $info );
 			
 			if ( $submitted_nonce && $nonce_key ) {
 				global $wgMemc;
@@ -485,6 +491,8 @@ class LqtView {
 			Xml::tags( 'p', null, $signatureHTML );
 		
 		$wgRequest->setVal( 'wpWatchThis', false );
+		
+		wfRunHooks( 'LiquidThreadsShowReplyForm', array( &$e, $thread ) );
 			
 		$e->edit();
 		
@@ -492,16 +500,19 @@ class LqtView {
 			$bump = $this->request->getBool( 'wpBumpThread' );
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
 			
-			$newThread = LqtView::replyMetadataUpdates(
-				array(
+			$info = array(
 					'replyTo' => $thread,
 					'text' => $e->textbox1,
 					'summary' => $e->summary,
 					'bump' => $bump,
 					'signature' => $signature,
 					'root' => $article,
-				)
-			);
+				);
+			
+			wfRunHooks( 'LiquidThreadsSaveReply',
+					array( &$info, &$e, &$thread ) );
+			
+			$newThread = LqtView::replyMetadataUpdates( $info );
 			
 			if ( $submitted_nonce && $nonce_key ) {
 				global $wgMemc;
@@ -1002,6 +1013,8 @@ class LqtView {
 			'showlabel' => true,
 			'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' )
 		);
+		
+		wfRunHooks( 'LiquidThreadsThreadCommands', array( $thread, &$commands ) );
 
 		return $commands;
 	}
@@ -1065,6 +1078,9 @@ class LqtView {
 				'showlabel' => 1,
 			);
 		}
+		
+		wfRunHooks( 'LiquidThreadsThreadMajorCommands',
+				array( $thread, &$commands ) );
 
 		return $commands;
 	}
@@ -1126,6 +1142,8 @@ class LqtView {
 			'href' => $summarizeUrl,
 			'enabled' => true,
 		);
+		
+		wfRunHooks( 'LiquidThreadsTopLevelCommands', array( $thread, &$commands ) );
 
 		return $commands;
 	}
@@ -1358,7 +1376,9 @@ class LqtView {
 		}
 
 		// If we're editing the thread, show the editing form.
-		if ( $this->methodAppliesToThread( 'edit', $thread ) ) {
+		$showAnything = wfRunHooks( 'LiquidThreadsShowThreadBody',
+					array( $thread ) );
+		if ( $this->methodAppliesToThread( 'edit', $thread ) && $showAnything ) {
 			$html = Xml::openElement( 'div', array( 'class' => $divClass ) );
 			$this->output->addHTML( $html );
 			$html = '';
@@ -1367,10 +1387,11 @@ class LqtView {
 			//  so I'm just flushing the HTML and displaying it as-is.
 			$this->showPostEditingForm( $thread );
 			$html .= Xml::closeElement( 'div' );
-		} else {
+		} elseif ($showAnything) {
 			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
 			
-			$show = wfRunHooks( 'LiquidThreadsShowThreadBody', array( $thread, &$post ) );
+			$show = wfRunHooks( 'LiquidThreadsShowPostContent',
+						array( $thread, &$post ) );
 			if ($show) {
 				$html .= $this->showPostBody( $post, $oldid );
 			}
@@ -1481,11 +1502,17 @@ class LqtView {
 			$id = 'lqt-header-' . $thread->id();
 
 			$html = $thread->formattedSubject();
-			$html = Xml::tags( 'span', array( 'class' => 'mw-headline' ), $html );
-			$html .= Xml::hidden( 'raw-header', $thread->subject() );
-			$html = Xml::tags( 'h' . $this->headerLevel,
-					array( 'class' => 'lqt_header', 'id' => $id ),
-					$html ) . $commands_html;
+			
+			$show = wfRunHooks( 'LiquidThreadsShowThreadHeading',
+					array( $thread, &$html ) );
+			
+			if ($show) {
+				$html = Xml::tags( 'span', array( 'class' => 'mw-headline' ), $html );
+				$html .= Xml::hidden( 'raw-header', $thread->subject() );
+				$html = Xml::tags( 'h' . $this->headerLevel,
+						array( 'class' => 'lqt_header', 'id' => $id ),
+						$html ) . $commands_html;
+			}
 
 			return $html;
 		}
