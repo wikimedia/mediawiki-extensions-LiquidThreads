@@ -15229,6 +15229,13 @@ $messages['vo'] = array(
 	'lqt_newmessages' => 'Nuns Nulik',
 );
 
+/** Kalmyk (Хальмг)
+ * @author Huuchin
+ */
+$messages['xal'] = array(
+	'lqt_newmessages' => 'Шин зәңгс',
+);
+
 /** Yiddish (ייִדיש)
  * @author פוילישער
  */
