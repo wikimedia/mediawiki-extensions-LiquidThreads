@@ -5792,7 +5792,7 @@ $messages['gl'] = array(
 * ser demasiado longo ou
 * haber un conflito cos prefixos interwiki ou os nomes dos espazos de nomes.',
 	'lqt_empty_subject' => 'Debe inserir un asunto.',
-	'lqt_reply' => 'Resposta',
+	'lqt_reply' => 'Responder',
 	'lqt-parent' => 'Pai',
 	'lqt_delete' => 'Eliminar',
 	'lqt_undelete' => 'Recuperar',
@@ -7136,6 +7136,7 @@ $messages['hu'] = array(
 * ütközik névtérközi hivatkozások előtagjával vagy névterek nevével.',
 	'lqt_empty_subject' => 'Meg kell adnod a tárgyat.',
 	'lqt_reply' => 'válasz',
+	'lqt-parent' => 'Szülő',
 	'lqt_delete' => 'törlés',
 	'lqt_undelete' => 'visszaállítás',
 	'lqt_permalink' => 'hivatkozás',
@@ -7257,7 +7258,8 @@ Az őket tartalmazó vitalapokon továbbra is megtekinthetőek lesznek.',
 	'lqt-history-thread' => 'Beszélgetésfolyam',
 	'lqt-thread-edited-author' => 'A szerző módosította a hozzászólást.<br />
 Utolsó szerkesztés: $1',
-	'lqt-thread-edited-others' => 'Más szerkesztők módosították a hozzászólást',
+	'lqt-thread-edited-others' => '{{PLURAL:$2|Egy|$2}} szerkesztő módosította a hozzászólást.<br />
+Utolsó szerkesztés: $1',
 	'lqt-header-actions' => 'Műveletek',
 	'lqt_summarize_link' => 'Összefoglaló készítése',
 	'lqt-summarize-intro' => 'Összegezd a lenti beszélgetésfolyamot.
@@ -7280,8 +7282,8 @@ Ha ezt meg szeretnéd akadályozni, válaszd szét a beszélgetésfolyamot, miel
 	'lqt-newmessages-from' => 'Helye: $1',
 	'lqt-hot-topics' => 'Aktuális témák',
 	'lqt-add-reply' => 'Válasz írása',
-	'lqt_rc_new_discussion' => 'Új beszélgetésfolyam „$1” címmel a(z) $2 lapon • $3 a következőt írta:',
-	'lqt_rc_new_reply' => 'Válasz a(z) „$1” beszélgetésfolyamhoz a(z) $2 lapon • $3 a következőt írta:',
+	'lqt_rc_new_discussion' => 'Új beszélgetésfolyam „$1” címmel',
+	'lqt_rc_new_reply' => 'Válasz erre: „$1”',
 	'right-lqt-split' => 'beszélgetésfolyamok szétválasztása',
 	'right-lqt-merge' => 'beszélgetésfolyamok összevonása',
 	'lqt-thread-merge' => 'Összevonás egy másik beszélgetésfolyammal',
