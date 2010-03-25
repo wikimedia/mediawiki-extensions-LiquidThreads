@@ -4856,6 +4856,7 @@ $messages['eu'] = array(
 	'lqt_move_movingthread' => '$1 mugitzen.
 Eztabaida hau $2-(e)ko zati da.',
 	'lqt_move_move' => 'Mugitu',
+	'lqt_move_noreason' => 'Ez da arrazoirik zehaztu.',
 	'lqt_delete_return' => '$1-(e)ra itzuli.',
 	'lqt-title' => 'Izenburua',
 	'lqt-summary' => 'Laburpena',
@@ -11383,6 +11384,13 @@ Podpis jest wyświetlany automatycznie.',
 	'lqt-reply-subpage' => 'odpowiedź',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'lqt-desc' => 'Giontà discussion acodà a le pàgine ëd discussion',
+);
+
 /** Pashto (پښتو)
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
@@ -13114,6 +13122,14 @@ Podpis sa zobrazí automaticky.',
 	'lqt-reply-subpage' => 'odpovedať',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'lqt_newmessages' => 'Nova sporočila',
+	'lqt_newmessages-title' => 'Nova sporočila',
+);
+
 /** Lower Silesian (Schläsch)
  * @author Timpul
  */
@@ -14419,6 +14435,7 @@ $messages['uk'] = array(
 * конфлікт з інтервікі-префіксами або просторами назв.',
 	'lqt_empty_subject' => 'Ви повинні ввести тему.',
 	'lqt_reply' => 'Відповісти',
+	'lqt-parent' => 'Батьківський пост',
 	'lqt_delete' => 'Вилучити',
 	'lqt_undelete' => 'Відновити',
 	'lqt_permalink' => 'Посилання сюди',
