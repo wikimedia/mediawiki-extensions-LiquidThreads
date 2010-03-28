@@ -3815,6 +3815,11 @@ Aby se to wobinuło, wótźěl je wót toś teje nitki, nježli až ju lašujoš
 	'lqt-log-name' => 'Protokol nitkoweje diskusije',
 	'lqt-log-header' => 'Toś ten protokol nalicujo akcije, kótarež su se na diskusijnych nitkach pśewjadli.',
 	'lqt-log-action-move' => 'jo [[$1]] wót [[$2]] do [[$3]] pśesunuł.',
+	'lqt-log-action-split' => 'jo wótźělił [[$1]] wót [[$3]], nowa tema je "$2"',
+	'lqt-log-action-merge-across' => 'jo pśesunuł [[$1]] z [[$2]] do [[$3]]',
+	'lqt-log-action-merge-down' => 'jo zjadnośił [[$1]] do [[$3]]',
+	'lqt-log-action-subjectedit' => 'jo změnił [[$1]] wót "$2" do "$3"',
+	'lqt-log-action-resort' => 'jo změnił sortěrowański pórěd [[$1]]. Sortěrowański kluc jo se změnił wót $2 do $3',
 	'lqt-preference-notify-talk' => 'E-mail wó wótegronach k nitce, kótaraž se wobglědujo, pósłaś',
 	'lqt-preference-watch-threads' => 'Nitki wobglědowaś, kótarež napórajom abo na kótarež wótegranjam',
 	'prefs-lqt' => 'Diskusija w nitkach',
@@ -4347,6 +4352,7 @@ La nomskribo estas montrata aŭtomate.',
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Dferg
  * @author Heldergeovane
  * @author Imre
  * @author Locos epraix
@@ -4538,6 +4544,7 @@ Ultima edición: $1',
 Esta es una notificación de {{SITENAME}}. Se ha creado una nueva respuesta a '$2' en $5 el $3 a las $4.
 
 Puedes verla en <$6>",
+	'lqt-quote-intro' => 'El día $2 a las $3, [[User:$1|$1]] escribió:',
 	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Discusiones de búsqueda en esta página',
 	'lqt-search-label' => 'Términos de búsqueda:',
