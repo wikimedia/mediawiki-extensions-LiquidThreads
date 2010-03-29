@@ -4267,6 +4267,7 @@ Eviti ĉi tion, dividigu ilin de ĉi tiu fadeno antaŭ forigante ĝin.',
 	'lqt-log-name' => 'Fadeneca diskuto-protokolo',
 	'lqt-log-header' => 'Ĉi tiu protoko detalas agojn faritajn en diskuto-fadenoj.',
 	'lqt-log-action-move' => 'movis [[$1]] de [[$2]] al [[$3]].',
+	'lqt-log-action-split' => 'apartigi [[$1]] de sub [[$3]], kun la nova temo "$2"',
 	'lqt-log-action-merge-down' => 'kunigis [[$1]] al sub [[$3]]',
 	'lqt-log-action-subjectedit' => 'ŝanĝis la temon de [[$1]] de "$2" al "$3"',
 	'lqt-preference-notify-talk' => 'Retpoŝti al mi pri respondoj en fadeno kiun mi atentas',
@@ -11425,6 +11426,32 @@ Podpis jest wyświetlany automatycznie.',
  */
 $messages['pms'] = array(
 	'lqt-desc' => 'Giontà discussion acodà a le pàgine ëd discussion',
+	'lqt_movethread' => "Tramuda discussion a n'àutra pàgina",
+	'lqt_deletethread' => 'Scansela o arcùpera discussin',
+	'lqt_contents_title' => 'Contnù',
+	'lqt_toc_thread_title' => 'Tìtol discussion',
+	'lqt_toc_thread_author' => 'Ancaminà da',
+	'lqt_toc_thread_replycount' => 'Répliche',
+	'lqt_toc_thread_modified' => 'Ùltima modìfica',
+	'lqt_add_header' => 'Gionta testà',
+	'lqt_new_thread' => 'Ancamin-a na discussion neuva',
+	'lqt_invalid_subject' => "L'oget ch'it l'han anserì a l'é pa bon.
+A podrìa:
+* esse tròp long, o
+* esse an conflit con dij prefiss antërwiki o nòm dë spassi nominal.",
+	'lqt_empty_subject' => "It deuve anserì n'oget.",
+	'lqt_reply' => 'Arspond',
+	'lqt-parent' => 'Cé',
+	'lqt_delete' => 'Scancela',
+	'lqt_undelete' => 'Arcùpera',
+	'lqt_permalink' => 'Colega a',
+	'lqt_fragment' => 'Frament ëd na $1 da $2',
+	'lqt_discussion_link' => 'discussion',
+	'lqt_from_talk' => 'da $1',
+	'lqt_newer' => '← pi neuv',
+	'lqt_older' => 'pi vej →',
+	'lqt-history-title' => 'Stòria dla discussion',
+	'lqt_hist_comment_edited' => 'Test dël coment [$2 modificà]',
 );
 
 /** Pashto (پښتو)
