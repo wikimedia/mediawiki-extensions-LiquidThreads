@@ -94,15 +94,12 @@
 	padding: 0.5em !important;
 	background-color: #eeeeee;
 	border:           solid 1pt #66aaff;
-	display:          table;
 }
 
 .lqt_post_new_message {
 	padding: 0.5em !important;
 	background-color: #eeeeee !important;
 	border:           solid 1pt #66aaff;
-	display:          table;
-	width:            auto;
 }
 
 .lqt_history_info {
@@ -470,4 +467,15 @@ table.lqt-new-messages {
 	border: 2px solid #3333ff !important;
 	color: #3333ff !important;
 	font-weight: bold !important;
+}
+
+/* Fix for <pre> wrapping */
+.lqt-new-messages pre {
+	overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+	white-space: pre-wrap; /* css-3 */
+	white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	/* width: 99%; */
+	word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
