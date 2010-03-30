@@ -4359,6 +4359,7 @@ La nomskribo estas montrata aŭtomate.',
  * @author Locos epraix
  * @author Manuelt15
  * @author McDutchie
+ * @author Pertile
  * @author Piolinfax
  * @author Sanbec
  * @author Translationista
@@ -4380,6 +4381,7 @@ Puede:
 * Estar en conflicto con prefijos interwiki o nombres de espacio de nombre.',
 	'lqt_empty_subject' => 'Debes escribir un tema.',
 	'lqt_reply' => 'Responder',
+	'lqt-parent' => 'Padre',
 	'lqt_delete' => 'Borrar',
 	'lqt_undelete' => 'Restaurar',
 	'lqt_permalink' => 'Vínculo a',
@@ -4483,6 +4485,9 @@ Tal vez quieras en su lugar $2.',
 	'lqt-read-message' => 'Marcar como leído',
 	'lqt-read-message-tooltip' => 'Eliminar este hilo de mensajes nuevos. Aún seguirá estando visible en su página original de discusión.',
 	'lqt-read-all' => 'Marcar todos como leídos',
+	'lqt-read-all-tooltip' => 'Eliminar todos los hilos de los nuevos mensajes.
+Los mismos permanecerán visibles en sus páginas de discusión originales.
+Esta operación no se puede deshacer',
 	'lqt-marked-read' => "Hilo '''$1''' marcado como leído.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mensaje|mensajes}} marcados como leídos.',
 	'lqt-email-undo' => 'Deshacer',
@@ -4490,6 +4495,7 @@ Tal vez quieras en su lugar $2.',
 	'lqt-other-messages' => 'Mensajes en otras páginas de discusión:',
 	'lqt-no-new-messages' => 'No hay nuevos mensajes para ti.',
 	'lqt-new-messages' => '✒ Hay nuevos mensajes para ti.',
+	'lqt-email-info-undo' => 'Restablece el hilo que acaba de descartar.',
 	'lqt-date-info' => 'Este enlace está deshabilitado porque estás viendo hilos de todas las fechas.',
 	'lqt-newmessages-context' => 'Hilo completo',
 	'lqt-thread-created' => 'Creado',
@@ -4504,6 +4510,9 @@ Ultima edición: $1',
 Ultima edición: $1',
 	'lqt-header-actions' => 'Acciones',
 	'lqt_summarize_link' => 'Resumir',
+	'lqt-summarize-intro' => "Por favor haga un resumen del hilo en el cuadro de edición que aparece debajo.
+Puede utilizar cualquier texto wiki en su resumen.
+Cuando finalice, haga clic en ''{{int:savearticle}}''.",
 	'lqt-thread-split' => 'Separar a un nuevo hilo',
 	'lqt-split-success' => 'Has dividido el hilo $1 exitosamente.',
 	'lqt_split_thread' => 'Dividir un hilo',
@@ -4512,6 +4521,9 @@ Ultima edición: $1',
 	'lqt-split-submit' => 'Dividir',
 	'lqt_split_badsubject' => 'El tema que has ingresado es inválido.',
 	'lqt-no-threads' => 'No hay hilos en esta página aún.',
+	'lqt-delete-parent-warning' => 'Este es un hilo de alto nivel con respuestas.
+Sus respuestas también serán automáticamente eliminadas.
+Para evitarlo, divídalas a partir de este hilo antes de eliminarlas.',
 	'lqt-delete-replies-done' => 'Todas las respuestas a este hilo han sido también borradas.',
 	'lqt-movethread' => 'Mover',
 	'lqt-menu-trigger' => 'Más',
@@ -11452,6 +11464,23 @@ A podrìa:
 	'lqt_older' => 'pi vej →',
 	'lqt-history-title' => 'Stòria dla discussion',
 	'lqt_hist_comment_edited' => 'Test dël coment [$2 modificà]',
+	'lqt_hist_summary_changed' => 'Somari cangià',
+	'lqt_hist_reply_created' => '[[$1|Arspòsta neuva]] creà',
+	'lqt_hist_thread_created' => 'Discussion neuva creà',
+	'lqt_hist_deleted' => 'Scancelà',
+	'lqt_hist_undeleted' => 'Arcuperà',
+	'lqt_hist_moved_talkpage' => 'Tramudà',
+	'lqt_hist_listing_subtitle' => 'Vardé un listà dla stòria',
+	'lqt_hist_view_whole_thread' => "Varda la stòria dl'antera discussion",
+	'lqt_hist_no_revisions_error' => "Sta discussion-sì a l'ha pa gnun-e revision dë stòria",
+	'lqt_hist_past_last_page_error' => "It ses an dzora al nùmer ëd pàgine dë stòria ch'a esisto.",
+	'lqt_hist_tooltip_newer_disabled' => "Ël colegament a l'é disabilità përchè it ses an sla prima pàgina.",
+	'lqt_hist_tooltip_older_disabled' => "Ël colegament a l'é disabilità përchè it ses an sl'ùltima pàgina.",
+	'lqt_hist_split' => 'Arspòsta dividùa an na neuva discussion',
+	'lqt_hist_edited_subject' => 'Cangià soget da "$2" a "$3"',
+	'lqt_hist_edited_subject_corrupt' => 'Cangià soget',
+	'lqt_hist_merged_from' => "[[$1|Arspòsta]] tramudà an n'àutra discussion",
+	'lqt_hist_merged_to' => "[[$1|Arspòsta]] tramudà da n'àutra discussion",
 );
 
 /** Pashto (پښتو)
