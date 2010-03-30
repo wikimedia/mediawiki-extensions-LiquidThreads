@@ -890,9 +890,7 @@ var liquidThreads = {
 			
 			var newThread = $j(html);
 			
-			if ( $j('.TalkpagePager_nav').length ) {
-				$j('.TalkpagePager_nav').after(newThread);
-			} else if ( $j('.lqt_toc').length ) {
+			if ( $j('.lqt_toc').length ) {
 				$j('.lqt_toc').after(newThread);
 			} else {
 				$j('.lqt-no-threads').replaceWith( newThread );
