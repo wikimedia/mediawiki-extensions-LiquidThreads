@@ -2209,6 +2209,7 @@ Dont a raio ar sinadur war wel e-unan",
 	'lqt-save-subject-failed' => "Ar fazi da-heul a zo bet e-kerzh ur c'hlask cheñch sujed an neudennad : $1",
 	'lqt-ajax-invalid-subject' => "Fall eo ar sujed ho peus lakaet dibabet, sur a-walc'h peogwir e oa re hir.",
 	'lqt-ajax-no-subject' => "Ret eo deoc'h merkañ ur gaoz bennak.",
+	'lqt-save-subject-error-unknown' => 'C\'hoarvezet ez eus ur fazi dianav e-ser termeniñ danvez ar gaoz-mañ. Klaskit en ober en ur glikañ war "kemmañ" er gaoz uhelañ.',
 	'lqt-cancel-subject-edit' => 'Nullañ',
 	'lqt-drag-activate' => "Ruzañ betek al lec'h nevez",
 	'lqt-drag-drop-zone' => 'Lakaat amañ',
@@ -13602,6 +13603,7 @@ $messages['su'] = array(
  * @author Fluff
  * @author GameOn
  * @author Jon Harald Søby
+ * @author Lejonel
  * @author M.M.S.
  * @author Najami
  * @author Per
@@ -13713,7 +13715,7 @@ Om den är avslutad, vill du kanske $1.',
 	'lqt_talkpage_autocreate_summary' => 'Diskussionssida upprättades automatiskt när första diskussionssidan postades.',
 	'lqt_header_warning_big' => 'Du redigerar en $1.',
 	'lqt_header_warning_after_big' => 'Huvudsektioner är för annonseringar och inledningar.
-Du kommer istället vilja $2.',
+Du vill kanske $2 istället.',
 	'lqt_header_warning_bold' => 'diskussionssidsinledning',
 	'lqt_header_warning_new_discussion' => 'starta en ny diskussion',
 	'lqt_sorting_order' => 'Sorteringsföljd:',
