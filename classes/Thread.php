@@ -1397,7 +1397,7 @@ class Thread {
 		$oldParent = $this->superthread();
 		$newTopThread = $newParent->topmostThread();
 
-		Thread::recursiveSet( $this, $newSubject, $newAncestor, $newParent );
+		Thread::recursiveSet( $this, $newSubject, $newTopThread, $newParent );
 
 		$newParent->addReply( $this );
 
