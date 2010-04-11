@@ -110,6 +110,10 @@ class LqtView {
 
 	static function linkInContextData( $thread, $contextType = 'page' ) {
 		$query = array();
+		
+		if ( ! $thread ) {
+			throw new MWException( "Null thread passed to linkInContextData" );
+		}
 
 		if ( $contextType == 'page' ) {
 			$title = clone $thread->article()->getTitle();
@@ -1900,6 +1904,10 @@ class LqtView {
 				$thread->sortkey(),
 				array( 'id' => 'lqt-thread-sortkey-' . $thread->id() )
 			);
+		}
+		
+		if ( ! $thread->title() ) {
+			throw new MWException( "Thread ".$thread->id()." has null title" );
 		}
 
 		// Add the thread's title

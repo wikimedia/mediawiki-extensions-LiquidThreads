@@ -28,6 +28,10 @@ class ThreadPermalinkView extends LqtView {
 		unset( $content_actions['viewsource'] );
 		unset( $content_actions['talk'] );
 
+		if ( ! $view->thread->title() ) {
+			throw new MWException( "Thread ".$view->thread->id()." has null title" );
+		}
+
 		$subpage = $view->thread->title()->getPrefixedText();
 
 		// Repoint move/delete/history tabs

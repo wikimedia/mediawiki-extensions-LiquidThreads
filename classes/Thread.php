@@ -1302,7 +1302,9 @@ class Thread {
 	}
 
 	function rootRevision() {
-		if ( !$this->isHistorical() || !isset( $this->topmostThread()->threadRevision ) ) {
+		if ( !$this->isHistorical() ||
+			!isset( $this->topmostThread()->threadRevision ) ||
+			! $this->root() ) {
 			return null;
 		}
 
