@@ -8915,6 +8915,8 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-newmessages-context' => '전체 스레드',
 	'lqt-history-time' => '시간',
 	'lqt-history-user' => '사용자',
+	'lqt-history-action' => '활동 내역',
+	'lqt-history-comment' => '편집 요약',
 	'lqt-history-thread' => '스레드',
 	'lqt-thread-edited-author' => '작성자가 수정함<br />
 마지막 편집: $1',
