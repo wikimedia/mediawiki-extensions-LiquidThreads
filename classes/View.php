@@ -526,7 +526,7 @@ class LqtView {
 		
 		if ( $this->output->getRedirect() != '' ) {
 		       $redirectTitle = clone $talkpage->getTitle();
-		       if ( !is_null($newThread) ) {
+		       if ( !is_null( $newThread ) ) {
 			       $redirectTitle->setFragment( '#' .
 			       	$this->anchorName( $newThread ) );
 		       }
@@ -544,7 +544,7 @@ class LqtView {
 		$subject_expected = $thread->isTopmostThread();
 		$subject = $this->request->getVal( 'lqt_subject_field', '' );
 		
-		if (!$subject) {
+		if ( !$subject ) {
 			$subject = $thread->subject();
 		}
 		
@@ -764,8 +764,8 @@ class LqtView {
 	static function replyMetadataUpdates( $data = array() ) {
 		$requiredFields = array( 'replyTo', 'root', 'text' );
 		
-		foreach( $requiredFields as $f ) {
-			if ( !isset($data[$f]) ) {
+		foreach ( $requiredFields as $f ) {
+			if ( !isset( $data[$f] ) ) {
 				throw new MWException( "Missing required field $f" );
 			}
 		}
@@ -778,12 +778,12 @@ class LqtView {
 			$signature = LqtView::getUserSignature( $wgUser );
 		}
 		
-		$summary = isset($data['summary']) ? $data['summary'] : '';
+		$summary = isset( $data['summary'] ) ? $data['summary'] : '';
 		
 		$replyTo = $data['replyTo'];
 		$root = $data['root'];
 		$text = $data['text'];
-		$bump = !empty($data['bump']);
+		$bump = !empty( $data['bump'] );
 		
 		$subject = $replyTo->subject();
 		$talkpage = $replyTo->article();
@@ -793,21 +793,21 @@ class LqtView {
 			$summary, $bump, $signature
 		);
 		
-		return $thread;	
+		return $thread;
 	}
 	
 	static function summarizeMetadataUpdates( $data = array() ) {
 		$requiredFields = array( 'thread', 'article', 'summary' );
 		
-		foreach( $requiredFields as $f ) {
-			if ( !isset($data[$f]) ) {
+		foreach ( $requiredFields as $f ) {
+			if ( !isset( $data[$f] ) ) {
 				throw new MWException( "Missing required field $f" );
 			}
 		}
 		
 		extract( $data );
 		
-		$bump = isset($bump) ? $bump : null;
+		$bump = isset( $bump ) ? $bump : null;
 		
 		$thread->setSummary( $article );
 		$thread->commitRevision(
@@ -819,8 +819,8 @@ class LqtView {
 	static function editMetadataUpdates( $data = array() ) {
 		$requiredFields = array( 'thread', 'text', 'summary' );
 		
-		foreach( $requiredFields as $f ) {
-			if ( !isset($data[$f]) ) {
+		foreach ( $requiredFields as $f ) {
+			if ( !isset( $data[$f] ) ) {
 				throw new MWException( "Missing required field $f" );
 			}
 		}
@@ -836,7 +836,7 @@ class LqtView {
 			$thread->setSignature( $data['signature'] );
 		}
 		
-		$bump = !empty($data['bump']);
+		$bump = !empty( $data['bump'] );
 
 		// Add the history entry.
 		$thread->commitRevision( $type, $thread, $data['summary'], $bump );
@@ -859,8 +859,8 @@ class LqtView {
 	{
 		$requiredFields = array( 'talkpage', 'root', 'text', 'subject' );
 		
-		foreach( $requiredFields as $f ) {
-			if ( !isset($data[$f]) ) {
+		foreach ( $requiredFields as $f ) {
+			if ( !isset( $data[$f] ) ) {
 				throw new MWException( "Missing required field $f" );
 			}
 		}
@@ -873,7 +873,7 @@ class LqtView {
 			$signature = LqtView::getUserSignature( $wgUser );
 		}
 		
-		$summary = isset($data['summary']) ? $data['summary'] : '';
+		$summary = isset( $data['summary'] ) ? $data['summary'] : '';
 		
 		$talkpage = $data['talkpage'];
 		$root = $data['root'];
@@ -1083,7 +1083,7 @@ class LqtView {
 			
 			$commands['parent'] = array(
 				'label' => wfMsgExt( 'lqt-parent', 'parseinline' ),
-				'href' => '#'.$anchor,
+				'href' => '#' . $anchor,
 				'enabled' => true,
 				'showlabel' => 1,
 			);
@@ -1397,12 +1397,12 @@ class LqtView {
 			//  so I'm just flushing the HTML and displaying it as-is.
 			$this->showPostEditingForm( $thread );
 			$html .= Xml::closeElement( 'div' );
-		} elseif ($showAnything) {
+		} elseif ( $showAnything ) {
 			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
 			
 			$show = wfRunHooks( 'LiquidThreadsShowPostContent',
 						array( $thread, &$post ) );
-			if ($show) {
+			if ( $show ) {
 				$html .= $this->showPostBody( $post, $oldid );
 			}
 			$html .= Xml::closeElement( 'div' );
@@ -1460,7 +1460,7 @@ class LqtView {
 			$editorCount = count( $editors );
 			$formattedEditors = array();
 			
-			foreach( $editors as $ed ) {
+			foreach ( $editors as $ed ) {
 				$id = IP::isIPAddress( $ed ) ? 0 : 1;
 				$fEditor = $sk->userLink( $id, $ed ) .
 					$sk->userToolLinks( $id, $ed );
@@ -1516,7 +1516,7 @@ class LqtView {
 			$show = wfRunHooks( 'LiquidThreadsShowThreadHeading',
 					array( $thread, &$html ) );
 			
-			if ($show) {
+			if ( $show ) {
 				$html = Xml::tags( 'span', array( 'class' => 'mw-headline' ), $html );
 				$html .= Xml::hidden( 'raw-header', $thread->subject() );
 				$html = Xml::tags( 'h' . $this->headerLevel,
@@ -1568,7 +1568,7 @@ class LqtView {
 		$author = $thread->author();
 		$sig = $sk->userLink( $author->getID(), $author->getName() ) .
 			$sk->userToolLinks( $author->getID(), $author->getName() );
-		$newTalkpage = is_object($t_thread) ? $t_thread->article()->getTitle() : '';
+		$newTalkpage = is_object( $t_thread ) ? $t_thread->article()->getTitle() : '';
 
 		$html = wfMsgExt( 'lqt_move_placeholder',
 			array( 'parseinline', 'replaceafter' ),
@@ -1907,7 +1907,7 @@ class LqtView {
 		}
 		
 		if ( ! $thread->title() ) {
-			throw new MWException( "Thread ".$thread->id()." has null title" );
+			throw new MWException( "Thread " . $thread->id() . " has null title" );
 		}
 
 		// Add the thread's title
@@ -1936,7 +1936,7 @@ class LqtView {
 			$this->showThreadReplies( $thread, $startAt, $maxCount, $showThreads,
 				$cascadeOptions, $replyInterruption );
 		} elseif ( $hasSubthreads && !$showThreads ) {
-			if ($replyTo) {
+			if ( $replyTo ) {
 				$this->showReplyForm( $thread );
 			}
 			
@@ -1963,7 +1963,7 @@ class LqtView {
 
 				$finishDiv = Xml::tags( 'div',
 						array( 'class' => 'lqt-replies-finish' ),
-						'&nbsp;');
+						'&nbsp;' );
 				// Layout plus close div.lqt-thread-replies
 
 				$finishHTML = Xml::closeElement( 'div' ); // lqt-reply-form
@@ -1972,7 +1972,7 @@ class LqtView {
 				$this->output->addHTML( $finishHTML );
 			}
 		} elseif ( !$hasSubthreads && $replyTo ) {
-			$class = 'lqt-thread-replies lqt-thread-replies-'.
+			$class = 'lqt-thread-replies lqt-thread-replies-' .
 					$this->threadNestingLevel;
 			$html = Xml::openElement( 'div', array( 'class' => $class ) );
 			$this->output->addHTML( $html );

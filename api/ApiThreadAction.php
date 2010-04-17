@@ -298,7 +298,7 @@ class ApiThreadAction extends ApiBase {
 		$title->resetArticleID( $articleId );
 
 		$thread = LqtView::newPostMetadataUpdates(
-			array( 
+			array(
 				'root' => $article,
 				'talkpage' => $talkpage,
 				'subject' => $subject,
@@ -331,10 +331,10 @@ class ApiThreadAction extends ApiBase {
 	}
 	
 	public function actionEdit( $threads, $params ) {
-		if ( count($threads) > 1 ) {
+		if ( count( $threads ) > 1 ) {
 			$this->dieUsage( 'You may only edit one thread at a time',
 					'too-many-threads' );
-		} elseif ( count($threads) < 1 ) {
+		} elseif ( count( $threads ) < 1 ) {
 			$this->dieUsage( 'You must specify a thread to edit',
 					'no-specified-threads' );
 		}
@@ -346,10 +346,10 @@ class ApiThreadAction extends ApiBase {
 
 		// Validate subject
 		$subjectOk = true;
-		if ( !empty($params['subject']) ) {
+		if ( !empty( $params['subject'] ) ) {
 			$subject = $params['subject'];
 			$title = null;
-			$subjectOk = empty($subject) ||
+			$subjectOk = empty( $subject ) ||
 				Thread::validateSubject( $subject, $title, null, $talkpage );
 		} else {
 			$subject = $thread->subject();
@@ -412,7 +412,7 @@ class ApiThreadAction extends ApiBase {
 		}
 		
 		$thread = LqtView::editMetadataUpdates(
-			array( 
+			array(
 				'root' => $article,
 				'thread' => $thread,
 				'subject' => $subject,
@@ -534,7 +534,7 @@ class ApiThreadAction extends ApiBase {
 		$title->resetArticleID( $articleId );
 
 		$thread = LqtView::replyMetadataUpdates(
-			array( 
+			array(
 				'root' => $article,
 				'replyTo' => $replyTo,
 				'signature' => $signature,
@@ -735,7 +735,7 @@ class ApiThreadAction extends ApiBase {
 	}
 	
 	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array( 
+		return array_merge( parent::getPossibleErrors(), array(
 			array( 'missingparam', 'action' ),
 			array( 'missingparam', 'talkpage' ),
 			array( 'missingparam', 'subject' ),
@@ -791,7 +791,7 @@ class ApiThreadAction extends ApiBase {
 		);
 	}
 
-	public function mustBePosted() { 
+	public function mustBePosted() {
 		return true;
 	}
 

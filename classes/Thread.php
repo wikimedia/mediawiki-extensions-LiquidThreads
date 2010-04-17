@@ -530,7 +530,7 @@ class Thread {
 		try {
 			$this->doLazyUpdates( $line );
 		} catch ( Exception $excep ) {
-			trigger_error( "Exception doing lazy updates: ".$excep->toString() );
+			trigger_error( "Exception doing lazy updates: " . $excep->toString() );
 		}
 
 		$this->dbVersion = clone $this;
@@ -652,17 +652,17 @@ class Thread {
 		}
 		
 		// Pull list of users who have edited
-		if ( count($loadEditorsFor) ) {
+		if ( count( $loadEditorsFor ) ) {
 			$res = $dbr->select( 'revision', array( 'rev_user_text', 'rev_page' ),
-				array( 'rev_page' => array_keys($loadEditorsFor),
-					'rev_parent_id != '.$dbr->addQuotes(0) ),
+				array( 'rev_page' => array_keys( $loadEditorsFor ),
+					'rev_parent_id != ' . $dbr->addQuotes( 0 ) ),
 					__METHOD__ );
-			foreach( $res as $row ) {
+			foreach ( $res as $row ) {
 				$pageid = $row->rev_page;
 				$editor = $row->rev_user_text;
 				$t = $loadEditorsFor[$pageid];
 				
-				$t->addEditor($editor);
+				$t->addEditor( $editor );
 			}
 		}
 
@@ -1498,7 +1498,7 @@ class Thread {
 	}
 	
 	public function editors() {
-		if ( is_null($this->editors) ) {
+		if ( is_null( $this->editors ) ) {
 			if ( $this->editedness() < Threads::EDITED_BY_AUTHOR ) {
 				return array();
 			} elseif ( $this->editedness == Threads::EDITED_BY_AUTHOR ) {
@@ -1511,9 +1511,9 @@ class Thread {
 			$dbr = wfGetDB( DB_SLAVE );
 			$res = $dbr->select( 'revision', 'rev_user_text',
 				array( 'rev_page' => $this->root()->getId(),
-				'rev_parent_id != '.$dbr->addQuotes(0) ), __METHOD__ );
+				'rev_parent_id != ' . $dbr->addQuotes( 0 ) ), __METHOD__ );
 			
-			foreach( $res as $row ) {
+			foreach ( $res as $row ) {
 				$this->editors[$row->rev_user_text] = 1;
 			}
 			
@@ -1523,12 +1523,12 @@ class Thread {
 		return $this->editors;
 	}
 	
-	public function setEditors($e) {
+	public function setEditors( $e ) {
 		$this->editors = $e;
 	}
 	
-	public function addEditor($e) {
+	public function addEditor( $e ) {
 		$this->editors[] = $e;
-		$this->editors = array_unique($this->editors);
+		$this->editors = array_unique( $this->editors );
 	}
 }
