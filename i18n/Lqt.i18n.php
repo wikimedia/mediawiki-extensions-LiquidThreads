@@ -2221,7 +2221,7 @@ Dont a raio ar sinadur war wel e-unan",
 	'lqt-drag-bump' => "Dilec'hiañ ar gemmadenn davet penn uhelañ ar bajenn kaozeal",
 	'lqt-drag-save' => 'Kadarnaat',
 	'lqt-drag-reason' => 'Abeg :',
-	'lqt-drag-subject' => 'Sujet evit ur gaozeadenn nevez',
+	'lqt-drag-subject' => 'Danvez ar gaoz nevez :',
 	'lqt-edit-signature' => '(kemmañ ar sinadur)',
 	'lqt-preview-signature' => '(rakwellet)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Kemennadennoù nevez',
@@ -3921,6 +3921,7 @@ $messages['ee'] = array(
  * @author Geraki
  * @author Omnipaedista
  * @author ZaDiak
+ * @author Απεργός
  */
 $messages['el'] = array(
 	'lqt-desc' => 'Προσθήκη θεματικών συζητήσεων στις σελίδες συζήτησης',
@@ -3968,7 +3969,7 @@ $messages['el'] = array(
 	'lqt_noreason' => 'Δεν δίνετε λόγος.',
 	'lqt_thread_deleted' => 'Το θέμα έχει διαγραφεί.',
 	'lqt_summary_notice_link' => 'γράψτε μια περίληψη',
-	'lqt_summary_label' => 'Αυτό το θέμα έχει συνοψισθεί όπως ακολουθεί:',
+	'lqt_summary_label' => 'Περίληψη του θέματος:',
 	'lqt_summary_subtitle' => 'Σύνοψη του $1.',
 	'lqt_nosuchrevision' => 'Δεν υπάρχει τέτοια έκδοση αυτού του θέματος.',
 	'lqt_nosuchthread' => 'Το θέμα που δώσατε δεν υπάρχει.',
@@ -4019,8 +4020,10 @@ $messages['el'] = array(
 	'lqt-history-action' => 'Δραστηριότητα',
 	'lqt-history-comment' => 'Σχόλιο',
 	'lqt-history-thread' => 'Θέμα',
-	'lqt-thread-edited-author' => 'Επεξεργάστηκε από τον συγγραφέα',
-	'lqt-thread-edited-others' => 'Επεξεργάστηκε από άλλους χρήστες',
+	'lqt-thread-edited-author' => 'Επεξεργάστηκε από τον συγγραφέα.<br />
+Τελευταία επεξεργασία: $1',
+	'lqt-thread-edited-others' => 'Επεξεργάστηκε από {{PLURAL:$2|άλλο χρήστη|$2 χρήστες}}.<br />
+Τελευταία επεξεργασία: $1',
 	'lqt-header-actions' => 'Ενέργειες',
 	'lqt_summarize_link' => 'Συνοψίστε',
 	'lqt-thread-split' => 'Διαχωρισμός σε νέο θέμα',
