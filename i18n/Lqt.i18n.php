@@ -9552,6 +9552,14 @@ Dir kënnt se op <$6> gesinn.",
 	'lqt-reply-subpage' => 'äntwerten',
 );
 
+/** Ganda (Luganda)
+ * @author Kizito
+ */
+$messages['lg'] = array(
+	'lqt_move_move' => 'Simbuliza',
+	'lqt-movethread' => 'Simbuliza',
+);
+
 /** Lumbaart (Lumbaart)
  * @author Dakrismeno
  */
