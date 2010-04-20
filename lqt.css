@@ -120,7 +120,6 @@
 	position:      relative;
 	top:           -2.9em;
 	margin-bottom: -2.9em;
-
 	float: right;
 
 	color:     #777;
@@ -331,7 +330,7 @@ body.skin-monobook li#ca-nstab-thread {
 .lqt-thread-toolbar {
 	right: 1.5em;
 	position: absolute;
-	
+	clear: both;
 }
 
 .lqt-post-sep {
