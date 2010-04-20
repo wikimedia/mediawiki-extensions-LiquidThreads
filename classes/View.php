@@ -1406,7 +1406,7 @@ class LqtView {
 				$html .= $this->showPostBody( $post, $oldid );
 			}
 			$html .= Xml::closeElement( 'div' );
-			$html .= Xml::element( 'div', array( 'style' => 'clear: both' ), '&nbsp;' );
+			$html .= Xml::tags( 'div', array( 'style' => 'clear: both' ), '&nbsp;' );
 			$html .= $this->showThreadToolbar( $thread );
 			$html .= $this->threadSignature( $thread );
 		}
