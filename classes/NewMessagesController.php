@@ -414,6 +414,7 @@ class NewMessages {
 		global $wgMemc;
 
 		$wgMemc->delete( wfMemcKey( 'lqt-new-messages-count', $uid ) );
+		User::newFromId( $uid )->invalidateCache();
 	}
 
 	static function watchedThreadsForUser( $user ) {
