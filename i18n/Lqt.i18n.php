@@ -8823,6 +8823,7 @@ $messages['km'] = array(
  * @author Nayvik
  */
 $messages['kn'] = array(
+	'lqt-title' => 'ಶೀರ್ಷಿಕೆ',
 	'lqt-summary' => 'ಸಾರಾಂಶ',
 	'lqt-drag-reason' => 'ಕಾರಣ:',
 	'lqt-preview-signature' => '(ಮುನ್ನೋಟ)',
@@ -13708,22 +13709,33 @@ $messages['sr-el'] = array(
  * @author Pyt
  */
 $messages['stq'] = array(
+	'lqt-desc' => 'Ferweendenge fon Theme ap Diskussionssieden',
 	'lqt_movethread' => 'Ferschuuwe Diskussionsstrang ap ne uur Siede',
 	'lqt_deletethread' => 'Läsk Diskussionsstrang of staal ju wier häär',
 	'lqt_contents_title' => 'Inhoold',
+	'lqt_toc_thread_title' => 'Beträf',
+	'lqt_toc_thread_author' => 'Eepenmoaked fon',
+	'lqt_toc_thread_modified' => 'Toulääst annerd',
 	'lqt_add_header' => 'Uurschrift touföigje',
 	'lqt_new_thread' => 'Fang ne näie Diskussion oun',
+	'lqt_invalid_subject' => 'Die Beträf, dán du ienroat hääst, is nit gultich.
+Dät is muugelk, dät hie
+* tou loang is of
+* in Konflikt mäd Interwikipräfixe of Noomensruumbeteekengen stoant.',
+	'lqt_empty_subject' => 'Du moast n Beträf ienreeke.',
 	'lqt_reply' => 'Oantwoudje',
+	'lqt-parent' => 'buppe-oardende Oantwoud',
 	'lqt_delete' => 'Läskje',
 	'lqt_undelete' => 'Wierhäärstaale',
 	'lqt_permalink' => 'Hierwai ferwiese',
-	'lqt_fragment' => 'n Fragment fon n $1 fon $2',
+	'lqt_fragment' => 'Paat fon n $1 fon $2',
 	'lqt_discussion_link' => 'Diskussion',
-	'lqt_from_talk' => 'fon $1',
+	'lqt_from_talk' => 'Uut $1',
 	'lqt_newer' => '← jungere',
 	'lqt_older' => 'allere →',
+	'lqt_hist_comment_edited' => 'Kommentoartext [$2 beoarbaided]',
 	'lqt_hist_summary_changed' => 'Touhoopefoatenge annerd',
-	'lqt_hist_reply_created' => 'Näie Oantwoud moaked',
+	'lqt_hist_reply_created' => '[[$1|Näie Oantwoud]] moaked',
 	'lqt_hist_thread_created' => 'Näien Diskussionsstrang moaked',
 	'lqt_hist_deleted' => 'Läsked',
 	'lqt_hist_undeleted' => 'wierhäärstoald',
@@ -13734,9 +13746,43 @@ $messages['stq'] = array(
 	'lqt_hist_past_last_page_error' => 'Du bäst buute dät Siedenberäk fon ju Versionsgeschichte.',
 	'lqt_hist_tooltip_newer_disabled' => 'Disse Ferbiendenge is deaktivierd, deeruum dät du ap ju eerste Siede bäst.',
 	'lqt_hist_tooltip_older_disabled' => 'Disse Ferbiendenge is deaktivierd, deeruum dät du ap ju lääste Siede bäst.',
+	'lqt_hist_split' => 'Oantwoud wuud ap n näi Thema apdeeld',
+	'lqt_hist_edited_subject' => 'Die Beträf wuud fon "$2" tou "$3"annerd',
+	'lqt_hist_merged_from' => 'Ju [[$1|Oantwoud]] wuud ätter n uur Thema ferschäuwen',
+	'lqt_hist_merged_to' => 'Ju [[$1|Oantwoud]] wuud uut n uur Thema ferschäuwen',
+	'lqt_hist_root_blanked' => 'Wächhoalden Kommentoar',
+	'lqt_hist_adjusted_sortkey' => 'Anpaasede Threadposition',
 	'lqt_revision_as_of' => 'Versionsgeschichte fon dän $2 uum $3 Uure.',
-	'lqt_move_placeholder' => "''Steedehoolder, wan die Diskussionsstrang $1 ap ne uur Siede ferschäuwen wuude.''<br />
-Disse Ferschuuwenge waas däin fon $2 ap n $3 $4.",
+	'lqt_change_new_thread' => 'Dit is ju eerste Version fon dät Diskussionsthema.',
+	'lqt_change_reply_created' => 'Die [$1 fatdrukte Kommentoar] wuud in disse Version moaked.',
+	'lqt_change_edited_summary' => 'Ju Touhoopefoatenge fon dit Thema wuud beoarbaided',
+	'lqt_change_deleted' => '[$1 Dissen] of n uuroardenden Biedraach wuud läsked',
+	'lqt_change_split' => '[$1 Dit Thema] wuud uut n uur Thema outränd',
+	'lqt_change_edited_subject' => 'Die Beträf fon dit Thema wuud fon "$2"tou "$3" annerd',
+	'lqt_change_split_from' => 'N [$1 Deel] fon dit Thema wuud as oain Thema uutleegerd',
+	'lqt_change_root_blanked' => 'Die Text [$1 fon n Kommentoar] wuud wächhoald.',
+	'lqt_move_placeholder' => 'Dissen Biedraach is  n Steedehoolder uum antouwiesen, dät dát Thema ap n uur Diskussionssiede ferschäuwen wuude.
+Disse Ferschuuwenge waas däin fon $2 ap n $3 uum $4 Uure. Dät Thema fint sik nuu ap ju Siede $5.',
+	'lqt_thread_deleted_for_sysops' => "Dit Diskussionsthema wuud '''läsked''' un is bloot foar Administratore tou sjoon.",
+	'lqt-thread-split-thread' => 'Thema:',
+	'lqt-split-submit' => 'Deele',
+	'lqt-delete-parent-warning' => 'Dit is n Thema ap hoochste Ieuwene mäd Oantwoude.
+Uk sien Oantwoude wäide automatisk läsked.
+Uum dit tou fermieden, deel do fon dit Thema ou, eer du et läskest.',
+	'lqt-delete-parent-deleted' => 'Die uuroardende Diskussionsstrang wuud läsked ($1)',
+	'lqt-movethread' => 'Ferschuuwe',
+	'lqt-menu-trigger' => 'Moor',
+	'lqt-newmessages-from' => 'Uut $1',
+	'lqt_rc_new_reply' => 'Oantwoud ap "$1',
+	'right-lqt-split' => '"Thema deele',
+	'lqt-thread-merge-to' => 'Mäd dissen Diskussionsstrang touhoopefiere',
+	'lqt_merge_thread' => 'Diskussione touhoopefiere',
+	'lqt-merge-submit' => 'Touhoopefiere',
+	'lqt-merge-success' => 'Dät Thema $1 wuud mäd Ärfoulch mäd $2 touhoopefierd.',
+	'lqt-log-action-move' => 'häd [[$1]] fon [[$2]] ätter [[$3]] ferschäuwen',
+	'lqt-log-action-split' => 'trände [[$1]] fon [[$3]] ou, näien Beträf is "$2"',
+	'lqt-log-action-subjectedit' => 'annerde dän Beträf fon [[$1]] fon "$2" ap "$3"',
+	'lqt-log-action-resort' => 'ferannerde dän Sortierkoai fon [[$1]]. Sortierkoai annerd fon $2 ätter $3',
 	'lqt_newmessages' => 'Näie Ättergjuchte',
 );
 
