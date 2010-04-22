@@ -286,6 +286,10 @@ class Threads {
 	// If the queueMore parameter is set and rows are left to update, a job queue item
 	//  will then be added with the same limit, to finish the remainder of the update.
 	static function synchroniseArticleData( $article, $limit = false, $queueMore = false ) {
+		if (!$article) {
+			throw new MWException( "synchroniseArticleData called on null article" );
+		}
+	
 		$dbr = wfGetDB( DB_SLAVE );
 		$dbw = wfGetDB( DB_MASTER );
 
