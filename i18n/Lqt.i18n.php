@@ -8823,6 +8823,7 @@ $messages['km'] = array(
  * @author Nayvik
  */
 $messages['kn'] = array(
+	'lqt_delete' => 'ಅಳಿಸು',
 	'lqt-title' => 'ಶೀರ್ಷಿಕೆ',
 	'lqt-summary' => 'ಸಾರಾಂಶ',
 	'lqt-drag-reason' => 'ಕಾರಣ:',
@@ -8943,6 +8944,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-movethread' => '이동',
 	'lqt-menu-trigger' => '메뉴',
 	'lqt-newmessages-from' => '$1 문서에서의 토론',
+	'lqt-hot-topics' => '인기 주제',
 	'lqt-add-reply' => '답변하기',
 	'lqt_rc_new_discussion' => '새 스레드 "$1"을 게시함',
 	'lqt_rc_new_reply' => '"$1"에 대한 답글을 남겼습니다.',
@@ -13755,6 +13757,7 @@ Dät is muugelk, dät hie
 	'lqt_revision_as_of' => 'Versionsgeschichte fon dän $2 uum $3 Uure.',
 	'lqt_change_new_thread' => 'Dit is ju eerste Version fon dät Diskussionsthema.',
 	'lqt_change_reply_created' => 'Die [$1 fatdrukte Kommentoar] wuud in disse Version moaked.',
+	'lqt_change_edited_root' => 'Die [$1 fat drukte Kommentoar] wuud in disse Version beoarbaided.',
 	'lqt_change_edited_summary' => 'Ju Touhoopefoatenge fon dit Thema wuud beoarbaided',
 	'lqt_change_deleted' => '[$1 Dissen] of n uuroardenden Biedraach wuud läsked',
 	'lqt_change_split' => '[$1 Dit Thema] wuud uut n uur Thema outränd',
