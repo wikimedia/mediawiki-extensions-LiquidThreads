@@ -419,21 +419,29 @@ Action results from button {{msg-mw|lqt_undelete}}',
 	'lqt-newer' => '{{Identical|Newer}}',
 	'lqt-read-message' => '"Read" is past tense.',
 	'lqt-email-undo' => '{{Identical|Undo}}',
-	'lqt_rc_new_discussion' => '* $1 - thread
-* $2 - talk page
-* $3 - the person who has created the thread',
-	'lqt_rc_new_reply' => '* $1 - thread
-* $2 - talk page
-* $3 - person who has written to the thread',
-	'lqt_rc_ellipsis' => '{{Optional}}',
 	'lqt-history-time' => '{{Identical|Time}}',
 	'lqt-history-user' => '{{identical|User}}',
 	'lqt-history-comment' => '{{Identical|Comment}}',
+	'lqt-thread-edited-author' => '* $1: date/time of the last edit
+* $2: Unused (Number of users who edited the thread but not useful in this context. Used by [[MediaWiki:Lqt-thread-edited-others]])
+* $3: time of the last edit (optional, instead of using $1)
+* $4: date of the last edit (optional, instead of using $1)',
+	'lqt-thread-edited-others' => '* $1: date/time of the last edit
+* $2: Number of users who edited the thread
+* $3: time of the last edit (optional, instead of using $1)
+* $4: date of the last edit (optional, instead of using $1)',
 	'lqt-header-actions' => '{{Identical|Action}}',
 	'lqt-delete-parent-deleted' => '$1 is the reason for deletion of the parent.',
 	'lqt-movethread' => '{{Identical|Move}}',
+	'lqt-menu-trigger' => '{{Identical|More}}',
 	'lqt-newmessages-from' => 'Used as page subtitle. Parameters:
 * $1 is a link to a talk page (for example "User talk:Foo")',
+	'lqt-hot-topics' => 'A page title, used for a special page with "hot" (most-commented-on)
+threads on a wiki',
+	'lqt_rc_new_discussion' => 'Parameters:
+* $1 is a link to a thread with the thread subject as link description',
+	'lqt_rc_new_reply' => 'Parameters:
+* $1 is a link to a thread with the thread subject as link description',
 	'right-lqt-split' => '{{doc-right}}',
 	'right-lqt-merge' => '{{doc-right}}',
 	'lqt-log-action-move' => 'Parameteres:
@@ -472,8 +480,12 @@ Parameters are:
 	'lqt-ajax-update-link' => '{{Identical|Update}}',
 	'lqt-thread-show-replies' => 'Parameters:
 * $1 is the number of replies. This can be used for PLURAL:$1',
+	'lqt-thread-link-url' => 'A form label, for the URL to a thread',
+	'lqt-thread-link-title' => 'A form label, for the wikitext link to a thread',
 	'lqt-save-subject' => '{{Identical|Save}}',
 	'lqt-cancel-subject-edit' => '{{Identical|Cancel}}',
+	'lqt-drag-reparent' => 'Description of the action of moving a thread underneath a new parent.
+Displayed in a list of actions to confirm in a confirmation dialog.',
 	'lqt-drag-save' => '{{Identical|Confirm}}',
 	'lqt-drag-reason' => '{{Identical|Reason}}',
 	'lqt-preview-signature' => '{{Identical|Preview}}',
@@ -489,7 +501,7 @@ Parameters are:
 	'lqt-feed-new-thread-intro' => 'Parameters:
 * $1 is a link to the talk page with the thread
 * $2 is a link to the user posting in the thread
-* $3 -not used-
+* $3 -not used- 
 * $4 is the name of the user posting to the thread, optional, can be used for GENDER',
 	'lqt-feed-reply-intro' => 'Parameters:
 * $1 is a link to the talk page with the thread
@@ -501,17 +513,11 @@ Parameters are:
 	'lqt_newmessages-title' => '{{Identical|New messages}}',
 	'lqt-talkpage-history-subtitle' => 'Parameters:
 * $1 is a link to a talk page, with the talk page title as link label',
+	'lqt-talkpage-history-tab' => 'The text for the tab pointing to a discussion page header',
 	'lqt-edit-bump' => 'See {{msg-mw|Lqt-edit-bump-tooltip}} for the explanation of this feature.',
 	'lqt-reply-subpage' => 'Part of the page title when a LiquidThread answer is given. Should probably be translated as a noun and not as a verb.
 
 {{Identical|Reply}}',
-	'lqt-hot-topics' => 'A page title, used for a special page with "hot" (most-commented-on)
-threads on a wiki',
-	'lqt-thread-link-url' => 'A form label, for the URL to a thread',
-	'lqt-thread-link-title' => 'A form label, for the wikitext link to a thread',
-	'lqt-drag-reparent' => 'Description of the action of moving a thread underneath a new parent.
-Displayed in a list of actions to confirm in a confirmation dialog.',
-	'lqt-talkpage-history-tab' => 'The text for the tab pointing to a discussion page header',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -1063,8 +1069,6 @@ $messages['arc'] = array(
 	'lqt_protectedfromreply_link' => 'ܢܛܝܪܐ',
 	'lqt-no-new-messages' => 'ܠܝܬ ܠܟ ܐܓܪ̈ܬܐ ܚܕ̈ܬܬܐ',
 	'lqt-new-messages' => '✒ ܐܝܬ ܠܟ ܐܓܪ̈ܬܐ ܚܕ̈ܬܬܐ.',
-	'lqt_rc_author_original' => '(ܣܝܘܡܐ ܫܪܫܝܐ)',
-	'lqt_rc_author_others' => '(ܠܐ ܗܘ ܣܝܘܡܐ)',
 	'lqt-newmessages-n' => 'ܐܓܪ̈ܬܐ ܚܕ̈ܬܬܐ ($1)',
 	'lqt_newmessages' => 'ܐܓܪ̈ܬܐ ܚܕ̈ܬܬܐ',
 );
@@ -4087,6 +4091,17 @@ $messages['el'] = array(
 	'restriction-newthread' => 'Δημοσίευση νέων θεμάτων',
 	'lqt-edit-bump' => 'Προσκρούστε αυτό το θέμα',
 	'lqt-reply-subpage' => 'απάντηση',
+);
+
+/** British English (British English)
+ * @author Reedy
+ */
+$messages['en-gb'] = array(
+	'lqt_summary_label' => 'Summarise',
+	'lqt_summarize_link' => 'Summarise',
+	'lqt-summarize-intro' => 'Please summarise the below thread in the editing box.
+You may use any wikitext in your summary.
+When you finish, click "{{int:savearticle}}".',
 );
 
 /** Esperanto (Esperanto)
@@ -9034,7 +9049,7 @@ $messages['krj'] = array(
 	'lqt_delete_return' => 'Balik sa $1.',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Als-Holder
  * @author Purodha
  */
@@ -15891,7 +15906,7 @@ $messages['yi'] = array(
 	'lqt-search-button' => 'זוכן',
 );
 
-/** Yue (粵語)
+/** Cantonese (粵語)
  * @author Shinjiman
  */
 $messages['yue'] = array(
