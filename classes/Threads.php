@@ -136,6 +136,7 @@ class Threads {
 		
 		if ( $post->getId() == 0 ) {
 			// Page ID zero doesn't exist.
+			return null;
 		}
 
 		if ( array_key_exists( $post->getID(), self::$cache_by_root ) ) {
