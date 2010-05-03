@@ -2144,7 +2144,7 @@ class LqtView {
 	static function signaturePST( $sig, $user ) {
 		global $wgParser, $wgOut, $wgTitle;
 		
-		$title = $wgTitle ? $wgTitle : $user->getUserPage()->getTitle();
+		$title = $wgTitle ? $wgTitle : $user->getUserPage();
 
 		// Parser gets antsy about parser options here if it hasn't parsed anything before.
 		$wgParser->clearState();
