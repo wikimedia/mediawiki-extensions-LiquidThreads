@@ -133,6 +133,10 @@ class Threads {
 			// No articles outside the thread namespace have threads associated with them;
 			return null;
 		}
+		
+		if ( $post->getId() == 0 ) {
+			// Page ID zero doesn't exist.
+		}
 
 		if ( array_key_exists( $post->getID(), self::$cache_by_root ) ) {
 			return self::$cache_by_root[$post->getID()];
