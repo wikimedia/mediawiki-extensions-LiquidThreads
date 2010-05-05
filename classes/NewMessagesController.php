@@ -397,17 +397,20 @@ class NewMessages {
 
 		$res = $dbr->select( 'user_message_state', '1', $cond, __METHOD__, $options );
 
-		$count = $res->numRows();
+		if( $res ) {
+			$count = $res->numRows();
 
-		if ( $count >= 500 ) {
-			$count = $dbr->estimateRowCount( 'user_message_state', '*', $cond,
+			if ( $count >= 500 ) {
+				$count = $dbr->estimateRowCount( 'user_message_state', '*', $cond,
 					__METHOD__ );
-		}
+			}
 
-		$wgMemc->set( wfMemcKey( 'lqt-new-messages-count', $user->getId() ),
+			$wgMemc->set( wfMemcKey( 'lqt-new-messages-count', $user->getId() ),
 				$count, 86400 );
 
-		return $count;
+			return $count;
+		}
+		return 0;
 	}
 
 	static function recacheMessageCount( $uid ) {
