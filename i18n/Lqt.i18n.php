@@ -4909,6 +4909,8 @@ Allkiri kuvatakse iseenesest.',
  */
 $messages['eu'] = array(
 	'lqt_contents_title' => 'Edukiak',
+	'lqt_toc_thread_title' => 'Eztabaidaren izenburua',
+	'lqt_toc_thread_author' => 'Nork hasi duen',
 	'lqt_toc_thread_modified' => 'Azken aldaketa',
 	'lqt_add_header' => 'Goiburua gehitu',
 	'lqt_new_thread' => 'Eztabaida berria hasi',
@@ -4918,6 +4920,7 @@ $messages['eu'] = array(
 	'lqt_discussion_link' => 'eztabaida',
 	'lqt_newer' => '← berriagoa',
 	'lqt_older' => 'zaharragoa →',
+	'lqt-history-title' => 'Eztabaidaren historia',
 	'lqt_hist_deleted' => 'Ezabatua',
 	'lqt_hist_undeleted' => 'Ezabatu gabea',
 	'lqt_hist_moved_talkpage' => 'Mugitua',
