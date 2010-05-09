@@ -82,18 +82,14 @@ class NewMessages {
 	}
 
 	/**
-	 * Write a user_message_state for each user who is watching the thread.
+	 * Get the where clause for an update
 	 * If the thread is on a user's talkpage, set that user's newtalk.
-	*/
-	static function writeMessageStateForUpdatedThread( $t, $type, $changeUser ) {
-		global $wgUser;
-
-		wfDebugLog( 'LiquidThreads', 'Doing notifications' );
-
+	 */
+	private static function getWhereClause( $t ) {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$tpTitle = $t->article()->getTitle();
-		$root_t = $t->topmostThread()->root()->getTitle();
+		$rootThread = $t->topmostThread()->root()->getTitle();
 
 		// Select any applicable watchlist entries for the thread.
 		$talkpageWhere = array(
@@ -101,15 +97,17 @@ class NewMessages {
 			'wl_title' => $tpTitle->getDBkey()
 		);
 		$rootWhere = array(
-			'wl_namespace' => $root_t->getNamespace(),
-			'wl_title' => $root_t->getDBkey()
+			'wl_namespace' => $rootThread->getNamespace(),
+			'wl_title' => $rootThread->getDBkey()
 		);
 
 		$talkpageWhere = $dbw->makeList( $talkpageWhere, LIST_AND );
 		$rootWhere = $dbw->makeList( $rootWhere, LIST_AND );
 
-		$where_clause = $dbw->makeList( array( $talkpageWhere, $rootWhere ), LIST_OR );
+		return $dbw->makeList( array( $talkpageWhere, $rootWhere ), LIST_OR );
+	}
 
+	private static function getRowsObject( $t ) {
 		// <= 1.15 compatibility, it kinda sucks having to do all this up here.
 		$tables = array( 'watchlist', 'user_message_state' );
 		$joins = array(
@@ -124,7 +122,6 @@ class NewMessages {
 		);
 		$fields = array( 'wl_user', 'ums_user', 'ums_read_timestamp' );
 
-		$oldPrefCompat = false;
 		global $wgVersion;
 		if ( version_compare( $wgVersion, '1.15.999', '<=' ) ) {
 			$oldPrefCompat = true;
@@ -144,47 +141,47 @@ class NewMessages {
 			$fields[] = 'up_value';
 		}
 
+		$dbr = wfGetDB( DB_SLAVE );
+		return $dbr->select( $tables, $fields, self::getWhereClause( $t ), __METHOD__, array(), $joins );
+	}
+
+	/**
+	 * Write a user_message_state for each user who is watching the thread.
+	 * If the thread is on a user's talkpage, set that user's newtalk.
+	 */
+	static function writeMessageStateForUpdatedThread( $t, $type, $changeUser ) {
+		wfDebugLog( 'LiquidThreads', 'Doing notifications' );
+		wfProfileIn( 'testTEST' );
+
 		// Pull users to update the message state for, including whether or not a
 		//  user_message_state row exists for them, and whether or not to send an email
 		//  notification.
 		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( $tables, $fields, $where_clause, __METHOD__, array(), $joins );
 
-		$insert_rows = array();
-		$update_tuples = array();
-		$notify_users = array();
-		while ( $row = $dbr->fetchObject( $res ) ) {
+		$userIds = array();
+		$notifyUsers = array();
+		$obj = self::getRowsObject( $t );
+		while ( $row = $dbr->fetchObject( $obj ) ) {
 			// Don't notify yourself
 			if ( $changeUser->getId() == $row->wl_user )
 				continue;
 
-			if ( $row->ums_user && !$row->ums_read_timestamp ) {
-				// It's already positive.
-			} else {
-				$insert_rows[] = array(
-					'ums_user' => $row->wl_user,
-					'ums_thread' => $t->id(),
-					'ums_read_timestamp' => null,
-				);
+			if ( !$row->ums_user || $row->ums_read_timestamp ) {
+				$userIds[] = $row->wl_user;
 				NewMessages::recacheMessageCount( $row->wl_user );
 			}
 
-			$wantsTalkNotification = false;
+			$wantsTalkNotification = true;
 
-			if ( $oldPrefCompat ) {
+			if ( version_compare( $wgVersion, '1.15.999', '<=' ) ) {
 				$decodedOptions = self::decodeUserOptions( $row->user_options );
 
-			$wantsTalkNotification =
-				( !isset( $decodedOptions['lqtnotifytalk'] ) && User::getDefaultOption( 'lqtnotifytalk' ) )
-				|| $row->up_value;
-			} else {
-				$wantsTalkNotification =
-					( is_null( $row->up_value ) && User::getDefaultOption( 'lqtnotifytalk' ) )
-						|| $row->up_value;
+				$wantsTalkNotification = !isset( $decodedOptions['lqtnotifytalk'] );
 			}
+			$wantsTalkNotification = $wantsTalkNotification && User::getDefaultOption( 'lqtnotifytalk' );
 
-			if ( $wantsTalkNotification  ) {
-				$notify_users[] = $row->wl_user;
+			if ( $wantsTalkNotification || $row->up_value ) {
+				$notifyUsers[] = $row->wl_user;
 			}
 		}
 
@@ -196,31 +193,36 @@ class NewMessages {
 			if ( $user && $user->getName() != $changeUser->getName() ) {
 				$user->setNewtalk( true );
 
-				$insert_rows[] = array(
-					'ums_user' => $user->getId(),
-					'ums_thread' => $t->id(),
-					'ums_read_timestamp' => null
-				);
-
+				$userIds[] = $user->getId();
 				if ( $user->getOption( 'enotifusertalkpages' ) ) {
-					$notify_users[] = $user->getId();
+					$notifyUsers[] = $user->getId();
 				}
 			}
 		}
 
 		// Do the actual updates
-		if ( count( $insert_rows ) ) {
+		if ( count( $userIds ) ) {
+			foreach ( $userIds as $u ) {
+				$insertRows[] = array(
+					'ums_user' => $u,
+					'ums_thread' => $t->id(),
+					'ums_read_timestamp' => null
+				);
+			}
+
+			$dbw = wfGetDB( DB_MASTER );
 			$dbw->replace(
 				'user_message_state',
 				array( array( 'ums_user', 'ums_thread' ) ),
-				$insert_rows, __METHOD__
+				$insertRows, __METHOD__
 			);
 		}
 
 		global $wgLqtEnotif;
-		if ( count( $notify_users ) && $wgLqtEnotif ) {
-			self::notifyUsersByMail( $t, $notify_users, wfTimestampNow(), $type );
+		if ( count( $notifyUsers ) && $wgLqtEnotif ) {
+			self::notifyUsersByMail( $t, $notifyUsers, wfTimestampNow(), $type );
 		}
+		wfProfileOut( 'testTEST' );
 	}
 
 	// Would refactor User::decodeOptions, but the whole point is that this is
