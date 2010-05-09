@@ -1803,7 +1803,8 @@ class LqtView {
 		global $wgLang;
 
 		// Safeguard
-		if ( $thread->type() & Threads::TYPE_DELETED ) {
+		if ( $thread->type() & Threads::TYPE_DELETED ||
+				!$thread->root() ) {
 			return;
 		}
 

@@ -278,6 +278,11 @@ class Thread {
 		if ( !$id ) {
 			$id = $dbw->nextSequenceValue( 'thread_thread_id' );
 		}
+		
+		// If there's no root, bail out with an error message
+		if ( ! $this->rootId && ! ($this->type & Threads::TYPE_DELETED) ) {
+			throw new MWException( "Non-deleted thread saved with empty root ID" );
+		}
 
 		// Reflect schema changes here.
 
