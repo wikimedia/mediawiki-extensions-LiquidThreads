@@ -173,6 +173,8 @@ class NewMessages {
 
 			$wantsTalkNotification = true;
 
+			global $wgVersion;
+
 			if ( version_compare( $wgVersion, '1.15.999', '<=' ) ) {
 				$decodedOptions = self::decodeUserOptions( $row->user_options );
 
