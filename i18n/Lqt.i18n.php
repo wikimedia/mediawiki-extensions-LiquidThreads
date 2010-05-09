@@ -77,7 +77,7 @@ It may:
 	'lqt_change_split_from' => 'A [$1 subthread] of this thread was split into its own thread',
 	'lqt_change_root_blanked' => 'The text of [$1 a comment] was removed.',
 
-	'lqt_youhavenewmessages' => 'You have [$1 new messages].',
+	'lqt_youhavenewmessages' => 'You have [[$1|new messages]].',
 	'lqt_protectedfromreply' => 'This thread has been $1 from being replied to.',
 	'lqt_protectedfromreply_link' => 'protected',
 	'lqt_subject' => 'Subject:',

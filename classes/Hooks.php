@@ -65,7 +65,7 @@ class LqtHooks {
 				&& ! $usertalk_t->equals( $wgTitle )
 				) {
 			$s = wfMsgExt( 'lqt_youhavenewmessages', array( 'parseinline' ),
-							$newmsg_t->getFullURL() );
+							$newmsg_t->getPrefixedText() );
 			$tpl->set( "newtalk", $s );
 			$wgOut->setSquidMaxage( 0 );
 		} else {
