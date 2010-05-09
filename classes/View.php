@@ -80,6 +80,10 @@ class LqtView {
 		if ( $operand ) {
 			$query['lqt_operand'] = $operand;
 		}
+		
+		if ( ! $thread ) {
+			throw new MWException( "Empty thread passed to ".__METHOD__ );
+		}
 
 		return array( $thread->root()->getTitle(), $query );
 	}
