@@ -26,7 +26,7 @@ class LqtHooks {
 
 			// Article link, timestamp, user
 			$s = '';
-			$s .= $sk->link( $thread->article()->getTitle() );
+			$s .= $sk->link( $thread->getTitle() );
 			$changeslist->insertTimestamp( $s, $rc );
 			$changeslist->insertUserRelatedLinks( $s, $rc );
 
@@ -178,7 +178,7 @@ class LqtHooks {
 				$attribs['ThreadParent'] = $thread->superThread()->id();
 			}
 			$attribs['ThreadAncestor'] = $thread->topmostThread()->id();
-			$attribs['ThreadPage'] = $thread->article()->getTitle()->getPrefixedText();
+			$attribs['ThreadPage'] = $thread->getTitle()->getPrefixedText();
 			$attribs['ThreadID'] = $thread->id();
 			if ( $thread->hasSummary() && $thread->summary() ) {
 				$attribs['ThreadSummaryPage'] = $thread->summary()->getId();
@@ -367,7 +367,7 @@ class LqtHooks {
 			if ( !$thread )
 				return true;
 
-			$articleTitle = $thread->article()->getTitle();
+			$articleTitle = $thread->getTitle();
 
 			if ( $articleTitle->getNamespace() == NS_USER_TALK &&
 					$user->getName() == $title->getText() ) {
@@ -381,9 +381,9 @@ class LqtHooks {
 			// Figure out if it's on the talk page
 			$talkPage = $user->getTalkPage();
 			$isOnTalkPage = ( self::$editThread &&
-				self::$editThread->article()->getTitle()->equals( $talkPage ) );
+				self::$editThread->getTitle()->equals( $talkPage ) );
 			$isOnTalkPage = $isOnTalkPage || ( self::$editAppliesTo &&
-				self::$editAppliesTo->article()->getTitle()->equals( $talkPage ) );
+				self::$editAppliesTo->getTitle()->equals( $talkPage ) );
 			$isOnTalkPage = $isOnTalkPage ||
 				( self::$editArticle->getTitle()->equals( $talkPage ) );
 

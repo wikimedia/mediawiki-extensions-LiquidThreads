@@ -137,7 +137,7 @@ class Thread {
 		}
 
 		// Touch the talk page, too.
-		$this->article()->getTitle()->invalidateCache();
+		$this->getTitle()->invalidateCache();
 
 		$this->dbVersion = clone $this;
 		unset( $this->dbVersion->dbVersion );
@@ -195,8 +195,8 @@ class Thread {
 		switch( $change_type ) {
 			case Threads::CHANGE_MOVED_TALKPAGE:
 				$log->addEntry( 'move', $this->title(), $reason,
-					array( $original->article()->getTitle(),
-						$this->article()->getTitle() ) );
+					array( $original->getTitle(),
+						$this->getTitle() ) );
 				break;
 			case Threads::CHANGE_SPLIT:
 				$log->addEntry( 'split', $this->title(), $reason,
@@ -264,7 +264,7 @@ class Thread {
 		}
 
 		// Touch the talk page, too.
-		$this->article()->getTitle()->invalidateCache();
+		$this->getTitle()->invalidateCache();
 
 		$this->dbVersion = clone $this;
 		unset( $this->dbVersion->dbVersion );
@@ -358,7 +358,7 @@ class Thread {
 
 		$dbr = wfGetDB( DB_MASTER );
 
-		$oldTitle = $this->article()->getTitle();
+		$oldTitle = $this->getTitle();
 		$newTitle = $title;
 
 		$new_articleNamespace = $title->getNamespace();
@@ -789,7 +789,7 @@ class Thread {
 		// Old versions also sometimes store the thread page for trace threads as the
 		//  article, not as the root.
 		//  Trying not to exacerbate this by moving it to be the 'Thread talk' page.
-		$articleTitle = $this->article()->getTitle();
+		$articleTitle = $this->getTitle();
 		global $wgLiquidThreadsMigrate;
 		if ( !LqtDispatch::isLqtPage( $articleTitle ) && !$articleTitle->isTalkPage() &&
 				LqtDispatch::isLqtPage( $articleTitle->getTalkPage() ) &&
@@ -810,8 +810,8 @@ class Thread {
 
 		// Check for article corruption from incomplete thread moves.
 		// (thread moves only updated this on immediate replies, not replies to replies etc)
-		if ( ! $ancestor->article()->getTitle()->equals( $this->article()->getTitle() ) ) {
-			$title = $ancestor->article()->getTitle();
+		if ( ! $ancestor->getTitle()->equals( $this->getTitle() ) ) {
+			$title = $ancestor->getTitle();
 			$set['thread_article_namespace'] = $title->getNamespace();
 			$set['thread_article_title'] = $title->getDbKey();
 
@@ -1241,7 +1241,7 @@ class Thread {
 		if ( $this->hasSuperthread() ) {
 			$parent_restrictions = $this->superthread()->root()->getTitle()->getRestrictions( $action );
 		} else {
-			$parent_restrictions = $this->article()->getTitle()->getRestrictions( $action );
+			$parent_restrictions = $this->getTitle()->getRestrictions( $action );
 		}
 
 		// TODO this may not be the same as asking "are the parent restrictions more restrictive than
@@ -1464,7 +1464,7 @@ class Thread {
 	   protected */
 	public function canUserReply( $user ) {
 		$threadRestrictions = $this->topmostThread()->title()->getRestrictions( 'reply' );
-		$talkpageRestrictions = $this->article()->getTitle()->getRestrictions( 'reply' );
+		$talkpageRestrictions = $this->getTitle()->getRestrictions( 'reply' );
 
 		$threadRestrictions = array_fill_keys( $threadRestrictions, 'thread' );
 		$talkpageRestrictions = array_fill_keys( $talkpageRestrictions, 'talkpage' );
@@ -1535,5 +1535,12 @@ class Thread {
 	public function addEditor( $e ) {
 		$this->editors[] = $e;
 		$this->editors = array_unique( $this->editors );
+	}
+
+	/**
+	 * Return the Title object for the article this thread is attached to.
+	 */
+	public function getTitle() {
+		return $this->article()->getTitle();
 	}
 }

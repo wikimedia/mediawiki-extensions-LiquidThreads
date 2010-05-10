@@ -88,7 +88,7 @@ class NewMessages {
 	private static function getWhereClause( $t ) {
 		$dbw = wfGetDB( DB_MASTER );
 
-		$tpTitle = $t->article()->getTitle();
+		$tpTitle = $t->getTitle();
 		$rootThread = $t->topmostThread()->root()->getTitle();
 
 		// Select any applicable watchlist entries for the thread.
@@ -188,8 +188,8 @@ class NewMessages {
 		}
 
 		// Add user talk notification
-		if ( $t->article()->getTitle()->getNamespace() == NS_USER_TALK ) {
-			$name = $t->article()->getTitle()->getText();
+		if ( $t->getTitle()->getNamespace() == NS_USER_TALK ) {
+			$name = $t->getTitle()->getText();
 
 			$user = User::newFromName( $name );
 			if ( $user && $user->getName() != $changeUser->getName() ) {
@@ -305,10 +305,10 @@ class NewMessages {
 
 		// Set up one-time data.
 		global $wgPasswordSender;
-		$link_title = clone $t->article()->getTitle();
+		$link_title = clone $t->getTitle();
 		$link_title->setFragment( '#' . $t->getAnchorName() );
 		$permalink = LqtView::linkInContextURL( $t );
-		$talkPage = $t->article()->getTitle()->getPrefixedText();
+		$talkPage = $t->getTitle()->getPrefixedText();
 		$from = new MailAddress( $wgPasswordSender, 'WikiAdmin' );
 		$threadSubject = $t->subject();
 

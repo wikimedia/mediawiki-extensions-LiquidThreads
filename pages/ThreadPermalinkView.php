@@ -101,12 +101,12 @@ class ThreadPermalinkView extends LqtView {
 	static function getCustomTabs( $view ) {
 		$tabs = array();
 
-		$articleTitle = $view->thread->article()->getTitle()->getSubjectPage();
-		$talkTitle = $view->thread->article()->getTitle()->getTalkPage();
+		$articleTitle = $view->thread->getTitle()->getSubjectPage();
+		$talkTitle = $view->thread->getTitle()->getTalkPage();
 
 		$articleClasses = array();
 		if ( !$articleTitle->exists() ) $articleClasses[] = 'new';
-		if ( $articleTitle->equals( $view->thread->article()->getTitle() ) )
+		if ( $articleTitle->equals( $view->thread->getTitle() ) )
 			$articleClasses[] = 'selected';
 
 		$talkClasses = array();
@@ -158,7 +158,7 @@ class ThreadPermalinkView extends LqtView {
 			$query = '';
 		}
 
-		$talkpage = $this->thread->article()->getTitle();
+		$talkpage = $this->thread->getTitle();
 		$talkpage->setFragment( $fragment );
 		$talkpage_link = $sk->link( $talkpage );
 

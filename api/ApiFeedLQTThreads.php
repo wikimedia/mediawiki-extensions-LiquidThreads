@@ -94,7 +94,7 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		// Prefix content with a quick description
 		$userLink = $linker->userLink( $thread->author()->getId(), $user );
-		$talkpageLink = $linker->link( $thread->article()->getTitle() );
+		$talkpageLink = $linker->link( $thread->getTitle() );
 		$superthreadLink = $linker->link( $stTitle );
 		$description = wfMsgExt(
 			$thread->hasSuperThread()

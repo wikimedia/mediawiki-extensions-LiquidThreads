@@ -176,7 +176,7 @@ class NewUserMessagesView extends LqtView {
 		global $wgUser;
 		$topmostThread = $t->topmostThread();
 		$sk = $wgUser->getSkin();
-		$title = clone $topmostThread->article()->getTitle();
+		$title = clone $topmostThread->getTitle();
 		$title->setFragment( '#' . $t->getAnchorName() );
 
 		// Make sure it points to the right page. The Pager seems to use the DB
@@ -193,7 +193,7 @@ class NewUserMessagesView extends LqtView {
 			array( 'known' )
 		);
 
-		$talkpageLink = $sk->link( $topmostThread->article()->getTitle() );
+		$talkpageLink = $sk->link( $topmostThread->getTitle() );
 		$talkpageInfo = wfMsgExt(
 			'lqt-newmessages-from',
 			array( 'parse', 'replaceafter' ),

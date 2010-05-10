@@ -39,7 +39,7 @@ class SpecialMoveThread extends ThreadActionPage {
 
 		global $wgUser;
 		$sk = $wgUser->getSkin();
-		$page = $article_name = $this->mThread->article()->getTitle()->getPrefixedText();
+		$page = $article_name = $this->mThread->getTitle()->getPrefixedText();
 
 		$edit_text = wfMsgExt( 'lqt_move_torename_edit', 'parseinline' );
 		$edit_link = $sk->link(
@@ -127,7 +127,7 @@ class SpecialMoveThread extends ThreadActionPage {
 			return wfMsgExt( 'lqt_move_thread_bad_destination', 'parseinline' );
 		}
 
-		if ( $title->equals( $this->mThread->article()->getTitle() ) ) {
+		if ( $title->equals( $this->mThread->getTitle() ) ) {
 			return wfMsgExt( 'lqt_move_samedestination', 'parseinline' );
 		}
 

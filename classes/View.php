@@ -120,7 +120,7 @@ class LqtView {
 		}
 
 		if ( $contextType == 'page' ) {
-			$title = clone $thread->article()->getTitle();
+			$title = clone $thread->getTitle();
 
 			$dbr = wfGetDB( DB_SLAVE );
 			$offset = $thread->topmostThread()->sortkey();
@@ -1576,7 +1576,7 @@ class LqtView {
 		$author = $thread->author();
 		$sig = $sk->userLink( $author->getID(), $author->getName() ) .
 			$sk->userToolLinks( $author->getID(), $author->getName() );
-		$newTalkpage = is_object( $t_thread ) ? $t_thread->article()->getTitle() : '';
+		$newTalkpage = is_object( $t_thread ) ? $t_thread->getTitle() : '';
 
 		$html = wfMsgExt( 'lqt_move_placeholder',
 			array( 'parseinline', 'replaceafter' ),
