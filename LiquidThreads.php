@@ -97,6 +97,9 @@ $wgHooks['UserIsBlockedFrom'][] = 'LqtHooks::userIsBlockedFrom';
 // Protection
 $wgHooks['TitleGetRestrictionTypes'][] = 'LqtHooks::getProtectionTypes';
 
+// New User Messages
+$wgHooks['CreateNewUserMessage'][] = 'LqtHooks::createNewUserMessage';
+
 // Special pages
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';

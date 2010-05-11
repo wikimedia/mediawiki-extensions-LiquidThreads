@@ -482,4 +482,99 @@ class LqtHooks {
 
  		return true;
  	}
+
+	static function createNewUserMessage( $user, $editor, $editSummary, $substitute, $signature ) {
+		global $wgLqtTalkPages;
+
+		$talk = $user->getTalkPage(); // We already know it exists.
+
+		if ( $wgLqtTalkPages && LqtDispatch::isLqtPage( $talk ) ) {
+			$article = new Article( $talk );
+			$realName = $user->getRealName();
+			$name = $user->getName();
+
+			// Get subject text
+			$threadSubject = NewUserMessage::getTextForPageInKey( 'newusermessage-template-subject' );
+
+			// Do not continue if there is no valid subject title
+			if ( !$threadSubject ) {
+				wfDebug( __METHOD__ . ": no text found for the subject\n" );
+				return true;
+			}
+
+			/** Create the final subject text.
+			 * Always substituted and processed by parser to avoid awkward subjects
+			 * Use real name if new user provided it
+			 */
+			$parser = new Parser;
+			$parser->setOutputType( 'wiki' );
+			$parserOptions = new ParserOptions;
+
+			if ( $realName ) {
+				$threadSubject = $parser->preSaveTransform(
+					"{{subst:{$threadSubject}|$realName}}",
+					$talk /* as dummy */,
+					$editor, $parserOptions
+				);
+			} else {
+				$threadSubject = $parser->preSaveTransform(
+					"{{subst:{$threadSubject}|$name}}",
+					$talk /* as dummy */,
+					$editor,
+					$parserOptions
+				);
+			}
+
+			// Get the body text
+			$threadBody = NewUserMessage::getTextForPageInKey( 'newusermessage-template-body' );
+
+			// Do not continue if there is no body text
+			if ( !$threadBody ) {
+				wfDebug( __METHOD__ . ": no text found for the body\n" );
+				return true;
+			}
+
+			// Create the final body text after checking if the template is to be substituted.
+			if ( $substitute ) {
+				$threadBody = "{{subst:{$threadBody}|$name|$realName}}";
+			} else {
+				$threadBody = "{{{$threadBody}|$name|$realName}}";
+			}
+
+			$threadTitle = Threads::newThreadTitle( $threadSubject, $article );
+
+			if ( !$threadTitle ) {
+				wfDebug( __METHOD__ . ": invalid title $threadTitle\n" );
+				return true;
+			}
+
+			$threadArticle = new Article( $threadTitle );
+			NewUserMessage::writeWelcomeMessage( $user, $threadArticle,  $threadBody, $editSummary, $editor );
+
+			// Need to edit as another user. Lqt does not provide an interface to alternative users,
+			// so replacing $wgUser here.
+			global $wgUser;
+			$parkedUser = $wgUser;
+			$wgUser = $editor;
+
+			LqtView::newPostMetadataUpdates(
+				array(
+					'talkpage' => $article,
+					'text' => $threadBody,
+					'summary' => $editSummary,
+					'root' => $threadArticle,
+					'subject' => $threadSubject,
+					'signature' => $signature,
+				)
+			);
+
+			// Set $wgUser back to the newly created user
+			$wgUser = $parkedUser;
+
+			// Stop processing after this hook.
+			return false;
+		}
+		return true;
+	}
+
 }
