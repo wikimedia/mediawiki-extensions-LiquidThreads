@@ -10423,6 +10423,7 @@ $messages['mt'] = array(
 	'lqt-older' => 'eqdem',
 	'lqt-newer' => 'iġded',
 	'lqt-read-all' => 'Immarkahom kollha bħala moqrija',
+	'lqt-no-new-messages' => "M'hemm l-ebda messaġġ ġdid għalik.",
 	'lqt-new-messages' => "✒ M'hemm l-ebda messaġġ ġdid għalik.",
 	'lqt-history-time' => 'Ħin',
 	'lqt-history-user' => 'Utent',
