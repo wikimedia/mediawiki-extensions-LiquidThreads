@@ -314,6 +314,10 @@ The signature is shown automatically.',
 
 	// Reply subpage name
 	'lqt-reply-subpage' => 'reply',
+
+	// New User Welcome Message
+	'lqt-newusermessage-template-subject' => 'Template:Welcome-subject',
+	'lqt-newusermessage-template-body' => 'Template:Welcome-body',
 );
 
 /** Message documentation (Message documentation)
@@ -518,6 +522,8 @@ Displayed in a list of actions to confirm in a confirmation dialog.',
 	'lqt-reply-subpage' => 'Part of the page title when a LiquidThread answer is given. Should probably be translated as a noun and not as a verb.
 
 {{Identical|Reply}}',
+	'lqt-newusermessage-template-subject' => 'Always substituted. Used if LiquidThreads is enabled in the User_talk namespace. Do not translate or duplicate this message to other languages',
+	'lqt-newusermessage-template-body' => 'Used if LiquidThreads is enabled in the User_talk namespace. Do not translate or duplicate this message to other languages',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)

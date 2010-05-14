@@ -483,98 +483,108 @@ class LqtHooks {
  		return true;
  	}
 
-	static function createNewUserMessage( $user, $editor, $editSummary, $substitute, $signature ) {
+	static function setupNewUserMessageSubject( &$subject ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+
+		$subject = self::getTextForPageInKey( 'lqt-newusermessage-template-subject' );
+		// Do not continue if there is no valid subject title
+		if ( !$subject ) {
+			wfDebug( __METHOD__ . ": no text found for the subject\n" );
+			return true;
+		}
+
+		return false;
+	}
+
+	static function setupNewUserMessageBody( &$text ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+
+		// Get the body text
+		$text = self::getTextForPageInKey( 'lqt-newusermessage-template-body' );
+
+		// Do not continue if there is no body text
+		if ( !$text ) {
+			wfDebug( __METHOD__ . ": no text found for the body\n" );
+			return true;
+		}
+
+		return false;
+	}
+
+	static function setupUserMessageArticle( &$article, $subject, $user, $editor ) {
 		global $wgLqtTalkPages;
 
-		$talk = $user->getTalkPage(); // We already know it exists.
-
-		if ( $wgLqtTalkPages && LqtDispatch::isLqtPage( $talk ) ) {
-			$article = new Article( $talk );
-			$realName = $user->getRealName();
-			$name = $user->getName();
-
-			// Get subject text
-			$threadSubject = NewUserMessage::getTextForPageInKey( 'newusermessage-template-subject' );
-
-			// Do not continue if there is no valid subject title
-			if ( !$threadSubject ) {
-				wfDebug( __METHOD__ . ": no text found for the subject\n" );
-				return true;
-			}
-
-			/** Create the final subject text.
-			 * Always substituted and processed by parser to avoid awkward subjects
-			 * Use real name if new user provided it
-			 */
-			$parser = new Parser;
-			$parser->setOutputType( 'wiki' );
-			$parserOptions = new ParserOptions;
-
-			if ( $realName ) {
-				$threadSubject = $parser->preSaveTransform(
-					"{{subst:{$threadSubject}|$realName}}",
-					$talk /* as dummy */,
-					$editor, $parserOptions
-				);
-			} else {
-				$threadSubject = $parser->preSaveTransform(
-					"{{subst:{$threadSubject}|$name}}",
-					$talk /* as dummy */,
-					$editor,
-					$parserOptions
-				);
-			}
-
-			// Get the body text
-			$threadBody = NewUserMessage::getTextForPageInKey( 'newusermessage-template-body' );
-
-			// Do not continue if there is no body text
-			if ( !$threadBody ) {
-				wfDebug( __METHOD__ . ": no text found for the body\n" );
-				return true;
-			}
-
-			// Create the final body text after checking if the template is to be substituted.
-			if ( $substitute ) {
-				$threadBody = "{{subst:{$threadBody}|$name|$realName}}";
-			} else {
-				$threadBody = "{{{$threadBody}|$name|$realName}}";
-			}
-
-			$threadTitle = Threads::newThreadTitle( $threadSubject, $article );
+		if ( $wgLqtTalkPages && LqtDispatch::isLqtPage( $article->getTitle() ) ) {
+			$threadTitle = Threads::newThreadTitle( $subject, $article );
 
 			if ( !$threadTitle ) {
 				wfDebug( __METHOD__ . ": invalid title $threadTitle\n" );
 				return true;
 			}
 
-			$threadArticle = new Article( $threadTitle );
-			NewUserMessage::writeWelcomeMessage( $user, $threadArticle,  $threadBody, $editSummary, $editor );
+			$article = new Article( $threadTitle );
+			return false;
+		}
+		return true;
+	}
 
+	static function afterUserMessage( $user, $article, $summary, $signature, $editor, $text ) {
+		global $wgLqtTalkPages;
+		$talk = $user->getTalkPage();
+
+		if ( $wgLqtTalkPages && LqtDispatch::isLqtPage( $talk ) ) {
 			// Need to edit as another user. Lqt does not provide an interface to alternative users,
 			// so replacing $wgUser here.
 			global $wgUser;
 			$parkedUser = $wgUser;
 			$wgUser = $editor;
 
+			$title = preg_replace( "{/[^/]+}", "", $article->getTitle()->getBaseText() );
+			$baseArticle = new Article( Title::newFromText( $title ) );
+			$threadTitle = preg_replace( "{.*/([^/]+)}", '$1', $article->getTitle()->getBaseText() );
+
 			LqtView::newPostMetadataUpdates(
 				array(
-					'talkpage' => $article,
-					'text' => $threadBody,
-					'summary' => $editSummary,
-					'root' => $threadArticle,
-					'subject' => $threadSubject,
+					'talkpage' => $baseArticle,
+					'text' => $text,
+					'summary' => $summary,
+					'root' => $article,
+					'subject' => $threadTitle,
 					'signature' => $signature,
 				)
 			);
 
 			// Set $wgUser back to the newly created user
 			$wgUser = $parkedUser;
-
-			// Stop processing after this hook.
 			return false;
 		}
 		return true;
 	}
 
+	/**
+	 * Returns the text contents of a template page set in given key contents
+	 * Returns empty string if no text could be retrieved.
+	 * @param $key String: message key that should contain a template page name
+	 */
+	private static function getTextForPageInKey( $key ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+
+		$templateTitleText = wfMsgForContent( $key );
+		$templateTitle = Title::newFromText( $templateTitleText );
+
+		// Do not continue if there is no valid subject title
+		if ( !$templateTitle ) {
+			wfDebug( __METHOD__ . ": invalid title in " . $key . "\n" );
+			return '';
+		}
+
+		// Get the subject text from the page
+		if ( $templateTitle->getNamespace() == NS_TEMPLATE ) {
+			return $templateTitle->getText();
+		} else {
+			// There is no subject text
+			wfDebug( __METHOD__ . ": " . $templateTitleText . " must be in NS_TEMPLATE\n" );
+			return '';
+		}
+	}
 }
