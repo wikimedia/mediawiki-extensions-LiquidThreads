@@ -727,7 +727,7 @@ class ApiThreadAction extends ApiBase {
 				"the action being taken. Presently only works for newthread " .
 				"and reply actions.",
 			'sortkey' => "Specifies the timestamp to which to set a thread's " .
-					"sort  key. Must be in the form YYYYMMddhhmmss, " .
+					"sort key. Must be in the form YYYYMMddhhmmss, " .
 					"a unix timestamp or 'now'.",
 			'signature' => 'Specifies the signature to use for that post. Can be ' .
 					'NULL to specify the default signature',
