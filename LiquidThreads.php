@@ -105,6 +105,9 @@ $wgHooks['SetupNewUserMessageSubject'][] = 'LqtHooks::setupNewUserMessageBody';
 $wgHooks['SetupUserMessageArticle'][] = 'LqtHooks::setupUserMessageArticle';
 $wgHooks['AfterUserMessage'][] = 'LqtHooks::afterUserMessage';
 
+// JS variables
+$wgHooks['MakeGlobalVariablesScript'][] = 'LqtHooks::onMakeGlobalVariablesScript';
+
 // Special pages
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';

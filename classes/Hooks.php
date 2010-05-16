@@ -6,6 +6,7 @@ class LqtHooks {
 	public static $editAppliesTo = null;
 	public static $editArticle = null;
 	public static $editTalkpage = null;
+	public static $scriptVariables = array();
 
 	static function customizeOldChangesList( &$changeslist, &$s, $rc ) {
 		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD )
@@ -558,6 +559,11 @@ class LqtHooks {
 			$wgUser = $parkedUser;
 			return false;
 		}
+		return true;
+	}
+
+	public static function onMakeGlobalVariablesScript( &$vars ) {
+		$vars += self::$scriptVariables;
 		return true;
 	}
 

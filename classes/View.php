@@ -1178,7 +1178,7 @@ class LqtView {
 		global $wgEnableJS2system;
 		global $wgLiquidThreadsExtensionName;
 
-		$wgOut->addInlineScript( 'var wgLqtMessages = ' . self::exportJSLocalisation() . ';' );
+		LqtHooks::$scriptVariables['wgLqtMessages'] = self::exportJSLocalisation();
 
 		$basePath = "$wgScriptPath/extensions/$wgLiquidThreadsExtensionName";
 
@@ -1242,7 +1242,7 @@ class LqtView {
 			$data[$msg] = wfMsgNoTrans( $msg );
 		}
 
-		return json_encode( $data );
+		return $data;
 	}
 
 	/* @return False if the article and revision do not exist. The HTML of the page to
