@@ -15961,6 +15961,8 @@ Bạn có thể sử dụng cú pháp wiki trong tóm tắt. Khi nào xong, hãy
 	'lqt-log-name' => 'Nhật trình thảo luận theo luồng',
 	'lqt-log-header' => 'Nhật trình này liệt kê các tác vụ luồng thảo luận.',
 	'lqt-log-action-move' => 'di chuyển [[$1]] từ [[$2]] đến [[$3]].',
+	'lqt-log-action-split' => 'chia [[$1]] khỏi [[$3]] với chủ đề mới là “$2”',
+	'lqt-log-action-merge-down' => 'hợp nhất [[$1]] vào dưới [[$3]]',
 	'lqt-preference-notify-talk' => 'Gửi thư cho tôi khi ai trả lời luồng tôi đang theo dõi',
 	'lqt-preference-watch-threads' => 'Theo dõi các luồng tôi tạo hay trả lời',
 	'prefs-lqt' => 'Thảo luận theo luồng',
@@ -16402,6 +16404,7 @@ $messages['zh-hans'] = array(
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Alexsh
  * @author Gaoxuewei
+ * @author Horacewai2
  * @author Liangent
  * @author Mark85296341
  * @author Shinjiman
@@ -16422,6 +16425,7 @@ $messages['zh-hant'] = array(
 * 與跨wiki前綴或名字空間名稱衝突。',
 	'lqt_empty_subject' => '請輸入主題。',
 	'lqt_reply' => '回覆',
+	'lqt-parent' => '父分類',
 	'lqt_delete' => '刪除',
 	'lqt_undelete' => '反刪除',
 	'lqt_permalink' => '連結到',
@@ -16477,7 +16481,7 @@ $messages['zh-hant'] = array(
 	'lqt_summary_notice' => '此討論已在至少$2{{PLURAL:$2|日|日}}內沒有任何修改。
 如果它已經結束了，您可以為它$1。',
 	'lqt_summary_notice_link' => '寫一個摘要',
-	'lqt_summary_label' => '這個討論串已經摘要為:',
+	'lqt_summary_label' => '討論摘要:',
 	'lqt_summary_subtitle' => "''$1''的摘要",
 	'lqt_nosuchrevision' => '在這個討論串中沒有所要的修訂。',
 	'lqt_nosuchthread' => '您指定的話題並不存在。',
@@ -16541,8 +16545,8 @@ $messages['zh-hant'] = array(
 	'lqt-history-action' => '活躍度',
 	'lqt-history-comment' => '評論',
 	'lqt-history-thread' => '話題',
-	'lqt-thread-edited-author' => '由作者編輯',
-	'lqt-thread-edited-others' => '由其他用戶編輯',
+	'lqt-thread-edited-author' => '已由作者於$1編輯。',
+	'lqt-thread-edited-others' => '由{{PLURAL:$2|一|$2}}名其他用戶於$1編輯',
 	'lqt-header-actions' => '動作',
 	'lqt_summarize_link' => '摘要',
 	'lqt-summarize-intro' => "請在此編輯框中摘要概述下列話題。
@@ -16566,8 +16570,8 @@ $messages['zh-hant'] = array(
 	'lqt-newmessages-from' => '來自$1',
 	'lqt-hot-topics' => '熱門話題',
 	'lqt-add-reply' => '添加回复',
-	'lqt_rc_new_discussion' => "$2上有新討論''$1'' • $3寫道：",
-	'lqt_rc_new_reply' => "回复$2上的話題''$1'' • $3寫道：",
+	'lqt_rc_new_discussion' => '$1有新討論',
+	'lqt_rc_new_reply' => '對$1發表回覆',
 	'right-lqt-split' => '分割話題',
 	'right-lqt-merge' => '合併話題',
 	'lqt-thread-merge' => '合併到其他話題',
@@ -16580,6 +16584,11 @@ $messages['zh-hant'] = array(
 	'lqt-log-name' => '話題討論日誌',
 	'lqt-log-header' => '此日誌記錄了對討論話題進行的操作。',
 	'lqt-log-action-move' => '將[[$1]]從[[$2]]移動到[[$3]]。',
+	'lqt-log-action-split' => '將[[$1]]移動[[$3]]，以$2作新主題。',
+	'lqt-log-action-merge-across' => '已將[[$1]] (在[[$2]]之下)移到[[$3]]之下。',
+	'lqt-log-action-merge-down' => '已將[[$1]]合併到下方的[[$3]]',
+	'lqt-log-action-subjectedit' => "已將[[$1]]的主題由'''$2'''改為'''$3'''。",
+	'lqt-log-action-resort' => '已將[[$1]]的次序調轉。從$2到$3。',
 	'lqt-preference-notify-talk' => '當監視話題有新回复時發送電子郵件通知我',
 	'lqt-preference-watch-threads' => '監視我發起或回复的話題',
 	'prefs-lqt' => '話題討論',
