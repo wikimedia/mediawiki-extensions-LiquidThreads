@@ -484,35 +484,6 @@ class LqtHooks {
  		return true;
  	}
 
-	static function setupNewUserMessageSubject( &$subject ) {
-		wfLoadExtensionMessages( 'LiquidThreads' );
-
-		$subject = self::getTextForPageInKey( 'lqt-newusermessage-template-subject' );
-
-		// Let someone else take over if we didn't get a valid subject
-		if ( !$subject ) {
-			wfDebug( __METHOD__ . ": no text found for the subject\n" );
-			return true;
-		}
-
-		return false;
-	}
-
-	static function setupNewUserMessageBody( &$text ) {
-		wfLoadExtensionMessages( 'LiquidThreads' );
-
-		// Get the body text
-		$text = self::getTextForPageInKey( 'lqt-newusermessage-template-body' );
-
-		// Let someone else take over if we didn't get a valid body
-		if ( !$text ) {
-			wfDebug( __METHOD__ . ": no text found for the body\n" );
-			return true;
-		}
-
-		return false;
-	}
-
 	static function setupUserMessageArticle( $user, &$article, $subject, $text, $signature, $summary, $editor ) {
 		global $wgLqtTalkPages;
 
@@ -528,6 +499,14 @@ class LqtHooks {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * Take care of formatting a user message.  We don't really need
+	 * to do anything, we just need to stop others from doing stuff.
+	 */
+	static function formatUserMessage( $subject, &$text, $signature ) {
+		return false;
 	}
 
 	static function afterUserMessage( $user, $article, $subject, $text, $signature, $summary, $editor ) {
