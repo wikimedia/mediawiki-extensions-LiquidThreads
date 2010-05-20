@@ -488,7 +488,8 @@ class LqtHooks {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		$subject = self::getTextForPageInKey( 'lqt-newusermessage-template-subject' );
-		// Do not continue if there is no valid subject title
+
+		// Let someone else take over if we didn't get a valid subject
 		if ( !$subject ) {
 			wfDebug( __METHOD__ . ": no text found for the subject\n" );
 			return true;
@@ -503,7 +504,7 @@ class LqtHooks {
 		// Get the body text
 		$text = self::getTextForPageInKey( 'lqt-newusermessage-template-body' );
 
-		// Do not continue if there is no body text
+		// Let someone else take over if we didn't get a valid body
 		if ( !$text ) {
 			wfDebug( __METHOD__ . ": no text found for the body\n" );
 			return true;
@@ -512,7 +513,7 @@ class LqtHooks {
 		return false;
 	}
 
-	static function setupUserMessageArticle( &$article, $subject, $user, $editor ) {
+	static function setupUserMessageArticle( $user, &$article, $subject, $text, $signature, $summary, $editor ) {
 		global $wgLqtTalkPages;
 
 		if ( $wgLqtTalkPages && LqtDispatch::isLqtPage( $article->getTitle() ) ) {
@@ -529,7 +530,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function afterUserMessage( $user, $article, $summary, $signature, $editor, $text ) {
+	static function afterUserMessage( $user, $article, $subject, $text, $signature, $summary, $editor ) {
 		global $wgLqtTalkPages;
 		$talk = $user->getTalkPage();
 

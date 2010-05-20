@@ -99,7 +99,7 @@ $wgHooks['TitleGetRestrictionTypes'][] = 'LqtHooks::getProtectionTypes';
 
 // New User Messages
 $wgHooks['SetupNewUserMessageSubject'][] = 'LqtHooks::setupNewUserMessageSubject';
-$wgHooks['SetupNewUserMessageSubject'][] = 'LqtHooks::setupNewUserMessageBody';
+$wgHooks['SetupNewUserMessageBody'][] = 'LqtHooks::setupNewUserMessageBody';
 
 // User Message
 $wgHooks['SetupUserMessageArticle'][] = 'LqtHooks::setupUserMessageArticle';
