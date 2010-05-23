@@ -311,8 +311,17 @@ class LqtView {
 		$operand = $this->request->getVal( 'lqt_operand' );
 
 		$thread = Threads::withId( intval( $operand ) );
+		
+		$hookResult = wfRunHooks( 'LiquidThreadsDoInlineEditForm',
+					array(
+						$thread,
+						$this->request,
+						&$this->output
+					) );
 
-		if ( $method == 'reply' ) {
+		if ( !$hookResult ) {
+			// Handled by a hook.
+		} elseif ( $method == 'reply' ) {
 			$this->showReplyForm( $thread );
 		} elseif ( $method == 'talkpage_new_thread' ) {
 			$this->showNewThreadForm( $this->article );
@@ -396,6 +405,8 @@ class LqtView {
 			Xml::tags( 'p', null, $signatureHTML );
 			
 		$e->editFormTextBeforeContent .= $this->getSubjectEditor( '', $subject );
+		
+		wfRunHooks( 'LiquidThreadsAfterShowNewThreadForm', array( &$e, $talkpage ) );
 		
 		$e->edit();
 		
@@ -563,6 +574,8 @@ class LqtView {
 		
 		$article = $thread->root();
 		$talkpage = $thread->article();
+		
+		wfRunHooks( 'LiquidThreadsEditFormContent', array( $thread, &$article, $talkpage ) );
 		
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
@@ -799,6 +812,8 @@ class LqtView {
 			$summary, $bump, $signature
 		);
 		
+		wfRunHooks( 'LiquidThreadsAfterReplyMetadataUpdates', array( &$thread ) );
+		
 		return $thread;
 	}
 	
@@ -891,6 +906,8 @@ class LqtView {
 			Threads::TYPE_NORMAL, $subject,
 			$summary, null, $signature
 		);
+		
+		wfRunHooks( 'LiquidThreadsAfterNewPostMetadataUpdates', array( &$thread ) );
 
 		return $thread;
 	}
@@ -1399,7 +1416,7 @@ class LqtView {
 			$this->output->addHTML( $html );
 			$html = '';
 
-			// No way am I refactoring EditForm to send its output as HTML.
+			// No way am I refactoring EditForm to return its output as HTML.
 			//  so I'm just flushing the HTML and displaying it as-is.
 			$this->showPostEditingForm( $thread );
 			$html .= Xml::closeElement( 'div' );
@@ -1414,6 +1431,11 @@ class LqtView {
 			$html .= Xml::closeElement( 'div' );
 			$html .= Xml::tags( 'div', array( 'style' => 'clear: both; height: 0' ),
 						'&nbsp;' );
+						
+			wfRunHooks( 'LiquidThreadsShowPostThreadBody',
+				array( $thread, $this->request, &$html ) );
+
+
 			$html .= $this->showThreadToolbar( $thread );
 			$html .= $this->threadSignature( $thread );
 		}
@@ -1438,6 +1460,8 @@ class LqtView {
 		$signature .= Xml::element( 'span',
 					array( 'class' => 'lqt-thread-toolbar-timestamp' ),
 					$timestamp );
+					
+		wfRunHooks( 'LiquidThreadsThreadSignature', array( $thread, &$signature ) );
 
 		$signature = Xml::tags( 'div', array( 'class' => 'lqt-thread-signature' ),
 					$signature );
