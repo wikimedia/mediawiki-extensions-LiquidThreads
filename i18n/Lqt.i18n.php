@@ -8872,15 +8872,28 @@ $messages['ka'] = array(
 	'lqt-thread-link-title' => 'ვიკიტექსტის ბმული:',
 	'lqt-change-subject' => 'სათაურის შეცვლა',
 	'lqt-save-subject' => 'შენახვა',
+	'lqt-save-subject-failed' => 'წარმოიშვა შეცდომა თემის სათაურის შეცვლისას: $1',
+	'lqt-ajax-invalid-subject' => 'თქვენს მიერ მითითებული სათაური არასწორი აღმოჩნდა, შეიძლება ის ძალიან გრძელია.',
+	'lqt-ajax-no-subject' => 'თქვენ უნდა მიუთითოთ სათაური.',
+	'lqt-save-subject-error-unknown' => 'წარმოიშვა შეცდომა თემის სათაურის შექმნისას. გთხოვთ სცადეთ კვლავ ღილაკის "რედაქტირება" დაჭერით.',
 	'lqt-cancel-subject-edit' => 'გაუქმება',
+	'lqt-drag-activate' => 'ახალ ადგილას გადატანა',
+	'lqt-drag-confirm' => 'ამ მოქმედების შესასრულებლად, გთხოვთ შეავსეთ მიზეზის ველი და დააჭირეთ "დადასტურება".',
+	'lqt-drag-split' => 'გადაიტანეთ თემა მის საკუთარ ტოტში',
+	'lqt-drag-bump' => 'თემის გადატანა განხილვის გვერდის თავში',
 	'lqt-drag-save' => 'დადასტურება',
 	'lqt-drag-reason' => 'მიზეზი:',
+	'lqt-drag-subject' => 'სათაური ახალი ტოტისათვის:',
 	'lqt-edit-signature' => '(რედაქტირების ხელმოწერა)',
 	'lqt-preview-signature' => '(წინა)',
 	'lqt-feed-title-all' => '{{SITENAME}} — ახალი თემები',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — ახალი თემები $1-დან',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — ახალი თემები',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — ახალი თემები $1-დან',
 	'lqt-feed-title-replies' => '{{SITENAME}} — პასუხები',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — პასუხები $1-დან',
+	'lqt-feed-new-thread-intro' => 'ახალი თემა $1-ზე, დადებული $2-ის მიერ',
+	'lqt-feed-reply-intro' => 'პასუხი $3-ს ($1-ზე), დადებული $2-ის მიერ',
 	'lqt-newmessages-n' => 'ახალი შეტყობინებები ($1)',
 	'lqt_newmessages' => 'ახალი შეტყობინებები',
 	'lqt_newmessages-title' => 'ახალი შეტყობინებები',
@@ -8889,6 +8902,10 @@ $messages['ka'] = array(
 	'lqt-talkpage-history-title' => 'განხილვის გვერდის ისტორია',
 	'lqt-talkpage-history-subtitle' => '$1-სთვის',
 	'lqt-talkpage-history-tab' => 'თავი',
+	'restriction-reply' => 'პასუხების დადება',
+	'restriction-newthread' => 'ახალი ტოტების დადება',
+	'lqt-protected-reply-thread' => 'თქვენ არ შეგიძლიათ თემის დადება ამ ტოტში, ვინაიდან ის დაცულია ახალი თემებისაგან.',
+	'lqt-protected-reply-talkpage' => 'თქვენ არ შეგიძლიათ თემის დადება ამ ტოტში, ვინაიდან ეს განხილვის გვერდი დაცულია პასუხებისაგან მის ტოტში.',
 	'lqt-reply-subpage' => 'პასუხი',
 );
 
@@ -16163,6 +16180,7 @@ $messages['vo'] = array(
  * @author Huuchin
  */
 $messages['xal'] = array(
+	'lqt_youhavenewmessages' => 'Та [[$1|шин зәңгстә]] бәәнәт.',
 	'lqt_newmessages' => 'Шин зәңгс',
 );
 
