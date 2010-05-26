@@ -46,7 +46,6 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 
 	function showHistoryInfo() {
 		global $wgLang;
-		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		$html = wfMsgExt(
 			'lqt_revision_as_of',

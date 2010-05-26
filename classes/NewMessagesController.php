@@ -243,7 +243,6 @@ class NewMessages {
 	}
 
 	static function notifyUsersByMail( $t, $watching_users, $timestamp, $type ) {
-		wfLoadExtensionMessages( 'LiquidThreads' );
 		$messages = array(
 			Threads::CHANGE_REPLY_CREATED => 'lqt-enotif-reply',
 			Threads::CHANGE_NEW_THREAD => 'lqt-enotif-newthread',

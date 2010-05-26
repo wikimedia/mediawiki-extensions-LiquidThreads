@@ -8,7 +8,6 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 			return false;
 		}
 		self::addJSandCSS();
-		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		$this->thread->updateHistory();
 

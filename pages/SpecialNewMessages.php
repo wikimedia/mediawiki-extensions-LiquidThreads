@@ -13,13 +13,11 @@ class SpecialNewMessages extends SpecialPage {
 	* @see SpecialPage::getDescription
 	*/
 	function getDescription() {
-		wfLoadExtensionMessages( 'LiquidThreads' );
 		return wfMsg( 'lqt_newmessages-title' );
 	}
 
 	function execute( $par ) {
 		global $wgOut, $wgRequest, $wgUser;
-		wfLoadExtensionMessages( 'LiquidThreads' );
 		$this->user = $wgUser;
 		$this->output = $wgOut;
 		$this->request = $wgRequest;

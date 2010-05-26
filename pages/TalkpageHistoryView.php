@@ -6,7 +6,6 @@ class TalkpageHistoryView extends TalkpageView {
 		global $wgUser;
 
 		self::addJSandCSS();
-		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		$sk = $wgUser->getSkin();
 

@@ -25,7 +25,6 @@ class NewUserMessagesView extends LqtView {
 	}
 
 	function getReadAllButton( $threads ) {
-		wfLoadExtensionMessages( 'LiquidThreads' );
 		$ids =  array_map( create_function( '$t', 'return $t->id();' ), $threads ); // ew
 		return $this->htmlForReadButton(
 			wfMsg( 'lqt-read-all' ),
@@ -36,8 +35,6 @@ class NewUserMessagesView extends LqtView {
 	}
 
 	function getUndoButton( $ids ) {
-		wfLoadExtensionMessages( 'LiquidThreads' );
-
 		if ( count( $ids ) == 1 ) {
 			$t = Threads::withId( $ids[0] );
 			if ( !$t )
@@ -164,8 +161,6 @@ class NewUserMessagesView extends LqtView {
 	}
 
 	function showWrappedThread( $t ) {
-		wfLoadExtensionMessages( 'LiquidThreads' );
-
 		$read_button = $this->htmlForReadButton(
 			wfMsg( 'lqt-read-message' ),
 			wfMsg( 'lqt-read-message-tooltip' ),
