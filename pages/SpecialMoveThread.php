@@ -6,6 +6,7 @@ class SpecialMoveThread extends ThreadActionPage {
 	* @see SpecialPage::getDescription
 	*/
 	function getDescription() {
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		return wfMsg( 'lqt_movethread' );
 	}
 
@@ -26,6 +27,7 @@ class SpecialMoveThread extends ThreadActionPage {
 	function getPageName() { return 'MoveThread'; }
 
 	function getSubmitText() {
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		return wfMsg( 'lqt_move_move' );
 	}
 

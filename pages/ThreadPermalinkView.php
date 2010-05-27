@@ -13,6 +13,8 @@ class ThreadPermalinkView extends LqtView {
 	}
 
 	static function customizeThreadTabs( $skintemplate, &$content_actions, $view ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+
 		if ( !$view->thread ) {
 			return true;
 		}
@@ -133,15 +135,18 @@ class ThreadPermalinkView extends LqtView {
 	}
 
 	function noSuchRevision() {
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		$this->output->addWikiMsg( 'lqt_nosuchrevision' );
 	}
 
 	function showMissingThreadPage() {
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		$this->output->setPageTitle( wfMsg( 'lqt_nosuchthread_title' ) );
 		$this->output->addWikiMsg( 'lqt_nosuchthread' );
 	}
 
 	function getSubtitle() {
+		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		$sk = $this->user->getSkin();
 		$fragment = '#' . $this->anchorName( $this->thread );

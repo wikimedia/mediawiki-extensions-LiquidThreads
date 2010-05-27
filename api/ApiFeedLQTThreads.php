@@ -109,6 +109,7 @@ class ApiFeedLQTThreads extends ApiBase {
 	}
 
 	public static function createFeedTitle( $params ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		$fromPlaces = array();
 
 		foreach ( (array)$params['thread'] as $thread ) {

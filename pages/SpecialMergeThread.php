@@ -71,6 +71,7 @@ class SpecialMergeThread extends ThreadActionPage {
 	* @see SpecialPage::getDescription
 	*/
 	function getDescription() {
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		return wfMsg( 'lqt_merge_thread' );
 	}
 
@@ -97,6 +98,7 @@ class SpecialMergeThread extends ThreadActionPage {
 	}
 
 	function getSubmitText() {
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		return wfMsg( 'lqt-merge-submit' );
 	}
 }

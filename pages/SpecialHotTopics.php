@@ -7,6 +7,8 @@ class SpecialHotTopics extends SpecialPage {
 	function execute( $par ) {
 		global $wgOut;
 
+		wfLoadExtensionMessages( 'LiquidThreads' );
+
 		$this->setHeaders();
 
 		$wgOut->setPageTitle( wfMsg( 'lqt-hot-topics' ) );

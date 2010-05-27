@@ -19,6 +19,8 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 	protected function getRightRequirement() { return ''; }
 
 	function execute( $par ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+
 		global $wgOut, $wgUser;
 
 		if ( !$this->userCanExecute( $wgUser ) ) {
@@ -42,6 +44,7 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 		// Handle parameter
 		$this->mTarget = $par;
 		if ( $par === null || $par === "" ) {
+			wfLoadExtensionMessages( 'LiquidThreads' );
 			$this->output->addHTML( wfMsg( 'lqt_threadrequired' ) );
 			return false;
 		}

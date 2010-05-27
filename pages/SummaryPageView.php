@@ -3,6 +3,7 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class SummaryPageView extends LqtView {
 	function show() {
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		$thread = Threads::withSummary( $this->article );
 		if ( $thread && $thread->root() ) {
 			global $wgUser;

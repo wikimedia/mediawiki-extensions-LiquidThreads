@@ -16,6 +16,7 @@ class LqtHooks {
 		if ( !$thread ) return true;
 
 		LqtView::addJSandCSS();
+		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		global $wgUser, $wgLang;
 		$sk = $wgUser->getSkin();
@@ -55,6 +56,7 @@ class LqtHooks {
 			return true;
 		}
 
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		$newmsg_t = SpecialPage::getTitleFor( 'NewMessages' );
 		$watchlist_t = SpecialPage::getTitleFor( 'Watchlist' );
 		$usertalk_t = $wgUser->getTalkPage();
@@ -96,6 +98,7 @@ class LqtHooks {
 			return true;
 
 		LqtView::addJSandCSS();
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		$messages_title = SpecialPage::getTitleFor( 'NewMessages' );
 		$new_messages = wfMsgExt( 'lqt-new-messages', 'parseinline' );
 
@@ -109,6 +112,7 @@ class LqtHooks {
 
 	static function getPreferences( $user, &$preferences ) {
 		global $wgEnableEmail;
+		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		if ( $wgEnableEmail ) {
 			$preferences['lqtnotifytalk'] =
@@ -249,6 +253,7 @@ class LqtHooks {
 		}
 
 		if ( $title->getNamespace() == NS_LQT_THREAD && self::$editType != 'new' ) {
+			wfLoadExtensionMessages( 'LiquidThreads' );
 			$label = wfMsgExt( 'lqt-edit-bump', 'parseinline' );
 			$tooltip = wfMsgExt( 'lqt-edit-bump-tooltip', 'parsemag' );
 
@@ -270,6 +275,8 @@ class LqtHooks {
 	}
 
 	static function customiseSearchProfiles( &$profiles ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+
 		$namespaces = array( NS_LQT_THREAD, NS_LQT_SUMMARY );
 
 		// Add odd namespaces
@@ -394,6 +401,8 @@ class LqtHooks {
 		global $wgUser, $wgLang;
 
 		if ( $wgUser->isAnon() ) return true;
+
+		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		$dbr = wfGetDB( DB_SLAVE );
 
@@ -544,6 +553,8 @@ class LqtHooks {
 	 * @param $key String: message key that should contain a template page name
 	 */
 	private static function getTextForPageInKey( $key ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+
 		$templateTitleText = wfMsgForContent( $key );
 		$templateTitle = Title::newFromText( $templateTitleText );
 

@@ -50,6 +50,7 @@ class TalkpageView extends LqtView {
 
 		$oldid = $this->request->getVal( 'oldid', null );
 
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		// If $article_text == "", the talkpage was probably just created
 		// when the first thread was posted to make the links blue.
 		if ( $article->exists() ) {
@@ -108,6 +109,8 @@ class TalkpageView extends LqtView {
 	function getTOC( $threads ) {
 		global $wgLang;
 
+		wfLoadExtensionMessages( 'LiquidThreads' );
+
 		$sk = $this->user->getSkin();
 
 		$html = '';
@@ -164,6 +167,7 @@ class TalkpageView extends LqtView {
 	}
 
 	function getArchiveWidget( ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
 		$url = $this->talkpageUrl( $this->title, 'talkpage_archive' );
 
 		$html = '';
@@ -172,6 +176,8 @@ class TalkpageView extends LqtView {
 	}
 
 	function showTalkpageViewOptions( $article ) {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+
 		if ( $article->exists() ) {
 			$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
 			$go = wfMsg( 'go' );
@@ -218,6 +224,8 @@ class TalkpageView extends LqtView {
 	}
 
 	function show() {
+		wfLoadExtensionMessages( 'LiquidThreads' );
+
 		$this->output->setPageTitle( $this->title->getPrefixedText() );
 		self::addJSandCSS();
 
