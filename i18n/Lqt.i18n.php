@@ -9880,6 +9880,14 @@ $messages['lt'] = array(
 	'lqt_newmessages' => 'Naujos žinutės',
 );
 
+/** Latvian (Latviešu)
+ * @author GreenZeb
+ */
+$messages['lv'] = array(
+	'lqt-save-subject' => 'Saglabāt',
+	'lqt-cancel-subject-edit' => 'Atcelt',
+);
+
 /** Malagasy (Malagasy)
  * @author Jagwar
  */
