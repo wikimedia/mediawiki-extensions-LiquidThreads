@@ -14129,6 +14129,7 @@ $messages['su'] = array(
 );
 
 /** Swedish (Svenska)
+ * @author Ainali
  * @author Boivie
  * @author Dafer45
  * @author Fluff
@@ -14159,6 +14160,7 @@ Det kan bero på att:
 * det sammanfaller med ett interwiki-prefix eller namnrymndsnamn.',
 	'lqt_empty_subject' => 'Du måste ange ett ämne.',
 	'lqt_reply' => 'Svara',
+	'lqt-parent' => 'Förälder',
 	'lqt_delete' => 'Radera',
 	'lqt_undelete' => 'Återupprätta',
 	'lqt_permalink' => 'Länk till detta',
