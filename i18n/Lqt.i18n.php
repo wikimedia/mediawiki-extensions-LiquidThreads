@@ -2822,6 +2822,32 @@ El podeu veure a <$6>',
 	'lqt-reply-subpage' => 'contesta',
 );
 
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
+$messages['ce'] = array(
+	'lqt_delete' => 'Дlадайá',
+	'lqt_youhavenewmessages' => 'Хьуна кхаьчна [[$1|керла хаамаш]].',
+	'lqt_subject' => 'Корта:',
+	'lqt-title' => 'Корта',
+	'lqt-email-undo' => 'Цаоьшу',
+	'lqt-new-messages' => '✒ Хьуна кхаьчна керла хаамаш.',
+	'lqt-history-user' => 'Декъашхо',
+	'lqt-thread-edited-others' => 'Нисдина {{PLURAL:$2|1 кхечу декъашхочо|$2 кхечу декъашхош|$2 кхечу декъашхош}}.<br />
+Тlяххьара нисдинарг: $1',
+	'prefs-lqt' => 'Дийцарш оцу гéнашца',
+	'lqt-search-button' => 'Лаха',
+	'lqt-ajax-updated' => 'Хlокху га чохь керла хаам бу.',
+	'lqt-save-subject' => 'lалашдан',
+	'lqt-cancel-subject-edit' => 'Цаоьшу',
+	'lqt-preview-signature' => '(хьалха муха ю хьажар)',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Керла хаамаш $1',
+	'lqt-newmessages-n' => 'Керла хаамаш ($1)',
+	'lqt_newmessages' => 'Керла хаамаш',
+	'lqt_newmessages-title' => 'Керла хаамаш',
+	'lqt-talkpage-history-tab' => 'Корта',
+);
+
 /** Chamorro (Chamoru)
  * @author Gadao01
  * @author Jatrobat
@@ -8742,9 +8768,12 @@ $messages['ka'] = array(
 	'lqt_hist_tooltip_older_disabled' => 'ეს ბმული გამორთულია, ვინაიდან თქვენ იმყოფებით ბოლო გვერდზე.',
 	'lqt_hist_edited_subject' => 'შეცვლილია სათაური "$2-დან" "$3-ზე"',
 	'lqt_hist_edited_subject_corrupt' => 'თემა შეცვლილია',
+	'lqt_hist_merged_from' => '[[$1|პასუხი]] გადატანილია სხვა ტოტში',
+	'lqt_hist_merged_to' => '[[$1|პასუხი]] გადმოტანილია სხვა ტოტიდან',
 	'lqt_hist_split_from' => 'ახალ ტოტში გადატანა',
 	'lqt_hist_root_blanked' => 'კომენტარი წაშლილია',
 	'lqt_hist_adjusted_sortkey' => 'დაზუსტებული თემის პოზიცია',
+	'lqt_change_edited_summary' => 'შესწორდა ტოტის რეზიუმე',
 	'lqt_change_deleted' => '[$1 ეს ტოტი] ან მისი მშობლიური ტოტი წაიშალა',
 	'lqt_change_moved' => '[$ 1 ეს თემა] გადატანილია სხვა განხილვის გვერდზე',
 	'lqt_change_root_blanked' => 'ტექსტი [$1 კომენტარის] წაშლილია.',
@@ -10092,7 +10121,7 @@ $messages['mk'] = array(
 	'lqt-log-action-merge-down' => '[[$1]] ставена (споена) под [[$3]]',
 	'lqt-log-action-subjectedit' => 'изменет насловот на [[$1]] од „$2“ на „$3“',
 	'lqt-log-action-resort' => 'изменет редоследот на сортирање на [[$1]]. Клучот за сортирање изменет од $2 на $3.',
-	'lqt-preference-notify-talk' => 'Испрати ми е-пошта кога некој ќе одговори на нишка која ја набљудувам',
+	'lqt-preference-notify-talk' => 'Испрати ми е-пошта кога некој ќе одговори на нишка што ја набљудувам',
 	'lqt-preference-watch-threads' => 'Набљудувај ги нишките кои ги создавам или на кои одговарам',
 	'prefs-lqt' => 'Нанижан разговор',
 	'lqt-preference-display-depth' => 'Максимална длабочина на одговорите за прикажување:',
