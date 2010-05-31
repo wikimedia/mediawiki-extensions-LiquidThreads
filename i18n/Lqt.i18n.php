@@ -9913,6 +9913,7 @@ $messages['lt'] = array(
  * @author GreenZeb
  */
 $messages['lv'] = array(
+	'lqt-search-button' => 'Meklēt',
 	'lqt-save-subject' => 'Saglabāt',
 	'lqt-cancel-subject-edit' => 'Atcelt',
 );
