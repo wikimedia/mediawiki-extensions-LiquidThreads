@@ -8896,6 +8896,7 @@ $messages['ka'] = array(
 	'lqt-search-label' => 'ტერმინების ძიება:',
 	'lqt-search-button' => 'ძიება',
 	'searchprofile-threads' => 'განხილვები',
+	'lqt-ajax-updated' => 'ტოტს აქვს ახალი თემები.',
 	'lqt-ajax-update-link' => 'განახლება',
 	'lqt-thread-show-more' => 'მეტი პასუხის ჩვენება',
 	'lqt-thread-link-url' => 'URL ბმული:',
