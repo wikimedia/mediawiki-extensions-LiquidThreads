@@ -2,9 +2,8 @@
 /**
  * Internationalisation file for Liquid Threads extension.
  *
- * @package MediaWiki
- * @addtogroup Extensions
- * @subpackage LiquidThreads
+ * @file
+ * @ingroup Extensions
  * @author David McCabe <davemccabe@gmail.com> / i18n file by Erik Moeller and Siebrand Mazeland
  * @licence GPL2
  */

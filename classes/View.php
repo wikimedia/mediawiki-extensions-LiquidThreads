@@ -1,7 +1,7 @@
 <?php
 /**
-* @package MediaWiki
-* @subpackage LiquidThreads
+* @file
+* @ingroup LiquidThreads
 * @author David McCabe <davemccabe@gmail.com>
 * @licence GPL2
 */
