@@ -9,7 +9,7 @@ require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 
 $db = wfGetDB( DB_MASTER );
 
-$wgTitle = Title::makeTitleSafe( NS_SPECIAL, 'LiquidThreads' );
+$wgTitle = SpecialPage::getTitleFor( 'LiquidThreads' );
 
 // Do database updates
 $threadFieldUpdates = array(
