@@ -2838,6 +2838,8 @@ $messages['ce'] = array(
 Тlяххьара нисдинарг: $1',
 	'prefs-lqt' => 'Дийцарш оцу гéнашца',
 	'lqt-search-button' => 'Лаха',
+	'searchprofile-threads' => 'Дийцаре',
+	'searchprofile-threads-tooltip' => 'Лаха оцу дийцаре гаьнашкахь а дийцаре агlонашкахь',
 	'lqt-ajax-updated' => 'Хlокху га чохь керла хаам бу.',
 	'lqt-ajax-update-link' => 'Карлаяккха',
 	'lqt-thread-show-replies' => '* Гайта $1 жоьпаш',
