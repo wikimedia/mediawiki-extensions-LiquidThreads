@@ -328,6 +328,7 @@ The signature is shown automatically.',
  * @author Helix84
  * @author IAlex
  * @author Jon Harald Søby
+ * @author Lloffiwr
  * @author Malafaya
  * @author Minh Nguyen
  * @author Mormegil
@@ -413,6 +414,15 @@ Action results from button {{msg-mw|lqt_undelete}}',
 	'lqt_header_warning_bold' => 'Bolded text in {{msg-mw|lqt_header_warning_big}}, followed by {{msg-mw|lqt_header_warning_after_big}} + {{msg-mw|lqt_header_warning_new_discussion}}.',
 	'lqt_header_warning_new_discussion' => 'This message is $2 in {{msg-mw|Lqt header warning after big}}
 {{Identical|Start a new discussion}}',
+	'lqt_sorting_order' => 'Legend for drop-down box, at the top of a page using liquid threads, for example [[Support]].
+
+The drop-down box contains the following messages:
+*[[MediaWiki:Lqt_sort_newest_changes/{{SUBPAGENAME}}]]
+*[[MediaWiki:Lqt_sort_newest_threads/{{SUBPAGENAME}}]]
+*[[MediaWiki:Lqt_sort_oldest_threads/{{SUBPAGENAME}}]]',
+	'lqt_sort_newest_changes' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]]. The legend for the drop-down box is [[MediaWiki:Lqt_sorting_order/{{SUBPAGENAME}}]].',
+	'lqt_sort_newest_threads' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]]. The legend for the drop-down box is [[MediaWiki:Lqt_sorting_order/{{SUBPAGENAME}}]].',
+	'lqt_sort_oldest_threads' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]]. The legend for the drop-down box is [[MediaWiki:Lqt_sorting_order/{{SUBPAGENAME}}]].',
 	'lqt-title' => '{{Identical|Title}}',
 	'lqt-summary' => '{{Identical|Summary}}',
 	'lqt-older' => '{{Identical|Older}}',
@@ -14115,22 +14125,36 @@ $messages['sr-ec'] = array(
 	'lqt_hist_adjusted_sortkey' => 'Подешено је место теме',
 	'lqt_revision_as_of' => 'Ревизија од $2 у $3.',
 	'lqt_change_new_thread' => 'Ово је прва ревизија теме.',
+	'lqt_change_reply_created' => '[$1 Означени коментар] је направљен у овој ревизији.',
+	'lqt_change_edited_root' => '[$1 Означени коментар] је измењен у овој ревизији.',
 	'lqt_change_edited_summary' => 'Сажетак теме је измењен',
 	'lqt_change_deleted' => '[$1 Ова тема] или њена надстрана је обрисана',
+	'lqt_change_undeleted' => '[$1 Означена порука] је враћена',
 	'lqt_change_moved' => '[$1 Ова тема] је премештена на другу страну за разговор',
 	'lqt_change_split' => '[$1 Ова тема] је издвојена из друге теме',
 	'lqt_change_edited_subject' => 'Наслов ове теме је промењен са "$2" на "$3"',
 	'lqt_change_merged_from' => '[$1 Одговор] са ове теме је премештен на другу тему',
+	'lqt_change_merged_to' => '[$1 Означена порука] је овде премештена са неке друге теме',
 	'lqt_change_root_blanked' => 'Текст [$1 једног коментара] је обрисан.',
 	'lqt_youhavenewmessages' => 'Имате [[$1|нових порука]].',
 	'lqt_protectedfromreply_link' => 'заштићено',
 	'lqt_subject' => 'Наслов:',
+	'lqt_summary_notice_link' => 'напишите сажетак',
+	'lqt_summary_label' => 'Сажетак теме:',
+	'lqt_summary_subtitle' => 'Сажетак за "$1"',
+	'lqt_nosuchrevision' => 'Нема такве ревизије ове теме.',
+	'lqt_nosuchthread' => 'Тема коју сте навели не постоји.',
 	'lqt_nosuchthread_title' => 'Нема такве теме',
 	'lqt_move_movingthread' => 'Премештам $1.
 Ова тема је део $2.',
 	'lqt_move_torename_edit' => 'измени га',
 	'lqt_move_move' => 'Премести',
+	'lqt_move_noreason' => 'Није дат разлог.',
 	'lqt_delete_undeleting' => "Враћање '''$1'''.",
+	'lqt_delete_undeletethread' => 'Врати тему',
+	'lqt_delete_deletethread' => 'Обриши теме и одговоре',
+	'lqt_delete_deleted' => 'Тема је обрисана.',
+	'lqt_delete_undeleted' => 'Тема је враћена.',
 	'lqt_delete_return_link' => 'страна за разговор',
 	'lqt_delete_show_checkbox' => 'Прикажи обрисане теме',
 	'lqt_header_warning_new_discussion' => 'започни нови разговор',
@@ -14174,6 +14198,16 @@ $messages['sr-ec'] = array(
 	'lqt-thread-merge-source' => 'Изворна тема:',
 	'lqt-thread-merge-dest' => 'Циљана тема:',
 	'lqt-merge-submit' => 'Споји',
+	'lqt-merge-success' => 'Успешно сте спојили тему $1 са $2.',
+	'lqt-log-action-move' => 'moved [[$1]] from [[$2]] to [[$3]]
+премештена [[$1]] са [[$2]] на [[$3]]',
+	'lqt-log-action-split' => 'split [[$1]] from under [[$3]], with the new subject "$2"
+подељена [[$1]] са [[$3]], с новим насловом "$2"',
+	'lqt-log-action-merge-across' => 'moved [[$1]] from under [[$2]] to under [[$3]]
+премештена [[$1]] са [[$2]] на [[$3]]',
+	'lqt-log-action-merge-down' => 'спојена [[$1]] са [[$3]]',
+	'lqt-log-action-subjectedit' => 'промењен наслов од [[$1]] са "$2" на "$3"',
+	'lqt-log-action-resort' => 'промењен је редослед сортирања од [[$1]]. Кључ сортирања промењен са $2 на $3',
 	'lqt-preference-custom-signatures' => 'Покажи подесиве корисничке потписе',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} разговор - Одговор: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} разговор - Нова тема: $1',
@@ -14181,12 +14215,15 @@ $messages['sr-ec'] = array(
 	'lqt-search-label' => 'Услови претраге:',
 	'lqt-search-button' => 'Претрага',
 	'searchprofile-threads' => 'Разговори',
+	'lqt-ajax-updated' => 'Ова тема има нових порука.',
 	'lqt-ajax-update-link' => 'Ажурирај',
 	'lqt-thread-show-replies' => 'Покажи $1 {{PLURAL:$1|одговор|одговора}}',
 	'lqt-thread-show-more' => 'Прикажи више одговора',
+	'lqt-thread-link-url' => 'Путања везе (УРЛ):',
 	'lqt-thread-link-copy' => 'Ископирај у клипборд',
 	'lqt-change-subject' => 'Измени наслов',
 	'lqt-save-subject' => 'Сними',
+	'lqt-ajax-no-subject' => 'Морате навести наслов.',
 	'lqt-cancel-subject-edit' => 'Поништи',
 	'lqt-drag-activate' => 'Превуци на нову локацију',
 	'lqt-drag-drop-zone' => 'Испусти овде',
@@ -14745,6 +14782,17 @@ Signaturen visas automatiskt.',
 	'lqt-edit-bump-tooltip' => 'Flytta denna tråd till överst på sin diskussionssida',
 	'lqt-historicalrevision-error' => 'Versionen du har valt är korrupt, och kan inte visas.',
 	'lqt-reply-subpage' => 'svara',
+);
+
+/** Swahili (Kiswahili)
+ * @author Lloffiwr
+ */
+$messages['sw'] = array(
+	'lqt_sorting_order' => 'Zipangwe kwa kuanzia na:',
+	'lqt_sort_newest_changes' => 'zilizobadilishwa mwishoni',
+	'lqt_sort_newest_threads' => 'zilizoanzishwa hivi karibuni',
+	'lqt_sort_oldest_threads' => 'zilizoanzishwa mwanzoni',
+	'lqt-preview-signature' => '(hakiki)',
 );
 
 /** Silesian (Ślůnski)
