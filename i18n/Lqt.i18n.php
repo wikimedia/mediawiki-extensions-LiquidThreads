@@ -563,6 +563,14 @@ $messages['gom-latn'] = array(
 	'lqt_newmessages' => 'Noveo sondes',
 );
 
+/** Abkhazian (Аҧсуа)
+ * @author Temuri rajavi
+ */
+$messages['ab'] = array(
+	'lqt_youhavenewmessages' => 'Уара [[$1|адырра ҿыцқәа]] уауит.',
+	'lqt_newmessages' => 'Адырра ҿыцқәа',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  * @author Naudefj
@@ -11842,7 +11850,7 @@ $messages['pl'] = array(
 	'lqt_subject' => 'Temat:',
 	'lqt_noreason' => 'Nie podano powodu.',
 	'lqt_move_placeholder' => 'Ten wątek jest wyłącznie znacznikiem, że właściwy wątek $1 został z tej strony przeniesiony.
-$2 {{GENDER:$2|przeniósł|przeniosła}} go dnia $3 o $4 na stronę $5.',
+$2 {{GENDER:$2|przeniósł|przeniosła|przeniósł(‐ła)}} go dnia $3 o $4 na stronę $5.',
 	'lqt_thread_deleted_for_sysops' => "Ten wątek został '''usunięty''' i jest dostępny jedynie dla administratorów.",
 	'lqt_thread_deleted' => 'Wątek został usunięty.',
 	'lqt_summary_notice' => '{{PLURAL:$2|Od wczoraj|W ciągu ostatnich $2 dni}} nie było zmian w dyskusji.
