@@ -5044,6 +5044,7 @@ $messages['eu'] = array(
 	'lqt_reply' => 'Erantzun',
 	'lqt_delete' => 'Ezabatu',
 	'lqt_undelete' => 'Berreskuratu',
+	'lqt_permalink' => 'Lotu',
 	'lqt_discussion_link' => 'eztabaida',
 	'lqt_newer' => '← berriagoa',
 	'lqt_older' => 'zaharragoa →',
@@ -5060,6 +5061,7 @@ Eztabaida hau $2-(e)ko zati da.',
 	'lqt_move_move' => 'Mugitu',
 	'lqt_move_noreason' => 'Ez da arrazoirik zehaztu.',
 	'lqt_delete_return' => '$1-(e)ra itzuli.',
+	'lqt_delete_return_link' => 'eztabaida orria',
 	'lqt_sorting_order' => 'Sailkapenerako irizpidea:',
 	'lqt_sort_newest_changes' => 'azken aldaketa lehendabizi',
 	'lqt-title' => 'Izenburua',
@@ -5076,15 +5078,20 @@ Eztabaida hau $2-(e)ko zati da.',
 	'lqt-history-action' => 'Jarduera',
 	'lqt-history-comment' => 'Iruzkina',
 	'lqt-header-actions' => 'Ekintzak',
+	'lqt_summarize_link' => 'Laburtu',
 	'lqt-thread-split-thread' => 'Eztabaida:',
 	'lqt-no-threads' => 'Ez dago eztabaidarik oraingoz orri honetan.',
 	'lqt-movethread' => 'Mugitu',
 	'lqt-menu-trigger' => 'Gehiago',
 	'lqt-hot-topics' => 'Gai garrantzitsuak',
+	'lqt-merge-submit' => 'Merge',
+	'lqt-quote' => 'Aipu',
 	'lqt-search-button' => 'Bilatu',
 	'searchprofile-threads' => 'Eztabaidak',
 	'lqt-ajax-update-link' => 'Eguneratu',
+	'lqt-thread-link-url' => 'URL lotura:',
 	'lqt-save-subject' => 'Gorde',
+	'lqt-cancel-subject-edit' => 'Utzi',
 	'lqt-drag-save' => 'Baieztatu',
 	'lqt-drag-reason' => 'Arrazoia:',
 	'lqt-edit-signature' => '(sinadura aldatu)',
@@ -5095,6 +5102,7 @@ Eztabaida hau $2-(e)ko zati da.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Eztabaida berriak $1 - (r)engandik',
 	'lqt_newmessages' => 'Mezu berriak',
 	'lqt-talkpage-history-tab' => 'Goiburua',
+	'lqt-reply-subpage' => 'erantzun',
 );
 
 /** Persian (فارسی)
@@ -8713,6 +8721,14 @@ $messages['ja'] = array(
 	'lqt-edit-bump-tooltip' => 'このスレッドを議論ページの先頭に移動する',
 	'lqt-historicalrevision-error' => '選択した版は壊れているため表示できません。',
 	'lqt-reply-subpage' => '返信',
+);
+
+/** Lojban (Lojban)
+ * @author (vinny)
+ */
+$messages['jbo'] = array(
+	'lqt_delete' => 'daspo',
+	'lqt_move_move' => 'stika lo cmene',
 );
 
 /** Javanese (Basa Jawa)
@@ -16892,7 +16908,7 @@ $messages['zh-hans'] = array(
 * 与跨wiki前缀或名字空间名称冲突。',
 	'lqt_empty_subject' => '请输入主题。',
 	'lqt_reply' => '回复',
-	'lqt-parent' => '父分类',
+	'lqt-parent' => '上级',
 	'lqt_delete' => '删除',
 	'lqt_undelete' => '恢复',
 	'lqt_permalink' => '链接到',
@@ -17151,7 +17167,7 @@ $messages['zh-hant'] = array(
 * 與跨wiki前綴或名字空間名稱衝突。',
 	'lqt_empty_subject' => '請輸入主題。',
 	'lqt_reply' => '回覆',
-	'lqt-parent' => '父分類',
+	'lqt-parent' => '上級',
 	'lqt_delete' => '刪除',
 	'lqt_undelete' => '反刪除',
 	'lqt_permalink' => '連結到',
