@@ -2497,8 +2497,10 @@ Ova operacija se ne može vratiti.',
 	'lqt-history-action' => 'Aktivnost',
 	'lqt-history-comment' => 'Komentar',
 	'lqt-history-thread' => 'Niz',
-	'lqt-thread-edited-author' => 'Uređeno od strane autora',
-	'lqt-thread-edited-others' => 'Uređeno od strane drugih korisnika',
+	'lqt-thread-edited-author' => 'Uređeno od strane autora. <br />
+Posljednja izmjena: $1',
+	'lqt-thread-edited-others' => 'Uređeno od strane {{PLURAL:$2|drugog korisnika|ostalih $2 korisnika}}.<br />
+Posljednja izmjena: $1',
 	'lqt-header-actions' => 'Akcije',
 	'lqt_summarize_link' => 'Napravi sažetak',
 	'lqt-summarize-intro' => 'Molimo napravite sažetak ispod niza u kutiju za uređivanje.
@@ -12646,6 +12648,7 @@ A assinatura é apresentada automaticamente.',
  * @author Eduardo.mps
  * @author Heldergeovane
  * @author Luckas Blade
+ * @author 555
  */
 $messages['pt-br'] = array(
 	'lqt-desc' => 'Adiciona discussões em tópicos a páginas de discussão',
@@ -12776,8 +12779,8 @@ Você pode usar qualquer wikitexto em seu resumo. Quando terminar, clique em "{{
 	'lqt-menu-trigger' => 'Mais',
 	'lqt-hot-topics' => 'Tópicos quentes',
 	'lqt-add-reply' => 'Adicionar resposta',
-	'lqt_rc_new_discussion' => 'Nova discussão "$1" em $2 • $3 escreveu:',
-	'lqt_rc_new_reply' => 'Responder a "$1" em $2 • $3 escreveu:',
+	'lqt_rc_new_discussion' => 'criou um novo tópico: "$1"',
+	'lqt_rc_new_reply' => 'respondeu "$1"',
 	'right-lqt-merge' => 'Mesclar tópicos',
 	'lqt-thread-merge' => 'Mesclar em outro tópico',
 	'lqt-thread-merge-to' => 'Mesclar neste tópico',
