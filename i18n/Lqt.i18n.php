@@ -8205,11 +8205,29 @@ $messages['io'] = array(
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
  * @author Spacebirdy
+ * @author Ævar Arnfjörð Bjarmason
  */
 $messages['is'] = array(
+	'lqt_movethread' => 'Færa þráð á aðra síðu',
+	'lqt_toc_thread_title' => 'Þráður',
+	'lqt_toc_thread_replycount' => 'Svör',
+	'lqt_toc_thread_modified' => 'Síðast breytt',
+	'lqt_new_thread' => 'Nýr þráður',
+	'lqt_reply' => 'Svara',
+	'lqt_from_talk' => 'Af $1',
+	'lqt-history-title' => 'Breytingarskrá þráðs',
+	'lqt_hist_reply_created' => 'Bjó til [[$1|nýtt svar]]',
+	'lqt_hist_thread_created' => 'Bjó til nýjan þráð',
+	'lqt_hist_listing_subtitle' => 'Skoða breytingarsögu',
 	'lqt_noreason' => 'Engin ástæða gefin.',
+	'lqt_move_movingthread' => 'Færi þráðinn „$1“ sem er núna á spjallborðinu „$2“.',
 	'lqt_move_noreason' => 'Engin ástæða gefin.',
+	'lqt_summarize_link' => 'Skrifa samantekt',
+	'lqt-summarize-intro' => 'Hérna getur þú skrifað samantekt á þræðinum hér fyrir neðan. Ýttu á „{{int:savearticle}}“ til að vista samantekina.',
+	'lqt-search-label' => 'Leitarorð:',
+	'lqt-search-button' => 'Leita',
 	'searchprofile-threads' => 'Spjöll',
+	'lqt-edit-signature' => '(breyta undirskrift)',
 );
 
 /** Italian (Italiano)
@@ -12651,11 +12669,12 @@ A assinatura é apresentada automaticamente.',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
+ * @author 555
  * @author Crazymadlover
  * @author Eduardo.mps
+ * @author Giro720
  * @author Heldergeovane
  * @author Luckas Blade
- * @author 555
  */
 $messages['pt-br'] = array(
 	'lqt-desc' => 'Adiciona discussões em tópicos a páginas de discussão',
@@ -12674,6 +12693,7 @@ Ele pode:
 * Estar em conflito com os prefixos das ligações interprojeto ou nomes dos espaços nominais.',
 	'lqt_empty_subject' => 'Você deve fornecer um assunto.',
 	'lqt_reply' => 'Responder',
+	'lqt-parent' => 'Tópico de raiz',
 	'lqt_delete' => 'Apagar',
 	'lqt_undelete' => 'Restaurar',
 	'lqt_permalink' => 'Ligação para este comentário',
