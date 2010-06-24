@@ -1271,7 +1271,8 @@ class LqtView {
 
 		// Load compatibility layer for older versions
 		if ( !( $post instanceof Article_LQT_Compat ) ) {
-			wfWarn( "No article compatibility layer loaded, inefficiently duplicating information." );
+			// Removed because it's annoying
+//			wfWarn( "No article compatibility layer loaded, inefficiently duplicating information." );
 			$post = new Article_LQT_Compat( $post->getTitle() );
 		}
 
