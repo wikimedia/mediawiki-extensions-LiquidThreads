@@ -128,11 +128,6 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	}
 
 	static function renderThread( $row, $params, &$entry ) {
-		// If the thread has no valid root, bail out
-		if ( ! $thread->root() ) {
-			return;
-		}
-	
 		// Set up OutputPage
 		global $wgOut, $wgUser, $wgRequest;
 		$oldOutputText = $wgOut->getHTML();
@@ -141,6 +136,11 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		// Setup
 		$thread = Thread::newFromRow( $row );
 		$article = $thread->root();
+		
+		if ( ! $article ) {
+			return;
+		}
+		
 		$title = $article->getTitle();
 		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );
 
