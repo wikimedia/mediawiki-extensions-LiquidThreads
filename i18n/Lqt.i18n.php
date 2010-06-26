@@ -14326,6 +14326,7 @@ $messages['sl'] = array(
 	'lqt-preference-display-depth' => 'Največja prikazana globina odgovorov:',
 	'lqt-preference-display-count' => 'Največje število prikazanih odgovor:',
 	'lqt-preference-custom-signatures' => 'Prikaži uporabniške podpise po meri',
+	'searchprofile-threads' => 'Razprave',
 	'lqt_newmessages' => 'Nova sporočila',
 	'lqt_newmessages-title' => 'Nova sporočila',
 );
