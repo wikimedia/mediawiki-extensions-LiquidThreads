@@ -41,7 +41,7 @@ class Thread {
 	protected $rootRevision;
 
 	/* Flag about who has edited or replied to this thread. */
-	protected $editedness;
+	public $editedness;
 	protected $editors = null;
 
 	protected $replies;
@@ -122,6 +122,10 @@ class Thread {
 
 	function insert() {
 		$this->dieIfHistorical();
+		
+		if ( $this->id() ) {
+			throw new MWException( "Attempt to insert a thread that already exists." );
+		}
 
 		$dbw = wfGetDB( DB_MASTER );
 

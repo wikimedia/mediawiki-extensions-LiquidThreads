@@ -66,6 +66,10 @@ $wgHooks['ModifyExportQuery'][] = 'LqtHooks::modifyExportQuery';
 $wgHooks['OAIFetchRowsQuery'][] = 'LqtHooks::modifyOAIQuery';
 $wgHooks['OAIFetchRecordQuery'][] = 'LqtHooks::modifyOAIQuery';
 
+// Import-related
+$wgHooks['ImportHandlePageXMLTag'][] = 'LqtHooks::handlePageXMLTag';
+$wgHooks['AfterImportPage'][] = 'LqtHooks::afterImportPage';
+
 // Deletion
 $wgHooks['ArticleDeleteComplete'][] = 'LqtDeletionController::onArticleDeleteComplete';
 $wgHooks['ArticleRevisionUndeleted'][] = 'LqtDeletionController::onArticleRevisionUndeleted';
