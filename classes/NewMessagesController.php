@@ -151,7 +151,7 @@ class NewMessages {
 	 */
 	static function writeMessageStateForUpdatedThread( $t, $type, $changeUser ) {
 		wfDebugLog( 'LiquidThreads', 'Doing notifications' );
-		wfProfileIn( 'writeMessageStateForUpdatedThread' );
+		wfProfileIn( __METHOD__ );
 
 		// Pull users to update the message state for, including whether or not a
 		//  user_message_state row exists for them, and whether or not to send an email
@@ -224,7 +224,7 @@ class NewMessages {
 		if ( count( $notifyUsers ) && $wgLqtEnotif ) {
 			self::notifyUsersByMail( $t, $notifyUsers, wfTimestampNow(), $type );
 		}
-		wfProfileOut( 'writeMessageStateForUpdatedThread' );
+		wfProfileOut( __METHOD__ );
 	}
 
 	// Would refactor User::decodeOptions, but the whole point is that this is
