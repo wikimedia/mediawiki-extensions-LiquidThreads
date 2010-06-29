@@ -5643,7 +5643,7 @@ La signature est affichée automatiquement.',
 	'lqt-drag-setsortkey' => 'Modifier la position du message dans la page',
 	'lqt-drag-bump' => 'Déplacer le message vers le haut de la page de discussion',
 	'lqt-drag-save' => 'Confirmer',
-	'lqt-drag-reason' => 'Raison :',
+	'lqt-drag-reason' => 'Motif :',
 	'lqt-drag-subject' => 'Sujet du nouveau fil de discussion',
 	'lqt-edit-signature' => '(modifier la signature)',
 	'lqt-preview-signature' => '(prévisualiser)',
@@ -13777,6 +13777,13 @@ $messages['ru'] = array(
 	'lqt-reply-subpage' => 'ответить',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'lqt-reply-subpage' => 'одповісти',
+);
+
 /** Yakut (Саха тыла)
  * @author HalanTul
  */
@@ -16822,6 +16829,7 @@ $messages['vi'] = array(
 * Xung đột với tiền tố liên wiki hay tên của không gian tên.',
 	'lqt_empty_subject' => 'Bạn cần phải nhập chủ đề.',
 	'lqt_reply' => 'Hồi âm',
+	'lqt-parent' => 'Mẹ',
 	'lqt_delete' => 'Xóa',
 	'lqt_undelete' => 'Phục hồi',
 	'lqt_permalink' => 'Liên kết tới đây',
@@ -16983,7 +16991,10 @@ Bạn có thể sử dụng cú pháp wiki trong tóm tắt. Khi nào xong, hãy
 	'lqt-log-header' => 'Nhật trình này liệt kê các tác vụ luồng thảo luận.',
 	'lqt-log-action-move' => 'di chuyển [[$1]] từ [[$2]] đến [[$3]].',
 	'lqt-log-action-split' => 'chia [[$1]] khỏi [[$3]] với chủ đề mới là “$2”',
+	'lqt-log-action-merge-across' => 'đã di chuyển [[$1]] từ [[$2]] sang [[$3]]',
 	'lqt-log-action-merge-down' => 'hợp nhất [[$1]] vào dưới [[$3]]',
+	'lqt-log-action-subjectedit' => 'đã đổi tiêu đề [[$1]] từ “$2” thành “$3”',
+	'lqt-log-action-resort' => 'đã thay đổi thứ tự sắp xếp của [[$1]] bằng cách đổi từ khóa sắp xếp từ $2 thành $3',
 	'lqt-preference-notify-talk' => 'Gửi thư cho tôi khi ai trả lời luồng tôi đang theo dõi',
 	'lqt-preference-watch-threads' => 'Theo dõi các luồng tôi tạo hay trả lời',
 	'prefs-lqt' => 'Thảo luận theo luồng',
@@ -17087,8 +17098,24 @@ $messages['xal'] = array(
  * @author פוילישער
  */
 $messages['yi'] = array(
+	'lqt_contents_title' => 'אינהאַלטן',
+	'lqt_new_thread' => 'אָנהייבן אַ נייַע דיסקוסיע',
+	'lqt_empty_subject' => 'איר מוזט אַרײַנגעבן א טעמע',
+	'lqt_reply' => 'ענטפער',
+	'lqt-parent' => 'פֿאָטער',
 	'lqt_delete' => 'אויסמעקן',
 	'lqt_undelete' => 'מבטל זיין אויסמעקן',
+	'lqt_permalink' => 'לינק צו',
+	'lqt_fragment' => 'פֿראַגמענט פון אַ $1 פֿון $2',
+	'lqt_discussion_link' => 'דיסקוסיע',
+	'lqt_from_talk' => 'פֿון $1',
+	'lqt_newer' => '← נייַערער',
+	'lqt_older' => 'עלטערער →',
+	'lqt-history-title' => 'פֿאָדעם געשיכטע',
+	'lqt_hist_summary_changed' => 'רעזומע געענדערט',
+	'lqt_hist_deleted' => 'אויסגעמעקט',
+	'lqt_hist_undeleted' => 'צוריקגעשטעלט',
+	'lqt_hist_moved_talkpage' => 'באַװעגט',
 	'lqt_move_torename_edit' => 'באַאַרבעטס עס',
 	'lqt-title' => 'טיטל',
 	'lqt-history-time' => 'צײַט',
