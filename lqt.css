@@ -474,3 +474,7 @@ table.lqt-new-messages {
 .lqt-new-messages {
 	table-layout: fixed;
 }
+.lqt-loader {
+	top: 15px;
+	height: 32px;
+}

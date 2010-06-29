@@ -1211,6 +1211,7 @@ class LqtView {
 		$wgOut->addScriptFile( "$basePath/jquery/jquery.autogrow.js" );
 
 		$wgOut->addScriptFile( "$basePath/lqt.js" );
+		$wgOut->addScriptFile( "$basePath/js/lqt.toolbar.js" );
 		$wgOut->addExtensionStyle( "$basePath/lqt.css?{$wgStyleVersion}" );
 
 		self::$stylesAndScriptsDone = true;
