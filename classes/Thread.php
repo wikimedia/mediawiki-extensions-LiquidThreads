@@ -539,7 +539,7 @@ class Thread {
 		try {
 			$this->doLazyUpdates( $line );
 		} catch ( Exception $excep ) {
-			trigger_error( "Exception doing lazy updates: " . $excep->toString() );
+			trigger_error( "Exception doing lazy updates: " . $excep->__toString() );
 		}
 
 		$this->dbVersion = clone $this;
