@@ -20,7 +20,7 @@ var liquidThreads = {
 		var thread_id = $j(this).data('thread-id');
 		
 		// hide the form for this thread if it's currently being shown
-		if ( thread_id == liquidThreads.currentReplyThread && $( '#wpTextbox1' ).is( ':visible' ) ) {
+		if ( thread_id == liquidThreads.currentReplyThread && $j( '#wpTextbox1' ).is( ':visible' ) ) {
 			liquidThreads.cancelEdit({});
 			return;
 		}
