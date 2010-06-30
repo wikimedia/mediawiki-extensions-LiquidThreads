@@ -172,8 +172,11 @@ var liquidThreads = {
 			$j(container).find('#wpDiff').hide();
 			
 			if ( $j.fn.wikiEditor && $j.wikiEditor.isSupported( $j.wikiEditor.modules.toolbar ) ) {
+				if ( wgWikiEditorPreferences.toolbar.dialogs && $j.wikiEditor.isSupported( $j.wikiEditor.modules.dialogs ) ) {
+					$j( '#wpTextbox1' ).addClass( 'toolbar-dialogs' );
+				}
 				// Add wikiEditor toolbar 
-				$j( '#wpTextbox1' ).wikiEditor( 'addModule', { 'toolbar': liquidThreads.toolbar.config } );
+				$j( '#wpTextbox1' ).wikiEditor( 'addModule', { 'toolbar': liquidThreads.toolbar.config, 'dialogs': liquidThreads.toolbar.dialogs } );
 			} else {
 				// Add old toolbar
 				mwSetupToolbar()
