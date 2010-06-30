@@ -39,7 +39,16 @@
 	float: left;
 	width: 100%;
 }
-
+.lqt_thread_heading {
+	border-bottom: 1px solid #AAAAAA;
+	margin-bottom: 0.6em;
+	padding: 10px 0 0;
+}
+.lqt_header {
+	border: none;
+	margin-bottom: 0;
+	display: inline;
+}
 .lqt_header_commands {
 	float:      right;
 	clear:      both;
@@ -116,19 +125,17 @@
 }
 
 .lqt_threadlevel_commands {
-	/* shift up to be in line with the h2. */
-	position:      relative;
-	top:           -2.9em;
-	margin-bottom: -2.9em;
 	float: right;
-
-	color:     #777;
+	color: #777;
+	margin-bottom: 0 !important;
+	margin-top: 0;
 }
 
 .lqt_threadlevel_commands li {
 	display:         inline;
 	list-style-type: none;
 	padding-right:   0.6em;
+	line-height: 1em;
 }
 #lqt_subject_field {
 	margin-top:    0.7em;
@@ -478,3 +485,24 @@ table.lqt-new-messages {
 	top: 15px;
 	height: 32px;
 }
+
+/* Float Clearing - If you confused, http://www.positioniseverything.net/easyclearing.html */
+.lqt_thread_heading:after
+{ 
+ content: ".";  
+ display: block; 
+ height: 0; 
+ clear: both; 
+ visibility: hidden; 
+}
+
+.lqt_thread_heading
+{display: inline-block;}
+
+/* Hides from IE-mac */
+* html .lqt_thread_heading 
+{height: 1%;}
+
+.lqt_thread_heading
+{display: block;}
+/* End hide from IE-mac */

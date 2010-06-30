@@ -1562,7 +1562,11 @@ class LqtView {
 						array( 'class' => 'lqt_header', 'id' => $id ),
 						$html ) . $commands_html;
 			}
-
+			
+			// wrap it all in a container
+			$html = Xml::tags( 'div',
+					array( 'class' => 'lqt_thread_heading' ),
+					$html );
 			return $html;
 		}
 
