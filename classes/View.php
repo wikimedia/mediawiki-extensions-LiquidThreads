@@ -1592,7 +1592,7 @@ class LqtView {
 
 		if ( !$target ) {
 			throw new MWException( "Thread " . $thread->id() . ' purports to be moved, ' .
-				'but no redirect found in text of ' .
+				'but no redirect found in text (' . $article->getContent() . ') of ' .
 				$thread->root()->getTitle()->getPrefixedText() . '. Dying.' );
 		}
 
