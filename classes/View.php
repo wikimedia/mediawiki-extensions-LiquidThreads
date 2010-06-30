@@ -1213,6 +1213,11 @@ class LqtView {
 		$wgOut->addScriptFile( "$basePath/lqt.js" );
 		$wgOut->addScriptFile( "$basePath/js/lqt.toolbar.js" );
 		$wgOut->addExtensionStyle( "$basePath/lqt.css?{$wgStyleVersion}" );
+		
+		if ( class_exists( 'WikiEditorHooks' ) ) {
+			$temp = null;
+			WikiEditorHooks::addModules( $temp );
+		}
 
 		self::$stylesAndScriptsDone = true;
 	}
