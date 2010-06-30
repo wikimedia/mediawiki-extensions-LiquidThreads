@@ -314,6 +314,7 @@ class LqtHooks {
 		$wgExtNewTables[] = array( 'user_message_state', "$dir/lqt.sql" );
 		$wgExtNewTables[] = array( 'thread_history', "$dir/schema-changes/thread_history_table.sql" );
 		$wgExtNewTables[] = array( 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.sql" );
+		$wgExtNewTables[] = array( 'thread_reaction', "$dir/schema-changes/thread_reactions.sql" );
 
 		$wgExtNewFields[] = array( "thread", "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql" );
 		$wgExtNewFields[] = array( "thread", "thread_article_title", "$dir/schema-changes/split-thread_article.sql" );
