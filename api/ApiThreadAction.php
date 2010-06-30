@@ -691,6 +691,76 @@ class ApiThreadAction extends ApiBase {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 	
+	public function actionAddReaction( $threads, $params ) {
+		global $wgUser;
+		
+		if ( !count( $threads ) ) {
+			$this->dieUsage( 'You must specify a thread to add a reaction for',
+					'no-specified-threads' );
+		}
+		
+		if ( ! $wgUser->isAllowed( 'lqt-react' ) ) {
+			$this->dieUsage( 'You are not allowed to react to threads.', 'permission-denied' );
+		}
+
+		$required = array( 'type', 'value' );
+		
+		if ( count( array_diff( $required, array_keys($params) ) ) ) {
+			$this->dieUsage( 'You must specify both a type and a value for the reaction',
+						'missing-parameter' );
+		}
+		
+		$result = array();
+		
+		foreach( $threads as $thread ) {
+			$thread->addReaction( $wgUser, $params['type'], $params['value'] );
+			
+			$result[] = array(
+				'result' => 'Success',
+				'action' => 'addreaction',
+				'id' => $thread->id(),
+			);
+		}
+		
+		$this->getResult()->setIndexedTagName( $result, 'thread' );
+		$this->getResult()->addValue( null, 'threadaction', $result );
+	}
+	
+	public function actionDeleteReaction( $threads, $params ) {
+		global $wgUser;
+		
+		if ( !count( $threads ) ) {
+			$this->dieUsage( 'You must specify a thread to delete a reaction for',
+					'no-specified-threads' );
+		}
+		
+		if ( ! $wgUser->isAllowed( 'lqt-react' ) ) {
+			$this->dieUsage( 'You are not allowed to react to threads.', 'permission-denied' );
+		}
+
+		$required = array( 'type', 'value' );
+		
+		if ( count( array_diff( $required, array_keys($params) ) ) ) {
+			$this->dieUsage( 'You must specify both a type for the reaction',
+						'missing-parameter' );
+		}
+		
+		$result = array();
+		
+		foreach( $threads as $thread ) {
+			$thread->deleteReaction( $wgUser, $params['type'] );
+			
+			$result[] = array(
+				'result' => 'Success',
+				'action' => 'deletereaction',
+				'id' => $thread->id(),
+			);
+		}
+		
+		$this->getResult()->setIndexedTagName( $result, 'thread' );
+		$this->getResult()->addValue( null, 'threadaction', $result );
+	}
+	
 	public function getDescription() {
 		return 'Allows actions to be taken on threads and posts in threaded discussions.';
 	}
@@ -706,6 +776,8 @@ class ApiThreadAction extends ApiBase {
 			'setsubject' => 'actionSetSubject',
 			'setsortkey' => 'actionSetSortkey',
 			'edit' => 'actionEdit',
+			'addreaction' => 'actionAddReaction',
+			'deletereaction' => 'actionDeleteReaction',
 		);
 	}
 
@@ -731,6 +803,8 @@ class ApiThreadAction extends ApiBase {
 					"a unix timestamp or 'now'.",
 			'signature' => 'Specifies the signature to use for that post. Can be ' .
 					'NULL to specify the default signature',
+			'type' => 'Specifies the type of reaction to add',
+			'value' => 'Specifies the value associated with the reaction to add',
 		);
 	}
 	
@@ -788,6 +862,8 @@ class ApiThreadAction extends ApiBase {
 			'bump' => null,
 			'sortkey' => null,
 			'signature' => null,
+			'type' => null,
+			'value' => null,
 		);
 	}
 

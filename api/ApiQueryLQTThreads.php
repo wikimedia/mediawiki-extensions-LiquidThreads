@@ -36,6 +36,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		'summaryid' => 'thread_summary_page',
 		'rootid' => 'thread_root',
 		'type' => 'thread_type',
+		'reactions' => null,
 	);
 
 	public function __construct( $query, $moduleName ) {
@@ -93,7 +94,9 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		if ( $params['render'] ) {
 			$threads = Threads::loadFromResult( $res, $this->getDB() );
 		}
-
+		
+		
+		$ids = array();
 		$count = 0;
 		foreach ( $res as $row )
 		{
@@ -108,22 +111,47 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				$fields = self::$propRelations[$name];
 				self::formatProperty( $name, $fields, $row, $entry );
 			}
+			
+			if ( isset( $entry['reactions'] ) ) {
+				$result->setIndexedTagName( $entry['reactions'], 'reaction' );
+			}
 
 			// Render if requested
 			if ( $params['render'] ) {
 				self::renderThread( $row, $params, $entry );
 			}
+			
+			$ids[$row->thread_id] = $row->thread_id;
 
 			if ( $entry ) {
 				$fit = $result->addValue( array( 'query',
 						$this->getModuleName() ),
-					null, $entry );
+					$row->thread_id, $entry );
 				if ( !$fit ) {
 					$this->setContinueEnumParameter( 'startid', $row->thread_id );
 					break;
 				}
 			}
 		}
+		
+		if ( isset( $prop['reactions'] ) ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$res = $dbr->select( 'thread_reaction', '*', array( 'tr_thread' => $ids ),
+						__METHOD__ );
+			
+			foreach( $res as $row ) {				
+				$info = array(
+				     'type' => $row->tr_type,
+				     'user-id' => $row->tr_user,
+				     'user-name' => $row->tr_user_text,
+				     'value' => $row->tr_value,
+				);
+					
+				$result->addValue( array( 'query', $this->getModuleName(), $row->tr_thread, 'reactions' ),
+							null, $info );
+			}
+		}
+		
 		$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'thread' );
 	}
 
@@ -168,10 +196,12 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	}
 
 	static function formatProperty( $name, $fields, $row, &$entry ) {
-		if ( !is_array( $fields ) ) {
+		if ( is_null( $fields ) ) {
+			$entry[$name] = array();
+		} elseif ( !is_array( $fields ) ) {
 			// Common case.
 			$entry[$name] = $row->$fields;
-		} else if ( $name == 'page' ) {
+		} elseif ( $name == 'page' ) {
 			// Special cases
 			$nsField = $fields['namespace'];
 			$tField = $fields['title'];

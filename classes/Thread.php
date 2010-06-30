@@ -45,12 +45,14 @@ class Thread {
 	protected $editors = null;
 
 	protected $replies;
+	protected $reactions;
 
 	public $dbVersion; // A copy of the thread as it exists in the database.
 
 	static $titleCacheById = array();
 	static $replyCacheById = array();
 	static $articleCacheById = array();
+	static $reactionCacheById = array();
 
 	static $VALID_TYPES = array( Threads::TYPE_NORMAL, Threads::TYPE_MOVED, Threads::TYPE_DELETED );
 
@@ -549,6 +551,7 @@ class Thread {
 	// Load a list of threads in bulk, including all subthreads.
 	static function bulkLoad( $rows ) {
 		// Preload subthreads
+		$all_thread_ids = array();
 		$top_thread_ids = array();
 		$all_thread_rows = $rows;
 		$pageIds = array();
@@ -581,6 +584,8 @@ class Thread {
 				self::$replyCacheById[$row->thread_id] = array();
 			}
 		}
+		
+		$all_thread_ids = $top_thread_ids;
 
 		// Pull replies to the threads provided, and as above, pull page IDs to pull data for,
 		//  pre-initialise the reply cache, and stash the row object for later use.
@@ -598,6 +603,38 @@ class Thread {
 					$pageIds[] = $row->thread_summary_page;
 
 				$all_thread_rows[] = $row;
+				$all_thread_ids[$row->thread_id] = $row->thread_id;
+			}
+		}
+		
+		// Pull thread reactions
+		if ( count( $all_thread_ids ) ) {
+			$res = $dbr->select( 'thread_reaction', '*',
+						array( 'tr_thread' => $all_thread_ids ),
+						__METHOD__ );
+			
+			foreach( $res as $row ) {
+				$thread_id = $row->tr_thread;
+				$user = $row->tr_user_text;
+				$info = array(
+					'type' => $row->tr_type,
+					'user-id' => $row->tr_user,
+					'user-name' => $row->tr_user_text,
+					'value' => $row->tr_value,
+				);
+				
+				$type = $info['type'];
+				$user = $info['user-name'];
+				
+				if ( ! isset( self::$reactionCacheById[$thread_id] ) ) {
+					self::$reactionCacheById[$thread_id] = array();
+				}
+				
+				if ( ! isset( self::$reactionCacheById[$thread_id][$type] ) ) {
+					self::$reactionCacheById[$thread_id][$type] = array();
+				}
+				
+				self::$reactionCacheById[$thread_id][$type][$user] = $info;
 			}
 		}
 
@@ -1546,5 +1583,85 @@ class Thread {
 	 */
 	public function getTitle() {
 		return $this->article()->getTitle();
+	}
+	
+	public function getReactions( $requestedType = null ) {
+		if ( is_null( $this->reactions ) ) {
+			if ( isset( self::$reactionCacheById[$this->id()] ) ) {
+				$this->reactions = self::$reactionCacheById[$this->id()];
+			} else {
+				$reactions = array();
+				
+				$res = $dbr->select( 'thread_reaction',
+						array( 'tr_thread' => $this->id() ),
+						__METHOD__ );
+			
+				foreach( $res as $row ) {
+					$thread_id = $row->tr_thread;
+					$user = $row->tr_user_text;
+					$info = array(
+						'type' => $row->tr_type,
+						'user-id' => $row->tr_user,
+						'user-name' => $row->tr_user_text,
+						'value' => $row->tr_value,
+					);
+					
+					if ( ! isset( $reactions[$type] ) ) {
+						$reactions[$type] = array();
+					}
+					
+					$reactions[$type][$user] = $info;
+				}
+				
+				$this->reactions = $reactions;
+			}
+		}
+		
+		if ( is_null($requestedType) )  {
+			return $this->reactions;
+		} else {
+			return $this->reactions[$requestedType];
+		}
+	}
+	
+	public function addReaction( $user, $type, $value ) {
+		$info = array(
+			'type' => $type,
+			'user-id' => $user->getId(),
+			'user-name' => $user->getName(),
+			'value' => $value,
+		);
+		
+		if ( ! isset( $this->reactions[$type] ) ) {
+			$this->reactions[$type] = array();
+		}
+		
+		$this->reactions[$type][$user->getName()] = $info;
+		
+		$row = array(
+			'tr_type' => $type,
+			'tr_thread' => $this->id(),
+			'tr_user' => $user->getId(),
+			'tr_user_text' => $user->getName(),
+			'tr_value' => $value,
+		);
+		
+		$dbw = wfGetDB( DB_MASTER );
+		
+		$dbw->insert( 'thread_reaction', $row, __METHOD__ );
+	}
+	
+	public function deleteReaction( $user, $type ) {
+		$dbw = wfGetDB( DB_MASTER );
+		
+		if ( isset( $this->reactions[$type][$user->getName()] ) ) {
+			unset( $this->reactions[$type][$user->getName()] );
+		}
+		
+		$dbw->delete( 'thread_reaction',
+				array( 'tr_thread' => $this->id(),
+					'tr_user' => $user->getId(),
+					'tr_type' => $type ),
+				__METHOD__ );
 	}
 }
