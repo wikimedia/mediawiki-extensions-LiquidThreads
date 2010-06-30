@@ -549,7 +549,7 @@ var liquidThreads = {
 		$j.get( wgScriptPath+'/api.php', apiReq,
 			function(data) {
 				// Load data from JSON
-				var html = data.query.threads[0].content;
+				var html = data.query.threads[threadId].content;
 				var newContent = $j(html);
 				
 				// Clear old post and header.
