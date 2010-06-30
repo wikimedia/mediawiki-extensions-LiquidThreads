@@ -1595,6 +1595,7 @@ $j(document).ready( function() {
 	
 	// Update the new thread link
 	var newThreadLink = $j('.lqt_start_discussion a');
+	newThreadLink = newThreadLink.add( $j('li#ca-addsection a') );
 	
 	if (newThreadLink) {
 		newThreadLink.click( liquidThreads.handleNewLink );
