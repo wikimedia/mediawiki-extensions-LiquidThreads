@@ -436,7 +436,7 @@ class LqtView {
 		
 		if ( $this->output->getRedirect() != '' ) {
 		       $redirectTitle = clone $talkpage->getTitle();
-		       if ( $thread ) {
+		       if ( !empty($thread) ) {
 			       $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
 		       }
 		       $this->output->redirect( $this->title->getFullURL() );
