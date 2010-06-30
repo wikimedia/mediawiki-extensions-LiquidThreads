@@ -661,7 +661,7 @@ var liquidThreads = {
 		$j.get( wgScriptPath+'/api'+wgScriptExtension, apiParams,
 			function(data) {
 				// Interpret
-				var content = data.query.threads[0].content;
+				var content = data.query.threads[threadId].content;
 				content = $j(content).find('.lqt-thread-replies')[0];
 				
 				// Inject
@@ -709,7 +709,7 @@ var liquidThreads = {
 		
 		$j.get( wgScriptPath+'/api.php', apiParams,
 			function(data) {
-				var content = data.query.threads[0].content;
+				var content = data.query.threads[threadId].content;
 				content = $j(content).find('.lqt-thread-replies')[0];
 				content = $j(content).contents();
 				content = content.not('.lqt-replies-finish');
