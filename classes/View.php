@@ -1977,9 +1977,12 @@ class LqtView {
 		$replyInterruption = $levelNum < $totalInLevel;
 
 		if ( ( $hasSubthreads && $showThreads ) ) {
+			// If the thread has subthreads, and we want to show them, we should do so.
 			$this->showThreadReplies( $thread, $startAt, $maxCount, $showThreads,
 				$cascadeOptions, $replyInterruption );
 		} elseif ( $hasSubthreads && !$showThreads ) {
+			// If the thread has subthreads, but we don't want to show them, then
+			//  show the reply form if necessary, and add the "Show X replies" link.
 			if ( $replyTo ) {
 				$this->showReplyForm( $thread );
 			}
@@ -1994,6 +1997,8 @@ class LqtView {
 					Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&#160;' ) );
 			}
 		} elseif ( $levelNum < $totalInLevel ) {
+			// If we have no replies, and we're not at the end of this level, add the post separator
+			//  and a reply box if necessary.
 			$this->output->addHTML(
 				Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&#160;' ) );
 
@@ -2016,6 +2021,8 @@ class LqtView {
 				$this->output->addHTML( $finishHTML );
 			}
 		} elseif ( !$hasSubthreads && $replyTo ) {
+			// If we have no replies, we're at the end of this level, and we want to reply,
+			//  show the reply box.
 			$class = 'lqt-thread-replies lqt-thread-replies-' .
 					$this->threadNestingLevel;
 			$html = Xml::openElement( 'div', array( 'class' => $class ) );
@@ -2033,16 +2040,17 @@ class LqtView {
 			$this->output->addHTML( $html );
 		}
 
-		if ( $this->threadNestingLevel == 1 ) {
-			if ( !( $hasSubthreads && $showThreads ) ) {
-				$this->showReplyBox( $thread );
-				$finishDiv = '';
-				$finishDiv .= Xml::tags( 'div', array( 'class' => 'lqt-replies-finish' ),
-					Xml::tags( 'div', array( 'class' => 'lqt-replies-finish-corner' ), '&#160;' ) );
-
-				$this->output->addHTML( $finishDiv );
-			}
-		}
+		// I don't remember why this is here, commenting out.
+// 		if ( $this->threadNestingLevel == 1 ) {
+// 			if ( !( $hasSubthreads && $showThreads && !$replyTo ) ) {
+// 				$this->showReplyBox( $thread );
+// 				$finishDiv = '';
+// 				$finishDiv .= Xml::tags( 'div', array( 'class' => 'lqt-replies-finish' ),
+// 					Xml::tags( 'div', array( 'class' => 'lqt-replies-finish-corner' ), '&#160;' ) );
+// 
+// 				$this->output->addHTML( $finishDiv );
+// 			}
+// 		}
 
 		$this->output->addHTML( Xml::closeElement( 'div' ) );
 
@@ -2052,7 +2060,6 @@ class LqtView {
 	function showReplyBox( $thread ) {
 		// Check if we're actually replying to this thread.
 		if ( $this->methodAppliesToThread( 'reply', $thread ) ) {
-			// As with above, flush HTML to avoid refactoring EditPage.
 			$this->showReplyForm( $thread );
 			return;
 		} elseif ( !$thread->canUserReply( $this->user ) ) {

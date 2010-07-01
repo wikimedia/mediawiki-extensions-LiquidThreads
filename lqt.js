@@ -1634,6 +1634,7 @@ $j(document).ready( function() {
 	// Save handlers
 	$j('#wpSave').live( 'click', liquidThreads.handleAJAXSave );
 	$j('#wpTextbox1').live( 'keyup', liquidThreads.onTextboxKeyUp );
+	$j('#wpPreview').die('click');
 	$j('#wpPreview').live('click', liquidThreads.doLivePreview );
 	
 	// Hide menus when a click happens outside them
