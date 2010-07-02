@@ -152,7 +152,9 @@ class TalkpageView extends LqtView {
 
 		$html .= $headerRow . "\n" . Xml::tags( 'tbody', null, implode( "\n", $rows ) );
 		$html = $h2_header . Xml::tags( 'table', array( 'class' => 'lqt_toc' ), $html );
-
+		// wrap our output in a div for containment
+		$html = Xml::tags( 'div', array( 'class' => 'lqt-contents-wrapper' ), $html );
+		
 		return $html;
 	}
 
