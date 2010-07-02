@@ -1907,6 +1907,8 @@ class LqtView {
 
 		$sk = $this->user->getSkin();
 		$html = '';
+		
+		$html .= Xml::openElement( 'div', array( 'class' => 'lqt-thread-wrapper' ) );
 
 		$html .= Xml::element( 'a', array( 'name' => $this->anchorName( $thread ) ), ' ' );
 		$html .= $this->showThreadHeading( $thread );
@@ -2052,7 +2054,7 @@ class LqtView {
 // 			}
 // 		}
 
-		$this->output->addHTML( Xml::closeElement( 'div' ) );
+		$this->output->addHTML( Xml::closeElement( 'div' ) . Xml::closeElement( 'div' ) );
 
 		$this->threadNestingLevel--;
 	}
