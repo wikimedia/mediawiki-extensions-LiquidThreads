@@ -4869,6 +4869,7 @@ Kui see on lõpule jõudnud, võid tahta $1.',
 	'lqt_nosuchrevision' => 'Lõime sellist redaktsiooni pole.',
 	'lqt_nosuchthread' => 'Määratud lõime pole.',
 	'lqt_nosuchthread_title' => 'Lõime ei leidu',
+	'lqt_threadrequired' => 'Pead internetiaadressis lõime määrama.',
 	'lqt_move_movingthread' => 'Lõime $1 teisaldamine.
 See lõim on osa leheküljest $2.',
 	'lqt_move_torename' => "Lõime ümbernimetamiseks $1 ja muuda väli 'Teema'.",
@@ -5035,6 +5036,7 @@ Allkiri kuvatakse iseenesest.',
 	'lqt-protected-newthread' => 'Sellele aruteluleheküljele ei saa uusi lõimi postitada, sest see on uute lõimede eest kaitstud.',
 	'lqt-edit-bump' => 'Too lõim ette',
 	'lqt-edit-bump-tooltip' => 'Liiguta see lõim arutelulehekülje algusesse',
+	'lqt-historicalrevision-error' => 'Sinu valitud redaktsioon rikutud ja seda ei saa vaadata.',
 	'lqt-reply-subpage' => 'vasta',
 );
 
@@ -9199,6 +9201,7 @@ $messages['kn'] = array(
 );
 
 /** Korean (한국어)
+ * @author Albamhandae
  * @author FriedC
  * @author Klutzy
  * @author Kwj2772
@@ -9302,7 +9305,7 @@ $messages['ko'] = array(
 	'lqt_delete_deletethread' => '스레드와 답글을 삭제하기',
 	'lqt_delete_deleted' => '스레드가 삭제되었습니다.',
 	'lqt_delete_undeleted' => '스레드가 복구되었습니다.',
-	'lqt_delete_return' => '$1로 돌아갑니다.',
+	'lqt_delete_return' => '$1(으)로 돌아갑니다.',
 	'lqt_delete_return_link' => '토론 문서',
 	'lqt_delete_unallowed' => '당신은 스레드를 삭제할 수 없습니다.',
 	'lqt_delete_show_checkbox' => '삭제된 스레드를 보기',
@@ -14444,6 +14447,7 @@ $messages['sr-ec'] = array(
 	'lqt_youhavenewmessages' => 'Имате [[$1|нових порука]].',
 	'lqt_protectedfromreply_link' => 'заштићено',
 	'lqt_subject' => 'Наслов:',
+	'lqt_noreason' => 'Није дат разлог.',
 	'lqt_summary_notice_link' => 'напишите сажетак',
 	'lqt_summary_label' => 'Сажетак теме:',
 	'lqt_summary_subtitle' => 'Сажетак за "$1"',
@@ -14556,6 +14560,8 @@ $messages['sr-ec'] = array(
 	'lqt_newmessages' => 'Нове поруке',
 	'lqt_newmessages-title' => 'Нове поруке',
 	'lqt-newpost-summary' => 'Нова тема: $1',
+	'lqt-reply-summary' => 'Одговор на [[$2|$1]]',
+	'lqt-talkpage-history-title' => 'Историја стране за разговор',
 	'lqt-talkpage-history-subtitle' => 'За $1',
 	'lqt-talkpage-history-tab' => 'Заглавље',
 	'restriction-reply' => 'Слање одговора',
