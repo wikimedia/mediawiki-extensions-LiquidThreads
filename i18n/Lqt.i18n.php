@@ -4056,6 +4056,8 @@ $messages['ee'] = array(
 	'lqt_delete' => 'Tutui',
 	'lqt_move_move' => 'Ɖɔli eƒe nɔƒe',
 	'lqt_delete_return' => 'Gbugbɔ yi $1.',
+	'lqt-movethread' => 'Ɖɔli eƒe nɔƒe',
+	'lqt-search-button' => 'Dii',
 	'lqt_newmessages' => 'Du yeyewo',
 );
 
@@ -13060,7 +13062,7 @@ Acesta poate fi:
 	'lqt_permalink' => 'Legătură către',
 	'lqt_fragment' => 'Fragment dintr-o $1 de la $2',
 	'lqt_discussion_link' => 'discuție',
-	'lqt_from_talk' => 'de la $1',
+	'lqt_from_talk' => 'De la $1',
 	'lqt_newer' => '← mai noi',
 	'lqt_older' => 'mai vechi →',
 	'lqt-history-title' => 'Istoric thread',
@@ -17090,6 +17092,12 @@ $messages['vo'] = array(
 	'lqt_header_warning_big' => 'Redakol $1.',
 	'lqt-title' => 'Tiäd',
 	'lqt_newmessages' => 'Nuns Nulik',
+);
+
+/** Wu (吴语) */
+$messages['wuu'] = array(
+	'lqt-cancel-subject-edit' => '取消',
+	'lqt-drag-reason' => '理由：',
 );
 
 /** Kalmyk (Хальмг)
