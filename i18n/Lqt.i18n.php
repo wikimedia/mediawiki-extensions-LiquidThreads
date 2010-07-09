@@ -3189,6 +3189,7 @@ $messages['da'] = array(
  * @author Goran Maric
  * @author Imre
  * @author JakobVoss
+ * @author Kghbln
  * @author McDutchie
  * @author Merlissimo
  * @author Metalhead64
@@ -3202,7 +3203,7 @@ $messages['da'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'lqt-desc' => 'Verwendung von Themen auf Diskussionsseiten',
+	'lqt-desc' => 'Realisiert Themenstränge auf Diskussionsseiten',
 	'lqt_movethread' => 'Verschiebe Thema auf eine andere Seite',
 	'lqt_deletethread' => 'Lösche oder stelle Thema wieder her',
 	'lqt_contents_title' => 'Diskussionsthemen',
@@ -10061,8 +10062,19 @@ $messages['loz'] = array(
 /** Lithuanian (Lietuvių)
  * @author Pėstininkas
  * @author Tomasdd
+ * @author Vpovilaitis
  */
 $messages['lt'] = array(
+	'lqt-desc' => 'Pridėti diskusijų temas į aptarimų puslapius',
+	'lqt_movethread' => 'Perkelti temą į kitą puslapį',
+	'lqt_deletethread' => 'Ištrinti arba atstatyti temą',
+	'lqt_contents_title' => 'Turinys',
+	'lqt_toc_thread_title' => 'Temos antraštė',
+	'lqt_toc_thread_author' => 'Pradėjo',
+	'lqt_toc_thread_replycount' => 'Atsakymai',
+	'lqt_toc_thread_modified' => 'Paskutinis pakeitimas',
+	'lqt_add_header' => 'Pridėti antraštę',
+	'lqt_new_thread' => 'Pradėti naują diskusiją',
 	'lqt_delete' => 'Ištrinti',
 	'lqt-no-new-messages' => 'Jūs negavote naujų žinučių.',
 	'lqt_newmessages' => 'Naujos žinutės',
@@ -10164,7 +10176,7 @@ $messages['mk'] = array(
 	'lqt_subject' => 'Тема:',
 	'lqt_noreason' => 'Нема наведено причина.',
 	'lqt_move_placeholder' => 'Оваа нишка е показател кој означува дека нишката $1 била преместена од оваа страница.
-Преместувањето го извришил корисникот $2 на $3 во $4. Нишката сега се наоѓа на $5.',
+Преместувањето го извршил корисникот $2 на $3 во $4 ч. Нишката сега се наоѓа на $5.',
 	'lqt_thread_deleted_for_sysops' => "Оваа нишка е '''избришана''' и е видлива само за администратори.",
 	'lqt_thread_deleted' => 'Оваа ниншка била избришана.',
 	'lqt_summary_notice' => 'Овој разговор не е изменет барем $2 {{PLURAL:$2|ден|дена}}.
@@ -14642,6 +14654,7 @@ Razlog za ovo može biti:
 	'lqt_youhavenewmessages' => 'Imate [[$1|novih poruka]].',
 	'lqt_protectedfromreply_link' => 'zaštićeno',
 	'lqt_subject' => 'Naslov:',
+	'lqt_noreason' => 'Nije dat razlog.',
 	'lqt_summary_notice_link' => 'napišite sažetak',
 	'lqt_summary_label' => 'Sažetak teme:',
 	'lqt_summary_subtitle' => 'Sažetak za "$1"',
@@ -14754,6 +14767,8 @@ premeštena [[$1]] sa [[$2]] na [[$3]]',
 	'lqt_newmessages' => 'Nove poruke',
 	'lqt_newmessages-title' => 'Nove poruke',
 	'lqt-newpost-summary' => 'Nova tema: $1',
+	'lqt-reply-summary' => 'Odgovor na [[$2|$1]]',
+	'lqt-talkpage-history-title' => 'Istorija strane za razgovor',
 	'lqt-talkpage-history-subtitle' => 'Za $1',
 	'lqt-talkpage-history-tab' => 'Zaglavlje',
 	'restriction-reply' => 'Slanje odgovora',
