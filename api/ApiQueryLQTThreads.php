@@ -44,8 +44,6 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	}
 
 	public function execute() {
-		global $wgUser;
-
 		$params = $this->extractRequestParams();
 		$prop = array_flip( $params['prop'] );
 		$result = $this->getResult();
@@ -87,6 +85,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			);
 
 			$this->addFields( $allFields );
+			$this->getMain()->setVaryCookie();
 		}
 
 		$res = $this->select( __METHOD__ );
