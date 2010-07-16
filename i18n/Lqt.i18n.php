@@ -5329,7 +5329,7 @@ Välttääksesi tämän, jaa ne tästä ketjusta erilleen ennen sen poistamista.
 	'lqt-preference-notify-talk' => 'Lähetä sähköpostia viestiketjun vastauksista, joita tarkkailen',
 	'lqt-preference-watch-threads' => 'Tarkkaile viestiketjuja, jotka olen luonnut tai joihin olen vastannut',
 	'prefs-lqt' => 'Viestiketjut',
-	'lqt-preference-display-depth' => 'Enimmäissyvyys vastauksia näytettäväksi:',
+	'lqt-preference-display-depth' => 'Sisäkkäisiä vastauksia oletusnäkymässä:',
 	'lqt-preference-display-count' => 'Enimmäismäärä vastauksia näytettäväksi:',
 	'lqt-preference-custom-signatures' => 'Näytä käyttäjien mukautetut allekirjoitukset',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} – Vastaus keskusteluun $1',
