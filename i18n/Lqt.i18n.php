@@ -7932,6 +7932,7 @@ Mungkin:
 * Konflik dengan awalan interwiki atau nama ruang nama.',
 	'lqt_empty_subject' => 'Anda harus memasukkan subjek.',
 	'lqt_reply' => 'Balas',
+	'lqt-parent' => 'Induk',
 	'lqt_delete' => 'Hapus',
 	'lqt_undelete' => 'Batalkan penghapusan',
 	'lqt_permalink' => 'Pranala',
@@ -7988,7 +7989,7 @@ Pemindahan ini dilakukan oleh $2 pada $3 pukul $4. Utas tersebut kini terdapat p
 	'lqt_summary_notice' => 'Tidak ada perubahan pada diskusi ini selama paling tidak $2 {{PLURAL:$2|hari|hari}}
 Jika telah berakhir, Anda mungkin ingin untuk $1.',
 	'lqt_summary_notice_link' => 'tulis ringkasan',
-	'lqt_summary_label' => 'Topik ini telah diringkas sebagai berikut:',
+	'lqt_summary_label' => 'Ringkasan topik:',
 	'lqt_summary_subtitle' => 'Ringkasan dari $1.',
 	'lqt_nosuchrevision' => 'Tidak ada revisi seperti itu pada topik ini.',
 	'lqt_nosuchthread' => 'Topik yang Anda cari tidak ada.',
@@ -8054,7 +8055,8 @@ Hal ini tidak dapat dibatalkan.',
 	'lqt-history-action' => 'Aktivitas',
 	'lqt-history-comment' => 'Komentar',
 	'lqt-history-thread' => 'Utas',
-	'lqt-thread-edited-author' => 'Disunting oleh penulis pertama',
+	'lqt-thread-edited-author' => 'Disunting oleh penulis.<br />
+Suntingan terakhir: $1',
 	'lqt-thread-edited-others' => 'Disunting oleh pengguna lainnya',
 	'lqt-header-actions' => 'Tindakan',
 	'lqt_summarize_link' => 'Ringkasan',
@@ -13824,6 +13826,9 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'lqt-newmessages-n' => 'Новы повідомлїня $1',
+	'lqt_newmessages' => 'Новы повідомлїня',
+	'lqt_newmessages-title' => 'Новы повідомлїня',
 	'lqt-reply-subpage' => 'одповісти',
 );
 
