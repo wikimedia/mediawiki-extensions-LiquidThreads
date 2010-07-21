@@ -11906,6 +11906,7 @@ $messages['pam'] = array(
 $messages['pdc'] = array(
 	'lqt_delete' => 'Lösche',
 	'lqt_discussion_link' => 'Gschwetz',
+	'lqt_protectedfromreply_link' => 'geschitzt',
 	'lqt_move_move' => 'Ziehe',
 	'lqt_delete_return' => 'Zerick zu $1.',
 	'lqt-title' => 'Titel',
