@@ -177,6 +177,8 @@ var liquidThreads = {
 				}
 				// Add wikiEditor toolbar 
 				$j( '#wpTextbox1' ).wikiEditor( 'addModule', { 'toolbar': liquidThreads.toolbar.config, 'dialogs': liquidThreads.toolbar.dialogs } );
+				// cleanup unnecessary things from the old toolbar
+				$j( '#editpage-specialchars' ).remove();
 			} else {
 				// Add old toolbar
 				mwSetupToolbar()
@@ -591,7 +593,14 @@ var liquidThreads = {
 	
 	'setupThread' : function(threadContainer) {
 		var prefixLength = "lqt_thread_id_".length;
-		
+		// add the interruption class if it needs it
+		$parentWrapper = $j( threadContainer )
+			.closest( '.lqt-thread-wrapper' ).parent().closest( '.lqt-thread-wrapper' );
+		if( $parentWrapper.next( '.lqt-thread-wrapper' ).length > 0 ) {
+			$parentWrapper
+				.find( '.lqt-thread-replies' )
+				.addClass( 'lqt-thread-replies-interruption' );
+		}
 		// Update reply links
 		var threadWrapper = $j(threadContainer).closest('.lqt_thread')[0]
 		var threadId = threadWrapper.id.substring( prefixLength );
@@ -860,35 +869,12 @@ var liquidThreads = {
 		editform.prepend(spinner);
 		
 		var replyCallback = function( data ) { 
-			// Grab topmost thread, reload it.
-			var topmostThread = editform.closest('.lqt-thread-topmost');
-			var post = topmostThread.find('.lqt-post-wrapper');
-//			var threadID = post.data('thread-id'); Unused, but useful
-			var newPostID = data.threadaction.thread['thread-id'];
-			
-			// Load data from JSON
-			var html = data.threadaction.thread['html']
-			var newContent = $j(html);
-				
-			// Clear old post.
-			topmostThread.empty();
-				
-			// Replace post content
-			var newThread = newContent.filter('div.lqt_thread')[0];
-			var newThreadContent = $j(newThread).contents();
-			topmostThread.append( newThreadContent );
-			topmostThread.removeClass( 'lqt-thread-no-subthreads' );
-			topmostThread.addClass( 'lqt-thread-with-subthreads' );
-				
-			// Set up thread.
-			topmostThread.find('.lqt-post-wrapper').each( function() {
-				liquidThreads.setupThread( $j(this) );
-			} );
-				
-			// Scroll to the new post.
-			var newPost = $j('#lqt_thread_id_'+newPostID);
-			var targetOffset = $j(newPost).offset().top;
-			$j('html,body').animate({scrollTop: targetOffset}, 'slow');
+			$parent = $j( '#lqt_thread_id_' + data.threadaction.thread['parent-id'] );
+			$html = $j( data.threadaction.thread['html'] );
+			$newThread = $html.find( '#lqt_thread_id_' + data.threadaction.thread['thread-id'] ).parent();
+			$parent.find( '.lqt-thread-replies:first' ).append( $newThread );
+			liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
+			$j( 'html,body' ).animate({scrollTop: $newThread.offset().top}, 'slow');
 		};
 		
 		var newCallback = function( data ) {
