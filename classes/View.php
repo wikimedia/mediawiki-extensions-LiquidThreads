@@ -1212,11 +1212,6 @@ class LqtView {
 		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/js/lqt.toolbar.js" );
 		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/lqt.css?{$wgStyleVersion}" );
 
-		if ( class_exists( 'WikiEditorHooks' ) ) {
-			$temp = null;
-			WikiEditorHooks::addModules( $temp );
-		}
-
 		self::$stylesAndScriptsDone = true;
 	}
 
@@ -1962,6 +1957,10 @@ class LqtView {
 				'class' => 'lqt-thread-title-metadata'
 			)
 		);
+
+		if ( wfRunHooks( 'LiquidThreadsShowThread', array( $thread, $levelNum, $totalInLevel, $options ) ) ) {
+			self::addJSandCSS();
+		}
 
 		// Flush output to display thread
 		$this->output->addHTML( $html );

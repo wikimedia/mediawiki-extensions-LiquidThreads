@@ -229,7 +229,6 @@ class TalkpageView extends LqtView {
 		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		$this->output->setPageTitle( $this->title->getPrefixedText() );
-		self::addJSandCSS();
 
 		// Expose feed links.
 		global $wgFeedClasses, $wgScriptPath, $wgServer;
