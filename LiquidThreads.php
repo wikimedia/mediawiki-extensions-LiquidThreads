@@ -3,11 +3,11 @@ if ( !defined( 'MEDIAWIKI' ) )
 	die();
 
 $wgExtensionCredits['other'][] = array(
-	'path'           => __FILE__,
-	'name'           => 'Liquid Threads',
-	'version'        => '2.0-alpha',
-	'url'            => 'http://www.mediawiki.org/wiki/Extension:LiquidThreads',
-	'author'         => array( 'David McCabe', 'Andrew Garrett' ),
+	'path'			 => __FILE__,
+	'name'			 => 'Liquid Threads',
+	'version'		 => '2.0-alpha',
+	'url'			 => 'http://www.mediawiki.org/wiki/Extension:LiquidThreads',
+	'author'		 => array( 'David McCabe', 'Andrew Garrett' ),
 	'descriptionmsg' => 'lqt-desc',
 );
 
@@ -22,15 +22,15 @@ define( 'LQT_NEWEST_THREADS', 'nt' );
 define( 'LQT_OLDEST_THREADS', 'ot' );
 
 // FIXME: would be neat if it was possible to somehow localise this.
-$wgCanonicalNamespaceNames[NS_LQT_THREAD]       = 'Thread';
-$wgCanonicalNamespaceNames[NS_LQT_THREAD_TALK]  = 'Thread_talk';
-$wgCanonicalNamespaceNames[NS_LQT_SUMMARY]      = 'Summary';
+$wgCanonicalNamespaceNames[NS_LQT_THREAD]		= 'Thread';
+$wgCanonicalNamespaceNames[NS_LQT_THREAD_TALK]	= 'Thread_talk';
+$wgCanonicalNamespaceNames[NS_LQT_SUMMARY]		= 'Summary';
 $wgCanonicalNamespaceNames[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
 
 // FIXME: would be neat if it was possible to somehow localise this.
-$wgExtraNamespaces[NS_LQT_THREAD]       = 'Thread';
-$wgExtraNamespaces[NS_LQT_THREAD_TALK]  = 'Thread_talk';
-$wgExtraNamespaces[NS_LQT_SUMMARY]      = 'Summary';
+$wgExtraNamespaces[NS_LQT_THREAD]		= 'Thread';
+$wgExtraNamespaces[NS_LQT_THREAD_TALK]	= 'Thread_talk';
+$wgExtraNamespaces[NS_LQT_SUMMARY]		= 'Summary';
 $wgExtraNamespaces[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
 
 // Localisation
@@ -171,8 +171,8 @@ if ( version_compare( $wgVersion, '1.16', '<' ) ) {
 
 // Logging
 $wgLogTypes[] = 'liquidthreads';
-$wgLogNames['liquidthreads']          = 'lqt-log-name';
-$wgLogHeaders['liquidthreads']        = 'lqt-log-header';
+$wgLogNames['liquidthreads']		  = 'lqt-log-name';
+$wgLogHeaders['liquidthreads']		  = 'lqt-log-header';
 
 foreach ( array( 'move', 'split', 'merge', 'subjectedit', 'resort' ) as $action ) {
 	$wgLogActionsHandlers["liquidthreads/$action"] = 'LqtLogFormatter::formatLogEntry';
@@ -192,8 +192,8 @@ $wgAPIModules['feedthreads'] = 'ApiFeedLQTThreads';
 $wgAutoloadClasses['ApiThreadAction'] = "$dir/api/ApiThreadAction.php";
 $wgAPIModules['threadaction'] = 'ApiThreadAction';
 
-// Name of the extension (wmf-specific, for splitting to versions)
-$wgLiquidThreadsExtensionName = 'LiquidThreads';
+// Path to the LQT directory
+$wgLiquidThreadsExtensionPath = "{$wgScriptPath}/extensions/LiquidThreads";
 
 /** CONFIGURATION SECTION */
 

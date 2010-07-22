@@ -80,7 +80,7 @@ class LqtView {
 		if ( $operand ) {
 			$query['lqt_operand'] = $operand;
 		}
-		
+
 		if ( ! $thread ) {
 			throw new MWException( "Empty thread passed to ".__METHOD__ );
 		}
@@ -114,7 +114,7 @@ class LqtView {
 
 	static function linkInContextData( $thread, $contextType = 'page' ) {
 		$query = array();
-		
+
 		if ( ! $thread ) {
 			throw new MWException( "Null thread passed to linkInContextData" );
 		}
@@ -282,9 +282,9 @@ class LqtView {
 	}
 
 	/*************************************************************
-	 * Editing methods (here be dragons)                          *
+	 * Editing methods (here be dragons)						  *
 	 * Forget dragons: This section distorts the rest of the code *
-	 * like a star bending spacetime around itself.               *
+	 * like a star bending spacetime around itself.				  *
 	 *************************************************************/
 
 	/**
@@ -311,7 +311,7 @@ class LqtView {
 		$operand = $this->request->getVal( 'lqt_operand' );
 
 		$thread = Threads::withId( intval( $operand ) );
-		
+
 		$hookResult = wfRunHooks( 'LiquidThreadsDoInlineEditForm',
 					array(
 						$thread,
@@ -331,20 +331,20 @@ class LqtView {
 
 		$this->output->setArticleBodyOnly( true );
 	}
-	
+
 	function showNewThreadForm( $talkpage ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
 		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
-		
+
 		if ( Thread::canUserPost( $this->user, $this->article ) !== true ) {
 			$this->output->addWikiMsg( 'lqt-protected-newthread' );
 			return;
 		}
 		$subject = $this->request->getVal( 'lqt_subject_field', false );
-		
+
 		$t = null;
-		
+
 		$subjectOk = Thread::validateSubject( $subject, $t,
 					null, $this->article );
 		if ( ! $subjectOk ) {
@@ -354,65 +354,65 @@ class LqtView {
 				$t = $this->scratchTitle();
 			}
 		}
-		
+
 		$article = new Article( $t );
-		
+
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
 		LqtHooks::$editThread = null;
 		LqtHooks::$editType = 'new';
 		LqtHooks::$editAppliesTo = null;
-		
+
 		wfRunHooks( 'LiquidThreadsShowNewThreadForm', array( &$e, $talkpage ) );
-		
+
 		$e = new EditPage( $article );
-		
+
 		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
 		if ( !$subjectOk ) {
 			// Dirty hack to prevent saving from going ahead
 			$wgRequest->setVal( 'wpPreview', true );
-		
+
 			if ( $this->request->wasPosted() ) {
 				if ( !$subject ) {
 					$msg = 'lqt_empty_subject';
 				} else {
 					$msg = 'lqt_invalid_subject';
 				}
-		
+
 				$e->editFormPageTop .=
 					Xml::tags( 'div', array( 'class' => 'error' ),
 						wfMsgExt( $msg, 'parse' ) );
 			}
 		}
-		
+
 		$e->suppressIntro = true;
 		$e->editFormTextBeforeContent .=
 			$this->perpetuate( 'lqt_method', 'hidden' ) .
 			$this->perpetuate( 'lqt_operand', 'hidden' ) .
 			Xml::hidden( 'lqt_nonce', wfGenerateToken() );
-		
+
 		$e->mShowSummaryField = false;
-		
+
 		$summary = wfMsgForContent( 'lqt-newpost-summary', $subject );
 		$wgRequest->setVal( 'wpSummary', $summary );
-		
+
 		list( $signatureEditor, $signatureHTML ) = $this->getSignatureEditor( $this->user );
-		
+
 		$e->editFormTextAfterContent .=
 			$signatureEditor;
 		$e->previewTextAfterContent .=
 			Xml::tags( 'p', null, $signatureHTML );
-			
+
 		$e->editFormTextBeforeContent .= $this->getSubjectEditor( '', $subject );
-		
+
 		wfRunHooks( 'LiquidThreadsAfterShowNewThreadForm', array( &$e, $talkpage ) );
-		
+
 		$e->edit();
-		
+
 		if ( $e->didSave ) {
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
-			
+
 			$info =
 				array(
 					'talkpage' => $talkpage,
@@ -422,66 +422,66 @@ class LqtView {
 					'root' => $article,
 					'subject' => $subject,
 				);
-			
+
 			wfRunHooks( 'LiquidThreadsSaveNewThread',
 					array( &$info, &$e, &$talkpage ) );
-			
+
 			$thread = LqtView::newPostMetadataUpdates( $info );
-			
+
 			if ( $submitted_nonce && $nonce_key ) {
 				global $wgMemc;
 				$wgMemc->set( $nonce_key, 1, 3600 );
 			}
 		}
-		
+
 		if ( $this->output->getRedirect() != '' ) {
-		       $redirectTitle = clone $talkpage->getTitle();
-		       if ( !empty($thread) ) {
-			       $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
-		       }
-		       $this->output->redirect( $this->title->getFullURL() );
+			   $redirectTitle = clone $talkpage->getTitle();
+			   if ( !empty($thread) ) {
+				   $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
+			   }
+			   $this->output->redirect( $this->title->getFullURL() );
 		}
-	
+
 	}
-	
+
 	function showReplyForm( $thread ) {
 		global $wgRequest;
-		
+
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
 		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
-		
+
 		$perm_result = $thread->canUserReply( $this->user );
 		if ( $perm_result !== true ) {
 			$this->showReplyProtectedNotice( $thread );
 			return;
 		}
-		
+
 		$html = Xml::openElement( 'div',
 					array( 'class' => 'lqt-reply-form' ) );
 		$this->output->addHTML( $html );
 
-		
+
 		try {
 			$t = $this->newReplyTitle( null, $thread );
 		} catch ( MWException $excep ) {
 			$t = $this->scratchTitle();
 			$valid_subject = false;
 		}
-		
+
 		$article = new Article( $t );
 		$talkpage = $thread->article();
-		
+
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
 		LqtHooks::$editThread = $thread;
 		LqtHooks::$editType = 'reply';
 		LqtHooks::$editAppliesTo = $thread;
-		
+
 		$e = new EditPage( $article );
-		
+
 		$e->mShowSummaryField = false;
-		
+
 		$reply_subject = $thread->subject();
 		$reply_title = $thread->title()->getPrefixedText();
 		$summary = wfMsgForContent(
@@ -490,37 +490,37 @@ class LqtView {
 			$reply_title
 		);
 		$wgRequest->setVal( 'wpSummary', $summary );
-		
+
 		// Add an offset so it works if it's on the wrong page.
 		$dbr = wfGetDB( DB_SLAVE );
 		$offset = wfTimestamp( TS_UNIX, $thread->topmostThread()->sortkey() );
 		$offset++;
 		$offset = $dbr->timestamp( $offset );
-		
+
 		$e->suppressIntro = true;
 		$e->editFormTextBeforeContent .=
 			$this->perpetuate( 'lqt_method', 'hidden' ) .
 			$this->perpetuate( 'lqt_operand', 'hidden' ) .
 			Xml::hidden( 'lqt_nonce', wfGenerateToken() ) .
 			Xml::hidden( 'offset', $offset );
-		
+
 		list( $signatureEditor, $signatureHTML ) = $this->getSignatureEditor( $this->user );
-		
+
 		$e->editFormTextAfterContent .=
 			$signatureEditor;
 		$e->previewTextAfterContent .=
 			Xml::tags( 'p', null, $signatureHTML );
-		
+
 		$wgRequest->setVal( 'wpWatchThis', false );
-		
+
 		wfRunHooks( 'LiquidThreadsShowReplyForm', array( &$e, $thread ) );
-			
+
 		$e->edit();
-		
+
 		if ( $e->didSave ) {
 			$bump = $this->request->getBool( 'wpBumpThread' );
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
-			
+
 			$info = array(
 					'replyTo' => $thread,
 					'text' => $e->textbox1,
@@ -529,106 +529,106 @@ class LqtView {
 					'signature' => $signature,
 					'root' => $article,
 				);
-			
+
 			wfRunHooks( 'LiquidThreadsSaveReply',
 					array( &$info, &$e, &$thread ) );
-			
+
 			$newThread = LqtView::replyMetadataUpdates( $info );
-			
+
 			if ( $submitted_nonce && $nonce_key ) {
 				global $wgMemc;
 				$wgMemc->set( $nonce_key, 1, 3600 );
 			}
 		}
-		
+
 		if ( $this->output->getRedirect() != '' ) {
-		       $redirectTitle = clone $talkpage->getTitle();
-		       if ( !empty( $newThread ) ) {
-			       $redirectTitle->setFragment( '#' .
-			       	$this->anchorName( $newThread ) );
-		       }
-		       $this->output->redirect( $this->title->getFullURL() );
+			   $redirectTitle = clone $talkpage->getTitle();
+			   if ( !empty( $newThread ) ) {
+				   $redirectTitle->setFragment( '#' .
+					$this->anchorName( $newThread ) );
+			   }
+			   $this->output->redirect( $this->title->getFullURL() );
 		}
-		
+
 		$this->output->addHTML( '</div>' );
 	}
-	
+
 	function showPostEditingForm( $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
 		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
-		
+
 		$subject_expected = $thread->isTopmostThread();
 		$subject = $this->request->getVal( 'lqt_subject_field', '' );
-		
+
 		if ( !$subject ) {
 			$subject = $thread->subject();
 		}
-		
+
 		$t = null;
 		$subjectOk = Thread::validateSubject( $subject, $t,
 					$thread->superthread(), $this->article );
 		if ( ! $subjectOk ) {
 			$subject = false;
 		}
-		
+
 		$article = $thread->root();
 		$talkpage = $thread->article();
-		
+
 		wfRunHooks( 'LiquidThreadsEditFormContent', array( $thread, &$article, $talkpage ) );
-		
+
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
 		LqtHooks::$editThread = $thread;
 		LqtHooks::$editType = 'edit';
 		LqtHooks::$editAppliesTo = $thread;
-		
+
 		$e = new EditPage( $article );
-		
+
 		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
 		if ( !$subjectOk ) {
 			// Dirty hack to prevent saving from going ahead
 			$wgRequest->setVal( 'wpPreview', true );
-		
+
 			if ( $this->request->wasPosted() ) {
 				$e->editFormPageTop .=
 					Xml::tags( 'div', array( 'class' => 'error' ),
 						wfMsgExt( 'lqt_invalid_subject', 'parse' ) );
 			}
 		}
-		
+
 		// Add an offset so it works if it's on the wrong page.
 		$dbr = wfGetDB( DB_SLAVE );
 		$offset = wfTimestamp( TS_UNIX, $thread->topmostThread()->sortkey() );
 		$offset++;
 		$offset = $dbr->timestamp( $offset );
-		
+
 		$e->suppressIntro = true;
 		$e->editFormTextBeforeContent .=
 			$this->perpetuate( 'lqt_method', 'hidden' ) .
 			$this->perpetuate( 'lqt_operand', 'hidden' ) .
 			Xml::hidden( 'lqt_nonce', wfGenerateToken() ) .
 			Xml::hidden( 'offset', $offset );
-		
+
 		list( $signatureEditor, $signatureHTML ) = $this->getSignatureEditor( $thread );
-		
+
 		$e->editFormTextAfterContent .=
 			$signatureEditor;
 		$e->previewTextAfterContent .=
 			Xml::tags( 'p', null, $signatureHTML );
-		
+
 		if ( $thread->isTopmostThread() ) {
 			$e->editFormTextBeforeContent .=
 				$this->getSubjectEditor( $thread->subject(), $subject );
 		}
-		
+
 		$e->edit();
-		
+
 		if ( $e->didSave ) {
 			$bump = $this->request->getBool( 'wpBumpThread' );
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
-			
+
 			LqtView::editMetadataUpdates(
 				array(
 					'thread' => $thread,
@@ -640,63 +640,63 @@ class LqtView {
 					'root' => $article,
 				)
 			);
-			
+
 			if ( $submitted_nonce && $nonce_key ) {
 				global $wgMemc;
 				$wgMemc->set( $nonce_key, 1, 3600 );
 			}
 		}
-		
+
 		if ( $this->output->getRedirect() != '' ) {
-		       $redirectTitle = clone $talkpage->getTitle();
-		       $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
-		       $this->output->redirect( $this->title->getFullURL() );
+			   $redirectTitle = clone $talkpage->getTitle();
+			   $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
+			   $this->output->redirect( $this->title->getFullURL() );
 		}
-	
+
 	}
-	
+
 	function showSummarizeForm( $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
 		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
-		
+
 		if ( $thread->summary() ) {
 			$article = $thread->summary();
 		} else {
 			$t = $this->newSummaryTitle( $thread );
 			$article = new Article( $t );
 		}
-		
+
 		$this->output->addWikiMsg( 'lqt-summarize-intro' );
-		
+
 		$talkpage = $thread->article();
-		
+
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
 		LqtHooks::$editThread = $thread;
 		LqtHooks::$editType = 'summarize';
 		LqtHooks::$editAppliesTo = $thread;
-		
+
 		$e = new EditPage( $article );
-		
+
 		// Add an offset so it works if it's on the wrong page.
 		$dbr = wfGetDB( DB_SLAVE );
 		$offset = wfTimestamp( TS_UNIX, $thread->topmostThread()->sortkey() );
 		$offset++;
 		$offset = $dbr->timestamp( $offset );
-		
+
 		$e->suppressIntro = true;
 		$e->editFormTextBeforeContent .=
 			$this->perpetuate( 'lqt_method', 'hidden' ) .
 			$this->perpetuate( 'lqt_operand', 'hidden' ) .
 			Xml::hidden( 'lqt_nonce', wfGenerateToken() ) .
 			Xml::hidden( 'offset', $offset );
-			
+
 		$e->edit();
-		
+
 		if ( $e->didSave ) {
 			$bump = $this->request->getBool( 'wpBumpThread' );
-			
+
 			LqtView::summarizeMetadataUpdates(
 				array(
 					'thread' => $thread,
@@ -705,25 +705,25 @@ class LqtView {
 					'bump' => $bump,
 				)
 			);
-			
+
 			if ( $submitted_nonce && $nonce_key ) {
 				global $wgMemc;
 				$wgMemc->set( $nonce_key, 1, 3600 );
 			}
 		}
-		
+
 		if ( $this->output->getRedirect() != '' ) {
-		       $redirectTitle = clone $talkpage->getTitle();
-		       $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
-		       $this->output->redirect( $this->title->getFullURL() );
+			   $redirectTitle = clone $talkpage->getTitle();
+			   $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
+			   $this->output->redirect( $this->title->getFullURL() );
 		}
-	
+
 	}
-	
+
 	public function handleNonce( $submitted_nonce, $nonce_key ) {
 		// Add a one-time random string to a hidden field. Store the random string
-		//  in memcached on submit and don't allow the edit to go ahead if it's already
-		//  been added.
+		//	in memcached on submit and don't allow the edit to go ahead if it's already
+		//	been added.
 		if ( $submitted_nonce ) {
 			global $wgMemc;
 
@@ -732,13 +732,13 @@ class LqtView {
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	public function getSubjectEditor( $db_subject, $subject ) {
 		if ( $subject === false ) $subject = $db_subject;
-		
+
 		$subject_label = wfMsg( 'lqt_subject' );
 
 		$attr = array( 'tabindex' => 1 );
@@ -747,7 +747,7 @@ class LqtView {
 				'lqt_subject_field', 60, $subject, $attr ) .
 			Xml::element( 'br' );
 	}
-	
+
 	public function getSignatureEditor( $from ) {
 		$signatureText = $this->request->getVal( 'wpLqtSignature', null );
 
@@ -776,19 +776,19 @@ class LqtView {
 		);
 
 		$signatureEditor = $signaturePreview . $signatureEditBox;
-		
+
 		return array( $signatureEditor, $signatureHTML );
 	}
-	
+
 	static function replyMetadataUpdates( $data = array() ) {
 		$requiredFields = array( 'replyTo', 'root', 'text' );
-		
+
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
 				throw new MWException( "Missing required field $f" );
 			}
 		}
-		
+
 		$signature = null;
 		if ( isset( $data['signature'] ) ) {
 			$signature = $data['signature'];
@@ -796,72 +796,72 @@ class LqtView {
 			global $wgUser;
 			$signature = LqtView::getUserSignature( $wgUser );
 		}
-		
+
 		$summary = isset( $data['summary'] ) ? $data['summary'] : '';
-		
+
 		$replyTo = $data['replyTo'];
 		$root = $data['root'];
 		$text = $data['text'];
 		$bump = !empty( $data['bump'] );
-		
+
 		$subject = $replyTo->subject();
 		$talkpage = $replyTo->article();
-		
+
 		$thread = Thread::create(
 			$root, $talkpage, $replyTo, Threads::TYPE_NORMAL, $subject,
 			$summary, $bump, $signature
 		);
-		
+
 		wfRunHooks( 'LiquidThreadsAfterReplyMetadataUpdates', array( &$thread ) );
-		
+
 		return $thread;
 	}
-	
+
 	static function summarizeMetadataUpdates( $data = array() ) {
 		$requiredFields = array( 'thread', 'article', 'summary' );
-		
+
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
 				throw new MWException( "Missing required field $f" );
 			}
 		}
-		
+
 		extract( $data );
-		
+
 		$bump = isset( $bump ) ? $bump : null;
-		
+
 		$thread->setSummary( $article );
 		$thread->commitRevision(
 			Threads::CHANGE_EDITED_SUMMARY, $thread, $summary, $bump );
-			
+
 		return $thread;
 	}
-	
+
 	static function editMetadataUpdates( $data = array() ) {
 		$requiredFields = array( 'thread', 'text', 'summary' );
-		
+
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
 				throw new MWException( "Missing required field $f" );
 			}
 		}
-		
+
 		$thread = $data['thread'];
-		
+
 		// Use a separate type if the content is blanked.
 		$type = strlen( trim( $data['text'] ) )
 				? Threads::CHANGE_EDITED_ROOT
 				: Threads::CHANGE_ROOT_BLANKED;
-				
+
 		if ( isset( $data['signature'] ) ) {
 			$thread->setSignature( $data['signature'] );
 		}
-		
+
 		$bump = !empty( $data['bump'] );
 
 		// Add the history entry.
 		$thread->commitRevision( $type, $thread, $data['summary'], $bump );
-		
+
 		// Update subject if applicable.
 		if ( $thread->isTopmostThread() && !empty( $data['subject'] ) &&
 				$data['subject'] != $thread->subject() ) {
@@ -872,20 +872,20 @@ class LqtView {
 			// Disabled page-moving for now.
 			// $this->renameThread( $thread, $subject, $e->summary );
 		}
-		
+
 		return $thread;
 	}
 
 	static function newPostMetadataUpdates( $data )
 	{
 		$requiredFields = array( 'talkpage', 'root', 'text', 'subject' );
-		
+
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
 				throw new MWException( "Missing required field $f" );
 			}
 		}
-		
+
 		$signature = null;
 		if ( isset( $data['signature'] ) ) {
 			$signature = $data['signature'];
@@ -893,9 +893,9 @@ class LqtView {
 			global $wgUser;
 			$signature = LqtView::getUserSignature( $wgUser );
 		}
-		
+
 		$summary = isset( $data['summary'] ) ? $data['summary'] : '';
-		
+
 		$talkpage = $data['talkpage'];
 		$root = $data['root'];
 		$text = $data['text'];
@@ -906,7 +906,7 @@ class LqtView {
 			Threads::TYPE_NORMAL, $subject,
 			$summary, null, $signature
 		);
-		
+
 		wfRunHooks( 'LiquidThreadsAfterNewPostMetadataUpdates', array( &$thread ) );
 
 		return $thread;
@@ -958,21 +958,21 @@ class LqtView {
 
 		return true;
 	}
-	
+
 	function scratchTitle() {
 		return Title::makeTitle( NS_LQT_THREAD, wfGenerateToken() );
 	}
 
 	/**
 	* Example return value:
-	*   array (
-	*       edit => array( 'label'   => 'Edit',
-	*                   'href'    => 'http...',
-	*                   'enabled' => false ),
-	*       reply => array( 'label'   => 'Reply',
-	*                   'href'    => 'http...',
-	*                   'enabled' => true )
-	*   )
+	*	array (
+	*		edit => array( 'label'	 => 'Edit',
+	*					'href'	  => 'http...',
+	*					'enabled' => false ),
+	*		reply => array( 'label'	  => 'Reply',
+	*					'href'	  => 'http...',
+	*					'enabled' => true )
+	*	)
 	*/
 	function threadCommands( $thread ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
@@ -1038,7 +1038,7 @@ class LqtView {
 				'enabled' => true
 			);
 		}
-		
+
 		$commands['link'] = array(
 			'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
 			'href' => $thread->title()->getFullURL(),
@@ -1046,7 +1046,7 @@ class LqtView {
 			'showlabel' => true,
 			'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' )
 		);
-		
+
 		wfRunHooks( 'LiquidThreadsThreadCommands', array( $thread, &$commands ) );
 
 		return $commands;
@@ -1086,7 +1086,7 @@ class LqtView {
 				'tooltip' => $label
 			);
 		}
-		
+
 		if ( $thread->canUserReply( $this->user ) === true ) {
 			$commands['reply'] = array(
 				'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
@@ -1098,12 +1098,12 @@ class LqtView {
 				 'icon' => 'reply.png',
 			);
 		}
-		
+
 		// Parent post link
 		if ( !$thread->isTopmostThread() ) {
 			$parent = $thread->superthread();
 			$anchor = $parent->getAnchorName();
-			
+
 			$commands['parent'] = array(
 				'label' => wfMsgExt( 'lqt-parent', 'parseinline' ),
 				'href' => '#' . $anchor,
@@ -1111,7 +1111,7 @@ class LqtView {
 				'showlabel' => 1,
 			);
 		}
-		
+
 		wfRunHooks( 'LiquidThreadsThreadMajorCommands',
 				array( $thread, &$commands ) );
 
@@ -1175,14 +1175,14 @@ class LqtView {
 			'href' => $summarizeUrl,
 			'enabled' => true,
 		);
-		
+
 		wfRunHooks( 'LiquidThreadsTopLevelCommands', array( $thread, &$commands ) );
 
 		return $commands;
 	}
 
 	/*************************
-	* Output methods         *
+	* Output methods		 *
 	*************************/
 
 	static function addJSandCSS() {
@@ -1191,29 +1191,27 @@ class LqtView {
 		}
 
 		global $wgOut, $wgStylePath;
-		global $wgScriptPath, $wgStyleVersion;
+		global $wgStyleVersion;
 		global $wgEnableJS2system;
-		global $wgLiquidThreadsExtensionName;
+		global $wgLiquidThreadsExtensionPath;
 
 		LqtHooks::$scriptVariables['wgLqtMessages'] = self::exportJSLocalisation();
 
-		$basePath = "$wgScriptPath/extensions/$wgLiquidThreadsExtensionName";
-
 		if ( method_exists( $wgOut, 'includeJQuery' ) ) {
 			$wgOut->includeJQuery();
-			$wgOut->addScriptFile( "$basePath/jquery/plugins.js" );
+			$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/jquery/plugins.js" );
 		} else {
-			$wgOut->addScriptFile( "$basePath/jquery/js2.combined.js" );
+			$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/jquery/js2.combined.js" );
 		}
-		
-		$wgOut->addExtensionStyle( "$basePath/jquery/jquery-ui-1.7.2.css" );
 
-		$wgOut->addScriptFile( "$basePath/jquery/jquery.autogrow.js" );
+		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/jquery/jquery-ui-1.7.2.css" );
 
-		$wgOut->addScriptFile( "$basePath/lqt.js" );
-		$wgOut->addScriptFile( "$basePath/js/lqt.toolbar.js" );
-		$wgOut->addExtensionStyle( "$basePath/lqt.css?{$wgStyleVersion}" );
-		
+		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/jquery/jquery.autogrow.js" );
+
+		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/lqt.js" );
+		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/js/lqt.toolbar.js" );
+		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/lqt.css?{$wgStyleVersion}" );
+
 		if ( class_exists( 'WikiEditorHooks' ) ) {
 			$temp = null;
 			WikiEditorHooks::addModules( $temp );
@@ -1361,7 +1359,6 @@ class LqtView {
 		$tooltip = isset( $command['tooltip'] ) ? $command['tooltip'] : '';
 
 		if ( isset( $command['icon'] ) ) {
-			global $wgScriptPath;
 			$icon = Xml::tags( 'div', array( 'title' => $label,
 					'class' => 'lqt-command-icon' ), '&#160;' );
 			if ( $icon_divs ) {
@@ -1424,12 +1421,12 @@ class LqtView {
 			$html = '';
 
 			// No way am I refactoring EditForm to return its output as HTML.
-			//  so I'm just flushing the HTML and displaying it as-is.
+			//	so I'm just flushing the HTML and displaying it as-is.
 			$this->showPostEditingForm( $thread );
 			$html .= Xml::closeElement( 'div' );
 		} elseif ( $showAnything ) {
 			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
-			
+
 			$show = wfRunHooks( 'LiquidThreadsShowPostContent',
 						array( $thread, &$post ) );
 			if ( $show ) {
@@ -1438,7 +1435,7 @@ class LqtView {
 			$html .= Xml::closeElement( 'div' );
 			$html .= Xml::tags( 'div', array( 'style' => 'clear: both; height: 0' ),
 						'&#160;' );
-						
+
 			wfRunHooks( 'LiquidThreadsShowPostThreadBody',
 				array( $thread, $this->request, &$html ) );
 
@@ -1463,11 +1460,11 @@ class LqtView {
 		$signature = Xml::tags( 'span', array( 'class' => 'lqt-thread-user-signature' ),
 					$signature );
 
- 		$timestamp = $wgLang->timeanddate( $thread->created(), true );
+		$timestamp = $wgLang->timeanddate( $thread->created(), true );
 		$signature .= Xml::element( 'span',
 					array( 'class' => 'lqt-thread-toolbar-timestamp' ),
 					$timestamp );
-					
+
 		wfRunHooks( 'LiquidThreadsThreadSignature', array( $thread, &$signature ) );
 
 		$signature = Xml::tags( 'div', array( 'class' => 'lqt-thread-signature' ),
@@ -1493,22 +1490,22 @@ class LqtView {
 		$lastEdit = $wgLang->timeanddate( $lastEdit, true );
 		$editors = '';
 		$editorCount = 0;
-		
+
 		if ( $editedFlag > Threads::EDITED_BY_AUTHOR ) {
 			$editors = $thread->editors();
 			$editorCount = count( $editors );
 			$formattedEditors = array();
-			
+
 			foreach ( $editors as $ed ) {
 				$id = IP::isIPAddress( $ed ) ? 0 : 1;
 				$fEditor = $sk->userLink( $id, $ed ) .
 					$sk->userToolLinks( $id, $ed );
 				$formattedEditors[] = $fEditor;
 			}
-			
+
 			$editors = $wgLang->commaList( $formattedEditors );
 		}
-		
+
 		if ( isset( $ebLookup[$editedFlag] ) ) {
 			$editedBy = $ebLookup[$editedFlag];
 			// Used messages: lqt-thread-edited-author, lqt-thread-edited-others
@@ -1521,7 +1518,7 @@ class LqtView {
 						'lqt-thread-toolbar-edited-' . $editedBy ),
 						$editedNotice );
 		}
-		
+
 		wfRunHooks( 'LiquidThreadsThreadInfoPanel', array( $thread, &$infoElements ) );
 
 		if ( ! count( $infoElements ) ) {
@@ -1551,10 +1548,10 @@ class LqtView {
 			$id = 'lqt-header-' . $thread->id();
 
 			$html = $thread->formattedSubject();
-			
+
 			$show = wfRunHooks( 'LiquidThreadsShowThreadHeading',
 					array( $thread, &$html ) );
-			
+
 			if ( $show ) {
 				$html = Xml::tags( 'span', array( 'class' => 'mw-headline' ), $html );
 				$html .= Xml::hidden( 'raw-header', $thread->subject() );
@@ -1562,7 +1559,7 @@ class LqtView {
 						array( 'class' => 'lqt_header', 'id' => $id ),
 						$html ) . $commands_html;
 			}
-			
+
 			// wrap it all in a container
 			$html = Xml::tags( 'div',
 					array( 'class' => 'lqt_thread_heading' ),
@@ -1764,11 +1761,11 @@ class LqtView {
 			$cascadeOptions, $interruption = false ) {
 		$repliesClass = 'lqt-thread-replies lqt-thread-replies-' .
 					$this->threadNestingLevel;
-		
+
 		if ( $interruption ) {
 			$repliesClass .= ' lqt-thread-replies-interruption';
 		}
-		
+
 		$div = Xml::openElement( 'div', array( 'class' => $repliesClass ) );
 		$sep = Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&#160;' );
 
@@ -1802,7 +1799,7 @@ class LqtView {
 				++$showCount;
 				if ( $showCount == 1 ) {
 					// There's a post sep before each reply group to
-					//  separate from the parent thread.
+					//	separate from the parent thread.
 					$this->output->addHTML( $sep . $div );
 				}
 
@@ -1812,7 +1809,7 @@ class LqtView {
 
 			// Handle must-show threads.
 			// FIXME this thread will be duplicated if somebody clicks the
-			//  "show more" link (probably needs fixing in the JS)
+			//	"show more" link (probably needs fixing in the JS)
 			if ( $st->type() != Threads::TYPE_DELETED && !$shown &&
 					array_key_exists( $st->id(), $mustShowThreads ) ) {
 
@@ -1846,7 +1843,7 @@ class LqtView {
 		$this->threadNestingLevel++;
 
 		// Figure out which threads *need* to be shown because they're involved in an
-		//  operation
+		//	operation
 		$mustShowOption = array();
 		if ( isset( $options['mustShowThreads'] ) ) {
 			$mustShowOption = $options['mustShowThreads' ];
@@ -1907,7 +1904,7 @@ class LqtView {
 
 		$sk = $this->user->getSkin();
 		$html = '';
-		
+
 		$html .= Xml::openElement( 'div', array( 'class' => 'lqt-thread-wrapper' ) );
 
 		$html .= Xml::element( 'a', array( 'name' => $this->anchorName( $thread ) ), ' ' );
@@ -1951,7 +1948,7 @@ class LqtView {
 				array( 'id' => 'lqt-thread-sortkey-' . $thread->id() )
 			);
 		}
-		
+
 		if ( ! $thread->title() ) {
 			throw new MWException( "Thread " . $thread->id() . " has null title" );
 		}
@@ -1975,7 +1972,7 @@ class LqtView {
 
 		$cascadeOptions = $options;
 		unset( $cascadeOptions['startAt'] );
-		
+
 		$replyInterruption = $levelNum < $totalInLevel;
 
 		if ( ( $hasSubthreads && $showThreads ) ) {
@@ -1984,11 +1981,11 @@ class LqtView {
 				$cascadeOptions, $replyInterruption );
 		} elseif ( $hasSubthreads && !$showThreads ) {
 			// If the thread has subthreads, but we don't want to show them, then
-			//  show the reply form if necessary, and add the "Show X replies" link.
+			//	show the reply form if necessary, and add the "Show X replies" link.
 			if ( $replyTo ) {
 				$this->showReplyForm( $thread );
 			}
-			
+
 			// Add a "show subthreads" link.
 			$link = $this->getShowReplies( $thread );
 
@@ -2000,7 +1997,7 @@ class LqtView {
 			}
 		} elseif ( $levelNum < $totalInLevel ) {
 			// If we have no replies, and we're not at the end of this level, add the post separator
-			//  and a reply box if necessary.
+			//	and a reply box if necessary.
 			$this->output->addHTML(
 				Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&#160;' ) );
 
@@ -2009,7 +2006,7 @@ class LqtView {
 						$this->threadNestingLevel;
 				$html = Xml::openElement( 'div', array( 'class' => $class ) );
 				$this->output->addHTML( $html );
-				
+
 				$this->showReplyForm( $thread );
 
 				$finishDiv = Xml::tags( 'div',
@@ -2024,14 +2021,14 @@ class LqtView {
 			}
 		} elseif ( !$hasSubthreads && $replyTo ) {
 			// If we have no replies, we're at the end of this level, and we want to reply,
-			//  show the reply box.
+			//	show the reply box.
 			$class = 'lqt-thread-replies lqt-thread-replies-' .
 					$this->threadNestingLevel;
 			$html = Xml::openElement( 'div', array( 'class' => $class ) );
 			$this->output->addHTML( $html );
-			
+
 			$this->showReplyForm( $thread );
-			
+
 			$html = Xml::tags( 'div',
 					array( 'class' => 'lqt-replies-finish' ),
 					Xml::tags( 'div',
@@ -2043,16 +2040,16 @@ class LqtView {
 		}
 
 		// I don't remember why this is here, commenting out.
-// 		if ( $this->threadNestingLevel == 1 ) {
-// 			if ( !( $hasSubthreads && $showThreads && !$replyTo ) ) {
-// 				$this->showReplyBox( $thread );
-// 				$finishDiv = '';
-// 				$finishDiv .= Xml::tags( 'div', array( 'class' => 'lqt-replies-finish' ),
-// 					Xml::tags( 'div', array( 'class' => 'lqt-replies-finish-corner' ), '&#160;' ) );
-// 
-// 				$this->output->addHTML( $finishDiv );
-// 			}
-// 		}
+//		if ( $this->threadNestingLevel == 1 ) {
+//			if ( !( $hasSubthreads && $showThreads && !$replyTo ) ) {
+//				$this->showReplyBox( $thread );
+//				$finishDiv = '';
+//				$finishDiv .= Xml::tags( 'div', array( 'class' => 'lqt-replies-finish' ),
+//					Xml::tags( 'div', array( 'class' => 'lqt-replies-finish-corner' ), '&#160;' ) );
+//
+//				$this->output->addHTML( $finishDiv );
+//			}
+//		}
 
 		$this->output->addHTML( Xml::closeElement( 'div' ) . Xml::closeElement( 'div' ) );
 
@@ -2071,7 +2068,7 @@ class LqtView {
 		$html = '';
 		$html .= Xml::tags( 'div',
 				array( 'class' => 'lqt-reply-form lqt-edit-form',
-					'style' => 'display: none;'  ),
+					'style' => 'display: none;'	 ),
 				'' );
 
 		$this->output->addHTML( $html );
@@ -2194,7 +2191,7 @@ class LqtView {
 
 	static function signaturePST( $sig, $user ) {
 		global $wgParser, $wgOut, $wgTitle;
-		
+
 		$title = $wgTitle ? $wgTitle : $user->getUserPage();
 
 		// Parser gets antsy about parser options here if it hasn't parsed anything before.

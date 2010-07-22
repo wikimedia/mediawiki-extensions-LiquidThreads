@@ -26,7 +26,7 @@ class NewUserMessagesView extends LqtView {
 
 	function getReadAllButton( $threads ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		$ids =  array_map( create_function( '$t', 'return $t->id();' ), $threads ); // ew
+		$ids =	array_map( create_function( '$t', 'return $t->id();' ), $threads ); // ew
 		return $this->htmlForReadButton(
 			wfMsg( 'lqt-read-all' ),
 			wfMsg( 'lqt-read-all-tooltip' ),
@@ -45,7 +45,7 @@ class NewUserMessagesView extends LqtView {
 			$msg = wfMsgExt( 'lqt-marked-read', 'parseinline', array( $t->subject() )  );
 		} else {
 			$count = count( $ids );
-			$msg =  wfMsgExt( 'lqt-count-marked-read', 'parseinline', array( $count ) );
+			$msg =	wfMsgExt( 'lqt-count-marked-read', 'parseinline', array( $count ) );
 		}
 		$operand = implode( ',', $ids );
 
@@ -84,15 +84,14 @@ class NewUserMessagesView extends LqtView {
 
 	function showOnce() {
 		self::addJSandCSS();
-		
+
 		NewMessages::recacheMessageCount( $this->user->getId() );
 
 		static $scriptDone = false;
 
 		if ( !$scriptDone ) {
-			global $wgOut, $wgScriptPath, $wgLiquidThreadsExtensionName;
-			$prefix = "{$wgScriptPath}/extensions/{$wgLiquidThreadsExtensionName}";
-			$wgOut->addScriptFile( "$prefix/newmessages.js" );
+			global $wgOut, $wgLiquidThreadsExtensionPath
+			$wgOut->addScriptFile( "$wgLiquidThreadExtensionPath/newmessages.js" );
 		}
 
 		$this->user->setNewtalk( false );
@@ -180,7 +179,7 @@ class NewUserMessagesView extends LqtView {
 		$title->setFragment( '#' . $t->getAnchorName() );
 
 		// Make sure it points to the right page. The Pager seems to use the DB
-		//  representation of a timestamp for its offset field, odd.
+		//	representation of a timestamp for its offset field, odd.
 		$dbr = wfGetDB( DB_SLAVE );
 		$offset = wfTimestamp( TS_UNIX, $topmostThread->modified() ) + 1;
 		$offset = $dbr->timestamp( $offset );
