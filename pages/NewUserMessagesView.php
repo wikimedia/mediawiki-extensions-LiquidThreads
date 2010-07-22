@@ -90,7 +90,7 @@ class NewUserMessagesView extends LqtView {
 		static $scriptDone = false;
 
 		if ( !$scriptDone ) {
-			global $wgOut, $wgLiquidThreadsExtensionPath
+			global $wgOut, $wgLiquidThreadsExtensionPath;
 			$wgOut->addScriptFile( "$wgLiquidThreadExtensionPath/newmessages.js" );
 		}
 
