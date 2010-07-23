@@ -485,7 +485,9 @@ table.lqt-new-messages {
 	top: 15px;
 	height: 32px;
 }
-
+.TalkpagePager_nav {
+	margin: 30px auto 10px;
+}
 /* Float Clearing - If you confused, http://www.positioniseverything.net/easyclearing.html */
 .lqt_thread_heading:after
 { 

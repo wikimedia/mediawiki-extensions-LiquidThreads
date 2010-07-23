@@ -594,6 +594,7 @@ var liquidThreads = {
 	'setupThread' : function(threadContainer) {
 		var prefixLength = "lqt_thread_id_".length;
 		// add the interruption class if it needs it
+		// Fixme - misses a lot of cases
 		$parentWrapper = $j( threadContainer )
 			.closest( '.lqt-thread-wrapper' ).parent().closest( '.lqt-thread-wrapper' );
 		if( $parentWrapper.next( '.lqt-thread-wrapper' ).length > 0 ) {
@@ -817,7 +818,6 @@ var liquidThreads = {
 		$j('body').prepend(dialog);
 		
 		var dialogOptions = {
-			'AutoOpen' : true,
 			'width' : 600
 		};
 		
@@ -878,29 +878,12 @@ var liquidThreads = {
 		};
 		
 		var newCallback = function( data ) {
-			// Grab the thread ID
-			var newThreadID = data.threadaction.thread['thread-id'];
-			var html = data.threadaction.thread['html'];
-			
-			var newThread = $j(html);
-			
-			if ( $j('.lqt_toc').length ) {
-				$j( '.lqt-thread-wrapper' ).prepend( newThread );
-			} else {
-				$j('.lqt-no-threads').replaceWith( newThread );
-			}
-			
-			$j(newThread).find( '.lqt-post-wrapper').each(
-				function() {
-					// Set up thread.
-					liquidThreads.setupThread( $j(this) );
-					
-					targetOffset = $j(this).offset().top;
-					$j('html,body').animate(
-						{scrollTop: targetOffset},
-						'slow');
-				}
-			);
+			var $newThread = $j( data.threadaction.thread['html'] );
+			$j( '.lqt-threads' ).prepend( $newThread );
+			// remove the no threads message if it's on the page
+			$j('.lqt-no-threads').remove();
+			liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
+			$j( 'html,body' ).animate( { scrollTop: $newThread.offset().top }, 'slow' );
 		};
 		
 		var editCallback = function( data ) {
@@ -1293,11 +1276,15 @@ var liquidThreads = {
 		confirmDialog.append(actionSummary);
 		
 		// Summary prompt
-		var summaryPrompt = $j('<p/>').text( wgLqtMessages['lqt-drag-reason'] );
+		var summaryWrapper = $j('<p/>');
+		var summaryPrompt = $j('<label for="reason" />').text( wgLqtMessages['lqt-drag-reason'] );
 		var summaryField = $j('<input type="text" size="45"/>');
-		summaryField.addClass( 'lqt-drag-confirm-reason' ).attr('name', 'reason');
-		summaryPrompt.append( summaryField );
-		confirmDialog.append( summaryPrompt );
+		summaryField.addClass( 'lqt-drag-confirm-reason' )
+			.attr( 'name', 'reason' )
+			.attr( 'id', 'reason' );
+		summaryWrapper.append( summaryPrompt );
+		summaryWrapper.append( summaryField );
+		confirmDialog.append( summaryWrapper );
 		
 		if ( typeof params.reason != 'undefined' ) {
 			summaryField.val(params.reason);
@@ -1349,8 +1336,8 @@ var liquidThreads = {
 				liquidThreads.submitDragDrop( thread, params,
 					successCallback );
 			};
-		confirmDialog.dialog( { 'AutoOpen' : true, 'buttons' : buttons,
-					'modal' : true } );
+		confirmDialog.dialog( { 'title': wgLqtMessages['lqt-drag-title'], 
+			'buttons' : buttons, 'modal' : true, 'width': 550 } );
 	},
 	
 	'submitDragDrop' : function( thread, params, callback ) {
