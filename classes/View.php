@@ -1900,6 +1900,10 @@ class LqtView {
 		$sk = $this->user->getSkin();
 		$html = '';
 
+		if ( wfRunHooks( 'EditPageBeforeEditToolbar', array( $html ) ) ) {
+			self::addJSandCSS();
+		}
+
 		$html .= Xml::openElement( 'div', array( 'class' => 'lqt-thread-wrapper' ) );
 
 		$html .= Xml::element( 'a', array( 'name' => $this->anchorName( $thread ) ), ' ' );
@@ -1957,10 +1961,6 @@ class LqtView {
 				'class' => 'lqt-thread-title-metadata'
 			)
 		);
-
-		if ( wfRunHooks( 'LiquidThreadsShowThread', array( $thread, $levelNum, $totalInLevel, $options ) ) ) {
-			self::addJSandCSS();
-		}
 
 		// Flush output to display thread
 		$this->output->addHTML( $html );
