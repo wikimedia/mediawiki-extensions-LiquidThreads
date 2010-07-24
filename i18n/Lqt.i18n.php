@@ -3444,6 +3444,7 @@ Die Signatur wird automatisch ergänzt.',
 	'lqt-drag-setsortkey' => 'Position des Beitrags auf der Seite festlegen',
 	'lqt-drag-bump' => 'Beitrag an den Seitenanfang verschieben',
 	'lqt-drag-save' => 'Bestätigen',
+	'lqt-drag-title' => 'Ziehen bestätigen',
 	'lqt-drag-reason' => 'Grund:',
 	'lqt-drag-subject' => 'Betreff für den neuen Diskussionsstrang:',
 	'lqt-edit-signature' => '(Unterschrift bearbeiten)',
@@ -7905,6 +7906,7 @@ Le signatura es adjungite automaticamente.',
 	'lqt-drag-setsortkey' => 'Adjustar le position del message in le pagina',
 	'lqt-drag-bump' => 'Displaciar le message verso le alto del pagina',
 	'lqt-drag-save' => 'Confirmar',
+	'lqt-drag-title' => 'Confirmar displaciamento',
 	'lqt-drag-reason' => 'Motivo:',
 	'lqt-drag-subject' => 'Subjecto del nove filo:',
 	'lqt-edit-signature' => '(modificar signatura)',
@@ -12795,6 +12797,7 @@ A assinatura é apresentada automaticamente.',
 	'lqt-drag-setsortkey' => 'Ajustar posição da mensagem na página',
 	'lqt-drag-bump' => 'Mover o tópico para o topo da página',
 	'lqt-drag-save' => 'Confirmar',
+	'lqt-drag-title' => 'Confirmar arrastamento',
 	'lqt-drag-reason' => 'Motivo:',
 	'lqt-drag-subject' => 'Assunto do tópico novo:',
 	'lqt-edit-signature' => '(editar assinatura)',
@@ -13589,6 +13592,7 @@ Tu puè vedè a <$6>",
  * @author Kaganer
  * @author Kv75
  * @author Lockal
+ * @author MaxSem
  * @author McDutchie
  * @author Mormegil
  * @author VasilievVV
@@ -13660,8 +13664,8 @@ $messages['ru'] = array(
 	'lqt_protectedfromreply_link' => 'защищена',
 	'lqt_subject' => 'Заголовок:',
 	'lqt_noreason' => 'Не указана причина.',
-	'lqt_move_placeholder' => 'Эта заглушка ветки показывает, что ветка $1 была перемещена с этой страницы.
-Перемещение произведено участником $2 $3 в $4. Теперь ветку можно найти как $5.',
+	'lqt_move_placeholder' => 'Ветка $1 была перемещена с этой страницы в $5.
+Перемещение произведено участником $2 $3 в $4.',
 	'lqt_thread_deleted_for_sysops' => "Эта ветка была '''удалена''' и видна только администраторам.",
 	'lqt_thread_deleted' => 'Эта ветка была удалена.',
 	'lqt_summary_notice' => 'Это обсуждение не изменялось как минимум $2 {{PLURAL:$2|день|дня|дней}}.
@@ -13826,6 +13830,7 @@ $messages['ru'] = array(
 	'lqt-drag-setsortkey' => 'Изменить расположение записи на странице',
 	'lqt-drag-bump' => 'Переместить запись в начало страницы обсуждения',
 	'lqt-drag-save' => 'Подтвердить',
+	'lqt-drag-title' => 'Подтвердить перетаскивание',
 	'lqt-drag-reason' => 'Причина:',
 	'lqt-drag-subject' => 'Тема для новой ветки:',
 	'lqt-edit-signature' => '(править подпись)',
