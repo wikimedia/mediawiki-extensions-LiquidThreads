@@ -43,7 +43,7 @@ class ApiFeedLQTThreads extends ApiBase {
 	 * Wrap the result as an RSS/Atom feed.
 	 */
 	public function execute() {
-		global $wgFeedClasses, $wgFeedLimit, $wgSitename, $wgContLanguageCode;
+		global $wgFeedClasses;
 
 		$params = $this->extractRequestParams();
 

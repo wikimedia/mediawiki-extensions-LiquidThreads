@@ -92,8 +92,6 @@ class ApiThreadAction extends ApiBase {
 	}
 
 	public function actionSplit( $threads, $params ) {
-		global $wgUser;
-
 		if ( count( $threads ) > 1 ) {
 			$this->dieUsage( 'You may only split one thread at a time',
 					'too-many-threads' );
@@ -152,8 +150,6 @@ class ApiThreadAction extends ApiBase {
 	}
 
 	public function actionMerge( $threads, $params ) {
-		global $wgUser;
-
 		if ( count( $threads ) < 1 ) {
 			$this->dieUsage( 'You must specify a thread to merge',
 				'no-specified-threads' );

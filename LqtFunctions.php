@@ -38,8 +38,6 @@ function efInsertIntoAssoc( $new_key, $new_value, $before, &$original_array ) {
 }
 
 function lqtSetupParserFunctions( &$parser ) {
-	global $wgLiquidThreadsAllowUserControl;
-
 	$parser->setFunctionHook(
 		'useliquidthreads',
 		array( 'LqtParserFunctions', 'useLiquidThreads' )

@@ -2,7 +2,7 @@
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class SpecialNewMessages extends SpecialPage {
-	private $user, $output, $request, $title;
+	private $user, $output, $request;
 
 	function __construct() {
 		SpecialPage::SpecialPage( 'NewMessages' );

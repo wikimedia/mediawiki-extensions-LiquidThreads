@@ -231,7 +231,7 @@ class TalkpageView extends LqtView {
 		$this->output->setPageTitle( $this->title->getPrefixedText() );
 
 		// Expose feed links.
-		global $wgFeedClasses, $wgScriptPath, $wgServer;
+		global $wgFeedClasses;
 		$apiParams = array( 'action' => 'feedthreads', 'type' => 'replies|newthreads',
 				'talkpage' => $this->title->getPrefixedText() );
 		$urlPrefix = wfScript( 'api' ) . '?';
@@ -301,7 +301,6 @@ class TalkpageView extends LqtView {
 
 		$this->output->addHTML( $talkpageHeader );
 
-		global $wgRequest;
 		if ( $this->methodApplies( 'talkpage_new_thread' ) ) {
 			$params = array( 'class' => 'lqt-new-thread lqt-edit-form' );
 			$this->output->addHTML( Xml::openElement( 'div', $params ) );

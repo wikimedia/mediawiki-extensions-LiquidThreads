@@ -92,7 +92,6 @@ class Threads {
 	}
 
 	static function where( $where, $options = array(), $bulkLoad = true ) {
-		global $wgDBprefix;
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$res = $dbr->select( 'thread', '*', $where, __METHOD__, $options );

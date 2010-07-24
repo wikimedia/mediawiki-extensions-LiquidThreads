@@ -79,7 +79,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 	}
 
 	function formatValue( $name, $value ) {
-		global $wgOut, $wgLang, $wgTitle;
+		global $wgLang;
 
 		static $sk = null;
 

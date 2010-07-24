@@ -28,7 +28,6 @@ class LqtDispatch {
 		 */
 		$action =  $request->getVal( 'action' );
 		$header_actions = array( 'history', 'edit', 'submit', 'delete' );
-		global $wgRequest;
 
 		$lqt_action = $request->getVal( 'lqt_method' );
 		if ( $action == 'edit' && $request->getVal( 'section' ) == 'new' ) {

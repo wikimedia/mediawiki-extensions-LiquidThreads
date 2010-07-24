@@ -1190,9 +1190,8 @@ class LqtView {
 			return;
 		}
 
-		global $wgOut, $wgStylePath;
+		global $wgOut;
 		global $wgStyleVersion;
-		global $wgEnableJS2system;
 		global $wgLiquidThreadsExtensionPath;
 
 		LqtHooks::$scriptVariables['wgLqtMessages'] = self::exportJSLocalisation();
@@ -1827,7 +1826,6 @@ class LqtView {
 
 	function showThread( $thread, $levelNum = 1, $totalInLevel = 1,
 			$options = array() ) {
-		global $wgLang;
 
 		// Safeguard
 		if ( $thread->type() & Threads::TYPE_DELETED ||
@@ -2154,7 +2152,7 @@ class LqtView {
 	}
 
 	static function getUserSignature( $user, $uid = null ) {
-		global $wgParser, $wgOut, $wgTitle;
+		global $wgParser;
 		if ( !$user ) {
 			$user = User::newFromId( $uid );
 		}
@@ -2189,7 +2187,7 @@ class LqtView {
 	}
 
 	static function signaturePST( $sig, $user ) {
-		global $wgParser, $wgOut, $wgTitle;
+		global $wgParser, $wgTitle;
 
 		$title = $wgTitle ? $wgTitle : $user->getUserPage();
 

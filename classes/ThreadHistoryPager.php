@@ -65,7 +65,7 @@ class ThreadHistoryPager extends TablePager {
 	}
 
 	function formatValue( $name, $value ) {
-		global $wgOut, $wgLang, $wgTitle;
+		global $wgLang, $wgTitle;
 
 		static $sk = null;
 
