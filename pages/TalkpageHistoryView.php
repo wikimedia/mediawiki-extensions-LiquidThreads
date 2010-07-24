@@ -33,7 +33,6 @@ class TalkpageHistoryView extends TalkpageView {
 	function customizeTabs( $skin, &$links ) {
 		TalkpageView::customizeTalkpageTabs( $skin, $links, $this );
 
-		$tabid = $this->article->getTitle()->getNamespaceKey();
 		$links['history']['class'] = 'selected';
 	}
 

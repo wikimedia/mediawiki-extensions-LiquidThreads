@@ -64,8 +64,6 @@ class Thread {
 				$type = Threads::TYPE_NORMAL, $subject = '',
 				$summary = '', $bump = null, $signature = null ) {
 
-		$dbw = wfGetDB( DB_MASTER );
-
 		$thread = new Thread( null );
 
 		if ( !in_array( $type, self::$VALID_TYPES ) ) {
@@ -79,8 +77,6 @@ class Thread {
 		}
 
 		global $wgUser;
-
-		$timestamp = wfTimestampNow();
 
 		$thread->setAuthor( $wgUser );
 

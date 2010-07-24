@@ -89,8 +89,6 @@ class HTMLForm {
 	}
 
 	function show() {
-		$html = '';
-
 		self::addJS();
 
 		// Load data from the request.

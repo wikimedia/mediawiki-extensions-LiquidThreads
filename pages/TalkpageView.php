@@ -111,8 +111,6 @@ class TalkpageView extends LqtView {
 
 		wfLoadExtensionMessages( 'LiquidThreads' );
 
-		$sk = $this->user->getSkin();
-
 		$html = '';
 
 		$h2_header = Xml::tags( 'h2', null, wfMsgExt( 'lqt_contents_title', 'parseinline' ) );
@@ -182,8 +180,6 @@ class TalkpageView extends LqtView {
 
 		if ( $article->exists() ) {
 			$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
-			$go = wfMsg( 'go' );
-
 			$html = '';
 
 			$html .= Xml::label( wfMsg( 'lqt_sorting_order' ), 'lqt_sort_select' ) . ' ';

@@ -249,9 +249,6 @@ class LqtView {
 	static function talkpageUrl( $title, $method = null, $operand = null,
 		$includeFragment = true, $perpetuateOffset = true )
 	{
-		global $wgUser;
-		$sk = $wgUser->getSkin();
-
 		list( $title, $query ) =
 			self::talkpageLinkData( $title, $method, $operand, $includeFragment,
 						$perpetuateOffset );
@@ -1286,9 +1283,6 @@ class LqtView {
 	}
 
 	function showThreadToolbar( $thread ) {
-		global $wgLang;
-
-		$sk = $this->user->getSkin();
 		$html = '';
 
 		$headerParts = array();
@@ -1445,8 +1439,7 @@ class LqtView {
 	}
 
 	function threadSignature( $thread ) {
-		global $wgUser, $wgLang;
-		$sk = $wgUser->getSkin();
+		global $wgLang;
 
 		$signature = $thread->signature();
 		$signature = LqtView::parseSignature( $signature );
@@ -1618,8 +1611,6 @@ class LqtView {
 
 	/** Shows a deleted thread. Returns true to show the thread body */
 	function showDeletedThread( $thread ) {
-		$sk = $this->user->getSkin();
-
 		if ( $this->user->isAllowed( 'deletedhistory' ) ) {
 			$this->output->addWikiMsg( 'lqt_thread_deleted_for_sysops' );
 			return true;
@@ -1895,7 +1886,6 @@ class LqtView {
 			) );
 		$replyTo = $this->methodAppliesToThread( 'reply', $thread );
 
-		$sk = $this->user->getSkin();
 		$html = '';
 
 		if ( wfRunHooks( 'EditPageBeforeEditToolbar', array( $html ) ) ) {

@@ -39,7 +39,7 @@ class SpecialMoveThread extends ThreadActionPage {
 
 		global $wgUser;
 		$sk = $wgUser->getSkin();
-		$page = $article_name = $this->mThread->getTitle()->getPrefixedText();
+		$page = $this->mThread->getTitle()->getPrefixedText();
 
 		$edit_text = wfMsgExt( 'lqt_move_torename_edit', 'parseinline' );
 		$edit_link = $sk->link(
