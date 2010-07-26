@@ -204,10 +204,6 @@ class ApiFeedLQTThreads extends ApiBase {
 		return $conds;
 	}
 
-	public function setCacheMode( $params ) {
-		return 'public';
-	}
-
 	public function getAllowedParams() {
 		global $wgFeedClasses;
 		$feedFormatNames = array_keys( $wgFeedClasses );
