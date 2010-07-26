@@ -1373,7 +1373,6 @@ class Thread {
 
 	function setSortKey( $k = null ) {
 		if ( is_null( $k ) ) {
-			$dbr = wfGetDB( DB_SLAVE );
 			$k = wfTimestamp( TS_MW );
 		}
 

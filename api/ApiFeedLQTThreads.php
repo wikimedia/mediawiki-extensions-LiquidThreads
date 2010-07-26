@@ -173,7 +173,6 @@ class ApiFeedLQTThreads extends ApiBase {
 		}
 
 		// Thread conditions
-		$threadConds = array();
 		$threads = (array)$params['thread'];
 		foreach ( $threads as $thread ) {
 			$root = new Article( Title::newFromText( $thread ) );
