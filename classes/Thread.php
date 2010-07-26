@@ -402,8 +402,6 @@ class Thread {
 	function leaveTrace( $reason, $oldTitle, $newTitle ) {
 		$this->dieIfHistorical();
 
-		$dbw = wfGetDB( DB_MASTER );
-
 		// Create redirect text
 		$mwRedir = MagicWord::get( 'redirect' );
 		$redirectText = $mwRedir->getSynonym( 0 ) .
@@ -1587,7 +1585,9 @@ class Thread {
 				$this->reactions = self::$reactionCacheById[$this->id()];
 			} else {
 				$reactions = array();
-				
+
+				$dbr = wfGetDB( DB_SLAVE );
+
 				$res = $dbr->select( 'thread_reaction',
 						array( 'tr_thread' => $this->id() ),
 						__METHOD__ );

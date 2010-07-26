@@ -402,11 +402,11 @@ class LqtHooks {
 	static function onPersonalUrls( &$personal_urls, &$title ) {
 		global $wgUser, $wgLang;
 
-		if ( $wgUser->isAnon() ) return true;
+		if ( $wgUser->isAnon() ) {
+			return true;
+		}
 
 		wfLoadExtensionMessages( 'LiquidThreads' );
-
-		$dbr = wfGetDB( DB_SLAVE );
 
 		$newMessagesCount = NewMessages::newMessageCount( $wgUser );
 
