@@ -539,8 +539,6 @@ class HTMLIntField extends HTMLTextField {
 			return wfMsgExt( 'htmlform-int-invalid', 'parse' );
 		}
 
-		$in_range = true;
-
 		if ( isset( $this->mParams['min'] ) ) {
 			$min = $this->mParams['min'];
 			if ( $min > $value )

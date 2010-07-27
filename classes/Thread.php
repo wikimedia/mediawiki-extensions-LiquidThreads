@@ -255,7 +255,7 @@ class Thread {
 			$fname = __METHOD__ . "/" . $fname;
 		}
 
-		$res = $dbr->update( 'thread',
+		$dbr->update( 'thread',
 		     /* SET */ $this->getRow(),
 		     /* WHERE */ array( 'thread_id' => $this->id, ),
 		     $fname );

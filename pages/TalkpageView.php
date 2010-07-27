@@ -48,8 +48,6 @@ class TalkpageView extends LqtView {
 
 		$article = new Article( $this->title );
 
-		$oldid = $this->request->getVal( 'oldid', null );
-
 		wfLoadExtensionMessages( 'LiquidThreads' );
 		// If $article_text == "", the talkpage was probably just created
 		// when the first thread was posted to make the links blue.
