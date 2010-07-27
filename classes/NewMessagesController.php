@@ -108,8 +108,7 @@ class NewMessages {
 	}
 
 	private static function getRowsObject( $t ) {
-		// <= 1.15 compatibility, it kinda sucks having to do all this up here.
-		$tables = array( 'watchlist', 'user_message_state' );
+		$tables = array( 'watchlist', 'user_message_state', 'user_properties' );
 		$joins = array(
 			'user_message_state' =>
 			array(
@@ -118,28 +117,17 @@ class NewMessages {
 					'ums_user=wl_user',
 					'ums_thread' => $t->id()
 				)
-			)
-		);
-		$fields = array( 'wl_user', 'ums_user', 'ums_read_timestamp' );
-
-		global $wgVersion;
-		if ( version_compare( $wgVersion, '1.15.999', '<=' ) ) {
-			$oldPrefCompat = true;
-
-			$tables[] = 'user';
-			$joins['user'] = array( 'left join', 'user_id=wl_user' );
-			$fields[] = 'user_options';
-		} else {
-			$tables[] = 'user_properties';
-			$joins['user_properties'] = array(
+			),
+			'user_properties' =>
+			array(
 				'left join',
 				array(
 					'up_user=wl_user',
 					'up_property' => 'lqtnotifytalk',
 				)
-			);
-			$fields[] = 'up_value';
-		}
+			)
+		);
+		$fields = array( 'wl_user', 'ums_user', 'ums_read_timestamp', 'up_value' );
 
 		$dbr = wfGetDB( DB_SLAVE );
 		return $dbr->select( $tables, $fields, self::getWhereClause( $t ), __METHOD__, array(), $joins );
