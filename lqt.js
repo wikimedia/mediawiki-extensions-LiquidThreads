@@ -474,12 +474,13 @@ var liquidThreads = {
 
 		$j('.lqt-thread-topmost').each( function() {
 			var tsField = $j(this).find('.lqt-thread-modified');
-			var oldTS = tsField.val();
-			// Prefix is lqt-thread-modified-
-			var threadID = tsField.attr('id').substr( "lqt-thread-modified-".length );
-
-			threadModifiedTS[threadID] = oldTS;
-			threads.push(threadID);
+			if ( tsField.length ) {
+				var oldTS = tsField.val();
+				// Prefix is lqt-thread-modified-
+				var threadID = tsField.attr('id').substr( "lqt-thread-modified-".length );
+				threadModifiedTS[threadID] = oldTS;
+				threads.push(threadID);
+			}
 		} );
 
 		// Optimisation: if no threads are to be checked, do not check.
