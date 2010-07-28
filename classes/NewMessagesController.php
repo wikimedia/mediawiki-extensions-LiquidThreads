@@ -108,7 +108,8 @@ class NewMessages {
 	}
 
 	private static function getRowsObject( $t ) {
-		$tables = array( 'watchlist', 'user_message_state', 'user_properties' );
+		// <= 1.15 compatibility, it kinda sucks having to do all this up here.
+		$tables = array( 'watchlist', 'user_message_state' );
 		$joins = array(
 			'user_message_state' =>
 			array(
@@ -117,17 +118,28 @@ class NewMessages {
 					'ums_user=wl_user',
 					'ums_thread' => $t->id()
 				)
-			),
-			'user_properties' =>
-			array(
+			)
+		);
+		$fields = array( 'wl_user', 'ums_user', 'ums_read_timestamp' );
+
+		global $wgVersion;
+		if ( version_compare( $wgVersion, '1.15.999', '<=' ) ) {
+			$oldPrefCompat = true;
+
+			$tables[] = 'user';
+			$joins['user'] = array( 'left join', 'user_id=wl_user' );
+			$fields[] = 'user_options';
+		} else {
+			$tables[] = 'user_properties';
+			$joins['user_properties'] = array(
 				'left join',
 				array(
 					'up_user=wl_user',
 					'up_property' => 'lqtnotifytalk',
 				)
-			)
-		);
-		$fields = array( 'wl_user', 'ums_user', 'ums_read_timestamp', 'up_value' );
+			);
+			$fields[] = 'up_value';
+		}
 
 		$dbr = wfGetDB( DB_SLAVE );
 		return $dbr->select( $tables, $fields, self::getWhereClause( $t ), __METHOD__, array(), $joins );
@@ -256,30 +268,34 @@ class NewMessages {
 		$dbr = wfGetDB( DB_SLAVE );
 		$fields = array( $dbr->tableName( 'user' ) . '.*' );
 		$join_conds = array();
-		
-		$tableNameUserProperties = $dbr->tableName( 'user_properties' );
+		$oldPreferenceFormat = false;
+		if ( version_compare( $wgVersion, '1.16', '<' ) ) {
+			$oldPreferenceFormat = true;
+		} else {
+			$tableNameUserProperties = $dbr->tableName( 'user_properties' );
 
-		$tables[] = $tableNameUserProperties . ' as tc_prop';
-		$fields[] = 'tc_prop.up_value as timecorrection';
+			$tables[] = $tableNameUserProperties . ' as tc_prop';
+			$fields[] = 'tc_prop.up_value as timecorrection';
 
-		$join_conds[$tableNameUserProperties . ' as tc_prop'] = array(
-			'left join',
-			array(
-				'tc_prop.up_user=user_id',
-				'tc_prop.up_property' => 'timecorrection',
-			)
-		);
+			$join_conds[$tableNameUserProperties . ' as tc_prop'] = array(
+				'left join',
+				array(
+					'tc_prop.up_user=user_id',
+					'tc_prop.up_property' => 'timecorrection',
+				)
+			);
 
-		$tables[] = $tableNameUserProperties . ' as l_prop';
-		$fields[] = 'l_prop.up_value as language';
+			$tables[] = $tableNameUserProperties . ' as l_prop';
+			$fields[] = 'l_prop.up_value as language';
 
-		$join_conds[$tableNameUserProperties . ' as l_prop'] = array(
-			'left join',
-			array(
-				'l_prop.up_user=user_id',
-				'l_prop.up_property' => 'language',
-			)
-		);
+			$join_conds[$tableNameUserProperties . ' as l_prop'] = array(
+				'left join',
+				array(
+					'l_prop.up_user=user_id',
+					'l_prop.up_property' => 'language',
+				)
+			);
+		}
 
 		$res = $dbr->select(
 			$tables, $fields,
@@ -301,7 +317,9 @@ class NewMessages {
 		while ( $row = $dbr->fetchObject( $res ) ) {
 			$u = User::newFromRow( $row );
 
-			if ( $row->language ) {
+			if ( $oldPreferenceFormat ) {
+				$langCode = $u->getOption( 'language' );
+			} elseif ( $row->language ) {
 				$langCode = $row->language;
 			} else {
 				global $wgLanguageCode;
@@ -311,7 +329,11 @@ class NewMessages {
 			$lang = Language::factory( $langCode );
 
 			// Adjust with time correction
-			$timeCorrection = $row->timecorrection;
+			if ( $oldPreferenceFormat ) {
+				$timeCorrection = $u->getOption( 'timecorrection' );
+			} else {
+				$timeCorrection = $row->timecorrection;
+			}
 			$adjustedTimestamp = $lang->userAdjust( $timestamp, $timeCorrection );
 
 			$date = $lang->date( $adjustedTimestamp );
@@ -324,7 +346,7 @@ class NewMessages {
 			$msg = wfMsgReal( $msgName, $params, true /* use DB */, $langCode,
 								true /*transform*/ );
 
-			$to = new MailAddress( $u );
+			$to   = new MailAddress( $u );
 			$subject = wfMsgReal( $subjectMsg, array( $threadSubject ), true /* use DB */,
 									$langCode, true /* transform */ );
 
@@ -370,9 +392,8 @@ class NewMessages {
 
 		$cval = $wgMemc->get( wfMemcKey( 'lqt-new-messages-count', $user->getId() ) );
 
-		if ( $cval ) {
+		if ( $cval )
 			return $cval;
-		}
 
 		$dbr = wfGetDB( DB_SLAVE );
 
