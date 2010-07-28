@@ -1893,11 +1893,6 @@ class LqtView {
 
 		$html = '';
 
-		$html .= Xml::openElement( 'div', array( 'class' => 'lqt-thread-wrapper' ) );
-
-		$html .= Xml::element( 'a', array( 'name' => $this->anchorName( $thread ) ), ' ' );
-		$html .= $this->showThreadHeading( $thread );
-
 		$class = $this->threadDivClass( $thread );
 		if ( $levelNum == 1 ) {
 			$class .= ' lqt-thread-first';
@@ -1910,6 +1905,8 @@ class LqtView {
 		} else {
 			$class .= ' lqt-thread-no-subthreads';
 		}
+		
+		$class .= ' lqt-thread-wrapper';
 
 		$html .= Xml::openElement(
 			'div',
@@ -1918,6 +1915,9 @@ class LqtView {
 				'id' => 'lqt_thread_id_' . $thread->id()
 			)
 		);
+		
+		$html .= Xml::element( 'a', array( 'name' => $this->anchorName( $thread ) ), ' ' );
+		$html .= $this->showThreadHeading( $thread );
 
 		// Metadata stuck in the top of the lqt_thread div.
 		// Modified time for topmost threads...
@@ -2039,7 +2039,7 @@ class LqtView {
 //			}
 //		}
 
-		$this->output->addHTML( Xml::closeElement( 'div' ) . Xml::closeElement( 'div' ) );
+		$this->output->addHTML( Xml::closeElement( 'div' ) );
 
 		$this->threadNestingLevel--;
 	}

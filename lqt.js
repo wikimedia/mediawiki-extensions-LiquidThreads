@@ -567,15 +567,15 @@ var liquidThreads = {
 				thread.append( newThreadContent );
 				thread.attr( 'class', newThread.attr('class') );
 
-				// Replace header content
-				var newHeader = newContent.filter('#lqt-header-'+threadId);
-				if ( header.length ) {
-					var newHeaderContent = $j(newHeader).contents();
-					header.append( newHeaderContent );
-				} else {
-					// No existing header, add one before the thread
-					thread.before(newHeader);
-				}
+// Replace header content
+// 				var newHeader = newContent.filter('#lqt-header-'+threadId);
+// 				if ( header.length ) {
+// 					var newHeaderContent = $j(newHeader).contents();
+// 					header.append( newHeaderContent );
+// 				} else {
+// 					// No existing header, add one before the thread
+// 					thread.before(newHeader);
+// 				}
 
 				// Set up thread.
 				thread.find('.lqt-post-wrapper').each( function() {
@@ -872,7 +872,7 @@ var liquidThreads = {
 		var replyCallback = function( data ) {
 			$parent = $j( '#lqt_thread_id_' + data.threadaction.thread['parent-id'] );
 			$html = $j( data.threadaction.thread['html'] );
-			$newThread = $html.find( '#lqt_thread_id_' + data.threadaction.thread['thread-id'] ).parent();
+			$newThread = $html.find( '#lqt_thread_id_' + data.threadaction.thread['thread-id'] );
 			$parent.find( '.lqt-thread-replies:first' ).append( $newThread );
 			liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
 			$j( 'html,body' ).animate({scrollTop: $newThread.offset().top}, 'slow');
@@ -1153,10 +1153,8 @@ var liquidThreads = {
 		var firstDropZone = createDropZone();
 		firstDropZone.data( 'sortkey', 'now' );
 		firstDropZone.data( 'parent', 'top' );
-		var firstThread = $j('.lqt-thread-topmost.lqt-thread-first');
-		var firstThreadID = firstThread.find('.lqt-post-wrapper').data('thread-id');
-		var firstHeading = $j('#lqt-header-'+firstThreadID);
-		firstHeading.before(firstDropZone);
+		var firstThread = $j('.lqt-thread-topmost:first');
+		firstThread.before(firstDropZone);
 
 		// Now one after every thread
 		$j('.lqt-thread-topmost').each( function() {
@@ -1171,7 +1169,7 @@ var liquidThreads = {
 		} );
 
 		// Now one underneath every thread
-		$j('.lqt_thread').each( function() {
+		$j('.lqt_thread').not(thread).each( function() {
 			var thread = $j(this);
 			var repliesElement = liquidThreads.getRepliesElement( thread );
 			var dropZone = createDropZone();
@@ -1392,44 +1390,17 @@ var liquidThreads = {
 				// Do the actual physical movement
 				var threadId = thread.find('.lqt-post-wrapper')
 						.data('thread-id');
-				var topmost = thread.hasClass('lqt-thread-topmost');
-
-				if ( topmost ) {
-					var heading = $j('#lqt-header-'+threadId);
-				}
 
 				// Assorted ways of returning a thread to its proper place.
 				if ( typeof params.insertAfter != 'undefined' ) {
-					// Move the heading
-					if ( topmost ) {
-						heading.remove();
-						params.insertAfter.after(heading);
-						thread.remove();
-						heading.after( thread );
-					} else {
-						thread.remove();
-						params.insertAfter.after(thread);
-					}
+					thread.remove();
+					params.insertAfter.after(thread);
 				} else if ( typeof params.insertBefore != 'undefined' ) {
-					if ( topmost ) {
-						heading.remove();
-						params.insertBefore.before(heading);
-						thread.remove();
-						heading.after( thread );
-					} else {
-						thread.remove();
-						params.insertBefore.before( thread );
-					}
+					thread.remove();
+					params.insertBefore.before( thread );
 				} else if ( typeof params.insertUnder != 'undefined' ) {
-					if ( topmost ) {
-						heading.remove();
-						params.insertUnder.prepend(heading);
-						thread.remove();
-						heading.after(thread);
-					} else {
-						thread.remove();
-						params.insertUnder.prepend(thread);
-					}
+					thread.remove();
+					params.insertUnder.prepend(thread);
 				}
 
 				thread.data('thread-id', threadId);
@@ -1455,8 +1426,8 @@ var liquidThreads = {
 				}
 
 				// Kill the heading, if there isn't one.
-				if ( !topLevel && wasTopLevel && heading.length ) {
-					heading.remove();
+				if ( !topLevel && wasTopLevel ) {
+					thread.find('h2.lqt_header').remove();
 				}
 
 				if ( !wasTopLevel && typeof oldParent != 'undefined' ) {
