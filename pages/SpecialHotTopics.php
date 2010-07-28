@@ -14,8 +14,6 @@ class SpecialHotTopics extends SpecialPage {
 		$wgOut->setPageTitle( wfMsg( 'lqt-hot-topics' ) );
 		$view = LqtView::getView();
 
-		LqtView::addJsAndCss();
-
 		// Get hot topics
 		$topics = LqtHotTopicsController::getHotThreads();
 

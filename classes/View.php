@@ -1208,11 +1208,6 @@ class LqtView {
 		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/js/lqt.toolbar.js" );
 		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/lqt.css?{$wgStyleVersion}" );
 
-		if ( class_exists( 'WikiEditorHooks' ) ) {
-			$temp = null;
-			WikiEditorHooks::addModules( $temp );
-		}
-
 		self::$stylesAndScriptsDone = true;
 	}
 
@@ -1892,6 +1887,9 @@ class LqtView {
 		$replyTo = $this->methodAppliesToThread( 'reply', $thread );
 
 		$html = '';
+		if ( wfRunHooks( 'EditPageBeforeEditToolbar', array( &$html ) ) ) {
+			self::addJSandCSS();
+		}
 
 		$class = $this->threadDivClass( $thread );
 		if ( $levelNum == 1 ) {
@@ -1905,7 +1903,7 @@ class LqtView {
 		} else {
 			$class .= ' lqt-thread-no-subthreads';
 		}
-		
+
 		$class .= ' lqt-thread-wrapper';
 
 		$html .= Xml::openElement(
@@ -1915,7 +1913,7 @@ class LqtView {
 				'id' => 'lqt_thread_id_' . $thread->id()
 			)
 		);
-		
+
 		$html .= Xml::element( 'a', array( 'name' => $this->anchorName( $thread ) ), ' ' );
 		$html .= $this->showThreadHeading( $thread );
 
