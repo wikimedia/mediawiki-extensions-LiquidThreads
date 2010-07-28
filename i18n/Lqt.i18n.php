@@ -6599,6 +6599,7 @@ D Signatur wird automatisch aazeigt.',
 	'lqt-drag-setsortkey' => 'Dr Platz vum Byytrag uf dr Syte aapasse',
 	'lqt-drag-bump' => 'Byytrag an dr Aafang vu dr Diskussionssyte setze',
 	'lqt-drag-save' => 'Bstetige',
+	'lqt-drag-title' => 'Zie bstetige',
 	'lqt-drag-reason' => 'Grund:',
 	'lqt-drag-subject' => 'Thema vum neje Diskussionsstrang:',
 	'lqt-edit-signature' => '(Unterschrift bearbeite)',
@@ -8851,6 +8852,7 @@ $messages['ja'] = array(
 	'lqt-drag-setsortkey' => '投稿のページ上の位置を修正',
 	'lqt-drag-bump' => '投稿を議論ページの先頭に移動',
 	'lqt-drag-save' => '確定',
+	'lqt-drag-title' => 'ドラッグを確認',
 	'lqt-drag-reason' => '理由:',
 	'lqt-drag-subject' => '新しいスレッドの表題:',
 	'lqt-edit-signature' => '(署名の編集)',
@@ -12483,7 +12485,7 @@ La firma a l'é mostrà automaticament.",
 	'lqt-drag-setsortkey' => 'Rangé la posission dël mëssagi ant la pàgina',
 	'lqt-drag-bump' => 'Tramudé ël mëssagi an cò dla pàgina ëd discussion',
 	'lqt-drag-save' => 'Conferma',
-	'lqt-drag-title' => 'Conferma la còpia',
+	'lqt-drag-title' => 'Confermé ël rabasté',
 	'lqt-drag-reason' => 'Rason:',
 	'lqt-drag-subject' => 'Soget ëd la neuva discussion:',
 	'lqt-edit-signature' => '(modifiché la firma)',
@@ -16920,6 +16922,7 @@ $messages['vep'] = array(
 
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
+ * @author Trần Nguyễn Minh Huy
  * @author Vinhtantran
  */
 $messages['vi'] = array(
@@ -17027,7 +17030,7 @@ Nếu nó đã đi đến kết thúc, có thể bạn sẽ muốn $1.{{PLURAL:$
 	'lqt_header_warning_after_big' => 'Đầu đề dùng để thông báo và mở đầu.
 Thay vào đó bạn có thể muốn $2.',
 	'lqt_header_warning_bold' => 'tiêu đề trang thảo luận',
-	'lqt_header_warning_new_discussion' => 'bắ đầu cuộc thảo luận mới',
+	'lqt_header_warning_new_discussion' => 'bắt đầu cuộc thảo luận mới',
 	'lqt_sorting_order' => 'Thứ tự xếp:',
 	'lqt_sort_newest_changes' => 'xem lần cuối sửa đổi trước',
 	'lqt_sort_newest_threads' => 'xem các luồng mới nhất trước',
@@ -17807,6 +17810,7 @@ $messages['zh-hant'] = array(
 	'lqt-drag-setsortkey' => '調整髮言在頁面中的位置',
 	'lqt-drag-bump' => '將發言移動到討論頁的頂部',
 	'lqt-drag-save' => '確認',
+	'lqt-drag-title' => '確認',
 	'lqt-drag-reason' => '原因：',
 	'lqt-drag-subject' => '新話題的主題：',
 	'lqt-edit-signature' => '（編輯簽名檔）',
