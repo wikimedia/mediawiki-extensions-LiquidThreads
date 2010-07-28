@@ -7,6 +7,7 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 			$this->showMissingThreadPage();
 			return false;
 		}
+		self::addJSandCSS();
 		wfLoadExtensionMessages( 'LiquidThreads' );
 
 		$this->thread->updateHistory();

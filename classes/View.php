@@ -1208,6 +1208,11 @@ class LqtView {
 		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/js/lqt.toolbar.js" );
 		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/lqt.css?{$wgStyleVersion}" );
 
+		if ( class_exists( 'WikiEditorHooks' ) ) {
+			$temp = null;
+			WikiEditorHooks::addModules( $temp );
+		}
+
 		self::$stylesAndScriptsDone = true;
 	}
 
@@ -1887,10 +1892,6 @@ class LqtView {
 		$replyTo = $this->methodAppliesToThread( 'reply', $thread );
 
 		$html = '';
-
-		if ( wfRunHooks( 'EditPageBeforeEditToolbar', array( $html ) ) ) {
-			self::addJSandCSS();
-		}
 
 		$html .= Xml::openElement( 'div', array( 'class' => 'lqt-thread-wrapper' ) );
 

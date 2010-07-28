@@ -83,6 +83,8 @@ class NewUserMessagesView extends LqtView {
 	}
 
 	function showOnce() {
+		self::addJSandCSS();
+
 		NewMessages::recacheMessageCount( $this->user->getId() );
 
 		static $scriptDone = false;
