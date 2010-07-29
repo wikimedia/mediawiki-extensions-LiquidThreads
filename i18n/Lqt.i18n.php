@@ -10510,9 +10510,9 @@ $messages['ml'] = array(
 	'lqt_thread_deleted' => 'ഈ ചരട് ഒഴിവാക്കി.',
 	'lqt_summary_notice' => 'ഈ ചർച്ചയിൽ കഴിഞ്ഞ {{PLURAL:$2|ദിവസം|$2 ദിവസങ്ങളിൽ}} യാതൊരു മാറ്റവും ഉണ്ടായിട്ടില്ല.
 അത് പരിസമാപ്തിയിലെത്തിയെങ്കിൽ, താങ്കൾക്ക് $1 ഉപയോഗിക്കാവുന്നതാണ്.',
-	'lqt_summary_notice_link' => 'സംഗ്രഹം എഴുതുക',
-	'lqt_summary_label' => 'ചരടിന്റെ സംഗ്രഹം:',
-	'lqt_summary_subtitle' => '"$1" എന്നതിന്റെ സംഗ്രഹം.',
+	'lqt_summary_notice_link' => 'ചുരുക്കം എഴുതുക',
+	'lqt_summary_label' => 'ചരടിന്റെ ചുരുക്കം:',
+	'lqt_summary_subtitle' => '"$1" എന്നതിന്റെ ചുരുക്കം.',
 	'lqt_nosuchrevision' => 'ഈ ചരടിനു അങ്ങനെയൊരു പതിപ്പില്ല.',
 	'lqt_nosuchthread' => 'താങ്കൾ ആവശ്യപ്പെട്ട ചരട് നിലവിലില്ല.',
 	'lqt_nosuchthread_title' => 'അങ്ങനെ ചരടില്ല',
@@ -10582,7 +10582,7 @@ $messages['ml'] = array(
 	'lqt-thread-edited-others' => '{{PLURAL:$2|മറ്റൊരുപയോക്താവ്|മറ്റ് $2 ഉപയോക്താക്കൾ}} തിരുത്തിയിരിക്കുന്നു.<br />
 അവസാന തിരുത്തൽ: $1',
 	'lqt-header-actions' => 'പ്രവർത്തനങ്ങൾ',
-	'lqt_summarize_link' => 'സംഗ്രഹിക്കുക',
+	'lqt_summarize_link' => 'ചുരുക്കിക്കുക',
 	'lqt-summarize-intro' => 'ചരടിനു താഴെ തിരുത്തുവാനുള്ള പെട്ടിയിൽ ദയവായി ചുരുക്കരൂപം നൽകുക.
 താങ്കൾ നൽകുന്ന ചുരുക്കത്തിൽ വിക്കിഎഴുത്തുകൾ ഉപയോഗിക്കാവുന്നതാണ്.
 പൂർണ്ണമായാൽ, "{{int:savearticle}}" ഞെക്കുക.',
@@ -13201,7 +13201,7 @@ Threadul este acum localizat la $5.',
 	'lqt_thread_deleted_for_sysops' => "Acest thread a fost '''șters''' și este vizibil doar administratorilor.",
 	'lqt_thread_deleted' => 'Acest thread a fost șters.',
 	'lqt_summary_notice_link' => 'scrieți un rezumat',
-	'lqt_summary_label' => 'Acest thread a fost rezumat ca următoarele:',
+	'lqt_summary_label' => 'Rezumatul discuției:',
 	'lqt_summary_subtitle' => 'Rezumatul lui „$1”',
 	'lqt_nosuchrevision' => 'Nu există nicio astfel de revizie a acestui thread.',
 	'lqt_threadrequired' => 'Trebuie să specificați un thread în URL.',
@@ -16349,6 +16349,7 @@ $messages['tt-cyrl'] = array(
  * @author AS
  * @author NickK
  * @author Prima klasy4na
+ * @author Тест
  */
 $messages['uk'] = array(
 	'lqt-desc' => 'Додає на сторінки обговорень гілки обговорень',
@@ -16584,6 +16585,7 @@ $messages['uk'] = array(
 	'lqt-drag-setsortkey' => 'Змінити позицію розташування запису на сторінці',
 	'lqt-drag-bump' => 'Перемістити запис на початок сторінки обговорення',
 	'lqt-drag-save' => 'Підтвердити',
+	'lqt-drag-title' => 'Підтвердити перенос',
 	'lqt-drag-reason' => 'Причина:',
 	'lqt-drag-subject' => 'Тема для нової гілки:',
 	'lqt-edit-signature' => '(редагувати підпис)',
