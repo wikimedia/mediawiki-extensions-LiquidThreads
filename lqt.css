@@ -488,6 +488,10 @@ table.lqt-new-messages {
 .TalkpagePager_nav {
 	margin: 30px auto 10px;
 }
+
+.lqt-drag-confirm label {
+	margin-right: 20px;
+}
 /* Float Clearing - If you confused, http://www.positioniseverything.net/easyclearing.html */
 .lqt_thread_heading:after
 { 

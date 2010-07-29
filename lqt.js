@@ -1099,100 +1099,111 @@ var liquidThreads = {
 	},
 
 	'activateDragDrop' : function(e) {
+		// FIX ME: Need a cancel drop action
 		e.preventDefault();
 
 		// Set up draggability.
-		var thread = $j(this).closest('.lqt_thread');
-		var threadID = thread.find('.lqt-post-wrapper').data('thread-id');
+		var $thread = $j( this ).closest( '.lqt_thread' );
+		var threadID = $thread.find( '.lqt-post-wrapper' ).data( 'thread-id' );
 		var scrollOffset;
-
-		$j('html,body').each(
+		// determine wether it's an entire thread or just one of the replies
+		var isThreadReply = ! $thread.is( '.lqt-thread-topmost' );
+		// FIXME: what does all of this do? From here 
+		$j( 'html,body' ).each(
 			function() {
-				if ( $j(this).attr('scrollTop') )
-					scrollOffset = $j(this).attr('scrollTop');
+				if ( $j(this).attr( 'scrollTop' ) )
+					scrollOffset = $j( this ).attr( 'scrollTop' );
 			} );
 
-		scrollOffset = scrollOffset - thread.offset().top;
+		scrollOffset = scrollOffset - $thread.offset().top;
 
 		var helperFunc;
-		if ( thread.hasClass( 'lqt-thread-topmost' ) ) {
-			var header = $j('#lqt-header-'+threadID);
-			var headline = header.contents().filter('.mw-headline').clone();
-			var helper = $j('<h2/>').append(headline);
-			helperFunc = function() { return helper; };
+		if ( $thread.hasClass( 'lqt-thread-topmost' ) ) {
+			var $header = $j( '#lqt-header-' + threadID );
+			var $headline = $header.contents().filter( '.mw-headline' ).clone();
+			var $helper = $j( '<h2 />' ).append( $headline );
+			helperFunc = function() { return $helper; };
 		} else {
 			helperFunc =
 				function() {
-					var helper = thread.clone();
-					helper.find('.lqt-thread-replies').remove();
-					return helper;
+					var $helper = $thread.clone();
+					$helper.find( '.lqt-thread-replies' ).remove();
+					return $helper;
 				};
 		}
-
-		var draggableOptions =
-		{
+		// to here.
+		
+		var draggableOptions = {
 			'axis' : 'y',
 			'opacity' : '0.70',
 			'revert' : 'invalid',
 			'helper' : helperFunc
 		};
-		thread.draggable( draggableOptions );
+		$thread.draggable( draggableOptions );
 
 		// Kill all existing drop zones
-		$j('.lqt-drop-zone').remove();
+		$j( '.lqt-drop-zone' ).remove();
 
 		// Set up some dropping targets. Add one before the first thread, after every
 		//  other thread, and as a subthread of every post.
-		var createDropZone = function( ) {
-			var element = $j('<div class="lqt-drop-zone" />');
-			element.text( wgLqtMessages['lqt-drag-drop-zone'] );
-			return element;
+		var createDropZone = function( sortKey, parent ) {
+			return $j( '<div class="lqt-drop-zone" />' )
+				.text( wgLqtMessages['lqt-drag-drop-zone'] )
+				.data( 'sortkey', sortKey )
+				.data( 'parent', parent );
 		};
+		if( isThreadReply ) {
+			// FIXME - duplicate drop zones appear often on more complex threads. 
+			// FIXME - not all drop zones appear to work correctly. Ensure you're setting the sortkey and parent correctly
+			$j( '.lqt_thread' ).not( '.lqt-thread-topmost' ).each( function() {
+				var $curThread = $j( this );
+				if( $curThread.prev().size() == 0 && $curThread[0] != $thread[0] ) {
+					// if this is a top thread, and not the drag thread, add a dropzon before it
+					$curThread.before( createDropZone( 'now', $curThread.parents( '.lqt_thread:first' ).data( 'thread-id' ) ) );
+				}
+				if ( $curThread[0] != $thread[0] ) {
+					// if this isn't the drag thread, add some drop zones
+					if ( $curThread[0] != $thread.parents( '.lqt_thread:first' )[0] ) { 
+						// if this isn't the parent of the drag thread, add a drop zone inside it
+						liquidThreads.getRepliesElement( $curThread )
+							.contents().filter('.lqt-replies-finish')
+							.before( createDropZone( 'now', $curThread.data( 'thread-id' ) ) );
+					}
+					if ( $curThread.next()[0] != $thread[0] ) {
+						// if this isn't right above the drag thread, add a drop zone beneath it
+						$curThread.append( createDropZone( 'now', $curThread.parents('.lqt_thread').data( 'thread-id' ) ) );
+					}
+				}
+			} );
+		} else {
+			// Rearrange threads
+			// FIXME: Should collapse all replys to make reordering quick and easy
+			// add a drop zone at the top if the drag thread is not first
+			if( $thread.prev().size() != 0 ) {
+				var $curThread = $j( '.lqt-thread-topmost:first' );
+				var sortkey = parseInt( $curThread.contents().filter( 'input[name=lqt-thread-sortkey]' ).val() );
+				$curThread.before( createDropZone( sortkey - 1, 'top') );
+			}
+			$j( '.lqt-thread-topmost' ).each( function() {
+				var $curThread = $j( this );
+				if( $curThread[0] != $thread[0] && $curThread.next()[0] != $thread[0] ) {
+					// add a drop zone below our current thread if it's not the drag thread OR followed by the drag thread
+					var sortkey = parseInt( $curThread.contents().filter( 'input[name=lqt-thread-sortkey]' ).val() );
+					$curThread.after( createDropZone( sortkey - 1, 'top') );
+				}
+			});
+		}
 
-		// First drop zone
-		var firstDropZone = createDropZone();
-		firstDropZone.data( 'sortkey', 'now' );
-		firstDropZone.data( 'parent', 'top' );
-		var firstThread = $j('.lqt-thread-topmost:first');
-		firstThread.before(firstDropZone);
-
-		// Now one after every thread
-		$j('.lqt-thread-topmost').each( function() {
-			var sortkeySelector = 'input[name=lqt-thread-sortkey]';
-			var sortkeyField = $j(this).contents().filter(sortkeySelector);
-			var sortkey = parseInt(sortkeyField.val());
-
-			var dropZone = createDropZone();
-			dropZone.data( 'sortkey', sortkey - 1 );
-			dropZone.data( 'parent', 'top' );
-			$j(this).after(dropZone);
-		} );
-
-		// Now one underneath every thread
-		$j('.lqt_thread').not(thread).each( function() {
-			var thread = $j(this);
-			var repliesElement = liquidThreads.getRepliesElement( thread );
-			var dropZone = createDropZone();
-			var threadId = thread.data('thread-id');
-
-			dropZone.data( 'sortkey', 'now' );
-			dropZone.data( 'parent', threadId );
-
-			repliesElement.contents().filter('.lqt-replies-finish').before(dropZone);
-
-		} );
-
-		var droppableOptions =
-		{
+		var droppableOptions = {
 			'activeClass' : 'lqt-drop-zone-active',
 			'hoverClass' : 'lqt-drop-zone-hover',
 			'drop' : liquidThreads.completeDragDrop,
 			'tolerance' : 'intersect'
 		};
 
-		$j('.lqt-drop-zone').droppable( droppableOptions );
+		$j( '.lqt-drop-zone' ).droppable( droppableOptions );
 
-		scrollOffset = scrollOffset + thread.offset().top;
+		scrollOffset = scrollOffset + $thread.offset().top;
 
 		// Reset scroll position
 		$j('html,body').attr( 'scrollTop', scrollOffset );
@@ -1241,10 +1252,10 @@ var liquidThreads = {
 	},
 
 	'confirmDragDrop' : function( thread, params ) {
-		var confirmDialog = $j('<div class="lqt-drag-confirm" />');
+		var confirmDialog = $j( '<div class="lqt-drag-confirm" />' );
 
 		// Add an intro
-		var intro = $j('<p/>').text( wgLqtMessages['lqt-drag-confirm'] );
+		var intro = $j( '<p/>' ).text( wgLqtMessages['lqt-drag-confirm'] );
 		confirmDialog.append( intro );
 
 		// Summarize changes to be made
@@ -1388,8 +1399,8 @@ var liquidThreads = {
 				}
 
 				// Do the actual physical movement
-				var threadId = thread.find('.lqt-post-wrapper')
-						.data('thread-id');
+				var threadId = thread.find( '.lqt-post-wrapper' )
+						.data( 'thread-id' );
 
 				// Assorted ways of returning a thread to its proper place.
 				if ( typeof params.insertAfter != 'undefined' ) {
