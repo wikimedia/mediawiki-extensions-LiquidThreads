@@ -6940,6 +6940,7 @@ $messages['he'] = array(
 	'lqt-drag-setsortkey' => 'הגדרת מיקום ההודעה בדף',
 	'lqt-drag-bump' => 'העברה לראש דף הדיון',
 	'lqt-drag-save' => 'אישור',
+	'lqt-drag-title' => 'אישור גרירה',
 	'lqt-drag-reason' => 'סיבה:',
 	'lqt-drag-subject' => 'כותרת לשרשור חדש:',
 	'lqt-edit-signature' => '(עריכת החתימה)',
@@ -8226,7 +8227,7 @@ $messages['ig'] = array(
 	'lqt_youhavenewmessages' => 'I nwere [[$1|ozi ohúrù]].',
 	'lqt-read-message-tooltip' => 'Wéfu ahiri nka na ozi ohúrù.
 Madu nwere I ki hü ya na ihü akíkó nke sinambu.',
-	'lqt-menu-trigger' => 'Dikarírí',
+	'lqt-menu-trigger' => 'Nà nké ozór',
 	'lqt-search-button' => 'Chöwá',
 	'lqt-save-subject' => 'Donyéré',
 	'lqt-cancel-subject-edit' => 'Emekwàlà',
@@ -12213,6 +12214,7 @@ Podpis jest wyświetlany automatycznie.',
 	'lqt-drag-setsortkey' => 'Zmień kolejność wiadomości na stronie',
 	'lqt-drag-bump' => 'Przenieś wiadomość na samą górę strony dyskusji',
 	'lqt-drag-save' => 'Potwierdź',
+	'lqt-drag-title' => 'Zatwierdzenie przeciągnięcia',
 	'lqt-drag-reason' => 'Powód',
 	'lqt-drag-subject' => 'Temat nowego wątku',
 	'lqt-edit-signature' => '(edytuj podpis)',
@@ -16339,10 +16341,19 @@ Bunu <$6> adresinde görebilirsin.",
 
 /** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
  * @author Ерней
+ * @author Ильнар
  */
 $messages['tt-cyrl'] = array(
 	'lqt_subject' => 'Тема:',
 	'lqt_delete_return' => '$1 битенә кайтырга.',
+	'lqt_newmessages-title' => 'Яңа хатлар',
+	'lqt-newpost-summary' => 'Яңа элемтә: $1',
+	'lqt-reply-summary' => '[[$2|$1]]гә җавап',
+	'lqt-talkpage-history-title' => 'Аралашу битенең тарихы',
+	'lqt-talkpage-history-subtitle' => '$1 өчен',
+	'lqt-talkpage-history-tab' => 'Баш өлеш',
+	'restriction-reply' => 'җавап бирергә',
+	'restriction-newthread' => 'яңа элемтәләр ясау',
 );
 
 /** Ukrainian (Українська)
