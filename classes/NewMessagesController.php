@@ -123,7 +123,7 @@ class NewMessages {
 		$fields = array( 'wl_user', 'ums_user', 'ums_read_timestamp' );
 
 		global $wgVersion;
-		if ( version_compare( $wgVersion, '1.15.999', '<=' ) ) {
+		if ( version_compare( $wgVersion, '1.16', '<' ) ) {
 			$oldPrefCompat = true;
 
 			$tables[] = 'user';
@@ -175,7 +175,7 @@ class NewMessages {
 
 			global $wgVersion;
 
-			if ( version_compare( $wgVersion, '1.15.999', '<=' ) ) {
+			if ( version_compare( $wgVersion, '1.16', '<' ) ) {
 				$decodedOptions = self::decodeUserOptions( $row->user_options );
 
 				$wantsTalkNotification = !isset( $decodedOptions['lqtnotifytalk'] );
@@ -392,8 +392,9 @@ class NewMessages {
 
 		$cval = $wgMemc->get( wfMemcKey( 'lqt-new-messages-count', $user->getId() ) );
 
-		if ( $cval )
+		if ( $cval ) {
 			return $cval;
+		}
 
 		$dbr = wfGetDB( DB_SLAVE );
 
