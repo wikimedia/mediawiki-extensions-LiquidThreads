@@ -90,7 +90,7 @@ $messages = array (
     'htmlform-selectorother-other' => 'Altres',
     'htmlform-invalid-input' => 'Hi ha problemes amb alguna de les seves entrades',
   ),
-  'ckb-arab' =>
+  'ckb' =>
   array (
     'htmlform-reset' => 'گەڕانەوەی گۆڕانکاری',
   ),
