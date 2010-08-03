@@ -696,7 +696,8 @@ Die onderwerp is deel van $2.',
 	'lqt-history-thread' => 'Onderwerp',
 	'lqt-thread-edited-author' => 'Gewysig deur outeur<br />
 Laaste wysiging $1',
-	'lqt-thread-edited-others' => 'Gewysig deur ander gebruikers',
+	'lqt-thread-edited-others' => "Deur {{PLURAL:$2|'n ander gebruiker|$2 ander gebruikers}} gewysig.<br />
+Laaste wysiging: $1",
 	'lqt-header-actions' => 'Aksies',
 	'lqt_summarize_link' => 'Som op',
 	'lqt-thread-split' => "Split af na 'n  nuwe onderwerp",
@@ -708,6 +709,7 @@ Laaste wysiging $1',
 	'lqt_split_badsubject' => 'Die onderwerp wat u verskaf het is ongeldig.',
 	'lqt-no-threads' => 'Daar is nog geen onderwerpe op hierdie bladsy nie.',
 	'lqt-delete-parent-deleted' => 'Boliggende bespreking is geskrap ($1)',
+	'lqt-delete-replies-done' => 'Al die antwoorde op hierdie draad is ook verwyder.',
 	'lqt-movethread' => 'Skuif',
 	'lqt-menu-trigger' => 'Meer',
 	'lqt-newmessages-from' => 'Van $1',
@@ -725,6 +727,10 @@ Laaste wysiging $1',
 	'lqt-merge-submit' => 'Versmelt',
 	'lqt-log-name' => 'Onderwerplogboek',
 	'lqt-log-action-move' => 'het [[$1]] geskuif van [[$2]] na [[$3]].',
+	'lqt-log-action-split' => 'het [[$1]] afgesplit van [[$3]] met nuwe onderwerp "$2".',
+	'lqt-log-action-merge-across' => 'is van [[$1]] uit [[$2]] na [[$3]] geskuif.',
+	'lqt-log-action-merge-down' => 'het [[$1]] na onder [[$3]] versmelt',
+	'lqt-log-action-subjectedit' => 'het die onderwerp vir [[$1]] van "$2" na "$3" verander',
 	'lqt-preference-notify-talk' => 'Stuur vir my e-pos as besprekings wat ek dophou beantwoord word',
 	'lqt-preference-watch-threads' => 'Hou besprekings wat ek begin of waaraan ek deelneem dop',
 	'prefs-lqt' => 'Gestruktureerde besprekings',
@@ -740,9 +746,13 @@ Hierdie is 'n kennisgewing vanaf {{SITENAME}}. Daar is 'n nuwe onderwerp '$2' op
 U kan dit sien by <$6>.",
 	'lqt-enotif-reply' => "Hallo $1,
 
-Hierdie is 'n kennisgewing vanaf {{SITENAME}}. Daar is 'n nuwe antwoord '$2' op $5 geplaas op $3 om $4.
+Hierdie is 'n kennisgewing vanaf {{SITENAME}}. Daar is 'n nuwe antwoord '$2' op $5
+wat op $3 om $4 geplaas is.
 
-U kan dit sien by <$6>.",
+U kan dit sien by <$6>.
+
+Die teks van die antwoord is:
+$7",
 	'lqt-quote-intro' => 'Op $2 om $3 skryf [[User:$1|$1]]:',
 	'lqt-quote' => 'Aanhaal',
 	'lqt-search-legend' => 'Deursoek besprekings op hierdie bladsy',
@@ -763,9 +773,11 @@ U kan dit sien by <$6>.",
 	'lqt-cancel-subject-edit' => 'Kanselleer',
 	'lqt-drag-activate' => 'Sleep na nuwe posisie',
 	'lqt-drag-drop-zone' => 'Plaas hier',
+	'lqt-drag-split' => 'Skuif na sy eie draad',
 	'lqt-drag-setsortkey' => 'Skuif boodskap na ander posisie op die bladsy',
 	'lqt-drag-bump' => 'Skuif boodskap tot bo aan besprekingsblad',
 	'lqt-drag-save' => 'Bevestig',
+	'lqt-drag-title' => 'Bevestig sleep',
 	'lqt-drag-reason' => 'Rede:',
 	'lqt-drag-subject' => 'Onderwerp:',
 	'lqt-edit-signature' => '(wysig handtekening)',
@@ -788,6 +800,7 @@ U kan dit sien by <$6>.",
 	'lqt-talkpage-history-tab' => 'Opskrif',
 	'restriction-reply' => 'Antwoorde',
 	'restriction-newthread' => 'Skep nuwe onderwerpe',
+	'lqt-protected-reply-thread' => 'U kan nie pos nie omdat die onderwerp sluit is.',
 	'lqt-edit-bump' => 'Aktiveer die bespreking',
 	'lqt-edit-bump-tooltip' => 'Skuif die onderwerp tot bo aan die besprekingsblad',
 	'lqt-reply-subpage' => 'antwoord',
@@ -1447,6 +1460,7 @@ $messages['bcc'] = array(
  * @author EugeneZelenko
  * @author Jim-by
  * @author Mormegil
+ * @author Wizardist
  * @author Александр Сигачёв
  */
 $messages['be-tarask'] = array(
@@ -1646,11 +1660,14 @@ $messages['be-tarask'] = array(
 створаную $3 $4.
 
 Вы можаце паглядзець яе на <$6>",
-	'lqt-enotif-reply' => "Вітаем $1,
-Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новы адказ $5, '$2', 
-створаны $3 $4.
+	'lqt-enotif-reply' => "Вітаем, $1!
+Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новы адказ '$2' на старонцы $5, 
+створаны у $4 $3.
 
-Вы можаце паглядзець яго на <$6>",
+Вы можаце паглядзець яго на <$6>.
+
+Тэкст адказу:
+$7",
 	'lqt-quote-intro' => '$2 $3 [[User:$1|$1]] {{GENDER:$1|напісаў|напісала}}:',
 	'lqt-quote' => 'Цытаваць',
 	'lqt-search-legend' => 'Пошук абмеркаваньняў на гэтай старонцы',
@@ -3415,7 +3432,10 @@ Du kannst ihn auf <$6> einsehen.',
 	'lqt-enotif-reply' => 'Hallo $1,
 dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 Uhr auf der Seite „$5“ ein neue Antwort im Diskussionsstrang „$2“ geschrieben wurde.
 
-Du kannst sie auf <$6> einsehen.',
+Du kannst sie auf <$6> einsehen.
+
+Die Antwort lautet:
+$7',
 	'lqt-quote-intro' => 'Am $2 um $3 Uhr schrieb [[User:$1|$1]]:',
 	'lqt-quote' => 'Zitieren',
 	'lqt-search-legend' => 'Durchsuche die Diskussionsbeiträge auf dieser Seite',
@@ -6260,15 +6280,18 @@ Para evitar isto, sepáreas deste fío antes de borralo.',
 	'lqt-enotif-subject-reply' => 'Conversa {{SITENAME}} - Resposta: $1',
 	'lqt-enotif-subject-newthread' => 'Conversa {{SITENAME}} - Novo fío: $1',
 	'lqt-enotif-newthread' => 'Ola $1:
-Esta é unha notificación de {{SITENAME}} que informa de que un novo fío en $5, "$2",
-foi creado o $3 ás $4.
+Esta é unha notificación de {{SITENAME}} que informa de que se creou un novo fío en $5, "$2",
+o $3 ás $4.
 
 Pode velo en <$6>',
 	'lqt-enotif-reply' => 'Ola $1:
-Esta é unha notificación de {{SITENAME}} que informa de que unha nova resposta a "$2" en $5
-foi creada o $3 ás $4.
+Esta é unha notificación de {{SITENAME}} que informa de que se creou unha nova resposta a "$2" en $5
+o $3 ás $4.
 
-Pode vela en <$6>',
+Pode vela en <$6>
+
+O texto da resposta é:
+$7',
 	'lqt-quote-intro' => 'O $2 ás $3, o [[User:$1|usuario $1]] escribiu:',
 	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Procurar conversas nesta páxina',
@@ -8234,8 +8257,8 @@ Madu nwere I ki hü ya na ihü akíkó nke sinambu.',
 	'lqt-menu-trigger' => 'Nà nké ozór',
 	'lqt-search-button' => 'Chöwá',
 	'lqt-save-subject' => 'Donyéré',
-	'lqt-cancel-subject-edit' => 'Emekwàlà',
-	'lqt-drag-reason' => 'Mgbaghaputa:',
+	'lqt-cancel-subject-edit' => 'Kàchá',
+	'lqt-drag-reason' => 'Mgbághapụtà:',
 	'lqt-newmessages-n' => 'Ozi ohúrù ($1)',
 	'lqt_newmessages' => 'Ozi ohúrù',
 	'lqt_newmessages-title' => 'Ozi ohúrù',
@@ -10032,7 +10055,10 @@ Dir kënnt se op <$6> gesinn.",
 Dëst ass eng Notifikatioun vu(n) {{SITENAME}} datt eng nei Äntwert op '$2' op $5,
 den $3 ëm $4 ugeluecht gouf.
 
-Dir kënnt se op <$6> gesinn.",
+Dir kënnt se op <$6> gesinn.
+
+Den Text vun der Äntwert ass:
+$7",
 	'lqt-quote-intro' => 'De(n) $2 ëm $3 Auer, huet de(n) [[User:$1|$1]] geschriwwen:',
 	'lqt-quote' => 'Zitéieren',
 	'lqt-search-legend' => 'Diskussiounen zu dëser Säit sichen',
@@ -10370,10 +10396,13 @@ $messages['mk'] = array(
 
 Можете да ја погледате на <$6>',
 	'lqt-enotif-reply' => 'Здраво $1,
-Ве известуваме дека на {{SITENAME}} е даден нов одговор на „$2“ на страницата $5,
-на $3 во $4.
+Ве известуваме дека на {{SITENAME}} има нов одговор на „$2“ за $5,
+даден на $3 во $4 ч.
 
-You can see it at <$6>',
+Можете да го погледате на <$6>
+
+Текстот на одговорот гласи:
+$7',
 	'lqt-quote-intro' => 'На $2 во $3, [[User:$1|$1]] напиша:',
 	'lqt-quote' => 'Цитирај',
 	'lqt-search-legend' => 'Пребарување разговори на страницава',
@@ -11096,11 +11125,14 @@ Splits dit overleg alvorens het te verwijderen om dit te voorkomen.',
 Dit is een kennisgeving van {{SITENAME}}. Er is een nieuw onderwerp '$2' op $5 geplaatst op $3 om $4.
 
 U kunt het bekijken op <$6>.",
-	'lqt-enotif-reply' => "Hallo $1,
+	'lqt-enotif-reply' => 'Hallo $1,
 
-Dit is een kennisgeving van {{SITENAME}}. Er is een nieuw antwoord op '$2' op $5 gekomen op $3 om $4.
+Dit is een kennisgeving van {{SITENAME}}. Er is een nieuwe reactie op "$2" op $5 gekomen op $3 om $4.
 
-U kunt het bekijken op <$6>.",
+U kunt het bekijken op <$6>.
+
+Hieronder staat de reactie:
+$7',
 	'lqt-quote-intro' => 'Op $2 om $3 schreef [[User:$1|$1]]:',
 	'lqt-quote' => 'Citeren',
 	'lqt-search-legend' => 'Overleg op deze pagina doorzoeken',
@@ -12459,7 +12491,10 @@ A peul vëddla su <$6>",
 Costa a l'é na notìfica da {{SITENAME}} che n'arspòsta neuva a '$2' su $5,
 a l'é stàita creà ël $3 a $4.
 
-A peul vëddla su <$6>",
+A peul vëddla su <$6>
+
+Ël test ëd l'arspòsta a l'é:
+$7",
 	'lqt-quote-intro' => "Ël $2 a $3, [[User:$1|$1]] a l'ha scrivù:",
 	'lqt-quote' => 'Sité',
 	'lqt-search-legend' => 'Sërché dle discussion dzora a sta pàgina-sì',
@@ -13821,7 +13856,10 @@ $messages['ru'] = array(
 Это уведомление с сайта {{SITENAME}} о том, что $3 $4 на страницу $5
 был добавлен новый ответ на ветку «$2».
 
-Вы можете увидеть её по адресу <$6>',
+Вы можете увидеть её по адресу <$6>
+
+Текст ответа:
+$7',
 	'lqt-quote-intro' => '$2 $3, [[User:$1|$1]] написал:',
 	'lqt-quote' => 'Цитировать',
 	'lqt-search-legend' => 'Поиск обсуждений на этой странице',
@@ -16568,7 +16606,10 @@ $messages['uk'] = array(
 Це повідомлення з {{SITENAME}} про те, що нова відповідь у гілці '$2' на $5
 була створена $3 о $4.
 
-Ви можете переглянути її: <$6>",
+Ви можете переглянути її: <$6>
+
+Текст відповіді:
+$7",
 	'lqt-quote-intro' => '$2 о $3, [[User:$1|$1]] написав:',
 	'lqt-quote' => 'Цитувати',
 	'lqt-search-legend' => 'Пошук обговорень на цій сторінці',
