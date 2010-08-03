@@ -85,6 +85,13 @@ class NewUserMessagesView extends LqtView {
 	function showOnce() {
 		NewMessages::recacheMessageCount( $this->user->getId() );
 
+		static $scriptDone = false;
+
+		if ( !$scriptDone ) {
+			global $wgOut, $wgLiquidThreadsExtensionPath;
+			$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/newmessages.js" );
+		}
+
 		$this->user->setNewtalk( false );
 
 		if ( $this->methodApplies( 'mark_as_unread' ) ) {
@@ -200,9 +207,8 @@ class NewUserMessagesView extends LqtView {
 
 		$mustShowThreads = $this->targets[$t->id()];
 
-		global $wgLiquidThreadsExtensionPath;
-		$this->showThread( $t, 1, 1, array( 'mustShowThreads' => $mustShowThreads,
-				'addScripts' => array( "$wgLiquidThreadsExtensionPath/newmessages.js" ) ) );
+		$this->showThread( $t, 1, 1, array( 'mustShowThreads' => $mustShowThreads ) );
+
 		$this->output->addHTML( "</td></tr>" );
 	}
 

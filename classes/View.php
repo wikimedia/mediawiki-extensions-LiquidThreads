@@ -25,7 +25,7 @@ class LqtView {
 
 	protected $sort_order = LQT_NEWEST_CHANGES;
 
-	static $stylesAndScriptsDone = array();
+	static $stylesAndScriptsDone = false;
 
 	function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		$this->article = $article;
@@ -1182,19 +1182,8 @@ class LqtView {
 	* Output methods		 *
 	*************************/
 
-	static function sendMoreScripts( $scripts = array() ) {
-		global $wgOut;
-		foreach( $scripts as $file ) {
-			if( !in_array( $file, self::$stylesAndScriptsDone ) ) {
-				$wgOut->addScriptFile( $file );
-				self::$stylesAndScriptsDone[] = $file;
-			}
-		}
-	}
-
-	static function addJSandCSS( $scripts = array() ) {
-		if ( count( self::$stylesAndScriptsDone ) ) {
-			self::sendMoreScripts( $scripts );
+	static function addJSandCSS() {
+		if ( self::$stylesAndScriptsDone ) {
 			return;
 		}
 
@@ -1204,22 +1193,22 @@ class LqtView {
 
 		LqtHooks::$scriptVariables['wgLqtMessages'] = self::exportJSLocalisation();
 
-
-		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/jquery/jquery-ui-1.7.2.css" );
-		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/lqt.css?{$wgStyleVersion}" );
-
-		array_unshift( $scripts, "$wgLiquidThreadsExtensionPath/js/lqt.toolbar.js" );
-		array_unshift( $scripts, "$wgLiquidThreadsExtensionPath/jquery/jquery.autogrow.js" );
-		array_unshift( $scripts, "$wgLiquidThreadsExtensionPath/lqt.js" );
-
 		if ( method_exists( $wgOut, 'includeJQuery' ) ) {
 			$wgOut->includeJQuery();
-			array_unshift( $scripts, "$wgLiquidThreadsExtensionPath/jquery/plugins.js" );
+			$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/jquery/plugins.js" );
 		} else {
-			array_unshift( $scripts, "$wgLiquidThreadsExtensionPath/jquery/js2.combined.js" );
+			$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/jquery/js2.combined.js" );
 		}
 
-		self::sendMoreScripts( $scripts );
+		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/jquery/jquery-ui-1.7.2.css" );
+
+		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/jquery/jquery.autogrow.js" );
+
+		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/lqt.js" );
+		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/js/lqt.toolbar.js" );
+		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/lqt.css?{$wgStyleVersion}" );
+
+		self::$stylesAndScriptsDone = true;
 	}
 
 	static function exportJSLocalisation() {
@@ -1897,10 +1886,10 @@ class LqtView {
 			) );
 		$replyTo = $this->methodAppliesToThread( 'reply', $thread );
 
+		self::addJSandCSS();
+
 		$html = '';
 		wfRunHooks( 'EditPageBeforeEditToolbar', array( &$html ) );
-		$scripts = isset( $options['addScripts'] ) ? $options['addScripts'] : array();
-		self::addJSandCSS( $scripts );
 
 		$class = $this->threadDivClass( $thread );
 		if ( $levelNum == 1 ) {

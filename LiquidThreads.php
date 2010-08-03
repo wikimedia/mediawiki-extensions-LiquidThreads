@@ -157,7 +157,6 @@ $wgAutoloadClasses['SpecialMoveThread'] = $dir . 'pages/SpecialMoveThread.php';
 $wgAutoloadClasses['SpecialNewMessages'] = $dir . 'pages/SpecialNewMessages.php';
 $wgAutoloadClasses['SpecialSplitThread'] = $dir . 'pages/SpecialSplitThread.php';
 $wgAutoloadClasses['SpecialMergeThread'] = $dir . 'pages/SpecialMergeThread.php';
-$wgAutoloadClasses['SpecialHotTopics'] = "$dir/pages/SpecialHotTopics.php";
 
 // Job queue
 $wgJobClasses['synchroniseThreadArticleData'] = 'SynchroniseThreadArticleDataJob';
@@ -237,6 +236,7 @@ $wgLiquidThreadsDefaultPageLimit = 20;
 /** Whether or not to allow users to activate/deactivate LiquidThreads per-page */
 $wgLiquidThreadsAllowUserControl = true;
 
-/** Whether or not to allow users to activate/deactivate LiquidThreads in specific namespaces.
-	NULL means either all or none, depending on the above. */
+/** Whether or not to allow users to activate/deactivate LiquidThreads
+	in specific namespaces.  NULL means either all or none, depending
+	on the above. */
 $wgLiquidThreadsAllowUserControlNamespaces = null;
