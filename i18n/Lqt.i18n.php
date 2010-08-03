@@ -228,7 +228,10 @@ You can see it at <$6>",
 This is a notification from {{SITENAME}} that a new reply to '$2' on $5,
 was created on $3 at $4.
 
-You can see it at <$6>",
+You can see it at <$6>
+
+The text of the reply is:
+$7",
 
 	// Quoting functionality
 	'lqt-quote-intro' => 'On $2 at $3, [[User:$1|$1]] wrote:',

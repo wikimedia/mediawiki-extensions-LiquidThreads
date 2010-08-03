@@ -340,7 +340,9 @@ class NewMessages {
 			$time = $lang->time( $adjustedTimestamp );
 
 			$params = array( $u->getName(), $t->subjectWithoutIncrement(),
-							$date, $time, $talkPage, $permalink );
+						$date, $time, $talkPage,
+						$permalink,
+						$t->root()->getContent() );
 
 			// Get message in user's own language, bug 20645
 			$msg = wfMsgReal( $msgName, $params, true /* use DB */, $langCode,
