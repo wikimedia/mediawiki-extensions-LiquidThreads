@@ -1898,10 +1898,9 @@ class LqtView {
 		$replyTo = $this->methodAppliesToThread( 'reply', $thread );
 
 		$html = '';
-		if ( wfRunHooks( 'EditPageBeforeEditToolbar', array( &$html ) ) ) {
-			$scripts = isset( $options['addScripts'] ) ? $options['addScripts'] : array();
-			self::addJSandCSS( $scripts );
-		}
+		wfRunHooks( 'EditPageBeforeEditToolbar', array( &$html ) );
+		$scripts = isset( $options['addScripts'] ) ? $options['addScripts'] : array();
+		self::addJSandCSS( $scripts );
 
 		$class = $this->threadDivClass( $thread );
 		if ( $levelNum == 1 ) {
