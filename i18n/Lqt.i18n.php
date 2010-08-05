@@ -3118,10 +3118,14 @@ bylo v $5 založeno nové vlákno „$2“.
 
 Můžete si ho prohlédnout na <$6>.',
 	'lqt-enotif-reply' => 'Vážený uživateli $1,
+
 Toto je oznámení z {{grammar:2sg|{{SITENAME}}}}, že $3 v $4
 byla v $5 přidána nová odpověď na „$2“.
 
-Můžete si ji prohlédnout na <$6>.',
+Můžete si ji prohlédnout na <$6>.
+
+Text odpovědi:
+$7',
 	'lqt-quote-intro' => '$2 v $3 {{GENDER:$1|napsal|napsala|napsal}} [[User:$1|$1]]:',
 	'lqt-quote' => 'Citovat',
 	'lqt-search-legend' => 'Hledat v diskusích na této stránce',
@@ -8266,15 +8270,36 @@ Tanda tangan akan dimunculkan secara otomatis.',
  * @author Ukabia
  */
 $messages['ig'] = array(
+	'lqt_contents_title' => 'Ihe dị ime',
 	'lqt_delete' => 'Gbakashia',
+	'lqt_undelete' => 'Á gbàkashikwà',
+	'lqt_permalink' => 'Jikodo na',
+	'lqt_newer' => 'ohürù',
+	'lqt_older' => 'íchié →',
+	'lqt_hist_deleted' => 'Gbakashịrị',
+	'lqt_hist_undeleted' => 'Ọ gbákashikwà',
+	'lqt_hist_moved_talkpage' => 'Páfụrụ',
 	'lqt_youhavenewmessages' => 'I nwere [[$1|ozi ohúrù]].',
+	'lqt_subject' => 'Gbàsịrị:',
+	'lqt_move_torename_edit' => 'rüo ya',
+	'lqt_move_move' => 'Páfụ',
 	'lqt-read-message-tooltip' => 'Wéfu ahiri nka na ozi ohúrù.
 Madu nwere I ki hü ya na ihü akíkó nke sinambu.',
+	'lqt-history-user' => "Ọ'bànifé",
+	'lqt-split-submit' => 'Wa',
+	'lqt-movethread' => 'Páfụ',
 	'lqt-menu-trigger' => 'Nà nké ozór',
+	'lqt-quote' => 'Kȯpùtà',
 	'lqt-search-button' => 'Chöwá',
+	'searchprofile-threads' => 'Akíkó',
+	'lqt-ajax-update-link' => 'Dịnwanye mmā',
+	'lqt-thread-link-url' => 'Jikodo URL:',
 	'lqt-save-subject' => 'Donyéré',
 	'lqt-cancel-subject-edit' => 'Kàchá',
+	'lqt-drag-drop-zone' => 'Dòsé nga',
+	'lqt-drag-save' => 'Sị Í kwèrè',
 	'lqt-drag-reason' => 'Mgbághapụtà:',
+	'lqt-preview-signature' => '(lètú)',
 	'lqt-newmessages-n' => 'Ozi ohúrù ($1)',
 	'lqt_newmessages' => 'Ozi ohúrù',
 	'lqt_newmessages-title' => 'Ozi ohúrù',
@@ -12605,6 +12630,7 @@ $messages['ps'] = array(
 	'lqt-title' => 'سرليک',
 	'lqt-summary' => 'لنډيز',
 	'lqt-email-undo' => 'ناکړل',
+	'lqt-new-messages' => '✒ تاسې نوي پيغامونه لرۍ.',
 	'lqt-thread-created' => 'جوړ شو',
 	'lqt-history-time' => 'وخت',
 	'lqt-history-user' => 'کارن',
@@ -12621,6 +12647,7 @@ $messages['ps'] = array(
 	'lqt-save-subject' => 'خوندي کول',
 	'lqt-cancel-subject-edit' => 'ناګارل',
 	'lqt-drag-reason' => 'سبب:',
+	'lqt-edit-signature' => '(لاسليک سمول)',
 	'lqt-feed-title-replies' => '{{SITENAME}} — ځوابونه',
 	'lqt-newmessages-n' => 'نوي پيغامونه ($1)',
 	'lqt_newmessages' => 'نوي پيغامونه',
@@ -14152,7 +14179,10 @@ $messages['sah'] = array(
 	'lqt-enotif-reply' => 'Дорообо, $1.
 Бу $3 $4 {{SITENAME}} саайка баар $5 сирэй «$2» салаатыгар саҥа хоруй баар буолбутун туһунан биллэрии. 
 
-Бу аадырыска <$6> көрүөххүн сөп.',
+Бу аадырыска <$6> көрүөххүн сөп.
+
+Хоруй тиэкиһэ:
+$7',
 	'lqt-quote-intro' => '$2 $3, [[User:$1|$1]] суруйбут:',
 	'lqt-quote' => 'Цитааталааһын',
 	'lqt-search-legend' => 'Бу сирэйгэ баар ырытыылары көрдөөһүн',
