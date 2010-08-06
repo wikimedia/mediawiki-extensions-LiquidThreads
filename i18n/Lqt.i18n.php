@@ -4025,7 +4025,10 @@ Móžoš jo na <$6> wiźeś",
 	'lqt-enotif-reply' => "Witaj $1,
 to jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo se nowe wótegrono k '$2' na $5 $3 $4 napórało.
 
-Móžoš jo na <$6> wiźeś",
+Móžoš jo na <$6> wiźeś
+
+Tekst wótegrona jo:
+$7",
 	'lqt-quote-intro' => '$2 $3 jo [[User:$1|$1]] {{GENDER:$1|napisał|napisała|napisał}}:',
 	'lqt-quote' => 'Citěrowaś',
 	'lqt-search-legend' => 'Diskusije na toś tom boku pśepytaś',
@@ -6722,6 +6725,18 @@ $messages['gv'] = array(
 	'lqt_newmessages' => 'Çhaghteraghtyn noa',
 );
 
+/** Hausa (هَوُسَ) */
+$messages['ha'] = array(
+	'lqt_delete' => 'Soke',
+	'lqt_move_move' => 'Gusarwa',
+	'lqt-summary' => 'Taƙaici',
+	'lqt-movethread' => 'Gusarwa',
+	'lqt-search-button' => 'Nema',
+	'lqt-save-subject' => 'Nema',
+	'lqt-cancel-subject-edit' => 'Soke',
+	'lqt-drag-reason' => 'Dalili:',
+);
+
 /** Hakka (Hak-kâ-fa)
  * @author Hakka
  */
@@ -8888,9 +8903,12 @@ $messages['ja'] = array(
 
 <$6> で確認できます。',
 	'lqt-enotif-reply' => 'こんにちは、$1 さん。
-これは {{SITENAME}} からの、$5 でスレッド「$2」への新しい返信が $3 $4 にあったことのお知らせです。
+これは {{SITENAME}} からの、$5でスレッド「$2」への新しい返信が$3の$4にあったことのお知らせです。
 
-<$6> で確認できます。',
+<$6> で確認できます。
+
+返信メッセージは次のとおりです：
+$7',
 	'lqt-quote-intro' => '$2 $3に[[User:$1|$1]]が書きました:',
 	'lqt-quote' => '引用',
 	'lqt-search-legend' => 'このページ上の議論を検索する',
@@ -14522,20 +14540,47 @@ Podpis sa zobrazí automaticky.',
 $messages['sl'] = array(
 	'lqt-desc' => 'Doda možnost razprav na pogovorne strani',
 	'lqt_movethread' => 'Premakni razpravo na drugo stran',
+	'lqt_deletethread' => 'Izbriši ali obnovi razpravo',
+	'lqt_toc_thread_title' => 'Naslov razprave',
+	'lqt_toc_thread_author' => 'Začel',
 	'lqt_toc_thread_replycount' => 'Odgovori',
+	'lqt_toc_thread_modified' => 'Zadnja sprememba',
+	'lqt_add_header' => 'Dodaj glavo',
+	'lqt_new_thread' => 'Začni novo razpravo',
 	'lqt_empty_subject' => 'Vnesti morate zadevo.',
 	'lqt_reply' => 'Odgovori',
 	'lqt-parent' => 'Starš',
 	'lqt_delete' => 'Izbriši',
 	'lqt_undelete' => 'Obnovi',
+	'lqt_permalink' => 'Trajna povezava',
 	'lqt_fragment' => 'Odlomek $1 iz $2',
 	'lqt_discussion_link' => 'razprave',
 	'lqt_from_talk' => 'Iz $1',
 	'lqt_newer' => '← novejše',
 	'lqt_older' => 'starejše →',
+	'lqt-history-title' => 'Zgodovina razprave',
+	'lqt_hist_thread_created' => 'Ustvarjena nova razprava',
 	'lqt_hist_deleted' => 'Izbrisano',
 	'lqt_hist_undeleted' => 'Obnovljeno',
 	'lqt_hist_moved_talkpage' => 'Prestavljeno',
+	'lqt_hist_tooltip_newer_disabled' => 'Povezava je onemogočena, ker ste na prvi strani.',
+	'lqt_hist_tooltip_older_disabled' => 'Povezava je onemogočena, ker ste na zadnji strani.',
+	'lqt_hist_edited_subject' => 'Sprememba zadeve iz »$2« v »$3«',
+	'lqt_hist_edited_subject_corrupt' => 'Sprememba zadeve',
+	'lqt_hist_split_from' => 'Razcep na novo razpravo',
+	'lqt_hist_root_blanked' => 'Odstranitev besedila komentarja',
+	'lqt_revision_as_of' => 'Redakcija dne $2 ob $3.',
+	'lqt_change_new_thread' => 'To je začetna redakcija razprave.',
+	'lqt_change_reply_created' => '[$1 Poudarjena pripomba] je bila ustvarjena v tej redakciji.',
+	'lqt_change_edited_root' => '[$1 Poudarjena pripomba] je bila spremenjena v tej redakciji.',
+	'lqt_change_edited_summary' => 'Povzetek razprave je bil spremenjen',
+	'lqt_change_deleted' => '[$1 Razprava] ali njen starš sta bila izbrisana',
+	'lqt_change_undeleted' => '[$1 Označena objava] je obnovljena',
+	'lqt_change_moved' => '[$1 Razprava] je prestavljena na drugo stran z razpravami',
+	'lqt_change_split' => '[$1 Razprava] je bila razcepljena iz druge razprave',
+	'lqt_change_edited_subject' => 'Zadeva razprave je spremenjena iz »$2« v »$3«',
+	'lqt_change_merged_from' => '[$1 Odgovor] na razpravo je prestavljen na drugo razpravo',
+	'lqt_change_merged_to' => '[$1 Označeni odgovor] je prestavljen na drugo razpravo',
 	'lqt_change_root_blanked' => 'Besedilo [$1 komentarja] je bilo odstranjeno.',
 	'lqt_youhavenewmessages' => 'Imate [[$1|nova sporočila]].',
 	'lqt_subject' => 'Zadeva:',
