@@ -2914,6 +2914,20 @@ $messages['ch'] = array(
 	'lqt_discussion_link' => 'kombetsasion',
 );
 
+/** Sorani (کوردی) */
+$messages['ckb'] = array(
+	'lqt_delete' => 'سڕینەوە',
+	'lqt_undelete' => 'گەڕاندنەوەی سڕین',
+	'lqt_move_move' => 'گواستنەوە',
+	'lqt-summary' => 'پوختە',
+	'lqt-history-user' => 'بەکارهێنەر',
+	'lqt-movethread' => 'گواستنەوە',
+	'lqt-search-button' => 'گەڕان',
+	'lqt-save-subject' => 'پاشەکەوت',
+	'lqt-drag-save' => 'پشتدار بکەرەوە',
+	'lqt-drag-reason' => 'هۆکار:',
+);
+
 /** Czech (Česky)
  * @author Kuvaly
  * @author Matěj Grabovský
@@ -8213,10 +8227,13 @@ telah dibuat pada $3 pukul $4.
 
 Anda dapat melihatnya di <$6>",
 	'lqt-enotif-reply' => "Hai $1,
-Ini adalah pemberitahuan dari {{SITENAME}} bahwa suatu balasan terhadap '$2' di $5,
-telah dibuat pada $3 pukul $4.
+Ini adalah pemberitahuan dari {{SITENAME}} bahwa balasan baru untuk '$2' di $5,
+dibuat tanggal $3 pukul $4.
 
-Anda dapat melihatnya di <$6>",
+Anda dapat melihatnya di <$6>
+
+Teks balasan berisi:
+$7",
 	'lqt-quote-intro' => 'Pada $2 pukul $3, [[User:$1|$1]] menulis:',
 	'lqt-quote' => 'Kutip',
 	'lqt-search-legend' => 'Cari diskusi pada halaman ini',
