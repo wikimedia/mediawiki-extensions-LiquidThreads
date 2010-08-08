@@ -2115,6 +2115,7 @@ $messages['bn'] = array(
 /** Breton (Brezhoneg)
  * @author Fohanno
  * @author Fulup
+ * @author Gwendal
  * @author Y-M D
  */
 $messages['br'] = array(
@@ -2320,7 +2321,10 @@ He lenn a c'hallit war <$6>",
 Setu ur c'hemenn a-berzh {{SITENAME}} a embann ez eus ur respont nevez da '$2' war $5,
 bet savet d'an $3 da $4.
 
-E lenn a c'hallit ober war <$6>",
+E lenn a c'hallit ober war <$6>
+
+Testenn ar respont a zo:
+$7",
 	'lqt-quote-intro' => "D'an $2 da $3, eo bet skrivet gant [[User:$1|$1]] :",
 	'lqt-quote' => 'Menegiñ',
 	'lqt-search-legend' => 'Klask kaozeadennoù war ar bajenn-mañ',
@@ -9576,7 +9580,10 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-enotif-reply' => "$1님 안녕하세요.
 {{SITENAME}}에서 $5 문서의 '$2' 스레드에 $3 $4에 새 답변이 올라왔습니다.
 
-해당하는 글을 <$6>에서 볼 수 있습니다.",
+해당하는 글을 <$6>에서 볼 수 있습니다.
+
+답변의 내용은 다음과 같습니다:
+$7",
 	'lqt-quote-intro' => '[[User:$1|$1]] 사용자가 $2 $3에 남긴 글:',
 	'lqt-quote' => '인용',
 	'lqt-search-legend' => '이 문서에 있는 토론 검색하기',
@@ -12293,11 +12300,14 @@ To jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że
 o $4 $3 utworzono nowy wątek '$2' na stronie dyskusji $5.
 
 Możesz go zobaczyć pod adresem <$6>",
-	'lqt-enotif-reply' => "Witaj $1!
-To jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że
-o $4 $3 ktoś odpowiedział w wątku '$2' na stronie dyskusji $5.
+	'lqt-enotif-reply' => 'Witaj $1!
+To jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że ktoś odpowiedział w wątku „$2” na stronie $5,
+o $3 dnia $4. 
 
-Możesz zobaczyć tę odpowiedź pod adresem <$6>",
+Możesz zobaczyć wątek pod adresem <$6>
+
+Treść odpowiedzi znajduje się pod adresem
+$7',
 	'lqt-quote-intro' => 'Dnia $2 o $3 [[User:$1|$1]] napisał(a):',
 	'lqt-quote' => 'Cytuj',
 	'lqt-search-legend' => 'Szukaj dyskusji na tej stronie',
@@ -14159,9 +14169,9 @@ $messages['sah'] = array(
 	'lqt-history-action' => 'Көҕө',
 	'lqt-history-comment' => 'Этии',
 	'lqt-history-thread' => 'Салаа',
-	'lqt-thread-edited-author' => 'Бу ааптар уларыппыт<br/>
+	'lqt-thread-edited-author' => 'Бу ааптар уларыппыт<br />
 Бүтэһик уларытыы: $1',
-	'lqt-thread-edited-others' => '$2 кыттааччы уларыппыт<br/>
+	'lqt-thread-edited-others' => '$2 кыттааччы уларыппыт<br />
 Бүтэһик уларытыы: $1',
 	'lqt-header-actions' => 'Дьайыылар',
 	'lqt_summarize_link' => 'Түмүк таһаарыы',
@@ -16789,6 +16799,16 @@ $7",
 	'lqt-edit-bump-tooltip' => 'Перемістити цю гілку на початок її сторінки обговорення',
 	'lqt-historicalrevision-error' => 'Версія, що ви обрали, пошкоджена і не може бути відображена.',
 	'lqt-reply-subpage' => 'відповідь',
+);
+
+/** Urdu (اردو) */
+$messages['ur'] = array(
+	'lqt_contents_title' => 'فہرست',
+	'lqt_toc_thread_modified' => 'آخری دفع جب تبدیل کیا گیا',
+	'lqt_delete' => 'حذف کرو',
+	'lqt_discussion_link' => 'تبادلہٴ خیال',
+	'lqt-cancel-subject-edit' => 'منسوخ',
+	'lqt-drag-reason' => 'وجہ:',
 );
 
 /** Vèneto (Vèneto)
