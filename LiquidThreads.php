@@ -206,6 +206,8 @@ $wgAvailableRights[] = 'lqt-split';
 $wgAvailableRights[] = 'lqt-merge';
 $wgAvailableRights[] = 'lqt-react';
 
+$wgPageProps['use-liquid-threads'] = 'Whether or not the page is using LiquidThreads';
+
 /* Allows activation of LiquidThreads on individual pages */
 $wgLqtPages = array();
 
