@@ -322,6 +322,7 @@ The signature is shown automatically.',
 /** Message documentation (Message documentation)
  * @author Aotake
  * @author Bennylin
+ * @author Blaisorblade
  * @author Crt
  * @author Dani
  * @author Darth Kule
@@ -483,7 +484,8 @@ Parameters are:
 * $3 is a date
 * $4 is a time
 * $5 is the title of a talk page with the thread $2
-* $6 is a permalink URL',
+* $6 is a permalink URL
+* $7 is a reply text',
 	'lqt-quote-intro' => 'Used as a header in thread entries.
 * $1 is a user name
 * $2 is a date
@@ -8455,6 +8457,7 @@ Síðast breytt: $1',
 
 /** Italian (Italiano)
  * @author Aushulz
+ * @author Blaisorblade
  * @author Civvì
  * @author Darth Kule
  * @author F. Cosoleto
@@ -8665,7 +8668,10 @@ Puoi leggerlo a <$6>",
 Questa notifica da {{SITENAME}} ti segnala che una nuova risposta a '$2' su $5,
 è stato creata il $3 alle $4.
 
-Puoi leggerla a <$6>",
+Puoi leggerla a <$6>
+
+Il testo della risposta è:
+$7",
 	'lqt-quote-intro' => 'Il $2 alle $3, [[User:$1|$1]] ha scritto:',
 	'lqt-quote' => 'Cita',
 	'lqt-search-legend' => 'Cerca discussioni in questa pagina',
