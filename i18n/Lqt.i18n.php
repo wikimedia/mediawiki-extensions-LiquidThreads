@@ -5922,8 +5922,10 @@ Ceta opèracion est revèrsibla.',
 	'lqt-history-action' => 'Activitât',
 	'lqt-history-comment' => 'Comentèro',
 	'lqt-history-thread' => 'Fil de discussion',
-	'lqt-thread-edited-author' => 'Changiê per l’ôtor',
-	'lqt-thread-edited-others' => 'Changiê per d’ôtros utilisators',
+	'lqt-thread-edited-author' => 'Changiê per l’ôtor.<br />
+Dèrriér changement : $1',
+	'lqt-thread-edited-others' => 'Changiê per {{PLURAL:$2|un ôtro utilisator|$2 utilisators}}.<br />
+Dèrriér changement : $1',
 	'lqt-header-actions' => 'Accions',
 	'lqt_summarize_link' => 'Rèsumar',
 	'lqt-summarize-intro' => 'Rèsumar lo sujèt ce-dessus dens la bouèta d’èdicion.
@@ -5975,10 +5977,13 @@ at étâ fêta lo $3 a $4.
 
 Vos lo pouede vêre a « $6 »',
 	'lqt-enotif-reply' => 'Bonjorn $1,
-O est una notificacion de {{SITENAME}}, qu’una novèla rèponsa a « $2 » dessus $5,
+O est una notificacion de {{SITENAME}}, qu’una rèponsa novèla a « $2 » dessus $5
 at étâ fêta lo $3 a $4.
 
-Vos lo pouede vêre a « $6 »',
+Vos la pouede vêre dessus <$6>
+
+Lo tèxto de la rèponsa est :
+$7',
 	'lqt-quote-intro' => 'Lo $2 a $3, [[User:$1|$1]] at ècrit :',
 	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Rechèrchiér des discussions sur ceta pâge',
@@ -10599,8 +10604,8 @@ $messages['ml'] = array(
 	'lqt_hist_view_whole_thread' => 'ചരടിന്റെ പൂർണ്ണരൂപത്തിന്റെ നാൾവഴി കാണുക',
 	'lqt_hist_no_revisions_error' => 'ഈ ചരടിന് പഴയ നാൾപ്പതിപ്പുകൾ ഇല്ല.',
 	'lqt_hist_past_last_page_error' => 'താളുകളുടെ നിലനിൽക്കുന്ന ചരിത്രത്തിനപ്പുറമാണ് താങ്കൾ.',
-	'lqt_hist_tooltip_newer_disabled' => 'താങ്കൾ ആദ്യത്തെ താളിലായതിനാൽ ഈ കണ്ണി നിർ‌വീര്യമാക്കി.',
-	'lqt_hist_tooltip_older_disabled' => 'താങ്കൾ അവസാനത്തെ താളിലായതിനാൽ ഈ കണ്ണി നിർ‌വീര്യമാക്കി.',
+	'lqt_hist_tooltip_newer_disabled' => 'താങ്കൾ ആദ്യത്തെ താളിലായതിനാൽ ഈ കണ്ണി നിർവീര്യമാക്കി.',
+	'lqt_hist_tooltip_older_disabled' => 'താങ്കൾ അവസാനത്തെ താളിലായതിനാൽ ഈ കണ്ണി നിർവീര്യമാക്കി.',
 	'lqt_hist_split' => 'പുതിയൊരു ചരടായി വിഘടിപ്പിച്ച് മറുപടി നൽകുക',
 	'lqt_hist_edited_subject' => 'വിഷയം "$2" എന്നതിൽ നിന്ന് "$3" എന്നാക്കി മാറ്റി',
 	'lqt_hist_edited_subject_corrupt' => 'വിഷയം മാറ്റിയിരിക്കുന്നു',
@@ -10644,7 +10649,7 @@ $messages['ml'] = array(
 	'lqt_threadrequired' => 'URL-ൽ ഒരു ചരട് ചേർത്തിരിക്കണം',
 	'lqt_move_movingthread' => '$1 മാറ്റുന്നു.
 ഈ ചരട് $2 എന്നതിന്റെ ഭാഗമാണ്‌.',
-	'lqt_move_torename' => "ഈ ചരട് പുനർ‌നാമകരണം ചെയ്യാൻ, $1 ചെയ്തു 'തലക്കുറി' മാറ്റുക",
+	'lqt_move_torename' => "ഈ ചരട് പുനർനാമകരണം ചെയ്യാൻ, $1 ചെയ്തു 'തലക്കുറി' മാറ്റുക",
 	'lqt_move_torename_edit' => 'തിരുത്തുക',
 	'lqt_move_destinationtitle' => 'ലക്ഷ്യ സം‌വാദം താളിന്റെ തലക്കെട്ട്:',
 	'lqt_move_move' => 'തലക്കെട്ടു്‌ മാറ്റുക',
@@ -17323,10 +17328,13 @@ Bạn có thể sử dụng cú pháp wiki trong tóm tắt. Khi nào xong, hãy
 
 Bạn có thể đọc nó tại <$6>',
 	'lqt-enotif-reply' => 'Chào $1,
-Đây là lời thông báo từ {{SITENAME}} rằng "$2" có trả lời mới về $5,
+Đây là lời thông báo từ {{SITENAME}} rằng “$2” có trả lời mới về $5,
 vào ngày $3 lúc $4.
 
-Bạn có thể đọc nó tại <$6>',
+Bạn có thể đọc nó tại <$6>
+
+The text of the reply is:
+$7',
 	'lqt-quote-intro' => 'Ngày $2 lúc $3, [[User:$1|Thành viên:$1]] viết:',
 	'lqt-quote' => 'Trích dẫn',
 	'lqt-search-legend' => 'Tìm kiếm thảo luận tại trang này',
