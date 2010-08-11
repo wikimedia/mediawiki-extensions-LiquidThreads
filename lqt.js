@@ -179,6 +179,7 @@ var liquidThreads = {
 				$j( '#wpTextbox1' ).wikiEditor( 'addModule', { 'toolbar': liquidThreads.toolbar.config, 'dialogs': liquidThreads.toolbar.dialogs } );
 				// cleanup unnecessary things from the old toolbar
 				$j( '#editpage-specialchars' ).remove();
+				$j( '#wpTextbox1' ).focus()
 			} else {
 				// Add old toolbar
 				mwSetupToolbar()
