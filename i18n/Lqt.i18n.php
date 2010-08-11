@@ -4520,7 +4520,10 @@ Vi povas vidi ĝin ĉe <$6>",
 Jen sciigo de {{SITENAME}} pri nova respondo al '$2' en $5,
 estis kreita je $3, $4.
 
-You can see it at <$6>",
+Vi povas vidi ĝin ĉe <$6>
+
+La teksto de la respondo estas:
+$7",
 	'lqt-quote-intro' => 'Je $2, $3, [[User:$1|$1]] skribis:',
 	'lqt-quote' => 'Citi',
 	'lqt-search-legend' => 'Serĉi diskutojn en ĉi tiu paĝo',
@@ -4553,6 +4556,7 @@ La subskribo estas aŭtomate montrita.',
 	'lqt-drag-setsortkey' => 'Modifi la pozicio de afiŝo en la paĝo',
 	'lqt-drag-bump' => 'Movi afiŝon al supero de diskuto-paĝo',
 	'lqt-drag-save' => 'Konfirmi',
+	'lqt-drag-title' => 'Konfirmi trenadon',
 	'lqt-drag-reason' => 'Kialo:',
 	'lqt-drag-subject' => 'Temo por nova fadeno:',
 	'lqt-edit-signature' => '(redakti subskribon)',
@@ -6238,7 +6242,7 @@ Este fío forma parte de "$2".',
 	'lqt_header_warning_new_discussion' => 'comezar unha nova conversa',
 	'lqt_sorting_order' => 'Organizar:',
 	'lqt_sort_newest_changes' => 'os últimos modificados primeiro',
-	'lqt_sort_newest_threads' => 'novos fíos primeiro',
+	'lqt_sort_newest_threads' => 'os novos fíos primeiro',
 	'lqt_sort_oldest_threads' => 'os fíos máis vellos primeiro',
 	'lqt-title' => 'Título',
 	'lqt-summary' => 'Resumo',
