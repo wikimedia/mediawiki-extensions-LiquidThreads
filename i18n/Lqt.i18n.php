@@ -3529,6 +3529,7 @@ Die Signatur wird automatisch ergänzt.',
  * @author ChrisiPK
  * @author Giftpflanze
  * @author Imre
+ * @author Umherirrender
  */
 $messages['de-formal'] = array(
 	'lqt_invalid_subject' => 'Der Betreff, den Sie eingegeben haben, ist ungültig.
@@ -3563,7 +3564,10 @@ Sie können ihn auf <$6> einsehen.',
 	'lqt-enotif-reply' => 'Hallo $1,
 dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 auf $5 ein neue Antwort auf den Diskussionsstrang „$2“ geschrieben wurde.
 
-Sie können sie auf <$6> einsehen.',
+Sie können sie auf <$6> einsehen.
+
+Die Antwort lautet:
+$7',
 	'lqt-sign-not-necessary' => 'Es ist nicht notwendig, Ihre Antwort mit vier Tilden zu signieren.
 Die Signatur wird automatisch ergänzt.',
 	'lqt-ajax-no-subject' => 'Sie müssen einen Betreff angeben.',
@@ -5921,7 +5925,7 @@ Ceta opèracion est revèrsibla.',
 	'lqt-date-info' => 'Ceti lim est dèsactivâ perce que vos éte aprés vêre los fils dês totes les dâtes.',
 	'lqt-newmessages-context' => 'Fil complèt',
 	'lqt-thread-created' => 'Fêt',
-	'lqt-history-time' => 'Dâta',
+	'lqt-history-time' => 'Hora',
 	'lqt-history-user' => 'Utilisator',
 	'lqt-history-action' => 'Activitât',
 	'lqt-history-comment' => 'Comentèro',
@@ -6638,7 +6642,10 @@ Du chasch e säh uf <$6>",
 Des isch e Nochricht vu {{SITENAME}}, ass e neji Antwort uf '$2' iber $5,
 aagleit woren isch uf $3 am $4.
 
-Du chasch si säh uf <$6>",
+Du chasch si säh uf <$6>
+
+D Antwort isch:
+$7",
 	'lqt-quote-intro' => 'Am $2 am $3, het [[User:$1|$1]] gschribe:',
 	'lqt-quote' => 'Zitiere',
 	'lqt-search-legend' => 'Dursuech d Diskussionsbyytreg uf däre Syte',
@@ -12101,6 +12108,7 @@ $messages['pdc'] = array(
 	'lqt-thread-link-url' => 'Gleecher-URL:',
 	'lqt-thread-link-title' => 'Wikitext-Gleecher:',
 	'lqt-drag-reason' => 'Grund:',
+	'lqt-preview-signature' => '(Aagucke)',
 	'lqt-newmessages-n' => 'Neiichkeede ($1)',
 	'lqt_newmessages' => 'Neiichkeede',
 	'lqt-talkpage-history-subtitle' => 'Fer $1',
@@ -13690,7 +13698,10 @@ Tu puè vedè a <$6>",
 	'lqt-enotif-reply' => "Cià $1,
 Queste jè 'na notifiche da {{SITENAME}} ca 'na resposta nova a '$2' sus a $5, ha state ccrejate 'u $3 a le $4.
 
-Tu puè vedè a <$6>",
+Tu puè vedè a <$6>
+
+'U teste d'a resposte jè:
+$7",
 	'lqt-quote-intro' => "'U $2 a le $3, [[User:$1|$1]] ha scritte:",
 	'lqt-quote' => 'Cite',
 	'lqt-search-legend' => "Cirche le 'ngazzaminde sus a sta pàgene",
