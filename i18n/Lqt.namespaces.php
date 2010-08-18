@@ -30,3 +30,10 @@ $namespaceNames['pt'] = array(
 	NS_LQT_SUMMARY => 'Resumo',
 	NS_LQT_SUMMARY_TALK => 'Resumo_discussão',
 );
+
+$namespaceNames['sv'] = array(
+	NS_LQT_THREAD => 'Tråd',
+	NS_LQT_THREAD_TALK => 'Tråddiskussion',
+	NS_LQT_SUMMARY => 'Summering',
+	NS_LQT_SUMMARY_TALK => 'Summeringsdiskussion',
+);
