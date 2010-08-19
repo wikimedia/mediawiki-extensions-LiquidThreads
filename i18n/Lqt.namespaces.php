@@ -37,3 +37,17 @@ $namespaceNames['sv'] = array(
 	NS_LQT_SUMMARY => 'Summering',
 	NS_LQT_SUMMARY_TALK => 'Summeringsdiskussion',
 );
+
+$namespaceNames['zh-hans'] = array(
+	NS_LQT_THREAD       => '主题',
+	NS_LQT_THREAD_TALK  => '主题讨论',
+	NS_LQT_SUMMARY      => '摘要',
+	NS_LQT_SUMMARY_TALK => '摘要讨论',
+);
+
+$namespaceNames['zh-hant'] = array(
+	NS_LQT_THREAD       => '主題',
+	NS_LQT_THREAD_TALK  => '主題討論',
+	NS_LQT_SUMMARY      => '摘要',
+	NS_LQT_SUMMARY_TALK => '摘要討論',
+);
