@@ -2590,7 +2590,10 @@ Možete ga vidjeti na <$6>",
 	'lqt-enotif-reply' => "Zdravo $1,
 Ovo je obavještenje sa {{SITENAME}} da je napravljen novi odgovor na '$2' sa $5, dana $3 u $4.
 
-Možete ga vidjeti na <$6>",
+Možete ga vidjeti na <$6>
+
+Tekst odgovora je:
+$7",
 	'lqt-quote-intro' => 'Dana $2 u $3, [[User:$1|korisnik $1]] je napisao:',
 	'lqt-quote' => 'Citat',
 	'lqt-search-legend' => 'Pretraži razgovore na ovoj stranici',
@@ -5259,6 +5262,7 @@ Eztabaida hau $2-(e)ko zati da.',
 /** Persian (فارسی)
  * @author Ebraminio
  * @author Ladsgroup
+ * @author Sahim
  * @author Wayiran
  */
 $messages['fa'] = array(
@@ -5517,6 +5521,7 @@ $1',
 	'lqt-protected-reply-thread' => 'شما نمی‌توانید در این تاپیک پستی بفرستید، چون از پست‌های جدید محافظت شده است.',
 	'lqt-protected-reply-talkpage' => 'شما نمی‌توانید در این تاپیک پستی بفرستید، چراکه این صفحهٔ بحث از پاسخ به تاپیک‌هایش محافظت شده است.',
 	'lqt-protected-newthread' => 'شما نمی‌توانید تاپیک‌های جدیدی به این صفحهٔ بحث بفرستید، چراکه از تاپیک‌های جدید محافظت شده است.',
+	'lqt-edit-bump' => 'مشکلی سخت برای این موضوع.',
 	'lqt-edit-bump-tooltip' => 'این تاپیک را به بالای صفحهٔ بحثش منتقل کن',
 	'lqt-historicalrevision-error' => 'نسخه‌ای که انتخاب کرده‌اید خراب است، و قابل مشاهده نیست.',
 	'lqt-reply-subpage' => 'پاسخ',
@@ -7799,6 +7804,14 @@ Podpis pokazuje so awtomatisce.',
 	'lqt-edit-bump-tooltip' => 'Tutu nitku do spočatka jeje diskusijneje strony přesunyć',
 	'lqt-historicalrevision-error' => 'Wersija, kotruž sy wubrał, je wobškodźena a njeda so pokazać.',
 	'lqt-reply-subpage' => 'wotmołwić',
+);
+
+/** Haitian (Kreyòl ayisyen)
+ * @author Internoob
+ */
+$messages['ht'] = array(
+	'lqt-no-new-messages' => 'Pa gen nouvo mesaj pou w.',
+	'lqt_newmessages' => 'Nouvo mesaj',
 );
 
 /** Hungarian (Magyar)
@@ -10528,6 +10541,44 @@ $messages['lg'] = array(
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
+	'lqt-desc' => 'Voog euverlègk in ongerwerpe op euverlikpazjenas toe',
+	'lqt_movethread' => 'Verplaats ongerwerp nao anger paasj',
+	'lqt_deletethread' => 'Wis of plaats ongerwerp truk',
+	'lqt_contents_title' => 'Inhaad',
+	'lqt_toc_thread_title' => 'Ongerwerp',
+	'lqt_toc_thread_author' => 'Begos door',
+	'lqt_toc_thread_replycount' => 'Antjweurd',
+	'lqt_toc_thread_modified' => 'Lèste angering',
+	'lqt_add_header' => 'Voog kop toe',
+	'lqt_new_thread' => 'Begin nuuj ongerwerp',
+	'lqt_invalid_subject' => "Ongerwerp is óngeldig:
+* 't is mesjiens te lank
+* of 't conflicteert mit interwikiveurvoogsele of naamruumdje.",
+	'lqt_empty_subject' => "Doe mos 'm pngerwerp ingaeve",
+	'lqt_reply' => 'Antjwaorje',
+	'lqt-parent' => 'Beaveligkendj berich',
+	'lqt_delete' => 'Sjaf eweg',
+	'lqt_undelete' => 'Plaats trök',
+	'lqt_permalink' => 'Link nao',
+	'lqt_fragment' => "Fragment van 'ne $1 van $2",
+	'lqt_discussion_link' => 'euverlègk',
+	'lqt_from_talk' => 'Ven $1',
+	'lqt_newer' => '← nuujer',
+	'lqt_older' => 'aajer →',
+	'lqt-history-title' => 'Ongerwerpgesjiedenès',
+	'lqt_hist_comment_edited' => 'Opmerking [$2 bewerk]',
+	'lqt_hist_summary_changed' => 'Samevatting aangepas',
+	'lqt_hist_reply_created' => '[[$1|Nuuj antjwaord]] gegaeve',
+	'lqt_hist_thread_created' => 'Nuuj ongerwerp gemaak',
+	'lqt_hist_deleted' => 'Gewösj',
+	'lqt_hist_undeleted' => 'Trögkgezadj',
+	'lqt_hist_moved_talkpage' => 'Verplaats',
+	'lqt_hist_listing_subtitle' => 'Euverlègkhistoire bekiekendj',
+	'lqt_hist_view_whole_thread' => 'Bekiek ongerwerpshistorie',
+	'lqt_subject' => 'Óngerwerp:',
+	'lqt_noreason' => 'Geine ree opgegaeve.',
+	'lqt_move_torename_edit' => "bewèrk 't",
+	'lqt_move_move' => 'Verplaats',
 	'lqt_delete_return' => 'Trögk nao $1.',
 	'lqt_delete_return_link' => 'de euverlègkpaasj',
 	'lqt_talkpage_autocreate_summary' => "Euverlègksziej venzich aangemaak bie g'm aanmake dès ieës óngerwèrps.",
@@ -15049,7 +15100,7 @@ $messages['sli'] = array(
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'lqt-desc' => 'Додаје могућност отварања тема на странама за разговор',
+	'lqt-desc' => 'Додаје могућност отварања тема на страницама за разговор',
 	'lqt_movethread' => 'Премести тему на другу страну',
 	'lqt_deletethread' => 'Обриши или врати тему',
 	'lqt_contents_title' => 'Садржај',
@@ -15085,7 +15136,7 @@ $messages['sr-ec'] = array(
 	'lqt_hist_listing_subtitle' => 'Прегледа историју',
 	'lqt_hist_view_whole_thread' => 'Види историју целе теме',
 	'lqt_hist_no_revisions_error' => 'Ова тема нема ревизија у историји.',
-	'lqt_hist_past_last_page_error' => 'Прекорачили сте број страна које има постојећа историја.',
+	'lqt_hist_past_last_page_error' => 'Прекорачили сте број страница које има постојећа историја.',
 	'lqt_hist_tooltip_newer_disabled' => 'Ова веза је онемогућена јер сте на првој страни.',
 	'lqt_hist_tooltip_older_disabled' => 'Ова веза је онемогућена јер сте на задњој страни.',
 	'lqt_hist_edited_subject' => 'Наслов промењен са "$2" на "$3"',
