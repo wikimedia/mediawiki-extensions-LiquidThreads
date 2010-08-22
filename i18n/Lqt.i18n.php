@@ -2727,6 +2727,7 @@ Pot:
 	'lqt_change_undeleted' => 'El [$1 comentari destacat] ha estat restaurat',
 	'lqt_change_moved' => '[$1 Aquest fil] ha estat traslladat a una altra pàgina de discussió',
 	'lqt_change_split' => "[$1 Aquest fil] prové de la divisió d'un altre fil",
+	'lqt_change_edited_subject' => "S'ha canviat el tema del fil de «$2» a «$3»",
 	'lqt_change_merged_from' => 'Una [$1 resposta] a aquest fil va ser moguda a un altre fil',
 	'lqt_change_merged_to' => "La [$1 resposta destacada] va ser traslladada des d'un altre fil",
 	'lqt_change_split_from' => "Un [$1 subfil] d'aquest fil s'ha separat per esdevenir un fil independent",
@@ -2831,6 +2832,7 @@ Si ho voleu evitar, cal que les separeu d'aquest fil abans d'eliminar-lo.",
 	'lqt-movethread' => 'Mou',
 	'lqt-menu-trigger' => 'Més',
 	'lqt-newmessages-from' => 'De $1',
+	'lqt-hot-topics' => 'Temes populars',
 	'lqt-add-reply' => 'Respon',
 	'lqt_rc_new_discussion' => 'publicat un nou fil, "$1"',
 	'lqt_rc_new_reply' => 'publicada una resposta a "$1"',
@@ -2846,6 +2848,11 @@ Si ho voleu evitar, cal que les separeu d'aquest fil abans d'eliminar-lo.",
 	'lqt-log-name' => 'Registre de fils de discussió',
 	'lqt-log-header' => 'Aquest registre detalla les accions realitzades en fils de discussió.',
 	'lqt-log-action-move' => 'desplaçat [[$1]] de [[$2]] a [[$3]].',
+	'lqt-log-action-split' => 'divideix [[$1]] per sota de [[$3]], amb el tema nou «$2»',
+	'lqt-log-action-merge-across' => "s'ha mogut [[$1]] per sota de [[$2]] a sota de [[$3]]",
+	'lqt-log-action-merge-down' => "s'ha fusionat [[$1]] a sota de [[$3]]",
+	'lqt-log-action-subjectedit' => "s'ha canviat el tema de [[$1]] de «$2» a «$3»",
+	'lqt-log-action-resort' => "s'ha modificat el criteri d'ordenació de [[$1]]. S'ha canviat la clau d'ordenació de $2 a $3",
 	'lqt-preference-notify-talk' => "Envia'm un missatge de correu electrònic per les respostes dels temes que vigilo",
 	'lqt-preference-watch-threads' => 'Vigila les discussions on hagi participat',
 	'prefs-lqt' => 'Discussió en fils',
@@ -2859,9 +2866,13 @@ Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que un
 
 El podeu veure a <$6>',
 	'lqt-enotif-reply' => 'Hola $1,
-Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que ha aparegut una resposta al fil «$2» a $5, creada el dia $3 a les $4.
+Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que ha aparegut una resposta al fil «$2» a $5, 
+creada el dia $3 a les $4.
 
-El podeu veure a <$6>',
+El podeu veure a <$6>
+
+El text de la resposta és:
+$7',
 	'lqt-quote-intro' => 'El dia $2 a les $3, [[User:$1|$1]] va escriure:',
 	'lqt-quote' => 'Cita-ho',
 	'lqt-search-legend' => 'Cerca discussions en aquesta pàgina',
@@ -2881,8 +2892,10 @@ La signatura es mostrarà automàticament.',
 	'lqt-marked-as-read-placeholder' => "S'ha marcat el fil $1 com a llegit",
 	'lqt-change-subject' => 'Canvia el tema',
 	'lqt-save-subject' => 'Desa',
+	'lqt-save-subject-failed' => "S'ha produït l'error següent mentre es provava de canviar el tema del fil: $1",
 	'lqt-ajax-invalid-subject' => 'El tema que heu especificat no era vàlid, probablement perquè era massa llarg.',
 	'lqt-ajax-no-subject' => "Heu d'especificar un tema.",
+	'lqt-save-subject-error-unknown' => "S'ha produït un error desconegut que es provava de definir el tema del fil. Torneu-ho a provar fent clic a «edita» a l'apunt superior.",
 	'lqt-cancel-subject-edit' => 'Cancel·la',
 	'lqt-drag-activate' => 'Arrossega una ubicació nova',
 	'lqt-drag-drop-zone' => 'Deixa-ho anar ací',
@@ -2915,6 +2928,10 @@ La signatura es mostrarà automàticament.',
 	'lqt-talkpage-history-tab' => 'Capçalera',
 	'restriction-reply' => 'Envia respostes',
 	'restriction-newthread' => 'Envia fils nous',
+	'lqt-protected-reply-thread' => "No podeu enviar en aquest fil perquè s'ha protegit perquè no hi hagi nous apunts.",
+	'lqt-protected-reply-talkpage' => "No podeu enviar en aquest fil perquè s'ha protegit la pàgina de discussió de respostes als seus fils.",
+	'lqt-protected-newthread' => "No podeu enviar fils nous a la pàgina de discussió perquè s'ha protegit de nous fils.",
+	'lqt-edit-bump' => 'Abaixa aquest fil',
 	'lqt-edit-bump-tooltip' => 'Mou el fil a la part superior de la pàgina de discussió',
 	'lqt-historicalrevision-error' => 'La revisió que heu seleccionat és corrupte, i no pot visualitzar-se.',
 	'lqt-reply-subpage' => 'contesta',
@@ -17932,7 +17949,18 @@ $messages['vo'] = array(
 	'lqt_youhavenewmessages' => 'Labol [[$1|nunis nulik]].',
 	'lqt_header_warning_big' => 'Redakol $1.',
 	'lqt-title' => 'Tiäd',
+	'lqt-no-new-messages' => 'No dabinons nuns nulik pro ol.',
+	'lqt-new-messages' => 'Dabinons nuns nulik pro ol.',
+	'lqt-history-time' => 'Tim',
+	'lqt-history-user' => 'Geban',
+	'lqt-history-comment' => 'Küpet',
+	'lqt-quote' => 'Saitön',
+	'searchprofile-threads' => 'Bespiks',
+	'lqt-drag-reason' => 'Kod:',
+	'lqt-newmessages-n' => 'Nuns nulik ($1)',
 	'lqt_newmessages' => 'Nuns Nulik',
+	'lqt_newmessages-title' => 'Nuns nulik',
+	'lqt-talkpage-history-subtitle' => 'Pro $1',
 );
 
 /** Wu (吴语) */
@@ -18058,6 +18086,7 @@ $messages['yue'] = array(
  * @author Liangent
  * @author PhiLiP
  * @author Shinjiman
+ * @author Tommyang
  * @author Wmr89502270
  */
 $messages['zh-hans'] = array(
@@ -18245,10 +18274,13 @@ $messages['zh-hans'] = array(
 这是{{SITENAME}}自动发送的一封提醒邮件。$3 $4时$5上发起了新话题“$2”，
 
 您可以访问<$6>阅读之。',
-	'lqt-enotif-reply' => '$1您好，
+	'lqt-enotif-reply' => '$1 您好，
 这是{{SITENAME}}自动发送的一封提醒邮件。$3 $4时$5上的话题“$2”有新回复，
 
-您可以访问<$6>阅读之。',
+您可以访问<$6>阅读之。
+
+回复的文字是：
+$7',
 	'lqt-quote-intro' => '[[User:$1|$1]]在$2 $3时写道：',
 	'lqt-quote' => '引用',
 	'lqt-search-legend' => '在本页搜索讨论',
