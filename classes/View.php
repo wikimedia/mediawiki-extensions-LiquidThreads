@@ -1201,11 +1201,13 @@ class LqtView {
 		}
 
 		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/jquery/jquery-ui-1.7.2.css" );
-
 		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/jquery/jquery.autogrow.js" );
 
 		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/lqt.js" );
 		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/js/lqt.toolbar.js" );
+		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/jquery/jquery.thread_collapse.js" );
+		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/jquery/jquery.thread_collapse.css" );
+		
 		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/lqt.css?{$wgStyleVersion}" );
 
 		self::$stylesAndScriptsDone = true;
@@ -1316,7 +1318,6 @@ class LqtView {
 		$html .= implode( ' ', $headerParts );
 
 		$html = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-commands' ), $html );
-		$html .= Xml::tags( 'div', array( 'style' => 'clear: both; height: 0;' ), '&#160;' );
 
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-toolbar' ), $html ) .
 				$menuHTML;
@@ -1421,9 +1422,6 @@ class LqtView {
 				$html .= $this->showPostBody( $post, $oldid );
 			}
 			$html .= Xml::closeElement( 'div' );
-			$html .= Xml::tags( 'div', array( 'style' => 'clear: both; height: 0' ),
-						'&#160;' );
-
 			wfRunHooks( 'LiquidThreadsShowPostThreadBody',
 				array( $thread, $this->request, &$html ) );
 
@@ -1752,7 +1750,6 @@ class LqtView {
 		}
 
 		$div = Xml::openElement( 'div', array( 'class' => $repliesClass ) );
-		$sep = Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&#160;' );
 
 		$subthreadCount = count( $thread->subthreads() );
 		$i = 0;
@@ -1785,7 +1782,7 @@ class LqtView {
 				if ( $showCount == 1 ) {
 					// There's a post sep before each reply group to
 					//	separate from the parent thread.
-					$this->output->addHTML( $sep . $div );
+					$this->output->addHTML( $div );
 				}
 
 				$this->showThread( $st, $i, $subthreadCount, $cascadeOptions );

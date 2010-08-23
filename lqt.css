@@ -317,9 +317,11 @@ body.skin-monobook li#ca-nstab-thread {
 	padding: 0.5em 1em;
 	padding-bottom: 1em;
 	padding-right: 1em;
-	overflow: auto;
+	overflow: hidden;
 	border: 0.2em solid silver;
+	background: #e8e8e8;
 	border-top: none;
+	position: relative;
 }
 
 .lqt-thread-topmost > .lqt-post-wrapper {
@@ -335,9 +337,9 @@ body.skin-monobook li#ca-nstab-thread {
 }
 
 .lqt-thread-toolbar {
-	right: 1.5em;
+	right: 0;
+	bottom: 0;
 	position: absolute;
-	clear: both;
 }
 
 .lqt-post-sep {
@@ -352,7 +354,7 @@ body.skin-monobook li#ca-nstab-thread {
 	margin-top: 8px;
 	padding: 0;
 }
-.lqt-thread-toolbar .lqt-command > a {
+.lqt-thread-toolbar .lqt-command a {
 	display: block;
 }
 
@@ -363,7 +365,7 @@ body.skin-monobook li#ca-nstab-thread {
 	background-position: left center !important;
 }
 
-.lqt-thread-toolbar-commands > li.lqt-command {
+.lqt-thread-toolbar-commands  li.lqt-command {
 	margin-left: 0.5em;
 	margin-right: 0.5em;
 	line-height: 2em;
@@ -386,10 +388,8 @@ body.skin-monobook li#ca-nstab-thread {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	line-height: 1em;
-	height: 1em;
 }
-.lqt-thread-toolbar-commands > .lqt-command,
+.lqt-thread-toolbar-commands .lqt-command,
 .lqt-thread-toolbar-menu {
 	float: left;
 }
@@ -432,7 +432,7 @@ table.lqt-new-messages {
 }
 
 .lqt-newmessages-left {
-	width: 10em	;
+	width: 10em;
 }
 
 .lqt-thread-link-url,
@@ -493,7 +493,9 @@ table.lqt-new-messages {
 	margin-right: 20px;
 }
 /* Float Clearing - If you confused, http://www.positioniseverything.net/easyclearing.html */
-.lqt_thread_heading:after
+.lqt_thread_heading:after,
+.lqt-thread-toolbar-commands:after,
+.lqt-post-wrapper:after
 { 
  content: ".";  
  display: block; 
@@ -502,13 +504,19 @@ table.lqt-new-messages {
  visibility: hidden; 
 }
 
-.lqt_thread_heading
+.lqt_thread_heading,
+.lqt-thread-toolbar-commands,
+.lqt-post-wrapper
 {display: inline-block;}
 
 /* Hides from IE-mac */
-* html .lqt_thread_heading 
+* html .lqt_thread_heading,
+* html .lqt-thread-toolbar-commands,
+* html .lqt-post-wrapper
 {height: 1%;}
 
-.lqt_thread_heading
+.lqt_thread_heading,
+.lqt-thread-toolbar-commands,
+.lqt-post-wrapper
 {display: block;}
 /* End hide from IE-mac */
