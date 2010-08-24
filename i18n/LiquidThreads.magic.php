@@ -22,6 +22,10 @@ $magicWords['bs'] = array(
 	'lqtpagelimit'       => array( '0', 'tnogranicenjestranica', 'lqtpagelimit' ),
 );
 
+$magicWords['ce'] = array(
+	'useliquidthreads'   => array( '0', 'ЛелайеLiquidThreads', 'ИспользоватьLiquidThreads', 'UseLiquidThreads' ),
+);
+
 $magicWords['es'] = array(
 	'useliquidthreads'   => array( '0', 'UsarHilosLiquidos', 'UsarHilosLíquidos', 'UseLiquidThreads' ),
 	'lqtpagelimit'       => array( '0', 'limitedepaginasdehlq', 'límitedepáginasdehlq', 'lqtpagelimit' ),
@@ -38,4 +42,10 @@ $magicWords['nl'] = array(
 
 $magicWords['ru'] = array(
 	'useliquidthreads'   => array( '0', 'ИспользоватьLiquidThreads', 'UseLiquidThreads' ),
+	'lqtpagelimit'       => array( '0', 'ограничение_страниц_lqt', 'lqtpagelimit' ),
+);
+
+$magicWords['tr'] = array(
+	'useliquidthreads'   => array( '0', 'LiquidThreadEtkin', 'UseLiquidThreads' ),
+	'lqtpagelimit'       => array( '0', 'lqtsayfasınırı', 'lqtpagelimit' ),
 );
