@@ -317,7 +317,6 @@ body.skin-monobook li#ca-nstab-thread {
 	padding: 0.5em 1em;
 	padding-bottom: 1em;
 	padding-right: 1em;
-	overflow: hidden;
 	border: 0.2em solid silver;
 	background: #e8e8e8;
 	border-top: none;
@@ -491,6 +490,13 @@ table.lqt-new-messages {
 
 .lqt-drag-confirm label {
 	margin-right: 20px;
+}
+
+.lqt-thread-toolbar-commands .lqt-thread-toolbar-command-list .lqt-command {
+	float: none;
+	line-height: 1.3em;
+	margin: 0.3em 0.5em;
+	text-align:right;
 }
 /* Float Clearing - If you confused, http://www.positioniseverything.net/easyclearing.html */
 .lqt_thread_heading:after,

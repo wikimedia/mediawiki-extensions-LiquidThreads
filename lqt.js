@@ -291,7 +291,7 @@ var liquidThreads = {
 		replyLink.click( liquidThreads.handleReplyLink );
 
 		// Add "Drag to new location" to menu
-		var dragLI = $j('<li class="lqt-command-drag" />' );
+		var dragLI = $j('<li class="lqt-command-drag lqt-command" />' );
 		var dragLink = $j('<a/>').text( wgLqtMessages['lqt-drag-activate'] );
 		dragLink.attr('href','#');
 		dragLI.append(dragLink);
