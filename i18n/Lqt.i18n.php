@@ -116,7 +116,7 @@ This thread is part of $2.',
 	'lqt_delete_return_link' => 'the talk page', // subst above
 	'lqt_delete_unallowed' => 'You are not allowed to delete threads.',
 	'lqt_delete_show_checkbox' => 'Show deleted threads',
-	'lqt_talkpage_autocreate_summary' => 'Talk page autocreated when first thread was posted.',
+	'lqt_talkpage_autocreate_summary' => 'Talk page autocreated when first thread was posted',
 	'lqt_header_warning_before_big' => '',
 	'lqt_header_warning_big' => 'You are editing a $1.',
 	'lqt_header_warning_after_big' => 'Headers are for announcements and prefaces.
