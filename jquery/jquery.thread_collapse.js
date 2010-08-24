@@ -29,6 +29,7 @@
 						.bind( 'click.thread_collapse', $.thread_collapse.fn.toggleCollapse )
 						.end() );
 			},
+			// FIXME - appends parent nodes twice...bad logic here
 			'getPreview': function( thread, depth ) {
 				var $out = $( '<ul />' )
 					.addClass( 'thread-collapse-preview' )
