@@ -21,14 +21,18 @@ define( 'LQT_NEWEST_CHANGES', 'nc' );
 define( 'LQT_NEWEST_THREADS', 'nt' );
 define( 'LQT_OLDEST_THREADS', 'ot' );
 
-$wgExtensionFunctions[] = 'wgLqtSetupCanonicalNamespces';
+if ( version_compare( $wgVersion, '1.17alpha', '>=' ) ) {
+	$wgHooks['CanonicalNamespaces'][] = 'wgLqtSetupCanonicalNamespaces';
+} else {
+	wgLqtSetupCanonicalNamespaces( &$wgExtraNamespaces );
+}
 
-function wgLqtSetupCanonicalNamespces() {
-	global $wgCanonicalNamespaceNames;
-	$wgCanonicalNamespaceNames[NS_LQT_THREAD] = 'Thread';
-	$wgCanonicalNamespaceNames[NS_LQT_THREAD_TALK] = 'Thread_talk';
-	$wgCanonicalNamespaceNames[NS_LQT_SUMMARY] = 'Summary';
-	$wgCanonicalNamespaceNames[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
+function wgLqtSetupCanonicalNamespaces( &$list ) {
+	$list[NS_LQT_THREAD] = 'Thread';
+	$list[NS_LQT_THREAD_TALK] = 'Thread_talk';
+	$list[NS_LQT_SUMMARY] = 'Summary';
+	$list[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
+	return true;
 }
 
 // Localisation
