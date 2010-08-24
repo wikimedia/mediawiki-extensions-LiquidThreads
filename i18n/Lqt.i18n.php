@@ -3315,6 +3315,7 @@ $messages['da'] = array(
  * @author Revolus
  * @author Salasar
  * @author Tbleher
+ * @author The Evil IP address
  * @author Umherirrender
  */
 $messages['de'] = array(
@@ -3326,7 +3327,7 @@ $messages['de'] = array(
 	'lqt_toc_thread_author' => 'Eröffnet von',
 	'lqt_toc_thread_replycount' => 'Antworten',
 	'lqt_toc_thread_modified' => 'Zuletzt geändert',
-	'lqt_add_header' => 'Ergänze Überschrift',
+	'lqt_add_header' => 'Überschrift ergänzen',
 	'lqt_new_thread' => 'Neues Diskussionsthema beginnen',
 	'lqt_invalid_subject' => 'Der Betreff, den du eingegeben hast, ist ungültig.
 Es ist möglich, dass er
@@ -3418,10 +3419,10 @@ Dieses Thema ist Teil der Seite „$2“.',
 	'lqt_delete_return_link' => 'der Diskussionsseite',
 	'lqt_delete_unallowed' => 'Du hast nicht die Berechtigung Diskussionsthemen zu löschen.',
 	'lqt_delete_show_checkbox' => 'Zeige gelöschte Themen',
-	'lqt_talkpage_autocreate_summary' => 'Diskussionsseite automatisch mit dem ersten Diskussionsthema anlegen.',
+	'lqt_talkpage_autocreate_summary' => 'Diskussionsseite automatisch mit dem ersten Diskussionsthema angelegt.',
 	'lqt_header_warning_big' => 'Du bearbeitest eine $1.',
 	'lqt_header_warning_after_big' => 'Kopfzeilen sind für Ankündigungen und Einleitungen.
-Möglicherweise willst du stattdessen eine $2.',
+Möglicherweise willst du stattdessen ein $2.',
 	'lqt_header_warning_bold' => 'Kopfzeile von Diskussionsseiten',
 	'lqt_header_warning_new_discussion' => 'neues Diskussionsthema beginnen',
 	'lqt_sorting_order' => 'Sortierung:',
@@ -7480,6 +7481,7 @@ $messages['hil'] = array(
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  * @author Ex13
+ * @author SpeedyGonsales
  */
 $messages['hr'] = array(
 	'lqt-desc' => 'Dodaj rasprave na stranice za razgovor',
@@ -7492,7 +7494,9 @@ $messages['hr'] = array(
 	'lqt_toc_thread_modified' => 'Zadnje izmjenjeno',
 	'lqt_add_header' => 'Dodaj zaglavlje',
 	'lqt_new_thread' => 'Započnite novu raspravu',
+	'lqt_empty_subject' => 'Morate upisati temu/sažetak.',
 	'lqt_reply' => 'Odgovori',
+	'lqt-parent' => '"Roditelj"',
 	'lqt_delete' => 'Izbriši',
 	'lqt_undelete' => 'Vrati izbrisano',
 	'lqt_permalink' => 'Poveži na',
@@ -7501,9 +7505,10 @@ $messages['hr'] = array(
 	'lqt_from_talk' => 'Iz $1',
 	'lqt_newer' => '← noviji',
 	'lqt_older' => 'starije →',
-	'lqt_hist_comment_edited' => 'Komentiraj uređeni tekst',
+	'lqt-history-title' => 'Povijest dretve',
+	'lqt_hist_comment_edited' => 'Komentiraj uređivanje [autor - $2]',
 	'lqt_hist_summary_changed' => 'Sažetak promjena',
-	'lqt_hist_reply_created' => 'Novi odgovor dodan',
+	'lqt_hist_reply_created' => '[[$1|Novi odgovor]] dodan',
 	'lqt_hist_thread_created' => 'Nova rasprava započeta',
 	'lqt_hist_deleted' => 'Izbrisano',
 	'lqt_hist_undeleted' => 'Neobrisano',
@@ -7569,7 +7574,12 @@ Možete ga vidjeti na <$6>",
 	'lqt-search-legend' => 'Pretraži raspravu na ovoj stranici',
 	'lqt-search-label' => 'Pojmovi pretrage:',
 	'lqt-search-button' => 'Traži',
+	'lqt-newmessages-n' => 'Nove poruke ($1)',
 	'lqt_newmessages' => 'Nove poruke',
+	'lqt_newmessages-title' => 'Nove poruke',
+	'lqt-newpost-summary' => 'Nova dretva: $1',
+	'lqt-talkpage-history-tab' => 'Zaglavlje',
+	'lqt-reply-subpage' => 'odgovor',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -10608,10 +10618,17 @@ $messages['li'] = array(
 	'lqt_hist_listing_subtitle' => 'Euverlègkhistoire bekiekendj',
 	'lqt_hist_view_whole_thread' => 'Bekiek ongerwerpshistorie',
 	'lqt_youhavenewmessages' => 'Doe haes [[$1|nuuj berichter]].',
+	'lqt_protectedfromreply_link' => 'besjörmp',
 	'lqt_subject' => 'Óngerwerp:',
 	'lqt_noreason' => 'Geine ree opgegaeve.',
 	'lqt_move_torename_edit' => "bewèrk 't",
 	'lqt_move_move' => 'Verplaats',
+	'lqt_move_noreason' => 'Gein reje ópgegaeve.',
+	'lqt_move_success' => "'t Óngerwerp is verplaats nao $1.",
+	'lqt_delete_undeleting' => '"$1" trökplaatsendje.',
+	'lqt_delete_undeletethread' => 'Plaats óngerwèrp trök',
+	'lqt_delete_partof' => "Dit óngerwerp is e deil van '''$1'''.",
+	'lqt_delete_deleting' => "'''$1''' en '''alle antjwäörd''' ewegsjaffendje.",
 	'lqt_delete_return' => 'Trögk nao $1.',
 	'lqt_delete_return_link' => 'de euverlègkpaasj',
 	'lqt_talkpage_autocreate_summary' => "Euverlègksziej venzich aangemaak bie g'm aanmake dès ieës óngerwèrps.",
