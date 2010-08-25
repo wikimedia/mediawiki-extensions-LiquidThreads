@@ -24,7 +24,7 @@ define( 'LQT_OLDEST_THREADS', 'ot' );
 if ( version_compare( $wgVersion, '1.17alpha', '>=' ) ) {
 	$wgHooks['CanonicalNamespaces'][] = 'wgLqtSetupCanonicalNamespaces';
 } else {
-	wgLqtSetupCanonicalNamespaces( &$wgExtraNamespaces );
+	wgLqtSetupCanonicalNamespaces( $wgExtraNamespaces );
 }
 
 function wgLqtSetupCanonicalNamespaces( &$list ) {
