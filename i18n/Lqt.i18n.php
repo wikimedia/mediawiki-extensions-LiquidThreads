@@ -3279,10 +3279,12 @@ $messages['cu'] = array(
 
 /** Welsh (Cymraeg)
  * @author Lloffiwr
+ * @author Malafaya
  */
 $messages['cy'] = array(
 	'lqt_noreason' => 'Dim rheswm wedi ei roi',
 	'lqt_move_noreason' => 'Dim rheswm wedi ei roi',
+	'lqt-history-user' => 'Defnyddiwr',
 );
 
 /** Danish (Dansk)
@@ -9023,10 +9025,10 @@ Questa notifica da {{SITENAME}} ti segnala che un nuovo thread su $5, '$2',
 
 Puoi leggerlo a <$6>",
 	'lqt-enotif-reply' => "Ciao $1,
-Questa notifica da {{SITENAME}} ti segnala che una nuova risposta a '$2' su $5,
-è stato creata il $3 alle $4.
+questo messaggio ti viene inviato da {{SITENAME}} per avvisarti che una nuova risposta a '$2' su $5
+è stata postata il $3 alle $4.
 
-Puoi leggerla a <$6>
+Puoi leggerla in <$6>
 
 Il testo della risposta è:
 $7",
@@ -10617,7 +10619,32 @@ $messages['li'] = array(
 	'lqt_hist_moved_talkpage' => 'Verplaats',
 	'lqt_hist_listing_subtitle' => 'Euverlègkhistoire bekiekendj',
 	'lqt_hist_view_whole_thread' => 'Bekiek ongerwerpshistorie',
+	'lqt_hist_no_revisions_error' => 'Dit ongerwerp haet gein ajer versies.',
+	'lqt_hist_past_last_page_error' => "Doe höbs 'n hoger paginanummer gekaoze es besteit in de gesjiedenis.",
+	'lqt_hist_tooltip_newer_disabled' => 'Dees verwiezing is neet actief omdet se op de ierste pagina bös.',
+	'lqt_hist_tooltip_older_disabled' => 'Dees verwiezing is neet actief omdet se op de letste pagina bös.',
+	'lqt_hist_split' => 'Splits antjwaord nao e nuuj onherwerp aaf',
+	'lqt_hist_edited_subject' => 'Ongerwerp gewiezig van "$2" nao "$3"',
+	'lqt_hist_edited_subject_corrupt' => 'Veranger ongerwerp',
+	'lqt_hist_merged_from' => "'t [[$1|Antjwaord]] is verplaats nao 'n anger ongerwerp",
+	'lqt_hist_merged_to' => "'t [[$1|Antjwaord]] is verplaats vanoet 'n anger ongerwerp",
+	'lqt_hist_split_from' => 'Splits nao e nuuj ongerwerp aaf',
+	'lqt_hist_root_blanked' => 'Teks van opmerking verwiederd',
+	'lqt_hist_adjusted_sortkey' => 'Pas plaats ongerwerp aan',
 	'lqt_revision_as_of' => 'Versie op $2 óm $3.',
+	'lqt_change_new_thread' => 'Dit is de ierste versie van t ongerwerp.',
+	'lqt_change_reply_created' => 'De [$1 gemarkeerde opmerking] is in dees versie toegevoeg.',
+	'lqt_change_edited_root' => 'De [$1 gemarkeerde opmerking] is in dees versie bewerk.',
+	'lqt_change_edited_summary' => "De samevatting van 't ongerwerp is bewerk",
+	'lqt_change_deleted' => '[$1 Dit ongerwerp] of e baoveligkend ongerwerp is verwiederd',
+	'lqt_change_undeleted' => "'t [$1 Oetgelich berich] is trökgeplaats naodet 't waas verwiederd",
+	'lqt_change_moved' => "[$1 Dit ongerwerp] is verplaats vanaaf 'n anger euverlègkpagina",
+	'lqt_change_split' => "[$1 Dit ongerwerp] is aafgesplits oet 'n anger ongerwerp",
+	'lqt_change_edited_subject' => '\'t Ongerwerp is gewiezig van "$2" nao "$3"',
+	'lqt_change_merged_from' => "'n [$1 Antjwaord] in dit ongerwerp is verplaats oet 'n anger ongerwerp",
+	'lqt_change_merged_to' => "'t [$1 Oetgelich antjwaord] is hiehaer verplaats vanoet 'n anger ongerwerp",
+	'lqt_change_split_from' => 'E [$1 subongerwerp] van dit ongerwerp is aafgesplits in zien eigen ongerwerp',
+	'lqt_change_root_blanked' => "De teks van 'n [$1 opmerking] is verwiederd.",
 	'lqt_youhavenewmessages' => 'Doe haes [[$1|nuuj berichter]].',
 	'lqt_protectedfromreply_link' => 'besjörmp',
 	'lqt_subject' => 'Óngerwerp:',
@@ -10671,6 +10698,8 @@ Dit óngerwerp is e deil van $2.',
 	'lqt-history-action' => 'Activiteit',
 	'lqt-history-comment' => 'Opmirking',
 	'lqt-history-thread' => 'Óngerwèrp',
+	'lqt-thread-edited-others' => "Bewerk door {{PLURAL:$2|'nen angere gebroeker|$2 anger gebroekers}}.<br />
+Letste bewerking: $1",
 	'lqt-header-actions' => 'Henjeling',
 	'lqt_summarize_link' => 'Vat same',
 	'lqt-thread-split-thread' => 'Euverlègk:',
@@ -10678,7 +10707,19 @@ Dit óngerwerp is e deil van $2.',
 	'lqt-movethread' => 'Verplaats',
 	'lqt-menu-trigger' => 'Mieë',
 	'lqt-newmessages-from' => 'Ven $1',
+	'lqt-hot-topics' => 'Populair ongerwerpe',
+	'lqt-add-reply' => 'Antjwaorde',
+	'lqt_rc_new_discussion' => 'haet e nuuj ongerwerp "$1" geplaats',
+	'lqt_rc_new_reply' => 'haet \'n antjwaord op "$1" geplaats',
+	'right-lqt-split' => 'Splits ongerwerpe',
+	'right-lqt-merge' => 'Voog ongerwerpe same',
+	'lqt-thread-merge' => "Voog aan 'n anger ongerwerp toe",
+	'lqt-thread-merge-to' => 'Voog in dit ongerwerp',
+	'lqt_merge_thread' => 'Voog ongerwerp same',
+	'lqt-thread-merge-source' => 'Bronongerwerp:',
+	'lqt-thread-merge-dest' => 'Doelongerwerp:',
 	'lqt-merge-submit' => 'Voog zaam',
+	'prefs-lqt' => 'Gestructureerd euverlik',
 	'lqt-quote-intro' => '[[User:$1|$1]] sjreef óm $3 óp $2:',
 	'lqt-quote' => 'Citeer',
 	'lqt-search-legend' => 'Zeuk óp euverlègk óp dees paasj',
@@ -10699,6 +10740,8 @@ Dien handjteikening kömp zoea al venzelf.',
 	'lqt-change-subject' => 'Anger óngerwèrp',
 	'lqt-save-subject' => 'Slaon óp',
 	'lqt-save-subject-failed' => "Bie 't óngerwèrp angere is 'n fout ópgetraoje: $1",
+	'lqt-save-subject-error-unknown' => "Onbekinde fout bie 't instelle van 't ongerwerp.
+Wiezig 't ongerwerp door op \"Bewirk\" te klikke in t baoveste berich.",
 	'lqt-cancel-subject-edit' => 'Braek aaf',
 	'lqt-drag-activate' => 'Sleip nao nuuj plaats',
 	'lqt-drag-drop-zone' => 'Plaats hie',
@@ -10708,11 +10751,25 @@ Dien handjteikening kömp zoea al venzelf.',
 	'lqt-drag-subject' => 'Nuuj óngerwèrp:',
 	'lqt-edit-signature' => '(bewèrk handjteikening)',
 	'lqt-preview-signature' => '(betrachting)',
+	'lqt-feed-title-all' => '{{SITENAME}} — Nuuj berichte',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Nuuj berichte van $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nuuj ongerwerpe',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Nuuj ongerwerpe van $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Reacties',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Reacties van $1',
+	'lqt-feed-new-thread-intro' => 'Nuuj ongerwerp op $1 door $2',
+	'lqt-feed-reply-intro' => 'Reactie op $3 (op $1) door $2',
 	'lqt-newmessages-n' => 'Nuuj berichter ($1)',
 	'lqt_newmessages' => 'nuuj berichte',
 	'lqt_newmessages-title' => 'nuuj berichte',
+	'lqt-newpost-summary' => 'Nuuj ongerwerp: $1',
+	'lqt-reply-summary' => 'Reactie op [[$2|$1]]',
+	'lqt-talkpage-history-title' => 'Gesjiedenis van de euverlègkpagina',
 	'lqt-talkpage-history-subtitle' => 'Veur $1',
 	'lqt-talkpage-history-tab' => 'Kópteks',
+	'restriction-reply' => 'Antjwaord',
+	'restriction-newthread' => 'Maak nuuj ongerwerp',
+	'lqt-protected-reply-thread' => "Doe kins neet deilnömme aan dit ongerwerp went 't is toe.",
 	'lqt-reply-subpage' => 'antjwaord',
 );
 
@@ -11139,7 +11196,7 @@ $messages['ml'] = array(
 	'lqt_threadrequired' => 'URL-ൽ ഒരു ചരട് ചേർത്തിരിക്കണം',
 	'lqt_move_movingthread' => '$1 മാറ്റുന്നു.
 ഈ ചരട് $2 എന്നതിന്റെ ഭാഗമാണ്‌.',
-	'lqt_move_torename' => "ഈ ചരട് പുനർനാമകരണം ചെയ്യാൻ, $1 ചെയ്തു 'തലക്കുറി' മാറ്റുക",
+	'lqt_move_torename' => "ഈ ചരട് പുനർനാമകരണം ചെയ്യാൻ, $1 എന്ന കണ്ണി ഞെക്കിയ ശേഷം 'വിഷയം' മാറ്റുക",
 	'lqt_move_torename_edit' => 'തിരുത്തുക',
 	'lqt_move_destinationtitle' => 'ലക്ഷ്യ സം‌വാദം താളിന്റെ തലക്കെട്ട്:',
 	'lqt_move_move' => 'തലക്കെട്ടു്‌ മാറ്റുക',
@@ -11202,7 +11259,7 @@ $messages['ml'] = array(
 	'lqt-thread-edited-others' => '{{PLURAL:$2|മറ്റൊരുപയോക്താവ്|മറ്റ് $2 ഉപയോക്താക്കൾ}} തിരുത്തിയിരിക്കുന്നു.<br />
 അവസാന തിരുത്തൽ: $1',
 	'lqt-header-actions' => 'പ്രവർത്തനങ്ങൾ',
-	'lqt_summarize_link' => 'ചുരുക്കിക്കുക',
+	'lqt_summarize_link' => 'ചുരുക്കിയെഴുതുക',
 	'lqt-summarize-intro' => 'ചരടിനു താഴെ തിരുത്തുവാനുള്ള പെട്ടിയിൽ ദയവായി ചുരുക്കരൂപം നൽകുക.
 താങ്കൾ നൽകുന്ന ചുരുക്കത്തിൽ വിക്കിഎഴുത്തുകൾ ഉപയോഗിക്കാവുന്നതാണ്.
 പൂർണ്ണമായാൽ, "{{int:savearticle}}" ഞെക്കുക.',
@@ -14715,7 +14772,7 @@ $messages['sah'] = array(
 	'lqt-newmessages-from' => '$1 сирэйтэн',
 	'lqt-hot-topics' => 'Итии тиэмэлэр',
 	'lqt-add-reply' => 'Хоруйу эбии',
-	'lqt_rc_new_discussion' => 'Манна $2 • Саҥа ырытыы "$1" $3 суруйар:',
+	'lqt_rc_new_discussion' => 'саҥа ырытыыны суруйда, "$1"',
 	'lqt_rc_new_reply' => '"$1" этиигэ хоруйдааһын',
 	'right-lqt-split' => 'Салаалары араарыы',
 	'right-lqt-merge' => 'Салаалары холбооһун',
@@ -14814,6 +14871,21 @@ $messages['shi'] = array(
 	'lqt_delete' => 'msḥ',
 	'lqt_hist_deleted' => 'ityumsaḥ',
 	'lqt_hist_undeleted' => 'ur-ityumsaḥ',
+);
+
+/** Sinhala (සිංහල)
+ * @author බිඟුවා
+ */
+$messages['si'] = array(
+	'lqt_from_talk' => '$1 වෙතින්',
+	'lqt_hist_deleted' => 'මකා දමන ලදී',
+	'lqt_hist_undeleted' => 'මකාදැමීම අවලංගු කරන ලදී',
+	'lqt_subject' => 'විෂයය:',
+	'lqt_move_move' => 'ගෙනයන්න',
+	'lqt-title' => 'මාතෘකාව',
+	'lqt-history-time' => 'වේලාව',
+	'lqt-history-user' => 'පරිශීලක',
+	'lqt-history-comment' => 'පරිකථනය',
 );
 
 /** Slovak (Slovenčina)
@@ -15449,6 +15521,7 @@ $messages['sr-ec'] = array(
 /** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  * @author Mormegil
+ * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-el'] = array(
@@ -15588,7 +15661,7 @@ podeljena [[$1]] sa [[$3]], s novim naslovom "$2"',
 	'lqt-log-action-merge-across' => 'moved [[$1]] from under [[$2]] to under [[$3]]
 premeštena [[$1]] sa [[$2]] na [[$3]]',
 	'lqt-log-action-merge-down' => 'spojena [[$1]] sa [[$3]]',
-	'lqt-log-action-subjectedit' => 'promenjen naslov od [[$1]] sa "$2" na "$3"',
+	'lqt-log-action-subjectedit' => 'je promenio naslov od [[$1]] sa „$2“ na „$3“',
 	'lqt-log-action-resort' => 'promenjen je redosled sortiranja od [[$1]]. Ključ sortiranja promenjen sa $2 na $3',
 	'lqt-preference-custom-signatures' => 'Pokaži podesive korisničke potpise',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} razgovor - Odgovor: $1',
