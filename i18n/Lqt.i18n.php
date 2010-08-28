@@ -3269,6 +3269,15 @@ Podpis se zobrazuje automaticky.',
 	'lqt-reply-subpage' => 'odpověď',
 );
 
+/** Kashubian (Kaszëbsczi)
+ * @author Kaszeba
+ */
+$messages['csb'] = array(
+	'lqt-newmessages-n' => 'Nowé wiadła ($1)',
+	'lqt_newmessages' => 'Nowé wiadła',
+	'lqt_newmessages-title' => 'Nowé wiadła',
+);
+
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
@@ -7576,6 +7585,12 @@ Možete ga vidjeti na <$6>",
 	'lqt-search-legend' => 'Pretraži raspravu na ovoj stranici',
 	'lqt-search-label' => 'Pojmovi pretrage:',
 	'lqt-search-button' => 'Traži',
+	'lqt-feed-title-all' => '{{SITENAME}} — Novi komentari',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Novi komentari suradnika $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Nove teme',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Nove teme suradnika $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Odgovori',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Odgovori suradnika $1',
 	'lqt-newmessages-n' => 'Nove poruke ($1)',
 	'lqt_newmessages' => 'Nove poruke',
 	'lqt_newmessages-title' => 'Nove poruke',
@@ -12647,10 +12662,12 @@ $messages['pdc'] = array(
 	'lqt-newer' => 'neier',
 	'lqt-history-time' => 'Zeit',
 	'lqt-history-user' => 'Yuuser',
-	'lqt-history-comment' => 'Anmaerricking',
+	'lqt-history-comment' => 'Aamaericking',
 	'lqt-movethread' => 'Ziehe',
 	'lqt-menu-trigger' => 'Mehner',
 	'lqt-newmessages-from' => 'Vun $1',
+	'lqt-log-action-move' => 'hot [[$1]] vun [[$2]] nooch [[$3]] gezoge',
+	'lqt-log-action-merge-across' => 'hot [[$1]] vun [[$2]] nooch [[$3]] gezoge',
 	'lqt-search-button' => 'Guck uff',
 	'lqt-thread-link-url' => 'Gleecher-URL:',
 	'lqt-thread-link-title' => 'Wikitext-Gleecher:',
