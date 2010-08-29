@@ -1154,7 +1154,11 @@ class Thread {
 				$title = Title::newFromID( $this->rootId );
 			}
 
-			if ( !$title ) return null;
+			if ( !$title ) {
+				$this->setType( Threads::TYPE_DELETED );
+				$this->save();
+				return null;
+			}
 
 			$this->root = new Article_LQT_Compat( $title );
 		}
