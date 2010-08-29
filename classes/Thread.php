@@ -148,6 +148,10 @@ class Thread {
 	function setRoot( $article ) {
 		$this->rootId = $article->getId();
 		$this->root = $article;
+		
+		if ( $article->getTitle()->getNamespace() != NS_LQT_THREAD ) {
+			throw new MWException( "Attempt to set thread root to a non-Thread page" );
+		}
 	}
 
 	function setRootId( $article ) {
