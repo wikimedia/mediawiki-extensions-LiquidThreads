@@ -323,9 +323,12 @@ class Thread {
 		}
 	}
 
-	function delete( $reason ) {
-		$this->type = Threads::TYPE_DELETED;
-		$this->commitRevision( Threads::CHANGE_DELETED, $this, $reason );
+	function delete( $reason, $commit = true ) {
+	
+		if ( $commit ) {
+			$this->type = Threads::TYPE_DELETED;
+			$this->commitRevision( Threads::CHANGE_DELETED, $this, $reason );
+		}
 		/* Mark thread as read by all users, or we get blank thingies in New Messages. */
 
 		$this->dieIfHistorical();
@@ -1154,9 +1157,8 @@ class Thread {
 				$title = Title::newFromID( $this->rootId );
 			}
 
-			if ( !$title ) {
-				$this->setType( Threads::TYPE_DELETED );
-				$this->save();
+			if ( !$title && $this->type() != Threads::TYPE_DELETED ) {
+				$this->delete('', false /* !commit */);
 				return null;
 			}
 
