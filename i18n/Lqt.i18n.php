@@ -332,6 +332,7 @@ The signature is shown automatically.',
  * @author Helix84
  * @author IAlex
  * @author Jon Harald Søby
+ * @author Lejonel
  * @author Lloffiwr
  * @author Malafaya
  * @author Minh Nguyen
@@ -345,6 +346,7 @@ The signature is shown automatically.',
  */
 $messages['qqq'] = array(
 	'lqt-desc' => '{{desc}}',
+	'lqt_movethread' => 'Title and header at [[Special:MoveThread]].',
 	'lqt_contents_title' => '{{Identical|Contents}}',
 	'lqt_toc_thread_replycount' => '{{Identical|Reply}}',
 	'lqt_new_thread' => '{{Identical|Start a new discussion}}',
@@ -9119,7 +9121,7 @@ La firma è mostrata automaticamente.',
  * @author 青子守歌
  */
 $messages['ja'] = array(
-	'lqt-desc' => '{{int:talk}}ページをスレッド形式の議論ページにする',
+	'lqt-desc' => 'トークページをスレッド形式の議論ページにする',
 	'lqt_movethread' => 'スレッドを別のページに移動',
 	'lqt_deletethread' => 'スレッドの削除と復帰',
 	'lqt_contents_title' => '目次',
@@ -13475,7 +13477,7 @@ Para evitá-lo, separe-as antes de apagar o tópico.',
 	'lqt-thread-merge-dest' => 'Tópico de destino:',
 	'lqt-merge-submit' => 'Juntar',
 	'lqt-merge-success' => 'Juntou o tópico $1 ao tópico $2 com sucesso.',
-	'lqt-log-name' => 'Registo de discussões em tópico',
+	'lqt-log-name' => 'Registo de discussões em tópicos',
 	'lqt-log-header' => 'Este registo detalha as acções tomadas nos tópicos de discussão.',
 	'lqt-log-action-move' => 'movido [[$1]] de [[$2]] para [[$3]].',
 	'lqt-log-action-split' => 'separou [[$1]] do tópico [[$3]], e deu-lhe o novo assunto "$2"',
@@ -13752,7 +13754,7 @@ Para evitá-lo, separe-as antes de apagar o tópico.',
 	'lqt-thread-merge-dest' => 'Tópico de destino:',
 	'lqt-merge-submit' => 'Mesclar',
 	'lqt-merge-success' => 'Você mesclou com sucesso o tópico $1 abaixo de $2',
-	'lqt-log-name' => 'Registro de discussões em tópico',
+	'lqt-log-name' => 'Registro de discussões em tópicos',
 	'lqt-log-header' => 'Este registro detalha as ações tomadas nos tópicos de discussão',
 	'lqt-log-action-move' => 'movido [[$1]] de [[$2]] para [[$3]].',
 	'lqt-log-action-split' => 'separou [[$1]] do tópico [[$3]], e deu-lhe o novo assunto "$2"',
@@ -15841,8 +15843,8 @@ $messages['su'] = array(
  */
 $messages['sv'] = array(
 	'lqt-desc' => 'Lägger till trådade diskussioner till diskussionssidor',
-	'lqt_movethread' => 'Flytta diskussionssida till en annan sida',
-	'lqt_deletethread' => 'Radera eller återupprätta diskussionssida',
+	'lqt_movethread' => 'Flytta diskussionstråd till en annan sida',
+	'lqt_deletethread' => 'Radera eller återställ diskussionstråd',
 	'lqt_contents_title' => 'Innehåll',
 	'lqt_toc_thread_title' => 'Trådnamn',
 	'lqt_toc_thread_author' => 'Startad av',
@@ -16028,7 +16030,7 @@ För att undvika detta, splitta dem från denna tråd innan du raderar den.',
 	'lqt-preference-watch-threads' => 'Bevaka trådar jag skapar eller svarar i',
 	'prefs-lqt' => 'Trådad diskussion',
 	'lqt-preference-display-depth' => 'Maximalt svarsdjup som visas:',
-	'lqt-preference-display-count' => 'Max antal svar som visas:',
+	'lqt-preference-display-count' => 'Maximalt antal svar som visas:',
 	'lqt-preference-custom-signatures' => 'Visa modifierade användarsignaturer',
 	'lqt-enotif-subject-reply' => '{{SITENAME}}-diskussion - Svar: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-diskussion - Ny tråd: $1',
@@ -16039,9 +16041,13 @@ Detta är ett meddelande från {{SITENAME}} att en ny tråd på $5, '$2', har sk
 Du kan läsa tråden på <$6>",
 	'lqt-enotif-reply' => "Hej $1,
 
-Detta är ett meddelande från {{SITENAME}} om ett nytt svar på '$2' på $5 skapades den $3 klockan $4.
+Det här är ett meddelande från {{SITENAME}} om ett nytt svar på '$2' på $5
+skapades den $3 klockan $4.
 
-Du kan läsa svaret på <$6>",
+Du kan läsa svaret på <$6>
+
+Texten i svaret är:
+$7",
 	'lqt-quote-intro' => 'Den $2 klockan $3 skrev [[User:$1|$1]]:',
 	'lqt-quote' => 'Citera',
 	'lqt-search-legend' => 'Sök i diskussionerna på den här sidan',
@@ -16090,7 +16096,7 @@ Signaturen visas automatiskt.',
 	'lqt_newmessages' => 'Nya meddelanden',
 	'lqt_newmessages-title' => 'Nya meddelanden',
 	'lqt-newpost-summary' => 'Ny tråd: $1',
-	'lqt-reply-summary' => 'Svara på [[$2|$1]]',
+	'lqt-reply-summary' => 'Svar på [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Diskussionssidehistorik',
 	'lqt-talkpage-history-subtitle' => 'För $1',
 	'lqt-talkpage-history-tab' => 'Rubrik',
@@ -16102,7 +16108,7 @@ Signaturen visas automatiskt.',
 	'lqt-edit-bump' => 'Bumpa denna tråd',
 	'lqt-edit-bump-tooltip' => 'Flytta denna tråd till överst på sin diskussionssida',
 	'lqt-historicalrevision-error' => 'Versionen du har valt är korrupt, och kan inte visas.',
-	'lqt-reply-subpage' => 'svara',
+	'lqt-reply-subpage' => 'svar',
 );
 
 /** Swahili (Kiswahili)
