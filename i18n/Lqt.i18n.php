@@ -1454,6 +1454,13 @@ $messages['arz'] = array(
 	'lqt-reply-subpage' => 'رد',
 );
 
+/** Bashkir (Башҡорт)
+ * @author Assele
+ */
+$messages['ba'] = array(
+	'lqt-new-messages' => '✒ Һеҙҙең өсөн яңы хәбәрҙәр бар.',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */
@@ -2580,6 +2587,11 @@ Da to spriječite, odvojite ih sa ovog niza prije nego što ga obrišete.',
 	'lqt-log-name' => 'Zapisnik nizanih razgovora',
 	'lqt-log-header' => 'Ovaj zapisnik sadrži detalje akcija koje su poduzete na nizovima razgovora.',
 	'lqt-log-action-move' => 'premješteno [[$1]] iz [[$2]] u [[$3]].',
+	'lqt-log-action-split' => 'podlijeli [[$1]] ispod [[$3]], sa novom temom "$2"',
+	'lqt-log-action-merge-across' => 'premješteno [[$1]] od ispod [[$2]] na ispod [[$3]]',
+	'lqt-log-action-merge-down' => 'spojeno [[$1]] na iznad [[$3]]',
+	'lqt-log-action-subjectedit' => 'promijenjena tema za [[$1]] sa "$2" na "$3"',
+	'lqt-log-action-resort' => 'promijenjen je način sortiranja za [[$1]]. Promijenjen je ključ sortiranja sa $2 na $3',
 	'lqt-preference-notify-talk' => 'Pošalji mi e-mail za sve odgovore na niz koji pratim',
 	'lqt-preference-watch-threads' => 'Prati nizove koje sam napravio ili odgovorio na njih',
 	'prefs-lqt' => 'Nizana diskusija',
@@ -2631,6 +2643,7 @@ Potpis će se prikazati automatski.',
 	'lqt-drag-setsortkey' => 'Podesi mjesto poruke na stranici',
 	'lqt-drag-bump' => 'Premjesti poruku na vrh stranice za razgovor',
 	'lqt-drag-save' => 'Potvrdi',
+	'lqt-drag-title' => 'Potvrdi premještanje',
 	'lqt-drag-reason' => 'Razlog:',
 	'lqt-drag-subject' => 'Tema za novi niz:',
 	'lqt-edit-signature' => '(uredi potpis)',
@@ -7494,6 +7507,7 @@ $messages['hil'] = array(
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  * @author Ex13
+ * @author Roberta F.
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
@@ -7528,6 +7542,8 @@ $messages['hr'] = array(
 	'lqt_hist_moved_talkpage' => 'Premješteno',
 	'lqt_protectedfromreply_link' => 'zaštićen',
 	'lqt_subject' => 'Tema:',
+	'lqt_move_move' => 'Premjesti',
+	'lqt_delete_return_link' => 'stranica za razgovor',
 	'lqt-title' => 'Naslov',
 	'lqt-summary' => 'Sažetak',
 	'lqt-older' => 'starije',
@@ -10696,6 +10712,8 @@ Dit óngerwerp is e deil van $2.',
 	'lqt_delete_unallowed' => 'De moogs gein ongerwerp wisse.',
 	'lqt_talkpage_autocreate_summary' => "Euverlègksziej venzich aangemaak bie g'm aanmake dès ieës óngerwèrps.",
 	'lqt_header_warning_big' => 'Doe bewirks $1.',
+	'lqt_header_warning_bold' => "inleiding van 'n euverlègkpagina",
+	'lqt_header_warning_new_discussion' => 'begin e nuuj euverlègk',
 	'lqt_sorting_order' => 'Sorteervolgorde:',
 	'lqt_sort_newest_changes' => 'les gewiezig baovenaan',
 	'lqt_sort_newest_threads' => 'nuujs ongerwerpe baovenaan',
@@ -10708,6 +10726,7 @@ Dit óngerwerp is e deil van $2.',
 	'lqt-read-message' => 'Markeer es gelaeze',
 	'lqt-read-all' => 'Markeer alles es gelaeze',
 	'lqt-email-undo' => 'Maak óngedaon',
+	'lqt-date-info' => 'Dees verwiezing is neet actief ómdet se óngerwèrpe van alle datums bekieks.',
 	'lqt-newmessages-context' => 'Gans óngerwèrp',
 	'lqt-thread-created' => 'Aangenmaak',
 	'lqt-history-time' => 'Tied',
@@ -10715,6 +10734,8 @@ Dit óngerwerp is e deil van $2.',
 	'lqt-history-action' => 'Activiteit',
 	'lqt-history-comment' => 'Opmirking',
 	'lqt-history-thread' => 'Óngerwèrp',
+	'lqt-thread-edited-author' => 'Bewirk door auteur<br />
+Letste bewirking: $1',
 	'lqt-thread-edited-others' => "Bewerk door {{PLURAL:$2|'nen angere gebroeker|$2 anger gebroekers}}.<br />
 Letste bewerking: $1",
 	'lqt-header-actions' => 'Henjeling',
@@ -10742,6 +10763,7 @@ Letste bewerking: $1",
 	'lqt-thread-merge-source' => 'Bronongerwerp:',
 	'lqt-thread-merge-dest' => 'Doelongerwerp:',
 	'lqt-merge-submit' => 'Voog zaam',
+	'lqt-merge-success' => "'t Óngerwèrp $1 is samegevoog ónger $2.",
 	'prefs-lqt' => 'Gestructureerd euverlik',
 	'lqt-quote-intro' => '[[User:$1|$1]] sjreef óm $3 óp $2:',
 	'lqt-quote' => 'Citeer',
@@ -10763,11 +10785,18 @@ Dien handjteikening kömp zoea al venzelf.',
 	'lqt-change-subject' => 'Anger óngerwèrp',
 	'lqt-save-subject' => 'Slaon óp',
 	'lqt-save-subject-failed' => "Bie 't óngerwèrp angere is 'n fout ópgetraoje: $1",
+	'lqt-ajax-invalid-subject' => "Ingegaeve óngerwerp is óngeljig, wersjienlik is 't te lank.",
+	'lqt-ajax-no-subject' => "Doe mós 'n óngerwerp ópgaeve.",
 	'lqt-save-subject-error-unknown' => "Onbekinde fout bie 't instelle van 't ongerwerp.
 Wiezig 't ongerwerp door op \"Bewirk\" te klikke in t baoveste berich.",
 	'lqt-cancel-subject-edit' => 'Braek aaf',
 	'lqt-drag-activate' => 'Sleip nao nuuj plaats',
 	'lqt-drag-drop-zone' => 'Plaats hie',
+	'lqt-drag-confirm' => 'Óm \'t volgende te doon mós se \'n reje inveuren en op "Bevestig" klikke.',
+	'lqt-drag-reparent' => "Bring brich ónger 'n anger óngerwerp.",
+	'lqt-drag-split' => 'Plaats berich in eige ongerwerp.',
+	'lqt-drag-setsortkey' => 'Pas berichpositie oppe pagina aan',
+	'lqt-drag-bump' => 'Plaats baovenaan de euverlègkpagina',
 	'lqt-drag-save' => 'Bevèstig',
 	'lqt-drag-title' => 'Bevèstig sleip',
 	'lqt-drag-reason' => 'Raeje:',
@@ -10793,6 +10822,11 @@ Wiezig 't ongerwerp door op \"Bewirk\" te klikke in t baoveste berich.",
 	'restriction-reply' => 'Antjwaord',
 	'restriction-newthread' => 'Maak nuuj ongerwerp',
 	'lqt-protected-reply-thread' => "Doe kins neet deilnömme aan dit ongerwerp went 't is toe.",
+	'lqt-protected-reply-talkpage' => 'Doe kins hie neet aan middoon, went de ongerwerpe hie zeen geslaote.',
+	'lqt-protected-newthread' => 'Doe kins gein nuuj ongerwerpe aanmake op dees pagina, went dees is gesalote daoveur.',
+	'lqt-edit-bump' => 'Activeer euverlègk',
+	'lqt-edit-bump-tooltip' => "Activeer dit euverlègk door 't baovenaan de pagina te plaatse",
+	'lqt-historicalrevision-error' => 'Geselcteerde versie is besjajig en ónbekiekbaar.',
 	'lqt-reply-subpage' => 'antjwaord',
 );
 
