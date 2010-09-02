@@ -17276,6 +17276,7 @@ $messages['tt-cyrl'] = array(
 
 /** Ukrainian (Українська)
  * @author AS
+ * @author Alex Khimich
  * @author NickK
  * @author Prima klasy4na
  * @author Тест
@@ -17462,6 +17463,9 @@ $messages['uk'] = array(
 	'lqt-log-name' => 'Журнал гілок обговорення',
 	'lqt-log-header' => 'В цей журнал записуються дії, що здійснюються у гілках обговорень.',
 	'lqt-log-action-move' => 'переніс [[$1]] з [[$2]] до [[$3]]',
+	'lqt-log-action-split' => 'розподіл [[$1]] з-під [[$3]], з новою темою "$2"',
+	'lqt-log-action-merge-across' => 'перемістив [[$1]] із [[$2]] в [[$3]]',
+	'lqt-log-action-merge-down' => "об'єднав [[$1]] з [[$3]]",
 	'lqt-log-action-subjectedit' => 'змінив тему [[$1]] з "$2" на "$3"',
 	'lqt-log-action-resort' => 'змінив порядок сортування [[$1]]. Змінено ключ сортування з $2 на $3',
 	'lqt-preference-notify-talk' => 'Повідомляти мене електронною поштою про відповіді на гілці, за якою я спостерігаю',
@@ -18174,6 +18178,13 @@ $messages['vo'] = array(
 	'lqt_newmessages' => 'Nuns Nulik',
 	'lqt_newmessages-title' => 'Nuns nulik',
 	'lqt-talkpage-history-subtitle' => 'Pro $1',
+);
+
+/** Walloon (Walon)
+ * @author Lucyin
+ */
+$messages['wa'] = array(
+	'lqt_hist_deleted' => 'Disfacé',
 );
 
 /** Wu (吴语) */
