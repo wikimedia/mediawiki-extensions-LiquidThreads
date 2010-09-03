@@ -1186,6 +1186,8 @@ $messages['arc'] = array(
 	'lqt_protectedfromreply_link' => 'ܢܛܝܪܐ',
 	'lqt-no-new-messages' => 'ܠܝܬ ܠܟ ܐܓܪ̈ܬܐ ܚܕ̈ܬܬܐ',
 	'lqt-new-messages' => '✒ ܐܝܬ ܠܟ ܐܓܪ̈ܬܐ ܚܕ̈ܬܬܐ.',
+	'lqt-add-reply' => 'ܐܘܣܦ ܦܘܢܝܐ',
+	'lqt-cancel-subject-edit' => 'ܒܛܘܠ',
 	'lqt-newmessages-n' => 'ܐܓܪ̈ܬܐ ܚܕ̈ܬܬܐ ($1)',
 	'lqt_newmessages' => 'ܐܓܪ̈ܬܐ ܚܕ̈ܬܬܐ',
 );
@@ -4689,6 +4691,7 @@ La subskribo estas aŭtomate montrita.',
  * @author Pertile
  * @author Piolinfax
  * @author Sanbec
+ * @author Toliño
  * @author Translationista
  */
 $messages['es'] = array(
@@ -4834,7 +4837,7 @@ Esta operación no se puede deshacer',
 	'lqt-thread-edited-author' => 'Editado por el autor<br />
 Ultima edición: $1',
 	'lqt-thread-edited-others' => 'Editado por $2 usuarios<br />
-Ultima edición: $1',
+Última edición: $1',
 	'lqt-header-actions' => 'Acciones',
 	'lqt_summarize_link' => 'Resumir',
 	'lqt-summarize-intro' => "Por favor haga un resumen del hilo en el cuadro de edición que aparece debajo.
@@ -6629,8 +6632,8 @@ Esta operación non se pode desfacer.',
 	'lqt-history-thread' => 'Fío',
 	'lqt-thread-edited-author' => 'Editado polo autor<br />
 Última edición: $1',
-	'lqt-thread-edited-others' => 'Editado por $2 usuarios<br />
-Última edición: $1',
+	'lqt-thread-edited-others' => 'Editado por {{PLURAL:$2|outro usuario|$2 usuarios}}.<br />
+Última edición: o $4 ás $3',
 	'lqt-header-actions' => 'Accións',
 	'lqt_summarize_link' => 'Resumir',
 	'lqt-summarize-intro' => 'Por favor, resuma o seguinte fío na caixa de edición.
@@ -10684,6 +10687,10 @@ $messages['li'] = array(
 	'lqt_protectedfromreply_link' => 'besjörmp',
 	'lqt_subject' => 'Óngerwerp:',
 	'lqt_noreason' => 'Geine ree opgegaeve.',
+	'lqt_move_placeholder' => "Dit is 'n markering die aangeuf det 'n ongerwerp $1 verplaats is van dees pagina nao 'n anger euverlègkpagina ($5).
+Dees verplaatsing is oetgeveurd door $2 óp $3 $4.",
+	'lqt_thread_deleted_for_sysops' => "Dit ongerwerp is '''gewös''' en is allein zichbaar veur beheirders.",
+	'lqt_thread_deleted' => 'Ongerwerp is gewös.',
 	'lqt_summary_notice_link' => "sjrief 'n samevatting",
 	'lqt_summary_label' => 'Óngerwerp samevatting:',
 	'lqt_summary_subtitle' => 'Samevatting van "$1"',
