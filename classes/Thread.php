@@ -1159,6 +1159,9 @@ class Thread {
 
 			if ( !$title && $this->type() != Threads::TYPE_DELETED ) {
 				$this->delete('', false /* !commit */);
+			}
+			
+			if ( !$title ) {
 				return null;
 			}
 
