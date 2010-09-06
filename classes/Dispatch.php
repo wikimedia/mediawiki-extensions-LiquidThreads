@@ -21,13 +21,11 @@ class LqtDispatch {
 			return false;
 		}
 
-		/**
-		 * Certain actions apply to the "header", which is stored in the actual talkpage
-		 * in the database. Drop everything and behave like a normal page if those
-		 * actions come up, to avoid hacking the various history, editing, etc. code.
-		 */
-		$action =  $request->getVal( 'action' );
-		$header_actions = array( 'history', 'edit', 'submit', 'delete' );
+		global $mediaWiki;
+		$action = $mediaWiki->getVal('action');
+		
+		// Actions handled by LQT.
+		$lqt_actions = array( 'view', 'protect', 'unprotect' );
 
 		$lqt_action = $request->getVal( 'lqt_method' );
 		if ( $action == 'edit' && $request->getVal( 'section' ) == 'new' ) {
@@ -36,7 +34,8 @@ class LqtDispatch {
 			$request->setVal( 'section', '' );
 
 			$viewname = 'TalkpageView';
-		} elseif ( !$lqt_action && ( in_array( $action, $header_actions ) ||
+		} elseif ( !$lqt_action && (
+				( !in_array( $action, $lqt_actions ) && $action) ||
 				$request->getVal( 'diff', null ) !== null ) ) {
 			// Pass through wrapper
 			$viewname = 'TalkpageHeaderView';
