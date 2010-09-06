@@ -24,6 +24,13 @@ $namespaceNames['fi'] = array(
 	NS_LQT_SUMMARY_TALK => 'Keskustelu_yhteenvedosta',
 );
 
+$namespaceNames['hu'] = array(
+	NS_LQT_THREAD => 'Téma',
+	NS_LQT_THREAD_TALK => 'Témavita',
+	NS_LQT_SUMMARY => 'Összefoglaló',
+	NS_LQT_SUMMARY_TALK => 'Összefoglaló-vita'
+);
+
 $namespaceNames['pt'] = array(
 	NS_LQT_THREAD => 'Tópico',
 	NS_LQT_THREAD_TALK => 'Tópico_discussão',
