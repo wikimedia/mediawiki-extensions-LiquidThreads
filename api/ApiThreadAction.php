@@ -273,6 +273,7 @@ class ApiThreadAction extends ApiBase {
 			'summary' => $summary,
 			'token' => $token,
 			'basetimestamp' => wfTimestampNow(),
+			'minor' => 0,
 			'format' => 'json',
 		);
 
@@ -391,6 +392,7 @@ class ApiThreadAction extends ApiBase {
 			'text' => $text,
 			'summary' => $summary,
 			'token' => $token,
+			'minor' => 0,
 			'basetimestamp' => wfTimestampNow(),
 			'format' => 'json',
 		);
@@ -510,6 +512,7 @@ class ApiThreadAction extends ApiBase {
 			'summary' => $summary,
 			'token' => $token,
 			'basetimestamp' => wfTimestampNow(),
+			'minor' => 0,
 			'format' => 'json',
 		);
 

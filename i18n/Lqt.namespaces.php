@@ -28,7 +28,7 @@ $namespaceNames['hu'] = array(
 	NS_LQT_THREAD => 'Téma',
 	NS_LQT_THREAD_TALK => 'Témavita',
 	NS_LQT_SUMMARY => 'Összefoglaló',
-	NS_LQT_SUMMARY_TALK => 'Összefoglaló-vita'
+	NS_LQT_SUMMARY_TALK => 'Összefoglaló-vita',
 );
 
 $namespaceNames['pt'] = array(

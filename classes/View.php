@@ -499,7 +499,8 @@ class LqtView {
 			$this->perpetuate( 'lqt_method', 'hidden' ) .
 			$this->perpetuate( 'lqt_operand', 'hidden' ) .
 			Xml::hidden( 'lqt_nonce', wfGenerateToken() ) .
-			Xml::hidden( 'offset', $offset );
+			Xml::hidden( 'offset', $offset ) .
+			Xml::hidden( 'wpMinorEdit', '' );
 
 		list( $signatureEditor, $signatureHTML ) = $this->getSignatureEditor( $this->user );
 
