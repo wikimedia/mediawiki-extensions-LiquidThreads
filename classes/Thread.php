@@ -1213,7 +1213,7 @@ class Thread {
 		if ( is_object( $this->root() ) ) {
 			return $this->root()->getTitle();
 		} else {
-			wfWarn( "Thread ".$thread->id()." has no title." );
+			wfWarn( "Thread ".$this->id()." has no title." );
 			return null;
 		}
 	}
