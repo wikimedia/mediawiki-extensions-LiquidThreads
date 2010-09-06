@@ -144,12 +144,14 @@ class LqtHooks {
 			'type' => 'int',
 			'label-message' => 'lqt-preference-display-depth',
 			'section' => 'lqt',
+			'min' => 1,
 		);
 
 		$preferences['lqtdisplaycount'] = array(
 			'type' => 'int',
 			'label-message' => 'lqt-preference-display-count',
 			'section' => 'lqt',
+			'min' => 1,
 		);
 
 		return true;
