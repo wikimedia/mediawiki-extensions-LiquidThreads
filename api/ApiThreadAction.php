@@ -401,6 +401,8 @@ class ApiThreadAction extends ApiBase {
 			'format' => 'json',
 		);
 		
+		global $wgUser;
+
 		if ( $wgUser->isAllowed('bot') ) {
 			$requestData['bot'] = true;
 		}
