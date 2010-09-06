@@ -276,6 +276,10 @@ class ApiThreadAction extends ApiBase {
 			'minor' => 0,
 			'format' => 'json',
 		);
+		
+		if ( $wgUser->isAllowed('bot') ) {
+			$requestData['bot'] = true;
+		}
 
 		$editReq = new FauxRequest( $requestData, true );
 		$internalApi = new ApiMain( $editReq, true );
@@ -396,6 +400,10 @@ class ApiThreadAction extends ApiBase {
 			'basetimestamp' => wfTimestampNow(),
 			'format' => 'json',
 		);
+		
+		if ( $wgUser->isAllowed('bot') ) {
+			$requestData['bot'] = true;
+		}
 
 		$editReq = new FauxRequest( $requestData, true );
 		$internalApi = new ApiMain( $editReq, true );
@@ -515,6 +523,10 @@ class ApiThreadAction extends ApiBase {
 			'minor' => 0,
 			'format' => 'json',
 		);
+		
+		if ( $wgUser->isAllowed('bot') ) {
+			$requestData['bot'] = true;
+		}
 
 		$editReq = new FauxRequest( $requestData, true );
 		$internalApi = new ApiMain( $editReq, true );
