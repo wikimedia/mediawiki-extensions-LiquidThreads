@@ -327,6 +327,10 @@ class TalkpageView extends LqtView {
 		}
 
 		$this->output->addHTML( Xml::closeElement( 'div' ) . $pager->getNavigationBar() );
+		
+		// Workaround for bug 25077
+		global $wgOut, $wgUser;
+		$wgUser->getSkin()->setTitle( $wgOut->getTitle() );
 
 		return false;
 	}
