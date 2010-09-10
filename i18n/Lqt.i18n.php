@@ -10920,8 +10920,15 @@ $7",
  * @author Kizito
  */
 $messages['lg'] = array(
+	'lqt_youhavenewmessages' => 'Ofunyeyo [[$1|obubaka bupya]]',
 	'lqt_move_move' => 'Simbuliza',
+	'lqt-messages-sent' => 'Obubaka obukuwerezedwa:',
+	'lqt-no-new-messages' => 'Tewali bubaka bupya',
+	'lqt-new-messages' => '✒ Ofunyeyo obubaka bupya.',
 	'lqt-movethread' => 'Simbuliza',
+	'lqt-newmessages-n' => 'Obubaka ($1)',
+	'lqt_newmessages' => 'Obubaka',
+	'lqt_newmessages-title' => 'Obubaka',
 );
 
 /** Limburgish (Limburgs)
