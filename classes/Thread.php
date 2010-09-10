@@ -336,6 +336,8 @@ class Thread {
 		
 		if ( $commit ) {
 			$this->commitRevision( Threads::CHANGE_DELETED, $this, $reason );
+		} else {
+			$this->save( __METHOD__ );
 		}
 		/* Mark thread as read by all users, or we get blank thingies in New Messages. */
 
