@@ -154,6 +154,9 @@ $wgAutoloadClasses['ThreadHistoricalRevisionView'] = $dir . 'pages/ThreadHistori
 $wgAutoloadClasses['SummaryPageView'] = $dir . 'pages/SummaryPageView.php';
 $wgAutoloadClasses['NewUserMessagesView'] = $dir . 'pages/NewUserMessagesView.php';
 
+// Pagers
+$wgAutoloadClasses['LqtDiscussionPager'] = $dir . "pages/TalkpageView.php";
+
 // Special pages
 $wgAutoloadClasses['ThreadActionPage'] = $dir . 'pages/ThreadActionPage.php';
 $wgAutoloadClasses['SpecialMoveThread'] = $dir . 'pages/SpecialMoveThread.php';

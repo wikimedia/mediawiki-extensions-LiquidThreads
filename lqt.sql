@@ -57,11 +57,12 @@ CREATE TABLE /*$wgDBprefix*/historical_thread (
 CREATE TABLE /*$wgDBprefix*/user_message_state (
   ums_user int unsigned NOT NULL,
   ums_thread int(8) unsigned NOT NULL,
+  ums_conversation int(8) unsigned NOT NULL DEFAULT 0,
   ums_read_timestamp varbinary(14),
 
   PRIMARY KEY (ums_user, ums_thread)
 ) /*$wgDBTableOptions*/;
-CREATE INDEX ums_user_read ON /*$wgDBprefix*/user_message_state (ums_user,ums_read_timestamp);
+CREATE INDEX ums_user_conversation ON /*$wgDBprefix*/user_message_state (ums_user,ums_conversation);
 
 -- "New" storage location for history data.
 CREATE TABLE /*_*/thread_history (

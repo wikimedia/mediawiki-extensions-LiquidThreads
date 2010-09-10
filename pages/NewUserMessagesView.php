@@ -2,9 +2,9 @@
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class NewUserMessagesView extends LqtView {
-	protected $threads;
-	protected $tops;
-	protected $targets;
+
+	protected $highlightedThreads;
+	protected $messagesInfo;
 
 	protected function htmlForReadButton( $label, $title, $class, $ids ) {
 		$ids_s = implode( ',', $ids );
@@ -24,14 +24,13 @@ class NewUserMessagesView extends LqtView {
 		return $html;
 	}
 
-	function getReadAllButton( $threads ) {
+	function getReadAllButton( ) {
 		wfLoadExtensionMessages( 'LiquidThreads' );
-		$ids =	array_map( create_function( '$t', 'return $t->id();' ), $threads ); // ew
 		return $this->htmlForReadButton(
 			wfMsg( 'lqt-read-all' ),
 			wfMsg( 'lqt-read-all-tooltip' ),
 			"lqt_newmessages_read_all_button",
-			$ids
+			array('all')
 		);
 	}
 
@@ -73,10 +72,7 @@ class NewUserMessagesView extends LqtView {
 	function postDivClass( $thread ) {
 		$origClass = parent::postDivClass( $thread );
 
-		$topid = $thread->topmostThread()->id();
-
-		if ( isset( $this->targets[$topid] ) && is_array( $this->targets[$topid] ) &&
-				in_array( $thread->id(), $this->targets[$topid] ) )
+		if ( in_array( $thread->id(), $this->highlightThreads ) )
 			return "$origClass lqt_post_new_message";
 
 		return $origClass;
@@ -92,8 +88,9 @@ class NewUserMessagesView extends LqtView {
 
 			if ( $ids !== false ) {
 				foreach ( $ids as $id ) {
-					$tmp_thread = Threads::withId( $id );	if ( $tmp_thread )
-					NewMessages::markThreadAsUnReadByUser( $tmp_thread, $this->user );
+					$tmp_thread = Threads::withId( $id );
+					if ( $tmp_thread )
+						NewMessages::markThreadAsUnReadByUser( $tmp_thread, $this->user );
 				}
 				$this->output->redirect( $this->title->getFullURL() );
 			}
@@ -101,9 +98,13 @@ class NewUserMessagesView extends LqtView {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand' ) );
 			if ( $ids !== false ) {
 				foreach ( $ids as $id ) {
-					$tmp_thread = Threads::withId( $id );
-					if ( $tmp_thread )
-						NewMessages::markThreadAsReadByUser( $tmp_thread, $this->user );
+					if ( $id == 'all' ) {
+						NewMessages::markAllReadByUser( $this->user );
+					} else {
+						$tmp_thread = Threads::withId( $id );
+						if ( $tmp_thread )
+							NewMessages::markThreadAsReadByUser( $tmp_thread, $this->user );
+					}
 				}
 				$query = 'lqt_method=undo_mark_as_read&lqt_operand=' . implode( ',', $ids );
 				$this->output->redirect( $this->title->getFullURL( $query ) );
@@ -115,40 +116,32 @@ class NewUserMessagesView extends LqtView {
 	}
 
 	function show() {
-		if ( ! is_array( $this->threads ) ) {
-			throw new MWException( 'You must use NewUserMessagesView::setThreads() before calling NewUserMessagesView::show().' );
+		$pager = new LqtNewMessagesPager( $this->user );
+		$this->messagesInfo = $pager->getThreads();
+		
+		if ( ! $this->messagesInfo ) {
+			$this->output->addWikiMsg( 'lqt-no-new-messages' );
+			return false;
 		}
-
-		// Do everything by id, because we can't depend on reference identity; a simple Thread::withId
-		// can change the cached value and screw up your references.
-
-		$this->targets = array();
-		$this->tops = array();
-		foreach ( $this->threads as $t ) {
-			$top = $t->topmostThread();
-
-			// It seems that in some cases $top is zero.
-			if ( !$top )
-				throw new MWException( "{$t->id()} seems to have no topmost thread" );
-
-			if ( !array_key_exists( $top->id(), $this->tops ) )
-				$this->tops[$top->id()] = $top;
-			if ( !array_key_exists( $top->id(), $this->targets ) )
-				$this->targets[$top->id()] = array();
-			$this->targets[$top->id()][] = $t->id();
-		}
+		
+		$this->output->addHTML( $this->getReadAllButton() );
+		$this->output->addHTML( $pager->getNavigationBar() );
 
 		$this->output->addHTML( '<table class="lqt-new-messages"><tbody>' );
 
-		foreach ( $this->tops as $t ) {
+		foreach ( $this->messagesInfo as $info ) {
 			// It turns out that with lqtviews composed of threads from various talkpages,
 			// each thread is going to have a different article... this is pretty ugly.
-			$this->article = $t->article();
+			$thread = $info['top'];
+			$this->highlightThreads = $info['posts'];
+			$this->article = $thread->article();
 
-			$this->showWrappedThread( $t );
+			$this->showWrappedThread( $thread );
 		}
 
 		$this->output->addHTML( '</tbody></table>' );
+		
+		$this->output->addHTML( $pager->getNavigationBar() );
 
 		return false;
 	}
@@ -160,7 +153,7 @@ class NewUserMessagesView extends LqtView {
 			wfMsg( 'lqt-read-message' ),
 			wfMsg( 'lqt-read-message-tooltip' ),
 			'lqt_newmessages_read_button',
-			$this->targets[$t->id()] );
+			$this->highlightThreads );
 
 		// Left-hand column read button and context link to the full thread.
 		global $wgUser;
@@ -198,7 +191,7 @@ class NewUserMessagesView extends LqtView {
 		$html = "<tr>$leftColumn<td class='lqt-newmessages-right'>";
 		$this->output->addHTML( $html );
 
-		$mustShowThreads = $this->targets[$t->id()];
+		$mustShowThreads = $this->highlightThreads;
 
 		$this->showThread( $t, 1, 1, array( 'mustShowThreads' => $mustShowThreads ) );
 		static $scriptDone = false;
@@ -209,8 +202,85 @@ class NewUserMessagesView extends LqtView {
 		}
 		$this->output->addHTML( "</td></tr>" );
 	}
+}
 
-	function setThreads( $threads ) {
-		$this->threads = $threads;
+class LqtNewMessagesPager extends LqtDiscussionPager {
+	private $user;
+	
+	function __construct( $user ) {
+		$this->user = $user;
+		
+		parent::__construct( false, false );
+	}
+	
+	/**
+	 * Returns an array of structures. Each structure has the keys 'top' and 'posts'.
+	 * 'top' contains the top-level thread to display.
+	 * 'posts' contains an array of integer post IDs which should be highlighted.
+	 */
+	function getThreads() {
+		$rows = $this->getRows();
+		
+		if ( ! count($rows) ) {
+			return false;
+		}
+		
+		$threads = Thread::bulkLoad( $rows );
+		$thread_ids = array_keys( $threads );
+		$output = array();
+		
+		foreach( $threads as $id => $thread ) {
+			$output[$id] = array( 'top' => $thread, 'posts' => array() );
+		}
+		
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$res = $dbr->select( array( 'user_message_state' ),
+					array( 'ums_thread', 'ums_conversation' ),
+					array(
+						'ums_user' => $this->user->getId(),
+						'ums_conversation' => $thread_ids
+					),
+					__METHOD__
+					);
+					
+		foreach( $res as $row ) {
+			$top = $row->ums_conversation;
+			$thread = $row->ums_thread;
+			$output[$top]['posts'][] = $thread;
+		}
+		
+		return $output;
+	}
+	
+	function getQueryInfo() {
+		$queryInfo = array(
+			'tables' => array( 'thread', 'user_message_state' ),
+			'fields' => array( 'thread.*', 'ums_conversation' ),
+			'conds' => array(
+				'ums_user' => $this->user->getId(),
+				'thread_type != ' . $this->mDb->addQuotes( Threads::TYPE_DELETED ),
+			),
+			'join_conds' => array(
+				'thread' => array( 'join', 'ums_conversation=thread_id' )
+			),
+			'options' => array(
+				'group by' => 'ums_conversation'
+			)
+		);
+
+		return $queryInfo;
+	}
+	
+	function getPageLimit() {
+		return 25;
+	}
+	
+	function getDefaultDirections() {
+		return true; // Descending
+	}
+	
+	function getIndexField() {
+		return array('ums_conversation');
 	}
 }

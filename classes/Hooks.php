@@ -329,6 +329,7 @@ class LqtHooks {
 		$wgExtNewFields[] = array( 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql" );
 		$wgExtNewFields[] = array( 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql" );
 		$wgExtNewFields[] = array( 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql" );
+		$wgExtNewFields[] = array( 'user_message_state', 'ums_conversation', "$dir/schema-changes/ums_conversation.sql" );
 
 		$wgExtNewIndexes[] = array( 'thread', 'thread_summary_page', '(thread_summary_page)' );
 
