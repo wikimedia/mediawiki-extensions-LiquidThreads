@@ -289,6 +289,10 @@ class Thread {
 		if ( ! $this->rootId && ! ($this->type & Threads::TYPE_DELETED) ) {
 			throw new MWException( "Non-deleted thread saved with empty root ID" );
 		}
+		
+		if ( $this->replyCount < -1 ) {
+			wfWarn( "Saving thread $id with negative reply count {$this->replyCount} " . wfGetAllCallers() );
+		}
 
 		// Reflect schema changes here.
 
@@ -324,6 +328,10 @@ class Thread {
 	}
 
 	function delete( $reason, $commit = true ) {
+		if ( $this->type == Threads::TYPE_DELETED ) {
+			return;
+		}
+		
 		$this->type = Threads::TYPE_DELETED;
 		
 		if ( $commit ) {
@@ -342,7 +350,7 @@ class Thread {
 		$t = $this->superthread();
 
 		if ( $t ) {
-			$t->decrementReplyCount();
+			$t->decrementReplyCount( 1 + $this->replyCount() );
 			$t->save();
 		}
 	}
