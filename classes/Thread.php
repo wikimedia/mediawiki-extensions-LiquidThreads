@@ -292,6 +292,7 @@ class Thread {
 		
 		if ( $this->replyCount < -1 ) {
 			wfWarn( "Saving thread $id with negative reply count {$this->replyCount} " . wfGetAllCallers() );
+			$this->replyCount = -1;
 		}
 
 		// Reflect schema changes here.
@@ -773,8 +774,10 @@ class Thread {
 		$count = 0;
 
 		foreach ( $thread->replies() as $reply ) {
-			$count++;
-			$count += self::recursiveGetReplyCount( $reply, $level + 1 );
+			if ( $thread->type != Threads::TYPE_DELETED ) {
+				$count++;
+				$count += self::recursiveGetReplyCount( $reply, $level + 1 );
+			}
 		}
 
 		return $count;
