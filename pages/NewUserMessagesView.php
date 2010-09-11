@@ -2,7 +2,6 @@
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class NewUserMessagesView extends LqtView {
-
 	protected $highlightedThreads;
 	protected $messagesInfo;
 
@@ -254,9 +253,11 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 	}
 	
 	function getQueryInfo() {
+		$dbr = wfGetDB( DB_SLAVE );
+
 		$queryInfo = array(
 			'tables' => array( 'thread', 'user_message_state' ),
-			'fields' => array( 'thread.*', 'ums_conversation' ),
+			'fields' => array( $dbr->tableName( 'thread' ) . '.*', 'ums_conversation' ),
 			'conds' => array(
 				'ums_user' => $this->user->getId(),
 				'thread_type != ' . $this->mDb->addQuotes( Threads::TYPE_DELETED ),
