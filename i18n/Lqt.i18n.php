@@ -7774,6 +7774,7 @@ $messages['hil'] = array(
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  * @author Ex13
+ * @author Herr Mlinka
  * @author Roberta F.
  * @author SpeedyGonsales
  */
@@ -7840,8 +7841,6 @@ Može biti:
 	'lqt-newer' => 'nikad',
 	'lqt-read-message' => 'Označi kao pročitano',
 	'lqt-email-undo' => 'Vrati',
-	'lqt-messages-sent' => 'Poruke poslane Vama:',
-	'lqt-other-messages' => 'Poruke na drugim stranicama za razgovor:',
 	'lqt-no-new-messages' => 'Nemate novih poruka.',
 	'lqt-new-messages' => '✒ Imate novih poruka.',
 	'lqt-newmessages-context' => 'Cijela rasprava',
@@ -7894,6 +7893,7 @@ Možete ga vidjeti na <$6>",
 	'lqt-search-legend' => 'Pretraži raspravu na ovoj stranici',
 	'lqt-search-label' => 'Pojmovi pretrage:',
 	'lqt-search-button' => 'Traži',
+	'lqt-cancel-subject-edit' => 'Odustani',
 	'lqt-drag-reason' => 'Razlog:',
 	'lqt-feed-title-all' => '{{SITENAME}} — Novi komentari',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Novi komentari suradnika $1',
