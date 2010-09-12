@@ -70,12 +70,16 @@ class NewMessages {
 		} else {
 			throw new MWException( "writeUserMessageState expected User or integer but got $user" );
 		}
+		
+		
+		$conversation = Threads::withId($thread_id)->topmostThread()->id();
 
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->replace(
 			'user_message_state', array( array( 'ums_user', 'ums_thread' ) ),
 			array( 'ums_user' => $user_id, 'ums_thread' => $thread_id,
-			'ums_read_timestamp' => $timestamp ), __METHOD__
+			'ums_read_timestamp' => $timestamp, 'ums_conversation' => $conversation ),
+			__METHOD__
 		);
 
 		self::recacheMessageCount( $user_id );
@@ -208,7 +212,8 @@ class NewMessages {
 				$insertRows[] = array(
 					'ums_user' => $u,
 					'ums_thread' => $t->id(),
-					'ums_read_timestamp' => null
+					'ums_read_timestamp' => null,
+					'ums_conversation' => $t->topmostThread()->id(),
 				);
 			}
 
