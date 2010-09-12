@@ -8189,6 +8189,7 @@ $messages['ht'] = array(
  * @author Dani
  * @author Enbéká
  * @author Glanthor Reviol
+ * @author Hunyadym
  * @author Tgr
  */
 $messages['hu'] = array(
@@ -8315,8 +8316,6 @@ Az őket tartalmazó vitalapokon továbbra is megtekinthetőek lesznek.',
 	'lqt-marked-read' => "A(z) '''$1''' beszélgetésfolyam olvasottnak lett jelölve.",
 	'lqt-count-marked-read' => '$1 beszélgetés olvasottnak lett jelölve.',
 	'lqt-email-undo' => 'Visszavonás',
-	'lqt-messages-sent' => 'Neked küldött üzenetek:',
-	'lqt-other-messages' => 'Üzenetek más vitalapokon:',
 	'lqt-no-new-messages' => 'Nincsenek új üzeneteid.',
 	'lqt-new-messages' => '✒ Új üzeneteid vannak.',
 	'lqt-email-info-undo' => 'A most eltüntetett beszélgetésfolyam visszaállítása.',
@@ -8416,7 +8415,7 @@ Az aláírásod automatikusan meg fog jelenni.',
 	'lqt-ajax-no-subject' => 'Meg kell adnod a tárgyat.',
 	'lqt-save-subject-error-unknown' => 'A beszélgetésfolyam témájának megváltoztatása közben hiba történt. Próbálkozz újra a legfelső hozzászólás mellett található „szerkesztés”-re való kattintással.',
 	'lqt-cancel-subject-edit' => 'Mégse',
-	'lqt-drag-activate' => 'Húzzd az új helyre',
+	'lqt-drag-activate' => 'Húzd az új helyre',
 	'lqt-drag-drop-zone' => 'Helyezd ide',
 	'lqt-drag-confirm' => 'A művelet befejezéseként kérlek töltsd ki az indoklást, majd kattints a „Megerősítés” gombra.',
 	'lqt-drag-reparent' => 'Hozzászólás áthelyezése másik hozzászólás alá.',
@@ -17668,7 +17667,10 @@ Bunu <$6> adresinde görebilirsin.",
 $messages['tt-cyrl'] = array(
 	'lqt_subject' => 'Тема:',
 	'lqt_delete_return' => '$1 битенә кайтырга.',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|хат укылган итеп билгеләнде|хатлар укылган итеп билгеләнде|хат укылган итеп билгеләнде}}.',
 	'lqt-email-undo' => 'Кире кагу',
+	'lqt-no-new-messages' => 'Сезнең өчен яңа хатлар юк.',
+	'lqt-new-messages' => '✒ Сезнең өчен яңа хатлар бар.',
 	'lqt-cancel-subject-edit' => 'Баш тарту',
 	'lqt_newmessages' => 'Яңа хатлар',
 	'lqt_newmessages-title' => 'Яңа хатлар',
