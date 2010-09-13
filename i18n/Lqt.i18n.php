@@ -8307,7 +8307,7 @@ ami jelenleg a(z) $2 lap része.',
 	'lqt-older' => 'régebbi',
 	'lqt-newer' => 'újabb',
 	'lqt-searching' => 'Beszélgetésfolyamok keresése',
-	'lqt-read-message' => 'Megjelölés olvasottként',
+	'lqt-read-message' => 'Elolvastam',
 	'lqt-read-message-tooltip' => 'Az üzenet eltávolítása az új üzenetek közül.
 Az őt tartalmazó vitalapon továbbra is megtekinthető lesz.',
 	'lqt-read-all' => 'Az összes megjelölése olvasottként',
