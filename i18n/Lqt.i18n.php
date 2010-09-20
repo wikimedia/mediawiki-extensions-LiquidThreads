@@ -1727,6 +1727,17 @@ $7',
 	'lqt-reply-subpage' => 'яуап бирергә',
 );
 
+/** Bavarian (Boarisch)
+ * @author Mucalexx
+ */
+$messages['bar'] = array(
+	'lqt-new-messages' => 'Du host naiche Nochrichten',
+	'searchprofile-threads' => 'Diskussionen',
+	'lqt_newmessages' => 'Naiche Nochrichten',
+	'lqt_newmessages-title' => 'Naiche Nochrichten',
+	'lqt-newpost-summary' => 'Naicher Diskussionsstrång: $1',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */
@@ -17384,8 +17395,6 @@ Hindi na maibabalik pa mula sa pagkakasakatuparan ang gawaing ito.',
 	'lqt-marked-read' => "Tinatakan bilang nabasa na ang bagting na '''$1'''.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mensahe|mga mensahe}}ng tinatakan bilang nabasa na.',
 	'lqt-email-undo' => 'Ibalik',
-	'lqt-messages-sent' => 'Mga mensaheng ipinadala sa iyo:',
-	'lqt-other-messages' => 'Mga mensaheng nasa ibabaw ng iba pang mga pahina ng usapan:',
 	'lqt-no-new-messages' => 'Walang bagong mga mensahe para sa iyo.',
 	'lqt-new-messages' => '✒ Walang bagong mga mensahe para sa iyo.',
 	'lqt-email-info-undo' => 'Ibalik ang bagting na ipinagwalang-bahala mo.',
@@ -17456,11 +17465,14 @@ Isa itong pagbibigay-alam mula sa {{SITENAME}} na isang bagong sinulid sa $5, '$
 ang nalikha noong $3 noong $4.
 
 Makikita mo ito sa <$6>",
-	'lqt-enotif-reply' => "Kumusta $1,
-Isa itong pagbibigay-alam mula sa {{SITENAME}} na isang bagong tugon sa '$2' sa $5,
-ang nalikha noong $3 noong $4.
+	'lqt-enotif-reply' => "Kumusta $1, 
+Ito ay isang pabatid mula sa {{SITENAME}} na ang isang bagong tugon sa '$2' na nasa $5, 
+ay nalikha noong $3 noong $4. 
 
-Makikita mo ito sa <$6>",
+Makikita mo ito sa <$6> 
+
+Ang teksto ng tugon ay: 
+$7",
 	'lqt-quote-intro' => 'Noong $2 noong $3, si [[User:$1|$1]] ang nagsulat ng:',
 	'lqt-quote' => 'Sipi',
 	'lqt-search-legend' => 'Maghanap sa mga talakayan sa pahinang ito',
@@ -17493,6 +17505,7 @@ Kusang ipinapakita ang lagda.',
 	'lqt-drag-setsortkey' => 'Baguhin ang puwesto ng paskil na nasa pahina',
 	'lqt-drag-bump' => 'Ilipat ang paskil sa itaas ng pahina ng talakayan',
 	'lqt-drag-save' => 'Tiyakin',
+	'lqt-drag-title' => 'Tiyakin ang paghatak',
 	'lqt-drag-reason' => 'Dahilan:',
 	'lqt-drag-subject' => 'Paksa para sa bagong sinulid:',
 	'lqt-edit-signature' => '(baguhin ang lagda)',
