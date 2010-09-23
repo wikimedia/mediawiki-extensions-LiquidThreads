@@ -847,8 +847,16 @@ var liquidThreads = {
 	'handleAJAXSave' : function( e ) {
 		var editform = $j(this).closest('.lqt-edit-form');
 		var type = editform.find('input[name=lqt_method]').val();
-
-		var text = editform.find('#wpTextbox1').val();
+		var wikiEditorContext = editform.find('#wpTextbox1').data( 'wikiEditor-context' );
+		var text;
+		
+		if ( !wikiEditorContext || typeof(wikiEditorContext) == 'undefined' ||
+				! wikiEditorContext.$iframe) {
+			text = editform.find('#wpTextbox1').val();
+		} else {
+			text = wikiEditorContext.$textarea.textSelection( 'getContents' );
+		}
+		
 		var summary = editform.find('#wpSummary').val();
 
 		var signature;
