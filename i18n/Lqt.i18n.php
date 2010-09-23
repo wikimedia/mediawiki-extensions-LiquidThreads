@@ -500,7 +500,7 @@ Parameters are:
 	'lqt-thread-link-title' => 'A form label, for the wikitext link to a thread',
 	'lqt-save-subject' => '{{Identical|Save}}',
 	'lqt-cancel-subject-edit' => '{{Identical|Cancel}}',
-	'lqt-drag-reparent' => 'Description of the action of moving a thread underneath a new parent.
+	'lqt-drag-reparent' => 'Description of the action of moving a thread underneath another, existing parent thread.
 Displayed in a list of actions to confirm in a confirmation dialog.',
 	'lqt-drag-save' => '{{Identical|Confirm}}',
 	'lqt-drag-reason' => '{{Identical|Reason}}',
@@ -10675,6 +10675,7 @@ De „Ongerschreff“ weed automattesch jezeijsch.',
 	'lqt-drag-activate' => 'Op ene neue Plaz träcke',
 	'lqt-drag-drop-zone' => 'Heh hen donn',
 	'lqt-drag-confirm' => 'Öm dat fäädesch ze maache, wat heh dronger opjelėß es, donn jät bei „Jrond“ enfölle, un dann op „{{int:lqt-drag-save}}“ klecke.',
+	'lqt-drag-reparent' => 'Donn dä Beidraach en ene andere Jesprächsfäddem träcke.',
 	'lqt-drag-split' => 'Donn dä Beidraach en ene eije Jeschprääschßfäddem',
 	'lqt-drag-setsortkey' => 'Donn dä Plaz för dä beidraach op dä Sigg ändere',
 	'lqt-drag-bump' => 'Donn dä Beidraach aan der Aanfang vun dä Klaafsigg',
