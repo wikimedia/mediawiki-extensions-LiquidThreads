@@ -25,7 +25,7 @@ var liquidThreads = {
 			return;
 		}
 
-		var query = '&lqt_method=reply&lqt_operand='+thread_id;
+		var params = { 'method' : 'reply', 'thread' : thread_id };
 
 		var repliesElement = $j(container).contents().filter('.lqt-thread-replies');
 		var replyDiv = repliesElement.contents().filter('.lqt-reply-form');
@@ -45,7 +45,7 @@ var liquidThreads = {
 
 		replyDiv = replyDiv[0];
 
-		liquidThreads.injectEditForm( query, replyDiv, e.preload );
+		liquidThreads.injectEditForm( params, replyDiv, e.preload );
 		liquidThreads.currentReplyThread = thread_id;
 	},
 
@@ -88,11 +88,12 @@ var liquidThreads = {
 	'handleNewLink' : function(e) {
 		e.preventDefault();
 
-		var query = '&lqt_method=talkpage_new_thread';
+		var talkpage = $j(this).attr('lqt_talkpage');
+		var params = {'talkpage' : talkpage, 'method' : 'talkpage_new_thread' };
 
-		var container = $j('.lqt-new-thread' );
+		var container = $j('.lqt-new-thread' ).data('lqt-talkpage', talkpage);
 
-		liquidThreads.injectEditForm( query, container );
+		liquidThreads.injectEditForm( params, container );
 		liquidThreads.currentReplyThread = 0;
 	},
 
@@ -105,14 +106,17 @@ var liquidThreads = {
 		var container = $j('<div/>').addClass('lqt-edit-form');
 		parent.contents().fadeOut();
 		parent.append(container);
-		var query='&lqt_method=edit&lqt_operand='+parent.data('thread-id');
+		var params = { 'method' : 'edit', 'thread' : parent.data('thread-id') };
 
-		liquidThreads.injectEditForm( query, container );
+		liquidThreads.injectEditForm( params, container );
 	},
 
-	'injectEditForm' : function(query, container, preload) {
-		var url = wgServer+wgScript+'?lqt_inline=1&title='+encodeURIComponent(wgPageName)+
-					query;
+	'injectEditForm' : function(params, container, preload) {
+		var page = $j(container).closest('.lqt-thread-topmost')
+				.find('.lqt-thread-talkpage-metadata').val();
+		if ( !page ) {
+			page = $j(container).data('lqt-talkpage');
+		}
 
 		liquidThreads.cancelEdit( container );
 
@@ -197,16 +201,22 @@ var liquidThreads = {
 			function() {
 				if ( isIE7 ) {
 					$j(container).empty().show();
-					$j(container).load(wgServer+wgScript,
-							'title='+encodeURIComponent(wgPageName)+
-							query+'&lqt_inline=1', finishSetup );
-				} else {
-					$j(container).load(wgServer+wgScript,
-							'title='+encodeURIComponent(wgPageName)+
-							query+'&lqt_inline=1', finishSetup );
 				}
+				liquidThreads.loadInlineEditForm( params, container, finishSetup );
 			} );
 
+	},
+	
+	'loadInlineEditForm' : function( params, container, callback ) {
+		params['action'] = 'threadaction';
+		params['threadaction'] = 'inlineeditform';
+		
+		liquidThreads.apiRequest( params,
+			function(result) {
+				var content = $j(result.threadaction.inlineeditform.html);
+				$j(container).empty().append(content);
+				callback();
+			} );
 	},
 
 	'doLivePreview' : function( e ) {
@@ -952,7 +962,9 @@ var liquidThreads = {
 
 			e.preventDefault();
 		} else if ( type == 'talkpage_new_thread' ) {
-			liquidThreads.doNewThread( wgPageName, subject, text, summary,
+			var container = editform.closest('.lqt-new-thread');
+			var page = container.data('lqt-talkpage');
+			liquidThreads.doNewThread( page, subject, text, summary,
 					doneCallback, bump, signature );
 
 			e.preventDefault();

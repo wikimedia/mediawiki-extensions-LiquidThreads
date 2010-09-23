@@ -124,6 +124,10 @@ $wgSpecialPages['MergeThread'] = 'SpecialMergeThread';
 // $wgSpecialPages['HotTopics'] = 'SpecialHotTopics';
 $wgSpecialPageGroups['NewMessages'] = 'wiki';
 
+// Embedding
+$wgHooks['OutputPageParserOutput'][] = 'LqtParserFunctions::onAddParserOutput';
+$wgHooks['OutputPageBeforeHTML'][] = 'LqtParserFunctions::onAddHTML';
+
 // Classes
 $wgAutoloadClasses['LqtDispatch'] = $dir . 'classes/Dispatch.php';
 $wgAutoloadClasses['LqtView'] = $dir . 'classes/View.php';
@@ -248,3 +252,6 @@ $wgLiquidThreadsAllowUserControl = true;
 	in specific namespaces.  NULL means either all or none, depending
 	on the above. */
 $wgLiquidThreadsAllowUserControlNamespaces = null;
+
+/** Allow LiquidThreads embedding */
+$wgLiquidThreadsAllowEmbedding = true;

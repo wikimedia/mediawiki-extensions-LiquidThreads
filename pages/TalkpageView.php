@@ -2,6 +2,19 @@
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class TalkpageView extends LqtView {
+	protected $mShowItems = array( 'toc', 'options', 'header' );
+	protected $talkpage;
+	
+	function __construct( &$output, &$article, &$title, &$user, &$request ) {
+		parent::__construct( $output, $article, $title, $user, $request );
+		
+		$this->talkpage = $article;
+	}
+	
+	function setTalkPage($tp) {
+		$this->talkpage = $tp;
+	}
+
 	/* Added to SkinTemplateTabs hook in TalkpageView::show(). */
 	static function customizeTalkpageTabs( $skintemplate, &$content_actions, $view ) {
 		// The arguments are passed in by reference.
@@ -262,7 +275,9 @@ class TalkpageView extends LqtView {
 			$this->output->redirect( $url );
 		}
 
-		$this->showHeader();
+		if ( $this->shouldShow('header') ) {
+			$this->showHeader();
+		}
 
 		$html = '';
 
@@ -274,16 +289,18 @@ class TalkpageView extends LqtView {
 			$newThreadText = wfMsgExt( 'lqt_new_thread', 'parseinline' );
 			$newThreadLink = $sk->link(
 				$this->title, $newThreadText,
-				array( ),
+				array( 'lqt_talkpage' => $this->talkpage->getTitle()->getPrefixedText() ),
 				array( 'lqt_method' => 'talkpage_new_thread' ),
 				array( 'known' )
 			);
 
-			$talkpageHeader .= Xml::tags(
+			$newThreadLink = Xml::tags(
 				'strong',
 				array( 'class' => 'lqt_start_discussion' ),
 				$newThreadLink
 			);
+			
+			$talkpageHeader .= $newThreadLink;
 		}
 
 		$talkpageHeader .= $this->getSearchBox();
@@ -294,7 +311,11 @@ class TalkpageView extends LqtView {
 			$talkpageHeader
 		);
 
-		$this->output->addHTML( $talkpageHeader );
+ 		if ( $this->shouldShow('options') ) {
+ 			$this->output->addHTML( $talkpageHeader );
+ 		} elseif ( $this->shouldShow('simplenew') ) {
+ 			$this->output->addHTML( $newThreadLink );
+ 		}
 
 		if ( $this->methodApplies( 'talkpage_new_thread' ) ) {
 			$params = array( 'class' => 'lqt-new-thread lqt-edit-form' );
@@ -310,9 +331,9 @@ class TalkpageView extends LqtView {
 
 		$threads = $this->getPageThreads( $pager );
 
-		if ( count( $threads ) > 0 ) {
+		if ( count( $threads ) > 0 && $this->shouldShow('toc') ) {
 			$html .= $this->getTOC( $threads );
-		} else {
+		} elseif ( count($threads) == 0 ) {
 			$html .= Xml::tags( 'div', array( 'class' => 'lqt-no-threads' ),
 					wfMsgExt( 'lqt-no-threads', 'parseinline' ) );
 		}
@@ -363,7 +384,7 @@ class TalkpageView extends LqtView {
 	function getPager() {
 
 		$sortType = $this->getSortType();
-		return new LqtDiscussionPager( $this->article, $sortType );
+		return new LqtDiscussionPager( $this->talkpage, $sortType );
 	}
 
 	function getPageThreads( $pager ) {
@@ -389,6 +410,28 @@ class TalkpageView extends LqtView {
 
 		// Default
 		return LQT_NEWEST_CHANGES;
+	}
+	
+	// Hide a number of items from the view
+	// Valid values: toc, options, header
+	function hideItems( $items ) {
+		$this->mShowItems = array_diff( $this->mShowItems, (array)$items );
+	}
+	
+	// Show a number of items in the view
+	// Valid values: toc, options, header
+	function showItems( $items ) {
+		$this->mShowItems = array_merge( $this->mShowItems, (array)$items );
+	}
+	
+	// Whether or not to show an item
+	function shouldShow( $item ) {
+		return in_array( $item, $this->mShowItems );
+	}
+	
+	// Set the items shown
+	function setShownItems( $items ) {
+		$this->mShowItems = $items;
 	}
 }
 

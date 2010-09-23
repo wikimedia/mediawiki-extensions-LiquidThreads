@@ -774,6 +774,35 @@ class ApiThreadAction extends ApiBase {
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
 	
+	public function actionInlineEditForm( $threads, $params ) {
+		$method = $talkpage = $operand = null;
+		
+		if ( isset($params['method']) ) {
+			$method = $params['method'];
+		}
+		
+		if ( isset( $params['talkpage'] ) ) {
+			$talkpage = $params['talkpage'];
+		}
+		
+		if ( $talkpage ) {
+			$talkpage = new Article( Title::newFromText( $talkpage ) );
+		} else {
+			$talkpage = null;
+		}
+		
+		if ( count($threads) ) {
+			$operand = $threads[0];
+			$operand = $operand->id();
+		}
+		
+		$output = LqtView::getInlineEditForm( $talkpage, $method, $operand );
+		
+		$result = array( 'inlineeditform' => array( 'html' => $output ) );
+		
+		$this->getResult()->addValue( null, 'threadaction', $result );
+	}
+	
 	public function getDescription() {
 		return 'Allows actions to be taken on threads and posts in threaded discussions.';
 	}
@@ -791,6 +820,7 @@ class ApiThreadAction extends ApiBase {
 			'edit' => 'actionEdit',
 			'addreaction' => 'actionAddReaction',
 			'deletereaction' => 'actionDeleteReaction',
+			'inlineeditform' => 'actionInlineEditForm',
 		);
 	}
 
@@ -818,6 +848,7 @@ class ApiThreadAction extends ApiBase {
 					'NULL to specify the default signature',
 			'type' => 'Specifies the type of reaction to add',
 			'value' => 'Specifies the value associated with the reaction to add',
+			'method' => 'For getting inline edit forms, the method to get a form for',
 		);
 	}
 	
@@ -877,6 +908,8 @@ class ApiThreadAction extends ApiBase {
 			'signature' => null,
 			'type' => null,
 			'value' => null,
+			'method' => null,
+			'operand' => null,
 		);
 	}
 

@@ -47,6 +47,13 @@ function lqtSetupParserFunctions( &$parser ) {
 		'lqtpagelimit',
 		array( 'LqtParserFunctions', 'lqtPageLimit' )
 	);
+	
+	global $wgLiquidThreadsAllowEmbedding;
+	
+	if ($wgLiquidThreadsAllowEmbedding) {
+		$parser->setHook( 'talkpage', array( 'LqtParserFunctions', 'lqtTalkPage' ) );
+		$parser->setHook( 'thread', array( 'LqtParserFunctions', 'lqtThread' ) );
+	}
 
 	return true;
 }

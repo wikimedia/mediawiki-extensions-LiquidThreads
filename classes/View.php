@@ -308,6 +308,13 @@ class LqtView {
 		$operand = $this->request->getVal( 'lqt_operand' );
 
 		$thread = Threads::withId( intval( $operand ) );
+		
+		// Yuck.
+		global $wgOut, $wgRequest;
+		$oldOut = $wgOut;
+		$oldRequest = $wgRequest;
+		$wgOut = $this->output;
+		$wgRequest = $this->request;
 
 		$hookResult = wfRunHooks( 'LiquidThreadsDoInlineEditForm',
 					array(
@@ -324,9 +331,40 @@ class LqtView {
 			$this->showNewThreadForm( $this->article );
 		} elseif ( $method == 'edit' ) {
 			$this->showPostEditingForm( $thread );
+		} else {
+			throw new MWException( "Invalid thread method $method" );
 		}
+		
+		$wgOut = $oldOut;
+		$wgRequest = $oldRequest;
 
 		$this->output->setArticleBodyOnly( true );
+	}
+	
+	static function getInlineEditForm( $talkpage, $method, $operand ) {
+		$output = new OutputPage;
+		$request = new FauxRequest( array() );
+		$title = null;
+		
+		if ( $talkpage ) {
+			$title = $talkpage->getTitle();
+		} elseif ( $operand ) {
+			$thread = Threads::withId( $operand );
+			if ( $thread ) {
+				$talkpage = $thread->article();
+				$title = $talkpage->getTitle();
+			}
+		}
+		
+		$request->setVal( 'lqt_method', $method );
+		$request->setVal( 'lqt_operand', $operand );
+		
+		global $wgUser;
+		$view = new LqtView( $output, $talkpage, $title, $wgUser, $request );
+		
+		$view->doInlineEditForm();
+		
+		return $output->getHTML();
 	}
 
 	function showNewThreadForm( $talkpage ) {
@@ -1930,6 +1968,14 @@ class LqtView {
 				'lqt-thread-sortkey',
 				$thread->sortkey(),
 				array( 'id' => 'lqt-thread-sortkey-' . $thread->id() )
+			);
+			
+			$html .= Xml::hidden(
+				'lqt-thread-talkpage-' . $thread->id(),
+				$thread->article()->getTitle()->getPrefixedText(),
+				array(
+					'class' => 'lqt-thread-talkpage-metadata',
+				)
 			);
 		}
 
