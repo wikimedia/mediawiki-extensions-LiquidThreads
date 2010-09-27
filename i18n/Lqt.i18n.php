@@ -2597,7 +2597,7 @@ bet savet d'an $3 da $4.
 
 E lenn a c'hallit ober war <$6>
 
-Testenn ar respont a zo:
+Testenn ar respont zo :
 $7",
 	'lqt-quote-intro' => "D'an $2 da $3, eo bet skrivet gant [[User:$1|$1]] :",
 	'lqt-quote' => 'Menegiñ',
