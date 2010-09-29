@@ -16636,6 +16636,39 @@ $messages['szl'] = array(
 	'lqt_move_move' => 'Przećep',
 );
 
+/** Tamil (தமிழ்)
+ * @author TRYPPN
+ */
+$messages['ta'] = array(
+	'lqt_add_header' => 'தலைப்பைக் கொடுக்கவும்',
+	'lqt_empty_subject' => 'தாங்கள் இதற்கான ஒரு தலைப்பைக் கொடுக்கவும்',
+	'lqt_reply' => 'பதில் அளி',
+	'lqt_delete' => 'நீக்கவும்',
+	'lqt_undelete' => 'நீக்கத்தை நிறுத்து',
+	'lqt_protectedfromreply_link' => 'காக்கப்பட்டது',
+	'lqt_subject' => 'பொருள்:',
+	'lqt_move_torename_edit' => 'இதைத் தொகுக்கவும்',
+	'lqt_move_move' => 'நகர்த்தவும்',
+	'lqt-title' => 'தலைப்பு',
+	'lqt-summary' => 'சுருக்கம்',
+	'lqt-older' => 'பழையது',
+	'lqt-newer' => 'புதியது',
+	'lqt-thread-created' => 'உருவாக்கப்பட்டுவிட்டது',
+	'lqt-history-time' => 'நேரம்',
+	'lqt-history-user' => 'பயனர்',
+	'lqt-history-action' => 'செயல்',
+	'lqt-header-actions' => 'செயல்கள்',
+	'lqt-movethread' => 'நகர்த்தவும்',
+	'lqt-menu-trigger' => 'மேலும்',
+	'lqt-merge-submit' => 'இணைக்கவும்',
+	'lqt-ajax-update-link' => 'புதுப்பி',
+	'lqt-cancel-subject-edit' => 'விட்டுவிடு',
+	'lqt-drag-save' => 'உறுதிப்படுத்து',
+	'lqt-drag-reason' => 'காரணம்:',
+	'lqt-talkpage-history-tab' => 'தலைப்பு',
+	'lqt-reply-subpage' => 'பதில்',
+);
+
 /** Telugu (తెలుగు)
  * @author Kiranmayee
  * @author Veeven
