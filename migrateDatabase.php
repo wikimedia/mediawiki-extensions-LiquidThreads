@@ -34,19 +34,19 @@ $newTableUpdates = array( 'thread_history' => 'thread_history_table.sql' );
 
 foreach ( $threadFieldUpdates as $field => $patch ) {
 	if ( !$db->fieldExists( 'thread', $field, 'lqt-update-script' ) ) {
-		dbsource( dirname( __FILE__ ) . '/schema-changes/' . $patch );
+		$db->sourceFile( dirname( __FILE__ ) . '/schema-changes/' . $patch );
 	}
 }
 
 foreach ( $threadIndexUpdates as $index => $patch ) {
 	if ( !$db->indexExists( 'thread', $index, 'lqt-update-script' ) ) {
-		dbsource( dirname( __FILE__ ) . '/schema-changes/' . $patch );
+		$db->sourceFile( dirname( __FILE__ ) . '/schema-changes/' . $patch );
 	}
 }
 
 foreach ( $newTableUpdates as $table => $patch ) {
 	if ( !$db->tableExists( $table, 'lqt-update-script' ) ) {
-		dbsource( dirname( __FILE__ ) . '/schema-changes/' . $patch );
+		$db->sourceFile( dirname( __FILE__ ) . '/schema-changes/' . $patch );
 	}
 }
 
