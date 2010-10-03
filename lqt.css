@@ -273,9 +273,8 @@ body.skin-monobook li#ca-nstab-thread {
 
 .lqt-thread-actions-icon {
 	display: block;
-	width: 3em;
 	height: 2em;
-	padding-right: 0.5em;
+	padding-right: 18px; /* img is 16px */
 	background-image: url('icons/arrow-down-icon.png');
 	background-position: right center;
 	background-repeat: no-repeat;
