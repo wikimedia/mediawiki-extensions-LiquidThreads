@@ -335,6 +335,7 @@ The signature is shown automatically.',
  * @author Malafaya
  * @author Minh Nguyen
  * @author Mormegil
+ * @author Nike
  * @author Purodha
  * @author Raymond
  * @author SPQRobin
@@ -351,6 +352,7 @@ $messages['qqq'] = array(
 	'lqt_reply' => 'is this noun or verb?
 
 :Probably a verb; see also {{msg-mw|Lqt delete}} and {{msg-mw|Lqt undelete}}.',
+	'lqt-parent' => 'Link to the parent reply.',
 	'lqt_delete' => '{{Identical|Delete}}',
 	'lqt_undelete' => '{{Identical|Undelete}}',
 	'lqt_permalink' => "{{doc-important|This message is not followed by a parameter. The English version is short for '''Link to this post'''. It could also be translated as \"Perma[nent ]link\".}} Text for a link to the specific object (e.g. thread summary or discussion fragment).",
@@ -9680,7 +9682,7 @@ $messages['ja'] = array(
 	'lqt-delete-parent-deleted' => '親スレッド削除済み ($1)',
 	'lqt-delete-replies-done' => 'このスレッドへの返信もすべて削除されました。',
 	'lqt-movethread' => '移動',
-	'lqt-menu-trigger' => '続き',
+	'lqt-menu-trigger' => 'その他',
 	'lqt-newmessages-from' => '$1 より',
 	'lqt-hot-topics' => 'ホットな話題',
 	'lqt-add-reply' => '返信',
