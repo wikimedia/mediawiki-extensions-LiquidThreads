@@ -18200,8 +18200,10 @@ Na olta fata sta operassion, no se pole mia anularla.',
 	'lqt-history-action' => 'Atività',
 	'lqt-history-comment' => 'Comento',
 	'lqt-history-thread' => 'Argomento',
-	'lqt-thread-edited-author' => "Modifegà de l'autor",
-	'lqt-thread-edited-others' => 'Modifegà da altri utenti',
+	'lqt-thread-edited-author' => "Modifegà da l'autor.<br/>
+Ultima modìfega: $1",
+	'lqt-thread-edited-others' => "Modifegà da {{PLURAL:$2|n'altro utente|$2 altri utenti}}.<br/>
+Ultima modìfega: $1",
 	'lqt-header-actions' => 'Azioni',
 	'lqt_summarize_link' => 'Riassumi',
 	'lqt-summarize-intro' => 'Par piaser, riassumi l\'argomento drento la casèla.
