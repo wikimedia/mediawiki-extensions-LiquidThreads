@@ -2938,6 +2938,8 @@ Potpis će se prikazati automatski.',
 	'lqt-edit-bump-tooltip' => 'Premjesti ovaj niz na vrh njegove stranice za razgovor',
 	'lqt-historicalrevision-error' => 'Revizija koju ste odabrali je oštećena i ne može se pogledati.',
 	'lqt-reply-subpage' => 'odgovor',
+	'nstab-thread' => 'Niz',
+	'nstab-summary' => 'Sažetak',
 );
 
 /** Catalan (Català)
@@ -3868,6 +3870,8 @@ Die Signatur wird automatisch ergänzt.',
 	'lqt-edit-bump-tooltip' => 'Diesen Diskussionsstrang an den Seitenanfang verschieben',
 	'lqt-historicalrevision-error' => 'Die ausgewählte Version ist beschädigt und kann nicht angezeigt werden.',
 	'lqt-reply-subpage' => 'antworten',
+	'nstab-thread' => 'Diskussionsthemen',
+	'nstab-summary' => 'Diskussionszusammenfassung',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
@@ -6099,6 +6103,7 @@ Allekirjoitus näytetään automaattisesti.',
 	'lqt-edit-bump-tooltip' => 'Siirrä tämä ketju keskustelusivun ylimmäksi',
 	'lqt-historicalrevision-error' => 'Valitsemasi versio on korruptoitunut – eikä sitä voida näyttää.',
 	'lqt-reply-subpage' => 'vastaa',
+	'nstab-thread' => 'Säie',
 );
 
 /** French (Français)
@@ -8824,6 +8829,8 @@ Le signatura es adjungite automaticamente.',
 	'lqt-edit-bump-tooltip' => 'Repositionar iste filo in alto del pagina de discussion',
 	'lqt-historicalrevision-error' => 'Le version que tu ha seligite es defectuose e non pote esser visualisate.',
 	'lqt-reply-subpage' => 'responsa',
+	'nstab-thread' => 'Filo',
+	'nstab-summary' => 'Summary',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -18486,7 +18493,7 @@ Thay vào đó bạn có thể muốn $2.',
 	'lqt_sort_newest_threads' => 'xem các luồng mới nhất trước',
 	'lqt_sort_oldest_threads' => 'xem các luồng cũ nhất trước',
 	'lqt-title' => 'Chủ đề',
-	'lqt-summary' => 'Tóm tắt',
+	'lqt-summary' => 'Tóm lược',
 	'lqt-older' => 'cũ hơn',
 	'lqt-newer' => 'mới hơn',
 	'lqt-searching' => 'Đang tìm kiếm luồng',
@@ -18637,6 +18644,8 @@ $7',
 	'lqt-edit-bump-tooltip' => 'Chuyển luồng này lên đầu trang thảo luận',
 	'lqt-historicalrevision-error' => 'Không thể hiển thị phiên bản đã chọn vì nó bị hỏng.',
 	'lqt-reply-subpage' => 'trả lời',
+	'nstab-thread' => 'Luồng',
+	'nstab-summary' => 'Tóm lược',
 );
 
 /** Volapük (Volapük)
@@ -18724,9 +18733,13 @@ $messages['yi'] = array(
 	'lqt_hist_undeleted' => 'צוריקגעשטעלט',
 	'lqt_hist_moved_talkpage' => 'באַװעגט',
 	'lqt_move_torename_edit' => 'באַאַרבעטס עס',
+	'lqt_move_move' => 'באַװעגן',
 	'lqt-title' => 'טיטל',
+	'lqt-summary' => 'רעזומע',
 	'lqt-history-time' => 'צײַט',
+	'lqt-history-user' => 'באַניצער',
 	'lqt-search-button' => 'זוכן',
+	'searchprofile-threads' => 'דיסקוסיעס',
 );
 
 /** Cantonese (粵語)
