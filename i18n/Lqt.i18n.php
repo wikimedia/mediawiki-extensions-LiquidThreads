@@ -315,6 +315,10 @@ The signature is shown automatically.',
 	// Reply subpage name
 	'lqt-reply-subpage' => 'reply',
 
+	// Tabs in skins
+	'nstab-thread' => 'Thread',
+	'nstab-summary' => 'Summary',
+
 );
 
 /** Message documentation (Message documentation)
