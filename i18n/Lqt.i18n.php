@@ -470,7 +470,8 @@ threads on a wiki',
 * $2 is the link text to the source page the topic was moved from
 * $3 is the link text to the target page the topic was moved to',
 	'lqt-preference-notify-talk' => 'This appears in [[Special:Preferences]].',
-	'lqt-preference-display-depth' => 'Used in Special:Preferences, tab Threaded Discussion (where Liquid Thread extension is installed).',
+	'lqt-preference-display-depth' => 'Used in Special:Preferences, tab Threaded Discussion (where Liquid Thread extension is installed).
+Depth refers to the nesting of replies that were given to replies to replies, etc. which is shown on-screen as indents in the discussion threads.',
 	'lqt-preference-display-count' => 'Used in [[Special:Preferences]], tab “{{int:prefs-lqt}}” (where Liquid Thread extension is installed).',
 	'lqt-preference-custom-signatures' => "Checkbox in [[Special:Preferences]], tab ''{{int:prefs-lqt}}''",
 	'lqt-enotif-subject-reply' => 'This is the subject header of an e-mail notification.
@@ -2016,6 +2017,7 @@ $7",
 	'lqt-edit-bump-tooltip' => 'Перанесьці гэту галіну ў верхнюю частку старонкі абмеркаваньня',
 	'lqt-historicalrevision-error' => 'Вэрсія, якую Вы выбралі, пашкоджаная і ня можа быць паказаная.',
 	'lqt-reply-subpage' => 'адказаць',
+	'nstab-thread' => 'Галіна',
 );
 
 /** Bulgarian (Български)
@@ -3545,6 +3547,8 @@ Podpis se zobrazuje automaticky.',
 	'lqt-edit-bump-tooltip' => 'Posunout toto vlákno navrch diskusní stránky',
 	'lqt-historicalrevision-error' => 'Zvolená revize je poškozena a nelze ji zobrazit.',
 	'lqt-reply-subpage' => 'odpověď',
+	'nstab-thread' => 'Vlákno',
+	'nstab-summary' => 'Shrnutí',
 );
 
 /** Kashubian (Kaszëbsczi)
@@ -3869,8 +3873,8 @@ Die Signatur wird automatisch ergänzt.',
 	'lqt-edit-bump' => 'Diese Diskussion anstoßen',
 	'lqt-edit-bump-tooltip' => 'Diesen Diskussionsstrang an den Seitenanfang verschieben',
 	'lqt-historicalrevision-error' => 'Die ausgewählte Version ist beschädigt und kann nicht angezeigt werden.',
-	'lqt-reply-subpage' => 'antworten',
-	'nstab-thread' => 'Diskussionsthemen',
+	'lqt-reply-subpage' => 'Antwort',
+	'nstab-thread' => 'Diskussionsthema',
 	'nstab-summary' => 'Diskussionszusammenfassung',
 );
 
@@ -7298,6 +7302,8 @@ D Signatur wird automatisch aazeigt.',
 	'lqt-edit-bump-tooltip' => 'Dää Strang obe uf d Diskussionssyte derzue verschiebe',
 	'lqt-historicalrevision-error' => 'D Version, wu Du uusgwehlt hesch, isch hii, un cha nit aagluegt wäre',
 	'lqt-reply-subpage' => 'Antwort gee',
+	'nstab-thread' => 'Diskussionsstrang',
+	'nstab-summary' => 'Zämmefassig',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -9796,6 +9802,8 @@ $7',
 	'lqt-edit-bump-tooltip' => 'このスレッドを議論ページの先頭に移動する',
 	'lqt-historicalrevision-error' => '選択した版は壊れているため表示できません。',
 	'lqt-reply-subpage' => '返信',
+	'nstab-thread' => 'スレッド',
+	'nstab-summary' => '要約',
 );
 
 /** Lojban (Lojban)
@@ -10641,7 +10649,7 @@ Künnt sin, De wells en $2 han.',
 	'lqt-preference-notify-talk' => 'Donn mer en <i lang="en">e-mail</i> schecke, wann ene {{int:lqt-history-thread}} op minge Oppaßleß jeändert weet',
 	'lqt-preference-watch-threads' => 'Donn de {{int:lqt-history-thread}}e för op ming Oppassles ze donn vörschlonn, woh esch drop antwooden udder di esch aanfangen',
 	'prefs-lqt' => 'Klaaf met {{int:lqt-history-thread}}e',
-	'lqt-preference-display-depth' => 'Wi wigg Antwoote aanjezeisch wääde sulle',
+	'lqt-preference-display-depth' => 'Wi deef Antwoote op Antwoote aanjezeisch wääde sulle:',
 	'lqt-preference-display-count' => 'De hühßte Aanzahl Antwoote zom Zeije',
 	'lqt-preference-custom-signatures' => 'Donn de selfßjemaate „Ongerschreffte“ vun de Metmaacher anzeije',
 	'lqt-enotif-subject-reply' => 'Klaaf op de {{SITENAME}} - ene neue Beijraach zom Teema: $1',
@@ -11005,6 +11013,8 @@ $7",
 	'lqt-edit-bump-tooltip' => 'Dës Rubrik uewen op hir Diskusiounssäit réckelen',
 	'lqt-historicalrevision-error' => 'Déi Versioun déi Dir erausgesicht hutt ass futti a kann net gewise ginn.',
 	'lqt-reply-subpage' => 'äntwerten',
+	'nstab-thread' => 'Rubrik',
+	'nstab-summary' => 'Resumé',
 );
 
 /** Ganda (Luganda)
@@ -11623,6 +11633,8 @@ $7',
 	'lqt-edit-bump-tooltip' => 'Премести ја нишкава на врвот од нејзината страницата за разговор',
 	'lqt-historicalrevision-error' => 'Ревизијата која ја одбравте има грешки, и не може да се прегледа.',
 	'lqt-reply-subpage' => 'одговори',
+	'nstab-thread' => 'Нишка',
+	'nstab-summary' => 'Опис',
 );
 
 /** Malayalam (മലയാളം)
@@ -11894,6 +11906,8 @@ $5 താളിലെ '$2' എന്നതിനു പുതിയൊരു മ
 	'lqt-edit-bump-tooltip' => 'ഈ ചരട് അതിന്റെ സംവാദം താളിന്റെ ഏറ്റവും മുകളിലേയ്ക്ക് മാറ്റുക',
 	'lqt-historicalrevision-error' => 'താങ്കൾ തിരഞ്ഞെടുത്ത നാൾപ്പതിപ്പിൽ പിഴവുണ്ട്, അത് കാണാൻ സാധ്യമല്ല.',
 	'lqt-reply-subpage' => 'മറുപടി',
+	'nstab-thread' => 'ചരട്',
+	'nstab-summary' => 'ചുരുക്കം',
 );
 
 /** Mongolian (Монгол)
@@ -12362,6 +12376,8 @@ Wijzig het onderwerp door op "Bewerken" te klikken in de bovenste bijdrage.',
 	'lqt-edit-bump-tooltip' => 'Dit overleg activeren door het bovenaan de overlegpagina te plaatsen',
 	'lqt-historicalrevision-error' => 'De door u geselecteerde versie is beschadigd en kan niet bekeken worden.',
 	'lqt-reply-subpage' => 'antwoord',
+	'nstab-thread' => 'Onderwerp',
+	'nstab-summary' => 'Samenvatting',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -12876,6 +12892,8 @@ Signaturen vises automatisk.',
 	'lqt-edit-bump-tooltip' => 'Flytt denne tråden til toppen av dens diskusjonsside',
 	'lqt-historicalrevision-error' => 'Revisjonen du har valgt er korrupt, og kan ikke vises.',
 	'lqt-reply-subpage' => 'svar',
+	'nstab-thread' => 'Tråd',
+	'nstab-summary' => 'Sammendrag',
 );
 
 /** Northern Sotho (Sesotho sa Leboa)
@@ -13457,6 +13475,8 @@ Podpis jest wyświetlany automatycznie.',
 	'lqt-edit-bump-tooltip' => 'Przesuń wątek na początek strony dyskusji',
 	'lqt-historicalrevision-error' => 'Wybrana wersja jest uszkodzona i nie można jej wyświetlić.',
 	'lqt-reply-subpage' => 'odpowiedź',
+	'nstab-thread' => 'Wątek',
+	'nstab-summary' => 'Podsumowanie',
 );
 
 /** Piedmontese (Piemontèis)
@@ -14061,6 +14081,8 @@ A assinatura é apresentada automaticamente.',
 	'lqt-edit-bump-tooltip' => 'Mover este tópico para o topo da página de discussão',
 	'lqt-historicalrevision-error' => 'A revisão que seleccionou está corrompida e não pode ser vista.',
 	'lqt-reply-subpage' => 'resposta',
+	'nstab-thread' => 'Tópico',
+	'nstab-summary' => 'Resumo',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -14336,6 +14358,8 @@ A assinatura é apresentada automaticamente.',
 	'lqt-edit-bump-tooltip' => 'Mover este tópico para o topo da página de discussão',
 	'lqt-historicalrevision-error' => 'A revisão que você selecionou está corrompida e não pode ser visualizada.',
 	'lqt-reply-subpage' => 'responder',
+	'nstab-thread' => 'Tópico',
+	'nstab-summary' => 'Sumário',
 );
 
 /** Tarifit (Tarifit)
@@ -15099,6 +15123,8 @@ $7',
 	'lqt-edit-bump-tooltip' => 'Перенести эту ветку в начало её страницы обсуждения',
 	'lqt-historicalrevision-error' => 'Выбранная версия повреждена, она не может быть просмотрена.',
 	'lqt-reply-subpage' => 'ответить',
+	'nstab-thread' => 'Ветка',
+	'nstab-summary' => 'Описание',
 );
 
 /** Rusyn (Русиньскый)
@@ -16632,6 +16658,8 @@ $messages['sw'] = array(
 	'lqt-history-comment' => 'Maelezo',
 	'lqt-header-actions' => 'Vitendo',
 	'lqt-movethread' => 'Sogeza',
+	'lqt-preference-notify-talk' => 'Unitumie barua pepe mada ninayofuata inapojibiwa',
+	'lqt-preference-display-count' => 'Upeo wa idadi ya majibu ya kuonyesha:',
 	'lqt-search-button' => 'Tafuta',
 	'lqt-thread-link-url' => 'KISARA ya kiungo:',
 	'lqt-save-subject' => 'Hifadhi',
