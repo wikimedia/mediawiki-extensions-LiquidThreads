@@ -541,6 +541,7 @@ Displayed in a list of actions to confirm in a confirmation dialog.',
 	'lqt-reply-subpage' => 'Part of the page title when a LiquidThread answer is given. Should probably be translated as a noun and not as a verb.
 
 {{Identical|Reply}}',
+	'nstab-summary' => '{{Identical|Summary}}',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -2018,6 +2019,7 @@ $7",
 	'lqt-historicalrevision-error' => 'Вэрсія, якую Вы выбралі, пашкоджаная і ня можа быць паказаная.',
 	'lqt-reply-subpage' => 'адказаць',
 	'nstab-thread' => 'Галіна',
+	'nstab-summary' => 'Апісаньне',
 );
 
 /** Bulgarian (Български)
@@ -2669,6 +2671,8 @@ Dont a raio ar sinadur war wel e-unan",
 	'lqt-edit-bump-tooltip' => 'Kas an neudennad-mañ e laez ar bajenn gaozeal',
 	'lqt-historicalrevision-error' => "An adweladenn ho peus dibabet a zo fall, dre-se ne c'hell ket bezañ diskouezet.",
 	'lqt-reply-subpage' => 'respont',
+	'nstab-thread' => 'Neudennad',
+	'nstab-summary' => 'Diverradur',
 );
 
 /** Bosnian (Bosanski)
@@ -6389,6 +6393,8 @@ La signature est affichée automatiquement.',
 	'lqt-edit-bump-tooltip' => 'Déplacer ce fil en haut de la page de discussion.',
 	'lqt-historicalrevision-error' => 'La révision que vous avez sélectionné est corrompue et ne peut pas être affichée.',
 	'lqt-reply-subpage' => 'répondre',
+	'nstab-thread' => 'Fil de discussion',
+	'nstab-summary' => 'Résumé',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -13751,6 +13757,8 @@ La firma a l'é mostrà automaticament.",
 	'lqt-edit-bump-tooltip' => 'Tramudé cost argoment an cò ëd soa pàgina ëd discussion',
 	'lqt-historicalrevision-error' => "La revision ch'it l'has selessionà a l'é delabrà, e a peul pa esse mostrà.",
 	'lqt-reply-subpage' => 'arspond',
+	'nstab-thread' => 'Discussion',
+	'nstab-summary' => 'Resumé',
 );
 
 /** Pashto (پښتو)
@@ -15010,7 +15018,7 @@ $messages['ru'] = array(
 	'lqt-thread-split-thread' => 'Ветка:',
 	'lqt-split-submit' => 'Разделить',
 	'lqt_split_badsubject' => 'Указанный вами заголовок не может быть использован.',
-	'lqt-no-threads' => 'На этой странице ещё нет веток.',
+	'lqt-no-threads' => 'На этой странице ещё нет веток обсуждений.',
 	'lqt-delete-parent-warning' => 'Это ветка верхнего уровня, имеющая ответы.
 Все ответы также будут автоматически удалены.
 Чтобы избежать этого, перед удалением ветки вынесите из неё ответы.',
@@ -17512,6 +17520,8 @@ Kusang ipinapakita ang lagda.',
 	'lqt-edit-bump-tooltip' => 'Ilipat ang sinulid na ito sa itaas ng kanyang pahina ng talakayan',
 	'lqt-historicalrevision-error' => 'Ang napili mong pagbabago ay mali-mali, at hindi maaaring matingnan.',
 	'lqt-reply-subpage' => 'tumugon',
+	'nstab-thread' => 'Sinulid',
+	'nstab-summary' => 'Buod',
 );
 
 /** Turkish (Türkçe)
