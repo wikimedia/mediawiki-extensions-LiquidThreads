@@ -470,8 +470,16 @@ threads on a wiki',
 * $2 is the link text to the source page the topic was moved from
 * $3 is the link text to the target page the topic was moved to',
 	'lqt-preference-notify-talk' => 'This appears in [[Special:Preferences]].',
-	'lqt-preference-display-depth' => 'Used in Special:Preferences, tab Threaded Discussion (where Liquid Thread extension is installed).
-Depth refers to the nesting of replies that were given to replies to replies, etc. which is shown on-screen as indents in the discussion threads.',
+	'lqt-preference-display-depth' => "Used in Special:Preferences, tab Threaded Discussion (where Liquid Thread extension is installed).
+Depth refers to the nesting of replies that were given to replies to replies, etc. which is shown on-screen as indents in the discussion threads.
+
+In other words, 'depth' is the number of idents that will be displayed for a thread (''reply (5) to reply (4) to reply (3) to reply (2) of original post (1)'').
+<pre>
+-- ORIGINAL (depth 1)
+ |-- reply 1 (depth 2)
+   |-- reply 2 (reply to reply 1) (depth 3)
+ |-- reply 3 (reply to reply 1) (depth 2)
+</pre>",
 	'lqt-preference-display-count' => 'Used in [[Special:Preferences]], tab “{{int:prefs-lqt}}” (where Liquid Thread extension is installed).',
 	'lqt-preference-custom-signatures' => "Checkbox in [[Special:Preferences]], tab ''{{int:prefs-lqt}}''",
 	'lqt-enotif-subject-reply' => 'This is the subject header of an e-mail notification.
@@ -7005,6 +7013,8 @@ $7',
 	'lqt-edit-bump-tooltip' => 'Mover este fío ao inicio da páxina de conversa',
 	'lqt-historicalrevision-error' => 'A revisión que seleccionou está corrompida e non se pode ver.',
 	'lqt-reply-subpage' => 'resposta',
+	'nstab-thread' => 'Fío',
+	'nstab-summary' => 'Resumo',
 );
 
 /** Gothic (Gothic)
@@ -8026,6 +8036,8 @@ Potpis se prikazuje automatski.',
 	'lqt-edit-bump-tooltip' => 'Premjesti ovu temu na vrh njene stranice za razgovor',
 	'lqt-historicalrevision-error' => 'Inačica koju ste odabrali je oštećena, i ne može biti pregledana.',
 	'lqt-reply-subpage' => 'odgovor',
+	'nstab-thread' => 'Tema',
+	'nstab-summary' => 'Sažetak',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
