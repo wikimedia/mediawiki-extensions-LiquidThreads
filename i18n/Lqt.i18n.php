@@ -3230,6 +3230,8 @@ La signatura es mostrarà automàticament.',
 	'lqt-edit-bump-tooltip' => 'Mou el fil a la part superior de la pàgina de discussió',
 	'lqt-historicalrevision-error' => 'La revisió que heu seleccionat és corrupte, i no pot visualitzar-se.',
 	'lqt-reply-subpage' => 'contesta',
+	'nstab-thread' => 'Fil',
+	'nstab-summary' => 'Resum',
 );
 
 /** Chechen (Нохчийн)
@@ -8302,6 +8304,8 @@ Podpis pokazuje so awtomatisce.',
 	'lqt-edit-bump-tooltip' => 'Tutu nitku do spočatka jeje diskusijneje strony přesunyć',
 	'lqt-historicalrevision-error' => 'Wersija, kotruž sy wubrał, je wobškodźena a njeda so pokazać.',
 	'lqt-reply-subpage' => 'wotmołwić',
+	'nstab-thread' => 'Nitka',
+	'nstab-summary' => 'Zjeće',
 );
 
 /** Haitian (Kreyòl ayisyen)
@@ -16657,6 +16661,8 @@ Signaturen visas automatiskt.',
 	'lqt-edit-bump-tooltip' => 'Flytta denna tråd till överst på sin diskussionssida',
 	'lqt-historicalrevision-error' => 'Versionen du har valt är korrupt, och kan inte visas.',
 	'lqt-reply-subpage' => 'svar',
+	'nstab-thread' => 'Tråd',
+	'nstab-summary' => 'Sammanfattning',
 );
 
 /** Swahili (Kiswahili)
@@ -16679,6 +16685,7 @@ $messages['sw'] = array(
 	'lqt-header-actions' => 'Vitendo',
 	'lqt-movethread' => 'Sogeza',
 	'lqt-preference-notify-talk' => 'Unitumie barua pepe mada ninayofuata inapojibiwa',
+	'lqt-preference-display-depth' => 'Upeo wa kina ya majibu yanayoonyeshwa:',
 	'lqt-preference-display-count' => 'Upeo wa idadi ya majibu ya kuonyesha:',
 	'lqt-search-button' => 'Tafuta',
 	'lqt-thread-link-url' => 'KISARA ya kiungo:',
@@ -16801,6 +16808,7 @@ $messages['te'] = array(
 	'lqt_delete_return' => 'తిరిగి $1కి.',
 	'lqt_delete_return_link' => 'చర్చా పేజీ',
 	'lqt_delete_unallowed' => 'మీరు చర్చాహారాలని తొలగించలేరు.',
+	'lqt_delete_show_checkbox' => 'తొలగించిన చర్చాహారాలను చూపించు',
 	'lqt_header_warning_big' => 'మీరు ఒక $1ని మారుస్తున్నారు.',
 	'lqt_header_warning_bold' => 'చర్చాపేజీ శీర్షిక',
 	'lqt_header_warning_new_discussion' => 'కొత్త చర్చను మొదలుపెట్టండి',
@@ -16832,6 +16840,7 @@ $messages['te'] = array(
 చివరి మార్పు: $1',
 	'lqt-header-actions' => 'చర్యలు',
 	'lqt_summarize_link' => 'సంగ్రహించు',
+	'lqt-thread-split-subject' => 'కొత్త చర్చాహారపు విషయం:',
 	'lqt-thread-split-thread' => 'చర్చాహారం:',
 	'lqt-split-submit' => 'విడదీయి',
 	'lqt_split_badsubject' => 'మీరు ఇచ్చిన విషయం సరైనది కాదు.',
@@ -16876,6 +16885,7 @@ $messages['te'] = array(
 	'lqt-drag-bump' => 'టపాని చర్చా పేజీలో పైకి కదుపు',
 	'lqt-drag-save' => 'నిర్ధారించు',
 	'lqt-drag-reason' => 'కారణం:',
+	'lqt-drag-subject' => 'కొత్త చర్చాహారానికై విషయం:',
 	'lqt-edit-signature' => '(సంతకాన్ని మార్చండి)',
 	'lqt-preview-signature' => '(మునుజూపు)',
 	'lqt-feed-title-all' => '{{SITENAME}} — కొత్త టపాలు',
@@ -16894,6 +16904,8 @@ $messages['te'] = array(
 	'lqt-talkpage-history-tab' => 'శీర్షిక',
 	'restriction-reply' => 'స్పందనలు వ్రాయడం',
 	'lqt-reply-subpage' => 'స్పందించు',
+	'nstab-thread' => 'చర్చాహారం',
+	'nstab-summary' => 'సారాంశం',
 );
 
 /** Tetum (Tetun)
@@ -18140,6 +18152,7 @@ $messages['vec'] = array(
 O xe parché el xe massa longo, opure se vede che el va in conflito con un prefisso interwiki o un nome de namespace.",
 	'lqt_empty_subject' => 'Te ghè da inserir un titolo.',
 	'lqt_reply' => 'Rispóndighe',
+	'lqt-parent' => 'Pare',
 	'lqt_delete' => 'Scancela',
 	'lqt_undelete' => 'Recupera',
 	'lqt_permalink' => 'Colegamento',
@@ -18318,7 +18331,10 @@ Te pol védarlo qua: $6',
 	'lqt-enotif-reply' => 'Ciao $1,
 te avisemo che su {{SITENAME}} el $3 a le $4 i gà risposto a "$2" su $5.
 
-Te pol védarlo qua: $6',
+Te pol védarlo qua: $6
+
+El testo de la risposta xe:
+$7',
 	'lqt-quote-intro' => 'El $2 a le $3, [[User:$1|$1]] el gà scrito:',
 	'lqt-quote' => 'Cita',
 	'lqt-search-legend' => 'Serca discussion in sta pagina',
