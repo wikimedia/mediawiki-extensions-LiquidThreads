@@ -16667,6 +16667,7 @@ Signaturen visas automatiskt.',
 
 /** Swahili (Kiswahili)
  * @author Lloffiwr
+ * @author Muddyb Blast Producer
  */
 $messages['sw'] = array(
 	'lqt_delete' => 'Futa',
@@ -16685,7 +16686,7 @@ $messages['sw'] = array(
 	'lqt-header-actions' => 'Vitendo',
 	'lqt-movethread' => 'Sogeza',
 	'lqt-preference-notify-talk' => 'Unitumie barua pepe mada ninayofuata inapojibiwa',
-	'lqt-preference-display-depth' => 'Upeo wa kina ya majibu yanayoonyeshwa:',
+	'lqt-preference-display-depth' => 'Upeo wa kina cha majibu yakuonyeshwa:',
 	'lqt-preference-display-count' => 'Upeo wa idadi ya majibu ya kuonyesha:',
 	'lqt-search-button' => 'Tafuta',
 	'lqt-thread-link-url' => 'KISARA ya kiungo:',
@@ -18315,6 +18316,7 @@ Se te vol tegnerle, sepàrele da sto argomento prima de scancelarlo.',
 	'lqt-log-name' => 'Registro dele discussion par argomento',
 	'lqt-log-header' => 'Sto registro el tien tute le operassion fate sui argomenti de discussion.',
 	'lqt-log-action-move' => 'gà spostà  [[$1]] da [[$2]] a [[$3]].',
+	'lqt-log-action-split' => 'ga diviso [[$1]] da soto [[$3]], col novo titolo "$2"',
 	'lqt-log-action-merge-across' => 'gà spostà [[$1]] da soto [[$2]] a soto [[$3]].',
 	'lqt-preference-notify-talk' => "Màndeme na mail co riva na risposta a n'argomento che tegno d'ocio",
 	'lqt-preference-watch-threads' => "Tien d'ocio i argomenti che vèrzo o a cui ghe rispondo",
