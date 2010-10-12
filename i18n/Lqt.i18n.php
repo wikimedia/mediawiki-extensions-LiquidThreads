@@ -5583,6 +5583,7 @@ Eztabaida hau $2-(e)ko zati da.',
 
 /** Persian (فارسی)
  * @author Ebraminio
+ * @author Huji
  * @author Ladsgroup
  * @author Sahim
  * @author Wayiran
@@ -5738,7 +5739,7 @@ $messages['fa'] = array(
 	'lqt-split-success' => 'شما با موفقیت تاپیک $1 را تقسیم کردید.',
 	'lqt_split_thread' => 'تقسیم یک تاپیک',
 	'lqt-thread-split-subject' => 'موضوع تاپیک جدید:',
-	'lqt-thread-split-thread' => 'تاپیک:',
+	'lqt-thread-split-thread' => 'موضوع:',
 	'lqt-split-submit' => 'تقسیم',
 	'lqt_split_badsubject' => 'موضوعی که وارد کردید نامعتبر است.',
 	'lqt-no-threads' => 'هنوز هیچ تاپیکی در این صفحه وجود ندارد.',
@@ -5852,6 +5853,8 @@ $1',
 	'lqt-edit-bump-tooltip' => 'این تاپیک را به بالای صفحهٔ بحثش منتقل کن',
 	'lqt-historicalrevision-error' => 'نسخه‌ای که انتخاب کرده‌اید خراب است، و قابل مشاهده نیست.',
 	'lqt-reply-subpage' => 'پاسخ',
+	'nstab-thread' => 'موضوع',
+	'nstab-summary' => 'خلاصه',
 );
 
 /** Finnish (Suomi)
@@ -16709,13 +16712,21 @@ $messages['szl'] = array(
  * @author TRYPPN
  */
 $messages['ta'] = array(
+	'lqt_contents_title' => 'பொருளடக்கம்',
+	'lqt_toc_thread_replycount' => 'பதில்கள்',
+	'lqt_toc_thread_modified' => 'கடைசியாக திருத்தப்பட்டது',
 	'lqt_add_header' => 'தலைப்பைக் கொடுக்கவும்',
 	'lqt_empty_subject' => 'தாங்கள் இதற்கான ஒரு தலைப்பைக் கொடுக்கவும்',
 	'lqt_reply' => 'பதில் அளி',
 	'lqt_delete' => 'நீக்கவும்',
 	'lqt_undelete' => 'நீக்கத்தை நிறுத்து',
+	'lqt_discussion_link' => 'உரையாடல்',
+	'lqt_hist_deleted' => 'நீக்கப்பட்டது',
+	'lqt_hist_undeleted' => 'நீக்கம் நிறுத்தப்பட்டது',
+	'lqt_hist_moved_talkpage' => 'நகர்த்தப்பட்டது',
 	'lqt_protectedfromreply_link' => 'காக்கப்பட்டது',
 	'lqt_subject' => 'பொருள்:',
+	'lqt_noreason' => 'காரணம் தரப்படவில்லை.',
 	'lqt_move_torename_edit' => 'இதைத் தொகுக்கவும்',
 	'lqt_move_move' => 'நகர்த்தவும்',
 	'lqt-title' => 'தலைப்பு',
@@ -16726,16 +16737,19 @@ $messages['ta'] = array(
 	'lqt-history-time' => 'நேரம்',
 	'lqt-history-user' => 'பயனர்',
 	'lqt-history-action' => 'செயல்',
+	'lqt-history-comment' => 'கருத்து',
 	'lqt-header-actions' => 'செயல்கள்',
 	'lqt-movethread' => 'நகர்த்தவும்',
 	'lqt-menu-trigger' => 'மேலும்',
 	'lqt-merge-submit' => 'இணைக்கவும்',
 	'lqt-ajax-update-link' => 'புதுப்பி',
+	'lqt-save-subject' => 'சேமி',
 	'lqt-cancel-subject-edit' => 'விட்டுவிடு',
 	'lqt-drag-save' => 'உறுதிப்படுத்து',
 	'lqt-drag-reason' => 'காரணம்:',
 	'lqt-talkpage-history-tab' => 'தலைப்பு',
 	'lqt-reply-subpage' => 'பதில்',
+	'nstab-summary' => 'சுருக்கம்',
 );
 
 /** Telugu (తెలుగు)
