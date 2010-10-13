@@ -5230,6 +5230,8 @@ La firma es mostrada automaticamente.',
 	'lqt-edit-bump-tooltip' => 'Mover este hilo hasta la parte superior de su página de discusión',
 	'lqt-historicalrevision-error' => 'La revisión que ha solicitado está dañada y no puede ser vista.',
 	'lqt-reply-subpage' => 'responder',
+	'nstab-thread' => 'Hilo',
+	'nstab-summary' => 'Resumen',
 );
 
 /** Estonian (Eesti)
@@ -16742,11 +16744,14 @@ $messages['ta'] = array(
 	'lqt-movethread' => 'நகர்த்தவும்',
 	'lqt-menu-trigger' => 'மேலும்',
 	'lqt-merge-submit' => 'இணைக்கவும்',
+	'lqt-search-button' => 'தேடுக',
+	'searchprofile-threads' => 'உரையாடல்',
 	'lqt-ajax-update-link' => 'புதுப்பி',
 	'lqt-save-subject' => 'சேமி',
 	'lqt-cancel-subject-edit' => 'விட்டுவிடு',
 	'lqt-drag-save' => 'உறுதிப்படுத்து',
 	'lqt-drag-reason' => 'காரணம்:',
+	'lqt-preview-signature' => '(முன்தோற்றம்)',
 	'lqt-talkpage-history-tab' => 'தலைப்பு',
 	'lqt-reply-subpage' => 'பதில்',
 	'nstab-summary' => 'சுருக்கம்',
