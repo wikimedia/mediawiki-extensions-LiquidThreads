@@ -4949,6 +4949,8 @@ La subskribo estas aŭtomate montrita.',
 	'lqt-edit-bump-tooltip' => 'Movi ĉi tiun fadenon al la supero de ĝia diskuto-paĝo',
 	'lqt-historicalrevision-error' => 'La revizio kiun vi elektis estas fuŝa, kaj ne estas rigardebla.',
 	'lqt-reply-subpage' => 'respondi',
+	'nstab-thread' => 'Fadeno',
+	'nstab-summary' => 'Resumo',
 );
 
 /** Spanish (Español)
