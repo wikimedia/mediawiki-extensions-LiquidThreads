@@ -1466,6 +1466,7 @@ $messages['arz'] = array(
 
 /** Bashkir (Башҡорт)
  * @author Assele
+ * @author Haqmar
  */
 $messages['ba'] = array(
 	'lqt-desc' => 'Фекер алышыу биттәренә фекер алышыу тармаҡтарын өҫтәй',
@@ -1595,7 +1596,7 @@ $3 $4 уны $2 күсергән.',
 	'lqt-email-undo' => 'Кире алырға',
 	'lqt-no-new-messages' => 'Һеҙҙең өсөн яңы хәбәрҙәр юҡ.',
 	'lqt-new-messages' => '✒ Һеҙҙең өсөн яңы хәбәрҙәр бар.',
-	'lqt-email-info-undo' => 'Әле алып ташланған тармаҡты кире ҡартарырға.',
+	'lqt-email-info-undo' => 'Әле алып ташланған тармаҡты кире ҡайтарырға.',
 	'lqt-date-info' => 'Был һылтанма һүндерелгән, сөнки һеҙ бөтә көндәр өсөн тармаҡтарҙы ҡарайһығыҙ.',
 	'lqt-newmessages-context' => 'Тулы тармаҡ',
 	'lqt-thread-created' => 'Булдырылған',
@@ -1731,8 +1732,10 @@ $7',
 	'lqt-protected-newthread' => 'Һеҙ был тармаҡҡа яҙа алмайһығыҙ, сөнки был фекер алышыу бите уның тармаҡтарында яуап яҙыуҙан һаҡланған.',
 	'lqt-edit-bump' => 'Был тармаҡты күтәрергә',
 	'lqt-edit-bump-tooltip' => 'Был тармаҡты уның фекер алышыу битенең башына күсерергә',
-	'lqt-historicalrevision-error' => 'Һайланған версия боҙолған, уны ҡарап булмай.',
+	'lqt-historicalrevision-error' => 'Һайланған өлгө боҙолған, уны ҡарап булмай.',
 	'lqt-reply-subpage' => 'яуап бирергә',
+	'nstab-thread' => '↓ Тармаҡ',
+	'nstab-summary' => '↓ Тасуирлама',
 );
 
 /** Bavarian (Boarisch)
@@ -18339,6 +18342,9 @@ Se te vol tegnerle, sepàrele da sto argomento prima de scancelarlo.',
 	'lqt-log-action-move' => 'gà spostà  [[$1]] da [[$2]] a [[$3]].',
 	'lqt-log-action-split' => 'ga diviso [[$1]] da soto [[$3]], col novo titolo "$2"',
 	'lqt-log-action-merge-across' => 'gà spostà [[$1]] da soto [[$2]] a soto [[$3]].',
+	'lqt-log-action-merge-down' => 'gà unìo [[$1]] a [[$3]]',
+	'lqt-log-action-subjectedit' => 'gà canbià l\'ogeto de [[$1]] da "$2" a "$3"',
+	'lqt-log-action-resort' => "gà canbià l'ordinamento de [[$1]]. Canbià criterio de ordinamento da $2 a $3",
 	'lqt-preference-notify-talk' => "Màndeme na mail co riva na risposta a n'argomento che tegno d'ocio",
 	'lqt-preference-watch-threads' => "Tien d'ocio i argomenti che vèrzo o a cui ghe rispondo",
 	'prefs-lqt' => 'Discussion par argomenti',
@@ -18390,6 +18396,7 @@ La firma la vien fora da sola.',
 	'lqt-drag-setsortkey' => 'Canbia la posission del messajo in te la pagina',
 	'lqt-drag-bump' => 'Sposta el messajo in sima a la pagina de discussion',
 	'lqt-drag-save' => 'Va ben',
+	'lqt-drag-title' => 'Conferma strassinamento',
 	'lqt-drag-reason' => 'Motivassion:',
 	'lqt-drag-subject' => "Titolo de l'argomento novo:",
 	'lqt-edit-signature' => '(canbia la firma)',
@@ -18419,6 +18426,8 @@ La firma la vien fora da sola.',
 	'lqt-edit-bump-tooltip' => 'Móvi sto argomento in zima a la pagina de discussion',
 	'lqt-historicalrevision-error' => 'La revision che te ghè selessionà la xe rota e no se pole mia védarla.',
 	'lqt-reply-subpage' => 'rispondi',
+	'nstab-thread' => 'Argomento',
+	'nstab-summary' => 'Somario',
 );
 
 /** Veps (Vepsan kel')
