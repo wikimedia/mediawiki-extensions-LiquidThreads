@@ -34,8 +34,6 @@ It may:
 	'lqt_fragment' => 'Fragment of a $1 from $2',
 	'lqt_discussion_link' => 'discussion', // substituted above
 	'lqt_from_talk' => 'From $1',
-	'lqt_newer' => '← newer',
-	'lqt_older' => 'older →',
 
 	'lqt-history-title' => 'Thread history',
 	'lqt_hist_comment_edited' => 'Comment text [$2 edited]',
