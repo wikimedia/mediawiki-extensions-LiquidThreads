@@ -349,11 +349,17 @@ $messages['qqq'] = array(
 	'lqt-desc' => '{{desc}}',
 	'lqt_movethread' => 'Title and header at [[Special:MoveThread]].',
 	'lqt_contents_title' => '{{Identical|Contents}}',
-	'lqt_toc_thread_replycount' => '{{Identical|Reply}}',
+	'lqt_toc_thread_title' => 'Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].',
+	'lqt_toc_thread_replycount' => 'Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].
+
+{{Identical|Reply}}',
+	'lqt_toc_thread_modified' => 'Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].',
 	'lqt_new_thread' => '{{Identical|Start a new discussion}}',
 	'lqt_reply' => 'is this noun or verb?
 
-:Probably a verb; see also {{msg-mw|Lqt delete}} and {{msg-mw|Lqt undelete}}.',
+:A verb; see also {{msg-mw|Lqt delete}} and {{msg-mw|Lqt undelete}}.
+
+This is the link in the bottom right-hand corner of a post, which you click to write a reply to that post - see [[Support|examples]].',
 	'lqt-parent' => 'Link to the parent reply.',
 	'lqt_delete' => '{{Identical|Delete}}',
 	'lqt_undelete' => '{{Identical|Undelete}}',
@@ -367,8 +373,6 @@ $messages['qqq'] = array(
 {{Identical|Discussion}}',
 	'lqt_from_talk' => 'Used as page subtitle. Parameters:
 * $1 is a link to a talk page (for example "User talk:Foo")',
-	'lqt_newer' => '{{Identical|Newer}}',
-	'lqt_older' => '{{Identical|Older}}',
 	'lqt_hist_comment_edited' => 'Parameters:
 * $2 is the URL to the comment',
 	'lqt_hist_reply_created' => 'Parameters:
@@ -618,8 +622,6 @@ $messages['af'] = array(
 	'lqt_fragment' => "Fragment van 'n $1 vanaf $2",
 	'lqt_discussion_link' => 'bespreking',
 	'lqt_from_talk' => 'Vanaf $1',
-	'lqt_newer' => '←nuwer',
-	'lqt_older' => 'ouer→',
 	'lqt-history-title' => 'Onderwerp se geskiedenis',
 	'lqt_hist_comment_edited' => 'Opmerking [$2 gewysig]',
 	'lqt_hist_summary_changed' => 'Opsomming is verander',
@@ -819,6 +821,8 @@ $7",
 	'lqt-edit-bump' => 'Aktiveer die bespreking',
 	'lqt-edit-bump-tooltip' => 'Skuif die onderwerp tot bo aan die besprekingsblad',
 	'lqt-reply-subpage' => 'antwoord',
+	'nstab-thread' => 'Onderwerp',
+	'nstab-summary' => 'Samevatting',
 );
 
 /** Gheg Albanian (Gegë)
@@ -5264,8 +5268,6 @@ See võib olla:
 	'lqt_fragment' => '{{ucfirst:$1}} katke leheküljelt $2',
 	'lqt_discussion_link' => 'Arutelu',
 	'lqt_from_talk' => 'Leheküljelt $1',
-	'lqt_newer' => '← uuemad',
-	'lqt_older' => 'vanemad →',
 	'lqt-history-title' => 'Lõime ajalugu',
 	'lqt_hist_comment_edited' => 'Kommentaar [$2 muudetud]',
 	'lqt_hist_summary_changed' => 'Kokkuvõte muudetud',
@@ -5425,6 +5427,7 @@ See on leitav asukohast <$6>.
 Vastus on järgmine:
 $7',
 	'lqt-quote-intro' => 'Kuupäeval $2, kell $3 kirjutas [[User:$1|$1]]:',
+	'lqt-quote' => 'Tsiteeri',
 	'lqt-search-label' => 'Otsitav:',
 	'lqt-search-button' => 'Otsi',
 	'searchprofile-threads' => 'Arutelud',
@@ -8355,8 +8358,6 @@ $messages['hu'] = array(
 	'lqt_fragment' => 'Egy $1 részlete a(z) $2 lapról',
 	'lqt_discussion_link' => 'beszélgetésfolyam',
 	'lqt_from_talk' => 'A(z) $1 lapról',
-	'lqt_newer' => '←frissebb',
-	'lqt_older' => 'korábbi→',
 	'lqt-history-title' => 'A téma előzményei',
 	'lqt_hist_comment_edited' => '[$2 Szerkesztette] a megjegyzést',
 	'lqt_hist_summary_changed' => 'Megváltoztatta az összefoglalót',
@@ -8595,6 +8596,8 @@ Az aláírásod automatikusan meg fog jelenni.',
 	'lqt-edit-bump-tooltip' => 'Téma áthelyezése a vitalap tetejére',
 	'lqt-historicalrevision-error' => 'A kiválasztott változat hibás, nem lehet megnézni.',
 	'lqt-reply-subpage' => 'válasz',
+	'nstab-thread' => 'Téma',
+	'nstab-summary' => 'Összefoglaló',
 );
 
 /** Interlingua (Interlingua)
@@ -10211,6 +10214,7 @@ $messages['kn'] = array(
 	'lqt-title' => 'ಶೀರ್ಷಿಕೆ',
 	'lqt-summary' => 'ಸಾರಾಂಶ',
 	'lqt-search-button' => 'ಹುಡುಕು',
+	'lqt-cancel-subject-edit' => 'ರದ್ದು ಮಾಡು',
 	'lqt-drag-reason' => 'ಕಾರಣ:',
 	'lqt-preview-signature' => '(ಮುನ್ನೋಟ)',
 );
@@ -11948,6 +11952,8 @@ $messages['mn'] = array(
 	'lqt-email-undo' => 'Цуцлах',
 	'lqt-history-comment' => 'Тайлбар',
 	'lqt-search-button' => 'Хайх',
+	'lqt-cancel-subject-edit' => 'Цуцлах',
+	'lqt-drag-reason' => 'Шалтгаан:',
 );
 
 /** Marathi (मराठी)
@@ -14428,20 +14434,20 @@ Acesta poate fi:
 * Întâmpină conflicte cu prefixele interwiki sau nume de spațiu de nume.',
 	'lqt_empty_subject' => 'Trebuie să introduceți un subiect.',
 	'lqt_reply' => 'Răspunde',
+	'lqt-parent' => 'Părinte',
 	'lqt_delete' => 'Şterge',
 	'lqt_undelete' => 'Recuperare',
 	'lqt_permalink' => 'Legătură către',
 	'lqt_fragment' => 'Fragment dintr-o $1 de la $2',
 	'lqt_discussion_link' => 'discuție',
 	'lqt_from_talk' => 'De la $1',
-	'lqt_newer' => '← mai noi',
-	'lqt_older' => 'mai vechi →',
 	'lqt-history-title' => 'Istoric discuție',
 	'lqt_hist_comment_edited' => 'Text comentariu [$2 modificat]',
 	'lqt_hist_summary_changed' => 'Rezumat schimbat',
 	'lqt_hist_reply_created' => '[[$1|Răspuns nou]] creat',
 	'lqt_hist_thread_created' => 'Discuție nouă creată',
 	'lqt_hist_deleted' => 'Şters',
+	'lqt_hist_undeleted' => 'Restaurat',
 	'lqt_hist_moved_talkpage' => 'Mutat',
 	'lqt_hist_listing_subtitle' => 'Vizualizarea unei liste cu istoric',
 	'lqt_hist_view_whole_thread' => 'Vedeți istoricul pentru întregul thread',
@@ -14579,7 +14585,9 @@ Ultima modificare: $ 1',
 	'lqt-ajax-no-subject' => 'Trebuie să specificați un subiect.',
 	'lqt-cancel-subject-edit' => 'Revocare',
 	'lqt-drag-activate' => 'Trageți către nouă locație',
+	'lqt-drag-drop-zone' => 'Lasă aici',
 	'lqt-drag-save' => 'Confirmare',
+	'lqt-drag-title' => 'Confirmați mutarea',
 	'lqt-drag-reason' => 'Motiv:',
 	'lqt-drag-subject' => 'Subiect pentru noua discuție:',
 	'lqt-edit-signature' => '(editează semnătura)',
@@ -14607,6 +14615,8 @@ Ultima modificare: $ 1',
 	'lqt-protected-newthread' => 'Nu puteți posta noi threaduri la această pagină de discuție deoarece a fost protejată de noi threaduri.',
 	'lqt-historicalrevision-error' => 'Revizia care ați selectat-o este coruptă și nu poate fi văzută.',
 	'lqt-reply-subpage' => 'răspundeți',
+	'nstab-thread' => 'Subiect',
+	'nstab-summary' => 'Rezumat',
 );
 
 /** Tarandíne (Tarandíne)
@@ -14636,8 +14646,6 @@ Pò essere:
 	'lqt_fragment' => 'Frammende de $1 da $2',
 	'lqt_discussion_link' => "'ngazzamende",
 	'lqt_from_talk' => 'Da $1',
-	'lqt_newer' => '←cchiù nueve',
-	'lqt_older' => 'cchiù vicchije→',
 	'lqt-history-title' => "Cunde de l'argomende",
 	'lqt_hist_comment_edited' => "Teste d'u commende [$2 cangiate]",
 	'lqt_hist_summary_changed' => 'Riepileghe cangiate',
@@ -14878,6 +14886,8 @@ $7",
 	'lqt-edit-bump-tooltip' => "Spuèste st'argomende a l'inizie d'a pàgene de le 'ngazzaminde",
 	'lqt-historicalrevision-error' => "'A revisione ca tu è scacchiate jè sckuasciate e none ge pò essere viste.",
 	'lqt-reply-subpage' => 'respunne',
+	'nstab-thread' => 'Argomende',
+	'nstab-summary' => 'Riepileghe',
 );
 
 /** Russian (Русский)
@@ -16678,11 +16688,27 @@ Signaturen visas automatiskt.',
  * @author Muddyb Blast Producer
  */
 $messages['sw'] = array(
+	'lqt-desc' => 'Kutumia milolongo ya majadiliano katika kurasa za majadiliano',
+	'lqt_movethread' => 'Kuhamisha mlolongo katika ukurasa mwingine',
+	'lqt_deletethread' => 'Kufuta au kufutua mlolongo',
+	'lqt_contents_title' => 'Yaliyomo',
+	'lqt_toc_thread_title' => 'Jina la mlolongo',
+	'lqt_toc_thread_author' => 'Ulianzishwa na',
+	'lqt_toc_thread_replycount' => 'Majibu',
+	'lqt_toc_thread_modified' => 'Saa iliyobadilishwa mwishoni',
+	'lqt_add_header' => 'Weka mada',
+	'lqt_new_thread' => 'Anzisha jadiliano jipya',
+	'lqt_empty_subject' => 'Lazima uandike jina la jadiliano.',
+	'lqt_reply' => 'Jibu',
 	'lqt_delete' => 'Futa',
 	'lqt_undelete' => 'Rudisha',
+	'lqt_discussion_link' => 'majadiliano',
 	'lqt_subject' => 'Mada:',
 	'lqt_noreason' => 'Sababu haikutajwa.',
+	'lqt_summary_notice_link' => 'andika muhtasari',
+	'lqt_summary_label' => 'Muhtasari wa mlolongo:',
 	'lqt_move_move' => 'Sogeza',
+	'lqt_move_noreason' => 'Sababu haikutajwa.',
 	'lqt_sorting_order' => 'Zipangwe kwa kuanzia na:',
 	'lqt_sort_newest_changes' => 'zilizobadilishwa mwishoni',
 	'lqt_sort_newest_threads' => 'zilizoanzishwa hivi karibuni',
@@ -16691,9 +16717,14 @@ $messages['sw'] = array(
 	'lqt-summary' => 'Muhtasari',
 	'lqt-history-user' => 'Mtumiaji',
 	'lqt-history-comment' => 'Maelezo',
+	'lqt-history-thread' => 'Mlolongo',
 	'lqt-header-actions' => 'Vitendo',
+	'lqt-thread-split-thread' => 'Mlolongo:',
 	'lqt-movethread' => 'Sogeza',
+	'lqt-menu-trigger' => 'Zaidi',
+	'lqt-add-reply' => 'Weka jibu',
 	'lqt-preference-notify-talk' => 'Unitumie barua pepe mada ninayofuata inapojibiwa',
+	'prefs-lqt' => 'Mlolongo wa majadiliano',
 	'lqt-preference-display-depth' => 'Upeo wa kina cha majibu yakuonyeshwa:',
 	'lqt-preference-display-count' => 'Upeo wa idadi ya majibu ya kuonyesha:',
 	'lqt-search-button' => 'Tafuta',
@@ -16702,7 +16733,15 @@ $messages['sw'] = array(
 	'lqt-cancel-subject-edit' => 'Batilisha',
 	'lqt-drag-save' => 'Yakinisha',
 	'lqt-drag-reason' => 'Sababu:',
+	'lqt-drag-subject' => 'Mada ya mlolongo mpya:',
 	'lqt-preview-signature' => '(hakiki)',
+	'lqt-newmessages-n' => 'Jumbe mpya ($1)',
+	'lqt_newmessages' => 'Jumbe mpya',
+	'lqt_newmessages-title' => 'Jumbe mpya',
+	'lqt-newpost-summary' => 'Mlolongo mpya: $1',
+	'lqt-reply-subpage' => 'jibu',
+	'nstab-thread' => 'Mlolongo',
+	'nstab-summary' => 'Muhtasari',
 );
 
 /** Silesian (Ślůnski)
@@ -18182,8 +18221,6 @@ O xe parché el xe massa longo, opure se vede che el va in conflito con un prefi
 	'lqt_fragment' => 'Tochetin de $1 da $2',
 	'lqt_discussion_link' => 'discussion',
 	'lqt_from_talk' => 'Da $1',
-	'lqt_newer' => '← pi novo',
-	'lqt_older' => 'pi vècio →',
 	'lqt-history-title' => "Stòrico de l'argomento",
 	'lqt_hist_comment_edited' => 'Comento [$2 canbià]',
 	'lqt_hist_summary_changed' => 'Titolo canbià',
