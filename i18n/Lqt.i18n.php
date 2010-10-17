@@ -5869,6 +5869,7 @@ $1',
  * @author Cimon Avaro
  * @author Crt
  * @author Nike
+ * @author Olli
  * @author Silvonen
  * @author Str4nd
  * @author ZeiP
@@ -5890,14 +5891,13 @@ Syy voi olla:
 * Ristiriita interwiki-etuliitteiden tai nimiavaruuksien nimien kanssa.',
 	'lqt_empty_subject' => 'Sinun täytyy antaa aihe.',
 	'lqt_reply' => 'Vastaa',
+	'lqt-parent' => 'Ylin',
 	'lqt_delete' => 'Poista',
 	'lqt_undelete' => 'Palauta',
 	'lqt_permalink' => 'Linkki tähän viestiin',
 	'lqt_fragment' => 'Osa $1 sivulta $2',
 	'lqt_discussion_link' => 'keskustelusta',
 	'lqt_from_talk' => 'Sivulta $1',
-	'lqt_newer' => '← uudemmat',
-	'lqt_older' => 'vanhemmat →',
 	'lqt-history-title' => 'Ketjun historia',
 	'lqt_hist_comment_edited' => 'Kommenttitekstiä [$2 muokattu]',
 	'lqt_hist_summary_changed' => 'Yhteenveto muutettu',
@@ -6051,6 +6051,11 @@ Välttääksesi tämän, jaa ne tästä ketjusta erilleen ennen sen poistamista.
 	'lqt-log-name' => 'Viestiketjuloki',
 	'lqt-log-header' => 'Tämä loki kertoo keskusteluketjuille tehdyistä toiminteista.',
 	'lqt-log-action-move' => 'siirsi aiheen [[$1]] sivulta [[$2]] sivulle [[$3]].',
+	'lqt-log-action-split' => 'pilko [[$1]] kohdan [[$3]] alta uudelle otsikolle "$2"',
+	'lqt-log-action-merge-across' => '[[$1]] siirretty kohdan [[$2]] alta kohdan [[$3]] alle',
+	'lqt-log-action-merge-down' => 'liitetty [[$1]] kohdan [[$3]] alle',
+	'lqt-log-action-subjectedit' => 'vaihdettiin kohdan [[$1]] aihe "$2" aiheeksi "$3"',
+	'lqt-log-action-resort' => 'vaihdettiin kohdan [[$1]] järjestystä. Järjestysavain vaihdettiin $2 avaimeksi $3',
 	'lqt-preference-notify-talk' => 'Lähetä sähköpostia viestiketjun vastauksista, joita tarkkailen',
 	'lqt-preference-watch-threads' => 'Tarkkaile viestiketjuja, jotka olen luonnut tai joihin olen vastannut',
 	'prefs-lqt' => 'Viestiketjut',
@@ -6066,11 +6071,12 @@ $3 $4.
 
 Näet sen osoitteessa <$6>.',
 	'lqt-enotif-reply' => 'Hei $1,
+Tämä on ilmoitus {{GRAMMAR:elative|{{SITENAME}}}}, että sivun $5 ketjuun ”$2” on tullut uusi vastaus $3 kello $4.
 
-Tämä on ilmoitus sivustolta {{SITENAME}}, että sivun $5 ketjuun ”$2” on tullut uusi vastaus
-$3 $4.
+Näet sen osoitteessa <$6>.
 
-Näet sen osoitteessa <$6>.',
+Vastauksen teksti on:
+$7',
 	'lqt-quote-intro' => '[[User:$1|$1]] kirjoitti $2 kello $3:',
 	'lqt-quote' => 'Lainaa',
 	'lqt-search-legend' => 'Hae keskusteluja tältä sivulta',
@@ -6103,6 +6109,7 @@ Allekirjoitus näytetään automaattisesti.',
 	'lqt-drag-setsortkey' => 'Säädä viestin sijaintia sivulla',
 	'lqt-drag-bump' => 'Siirrä viesti keskustelusivun ylälaitaan',
 	'lqt-drag-save' => 'Vahvista',
+	'lqt-drag-title' => 'Vahvista siirtäminen',
 	'lqt-drag-reason' => 'Syy',
 	'lqt-drag-subject' => 'Aihe uudelle ketjulle:',
 	'lqt-edit-signature' => '(muokkaa allekirjoitusta)',
@@ -6133,6 +6140,7 @@ Allekirjoitus näytetään automaattisesti.',
 	'lqt-historicalrevision-error' => 'Valitsemasi versio on korruptoitunut – eikä sitä voida näyttää.',
 	'lqt-reply-subpage' => 'vastaa',
 	'nstab-thread' => 'Säie',
+	'nstab-summary' => 'Yhteenveto',
 );
 
 /** French (Français)
@@ -7445,8 +7453,6 @@ $messages['he'] = array(
 	'lqt_fragment' => 'מקטע של $1 מתוך $2',
 	'lqt_discussion_link' => 'דיון',
 	'lqt_from_talk' => 'מתוך $1',
-	'lqt_newer' => '←חדש יותר',
-	'lqt_older' => 'ישן יותר→',
 	'lqt-history-title' => 'היסטוריית השרשור',
 	'lqt_hist_comment_edited' => 'טקסט ההערה [$2 נערך]',
 	'lqt_hist_summary_changed' => 'התקציר שונה',
@@ -7684,6 +7690,8 @@ $messages['he'] = array(
 	'lqt-edit-bump-tooltip' => 'העברת שרשור זה לראש דף הדיון בו הוא מופיע',
 	'lqt-historicalrevision-error' => 'הגרסה שבחרת פגומה ולא ניתן להציג אותה.',
 	'lqt-reply-subpage' => 'תגובה',
+	'nstab-thread' => 'שרשור',
+	'nstab-summary' => 'תקציר',
 );
 
 /** Hindi (हिन्दी)
@@ -12420,6 +12428,7 @@ Wijzig het onderwerp door op "Bewerken" te klikken in de bovenste bijdrage.',
  * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['nn'] = array(
 	'lqt-desc' => 'Legg til tråda diskusjonar til diskusjonssider',
@@ -12445,8 +12454,6 @@ Kan henda er det:
 	'lqt_fragment' => 'Ein bit av $1 frå $2',
 	'lqt_discussion_link' => 'diskusjon',
 	'lqt_from_talk' => 'Frå $1',
-	'lqt_newer' => '←nyare',
-	'lqt_older' => 'eldre→',
 	'lqt-history-title' => 'Trådhistorikk',
 	'lqt_hist_comment_edited' => 'Kommentartekst [$2 endra]',
 	'lqt_hist_summary_changed' => 'Samandrag endra',
@@ -12650,6 +12657,7 @@ Du kan lesa svaret på <$6>',
 	'lqt_newmessages-title' => 'Nye meldingar',
 	'lqt-newpost-summary' => 'Ny tråd: $1',
 	'lqt-talkpage-history-title' => 'Diskusjonssidehistorikk',
+	'lqt-talkpage-history-subtitle' => 'For $1',
 	'restriction-reply' => 'Skriva svar',
 	'restriction-newthread' => 'Oppretta nye trådar',
 	'lqt-edit-bump' => 'Flytt denne tråden opp',
@@ -14479,15 +14487,15 @@ Acesta poate fi:
 	'lqt_protectedfromreply_link' => 'protejat',
 	'lqt_subject' => 'Subiect:',
 	'lqt_noreason' => 'Niciun motiv oferit.',
-	'lqt_move_placeholder' => 'Acest thread este un substituent care indică faptul că un thread, $ 1, a fost mutat de la această pagină.
-Această mutare a fost făcută de $2 pe $3 la $4.
-Threadul este acum localizat la $5.',
+	'lqt_move_placeholder' => 'Un subiect, $1, a fost mutat de aici la $5.
+Mutarea a fost efectuată de $2 la $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Acest thread a fost '''șters''' și este vizibil doar administratorilor.",
 	'lqt_thread_deleted' => 'Acest thread a fost șters.',
 	'lqt_summary_notice_link' => 'scrieți un rezumat',
 	'lqt_summary_label' => 'Rezumatul discuției:',
 	'lqt_summary_subtitle' => 'Rezumatul lui „$1”',
 	'lqt_nosuchrevision' => 'Nu există nicio astfel de revizie a acestui thread.',
+	'lqt_nosuchthread_title' => 'Niciun astfel de fir',
 	'lqt_threadrequired' => 'Trebuie să specificați un thread în URL.',
 	'lqt_move_movingthread' => 'Se mută $1.
 Acest thread este parte a $2.',
@@ -14521,12 +14529,15 @@ Acest thread este parte a $2.',
 	'lqt-newer' => 'mai noi',
 	'lqt-searching' => 'Căutare discuții',
 	'lqt-read-message' => 'Marchează ca citit',
+	'lqt-read-message-tooltip' => 'Elimină acest fir de la mesaje noi.
+Aceasta va fi încă vizibilă pe pagina sa de discuţie originală.',
 	'lqt-read-all' => 'Marchează toate ca citite',
 	'lqt-marked-read' => "Discuția '''$1''' a fost marcată ca citită.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mesaj marcat ca citit|mesaje marcate ca citite}}.',
 	'lqt-email-undo' => 'Anulare',
 	'lqt-no-new-messages' => 'Nu sunt mesaje noi pentru dumneavoastră.',
 	'lqt-new-messages' => '✒ Sunt mesaje noi pentru dumneavoastră.',
+	'lqt-date-info' => 'Această legătură este dezactivată deoarece vizualizaţi fire de la toate datele.',
 	'lqt-newmessages-context' => 'Discuțiile complete',
 	'lqt-thread-created' => 'Creat',
 	'lqt-history-time' => 'Timp',
@@ -14541,6 +14552,7 @@ Ultima modificare: $ 1',
 	'lqt-header-actions' => 'Acțiuni',
 	'lqt_summarize_link' => 'Rezumați',
 	'lqt-thread-split' => 'Desparte într-o nouă discuție',
+	'lqt-split-success' => 'Aţi desprins cu succes firul $1.',
 	'lqt_split_thread' => 'Desparte o discuție',
 	'lqt-thread-split-subject' => 'Subiectul noii discuții:',
 	'lqt-thread-split-thread' => 'Subiect:',
@@ -14548,11 +14560,14 @@ Ultima modificare: $ 1',
 	'lqt_split_badsubject' => 'Subiectul introdus este invalid.',
 	'lqt-no-threads' => 'Încă nu există discuții pe această pagină.',
 	'lqt-delete-parent-deleted' => 'Discuția părinte a fost ștearsă ($1)',
+	'lqt-delete-replies-done' => 'Toate răspunsurile la acest fir au fost şterse.',
 	'lqt-movethread' => 'Mutare',
 	'lqt-menu-trigger' => 'Adiț.',
 	'lqt-newmessages-from' => 'De la $1',
 	'lqt-hot-topics' => 'Subiecte calde',
 	'lqt-add-reply' => 'Adaugă un răspuns',
+	'lqt_rc_new_discussion' => 'postat un nou fir, „$1”',
+	'lqt_rc_new_reply' => 'postat un răspuns la „$1”',
 	'right-lqt-split' => 'Desparte subiecte',
 	'right-lqt-merge' => 'Unește subiecte',
 	'lqt-thread-merge' => 'Unește în alt subiect',
@@ -14567,9 +14582,11 @@ Ultima modificare: $ 1',
 	'lqt-enotif-subject-newthread' => 'Discuție {{SITENAME}} - Subiect nou: $1',
 	'lqt-quote-intro' => 'Pe $2 la $3, [[User:$1|$1]] a scris:',
 	'lqt-quote' => 'Citare',
+	'lqt-search-legend' => 'Caută discuţii pe această pagină',
 	'lqt-search-label' => 'Termeni căutaţi:',
 	'lqt-search-button' => 'Căutare',
 	'searchprofile-threads' => 'Discuții',
+	'searchprofile-threads-tooltip' => 'Caută firele de discuţie şi paginile de discuţii',
 	'lqt-ajax-updated' => 'Acest thread are noi posturi.',
 	'lqt-ajax-update-link' => 'Actualizare',
 	'lqt-thread-show-replies' => 'Arată $1 {{PLURAL:$1|răspuns|răspunsuri}}',
@@ -14586,6 +14603,7 @@ Ultima modificare: $ 1',
 	'lqt-cancel-subject-edit' => 'Revocare',
 	'lqt-drag-activate' => 'Trageți către nouă locație',
 	'lqt-drag-drop-zone' => 'Lasă aici',
+	'lqt-drag-split' => 'Mută postarea la firul propriu',
 	'lqt-drag-save' => 'Confirmare',
 	'lqt-drag-title' => 'Confirmați mutarea',
 	'lqt-drag-reason' => 'Motiv:',
@@ -16401,6 +16419,7 @@ $messages['su'] = array(
 /** Swedish (Svenska)
  * @author Ainali
  * @author Boivie
+ * @author Cohan
  * @author Dafer45
  * @author Fluff
  * @author GameOn
@@ -16437,8 +16456,6 @@ Det kan bero på att:
 	'lqt_fragment' => 'Fragment av en $1 från $2',
 	'lqt_discussion_link' => 'diskussion',
 	'lqt_from_talk' => 'Från $1',
-	'lqt_newer' => '←nyare',
-	'lqt_older' => 'äldre→',
 	'lqt-history-title' => 'Trådhistorik',
 	'lqt_hist_comment_edited' => 'Kommentartext [$2 redigerad]',
 	'lqt_hist_summary_changed' => 'Sammanfattning ändrad',
@@ -16650,6 +16667,7 @@ Signaturen visas automatiskt.',
 	'lqt-drag-setsortkey' => 'Justera posts position på sidan',
 	'lqt-drag-bump' => 'Flytta post till överst på diskussionssida',
 	'lqt-drag-save' => 'Bekräfta',
+	'lqt-drag-title' => 'Bekräfta dra',
 	'lqt-drag-reason' => 'Anledning:',
 	'lqt-drag-subject' => 'Ämne för ny tråd:',
 	'lqt-edit-signature' => '(redigera signatur)',
@@ -16804,6 +16822,7 @@ $messages['ta'] = array(
  * @author Veeven
  */
 $messages['te'] = array(
+	'lqt-desc' => 'చర్చా పుటలకి చర్చాహారాని చేర్చండి',
 	'lqt_movethread' => 'చర్చాహారాన్ని మరో పేజీకి తరలించండి',
 	'lqt_contents_title' => 'విషయాలు',
 	'lqt_toc_thread_title' => 'చర్చాహారపు శీర్షిక',
@@ -16822,8 +16841,6 @@ $messages['te'] = array(
 	'lqt_permalink' => 'కి లంకె',
 	'lqt_discussion_link' => 'చర్చ',
 	'lqt_from_talk' => '$1 నుండి',
-	'lqt_newer' => '←కొత్తవి',
-	'lqt_older' => 'పాతవి→',
 	'lqt-history-title' => 'చర్చాహారపు చరిత్ర',
 	'lqt_hist_comment_edited' => 'వ్యాఖ్య పాఠ్యాన్ని [$2 మార్చారు]',
 	'lqt_hist_summary_changed' => 'సంగ్రహం మార్చారు',
@@ -16833,6 +16850,7 @@ $messages['te'] = array(
 	'lqt_hist_moved_talkpage' => 'తరలించారు',
 	'lqt_hist_listing_subtitle' => 'చారిత్రక జాబితాని చూస్తున్నారు',
 	'lqt_hist_view_whole_thread' => 'మొత్తం చర్చాహారానికి చరిత్రని చూడండి',
+	'lqt_hist_no_revisions_error' => 'ఈ చర్చాహారానికి చరిత్ర కూర్పులేమీ లేవు.',
 	'lqt_hist_past_last_page_error' => 'మీరు ఉన్న చరిత్ర యొక్క పేజీల సంఖ్యని దాటిపోయారు.',
 	'lqt_hist_tooltip_newer_disabled' => 'మీరు మొదటి పేజీలో ఉన్నందున ఈ లింకుని అచేతనం చేసాం.',
 	'lqt_hist_tooltip_older_disabled' => 'మీరు చివరి పేజీలో ఉన్నారు కనుక ఈ లింకుని అచేతనం చేసాం.',
@@ -16843,6 +16861,7 @@ $messages['te'] = array(
 	'lqt_change_new_thread' => 'ఇది చర్చాహారం యొక్క మొట్టమొదటి కూర్పు.',
 	'lqt_change_reply_created' => '[$1 ఉద్దీపిత వ్యాఖ్య]ని ఈ కూర్పులో సృష్టించారు.',
 	'lqt_change_edited_root' => '[$1 ఉద్దీపిత వ్యాఖ్య]ని ఈ కూర్పులో మార్చారు.',
+	'lqt_change_edited_summary' => 'చర్చాహారపు సారాంశాన్ని మార్చారు',
 	'lqt_change_root_blanked' => '[$1 ఒక వ్యాఖ్య] యొక్క పాఠ్యాన్ని తొలగించారు.',
 	'lqt_youhavenewmessages' => 'మీకు [[$1|క్రొత్త సందేశాలు]] ఉన్నాయి.',
 	'lqt_protectedfromreply_link' => 'సంరక్షించారు',
@@ -16915,6 +16934,7 @@ $messages['te'] = array(
 	'lqt-hot-topics' => 'వేడి చర్చలు',
 	'lqt-add-reply' => 'ఓ స్పందనని చేర్చు',
 	'lqt_rc_new_discussion' => '$2లో కొత్త చర్చ "$1" • $3 అంటున్నారు:',
+	'lqt-thread-merge-source' => 'మూల చర్చాహారం:',
 	'lqt-thread-merge-dest' => 'లక్ష్యిత చర్చాహారం:',
 	'lqt-merge-submit' => 'కలుపు',
 	'lqt-log-name' => 'చర్చాహారాల చిట్టా',
@@ -16932,11 +16952,14 @@ $messages['te'] = array(
 	'lqt-search-label' => 'అన్వేషణ పదాలు:',
 	'lqt-search-button' => 'వెతుకు',
 	'searchprofile-threads' => 'చర్చలు',
+	'lqt-ajax-updated' => 'ఈ చర్చాహారంలో కొత్త టపాలు ఉన్నాయి.',
 	'lqt-ajax-update-link' => 'తాజాకరించు',
 	'lqt-thread-show-replies' => '$1 {{PLURAL:$1|స్పందనని|స్పందనలని}} చూపించు',
 	'lqt-thread-show-more' => 'మరిన్ని స్పందనలని చూపించు',
 	'lqt-thread-link-url' => 'లింకు URL:',
 	'lqt-thread-link-title' => 'వికీపాఠ్యపు లింకు:',
+	'lqt-sign-not-necessary' => 'మీ వ్యాఖ్యని నాలుగు టిల్డెలతో సంతకం చేయాల్సిన అవసరం లేదు.
+సంతకాన్ని స్వయంచాలకంగా చూపిస్తాం.',
 	'lqt-change-subject' => 'విషయాన్ని మార్చు',
 	'lqt-save-subject' => 'భద్రపరచు',
 	'lqt-save-subject-failed' => 'ఈ చర్చాహారం యొక్క విషయాన్ని మార్చడంలో ఈ పొరపాటు జరిగింది: $1',
@@ -16965,6 +16988,7 @@ $messages['te'] = array(
 	'lqt-talkpage-history-subtitle' => '$1 కొరకు',
 	'lqt-talkpage-history-tab' => 'శీర్షిక',
 	'restriction-reply' => 'స్పందనలు వ్రాయడం',
+	'lqt-edit-bump-tooltip' => 'ఈ చర్చాహారాన్ని దాని చర్చాపుటలలో పైకి కదపండి',
 	'lqt-reply-subpage' => 'స్పందించు',
 	'nstab-thread' => 'చర్చాహారం',
 	'nstab-summary' => 'సారాంశం',
