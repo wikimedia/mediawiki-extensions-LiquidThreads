@@ -1493,8 +1493,6 @@ $messages['ba'] = array(
 	'lqt_fragment' => '$2 битенең $1 өлөшө',
 	'lqt_discussion_link' => 'фекер алышыу',
 	'lqt_from_talk' => '$1 битенән',
-	'lqt_newer' => '← яңыраҡ',
-	'lqt_older' => 'иҫкерәк →',
 	'lqt-history-title' => 'Тармаҡтың тарихы',
 	'lqt_hist_comment_edited' => 'Аңлатма [$2 үҙгәртелгән]',
 	'lqt_hist_summary_changed' => 'Һөҙөмтә үҙгәртелгән',
@@ -1705,7 +1703,7 @@ $7',
 	'lqt-drag-split' => 'Хәбәрҙе үҙенең тармағына күсерергә',
 	'lqt-drag-setsortkey' => 'Хәбәрҙең биттәге урынын үҙгәртергә',
 	'lqt-drag-bump' => 'Хәбәрҙе фекер алышыу битенең башына күсерергә',
-	'lqt-drag-save' => 'Confirm',
+	'lqt-drag-save' => 'Раҫларға',
 	'lqt-drag-title' => 'Күсереүҙе раҫларға',
 	'lqt-drag-reason' => 'Сәбәп:',
 	'lqt-drag-subject' => 'Яңы тармаҡ исеме:',
@@ -1756,6 +1754,14 @@ $messages['bar'] = array(
  */
 $messages['bcc'] = array(
 	'lqt_youhavenewmessages' => 'شما را هست $1.',
+);
+
+/** Belarusian (Беларуская)
+ * @author Тест
+ */
+$messages['be'] = array(
+	'lqt-drag-save' => 'Пацвердзіць',
+	'lqt-drag-reason' => 'Прычына:',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
@@ -6176,14 +6182,12 @@ $messages['fr'] = array(
 	'lqt_empty_subject' => 'Vous devez entrer un objet.',
 	'lqt_reply' => 'Répondre',
 	'lqt-parent' => 'Parent',
-	'lqt_delete' => 'Effacer',
+	'lqt_delete' => 'Supprimer',
 	'lqt_undelete' => 'Récupérer',
 	'lqt_permalink' => 'Lien vers',
 	'lqt_fragment' => "Fragment d'une $1 sur $2",
 	'lqt_discussion_link' => 'discussion',
 	'lqt_from_talk' => 'De $1',
-	'lqt_newer' => '← plus récent',
-	'lqt_older' => 'plus ancien →',
 	'lqt-history-title' => 'Historique du fil',
 	'lqt_hist_comment_edited' => 'Texte de commentaire [$2 modifié]',
 	'lqt_hist_summary_changed' => 'Sommaire modifié',
@@ -6447,14 +6451,13 @@ Pôt :
 * entrar en conflit avouéc un prèfixo entèrvouiqui ou ben un èspâço de noms.',
 	'lqt_empty_subject' => 'Vos dête buchiér un sujèt.',
 	'lqt_reply' => 'Rèpondre',
+	'lqt-parent' => 'Parent',
 	'lqt_delete' => 'Suprimar',
 	'lqt_undelete' => 'Refâre',
 	'lqt_permalink' => 'Lim de vers',
 	'lqt_fragment' => 'Bocon d’una $1 dessus $2',
 	'lqt_discussion_link' => 'discussion',
 	'lqt_from_talk' => 'De $1',
-	'lqt_newer' => '← ples novél',
-	'lqt_older' => 'ples viely →',
 	'lqt-history-title' => 'Historico du fil',
 	'lqt_hist_comment_edited' => 'Tèxto de comentèro [$2 changiê]',
 	'lqt_hist_summary_changed' => 'Rèsumâ changiê',
@@ -6688,6 +6691,8 @@ La signatura est montrâ ôtomaticament.',
 	'lqt-edit-bump-tooltip' => 'Dèplaciér ceti fil d’amont la pâge de discussion',
 	'lqt-historicalrevision-error' => 'La vèrsion que vos éd chouèsia est corrompua et pôt pas étre montrâ.',
 	'lqt-reply-subpage' => 'rèpondre',
+	'nstab-thread' => 'Fil de discussion',
+	'nstab-summary' => 'Rèsumâ',
 );
 
 /** Friulian (Furlan)
@@ -10122,6 +10127,7 @@ $messages['ka'] = array(
  */
 $messages['kl'] = array(
 	'lqt-history-user' => 'Atuisoq',
+	'lqt-search-button' => 'Ujarlerit',
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -15191,18 +15197,67 @@ $7',
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'lqt-desc' => 'Додасть на сторінкы діскузії волокна діскузії',
+	'lqt_movethread' => 'Пересунути волокно на іншу сторінку',
+	'lqt_deletethread' => 'Змазати або обновити волокно',
+	'lqt_contents_title' => 'Обсяг',
+	'lqt_toc_thread_title' => 'Назва волокна',
+	'lqt_toc_thread_author' => 'Основатель',
+	'lqt_toc_thread_replycount' => 'Одповідей',
+	'lqt_toc_thread_modified' => 'Послїдня зміна',
+	'lqt_add_header' => 'Придати заголовя',
+	'lqt_new_thread' => 'Зачати нову діскузію',
+	'lqt_empty_subject' => 'Мусите увести тему.',
 	'lqt_reply' => 'Одповісти',
 	'lqt-parent' => 'Родичовскы',
 	'lqt_delete' => 'Вымазати',
 	'lqt_undelete' => 'Обновити',
 	'lqt_permalink' => 'Одказ',
 	'lqt_fragment' => 'Фраґмент $1 з $2',
+	'lqt_discussion_link' => 'діскузія',
+	'lqt_from_talk' => 'З $1',
+	'lqt-history-title' => 'Історія волокна',
+	'lqt_hist_comment_edited' => 'Текст коментаря [$2 едітованый]',
+	'lqt_hist_summary_changed' => 'Резюме змінене',
+	'lqt_hist_reply_created' => 'Створена [[$1|нова одповідь]]',
+	'lqt_hist_thread_created' => 'Нове волокно створене',
 	'lqt_hist_deleted' => 'Змазане',
 	'lqt_hist_undeleted' => 'Обновене',
+	'lqt_hist_moved_talkpage' => 'Пересунуте',
+	'lqt_hist_view_whole_thread' => 'Зобразити історію цалого волокна',
+	'lqt_hist_no_revisions_error' => 'Тото волокно не має історію змін.',
+	'lqt_hist_edited_subject' => 'Змінена тема з "$2" на "$3"',
+	'lqt_hist_edited_subject_corrupt' => 'Змінена тема',
+	'lqt_hist_merged_from' => '[[$1|Одповідь]] переміщена до іншого волокна',
+	'lqt_hist_merged_to' => '[[$1|Одповідь]] переміщена з іншого волокна',
+	'lqt_hist_root_blanked' => 'Вылученый текст коментаря',
+	'lqt_change_moved' => '[$1 Тото волокно] было перенесене на іншу діскузну сторінку',
 	'lqt_youhavenewmessages' => 'Маєте [[$1|новы повідомлїня]].',
 	'lqt_subject' => 'Тема:',
 	'lqt_noreason' => 'Причіна не была задана.',
+	'lqt_summary_notice_link' => 'створити резюме',
+	'lqt_summary_label' => 'Резюме волокна:',
 	'lqt_move_move' => 'Пересунути',
+	'lqt_delete_deleted' => 'Волокно было змазане.',
+	'lqt_delete_undeleted' => 'Волокно было обновлене.',
+	'lqt_delete_return' => 'Вернути ся на $1.',
+	'lqt_delete_return_link' => 'діскузну сторінку',
+	'lqt_delete_unallowed' => 'Не можете мазати волокна.',
+	'lqt_delete_show_checkbox' => 'Указати вылучены волокна',
+	'lqt_talkpage_autocreate_summary' => 'Діскузна сторінка створена автоматічно почас публікації першого волокна',
+	'lqt_header_warning_big' => 'Едітуєте $1.',
+	'lqt_header_warning_bold' => 'заголовя діскузной сторінкы',
+	'lqt_header_warning_new_discussion' => 'зачати нову діскузію',
+	'lqt_sorting_order' => 'Порядок сортованя:',
+	'lqt_sort_newest_threads' => 'найновшы волокна першы',
+	'lqt_sort_oldest_threads' => 'найстаршы волокна першы',
+	'lqt-title' => 'Надпис',
+	'lqt-summary' => 'Попис',
+	'lqt-older' => 'старшы',
+	'lqt-newer' => 'новшы',
+	'lqt-searching' => 'Глядають ся волокна',
+	'lqt-read-message' => 'Означіти як прочітане',
+	'lqt-read-all' => 'Означіти вшытко як прочітане',
 	'lqt-thread-created' => 'Створено',
 	'lqt-history-time' => 'Час',
 	'lqt-history-user' => 'Хоснователь',
@@ -15215,6 +15270,25 @@ $messages['rue'] = array(
 	'lqt-menu-trigger' => 'Веце',
 	'lqt-newmessages-from' => 'З $1',
 	'lqt-hot-topics' => 'Горячі темы',
+	'lqt-add-reply' => 'Придати одповідь',
+	'lqt_rc_new_discussion' => 'написав нову тему, "$1"',
+	'lqt_rc_new_reply' => 'написав одповідь на «$1»',
+	'right-lqt-split' => 'Роздїлити волокна',
+	'right-lqt-merge' => 'Злучованя волокн',
+	'lqt-thread-merge' => 'Злучіти до іншого волокна',
+	'lqt-thread-merge-to' => 'Злучіти до того волокна',
+	'lqt-quote' => 'Цітовати',
+	'lqt-search-label' => 'Гляданы выразы:',
+	'lqt-search-button' => 'Глядати',
+	'searchprofile-threads' => 'Діскузії',
+	'lqt-ajax-update-link' => 'Обновити',
+	'lqt-thread-show-replies' => 'Указати $1 {{PLURAL:$1|одповідь|одповідї|одповідей}}',
+	'lqt-thread-show-more' => 'Указати веце одповідей',
+	'lqt-thread-link-url' => 'URL одказу:',
+	'lqt-marked-as-read-placeholder' => 'Волокно $1 позначене як прочітане.',
+	'lqt-change-subject' => 'Змінити тему',
+	'lqt-save-subject' => 'Уложыти',
+	'lqt-ajax-no-subject' => 'Мусите увести тему.',
 	'lqt-cancel-subject-edit' => 'Сторно',
 	'lqt-drag-activate' => 'Перемістити на інше місце',
 	'lqt-drag-drop-zone' => 'Ту пустити',
@@ -15244,7 +15318,15 @@ $messages['rue'] = array(
 	'lqt-reply-summary' => 'Одповідь на [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Історія сторінкы діскузії',
 	'lqt-talkpage-history-subtitle' => 'Про сторінку $1',
+	'lqt-talkpage-history-tab' => 'Головка',
+	'restriction-reply' => 'Писати одповідї',
+	'restriction-newthread' => 'Створёвати новы волокна',
+	'lqt-edit-bump' => 'Ожывити волокно',
+	'lqt-edit-bump-tooltip' => 'Пересунути тото волокно на верьх діскузной сторінкы',
+	'lqt-historicalrevision-error' => 'Зволена ревізія є пошкоджена і не дасть ся зобразити.',
 	'lqt-reply-subpage' => 'одповісти',
+	'nstab-thread' => 'Волокно',
+	'nstab-summary' => 'Резюме',
 );
 
 /** Yakut (Саха тыла)
@@ -15529,6 +15611,7 @@ $messages['si'] = array(
 
 /** Slovak (Slovenčina)
  * @author Helix84
+ * @author Jkjk
  * @author Mormegil
  */
 $messages['sk'] = array(
@@ -15554,8 +15637,6 @@ $messages['sk'] = array(
 	'lqt_fragment' => 'úryvok z $1 od $2',
 	'lqt_discussion_link' => 'diskusia',
 	'lqt_from_talk' => 'od $1',
-	'lqt_newer' => '←novšie',
-	'lqt_older' => 'staršie→',
 	'lqt-history-title' => 'História vlákna',
 	'lqt_hist_comment_edited' => 'Text komentára [$2 upravený]',
 	'lqt_hist_summary_changed' => 'Zhrnutie sa zmenilo',
@@ -15788,6 +15869,8 @@ Podpis sa zobrazí automaticky.',
 	'lqt-edit-bump-tooltip' => 'Presunúť toto vlákno na vrch diskusnej stránky',
 	'lqt-historicalrevision-error' => 'Revízia, ktorú ste si vybrali je poškodená a nemožno ju zobraziť.',
 	'lqt-reply-subpage' => 'odpovedať',
+	'nstab-thread' => 'Vlákno',
+	'nstab-summary' => 'Zhrnutie',
 );
 
 /** Slovenian (Slovenščina)
@@ -16745,6 +16828,7 @@ $messages['sw'] = array(
 	'lqt-parent' => 'Hoja iliyotangulia',
 	'lqt_delete' => 'Futa',
 	'lqt_undelete' => 'Rudisha',
+	'lqt_permalink' => 'Kiungo cha daima',
 	'lqt_discussion_link' => 'majadiliano',
 	'lqt_subject' => 'Mada:',
 	'lqt_noreason' => 'Sababu haikutajwa.',
