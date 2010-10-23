@@ -883,6 +883,10 @@ class ApiThreadAction extends ApiBase {
 		return array(
 		);
 	}
+
+	public function needsToken() {
+		return true;
+	}
 	
 	public function getTokenSalt() {
 		return '';
