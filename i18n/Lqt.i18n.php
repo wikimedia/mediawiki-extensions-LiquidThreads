@@ -9342,6 +9342,7 @@ Síðast breytt: $1',
 
 /** Italian (Italiano)
  * @author Aushulz
+ * @author Beta16
  * @author Blaisorblade
  * @author Civvì
  * @author Darth Kule
@@ -9377,8 +9378,6 @@ Potrebbe:
 	'lqt_fragment' => 'Frammento di una $1 da $2',
 	'lqt_discussion_link' => 'discussione',
 	'lqt_from_talk' => 'Da $1',
-	'lqt_newer' => '← precedente',
-	'lqt_older' => 'successivo →',
 	'lqt-history-title' => 'Cronologia thread',
 	'lqt_hist_comment_edited' => 'Commento [$2 modificato]',
 	'lqt_hist_summary_changed' => 'Sommario cambiato',
@@ -9616,6 +9615,7 @@ La firma è mostrata automaticamente.',
 	'lqt-edit-bump-tooltip' => 'Sposta questo thread in cima alla sua pagina di discussione',
 	'lqt-historicalrevision-error' => 'La revisione che hai selezionato è corrotta, e non può essere visualizzata.',
 	'lqt-reply-subpage' => 'rispondi',
+	'nstab-thread' => 'Thread',
 );
 
 /** Japanese (日本語)
