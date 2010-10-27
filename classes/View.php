@@ -787,7 +787,7 @@ class LqtView {
 		$signatureText = $this->request->getVal( 'wpLqtSignature', null );
 
 		if ( is_null( $signatureText ) ) {
-			if ( $from instanceof User || $from instanceof StubUser ) {
+			if ( $from instanceof User ) {
 				$signatureText = LqtView::getUserSignature( $from );
 			} elseif ( $from instanceof Thread ) {
 				$signatureText = $from->signature();
