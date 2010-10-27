@@ -98,7 +98,10 @@ class LqtParserFunctions {
 	}
 	
 	static function runLqtTalkPage( $details ) {
-		extract($details);
+		$title = $details["title"];
+		$article = $details["article"];
+		$talkpage = $details["talkpage"];
+		$args = $details["args"];
 		
 		global $wgUser, $wgRequest, $wgOut;
 		$oldOut = $wgOut->getHTML();
@@ -125,7 +128,8 @@ class LqtParserFunctions {
 	}
 	
 	static function showLqtThread( $details ) {
-		extract($details);
+		$title = $details["title"];
+		$article = $details["article"];
 		
 		global $wgUser, $wgRequest, $wgOut;
 		$oldOut = $wgOut->getHTML();
