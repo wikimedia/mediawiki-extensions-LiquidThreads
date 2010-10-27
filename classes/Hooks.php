@@ -720,10 +720,11 @@ class LqtHooks {
 		$res = $dbr->select( 'thread_pending_relationship', '*', array(1), __METHOD__ );
 		
 		foreach( $res as $row ) {
+			$title = $row->tpr_title;
 			$entry = array(
 				'thread' => $row->tpr_thread,
 				'relationship' => $row->tpr_relationship,
-				'title' => $row->tpr_title,
+				'title' => $title,
 				'type' => $row->tpr_type,
 			);
 			
