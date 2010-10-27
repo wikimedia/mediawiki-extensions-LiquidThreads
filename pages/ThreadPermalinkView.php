@@ -146,7 +146,7 @@ class ThreadPermalinkView extends LqtView {
 		$fragment = '#' . $this->anchorName( $this->thread );
 
 		//if ( $this->thread->isHistorical() ) {
-		/	// TODO: Point to the relevant part of the archive.
+			// TODO: Point to the relevant part of the archive.
 		//	$query = '';
 		//} else {
 		//	$query = '';
