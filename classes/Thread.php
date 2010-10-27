@@ -790,7 +790,9 @@ class Thread {
 		// This is an invocation guard to avoid infinite recursion when fixing a
 		//  missing ancestor.
 		static $doingUpdates = false;
-		if ( $doingUpdates ) return;
+		if ( $doingUpdates ) {
+			return;
+		}
 		$doingUpdates = true;
 
 		// Fix missing ancestry information.

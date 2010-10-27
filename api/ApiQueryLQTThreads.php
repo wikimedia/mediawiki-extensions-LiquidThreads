@@ -203,11 +203,9 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			$nsField = $fields['namespace'];
 			$tField = $fields['title'];
 			$title = Title::makeTitle( $row->$nsField, $row->$tField );
-			$result = array();
 			ApiQueryBase::addTitleInfo( $entry, $title, 'page' );
 		} else {
 			// Complicated case.
-			$result = array();
 			foreach ( $fields as $part => $field ) {
 				$entry[$name][$part] = $row->$field;
 			}

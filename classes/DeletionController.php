@@ -12,7 +12,7 @@ class LqtDeletionController {
 		$threads = Threads::where( array( 'thread_root' => $id ) );
 
 		if ( !count( $threads ) ) {
-			wfDebugLog( __METHOD__ . ": no threads with root $id, ignoring...\n" );
+			wfDebugLog( 'LiquidThreads', __METHOD__ . ": no threads with root $id, ignoring...\n" );
 			return true;
 		}
 
