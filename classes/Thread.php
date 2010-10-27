@@ -1625,8 +1625,9 @@ class Thread {
 				foreach( $res as $row ) {
 					$thread_id = $row->tr_thread;
 					$user = $row->tr_user_text;
+					$type = $row->tr_type;
 					$info = array(
-						'type' => $row->tr_type,
+						'type' => $type,
 						'user-id' => $row->tr_user,
 						'user-name' => $row->tr_user_text,
 						'value' => $row->tr_value,
