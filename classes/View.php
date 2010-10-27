@@ -1947,7 +1947,7 @@ class LqtView {
 		// Metadata stuck in the top of the lqt_thread div.
 		// Modified time for topmost threads...
 		if ( $thread->isTopmostThread() ) {
-			$html .= Xml::hidden(
+			$html .= Html::hidden(
 				'lqt-thread-modified-' . $thread->id(),
 				wfTimestamp( TS_MW, $thread->modified() ),
 				array(

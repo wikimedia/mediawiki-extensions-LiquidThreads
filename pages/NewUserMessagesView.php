@@ -144,8 +144,6 @@ class NewUserMessagesView extends LqtView {
 	}
 
 	function showWrappedThread( $t ) {
-		wfLoadExtensionMessages( 'LiquidThreads' );
-
 		$read_button = $this->htmlForReadButton(
 			wfMsg( 'lqt-read-message' ),
 			wfMsg( 'lqt-read-message-tooltip' ),
