@@ -607,13 +607,14 @@ class Thread {
 							'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ),
 						__METHOD__ );
 
-			while ( $row = $dbr->fetchObject( $res ) ) {
+			foreach( $res as $row ) {
 				// Grab page data while we're here.
-				if ( $row->thread_root )
+				if ( $row->thread_root ) {
 					$pageIds[] = $row->thread_root;
-				if ( $row->thread_summary_page )
+				}
+				if ( $row->thread_summary_page ) {
 					$pageIds[] = $row->thread_summary_page;
-
+				}
 				$all_thread_rows[] = $row;
 				$all_thread_ids[$row->thread_id] = $row->thread_id;
 			}
@@ -659,13 +660,13 @@ class Thread {
 			$restrictionRows = array_fill_keys( $pageIds, array() );
 			$res = $dbr->select( 'page_restrictions', '*', array( 'pr_page' => $pageIds ),
 									__METHOD__ );
-			while ( $row = $dbr->fetchObject( $res ) ) {
+			foreach( $res as $row ) {
 				$restrictionRows[$row->pr_page][] = $row;
 			}
 
 			$res = $dbr->select( 'page', '*', array( 'page_id' => $pageIds ), __METHOD__ );
 
-			while ( $row = $dbr->fetchObject( $res ) ) {
+			foreach( $res as $row ) {
 				$t = Title::newFromRow( $row );
 
 				if ( isset( $restrictionRows[$t->getArticleId()] ) ) {
@@ -1008,7 +1009,7 @@ class Thread {
 					__METHOD__ );
 
 		$rows = array();
-		while ( $row = $dbr->fetchObject( $res ) ) {
+		foreach( $res as $row ) {
 			$rows[] = $row;
 		}
 

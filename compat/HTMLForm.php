@@ -25,8 +25,6 @@ class HTMLForm {
 	);
 
 	function __construct( $descriptor, $messagePrefix ) {
-		wfLoadExtensionMessages( 'Lqt-Compat' );
-
 		$this->mMessagePrefix = $messagePrefix;
 
 		// Expand out into a tree.
@@ -188,8 +186,8 @@ class HTMLForm {
 		global $wgUser;
 		$html = '';
 
-		$html .= Xml::hidden( 'wpEditToken', $wgUser->editToken() ) . "\n";
-		$html .= Xml::hidden( 'title', $this->getTitle() ) . "\n";
+		$html .= Html::hidden( 'wpEditToken', $wgUser->editToken() ) . "\n";
+		$html .= Html::hidden( 'title', $this->getTitle() ) . "\n";
 
 		return $html;
 	}

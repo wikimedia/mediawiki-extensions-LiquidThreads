@@ -61,7 +61,7 @@ class SpecialMergeThread extends ThreadActionPage {
 			$threadid = $t->id();
 		}
 
-		$out = Xml::hidden( $field, $threadid );
+		$out = Html::hidden( $field, $threadid );
 		$out .= LqtView::permalink( $t );
 
 		return $out;
@@ -71,7 +71,6 @@ class SpecialMergeThread extends ThreadActionPage {
 	* @see SpecialPage::getDescription
 	*/
 	function getDescription() {
-		wfLoadExtensionMessages( 'LiquidThreads' );
 		return wfMsg( 'lqt_merge_thread' );
 	}
 
@@ -98,7 +97,6 @@ class SpecialMergeThread extends ThreadActionPage {
 	}
 
 	function getSubmitText() {
-		wfLoadExtensionMessages( 'LiquidThreads' );
 		return wfMsg( 'lqt-merge-submit' );
 	}
 }

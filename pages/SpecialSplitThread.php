@@ -26,7 +26,6 @@ class SpecialSplitThread extends ThreadActionPage {
 	* @see SpecialPage::getDescription
 	*/
 	function getDescription() {
-		wfLoadExtensionMessages( 'LiquidThreads' );
 		return wfMsg( 'lqt_split_thread' );
 	}
 
@@ -70,7 +69,6 @@ class SpecialSplitThread extends ThreadActionPage {
 	}
 
 	function getSubmitText() {
-		wfLoadExtensionMessages( 'LiquidThreads' );
 		return wfMsg( 'lqt-split-submit' );
 	}
 }

@@ -61,7 +61,6 @@ class TalkpageView extends LqtView {
 
 		$article = new Article( $this->title );
 
-		wfLoadExtensionMessages( 'LiquidThreads' );
 		// If $article_text == "", the talkpage was probably just created
 		// when the first thread was posted to make the links blue.
 		if ( $article->exists() ) {
@@ -120,8 +119,6 @@ class TalkpageView extends LqtView {
 	function getTOC( $threads ) {
 		global $wgLang;
 
-		wfLoadExtensionMessages( 'LiquidThreads' );
-
 		$html = '';
 
 		$h2_header = Xml::tags( 'h2', null, wfMsgExt( 'lqt_contents_title', 'parseinline' ) );
@@ -178,7 +175,6 @@ class TalkpageView extends LqtView {
 	}
 
 	function getArchiveWidget( ) {
-		wfLoadExtensionMessages( 'LiquidThreads' );
 		$url = $this->talkpageUrl( $this->title, 'talkpage_archive' );
 
 		$html = '';
@@ -187,8 +183,6 @@ class TalkpageView extends LqtView {
 	}
 
 	function showTalkpageViewOptions( $article ) {
-		wfLoadExtensionMessages( 'LiquidThreads' );
-
 		if ( $article->exists() ) {
 			$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
 			$html = '';
@@ -214,7 +208,7 @@ class TalkpageView extends LqtView {
 			$html .= $sortOrderSelect->getHTML();
 
 			$html .= Xml::submitButton( wfMsg( 'go' ), array( 'class' => 'lqt_go_sort' ) );
-			$html .= Xml::hidden( 'title', $this->title->getPrefixedText() );
+			$html .= Html::hidden( 'title', $this->title->getPrefixedText() );
 
 
 			$html = Xml::tags(
@@ -233,7 +227,6 @@ class TalkpageView extends LqtView {
 	}
 
 	function show() {
-		wfLoadExtensionMessages( 'LiquidThreads' );
 		LqtView::addJSandCSS();
 
 		$this->output->setPageTitle( $this->title->getPrefixedText() );
@@ -366,7 +359,7 @@ class TalkpageView extends LqtView {
 		);
 
 		$html .= ' ' . Xml::submitButton( wfMsg( 'lqt-search-button' ) );
-		$html .= Xml::hidden( 'title', $this->title->getPrefixedText() );
+		$html .= Html::hidden( 'title', $this->title->getPrefixedText() );
 		$html = Xml::tags(
 			'form',
 			array(
