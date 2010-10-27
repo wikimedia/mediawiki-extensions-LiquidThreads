@@ -145,12 +145,12 @@ class ThreadPermalinkView extends LqtView {
 		$sk = $this->user->getSkin();
 		$fragment = '#' . $this->anchorName( $this->thread );
 
-		if ( $this->thread->isHistorical() ) {
-			// TODO: Point to the relevant part of the archive.
-			$query = '';
-		} else {
-			$query = '';
-		}
+		//if ( $this->thread->isHistorical() ) {
+		/	// TODO: Point to the relevant part of the archive.
+		//	$query = '';
+		//} else {
+		//	$query = '';
+		//}
 
 		$talkpage = $this->thread->getTitle();
 		$talkpage->setFragment( $fragment );

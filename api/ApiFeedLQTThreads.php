@@ -128,8 +128,6 @@ class ApiFeedLQTThreads extends ApiBase {
 		// What's included?
 		$types = (array)$params['type'];
 
-		$msg = '';
-
 		if ( !count( array_diff( array( 'replies', 'newthreads' ), $types ) ) ) {
 			$msg = 'lqt-feed-title-all';
 		} elseif ( in_array( 'replies', $types ) ) {

@@ -160,11 +160,9 @@ class NewMessages {
 		// Pull users to update the message state for, including whether or not a
 		//  user_message_state row exists for them, and whether or not to send an email
 		//  notification.
-		$dbr = wfGetDB( DB_SLAVE );
-
 		$userIds = array();
 		$notifyUsers = array();
-		$obj = self::getRowsObject( $t );
+		$res = self::getRowsObject( $t );
 		foreach( $res as $row ) {
 			// Don't notify yourself
 			if ( $changeUser->getId() == $row->wl_user )

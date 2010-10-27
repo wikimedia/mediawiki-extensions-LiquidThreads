@@ -76,8 +76,6 @@ class ThreadHistoryPager extends TablePager {
 
 		$row = $this->mCurrentRow;
 
-		$formatted = '';
-
 		switch( $name ) {
 			case 'th_timestamp':
 				$formatted = $wgLang->timeanddate( $value );

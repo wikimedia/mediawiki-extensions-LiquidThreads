@@ -25,8 +25,6 @@ class LqtParserFunctions {
 	  * most of the page can be cached, but the LiquidThreads dynamicism still works.
 	  * Thanks to Tim for the idea. */
 	static function lqtTalkPage( $parser, $args, $parser, $frame ) {
-		global $wgStyleVersion;
-
 		$pout = $parser->getOutput();
 		
 		// Prepare information.
@@ -62,8 +60,6 @@ class LqtParserFunctions {
 	}
 	
 	static function lqtThread( $parser, $args, $parser, $frame ) {
-		global $wgStyleVersion;
-
 		$pout = $parser->getOutput();
 		
 		// Prepare information.
@@ -157,7 +153,6 @@ class LqtParserFunctions {
 			$out->mLqtReplacements = array();
 		}
 		
-		$processedReplacements = array();
 		foreach( $pout->mLqtReplacements as $text => $details ) {
 			$result = '';
 			

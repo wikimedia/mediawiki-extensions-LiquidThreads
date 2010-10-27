@@ -563,7 +563,6 @@ class Thread {
 	// Load a list of threads in bulk, including all subthreads.
 	static function bulkLoad( $rows ) {
 		// Preload subthreads
-		$all_thread_ids = array();
 		$top_thread_ids = array();
 		$all_thread_rows = $rows;
 		$pageIds = array();
@@ -724,8 +723,6 @@ class Thread {
 				$t->addEditor( $editor );
 			}
 		}
-
-		$userIds = array_keys( $userIds );
 
 		// Pull link batch data.
 		$linkBatch->execute();
