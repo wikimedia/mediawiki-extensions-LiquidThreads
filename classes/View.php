@@ -859,7 +859,9 @@ class LqtView {
 			}
 		}
 
-		extract( $data );
+		$thread = $data["thread"];
+		$article = $data["article"];
+		$summary = $data["summary"];
 
 		$bump = isset( $bump ) ? $bump : null;
 
