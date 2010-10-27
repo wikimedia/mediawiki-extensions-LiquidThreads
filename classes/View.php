@@ -397,9 +397,8 @@ class LqtView {
 		LqtHooks::$editType = 'new';
 		LqtHooks::$editAppliesTo = null;
 
-		wfRunHooks( 'LiquidThreadsShowNewThreadForm', array( &$e, $talkpage ) );
-
 		$e = new EditPage( $article );
+		wfRunHooks( 'LiquidThreadsShowNewThreadForm', array( &$e, $talkpage ) );
 
 		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
