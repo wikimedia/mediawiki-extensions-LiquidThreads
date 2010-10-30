@@ -6010,7 +6010,7 @@ Tämä ketju on osa sivua $2.',
 	'lqt_delete_show_checkbox' => 'Näytä poistetut ketjut',
 	'lqt_talkpage_autocreate_summary' => 'Keskustelusivu luotiin automaattisesti kun ensimmäinen ketju lähettiin.',
 	'lqt_header_warning_big' => 'Muokkaat $1.',
-	'lqt_header_warning_after_big' => 'Otsakkeet ovat ilmoituksille. 
+	'lqt_header_warning_after_big' => 'Otsakkeet ovat ilmoituksille ja johdannoille. 
 Saatat etsiä sivua ”$2” sen sijaan.',
 	'lqt_header_warning_bold' => 'keskustelusivun otsikkoa',
 	'lqt_header_warning_new_discussion' => 'aloita uusi keskustelu',
