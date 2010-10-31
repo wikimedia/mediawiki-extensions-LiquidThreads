@@ -86,6 +86,15 @@ $specialPageAliases['el'] = array(
 	'NewMessages' => array( 'ΝέαΜηνύματα' ),
 );
 
+/** Spanish (Español) */
+$specialPageAliases['es'] = array(
+	'DeleteThread' => array( 'BorrarHilo', 'Borrar_hilo' ),
+	'MoveThread' => array( 'MoverHilo', 'Mover_hilo' ),
+	'NewMessages' => array( 'MensajesNuevos', 'Mensajes_nuevos' ),
+	'SplitThread' => array( 'SepararHilo', 'Separar_hilo' ),
+	'MergeThread' => array( 'FusionarHilo', 'Fusionar_hilo' ),
+);
+
 /** Estonian (Eesti) */
 $specialPageAliases['et'] = array(
 	'DeleteThread' => array( 'Lõime_kustutamine' ),
@@ -113,7 +122,11 @@ $specialPageAliases['fa'] = array(
 /** Finnish (Suomi) */
 $specialPageAliases['fi'] = array(
 	'DeleteThread' => array( 'Poista_keskusteluketju' ),
+	'HotTopics' => array( 'Keskustelluimmat' ),
 	'MoveThread' => array( 'Siirrä_keskusteluketju' ),
+	'NewMessages' => array( 'Uudet_viestit' ),
+	'SplitThread' => array( 'Pilko_keskustelu' ),
+	'MergeThread' => array( 'Yhdistä_keskusteluja' ),
 );
 
 /** French (Français) */
@@ -218,7 +231,7 @@ $specialPageAliases['km'] = array(
 
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
-	'NewMessages' => array( '새 메시지' ),
+	'NewMessages' => array( '새_메시지' ),
 );
 
 /** Colognian (Ripoarisch) */
