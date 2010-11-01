@@ -6766,6 +6766,13 @@ $messages['fy'] = array(
 	'lqt_move_move' => 'Werneam',
 );
 
+/** Traditional Gan script (贛語(繁體))
+ * @author Symane
+ */
+$messages['gan-hant'] = array(
+	'lqt-search-button' => '尋吖',
+);
+
 /** Galician (Galego)
  * @author Alma
  * @author Toliño
