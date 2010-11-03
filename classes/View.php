@@ -309,11 +309,13 @@ class LqtView {
 		$thread = Threads::withId( intval( $operand ) );
 		
 		// Yuck.
-		global $wgOut, $wgRequest;
+		global $wgOut, $wgRequest, $wgTitle;
 		$oldOut = $wgOut;
 		$oldRequest = $wgRequest;
+		$oldTitle = $wgTitle;
 		$wgOut = $this->output;
 		$wgRequest = $this->request;
+		$wgTitle = $this->title;
 
 		$hookResult = wfRunHooks( 'LiquidThreadsDoInlineEditForm',
 					array(
@@ -336,6 +338,7 @@ class LqtView {
 		
 		$wgOut = $oldOut;
 		$wgRequest = $oldRequest;
+		$wgTitle = $oldTitle;
 
 		$this->output->setArticleBodyOnly( true );
 	}
@@ -354,7 +357,7 @@ class LqtView {
 				$title = $talkpage->getTitle();
 			}
 		}
-		
+
 		$request->setVal( 'lqt_method', $method );
 		$request->setVal( 'lqt_operand', $operand );
 		
