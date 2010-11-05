@@ -4685,8 +4685,6 @@ $messages['el'] = array(
  * @author Reedy
  */
 $messages['en-gb'] = array(
-	'lqt_summary_label' => 'Summarise',
-	'lqt_summarize_link' => 'Summarise',
 	'lqt-summarize-intro' => 'Please summarise the below thread in the editing box.
 You may use any wikitext in your summary.
 When you finish, click "{{int:savearticle}}".',
