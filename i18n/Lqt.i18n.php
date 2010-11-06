@@ -10214,6 +10214,7 @@ $messages['kn'] = array(
 /** Korean (한국어)
  * @author Albamhandae
  * @author FriedC
+ * @author Gapo
  * @author Klutzy
  * @author Kwj2772
  * @author Ryuch
@@ -10316,7 +10317,7 @@ $messages['ko'] = array(
 	'lqt_delete_undeleted' => '스레드가 복구되었습니다.',
 	'lqt_delete_return' => '$1(으)로 돌아갑니다.',
 	'lqt_delete_return_link' => '토론 문서',
-	'lqt_delete_unallowed' => '당신은 스레드를 삭제할 수 없습니다.',
+	'lqt_delete_unallowed' => '스레드를 삭제할 권한이 없습니다.',
 	'lqt_delete_show_checkbox' => '삭제된 스레드를 보기',
 	'lqt_talkpage_autocreate_summary' => '스레드가 처음 게시되었을 때 토론 문서를 자동으로 생성함',
 	'lqt_header_warning_big' => '당신은 $1을 편집하고 있습니다.',
@@ -10344,9 +10345,9 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-count-marked-read' => '메시지 $1개를 읽은 것으로 표시했습니다.',
 	'lqt-email-undo' => '취소',
 	'lqt-no-new-messages' => '새로운 메시지가 없습니다.',
-	'lqt-new-messages' => '✒ 당신에게 새 메시지가 도착했습니다.',
-	'lqt-email-info-undo' => '당신이 방금 없앤 스레드를 복구합니다.',
-	'lqt-date-info' => '당신이 모든 날짜에 대해 스레드를 보고 있기 때문에 이 링크가 비활성화되었습니다.',
+	'lqt-new-messages' => '✒ 새 메시지가 도착했습니다.',
+	'lqt-email-info-undo' => '방금 없앤 스레드를 되돌립니다.',
+	'lqt-date-info' => '모든 날짜의 스레드를 보고 있기 때문에 이 링크는 비활성화되어있습니다.',
 	'lqt-newmessages-context' => '전체 스레드',
 	'lqt-thread-created' => '생성됨',
 	'lqt-history-time' => '시간',
@@ -10388,8 +10389,8 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-thread-merge' => '다른 스레드로 합치기',
 	'lqt-thread-merge-to' => '이 스레드에 합치기',
 	'lqt_merge_thread' => '스레드 합치기',
-	'lqt-thread-merge-source' => '병합 전 스레드:',
-	'lqt-thread-merge-dest' => '병합 후의 스레드:',
+	'lqt-thread-merge-source' => '합치기 전 스레드:',
+	'lqt-thread-merge-dest' => '합친 뒤의 스레드:',
 	'lqt-merge-submit' => '합치기',
 	'lqt-merge-success' => '스레드 $1을 $2에 성공적으로 병합했습니다.',
 	'lqt-log-name' => '스레드식 토론 기록',
@@ -10433,8 +10434,8 @@ $7",
 	'lqt-thread-link-url' => '링크 URL:',
 	'lqt-thread-link-title' => '위키문법 링크:',
 	'lqt-thread-link-copy' => '클립보드에 복사하기',
-	'lqt-sign-not-necessary' => '물결표 4개로 서명할 필요 없습니다.
-서명은 자동적으로 표시됩니다.',
+	'lqt-sign-not-necessary' => '물결표 4개로 서명할 필요가 없습니다.
+서명은 자동으로 표시됩니다.',
 	'lqt-marked-as-read-placeholder' => '$1 스레드를 읽은 것으로 표시했습니다.',
 	'lqt-change-subject' => '제목 바꾸기',
 	'lqt-save-subject' => '저장',
@@ -10447,7 +10448,7 @@ $7",
 	'lqt-drag-drop-zone' => '이곳으로 드래그하세요.',
 	'lqt-drag-confirm' => '다음 동작을 수행하려면 이유를 작성한 후 "확인"을 클릭하십시오.',
 	'lqt-drag-reparent' => '글을 다른 스레드 안으로 옮기기',
-	'lqt-drag-split' => '글 자체를 새 스레드로 만들기',
+	'lqt-drag-split' => '글을 새 스레드로 분할하기',
 	'lqt-drag-setsortkey' => '이 문서에서 글의 위치를 조정하기',
 	'lqt-drag-bump' => '토론 문서의 맨 위로 옮기기',
 	'lqt-drag-save' => '확인',
@@ -10481,6 +10482,8 @@ $7",
 	'lqt-edit-bump-tooltip' => '이 스레드를 토론 문서의 맨 위로 옮깁니다.',
 	'lqt-historicalrevision-error' => '당신이 선택한 판에 문제가 있어서 볼 수 없습니다.',
 	'lqt-reply-subpage' => '답글',
+	'nstab-thread' => '스레드',
+	'nstab-summary' => '편집 요약',
 );
 
 /** Krio (Krio)
