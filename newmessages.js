@@ -23,7 +23,7 @@ $j.extend( liquidThreads,
 				
 				// Produce the link
 				var titleSel = '.lqt-thread-topmost > .lqt-thread-title-metadata';
-				var subject = right_col.find('h3').text();
+				var subject = right_col.find('.lqt_header').text();
 				var title = right_col.find(titleSel).val();
 				title = title.replace( ' ', '_' );
 				title = encodeURIComponent(title);
