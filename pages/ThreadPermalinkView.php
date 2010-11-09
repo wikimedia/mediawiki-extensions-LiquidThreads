@@ -54,7 +54,16 @@ class ThreadPermalinkView extends LqtView {
 	}
 
 	static function customizeThreadNavigation( $skin, &$links, $view ) {
+		$tempTitle = Title::makeTitle( NS_LQT_THREAD, 'A' );
+		$talkKey = $tempTitle->getNamespaceKey( '' ) . '_talk';
+
 		if ( !$view->thread ) {
+			unset( $links['views']['edit'] );
+			unset( $links['views']['history'] );
+
+			$links['actions'] = array();
+
+			unset( $links['namespaces'][$talkKey] );
 			return true;
 		}
 
@@ -63,7 +72,6 @@ class ThreadPermalinkView extends LqtView {
 
 		$nstabs =& $links['namespaces'];
 
-		$talkKey = $view->thread->title()->getNamespaceKey( '' ) . '_talk';
 		unset( $nstabs[$talkKey] );
 		$nstabs = $new_nstabs + $nstabs;
 
