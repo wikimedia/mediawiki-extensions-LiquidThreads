@@ -87,11 +87,19 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 
 		$row = $this->mCurrentRow;
 
+		$ns = $row->page_namespace;
+		$title = $row->page_title;
+
+		if ( is_null($ns) ) {
+			$ns = $row->thread_article_namespace;
+			$title = $row->thread_article_title;
+		}
+
 		switch( $name ) {
 			case 'thread_subject':
 				$title = Title::makeTitleSafe(
-					$row->page_namespace,
-					$row->page_title
+					$ns,
+					$title
 				);
 
 				$link = $sk->link(
@@ -106,8 +114,8 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 			case 'th_timestamp':
 				$formatted = $wgLang->timeanddate( $value );
 				$title = Title::makeTitleSafe(
-					$row->page_namespace,
-					$row->page_title
+					$ns,
+					$title
 				);
 
 				return $sk->link(
