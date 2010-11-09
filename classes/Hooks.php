@@ -223,10 +223,13 @@ class LqtHooks {
 		}
 
 		$thread = Threads::withRoot( new Article( $title ) );
-		$text = $thread->subject();
 
-		$title = clone $thread->topmostThread()->title();
-		$title->setFragment( '#' . $thread->getAnchorName() );
+		if ( $thread ) {
+			$text = $thread->subject();
+
+			$title = clone $thread->topmostThread()->title();
+			$title->setFragment( '#' . $thread->getAnchorName() );
+		}
 
 		return true;
 	}
