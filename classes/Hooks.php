@@ -760,4 +760,26 @@ class LqtHooks {
 		
 		$array[$title][] = $entry;
 	}
+
+	// Do not allow users to read threads on talkpages that they cannot read.
+	public static function onGetUserPermissionsErrors( $title, $user, $action, &$result ) {
+		if ( $title->getNamespace() != NS_LQT_THREAD || $action != 'read' )
+			return true;
+
+		$thread = Threads::withRoot( new Article($title) );
+
+		if ( ! $thread )
+			return true;
+
+		$talkpage = $thread->article();
+
+		$canRead = $talkpage->getTitle()->userCan( 'read', false );
+
+		if ( $canRead ) {
+			return true;
+		} else {
+			$result = false;
+			return false;
+		}
+	}
 }

@@ -128,6 +128,9 @@ $wgSpecialPageGroups['NewMessages'] = 'wiki';
 $wgHooks['OutputPageParserOutput'][] = 'LqtParserFunctions::onAddParserOutput';
 $wgHooks['OutputPageBeforeHTML'][] = 'LqtParserFunctions::onAddHTML';
 
+// Permissions
+$wgHooks['userCan'][] = 'LqtHooks::onGetUserPermissionsErrors';
+
 // Classes
 $wgAutoloadClasses['LqtDispatch'] = $dir . 'classes/Dispatch.php';
 $wgAutoloadClasses['LqtView'] = $dir . 'classes/View.php';

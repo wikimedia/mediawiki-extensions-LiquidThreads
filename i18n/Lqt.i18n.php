@@ -316,7 +316,6 @@ The signature is shown automatically.',
 	// Tabs in skins
 	'nstab-thread' => 'Thread',
 	'nstab-summary' => 'Summary',
-
 );
 
 /** Message documentation (Message documentation)
