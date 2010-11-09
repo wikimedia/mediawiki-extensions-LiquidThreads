@@ -73,7 +73,7 @@ class LqtDispatch {
 			$viewname = 'ThreadHistoricalRevisionView';
 		} else if ( $action == 'watch' || $action == 'unwatch' ) {
 			$viewname = 'ThreadWatchView';
-		} elseif ( $action == 'delete' || $action = 'rollback' || $action = 'markpatrolled' ) {
+		} elseif ( $action == 'delete' || $action == 'rollback' || $action == 'markpatrolled' ) {
 			return true;
 		} else {
 			$viewname = 'ThreadPermalinkView';
