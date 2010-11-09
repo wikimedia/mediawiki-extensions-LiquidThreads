@@ -445,16 +445,13 @@ class LqtHooks {
  			return true;
  		}
 
- 		LqtView::postEditUpdates(
- 			'editExisting',
- 			null,
- 			$article,
- 			$thread->article(),
- 			$thread->article(),
- 			$summary,
- 			$thread,
- 			$text
- 		);
+		LqtView::editMetadataUpdates(
+			array(
+			'root' => $article,
+			'thread' => $thread,
+			'summary' => $summary,
+			'text' => $text,
+		) );
 
  		return true;
  	}
