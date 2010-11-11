@@ -1224,28 +1224,50 @@ class LqtView {
 
 		global $wgOut;
 		global $wgStyleVersion;
-		global $wgLiquidThreadsExtensionPath;
 
 		LqtHooks::$scriptVariables['wgLqtMessages'] = self::exportJSLocalisation();
 
 		if ( method_exists( $wgOut, 'includeJQuery' ) ) {
 			$wgOut->includeJQuery();
-			$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/jquery/plugins.js" );
-		} else {
-			$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/jquery/js2.combined.js" );
 		}
 
-		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/jquery/jquery-ui-1.7.2.css" );
-		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/jquery/jquery.autogrow.js" );
+		$output = self::getJSAndCSS();
 
-		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/lqt.js" );
-		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/js/lqt.toolbar.js" );
-		$wgOut->addScriptFile( "$wgLiquidThreadsExtensionPath/jquery/jquery.thread_collapse.js" );
-		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/jquery/jquery.thread_collapse.css" );
-		
-		$wgOut->addExtensionStyle( "$wgLiquidThreadsExtensionPath/lqt.css?{$wgStyleVersion}" );
+		foreach( $output['scripts'] as $script ) {
+			$wgOut->addScriptFile( "$script?$wgStyleVersion" );
+		}
+
+		foreach( $output['styles'] as $style ) {
+			$wgOut->addExtensionStyle( "$style?$wgStyleVersion" );
+		}
 
 		self::$stylesAndScriptsDone = true;
+	}
+
+	static function getJSAndCSS() {
+		global $wgLiquidThreadsExtensionPath, $wgOut;
+		// Returns an associative array, with the keys: styles, scripts
+
+		$styles = array(
+			"$wgLiquidThreadsExtensionPath/jquery/jquery-ui-1.7.2.css",
+			"$wgLiquidThreadsExtensionPath/jquery/jquery.thread_collapse.css",
+			"$wgLiquidThreadsExtensionPath/lqt.css",
+		);
+
+		$scripts = array(
+			"$wgLiquidThreadsExtensionPath/lqt.js",
+			"$wgLiquidThreadsExtensionPath/js/lqt.toolbar.js",
+			"$wgLiquidThreadsExtensionPath/jquery/jquery.thread_collapse.js",
+			"$wgLiquidThreadsExtensionPath/jquery/jquery.autogrow.js"
+		);
+
+		if ( method_exists( $wgOut, 'includeJQuery' ) ) {
+			$scripts[] = "$wgLiquidThreadsExtensionPath/jquery/plugins.js";
+		} else {
+			$scripts[] = "$wgLiquidThreadsExtensionPath/jquery/js2.combined.js";
+		}
+
+		return array( 'scripts' => $scripts, 'styles' => $styles );
 	}
 
 	static function exportJSLocalisation() {

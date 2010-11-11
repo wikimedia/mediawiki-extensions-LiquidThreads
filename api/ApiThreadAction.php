@@ -799,6 +799,9 @@ class ApiThreadAction extends ApiBase {
 		$output = LqtView::getInlineEditForm( $talkpage, $method, $operand );
 		
 		$result = array( 'inlineeditform' => array( 'html' => $output ) );
+
+		$result['resources'] = LqtView::getJSandCSS();
+		$result['resources']['messages'] = LqtView::exportJSLocalisation();
 		
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}

@@ -1,7 +1,18 @@
 // Prototype in string.trim on browsers that haven't yet implemented
 if ( typeof String.prototype.trim !== "function" )
 	String.prototype.trim = function() { return this.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); };
+
 var wgWikiEditorIconVersion = 0;
+
+jQuery.getCSS = function( url, media ) {
+	jQuery( document.createElement('link') ).attr({
+		href: url,
+		media: media || 'screen',
+		type: 'text/css',
+		rel: 'stylesheet'
+	}).appendTo('head');
+};
+
 var liquidThreads = {
 	currentReplyThread : null,
 	currentToolbar : null,
@@ -215,6 +226,22 @@ var liquidThreads = {
 			function(result) {
 				var content = $j(result.threadaction.inlineeditform.html);
 				$j(container).empty().append(content);
+				
+				// Add resources if necessary
+				if ( typeof wgLqtMessages == 'undefined' || !wgLqtMessages ) {
+					wgLqtMessages = result.threadaction.resources.messages;
+					
+					$j.each( result.threadaction.resources.scripts,
+						function(index,value) {
+							$j.getScript( value );
+						} );
+					
+					$j.each( result.threadaction.resources.styles,
+						 function(index,value) {
+							 $j.getCSS( value );
+						 } );
+				}
+				
 				callback();
 			} );
 	},
