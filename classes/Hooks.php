@@ -298,35 +298,59 @@ class LqtHooks {
 		return true;
 	}
 
-	public static function onLoadExtensionSchemaUpdates() {
-		global $wgExtNewTables, $wgExtNewFields, $wgExtNewIndexes;
-
+	public static function onLoadExtensionSchemaUpdates( $updater = null ) {
 		$dir = realpath( dirname( __FILE__ ) . '/..' );
 
-		// DB updates
-		$wgExtNewTables[] = array( 'thread', "$dir/lqt.sql" );
-		$wgExtNewTables[] = array( 'user_message_state', "$dir/lqt.sql" );
-		$wgExtNewTables[] = array( 'thread_history', "$dir/schema-changes/thread_history_table.sql" );
-		$wgExtNewTables[] = array( 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.sql" );
-		$wgExtNewTables[] = array( 'thread_reaction', "$dir/schema-changes/thread_reactions.sql" );
+		if ( $updater === null ) {
+			// DB updates
+			$wgExtNewTables[] = array( 'thread', "$dir/lqt.sql" );
+			$wgExtNewTables[] = array( 'user_message_state', "$dir/lqt.sql" );
+			$wgExtNewTables[] = array( 'thread_history', "$dir/schema-changes/thread_history_table.sql" );
+			$wgExtNewTables[] = array( 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.sql" );
+			$wgExtNewTables[] = array( 'thread_reaction', "$dir/schema-changes/thread_reactions.sql" );
 
-		$wgExtNewFields[] = array( "thread", "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql" );
-		$wgExtNewFields[] = array( "thread", "thread_article_title", "$dir/schema-changes/split-thread_article.sql" );
-		$wgExtNewFields[] = array( "thread", "thread_ancestor", "$dir/schema-changes/normalise-ancestry.sql" );
-		$wgExtNewFields[] = array( "thread", "thread_parent", "$dir/schema-changes/normalise-ancestry.sql" );
-		$wgExtNewFields[] = array( "thread", "thread_modified", "$dir/schema-changes/split-timestamps.sql" );
-		$wgExtNewFields[] = array( "thread", "thread_created", "$dir/schema-changes/split-timestamps.sql" );
-		$wgExtNewFields[] = array( "thread", "thread_editedness", "$dir/schema-changes/store-editedness.sql" );
-		$wgExtNewFields[] = array( "thread", "thread_subject", "$dir/schema-changes/store_subject-author.sql" );
-		$wgExtNewFields[] = array( "thread", "thread_author_id", "$dir/schema-changes/store_subject-author.sql" );
-		$wgExtNewFields[] = array( "thread", "thread_author_name", "$dir/schema-changes/store_subject-author.sql" );
-		$wgExtNewFields[] = array( "thread", "thread_sortkey", "$dir/schema-changes/new-sortkey.sql" );
-		$wgExtNewFields[] = array( 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql" );
-		$wgExtNewFields[] = array( 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql" );
-		$wgExtNewFields[] = array( 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql" );
-		$wgExtNewFields[] = array( 'user_message_state', 'ums_conversation', "$dir/schema-changes/ums_conversation.sql" );
+			$wgExtNewFields[] = array( "thread", "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql" );
+			$wgExtNewFields[] = array( "thread", "thread_article_title", "$dir/schema-changes/split-thread_article.sql" );
+			$wgExtNewFields[] = array( "thread", "thread_ancestor", "$dir/schema-changes/normalise-ancestry.sql" );
+			$wgExtNewFields[] = array( "thread", "thread_parent", "$dir/schema-changes/normalise-ancestry.sql" );
+			$wgExtNewFields[] = array( "thread", "thread_modified", "$dir/schema-changes/split-timestamps.sql" );
+			$wgExtNewFields[] = array( "thread", "thread_created", "$dir/schema-changes/split-timestamps.sql" );
+			$wgExtNewFields[] = array( "thread", "thread_editedness", "$dir/schema-changes/store-editedness.sql" );
+			$wgExtNewFields[] = array( "thread", "thread_subject", "$dir/schema-changes/store_subject-author.sql" );
+			$wgExtNewFields[] = array( "thread", "thread_author_id", "$dir/schema-changes/store_subject-author.sql" );
+			$wgExtNewFields[] = array( "thread", "thread_author_name", "$dir/schema-changes/store_subject-author.sql" );
+			$wgExtNewFields[] = array( "thread", "thread_sortkey", "$dir/schema-changes/new-sortkey.sql" );
+			$wgExtNewFields[] = array( 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql" );
+			$wgExtNewFields[] = array( 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql" );
+			$wgExtNewFields[] = array( 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql" );
+			$wgExtNewFields[] = array( 'user_message_state', 'ums_conversation', "$dir/schema-changes/ums_conversation.sql" );
 
-		$wgExtNewIndexes[] = array( 'thread', 'thread_summary_page', '(thread_summary_page)' );
+			$wgExtNewIndexes[] = array( 'thread', 'thread_summary_page', '(thread_summary_page)' );
+		} else {
+			$updater->addExtensionUpdate( array( 'addTable', 'thread', "$dir/lqt.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addTable', 'user_message_state', "$dir/lqt.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addTable', 'thread_history', "$dir/schema-changes/thread_history_table.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addTable', 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addTable', 'thread_reaction', "$dir/schema-changes/thread_reactions.sql", true ) );
+
+			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_article_title", "$dir/schema-changes/split-thread_article.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_ancestor", "$dir/schema-changes/normalise-ancestry.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_parent", "$dir/schema-changes/normalise-ancestry.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_modified", "$dir/schema-changes/split-timestamps.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_created", "$dir/schema-changes/split-timestamps.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_editedness", "$dir/schema-changes/store-editedness.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_subject", "$dir/schema-changes/store_subject-author.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_author_id", "$dir/schema-changes/store_subject-author.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_author_name", "$dir/schema-changes/store_subject-author.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_sortkey", "$dir/schema-changes/new-sortkey.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', 'user_message_state', 'ums_conversation', "$dir/schema-changes/ums_conversation.sql", true ) );
+
+			$updater->addExtensionUpdate( array( 'addIndex', 'thread', 'thread_summary_page', '(thread_summary_page)' ) );
+		}
 
 		return true;
 	}
