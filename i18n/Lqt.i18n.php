@@ -13201,6 +13201,15 @@ $messages['pdc'] = array(
 	'lqt-talkpage-history-tab' => 'Iwwerschrift',
 );
 
+/** Pfälzisch (Pfälzisch)
+ * @author Xqt
+ */
+$messages['pfl'] = array(
+	'lqt_delete' => 'Lesche',
+	'lqt_move_move' => 'Verschiewe',
+	'lqt-movethread' => 'Verschiewe',
+);
+
 /** Polish (Polski)
  * @author Airwolf
  * @author Holek
