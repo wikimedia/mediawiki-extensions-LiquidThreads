@@ -551,7 +551,9 @@ Displayed in a list of actions to confirm in a confirmation dialog.',
 	'lqt-reply-subpage' => 'Part of the page title when a LiquidThread answer is given. Should probably be translated as a noun and not as a verb.
 
 {{Identical|Reply}}',
-	'nstab-summary' => '{{Identical|Summary}}',
+	'nstab-thread' => 'Used as tab title of the Thread namespace.',
+	'nstab-summary' => 'Used as tab title for the Summary namespace.
+{{Identical|Summary}}',
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -6261,7 +6263,8 @@ Si elle a été conclue, vous pouvez avoir besoin de $1.',
 	'lqt_delete_show_checkbox' => 'Afficher les fils supprimés',
 	'lqt_talkpage_autocreate_summary' => 'Page de discussion créée automatiquement quand le premier fil de discussion a été envoyé.',
 	'lqt_header_warning_big' => 'Vous modifiez un $1.',
-	'lqt_header_warning_after_big' => 'Les en-têtes sont pour les annonces et les préfaces. Vous devriez à la place $2.',
+	'lqt_header_warning_after_big' => 'Les en-têtes sont pour les annonces et les préfaces.
+Vous pourriez préférer $2.',
 	'lqt_header_warning_bold' => 'En-tête d’une page de discussion',
 	'lqt_header_warning_new_discussion' => 'lancer un nouveau fil de discussion',
 	'lqt_sorting_order' => 'Ordre de tri :',
