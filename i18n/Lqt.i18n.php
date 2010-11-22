@@ -541,7 +541,9 @@ Displayed in a list of actions to confirm in a confirmation dialog.',
 * $2 is a link to the user posting in the thread
 * $3 is a link to the super thread
 * $4 is the name of the user posting to the thread, optional, can be used for GENDER',
-	'lqt-newmessages-n' => '{{Identical|New messages}}',
+	'lqt-newmessages-n' => '{{Identical|New messages}}
+
+Link at the top of the page for logged-in users. $1 is the number of new messages.',
 	'lqt_newmessages' => '{{Identical|New messages}}',
 	'lqt_newmessages-title' => '{{Identical|New messages}}',
 	'lqt-talkpage-history-subtitle' => 'Parameters:
@@ -3612,9 +3614,14 @@ $messages['cu'] = array(
  * @author Malafaya
  */
 $messages['cy'] = array(
+	'lqt_youhavenewmessages' => 'Mae [[$1|negeseuon newydd]] gennych.',
 	'lqt_noreason' => 'Dim rheswm wedi ei roi',
 	'lqt_move_noreason' => 'Dim rheswm wedi ei roi',
 	'lqt-history-user' => 'Defnyddiwr',
+	'lqt-preview-signature' => '(rhagolwg)',
+	'lqt-newmessages-n' => 'Negeseuon newydd ($1)',
+	'lqt_newmessages' => 'Negeseuon newydd',
+	'lqt_newmessages-title' => 'Negeseuon newydd',
 );
 
 /** Danish (Dansk)
