@@ -372,11 +372,18 @@ This is the link in the bottom right-hand corner of a post, which you click to w
 {{Identical|Discussion}}',
 	'lqt_from_talk' => 'Used as page subtitle. Parameters:
 * $1 is a link to a talk page (for example "User talk:Foo")',
+	'lqt-history-title' => 'Title of thread history page, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]',
 	'lqt_hist_comment_edited' => 'Parameters:
 * $2 is the URL to the comment',
-	'lqt_hist_reply_created' => 'Parameters:
-* $1 is the text for a wiki link to the new reply',
+	'lqt_hist_summary_changed' => "Summary for 'activity' in thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]",
+	'lqt_hist_reply_created' => "Summary for 'activity' in thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]
+
+Parameters:
+* $1 is the text for a wiki link to the new reply",
+	'lqt_hist_thread_created' => "Summary for 'activity' in thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]",
 	'lqt_hist_deleted' => '{{Identical|Deleted}}',
+	'lqt_hist_listing_subtitle' => "Subtitle for 'thread history' page, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]",
+	'lqt_hist_view_whole_thread' => 'Link to history page for an entire thread, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount/reply&action=history example]',
 	'lqt_hist_edited_subject' => 'Parameters:
 * $2 is the old subject text
 * $3 is the new subject text',
@@ -444,8 +451,13 @@ The drop-down box contains the following messages:
 	'lqt-history-time' => 'Column header on thread history
 
 {{Identical|Time}}',
-	'lqt-history-user' => '{{identical|User}}',
-	'lqt-history-comment' => '{{Identical|Comment}}',
+	'lqt-history-user' => 'Column header for table of thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]
+
+{{identical|User}}',
+	'lqt-history-action' => 'Column header for table of thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]',
+	'lqt-history-comment' => 'Column header for table of thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]
+
+{{Identical|Comment}}',
 	'lqt-thread-edited-author' => '* $1: date/time of the last edit
 * $2: Unused (Number of users who edited the thread but not useful in this context. Used by [[MediaWiki:Lqt-thread-edited-others]])
 * $3: time of the last edit (optional, instead of using $1)
