@@ -258,3 +258,10 @@ $wgLiquidThreadsAllowUserControlNamespaces = null;
 
 /** Allow LiquidThreads embedding */
 $wgLiquidThreadsAllowEmbedding = true;
+
+/** Location for LiquidThreads avatars.
+  * Defaults to $wgImageDirectory/avatars */
+$wgLiquidThreadsAvatarDirectory = null;
+
+/** Web accessible path for above location */
+$wgLiquidThreadsAvatarPath = null;
