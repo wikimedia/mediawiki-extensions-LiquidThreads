@@ -3629,13 +3629,23 @@ $messages['cu'] = array(
  * @author Malafaya
  */
 $messages['cy'] = array(
+	'lqt-desc' => 'Ychwanegu trafodaethau trywydd i dudalennau sgwrs',
+	'lqt_movethread' => 'Symud y trywydd i dudalen arall',
+	'lqt_deletethread' => 'Dileu neu adfer y trywydd',
 	'lqt_contents_title' => 'Cynnwys',
+	'lqt_toc_thread_title' => 'Teitl y trywydd',
 	'lqt_toc_thread_author' => 'Dechreuwyd gan',
 	'lqt_toc_thread_replycount' => 'Atebion',
+	'lqt_toc_thread_modified' => 'Newidiwyd ddiwethaf',
 	'lqt_add_header' => 'Ychwanegu pennawd',
 	'lqt_new_thread' => 'Dechrau trafodaeth newydd',
+	'lqt_invalid_subject' => "Mae'r pwnc a roddoch yn annilys. 
+Efallai: 
+* ei fod yn rhy hir, neu
+* bod gwrthdaro yn codi rhyngddo a rhagddodiaid rhyngwici neu ag enwau parthau'r wici.",
 	'lqt_empty_subject' => "Mae'n rhaid gosod pwnc.",
 	'lqt_reply' => 'Ateb',
+	'lqt-parent' => 'Y neges gynt',
 	'lqt_delete' => 'Dileu',
 	'lqt_undelete' => 'Adfer',
 	'lqt_hist_deleted' => 'Dilëwyd',
