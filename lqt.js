@@ -1603,6 +1603,9 @@ $j(document).ready( function() {
 
 	// Update the new thread link
 	var newThreadLink = $j('.lqt_start_discussion a');
+	
+	$j('li#ca-addsection a').attr('lqt_talkpage', $j('.lqt_start_discussion a').attr('lqt_talkpage'));
+	
 	newThreadLink = newThreadLink.add( $j('li#ca-addsection a') );
 
 	if (newThreadLink) {
