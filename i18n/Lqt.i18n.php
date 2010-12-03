@@ -3653,9 +3653,15 @@ Efallai:
 	'lqt_discussion_link' => 'drafodaeth',
 	'lqt_from_talk' => 'O $1',
 	'lqt-history-title' => 'Hanes y trywydd',
+	'lqt_hist_comment_edited' => 'Cynnwys y sylw [$2 a olygwyd]',
+	'lqt_hist_summary_changed' => 'Newidiwyd y crynodeb',
+	'lqt_hist_reply_created' => 'Gosodwyd [[$1|ateb newydd]]',
+	'lqt_hist_thread_created' => 'Dechreuwyd trywydd newydd',
 	'lqt_hist_deleted' => 'Dilëwyd',
 	'lqt_hist_undeleted' => 'Adferwyd',
 	'lqt_hist_moved_talkpage' => 'Symudwyd',
+	'lqt_hist_listing_subtitle' => 'Yn dangos yr hanes ar restr',
+	'lqt_hist_view_whole_thread' => 'Gweld hanes y trywydd cyfan',
 	'lqt_youhavenewmessages' => 'Mae [[$1|negeseuon newydd]] gennych.',
 	'lqt_subject' => 'Pwnc:',
 	'lqt_noreason' => 'Dim rheswm wedi ei grybwyll.',
@@ -5662,6 +5668,7 @@ Eztabaida hau $2-(e)ko zati da.',
  * @author Ebraminio
  * @author Huji
  * @author Ladsgroup
+ * @author Mjbmr
  * @author Sahim
  * @author Wayiran
  */
@@ -5839,13 +5846,13 @@ $messages['fa'] = array(
 	'lqt-thread-merge-dest' => 'تاپیک مقصد:',
 	'lqt-merge-submit' => 'ادغام',
 	'lqt-merge-success' => 'شما با موفقیت تاپیک $1 را در تاپیک زیرین $2 ادغام کردید.',
-	'lqt-log-name' => 'لاگ بحث تاپیک‌شده',
-	'lqt-log-header' => 'این لاگ، جزئیات اقدامات صورت گرفته در بحث تاپیک‌ها را نمایش می‌دهد.',
+	'lqt-log-name' => 'گزارش بحث تاپیک‌شده',
+	'lqt-log-header' => 'این گزارش، جزئیات اقدامات صورت گرفته در بحث تاپیک‌ها را نمایش می‌دهد.',
 	'lqt-log-action-move' => '[[$1]] را از [[$2]] به [[$3]] انتقال دهید',
 	'lqt-log-action-split' => '[[$1]] را از تحت [[$3]]، با عنوان جدید «$2» جدا کن',
 	'lqt-log-action-merge-across' => '[[$1]] را از تحت [[$2]] به تحت [[$3]] انتقال داد',
 	'lqt-log-action-merge-down' => '[[$1]] به تحت [[$3]] ادغام شد',
-	'lqt-log-action-subjectedit' => 'عنوان [[$1]] را از «$2» به «$3» تغییر دهید',
+	'lqt-log-action-subjectedit' => 'عنوان [[$1]] از «$2» به «$3» تغییر یافت',
 	'lqt-log-action-resort' => 'ترتیب مرتب‌سازی [[$1]] تغییر کرد. کلید مرتب‌سازی از $2 به $3 تغییر یافت.',
 	'lqt-preference-notify-talk' => 'در پاسخ به تاپیک‌هایی که من دنبال می‌کنم به من رایانامه بفرست',
 	'lqt-preference-watch-threads' => 'تاپیک‌هایی که من می‌سازم یا پاسخ می‌دهم را دنبال کن',
@@ -19524,6 +19531,8 @@ $7',
 	'lqt-edit-bump-tooltip' => '将此话题移动到讨论页顶部',
 	'lqt-historicalrevision-error' => '您选择的修订已损坏，故无法查看。',
 	'lqt-reply-subpage' => '回复',
+	'nstab-thread' => '话题',
+	'nstab-summary' => '摘要',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
