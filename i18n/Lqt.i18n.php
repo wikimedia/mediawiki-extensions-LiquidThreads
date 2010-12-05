@@ -3764,7 +3764,7 @@ Es ist möglich, dass er
 	'lqt_hist_merged_to' => 'Die [[$1|Antwort]] wurde von einem anderen Thema verschoben',
 	'lqt_hist_split_from' => 'In neues Thema aufteilen',
 	'lqt_hist_root_blanked' => 'Entfernter Kommentar',
-	'lqt_hist_adjusted_sortkey' => 'Angepasste Threadposition',
+	'lqt_hist_adjusted_sortkey' => 'Angepasste Diskussionsposition',
 	'lqt_revision_as_of' => 'Version vom $2 um $3 Uhr.',
 	'lqt_change_new_thread' => 'Dies ist die erste Version des Diskussionsthemas.',
 	'lqt_change_reply_created' => 'Der [$1 hervorgehobene Kommentar] wurde in dieser Version erstellt.',
