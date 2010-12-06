@@ -1543,6 +1543,13 @@ class Thread {
 			}
 		}
 
+		$testTitle = Title::makeTitleSafe( NS_LQT_THREAD, 'test' );
+		if ( ! $testTitle->userCan( 'create' ) ||
+			! $testTitle->userCan( 'edit' ) )
+		{
+			return false;
+		}
+
 		return true;
 	}
 
@@ -1553,6 +1560,13 @@ class Thread {
 			if ( !$user->isAllowed( $right ) ) {
 				return false;
 			}
+		}
+
+		$testTitle = Title::makeTitleSafe( NS_LQT_THREAD, 'test' );
+		if ( ! $testTitle->userCan( 'create' ) ||
+			! $testTitle->userCan( 'edit' ) )
+		{
+			return false;
 		}
 
 		return true;
