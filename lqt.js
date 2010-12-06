@@ -938,6 +938,9 @@ var liquidThreads = {
 			$html = $j( data.threadaction.thread['html'] );
 			$newThread = $html.find( '#lqt_thread_id_' + data.threadaction.thread['thread-id'] );
 			$parent.find( '.lqt-thread-replies:first' ).append( $newThread );
+			$parent.closest( '.lqt-thread-topmost' )
+				.find( 'input.lqt-thread-modified' )
+				.val( data.threadaction.thread['modified'] );
 			liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
 			$j( 'html,body' ).animate({scrollTop: $newThread.offset().top}, 'slow');
 		};

@@ -315,18 +315,11 @@ class ApiThreadAction extends ApiBase {
 				'text' => $text,
 			) );
 
-		$maxLag = wfGetLB()->getMaxLag();
-		$maxLag = $maxLag[1];
-
-		if ( $maxLag == - 1 ) {
-			$maxLag = 0;
-		}
-
 		$result = array(
 			'result' => 'Success',
 			'thread-id' => $thread->id(),
 			'thread-title' => $title->getPrefixedText(),
-			'max-lag' => $maxLag,
+			'modified' => $thread->modified(),
 		);
 
 		if ( !empty( $params['render'] ) ) {
@@ -437,18 +430,11 @@ class ApiThreadAction extends ApiBase {
 				'bump' => $bump,
 			) );
 
-		$maxLag = wfGetLB()->getMaxLag();
-		$maxLag = $maxLag[1];
-
-		if ( $maxLag == - 1 ) {
-			$maxLag = 0;
-		}
-
 		$result = array(
 			'result' => 'Success',
 			'thread-id' => $thread->id(),
 			'thread-title' => $title->getPrefixedText(),
-			'max-lag' => $maxLag,
+			'modified' => $thread->modified(),
 		);
 
 		if ( !empty( $params['render'] ) ) {
@@ -563,13 +549,6 @@ class ApiThreadAction extends ApiBase {
 				'bump' => $bump,
 			) );
 
-		$maxLag = wfGetLB()->getMaxLag();
-		$maxLag = $maxLag[1];
-
-		if ( $maxLag == - 1 ) {
-			$maxLag = 0;
-		}
-
 		$result = array(
 			'action' => 'reply',
 			'result' => 'Success',
@@ -579,7 +558,7 @@ class ApiThreadAction extends ApiBase {
 			'parent-title' => $replyTo->title()->getPrefixedText(),
 			'ancestor-id' => $replyTo->topmostThread()->id(),
 			'ancestor-title' => $replyTo->topmostThread()->title()->getPrefixedText(),
-			'max-lag' => $maxLag,
+			'modified' => $thread->modified(),
 		);
 
 		if ( !empty( $params['render'] ) ) {
