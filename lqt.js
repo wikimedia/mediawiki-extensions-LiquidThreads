@@ -842,9 +842,10 @@ var liquidThreads = {
 
 	'showThreadLinkWindow' : function(e) {
 		e.preventDefault();
-		var linkURL = $j(this).find('a').attr('href');
 		var thread = $j(this).closest('.lqt_thread');
 		var linkTitle = thread.find('.lqt-thread-title-metadata').val();
+		var linkURL = wgArticlePath.replace( "$1", linkTitle.replace(' ', '_' ) );
+		linkURL = wgServer + linkURL;
 		liquidThreads.showLinkWindow( linkTitle, linkURL );
 	},
 
