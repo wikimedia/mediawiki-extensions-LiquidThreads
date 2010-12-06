@@ -886,16 +886,14 @@ var liquidThreads = {
 	'getToken' : function( callback ) {
 		var getTokenParams =
 		{
-			'action' : 'query',
-			'prop' : 'info',
-			'intoken' : 'edit',
-			'titles' : 'Some Title',
+			'action' : 'threadaction',
+			'gettoken' : 'gettoken',
 			'format' : 'json'
 		};
 
-		$j.get( wgScriptPath+'/api'+wgScriptExtension, getTokenParams,
+		$j.post( wgScriptPath+'/api'+wgScriptExtension, getTokenParams,
 			function( data ) {
-				var token = data.query.pages[-1].edittoken;
+				var token = data.threadaction.token;
 
 				callback(token);
 			}, 'json' );

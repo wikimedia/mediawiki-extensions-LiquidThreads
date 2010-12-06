@@ -5,6 +5,13 @@ class ApiThreadAction extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
+		if ( isset( $params['gettoken'] ) ) {
+			global $wgUser;
+			$result = array( 'token' => $wgUser->editToken() );
+			$this->getResult()->addValue( null, 'threadaction', $result );
+			return;
+		}
+
 		if ( empty( $params['threadaction'] ) ) {
 			$this->dieUsageMsg( array( 'missingparam', 'action' ) );
 		}
@@ -917,6 +924,7 @@ class ApiThreadAction extends ApiBase {
 			'value' => null,
 			'method' => null,
 			'operand' => null,
+			'gettoken' => null,
 		);
 	}
 
