@@ -182,48 +182,46 @@ class TalkpageView extends LqtView {
 		return $html;
 	}
 
-	function showTalkpageViewOptions( $article ) {
-		if ( $article->exists() ) {
-			$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
-			$html = '';
+	function showTalkpageViewOptions( ) {
+		$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
+		$html = '';
 
-			$html .= Xml::label( wfMsg( 'lqt_sorting_order' ), 'lqt_sort_select' ) . ' ';
+		$html .= Xml::label( wfMsg( 'lqt_sorting_order' ), 'lqt_sort_select' ) . ' ';
 
-			$sortOrderSelect =
-				new XmlSelect( 'lqt_order', 'lqt_sort_select', $this->getSortType() );
+		$sortOrderSelect =
+			new XmlSelect( 'lqt_order', 'lqt_sort_select', $this->getSortType() );
 
-			$sortOrderSelect->setAttribute( 'class', 'lqt_sort_select' );
-			$sortOrderSelect->addOption(
-				wfMsg( 'lqt_sort_newest_changes' ),
-				LQT_NEWEST_CHANGES
-			);
-			$sortOrderSelect->addOption(
-				wfMsg( 'lqt_sort_newest_threads' ),
-				LQT_NEWEST_THREADS
-			);
-			$sortOrderSelect->addOption(
-				wfMsg( 'lqt_sort_oldest_threads' ),
-				LQT_OLDEST_THREADS
-			);
-			$html .= $sortOrderSelect->getHTML();
+		$sortOrderSelect->setAttribute( 'class', 'lqt_sort_select' );
+		$sortOrderSelect->addOption(
+			wfMsg( 'lqt_sort_newest_changes' ),
+			LQT_NEWEST_CHANGES
+		);
+		$sortOrderSelect->addOption(
+			wfMsg( 'lqt_sort_newest_threads' ),
+			LQT_NEWEST_THREADS
+		);
+		$sortOrderSelect->addOption(
+			wfMsg( 'lqt_sort_oldest_threads' ),
+			LQT_OLDEST_THREADS
+		);
+		$html .= $sortOrderSelect->getHTML();
 
-			$html .= Xml::submitButton( wfMsg( 'go' ), array( 'class' => 'lqt_go_sort' ) );
-			$html .= Html::hidden( 'title', $this->title->getPrefixedText() );
+		$html .= Xml::submitButton( wfMsg( 'go' ), array( 'class' => 'lqt_go_sort' ) );
+		$html .= Html::hidden( 'title', $this->title->getPrefixedText() );
 
 
-			$html = Xml::tags(
-				'form',
-				array(
-					'action' => $form_action_url,
-					'method' => 'get',
-					'name' => 'lqt_sort'
-				),
-				$html
-			);
-			$html = Xml::tags( 'div', array( 'class' => 'lqt_view_options' ), $html );
+		$html = Xml::tags(
+			'form',
+			array(
+				'action' => $form_action_url,
+				'method' => 'get',
+				'name' => 'lqt_sort'
+			),
+			$html
+		);
+		$html = Xml::tags( 'div', array( 'class' => 'lqt_view_options' ), $html );
 
-			return $html;
-		}
+		return $html;
 	}
 
 	function show() {
@@ -266,6 +264,7 @@ class TalkpageView extends LqtView {
 			$url = $t->getLocalURL( wfArrayToCGI( $params ) );
 
 			$this->output->redirect( $url );
+			return true;
 		}
 
 		if ( $this->shouldShow('header') ) {
