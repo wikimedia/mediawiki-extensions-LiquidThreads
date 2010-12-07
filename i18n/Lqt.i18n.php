@@ -6125,7 +6125,7 @@ Välttääksesi tämän, jaa ne tästä ketjusta erilleen ennen sen poistamista.
 	'lqt-log-name' => 'Viestiketjuloki',
 	'lqt-log-header' => 'Tämä loki kertoo keskusteluketjuille tehdyistä toiminteista.',
 	'lqt-log-action-move' => 'siirsi aiheen [[$1]] sivulta [[$2]] sivulle [[$3]].',
-	'lqt-log-action-split' => 'pilko [[$1]] kohdan [[$3]] alta uudelle otsikolle "$2"',
+	'lqt-log-action-split' => 'pilkkoi vastauksen [[$1]] keskustelusta [[$3]] uudelle otsikolle ”$2”',
 	'lqt-log-action-merge-across' => '[[$1]] siirretty kohdan [[$2]] alta kohdan [[$3]] alle',
 	'lqt-log-action-merge-down' => 'liitetty [[$1]] kohdan [[$3]] alle',
 	'lqt-log-action-subjectedit' => 'vaihdettiin kohdan [[$1]] aihe "$2" aiheeksi "$3"',
