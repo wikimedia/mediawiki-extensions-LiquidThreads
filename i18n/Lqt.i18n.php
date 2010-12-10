@@ -3680,6 +3680,8 @@ Efallai:
 	'lqt-new-messages' => '✒ Mae negeseuon newydd ar gael i chi.',
 	'lqt-history-time' => 'Amser',
 	'lqt-history-user' => 'Defnyddiwr',
+	'lqt-movethread' => 'Symud',
+	'lqt-menu-trigger' => 'Mwy',
 	'lqt-preview-signature' => '(rhagolwg)',
 	'lqt-newmessages-n' => 'Negeseuon newydd ($1)',
 	'lqt_newmessages' => 'Negeseuon newydd',
@@ -5561,6 +5563,8 @@ Allkiri kuvatakse iseenesest.',
 	'lqt-edit-bump-tooltip' => 'Liiguta see lõim arutelulehekülje algusesse',
 	'lqt-historicalrevision-error' => 'Sinu valitud redaktsioon rikutud ja seda ei saa vaadata.',
 	'lqt-reply-subpage' => 'vasta',
+	'nstab-thread' => 'Lõim',
+	'nstab-summary' => 'Kokkuvõte',
 );
 
 /** Basque (Euskara)
