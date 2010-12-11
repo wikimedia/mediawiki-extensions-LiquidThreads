@@ -3662,6 +3662,7 @@ Efallai:
 	'lqt_hist_moved_talkpage' => 'Symudwyd',
 	'lqt_hist_listing_subtitle' => 'Yn dangos yr hanes ar restr',
 	'lqt_hist_view_whole_thread' => 'Gweld hanes y trywydd cyfan',
+	'lqt_hist_no_revisions_error' => 'Nid oes gan y trywydd hwn unrhyw hanes diwygio.',
 	'lqt_youhavenewmessages' => 'Mae [[$1|negeseuon newydd]] gennych.',
 	'lqt_subject' => 'Pwnc:',
 	'lqt_noreason' => 'Dim rheswm wedi ei grybwyll.',
