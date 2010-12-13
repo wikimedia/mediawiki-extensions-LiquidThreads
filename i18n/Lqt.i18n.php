@@ -19134,6 +19134,7 @@ $messages['vo'] = array(
 	'lqt-history-comment' => 'Küpet',
 	'lqt-movethread' => 'Topätükön',
 	'lqt-quote' => 'Saitön',
+	'lqt-search-button' => 'Sukön',
 	'searchprofile-threads' => 'Bespiks',
 	'lqt-change-subject' => 'Votükön yegädi',
 	'lqt-save-subject' => 'Dakipön',
