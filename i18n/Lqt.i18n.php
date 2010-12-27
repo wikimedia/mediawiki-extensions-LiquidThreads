@@ -461,11 +461,15 @@ The drop-down box contains the following messages:
 	'lqt-thread-edited-author' => '* $1: date/time of the last edit
 * $2: Unused (Number of users who edited the thread but not useful in this context. Used by [[MediaWiki:Lqt-thread-edited-others]])
 * $3: time of the last edit (optional, instead of using $1)
-* $4: date of the last edit (optional, instead of using $1)',
+* $4: date of the last edit (optional, instead of using $1)
+
+This is a note which appears alongside an edited post - see [[Thread:Support/Payflowpro gateway-month/reply (4)|example]].',
 	'lqt-thread-edited-others' => '* $1: date/time of the last edit
 * $2: Number of users who edited the thread
 * $3: time of the last edit (optional, instead of using $1)
-* $4: date of the last edit (optional, instead of using $1)',
+* $4: date of the last edit (optional, instead of using $1)
+
+This is a note which appears alongside an edited post - see [[Thread:Translating talk:Wikia/Typo in MediaWiki:Feed-title-leaderboard|example]].',
 	'lqt-header-actions' => '{{Identical|Action}}',
 	'lqt-delete-parent-deleted' => '$1 is the reason for deletion of the parent.',
 	'lqt-movethread' => '{{Identical|Move}}',
