@@ -358,6 +358,7 @@ class LqtView {
 			}
 		}
 
+		$output->setTitle( $title );
 		$request->setVal( 'lqt_method', $method );
 		$request->setVal( 'lqt_operand', $operand );
 		
