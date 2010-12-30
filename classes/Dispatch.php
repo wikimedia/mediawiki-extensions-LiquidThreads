@@ -21,8 +21,7 @@ class LqtDispatch {
 			return false;
 		}
 
-		global $mediaWiki;
-		$action = $mediaWiki->getVal('action');
+		$action = $request->getVal( 'action', 'view' );
 		
 		// Actions handled by LQT.
 		$lqt_actions = array( 'view', 'protect', 'unprotect' );
