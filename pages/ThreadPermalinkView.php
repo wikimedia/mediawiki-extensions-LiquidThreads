@@ -35,12 +35,12 @@ class ThreadPermalinkView extends LqtView {
 		// Repoint move/delete/history tabs
 		if ( array_key_exists( 'move', $content_actions ) && $view->thread ) {
 			$content_actions['move']['href'] =
-				SpecialPage::getTitleFor( 'MoveThread', $subpage )->getFullURL();
+				SpecialPage::getTitleFor( 'MoveThread', $subpage )->getLocalURL();
 		}
 
 		if ( array_key_exists( 'delete', $content_actions ) && $view->thread ) {
 			$content_actions['delete']['href'] =
-				$view->thread->title()->getFullURL( 'action=delete' );
+				$view->thread->title()->getLocalURL( 'action=delete' );
 		}
 
 		if ( array_key_exists( 'history', $content_actions ) ) {
@@ -85,12 +85,12 @@ class ThreadPermalinkView extends LqtView {
 		$actions =& $links['actions'];
 		if ( isset( $actions['move'] ) ) {
 			$actions['move']['href'] =
-			SpecialPage::getTitleFor( 'MoveThread', $subpage )->getFullURL();
+			SpecialPage::getTitleFor( 'MoveThread', $subpage )->getLocalURL();
 		}
 
 		if ( isset( $actions['delete'] ) ) {
 			$actions['delete']['href'] =
-				$view->thread->title()->getFullURL( 'action=delete' );
+				$view->thread->title()->getLocalURL( 'action=delete' );
 		}
 
 		if ( isset( $views['history'] ) ) {
@@ -121,7 +121,7 @@ class ThreadPermalinkView extends LqtView {
 		$tabs['article'] =
 			array(
 				'text' => wfMsg( $articleTitle->getNamespaceKey() ),
-				'href' => $articleTitle->getFullURL(),
+				'href' => $articleTitle->getLocalURL(),
 				'class' => implode( ' ', $articleClasses ),
 			);
 
@@ -129,7 +129,7 @@ class ThreadPermalinkView extends LqtView {
 			array(
 				// talkpage certainly exists since this thread is from it.
 				'text' => wfMsg( 'talk' ),
-				'href' => $talkTitle->getFullURL(),
+				'href' => $talkTitle->getLocalURL(),
 				'class' => implode( ' ', $talkClasses ),
 			);
 

@@ -89,7 +89,7 @@ class NewUserMessagesView extends LqtView {
 					if ( $tmp_thread )
 						NewMessages::markThreadAsUnReadByUser( $tmp_thread, $this->user );
 				}
-				$this->output->redirect( $this->title->getFullURL() );
+				$this->output->redirect( $this->title->getLocalURL() );
 			}
 		} elseif ( $this->methodApplies( 'mark_as_read' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand' ) );
@@ -104,7 +104,7 @@ class NewUserMessagesView extends LqtView {
 					}
 				}
 				$query = 'lqt_method=undo_mark_as_read&lqt_operand=' . implode( ',', $ids );
-				$this->output->redirect( $this->title->getFullURL( $query ) );
+				$this->output->redirect( $this->title->getLocalURL( $query ) );
 			}
 		} elseif ( $this->methodApplies( 'undo_mark_as_read' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand', '' ) );

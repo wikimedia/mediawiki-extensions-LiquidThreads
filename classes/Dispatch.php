@@ -9,7 +9,7 @@ class LqtDispatch {
 
 		if ( $title->getNamespace() == NS_LQT_THREAD + 1 /* talk page */ ) {
 			// Threads don't have talk pages; redirect to the thread page.
-			$output->redirect( $title->getSubjectPage()->getFullUrl() );
+			$output->redirect( $title->getSubjectPage()->getLocalUrl() );
 			return false;
 		}
 
@@ -17,7 +17,7 @@ class LqtDispatch {
 		$redlink = $request->getCheck( 'redlink' ) &&
 					$request->getText( 'action' ) == 'edit';
 		if ( $redlink ) {
-			$output->redirect( $title->getFullURL() );
+			$output->redirect( $title->getLocalURL() );
 			return false;
 		}
 

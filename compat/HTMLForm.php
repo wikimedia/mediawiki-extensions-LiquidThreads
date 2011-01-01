@@ -175,7 +175,7 @@ class HTMLForm {
 		return Xml::tags(
 			'form',
 			array(
-				'action' => $this->getTitle()->getFullURL(),
+				'action' => $this->getTitle()->getLocalURL(),
 				'method' => 'post',
 			),
 			$html

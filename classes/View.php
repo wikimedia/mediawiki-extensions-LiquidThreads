@@ -67,7 +67,7 @@ class LqtView {
 
 		$queryString = wfArrayToCGI( $query );
 
-		return $title->getFullUrl( $queryString );
+		return $title->getLocalUrl( $queryString );
 	}
 
 	/** Gets an array of (title, query-parameters) for a permalink **/
@@ -154,7 +154,7 @@ class LqtView {
 	static function linkInContextURL( $thread, $contextType = 'page' ) {
 		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
 
-		return $title->getFullURL( $query );
+		return $title->getLocalURL( $query );
 	}
 
 	static function diffQuery( $thread, $revision ) {
@@ -265,7 +265,7 @@ class LqtView {
 	function queryReplaceLink( $repls ) {
 		$query = $this->getReplacedQuery( $repls );
 
-		return $this->title->getFullURL( wfArrayToCGI( $vs ) );
+		return $this->title->getLocalURL( wfArrayToCGI( $vs ) );
 	}
 
 	function getReplacedQuery( $replacements ) {
@@ -296,7 +296,7 @@ class LqtView {
 	}
 
 	function showReplyProtectedNotice( $thread ) {
-		$log_url = SpecialPage::getTitleFor( 'Log' )->getFullURL(
+		$log_url = SpecialPage::getTitleFor( 'Log' )->getLocalURL(
 			"type=protect&user=&page={$thread->title()->getPrefixedURL()}" );
 		$this->output->addHTML( '<p>' . wfMsg( 'lqt_protectedfromreply',
 			'<a href="' . $log_url . '">' . wfMsg( 'lqt_protectedfromreply_link' ) . '</a>' ) );
@@ -476,7 +476,7 @@ class LqtView {
 			   if ( !empty($thread) ) {
 				   $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
 			   }
-			   $this->output->redirect( $this->title->getFullURL() );
+			   $this->output->redirect( $this->title->getLocalURL() );
 		}
 
 	}
@@ -585,7 +585,7 @@ class LqtView {
 				   $redirectTitle->setFragment( '#' .
 					$this->anchorName( $newThread ) );
 			   }
-			   $this->output->redirect( $this->title->getFullURL() );
+			   $this->output->redirect( $this->title->getLocalURL() );
 		}
 
 		$this->output->addHTML( '</div>' );
@@ -688,7 +688,7 @@ class LqtView {
 		if ( $this->output->getRedirect() != '' ) {
 			   $redirectTitle = clone $talkpage->getTitle();
 			   $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
-			   $this->output->redirect( $this->title->getFullURL() );
+			   $this->output->redirect( $this->title->getLocalURL() );
 		}
 
 	}
@@ -753,7 +753,7 @@ class LqtView {
 		if ( $this->output->getRedirect() != '' ) {
 			   $redirectTitle = clone $talkpage->getTitle();
 			   $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
-			   $this->output->redirect( $this->title->getFullURL() );
+			   $this->output->redirect( $this->title->getLocalURL() );
 		}
 
 	}
@@ -766,7 +766,7 @@ class LqtView {
 			global $wgMemc;
 
 			if ( $wgMemc->get( $nonce_key ) ) {
-				$this->output->redirect( $this->article->getTitle()->getFullURL() );
+				$this->output->redirect( $this->article->getTitle()->getLocalURL() );
 				return false;
 			}
 		}
@@ -1039,7 +1039,7 @@ class LqtView {
 		);
 
 		if ( $this->user->isAllowed( 'delete' ) ) {
-			$delete_url = $thread->title()->getFullURL( 'action=delete' );
+			$delete_url = $thread->title()->getLocalURL( 'action=delete' );
 			$deleteMsg = $thread->type() == Threads::TYPE_DELETED ? 'lqt_undelete' : 'delete';
 
 			$commands['delete'] = array(
@@ -1051,7 +1051,7 @@ class LqtView {
 
 		if ( !$thread->isTopmostThread() && $this->user->isAllowed( 'lqt-split' ) ) {
 			$splitUrl = SpecialPage::getTitleFor( 'SplitThread',
-					$thread->title()->getPrefixedText() )->getFullURL();
+					$thread->title()->getPrefixedText() )->getLocalURL();
 			$commands['split'] = array(
 				'label' => wfMsgExt( 'lqt-thread-split', 'parseinline' ),
 				'href' => $splitUrl,
@@ -1065,7 +1065,7 @@ class LqtView {
 
 			unset( $mergeParams['title'] );
 
-			$mergeUrl = $this->title->getFullURL( wfArrayToCGI( $mergeParams ) );
+			$mergeUrl = $this->title->getLocalURL( wfArrayToCGI( $mergeParams ) );
 			$label = wfMsgExt( 'lqt-thread-merge', 'parseinline' );
 
 			$commands['merge'] = array(
@@ -1077,7 +1077,7 @@ class LqtView {
 
 		$commands['link'] = array(
 			'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
-			'href' => $thread->title()->getFullURL(),
+			'href' => $thread->title()->getLocalURL(),
 			'enabled' => true,
 			'showlabel' => true,
 			'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' )
@@ -1111,7 +1111,7 @@ class LqtView {
 			$srcThread = Threads::withId( $this->request->getVal( 'lqt_merge_from' ) );
 			$par = $srcThread->title()->getPrefixedText();
 			$mergeTitle = SpecialPage::getTitleFor( 'MergeThread', $par );
-			$mergeUrl = $mergeTitle->getFullURL( 'dest=' . $thread->id() );
+			$mergeUrl = $mergeTitle->getLocalURL( 'dest=' . $thread->id() );
 			$label = wfMsgExt( 'lqt-thread-merge-to', 'parseinline' );
 
 			$commands['merge-to'] = array(
@@ -1162,7 +1162,7 @@ class LqtView {
 		);
 
 		if ( $this->user->isAllowed( 'move' ) ) {
-			$move_href = SpecialPage::getTitleFor( 'MoveThread' )->getFullURL()
+			$move_href = SpecialPage::getTitleFor( 'MoveThread' )->getLocalURL()
 				. '/' . $thread->title()->getPrefixedURL();
 			$commands['move'] = array(
 				'label' => wfMsg( 'lqt-movethread' ),
@@ -1172,7 +1172,7 @@ class LqtView {
 		}
 
 		if ( $this->user->isAllowed( 'protect' ) ) {
-			$protect_href = $thread->title()->getFullURL( 'action=protect' );
+			$protect_href = $thread->title()->getLocalURL( 'action=protect' );
 
 			// Check if it's already protected
 			if ( !$thread->title()->isProtected() ) {

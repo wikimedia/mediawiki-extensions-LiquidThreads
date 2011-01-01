@@ -25,7 +25,7 @@ class TalkpageView extends LqtView {
 		# Protection against non-SkinTemplate skins
 		if ( isset( $content_actions['history'] ) ) {
 			$thisTitle = $view->article->getTitle();
-			$history_url = $thisTitle->getFullURL( 'lqt_method=talkpage_history' );
+			$history_url = $thisTitle->getLocalURL( 'lqt_method=talkpage_history' );
 			$content_actions['history']['href'] = $history_url;
 		}
 	}
@@ -40,7 +40,7 @@ class TalkpageView extends LqtView {
 
 		if ( isset( $links['views']['history'] ) ) {
 			$title = $view->article->getTitle();
-			$history_url = $title->getFullURL( 'lqt_method=talkpage_history' );
+			$history_url = $title->getLocalURL( 'lqt_method=talkpage_history' );
 			$links['views']['history']['href'] = $history_url;
 		}
 	}
