@@ -157,6 +157,12 @@ class LqtView {
 		return $title->getLocalURL( $query );
 	}
 
+	static function linkInContextFullURL( $thread, $contextType = 'page' ) {
+		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
+
+		return $title->getFullURL( $query );
+	}
+
 	static function diffQuery( $thread, $revision ) {
 		$changed_thread = $revision->getChangeObject();
 		$curr_rev_id = $changed_thread->rootRevision();
