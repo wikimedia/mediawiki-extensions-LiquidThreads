@@ -16253,6 +16253,7 @@ $messages['sli'] = array(
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Mormegil
+ * @author Rancher
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
@@ -16351,7 +16352,7 @@ $messages['sr-ec'] = array(
 	'lqt-read-all' => 'Означи све као прочитано',
 	'lqt-marked-read' => "Тема '''$1''' је означена као прочитана.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|порука означена као прочитана|порука означених као прочитане}}.',
-	'lqt-email-undo' => 'Врати',
+	'lqt-email-undo' => 'Опозови',
 	'lqt-newmessages-context' => 'Цела тема',
 	'lqt-thread-created' => 'Направљено',
 	'lqt-history-time' => 'Време',
@@ -16361,7 +16362,7 @@ $messages['sr-ec'] = array(
 	'lqt-history-thread' => 'Тема',
 	'lqt-thread-edited-author' => 'Изменио аутор.<br />
 Последња измена: $1',
-	'lqt-header-actions' => 'Акције',
+	'lqt-header-actions' => 'Радње',
 	'lqt-split-success' => 'Успешно сте поделили тему $1.',
 	'lqt_split_thread' => 'Подели тему',
 	'lqt-thread-split-subject' => 'Наслов нове теме:',
@@ -16407,7 +16408,7 @@ $messages['sr-ec'] = array(
 	'lqt-change-subject' => 'Измени наслов',
 	'lqt-save-subject' => 'Сними',
 	'lqt-ajax-no-subject' => 'Морате навести наслов.',
-	'lqt-cancel-subject-edit' => 'Поништи',
+	'lqt-cancel-subject-edit' => 'Откажи',
 	'lqt-drag-activate' => 'Превуци на нову локацију',
 	'lqt-drag-drop-zone' => 'Испусти овде',
 	'lqt-drag-save' => 'Потврди',
