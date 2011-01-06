@@ -6137,7 +6137,7 @@ Välttääksesi tämän, jaa ne tästä ketjusta erilleen ennen sen poistamista.
 	'lqt-log-action-split' => 'pilkkoi vastauksen [[$1]] keskustelusta [[$3]] uudelle otsikolle ”$2”',
 	'lqt-log-action-merge-across' => '[[$1]] siirretty kohdan [[$2]] alta kohdan [[$3]] alle',
 	'lqt-log-action-merge-down' => 'liitetty [[$1]] kohdan [[$3]] alle',
-	'lqt-log-action-subjectedit' => 'vaihdettiin kohdan [[$1]] aihe "$2" aiheeksi "$3"',
+	'lqt-log-action-subjectedit' => 'muutti keskustelun [[$1]] otsikon ”$2” otsikoksi ”$3”',
 	'lqt-log-action-resort' => 'vaihdettiin kohdan [[$1]] järjestystä. Järjestysavain vaihdettiin $2 avaimeksi $3',
 	'lqt-preference-notify-talk' => 'Lähetä sähköpostia viestiketjun vastauksista, joita tarkkailen',
 	'lqt-preference-watch-threads' => 'Tarkkaile viestiketjuja, jotka olen luonnut tai joihin olen vastannut',
@@ -19749,9 +19749,12 @@ $messages['zh-hant'] = array(
 
 您可以訪問<$6>閱讀',
 	'lqt-enotif-reply' => '$1 您好，
-這是{{SITENAME}}發送的一封提醒郵件。 $3 $4時$5上的話題“$2”有新回复。
+這是由{{SITENAME}}發送的一封提醒郵件。 $3 $4時$5上的話題“$2”有新回复。
 
-您可以訪問<$6>閱讀',
+您可以訪問<$6>閱讀
+
+回應的信息是：
+$7',
 	'lqt-quote-intro' => '[[User:$1|$1]]在$2 $3時寫道：',
 	'lqt-quote' => '引用',
 	'lqt-search-legend' => '在本頁搜索討論',
@@ -19813,5 +19816,7 @@ $messages['zh-hant'] = array(
 	'lqt-edit-bump-tooltip' => '將此話題移動到討論頁頂部',
 	'lqt-historicalrevision-error' => '您選擇的修訂已損壞，故無法查看。',
 	'lqt-reply-subpage' => '回覆',
+	'nstab-thread' => '話題',
+	'nstab-summary' => '摘要',
 );
 
