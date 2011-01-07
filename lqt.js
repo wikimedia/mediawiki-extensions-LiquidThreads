@@ -228,7 +228,8 @@ var liquidThreads = {
 					function() {
 						if ( typeof mediaWiki.loader != 'undefined' && mediaWiki.loader ) {
 							mediaWiki.loader.using(
-								[ 'ext.wikiEditor', 'jquery.wikiEditor.toolbar',
+								[ 'ext.wikiEditor', 'ext.wikiEditor.toolbar.i18n',
+									'jquery.wikiEditor.toolbar',
 									'jquery.async', 'jquery.cookie' ],
 								finishSetup );
 						} else {
