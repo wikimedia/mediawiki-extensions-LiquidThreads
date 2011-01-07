@@ -15671,6 +15671,8 @@ $7',
 	'restriction-newthread' => 'Саҥа салаалары саҕалааһын',
 	'lqt-protected-reply-thread' => 'Бу салааҕа суруйар кыаҕыҥ суох, тоҕо диэтэххэ саҥа суруйуулары оҥорор бобуллубут.',
 	'lqt-reply-subpage' => 'хоруйдуурга',
+	'nstab-thread' => 'Салаа',
+	'nstab-summary' => 'Быһаарыы',
 );
 
 /** Sicilian (Sicilianu)
