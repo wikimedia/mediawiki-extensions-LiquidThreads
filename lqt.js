@@ -102,7 +102,8 @@ var liquidThreads = {
 		var talkpage = $j(this).attr('lqt_talkpage');
 		var params = {'talkpage' : talkpage, 'method' : 'talkpage_new_thread' };
 
-		var container = $j('.lqt-new-thread' ).data('lqt-talkpage', talkpage);
+		var container = $j('.lqt-new-thread' );
+		container.data('lqt-talkpage', talkpage);
 
 		liquidThreads.injectEditForm( params, container );
 		liquidThreads.currentReplyThread = 0;
