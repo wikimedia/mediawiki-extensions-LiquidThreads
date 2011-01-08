@@ -9968,6 +9968,7 @@ $messages['jv'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author Dawid Deutschland
  * @author ITshnik
  * @author გიორგიმელა
  */
@@ -10186,6 +10187,8 @@ $messages['ka'] = array(
 	'lqt-protected-newthread' => 'თქვენ არ შეგიძლიათ ახალი ტოტების დადება ამ განხილვის გვერდზე, ვინაიდან ის დაცულია ახალი ტოტებისაგან.',
 	'lqt-edit-bump-tooltip' => 'ამ ტოტის მისი განხილვის გვერდის თავში გადატანა',
 	'lqt-reply-subpage' => 'პასუხი',
+	'nstab-thread' => 'დისკუსიის თემა',
+	'nstab-summary' => 'დისკუსიის რეზიუმე',
 );
 
 /** Kalaallisut (Kalaallisut)
@@ -16408,7 +16411,7 @@ $messages['sr-ec'] = array(
 	'lqt-thread-link-url' => 'Путања везе (УРЛ):',
 	'lqt-thread-link-copy' => 'Ископирај у клипборд',
 	'lqt-change-subject' => 'Измени наслов',
-	'lqt-save-subject' => 'Сними',
+	'lqt-save-subject' => 'Сачувај',
 	'lqt-ajax-no-subject' => 'Морате навести наслов.',
 	'lqt-cancel-subject-edit' => 'Откажи',
 	'lqt-drag-activate' => 'Превуци на нову локацију',
@@ -17031,9 +17034,11 @@ $messages['sw'] = array(
 	'lqt_permalink' => 'Kiungo cha daima',
 	'lqt_discussion_link' => 'majadiliano',
 	'lqt-history-title' => 'Historia ya mlolongo',
+	'lqt_hist_comment_edited' => 'Maandishi ya muhtasari [$2 uliohaririwa]',
 	'lqt_hist_summary_changed' => 'Muhtasari ilibadilishwa',
 	'lqt_hist_deleted' => 'Ilifutwa',
 	'lqt_hist_undeleted' => 'Ilirudishwa',
+	'lqt_hist_edited_subject_corrupt' => 'Mada ilibadilishwa',
 	'lqt_subject' => 'Mada:',
 	'lqt_noreason' => 'Sababu haikutajwa.',
 	'lqt_summary_notice_link' => 'andika muhtasari',
