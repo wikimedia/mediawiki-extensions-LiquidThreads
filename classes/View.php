@@ -60,14 +60,18 @@ class LqtView {
 	}
 
 	static function permalinkUrl( $thread, $method = null, $operand = null,
-									$uquery = array() ) {
+									$uquery = array(), $relative = true ) {
 		list ( $title, $query ) = self::permalinkData( $thread, $method, $operand );
 
 		$query = array_merge( $query, $uquery );
 
 		$queryString = wfArrayToCGI( $query );
 
-		return $title->getLocalUrl( $queryString );
+		if( $relative ) {
+			return $title->getLocalUrl( $queryString );
+		} else {
+			return $title->getFullUrl( $queryString );
+		}
 	}
 
 	/** Gets an array of (title, query-parameters) for a permalink **/
@@ -90,12 +94,12 @@ class LqtView {
 
 	/* This is used for action=history so that the history tab works, which is
 	   why we break the lqt_method paradigm. */
-	static function permalinkUrlWithQuery( $thread, $query ) {
+	static function permalinkUrlWithQuery( $thread, $query, $relative = true ) {
 		if ( !is_array( $query ) ) {
 			$query = wfCGIToArray( $query );
 		}
 
-		return self::permalinkUrl( $thread, null, null, $query );
+		return self::permalinkUrl( $thread, null, null, $query, $relative );
 	}
 
 	static function permalink( $thread, $text = null, $method = null, $operand = null,
@@ -181,7 +185,7 @@ class LqtView {
 
 	static function diffPermalinkURL( $thread, $revision ) {
 		$query = self::diffQuery( $thread, $revision );
-		return self::permalinkUrl( $thread, null, null, $query );
+		return self::permalinkUrl( $thread, null, null, $query, false );
 	}
 
 	static function diffPermalink( $thread, $text, $revision ) {
