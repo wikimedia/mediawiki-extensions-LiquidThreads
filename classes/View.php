@@ -1220,107 +1220,6 @@ class LqtView {
 		return $commands;
 	}
 
-	/*************************
-	* Output methods		 *
-	*************************/
-
-	static function addJSandCSS() {
-		if ( self::$stylesAndScriptsDone ) {
-			return;
-		}
-
-		global $wgOut;
-		global $wgStyleVersion;
-
-		LqtHooks::$scriptVariables['wgLqtMessages'] = self::exportJSLocalisation();
-
-		if ( method_exists( $wgOut, 'includeJQuery' ) ) {
-			$wgOut->includeJQuery();
-		}
-
-		$output = self::getJSAndCSS();
-
-		foreach( $output['scripts'] as $script ) {
-			$wgOut->addScriptFile( "$script?$wgStyleVersion" );
-		}
-
-		foreach( $output['styles'] as $style ) {
-			$wgOut->addExtensionStyle( "$style?$wgStyleVersion" );
-		}
-
-		self::$stylesAndScriptsDone = true;
-	}
-
-	static function getJSAndCSS() {
-		global $wgLiquidThreadsExtensionPath, $wgOut;
-		// Returns an associative array, with the keys: styles, scripts
-
-		$styles = array(
-			"$wgLiquidThreadsExtensionPath/jquery/jquery-ui-1.7.2.css",
-			"$wgLiquidThreadsExtensionPath/jquery/jquery.thread_collapse.css",
-			"$wgLiquidThreadsExtensionPath/lqt.css",
-		);
-
-		$scripts = array(
-			"$wgLiquidThreadsExtensionPath/lqt.js",
-			"$wgLiquidThreadsExtensionPath/js/lqt.toolbar.js",
-			"$wgLiquidThreadsExtensionPath/jquery/jquery.thread_collapse.js",
-			"$wgLiquidThreadsExtensionPath/jquery/jquery.autogrow.js"
-		);
-
-		if ( method_exists( $wgOut, 'includeJQuery' ) ) {
-			$scripts[] = "$wgLiquidThreadsExtensionPath/jquery/plugins.js";
-		} else {
-			$scripts[] = "$wgLiquidThreadsExtensionPath/jquery/js2.combined.js";
-		}
-
-		return array( 'scripts' => $scripts, 'styles' => $styles );
-	}
-
-	static function exportJSLocalisation() {
-		$messages = array(
-				'lqt-quote-intro',
-				'lqt-quote',
-				'lqt-ajax-updated',
-				'lqt-ajax-update-link',
-				'watch',
-				'unwatch',
-				'lqt-thread-link-url',
-				'lqt-thread-link-title',
-				'lqt-thread-link-copy',
-				'lqt-sign-not-necessary',
-				'lqt-marked-as-read-placeholder',
-				'lqt-email-undo',
-				'lqt-change-subject',
-				'lqt-save-subject',
-				'lqt-ajax-no-subject',
-				'lqt-ajax-invalid-subject',
-				'lqt-save-subject-error-unknown',
-				'lqt-cancel-subject-edit',
-				'lqt-drag-activate',
-				'lqt-drag-drop-zone',
-				'lqt-drag-confirm',
-				'lqt-drag-reparent',
-				'lqt-drag-split',
-				'lqt-drag-setsortkey',
-				'lqt-drag-bump',
-				'lqt-drag-save',
-				'lqt-drag-reason',
-				'lqt-drag-subject',
-				'lqt-edit-signature',
-				'lqt-preview-signature',
-				'lqt_contents_title',
-			);
-
-		$data = array();
-
-		foreach ( $messages as $msg ) {
-			$data[$msg] = wfMsgNoTrans( $msg );
-		}
-
-		return $data;
-	}
-
 	/* @return False if the article and revision do not exist. The HTML of the page to
 	 * display if it exists. Note that this impacts the state out OutputPage by adding
 	 * all the other relevant parts of the parser output. If you don't want this, call
@@ -1872,6 +1771,7 @@ class LqtView {
 
 	function showThread( $thread, $levelNum = 1, $totalInLevel = 1,
 			$options = array() ) {
+		global $wgOut;
 
 		// Safeguard
 		if ( $thread->type() & Threads::TYPE_DELETED ||
@@ -1941,7 +1841,7 @@ class LqtView {
 			) );
 		$replyTo = $this->methodAppliesToThread( 'reply', $thread );
 
-		self::addJSandCSS();
+		$this->output->addModules( 'ext.liquidThreads' );
 
 		$html = '';
 		wfRunHooks( 'EditPageBeforeEditToolbar', array( &$html ) );

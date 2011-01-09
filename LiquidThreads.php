@@ -42,6 +42,58 @@ $wgExtensionMessagesFiles['LiquidThreadsMagic'] = $dir . 'i18n/LiquidThreads.mag
 $wgExtensionMessagesFiles['LiquidThreadsNamespaces'] = $dir . 'i18n/Lqt.namespaces.php';
 $wgExtensionAliasesFiles['LiquidThreads'] = $dir . 'i18n/Lqt.alias.php';
 
+$lqtMessages = array(
+	'lqt-quote-intro',
+	'lqt-quote',
+	'lqt-ajax-updated',
+	'lqt-ajax-update-link',
+	'watch',
+	'unwatch',
+	'lqt-thread-link-url',
+	'lqt-thread-link-title',
+	'lqt-thread-link-copy',
+	'lqt-sign-not-necessary',
+	'lqt-marked-as-read-placeholder',
+	'lqt-email-undo',
+	'lqt-change-subject',
+	'lqt-save-subject',
+	'lqt-ajax-no-subject',
+	'lqt-ajax-invalid-subject',
+	'lqt-save-subject-error-unknown',
+	'lqt-cancel-subject-edit',
+	'lqt-drag-activate',
+	'lqt-drag-drop-zone',
+	'lqt-drag-confirm',
+	'lqt-drag-reparent',
+	'lqt-drag-split',
+	'lqt-drag-setsortkey',
+	'lqt-drag-bump',
+	'lqt-drag-save',
+	'lqt-drag-reason',
+	'lqt-drag-subject',
+	'lqt-edit-signature',
+	'lqt-preview-signature',
+	'lqt_contents_title'
+);
+
+// ResourceLoader
+$lqtResourceTemplate = array(
+	'localBasePath' => "$dir",
+	'remoteExtPath' => 'LiquidThreads'
+);
+
+$wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
+	'styles' => array( 'lqt.css', 'jquery/jquery.thread_collapse.css' ),
+	'scripts' => array( 'lqt.js', 'js/lqt.toolbar.js', 'jquery/jquery.thread_collapse.js', 'jquery/jquery.autogrow.js' ),
+	'dependencies' => array( 'jquery.ui.dialog' ),
+	'messages' => $lqtMessages
+);
+
+$wgResourceModules['ext.liquidThreads.newMessages'] = $lqtResourceTemplate + array(
+	'scripts' => array( 'newmessages.js' ),
+	'dependancies' => array( 'ext.liquidThreads' )
+);
+
 // Parser Function Setup
 $wgHooks['ParserFirstCallInit'][] = 'lqtSetupParserFunctions';
 

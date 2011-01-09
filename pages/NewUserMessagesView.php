@@ -189,12 +189,7 @@ class NewUserMessagesView extends LqtView {
 		$mustShowThreads = $this->highlightThreads;
 
 		$this->showThread( $t, 1, 1, array( 'mustShowThreads' => $mustShowThreads ) );
-		static $scriptDone = false;
-		if ( !$scriptDone ) {
-			global $wgLiquidThreadsExtensionPath;
-			$this->output->addScriptFile( "$wgLiquidThreadsExtensionPath/newmessages.js" );
-			$scriptDone = true;
-		}
+		$this->output->addModules( 'ext.liquidThreads.newMessages' );
 		$this->output->addHTML( "</td></tr>" );
 	}
 }

@@ -225,7 +225,7 @@ class TalkpageView extends LqtView {
 	}
 
 	function show() {
-		LqtView::addJSandCSS();
+		$this->output->addModules( 'ext.liquidThreads' );
 
 		$this->output->setPageTitle( $this->title->getPrefixedText() );
 

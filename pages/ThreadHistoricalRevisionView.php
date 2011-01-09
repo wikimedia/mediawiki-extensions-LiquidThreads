@@ -120,7 +120,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 
 		$this->showHistoryInfo();
 
-		self::addJSandCSS();
+		$this->output->addModules( 'ext.liquidThreads' );
 		$this->output->setSubtitle( $this->getSubtitle() );
 
 		$changedObject = $this->mDisplayRevision->getChangeObject();

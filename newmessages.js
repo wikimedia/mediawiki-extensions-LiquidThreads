@@ -7,8 +7,8 @@ $j.extend( liquidThreads,
 			var right_col = row.find('td.lqt-newmessages-right');
 			$j(button).closest('td').empty();
 			
-			var msg = wgLqtMessages['lqt-marked-as-read-placeholder'];
-			var undoMsg = wgLqtMessages['lqt-email-undo'];
+			var msg = mediaWiki.msg('lqt-marked-as-read-placeholder');
+			var undoMsg = mediaWiki.msg('lqt-email-undo');
 			// We have to split the message to the part before the
 			// $1 and the part after the $1
 			var placeholderIndex = msg.indexOf( '$1' );

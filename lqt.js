@@ -160,7 +160,7 @@ var liquidThreads = {
 			$j(container).find('input[name=wpLqtSignature]').hide();
 			$j(container).find('.lqt-signature-preview').show();
 			var editLink = $j('<a class="lqt-signature-edit-button"/>' );
-			editLink.text( wgLqtMessages['lqt-edit-signature'] );
+			editLink.text( mediaWiki.msg('lqt-edit-signature') );
 			editLink.click( liquidThreads.handleEditSignature );
 			editLink.attr('href', '#');
 			$j(container).find('.lqt-signature-preview').after(editLink);
@@ -248,22 +248,7 @@ var liquidThreads = {
 			function(result) {
 				var content = $j(result.threadaction.inlineeditform.html);
 				$j(container).empty().append(content);
-				
-				// Add resources if necessary
-				if ( typeof wgLqtMessages == 'undefined' || !wgLqtMessages ) {
-					wgLqtMessages = result.threadaction.resources.messages;
-					
-					$j.each( result.threadaction.resources.scripts,
-						function(index,value) {
-							$j.getScript( value );
-						} );
-					
-					$j.each( result.threadaction.resources.styles,
-						 function(index,value) {
-							 $j.getCSS( value );
-						 } );
-				}
-				
+
 				callback();
 			} );
 	},
@@ -351,7 +336,7 @@ var liquidThreads = {
 
 		// Add "Drag to new location" to menu
 		var dragLI = $j('<li class="lqt-command-drag lqt-command" />' );
-		var dragLink = $j('<a/>').text( wgLqtMessages['lqt-drag-activate'] );
+		var dragLink = $j('<a/>').text( mediaWiki.msg('lqt-drag-activate') );
 		dragLink.attr('href','#');
 		dragLI.append(dragLink);
 		dragLink.click( liquidThreads.activateDragDrop );
@@ -398,7 +383,7 @@ var liquidThreads = {
 
 		var editSubjectField = $j('<li/>');
 		var editSubjectLink = $j('<a href="#"/>');
-		editSubjectLink.text( wgLqtMessages['lqt-change-subject'] );
+		editSubjectLink.text( mediaWiki.msg('lqt-change-subject') );
 		editSubjectField.append( editSubjectLink );
 		editSubjectField.click( liquidThreads.handleChangeSubject );
 		editSubjectField.data( 'thread-id', id )
@@ -423,13 +408,13 @@ var liquidThreads = {
 		textbox.attr('size', '75');
 		textbox.val(headerText);
 
-		var saveText = wgLqtMessages['lqt-save-subject'];
+		var saveText = mediaWiki.msg('lqt-save-subject');
 		var saveButton = $j('<input type="button" />');
 		saveButton.val( saveText );
 		saveButton.click( liquidThreads.handleSubjectSave );
 
 		var cancelButton = $j('<input type="button" />');
-		cancelButton.val( wgLqtMessages['lqt-cancel-subject-edit'] );
+		cancelButton.val( mediaWiki.msg('lqt-cancel-subject-edit') );
 		cancelButton.click( function(e) {
 			var form = $j(this).closest('.mw-subject-editor');
 			var header = form.closest('.lqt_header');
@@ -462,7 +447,7 @@ var liquidThreads = {
 		var newSubject = textbox.val().trim();
 
 		if (!newSubject) {
-			alert( wgLqtMessages['lqt-ajax-no-subject'] );
+			alert( mediaWiki.msg('lqt-ajax-no-subject') );
 			return;
 		}
 
@@ -484,16 +469,15 @@ var liquidThreads = {
 				description = reply.error.info;
 
 				if (code == 'invalid-subject') {
-					alert( wgLqtMessages['lqt-ajax-invalid-subject'] );
+					alert( mediaWiki.msg('lqt-ajax-invalid-subject') );
 				} else {
-					var msg = wgLqtMessages['lqt-save-subject-failed'];
-					msg.replace( '$1', description );
+					var msg = mediaWiki.msg('lqt-save-subject-failed', $description );
 				}
 
 				subjectForm.show();
 				spinner.remove();
 			} catch (err) {
-				alert( wgLqtMessages['lqt-save-subject-error-unknown'] );
+				alert( mediaWiki.msg('lqt-save-subject-error-unknown') );
 				subjectForm.remove();
 				spinner.remove();
 				header.contents().filter('.mw-headline').show();
@@ -575,11 +559,11 @@ var liquidThreads = {
 		}
 
 		var notifier = $j('<div/>');
-		notifier.text( wgLqtMessages['lqt-ajax-updated'] + ' ' );
+		notifier.text( mediaWiki.msg('lqt-ajax-updated') + ' ' );
 		notifier.addClass( 'lqt-updated-notification' );
 
 		var updateButton = $j('<a href="#"/>');
-		updateButton.text( wgLqtMessages['lqt-ajax-update-link'] );
+		updateButton.text( mediaWiki.msg('lqt-ajax-update-link') );
 		updateButton.addClass( 'lqt-update-link' );
 		updateButton.click( liquidThreads.updateThread );
 
@@ -862,12 +846,12 @@ var liquidThreads = {
 		linkTitle = '[['+linkTitle+']]';
 
 		// Build dialog
-		var urlLabel = $j('<th/>').text(wgLqtMessages['lqt-thread-link-url']);
+		var urlLabel = $j('<th/>').text(mediaWiki.msg('lqt-thread-link-url'));
 		var urlField = $j('<td/>').addClass( 'lqt-thread-link-url' );
 		urlField.text(linkURL);
 		var urlRow = $j('<tr/>').append(urlLabel).append(urlField );
 
-		var titleLabel = $j('<th/>').text(wgLqtMessages['lqt-thread-link-title']);
+		var titleLabel = $j('<th/>').text(mediaWiki.msg('lqt-thread-link-title'));
 		var titleField = $j('<td/>').addClass( 'lqt-thread-link-title' );
 		titleField.text(linkTitle);
 		var titleRow = $j('<tr/>').append(titleLabel).append(titleField );
@@ -1034,7 +1018,7 @@ var liquidThreads = {
 			$j('.lqt-new-thread').after(toc);
 
 			var contentsHeading = $j('<h2/>');
-			contentsHeading.text(wgLqtMessages['lqt_contents_title']);
+			contentsHeading.text(mediaWiki.msg('lqt_contents_title'));
 			toc.before(contentsHeading);
 		}
 
@@ -1138,7 +1122,7 @@ var liquidThreads = {
 			}
 
 			// Show the warning
-			var msg = wgLqtMessages['lqt-sign-not-necessary'];
+			var msg = mediaWiki.msg('lqt-sign-not-necessary');
 			var elem = $j('<div id="lqt-sign-warning" class="error"/>');
 			elem.text(msg);
 
@@ -1220,7 +1204,7 @@ var liquidThreads = {
 		//  other thread, and as a subthread of every post.
 		var createDropZone = function( sortKey, parent ) {
 			return $j( '<div class="lqt-drop-zone" />' )
-				.text( wgLqtMessages['lqt-drag-drop-zone'] )
+				.text( mediaWiki.msg('lqt-drag-drop-zone') )
 				.data( 'sortkey', sortKey )
 				.data( 'parent', parent );
 		};
@@ -1308,7 +1292,7 @@ var liquidThreads = {
 		var confirmDialog = $j( '<div class="lqt-drag-confirm" />' );
 
 		// Add an intro
-		var intro = $j( '<p/>' ).text( wgLqtMessages['lqt-drag-confirm'] );
+		var intro = $j( '<p/>' ).text( mediaWiki.msg('lqt-drag-confirm') );
 		confirmDialog.append( intro );
 
 		// Summarize changes to be made
@@ -1316,7 +1300,7 @@ var liquidThreads = {
 
 		var addAction = function(msg) {
 			var li = $j('<li/>');
-			li.text( wgLqtMessages[msg] );
+			li.text( mediaWiki.msg(msg) );
 			actionSummary.append(li);
 		};
 
@@ -1340,7 +1324,7 @@ var liquidThreads = {
 
 		// Summary prompt
 		var summaryWrapper = $j('<p/>');
-		var summaryPrompt = $j('<label for="reason" />').text( wgLqtMessages['lqt-drag-reason'] );
+		var summaryPrompt = $j('<label for="reason" />').text( mediaWiki.msg('lqt-drag-reason') );
 		var summaryField = $j('<input type="text" size="45"/>');
 		summaryField.addClass( 'lqt-drag-confirm-reason' )
 			.attr( 'name', 'reason' )
@@ -1355,7 +1339,7 @@ var liquidThreads = {
 
 		// New subject prompt, if appropriate
 		if ( !wasTopLevel && topLevel ) {
-			var subjectPrompt = $j('<p/>').text( wgLqtMessages['lqt-drag-subject'] );
+			var subjectPrompt = $j('<p/>').text( mediaWiki.msg('lqt-drag-subject') );
 			var subjectField = $j('<input type="text" size="45"/>');
 			subjectField.addClass( 'lqt-drag-confirm-subject' )
 					.attr( 'name', 'subject' );
@@ -1374,7 +1358,7 @@ var liquidThreads = {
 			liquidThreads.reloadTOC();
 		};
 
-		var buttonLabel = wgLqtMessages['lqt-drag-save']
+		var buttonLabel = mediaWiki.msg('lqt-drag-save');
 		var buttons = {};
 		buttons[buttonLabel] =
 			function() {
@@ -1399,7 +1383,7 @@ var liquidThreads = {
 				liquidThreads.submitDragDrop( thread, params,
 					successCallback );
 			};
-		confirmDialog.dialog( { 'title': wgLqtMessages['lqt-drag-title'],
+		confirmDialog.dialog( { 'title': mediaWiki.msg('lqt-drag-title'),
 			'buttons' : buttons, 'modal' : true, 'width': 550 } );
 	},
 
@@ -1558,7 +1542,7 @@ var liquidThreads = {
 
 		// Add a save button
 		var saveButton = $j('<a href="#"/>');
-		saveButton.text( wgLqtMessages['lqt-preview-signature'] );
+		saveButton.text( mediaWiki.msg('lqt-preview-signature') );
 		saveButton.click( liquidThreads.handlePreviewSignature );
 
 		container.find('input[name=wpLqtSignature]').after(saveButton);

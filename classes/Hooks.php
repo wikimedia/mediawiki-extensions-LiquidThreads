@@ -29,10 +29,9 @@ class LqtHooks {
 			return true;
 		}
 
-		LqtView::addJSandCSS();
-
-		global $wgUser, $wgLang;
+		global $wgUser, $wgLang, $wgOut;
 		$sk = $wgUser->getSkin();
+		$wgOut->addModules( 'ext.liquidThreads' );
 
 		// Custom display for new posts.
 		if ( $rc->mAttribs['rc_new'] ) {
@@ -108,7 +107,7 @@ class LqtHooks {
 		if ( $tn == 0 && $wn == 0 )
 			return true;
 
-		LqtView::addJSandCSS();
+		$wgOut->addModules( 'ext.liquidThreads' );
 		$messages_title = SpecialPage::getTitleFor( 'NewMessages' );
 		$new_messages = wfMsgExt( 'lqt-new-messages', 'parseinline' );
 
