@@ -276,7 +276,7 @@ body.skin-monobook li#ca-nstab-thread {
 	height: 2em;
 	padding-right: 18px; /* img is 16px */
 	/* @embed */
-	background-image: url('icons/arrow-down-icon.png?1');
+	background-image: url('icons/arrow-down-icon.png');
 	background-position: right center;
 	background-repeat: no-repeat;
 	line-height: 2em;
@@ -360,7 +360,7 @@ body.skin-monobook li#ca-nstab-thread {
 .lqt-command-reply a {
 	padding-left: 26px;
 	/* @embed */
-	background-image: url(icons/reply.png?1) !important;
+	background-image: url(icons/reply.png) !important;
 	background-repeat: no-repeat;
 	background-position: left center !important;
 }
@@ -375,7 +375,7 @@ body.skin-monobook li#ca-nstab-thread {
 	margin-left: 1em;
 	height: 2em;
 	/* @embed */
-	background-image: url(icons/quote.png?1);
+	background-image: url(icons/quote.png);
 	background-position: left center !important;
 	background-repeat: no-repeat;
 	padding-left: 26px;
