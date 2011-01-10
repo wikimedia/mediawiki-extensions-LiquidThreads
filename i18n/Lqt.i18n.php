@@ -5984,8 +5984,8 @@ Syy voi olla:
 	'lqt-history-title' => 'Ketjun historia',
 	'lqt_hist_comment_edited' => 'Kommenttitekstiä [$2 muokattu]',
 	'lqt_hist_summary_changed' => 'Yhteenveto muutettu',
-	'lqt_hist_reply_created' => '[[$1|Uusi vastaus]] luotu',
-	'lqt_hist_thread_created' => 'Uusi ketju luotu',
+	'lqt_hist_reply_created' => '[[$1|Uusi viesti]]',
+	'lqt_hist_thread_created' => 'Ketju luotiin',
 	'lqt_hist_deleted' => 'Poistettu',
 	'lqt_hist_undeleted' => 'Palautettu',
 	'lqt_hist_moved_talkpage' => 'Siirretty',
@@ -8409,10 +8409,11 @@ Podpis pokazuje so awtomatisce.',
 );
 
 /** Haitian (Kreyòl ayisyen)
+ * @author Boukman
  * @author Internoob
  */
 $messages['ht'] = array(
-	'lqt-no-new-messages' => 'Pa gen nouvo mesaj pou w.',
+	'lqt-no-new-messages' => 'Pa gen nouvo mesaj pou ou.',
 	'lqt_newmessages' => 'Nouvo mesaj',
 );
 
@@ -16256,7 +16257,7 @@ $messages['sli'] = array(
 	'lqt_move_move' => 'Verschieba',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Mormegil
  * @author Rancher
  * @author Жељко Тодоровић
@@ -17036,13 +17037,18 @@ $messages['sw'] = array(
 	'lqt-history-title' => 'Historia ya mlolongo',
 	'lqt_hist_comment_edited' => 'Maandishi ya muhtasari [$2 uliohaririwa]',
 	'lqt_hist_summary_changed' => 'Muhtasari ilibadilishwa',
+	'lqt_hist_thread_created' => 'Mlolongo mpya ulianzishwa',
 	'lqt_hist_deleted' => 'Ilifutwa',
 	'lqt_hist_undeleted' => 'Ilirudishwa',
+	'lqt_hist_moved_talkpage' => 'Ilihamishwa',
+	'lqt_hist_tooltip_newer_disabled' => 'Kiungo hichi hakifanyi kazi kwa sababu tayari upo ukurasa wa kwanza.',
+	'lqt_hist_edited_subject' => 'Mada ya "$2" ilibadilishwa iwe "$3"',
 	'lqt_hist_edited_subject_corrupt' => 'Mada ilibadilishwa',
 	'lqt_subject' => 'Mada:',
 	'lqt_noreason' => 'Sababu haikutajwa.',
 	'lqt_summary_notice_link' => 'andika muhtasari',
 	'lqt_summary_label' => 'Muhtasari wa mlolongo:',
+	'lqt_move_torename_edit' => 'uuharirie',
 	'lqt_move_move' => 'Sogeza',
 	'lqt_move_noreason' => 'Sababu haikutajwa.',
 	'lqt_delete_return' => 'Rudia $1.',
@@ -17053,9 +17059,17 @@ $messages['sw'] = array(
 	'lqt_sort_oldest_threads' => 'zilizoanzishwa mwanzoni',
 	'lqt-title' => 'Cheo',
 	'lqt-summary' => 'Muhtasari',
+	'lqt-newmessages-context' => 'Mlolongo wote',
+	'lqt-thread-created' => 'Ilianzishwa',
+	'lqt-history-time' => 'Saa',
 	'lqt-history-user' => 'Mtumiaji',
+	'lqt-history-action' => 'Tendo',
 	'lqt-history-comment' => 'Maelezo',
 	'lqt-history-thread' => 'Mlolongo',
+	'lqt-thread-edited-author' => 'Imehaririwa na mwanzilishaji.<br />
+Haririo ya mwisho: $1',
+	'lqt-thread-edited-others' => 'Imehaririwa na {{PLURAL:$2|mtumiaji mwingine|watumiaji wengine $2}}.<br />
+Haririo ya mwisho: $1',
 	'lqt-header-actions' => 'Vitendo',
 	'lqt-thread-split-thread' => 'Mlolongo:',
 	'lqt-movethread' => 'Sogeza',
@@ -17072,11 +17086,15 @@ $messages['sw'] = array(
 	'lqt-drag-save' => 'Yakinisha',
 	'lqt-drag-reason' => 'Sababu:',
 	'lqt-drag-subject' => 'Mada ya mlolongo mpya:',
+	'lqt-edit-signature' => '(hariri sahihi)',
 	'lqt-preview-signature' => '(hakiki)',
 	'lqt-newmessages-n' => 'Jumbe mpya ($1)',
 	'lqt_newmessages' => 'Jumbe mpya',
 	'lqt_newmessages-title' => 'Jumbe mpya',
 	'lqt-newpost-summary' => 'Mlolongo mpya: $1',
+	'lqt-reply-summary' => 'Jibu la [[$2|$1]]',
+	'lqt-talkpage-history-title' => 'Historia ya ukurasa wa majadiliano',
+	'lqt-talkpage-history-subtitle' => 'Kwa $1',
 	'lqt-reply-subpage' => 'jibu',
 	'nstab-thread' => 'Mlolongo',
 	'nstab-summary' => 'Muhtasari',
