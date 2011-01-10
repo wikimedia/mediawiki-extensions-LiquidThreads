@@ -786,8 +786,10 @@ class ApiThreadAction extends ApiBase {
 		
 		$result = array( 'inlineeditform' => array( 'html' => $output ) );
 
+		/* FIXME 
 		$result['resources'] = LqtView::getJSandCSS();
 		$result['resources']['messages'] = LqtView::exportJSLocalisation();
+		*/
 		
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
