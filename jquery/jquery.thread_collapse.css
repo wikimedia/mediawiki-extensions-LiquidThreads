@@ -10,5 +10,5 @@
 }
 .thread-collapse-control a.thread-control-collapsed {
 	/* @embed */
-	background: url(../images/thread_collapse_control_collapsed.gif) 0 0 no-repeat;
+	background: url(../images/thread_collapse_control_collapsed-ltr.gif) 0 0 no-repeat;
 }
