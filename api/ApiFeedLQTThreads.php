@@ -251,6 +251,6 @@ class ApiFeedLQTThreads extends ApiBase {
 	}
 
 	public function getVersion() {
-		return __CLASS__ . ': $Id: ApiFeedWatchlist.php 53782 2009-07-26 17:04:22Z simetrical $';
+		return __CLASS__ . ': $Id$';
 	}
 }
