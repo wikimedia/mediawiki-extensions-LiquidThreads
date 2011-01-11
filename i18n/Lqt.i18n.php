@@ -127,8 +127,6 @@ You might instead want to $2.',
 	'lqt_sort_oldest_threads' => 'oldest threads first',
 	'lqt-title' => 'Title',
 	'lqt-summary' => 'Summary',
-	'lqt-older' => 'older',
-	'lqt-newer' => 'newer',
 	'lqt-searching' => 'Searching for threads',
 	'lqt-read-message' => 'Mark as read',
 	'lqt-read-message-tooltip' => 'Remove this thread from new messages.
