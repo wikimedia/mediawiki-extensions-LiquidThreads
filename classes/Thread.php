@@ -1543,14 +1543,7 @@ class Thread {
 			}
 		}
 
-		$testTitle = Title::makeTitleSafe( NS_LQT_THREAD, 'test' );
-		if ( ! $testTitle->userCan( 'create' ) ||
-			! $testTitle->userCan( 'edit' ) )
-		{
-			return false;
-		}
-
-		return true;
+		return self::canUserCreateThreads( $user );
 	}
 
 	public static function canUserPost( $user, $talkpage ) {
@@ -1562,14 +1555,20 @@ class Thread {
 			}
 		}
 
-		$testTitle = Title::makeTitleSafe( NS_LQT_THREAD, 'test' );
-		if ( ! $testTitle->userCan( 'create' ) ||
-			! $testTitle->userCan( 'edit' ) )
-		{
-			return false;
+		return self::canUserCreateThreads( $user );
+	}
+
+	// Generally, not some specific page
+	public static function canUserCreateThreads( $user ) {
+		$userText = $user->getName();
+
+		static $canCreateNew = null;
+		if ( !isset( $canCreateNew[$userText] ) ) {
+			$title = Title::makeTitleSafe( NS_LQT_THREAD, 'Test title for LQT thread creation check' );
+			$canCreateNew[$userText] = $title->userCan( 'create' ) && $title->userCan( 'edit' );
 		}
 
-		return true;
+		return $canCreateNew[$userText];
 	}
 
 	public function signature() {
