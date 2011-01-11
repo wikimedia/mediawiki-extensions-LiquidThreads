@@ -249,11 +249,11 @@ $wgDefaultUserOptions['lqtdisplaycount'] = 25;
 $wgDefaultUserOptions['lqtcustomsignatures'] = true;
 
 // API
-$wgAutoloadClasses['ApiQueryLQTThreads'] = "$dir/api/ApiQueryLQTThreads.php";
+$wgAutoloadClasses['ApiQueryLQTThreads'] = $dir . 'api/ApiQueryLQTThreads.php';
 $wgAPIListModules['threads'] = 'ApiQueryLQTThreads';
-$wgAutoloadClasses['ApiFeedLQTThreads'] = "$dir/api/ApiFeedLQTThreads.php";
+$wgAutoloadClasses['ApiFeedLQTThreads'] = $dir . 'api/ApiFeedLQTThreads.php';
 $wgAPIModules['feedthreads'] = 'ApiFeedLQTThreads';
-$wgAutoloadClasses['ApiThreadAction'] = "$dir/api/ApiThreadAction.php";
+$wgAutoloadClasses['ApiThreadAction'] = $dir . '/api/ApiThreadAction.php';
 $wgAPIModules['threadaction'] = 'ApiThreadAction';
 
 // Path to the LQT directory
