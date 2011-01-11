@@ -193,12 +193,12 @@ $wgAutoloadClasses['NewMessages'] = $dir . 'classes/NewMessagesController.php';
 $wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/ParserFunctions.php';
 $wgAutoloadClasses['LqtDeletionController'] = $dir . 'classes/DeletionController.php';
 $wgAutoloadClasses['LqtHooks'] = $dir . 'classes/Hooks.php';
-$wgAutoloadClasses['ThreadRevision'] = $dir . "/classes/ThreadRevision.php";
-$wgAutoloadClasses['SynchroniseThreadArticleDataJob'] = "$dir/classes/SynchroniseThreadArticleDataJob.php";
-$wgAutoloadClasses['ThreadHistoryPager'] = "$dir/classes/ThreadHistoryPager.php";
-$wgAutoloadClasses['TalkpageHistoryView'] = "$dir/pages/TalkpageHistoryView.php";
-$wgAutoloadClasses['LqtHotTopicsController'] = "$dir/classes/HotTopics.php";
-$wgAutoloadClasses['LqtLogFormatter'] = "$dir/classes/LogFormatter.php";
+$wgAutoloadClasses['ThreadRevision'] = $dir . "classes/ThreadRevision.php";
+$wgAutoloadClasses['SynchroniseThreadArticleDataJob'] = $dir . 'classes/SynchroniseThreadArticleDataJob.php';
+$wgAutoloadClasses['ThreadHistoryPager'] = $dir . 'classes/ThreadHistoryPager.php';
+$wgAutoloadClasses['TalkpageHistoryView'] = $dir . 'pages/TalkpageHistoryView.php';
+$wgAutoloadClasses['LqtHotTopicsController'] = $dir . 'classes/HotTopics.php';
+$wgAutoloadClasses['LqtLogFormatter'] = $dir . 'classes/LogFormatter.php';
 
 // View classes
 $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
@@ -229,8 +229,8 @@ $wgJobClasses['synchroniseThreadArticleData'] = 'SynchroniseThreadArticleDataJob
 // Backwards-compatibility
 $wgAutoloadClasses['Article_LQT_Compat'] = $dir . 'compat/LqtCompatArticle.php';
 if ( version_compare( $wgVersion, '1.16', '<' ) ) {
-	$wgAutoloadClasses['HTMLForm'] = "$dir/compat/HTMLForm.php";
-	$wgExtensionMessagesFiles['Lqt-Compat'] = "$dir/compat/Lqt-compat.i18n.php";
+	$wgAutoloadClasses['HTMLForm'] = $dir . 'compat/HTMLForm.php';
+	$wgExtensionMessagesFiles['Lqt-Compat'] = $dir . 'compat/Lqt-compat.i18n.php';
 }
 
 // Logging
