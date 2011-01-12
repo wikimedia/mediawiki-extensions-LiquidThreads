@@ -1775,7 +1775,6 @@ class LqtView {
 
 	function showThread( $thread, $levelNum = 1, $totalInLevel = 1,
 			$options = array() ) {
-		global $wgOut;
 
 		// Safeguard
 		if ( $thread->type() & Threads::TYPE_DELETED ||
