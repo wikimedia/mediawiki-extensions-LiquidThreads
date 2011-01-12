@@ -91,7 +91,7 @@ $wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
 
 $wgResourceModules['ext.liquidThreads.newMessages'] = $lqtResourceTemplate + array(
 	'scripts' => array( 'newmessages.js' ),
-	'dependancies' => array( 'ext.liquidThreads' )
+	'dependencies' => array( 'ext.liquidThreads' )
 );
 
 // Parser Function Setup
