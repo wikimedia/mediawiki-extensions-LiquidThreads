@@ -177,8 +177,13 @@ class LqtHooks {
 		$attribs = array();
 		$attribs['ThreadSubject'] = $thread->subject();
 		if ( $thread->hasSuperThread() ) {
-			$attribs['ThreadParent'] = $thread->superThread()->title()->getPrefixedText();
-			$attribs['ThreadAncestor'] = $thread->topmostThread()->title()->getPrefixedText();
+			if ( $thread->superThread()->title() ) {
+				$attribs['ThreadParent'] = $thread->superThread()->title()->getPrefixedText();
+			}
+			
+			if ( $thread->topmostThread()->title() ) {
+				$attribs['ThreadAncestor'] = $thread->topmostThread()->title()->getPrefixedText();
+			}
 		}
 		$attribs['ThreadPage'] = $thread->getTitle()->getPrefixedText();
 		$attribs['ThreadID'] = $thread->id();
