@@ -88,10 +88,6 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 
 		$res = $this->select( __METHOD__ );
-
-		if ( $params['render'] ) {
-			$threads = Threads::loadFromResult( $res, $this->getDB() );
-		}
 		
 		$ids = array();
 		$count = 0;
