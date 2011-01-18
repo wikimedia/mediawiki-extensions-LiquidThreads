@@ -16294,7 +16294,7 @@ $messages['sr-ec'] = array(
 	'lqt_toc_thread_title' => 'Наслов теме',
 	'lqt_toc_thread_author' => 'Започео/ла',
 	'lqt_toc_thread_replycount' => 'Одговори',
-	'lqt_toc_thread_modified' => 'Задња измена',
+	'lqt_toc_thread_modified' => 'Последња измена',
 	'lqt_add_header' => 'Додај заглавље',
 	'lqt_new_thread' => 'Започни нови разговор',
 	'lqt_invalid_subject' => 'Наслов који сте задали је неисправан.
@@ -16375,8 +16375,6 @@ $messages['sr-ec'] = array(
 	'lqt_sort_oldest_threads' => 'прво најстарије теме',
 	'lqt-title' => 'Наслов',
 	'lqt-summary' => 'Сажетак',
-	'lqt-older' => 'старије',
-	'lqt-newer' => 'новије',
 	'lqt-read-message' => 'Означи као прочитано',
 	'lqt-read-all' => 'Означи све као прочитано',
 	'lqt-marked-read' => "Тема '''$1''' је означена као прочитана.",
@@ -19252,8 +19250,6 @@ $messages['yi'] = array(
 	'lqt_sort_newest_changes' => 'לעצטע מאדיפֿיצירט צוערשט',
 	'lqt-title' => 'טיטל',
 	'lqt-summary' => 'רעזומע',
-	'lqt-older' => 'עלטערע',
-	'lqt-newer' => 'נייַערע',
 	'lqt-read-message' => 'מאַרקירן געליינט',
 	'lqt-read-all' => 'מאַרקירן אַלע געליינט',
 	'lqt-thread-created' => ' געשאַפֿן',
@@ -19263,6 +19259,8 @@ $messages['yi'] = array(
 	'lqt-newmessages-from' => 'פֿון $1',
 	'lqt-search-button' => 'זוכן',
 	'searchprofile-threads' => 'דיסקוסיעס',
+	'lqt-save-subject' => 'אויפֿהיטן',
+	'lqt-cancel-subject-edit' => 'אַנולירן',
 );
 
 /** Cantonese (粵語)
