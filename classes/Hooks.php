@@ -714,7 +714,7 @@ class LqtHooks {
 		
 		foreach( $titlePendingRelationships as $k => $v ) {
 			if ( $v['type'] == 'thread' ) {
-				self::applyPendingThreadRelationship( $pendingRelationship, $thread );
+				self::applyPendingThreadRelationship( $v, $thread );
 				unset( $titlePendingRelationships[$k] );
 			}
 		}
