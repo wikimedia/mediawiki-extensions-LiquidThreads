@@ -442,8 +442,6 @@ The drop-down box contains the following messages:
 	'lqt_sort_oldest_threads' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]]. The legend for the drop-down box is [[MediaWiki:Lqt_sorting_order/{{SUBPAGENAME}}]].',
 	'lqt-title' => '{{Identical|Title}}',
 	'lqt-summary' => '{{Identical|Summary}}',
-	'lqt-older' => '{{Identical|Older}}',
-	'lqt-newer' => '{{Identical|Newer}}',
 	'lqt-read-message' => '"Read" is past tense.',
 	'lqt-email-undo' => '{{Identical|Undo}}',
 	'lqt-history-time' => 'Column header on thread history
@@ -713,8 +711,6 @@ Die onderwerp is deel van $2.',
 	'lqt_sort_oldest_threads' => 'oudste onderwerpe bo',
 	'lqt-title' => 'Naam',
 	'lqt-summary' => 'Samevatting',
-	'lqt-older' => 'ouer',
-	'lqt-newer' => 'nuwer',
 	'lqt-searching' => 'Besig om te soek na onderwerpe…',
 	'lqt-read-message' => 'Merk as gelees',
 	'lqt-read-all' => 'Merk alles as gelees',
@@ -1057,8 +1053,6 @@ $messages['ar'] = array(
 	'lqt_sort_oldest_threads' => 'النقاشات الأقدم أولا',
 	'lqt-title' => 'العنوان',
 	'lqt-summary' => 'ملخص',
-	'lqt-older' => 'أقدم',
-	'lqt-newer' => 'أجدد',
 	'lqt-searching' => 'بحث عن مجموعات الرسائل',
 	'lqt-read-message' => 'علّم مقروءة',
 	'lqt-read-message-tooltip' => 'أزل هذا النقاش من الرسائل الجديدة.
@@ -1367,8 +1361,6 @@ $messages['arz'] = array(
 	'lqt_sort_oldest_threads' => 'النقاشات الأقدم أولا',
 	'lqt-title' => 'العنوان',
 	'lqt-summary' => 'ملخص',
-	'lqt-older' => 'أقدم',
-	'lqt-newer' => 'أجدد',
 	'lqt-searching' => 'بحث عن مجموعات الرسائل',
 	'lqt-read-message' => 'علّم مقروءة',
 	'lqt-read-message-tooltip' => 'أزل هذا النقاش من الرسائل الجديده.
@@ -1512,7 +1504,7 @@ $messages['arz'] = array(
 	'lqt-reply-subpage' => 'رد',
 );
 
-/** Bashkir (Башҡорт)
+/** Bashkir (Башҡортса)
  * @author Assele
  * @author Haqmar
  */
@@ -1627,8 +1619,6 @@ $3 $4 уны $2 күсергән.',
 	'lqt_sort_oldest_threads' => 'башта иҫке тармаҡтар',
 	'lqt-title' => 'Исем',
 	'lqt-summary' => 'Һөҙөмтә',
-	'lqt-older' => 'иҫкерәктәр',
-	'lqt-newer' => 'яңыраҡтар',
 	'lqt-searching' => 'Тармаҡтар араһында эҙләү',
 	'lqt-read-message' => 'Уҡылған тип билдәләргә',
 	'lqt-read-message-tooltip' => 'Был тармаҡты яңы хәбәрҙәр исемлегенән юйыу.
@@ -2190,8 +2180,6 @@ $messages['bg'] = array(
 	'lqt_sort_oldest_threads' => 'първо най-старите нишки',
 	'lqt-title' => 'Заглавие',
 	'lqt-summary' => 'Резюме',
-	'lqt-older' => 'по-стари',
-	'lqt-newer' => 'по-нови',
 	'lqt-searching' => 'Търсене за нишки',
 	'lqt-read-message' => 'Отбелязване като прочетено',
 	'lqt-read-message-tooltip' => 'Премахване на тази нишка от новите съобщения.
@@ -2372,8 +2360,6 @@ $messages['bn'] = array(
 	'lqt_sort_oldest_threads' => 'পুরাতন থ্রেড প্রথমে',
 	'lqt-title' => 'শিরোনাম',
 	'lqt-summary' => 'সারাংশ',
-	'lqt-older' => 'পুরাতন',
-	'lqt-newer' => 'নতুন',
 	'lqt-searching' => 'থ্রেড অনুসন্ধান করা হচ্ছে',
 	'lqt-read-message' => 'পঠিত বলে চিহ্নিত',
 	'lqt-read-all' => 'সব পঠিত বলে চিহ্নিত',
@@ -2575,8 +2561,6 @@ Marteze e fell deoc'h $2 kentoc'h.",
 	'lqt_sort_oldest_threads' => 'ar re goshañ da gentañ',
 	'lqt-title' => 'Titl',
 	'lqt-summary' => 'Diverrañ',
-	'lqt-older' => "koshoc'h",
-	'lqt-newer' => "nevesoc'h",
 	'lqt-searching' => 'O klask kaozeadennoù',
 	'lqt-read-message' => 'Merkañ evel lennet',
 	'lqt-read-message-tooltip' => "Lemel kuit an neudennad-mañ a-ziwar ar c'hemennadennoù nevez.
@@ -2847,8 +2831,6 @@ Možda umjesto toga želite $2.',
 	'lqt_sort_oldest_threads' => 'starije nizove naprijed',
 	'lqt-title' => 'Naslov',
 	'lqt-summary' => 'Sažetak',
-	'lqt-older' => 'starije',
-	'lqt-newer' => 'novije',
 	'lqt-searching' => 'Pretraga za nizovima',
 	'lqt-read-message' => 'Označi kao pročitano',
 	'lqt-read-message-tooltip' => 'Ukloni ovaj niz iz novih poruka.
@@ -3123,8 +3105,6 @@ Potser preferiu $2.',
 	'lqt_sort_oldest_threads' => 'primer els fils antics',
 	'lqt-title' => 'Títol',
 	'lqt-summary' => 'Resum',
-	'lqt-older' => 'més antics',
-	'lqt-newer' => 'més nous',
 	'lqt-searching' => 'Cerca de fils',
 	'lqt-read-message' => 'Marca com a llegit',
 	'lqt-read-message-tooltip' => 'Treu aquest fil dels missatges nous.
@@ -3474,8 +3454,6 @@ Možná chcete spíše $2.',
 	'lqt_sort_oldest_threads' => 'nejstarší vlákna nahoře',
 	'lqt-title' => 'Nadpis',
 	'lqt-summary' => 'Shrnutí',
-	'lqt-older' => 'starší',
-	'lqt-newer' => 'novější',
 	'lqt-searching' => 'Hledají se vlákna',
 	'lqt-read-message' => 'Označit jako přečtené',
 	'lqt-read-message-tooltip' => 'Odstraní toto vlákno z nových zpráv.
@@ -3699,8 +3677,6 @@ Efallai:
 	'lqt_sort_oldest_threads' => 'yr hynaf',
 	'lqt-title' => 'Teitl',
 	'lqt-summary' => 'Crynodeb',
-	'lqt-older' => 'cynt',
-	'lqt-newer' => 'diweddarach',
 	'lqt-no-new-messages' => 'Nid oes unrhyw negeseuon newydd i chi.',
 	'lqt-new-messages' => '✒ Mae negeseuon newydd ar gael i chi.',
 	'lqt-history-time' => 'Amser',
@@ -3857,8 +3833,6 @@ Möglicherweise willst du stattdessen ein $2.',
 	'lqt_sort_oldest_threads' => 'ältesten Diskussionsstrang zuerst',
 	'lqt-title' => 'Titel',
 	'lqt-summary' => 'Inhaltsangabe',
-	'lqt-older' => 'älter',
-	'lqt-newer' => 'neuer',
 	'lqt-searching' => 'Suche nach Diskussionsstrang',
 	'lqt-read-message' => 'Als gelesen markieren',
 	'lqt-read-message-tooltip' => 'Entferne diesen Diskussionsstrang aus den neuen Nachrichten.
@@ -4011,7 +3985,7 @@ Die Signatur wird automatisch ergänzt.',
 	'nstab-summary' => 'Diskussionszusammenfassung',
 );
 
-/** German (formal address) (Deutsch (Sie-Form))
+/** German (formal address) (‪Deutsch (Sie-Form)‬)
  * @author ChrisiPK
  * @author Giftpflanze
  * @author Imre
@@ -4181,8 +4155,6 @@ no gıre parçeyê $2'i yo.",
 	'lqt_sort_oldest_threads' => 'ewwil gıreyo tewr verin',
 	'lqt-title' => 'sername',
 	'lqt-summary' => 'xulasa',
-	'lqt-older' => 'verınêr',
-	'lqt-newer' => 'neweyer',
 	'lqt-searching' => 'gıreyi gêriyene',
 	'lqt-read-message' => 'bı wende nişane bıker',
 	'lqt-read-message-tooltip' => 'mesajanê neweyan ra no gıre vec.
@@ -4443,8 +4415,6 @@ Snaź coš město togo $2.',
 	'lqt_sort_oldest_threads' => 'nejstarše nitki ako prědne',
 	'lqt-title' => 'Titel',
 	'lqt-summary' => 'Zespominanje',
-	'lqt-older' => 'staršy',
-	'lqt-newer' => 'nowšy',
 	'lqt-searching' => 'Pytanje za nitkami',
 	'lqt-read-message' => 'Ako pśecytany markěrowaś',
 	'lqt-read-message-tooltip' => 'Wótpóraj toś tu nitku z nowych powěsćow.
@@ -4694,8 +4664,6 @@ $messages['el'] = array(
 	'lqt_sort_oldest_threads' => 'τα παλαιότερα θέματα πρώτα',
 	'lqt-title' => 'Τίτλος',
 	'lqt-summary' => 'Σύνοψη',
-	'lqt-older' => 'παλαιότερος',
-	'lqt-newer' => 'νεότερη',
 	'lqt-searching' => 'Αναζήτηση για θέματα',
 	'lqt-read-message' => 'Σήμανση ως διαβασμένο',
 	'lqt-read-all' => 'Σήμανση όλων ως διαβασμένα',
@@ -4785,6 +4753,7 @@ $messages['el'] = array(
  * @author Reedy
  */
 $messages['en-gb'] = array(
+	'lqt_summarize_link' => 'Summarise',
 	'lqt-summarize-intro' => 'Please summarise the below thread in the editing box.
 You may use any wikitext in your summary.
 When you finish, click "{{int:savearticle}}".',
@@ -4907,8 +4876,6 @@ Eble anstataŭe vi volus $2.',
 	'lqt_sort_oldest_threads' => 'plej malnovaj fadenoj unue',
 	'lqt-title' => 'Titolo',
 	'lqt-summary' => 'Resumo',
-	'lqt-older' => 'pli malnovaj',
-	'lqt-newer' => 'pli novaj',
 	'lqt-searching' => 'Serĉante fadenojn',
 	'lqt-read-message' => 'Marki kiel legitan',
 	'lqt-read-message-tooltip' => 'Forigi ĉi tiun fadenon de novaj mesaĝoj.
@@ -5191,8 +5158,6 @@ Tal vez quieras en su lugar $2.',
 	'lqt_sort_oldest_threads' => 'Hilos más antiguos primero',
 	'lqt-title' => 'Título',
 	'lqt-summary' => 'Resumen',
-	'lqt-older' => 'más antiguo',
-	'lqt-newer' => 'más nuevo',
 	'lqt-searching' => 'Buscar hilos',
 	'lqt-read-message' => 'Marcar como leído',
 	'lqt-read-message-tooltip' => 'Eliminar este hilo de mensajes nuevos. Aún seguirá estando visible en su página original de discusión.',
@@ -5448,8 +5413,6 @@ See lõim on osa leheküljest $2.',
 	'lqt_sort_oldest_threads' => 'kõigepealt vanemad lõimed',
 	'lqt-title' => 'Pealkiri',
 	'lqt-summary' => 'Kokkuvõte',
-	'lqt-older' => 'vanemad',
-	'lqt-newer' => 'uuemad',
 	'lqt-searching' => 'Lõimede otsimine',
 	'lqt-read-message' => 'Märgi loetuks',
 	'lqt-read-message-tooltip' => 'Eemalda see lõim uutest sõnumitest.
@@ -5640,8 +5603,6 @@ Eztabaida hau $2-(e)ko zati da.',
 	'lqt_sort_oldest_threads' => 'mintzagai zaharrenak lehenik',
 	'lqt-title' => 'Izenburua',
 	'lqt-summary' => 'Laburpena',
-	'lqt-older' => 'zaharrago',
-	'lqt-newer' => 'berriago',
 	'lqt-read-message' => 'Irakurrita moduan adierazi',
 	'lqt-read-all' => 'Markatu irakurrita gisa',
 	'lqt-count-marked-read' => '{{PLURAL:$1|mezu bat|$1 mezu}} markatuak irakurrita gisa.',
@@ -6087,8 +6048,6 @@ Saatat etsiä sivua ”$2” sen sijaan.',
 	'lqt_sort_oldest_threads' => 'vanhimmat ketjut ensimmäiseksi',
 	'lqt-title' => 'Otsikko',
 	'lqt-summary' => 'Yhteenveto',
-	'lqt-older' => 'vanhemmat',
-	'lqt-newer' => 'uudemmat',
 	'lqt-searching' => 'Ketjujen haku',
 	'lqt-read-message' => 'Merkitse luetuksi',
 	'lqt-read-message-tooltip' => 'Poista tämä ketju uusista viesteistä.
@@ -6370,8 +6329,6 @@ Vous pourriez préférer $2.',
 	'lqt_sort_oldest_threads' => 'en commençant par les fils de discussion les plus anciens',
 	'lqt-title' => 'Titre',
 	'lqt-summary' => 'Sommaire',
-	'lqt-older' => 'plus ancien',
-	'lqt-newer' => 'plus récent',
 	'lqt-searching' => 'Recherche des fils de discussion',
 	'lqt-read-message' => 'Marquer comme lu',
 	'lqt-read-message-tooltip' => 'Retirer ce fil des nouveaux messages.
@@ -6640,8 +6597,6 @@ Vos devriâd a la place $2.',
 	'lqt_sort_oldest_threads' => 'en comencient per los fils de discussion los ples vielys',
 	'lqt-title' => 'Titro',
 	'lqt-summary' => 'Rèsumâ',
-	'lqt-older' => 'ples viely',
-	'lqt-newer' => 'ples novél',
 	'lqt-searching' => 'Rechèrche des fils de discussion',
 	'lqt-read-message' => 'Marcar coment liesu',
 	'lqt-read-message-tooltip' => 'Enlevar ceti fil des mèssâjos novéls.
@@ -6818,8 +6773,6 @@ $messages['fur'] = array(
 	'lqt_sort_newest_changes' => 'prime chei cambiâts par ultins',
 	'lqt-title' => 'Titul',
 	'lqt-summary' => 'Somari',
-	'lqt-older' => 'plui vieris',
-	'lqt-newer' => 'plui gnûfs',
 	'lqt-read-message' => 'Segne come let',
 	'lqt-read-all' => 'Segne dut come let',
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|messaç segnât come let|messaçs segnâts come lets}}.',
@@ -6866,7 +6819,7 @@ $messages['fy'] = array(
 	'lqt_move_move' => 'Werneam',
 );
 
-/** Traditional Gan script (贛語(繁體))
+/** Traditional Gan script (‪贛語(繁體)‬)
  * @author Symane
  */
 $messages['gan-hant'] = array(
@@ -6989,8 +6942,6 @@ Este fío forma parte de "$2".',
 	'lqt_sort_oldest_threads' => 'os fíos máis vellos primeiro',
 	'lqt-title' => 'Título',
 	'lqt-summary' => 'Resumo',
-	'lqt-older' => 'máis vello',
-	'lqt-newer' => 'máis novo',
 	'lqt-searching' => 'Procurando fíos de conversa',
 	'lqt-read-message' => 'Marcar como lido',
 	'lqt-read-message-tooltip' => 'Eliminar este fío das mensaxes novas.
@@ -7292,8 +7243,6 @@ Megligerwyys witt statt däm e $2.',
 	'lqt_sort_oldest_threads' => 'eltschte Diskussionsstrang zerscht',
 	'lqt-title' => 'Titel',
 	'lqt-summary' => 'Zämmefassig',
-	'lqt-older' => 'elter',
-	'lqt-newer' => 'nejer',
 	'lqt-searching' => 'No Diskussionsstrang sueche',
 	'lqt-read-message' => 'As gläse markiere',
 	'lqt-read-message-tooltip' => 'Nimm dää Diskussionsstrang us dr neje Nochrichten use.
@@ -7643,8 +7592,6 @@ $messages['he'] = array(
 	'lqt_sort_oldest_threads' => 'קודם השרשורים הישנים ביותר',
 	'lqt-title' => 'כותרת',
 	'lqt-summary' => 'תקציר',
-	'lqt-older' => 'ישנים יותר',
-	'lqt-newer' => 'חדשים יותר',
 	'lqt-searching' => 'בחיפוש אחר שרשורים',
 	'lqt-read-message' => 'סימון השרשור כנקרא',
 	'lqt-read-message-tooltip' => 'הסרת שרשור זה מרשימת ההודעות החדשות.
@@ -8006,8 +7953,6 @@ Možda želite $2.',
 	'lqt_sort_oldest_threads' => 'najstarije teme prvo',
 	'lqt-title' => 'Naslov',
 	'lqt-summary' => 'Sažetak',
-	'lqt-older' => 'starije',
-	'lqt-newer' => 'nikad',
 	'lqt-searching' => 'Pretražujem teme',
 	'lqt-read-message' => 'Označi kao pročitano',
 	'lqt-read-message-tooltip' => 'Ukloni ovu temu iz novih poruka. 
@@ -8272,8 +8217,6 @@ $messages['hsb'] = array(
 	'lqt_sort_oldest_threads' => 'najstarše nitki jako prěnje',
 	'lqt-title' => 'Titul',
 	'lqt-summary' => 'Zjeće',
-	'lqt-older' => 'starše',
-	'lqt-newer' => 'nowše',
 	'lqt-searching' => 'Pytanje za nitkami',
 	'lqt-read-message' => 'Jako přečitany markěrować',
 	'lqt-read-message-tooltip' => 'Wotstroń tutu nitku z nowych powěsćow.
@@ -8553,8 +8496,6 @@ Jelenleg a(z) $2 című lap része.',
 	'lqt_sort_oldest_threads' => 'legrégebbi témák előre',
 	'lqt-title' => 'Cím',
 	'lqt-summary' => 'Összefoglaló',
-	'lqt-older' => 'régebbi',
-	'lqt-newer' => 'újabb',
 	'lqt-searching' => 'Témák keresése',
 	'lqt-read-message' => 'Elolvastam',
 	'lqt-read-message-tooltip' => 'Az üzenet eltávolítása az új üzenetek közül.
@@ -8822,8 +8763,6 @@ In altere caso es preferite $2.',
 	'lqt_sort_oldest_threads' => 'le filos le plus ancian primo',
 	'lqt-title' => 'Titulo',
 	'lqt-summary' => 'Summario',
-	'lqt-older' => 'plus ancian',
-	'lqt-newer' => 'plus nove',
 	'lqt-searching' => 'Recerca de filos',
 	'lqt-read-message' => 'Marcar como legite',
 	'lqt-read-message-tooltip' => 'Remover iste filo del nove messages.
@@ -9097,8 +9036,6 @@ Anda mungkin ingin $2.',
 	'lqt_sort_oldest_threads' => 'topik terlama terlebih dulu',
 	'lqt-title' => 'Judul',
 	'lqt-summary' => 'Ringkasan',
-	'lqt-older' => 'lebih lama',
-	'lqt-newer' => 'lebih baru',
 	'lqt-searching' => 'Mencari topik',
 	'lqt-read-message' => 'Tandai sebagai telah dibaca',
 	'lqt-read-message-tooltip' => 'Singkirkan topik ini dari pesan-pesan baru.
@@ -9523,8 +9460,6 @@ Potresti invece voler $2.',
 	'lqt_sort_oldest_threads' => 'discussioni meno recenti per prime',
 	'lqt-title' => 'Titolo',
 	'lqt-summary' => 'Oggetto',
-	'lqt-older' => 'meno recenti',
-	'lqt-newer' => 'più recenti',
 	'lqt-searching' => 'Ricerca di thread',
 	'lqt-read-message' => 'Segna come letta',
 	'lqt-read-message-tooltip' => 'Rimuovi questa discussione dai nuovi messaggi.
@@ -9792,8 +9727,6 @@ $messages['ja'] = array(
 	'lqt_sort_oldest_threads' => '古いスレッドを上に',
 	'lqt-title' => 'タイトル',
 	'lqt-summary' => '要約',
-	'lqt-older' => '古いもの',
-	'lqt-newer' => '新しいもの',
 	'lqt-searching' => 'スレッドの検索',
 	'lqt-read-message' => '既読とする',
 	'lqt-read-message-tooltip' => 'このスレッドを新しいメッセージから除きます。元のトークページでは表示され続けます。',
@@ -10289,8 +10222,6 @@ $messages['km'] = array(
 	'lqt_sort_oldest_threads' => 'ខ្សែស្រឡាយ​ចាស់​ជាងគេ​បំផុត',
 	'lqt-title' => 'ចំណងជើង',
 	'lqt-summary' => 'សេចក្ដីសង្ខេប',
-	'lqt-older' => 'ចាស់ជាង',
-	'lqt-newer' => 'ថ្មីជាង',
 	'lqt-searching' => 'ស្វែងរក​ខ្សែស្រឡាយ',
 	'lqt-read-message' => 'កត់ចំណាំថាបានអានហើយ',
 	'lqt-read-all' => 'ដាក់សម្គាល់​ទាំងអស់​ថា​បាន​អាន',
@@ -10442,8 +10373,6 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt_sort_oldest_threads' => '오래 된 스레드를 먼저 배치하기',
 	'lqt-title' => '제목',
 	'lqt-summary' => '요약',
-	'lqt-older' => '이전',
-	'lqt-newer' => '다음',
 	'lqt-searching' => '스레드 검색',
 	'lqt-read-message' => '읽은 것으로 표시',
 	'lqt-read-message-tooltip' => '새 메시지 목록에서 이 스레드를 지웁니다.
@@ -10727,8 +10656,6 @@ Künnt sin, De wells en $2 han.',
 	'lqt_sort_oldest_threads' => 'dä ählste {{int:lqt-history-thread}} et eez',
 	'lqt-title' => 'Tittel',
 	'lqt-summary' => 'Zosammefassung',
-	'lqt-older' => 'älder',
-	'lqt-newer' => 'neuer',
 	'lqt-searching' => 'Noh {{int:lqt-history-thread}}e söhke',
 	'lqt-read-message' => 'Als „jelesse“ makeere',
 	'lqt-read-message-tooltip' => 'Donn dä {{int:lqt-history-thread}} vun de neuje Nohreeschte fott nämme. Dä weed ävver emmer noch op singe ojinaale Klaafsigg ze sinn sin.',
@@ -10871,7 +10798,7 @@ De „Ongerschreff“ weed automattesch jezeijsch.',
 	'lqt-reply-subpage' => 'Antwoot',
 );
 
-/** Cornish (Kernewek)
+/** Cornish (Kernowek)
  * @author Nicky.ker
  */
 $messages['kw'] = array(
@@ -10995,8 +10922,6 @@ Dir wëllt méiglerweis $2',
 	'lqt_sort_oldest_threads' => "déi eelst Rubriken d'éischt",
 	'lqt-title' => 'Titel',
 	'lqt-summary' => 'Resumé',
-	'lqt-older' => 'méi al',
-	'lqt-newer' => 'méi nei',
 	'lqt-searching' => 'No Rubrike sichen',
 	'lqt-read-message' => 'Als geliest markéieren',
 	'lqt-read-message-tooltip' => 'Dës Rubrik aus den neie Messagen ewechhuelen.
@@ -11278,8 +11203,6 @@ Dit óngerwerp is e deil van $2.',
 	'lqt_sort_oldest_threads' => 'aads ongerwerpe baovenaan',
 	'lqt-title' => 'Titel',
 	'lqt-summary' => 'Samevatting',
-	'lqt-older' => 'ajer',
-	'lqt-newer' => 'nujer',
 	'lqt-searching' => 'Nao ongerwerp zeukendje',
 	'lqt-read-message' => 'Markeer es gelaeze',
 	'lqt-read-message-tooltip' => "Wös dit óngerwerpe oete nuuj berichte. 't Óngerwerp is nag ömmer zichbaar óppe oearsprónkelike euverlèkpagina.",
@@ -11612,8 +11535,6 @@ $messages['mk'] = array(
 	'lqt_sort_oldest_threads' => 'прво најстари нишки',
 	'lqt-title' => 'Наслов',
 	'lqt-summary' => 'Опис',
-	'lqt-older' => 'постари',
-	'lqt-newer' => 'понови',
 	'lqt-searching' => 'Пребарување на нишки',
 	'lqt-read-message' => 'Означи како прочитано',
 	'lqt-read-message-tooltip' => 'Отстрани ја оваа нишка од новите пораки.
@@ -11884,8 +11805,6 @@ $messages['ml'] = array(
 	'lqt_sort_oldest_threads' => 'ആദ്യം ഏറ്റവും പഴയ ചരടുകൾ',
 	'lqt-title' => 'തലക്കെട്ട്',
 	'lqt-summary' => 'ചുരുക്കം',
-	'lqt-older' => 'പഴയവ',
-	'lqt-newer' => 'പുതിയവ',
 	'lqt-searching' => 'ചരടുകൾക്കായി തിരയുന്നു',
 	'lqt-read-message' => 'വായിച്ചതായി അടയാളപ്പെടുത്തുക',
 	'lqt-read-message-tooltip' => 'ഈ ചരട് പുതിയ സന്ദേശങ്ങളിൽ നിന്നും നീക്കുക.
@@ -12152,8 +12071,6 @@ $messages['mt'] = array(
 	'lqt_move_move' => 'Mexxi',
 	'lqt-title' => 'Titlu',
 	'lqt-summary' => 'Taqsira',
-	'lqt-older' => 'eqdem',
-	'lqt-newer' => 'iġded',
 	'lqt-read-all' => 'Immarkahom kollha bħala moqrija',
 	'lqt-no-new-messages' => "M'hemm l-ebda messaġġ ġdid għalik.",
 	'lqt-new-messages' => "✒ M'hemm l-ebda messaġġ ġdid għalik.",
@@ -12190,8 +12107,6 @@ $messages['myv'] = array(
 	'lqt_hist_moved_talkpage' => 'Печтевтезь',
 	'lqt_move_move' => 'Печтевтемс',
 	'lqt-title' => 'Конякс',
-	'lqt-older' => 'седе ташто',
-	'lqt-newer' => 'седе од',
 	'lqt-thread-split-thread' => 'Суресь:',
 	'lqt-split-submit' => 'Кавонзамс',
 	'lqt-movethread' => 'Печтевтемс',
@@ -12214,8 +12129,6 @@ $messages['nah'] = array(
 	'lqt_move_noreason' => 'Ahmo cah īxtlamatiliztli.',
 	'lqt_delete_return' => 'Timocuepāz īhuīc $1.',
 	'lqt-title' => 'Tōcāitl',
-	'lqt-older' => 'huēhueh',
-	'lqt-newer' => 'yancuīc',
 	'lqt-read-message' => 'Ticpōhuāz',
 	'lqt_newmessages' => 'Yancuīc tlahcuilōltzintli',
 );
@@ -12343,8 +12256,6 @@ Dit onderwerp is onderdeel van $2.',
 	'lqt_sort_oldest_threads' => 'oudste onderwerpen bovenaan',
 	'lqt-title' => 'Naam',
 	'lqt-summary' => 'Samenvatting',
-	'lqt-older' => 'ouder',
-	'lqt-newer' => 'nieuwer',
 	'lqt-searching' => 'Bezig met zoeken naar onderwerpen…',
 	'lqt-read-message' => 'Als gelezen markeren',
 	'lqt-read-message-tooltip' => 'Dit onderwerp verwijderen uit nieuwe berichten.
@@ -12618,8 +12529,6 @@ I staden vil du kanskje $2.',
 	'lqt_sort_oldest_threads' => 'eldste trådar fyrst',
 	'lqt-title' => 'Tittel',
 	'lqt-summary' => 'Samandrag',
-	'lqt-older' => 'eldre',
-	'lqt-newer' => 'nyare',
 	'lqt-searching' => 'Søkjer etter trådar',
 	'lqt-read-message' => 'Merk som lesen',
 	'lqt-read-message-tooltip' => 'Fjern denne tråden frå nye meldingar.
@@ -12857,8 +12766,6 @@ Om den er avsluttet vil du kanskje $1.',
 	'lqt_sort_oldest_threads' => 'eldste tråder først',
 	'lqt-title' => 'Tittel',
 	'lqt-summary' => 'Sammendrag',
-	'lqt-older' => 'eldre',
-	'lqt-newer' => 'nyere',
 	'lqt-searching' => 'Søk etter tråder',
 	'lqt-read-message' => 'Marker som lest',
 	'lqt-read-message-tooltip' => 'Fjern denne tråden fra nye beskjeder.
@@ -13130,8 +13037,6 @@ Aqueste desplaçament es estat fach per $2 a $3 $4. Lo fial se tròba ara a $5."
 	'lqt_sort_oldest_threads' => 'Los fials de discussion mai ancians en primièr',
 	'lqt-title' => 'Títol',
 	'lqt-summary' => 'Resumit',
-	'lqt-older' => 'mai ancian',
-	'lqt-newer' => 'mai recent',
 	'lqt-searching' => 'Recèrca dels fials de discussion',
 	'lqt-read-message' => 'Marcar coma legit',
 	'lqt-read-message-tooltip' => 'Levar aqueste fial dels messatges novèls.
@@ -13292,8 +13197,6 @@ $messages['pdc'] = array(
 	'lqt_move_move' => 'Ziehe',
 	'lqt_delete_return' => 'Zerick zu $1.',
 	'lqt-title' => 'Titel',
-	'lqt-older' => 'elder',
-	'lqt-newer' => 'neier',
 	'lqt-history-time' => 'Zeit',
 	'lqt-history-user' => 'Yuuser',
 	'lqt-history-comment' => 'Aamaericking',
@@ -13314,7 +13217,7 @@ $messages['pdc'] = array(
 	'lqt-talkpage-history-tab' => 'Iwwerschrift',
 );
 
-/** Pfälzisch (Pfälzisch)
+/** Pälzisch (Pälzisch)
  * @author Xqt
  */
 $messages['pfl'] = array(
@@ -13445,8 +13348,6 @@ Ten wątek jest częścią $2.',
 	'lqt_sort_oldest_threads' => 'najpierw najstarsze wątki',
 	'lqt-title' => 'Tytuł',
 	'lqt-summary' => 'Podsumowanie',
-	'lqt-older' => 'starsze',
-	'lqt-newer' => 'nowsze',
 	'lqt-searching' => 'Wyszukiwanie wątków',
 	'lqt-read-message' => 'Oznacz jako przeczytane',
 	'lqt-read-message-tooltip' => 'Usuń ten wątek dla nowych wiadomości.
@@ -13718,8 +13619,6 @@ Nopà a peul vorèj $2.",
 	'lqt_sort_oldest_threads' => 'prima le discussion pi veje',
 	'lqt-title' => 'Tìtol',
 	'lqt-summary' => 'Resumé',
-	'lqt-older' => 'pi vej',
-	'lqt-newer' => 'pi neuv',
 	'lqt-searching' => 'Sërché dle discussion',
 	'lqt-read-message' => 'Marca com lesù',
 	'lqt-read-message-tooltip' => 'Gava sta discussion dai mëssagi neuv.
@@ -13932,6 +13831,7 @@ $messages['ps'] = array(
  * @author Crazymadlover
  * @author Giro720
  * @author Hamilton Abreu
+ * @author Helder.wiki
  * @author Heldergeovane
  * @author Lijealso
  * @author Malafaya
@@ -14048,8 +13948,6 @@ Em alternativa, talvez queira $2.',
 	'lqt_sort_oldest_threads' => 'tópicos mais antigos primeiro',
 	'lqt-title' => 'Título',
 	'lqt-summary' => 'Resumo',
-	'lqt-older' => 'mais antigo',
-	'lqt-newer' => 'mais recente',
 	'lqt-searching' => 'A procurar tópicos',
 	'lqt-read-message' => 'Marcar lido',
 	'lqt-read-message-tooltip' => 'Remover este tópico das mensagens novas.
@@ -14208,6 +14106,7 @@ A assinatura é apresentada automaticamente.',
  * @author Crazymadlover
  * @author Eduardo.mps
  * @author Giro720
+ * @author Helder.wiki
  * @author Heldergeovane
  * @author Luckas Blade
  */
@@ -14323,8 +14222,6 @@ Talvez queira em alternativa $2.',
 	'lqt_sort_oldest_threads' => 'primeiro os tópicos mais antigos',
 	'lqt-title' => 'Título',
 	'lqt-summary' => 'Resumo',
-	'lqt-older' => 'mais antigo',
-	'lqt-newer' => 'mais recente',
 	'lqt-searching' => 'Procurando tópicos',
 	'lqt-read-message' => 'Lido',
 	'lqt-read-message-tooltip' => 'Remover este tópico das novas mensagens.
@@ -14595,8 +14492,6 @@ Acest thread este parte a $2.',
 	'lqt_sort_oldest_threads' => 'cea mai veche discuție întâi',
 	'lqt-title' => 'Titlu',
 	'lqt-summary' => 'Rezumat',
-	'lqt-older' => 'mai vechi',
-	'lqt-newer' => 'mai noi',
 	'lqt-searching' => 'Căutare discuții',
 	'lqt-read-message' => 'Marchează ca citit',
 	'lqt-read-message-tooltip' => 'Elimină acest fir de la mesaje noi.
@@ -14823,8 +14718,6 @@ Tu putisse invece vuè $2.",
 	'lqt_sort_oldest_threads' => 'Le argumende cchiù vicchie pe prime',
 	'lqt-title' => 'Titele',
 	'lqt-summary' => 'Riepileghe',
-	'lqt-older' => 'cchiù vicchije',
-	'lqt-newer' => 'cchiù nueve',
 	'lqt-searching' => "Cirche 'mbrà le argumende",
 	'lqt-read-message' => 'Signe cumme lette',
 	'lqt-read-message-tooltip' => "Live st'argomende 'mbrà le messagge nuève.<br />
@@ -15099,8 +14992,6 @@ $messages['ru'] = array(
 	'lqt_sort_oldest_threads' => 'старые ветки вначале',
 	'lqt-title' => 'Заголовок',
 	'lqt-summary' => 'Описание',
-	'lqt-older' => 'более старые',
-	'lqt-newer' => 'более новые',
 	'lqt-searching' => 'Поиск по веткам',
 	'lqt-read-message' => 'Отметить как прочитанное',
 	'lqt-read-message-tooltip' => 'Убрать эту ветку из списка новых сообщений.
@@ -15345,8 +15236,6 @@ $messages['rue'] = array(
 	'lqt_sort_oldest_threads' => 'найстаршы волокна першы',
 	'lqt-title' => 'Надпис',
 	'lqt-summary' => 'Попис',
-	'lqt-older' => 'старшы',
-	'lqt-newer' => 'новшы',
 	'lqt-searching' => 'Глядають ся волокна',
 	'lqt-read-message' => 'Означіти як прочітане',
 	'lqt-read-all' => 'Означіти вшытко як прочітане',
@@ -15566,8 +15455,6 @@ $messages['sah'] = array(
 	'lqt_sort_oldest_threads' => 'урукку салаалары бастаан туруор',
 	'lqt-title' => 'Баһа (аата)',
 	'lqt-summary' => 'Ис хоһооно',
-	'lqt-older' => 'маннааҕар эргэлэр',
-	'lqt-newer' => 'манааҕар саҥалар',
 	'lqt-searching' => 'Салааларынан көрдөөһүн',
 	'lqt-read-message' => 'Ааҕыллыбыт курдук бэлиэтээ',
 	'lqt-read-message-tooltip' => 'Бу салааны саҥа этиилэр тиһиктэриттэн сот.
@@ -15848,8 +15735,6 @@ Ak diskusia skončila, mali by ste $1.',
 	'lqt_sort_oldest_threads' => 'najstaršie vlákna na začiatku',
 	'lqt-title' => 'Nadpis',
 	'lqt-summary' => 'Zhrnutie',
-	'lqt-older' => 'staršie',
-	'lqt-newer' => 'novšie',
 	'lqt-searching' => 'Hľadajú sa vlákna',
 	'lqt-read-message' => 'Označiť ako prečítané',
 	'lqt-read-message-tooltip' => 'Odstrániť toto vlákno z nových správ.
@@ -16114,8 +15999,6 @@ Morda namesto tega želite $2.',
 	'lqt_sort_oldest_threads' => 'najstarejše teme na vrh',
 	'lqt-title' => 'Naslov',
 	'lqt-summary' => 'Povzetek',
-	'lqt-older' => 'starejše',
-	'lqt-newer' => 'novejše',
 	'lqt-searching' => 'Iskanje razprav',
 	'lqt-read-message' => 'Označi kot prebrano',
 	'lqt-read-message-tooltip' => 'Odstrani razpravo iz novih sporočil.
@@ -16463,7 +16346,7 @@ $messages['sr-ec'] = array(
 	'lqt-reply-subpage' => 'одговори',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  * @author Mormegil
  * @author Жељко Тодоровић
@@ -16558,8 +16441,6 @@ Ova tema je deo $2.',
 	'lqt_sort_oldest_threads' => 'prvo najstarije teme',
 	'lqt-title' => 'Naslov',
 	'lqt-summary' => 'Sažetak',
-	'lqt-older' => 'starije',
-	'lqt-newer' => 'novije',
 	'lqt-read-message' => 'Označi kao pročitano',
 	'lqt-read-all' => 'Označi sve kao pročitano',
 	'lqt-marked-read' => "Tema '''$1''' je označena kao pročitana.",
@@ -16874,8 +16755,6 @@ Du vill kanske $2 istället.',
 	'lqt_sort_oldest_threads' => 'äldsta diskussionssidor först',
 	'lqt-title' => 'Titel',
 	'lqt-summary' => 'Sammanfattning',
-	'lqt-older' => 'äldre',
-	'lqt-newer' => 'nyare',
 	'lqt-searching' => 'Sök efter trådar',
 	'lqt-read-message' => 'Markera som läst',
 	'lqt-read-message-tooltip' => 'Ta bort den här tråden från nya meddelanden.
@@ -17150,8 +17029,6 @@ $messages['ta'] = array(
 	'lqt_move_move' => 'நகர்த்தவும்',
 	'lqt-title' => 'தலைப்பு',
 	'lqt-summary' => 'சுருக்கம்',
-	'lqt-older' => 'பழையது',
-	'lqt-newer' => 'புதியது',
 	'lqt-thread-created' => 'உருவாக்கப்பட்டுவிட்டது',
 	'lqt-history-time' => 'நேரம்',
 	'lqt-history-user' => 'பயனர்',
@@ -17257,8 +17134,6 @@ $messages['te'] = array(
 	'lqt_sort_oldest_threads' => 'పాత చర్చాహారాలు మొదట',
 	'lqt-title' => 'శీర్షిక',
 	'lqt-summary' => 'సంగ్రహం',
-	'lqt-older' => 'పాతవి',
-	'lqt-newer' => 'కొత్తవి',
 	'lqt-read-message' => 'చదివినట్టుగా గుర్తుపెట్టు',
 	'lqt-read-all' => 'అన్నింటినీ చదివినట్టుగా గుర్తుపెట్టు',
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|సందేశాన్ని|సందేశాలని}} చదివినట్లుగా గుర్తించాం.',
@@ -17366,7 +17241,6 @@ $messages['tet'] = array(
 	'lqt_move_noreason' => 'Laiha motivu.',
 	'lqt_delete_return' => 'Fali ba $1.',
 	'lqt-title' => 'Títulu',
-	'lqt-older' => 'tuan liu',
 );
 
 /** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
@@ -17573,8 +17447,6 @@ Oňa derek $2 gelmegi ahmal.',
 	'lqt_sort_oldest_threads' => 'ilki has köne tredler',
 	'lqt-title' => 'At',
 	'lqt-summary' => 'Düşündiriş',
-	'lqt-older' => 'has köne',
-	'lqt-newer' => 'has täze',
 	'lqt-searching' => 'Tredler gözlenilýär',
 	'lqt-read-message' => 'Okalan diýip belle',
 	'lqt-read-message-tooltip' => 'Bu tredi täze habarlaşyklardan aýyr.
@@ -17837,8 +17709,6 @@ Sa halip, maaaring naisin mong $2.',
 	'lqt_sort_oldest_threads' => 'una muna ang pinakalumang mga bagting',
 	'lqt-title' => 'Pamagat',
 	'lqt-summary' => 'Buod',
-	'lqt-older' => 'mas luma',
-	'lqt-newer' => 'mas bago',
 	'lqt-searching' => 'Naghahanap ng mga bagting',
 	'lqt-read-message' => 'Tatakan bilang nabasa na',
 	'lqt-read-message-tooltip' => 'Tanggalin ang bagting na ito mula sa bagong mga mensahe.
@@ -18113,8 +17983,6 @@ $2 isteyebilirsiniz.',
 	'lqt_sort_oldest_threads' => 'önce en eski ileti dizileri',
 	'lqt-title' => 'Başlık',
 	'lqt-summary' => 'Özet',
-	'lqt-older' => 'daha eski',
-	'lqt-newer' => 'daha yeni',
 	'lqt-searching' => 'İleti dizileri aranıyor',
 	'lqt-read-message' => 'Okunmuş olarak işaretle',
 	'lqt-read-message-tooltip' => 'Yeni mesajlardan bu ileti dizisini çıkar.
@@ -18411,8 +18279,6 @@ $messages['uk'] = array(
 	'lqt_sort_oldest_threads' => 'найстаріші гілки першими',
 	'lqt-title' => 'Заголовок',
 	'lqt-summary' => 'Опис',
-	'lqt-older' => 'старіші',
-	'lqt-newer' => 'новіші',
 	'lqt-searching' => 'Пошук гілки',
 	'lqt-read-message' => 'Позначити як прочитане',
 	'lqt-read-message-tooltip' => 'Вилучити цю гілку з списку нових повідомлень.
@@ -18692,8 +18558,6 @@ Ti fòrsi te voléi $2.',
 	'lqt_sort_oldest_threads' => 'i argomenti vèci par primi',
 	'lqt-title' => 'Titolo',
 	'lqt-summary' => 'Ogeto',
-	'lqt-older' => 'pi vècio',
-	'lqt-newer' => 'pi novo',
 	'lqt-searching' => 'Serca argomenti',
 	'lqt-read-message' => 'Ségnelo come zà lèto',
 	'lqt-read-message-tooltip' => 'Cava sto argomento dai messagi novi.
@@ -18870,8 +18734,6 @@ $messages['vep'] = array(
 	'lqt_delete_return_link' => "lodulehtpol'",
 	'lqt-title' => 'Pälkirjutez',
 	'lqt-summary' => 'Ümbrikirjutand',
-	'lqt-older' => 'vanhembad',
-	'lqt-newer' => 'udembad',
 	'lqt-searching' => 'Barboiden ecmine',
 	'lqt-read-message' => 'Znamoita kut lugetud',
 	'lqt-thread-created' => 'Sätud',
@@ -19005,8 +18867,6 @@ Thay vào đó bạn có thể muốn $2.',
 	'lqt_sort_oldest_threads' => 'xem các luồng cũ nhất trước',
 	'lqt-title' => 'Chủ đề',
 	'lqt-summary' => 'Tóm lược',
-	'lqt-older' => 'cũ hơn',
-	'lqt-newer' => 'mới hơn',
 	'lqt-searching' => 'Đang tìm kiếm luồng',
 	'lqt-read-message' => 'Đánh dấu đã đọc',
 	'lqt-read-message-tooltip' => 'Dời luồng này khỏi danh sách tin nhắn mới.
@@ -19179,8 +19039,6 @@ $messages['vo'] = array(
 	'lqt_delete_return' => 'Gegolön lü $1.',
 	'lqt_header_warning_big' => 'Redakol $1.',
 	'lqt-title' => 'Tiäd',
-	'lqt-older' => 'vönädikum',
-	'lqt-newer' => 'nulikum',
 	'lqt-email-undo' => 'Sädunön',
 	'lqt-no-new-messages' => 'No dabinons nuns nulik pro ol.',
 	'lqt-new-messages' => 'Dabinons nuns nulik pro ol.',
@@ -19451,8 +19309,6 @@ $messages['zh-hans'] = array(
 	'lqt_sort_oldest_threads' => '最早话题优先',
 	'lqt-title' => '标题',
 	'lqt-summary' => '摘要',
-	'lqt-older' => '较早',
-	'lqt-newer' => '较新',
 	'lqt-searching' => '搜索话题',
 	'lqt-read-message' => '标记为已读',
 	'lqt-read-message-tooltip' => '从新消息中移除该话题。您仍然可以在其原始讨论页找到它。',
