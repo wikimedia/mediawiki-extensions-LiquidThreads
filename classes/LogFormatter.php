@@ -2,12 +2,6 @@
 
 // Contains formatter functions for all log entry types.
 class LqtLogFormatter {
-	protected static function isForIRC( ) {
-		// FIXME this is a horrific hack, but it's better than spewing HTML in the wrong
-		//  language to IRC.
-		return in_string( '/LogPage::addEntry/', wfGetAllCallers() );
-	}
-
 	static function formatLogEntry( $type, $action, $title, $sk, $parameters ) {
 		switch( $action ) {
 			case 'merge':
@@ -24,7 +18,7 @@ class LqtLogFormatter {
 
 		$options = array( 'parseinline' );
 
-		$forIRC = self::isForIRC();
+		$forIRC = $sk === null;
 
 		if ( $forIRC ) {
 			global $wgContLang;
