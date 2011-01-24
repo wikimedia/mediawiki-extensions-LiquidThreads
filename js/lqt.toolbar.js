@@ -1339,7 +1339,7 @@ liquidThreads.toolbar = {
 					'wikieditor-toolbar-tool-link-cancel': function() {
 						// Clear any saved selection state
 						var context = $j(this).data( 'context' );
-						context.fn.restoreStuffForIE();
+						context.fn.restoreSelection();
 						$j(this).dialog( 'close' );
 					}
 				},
@@ -1352,8 +1352,8 @@ liquidThreads.toolbar = {
 					// Pre-fill the text fields based on the current selection
 					var context = $j(this).data( 'context' );
 					// Restore and immediately save selection state, needed for inserting stuff later
-					context.fn.restoreStuffForIE();
-					context.fn.saveStuffForIE();
+					context.fn.restoreSelection();
+					context.fn.saveSelection();
 					var selection = context.$textarea.textSelection( 'getSelection' ); 
 					$j( '#wikieditor-toolbar-link-int-target' ).focus();
 					// Trigger the change event, so the link status indicator is up to date
@@ -1486,7 +1486,7 @@ liquidThreads.toolbar = {
 					'wikieditor-toolbar-tool-reference-cancel': function() {
 						// Clear any saved selection state
 						var context = $j( this ).data( 'context' );
-						context.fn.restoreStuffForIE();
+						context.fn.restoreSelection();
 						$j( this ).dialog( 'close' );
 					}
 				},
@@ -1494,8 +1494,8 @@ liquidThreads.toolbar = {
 					// Pre-fill the text fields based on the current selection
 					var context = $j(this).data( 'context' );
 					// Restore and immediately save selection state, needed for inserting stuff later
-					context.fn.restoreStuffForIE();
-					context.fn.saveStuffForIE();
+					context.fn.restoreSelection();
+					context.fn.saveSelection();
 					var selection = context.$textarea.textSelection( 'getSelection' ); 
 					// set focus
 					$j( '#wikieditor-toolbar-reference-text' ).focus();
