@@ -70,8 +70,7 @@ class NewMessages {
 		} else {
 			throw new MWException( "writeUserMessageState expected User or integer but got $user" );
 		}
-		
-		
+
 		$conversation = Threads::withId($thread_id)->topmostThread()->id();
 
 		$dbw = wfGetDB( DB_MASTER );
@@ -245,14 +244,14 @@ class NewMessages {
 		}
 
 		// Send email notification, fetching all the data in one go
-		$tableNameUserProperties = $dbr->tableName( 'user_properties' );
+		$dbr = wfGetDB( DB_SLAVE );
 
 		$tables = array(
 			'user',
-			$tableNameUserProperties . ' AS tc_prop',
-			$tableNameUserProperties . ' AS l_prop'
+			'tc_prop' => 'user_properties',
+			'l_prop' => 'user_properties'
 		);
-		$dbr = wfGetDB( DB_SLAVE );
+
 		$fields = array(
 			$dbr->tableName( 'user' ) . '.*',
 			'tc_prop.up_value AS timecorrection',
@@ -260,14 +259,14 @@ class NewMessages {
 		);
 
 		$join_conds = array(
-			$tableNameUserProperties . ' AS tc_prop' => array(
+			'tc_prop' => array(
 				'LEFT JOIN',
 				array(
 					'tc_prop.up_user=user_id',
 					'tc_prop.up_property' => 'timecorrection',
 				)
 			),
-			$tableNameUserProperties . ' AS l_prop' => array(
+			'l_prop' => array(
 				'LEFT JOIN',
 				array(
 					'l_prop.up_user=user_id',
