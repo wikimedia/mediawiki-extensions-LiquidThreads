@@ -814,4 +814,33 @@ class LqtHooks {
 			return false;
 		}
 	}
+
+	public static function onParserFirstCallInit( $parser ) {
+		$parser->setFunctionHook(
+			'useliquidthreads',
+			array( 'LqtParserFunctions', 'useLiquidThreads' )
+		);
+
+		$parser->setFunctionHook(
+			'lqtpagelimit',
+			array( 'LqtParserFunctions', 'lqtPageLimit' )
+		);
+	
+		global $wgLiquidThreadsAllowEmbedding;
+	
+		if ( $wgLiquidThreadsAllowEmbedding ) {
+			$parser->setHook( 'talkpage', array( 'LqtParserFunctions', 'lqtTalkPage' ) );
+			$parser->setHook( 'thread', array( 'LqtParserFunctions', 'lqtThread' ) );
+		}
+
+		return true;
+	}
+
+	public static function onCanonicalNamespaces( &$list ) {
+		$list[NS_LQT_THREAD] = 'Thread';
+		$list[NS_LQT_THREAD_TALK] = 'Thread_talk';
+		$list[NS_LQT_SUMMARY] = 'Summary';
+		$list[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
+		return true;
+	}
 }

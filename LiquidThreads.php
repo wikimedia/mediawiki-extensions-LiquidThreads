@@ -21,20 +21,6 @@ define( 'LQT_NEWEST_CHANGES', 'nc' );
 define( 'LQT_NEWEST_THREADS', 'nt' );
 define( 'LQT_OLDEST_THREADS', 'ot' );
 
-if ( version_compare( $wgVersion, '1.17alpha', '>=' ) ) {
-	$wgHooks['CanonicalNamespaces'][] = 'wgLqtSetupCanonicalNamespaces';
-} else {
-	wgLqtSetupCanonicalNamespaces( $wgExtraNamespaces );
-}
-
-function wgLqtSetupCanonicalNamespaces( &$list ) {
-	$list[NS_LQT_THREAD] = 'Thread';
-	$list[NS_LQT_THREAD_TALK] = 'Thread_talk';
-	$list[NS_LQT_SUMMARY] = 'Summary';
-	$list[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
-	return true;
-}
-
 // Localisation
 $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'i18n/Lqt.i18n.php';
@@ -94,10 +80,13 @@ $wgResourceModules['ext.liquidThreads.newMessages'] = $lqtResourceTemplate + arr
 	'dependencies' => array( 'ext.liquidThreads' )
 );
 
-// Parser Function Setup
-$wgHooks['ParserFirstCallInit'][] = 'lqtSetupParserFunctions';
-
 // Hooks
+// Parser Function Setup
+$wgHooks['ParserFirstCallInit'][] = 'LqtHooks::onParserFirstCallInit';
+
+// Namespaces
+$wgHooks['CanonicalNamespaces'][] = 'LqtHooks::onCanonicalNamespaces';
+
 // Main dispatch hook
 $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
 $wgHooks['SkinTemplateTabs'][] = 'LqtDispatch::onSkinTemplateTabs';
@@ -225,13 +214,6 @@ $wgAutoloadClasses['SpecialMergeThread'] = $dir . 'pages/SpecialMergeThread.php'
 
 // Job queue
 $wgJobClasses['synchroniseThreadArticleData'] = 'SynchroniseThreadArticleDataJob';
-
-// Backwards-compatibility
-$wgAutoloadClasses['Article_LQT_Compat'] = $dir . 'compat/LqtCompatArticle.php';
-if ( version_compare( $wgVersion, '1.16', '<' ) ) {
-	$wgAutoloadClasses['HTMLForm'] = $dir . 'compat/HTMLForm.php';
-	$wgExtensionMessagesFiles['Lqt-Compat'] = $dir . 'compat/Lqt-compat.i18n.php';
-}
 
 // Logging
 $wgLogTypes[] = 'liquidthreads';

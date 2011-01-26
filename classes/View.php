@@ -1230,13 +1230,6 @@ class LqtView {
 	function showPostBody( $post, $oldid = null ) {
 		global $wgOut;
 
-		// Load compatibility layer for older versions
-		if ( !( $post instanceof Article_LQT_Compat ) ) {
-			// Removed because it's annoying
-//			wfWarn( "No article compatibility layer loaded, inefficiently duplicating information." );
-			$post = new Article_LQT_Compat( $post->getTitle() );
-		}
-
 		$parserOutput = $post->getParserOutput( $oldid );
 
 		// Remove title, so that it stays set correctly.
