@@ -245,40 +245,36 @@ class NewMessages {
 		}
 
 		// Send email notification, fetching all the data in one go
+		$tableNameUserProperties = $dbr->tableName( 'user_properties' );
 
-		global $wgVersion;
-		$tables = array( 'user' );
+		$tables = array(
+			'user',
+			$tableNameUserProperties . ' AS tc_prop',
+			$tableNameUserProperties . ' AS l_prop'
+		);
 		$dbr = wfGetDB( DB_SLAVE );
-		$fields = array( $dbr->tableName( 'user' ) . '.*' );
-		$join_conds = array();
-		$oldPreferenceFormat = false;
-		if ( version_compare( $wgVersion, '1.16', '<' ) ) {
-			$oldPreferenceFormat = true;
-		} else {
-			$tableNameUserProperties = $dbr->tableName( 'user_properties' );
+		$fields = array(
+			$dbr->tableName( 'user' ) . '.*',
+			'tc_prop.up_value AS timecorrection',
+			'l_prop.up_value as language'
+		);
 
-			$tables[] = $tableNameUserProperties . ' as tc_prop';
-			$fields[] = 'tc_prop.up_value as timecorrection';
-
-			$join_conds[$tableNameUserProperties . ' as tc_prop'] = array(
-				'left join',
+		$join_conds = array(
+			$tableNameUserProperties . ' AS tc_prop' => array(
+				'LEFT JOIN',
 				array(
 					'tc_prop.up_user=user_id',
 					'tc_prop.up_property' => 'timecorrection',
 				)
-			);
-
-			$tables[] = $tableNameUserProperties . ' as l_prop';
-			$fields[] = 'l_prop.up_value as language';
-
-			$join_conds[$tableNameUserProperties . ' as l_prop'] = array(
-				'left join',
+			),
+			$tableNameUserProperties . ' AS l_prop' => array(
+				'LEFT JOIN',
 				array(
 					'l_prop.up_user=user_id',
 					'l_prop.up_property' => 'language',
 				)
-			);
-		}
+			)
+		);
 
 		$res = $dbr->select(
 			$tables, $fields,
@@ -300,9 +296,7 @@ class NewMessages {
 		foreach( $res as $row ) {
 			$u = User::newFromRow( $row );
 
-			if ( $oldPreferenceFormat ) {
-				$langCode = $u->getOption( 'language' );
-			} elseif ( $row->language ) {
+			if ( $row->language ) {
 				$langCode = $row->language;
 			} else {
 				global $wgLanguageCode;
@@ -312,11 +306,7 @@ class NewMessages {
 			$lang = Language::factory( $langCode );
 
 			// Adjust with time correction
-			if ( $oldPreferenceFormat ) {
-				$timeCorrection = $u->getOption( 'timecorrection' );
-			} else {
-				$timeCorrection = $row->timecorrection;
-			}
+			$timeCorrection = $row->timecorrection;
 			$adjustedTimestamp = $lang->userAdjust( $timestamp, $timeCorrection );
 
 			$date = $lang->date( $adjustedTimestamp );
@@ -331,7 +321,7 @@ class NewMessages {
 			$msg = wfMsgReal( $msgName, $params, true /* use DB */, $langCode,
 								true /*transform*/ );
 
-			$to   = new MailAddress( $u );
+			$to = new MailAddress( $u );
 			$subject = wfMsgReal( $subjectMsg, array( $threadSubject ), true /* use DB */,
 									$langCode, true /* transform */ );
 
