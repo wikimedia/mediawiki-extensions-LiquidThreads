@@ -38,7 +38,7 @@ class NewUserMessagesView extends LqtView {
 			$t = Threads::withId( $ids[0] );
 			if ( !$t )
 				return; // empty or just bogus operand.
-			$msg = wfMsgExt( 'lqt-marked-read', 'parseinline', array( $t->subject() )  );
+			$msg = wfMsgExt( 'lqt-marked-read', 'parseinline', LqtView::formatSubject( $t->subject() )  );
 		} else {
 			$count = count( $ids );
 			$msg =	wfMsgExt( 'lqt-count-marked-read', 'parseinline', array( $count ) );
@@ -49,7 +49,7 @@ class NewUserMessagesView extends LqtView {
 		$html .= $msg;
 		$html .= Html::hidden( 'lqt_method', 'mark_as_unread' );
 		$html .= Html::hidden( 'lqt_operand', $operand );
-		$html .= Xml::submitButton(
+		$html .= ' ' . Xml::submitButton(
 			wfMsg( 'lqt-email-undo' ),
 			array(
 				'name' => 'lqt_read_button',
