@@ -163,13 +163,6 @@ class NewMessages {
 
 			$wantsTalkNotification = true;
 
-			global $wgVersion;
-
-			if ( version_compare( $wgVersion, '1.16', '<' ) ) {
-				$decodedOptions = self::decodeUserOptions( $row->user_options );
-
-				$wantsTalkNotification = !isset( $decodedOptions['lqtnotifytalk'] );
-			}
 			$wantsTalkNotification = $wantsTalkNotification && User::getDefaultOption( 'lqtnotifytalk' );
 
 			if ( $wantsTalkNotification || $row->up_value ) {
