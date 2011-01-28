@@ -135,7 +135,8 @@ class LqtParserFunctions {
 		$oldOut = $wgOut->getHTML();
 		$wgOut->clearHTML();
 		
-		$thread = Threads::withId( $thread );
+		$root = new Article( $title );
+		$thread = Threads::withRoot( $root );
 		
 		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );
 		
