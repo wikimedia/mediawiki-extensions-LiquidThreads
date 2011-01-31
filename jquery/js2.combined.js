@@ -8156,4 +8156,4 @@ $j = jQuery.noConflict();
  */
 mw.addOnloadHook = function( func ) {
 	$j(document).ready( func );
-}
+};

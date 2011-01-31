@@ -85,7 +85,7 @@ $j.extend( liquidThreads,
 		var spinner = $j('<div class="mw-ajax-loader"/>');
 		$j(form).prepend( spinner );
 		
-		liquidThreads.apiRequest
+		liquidThreads.apiRequest;
 		
 		var markReadParameters =
 		{
