@@ -1504,6 +1504,13 @@ $messages['arz'] = array(
 	'lqt-reply-subpage' => 'رد',
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author PPerviz
+ */
+$messages['az'] = array(
+	'lqt-search-button' => 'Axtar',
+);
+
 /** Bashkir (Башҡортса)
  * @author Assele
  * @author Haqmar
@@ -3670,7 +3677,11 @@ Efallai:
 	'lqt_noreason' => 'Dim rheswm wedi ei grybwyll.',
 	'lqt_summary_notice_link' => 'ysgrifennu crynodeb',
 	'lqt_summary_label' => 'Crynodeb y trywydd:',
+	'lqt_summary_subtitle' => 'Crynodeb "$1"',
+	'lqt_nosuchthread_title' => 'Y trywydd ddim ar gael',
+	'lqt_move_move' => 'Symud',
 	'lqt_move_noreason' => 'Dim rheswm wedi ei roi',
+	'lqt_move_success' => 'Symudwyd y trywydd i $1.',
 	'lqt_sorting_order' => 'Gosod y trywyddau yn nhrefn:',
 	'lqt_sort_newest_changes' => "y diweddaraf i'w addasu",
 	'lqt_sort_newest_threads' => 'y diweddaraf',
@@ -12619,6 +12630,7 @@ Du kan lesa svaret på <$6>',
 	'lqt-thread-show-more' => 'Vis fleire svar',
 	'lqt-thread-link-url' => 'Lenkje-URL:',
 	'lqt-thread-link-copy' => 'Kopier til utklipsstavla',
+	'lqt-sign-not-necessary' => 'Det ikkje turvande at du signerer innlegget ditt med fire tildar. Signaturen kjem av seg sjølv.',
 	'lqt-marked-as-read-placeholder' => 'Tråden «$1» vart merkt som lesen.',
 	'lqt-change-subject' => 'Endra emne',
 	'lqt-save-subject' => 'Lagra',
@@ -16956,6 +16968,8 @@ $messages['sw'] = array(
 	'lqt_move_torename_edit' => 'uuharirie',
 	'lqt_move_move' => 'Sogeza',
 	'lqt_move_noreason' => 'Sababu haikutajwa.',
+	'lqt_move_success' => 'Mlolongo ulihamishwa hadi $1.',
+	'lqt_delete_deleted' => 'Mlolongo ulifutwa.',
 	'lqt_delete_return' => 'Rudia $1.',
 	'lqt_delete_return_link' => 'ukurasa wa majadiliano',
 	'lqt_sorting_order' => 'Zipangwe kwa kuanzia na:',
