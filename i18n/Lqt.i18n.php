@@ -3682,6 +3682,7 @@ Efallai:
 	'lqt_move_move' => 'Symud',
 	'lqt_move_noreason' => 'Dim rheswm wedi ei roi',
 	'lqt_move_success' => 'Symudwyd y trywydd i $1.',
+	'lqt_delete_return' => 'Dychwelyd i $1.',
 	'lqt_sorting_order' => 'Gosod y trywyddau yn nhrefn:',
 	'lqt_sort_newest_changes' => "y diweddaraf i'w addasu",
 	'lqt_sort_newest_threads' => 'y diweddaraf',
@@ -14402,6 +14403,7 @@ $messages['rif'] = array(
 /** Romanian (Română)
  * @author AdiJapan
  * @author Cin
+ * @author Danutz
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Minisarm
@@ -14484,7 +14486,7 @@ Acest thread este parte a $2.',
 	'lqt_move_torename' => "Pentru a redenumi acest thread, $1 și schimbați câmpul 'Subiect'.",
 	'lqt_move_torename_edit' => 'modificare',
 	'lqt_move_destinationtitle' => 'Titlul paginii de destinație - discuție:',
-	'lqt_move_move' => 'Redenumește',
+	'lqt_move_move' => 'Redenumire',
 	'lqt_move_nodestination' => 'Trebuie să specificați o destinație.',
 	'lqt_move_thread_bad_destination' => 'Destinația de discuție nu este o pagină de discuție.',
 	'lqt_move_samedestination' => 'Threadul este deja pe această pagină !',
