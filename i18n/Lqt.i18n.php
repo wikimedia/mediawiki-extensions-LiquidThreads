@@ -10208,7 +10208,7 @@ $messages['km'] = array(
 	'lqt_thread_deleted' => 'ខ្សែស្រឡាយ​នេះ​ត្រូវ​បាន​លុប​។',
 	'lqt_summary_notice' => 'គ្មានបំលាស់ប្តូរ​ក្នុងការពិភាក្សានេះ តាំងពី​យ៉ាងតិច $2 ថ្ងៃ​។ បើចង់ផ្លាស់ប្តូរវា, អ្នកអាចនឹង​ត្រូវការ $1 ។',
 	'lqt_summary_notice_link' => 'សរសេរ​មួយ​សេចក្តីសង្ខេប',
-	'lqt_summary_subtitle' => 'សេចក្តីសង្ខេបនៃ$1 ។',
+	'lqt_summary_subtitle' => "សេចក្ដីសង្ខេបរបស់ ''$1''",
 	'lqt_nosuchrevision' => 'គ្មាន​ការពិនិត្យឡើងវិញ​នៃ​ខ្សែស្រឡាយ​នេះ​ទេ​។',
 	'lqt_nosuchthread' => 'មិនមាន​ខ្សែស្រឡាយ​ណាមួយ​ទេ។',
 	'lqt_threadrequired' => 'អ្នក​ត្រូវតែ​បញ្ជាក់​ខ្សែស្រឡាយ​មួយ​នីក្នុង URL ។',
@@ -10219,7 +10219,7 @@ $messages['km'] = array(
 	'lqt_move_move' => 'ប្តូរទីតាំង',
 	'lqt_move_nodestination' => 'អ្នកត្រូវតែ​សំដៅ​មួយគោលដៅ​។',
 	'lqt_move_noreason' => 'គ្មានហេតុផល ត្រូវបានផ្តល់ឱ្យ ។',
-	'lqt_delete_undeleting' => 'លែងលុបចេញ $1 ។',
+	'lqt_delete_undeleting' => "លែងលុបចេញ '''$1''' ។",
 	'lqt_delete_undeletethread' => 'មិនលុប​ខ្សែស្រឡាយ',
 	'lqt_delete_partof' => 'ខ្សែស្រឡាយ​នេះ​ជា​ផ្នែក​នៃ $1 ។',
 	'lqt_delete_deleting' => "លុប '''$1''' និង '''ការ​ឆ្លើយតប​ទាំងអស់''' ចំពោះ​វា​។",
@@ -10247,12 +10247,16 @@ $messages['km'] = array(
 	'lqt-history-time' => 'ពេល​វេលា​',
 	'lqt-history-user' => 'អ្នកប្រើប្រាស់​',
 	'lqt-history-action' => 'សកម្មភាព​',
-	'lqt-thread-edited-author' => 'កែប្រែ​ដោយ​អ្នក​និពន្ធ​',
-	'lqt-thread-edited-others' => 'កែប្រែ​ដោយ​អ្នក​ប្រើប្រាស់​ដទៃ​ទៀត​',
+	'lqt-thread-edited-author' => 'កែប្រែ​ដោយ​អ្នក​និពន្ធ​<br />
+កែប្រែចុងក្រោយនៅ៖ $1',
+	'lqt-thread-edited-others' => 'កែប្រែ​ដោយ​អ្នក​ប្រើប្រាស់​ដទៃ​ទៀត​<br />
+កែប្រែចុងក្រោយនៅ៖ $1',
 	'lqt-header-actions' => 'សកម្មភាព​',
 	'lqt_summarize_link' => 'សង្ខេប​',
 	'lqt-search-button' => 'ស្វែង​រក​',
+	'lqt-newmessages-n' => 'សារថ្មីៗ ($1)',
 	'lqt_newmessages' => 'សារថ្មីៗ',
+	'lqt_newmessages-title' => 'សារថ្មីៗ',
 );
 
 /** Kannada (ಕನ್ನಡ)
@@ -10733,7 +10737,7 @@ Künnt sin, De wells en $2 han.',
 	'lqt-enotif-subject-reply' => 'Klaaf op de {{SITENAME}} - ene neue Beijraach zom Teema: $1',
 	'lqt-enotif-subject-newthread' => 'Klaaf op de {{SITENAME}} - ene neue {{int:lqt-history-thread}}: $1',
 	'lqt-enotif-newthread' => 'Leeven $1,
-dat hee es en Nohreesch fun de {{SITENAME}},
+dat hee es en Nohreesch {{GRAMMAR:Genitiv vun|{{SITENAME}}}},
 dat ene neue {{int:lqt-history-thread}} zom Teema
 „$2“
 öm $4 Uhr aam $3 op dä Sigg $5
@@ -10743,13 +10747,17 @@ Beloore kanns de dä op
 
 Ene schööne Jrohß!',
 	'lqt-enotif-reply' => 'Leeven $1,
-dat hee es en Nohreesch fun de {{SITENAME}},
+dat hee es en Nohreesch {{GRAMMAR:Genitiv vun|{{SITENAME}}}},
 dat ene neue Beijdraach zom {{int:lqt-history-thread}} zom Teema
 „$2“
 öm $4 Uhr aam $3 op dä Sigg $5
 dobei jekumme es.
 Beloore kanns de dä op
 <$6>
+
+Dä Beidraach es:
+
+$7
 
 Ene schööne Jrohß!',
 	'lqt-quote-intro' => 'Aam $2 hät {{GENDER:$1|dä|dat|dä Metmaacher|dat|de}} [[User:$1|$1]] öm $3 Uhr jeschrevve:',
