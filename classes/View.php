@@ -2136,17 +2136,12 @@ class LqtView {
 
 		$title = $wgTitle ? $wgTitle : $user->getUserPage();
 
-		// Parser gets antsy about parser options here if it hasn't parsed anything before.
-		$wgParser->mOptions = new ParserOptions;
-		$wgParser->clearState();
-		$wgParser->setTitle( $title );
-
 		$sig = $wgParser->preSaveTransform(
 			$sig,
 			$title,
 			$user,
-			$wgParser->mOptions,
-			false
+			new ParserOptions,
+			true
 		);
 
 		return $sig;
