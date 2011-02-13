@@ -470,6 +470,7 @@ This is a note which appears alongside an edited post - see [[Thread:Support/Pay
 
 This is a note which appears alongside an edited post - see [[Thread:Translating talk:Wikia/Typo in MediaWiki:Feed-title-leaderboard|example]].',
 	'lqt-header-actions' => '{{Identical|Action}}',
+	'lqt-no-threads' => '[http://translatewiki.net/wiki/Project_talk:MediaWiki_localisation_in_the_50_most_spoken_languages Example]',
 	'lqt-delete-parent-deleted' => '$1 is the reason for deletion of the parent.',
 	'lqt-movethread' => '{{Identical|Move}}',
 	'lqt-menu-trigger' => '{{Identical|More}}',
@@ -14003,7 +14004,7 @@ Em alternativa, talvez queira $2.',
 	'lqt-read-message' => 'Marcar lido',
 	'lqt-read-message-tooltip' => 'Remover este tópico das mensagens novas.
 Ainda estará visível na página de discussão original.',
-	'lqt-read-all' => 'Marcar todos como lidos',
+	'lqt-read-all' => 'Marcar todas as mensagens como lidas',
 	'lqt-read-all-tooltip' => 'Remover todos os tópicos das mensagens novas.
 Ainda estarão visíveis nas páginas de discussão originais.
 Esta operação é irreversível.',
@@ -16220,7 +16221,7 @@ $messages['sli'] = array(
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'lqt-desc' => 'Додаје могућност отварања тема на страницама за разговор.',
+	'lqt-desc' => 'Додаје могућност отварања тема на страницама за разговор',
 	'lqt_movethread' => 'Премештање теме на другу страницу',
 	'lqt_deletethread' => 'Брисање или враћање теме',
 	'lqt_contents_title' => 'Садржај',
@@ -16239,7 +16240,7 @@ $messages['sr-ec'] = array(
 	'lqt-parent' => 'Надређени',
 	'lqt_delete' => 'Обриши',
 	'lqt_undelete' => 'Врати',
-	'lqt_permalink' => 'Веза ка',
+	'lqt_permalink' => 'Веза',
 	'lqt_fragment' => 'Одломак од $1 из $2',
 	'lqt_discussion_link' => 'разговор',
 	'lqt_from_talk' => 'Од $1',
@@ -16423,7 +16424,7 @@ $7',
 	'lqt-quote-intro' => '$2 у $3, [[User:$1|$1]] {{GENDER:$1|је написао|је написала|написа}}:',
 	'lqt-quote' => 'Цитат',
 	'lqt-search-legend' => 'Претражи расправе на овој страници',
-	'lqt-search-label' => 'Услови претраге:',
+	'lqt-search-label' => 'Упити претраге:',
 	'lqt-search-button' => 'Претражи',
 	'searchprofile-threads' => 'Разговори',
 	'searchprofile-threads-tooltip' => 'Претражите расправе на темама и странице за разговор',
@@ -16493,7 +16494,7 @@ $7',
  * @author Михајло Анђелковић
  */
 $messages['sr-el'] = array(
-	'lqt-desc' => 'Dodaje mogućnost otvaranja tema na stranama za razgovor',
+	'lqt-desc' => 'Dodaje mogućnost otvaranja tema na stranicama za razgovor',
 	'lqt_movethread' => 'Premesti temu na drugu stranu',
 	'lqt_deletethread' => 'Obriši ili vrati temu',
 	'lqt_contents_title' => 'Sadržaj',
@@ -16623,7 +16624,7 @@ podeljena [[$1]] sa [[$3]], s novim naslovom "$2"',
 	'lqt-log-action-merge-across' => 'moved [[$1]] from under [[$2]] to under [[$3]]
 premeštena [[$1]] sa [[$2]] na [[$3]]',
 	'lqt-log-action-merge-down' => 'spojena [[$1]] sa [[$3]]',
-	'lqt-log-action-subjectedit' => 'je promenio naslov od [[$1]] sa „$2“ na „$3“',
+	'lqt-log-action-subjectedit' => '{{GENDER:|je promenio|je promenila|promeni}} naslov [[$1]] iz „$2“ u „$3“',
 	'lqt-log-action-resort' => 'promenjen je redosled sortiranja od [[$1]]. Ključ sortiranja promenjen sa $2 na $3',
 	'lqt-preference-custom-signatures' => 'Pokaži podesive korisničke potpise',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} razgovor - Odgovor: $1',
