@@ -2089,6 +2089,7 @@ $7",
 
 /** Bulgarian (Български)
  * @author DCLXVI
+ * @author Rancher
  * @author Spiritia
  * @author Turin
  */
@@ -2114,7 +2115,7 @@ $messages['bg'] = array(
 	'lqt_discussion_link' => 'обсъждане',
 	'lqt_from_talk' => 'От $1',
 	'lqt-history-title' => 'История на нишката',
-	'lqt_hist_comment_edited' => 'Текст на коментара [$2 редактиран]',
+	'lqt_hist_comment_edited' => '[$2 Измењен] је текст коментара.',
 	'lqt_hist_summary_changed' => 'Променено резюме',
 	'lqt_hist_reply_created' => 'Добавен е [[$1|нов отговор]]',
 	'lqt_hist_thread_created' => 'Започната нова нишка',
@@ -10744,7 +10745,7 @@ et läz aam $4 öm $3',
 	'lqt-log-header' => 'En däm Logbooch heh sin de Einzelheite faßjehallde övver wat met de {{int:lqt-history-thread}}e jedonn woodt.',
 	'lqt-log-action-move' => 'hät [[$1]] vun [[$2]] noh [[$3]] ömjetroke.',
 	'lqt-log-action-split' => 'hät [[$1]] onger dä Övverschreff [[$3]] eruß jenumme un onger de neue Övverschreff „$2“ jeschtallt.',
-	'lqt-log-action-merge-across' => 'hät [[$1]] onger dä Övverschreff [[$2]] eruß jenumme un onger [[$2]] jedonn.',
+	'lqt-log-action-merge-across' => 'hät [[$1]] onger dä Övverschreff [[$2]] eruß jenumme un onger [[$3]] jedonn.',
 	'lqt-log-action-merge-down' => 'hät [[$1]] noh onger de Övverschreff [[$3]] ömjetrocke un dobei di {{int:lqt-history-thread}}e zosamme jelaat.',
 	'lqt-log-action-subjectedit' => 'hät de Övverschreff fun [[$1]] fun „$2“ op „$3“ omjenannt.',
 	'lqt-log-action-resort' => 'hät de Reijefolsch vum Zotteere för [[$1]] fun „$2“ op „$3“ ömjeschtallt.',
@@ -16245,13 +16246,13 @@ $messages['sr-ec'] = array(
 	'lqt_discussion_link' => 'разговор',
 	'lqt_from_talk' => 'Од $1',
 	'lqt-history-title' => 'Историја теме',
-	'lqt_hist_comment_edited' => 'Текст коментара је [$2 измењен]',
+	'lqt_hist_comment_edited' => '[$2 Измењен] је текст коментара.',
 	'lqt_hist_summary_changed' => 'Сажетак је промењен.',
 	'lqt_hist_reply_created' => 'Постављен је [[$1|нови одговор]].',
 	'lqt_hist_thread_created' => 'Направљена је нова тема.',
-	'lqt_hist_deleted' => 'Обрисано',
-	'lqt_hist_undeleted' => 'Враћено',
-	'lqt_hist_moved_talkpage' => 'Премештено',
+	'lqt_hist_deleted' => 'Обрисано.',
+	'lqt_hist_undeleted' => 'Враћено.',
+	'lqt_hist_moved_talkpage' => 'Премештено.',
 	'lqt_hist_listing_subtitle' => 'Прегледање историје',
 	'lqt_hist_view_whole_thread' => 'Прикажи историју целе теме',
 	'lqt_hist_no_revisions_error' => 'Ова тема нема ревизија у историји.',
@@ -16490,6 +16491,7 @@ $7',
 /** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  * @author Mormegil
+ * @author Rancher
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
@@ -16596,7 +16598,7 @@ Ova tema je deo $2.',
 	'lqt-history-thread' => 'Tema',
 	'lqt-thread-edited-author' => 'Izmenio autor.<br />
 Poslednja izmena: $1',
-	'lqt-header-actions' => 'Akcije',
+	'lqt-header-actions' => 'Radnje',
 	'lqt-split-success' => 'Uspešno ste podelili temu $1.',
 	'lqt_split_thread' => 'Podeli temu',
 	'lqt-thread-split-subject' => 'Naslov nove teme:',
@@ -16642,7 +16644,7 @@ premeštena [[$1]] sa [[$2]] na [[$3]]',
 	'lqt-change-subject' => 'Izmeni naslov',
 	'lqt-save-subject' => 'Snimi',
 	'lqt-ajax-no-subject' => 'Morate navesti naslov.',
-	'lqt-cancel-subject-edit' => 'Poništi',
+	'lqt-cancel-subject-edit' => 'Otkaži',
 	'lqt-drag-activate' => 'Prevuci na novu lokaciju',
 	'lqt-drag-drop-zone' => 'Ispusti ovde',
 	'lqt-drag-save' => 'Potvrdi',
