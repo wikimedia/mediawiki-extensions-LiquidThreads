@@ -2308,6 +2308,7 @@ $messages['bg'] = array(
 
 /** Bengali (বাংলা)
  * @author Bellayet
+ * @author Ehsanulhb
  * @author Zaheen
  */
 $messages['bn'] = array(
@@ -2434,7 +2435,7 @@ $messages['bn'] = array(
 	'lqt-change-subject' => 'বিষয় পরিবর্তন',
 	'lqt-save-subject' => 'সংরক্ষণ',
 	'lqt-cancel-subject-edit' => 'বাতিল',
-	'lqt-drag-save' => 'নিশ্চিত করো',
+	'lqt-drag-save' => 'নিশ্চিত করুন',
 	'lqt-drag-reason' => 'কারণ:',
 	'lqt-drag-subject' => 'নতুন থ্রেডের জন্য বিষয়:',
 	'lqt-edit-signature' => '(স্বাক্ষর সম্পাদনা)',
@@ -10699,7 +10700,7 @@ Künnt sin, De wells en $2 han.',
 	'lqt-read-all' => 'Alles als jelesse makeere',
 	'lqt-read-all-tooltip' => 'Donn all de {{int:lqt-history-thread}}e vun neue Nohreeschte fottnämme. Se bliive ävver op iere ojinaale Klaafsigge, woh mer se beloore kann. Wann De dat deihßt, kanns De et och wider retuur maache.',
 	'lqt-marked-read' => 'Dä {{int:lqt-history-thread}} „$1“ es als „jelässe“ makeet.',
-	'lqt-count-marked-read' => '{{PLURAL:$1|Ei Nohresch|$1 Nohreschte|kei Nohresch}} als jelesse makeet.',
+	'lqt-count-marked-read' => '{{PLURAL:$1|Ei Nohreesch|$1 Nohreeschte|kei Nohreesch}} als jelesse makeet.',
 	'lqt-email-undo' => 'Zeröcknämme',
 	'lqt-no-new-messages' => 'Mer hann kei neu Nohreschte för Desch.',
 	'lqt-new-messages' => '✒ Mer hann neu Nohreschte för Desch.',
