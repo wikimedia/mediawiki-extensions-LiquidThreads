@@ -2357,7 +2357,6 @@ $messages['bn'] = array(
 	'lqt_move_move' => 'স্থানান্তর',
 	'lqt_move_thread_bad_destination' => 'গন্তব্য পাতাটি কোনো আলোচনা পাতা নয়।',
 	'lqt_move_noreason' => 'কোনো কারণ দেওয়া হয়নি।',
-	'lqt_delete_undeleting' => "'''$1''' পুনরুদ্ধার।",
 	'lqt_delete_undeletethread' => 'থ্রেড পুনরুদ্ধার',
 	'lqt_delete_partof' => "এই থ্রেডটি '''$1''' এর একটি অংশ।",
 	'lqt_delete_deletethread' => 'থ্রেড এবং উত্তরসমূহ অপসারণ',
