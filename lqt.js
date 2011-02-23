@@ -193,7 +193,7 @@ var liquidThreads = {
 				if ( typeof wgWikiEditorPreferences != 'undefined' ) {
 					useDialogs = wgWikiEditorPreferences.toolbar.dialogs;
 				} else {
-					useDialogs = mediaWiki.user.options['usebetatoolbar-cgd'];
+					useDialogs = mediaWiki.user.options.get( 'usebetatoolbar-cgd' );
 				}
 				
 				if ( useDialogs && $j.wikiEditor.isSupported( $j.wikiEditor.modules.dialogs ) ) {
@@ -202,13 +202,14 @@ var liquidThreads = {
 				
 				// Add wikiEditor toolbar
 				$j( '#wpTextbox1' ).wikiEditor( 'addModule', { 'toolbar': liquidThreads.toolbar.config, 'dialogs': liquidThreads.toolbar.dialogs } );
+
 				
 				// cleanup unnecessary things from the old toolbar
 				$j( '#editpage-specialchars' ).remove();
-				$j( '#wpTextbox1' ).focus()
+				$j( '#wpTextbox1' ).focus();
 			} else {
 				// Add old toolbar
-				mwSetupToolbar()
+				mwSetupToolbar();
 			}
 			currentFocused = $j(container).find('#wpTextbox1');
 			$j(container).find('#wpTextbox1,#wpSummary').focus(
@@ -229,7 +230,7 @@ var liquidThreads = {
 						if ( typeof mediaWiki.loader != 'undefined' && mediaWiki.loader ) {
 							mediaWiki.loader.using(
 								[ 'ext.wikiEditor', 'ext.wikiEditor.toolbar.i18n',
-									'jquery.wikiEditor.toolbar',
+									'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.dialogs',
 									'jquery.async', 'jquery.cookie' ],
 								finishSetup );
 						} else {

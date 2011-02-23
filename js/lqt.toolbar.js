@@ -1059,20 +1059,19 @@ liquidThreads.toolbar = {
 						updateExistence( true );
 				});
 				// Set labels of tabs based on rel values
-				var u = mw.usability;
 				$j(this).find( '[rel]' ).each( function() {
-					$j(this).text( u.getMsg( $j(this).attr( 'rel' ) ) );
+					$j(this).text( mediaWiki.msg( $j(this).attr( 'rel' ) ) );
 				});
 				// Set tabindexes on form fields
 				$j.wikiEditor.modules.dialogs.fn.setTabindexes( $j(this).find( 'input' ).not( '[tabindex]' ) );
 				// Setup the tooltips in the textboxes
 				$j( '#wikieditor-toolbar-link-int-target' )
-					.data( 'tooltip', u.getMsg( 'wikieditor-toolbar-tool-link-int-target-tooltip' ) );
+					.data( 'tooltip', mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-tooltip' ) );
 				$j( '#wikieditor-toolbar-link-int-text' )
-					.data( 'tooltip', u.getMsg( 'wikieditor-toolbar-tool-link-int-text-tooltip' ) );
+					.data( 'tooltip', mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-text-tooltip' ) );
 				$j( '#wikieditor-toolbar-link-int-target, #wikieditor-toolbar-link-int-text' )
 					.each( function() {
-						var tooltip = u.getMsg( $j( this ).attr( 'id' ) + '-tooltip' );
+						var tooltip = mediaWiki.msg( $j( this ).attr( 'id' ) + '-tooltip' );
 						if ( $j( this ).val() == '' )
 							$j( this )
 								.addClass( 'wikieditor-toolbar-dialog-hint' )
@@ -1142,11 +1141,11 @@ liquidThreads.toolbar = {
 				});
 				// Add images to the page existence widget, which will be shown mutually exclusively to communicate if the
 				// page exists, does not exist or the title is invalid (like if it contains a | character)
-				var existsMsg = u.getMsg( 'wikieditor-toolbar-tool-link-int-target-status-exists' );
-				var notexistsMsg = u.getMsg( 'wikieditor-toolbar-tool-link-int-target-status-notexists' );
-				var invalidMsg = u.getMsg( 'wikieditor-toolbar-tool-link-int-target-status-invalid' );
-				var externalMsg = u.getMsg( 'wikieditor-toolbar-tool-link-int-target-status-external' );
-				var loadingMsg = u.getMsg( 'wikieditor-toolbar-tool-link-int-target-status-loading' );
+				var existsMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-exists' );
+				var notexistsMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-notexists' );
+				var invalidMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-invalid' );
+				var externalMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-external' );
+				var loadingMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-loading' );
 				$j( '#wikieditor-toolbar-link-int-target-status' )
 					.append( $j( '<div />' )
 						.attr( 'id', 'wikieditor-toolbar-link-int-target-status-exists' )
@@ -1263,9 +1262,8 @@ liquidThreads.toolbar = {
 							target = "";
 						if ( $j( '#wikieditor-toolbar-link-int-text' ).data( 'tooltip-mode' ) )
 							text = "";
-						var u = mw.usability;
 						if ( target == '' ) {
-							alert( u.getMsg( 'wikieditor-toolbar-tool-link-empty' ) );
+							alert( mediaWiki.msg( 'wikieditor-toolbar-tool-link-empty' ) );
 							return;
 						}
 						if ( $j.trim( text ) == '' ) {
@@ -1277,7 +1275,7 @@ liquidThreads.toolbar = {
 							// FIXME: Exactly how fragile is this?
 							if ( $j( '#wikieditor-toolbar-link-int-target-status-invalid' ).is( ':visible' ) ) {
 								// Refuse to add links to invalid titles
-								alert( u.getMsg( 'wikieditor-toolbar-tool-link-int-invalid' ) );
+								alert( mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-invalid' ) );
 								return;
 							}
 
@@ -1295,18 +1293,18 @@ liquidThreads.toolbar = {
 							if ( match && !$j(this).data( 'ignoreLooksInternal' ) ) {
 								var buttons = { };
 								var that = this;
-								buttons[ u.getMsg( 'wikieditor-toolbar-tool-link-lookslikeinternal-int' ) ] = function() {
+								buttons[ mediaWiki.msg( 'wikieditor-toolbar-tool-link-lookslikeinternal-int' ) ] = function() {
 									$j( '#wikieditor-toolbar-link-int-target' ).val( match[1] ).change();
 									$j(this).dialog( 'close' );
 								};
-								buttons[ u.getMsg( 'wikieditor-toolbar-tool-link-lookslikeinternal-ext' ) ] = function() {
+								buttons[ mediaWiki.msg( 'wikieditor-toolbar-tool-link-lookslikeinternal-ext' ) ] = function() {
 									$j(that).data( 'ignoreLooksInternal', true );
 									$j(that).closest( '.ui-dialog' ).find( 'button:first' ).click();
 									$j(that).data( 'ignoreLooksInternal', false );
 									$j(this).dialog( 'close' );
 								};
 								$j.wikiEditor.modules.dialogs.quickDialog(
-									u.getMsg( 'wikieditor-toolbar-tool-link-lookslikeinternal', match[1] ),
+									mediaWiki.msg( 'wikieditor-toolbar-tool-link-lookslikeinternal', match[1] ),
 									{ buttons: buttons }
 								);
 								return;
@@ -1346,7 +1344,7 @@ liquidThreads.toolbar = {
 				open: function() {
 					// Cache the articlepath regex
 					$j(this).data( 'articlePathRegex', new RegExp(
-						'^' + RegExp.escape( wgServer + wgArticlePath )
+						'^' + $.escapeRE( wgServer + wgArticlePath )
 							.replace( /\\\$1/g, '(.*)' ) + '$'
 					) );
 					// Pre-fill the text fields based on the current selection
@@ -1454,7 +1452,7 @@ liquidThreads.toolbar = {
 			init: function() {
 				// Insert translated strings into labels
 				$j( this ).find( '[rel]' ).each( function() {
-					$j( this ).text( mw.usability.getMsg( $j( this ).attr( 'rel' ) ) );
+					$j( this ).text( mediaWiki.msg( $j( this ).attr( 'rel' ) ) );
 				} );
 
 			},
@@ -1600,7 +1598,7 @@ liquidThreads.toolbar = {
 				</div></div>',
 			init: function() {
 				$j(this).find( '[rel]' ).each( function() {
-					$j(this).text( mw.usability.getMsg( $j(this).attr( 'rel' ) ) );
+					$j(this).text( mediaWiki.msg( $j(this).attr( 'rel' ) ) );
 				});
 				// Set tabindexes on form fields
 				$j.wikiEditor.modules.dialogs.fn.setTabindexes( $j(this).find( 'input' ).not( '[tabindex]' ) );
@@ -1661,21 +1659,20 @@ liquidThreads.toolbar = {
 						var rows = parseInt( rowsVal, 10 );
 						var cols = parseInt( colsVal, 10 );
 						var header = $j( '#wikieditor-toolbar-table-dimensions-header' ).is( ':checked' ) ? 1 : 0;
-						var u = mw.usability;
 						if ( isNaN( rows ) || isNaN( cols ) || rows != rowsVal  || cols != colsVal ) {
-							alert( u.getMsg( 'wikieditor-toolbar-tool-table-invalidnumber' ) );
+							alert( mediaWiki.msg( 'wikieditor-toolbar-tool-table-invalidnumber' ) );
 							return;
 						}
 						if ( rows + header == 0 || cols == 0 ) {
-							alert( u.getMsg( 'wikieditor-toolbar-tool-table-zero' ) );
+							alert( mediaWiki.msg( 'wikieditor-toolbar-tool-table-zero' ) );
 							return;
 						}
 						if ( rows * cols > 1000 ) {
-							alert( u.getMsg( 'wikieditor-toolbar-tool-table-toomany', 1000 ) );
+							alert( mediaWiki.msg( 'wikieditor-toolbar-tool-table-toomany', 1000 ) );
 							return;
 						}
-						var headerText = u.getMsg( 'wikieditor-toolbar-tool-table-example-header' );
-						var normalText = u.getMsg( 'wikieditor-toolbar-tool-table-example' );
+						var headerText = mediaWiki.msg( 'wikieditor-toolbar-tool-table-example-header' );
+						var normalText = mediaWiki.msg( 'wikieditor-toolbar-tool-table-example' );
 						var table = "";
 						for ( var r = 0; r < rows + header; r++ ) {
 							table += "|-\n";
@@ -1799,9 +1796,8 @@ liquidThreads.toolbar = {
 					</div>\
 				</fieldset>',
 			init: function() {
-				var u = mw.usability;
 				$j(this).find( '[rel]' ).each( function() {
-					$j(this).text( u.getMsg( $j(this).attr( 'rel' ) ) );
+					$j(this).text( mediaWiki.msg( $j(this).attr( 'rel' ) ) );
 				});
 				// Set tabindexes on form fields
 				$j.wikiEditor.modules.dialogs.fn.setTabindexes( $j(this).find( 'input' ).not( '[tabindex]' ) );
@@ -1825,13 +1821,13 @@ liquidThreads.toolbar = {
 						flags += 'g';
 					}
 					if ( !isRegex ) {
-						searchStr = RegExp.escape( searchStr );
+						searchStr = $.escapeRE( searchStr );
 					}
 					try {
 						var regex = new RegExp( searchStr, flags );
 					} catch( e ) {
 						$j( '#wikieditor-toolbar-replace-invalidregex' )
-							.text( u.getMsg( 'wikieditor-toolbar-tool-replace-invalidregex',
+							.text( mediaWiki.msg( 'wikieditor-toolbar-tool-replace-invalidregex',
 								e.message ) )
 							.show();
 						return;
@@ -1880,7 +1876,7 @@ liquidThreads.toolbar = {
 							offset = newEnd;
 						}
 						$j( '#wikieditor-toolbar-replace-success' )
-							.text( u.getMsg( 'wikieditor-toolbar-tool-replace-success', match.length ) )
+							.text( mediaWiki.msg( 'wikieditor-toolbar-tool-replace-success', match.length ) )
 							.show();
 						$j(this).data( 'offset', 0 );
 					} else {
