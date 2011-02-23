@@ -11461,6 +11461,8 @@ $messages['lv'] = array(
  * @author Jagwar
  */
 $messages['mg'] = array(
+	'lqt_move_move' => 'Hanolo anarana',
+	'lqt-movethread' => 'Hanolo anarana',
 	'right-lqt-split' => 'Mizara ny resaka',
 );
 
