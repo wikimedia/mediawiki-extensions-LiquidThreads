@@ -289,8 +289,8 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			),
 			'dir' => array(
 				ApiBase :: PARAM_TYPE => array(
-					'older',
-					'newer'
+					'newer',
+					'older'
 				),
 				ApiBase :: PARAM_DFLT => 'newer'
 			),
