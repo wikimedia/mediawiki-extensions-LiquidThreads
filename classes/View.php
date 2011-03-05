@@ -1232,6 +1232,10 @@ class LqtView {
 
 		$parserOutput = $post->getParserOutput( $oldid );
 
+		if ( $parserOutput === false ) {
+			return '';
+		}
+
 		// Remove title, so that it stays set correctly.
 		$parserOutput->setTitleText( '' );
 
