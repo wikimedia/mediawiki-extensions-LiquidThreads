@@ -831,7 +831,7 @@ var liquidThreads = {
 		e.preventDefault();
 		var thread = $j(this).closest('.lqt_thread');
 		var linkTitle = thread.find('.lqt-thread-title-metadata').val();
-		var linkURL = wgArticlePath.replace( "$1", linkTitle.replace(' ', '_' ) );
+		var linkURL = wgArticlePath.replace( "$1", linkTitle.replace(/ /g, '_' ) );
 		linkURL = wgServer + linkURL;
 		liquidThreads.showLinkWindow( linkTitle, linkURL );
 	},
