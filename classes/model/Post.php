@@ -178,7 +178,6 @@ class LiquidThreadsPost {
 	 */
 	public function save( $comment = null ) {
 		if ( $this->pendingVersion ) {
-			$this->pendingVersion->setComment( $comment );
 			$this->pendingVersion->commit( $comment );
 			$this->pendingVersion = null;
 			
@@ -245,12 +244,20 @@ class LiquidThreadsPost {
 	 * It is saved to the database when you call LiquidThreadsPost::commit()
 	 * If it doesn't exist, it will be created.
 	 */
-	protected function getPendingVersion() {
+	public function getPendingVersion() {
 		if ( !$this->pendingVersion ) {
 			$this->pendingVersion = LiquidThreadsPostVersion::create( $this );
 		}
 		
 		return $this->pendingVersion;
+	}
+	
+	/**
+	 * Discard unsaved changes.
+	 */
+	public function reset() {
+		$this->pendingVersion->destroy();
+		$this->pendingVersion = null;
 	}
 	
 	/* Accessors for various properties. Mostly stored in the current version */
@@ -292,6 +299,85 @@ class LiquidThreadsPost {
 	
 	/* PROPERTY SETTERS */
 	
+	/**
+	 * Sets the text content of this post.
+	 * @param $text String: new text content.
+	 */
+	public function setText( $text ) {
+		$this->getPendingVersion()->setText( $text );
+	}
 	
+	/**
+	 * Sets the topic ID for this post (i.e. moves the post to a new topic)
+	 * Also handles removing the parent, if one exists and we're changing topic.
+	 * @param $id Integer: The ID of the topic to move the post to.
+	 */
+	public function setTopicID( $id ) {
+		$this->getPendingVersion()->setTopicID( $id );
+		
+		if ( $id != $this->getTopicID() ) {
+			$this->setParent(null);
+		}
+	}
+	
+	/**
+	 * Sets the parent ID for this post (i.e. moves the post underneath another post).
+	 * It is assumed that the other post is contained in the same topic.
+	 * If you're not sure, instantiate the new parent Post and use
+	 *  LiquidThreadsPost::setParent()
+	 * @param $id Integer: The ID of the post to move this post underneath.
+	 */
+	public function setParentID( $id ) {
+		$this->getPendingVersion()->setParentID( $id );
+	}
+	
+	/**
+	 * Sets the parent post to $post (moves this post underneath $post.
+	 * An exception will be thrown if the new parent post is in a different topic.
+	 * @param $post LiquidThreadsPost: The post to move underneath, or NULL for none.
+	 * @param $check Boolean: Whether or not to check if the new parent post is in the same topic.
+	 */
+	public function setParent( LiquidThreadsPost $post, $check = true ) {
+		if ( $post == null ) {
+			$this->setParentID(0);
+			return;
+		}
+	
+		$parent_topics = array( $post->getTopicID() );
+		$parent_topics[] = $post->getPendingVersion()->getTopicID();
+		$parent_topics = array_unique( $parent_topics );
+		
+		$my_topics = array( $this->getTopicID() );
+		$my_topics[] = $this->getPendingVersion()->getTopicID();
+		
+		// If the new parent is neither currently nor going to be in the same topic
+		if ( $check &&
+			count(array_intersect( $my_topics, $parent_topics )) == 0 )
+		{
+			throw new MWException( "Attempt to assign parent post to a post outside this topic." );
+		}
+		
+		$this->setParentID( $post->getID() );
+	}
+	
+	/**
+	 * Moves this post to another topic.
+	 * @param $topic LiquidThreadsTopic: Where to move this post.
+	 */
+	public function setTopic( LiquidThreadsTopic $topic ) {
+		if ( !$topic || ! $topic instanceof LiquidThreadsTopic ) {
+			throw new MWException( "Invalid argument to ".__METHOD__ );
+		}
+		
+		$this->setTopicID( $topic->getID() );
+	}
+	
+	/**
+	 * Sets the signature for this post.
+	 * @param $sig String: The new signature
+	 */
+	public function setSignature( $sig ) {
+		$this->getPendingVersion()->setSignature( $sig );
+	}
 }
 

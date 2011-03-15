@@ -49,6 +49,9 @@ CREATE TABLE /*_*/lqt_topic_version (
 	-- Edit comment for this change, if applicable
 	ltv_comment TINYBLOB,
 	
+	-- Bitfield for single-version deletion
+	ltv_deleted tinyint unsigned NOT NULL default 0,
+	
 	ltv_subject TINYBLOB NOT NULL,
 	ltv_channel bigint(10) unsigned not null
 ) /*$wgDBTableOptions*/;
@@ -96,6 +99,9 @@ CREATE TABLE /*_*/lqt_post_version (
 	lpv_timestamp varbinary(14) not null,
 	-- Edit comment for this change, if applicable
 	lpv_comment TINYBLOB,
+	
+	-- Bitfield for single-version deletion
+	lpv_deleted tinyint unsigned NOT NULL default 0,
 	
 	-- ACTUAL DATA
 	
