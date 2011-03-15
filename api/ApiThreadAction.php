@@ -289,6 +289,7 @@ class ApiThreadAction extends ApiBase {
 		}
 
 		$editReq = new FauxRequest( $requestData, true );
+		LqtView::fixFauxRequestSession( $editReq );
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
 
@@ -408,6 +409,7 @@ class ApiThreadAction extends ApiBase {
 		}
 
 		$editReq = new FauxRequest( $requestData, true );
+		LqtView::fixFauxRequestSession( $editReq );
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
 
@@ -524,6 +526,7 @@ class ApiThreadAction extends ApiBase {
 		}
 
 		$editReq = new FauxRequest( $requestData, true );
+		LqtView::fixFauxRequestSession( $editReq );
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
 

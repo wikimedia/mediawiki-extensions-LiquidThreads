@@ -353,9 +353,24 @@ class LqtView {
 		$this->output->setArticleBodyOnly( true );
 	}
 	
+	/**
+	 * Workaround for bugs caused by r82686
+	 * @param $request FauxRequest object to have session data injected into.
+	 */
+	static function fixFauxRequestSession( $request ) {
+		foreach( $_SESSION as $k => $v ) {
+			$request->setSessionData( $k, $v );
+		}
+	}
+	
 	static function getInlineEditForm( $talkpage, $method, $operand ) {
 		$output = new OutputPage;
 		$request = new FauxRequest( array() );
+		
+		// Workaround for loss of session data when using FauxRequest
+		global $wgRequest;
+		self::fixFauxRequestSession( $request );
+		
 		$title = null;
 		
 		if ( $talkpage ) {
@@ -376,6 +391,10 @@ class LqtView {
 		$view = new LqtView( $output, $talkpage, $title, $wgUser, $request );
 		
 		$view->doInlineEditForm();
+		
+		foreach( $request->getSessionArray() as $k => $v ) {
+			$wgRequest->setSessionData( $k, $v );
+		}
 		
 		return $output->getHTML();
 	}
