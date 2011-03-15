@@ -467,8 +467,10 @@ class LiquidThreadsPostVersion {
 		$this->id = $dbw->insertId();
 		
 		// Update pointer
-		$dbw->update( 'lqt_post', array( 'lqp_current_version', $this->id ),
-				array( 'lqp_id' => $this->postID ), __METHOD__ );
+		if ( $this->postID ) {
+			$dbw->update( 'lqt_post', array( 'lqp_current_version', $this->id ),
+					array( 'lqp_id' => $this->postID ), __METHOD__ );
+		}
 	}
 	
 	/**
