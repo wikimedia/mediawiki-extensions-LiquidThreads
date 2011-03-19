@@ -12130,10 +12130,11 @@ $messages['myv'] = array(
 
 /** Nahuatl (Nāhuatl)
  * @author Fluence
+ * @author Teòtlalili
  */
 $messages['nah'] = array(
-	'lqt_delete' => 'Ticpolōz',
-	'lqt_hist_deleted' => 'Ōmopolo',
+	'lqt_delete' => 'Mìxpôpolòs',
+	'lqt_hist_deleted' => 'Òmìxpôpolo',
 	'lqt_hist_moved_talkpage' => 'Ōmozacac',
 	'lqt_protectedfromreply_link' => 'ōmoquīxti',
 	'lqt_noreason' => 'Ahmo cah īxtlamatiliztli.',
