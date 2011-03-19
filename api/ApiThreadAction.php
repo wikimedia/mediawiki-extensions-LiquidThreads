@@ -12,9 +12,6 @@ class ApiThreadAction extends ApiBase {
 			return;
 		}
 
-		if ( empty( $params['threadaction'] ) ) {
-			$this->dieUsageMsg( array( 'missingparam', 'action' ) );
-		}
 
 		$allowedAllActions = array( 'markread' );
 		$action = $params['threadaction'];
@@ -843,12 +840,13 @@ class ApiThreadAction extends ApiBase {
 			'type' => 'Specifies the type of reaction to add',
 			'value' => 'Specifies the value associated with the reaction to add',
 			'method' => 'For getting inline edit forms, the method to get a form for',
+			'operand' => '',
+			'gettoken' => 'Gets a thread token',
 		);
 	}
 	
 	public function getPossibleErrors() {
 		return array_merge( parent::getPossibleErrors(), array(
-			array( 'missingparam', 'action' ),
 			array( 'missingparam', 'talkpage' ),
 			array( 'missingparam', 'subject' ),
 			array( 'code' => 'too-many-threads', 'info' => 'You may only split one thread at a time' ),
@@ -894,6 +892,7 @@ class ApiThreadAction extends ApiBase {
 			'talkpage' => null,
 			'threadaction' => array(
 				ApiBase::PARAM_TYPE => array_keys( $this->getActions() ),
+				ApiBase::PARAM_REQUIRED => true,
 			),
 			'token' => null,
 			'subject' => null,
