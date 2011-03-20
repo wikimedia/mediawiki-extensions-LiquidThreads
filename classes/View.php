@@ -275,7 +275,7 @@ class LqtView {
 	function queryReplaceLink( $repls ) {
 		$query = $this->getReplacedQuery( $repls );
 
-		return $this->title->getLocalURL( wfArrayToCGI( $vs ) );
+		return $this->title->getLocalURL( wfArrayToCGI( $query ) );
 	}
 
 	function getReplacedQuery( $replacements ) {
