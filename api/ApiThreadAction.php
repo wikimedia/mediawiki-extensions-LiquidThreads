@@ -12,6 +12,9 @@ class ApiThreadAction extends ApiBase {
 			return;
 		}
 
+		if ( !count( $params['threadaction'] ) ) {
+			$this->dieUsageMsg( array( 'missingparam', 'action' ) );
+		}
 
 		$allowedAllActions = array( 'markread' );
 		$action = $params['threadaction'];
@@ -280,7 +283,7 @@ class ApiThreadAction extends ApiBase {
 			'minor' => 0,
 			'format' => 'json',
 		);
-		
+
 		if ( $wgUser->isAllowed('bot') ) {
 			$requestData['bot'] = true;
 		}
@@ -328,7 +331,7 @@ class ApiThreadAction extends ApiBase {
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
-	
+
 	public function actionEdit( $threads, $params ) {
 		if ( count( $threads ) > 1 ) {
 			$this->dieUsage( 'You may only edit one thread at a time',
@@ -337,10 +340,10 @@ class ApiThreadAction extends ApiBase {
 			$this->dieUsage( 'You must specify a thread to edit',
 					'no-specified-threads' );
 		}
-		
+
 		$thread = array_pop( $threads );
 		$talkpage = $thread->article();
-		
+
 		$bump = isset( $params['bump'] ) ? $params['bump'] : null;
 
 		// Validate subject
@@ -358,21 +361,21 @@ class ApiThreadAction extends ApiBase {
 			$this->dieUsage( 'The subject you specified is not valid',
 				'invalid-subject' );
 		}
-		
+
 		// Check for text
 		if ( empty( $params['text'] ) ) {
 			$this->dieUsage( 'You must include text in your post', 'no-text' );
 		}
 		$text = $params['text'];
-		
+
 		$summary = '';
 		if ( !empty( $params['reason'] ) ) {
 			$summary = $params['reason'];
 		}
-		
+
 		$article = $thread->root();
 		$title = $article->getTitle();
-		
+
 		$signature = null;
 		if ( isset( $params['signature'] ) ) {
 			$signature = $params['signature'];
@@ -386,7 +389,7 @@ class ApiThreadAction extends ApiBase {
 		LqtHooks::$editAppliesTo = null;
 
 		$token = $params['token'];
-		
+
 		// All seems in order. Construct an API edit request
 		$requestData = array(
 			'action' => 'edit',
@@ -398,7 +401,7 @@ class ApiThreadAction extends ApiBase {
 			'basetimestamp' => wfTimestampNow(),
 			'format' => 'json',
 		);
-		
+
 		global $wgUser;
 
 		if ( $wgUser->isAllowed('bot') ) {
@@ -417,7 +420,7 @@ class ApiThreadAction extends ApiBase {
 			$this->getResult()->addValue( null, $this->getModuleName(), $result );
 			return;
 		}
-		
+
 		$thread = LqtView::editMetadataUpdates(
 			array(
 				'root' => $article,
@@ -444,7 +447,7 @@ class ApiThreadAction extends ApiBase {
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
-	
+
 	public function actionReply( $threads, $params ) {
 		global $wgUser;
 
@@ -517,7 +520,7 @@ class ApiThreadAction extends ApiBase {
 			'minor' => 0,
 			'format' => 'json',
 		);
-		
+
 		if ( $wgUser->isAllowed('bot') ) {
 			$requestData['bot'] = true;
 		}
@@ -689,111 +692,111 @@ class ApiThreadAction extends ApiBase {
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
-	
+
 	public function actionAddReaction( $threads, $params ) {
 		global $wgUser;
-		
+
 		if ( !count( $threads ) ) {
 			$this->dieUsage( 'You must specify a thread to add a reaction for',
 					'no-specified-threads' );
 		}
-		
+
 		if ( ! $wgUser->isAllowed( 'lqt-react' ) ) {
 			$this->dieUsage( 'You are not allowed to react to threads.', 'permission-denied' );
 		}
 
 		$required = array( 'type', 'value' );
-		
+
 		if ( count( array_diff( $required, array_keys($params) ) ) ) {
 			$this->dieUsage( 'You must specify both a type and a value for the reaction',
 						'missing-parameter' );
 		}
-		
+
 		$result = array();
-		
+
 		foreach( $threads as $thread ) {
 			$thread->addReaction( $wgUser, $params['type'], $params['value'] );
-			
+
 			$result[] = array(
 				'result' => 'Success',
 				'action' => 'addreaction',
 				'id' => $thread->id(),
 			);
 		}
-		
+
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
-	
+
 	public function actionDeleteReaction( $threads, $params ) {
 		global $wgUser;
-		
+
 		if ( !count( $threads ) ) {
 			$this->dieUsage( 'You must specify a thread to delete a reaction for',
 					'no-specified-threads' );
 		}
-		
+
 		if ( ! $wgUser->isAllowed( 'lqt-react' ) ) {
 			$this->dieUsage( 'You are not allowed to react to threads.', 'permission-denied' );
 		}
 
 		$required = array( 'type', 'value' );
-		
+
 		if ( count( array_diff( $required, array_keys($params) ) ) ) {
 			$this->dieUsage( 'You must specify both a type for the reaction',
 						'missing-parameter' );
 		}
-		
+
 		$result = array();
-		
+
 		foreach( $threads as $thread ) {
 			$thread->deleteReaction( $wgUser, $params['type'] );
-			
+
 			$result[] = array(
 				'result' => 'Success',
 				'action' => 'deletereaction',
 				'id' => $thread->id(),
 			);
 		}
-		
+
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
-	
+
 	public function actionInlineEditForm( $threads, $params ) {
 		$method = $talkpage = $operand = null;
-		
+
 		if ( isset($params['method']) ) {
 			$method = $params['method'];
 		}
-		
+
 		if ( isset( $params['talkpage'] ) ) {
 			$talkpage = $params['talkpage'];
 		}
-		
+
 		if ( $talkpage ) {
 			$talkpage = new Article( Title::newFromText( $talkpage ), 0 );
 		} else {
 			$talkpage = null;
 		}
-		
+
 		if ( count($threads) ) {
 			$operand = $threads[0];
 			$operand = $operand->id();
 		}
-		
+
 		$output = LqtView::getInlineEditForm( $talkpage, $method, $operand );
-		
+
 		$result = array( 'inlineeditform' => array( 'html' => $output ) );
 
 		/* FIXME 
 		$result['resources'] = LqtView::getJSandCSS();
 		$result['resources']['messages'] = LqtView::exportJSLocalisation();
 		*/
-		
+
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
-	
+
 	public function getDescription() {
 		return 'Allows actions to be taken on threads and posts in threaded discussions.';
 	}
@@ -844,9 +847,10 @@ class ApiThreadAction extends ApiBase {
 			'gettoken' => 'Gets a thread token',
 		);
 	}
-	
+
 	public function getPossibleErrors() {
 		return array_merge( parent::getPossibleErrors(), array(
+			array( 'missingparam', 'action' ),
 			array( 'missingparam', 'talkpage' ),
 			array( 'missingparam', 'subject' ),
 			array( 'code' => 'too-many-threads', 'info' => 'You may only split one thread at a time' ),
@@ -879,7 +883,7 @@ class ApiThreadAction extends ApiBase {
 	public function needsToken() {
 		return true;
 	}
-	
+
 	public function getTokenSalt() {
 		return '';
 	}
@@ -892,7 +896,6 @@ class ApiThreadAction extends ApiBase {
 			'talkpage' => null,
 			'threadaction' => array(
 				ApiBase::PARAM_TYPE => array_keys( $this->getActions() ),
-				ApiBase::PARAM_REQUIRED => true,
 			),
 			'token' => null,
 			'subject' => null,
