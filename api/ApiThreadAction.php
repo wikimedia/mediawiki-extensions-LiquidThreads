@@ -211,7 +211,7 @@ class ApiThreadAction extends ApiBase {
 		global $wgUser;
 
 		// Validate talkpage parameters
-		if ( empty( $params['talkpage'] ) ) {
+		if ( !count( $params['talkpage'] ) ) {
 			$this->dieUsageMsg( array( 'missingparam', 'talkpage' ) );
 		}
 
