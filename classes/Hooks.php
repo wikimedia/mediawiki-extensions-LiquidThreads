@@ -417,10 +417,17 @@ class LqtHooks {
 				self::$editThread->getTitle()->equals( $talkPage ) );
 			$isOnTalkPage = $isOnTalkPage || ( self::$editAppliesTo &&
 				self::$editAppliesTo->getTitle()->equals( $talkPage ) );
-			$isOnTalkPage = $isOnTalkPage ||
-				( self::$editArticle->getTitle()->equals( $talkPage ) );
 
-			if ( self::$editArticle->getTitle()->equals( $title ) && $isOnTalkPage ) {
+			# FIXME: self::$editArticle is sometimes not set; is that ok and if not why is it happening?
+			if( self::$editArticle instanceof Article ){
+				$isOnTalkPage = $isOnTalkPage ||
+					( self::$editArticle->getTitle()->equals( $talkPage ) );
+			}
+
+			if ( self::$editArticle instanceof Article
+				&& self::$editArticle->getTitle()->equals( $title )
+				&& $isOnTalkPage )
+			{
 				$isBlocked = false;
 				return true;
 			}
