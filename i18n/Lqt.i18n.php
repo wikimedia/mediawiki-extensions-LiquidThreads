@@ -3738,6 +3738,7 @@ $messages['da'] = array(
  * @author Tbleher
  * @author The Evil IP address
  * @author Umherirrender
+ * @author Wikinaut
  */
 $messages['de'] = array(
 	'lqt-desc' => 'Realisiert Themenstränge auf Diskussionsseiten',
@@ -3929,11 +3930,11 @@ dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 Uhr auf der Se
 
 Du kannst ihn auf <$6> einsehen.',
 	'lqt-enotif-reply' => 'Hallo $1,
-dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 Uhr auf der Seite „$5“ ein neue Antwort im Diskussionsstrang „$2“ geschrieben wurde.
+dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 Uhr auf der Seite „$5“ eine neue Antwort im Diskussionsstrang „$2“ geschrieben wurde.
 
 Du kannst sie auf <$6> einsehen.
 
-Die Antwort lautet:
+Die neue Antwort lautet:
 $7',
 	'lqt-quote-intro' => 'Am $2 um $3 Uhr schrieb [[User:$1|$1]]:',
 	'lqt-quote' => 'Zitieren',
@@ -11645,7 +11646,7 @@ $7',
 	'searchprofile-threads' => 'Разговори',
 	'searchprofile-threads-tooltip' => 'Пребарување на нанижани разговори и страници за разговор',
 	'lqt-ajax-updated' => 'Оваа нишка има нови пораки.',
-	'lqt-ajax-update-link' => 'Ажурирај',
+	'lqt-ajax-update-link' => 'Поднови',
 	'lqt-thread-show-replies' => 'Прикажи $1 одговори',
 	'lqt-thread-show-more' => 'Прикажи повеќе одговори',
 	'lqt-thread-link-url' => 'Врска за URL адресата:',
@@ -15526,6 +15527,11 @@ $messages['sah'] = array(
 	'lqt-log-name' => 'Ырытыы салааларын сурунаала',
 	'lqt-log-header' => 'Бу сурунаалга ырытыы салааларыгар туох буолбута суруллан иһэр.',
 	'lqt-log-action-move' => '[[$1]] мантан [[$2]] манна [[$3]] көспүт.',
+	'lqt-log-action-split' => '[[$1]] кыттааччы мантан [[$3]] араарбыт, саҥа тиэмэ аата "$2"',
+	'lqt-log-action-merge-across' => 'мантан [[$2]] манна [[$3]] [[$1]] көһөрбүт',
+	'lqt-log-action-merge-down' => 'маны [[$1]] манна [[$3]] холбообут',
+	'lqt-log-action-subjectedit' => '[[$1]] тиэмэни мантан «$2» манна «$3» уларыппыт',
+	'lqt-log-action-resort' => 'наардааһын бэрээдэгин уларыппыт [[$1]]. Наардааһын күлүүһэ мантан $2 манныкка $3 уларыйбыт',
 	'lqt-preference-notify-talk' => 'Кэтиир салаабар саҥа этии киирдэҕинэ мин почтабар сурукта ыыт',
 	'lqt-preference-watch-threads' => 'Оҥорбут уонна хоруйдаабыт салааларбын кэтииргэ',
 	'prefs-lqt' => 'Салааларынан ырытыылар',
@@ -15564,6 +15570,8 @@ $7',
 	'lqt-marked-as-read-placeholder' => '$1 салаа ааҕыллыбыт курдук бэлиэтэннэ.',
 	'lqt-change-subject' => 'Тиэмэ аатын уларыт',
 	'lqt-save-subject' => 'Бигэргэтэргэ',
+	'lqt-save-subject-failed' => 'Бу салаа аатын уларытарга маннык алҕас таҕыста: $1',
+	'lqt-ajax-invalid-subject' => 'Эн эппит ааккын суруйар табыллыбата, баҕар наһаа уһун буолбута буолуо.',
 	'lqt-ajax-no-subject' => 'Тиэмэ аатын суруйуохтааххын.',
 	'lqt-save-subject-error-unknown' => 'Бу салаа аатын ааҕарга туох эрэ биллибэт алҕас таҕыста. Онон, бука диэн, этии үөһээ өттүгэр баар "уларыт" тимэҕи баттаан көр.',
 	'lqt-cancel-subject-edit' => 'Таҕыс',
