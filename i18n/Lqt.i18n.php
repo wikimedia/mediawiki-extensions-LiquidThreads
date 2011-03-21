@@ -213,13 +213,18 @@ To avoid this, split them from this thread before deleting it.',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} discussion - Reply: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} discussion - New thread: $1',
 	'lqt-enotif-newthread' => "Hi $1,
-This is a notification from {{SITENAME}} that a new thread on $5, '$2',
-was created on $3 at $4.
+	
+this is a notification from {{SITENAME}} that a new thread on $5, '$2',
+was created on $3 at $4 by $8
 
-You can see it at <$6>",
+You can see it at <$6>
+
+The text is:
+$7",
 	'lqt-enotif-reply' => "Hi $1,
-This is a notification from {{SITENAME}} that a new reply to '$2' on $5,
-was created on $3 at $4.
+
+this is a notification from {{SITENAME}} that a new reply to '$2' on $5,
+was created on $3 at $4 by $8
 
 You can see it at <$6>
 

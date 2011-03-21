@@ -314,7 +314,8 @@ class NewMessages {
 			$params = array( $u->getName(), $t->subjectWithoutIncrement(),
 						$date, $time, $talkPage,
 						$permalink,
-						$t->root()->getContent() );
+						$t->root()->getContent(),
+						$t->author()->getName() );
 
 			// Get message in user's own language, bug 20645
 			$msg = wfMsgReal( $msgName, $params, true /* use DB */, $langCode,
