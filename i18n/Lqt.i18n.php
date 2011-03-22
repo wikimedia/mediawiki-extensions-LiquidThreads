@@ -347,6 +347,7 @@ The signature is shown automatically.',
  * @author Siebrand
  * @author Spiritia
  * @author The Evil IP address
+ * @author Wikinaut
  */
 $messages['qqq'] = array(
 	'lqt-desc' => '{{desc}}',
@@ -511,21 +512,24 @@ Parameters are:
 * $1 is a thread name or title',
 	'lqt-enotif-subject-newthread' => 'This is the subject header of an e-mail notification. Parameters are:
 * $1 is a thread name or title',
-	'lqt-enotif-newthread' => 'This is the text of an e-mail notification. Parameters are:
-* $1 is a user name
-* $2 is a thread name or title
-* $3 is a date
-* $4 is a time
-* $5 is the title of a talk page with the thread $2
-* $6 is a permalink URL',
-	'lqt-enotif-reply' => 'This is the text of an e-mail notification. Parameters are:
-* $1 is a user name
+	'lqt-enotif-newthread' => "This is the text of an e-mail notification. Parameters are:
+* $1 is the watching user's (= enotif recipient's) user name
 * $2 is a thread name or title
 * $3 is a date
 * $4 is a time
 * $5 is the title of a talk page with the thread $2
 * $6 is a permalink URL
-* $7 is a reply text',
+* $7 is a reply text
+* $8 is the reply author's user name",
+	'lqt-enotif-reply' => "This is the text of an e-mail notification. Parameters are:
+* $1 is the watching user's (= enotif recipient's) user name
+* $2 is a thread name or title
+* $3 is a date
+* $4 is a time
+* $5 is the title of a talk page with the thread $2
+* $6 is a permalink URL
+* $7 is a reply text
+* $8 is the reply author's user name",
 	'lqt-quote-intro' => 'Used as a header in thread entries.
 * $1 is a user name
 * $2 is a date
@@ -785,13 +789,16 @@ Laaste wysiging: $1",
 	'lqt-enotif-subject-newthread' => 'Bespreking op {{SITENAME}} - Nuwe gesprek: $1',
 	'lqt-enotif-newthread' => "Hallo $1,
 
-Hierdie is 'n kennisgewing vanaf {{SITENAME}}. Daar is 'n nuwe onderwerp '$2' op $5 geplaas op $3 om $4.
+Hierdie is 'n kennisgewing vanaf {{SITENAME}}. Daar is 'n nuwe onderwerp '$2' op $5 geplaas op $3 om $4 deur $8.
 
-U kan dit sien by <$6>.",
+U kan dit sien by <$6>.
+
+Die teks is:
+$7",
 	'lqt-enotif-reply' => "Hallo $1,
 
 Hierdie is 'n kennisgewing vanaf {{SITENAME}}. Daar is 'n nuwe antwoord '$2' op $5
-wat op $3 om $4 geplaas is.
+wat op $3 om $4 deur $8 geplaas is.
 
 U kan dit sien by <$6>.
 
@@ -2919,11 +2926,14 @@ Da to spriječite, odvojite ih sa ovog niza prije nego što ga obrišete.',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} razgovor - Odgovor: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} razgovor - Novi niz: $1',
 	'lqt-enotif-newthread' => "Zdravo $1,
-Ovo je obavještenje sa {{SITENAME}} da je kreiran novi niz na $5, '$2', dana $3 u $4.
+ovo je obavještenje sa {{SITENAME}} da je kreiran novi niz na $5, '$2', dana $3 u $4 od strane $8
 
-Možete ga vidjeti na <$6>",
+Možete ga vidjeti na <$6>
+
+Tekst je:
+$7",
 	'lqt-enotif-reply' => "Zdravo $1,
-Ovo je obavještenje sa {{SITENAME}} da je napravljen novi odgovor na '$2' sa $5, dana $3 u $4.
+ovo je obavještenje sa {{SITENAME}} da je napravljen novi odgovor na '$2' sa $5, dana $3 u $4 od strane $8
 
 Možete ga vidjeti na <$6>
 
@@ -3539,14 +3549,18 @@ Pokud tomu chcete zabránit, tak je před smazáním nejprve oddělte z tohoto v
 	'lqt-enotif-subject-reply' => 'Diskuse k {{grammar:3sg|{{SITENAME}}}} – Odpověď: $1',
 	'lqt-enotif-subject-newthread' => 'Diskuse k {{grammar:3sg|{{SITENAME}}}} – Nové vlákno: $1',
 	'lqt-enotif-newthread' => 'Vážený uživateli $1,
-Toto je oznámení z {{grammar:2sg|{{SITENAME}}}}, že $3 v $4
-bylo v $5 založeno nové vlákno „$2“.
 
-Můžete si ho prohlédnout na <$6>.',
+toto je oznámení z {{grammar:2sg|{{SITENAME}}}}, že $3 v $4
+{{GENDER:$8|založil|založila|založil(a)}} $8 v $5 nové vlákno „$2“.
+
+Můžete si ho prohlédnout na <$6>.
+
+Jeho text:
+$7',
 	'lqt-enotif-reply' => 'Vážený uživateli $1,
 
 Toto je oznámení z {{grammar:2sg|{{SITENAME}}}}, že $3 v $4
-byla v $5 přidána nová odpověď na „$2“.
+{{GENDER:$8|přidal|přidala|přidal(a)}} $8 v $5 novou odpověď na „$2“.
 
 Můžete si ji prohlédnout na <$6>.
 
@@ -3931,15 +3945,20 @@ Um dies zu vermeiden, teile sie von diesem Thema ab, bevor du es löscht.',
 	'lqt-enotif-subject-reply' => '{{SITENAME}}-Diskussion – Antwort: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-Diskussion – Neuer Diskussionsstrang: $1',
 	'lqt-enotif-newthread' => 'Hallo $1,
-dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 Uhr auf der Seite „$5“ der neue Diskussionsstrang „$2“ eröffnet wurde.
 
-Du kannst ihn auf <$6> einsehen.',
+dies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ das neue Diskussionsthema „$2“ eröffnet.
+
+Du kannst es unter diesem Link einsehen: <$6>
+
+Die Nachricht lautet:
+$7',
 	'lqt-enotif-reply' => 'Hallo $1,
-dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 Uhr auf der Seite „$5“ eine neue Antwort im Diskussionsstrang „$2“ geschrieben wurde.
 
-Du kannst sie auf <$6> einsehen.
+dies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ zum Diskussionsthema „$2“ eine neue Nachricht verfasst.
 
-Die neue Antwort lautet:
+Du kannst sie unter diesem Link einsehen: <$6>
+
+Die Nachricht lautet:
 $7',
 	'lqt-quote-intro' => 'Am $2 um $3 Uhr schrieb [[User:$1|$1]]:',
 	'lqt-quote' => 'Zitieren',
@@ -7683,10 +7702,11 @@ $messages['he'] = array(
 
 באפשרותכם לראותו בכתובת <$6>",
 	'lqt-enotif-reply' => "שלום $1,
-זוהי הודעה מ{{grammar:תחילית|{{SITENAME}}}} על כך שתגובה חדשה לשרשור '$2' בדף $5
-נוצרה ב־$4, $3.
 
-באפשרותכם לראותה בכתובת <$6>
+זוהי הודעה מ{{grammar:תחילית|{{SITENAME}}}} על כך שתגובה חדשה לשרשור '$2' בדף $5
+נוצרה ב־$3 בשעה $4 על־ידי $8
+
+אפשר לראותה בכתובת <$6>
 
 תוכן ההודעה:
 $7",
@@ -7757,6 +7777,7 @@ $7",
 );
 
 /** Hindi (हिन्दी)
+ * @author Bhawani Gautam Rhk
  * @author Kaustubh
  * @author Kiranmayee
  */
@@ -7831,6 +7852,7 @@ $messages['hi'] = array(
 	'lqt_sort_newest_changes' => 'आखिर में बदले गये पहले',
 	'lqt_sort_newest_threads' => 'नये थ्रेड पहले',
 	'lqt_sort_oldest_threads' => 'पुराने थ्रेड पहले',
+	'lqt-newmessages-n' => 'नये सन्देश ($1)',
 	'lqt_newmessages' => 'नये संदेश',
 );
 
@@ -8844,13 +8866,18 @@ Pro evitar isto, separa los de iste filo ante de deler lo.',
 	'lqt-enotif-subject-reply' => 'Discussion {{SITENAME}}  - Responsa: $1',
 	'lqt-enotif-subject-newthread' => 'Discussion {{SITENAME}} - Nove filo: $1',
 	'lqt-enotif-newthread' => "Salute $1,
-Isto es un notification ab {{SITENAME}} que un nove filo in $5, '$2',
-esseva create le $3 a $4.
 
-Tu pote vider lo a <$6>",
+Isto es un notification ab {{SITENAME}} signalante que un nove filo in $5, '$2',
+esseva create le $3 a $4 per $8.
+
+Tu pote vider lo a <$6>
+
+Le texto es:
+$7",
 	'lqt-enotif-reply' => "Salute $1,
-Isto es un notification ab {{SITENAME}} que un nove responsa a '$2' in $5,
-esseva create le $3 a $4.
+
+Isto es un notification ab {{SITENAME}} signalante que un nove responsa a '$2' in $5,
+esseva create le $3 a $4 per $8.
 
 Tu pote vider lo a <$6>
 
@@ -11022,10 +11049,13 @@ Fir dëst ze verhënneren, trennt se vun dëser Rubrik ier Dir se läscht.',
 Dëst ass eng Notifikatioun vu(n) {{SITENAME}} datt eng nei Rubrik op $5, '$2',
 den $3 ëm $4 ugeluecht gouf.
 
-Dir kënnt se op <$6> gesinn.",
+Dir kënnt se op <$6> gesinn.
+
+Den Text ass:
+$7",
 	'lqt-enotif-reply' => "Salut $1,
 Dëst ass eng Notifikatioun vu(n) {{SITENAME}} datt eng nei Äntwert op '$2' op $5,
-den $3 ëm $4 ugeluecht gouf.
+den $3 ëm $4 vum $8 ugeluecht gouf.
 
 Dir kënnt se op <$6> gesinn.
 
@@ -11413,6 +11443,13 @@ $messages['lt'] = array(
 	'lqt_delete' => 'Ištrinti',
 	'lqt-no-new-messages' => 'Jūs negavote naujų žinučių.',
 	'lqt_newmessages' => 'Naujos žinutės',
+);
+
+/** Latgalian (Latgaļu)
+ * @author Dark Eagle
+ */
+$messages['ltg'] = array(
+	'lqt-ajax-update-link' => 'Atjaunynuot',
 );
 
 /** Latvian (Latviešu)
@@ -11902,13 +11939,18 @@ $messages['ml'] = array(
 	'lqt-enotif-subject-reply' => '{{SITENAME}} സംവാദം - മറുപടി: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} സംവാദം - പുതിയ ചരട്: $1',
 	'lqt-enotif-newthread' => "പ്രിയ $1,
-$5 താളിൽ, '$2' എന്നൊരു ചരട് $4, $3-യിൽ സൃഷ്ടിക്കപ്പെട്ടിരിക്കുന്നു എന്നറിയിക്കാൻ, {{SITENAME}} സംരംഭത്തിൽ നിന്നുള്ള വിജ്ഞാപനമാണ്.
 
-താങ്കൾക്ക് അത് <$6> എന്ന കണ്ണിയിൽ കാണാവുന്നതാണ്.",
+$5 താളിൽ, '$2' എന്നൊരു ചരട് $4, $3-യിൽ $8 എന്ന ഉപയോക്താവ് സൃഷ്ടിച്ചിരിക്കുന്നു എന്നറിയിക്കാൻ, {{SITENAME}} സംരംഭത്തിൽ നിന്നും അയയ്ക്കുന്ന അറിയിപ്പാണ് ഇത്.
+
+താങ്കൾക്ക് അത് <$6> എന്ന കണ്ണിയിൽ കാണാവുന്നതാണ്.
+
+എഴുത്ത്:
+$7",
 	'lqt-enotif-reply' => "പ്രിയ $1,
-$5 താളിലെ '$2' എന്നതിനു പുതിയൊരു മറുപടി $4 $3-യിൽ ഉണ്ടായിരിക്കുന്നു എന്നറിയിക്കാൻ {{SITENAME}} അയയ്ക്കുന്ന അറിയിപ്പാണിത്.
 
-ഇത് താങ്കൾക്ക് ഇവിടെ കാണാം <$6>
+$5 താളിലെ '$2' എന്നതിനു പുതിയൊരു മറുപടി $4 $3-യിൽ $8 എന്ന ഉപയോക്താവ് ഇട്ടിരിക്കുന്നു എന്നറിയിക്കാൻ {{SITENAME}} അയയ്ക്കുന്ന അറിയിപ്പാണിത്.
+
+താങ്കൾക്ക് അത് <$6> എന്ന കണ്ണിയിൽ കാണാം.
 
 മറുപടിയെഴുത്ത്: $7",
 	'lqt-quote-intro' => '$2 $3-ൽ [[User:$1|$1]] എഴുതി:',
@@ -12158,6 +12200,15 @@ $messages['nah'] = array(
  */
 $messages['nds-nl'] = array(
 	'lqt_move_move' => 'Herneum',
+);
+
+/** Nepali (नेपाली)
+ * @author Bhawani Gautam Rhk
+ */
+$messages['ne'] = array(
+	'lqt-newmessages-n' => 'नयाँ सन्देशहरु ($1)',
+	'lqt_newmessages' => 'नयाँ सन्देशहरु',
+	'lqt_newmessages-title' => 'नयाँ सन्देशहरू',
 );
 
 /** Dutch (Nederlands)
@@ -15083,13 +15134,18 @@ $messages['ru'] = array(
 	'lqt-enotif-subject-reply' => '{{SITENAME}} обсуждение — Ответ: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} обсуждение — Новая ветка: $1',
 	'lqt-enotif-newthread' => 'Привет, $1.
-Это уведомление с сайта {{SITENAME}} о том, что $3 $4 на странице $5
-была создана новая ветка «$2».
 
-Вы можете увидеть её по адресу <$6>',
+Это уведомление с сайта {{SITENAME}} о том, что $3 $4 на странице $5
+участником $8 была создана новая ветка «$2» 
+
+Вы можете увидеть её по адресу <$6>
+
+Текст ветки:
+$7',
 	'lqt-enotif-reply' => 'Привет, $1.
+
 Это уведомление с сайта {{SITENAME}} о том, что $3 $4 на страницу $5
-был добавлен новый ответ на ветку «$2».
+участником $8 был добавлен новый ответ на ветку «$2».
 
 Вы можете увидеть её по адресу <$6>
 
@@ -16108,16 +16164,21 @@ Da se temu izognete, jih pred brisanjem odcepite od razprave.',
 	'lqt-preference-custom-signatures' => 'Prikaži uporabniške podpise po meri',
 	'lqt-enotif-subject-reply' => 'Razprava {{SITENAME}} – Odgovor: $1',
 	'lqt-enotif-subject-newthread' => 'Razprava {{SITENAME}} – Nova razprava: $1',
-	'lqt-enotif-newthread' => '$1, pozdravljeni.
-To je obvestilo iz {{GRAMMAR:rodilnik|{{SITENAME}}}}, saj je bila na $5
-dne $3 ob $4 ustvarjena nova razprava »$2«.
+	'lqt-enotif-newthread' => '$1, pozdravljeni,
 
-Ogledate si jo lahko na <$6>',
-	'lqt-enotif-reply' => '$1, pozdravljeni.
-To je obvestilo iz {{GRAMMAR:rodilnik|{{SITENAME}}}}, saj je bil dne $3 ob $4
-ustvarjen nov odgovor na razpravo »$2« na $5.
+to je obvestilo iz {{GRAMMAR:rodilnik|{{SITENAME}}}}, saj je $8 na $5
+dne $3 ob $4 ustvaril(-a) novo razpravo »$2«.
 
-Ogledate si ga lahko na <$6>
+Ogledate si jo lahko na <$6>
+
+Vsebina je:
+$7',
+	'lqt-enotif-reply' => '$1, pozdravljeni,
+
+to je obvestilo iz {{GRAMMAR:rodilnik|{{SITENAME}}}}, saj je $8 dne $3 ob $4
+odgovoril na razpravo »$2« na $5.
+
+Odgovor si lahko ogledate na <$6>
 
 Besedilo odgovora je:
 $7',
