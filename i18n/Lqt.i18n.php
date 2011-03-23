@@ -2014,14 +2014,18 @@ $messages['be-tarask'] = array(
 	'lqt-enotif-subject-reply' => 'Абмеркаваньне {{GRAMMAR:родны|{{SITENAME}}}} — Адказ: $1',
 	'lqt-enotif-subject-newthread' => 'Абмеркаваньне {{GRAMMAR:родны|{{SITENAME}}}} — Новая галіна: $1',
 	'lqt-enotif-newthread' => "Вітаем $1,
-Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новую галіну $5, '$2', 
-створаную $3 $4.
 
-Вы можаце паглядзець яе на <$6>",
+Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новую галіну $5, '$2', 
+створаную $3 $4 удзельнікам $8.
+
+Вы можаце паглядзець яе на <$6>
+
+Тэкст паведамленьня:
+$7",
 	'lqt-enotif-reply' => "Вітаем, $1!
 
 Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новы адказ '$2' на старонцы $5, 
-створаны ў $4 $3.
+створаны ў $4 $3 удзельнікам $8.
 
 Вы можаце паглядзець яго на <$6>.
 
@@ -7696,11 +7700,15 @@ $messages['he'] = array(
 	'lqt-preference-custom-signatures' => 'הצגת חתימות משתמשים מותאמות אישית',
 	'lqt-enotif-subject-reply' => 'דיון באתר {{SITENAME}} – תגובה: $1',
 	'lqt-enotif-subject-newthread' => 'דיון באתר {{SITENAME}} – שרשור חדש: $1',
-	'lqt-enotif-newthread' => "היי $1,
-זוהי הודעה מ{{grammar:תחילית|{{SITENAME}}}} על כך ששרשור חדש ב$5, '$2',
-נוצר בתאריך $4, $3.
+	'lqt-enotif-newthread' => "שלום $1,
 
-באפשרותכם לראותו בכתובת <$6>",
+זוהי הודעה מ{{grammar:תחילית|{{SITENAME}}}} על כך ששרשור חדש ב{{GRAMMAR:תחילית|$5}}, '$2',
+נוצר בתאריך $3 בשעה $4 על־ידי $8
+
+באפשרותכם לראותו בכתובת <$6>
+
+הטקסט הוא:
+$7",
 	'lqt-enotif-reply' => "שלום $1,
 
 זוהי הודעה מ{{grammar:תחילית|{{SITENAME}}}} על כך שתגובה חדשה לשרשור '$2' בדף $5
@@ -8322,11 +8330,16 @@ Zo by to wobešoł, wotdźěl je wot tuteje nitki, prjedy hač ju wušmóruješ.
 	'lqt-enotif-subject-reply' => '{{SITENAME}} diskusija - wotmołwa: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} diskusija - nowa nitka: $1',
 	'lqt-enotif-newthread' => "Witaj $1,
-to je zdźělenka wot {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa nitka na $5, '$2', $3 $4 wutworiła.
 
-Móžeš ju na <$6> widźeć.",
+to je zdźělenka wot {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa nitka na $5, '$2', $3 $4 wot $8 wutworiła.
+
+Móžeš ju na <$6> widźeć.
+
+Tekst je:
+$7",
 	'lqt-enotif-reply' => "Witaj $1,
-to je zdźělenka z {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa wotmołwa k '$2' na $5 $3 $4 wutworiła.
+
+to je zdźělenka z {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa wotmołwa k '$2' na $5 $3 $4 wot $8 wutworiła.
 
 Móžeš ju na <$6> widźeć
 
@@ -10762,9 +10775,13 @@ dat hee es en Nohreesch {{GRAMMAR:Genitiv vun|{{SITENAME}}}},
 dat ene neue {{int:lqt-history-thread}} zom Teema
 „$2“
 öm $4 Uhr aam $3 op dä Sigg $5
-dobei jekumme es.
+dobei jekumme es.  Jeschrwevve däd_en {{GENDER:$8|dä|dat|dä Metmaacher|de|et}} $8
+
 Beloore kanns de dä op
 <$6>
+
+Der Täx es:
+$7
 
 Ene schööne Jrohß!',
 	'lqt-enotif-reply' => 'Leeven $1,
@@ -10772,7 +10789,8 @@ dat hee es en Nohreesch {{GRAMMAR:Genitiv vun|{{SITENAME}}}},
 dat ene neue Beijdraach zom {{int:lqt-history-thread}} zom Teema
 „$2“
 öm $4 Uhr aam $3 op dä Sigg $5
-dobei jekumme es.
+dobei jekumme es. Jeschrwevve däd_en {{GENDER:$8|dä|dat|dä Metmaacher|de|et}} $8
+
 Beloore kanns de dä op
 <$6>
 
@@ -10826,8 +10844,8 @@ De „Ongerschreff“ weed automattesch jezeijsch.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antwoote vun dä {{PLURAL:$2|Sigg|Sigge}}: $1',
 	'lqt-feed-new-thread-intro' => 'Ene neuje Jeshprääschßfäddem, dä hät {{GENDER:$4|dä|et|dä Medtmaacher|de|dat}} $2 op dä Sigg „$1“ opjemaat.',
 	'lqt-feed-reply-intro' => '{{GENDER:$4|Dä|Et|Dä Medtmaacher|De|Dat}} $2 hät en Antwoot en dä {{int:lqt-history-thread}} „$3“ op de Sigg „$1“ jeschrevve.',
-	'lqt-newmessages-n' => 'Neu Nohreeschte ($1)',
-	'lqt_newmessages' => 'Neu Nohreschte',
+	'lqt-newmessages-n' => 'ming {{PLURAL:$1|neu Nohreesch|$1 neu Nohreeschte|0 neu Nohreeschte}}',
+	'lqt_newmessages' => 'ming 0 Nohreeschte',
 	'lqt_newmessages-title' => 'Neu Nohreeschte',
 	'lqt-newpost-summary' => 'Ene neue {{int:lqt-history-thread}}:$1',
 	'lqt-reply-summary' => 'Antwoot op [[$2|$1]]',
@@ -11668,16 +11686,22 @@ $messages['mk'] = array(
 	'lqt-preference-custom-signatures' => 'Прикажувај прилагодени кориснички потписи',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} разговор - Одговор: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} разговор - Нова нишка: $1',
-	'lqt-enotif-newthread' => 'Здраво $1,
-Ве известуваме дека на {{SITENAME}} е создадена нова нишка „$2“ на страницата $5 на $3 во $4.
+	'lqt-enotif-newthread' => '
+Здраво $1,
 
-Можете да ја погледате на <$6>',
+ова е известување од {{SITENAME}} дека на страницата $5 на $3 во $4 ч. е создадена нова нишка „$2“,
+од страна на корисникот $8
+
+Можете да ја погледате на <$6>
+
+Текстот гласи:
+$7',
 	'lqt-enotif-reply' => 'Здраво $1,
-Ве известуваме дека на {{SITENAME}} има нов одговор на „$2“ за $5,
-даден на $3 во $4 ч.
+
+ова е известување од {{SITENAME}} дека на страницата $5 на $3 во $4 ч. 
+е објавен одговор на „$2“ од страна на корисникот $8
 
 Можете да го погледате на <$6>
-
 Текстот на одговорот гласи:
 $7',
 	'lqt-quote-intro' => 'На $2 во $3, [[User:$1|$1]] напиша:',
@@ -12111,10 +12135,20 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aurora
  */
 $messages['ms'] = array(
+	'lqt_header_warning_bold' => 'pengatas laman perbincangan',
+	'lqt-no-new-messages' => 'Anda tiada pesanan baru.',
+	'lqt-new-messages' => '✒ Anda ada pesanan baru.',
+	'lqt-newmessages-context' => 'Tred penuh',
 	'lqt-header-actions' => 'Tindakan',
+	'lqt-newmessages-from' => 'Dari $1',
+	'searchprofile-threads' => 'Perbincangan',
+	'lqt-newmessages-n' => 'Pesanan baru ($1)',
+	'lqt_newmessages' => 'Pesanan baru',
+	'lqt_newmessages-title' => 'Pesanan baru',
 );
 
 /** Maltese (Malti)
@@ -13493,18 +13527,21 @@ Aby tego uniknąć, rozgałęź wątki odpowiedzi przed jej usunięciem.',
 	'lqt-preference-custom-signatures' => 'Pokaż niestandardowe podpisy użytkowników',
 	'lqt-enotif-subject-reply' => 'Dyskusja w {{GRAMMAR:MS.lp|{{SITENAME}}}}. Odpowiedź w wątku $1',
 	'lqt-enotif-subject-newthread' => 'Dyskusja w {{GRAMMAR:MS.lp|{{SITENAME}}}}. Nowy wątek – $1',
-	'lqt-enotif-newthread' => "Witaj $1!
-To jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że
-o $4 $3 utworzono nowy wątek '$2' na stronie dyskusji $5.
+	'lqt-enotif-newthread' => 'Witaj $1!
 
-Możesz go zobaczyć pod adresem <$6>",
+To jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że $3 o $4 na stronie dyskusji $5, $8 utworzył nowy wątek „$2”.
+
+Możesz go zobaczyć pod adresem <$6>
+
+Treść to:
+$7',
 	'lqt-enotif-reply' => 'Witaj $1!
-To jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że ktoś odpowiedział w wątku „$2” na stronie $5,
-o $3 dnia $4. 
 
-Możesz zobaczyć wątek pod adresem <$6>
+To jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że $3 o $4 na stronie dyskusji $5, $8 odpowiedział w wątku „$2”.
 
-Treść odpowiedzi znajduje się pod adresem
+Możesz ją zobaczyć pod adresem <$6>
+
+Treść odpowiedzi to:
 $7',
 	'lqt-quote-intro' => 'Dnia $2 o $3 [[User:$1|$1]] napisał(a):',
 	'lqt-quote' => 'Cytuj',
@@ -13766,12 +13803,16 @@ Për evité sòn, ch'a-j separa da costa discussion prima dë scancelela.",
 	'lqt-enotif-subject-newthread' => 'Discussion ëd {{SITENAME}} - Discussion neuva: $1',
 	'lqt-enotif-newthread' => "Cerea $1,
 Costa a l'é na notìfica da {{SITENAME}} che na discussion neuva su $5, '$2',
-a l'é stàita creà ël $3 a $4.
+a l'é stàita creà ël $3 a $4 sa $8.
 
-A peul vëddla su <$6>",
+A peul vëddla su <$6>
+
+Ë test a 'é:
+$7",
 	'lqt-enotif-reply' => "Cerea $1,
+
 Costa a l'é na notìfica da {{SITENAME}} che n'arspòsta neuva a '$2' su $5,
-a l'é stàita creà ël $3 a $4.
+a l'é stàita creà ël $3 a $4 da $8.
 
 A peul vëddla su <$6>
 
@@ -17969,14 +18010,19 @@ Upang maiwasan ito, hatiin sila mula sa sinulid na ito bago ito burahin.',
 	'lqt-preference-custom-signatures' => 'Ipakita ang pasadyang mga lagda ng tagagamit',
 	'lqt-enotif-subject-reply' => 'Talakayan sa {{SITENAME}} - Tugon: $1',
 	'lqt-enotif-subject-newthread' => 'Talakayan sa {{SITENAME}} - Bagong sinulid: $1',
-	'lqt-enotif-newthread' => "Kumusta $1,
-Isa itong pagbibigay-alam mula sa {{SITENAME}} na isang bagong sinulid sa $5, '$2',
-ang nalikha noong $3 noong $4.
+	'lqt-enotif-newthread' => "Kumusta ka $1,
 
-Makikita mo ito sa <$6>",
-	'lqt-enotif-reply' => "Kumusta $1, 
-Ito ay isang pabatid mula sa {{SITENAME}} na ang isang bagong tugon sa '$2' na nasa $5, 
-ay nalikha noong $3 noong $4. 
+Isa itong pagbibigay-alam mula sa {{SITENAME}} na may isang bagong sinulid sa $5, '$2',
+na nalikha ni $8 noong $3 sa ganap na ika-$4.
+
+Makikita mo ito sa <$6>
+
+Ang teksto ay:
+$7",
+	'lqt-enotif-reply' => "Kumusta ka $1,
+ 
+Isa itong pabatid mula sa {{SITENAME}} na may isang bagong tugon sa '$2' na nasa $5, 
+na nalikha ni $8 noong $3 sa ganap na ika-$4. 
 
 Makikita mo ito sa <$6> 
 
@@ -19126,17 +19172,22 @@ Bạn có thể sử dụng cú pháp wiki trong tóm tắt. Khi nào xong, hãy
 	'lqt-enotif-subject-reply' => 'Thảo luận {{SITENAME}} – Trả lời: $1',
 	'lqt-enotif-subject-newthread' => 'Thảo luận {{SITENAME}} – Luồng mới: $1',
 	'lqt-enotif-newthread' => 'Chào $1,
-Đây là lời thông báo từ {{SITENAME}} về luồng mới về $5, "$2",
-được tạo ra ngày $3 lúc $4.
 
-Bạn có thể đọc nó tại <$6>',
-	'lqt-enotif-reply' => 'Chào $1,
-Đây là lời thông báo từ {{SITENAME}} rằng “$2” có trả lời mới về $5,
-vào ngày $3 lúc $4.
+Đây là lời thông báo từ {{SITENAME}} về luồng mới về $5, "$2",
+được $8 tạo ra vào $3 lúc $4.
 
 Bạn có thể đọc nó tại <$6>
 
-The text of the reply is:
+Văn bản là:
+$7',
+	'lqt-enotif-reply' => 'Chào $1,
+
+Đây là lời thông báo từ {{SITENAME}} rằng "$2" có trả lời mới về $5,
+do $8 tạo ra vào $3 lúc $4.
+
+Bạn có thể đọc nó tại <$6>
+
+Văn bản trả lời là:
 $7',
 	'lqt-quote-intro' => 'Ngày $2 lúc $3, [[User:$1|Thành viên:$1]] viết:',
 	'lqt-quote' => 'Trích dẫn',
