@@ -9659,6 +9659,7 @@ La firma è mostrata automaticamente.',
  * @author Fryed-peach
  * @author Hosiryuhosi
  * @author JtFuruhata
+ * @author Ohgi
  * @author Whym
  * @author 青子守歌
  */
@@ -9839,15 +9840,21 @@ $messages['ja'] = array(
 	'lqt-enotif-subject-reply' => '{{SITENAME}} の討論 - 返信: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} の討論 - 新スレッド: $1',
 	'lqt-enotif-newthread' => 'こんにちは、$1 さん。
-これは {{SITENAME}} からの、$5 でスレッド「$2」が $3 $4 に作成されたことのお知らせです。
-
-<$6> で確認できます。',
-	'lqt-enotif-reply' => 'こんにちは、$1 さん。
-これは {{SITENAME}} からの、$5でスレッド「$2」への新しい返信が$3の$4にあったことのお知らせです。
+これは {{SITENAME}} からの、$5 でスレッド「$2」が
+$8 によって $3 $4 に作成されたことのお知らせです。
 
 <$6> で確認できます。
 
-返信メッセージは次のとおりです：
+内容は、次のとおりです:
+$7',
+	'lqt-enotif-reply' => 'こんにちは、$1 さん。
+
+これは {{SITENAME}} の $5 でスレッド「$2」への新しい返信が、
+$8 によって $3 $4 にあったことのお知らせです。
+
+<$6> で確認できます。
+
+返信内容は次のとおりです：
 $7',
 	'lqt-quote-intro' => '$2 $3に[[User:$1|$1]]が書きました:',
 	'lqt-quote' => '引用',
@@ -10844,8 +10851,8 @@ De „Ongerschreff“ weed automattesch jezeijsch.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antwoote vun dä {{PLURAL:$2|Sigg|Sigge}}: $1',
 	'lqt-feed-new-thread-intro' => 'Ene neuje Jeshprääschßfäddem, dä hät {{GENDER:$4|dä|et|dä Medtmaacher|de|dat}} $2 op dä Sigg „$1“ opjemaat.',
 	'lqt-feed-reply-intro' => '{{GENDER:$4|Dä|Et|Dä Medtmaacher|De|Dat}} $2 hät en Antwoot en dä {{int:lqt-history-thread}} „$3“ op de Sigg „$1“ jeschrevve.',
-	'lqt-newmessages-n' => 'ming {{PLURAL:$1|neu Nohreesch|$1 neu Nohreeschte|0 neu Nohreeschte}}',
-	'lqt_newmessages' => 'ming 0 Nohreeschte',
+	'lqt-newmessages-n' => '<span title="{{PLURAL:$1|ein neu Nohreesch|$1 neu Nohreeschte|kein neu Nohreeschte}}">ming Nohreeschte</span>',
+	'lqt_newmessages' => '<span title="nix Neues">ming Nohreeschte</span>',
 	'lqt_newmessages-title' => 'Neu Nohreeschte',
 	'lqt-newpost-summary' => 'Ene neue {{int:lqt-history-thread}}:$1',
 	'lqt-reply-summary' => 'Antwoot op [[$2|$1]]',
@@ -11467,6 +11474,7 @@ $messages['lt'] = array(
  * @author Dark Eagle
  */
 $messages['ltg'] = array(
+	'lqt_protectedfromreply_link' => 'aizsorguota',
 	'lqt-ajax-update-link' => 'Atjaunynuot',
 );
 
@@ -14133,12 +14141,17 @@ Para evitá-lo, separe-as antes de apagar o tópico.',
 	'lqt-enotif-subject-reply' => 'Discussão na {{SITENAME}} - Resposta: $1',
 	'lqt-enotif-subject-newthread' => 'Discussão na {{SITENAME}} - Tópico novo: $1',
 	'lqt-enotif-newthread' => "Olá $1,
-Esta é uma notificação da {{SITENAME}} de que foi criado um tópico novo na página $5, com o assunto '$2', a $3 às $4.
 
-Pode vê-lo em <$6>",
+Esta é uma notificação da {{SITENAME}}, de que foi criado um tópico novo na página $5, com o assunto '$2', às $4 de $3, por $8.
+
+Pode vê-lo em <$6>
+
+O texto é:
+$7",
 	'lqt-enotif-reply' => "Olá $1,
-Esta é uma notificação da {{SITENAME}} de que foi criada uma resposta nova ao tópico '$2', na página $5,
-a $3 às $4.
+
+Esta é uma notificação da {{SITENAME}}, de que foi criada uma resposta nova ao tópico '$2', na página $5, às $4
+de $3, por $8.
 
 Pode vê-la em <$6>
 
