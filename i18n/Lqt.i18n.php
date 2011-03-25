@@ -7052,12 +7052,17 @@ Para evitar isto, sepáreas deste fío antes de borralo.',
 	'lqt-enotif-subject-reply' => 'Conversa {{SITENAME}} - Resposta: $1',
 	'lqt-enotif-subject-newthread' => 'Conversa {{SITENAME}} - Novo fío: $1',
 	'lqt-enotif-newthread' => 'Ola $1:
-Esta é unha notificación de {{SITENAME}} que informa de que se creou un novo fío en $5, "$2",
+
+Esta é unha notificación de {{SITENAME}} que informa de que $8 creou un novo fío en $5, "$2",
 o $3 ás $4.
 
-Pode velo en <$6>',
+Pode velo en <$6>
+
+O texto é:
+$7',
 	'lqt-enotif-reply' => 'Ola $1:
-Esta é unha notificación de {{SITENAME}} que informa de que se creou unha nova resposta a "$2" en $5
+
+Esta é unha notificación de {{SITENAME}} que informa de que $8 creou unha nova resposta a "$2" en $5
 o $3 ás $4.
 
 Pode vela en <$6>
@@ -12444,18 +12449,21 @@ Splits dit overleg alvorens het te verwijderen om dit te voorkomen.',
 	'lqt-preference-custom-signatures' => 'Aangepaste gebruikersondertekeningen weergeven',
 	'lqt-enotif-subject-reply' => 'Overleg op {{SITENAME}} - Antwoord: $1',
 	'lqt-enotif-subject-newthread' => 'Overleg op {{SITENAME}} - Nieuw overleg: $1',
-	'lqt-enotif-newthread' => "Hallo $1,
+	'lqt-enotif-newthread' => 'Hallo $1,
 
-Dit is een kennisgeving van {{SITENAME}}. Er is een nieuw onderwerp '$2' op $5 geplaatst op $3 om $4.
-
-U kunt het bekijken op <$6>.",
-	'lqt-enotif-reply' => 'Hallo $1,
-
-Dit is een kennisgeving van {{SITENAME}}. Er is een nieuwe reactie op "$2" op $5 gekomen op $3 om $4.
+Dit is een kennisgeving van {{SITENAME}}. Er is een nieuw onderwerp "$2" op $5 geplaatst door $8 op $3 om $4.
 
 U kunt het bekijken op <$6>.
 
-Hieronder staat de reactie:
+De inhoud is:
+$7',
+	'lqt-enotif-reply' => 'Hallo $1,
+
+Dit is een kennisgeving van {{SITENAME}}. Er is een nieuwe reactie op "$2" op $5 gekomen van $8 op $3 om $4.
+
+U kunt het bekijken op <$6>.
+
+De inhoud is:
 $7',
 	'lqt-quote-intro' => 'Op $2 om $3 schreef [[User:$1|$1]]:',
 	'lqt-quote' => 'Citeren',
@@ -15954,9 +15962,12 @@ Ak tomu chcete zabrániť, oddeľte ich od tohto vlákna predtým, než ho zmaž
 	'lqt-enotif-subject-newthread' => 'Diskusia {{GRAMMAR:genitív|{{SITENAME}}}} - Nové vlákno: $1',
 	'lqt-enotif-newthread' => 'Ahoj $1,
 toto je oznámenie z {{GRAMMAR:genitív|{{SITENAME}}}}, že nové vlákno $5, „$2“,
-bolo vytvorené $3 $4.
+$3 $4 vytvoril $8.
 
-Môžete si ho pozrieť na <$6>',
+Môžete si ho pozrieť na <$6>
+
+Text je:
+$7',
 	'lqt-enotif-reply' => 'Ahoj $1,
 toto je oznámenie z {{GRAMMAR:genitív|{{SITENAME}}}}, že nová odpoveď na $5, „$2“,
 bola pridaná $3 $4.
