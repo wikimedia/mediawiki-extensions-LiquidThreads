@@ -287,8 +287,10 @@ The signature is shown automatically.',
 	'lqt-feed-new-thread-intro' => 'New thread on $1 posted by $2',
 	'lqt-feed-reply-intro' => 'Reply to $3 (on $1) posted by $2',
 
-	'lqt-newmessages-n' => 'New messages ($1)',
-	'lqt_newmessages' => 'New messages',
+	// Personal tool links
+	'tooltip-pt-newmessages' => 'Shows new posts to threads or on threaded talk pages you are watching',
+	'lqt-newmessages-n' => 'My new messages ($1)',
+	'lqt_newmessages' => 'My new messages (None)',
 	'lqt_newmessages-title' => 'New messages',
 
 	// Automatic summaries
