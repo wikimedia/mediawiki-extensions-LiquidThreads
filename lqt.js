@@ -13,7 +13,7 @@ jQuery.getCSS = function( url, media ) {
 	}).appendTo('head');
 };
 
-var liquidThreads = {
+window.liquidThreads = {
 	currentReplyThread : null,
 	currentToolbar : null,
 
