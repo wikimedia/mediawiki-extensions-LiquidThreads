@@ -4883,9 +4883,8 @@ Eble ĝi estas:
 	'lqt_protectedfromreply_link' => 'protektita',
 	'lqt_subject' => 'Subjekto:',
 	'lqt_noreason' => 'Nenia kialo donata',
-	'lqt_move_placeholder' => 'Ĉi tiu fadeno estis anstataŭigo indikante ke fadeno, $1, estis movita de ĉi tiu paĝo.
-Ĉi tiu movo estis farita de $2 je $3, $4.
-La fadeno nun lokas ĉe $5.',
+	'lqt_move_placeholder' => 'Diskutfadeno, $1, estis movita de ĉi tie al $5.
+La movon faris $2 je $3, $4.',
 	'lqt_thread_deleted_for_sysops' => "Ĉi tiu fadeno estis '''forigita''' kaj nur estas videbla al administrantoj.",
 	'lqt_thread_deleted' => 'Ĉi tiu fadeno estis forigita.',
 	'lqt_summary_notice' => 'Estis neniu ŝanĝo al ĉi tiu diskuto por almenaŭ $2 {{PLURAL:$2|tago|tagoj}}.
@@ -5901,10 +5900,15 @@ $messages['fa'] = array(
 	'lqt-enotif-subject-reply' => 'بحث {{SITENAME}} - پاسخ: $1',
 	'lqt-enotif-subject-newthread' => 'بحث {{SITENAME}} - مبحث جدید: $1',
 	'lqt-enotif-newthread' => "سلام $1،
-این یک اطلاعیه از {{SITENAME}} است که یک مبحث جدید در $5، '$2'، در تاریخ $3 در زمان $4 ایجاد شد.
-شما می‌توانید آن را در <$6> ببینید.",
+
+این یک اطلاعیه از {{SITENAME}} است که یک مبحث جدید در $5، '$2'، در تاریخ $3 در ساعت $4 توسط $8 ایجاد شد.
+
+شما می‌توانید آن را در <$6> ببینید.
+
+متن پاسخ بدین شرح است:
+$7",
 	'lqt-enotif-reply' => "سلام $1،
-این یک اطلاعیه از سوی {{SITENAME}} است که در تاریخ $3 در ساعت $4، پاسخی جدید به '$2' در $5 ایجاد شده است.
+این یک اطلاعیه از سوی {{SITENAME}} است که در تاریخ $3 در ساعت $4 توسط $8، پاسخی جدید به '$2' در $5 ایجاد شده است.
 
 شما می‌توانید آن را در <$6> ببینید.
 
@@ -5957,7 +5961,7 @@ $1',
 	'lqt-feed-new-thread-intro' => 'مبحث جدید در $1 فرستاده شده توسط $2',
 	'lqt-feed-reply-intro' => 'پاسخ به $3 (در $1) فرستاده شده توسط $2',
 	'lqt-newmessages-n' => 'پیام‌های جدید ($1)',
-	'lqt_newmessages' => 'پیام‌های جدید',
+	'lqt_newmessages' => 'پیام‌های جدید من (هیچ)',
 	'lqt_newmessages-title' => 'پیام‌های جدید',
 	'lqt-newpost-summary' => 'مبحث جدید: $1',
 	'lqt-reply-summary' => 'پاسخ به [[$2|$1]]',
@@ -6511,7 +6515,7 @@ La signature est affichée automatiquement.',
 	'lqt-feed-new-thread-intro' => 'Nouveau fil de discussion sur $1 posté par $2',
 	'lqt-feed-reply-intro' => 'Réponse à $3 (sur $1) postée par $2',
 	'lqt-newmessages-n' => 'Nouveaux messages ($1)',
-	'lqt_newmessages' => 'Nouveaux messages',
+	'lqt_newmessages' => 'Nouveaux messages (aucun)',
 	'lqt_newmessages-title' => 'Nouveaux messages',
 	'lqt-newpost-summary' => 'Nouveau fil : $1',
 	'lqt-reply-summary' => 'Répondre à [[$2|$1]]',
@@ -9921,8 +9925,9 @@ $7',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1からの返信',
 	'lqt-feed-new-thread-intro' => '$1に$2が投稿した新規スレッド',
 	'lqt-feed-reply-intro' => '$2が$1に投稿した$3への返信',
+	'tooltip-pt-newmessages' => 'ご覧のスレッドもしくはスレッドのトークページにおける新たな投稿を表示',
 	'lqt-newmessages-n' => '新しいメッセージ ($1)',
-	'lqt_newmessages' => '新しいメッセージ',
+	'lqt_newmessages' => '新しいメッセージ(なし)',
 	'lqt_newmessages-title' => '新しいメッセージ',
 	'lqt-newpost-summary' => '新規スレッド: $1',
 	'lqt-reply-summary' => '[[$2|$1]] への返信',
@@ -12272,8 +12277,76 @@ $messages['nds-nl'] = array(
  * @author Bhawani Gautam Rhk
  */
 $messages['ne'] = array(
+	'lqt_toc_thread_author' => 'आरम्भ कर्ता',
+	'lqt_toc_thread_replycount' => 'उत्तरहरु',
+	'lqt_toc_thread_modified' => 'पछिल्लो संशोधन',
+	'lqt_add_header' => 'शीर्षक जोड़ने',
+	'lqt_new_thread' => 'नयाँ चर्चा सुरु गर्ने',
+	'lqt_invalid_subject' => 'The subject you entered is invalid.
+It may:
+* Be too long, or
+* Conflict with interwiki prefixes or namespace names.
+
+तापाईंले हालेको विषय अमान्य छ।
+यो:
+* अति लामो भएको   अथवा
+* अन्तर विकि उपसर्ग अथवा नेमस्पेस (नामस्थान)सित अन्तर विरोधि भएकोछ।',
+	'lqt_reply' => 'जवाब दिने',
+	'lqt-parent' => 'जनक',
+	'lqt_delete' => 'मेट्ने',
+	'lqt_undelete' => 'मेटेको रद्द गर्ने',
+	'lqt_permalink' => 'यो सित लिंक गर्ने',
+	'lqt_discussion_link' => 'चर्चा',
+	'lqt_from_talk' => ' $1बाट',
+	'lqt_hist_moved_talkpage' => 'सारियो',
+	'lqt_hist_edited_subject' => '"$3"बाट "$2"मा विषय सारिएको',
+	'lqt_hist_edited_subject_corrupt' => 'विषय सारियो',
+	'lqt_revision_as_of' => '$2को संशोधन समय $3मा',
+	'lqt_protectedfromreply_link' => 'सुरक्षित',
+	'lqt_subject' => 'विषय:',
+	'lqt_noreason' => 'कारण दिइएको छैन',
+	'lqt_summary_subtitle' => '"$1"को सारांश',
+	'lqt_move_move' => 'सार्ने',
+	'lqt_delete_return' => '$1मा फर्कने',
+	'lqt_header_warning_big' => 'तपाईं एउटा $1 संपादन गर्नुहुँदैछ।',
+	'lqt-title' => 'शीर्षक',
+	'lqt-read-message' => 'पढेकोमा चिह्नित गर्ने',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|सन्देश|सन्देशहरु}}लाई पढिएकोमा चिह्नित गर्ने',
+	'lqt-history-time' => 'समय',
+	'lqt-history-user' => 'प्रयोगकर्ता',
+	'lqt-history-action' => 'क्रियाकलाप',
+	'lqt-history-comment' => 'टिप्पणी',
+	'lqt-header-actions' => 'कार्यहरु',
+	'lqt-menu-trigger' => 'थप',
+	'lqt-newmessages-from' => '$1बाट',
+	'lqt-hot-topics' => 'जल्दोबल्दो विषय',
+	'lqt-add-reply' => 'जवाब जोड़ने',
+	'lqt_rc_new_reply' => '"$1"लाई जवाब पठाइयो',
+	'lqt-merge-submit' => 'मिसाउने',
+	'lqt-enotif-newthread' => "$1जी,
+{{SITENAME}}बाट यो सूचना दिइन्छ कि $5माथि एउटा नयाँ सूत्र(thread) '$2',
+$8द्वारा $3 कोदिन $4मा सृजना गरिएको थियो
+
+तपाईंले यसलाई <$6>मा हेर्न सक्नुहुनेछ
+
+जसको पाठ थियो:
+$7",
+	'lqt-enotif-reply' => "$1जी,
+{{SITENAME}}बाट यो सूचना दिइन्छ कि $5माथि एउटा नयाँ उत्तर '$2'लाई,
+$8द्वारा $3 कोदिन $4मा सृजना गरिएको थियो
+
+तपाईंले यसलाई <$6>मा हेर्न सक्नुहुनेछ
+
+उत्तरको पाठ थियो:
+$7",
+	'lqt-ajax-update-link' => 'अद्यतन गर्ने',
+	'lqt-thread-link-copy' => 'क्लिपबोर्डमा कपी गर्ने',
+	'lqt-change-subject' => 'विषय सार्ने',
+	'lqt-ajax-no-subject' => 'तपाईंले विषय निर्दिष्ट गर्नै पर्छ',
+	'lqt-cancel-subject-edit' => 'रद्द गर्ने',
+	'lqt-feed-title-all' => '{{SITENAME}} — नयाँ पोस्ट',
 	'lqt-newmessages-n' => 'नयाँ सन्देशहरु ($1)',
-	'lqt_newmessages' => 'नयाँ सन्देशहरु',
+	'lqt_newmessages' => 'मेरा नयाँ सन्देशहरु (छैनन्)',
 	'lqt_newmessages-title' => 'नयाँ सन्देशहरू',
 );
 
@@ -12529,6 +12602,7 @@ Wijzig het onderwerp door op "Bewerken" te klikken in de bovenste bijdrage.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — {{PLURAL:$2|Reactie|Reacties}} van $1',
 	'lqt-feed-new-thread-intro' => 'Nieuw onderwerp op $1 door $2',
 	'lqt-feed-reply-intro' => 'Reactie op $3 (op $1) door $2',
+	'tooltip-pt-newmessages' => "Nieuwe berichten weergeven in onderwerpen en pagina's die u volgt",
 	'lqt-newmessages-n' => 'Nieuwe berichten ($1)',
 	'lqt_newmessages' => 'Nieuwe berichten (0)',
 	'lqt_newmessages-title' => 'Nieuwe berichten',
@@ -13901,7 +13975,7 @@ La firma a l'é mostrà automaticament.",
 	'lqt-feed-reply-intro' => 'Arspòsta a $3 (ël $1) mandà da $2',
 	'tooltip-pt-newmessages' => "A mosta ij mëssagi neuv a thread o su pàgine ëd discussion a thread ch'it ten-e sot euj",
 	'lqt-newmessages-n' => 'Mëssagi neuv ($1)',
-	'lqt_newmessages' => 'Mëssagi neuv',
+	'lqt_newmessages' => 'Mè mëssagi neuv (Gnun)',
 	'lqt_newmessages-title' => 'Mëssagi neuv',
 	'lqt-newpost-summary' => 'Discussion neuva: $1',
 	'lqt-reply-summary' => 'Arspòsta a [[$2|$1]]',
@@ -15742,8 +15816,9 @@ $7',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Хоруйдар $1',
 	'lqt-feed-new-thread-intro' => 'Манна $1 $2 оҥорбут саҥа салаата',
 	'lqt-feed-reply-intro' => '$3 сурукка хоруй ($1) манна баар $2',
+	'tooltip-pt-newmessages' => 'Эн кэтиир салааларгар уонна ырытыыларгар саҥа суруктары көрдөрөр',
 	'lqt-newmessages-n' => 'Саҥа этиилэр ($1)',
-	'lqt_newmessages' => 'Саҥа этиилэр',
+	'lqt_newmessages' => 'Саҥа этиилэрим (Суох)',
 	'lqt_newmessages-title' => 'Саҥа этиилэр',
 	'lqt-newpost-summary' => 'Саҥа салаа: $1',
 	'lqt-reply-summary' => 'Манна [[$2|$1]] хоруй',
@@ -16912,6 +16987,7 @@ $messages['su'] = array(
  * @author Rotsee
  * @author Sertion
  * @author Skalman
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'lqt-desc' => 'Lägger till trådade diskussioner till diskussionssidor',
@@ -17101,13 +17177,16 @@ För att undvika detta, splitta dem från denna tråd innan du raderar den.',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-diskussion - Ny tråd: $1',
 	'lqt-enotif-newthread' => "Hej $1,
 
-Detta är ett meddelande från {{SITENAME}} att en ny tråd på $5, '$2', har skapats den $3 klockan $4.
+Detta är ett meddelande från {{SITENAME}} om att det finns en ny tråd på $5, '$2', som skapades den $3 klockan $4 av $8.
 
-Du kan läsa tråden på <$6>",
+Du kan läsa tråden på <$6>
+
+Texten är:
+$7",
 	'lqt-enotif-reply' => "Hej $1,
 
 Det här är ett meddelande från {{SITENAME}} om ett nytt svar på '$2' på $5
-skapades den $3 klockan $4.
+skapades den $3 klockan $4 av $8.
 
 Du kan läsa svaret på <$6>
 
@@ -17158,8 +17237,8 @@ Signaturen visas automatiskt.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Svar från $1',
 	'lqt-feed-new-thread-intro' => 'Ny tråd på $1 postad av $2',
 	'lqt-feed-reply-intro' => 'Svar till $3 (på $1) postad av $2',
-	'lqt-newmessages-n' => 'Nya meddelanden ($1)',
-	'lqt_newmessages' => 'Nya meddelanden',
+	'lqt-newmessages-n' => 'Mina nya meddelanden ($1)',
+	'lqt_newmessages' => 'Mina nya meddelanden (0)',
 	'lqt_newmessages-title' => 'Nya meddelanden',
 	'lqt-newpost-summary' => 'Ny tråd: $1',
 	'lqt-reply-summary' => 'Svar på [[$2|$1]]',
