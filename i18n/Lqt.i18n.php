@@ -10315,7 +10315,7 @@ $messages['km'] = array(
 	'lqt_summarize_link' => 'សង្ខេប​',
 	'lqt-search-button' => 'ស្វែង​រក​',
 	'lqt-newmessages-n' => 'សារថ្មីៗ ($1)',
-	'lqt_newmessages' => 'សារថ្មីៗ',
+	'lqt_newmessages' => 'សារថ្មីៗ (គ្មាន)',
 	'lqt_newmessages-title' => 'សារថ្មីៗ',
 );
 
@@ -13058,13 +13058,18 @@ For å unngå dette, del svarene fra denne tråden før du sletter den.',
 	'lqt-enotif-subject-reply' => '{{SITENAME}}-diskusjon - Svar: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-diskusjon - Ny tråd: $1',
 	'lqt-enotif-newthread' => "Hei $1,
-Dette er et varsel fra {{SITENAME}} om at en ny tråd på $5, '$2',
-ble opprettet den $3 klokka $4.
 
-Du kan se den på <$6>",
+Dette er et varsel fra {{SITENAME}} om at en ny tråd på $5, '$2',
+ble opprettet den $3 klokka $4 av $8
+
+Du kan se den på <$6>
+
+Teksten er:
+$7",
 	'lqt-enotif-reply' => "Hei $1.
+
 Dette er et varsel fra {{SITENAME}} om at et nytt svar til '$2' på $5,
-ble opprettet den $3 klokka $4.
+ble opprettet den $3 klokka $4 av $8
 
 Du kan se den på <$6>
 
@@ -13115,8 +13120,9 @@ Signaturen vises automatisk.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} – Svar fra $1',
 	'lqt-feed-new-thread-intro' => 'Ny tråd på $1 postet av $2',
 	'lqt-feed-reply-intro' => 'Svar til $3 (på $1) postet av $2',
+	'tooltip-pt-newmessages' => 'Viser nye innlegg i tråder eller i trådete diskusjonssider som du overvåker',
 	'lqt-newmessages-n' => 'Nye meldinger ($1)',
-	'lqt_newmessages' => 'Nye beskjeder',
+	'lqt_newmessages' => 'Nye meldinger (Ingen)',
 	'lqt_newmessages-title' => 'Nye meldinger',
 	'lqt-newpost-summary' => 'Ny tråd: $1',
 	'lqt-reply-summary' => 'Svar på [[$2|$1]]',
@@ -17569,7 +17575,7 @@ $messages['te'] = array(
 	'lqt-feed-title-replies' => '{{SITENAME}} — స్పందనలు',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1 నుండి స్పందనలు',
 	'lqt-newmessages-n' => 'కొత్త సందేశాలు ($1)',
-	'lqt_newmessages' => 'కొత్త సందేశాలు',
+	'lqt_newmessages' => 'నా కొత్త సందేశాలు (ఏమీలేవు)',
 	'lqt_newmessages-title' => 'కొత్త సందేశాలు',
 	'lqt-newpost-summary' => 'కొత్త చర్చాహారం: $1',
 	'lqt-reply-summary' => '[[$2|$1]]కి స్పందన',
