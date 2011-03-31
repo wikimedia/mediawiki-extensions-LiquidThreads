@@ -8415,7 +8415,7 @@ Podpis pokazuje so awtomatisce.',
 	'lqt-feed-reply-intro' => 'Wotmołwa na $3 (na $1) pósłana wot $2',
 	'tooltip-pt-newmessages' => 'Pokazuje nowe powěsće k nitkam abo na diskusijnych stronach nitkow, kotrež wobkedźbuješ',
 	'lqt-newmessages-n' => 'nowe powěsće ($1)',
-	'lqt_newmessages' => 'nowe powěsće',
+	'lqt_newmessages' => 'Nowe powěsće (žane)',
 	'lqt_newmessages-title' => 'Nowe powěsće',
 	'lqt-newpost-summary' => 'Nowa nitka: $1',
 	'lqt-reply-summary' => 'Wotmołwa na [[$2|$1]]',
@@ -12291,6 +12291,7 @@ It may:
 यो:
 * अति लामो भएको   अथवा
 * अन्तर विकि उपसर्ग अथवा नेमस्पेस (नामस्थान)सित अन्तर विरोधि भएकोछ।',
+	'lqt_empty_subject' => 'तपाईंले एउटा विषय दिनुपर्छ।',
 	'lqt_reply' => 'जवाब दिने',
 	'lqt-parent' => 'जनक',
 	'lqt_delete' => 'मेट्ने',
@@ -12302,6 +12303,7 @@ It may:
 	'lqt_hist_edited_subject' => '"$3"बाट "$2"मा विषय सारिएको',
 	'lqt_hist_edited_subject_corrupt' => 'विषय सारियो',
 	'lqt_revision_as_of' => '$2को संशोधन समय $3मा',
+	'lqt_youhavenewmessages' => ' तपाईंलाई [[$1|नयाँ सन्देशहरु छन्]]।',
 	'lqt_protectedfromreply_link' => 'सुरक्षित',
 	'lqt_subject' => 'विषय:',
 	'lqt_noreason' => 'कारण दिइएको छैन',
@@ -12312,6 +12314,8 @@ It may:
 	'lqt-title' => 'शीर्षक',
 	'lqt-read-message' => 'पढेकोमा चिह्नित गर्ने',
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|सन्देश|सन्देशहरु}}लाई पढिएकोमा चिह्नित गर्ने',
+	'lqt-no-new-messages' => 'तपाईंलाई नयाँ सन्देशहरु छैनन्।',
+	'lqt-new-messages' => '✒ तपाईकोनिम्ति नयाँ सन्देशहरु छन्।',
 	'lqt-history-time' => 'समय',
 	'lqt-history-user' => 'प्रयोगकर्ता',
 	'lqt-history-action' => 'क्रियाकलाप',
@@ -13705,7 +13709,7 @@ Podpis jest wyświetlany automatycznie.',
 	'lqt-feed-reply-intro' => 'Odpowiedź w wątku $3 (na stronie $1) napisana przez $2',
 	'tooltip-pt-newmessages' => 'Pokazuje nowe wiadomości w obserwowanych wątkach lub na ich stronach dyskusji',
 	'lqt-newmessages-n' => 'Nowe wiadomości ($1)',
-	'lqt_newmessages' => 'Nowe wiadomości',
+	'lqt_newmessages' => 'Nowe wiadomości (brak)',
 	'lqt_newmessages-title' => 'Nowe wiadomości',
 	'lqt-newpost-summary' => 'Nowy wątek – $1',
 	'lqt-reply-summary' => 'Odpowiedz na [[$2|$1]]',
@@ -15026,13 +15030,19 @@ Pe evità stu fatte, apprime de scangellà divide l'argomende.",
 	'lqt-enotif-subject-reply' => "'Ngazzamende de {{SITENAME}} - Resposte: $1",
 	'lqt-enotif-subject-newthread' => "'Ngazzamende de {{SITENAME}} - Argomende nuève: $1",
 	'lqt-enotif-newthread' => "Cià $1,
-Queste jè 'na notifiche da {{SITENAME}} ca 'n'argomende nuève sus a $5, '$2', ha state ccrejate 'u $3 a le $4.
 
-Tu puè vedè a <$6>",
+Queste jè 'na notifiche da {{SITENAME}} ca 'n'argomende nuève sus a $5, '$2', ha state ccrejate 'u $3 a le $4 da $8
+
+
+Tu 'u puè vedè a <$6>
+
+'U teste jè:
+$7",
 	'lqt-enotif-reply' => "Cià $1,
-Queste jè 'na notifiche da {{SITENAME}} ca 'na resposta nova a '$2' sus a $5, ha state ccrejate 'u $3 a le $4.
 
-Tu puè vedè a <$6>
+Queste jè 'na notifiche da {{SITENAME}} ca 'na resposta nova a '$2' sus a $5, ha state ccrejate 'u $3 a le $4 da $8
+
+Tu 'a puè vedè a <$6>
 
 'U teste d'a resposte jè:
 $7",
@@ -15082,7 +15092,7 @@ $7",
 	'lqt-feed-new-thread-intro' => 'Argomende nuève sus a $1 lassate da $2',
 	'lqt-feed-reply-intro' => 'Resposte a $3 (sus a $1) lassate da $2',
 	'lqt-newmessages-n' => 'Messagge nuève ($1)',
-	'lqt_newmessages' => 'Messagge nuève',
+	'lqt_newmessages' => 'Le messagge nuève mije (Ninde)',
 	'lqt_newmessages-title' => 'Messagge nuève',
 	'lqt-newpost-summary' => 'Argomende nuève: $1',
 	'lqt-reply-summary' => 'Respunne a [[$2|$1]]',
@@ -19446,7 +19456,7 @@ $messages['wuu'] = array(
  */
 $messages['xal'] = array(
 	'lqt_youhavenewmessages' => 'Та [[$1|шин зәңгстә]] бәәнәт.',
-	'lqt_newmessages' => 'Шин зәңгс',
+	'lqt_newmessages' => 'Шин зәңгс (уга)',
 );
 
 /** Yiddish (ייִדיש)
