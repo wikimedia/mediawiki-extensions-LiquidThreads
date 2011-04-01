@@ -8148,7 +8148,7 @@ Potpis se prikazuje automatski.',
 	'lqt-feed-new-thread-intro' => 'Suradnik $2 započeo je nova tema o $1',
 	'lqt-feed-reply-intro' => 'Odgovor $3 (na $1) napisao je suradnik $2',
 	'lqt-newmessages-n' => 'Nove poruke ($1)',
-	'lqt_newmessages' => 'Nove poruke',
+	'lqt_newmessages' => 'Moje nove poruke (nema)',
 	'lqt_newmessages-title' => 'Nove poruke',
 	'lqt-newpost-summary' => 'Nova dretva: $1',
 	'lqt-reply-summary' => 'Odgovori na [[$2|$1]]',
@@ -9603,17 +9603,20 @@ Per evitarlo, dividi le risposte dal thread prima di cancellarlo.',
 	'lqt-enotif-subject-reply' => 'Discussione su {{SITENAME}} - Risposta: $1',
 	'lqt-enotif-subject-newthread' => 'Discussione su {{SITENAME}} - Nuovo thread: $1',
 	'lqt-enotif-newthread' => "Ciao $1,
-Questa notifica da {{SITENAME}} ti segnala che un nuovo thread su $5, '$2',
-è stato creato il $3 alle $4.
+questo messaggio ti è stato inviato da {{SITENAME}} per segnalarti che un nuovo thread su $5, '$2',
+è stato creato il $3 alle $4 da $8.
 
-Puoi leggerlo a <$6>",
+Puoi leggerlo a <$6>
+
+Il testo è:
+$7",
 	'lqt-enotif-reply' => "Ciao $1,
-questo messaggio ti viene inviato da {{SITENAME}} per avvisarti che una nuova risposta a '$2' su $5
-è stata postata il $3 alle $4.
+questo messaggio ti è stato inviato da {{SITENAME}} per segnalarti che una nuova risposta a '$2' su $5
+è stata creato il $3 alle $4 da $8.
 
-Puoi leggerla in <$6>
+Puoi leggerlo a <$6>
 
-Il testo della risposta è:
+Il testo è:
 $7",
 	'lqt-quote-intro' => 'Il $2 alle $3, [[User:$1|$1]] ha scritto:',
 	'lqt-quote' => 'Cita',
@@ -9660,7 +9663,7 @@ La firma è mostrata automaticamente.',
 	'lqt-feed-new-thread-intro' => 'Nuovo thread su $1 inserito da $2',
 	'lqt-feed-reply-intro' => 'Risposta a $3 (su $1) inserita da $2',
 	'lqt-newmessages-n' => 'nuovi messaggi ($1)',
-	'lqt_newmessages' => 'nuovi messaggi',
+	'lqt_newmessages' => 'nuovi messaggi (nessuno)',
 	'lqt_newmessages-title' => 'Nuovi messaggi',
 	'lqt-newpost-summary' => 'Nuova discussione: $1',
 	'lqt-reply-summary' => 'Risposta a [[$2|$1]]',
@@ -11158,6 +11161,7 @@ $7",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Äntwerte vum $1',
 	'lqt-feed-new-thread-intro' => 'Nei Rubrik iwwer $1 geschriwwe vum $2',
 	'lqt-feed-reply-intro' => 'Äntwert vum $2 op $3 (op $1)',
+	'tooltip-pt-newmessages' => 'Weist nei Noriichten a Rubriken oder op Diskussiounssäiten déi Dir iwwerwaacht',
 	'lqt-newmessages-n' => 'Nei Messagen ($1)',
 	'lqt_newmessages' => 'Meng nei Messagen (Keen)',
 	'lqt_newmessages-title' => 'Nei Messagen',
