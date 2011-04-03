@@ -343,7 +343,11 @@ class TalkpageView extends LqtView {
 		
 		// Workaround for bug 25077
 		global $wgOut, $wgUser;
-		$wgUser->getSkin()->setTitle( $wgOut->getTitle() );
+		$sk = $wgUser->getSkin();
+		if ( method_exists( $sk, 'setTitle' ) ) {
+			# Skin::setTitle was removed in 1.18, it already shares the same source of title with $wgOut.
+			$sk->setTitle( $wgOut->getTitle() );
+		}
 
 		return false;
 	}
