@@ -8,13 +8,6 @@
 class LiquidThreadsPost {
 
 	/* MEMBER VARIABLES */
-	/** The current LiquidThreadsPostVersion object. **/
-	protected $currentVersion;
-	/** The ID of the current version **/
-	protected $currentVersionID;
-	
-	/** The version that is being worked on by set methods **/
-	protected $pendingVersion;
 	
 	/** The unique ID for this Post **/
 	protected $id;
@@ -172,6 +165,43 @@ class LiquidThreadsPost {
 	/* SAVE CODE */
 	
 	/**
+	 * Returns the current version object.
+	 */
+	public function getCurrentVersion() {
+		if ( $this->currentVersion ) {
+			return $this->currentVersion;
+		} elseif ( $this->currentVersionID ) {
+			$this->currentVersion =
+				LiquidThreadsPostVersion::newFromID( $this->currentVersionID );
+			return $this->currentVersion;
+		} else {
+			throw new MWException( "No current version to retrieve" );
+		}
+	}
+	
+	/**
+	 * Returns the pending version object.
+	 * The pending version is the version being affected by set*() functions.
+	 * It is saved to the database when you call LiquidThreadsPost::commit()
+	 * If it doesn't exist, it will be created.
+	 */
+	public function getPendingVersion() {
+		if ( !$this->pendingVersion ) {
+			$this->pendingVersion = LiquidThreadsPostVersion::create( $this );
+		}
+		
+		return $this->pendingVersion;
+	}
+	
+	/**
+	 * Discard unsaved changes.
+	 */
+	public function reset() {
+		$this->pendingVersion->destroy();
+		$this->pendingVersion = null;
+	}
+	
+	/**
 	 * Commits pending changes to the database.
 	 * Internally, triggers a commit() operation on the current pending version.
 	 * @param $comment String: Optional edit comment for this operation.
@@ -221,43 +251,6 @@ class LiquidThreadsPost {
 	 */
 	public function getID() {
 		return $this->id;
-	}
-	
-	/**
-	 * Returns the current version object.
-	 */
-	public function getCurrentVersion() {
-		if ( $this->currentVersion ) {
-			return $this->currentVersion;
-		} elseif ( $this->currentVersionID ) {
-			$this->currentVersion =
-				LiquidThreadsPostVersion::newFromID( $this->currentVersionID );
-			return $this->currentVersion;
-		} else {
-			throw new MWException( "No current version to retrieve" );
-		}
-	}
-	
-	/**
-	 * Returns the pending version object.
-	 * The pending version is the version being affected by set*() functions.
-	 * It is saved to the database when you call LiquidThreadsPost::commit()
-	 * If it doesn't exist, it will be created.
-	 */
-	public function getPendingVersion() {
-		if ( !$this->pendingVersion ) {
-			$this->pendingVersion = LiquidThreadsPostVersion::create( $this );
-		}
-		
-		return $this->pendingVersion;
-	}
-	
-	/**
-	 * Discard unsaved changes.
-	 */
-	public function reset() {
-		$this->pendingVersion->destroy();
-		$this->pendingVersion = null;
 	}
 	
 	/* Accessors for various properties. Mostly stored in the current version */

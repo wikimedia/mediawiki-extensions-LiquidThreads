@@ -175,7 +175,7 @@ class LiquidThreadsPostVersion {
 	 */
 	public static function newFromRow( $row ) {
 		$version = new LiquidThreadsPostVersion;
-		$post->initialiseFromRow( $row );
+		$version->initialiseFromRow( $row );
 		
 		return $version;
 	}
@@ -294,7 +294,7 @@ class LiquidThreadsPostVersion {
 		// Copy all data members across.
 		$this->text = $baseVersion->getText();
 		$this->textDirty = false;
-		$this->textID = $baseVersion->textiD;
+		$this->textID = $baseVersion->textID;
 		$this->poster = $baseVersion->getPoster();
 		$this->topicID = $baseVersion->getTopicID();
 		$this->parentID = $baseVersion->getParentID();
