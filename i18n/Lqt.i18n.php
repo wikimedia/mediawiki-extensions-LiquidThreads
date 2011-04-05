@@ -1779,6 +1779,7 @@ $7',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1 биттәренән яңы яуаптар',
 	'lqt-feed-new-thread-intro' => '$1 битендә яңы хәбәр, $2 тарафынан өҫтәлгән',
 	'lqt-feed-reply-intro' => '$1 битендә $3 тармағына яңы яуап, $2 тарафынан өҫтәлгән',
+	'tooltip-pt-newmessages' => 'Һеҙ күҙәткән тармаҡтарҙың яңы хәбәрҙәрен күрһәтә',
 	'lqt-newmessages-n' => 'Яңы хәбәрҙәр ($1)',
 	'lqt_newmessages' => 'Яңы хәбәрҙәр (Юҡ)',
 	'lqt_newmessages-title' => 'Яңы хәбәрҙәр',
@@ -1796,8 +1797,8 @@ $7',
 	'lqt-edit-bump-tooltip' => 'Был тармаҡты уның фекер алышыу битенең башына күсерергә',
 	'lqt-historicalrevision-error' => 'Һайланған өлгө боҙолған, уны ҡарап булмай.',
 	'lqt-reply-subpage' => 'яуап бирергә',
-	'nstab-thread' => '↓ Тармаҡ',
-	'nstab-summary' => '↓ Тасуирлама',
+	'nstab-thread' => 'Тармаҡ',
+	'nstab-summary' => 'Тасуирлама',
 );
 
 /** Bavarian (Boarisch)
@@ -7496,12 +7497,14 @@ $messages['gu'] = array(
 
 /** Manx (Gaelg)
  * @author MacTire02
+ * @author Shimmin Beg
  */
 $messages['gv'] = array(
 	'lqt_discussion_link' => 'resoonaght',
 	'lqt_hist_deleted' => 'Scryssit',
 	'lqt_summary_notice_link' => 'screeu giare-choontey',
-	'lqt_newmessages' => 'Çhaghteraghtyn noa',
+	'lqt-drag-reason' => 'Fa:',
+	'lqt_newmessages' => 'Çhaghteraghtyn noa (gyn)',
 );
 
 /** Hausa (هَوُسَ) */
