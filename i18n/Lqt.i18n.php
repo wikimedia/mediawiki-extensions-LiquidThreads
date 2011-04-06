@@ -11042,7 +11042,7 @@ Dës Operatioun kann net réckgängeg gemaach ginn.',
 	'lqt-marked-read' => "Ribrik '''$1''' als geliest markéieren.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|Message|Messagen}} als geliest markéieren.',
 	'lqt-email-undo' => 'Zréck setzen',
-	'lqt-no-new-messages' => 'Et gëtt keng nei Message fir iech.',
+	'lqt-no-new-messages' => 'Et gëtt keng nei Message fir Iech.',
 	'lqt-new-messages' => '✒ Dir hutt nei Messagen.',
 	'lqt-email-info-undo' => 'Déi Rubrik nees weisen déi Dir elo grad ewechgeholl hutt.',
 	'lqt-date-info' => 'Dëse Link ass ausgeschalt wëll Dir Rubriken vun allen Datume kuckt.',
@@ -16896,17 +16896,22 @@ $messages['sr-ec'] = array(
 	'lqt-enotif-subject-reply' => '{{SITENAME}} разговор – одговор: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} разговор – нова тема: $1',
 	'lqt-enotif-newthread' => 'Здраво, $1,
-Ово је обавештење са {{SITENAME}} да је нова тема на $5, „$2“,
-направљена $3 у $4.
 
-Можете је погледати путем следеће везе: $6',
+Ово је обавештење са {{SITENAME}} да је нова тема на $5, „$2“,
+направљена $3 у $4 од стране члана $8.
+
+Можете је погледати на $6
+
+Текст поруке гласи:
+$7',
 	'lqt-enotif-reply' => 'Здраво, $1,
+
 Ово је обавештење са {{SITENAME}} да је нова тема на $5, „$2“,
-направљена $3 у $4.
+направљена $3 у $4 од стране члана $8.
 
-Можете је погледати путем следеће везе: $6
+Можете је погледати на $6
 
-Текст одговора је следећи:
+Текст поруке гласи:
 $7',
 	'lqt-quote-intro' => '$2 у $3, [[User:$1|$1]] {{GENDER:$1|је написао|је написала|написа}}:',
 	'lqt-quote' => 'Цитат',
