@@ -6,20 +6,20 @@
 -- Channel table
 -- See LiquidThreadsChannel class
 CREATE TABLE /*_*/lqt_channel (
-	lqc_id bigint(10) unsigned not null auto_increment,
+	lqc_id bigint(10) unsigned primary key not null auto_increment,
 	
 	-- NS/title pair of the talk page this channel is attached to.
 	lqc_page_namespace int(2) not null,
-	lqc_page_title varbinary(255) not null,
-	
-	PRIMARY KEY (lqc_id),
-	UNIQUE KEY (lqc_page_namespace,lqc_page_title)
+	lqc_page_title varbinary(255) not null
 ) /*$wgDBTableOptions*/;
+
+CREATE UNIQUE INDEX /*i*/lqc_page_namespace_title ON /*_*/lqt_channel (lqc_page_namespace, lqc_page_title);
+
 
 -- Topic table
 -- See LiquidThreadsTopic class
 CREATE TABLE /*_*/lqt_topic (
-	lqt_id bigint(10) unsigned not null auto_increment,
+	lqt_id bigint(10) unsigned PRIMARY KEY not null auto_increment,
 	
 	-- The current version of this topic.
 	-- Foreign key to lqt_topic_version.ltv_id
@@ -30,16 +30,16 @@ CREATE TABLE /*_*/lqt_topic (
 	
 	-- The Channel that this topic is contained in.
 	-- Foreign key to lqt_channel.lqc_id
-	lqt_channel bigint(10) unsigned not null,
-	
-	PRIMARY KEY (lqt_id),
-	KEY (lqt_channel)
+	lqt_channel bigint(10) unsigned not null
 ) /*$wgDBTableOptions*/;
+
+CREATE INDEX /*i*/lqt_topic_channel ON /*_*/lqt_topic (lqt_channel);
+
 
 -- Topic Version table
 -- See LiquidThreadsTopicVersion class
 CREATE TABLE /*_*/lqt_topic_version (
-	ltv_id bigint(10) unsigned not null auto_increment,
+	ltv_id bigint(10) unsigned PRIMARY KEY not null auto_increment,
 	
 	-- The topic to which this version applies
 	-- Foreign key to lqt_topic.lqt_id
@@ -63,17 +63,17 @@ CREATE TABLE /*_*/lqt_topic_version (
 	ltv_summary_text_id bigint(10) unsigned not null,
 	
 	ltv_subject TINYBLOB NOT NULL,
-	ltv_channel bigint(10) unsigned not null,
-	
-	PRIMARY KEY (ltv_id),
-	KEY (ltv_topic, ltv_timestamp),
-	KEY (ltv_user_id,ltv_user_ip)
+	ltv_channel bigint(10) unsigned not null
 ) /*$wgDBTableOptions*/;
+
+CREATE INDEX /*i*/ltv_topic_timestamp ON /*_*/lqt_topic_version (ltv_topic, ltv_timestamp);
+CREATE INDEX /*i*/ltv_user_id_ip ON /*_*/lqt_topic_version (ltv_user_id, ltv_user_ip);
+
 
 -- Post table
 -- See LiquidThreadsPost class
 CREATE TABLE /*_*/lqt_post (
-	lqp_id bigint(10) unsigned not null auto_increment,
+	lqp_id bigint(10) unsigned PRIMARY KEY not null auto_increment,
 
 	-- Current version of this post.
 	-- Foreign key to lqt_topic_version.lpv_id
@@ -91,17 +91,16 @@ CREATE TABLE /*_*/lqt_post (
 	
 	-- Parent post. Potentially blank, if it's at the top level in the topic.
 	-- Foreign key to lqt_post.lqp_id
-	lqp_parent_post bigint(10) unsigned null,
-	
-	PRIMARY KEY (lqp_id),
-	KEY (lqp_topic, lqp_parent_post)
-	
+	lqp_parent_post bigint(10) unsigned null
 ) /*$wgDBTableOptions*/;
+
+CREATE INDEX /*i*/lqp_topic_parent ON /*_*/lqt_post (lqp_topic, lqp_parent_post);
+
 
 -- Post Version table
 -- See LiquidThreadsPostVersion class
 CREATE TABLE /*_*/lqt_post_version (
-	lpv_id bigint(10) unsigned not null auto_increment,
+	lpv_id bigint(10) unsigned PRIMARY KEY not null auto_increment,
 	
 	-- The post to which this version applies.
 	-- Foreign key to lqt_post.lqp_id
@@ -142,8 +141,7 @@ CREATE TABLE /*_*/lqt_post_version (
 	lpv_parent_post bigint(10) unsigned null,
 	
 	-- Signature
-	lpv_signature TINYBLOB NOT NULL,
-	
-	PRIMARY KEY (lpv_id),
-	KEY (lpv_post, lpv_timestamp)
+	lpv_signature TINYBLOB NOT NULL
 ) /*$wgDBTableOptions*/;
+
+CREATE INDEX /*i*/lpv_post_timestamp ON /*_*/lqt_post_version (lpv_post, lpv_timestamp);
