@@ -11,8 +11,8 @@ class LiquidThreadsTopicVersion {
 	/** ID of this version **/
 	protected $id;
 	
-	/** ID of the post that this version applies to **/
-	protected $postID;
+	/** ID of the topic that this version applies to **/
+	protected $topicID;
 	
 	/** User object for the person who created this *VERSION* **/
 	protected $versionUser;
@@ -30,6 +30,23 @@ class LiquidThreadsTopicVersion {
 	
 	/** This topic's subject **/
 	protected $subject = null;
+	
+	/** Summary text ID -- get the row from the text table **/
+	protected $summaryTextID = null;
+	
+	/** Summary text row -- use Revision::getRevisionText to convert to text **/
+	protected $summaryTextRow = null;
+	
+	/** Summary text ES URL -- convert to text by retrieving from ES,
+	 * substituting into $summaryTextRow and calling Revision::getRevisionText **/
+	protected $summaryTextURL = null;
+	
+	/** Actual summary text **/
+	protected $summaryText = null;
+	
+	/** Whether or not the text has been modified directly in $text
+	 * (and therefore needs to be saved to ES). **/
+	protected $summaryTextDirty = false;
 	
 	/* Ancestry information, for not-saved errors */
 	
@@ -49,16 +66,17 @@ class LiquidThreadsTopicVersion {
 		$this->source = wfGetAllCallers();
 	}
 	
-	/**
-	 * Default destructor
-	 * If this Version has yet to be saved, throws an exception.
-	 * To prevent this behaviour, call destroy()
-	 */
-	public function __destruct() {
-		if ( $this->id == 0 && !$this->destroyed ) {
-			throw new MWException( "Version object has not been saved nor destroyed. From: " . $this->source );
-		}
-	}
+	// Commented out due to misfires
+// 	/**
+// 	 * Default destructor
+// 	 * If this Version has yet to be saved, throws an exception.
+// 	 * To prevent this behaviour, call destroy()
+// 	 */
+// 	public function __destruct() {
+// 		if ( $this->id == 0 && !$this->destroyed ) {
+// 			throw new MWException( "Version object has not been saved nor destroyed. From: " . $this->source );
+// 		}
+// 	}
 	
 	/**
 	 * Disables the "not saved" error message.
@@ -74,7 +92,7 @@ class LiquidThreadsTopicVersion {
 	 * @param $conditions Array: Conditions to pass to Database::select
 	 * @return Array: LiquidThreadsTopicVersion objects with those conditions.
 	 */
-	public static function loadFromConditions( $conditions, $fetchText = false, $options = array() ) {
+	public static function loadFromConditions( $conditions, $options = array() ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		
 		$tables = array( 'lqt_topic_version' );
@@ -183,14 +201,13 @@ class LiquidThreadsTopicVersion {
 		
 		$version->initialiseNewTopic( $channel );
 		
-		return $post;
+		return $version;
 	}
 	
 	/* Initialisation functions. One of these has to be called on a new object */
 	
 	/**
 	 * Initialise this object from a database row.
-	 * This "row" may be joined to the text row.
 	 * @param $row Object: A row object containing the
 	 * appropriate lqt_topic_version row.
 	 */
@@ -211,7 +228,7 @@ class LiquidThreadsTopicVersion {
 				$user = User::newFromRow( $row );
 			}
 		} elseif ( User::isIP( $row->ltv_user_ip ) ) {
-			$user = User::newFromName( $row->ltv_user_ip );
+			$user = User::newFromName( $row->ltv_user_ip, false );
 		}
 		
 		if ( is_null($user) ) {
@@ -220,34 +237,39 @@ class LiquidThreadsTopicVersion {
 		$this->versionUser = $user;
 		
 		// Other metadata
-		$this->comment = $row->ltv_comment
+		$this->comment = $row->ltv_comment;
 		$this->timestamp = wfTimestamp( TS_MW, $row->ltv_timestamp );
 		$this->topicID = $row->ltv_topic;
 		
 		// Real version data loading
 		$this->channelID = $row->ltv_channel;
 		$this->subject = $row->ltv_subject;
+		
+		$this->summaryTextID = $row->ltv_summary_text_id;
 	}
 	
 	/**
-	 * Initialise a new version object for a post.
-	 * If the base revision is not specified, it is based on the current version of the Post.
-	 * @param $post LiquidThreadsPost: The post that this version is for.
-	 * @param $baseVersion LiquidThreadsPostVersion: The base version for this version. \em{(optional)}
+	 * Initialise a new version object for a LiquidThreadsTopic.
+	 * If the base revision is not specified, it is based on the current version of the topic.
+	 * @param $topic LiquidThreadsTopic: The topic that this version is for.
+	 * @param $baseVersion LiquidThreadsTopicVersion: The base version for this version. \em{(optional)}
 	 */
-	protected function initialiseNew( LiquidThreadsPost $post,
-			LiquidThreadsPostVersion $baseVersion = null )
+	protected function initialiseNew( LiquidThreadsTopic $topic, $baseVersion = null )
 	{
 		if ( ! $baseVersion ) {
-			$baseVersion = $post->getCurrentVersion();
+			$baseVersion = $topic->getCurrentVersion();
 		}
 		
 		// Copy all data members across.
 		$this->channelID = $baseVersion->getChannelID();
 		$this->subject = $baseVersion->getSubject();
 		
+		$this->summaryText = $baseVersion->getSummaryText();
+		$this->summaryTextDirty = false;
+		$this->summaryTextID = $baseVersion->summaryTextID;
+		
 		global $wgUser;
-		$this->editor = $wgUser;
+		$this->versionUser = $wgUser;
 		
 		$this->id = 0;
 		$this->topicID = $topic->getID();
@@ -265,6 +287,10 @@ class LiquidThreadsTopicVersion {
 		$this->versionUser = $wgUser;
 		$this->channelID = $channel->getID();
 		$this->subject = '';
+		$this->topicID = 0; // Filled later
+		$this->summaryTextID = 0;
+		$this->summaryTextRow = null;
+		$this->summaryTextDirty = true;
 	}
 	
 	/* SETTING AND SAVING */
@@ -313,8 +339,22 @@ class LiquidThreadsTopicVersion {
 	 * Sets the subject associated with this version.
 	 * @param $subject String: The new subject
 	 */
-	public function setSignature( $subject ) {
+	public function setSubject( $subject ) {
 		$this->subject = $subject;
+	}
+	
+	/**
+	 * Set the summary text of this version.
+	 * @param $newtext String: The new summary text for this version.
+	 */
+	public function setSummaryText( $newtext ) {
+		if ( !$this->isMutable() ) {
+			throw new MWException( "This Version object is not mutable." );
+		}
+		
+		$this->summaryText = $newtext;
+		$this->summaryTextDirty = true;
+		$this->summaryTextID = $this->summaryTextRow = null;
 	}
 	
 	/**
@@ -341,6 +381,19 @@ class LiquidThreadsTopicVersion {
 			'ltv_subject' => $this->subject,
 		);
 		
+		$this->timestamp = $row['ltv_timestamp'];
+		
+		if ( $this->summaryTextDirty ) {
+			$this->summaryTextID = LiquidThreadsObject::saveText($this->summaryText);
+			$this->summaryTextDirty = false;
+		}
+		
+		if ( $this->summaryTextID == 0 ) {
+			throw new MWException( "Unable to store revision text" );
+		}
+		
+		$row['ltv_summary_text_id'] = $this->summaryTextID;
+		
 		// Poster and user data
 		$editor = $this->getEditor();
 		
@@ -353,12 +406,6 @@ class LiquidThreadsTopicVersion {
 		$dbw->insert( 'lqt_topic_version', $row, __METHOD__ );
 		
 		$this->id = $dbw->insertId();
-		
-		// Update pointer
-		if ( $this->topicID ) {
-			$dbw->update( 'lqt_topic', array( 'lqt_current_version', $this->id ),
-					array( 'lqt_id' => $this->topicID ), __METHOD__ );
-		}
 	}
 
 	/* PROPERTY ACCESSORS */
@@ -418,5 +465,53 @@ class LiquidThreadsTopicVersion {
 	 */
 	public function getSubject() {
 		return $this->subject;
+	}
+	
+	/**
+	 * Lets you set the topic ID, once.
+	 * Only valid use is from LiquidThreadsTopic::save(), for a new LiquidThreadsTopic
+	 * @param $id Integer: The topic ID that this version applies to.
+	 */
+	public function setTopicID( $id ) {
+		if ( $this->topicID ) {
+			throw new MWException( "Topic ID is already set" );
+		}
+		
+		$this->topicID = $id;
+		
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->update( 'lqt_topic_version', array( 'ltv_topic' => $id ),
+				array( 'ltv_id' => $this->getID() ),
+				__METHOD__ );
+	}
+	
+	/**
+	 * Retrieves the summary text associated with this Post Version.
+	 * @return The summary text if available, or false if none exists.
+	 */
+	public function getSummaryText() {
+		if ( !is_null( $this->summaryText ) ) {
+			// Already cached
+			return $this->summaryText;
+		} elseif ( 0 && !is_null( $this->summaryTextURL ) ) {
+			// Not implemented
+		} elseif ( !is_null( $this->summaryTextRow ) ) {
+			$this->summaryText = Revision::getRevisionText( $this->summaryTextRow );
+			return $this->summaryText;
+		} elseif ( !is_null( $this->summaryTextID ) ) {
+			$dbr = wfGetDB( DB_MASTER );
+			
+			$row = $dbr->selectRow( 'text', '*',
+				array( 'old_id' => $this->summaryTextID ), __METHOD__ );
+			
+			if ( $row ) {
+				$this->summaryText = Revision::getRevisionText( $row );
+				return $this->summaryText;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
 	}
 }

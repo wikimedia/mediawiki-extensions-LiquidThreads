@@ -17,6 +17,9 @@ class LiquidThreadsPost {
 	/** The LiquidThreadsTopic object that this post is in. **/
 	protected $topic;
 	
+	/** The version that is being worked on by set methods **/
+	protected $pendingVersion;
+	
 	/** The ID of this post's parent post **/
 	protected $parentID;
 	/** The LiquidThreadsPost that this is found underneath. **/
@@ -45,12 +48,14 @@ class LiquidThreadsPost {
 		$fields = '*';
 		$joins = array(
 			'lqt_post_version' => array(
-				'left join' => array(
+				'left join',
+				array(
 					'lqp_current_version=lpv_id',
 				),
 			),
 			'text' => array(
-				'left join' => array(
+				'left join',
+				array(
 					'old_id=lpv_text_id',
 				),
 			),
@@ -155,7 +160,7 @@ class LiquidThreadsPost {
 	protected function initialiseNew( $topic, $parent = null ) {
 		$this->id = 0;
 		
-		$this->currentVersion = LiquidThreadsPostVersion::createNewPost();
+		$this->currentVersion = LiquidThreadsPostVersion::createNewPost( $topic, $parent );
 		$this->pendingVersion = $this->currentVersion;
 		
 		$this->topic = $topic;
@@ -209,14 +214,45 @@ class LiquidThreadsPost {
 	public function save( $comment = null ) {
 		if ( $this->pendingVersion ) {
 			$this->pendingVersion->commit( $comment );
+			$this->currentVersion = $this->pendingVersion;
 			$this->pendingVersion = null;
 			
 			if ( !$this->id ) {
 				$this->insert();
+			} else {
+				$this->update();
 			}
 		} else {
 			throw new MWException( "There are no pending changes." );
 		}
+	}
+	
+	/**
+	 * Get a row array to insert into the database
+	 * @return Row in Array form to insert into the database.
+	 */
+	protected function getRow() {
+		$dbw = wfGetDB( DB_MASTER );
+		
+		if ( $this->getTopicID() == 0 ) {
+			throw new MWException( "Topic must be saved first!" );
+		}
+		
+		if ( $this->currentVersion == null ) {
+			throw new MWException( "No current version available!" );
+		}
+		
+		$row = array(
+			'lqp_current_version' => $this->currentVersion->getID(),
+			'lqp_topic' => $this->getTopicID(),
+			'lqp_parent_post' => $this->parent ? $this->parent->getID() : null,
+		);
+		
+		if ( !$this->id ) {
+			$row['lqp_id'] = $dbw->nextSequenceValue( 'lqt_post_lqp_id' );
+		}
+		
+		return $row;
 	}
 	
 	/**
@@ -227,20 +263,39 @@ class LiquidThreadsPost {
 	protected function insert() {
 		$dbw = wfGetDB( DB_MASTER );
 		
-		$row = array(
-			'lqp_id' => $dbw->nextSequenceValue( 'lqt_post_lqp_id' ),
-			'lqp_current_version' => 0, // Filled later
-			'lqp_topic' => $this->topic->getID(),
-			'lqp_parent_post' => $this->parent ? $this->parent->getID() : null,
-		);
+		if ( $this->getID() ) {
+			throw new MWException( "Post has already been inserted.!" );
+		}
 		
-		$dbw->insert( 'lqt_post', $row, __METHOD__ );
+		$row = $this->getRow();
+		
+		$result = $dbw->insert( 'lqt_post', $row, __METHOD__ );
 		
 		$postId = $dbw->insertId();
 		$this->id = $postId;
 		
-		$dbw->update( 'lqt_post_version', array( 'lpv_post' => $postId ),
-				array( 'lpv_id' => $this->currentVersion->getID() ),
+		$this->currentVersion->setPostID( $postId );
+		
+		if ( $this->topic ) {
+			$this->topic->addPost( $this );
+		}
+	}
+	
+	/**
+	 * Updates this post in the database.
+	 * ONLY to be called *after* a PostVersion has been moved into currentVersion.
+	 * Only to be called from LiquidThreadsPost::update()
+	 */
+	protected function update() {
+		$dbw = wfGetDB( DB_MASTER );
+		
+		if ( ! $this->getID() ) {
+			throw new MWException( "Post has not been saved!" );
+		}
+		
+		$row = $this->getRow();
+		
+		$dbw->update( 'lqt_post', $row, array( 'lqp_id' => $this->getID() ),
 				__METHOD__ );
 	}
 

@@ -53,7 +53,8 @@ class LiquidThreadsTopic {
 		$fields = '*';
 		$joins = array(
 			'lqt_topic_version' => array(
-				'left join' => array(
+				'left join',
+				array(
 					'lqt_current_version=ltv_id',
 				),
 			),
@@ -137,6 +138,7 @@ class LiquidThreadsTopic {
 		$this->id = $row->lqt_id;
 		$this->channelID = $row->lqt_channel;
 		$this->currentVersionID = $row->lqt_current_version;
+		$this->replyCount = $row->lqt_replies;
 		
 		if ( isset($row->ltv_id) ) {
 			$version = LiquidThreadsTopicVersion::newFromRow( $row );
@@ -152,8 +154,9 @@ class LiquidThreadsTopic {
 		$this->id = 0;
 		
 		$this->currentVersionID = 0;
-		$this->currentVersion = LiquidThreadsTopicVersion::createNewTopic();
+		$this->currentVersion = LiquidThreadsTopicVersion::createNewTopic( $channel );
 		$this->pendingVersion = $this->currentVersion;
+		$this->replyCount = 0;
 		
 		$this->channel = $channel;
 	}
@@ -188,7 +191,7 @@ class LiquidThreadsTopic {
 	 * Should only really be called from LiquidThreadsPost::save
 	 * @param $version The LiquidThreadsTopicVersion object that was just saved.
 	 */
-	protected function update( $version ) {
+	protected function update( ) {
 		if ( ! $this->getID() ) {
 			throw new MWException( "Attempt to call update() on a topic not yet in the database." );
 		}
@@ -213,14 +216,12 @@ class LiquidThreadsTopic {
 		$dbw = wfGetDB( DB_MASTER );
 		
 		$row = $this->getRow();		
-		$dbw->insert( 'lqt_post', $row, __METHOD__ );
+		$dbw->insert( 'lqt_topic', $row, __METHOD__ );
 		
-		$postId = $dbw->insertId();
-		$this->id = $postId;
+		$topicID = $dbw->insertId();
+		$this->id = $topicID;
 		
-		$dbw->update( 'lqt_topic_version', array( 'ltv_topic' => $postId ),
-				array( 'ltv_id' => $this->currentVersion->getID() ),
-				__METHOD__ );
+		$this->currentVersion->setTopicID( $topicID );
 	}
 	
 	/**
@@ -228,13 +229,14 @@ class LiquidThreadsTopic {
 	 * Used internally by update() and insert()
 	 */
 	protected function getRow() {
+		$dbw = wfGetDB( DB_MASTER );
 		$row = array(
 			'lqt_current_version' => $this->currentVersion->getID(),
 			'lqt_channel' => $this->getChannelID(),
 			'lqt_replies' => $this->replyCount,
 		);
 		
-		if ( $this->id ) {
+		if ( !$this->id ) {
 			$row['lqt_id'] = $dbw->nextSequenceValue( 'lqt_topic_lqt_id' );
 		}
 		
@@ -297,6 +299,13 @@ class LiquidThreadsTopic {
 	}
 	
 	/**
+	 * @return String: The current summary text for this Topic.
+	 */
+	public function getSummary() {
+		return $this->getCurrentVersion()->getSummaryText();
+	}
+	
+	/**
 	 * Returns the ID of the channel that this topic belongs to.
 	 */
 	public function getChannelID() {
@@ -343,6 +352,14 @@ class LiquidThreadsTopic {
 	}
 	
 	/**
+	 * Sets the summary text of this topic.
+	 * @param $text String: new summary text.
+	 */
+	public function setSummary( $text ) {
+		$this->getPendingVersion()->setSummaryText( $text );
+	}
+	
+	/**
 	 * Sets the channel ID for this topic (i.e. moves the topic to a new channel)
 	 * @param $id Integer: The ID of the channel to move the topic to.
 	 */
@@ -360,6 +377,23 @@ class LiquidThreadsTopic {
 		}
 		
 		$this->setChannelID( $channel->getID() );
+	}
+	
+	/**
+	 * Adds a post to the instance cache.
+	 * Used when a post is saved to the database,
+	 * only to be called by LiquidThreadsPost::insert
+	 * @param $post The LiquidThreadsPost object
+	 */
+	public function addPost( $post ) {
+		// Initialise initial array.
+		$this->getPosts();
+		
+		if ( ! $post->getId() ) {
+			throw new MWException( "You need to save the post first!" );
+		}
+		
+		$this->posts[$post->getId()] = $post;
 	}
 }
 

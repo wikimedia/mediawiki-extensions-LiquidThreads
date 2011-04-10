@@ -10,7 +10,10 @@ CREATE TABLE /*_*/lqt_channel (
 	
 	-- NS/title pair of the talk page this channel is attached to.
 	lqc_page_namespace int(2) not null,
-	lqc_page_title varbinary(255) not null
+	lqc_page_title varbinary(255) not null,
+	
+	PRIMARY KEY (lqc_id),
+	UNIQUE KEY (lqc_page_namespace,lqc_page_title)
 ) /*$wgDBTableOptions*/;
 
 -- Topic table
@@ -23,11 +26,14 @@ CREATE TABLE /*_*/lqt_topic (
 	lqt_current_version bigint(10) unsigned not null,
 	
 	-- Cache of the number of replies
-	lqp_replies int unsigned not null,
+	lqt_replies int unsigned not null,
 	
 	-- The Channel that this topic is contained in.
 	-- Foreign key to lqt_channel.lqc_id
 	lqt_channel bigint(10) unsigned not null,
+	
+	PRIMARY KEY (lqt_id),
+	KEY (lqt_channel)
 ) /*$wgDBTableOptions*/;
 
 -- Topic Version table
@@ -52,8 +58,16 @@ CREATE TABLE /*_*/lqt_topic_version (
 	-- Bitfield for single-version deletion
 	ltv_deleted tinyint unsigned NOT NULL default 0,
 	
+	-- Pointer to the text table, stores the summary text.
+	-- Foreign key to text.old_id
+	ltv_summary_text_id bigint(10) unsigned not null,
+	
 	ltv_subject TINYBLOB NOT NULL,
-	ltv_channel bigint(10) unsigned not null
+	ltv_channel bigint(10) unsigned not null,
+	
+	PRIMARY KEY (ltv_id),
+	KEY (ltv_topic, ltv_timestamp),
+	KEY (ltv_user_id,ltv_user_ip)
 ) /*$wgDBTableOptions*/;
 
 -- Post table
@@ -77,7 +91,10 @@ CREATE TABLE /*_*/lqt_post (
 	
 	-- Parent post. Potentially blank, if it's at the top level in the topic.
 	-- Foreign key to lqt_post.lqp_id
-	lqp_parent_post bigint(10) unsigned null
+	lqp_parent_post bigint(10) unsigned null,
+	
+	PRIMARY KEY (lqp_id),
+	KEY (lqp_topic, lqp_parent_post)
 	
 ) /*$wgDBTableOptions*/;
 
@@ -125,5 +142,8 @@ CREATE TABLE /*_*/lqt_post_version (
 	lpv_parent_post bigint(10) unsigned null,
 	
 	-- Signature
-	lpv_signature TINYBLOB NOT NULL
+	lpv_signature TINYBLOB NOT NULL,
+	
+	PRIMARY KEY (lpv_id),
+	KEY (lpv_post, lpv_timestamp)
 ) /*$wgDBTableOptions*/;

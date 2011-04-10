@@ -71,17 +71,18 @@ class LiquidThreadsPostVersion {
 	protected function __construct() {
 		$this->source = wfGetAllCallers();
 	}
-	
-	/**
-	 * Default destructor
-	 * If this Version has yet to be saved, throws an exception.
-	 * To prevent this behaviour, call destroy()
-	 */
-	public function __destruct() {
-		if ( $this->id == 0 && !$this->destroyed ) {
-			throw new MWException( "Version object has not been saved nor destroyed. From: " . $this->source );
-		}
-	}
+
+// Commented out due to misfires	
+// 	/**
+// 	 * Default destructor
+// 	 * If this Version has yet to be saved, throws an exception.
+// 	 * To prevent this behaviour, call destroy()
+// 	 */
+// 	public function __destruct() {
+// 		if ( $this->id == 0 && !$this->destroyed ) {
+// 			throw new MWException( "Version object has not been saved nor destroyed. From: " . $this->source );
+// 		}
+// 	}
 	
 	/**
 	 * Disables the "not saved" error message.
@@ -200,8 +201,7 @@ class LiquidThreadsPostVersion {
 	 * Factory method to create a Version for a new Post.
 	 * @return LiquidThreadsPostVersion: A Version object for a new post.
 	 */
-	public static function createNewPost( LiquidThreadsTopic $topic,
-			LiquidThreadsPost $parent = null )
+	public static function createNewPost( LiquidThreadsTopic $topic, $parent = null )
 	{
 		$post = new LiquidThreadsPostVersion;
 		
@@ -235,7 +235,7 @@ class LiquidThreadsPostVersion {
 				$user = User::newFromRow( $row );
 			}
 		} elseif ( User::isIP( $row->lpv_user_ip ) ) {
-			$user = User::newFromName( $row->lpv_user_ip );
+			$user = User::newFromName( $row->lpv_user_ip, false );
 		}
 		
 		if ( is_null($user) ) {
@@ -244,7 +244,7 @@ class LiquidThreadsPostVersion {
 		$this->versionUser = $user;
 		
 		// Other metadata
-		$this->comment = $row->lpv_comment
+		$this->comment = $row->lpv_comment;
 		$this->timestamp = wfTimestamp( TS_MW, $row->lpv_timestamp );
 		$this->postID = $row->lpv_post;
 		
@@ -257,7 +257,7 @@ class LiquidThreadsPostVersion {
 				$user = User::newFromRow( $row );
 			}
 		} elseif ( User::isIP( $row->lpv_poster_ip ) ) {
-			$user = User::newFromName( $row->lpv_poster_ip );
+			$user = User::newFromName( $row->lpv_poster_ip, false );
 		}
 		
 		if ( is_null($user) ) {
@@ -301,7 +301,7 @@ class LiquidThreadsPostVersion {
 		$this->signature = $baseVersion->getSignature();
 		
 		global $wgUser;
-		$this->editor = $wgUser;
+		$this->versionUser = $wgUser;
 		
 		$this->id = 0;
 		$this->postID = $post->getID();
@@ -313,19 +313,22 @@ class LiquidThreadsPostVersion {
 	 * @param $parent LiquidThreadsPost: (Optional) A parent Post for this one.
 	 */
 	protected function initialiseNewPost( LiquidThreadsTopic $topic,
-			LiquidThreadsPost $parent )
+			$parent = null )
 	{
 		global $wgUser;
 		
 		$this->id = 0;
 		$this->poster = $wgUser;
 		$this->versionUser = $wgUser;
-		$this->postID = 0;
+		$this->postID = 0; // Filled later
 		$this->textID = 0;
 		$this->textRow = null;
 		$this->textDirty = true;
 		$this->topicID = $topic->getID();
-		$this->parentID = $parent->getID();
+		
+		if ( $parent ) {
+			$this->parentID = $parent->getID();
+		}
 	}
 	
 	/* SETTING AND SAVING */
@@ -432,11 +435,13 @@ class LiquidThreadsPostVersion {
 			'lpv_post' => $this->postID,
 			'lpv_timestamp' => $dbw->timestamp( wfTimestampNow() ),
 			'lpv_comment' => $this->comment,
-			'lpv_topic' => $this->
+			'lpv_topic' => $this->topicID,
 		);
 		
+		$this->timestamp = $row['lpv_timestamp'];
+		
 		if ( $this->textDirty ) {
-			$this->textID = self::saveText($this->text);
+			$this->textID = LiquidThreadsObject::saveText($this->text);
 			$this->textDirty = false;
 		}
 		
@@ -465,53 +470,6 @@ class LiquidThreadsPostVersion {
 		$dbw->insert( 'lqt_post_version', $row, __METHOD__ );
 		
 		$this->id = $dbw->insertId();
-		
-		// Update pointer
-		if ( $this->postID ) {
-			$dbw->update( 'lqt_post', array( 'lqp_current_version', $this->id ),
-					array( 'lqp_id' => $this->postID ), __METHOD__ );
-		}
-	}
-	
-	/**
-	 * Saves the text to the text table (or external storage).
-	 * @param $data String: The text to save to the text table.
-	 * @return Integer: an ID for the text table.
-	 */
-	protected static function saveText( $data ) {
-		global $wgDefaultExternalStore;
-		
-		$dbw = wfGetDB( DB_MASTER );
-		
-		$flags = Revision::compressRevisionText( $data );
-
-		# Write to external storage if required
-		if( $wgDefaultExternalStore ) {
-			// Store and get the URL
-			$data = ExternalStore::insertToDefault( $data );
-			
-			if( !$data ) {
-				throw new MWException( "Unable to store text to external storage" );
-			}
-			
-			if( $flags ) {
-				$flags .= ',';
-			}
-			$flags .= 'external';
-		}
-
-		# Record the text (or external storage URL) to the text table
-		$old_id = $dbw->nextSequenceValue( 'text_old_id_seq' );
-		
-		$dbw->insert( 'text',
-			array(
-				'old_id'    => $old_id,
-				'old_text'  => $data,
-				'old_flags' => $flags,
-			), __METHOD__
-		);
-		
-		return $dbw->insertId();
 	}
 
 	/* PROPERTY ACCESSORS */
@@ -616,5 +574,23 @@ class LiquidThreadsPostVersion {
 	 */
 	public function getSignature() {
 		return $this->signature;
+	}
+	
+	/**
+	 * Lets you set the post ID, once.
+	 * Only valid use is from LiquidThreadsPost::save(), for a new LiquidThreadsPost
+	 * @param $id Integer: The post ID that this version applies to.
+	 */
+	public function setPostID( $id ) {
+		if ( $this->postID ) {
+			throw new MWException( "Post ID is already set" );
+		}
+		
+		$this->postID = $id;
+		
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->update( 'lqt_post_version', array( 'lpv_post' => $id ),
+				array( 'lpv_id' => $this->getID() ),
+				__METHOD__ );
 	}
 }
