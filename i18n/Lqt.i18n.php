@@ -2671,9 +2671,10 @@ Kuit na c'hoarvezfe, rannit an neudenndaoù kaozioù a-raok diverkañ homañ.",
 	'lqt-enotif-subject-newthread' => 'Kaoz war {{SITENAME}} - Neudennad nevez : $1',
 	'lqt-enotif-newthread' => "Demat $1,
 Hemañ zo ur c'hemenn a-berzh {{SITENAME}} a embann ez eus un neudennad nevez war $5, '$2',
-zo bet savet d'an $3 da $4.
+zo bet savet d'an $3 da $4 gant $8.
 
-He lenn a c'hallit war <$6>",
+E lenn a c'hallit war <$6>
+$7",
 	'lqt-enotif-reply' => "Demat $1,
 
 Setu aze ur c'hemenn a-berzh {{SITENAME}} a embann ez eus ur respont nevez da '$2' war $5,
@@ -3861,24 +3862,24 @@ Dieses Thema ist Teil der Seite „$2“.',
 	'lqt_move_move' => 'Verschieben',
 	'lqt_move_nodestination' => 'Es muss eine Zielseite angegeben werden.',
 	'lqt_move_thread_bad_destination' => 'Die Zielseite ist keine Diskussionsseite.',
-	'lqt_move_samedestination' => 'Das Thema befindet sich bereits auf dieser Seite!',
+	'lqt_move_samedestination' => 'Dieses Diskussionsthema ist bereits auf dieser Seite vorhanden!',
 	'lqt_move_noreason' => 'kein Grund angegeben.',
-	'lqt_move_success' => 'Thema verschoben nach $1.',
+	'lqt_move_success' => 'Das Diskussionsthema wurde nach $1 verschoben.',
 	'lqt_delete_undeletethread' => 'Thema wiederherstellen',
-	'lqt_delete_partof' => "Das Thema ist Teil von '''$1.'''",
+	'lqt_delete_partof' => "Das Diskussionsthema ist Teil von '''$1.'''",
 	'lqt_delete_deleting' => "Löschung von '''$1''' und '''aller zugehörigen Antworten.'''",
-	'lqt_delete_deletethread' => 'Thema mit allen Antworten löschen',
-	'lqt_delete_deleted' => 'Das Thema wurde gelöscht.',
-	'lqt_delete_undeleted' => 'Das Thema wurde wiederhergestellt.',
+	'lqt_delete_deletethread' => 'Das Diskussionsthema mitsamt allen Beiträgen löschen.',
+	'lqt_delete_deleted' => 'Das Diskussionsthema wurde gelöscht.',
+	'lqt_delete_undeleted' => 'Das Diskussionsthema wurde wiederhergestellt.',
 	'lqt_delete_return' => 'Zurück zu $1.',
 	'lqt_delete_return_link' => 'der Diskussionsseite',
 	'lqt_delete_unallowed' => 'Du hast nicht die Berechtigung Diskussionsthemen zu löschen.',
-	'lqt_delete_show_checkbox' => 'Zeige gelöschte Themen',
+	'lqt_delete_show_checkbox' => 'Zeige gelöschte Diskussionsthemen',
 	'lqt_talkpage_autocreate_summary' => 'Diskussionsseite automatisch mit dem ersten Diskussionsthema angelegt.',
-	'lqt_header_warning_big' => 'Du bearbeitest eine $1.',
-	'lqt_header_warning_after_big' => 'Kopfzeilen sind für Ankündigungen und Einleitungen.
-Möglicherweise willst du stattdessen ein $2.',
-	'lqt_header_warning_bold' => 'Kopfzeile von Diskussionsseiten',
+	'lqt_header_warning_big' => 'Du bearbeitest gerade den $1.',
+	'lqt_header_warning_after_big' => 'Dieser Bereich ist für Ankündigungen, Einleitungen und Hinweise vorgesehen.
+Möglicherweise möchtest du stattdessen ein $2.',
+	'lqt_header_warning_bold' => 'Kopfbereich einer Diskussionsseite',
 	'lqt_header_warning_new_discussion' => 'neues Diskussionsthema beginnen',
 	'lqt_sorting_order' => 'Sortierung:',
 	'lqt_sort_newest_changes' => 'zuletzt geänderten Diskussionsstrang zuerst',
@@ -3899,7 +3900,7 @@ Diese Operation kann rückgängig gemacht werden.',
 	'lqt-email-undo' => 'Rückgängig',
 	'lqt-no-new-messages' => 'Du hast keine neuen Nachrichten.',
 	'lqt-new-messages' => '✒ Du hast neue Nachrichten.',
-	'lqt-email-info-undo' => 'Hole den Diskussionsstrang zurück, den du gerade fortgeschickt hast.',
+	'lqt-email-info-undo' => 'Hole den Diskussionsstrang zurück, den du gerade aufgegeben hast.',
 	'lqt-date-info' => 'Dieser Link ist nicht aktiv, da du Diskussionsstränge von allen Daten ansiehst.',
 	'lqt-newmessages-context' => 'Gesamter Diskussionsstrang',
 	'lqt-thread-created' => 'Erstellt',
@@ -6461,15 +6462,18 @@ Pour éviter cela, séparez les de ce fil de discussion avant de supprimer celui
 	'lqt-enotif-subject-reply' => 'Discussion sur {{SITENAME}} - Réponse : $1',
 	'lqt-enotif-subject-newthread' => 'Discussion sur {{SITENAME}}  - Nouveau sujet : $1',
 	'lqt-enotif-newthread' => 'Bonjour $1,
-Ceci est une notification de {{SITENAME}}, indiquant un nouveau sujet de $5, « $2 »,
-a été créée le $3 à $4.
+Ceci est une notification de {{SITENAME}}, indiquant qu’un nouveau sujet sur $5, « $2 »,
+a été créé le $3 à $4 par $8.
 
-Vous pouvez le voir à « $6 »',
+Vous pouvez le consulter à <$6>
+
+Le texte est :
+$7',
 	'lqt-enotif-reply' => "Bonjour $1,
 Ceci est une notification de {{SITENAME}}, qu'une nouvelle réponse à « $2 » sur $5
-a été créée le $3 à $4.
+a été créée le $3 à $4 par $8
 
-Vous pouvez le voir sur « $6 »
+Vous pouvez la consulter sur « $6 »
 
 Le texte de la réponse est :
 $7",
@@ -6518,6 +6522,7 @@ La signature est affichée automatiquement.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} - Réponses de $1',
 	'lqt-feed-new-thread-intro' => 'Nouveau fil de discussion sur $1 posté par $2',
 	'lqt-feed-reply-intro' => 'Réponse à $3 (sur $1) postée par $2',
+	'tooltip-pt-newmessages' => 'Montre les nouveaux messages sur les sujets ou sur les pages de discussions que vous suivez',
 	'lqt-newmessages-n' => 'Nouveaux messages ($1)',
 	'lqt_newmessages' => 'Nouveaux messages (aucun)',
 	'lqt_newmessages-title' => 'Nouveaux messages',
@@ -16772,7 +16777,7 @@ $messages['sr-ec'] = array(
 	'lqt_protectedfromreply' => 'Ова тема је $1 и у њој не можете одговарати.',
 	'lqt_protectedfromreply_link' => 'заштићена',
 	'lqt_subject' => 'Наслов:',
-	'lqt_noreason' => 'Није дат разлог.',
+	'lqt_noreason' => 'Разлог није наведен.',
 	'lqt_move_placeholder' => 'Тема „$1“ је премештена одавде у $5.
 Премештање {{GENDER:$2|је извршио|је извршила|изврши}} $2, $3 у $4.',
 	'lqt_thread_deleted_for_sysops' => "Ова тема је '''обрисана''' и видљива је само администраторима.",
@@ -16795,7 +16800,7 @@ $messages['sr-ec'] = array(
 	'lqt_move_nodestination' => 'Морате унети одредиште.',
 	'lqt_move_thread_bad_destination' => 'Одредишна страница није страница за разговор.',
 	'lqt_move_samedestination' => 'Тема се већ налази на овој страници!',
-	'lqt_move_noreason' => 'Није дат разлог.',
+	'lqt_move_noreason' => 'Разлог није наведен.',
 	'lqt_move_success' => 'Тема је премештена у $1.',
 	'lqt_delete_undeletethread' => 'Врати тему',
 	'lqt_delete_partof' => "Ова тема је део '''$1'''.",
@@ -16995,7 +17000,7 @@ $messages['sr-el'] = array(
 	'lqt_toc_thread_title' => 'Naslov teme',
 	'lqt_toc_thread_author' => 'Započeo/la',
 	'lqt_toc_thread_replycount' => 'Odgovori',
-	'lqt_toc_thread_modified' => 'Zadnja izmena',
+	'lqt_toc_thread_modified' => 'Poslednja izmena',
 	'lqt_add_header' => 'Dodaj zaglavlje',
 	'lqt_new_thread' => 'Započni novi razgovor',
 	'lqt_invalid_subject' => 'Naslov koji ste zadali je neispravan.
