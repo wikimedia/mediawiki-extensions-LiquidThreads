@@ -94,22 +94,27 @@ class LqtDeletionController {
 		return true;
 	}
 
-	static function onArticleConfirmDelete( $article, $out, &$reason ) {
-		if ( $article->getTitle()->getNamespace() != NS_LQT_THREAD ) {
+	static function onActionBeforeFormDisplay( $action, HTMLForm &$form, $page ) {
+		if( $action != 'delete' ){
 			return true;
 		}
 
-		$thread = Threads::withRoot( $article );
+		if ( $page->getTitle()->getNamespace() != NS_LQT_THREAD ) {
+			return true;
+		}
+
+		$thread = Threads::withRoot( $page );
 
 		if ( !$thread ) {
 			return true;
 		}
 
 		if ( $thread->isTopmostThread() && count( $thread->replies() ) ) {
-			$out->wrapWikiMsg(
-				'<strong>$1</strong>',
-				'lqt-delete-parent-warning'
-			);
+			$form->addHeaderText( Html::rawElement(
+				'strong',
+				array(),
+				wfMessage( 'lqt-delete-parent-warning' )->parse()
+			) );
 		}
 
 		return true;
