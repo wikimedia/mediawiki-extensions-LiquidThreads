@@ -3786,7 +3786,7 @@ $messages['de'] = array(
 	'lqt_toc_thread_author' => 'Eröffnet von',
 	'lqt_toc_thread_replycount' => 'Antworten',
 	'lqt_toc_thread_modified' => 'Zuletzt geändert',
-	'lqt_add_header' => 'Überschrift ergänzen',
+	'lqt_add_header' => 'Kopfbereich ergänzen',
 	'lqt_new_thread' => 'Neues Diskussionsthema beginnen',
 	'lqt_invalid_subject' => 'Der Betreff, den du eingegeben hast, ist ungültig.
 Es ist möglich, dass er
@@ -3890,16 +3890,16 @@ Möglicherweise möchtest du stattdessen ein $2.',
 	'lqt-searching' => 'Suche nach Diskussionsstrang',
 	'lqt-read-message' => 'Als gelesen markieren',
 	'lqt-read-message-tooltip' => 'Entferne diesen Diskussionsstrang aus den neuen Nachrichten.
-Er wird weiterhin auf der Original-Diskussionsseite zu sehen sein.',
+Er wird weiterhin auf der ursprünglichen Diskussionsseite zu sehen sein.',
 	'lqt-read-all' => 'Alle als gelesen markieren',
 	'lqt-read-all-tooltip' => 'Entferne alle Diskussionsstränge von neuen Nachrichten.
-Sie sind weiterhin auf den Original-Diskussionsseiten sichtbar.
+Sie sind weiterhin auf den ursprünglichen Diskussionsseiten sichtbar.
 Diese Operation kann rückgängig gemacht werden.',
 	'lqt-marked-read' => "Diskussionsstrang '''$1''' wurde als gelesen markiert.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|Nachricht|Nachrichten}} als gelesen markiert.',
 	'lqt-email-undo' => 'Rückgängig',
 	'lqt-no-new-messages' => 'Du hast keine neuen Nachrichten.',
-	'lqt-new-messages' => '✒ Du hast neue Nachrichten.',
+	'lqt-new-messages' => '→ Du hast neue Nachrichten.',
 	'lqt-email-info-undo' => 'Hole den Diskussionsstrang zurück, den du gerade aufgegeben hast.',
 	'lqt-date-info' => 'Dieser Link ist nicht aktiv, da du Diskussionsstränge von allen Daten ansiehst.',
 	'lqt-newmessages-context' => 'Gesamter Diskussionsstrang',
@@ -4031,7 +4031,7 @@ Die Signatur wird automatisch ergänzt.',
 	'lqt-reply-summary' => 'Antwort auf [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Diskussionsseiten-Versionsgeschichte',
 	'lqt-talkpage-history-subtitle' => 'Für $1',
-	'lqt-talkpage-history-tab' => 'Kopfzeile',
+	'lqt-talkpage-history-tab' => 'Kopfbereich',
 	'restriction-reply' => 'Antworten',
 	'restriction-newthread' => 'Neue Diskussion beginnen',
 	'lqt-protected-reply-thread' => 'Da dieser Diskussionsstrang geschützt ist, kannst du hierauf nicht antworten.',
@@ -6863,12 +6863,15 @@ $messages['fur'] = array(
 	'lqt-drag-reason' => 'Reson:',
 	'lqt-edit-signature' => '(cambie la firme)',
 	'lqt-preview-signature' => '(anteprime)',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Rispuestis',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Rispuestis di $1',
 	'lqt-newmessages-n' => 'Gnûfs messaçs ($1)',
-	'lqt_newmessages' => 'Gnûfs messaçs',
+	'lqt_newmessages' => 'I miei messaçs gnûfs',
 	'lqt_newmessages-title' => 'Gnûfs messaçs',
 	'lqt-reply-summary' => 'Rispueste a [[$2|$1]]',
 	'lqt-talkpage-history-subtitle' => 'PAr $1',
 	'lqt-reply-subpage' => 'rispuint',
+	'nstab-summary' => 'Somari',
 );
 
 /** Western Frisian (Frysk)
