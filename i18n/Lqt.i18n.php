@@ -1521,6 +1521,13 @@ $messages['arz'] = array(
 	'lqt-reply-subpage' => 'رد',
 );
 
+/** Asturian (Asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'lqt-preview-signature' => '(entever)',
+);
+
 /** Azerbaijani (Azərbaycanca)
  * @author PPerviz
  */
