@@ -1237,7 +1237,7 @@ $messages['arc'] = array(
 	'lqt_move_move' => 'ܫܢܝ',
 	'lqt-title' => 'ܟܘܢܝܐ',
 	'lqt-summary' => 'ܦܣܝܩܬ̈ܐ',
-	'lqt-email-undo' => 'ܠܐ ܥܒܘܕ',
+	'lqt-email-undo' => 'ܠܐ ܬܥܒܕ',
 	'lqt-no-new-messages' => 'ܠܝܬ ܠܟ ܐܓܪ̈ܬܐ ܚܕ̈ܬܬܐ',
 	'lqt-new-messages' => '✒ ܐܝܬ ܠܟ ܐܓܪ̈ܬܐ ܚܕ̈ܬܬܐ.',
 	'lqt-history-time' => 'ܙܒܢܐ',
@@ -1525,6 +1525,7 @@ $messages['arz'] = array(
  * @author Xuacu
  */
 $messages['ast'] = array(
+	'lqt_delete_return' => 'Tornar a $1.',
 	'lqt-preview-signature' => '(entever)',
 );
 
@@ -5099,6 +5100,7 @@ La subskribo estas aŭtomate montrita.',
 /** Spanish (Español)
  * @author Crazymadlover
  * @author Dferg
+ * @author Fitoschido
  * @author Heldergeovane
  * @author Imre
  * @author Locos epraix
@@ -5330,11 +5332,11 @@ La firma es mostrada automaticamente.',
 	'lqt-save-subject-failed' => 'Ha ocurrido el siguiente error al intentar cambiar el asunto de este hilo: $1',
 	'lqt-ajax-invalid-subject' => 'El asunto que ha especificado era inválido, probablemente debido a que era demasiado largo.',
 	'lqt-ajax-no-subject' => 'Debes especificar un tema',
-	'lqt-save-subject-error-unknown' => 'Un error desconocido ocurrió cuando se intentó establecer el asunto de este hilo. Por favor intente nuevamente haciendo clic en "editar" en el mensaje superior.',
+	'lqt-save-subject-error-unknown' => 'Un error desconocido ocurrió cuando se intentó establecer el asunto de este hilo. Por favor intenta nuevamente haciendo clic en «editar» en el mensaje superior.',
 	'lqt-cancel-subject-edit' => 'Cancelar',
 	'lqt-drag-activate' => 'Arrastrar a nueva ubicación',
 	'lqt-drag-drop-zone' => 'Soltar aquí',
-	'lqt-drag-confirm' => 'Para completar las siguientes acciones, por favor ingrese una razón y haga clic en "Confirmar".',
+	'lqt-drag-confirm' => 'Para completar las siguientes acciones, introduce un motivo y haz clic en «Confirmar».',
 	'lqt-drag-reparent' => 'Mover el mensaje hasta debajo de un nuevo padre.',
 	'lqt-drag-split' => 'Mover este mensaje a su propio hilo',
 	'lqt-drag-setsortkey' => 'Ajustar la posición del mensaje en la página',
@@ -5353,8 +5355,9 @@ La firma es mostrada automaticamente.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respuestas de $1',
 	'lqt-feed-new-thread-intro' => 'Nuevo hilo en $1 enviado por $2',
 	'lqt-feed-reply-intro' => 'Respuesta a $3 (en $1) enviado por $2',
+	'tooltip-pt-newmessages' => 'Muestra los mensajes nuevos publicados en hilos o en páginas de discusión que estás vigilando',
 	'lqt-newmessages-n' => 'Nuevos mensajes ($1)',
-	'lqt_newmessages' => 'Nuevos mensajes',
+	'lqt_newmessages' => 'Mis mensajes nuevos (ninguno)',
 	'lqt_newmessages-title' => 'Nuevos mensajes',
 	'lqt-newpost-summary' => 'Nuevo hilo: $1',
 	'lqt-reply-summary' => 'Respuesta a [[$2|$1]]',
