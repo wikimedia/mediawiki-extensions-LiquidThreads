@@ -5020,12 +5020,15 @@ Eviti ĉi tion, dividigu ilin de ĉi tiu fadeno antaŭ forigante ĝin.',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-fadeno - Nova fadeno: $1',
 	'lqt-enotif-newthread' => "Saluton $1,
 Jen sciigo de {{SITENAME}} ke nova fadeno en $5, '$2',
-estis kreita je $3, $4.
+estis kreita je $3, $4 de $8.
 
-Vi povas vidi ĝin ĉe <$6>",
+Vi povas vidi ĝin ĉe <$6>
+
+La teksto estas:
+$7",
 	'lqt-enotif-reply' => "Saluton $1,
 Jen sciigo de {{SITENAME}} pri nova respondo al '$2' en $5,
-estis kreita je $3, $4.
+estis kreita je $3, $4 de $8.
 
 Vi povas vidi ĝin ĉe <$6>
 
@@ -5077,7 +5080,7 @@ La subskribo estas aŭtomate montrita.',
 	'lqt-feed-new-thread-intro' => 'Nova fadeno en $1 afiŝita de $2',
 	'lqt-feed-reply-intro' => 'Respondo al $3 (en $1) afiŝita de $2',
 	'lqt-newmessages-n' => 'Novaj mesaĝoj ($1)',
-	'lqt_newmessages' => 'Novaj mesaĝoj por mi',
+	'lqt_newmessages' => 'Neniuj novaj mesaĝoj por mi',
 	'lqt_newmessages-title' => 'Novaj mesaĝoj',
 	'lqt-newpost-summary' => 'Nova fadeno: $1',
 	'lqt-reply-summary' => 'Respondi al [[$2|$1]]',
