@@ -1181,7 +1181,7 @@ $messages['ar'] = array(
 	'lqt-ajax-invalid-subject' => 'الموضوع الذي حددته كان غير صحيح، على الأرجح لأنه كان طويلا جدا.',
 	'lqt-ajax-no-subject' => 'يجب أن تحدد موضوعا.',
 	'lqt-save-subject-error-unknown' => 'خطأ غير معروف حدث أثناء محاولة ضبط موضوع هذا الخيط. من فضلك حاول فعل هذا بواسطة الضغط على "عدل" على التعليق الاعلى.',
-	'lqt-cancel-subject-edit' => 'ألغ',
+	'lqt-cancel-subject-edit' => 'ألغِ',
 	'lqt-drag-activate' => 'جر إلى الموقع الجديد',
 	'lqt-drag-drop-zone' => 'أسقط هنا',
 	'lqt-drag-confirm' => 'لإكمال الأفعال التالية، من فضلك املأ السبب واضغط "أكد".',
@@ -1203,7 +1203,7 @@ $messages['ar'] = array(
 	'lqt-feed-new-thread-intro' => 'نقاش جديد على $1 {{GENDER:$4|أرسله|أرسلته}} $2',
 	'lqt-feed-reply-intro' => 'رد على $3 (في $1) {{GENDER:$4|أرسله|أرسلته}} $2',
 	'lqt-newmessages-n' => 'الرسائل الجديدة ($1)',
-	'lqt_newmessages' => 'رسائل جديدة',
+	'lqt_newmessages' => 'رسائلي الجديدة (لا شيء)',
 	'lqt_newmessages-title' => 'رسائل جديدة',
 	'lqt-newpost-summary' => 'نقاش جديد: $1',
 	'lqt-reply-summary' => 'رد على [[$2|$1]]',
@@ -9210,12 +9210,15 @@ Untuk menghindarinya, pisahkan mereka dari utas ini sebelum menghapusnya.',
 	'lqt-enotif-subject-newthread' => 'Diskusi {{SITENAME}} - Topik baru: $1',
 	'lqt-enotif-newthread' => "Hai $1,
 Ini adalah pemberitahuan dari {{SITENAME}} bahwa suatu utas baru pada $5, '$2',
-telah dibuat pada $3 pukul $4.
+telah dibuat pada $3 pukul $4 oleh $8
 
-Anda dapat melihatnya di <$6>",
+Anda dapat melihatnya di <$6>
+
+Isinya adalah:
+$7",
 	'lqt-enotif-reply' => "Hai $1,
 Ini adalah pemberitahuan dari {{SITENAME}} bahwa balasan baru untuk '$2' di $5,
-dibuat tanggal $3 pukul $4.
+dibuat tanggal $3 pukul $4 oleh $8
 
 Anda dapat melihatnya di <$6>
 
@@ -12418,7 +12421,7 @@ $7",
 	'searchprofile-threads' => 'Perbincangan',
 	'searchprofile-threads-tooltip' => 'Cari perbincangan tred dan laman perbincangan',
 	'lqt-ajax-updated' => 'Tred ini mempunyai kiriman baru.',
-	'lqt-ajax-update-link' => 'Kemaskini',
+	'lqt-ajax-update-link' => 'Kemas kini',
 	'lqt-thread-show-replies' => 'Tunjukkan $1 balasan',
 	'lqt-thread-show-more' => 'Tunjukkan banyak lagi balasan',
 	'lqt-thread-link-url' => 'URL pautan:',
@@ -14298,7 +14301,7 @@ La firma a l'é mostrà automaticament.",
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
-	'lqt_contents_title' => 'مينځپانګه',
+	'lqt_contents_title' => 'منځپانګه',
 	'lqt_toc_thread_replycount' => 'ځوابونه',
 	'lqt_reply' => 'ځوابول',
 	'lqt_delete' => 'ړنګول',
@@ -14655,7 +14658,7 @@ Ele pode:
 	'lqt-parent' => 'Tópico de raiz',
 	'lqt_delete' => 'Apagar',
 	'lqt_undelete' => 'Restaurar',
-	'lqt_permalink' => 'Ligação para este comentário',
+	'lqt_permalink' => 'Link para',
 	'lqt_fragment' => 'Fragmento de uma $1 de $2',
 	'lqt_discussion_link' => 'discussão',
 	'lqt_from_talk' => 'De $1',
@@ -14822,12 +14825,15 @@ Para evitá-lo, separe-as antes de apagar o tópico.',
 	'lqt-enotif-subject-reply' => 'Discussão na {{SITENAME}} - Resposta: $1',
 	'lqt-enotif-subject-newthread' => 'Discussão na {{SITENAME}} - Tópico novo: $1',
 	'lqt-enotif-newthread' => "Olá $1,
-Esta é uma notificação da {{SITENAME}} de que foi criado um tópico novo na página $5, com o assunto '$2', em $3 às $4.
+Esta é uma notificação da {{SITENAME}} de que foi criado um tópico novo na página $5, com o assunto '$2', em $3 às $4 por $8.
 
-Você pode vê-lo em <$6>",
+Você pode vê-lo em <$6>
+
+O texto é o seguinte:
+$7",
 	'lqt-enotif-reply' => "Olá $1,
-Esta é uma notificação da {{SITENAME}} de que foi criada uma nova resposta ao tópico '$2', na página $5,
-a $3 às $4.
+Esta é uma notificação da {{SITENAME}} de que há uma nova resposta ao tópico '$2', na página $5,
+em $3 às $4 por $8.
 
 Você pode vê-la em <$6>
 
@@ -14878,8 +14884,9 @@ A assinatura é apresentada automaticamente.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} - Respostas {{PLURAL:$2|na página $1|nas páginas $1}}',
 	'lqt-feed-new-thread-intro' => 'Tópico novo em $1 colocado por $2',
 	'lqt-feed-reply-intro' => 'Resposta a $3 (em $1) enviada por $2',
+	'tooltip-pt-newmessages' => 'Mostra, nas páginas que estiver vigiando, mensagens novas nos tópicos ou páginas de discussão por tópicos',
 	'lqt-newmessages-n' => 'Novas mensagens ($1)',
-	'lqt_newmessages' => 'Novas Mensagens',
+	'lqt_newmessages' => 'Mensagens novas (nenhuma)',
 	'lqt_newmessages-title' => 'Novas mensagens',
 	'lqt-newpost-summary' => 'Tópico novo: $1',
 	'lqt-reply-summary' => 'Resposta a [[$2|$1]]',
@@ -17366,7 +17373,7 @@ Det kan bero på att:
 	'lqt_subject' => 'Ämne:',
 	'lqt_noreason' => 'Ingen anledning given.',
 	'lqt_move_placeholder' => 'Denna tråd finns för att visa att en tråd, $1, flyttades från denna sida.
-Denna flytt gjordes av $2 $3 $4.
+Denna flyttning gjordes av $2 $3 $4.
 Tråden finns nu på $5.',
 	'lqt_thread_deleted_for_sysops' => "Denna tråd har '''raderats''' och är endast synlig för administratörer.",
 	'lqt_thread_deleted' => 'Den här diskussionssidan har blivit raderad.',
