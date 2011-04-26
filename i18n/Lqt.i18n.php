@@ -9407,6 +9407,7 @@ Tanda tangan akan dimunculkan secara otomatis.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Balasan dari $1',
 	'lqt-feed-new-thread-intro' => 'Utas baru pada $1 dikirim oleh $2',
 	'lqt-feed-reply-intro' => 'Balasan untuk $3 (pada $1) dikirim oleh $2',
+	'tooltip-pt-newmessages' => 'Menunjukkan kiriman baru pada utas atau halaman pembicaraan berutas yang Anda pantau',
 	'lqt-newmessages-n' => 'Pesan baru ($1)',
 	'lqt_newmessages' => 'Pesan baru saya (Tidak ada)',
 	'lqt_newmessages-title' => 'Pesan baru',
@@ -10994,7 +10995,7 @@ dat hee es en Nohreesch {{GRAMMAR:Genitiv vun|{{SITENAME}}}},
 dat ene neue Beijdraach zom {{int:lqt-history-thread}} zom Teema
 „$2“
 öm $4 Uhr aam $3 op dä Sigg $5
-dobei jekumme es. Jeschrwevve däd_en {{GENDER:$8|dä|dat|dä Metmaacher|de|et}} $8
+dobei jekumme es. Jeschrwevve häd_en {{GENDER:$8|dä|dat|dä Metmaacher|de|et}} $8
 
 Beloore kanns de dä op
 <$6>
