@@ -1182,7 +1182,7 @@ $messages['ar'] = array(
 	'lqt-ajax-no-subject' => 'يجب أن تحدد موضوعا.',
 	'lqt-save-subject-error-unknown' => 'خطأ غير معروف حدث أثناء محاولة ضبط موضوع هذا الخيط. من فضلك حاول فعل هذا بواسطة الضغط على "عدل" على التعليق الاعلى.',
 	'lqt-cancel-subject-edit' => 'ألغِ',
-	'lqt-drag-activate' => 'جر إلى الموقع الجديد',
+	'lqt-drag-activate' => 'اسحب إلى الموقع الجديد',
 	'lqt-drag-drop-zone' => 'أسقط هنا',
 	'lqt-drag-confirm' => 'لإكمال الأفعال التالية، من فضلك املأ السبب واضغط "أكد".',
 	'lqt-drag-reparent' => 'انقل الرسالة تحت أب جديد.',
@@ -10981,7 +10981,7 @@ dat hee es en Nohreesch {{GRAMMAR:Genitiv vun|{{SITENAME}}}},
 dat ene neue {{int:lqt-history-thread}} zom Teema
 „$2“
 öm $4 Uhr aam $3 op dä Sigg $5
-dobei jekumme es.  Jeschrwevve däd_en {{GENDER:$8|dä|dat|dä Metmaacher|de|et}} $8
+dobei jekumme es. Jeschrwevve häd_en {{GENDER:$8|dä|dat|dä Metmaacher|de|et}} $8
 
 Beloore kanns de dä op
 <$6>
@@ -12267,6 +12267,7 @@ $messages['mn'] = array(
 );
 
 /** Marathi (मराठी)
+ * @author Htt
  * @author Kaustubh
  * @author Mahitgar
  */
@@ -12342,7 +12343,7 @@ $messages['mr'] = array(
 	'lqt_sort_newest_changes' => 'शेवटी बदललेले पहिल्यांदा',
 	'lqt_sort_newest_threads' => 'नवीन थ्रेड पहिल्यांदा',
 	'lqt_sort_oldest_threads' => 'जुने थ्रेड पहिल्यांदा',
-	'lqt_newmessages' => 'नवीन संदेश',
+	'lqt_newmessages' => 'माझे नवीन संदेश',
 );
 
 /** Malay (Bahasa Melayu)
@@ -15526,6 +15527,7 @@ $7",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Resposte da $1',
 	'lqt-feed-new-thread-intro' => 'Argomende nuève sus a $1 lassate da $2',
 	'lqt-feed-reply-intro' => 'Resposte a $3 (sus a $1) lassate da $2',
+	'tooltip-pt-newmessages' => "Fa vedè le messagge nuève a le argomende o sus a le pàggene de le 'ngazzaminde argomendate ca tu stè uarde",
 	'lqt-newmessages-n' => 'Messagge nuève ($1)',
 	'lqt_newmessages' => 'Le messagge nuève mije (Ninde)',
 	'lqt_newmessages-title' => 'Messagge nuève',
@@ -16518,10 +16520,13 @@ Môžete si ho pozrieť na <$6>
 Text je:
 $7',
 	'lqt-enotif-reply' => 'Ahoj $1,
-toto je oznámenie z {{GRAMMAR:genitív|{{SITENAME}}}}, že nová odpoveď na $5, „$2“,
-bola pridaná $3 $4.
+toto je oznámenie z {{GRAMMAR:genitív|{{SITENAME}}}}, že používateľ $8 pridal $3 $4
+novú odpoveď na $5, „$2“.
 
-Môžete si ho pozrieť na <$6>',
+Môžete si ju pozrieť na <$6>
+
+Text odpovede je:
+$7',
 	'lqt-quote-intro' => '$2 $3 [[User:$1|$1]] napísal:',
 	'lqt-quote' => 'Citovať',
 	'lqt-search-legend' => 'Hľadať v diskusiách k tejto stránke',
@@ -16567,8 +16572,9 @@ Podpis sa zobrazí automaticky.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Odpovede od $1',
 	'lqt-feed-new-thread-intro' => 'Nové vlákno na tému $1, ktoré poslal $2',
 	'lqt-feed-reply-intro' => 'Odpoveď na $3 (na tému $1), ktorú poslal $2',
+	'tooltip-pt-newmessages' => 'Zobrazuje nové príspevky vo vláknach alebo na diskusných stránkach s vláknami, ktoré sledujete',
 	'lqt-newmessages-n' => '{{PLURAL:$1|Nová správa|Nové správy}} ($1)',
-	'lqt_newmessages' => 'Nové správy',
+	'lqt_newmessages' => 'Moje nové správy (žiadne)',
 	'lqt_newmessages-title' => 'Nové správy',
 	'lqt-newpost-summary' => 'Nové vlákno: $1',
 	'lqt-reply-summary' => 'Odpoveď na [[$2|$1]]',
@@ -19640,7 +19646,7 @@ $messages['vi'] = array(
 	'lqt_noreason' => 'Không đưa ra lý do.',
 	'lqt_move_placeholder' => 'Luồng này là một nơi lưu trữ cho thấy rằng một luồng, $1, đã được di chuyển khỏi trang.
 Sự di chuyển này do $2 thực hiện vào ngày $3 lúc $4. Luồng hiện nằm tại $5.',
-	'lqt_thread_deleted_for_sysops' => "Luồng này đã bị '''xóa''' và chỉ có quản lý viên mới thấy được.",
+	'lqt_thread_deleted_for_sysops' => "Luồng này đã bị '''xóa''' và chỉ có bảo quản viên mới thấy được.",
 	'lqt_thread_deleted' => 'Luồng này đã bị xóa.',
 	'lqt_summary_notice' => 'Không có thay đổi nào trong thảo luận này trong ít nhất $2 ngày.
 Nếu nó đã đi đến kết thúc, có thể bạn sẽ muốn $1.{{PLURAL:$2||}}',
