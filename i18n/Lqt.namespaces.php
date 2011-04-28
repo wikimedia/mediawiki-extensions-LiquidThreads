@@ -31,6 +31,13 @@ $namespaceNames['hu'] = array(
 	NS_LQT_SUMMARY_TALK => 'Összefoglaló-vita',
 );
 
+$namespaceNames['id'] = array(
+	NS_LQT_THREAD       => 'Utas',
+	NS_LQT_THREAD_TALK  => 'Pembicaraan_Utas',
+	NS_LQT_SUMMARY      => 'Ringkasan',
+	NS_LQT_SUMMARY_TALK => 'Pembicaraan_Ringkasan',
+);
+
 $namespaceNames['pt'] = array(
 	NS_LQT_THREAD => 'Tópico',
 	NS_LQT_THREAD_TALK => 'Tópico_discussão',
