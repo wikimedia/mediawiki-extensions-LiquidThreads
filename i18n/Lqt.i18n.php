@@ -1530,10 +1530,21 @@ $messages['ast'] = array(
 );
 
 /** Azerbaijani (Azərbaycanca)
+ * @author Cekli829
  * @author PPerviz
  */
 $messages['az'] = array(
+	'lqt_delete' => 'Sil',
+	'lqt-title' => 'Başlıq',
+	'lqt-summary' => 'Xülasə',
+	'lqt-history-time' => 'Zaman',
+	'lqt-history-user' => 'İstifadəçi',
+	'lqt-history-comment' => 'Şərh',
 	'lqt-search-button' => 'Axtar',
+	'lqt-thread-link-url' => 'URL linki:',
+	'lqt-cancel-subject-edit' => 'Ləğv et',
+	'lqt-drag-reason' => 'Səbəb:',
+	'nstab-summary' => 'Xülasə',
 );
 
 /** Bashkir (Башҡортса)
@@ -2625,9 +2636,9 @@ N'haller ket dizober an oberiadenn-mañ ur wezh kaset da bet.",
 	'lqt-history-comment' => 'Notenn',
 	'lqt-history-thread' => 'Neudennad',
 	'lqt-thread-edited-author' => 'Kemmet gant an aozer.<br />
-Kemm ziwezhañ : $1',
+Kemm diwezhañ : $1',
 	'lqt-thread-edited-others' => 'Kemmet gant $2 implijer{{PLURAL:$2||}} all.<br />
-Kemm ziwezhañ : $1',
+Kemm diwezhañ : $1',
 	'lqt-header-actions' => 'Obererezhioù',
 	'lqt_summarize_link' => 'Diverrañ',
 	'lqt-summarize-intro' => 'Savit un tamm diverrañ a-us er prenestr skridaozañ.
@@ -9272,15 +9283,15 @@ Anda mungkin ingin $2.',
 	'lqt-title' => 'Judul',
 	'lqt-summary' => 'Ringkasan',
 	'lqt-searching' => 'Mencari topik',
-	'lqt-read-message' => 'Tandai sebagai telah dibaca',
+	'lqt-read-message' => 'Tandai sudah dibaca',
 	'lqt-read-message-tooltip' => 'Singkirkan topik ini dari pesan-pesan baru.
 Ini masih dapat dilihat pada halaman pembicaraan aslinya.',
-	'lqt-read-all' => 'Tandai semua sebagai terbaca',
+	'lqt-read-all' => 'Tandai semua sudah dibaca',
 	'lqt-read-all-tooltip' => 'Singkirkan semua topik dari pesan-pesan baru.
 Ini masih dapat dilihat pada halaman pembicaraan aslinya.
 Hal ini tidak dapat dibatalkan.',
-	'lqt-marked-read' => "Topik '''$1''' ditandai sebagai terbaca.",
-	'lqt-count-marked-read' => '$1 {{PLURAL:$1||}}pesan ditandai sebagai terbaca.',
+	'lqt-marked-read' => "Topik '''$1''' ditandai sudah dibaca.",
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|pesan|pesan}} ditandai sudah dibaca.',
 	'lqt-email-undo' => 'Batalkan',
 	'lqt-no-new-messages' => 'Tidak ada pesan baru untuk Anda.',
 	'lqt-new-messages' => '✒ Ada pesan baru untuk Anda.',
@@ -9314,7 +9325,7 @@ Balasan-balasannya juga akan terhapus secara otomatis.
 Untuk menghindarinya, pisahkan mereka dari utas ini sebelum menghapusnya.',
 	'lqt-delete-parent-deleted' => 'Utas induk telah dihapus ($1)',
 	'lqt-delete-replies-done' => 'Semua balasan terhadap utas ini juga telah dihapus.',
-	'lqt-movethread' => 'Pindah',
+	'lqt-movethread' => 'Pindahkan',
 	'lqt-menu-trigger' => 'Lainnya',
 	'lqt-newmessages-from' => 'Dari $1',
 	'lqt-hot-topics' => 'Topik hangat',
@@ -9328,7 +9339,7 @@ Untuk menghindarinya, pisahkan mereka dari utas ini sebelum menghapusnya.',
 	'lqt_merge_thread' => 'Gabungkan utas',
 	'lqt-thread-merge-source' => 'Utas sumber:',
 	'lqt-thread-merge-dest' => 'Utas tujuan:',
-	'lqt-merge-submit' => 'Gabung',
+	'lqt-merge-submit' => 'Gabungkan',
 	'lqt-merge-success' => 'Anda telah menggabungkan utas $1 ke bawah $2 dengan sukses.',
 	'lqt-log-name' => 'Log diskusi bertingkat',
 	'lqt-log-header' => 'Log ini menjelaskan seluruh tindakan yang dilakukan pada topik diskusi.',
@@ -9378,7 +9389,7 @@ $7",
 	'lqt-thread-link-copy' => 'Salin ke papan klip',
 	'lqt-sign-not-necessary' => 'Tidak perlu menandatangani kiriman Anda dengan empat tilde.
 Tanda tangan akan dimunculkan secara otomatis.',
-	'lqt-marked-as-read-placeholder' => 'Utas $1 telah ditandai dibaca',
+	'lqt-marked-as-read-placeholder' => 'Utas $1 ditandai sudah dibaca',
 	'lqt-change-subject' => 'Ganti judul',
 	'lqt-save-subject' => 'Simpan',
 	'lqt-save-subject-failed' => 'Kesalahan ini terjadi ketika mengganti judul pesan ini: $1',
@@ -11681,8 +11692,13 @@ $messages['ltg'] = array(
 
 /** Latvian (Latviešu)
  * @author GreenZeb
+ * @author Papuass
  */
 $messages['lv'] = array(
+	'lqt_contents_title' => 'Saturs',
+	'lqt_toc_thread_replycount' => 'Atbildes',
+	'lqt_subject' => 'Temats:',
+	'lqt_delete_show_checkbox' => 'Rādīt dzēstās tēmas',
 	'lqt-search-button' => 'Meklēt',
 	'lqt-save-subject' => 'Saglabāt',
 	'lqt-cancel-subject-edit' => 'Atcelt',
@@ -12275,7 +12291,7 @@ $messages['mr'] = array(
 	'lqt-desc' => 'चर्चा पानावर चर्चेचे मुद्दे वाढवा',
 	'lqt_movethread' => 'थ्रेड दुसर्‍या पानावर हलवा',
 	'lqt_deletethread' => 'थ्रेड वगळा किंवा पुनर्स्थापित करा',
-	'lqt_contents_title' => 'कंटेन्ट्स',
+	'lqt_contents_title' => 'अनुक्रमणिका',
 	'lqt_add_header' => 'हेडर लिहा',
 	'lqt_new_thread' => 'नवीन चर्चा चालू करा',
 	'lqt_reply' => 'उत्तर',
