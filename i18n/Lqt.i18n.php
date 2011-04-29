@@ -1534,7 +1534,9 @@ $messages['ast'] = array(
  * @author PPerviz
  */
 $messages['az'] = array(
+	'lqt_reply' => 'Yenidən',
 	'lqt_delete' => 'Sil',
+	'lqt_subject' => 'Mövzu:',
 	'lqt-title' => 'Başlıq',
 	'lqt-summary' => 'Xülasə',
 	'lqt-history-time' => 'Zaman',
@@ -1544,6 +1546,7 @@ $messages['az'] = array(
 	'lqt-thread-link-url' => 'URL linki:',
 	'lqt-cancel-subject-edit' => 'Ləğv et',
 	'lqt-drag-reason' => 'Səbəb:',
+	'lqt-reply-subpage' => 'yenidən',
 	'nstab-summary' => 'Xülasə',
 );
 
@@ -18989,7 +18992,7 @@ $messages['tt-cyrl'] = array(
 	'lqt-feed-title-replies' => '{{SITENAME}} — Җаваплар',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Җаваплар $1',
 	'lqt-newmessages-n' => 'Яңа хатлар ($1)',
-	'lqt_newmessages' => 'Яңа хатлар',
+	'lqt_newmessages' => 'Яңа хатлар (Юк)',
 	'lqt_newmessages-title' => 'Яңа хатлар',
 	'lqt-newpost-summary' => 'Яңа элемтә: $1',
 	'lqt-reply-summary' => '[[$2|$1]]гә җавап',
