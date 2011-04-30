@@ -2350,6 +2350,7 @@ $messages['bg'] = array(
 /** Bengali (বাংলা)
  * @author Bellayet
  * @author Ehsanulhb
+ * @author Wikitanvir
  * @author Zaheen
  */
 $messages['bn'] = array(
@@ -2496,6 +2497,8 @@ $messages['bn'] = array(
 	'restriction-reply' => 'উত্তর পোষ্ট করুন',
 	'restriction-newthread' => 'নতুন থ্রেড পোষ্ট করুন',
 	'lqt-reply-subpage' => 'উত্তর',
+	'nstab-thread' => 'থ্রেড',
+	'nstab-summary' => 'সারাংশ',
 );
 
 /** Breton (Brezhoneg)
@@ -17845,6 +17848,7 @@ $messages['szl'] = array(
 
 /** Tamil (தமிழ்)
  * @author TRYPPN
+ * @author செல்வா
  */
 $messages['ta'] = array(
 	'lqt_contents_title' => 'பொருளடக்கம்',
@@ -17879,7 +17883,7 @@ $messages['ta'] = array(
 	'searchprofile-threads' => 'உரையாடல்',
 	'lqt-ajax-update-link' => 'புதுப்பி',
 	'lqt-save-subject' => 'சேமி',
-	'lqt-cancel-subject-edit' => 'விட்டுவிடு',
+	'lqt-cancel-subject-edit' => 'செய்யாமல் விடுக',
 	'lqt-drag-save' => 'உறுதிப்படுத்து',
 	'lqt-drag-reason' => 'காரணம்:',
 	'lqt-preview-signature' => '(முன்தோற்றம்)',
@@ -18074,10 +18078,13 @@ $messages['tet'] = array(
 	'lqt_delete' => 'Halakon',
 	'lqt_protectedfromreply_link' => 'proteje tiha',
 	'lqt_noreason' => 'Laiha motivu.',
+	'lqt_move_torename_edit' => 'edita nia',
 	'lqt_move_move' => 'Book',
 	'lqt_move_noreason' => 'Laiha motivu.',
 	'lqt_delete_return' => 'Fali ba $1.',
 	'lqt-title' => 'Títulu',
+	'lqt-summary' => 'Rezumu',
+	'nstab-summary' => 'Rezumu',
 );
 
 /** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
@@ -19257,7 +19264,7 @@ $7",
 	'lqt-feed-new-thread-intro' => 'Нова гілка на $1 розміщена $2',
 	'lqt-feed-reply-intro' => 'Відповідь у $3 (на $1), опублікована $2',
 	'lqt-newmessages-n' => 'Нові повідомлення ($1)',
-	'lqt_newmessages' => 'Нові повідомлення',
+	'lqt_newmessages' => 'Нові повідомлення для мене (Намає)',
 	'lqt_newmessages-title' => 'Нові повідомлення',
 	'lqt-newpost-summary' => 'Нова гілка: $1',
 	'lqt-reply-summary' => 'Відповідь на [[$2|$1]]',
