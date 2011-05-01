@@ -246,6 +246,7 @@ $wgResourceModules['ext.liquidThreads.newMessages'] = $lqtResourceTemplate + arr
 // // Path to the LQT directory
 // $wgLiquidThreadsExtensionPath = "{$wgScriptPath}/extensions/LiquidThreads";
 
+// Data model
 $wgAutoloadClasses['LiquidThreadsObject'] = "$dir/classes/model/Object.php";
 $wgAutoloadClasses['LiquidThreadsVersionedObject'] = "$dir/classes/model/VersionedObject.php";
 $wgAutoloadClasses['LiquidThreadsPost'] = "$dir/classes/model/Post.php";
@@ -253,6 +254,12 @@ $wgAutoloadClasses['LiquidThreadsPostVersion'] = "$dir/classes/model/PostVersion
 $wgAutoloadClasses['LiquidThreadsTopic'] = "$dir/classes/model/Topic.php";
 $wgAutoloadClasses['LiquidThreadsTopicVersion'] = "$dir/classes/model/TopicVersion.php";
 $wgAutoloadClasses['LiquidThreadsChannel'] = "$dir/classes/model/Channel.php";
+
+// Formatters
+$wgAutoloadClasses['LiquidThreadsFormatter'] = "$dir/classes/view/Formatter.php";
+$wgAutoloadClasses['LiquidThreadsFormatterContext'] = "$dir/classes/view/Formatter.php";
+$wgAutoloadClasses['LiquidThreadsPostFormatter'] = "$dir/classes/view/PostFormatter.php";
+$wgAutoloadClasses['LiquidThreadsPostFormatterContext'] = "$dir/classes/view/PostFormatter.php";
 
 /** CONFIGURATION SECTION */
 

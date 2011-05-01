@@ -14,6 +14,9 @@ class LiquidThreadsPostVersion {
 	/** ID of the post that this version applies to **/
 	protected $postID;
 	
+	/** The Post that this version applies to **/
+	protected $post;
+	
 	/** User object for the person who created this *VERSION* **/
 	protected $versionUser;
 	
@@ -41,6 +44,9 @@ class LiquidThreadsPostVersion {
 	/** Actual text **/
 	protected $text = null;
 	
+	/** Actual text, parsed to HTML **/
+	protected $contentHTML = null;
+	
 	/** Whether or not the text has been modified directly in $text
 	 * (and therefore needs to be saved to ES). **/
 	protected $textDirty = false;
@@ -53,6 +59,9 @@ class LiquidThreadsPostVersion {
 	
 	/** The signature attached to this post **/
 	protected $signature = null;
+	
+	/** Attributed timestamp for this post **/
+	protected $postTime = null;
 	
 	/* Ancestry information, for not-saved errors */
 	
@@ -121,9 +130,10 @@ class LiquidThreadsPostVersion {
 	/**
 	 * Factory method to retrieve a PostVersion from a Post and point in time.
 	 * If the point in time is blank, it retrieves the most recent one.
+	 * Throws an exception on failure.
 	 * @param $post LiquidThreadsPost: The Post to retrieve a version for.
 	 * @param $timestamp String: A timestamp for the point in time (optional)
-	 * @return LiquidThreadsPostVersion: The version for that post at that point in time, or null.
+	 * @return LiquidThreadsPostVersion: The version for that post at that point in time.
 	 */
 	public static function newPointInTime( $post, $timestamp = null ) {
 		if ( ! $post instanceof LiquidThreadsPost ) {
@@ -139,12 +149,15 @@ class LiquidThreadsPostVersion {
 				$dbr->addQuotes( $dbr->timestamp( $timestamp ) );
 		}
 		
-		$row = $dbr->selectRow( 'lqt_post_version', '*', $conds, __METHOD__ );
+		$row = $dbr->selectRow( 'lqt_post_version', '*', $conds, __METHOD__,
+				array( 'ORDER BY' => 'lpv_timestamp DESC' ) );
 		
 		if ( $row ) {
-			return self::newFromRow( $row );
+			$obj = self::newFromRow( $row );
+			$obj->setPost( $post );
+			return $obj;
 		} else {
-			return null;
+			throw new MWException( "No version available at this point in time" );
 		}
 	}
 	
@@ -247,6 +260,7 @@ class LiquidThreadsPostVersion {
 		$this->comment = $row->lpv_comment;
 		$this->timestamp = wfTimestamp( TS_MW, $row->lpv_timestamp );
 		$this->postID = $row->lpv_post;
+		$this->postTime = $row->lpv_post_time;
 		
 		// Real version data loading
 		$user = null;
@@ -325,6 +339,7 @@ class LiquidThreadsPostVersion {
 		$this->textRow = null;
 		$this->textDirty = true;
 		$this->topicID = $topic->getID();
+		$this->signature = '';
 		
 		if ( $parent ) {
 			$this->parentID = $parent->getID();
@@ -339,6 +354,13 @@ class LiquidThreadsPostVersion {
 	 */
 	protected function isMutable() {
 		return $this->id == 0;
+	}
+	
+	/**
+	 * @return true if this is the current version of the post, false otherwise.
+	 */
+	public function isCurrent() {
+		$post = $this->getPost();
 	}
 	
 	/**
@@ -416,6 +438,14 @@ class LiquidThreadsPostVersion {
 	}
 	
 	/**
+	 * Sets the timestamp attributed to the post in this version.
+	 * @param $timestamp The new timestamp.
+	 */
+	public function setPostTime( $timestamp ) {
+		$this->postTime = $timestamp;
+	}
+	
+	/**
 	 * Saves this Version to the database.
 	 * @param $comment String: (optional) The edit comment for this version.
 	 */
@@ -436,6 +466,8 @@ class LiquidThreadsPostVersion {
 			'lpv_timestamp' => $dbw->timestamp( wfTimestampNow() ),
 			'lpv_comment' => $this->comment,
 			'lpv_topic' => $this->topicID,
+			'lpv_signature' => $this->signature,
+			'lpv_post_time' => $this->postTime,
 		);
 		
 		$this->timestamp = $row['lpv_timestamp'];
@@ -556,6 +588,39 @@ class LiquidThreadsPostVersion {
 	}
 	
 	/**
+	 * Gets the parsed HTML for this Post Version's text.
+	 */
+	public function getContentHTML() {
+		if ( !is_null($this->contentHTML) ) {
+			return $this->contentHTML;
+		}
+		
+		if ( !$this->isMutable() ) {	
+			global $wgMemc;
+			
+			$memcKey = wfMemcKey( 'lqt', 'post-version', $this->getID(), 'html' );
+			
+			$html = $wgMemc->get( $memcKey );
+			if ( $html ) {
+				$this->contentHTML = $html;
+				return $html;
+			}
+		}
+		
+		global $wgParser, $wgOut;
+
+		$html = $wgOut->parse( $this->getText() );
+		$this->contentHTML = $html;
+		
+		if ( ! $this->isMutable() ) {
+			// 7 day cache
+			$wgMemc->set( $memcKey, $html, 86400 * 7 );
+		}
+		
+		return $html;
+	}
+	
+	/**
 	 * Retrieves the ID of the parent topic associated with this Post Version.
 	 */
 	public function getTopicID() {
@@ -577,6 +642,33 @@ class LiquidThreadsPostVersion {
 	}
 	
 	/**
+	 * Retrieves the timestamp attributed to the post in this version.
+	 */
+	public function getPostTime() {
+		return $this->postTime;
+	}
+	
+	/**
+	 * Gets the ID of the post.
+	 * @return The Post ID that this version is for.
+	 */
+	public function getPostID() {
+		return $this->postID;
+	}
+	
+	/**
+	 * Gets the post that this version is for.
+	 * @return The LiquidThreadsPost that this version applies to.
+	 */
+	public function getPost() {
+		if ( is_null($this->post) ) {
+			$this->post = LiquidThreadsPost::newFromID( $this->getPostID() );
+		}
+		
+		return $this->post;
+	}
+	
+	/**
 	 * Lets you set the post ID, once.
 	 * Only valid use is from LiquidThreadsPost::save(), for a new LiquidThreadsPost
 	 * @param $id Integer: The post ID that this version applies to.
@@ -592,5 +684,17 @@ class LiquidThreadsPostVersion {
 		$dbw->update( 'lqt_post_version', array( 'lpv_post' => $id ),
 				array( 'lpv_id' => $this->getID() ),
 				__METHOD__ );
+	}
+	
+	/**
+	 * Lets you provide the Post object to save loading
+	 * Validity checking *is* done.
+	 */
+	public function setPost( $post ) {
+		if ( $post->getID() != $this->getPostID() ) {
+			throw new MWException( "Invalid argument to ".__METHOD__ );
+		}
+		
+		$this->post = $post;
 	}
 }

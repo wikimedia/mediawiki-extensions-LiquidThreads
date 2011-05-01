@@ -25,6 +25,9 @@ class LiquidThreadsPost {
 	/** The LiquidThreadsPost that this is found underneath. **/
 	protected $parent;
 	
+	/** Replies **/
+	protected $replies = null;
+	
 	/* FACTORY METHODS */
 	
 	/**
@@ -426,6 +429,25 @@ class LiquidThreadsPost {
 	 */
 	public function setSignature( $sig ) {
 		$this->getPendingVersion()->setSignature( $sig );
+	}
+	
+	/**
+	 * Gets the timestamp attributed to this post.
+	 */
+	public function getPostTime() {
+		return wfTimestamp( TS_MW, $this->getCurrentVersion()->getPostTime() );
+	}
+	
+	/**
+	 * Gets replies to this post.
+	 */
+	public function getReplies() {
+		if ( is_null( $this->replies ) ) {
+			$conditions = array( 'lqp_parent_post' => $this->getID() );
+			$this->replies = self::loadFromConditions( $conditions, true );
+		}
+		
+		return $this->replies;
 	}
 }
 

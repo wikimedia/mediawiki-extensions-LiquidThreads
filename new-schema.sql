@@ -141,6 +141,11 @@ CREATE TABLE /*_*/lqt_post_version (
 	lpv_parent_post bigint(10) unsigned null,
 	
 	-- Signature
+	lpv_signature TINYBLOB NOT NULL,
+	
+	-- Attributed date/time
+	lpv_post_time varbinary(14) not null,
+	
 	lpv_signature TINYBLOB NOT NULL
 ) /*$wgDBTableOptions*/;
 
