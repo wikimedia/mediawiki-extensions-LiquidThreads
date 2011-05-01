@@ -6898,15 +6898,20 @@ Por èvitar cen, dèpondéd-les de ceti fil de discussion devant que suprimar ce
 	'lqt-enotif-subject-reply' => 'Discussion dessus {{SITENAME}} - Rèponsa : $1',
 	'lqt-enotif-subject-newthread' => 'Discussion dessus {{SITENAME}} - Sujèt novél : $1',
 	'lqt-enotif-newthread' => 'Bonjorn $1,
-O est una notificacion de {{SITENAME}}, qu’endique un sujèt novél de $5, « $2 »,
-at étâ fêta lo $3 a $4.
 
-Vos lo pouede vêre a « $6 »',
+O est una notificacion de {{SITENAME}}, qu’endique qu’un sujèt novél sur $5, « $2 »,
+at étâ fêt lo $3 a $4 per $8.
+
+Vos lo pouede vêre a <$6>
+
+Lo tèxto est :
+$7',
 	'lqt-enotif-reply' => 'Bonjorn $1,
-O est una notificacion de {{SITENAME}}, qu’una rèponsa novèla a « $2 » dessus $5
-at étâ fêta lo $3 a $4.
 
-Vos la pouede vêre dessus <$6>
+O est una notificacion de {{SITENAME}}, qu’una rèponsa novèla a « $2 » sur $5
+at étâ fêta lo $3 a $4 per $8.
+
+Vos la pouede vêre sur <$6>
 
 Lo tèxto de la rèponsa est :
 $7',
@@ -8877,7 +8882,7 @@ Az aláírásod automatikusan meg fog jelenni.',
 	'lqt-feed-new-thread-intro' => '$2 új témát indított a(z) $1 lapon',
 	'lqt-feed-reply-intro' => '$2 új hozzászólást írt a(z) $3 témához a(z) $1 lapon',
 	'lqt-newmessages-n' => 'Új üzenetek ($1)',
-	'lqt_newmessages' => 'Új üzenetek',
+	'lqt_newmessages' => 'Új üzenetek (nincs)',
 	'lqt_newmessages-title' => 'Új üzenetek',
 	'lqt-newpost-summary' => 'Új téma: $1',
 	'lqt-reply-summary' => 'Válasz a következő témára: [[$2|$1]]',
@@ -10524,6 +10529,7 @@ $messages['kn'] = array(
 
 /** Korean (한국어)
  * @author Albamhandae
+ * @author Changwoo
  * @author FriedC
  * @author Gapo
  * @author Klutzy
@@ -10774,7 +10780,7 @@ $7",
 	'lqt-feed-new-thread-intro' => '$1에서 $2가 작성한 새 스레드',
 	'lqt-feed-reply-intro' => '$1 문서의 $3 스레드에 대한 $2 사용자의 답글',
 	'lqt-newmessages-n' => '새 메시지 ($1)',
-	'lqt_newmessages' => '새 메시지',
+	'lqt_newmessages' => '새 메시지 (없음)',
 	'lqt_newmessages-title' => '새 메시지',
 	'lqt-newpost-summary' => '새 스레드: $1',
 	'lqt-reply-summary' => '[[$2|$1]]에 대한 답변',
@@ -13310,7 +13316,7 @@ Du kan lesa svaret på <$6>',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Svar frå $1',
 	'lqt-feed-new-thread-intro' => 'Ny tråd på $1 oppretta av $2',
 	'lqt-newmessages-n' => 'Nye meldingar ($1)',
-	'lqt_newmessages' => 'Nye meldingar',
+	'lqt_newmessages' => 'Nye meldingar (ingen)',
 	'lqt_newmessages-title' => 'Nye meldingar',
 	'lqt-newpost-summary' => 'Ny tråd: $1',
 	'lqt-reply-summary' => 'Svar på [[$2|$1]]',
@@ -14504,11 +14510,12 @@ $messages['ps'] = array(
 	'lqt-edit-signature' => '(لاسليک سمول)',
 	'lqt-feed-title-replies' => '{{SITENAME}} — ځوابونه',
 	'lqt-newmessages-n' => 'نوي پيغامونه ($1)',
-	'lqt_newmessages' => 'نوي پيغامونه',
+	'lqt_newmessages' => 'زما نوي پيغامونه (هېڅ)',
 	'lqt_newmessages-title' => 'نوي پيغامونه',
 	'lqt-reply-summary' => '[[$2|$1]] ته ځواب وييل',
 	'lqt-talkpage-history-title' => 'د خبرو اترو د مخ پېښليک',
 	'lqt-reply-subpage' => 'ځوابول',
+	'nstab-summary' => 'لنډيز',
 );
 
 /** Portuguese (Português)
@@ -14699,7 +14706,7 @@ Para evitá-lo, separe-as antes de apagar o tópico.',
 	'lqt-log-action-merge-down' => 'moveu [[$1]] para o tópico [[$3]]',
 	'lqt-log-action-subjectedit' => 'alterou o assunto de [[$1]], de "$2" para "$3"',
 	'lqt-log-action-resort' => 'modificou a ordenação de [[$1]]. Alterou a chave de ordenação, de $2 para $3',
-	'lqt-preference-notify-talk' => 'Notificar-me por correio electrónico das respostas a um tópico que esteja a vigiar',
+	'lqt-preference-notify-talk' => 'Notificar-me por correio electrónico das respostas a um tópico que eu esteja a vigiar',
 	'lqt-preference-watch-threads' => 'Vigiar tópicos que eu criar ou aos quais responda',
 	'prefs-lqt' => 'Discussão em tópicos',
 	'lqt-preference-display-depth' => 'Profundidade máxima de respostas a mostrar:',
@@ -16808,7 +16815,7 @@ Da se temu izognete, jih pred brisanjem odcepite od razprave.',
 	'lqt-enotif-subject-newthread' => 'Razprava {{SITENAME}} – Nova razprava: $1',
 	'lqt-enotif-newthread' => '$1, pozdravljeni,
 
-to je obvestilo iz {{GRAMMAR:rodilnik|{{SITENAME}}}}, saj je $8 na $5
+{{SITENAME}} vaš obvešča, da je $8 na $5
 dne $3 ob $4 ustvaril(-a) novo razpravo »$2«.
 
 Ogledate si jo lahko na <$6>
@@ -16817,7 +16824,7 @@ Vsebina je:
 $7',
 	'lqt-enotif-reply' => '$1, pozdravljeni,
 
-to je obvestilo iz {{GRAMMAR:rodilnik|{{SITENAME}}}}, saj je $8 dne $3 ob $4
+{{SITENAME}} vaš obvešča, da je $8 dne $3 ob $4
 odgovoril na razpravo »$2« na $5.
 
 Odgovor si lahko ogledate na <$6>
