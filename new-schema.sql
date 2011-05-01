@@ -144,9 +144,7 @@ CREATE TABLE /*_*/lqt_post_version (
 	lpv_signature TINYBLOB NOT NULL,
 	
 	-- Attributed date/time
-	lpv_post_time varbinary(14) not null,
-	
-	lpv_signature TINYBLOB NOT NULL
+	lpv_post_time varbinary(14) not null
 ) /*$wgDBTableOptions*/;
 
 CREATE INDEX /*i*/lpv_post_timestamp ON /*_*/lqt_post_version (lpv_post, lpv_timestamp);
