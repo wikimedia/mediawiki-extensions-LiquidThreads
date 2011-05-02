@@ -1544,7 +1544,9 @@ $messages['az'] = array(
 	'lqt-history-comment' => 'Şərh',
 	'lqt-search-button' => 'Axtar',
 	'lqt-thread-link-url' => 'URL linki:',
+	'lqt-save-subject' => 'Qeyd et',
 	'lqt-cancel-subject-edit' => 'Ləğv et',
+	'lqt-drag-save' => 'Təsdiq et',
 	'lqt-drag-reason' => 'Səbəb:',
 	'lqt-reply-subpage' => 'yenidən',
 	'nstab-summary' => 'Xülasə',
@@ -8278,17 +8280,22 @@ Kako bi to izbjegli, podijelite ih iz ove teme prije nego ju obrišete.',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} rasprava - Odgovor: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} rasprava - Nova rasprava: $1',
 	'lqt-enotif-newthread' => "Pozdrav $1,
-Ovo je obavijest s {{SITENAME}} da je nova rasprava na $5, '$2',
-započeta $3 u $4.
 
-Možete je vidjeti na <$6>",
+ovo je obavijest s {{SITENAME}} da je nova rasprava na $5, '$2',
+započeta $3 u $4 od strane $8
+
+Možete je vidjeti na <$6>
+
+Tekst glasi:
+$7",
 	'lqt-enotif-reply' => "Pozdrav $1,
-Ovo je obavijest s {{SITENAME}} o novom odgovoru na '$2' na $5,
-snimljen dana $3 u $4.
 
-Odgovor možete vidjeti ovdje: <$6>
+ovo je obavijest s {{SITENAME}} o novom odgovoru na '$2' na $5, 
+dan $3 u $4 od strane $8
 
-Odgovor glasi:
+Odgovor možete vidjeti ovdje <$6>
+
+Odgovor glasi: 
 $7",
 	'lqt-quote-intro' => '$2 u $3, [[User:$1|$1]] je napisao:',
 	'lqt-quote' => 'Citiraj',
@@ -8335,6 +8342,7 @@ Potpis se prikazuje automatski.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Odgovori suradnika $1',
 	'lqt-feed-new-thread-intro' => 'Suradnik $2 započeo je nova tema o $1',
 	'lqt-feed-reply-intro' => 'Odgovor $3 (na $1) napisao je suradnik $2',
+	'tooltip-pt-newmessages' => 'Pokazuje nove postove na teme ili na stranicama za razgovor koje pratite',
 	'lqt-newmessages-n' => 'Nove poruke ($1)',
 	'lqt_newmessages' => 'Moje nove poruke (nema)',
 	'lqt_newmessages-title' => 'Nove poruke',
@@ -11782,7 +11790,7 @@ $messages['mk'] = array(
 	'lqt_hist_merged_to' => '[[$1|Одговорот]] е преместен од друга нишка',
 	'lqt_hist_split_from' => 'Раздели во нова нишка',
 	'lqt_hist_root_blanked' => 'Текстот од коментарот е избришан',
-	'lqt_hist_adjusted_sortkey' => 'Прилагодена позиција на нишката',
+	'lqt_hist_adjusted_sortkey' => 'Прилагодена положбата на нишката',
 	'lqt_revision_as_of' => 'Ревизија од $2 во $3 ч.',
 	'lqt_change_new_thread' => 'Ова е првичната ревизија на нишката',
 	'lqt_change_reply_created' => '[$1 Одбележаниот коментар] беше создаден во оваа ревизија.',
@@ -11970,7 +11978,7 @@ $7',
 	'lqt-drag-confirm' => 'За да ги извршите следните дејства, наведете причина и кликнете на „Потврди“.',
 	'lqt-drag-reparent' => 'Ставија ја пораката под нова матична нишка.',
 	'lqt-drag-split' => 'Премести ја пораката во своја нишка',
-	'lqt-drag-setsortkey' => 'Прилагоди ја позицијата на пораката во страницата',
+	'lqt-drag-setsortkey' => 'Прилагодување на положбата на пораката во страницата',
 	'lqt-drag-bump' => 'Качи ја пораката најгоре на страницата',
 	'lqt-drag-save' => 'Потврди',
 	'lqt-drag-title' => 'Потврди повлекување',
@@ -12330,7 +12338,7 @@ $messages['mr'] = array(
 	'lqt_change_new_thread' => 'ही या थ्रेडची सुरुवातीची आवृत्ती आहे.',
 	'lqt_change_reply_created' => 'रंगविलेली (highlighted) सूचना या आवृत्तीमध्ये देण्यात आली होती.',
 	'lqt_change_edited_root' => 'रंगविलेली सूचना या आवृत्तीमध्ये संपादित करण्यात आली होती.',
-	'lqt_youhavenewmessages' => 'तुमच्याकडे $1 आहेत.',
+	'lqt_youhavenewmessages' => 'तुमच्यासाठी [[$1|नवीन संदेश]] आहेत.',
 	'lqt_protectedfromreply' => 'ह्या थ्रेडला उत्तर देणे $1 आहे.',
 	'lqt_protectedfromreply_link' => 'सुरक्षीत',
 	'lqt_subject' => 'विषय:',
