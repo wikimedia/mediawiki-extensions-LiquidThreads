@@ -7001,6 +7001,7 @@ $messages['fur'] = array(
 	'lqt_revision_as_of' => 'Version dal $2 a lis $3.',
 	'lqt_youhavenewmessages' => 'Tu âs [[$1|gnûfs messaçs]].',
 	'lqt_subject' => 'Sogjet:',
+	'lqt_summary_notice_link' => 'scrîf un somari',
 	'lqt_summary_subtitle' => 'Somari di "$1"',
 	'lqt_move_move' => 'Môf',
 	'lqt_delete_return' => 'Torne a $1.',
@@ -7016,15 +7017,20 @@ $messages['fur'] = array(
 	'lqt-no-new-messages' => 'Nissun gnûf messaç par te.',
 	'lqt-new-messages' => '✒ Tu âs gnûfs messaçs.',
 	'lqt-thread-created' => 'Creât',
+	'lqt-history-time' => 'Date e ore',
 	'lqt-history-user' => 'Utent',
 	'lqt-history-action' => 'Ativitât',
 	'lqt-history-comment' => 'Coment',
-	'lqt-thread-edited-author' => 'Cambiât dal autôr',
-	'lqt-thread-edited-others' => 'Cambiât di altris utents',
+	'lqt-thread-edited-author' => 'Cambiât dal autôr<br />
+Ultin cambiament: $1',
+	'lqt-thread-edited-others' => 'Cambiât di {{PLURAL:$2|un altri utent|$2 utents}}.<br />
+Ultin cambiament: $1',
 	'lqt-header-actions' => 'Azions',
+	'lqt_summarize_link' => 'Sunte',
 	'lqt-movethread' => 'Môf',
 	'lqt-menu-trigger' => 'Plui',
 	'lqt-newmessages-from' => 'Di $1',
+	'lqt-hot-topics' => 'Argoments popolârs',
 	'lqt-add-reply' => 'Zonte une rispueste',
 	'lqt-search-button' => 'Cîr',
 	'lqt-ajax-update-link' => 'Inzorne',
@@ -19028,6 +19034,7 @@ $messages['tt-cyrl'] = array(
 /** Ukrainian (Українська)
  * @author AS
  * @author Alex Khimich
+ * @author Microcell
  * @author NickK
  * @author Prima klasy4na
  * @author Тест
@@ -19278,8 +19285,9 @@ $7",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Відповіді $1',
 	'lqt-feed-new-thread-intro' => 'Нова гілка на $1 розміщена $2',
 	'lqt-feed-reply-intro' => 'Відповідь у $3 (на $1), опублікована $2',
+	'tooltip-pt-newmessages' => 'Показує нові повідомлення в гілках обговорень, за якими ви слідкуєте',
 	'lqt-newmessages-n' => 'Нові повідомлення ($1)',
-	'lqt_newmessages' => 'Нові повідомлення для мене (Намає)',
+	'lqt_newmessages' => 'Нові повідомлення для мене (немає)',
 	'lqt_newmessages-title' => 'Нові повідомлення',
 	'lqt-newpost-summary' => 'Нова гілка: $1',
 	'lqt-reply-summary' => 'Відповідь на [[$2|$1]]',
