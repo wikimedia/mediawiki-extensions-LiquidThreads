@@ -27,6 +27,9 @@ class LiquidThreadsTopic {
 	/** Array of LiquidThreadsPost objects, the posts in this topic **/
 	protected $posts;
 	
+	/** Array of LiquidThreadsPost objects, the direct responses to this topic. **/
+	protected $directResponses;
+	
 	/** The number of replies that this topic has **/
 	protected $replyCount;
 	
@@ -339,6 +342,29 @@ class LiquidThreadsTopic {
 		$this->posts = LiquidThreadsPost::loadFromConditions( $conds );
 		
 		return $this->posts;
+	}
+	
+	/**
+	 * Retrieves direct responses to this topic.
+	 * Basically, all posts with no parentID set
+	 * @return Array of LiquidThreadsPost objects.
+	 */
+	public function getDirectResponses() {
+		if ( is_array( $this->directResponses ) ) {
+			return $this->directResponses;
+		} // else
+		
+		$posts = $this->getPosts();
+		
+		$this->directResponses = array();
+		
+		foreach( $posts as $post ) {
+			if ( ! $post->getParentID() ) {
+				$this->directResponses[$post->getID()] = $post;
+			}
+		}
+		
+		return $this->directResponses;
 	}
 	
 	/* PROPERTY SETTERS */

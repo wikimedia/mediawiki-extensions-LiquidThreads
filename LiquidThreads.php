@@ -260,6 +260,13 @@ $wgAutoloadClasses['LiquidThreadsFormatter'] = "$dir/classes/view/Formatter.php"
 $wgAutoloadClasses['LiquidThreadsFormatterContext'] = "$dir/classes/view/Formatter.php";
 $wgAutoloadClasses['LiquidThreadsPostFormatter'] = "$dir/classes/view/PostFormatter.php";
 $wgAutoloadClasses['LiquidThreadsPostFormatterContext'] = "$dir/classes/view/PostFormatter.php";
+$wgAutoloadClasses['LiquidThreadsTopicFormatter'] = "$dir/classes/view/TopicFormatter.php";
+$wgAutoloadClasses['LiquidThreadsTopicFormatterContext'] = "$dir/classes/view/TopicFormatter.php";
+
+// Toolbars
+$wgAutoloadClasses['LiquidThreadsToolbar'] = "$dir/classes/view/Toolbar.php";
+$wgAutoloadClasses['LiquidThreadsPostToolbar'] = "$dir/classes/view/PostToolbar.php";
+$wgAutoloadClasses['LiquidThreadsTopicToolbar'] = "$dir/classes/view/TopicToolbar.php";
 
 /** CONFIGURATION SECTION */
 

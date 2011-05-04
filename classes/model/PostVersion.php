@@ -140,6 +140,10 @@ class LiquidThreadsPostVersion {
 			throw new MWException( "Invalid argument to ".__METHOD__ );
 		}
 		
+		if ( $timestamp == null ) {
+			return $post->getCurrentVersion();
+		}
+		
 		$dbr = wfGetDB( DB_SLAVE );
 		
 		$conds = array( 'lpv_post' => $post->getID() );
