@@ -176,7 +176,15 @@ class LiquidThreadsPostFormatter extends LiquidThreadsFormatter {
 		return $toolbar->getHTML( $post, $context );
 	}
 	
-	function getPostSignature( $post, $version, $context ) {
+	
+	/**
+	 * Gets the signature that applies to a post.
+	 * @param $post The LiquidThreadsPost to check.
+	 * @param $version The LiquidThreadsPostVersion of the post to get the signature from.
+	 * @param $context A LiquidThreadsPostFormatterContext object
+	 * @return String: The post's signature
+	 */
+	protected function getPostSignature( $post, $version, $context ) {
 		$lang = $context->get('language');
 
 		$signature = $version->getSignature();
@@ -199,7 +207,12 @@ class LiquidThreadsPostFormatter extends LiquidThreadsFormatter {
 		return $signature;
 	}
 	
-	static function parseSignature( $sig ) {
+	/**
+	 * Parses a post's signature into HTML.
+	 * @param $sig String: The wikitext signature.
+	 * @return String: The signature as HTML.
+	 */
+	public static function parseSignature( $sig ) {
 		global $wgParser, $wgOut;
 
 		static $parseCache = array();

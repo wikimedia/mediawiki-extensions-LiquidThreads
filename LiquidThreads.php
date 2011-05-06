@@ -268,6 +268,10 @@ $wgAutoloadClasses['LiquidThreadsToolbar'] = "$dir/classes/view/Toolbar.php";
 $wgAutoloadClasses['LiquidThreadsPostToolbar'] = "$dir/classes/view/PostToolbar.php";
 $wgAutoloadClasses['LiquidThreadsTopicToolbar'] = "$dir/classes/view/TopicToolbar.php";
 
+// Edit Forms
+$wgAutoloadClasses['LiquidThreadsEditForm'] = "$dir/classes/view/EditForm.php";
+$wgAutoloadClasses['LiquidThreadsNewTopicForm'] = "$dir/classes/view/NewTopicForm.php";
+
 /** CONFIGURATION SECTION */
 
 $wgDefaultUserOptions['lqt-watch-threads'] = true;
