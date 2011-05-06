@@ -11832,14 +11832,14 @@ $messages['mk'] = array(
 	'lqt_nosuchrevision' => 'Нема таква ревизија на оваа нишка.',
 	'lqt_nosuchthread' => 'Назначената нишка не постои.',
 	'lqt_nosuchthread_title' => 'Нема таква нишка',
-	'lqt_threadrequired' => 'Морате да назначите нишка во URL адресата.',
+	'lqt_threadrequired' => 'Морате да наведете нишка во URL-адресата.',
 	'lqt_move_movingthread' => 'Преместување на $1.
 Оваа нишка е дел од $2.',
 	'lqt_move_torename' => 'За да ја преименувате нишкава,  $1 и сменете го полето „Наслов“.',
 	'lqt_move_torename_edit' => 'уредете ја',
 	'lqt_move_destinationtitle' => 'Наслов на целната страна за разговор:',
 	'lqt_move_move' => 'Премести',
-	'lqt_move_nodestination' => 'Морате да назначите целна страница.',
+	'lqt_move_nodestination' => 'Мора да наведете целна страница.',
 	'lqt_move_thread_bad_destination' => 'Целната страница не е страница за разговор.',
 	'lqt_move_samedestination' => 'Нишката веќе е на оваа страница!',
 	'lqt_move_noreason' => 'Нема наведено причина.',
@@ -11980,7 +11980,7 @@ $7',
 	'lqt-save-subject' => 'Зачувај',
 	'lqt-save-subject-failed' => 'Во обидот за менување на насловот на оваа нишка настана следнава грешка: $1',
 	'lqt-ajax-invalid-subject' => 'Насловот кој го назначивте е неважечки, веројатно бидејќи е предолг.',
-	'lqt-ajax-no-subject' => 'Мора да назначите наслов.',
+	'lqt-ajax-no-subject' => 'Мора да наведете наслов.',
 	'lqt-save-subject-error-unknown' => 'Се појави непозната грешка при обидот за поставување на наслов за оваа нишка. Обидете се да го направите ова со кликнување на „уреди“ на најгорната порака.',
 	'lqt-cancel-subject-edit' => 'Откажи',
 	'lqt-drag-activate' => 'Довлечи на ново место',
@@ -20525,11 +20525,15 @@ $messages['zh-hant'] = array(
 	'lqt-enotif-subject-reply' => '{{SITENAME}} 的討論 - 回覆：$1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} 的討論 - 新話題：$1',
 	'lqt-enotif-newthread' => '$1 您好，
-這是自 {{SITENAME}} 發送的一封提醒郵件。$3 $4 時 $5 上發起了新話題「$2」。
 
-您可以訪問 <$6> 閱讀',
+這是自 {{SITENAME}} 發送的一封關於討論主題$5的話題$2之提醒郵件。$3 $4 時 $8 上發起了新話題。
+
+您可以訪問 <$6> 閱讀
+
+文字是：
+$7',
 	'lqt-enotif-reply' => '$1 您好，
-這是由 {{SITENAME}} 發送的一封提醒郵件。 $3 $4時$5上的話題“$2”有新回复。
+這是由 {{SITENAME}} 發送的一封提醒郵件。 $3 $4時$8上的$5討論頁之話題“$2”有新回复。
 
 您可以訪問 <$6> 閱讀
 
@@ -20579,8 +20583,9 @@ $7',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — 來自 $1 的回覆',
 	'lqt-feed-new-thread-intro' => '$2 在 $1 上發起的新話題',
 	'lqt-feed-reply-intro' => '$2 在 $1 上對 $3 的回覆',
+	'tooltip-pt-newmessages' => '顯示在你的監視列表中的新話題討論',
 	'lqt-newmessages-n' => '新訊息（$1）',
-	'lqt_newmessages' => '新訊息',
+	'lqt_newmessages' => '我的新訊息（無）',
 	'lqt_newmessages-title' => '新訊息',
 	'lqt-newpost-summary' => '新話題：$1',
 	'lqt-reply-summary' => '回覆到 [[$2|$1]]',
