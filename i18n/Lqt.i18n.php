@@ -5712,12 +5712,15 @@ Selle vältimiseks lahuta vastused enne kustutamist sellest lõimest.',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} – Uus lõim: $1',
 	'lqt-enotif-newthread' => 'Tere, $1!
 
-Selle kirjaga teatatakse võrgukohast {{SITENAME}}, et aruteluleheküljel „$5“ loodi kuupäeval $3, kell $4 lõim „$2“.
+Selle kirjaga teatatakse võrgukohast {{SITENAME}}, et kasutaja $8 lõi kuupäeval $3, kell $4 aruteluleheküljel „$5“ lõime „$2“.
 
-See on leitav asukohast <$6>.',
+See on leitav asukohast <$6>.
+
+Sõnum on järgmine:
+$7',
 	'lqt-enotif-reply' => 'Tere, $1!
 
-Selle kirjaga teatatakse {{GRAMMAR:elative|{{SITENAME}}}}, et aruteluleheküljel „$5“ loodi kuupäeval $3, kell $4 lõimele „$2“ uus vastus.
+Selle kirjaga teatatakse {{GRAMMAR:elative|{{SITENAME}}}}, et kasutaja $8 lisas kuupäeval $3, kell $4 aruteluleheküljel „$5“ lõimele „$2“ uue vastuse.
 
 See on leitav asukohast <$6>.
 
