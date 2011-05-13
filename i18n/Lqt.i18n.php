@@ -13917,7 +13917,7 @@ $messages['pdc'] = array(
 	'lqt-drag-reason' => 'Grund:',
 	'lqt-preview-signature' => '(Aagucke)',
 	'lqt-newmessages-n' => 'Neiichkeede ($1)',
-	'lqt_newmessages' => 'Neiichkeede',
+	'lqt_newmessages' => 'Neiichkeede (ken)',
 	'lqt-talkpage-history-subtitle' => 'Fer $1',
 	'lqt-talkpage-history-tab' => 'Iwwerschrift',
 );
