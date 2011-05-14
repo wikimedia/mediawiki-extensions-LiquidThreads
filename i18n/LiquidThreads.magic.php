@@ -1,4 +1,7 @@
 <?php
+/**
+ *
+ */
 
 $magicWords = array();
 
@@ -10,8 +13,8 @@ $magicWords['en'] = array(
 
 /** Arabic (العربية) */
 $magicWords['ar'] = array(
-	'useliquidthreads' => array( 0, 'استخدم_الخيوط_السائلة', 'UseLiquidThreads' ),
-	'lqtpagelimit' => array( 0, 'حد_صفحة_خس', 'lqtpagelimit' ),
+	'useliquidthreads' => array( 0, 'استخدم_الخيوط_السائلة' ),
+	'lqtpagelimit' => array( 0, 'حد_صفحة_خس' ),
 );
 
 /** Egyptian Spoken Arabic (مصرى) */
@@ -56,12 +59,12 @@ $magicWords['nl'] = array(
 
 /** Russian (Русский) */
 $magicWords['ru'] = array(
-	'useliquidthreads' => array( 0, 'ИспользоватьLiquidThreads', 'UseLiquidThreads' ),
-	'lqtpagelimit' => array( 0, 'ограничение_страниц_lqt', 'lqtpagelimit' ),
+	'useliquidthreads' => array( 0, 'ИспользоватьLiquidThreads' ),
+	'lqtpagelimit' => array( 0, 'ограничение_страниц_lqt' ),
 );
 
 /** Turkish (Türkçe) */
 $magicWords['tr'] = array(
-	'useliquidthreads' => array( 0, 'LiquidThreadEtkin', 'UseLiquidThreads' ),
-	'lqtpagelimit' => array( 0, 'lqtsayfasınırı', 'lqtpagelimit' ),
+	'useliquidthreads' => array( 0, 'LiquidThreadEtkin' ),
+	'lqtpagelimit' => array( 0, 'lqtsayfasınırı' ),
 );
