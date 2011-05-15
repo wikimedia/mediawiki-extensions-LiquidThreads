@@ -16926,6 +16926,13 @@ $messages['sli'] = array(
 	'lqt_move_move' => 'Verschieba',
 );
 
+/** Somali (Soomaaliga)
+ * @author Maax
+ */
+$messages['so'] = array(
+	'lqt-search-button' => 'Raadi',
+);
+
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Mormegil
  * @author Rancher
@@ -19182,7 +19189,7 @@ $messages['uk'] = array(
 	'lqt-history-thread' => 'Гілка',
 	'lqt-thread-edited-author' => 'Редаговано автором.<br />
 Останнє редагування: $1',
-	'lqt-thread-edited-others' => 'Редаговано {{PLURAL:$2|іншим користувачем|$2 іншими користувачами}}.<br />
+	'lqt-thread-edited-others' => 'Редаговано $2 {{PLURAL:$2|іншим користувачем|іншими користувачами|іншими користувачами}}.<br />
 Останнє редагування: $1',
 	'lqt-header-actions' => 'Дії',
 	'lqt_summarize_link' => 'Резюмувати',
