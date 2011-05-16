@@ -38,6 +38,13 @@ $namespaceNames['id'] = array(
 	NS_LQT_SUMMARY_TALK => 'Pembicaraan_Ringkasan',
 );
 
+$namespaceNames['nl'] = array(
+	NS_LQT_THREAD       => 'Onderwerp',
+	NS_LQT_THREAD_TALK  => 'Overleg_onderwerp',
+	NS_LQT_SUMMARY      => 'Samenvatting',
+	NS_LQT_SUMMARY_TALK => 'Overleg_samenvatting',
+);
+
 $namespaceNames['pt'] = array(
 	NS_LQT_THREAD => 'Tópico',
 	NS_LQT_THREAD_TALK => 'Tópico_discussão',
