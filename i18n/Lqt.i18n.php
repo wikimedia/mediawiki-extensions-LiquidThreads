@@ -14848,7 +14848,7 @@ Ele pode:
 	'lqt-parent' => 'Tópico de raiz',
 	'lqt_delete' => 'Apagar',
 	'lqt_undelete' => 'Restaurar',
-	'lqt_permalink' => 'Link para',
+	'lqt_permalink' => 'Ligação permanente',
 	'lqt_fragment' => 'Fragmento de uma $1 de $2',
 	'lqt_discussion_link' => 'discussão',
 	'lqt_from_talk' => 'De $1',
