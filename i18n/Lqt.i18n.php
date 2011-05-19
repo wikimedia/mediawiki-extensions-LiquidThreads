@@ -11729,6 +11729,7 @@ $messages['ltg'] = array(
  */
 $messages['lv'] = array(
 	'lqt_contents_title' => 'Saturs',
+	'lqt_toc_thread_title' => 'Tēmas nosaukums',
 	'lqt_toc_thread_replycount' => 'Atbildes',
 	'lqt_subject' => 'Temats:',
 	'lqt_delete_show_checkbox' => 'Rādīt dzēstās tēmas',
