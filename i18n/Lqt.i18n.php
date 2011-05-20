@@ -13858,9 +13858,11 @@ O podètz veire a « $6 »",
 
 /** Oriya (ଓଡ଼ିଆ)
  * @author Jose77
+ * @author Psubhashish
  */
 $messages['or'] = array(
 	'lqt_discussion_link' => 'ଆଲୋଚନା',
+	'lqt_hist_deleted' => 'ଲିଭାଇ ଦିଆଯାଇଥିବା',
 	'lqt-summary' => 'ସାରକଥା',
 );
 
