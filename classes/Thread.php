@@ -284,12 +284,12 @@ class Thread {
 		if ( !$id ) {
 			$id = $dbw->nextSequenceValue( 'thread_thread_id' );
 		}
-		
+
 		// If there's no root, bail out with an error message
 		if ( ! $this->rootId && ! ($this->type & Threads::TYPE_DELETED) ) {
 			throw new MWException( "Non-deleted thread saved with empty root ID" );
 		}
-		
+
 		if ( $this->replyCount < -1 ) {
 			wfWarn( "Saving thread $id with negative reply count {$this->replyCount} " . wfGetAllCallers() );
 			$this->replyCount = -1;
@@ -1226,7 +1226,7 @@ class Thread {
 		if ( is_object( $this->root() ) ) {
 			return $this->root()->getTitle();
 		} else {
-			wfWarn( "Thread ".$this->id()." has no title." );
+			// wfWarn( "Thread ".$this->id()." has no title." );
 			return null;
 		}
 	}
