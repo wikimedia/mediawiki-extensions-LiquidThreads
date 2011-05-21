@@ -55,6 +55,8 @@ class Threads {
 	/**
 	 * Create the talkpage if it doesn't exist so that links to it
 	 * will show up blue instead of red. For use upon new thread creation.
+	 *
+	 * @param $talkpage
 	 */
 	public static function createTalkpageIfNeeded( $talkpage ) {
 		if ( ! $talkpage->exists() ) {
@@ -126,6 +128,11 @@ class Threads {
 		}
 	}
 
+	/**
+	 * @param $post
+	 * @param $bulkLoad bool
+	 * @return Thread
+	 */
 	static function withRoot( $post, $bulkLoad = true ) {
 		if ( $post->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			// No articles outside the thread namespace have threads associated with them;
@@ -147,6 +154,11 @@ class Threads {
 		return self::assertSingularity( $ts, 'thread_root', $post->getID() );
 	}
 
+	/**
+	 * @param $id
+	 * @param $bulkLoad bool
+	 * @return Thread
+	 */
 	static function withId( $id, $bulkLoad = true ) {
 		if ( array_key_exists( $id, self::$cache_by_id ) ) {
 			return self::$cache_by_id[$id];
@@ -157,6 +169,11 @@ class Threads {
 		return self::assertSingularity( $ts, 'thread_id', $id );
 	}
 
+	/**
+	 * @param $article
+	 * @param $bulkLoad bool
+	 * @return Thread
+	 */
 	static function withSummary( $article, $bulkLoad = true ) {
 		$ts = Threads::where( array( 'thread_summary_page' => $article->getId() ),
 					array(), $bulkLoad );
