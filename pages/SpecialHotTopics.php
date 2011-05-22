@@ -5,12 +5,13 @@ class SpecialHotTopics extends SpecialPage {
 	}
 
 	function execute( $par ) {
-		global $wgOut;
+		global $wgOut, $wgUser, $wgRequest;
 
 		$this->setHeaders();
 
 		$wgOut->setPageTitle( wfMsg( 'lqt-hot-topics' ) );
-		$view = LqtView::getView();
+		$title = $this->getTitle();
+		$view = new LqtView( $wgOut, new Article( $title ), $title, $wgUser, $wgRequest );
 
 		// Get hot topics
 		$topics = LqtHotTopicsController::getHotThreads();
