@@ -378,7 +378,9 @@ window.liquidThreads = {
 	},
 
 	'setupThreadMenu' : function( menu, id ) {
-		if ( menu.find('.lqt-command-edit-subject').length ) {
+		if ( menu.find('.lqt-command-edit-subject').length ||
+			menu.closest('.lqt_thread').is('.lqt-thread-uneditable')
+		) {
 			return;
 		}
 

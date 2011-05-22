@@ -354,7 +354,7 @@ class LqtView {
 	}
 	
 	/**
-	 * Workaround for bugs caused by r82686
+	 * Workaround for bug 27887 caused by r82686
 	 * @param $request FauxRequest object to have session data injected into.
 	 */
 	static function fixFauxRequestSession( $request ) {
@@ -1875,6 +1875,10 @@ class LqtView {
 			$class .= ' lqt-thread-with-subthreads';
 		} else {
 			$class .= ' lqt-thread-no-subthreads';
+		}
+		
+		if ( ! $thread->title()->userCan('edit') ) {
+			$class .= ' lqt-thread-uneditable';
 		}
 
 		$class .= ' lqt-thread-wrapper';

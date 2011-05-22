@@ -108,6 +108,13 @@ class ApiThreadAction extends ApiBase {
 		}
 
 		$thread = array_pop( $threads );
+		
+		global $wgUser;
+		$errors = $thread->title()->getUserPermissionsErrors( 'lqt-split', $wgUser );
+		if ( $errors ) {
+			// We don't care about multiple errors, just report one of them
+			$this->dieUsageMsg( reset( $errors ) );
+		}
 
 		if ( $thread->isTopmostThread() ) {
 			$this->dieUsage( 'This thread is already a top-level thread.',
@@ -174,6 +181,13 @@ class ApiThreadAction extends ApiBase {
 			$title = Title::newFromText( $newParent );
 			$article = new Article( $title, 0 );
 			$newParent = Threads::withRoot( $article );
+		}
+		
+		global $wgUser;
+		$errors = $newParent->title()->getUserPermissionsErrors( 'lqt-merge', $wgUser );
+		if ( $errors ) {
+			// We don't care about multiple errors, just report one of them
+			$this->dieUsageMsg( reset( $errors ) );
 		}
 
 		if ( !$newParent ) {
@@ -605,6 +619,13 @@ class ApiThreadAction extends ApiBase {
 					'no-specified-threads' );
 		}
 		$thread = array_pop( $threads );
+		
+		global $wgUser;
+		$errors = $thread->title()->getUserPermissionsErrors( 'edit', $wgUser );
+		if ( $errors ) {
+			// We don't care about multiple errors, just report one of them
+			$this->dieUsageMsg( reset( $errors ) );
+		}
 
 		// Validate subject
 		if ( empty( $params['subject'] ) ) {
@@ -677,6 +698,14 @@ class ApiThreadAction extends ApiBase {
 		}
 
 		$thread = array_pop( $threads );
+		
+		global $wgUser;
+		$errors = $thread->title()->getUserPermissionsErrors( 'edit', $wgUser );
+		if ( $errors ) {
+			// We don't care about multiple errors, just report one of them
+			$this->dieUsageMsg( reset( $errors ) );
+		}
+		
 		$thread->setSortkey( $ts );
 		$thread->commitRevision( Threads::CHANGE_ADJUSTED_SORTKEY, null, $reason );
 
