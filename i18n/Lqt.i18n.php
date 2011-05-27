@@ -14420,11 +14420,11 @@ Për evité sòn, ch'a-j separa da costa discussion prima dë scancelela.",
 	'lqt-enotif-subject-newthread' => 'Discussion ëd {{SITENAME}} - Discussion neuva: $1',
 	'lqt-enotif-newthread' => "Cerea $1,
 Costa a l'é na notìfica da {{SITENAME}} che na discussion neuva su $5, '$2',
-a l'é stàita creà ël $3 a $4 sa $8.
+a l'é stàita creà ël $3 a $4 su $8.
 
 A peul vëddla su <$6>
 
-Ë test a 'é:
+Ël test a l'é:
 $7",
 	'lqt-enotif-reply' => "Cerea $1,
 
@@ -14480,7 +14480,7 @@ La firma a l'é mostrà automaticament.",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Arspòste da $1',
 	'lqt-feed-new-thread-intro' => 'Discussion neuva ancaminà da $2',
 	'lqt-feed-reply-intro' => 'Arspòsta a $3 (ël $1) mandà da $2',
-	'tooltip-pt-newmessages' => "A mosta ij mëssagi neuv a thread o su pàgine ëd discussion a thread ch'it ten-e sot euj",
+	'tooltip-pt-newmessages' => "A mostra ij mëssagi neuv për soget o su pàgine ëd discussion an sël soget ch'a ten sot-euj",
 	'lqt-newmessages-n' => 'Mëssagi neuv ($1)',
 	'lqt_newmessages' => 'Mè mëssagi neuv (Gnun)',
 	'lqt_newmessages-title' => 'Mëssagi neuv',
