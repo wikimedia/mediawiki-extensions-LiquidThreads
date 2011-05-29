@@ -71,7 +71,7 @@ $lqtResourceTemplate = array(
 $wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
 	'styles' => array( 'lqt.css', 'jquery/jquery.thread_collapse.css', 'lqt.dialogs.css' ),
 	'scripts' => array( 'lqt.js', 'js/lqt.toolbar.js', 'jquery/jquery.thread_collapse.js', 'jquery/jquery.autogrow.js' ),
-	'dependencies' => array( 'jquery.ui.dialog' ),
+	'dependencies' => array( 'jquery.ui.dialog', 'jquery.ui.droppable' ),
 	'messages' => $lqtMessages
 );
 
