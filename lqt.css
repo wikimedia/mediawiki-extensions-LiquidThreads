@@ -478,7 +478,7 @@ table.lqt-new-messages {
 .lqt-drop-zone.lqt-drop-zone-hover {
 	border: 1px solid #3333ff !important;
 	color: #3333ff !important;
-	background: springgreen;
+	background: #00ff7f;
 	font-weight: bold !important;
 }
 
