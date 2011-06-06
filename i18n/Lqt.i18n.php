@@ -5483,12 +5483,19 @@ Para evitarlo, divídalas a partir de este hilo antes de eliminarlas.',
 	'lqt-preference-custom-signatures' => 'Mostrar firmas de usuario personalizadas',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} discusión - Respuesta: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} discusión - Nuevo hilo: $1',
-	'lqt-enotif-newthread' => "Hola $1, esta es una notificación de {{SITENAME}} de que un nuevo hilo '$2' ha sido creado en $5, el $3 a las $4.
+	'lqt-enotif-newthread' => "Hola $1, 
 
-Puede verlo en <$6>",
+esta es una notificación de {{SITENAME}} de que un nuevo hilo en $5, '$2',
+ha sido creado el $3 a las $4 por $8.
+
+Puede verlo en <$6>
+
+El texto es:
+$7",
 	'lqt-enotif-reply' => "Hola $1,
 
-Esta es una notificación de {{SITENAME}}. Se ha creado una nueva respuesta a '$2' en $5 el $3 a las $4.
+Esta es una notificación de {{SITENAME}}. Se ha creado una nueva respuesta a '$2' en $5,
+ el $3 a las $4 por $8.
 
 Puedes verla en <$6>
 
