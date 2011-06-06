@@ -112,7 +112,7 @@ class Thread {
 		NewMessages::writeMessageStateForUpdatedThread( $thread, $change_type, $wgUser );
 
 		if ( $wgUser->getOption( 'lqt-watch-threads', false ) ) {
-			WatchAction:doWatch( $thread->topmostThread()->root()->getTitle(), $wgUser );
+			WatchAction::doWatch( $thread->topmostThread()->root()->getTitle(), $wgUser );
 		}
 
 		return $thread;
