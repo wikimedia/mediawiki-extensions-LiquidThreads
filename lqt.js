@@ -1516,7 +1516,16 @@ window.liquidThreads = {
 				apiRequest.sortkey = newSortkey;
 			}
 
-			liquidThreads.apiRequest( apiRequest, doneCallback );
+			if ( params.subject.length == "" ) {
+
+				$j( '.mw-ajax-loader' ).remove(); // remove spinner
+				alert( mediaWiki.msg( 'lqt-ajax-no-subject' ) );
+				// here we should prompt the user again to enter a new subject
+
+			} else {
+			
+   				liquidThreads.apiRequest( apiRequest, doneCallback );
+			}
 
 
 		} else if (newSortkey != 'none' ) {

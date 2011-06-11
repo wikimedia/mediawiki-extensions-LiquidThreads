@@ -467,7 +467,8 @@ table.lqt-new-messages {
 	border: 1px solid #3333ff !important;
 	background: yellow;
 	text-align: center;
-	color: #999999;
+	color: #444444;
+	font-weight: bold !important;
 }
 
 .lqt-drop-zone.lqt-drop-zone-active {
@@ -479,7 +480,6 @@ table.lqt-new-messages {
 	border: 1px solid #3333ff !important;
 	color: #3333ff !important;
 	background: #00ff7f;
-	font-weight: bold !important;
 }
 
 .lqt-new-messages {

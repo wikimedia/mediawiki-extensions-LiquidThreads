@@ -259,7 +259,7 @@ The signature is shown automatically.',
 'change the subject of this thread: $1',
 	'lqt-ajax-invalid-subject' => 'The subject you specified was invalid, probably ' .
 'because it was too long.',
-	'lqt-ajax-no-subject' => 'You must specify a subject.',
+	'lqt-ajax-no-subject' => 'You must specify a subject for the new thread.',
 	'lqt-save-subject-error-unknown' => 'An unknown error occurred when attempting ' .
 'to set the subject of this thread. Please try to do this by clicking "edit" on the top post.',
 	'lqt-cancel-subject-edit' => 'Cancel',
@@ -273,7 +273,7 @@ The signature is shown automatically.',
 	'lqt-drag-save' => 'Confirm',
 	'lqt-drag-title' => 'Confirm drag',
 	'lqt-drag-reason' => 'Reason:',
-	'lqt-drag-subject' => 'Subject for new thread:',
+	'lqt-drag-subject' => 'Subject for new thread (mandatory):',
 	'lqt-edit-signature' => '(edit signature)',
 	'lqt-preview-signature' => '(preview)',
 
