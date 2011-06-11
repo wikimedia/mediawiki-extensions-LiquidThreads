@@ -1516,7 +1516,7 @@ window.liquidThreads = {
 				apiRequest.sortkey = newSortkey;
 			}
 
-			if ( params.subject.length == "" ) {
+			if ( params.subject.length == 0 ) {
 
 				$j( '.mw-ajax-loader' ).remove(); // remove spinner
 				alert( mediaWiki.msg( 'lqt-ajax-no-subject' ) );
