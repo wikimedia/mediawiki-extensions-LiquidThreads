@@ -3054,6 +3054,13 @@ Potpis će se prikazati automatski.',
 	'nstab-summary' => 'Sažetak',
 );
 
+/** Буряад (Буряад)
+ * @author Bjargal
+ */
+$messages['bxr'] = array(
+	'lqt_newmessages' => 'Минии шэнэ бэшэг (нэгэшье үгы)',
+);
+
 /** Catalan (Català)
  * @author Aleator
  * @author Jordi Roqué
@@ -3953,6 +3960,7 @@ Signaturen vises automatisk.',
  * @author Imre
  * @author JakobVoss
  * @author Kghbln
+ * @author MF-Warburg
  * @author McDutchie
  * @author Merlissimo
  * @author Metalhead64
@@ -4189,7 +4197,7 @@ Die Signatur wird automatisch ergänzt.',
 	'lqt-save-subject' => 'Speichern',
 	'lqt-save-subject-failed' => 'Während der Betreffänderung ist der folgende Fehler aufgetreten: $1',
 	'lqt-ajax-invalid-subject' => 'Der angegebene Betreff ist ungültig, da er vermutlich zu lang ist.',
-	'lqt-ajax-no-subject' => 'Du musst einen Betreff angeben.',
+	'lqt-ajax-no-subject' => 'Du musst einen Betreff für den neuen Diskussionsbeitrag angeben.',
 	'lqt-save-subject-error-unknown' => 'Beim Festlegen des Betreffs ist ein unbekannter Fehler aufgetreten. Bitte versuche es über „bearbeiten“ beim obersten Beitrag.',
 	'lqt-cancel-subject-edit' => 'Abbrechen',
 	'lqt-drag-activate' => 'An einem neuen Ort ablegen',
@@ -4202,7 +4210,7 @@ Die Signatur wird automatisch ergänzt.',
 	'lqt-drag-save' => 'Bestätigen',
 	'lqt-drag-title' => 'Ziehen bestätigen',
 	'lqt-drag-reason' => 'Grund:',
-	'lqt-drag-subject' => 'Betreff für den neuen Diskussionsstrang:',
+	'lqt-drag-subject' => 'Betreff für den neuen Diskussionsstrang (erforderliche Angabe):',
 	'lqt-edit-signature' => '(Signatur bearbeiten)',
 	'lqt-preview-signature' => '(Vorschau)',
 	'lqt-feed-title-all' => '{{SITENAME}} – Neue Beiträge',
@@ -4255,9 +4263,9 @@ Es ist möglich, dass er
 	'lqt_summary_notice' => 'Zu dieser Diskussion gibt es seit $2 {{PLURAL:$2|Tag|Tagen}} keine neuen Beiträge.
 Wenn die Diskussion beendet ist, möchten Sie vielleicht eine $1.',
 	'lqt_delete_unallowed' => 'Sie haben nicht die Berechtigung Diskussionsstränge zu löschen.',
-	'lqt_header_warning_big' => 'Sie bearbeiten eine $1.',
-	'lqt_header_warning_after_big' => 'Kopfzeilen sind für Ankündigungen und Einleitungen.
-Möglicherweise wollen Sie stattdessen ein $2.',
+	'lqt_header_warning_big' => 'Sie bearbeiten gerade den $1.',
+	'lqt_header_warning_after_big' => 'Dieser Bereich ist für Ankündigungen, Einleitungen und Hinweise vorgesehen.
+Möglicherweise möchten Sie stattdessen ein $2.',
 	'lqt-no-new-messages' => 'Sie haben keine neuen Nachrichten.',
 	'lqt-new-messages' => '✒ Sie haben neue Nachrichten.',
 	'lqt-email-info-undo' => 'Holen Sie den Diskussionsstrang zurück, den Sie gerade fortgeschickt haben.',
@@ -4268,21 +4276,27 @@ Sie können Wikitext in Ihrer Zusammenfassung verwenden. Wenn Sie fertig sind, k
 Auch seine Antworten werden automatisch gelöscht.
 Um dies zu vermeiden, teilen Sie sie von diesem Thema ab, bevor Sie es löschen.',
 	'lqt-enotif-newthread' => 'Hallo $1,
-dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 auf $5 ein neuer Diskussionsstrang „$2“ eröffnet wurde.
 
-Sie können ihn auf <$6> einsehen.',
+dies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ das neue Diskussionsthema „$2“ eröffnet.
+
+Sie können es unter diesem Link einsehen: <$6>
+
+Die Nachricht lautet:
+$7',
 	'lqt-enotif-reply' => 'Hallo $1,
-dies ist eine Benachrichtigung von {{SITENAME}}, dass am $3 um $4 auf $5 ein neue Antwort auf den Diskussionsstrang „$2“ geschrieben wurde.
 
-Sie können sie auf <$6> einsehen.
+dies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ zum Diskussionsthema „$2“ eine neue Nachricht verfasst.
 
-Die Antwort lautet:
+Sie können sie unter diesem Link einsehen: <$6>
+
+Die Nachricht lautet:
 $7',
 	'lqt-sign-not-necessary' => 'Es ist nicht notwendig, Ihre Antwort mit vier Tilden zu signieren.
 Die Signatur wird automatisch ergänzt.',
 	'lqt-ajax-no-subject' => 'Sie müssen einen Betreff angeben.',
 	'lqt-save-subject-error-unknown' => 'Beim Festlegen des Betreffs ist ein unbekannter Fehler aufgetreten. Bitte versuchen Sie es über „bearbeiten“ beim obersten Beitrag.',
 	'lqt-drag-confirm' => 'Um die folgenden Aktionen abzuschließen, geben Sie bitte einen Grund an und klicken Sie auf „Bestätigen“.',
+	'tooltip-pt-newmessages' => 'Zeigt neue Nachrichten zu den von Ihnen beobachteten Diskussionssträngen oder deren zugehörigen Diskussionsseiten',
 	'lqt-protected-reply-thread' => 'Da dieser Diskussionsstrang geschützt ist, können Sie hierauf nicht antworten.',
 	'lqt-protected-reply-talkpage' => 'Diese Diskussionsseite wurde geschützt, sodass Sie auf die Diskussionsstränge nicht antworten können.',
 	'lqt-protected-newthread' => 'Diese Diskussionsseite wurde geschützt, sodass Sie keine neuen Diskussionsstränge erstellen können.',
@@ -6303,7 +6317,7 @@ Tämä ketju on osa sivua $2.',
 	'lqt_talkpage_autocreate_summary' => 'Keskustelusivu luotiin automaattisesti kun ensimmäinen ketju lähettiin.',
 	'lqt_header_warning_big' => 'Muokkaat $1.',
 	'lqt_header_warning_after_big' => 'Otsakkeet ovat ilmoituksille ja johdannoille. 
-Saatat etsiä sivua ”$2” sen sijaan.',
+Saatat etsiä sivua $2 sen sijaan.',
 	'lqt_header_warning_bold' => 'keskustelusivun otsikkoa',
 	'lqt_header_warning_new_discussion' => 'aloita uusi keskustelu',
 	'lqt_sorting_order' => 'Luettelointijärjestys:',
@@ -12790,6 +12804,7 @@ $messages['nds-nl'] = array(
 );
 
 /** Nepali (नेपाली)
+ * @author Bhawani Gautam
  * @author Bhawani Gautam Rhk
  */
 $messages['ne'] = array(
