@@ -222,7 +222,7 @@ class ApiThreadAction extends ApiBase {
 	}
 
 	public function actionNewThread( $threads, $params ) {
-		global $wgUser,$wgOut;
+		global $wgUser;
 
 		// Validate talkpage parameters
 		if ( !count( $params['talkpage'] ) ) {
