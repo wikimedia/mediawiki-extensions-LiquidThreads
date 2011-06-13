@@ -222,7 +222,7 @@ class ApiThreadAction extends ApiBase {
 	}
 
 	public function actionNewThread( $threads, $params ) {
-		global $wgUser;
+		global $wgUser,$wgOut;
 
 		// Validate talkpage parameters
 		if ( !count( $params['talkpage'] ) ) {
@@ -262,7 +262,9 @@ class ApiThreadAction extends ApiBase {
 
 		// Check for text
 		if ( empty( $params['text'] ) ) {
-			$this->dieUsage( 'You must include text in your post', 'no-text' );
+			// $this->dieUsage( 'You must include text in your post', 'no-text' );
+			// FIXME: add an "edit post" link as second parameter $2 to the text
+			$params['text'] =  wfMsgForContent( 'lqt-newpost-defaultbody-user-submitted-empty-textbody', $subject ) ;
 		}
 		$text = $params['text'];
 
