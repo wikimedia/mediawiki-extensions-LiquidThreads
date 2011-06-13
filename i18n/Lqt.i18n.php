@@ -295,7 +295,7 @@ The signature is shown automatically.',
 
 	// Automatic summaries
 	'lqt-newpost-summary' => 'New thread: $1',
-	'lqt-newpost-defaultbody-user-submitted-empty-textbody' => "<!-- thread subject $1 -->''Please enter your text for this thread. You should delete this line then.''",
+	'lqt-newpost-defaultbody-user-submitted-empty-textbody' => "Please enter your text for this thread. You should delete this line then.",
 	'lqt-reply-summary' => 'Reply to [[$2|$1]]',
 
 	// Talk page history
