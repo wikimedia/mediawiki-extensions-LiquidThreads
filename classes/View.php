@@ -312,7 +312,7 @@ class LqtView {
 		$operand = $this->request->getVal( 'lqt_operand' );
 
 		$thread = Threads::withId( intval( $operand ) );
-		
+
 		// Yuck.
 		global $wgOut, $wgRequest, $wgTitle;
 		$oldOut = $wgOut;
@@ -340,14 +340,14 @@ class LqtView {
 		} else {
 			throw new MWException( "Invalid thread method $method" );
 		}
-		
+
 		$wgOut = $oldOut;
 		$wgRequest = $oldRequest;
 		$wgTitle = $oldTitle;
 
 		$this->output->setArticleBodyOnly( true );
 	}
-	
+
 	/**
 	 * Workaround for bug 27887 caused by r82686
 	 * @param $request FauxRequest object to have session data injected into.
@@ -357,17 +357,17 @@ class LqtView {
 			$request->setSessionData( $k, $v );
 		}
 	}
-	
+
 	static function getInlineEditForm( $talkpage, $method, $operand ) {
 		$output = new OutputPage;
 		$request = new FauxRequest( array() );
-		
+
 		// Workaround for loss of session data when using FauxRequest
 		global $wgRequest;
 		self::fixFauxRequestSession( $request );
-		
+
 		$title = null;
-		
+
 		if ( $talkpage ) {
 			$title = $talkpage->getTitle();
 		} elseif ( $operand ) {
@@ -381,16 +381,16 @@ class LqtView {
 		$output->setTitle( $title );
 		$request->setVal( 'lqt_method', $method );
 		$request->setVal( 'lqt_operand', $operand );
-		
+
 		global $wgUser;
 		$view = new LqtView( $output, $talkpage, $title, $wgUser, $request );
-		
+
 		$view->doInlineEditForm();
-		
+
 		foreach( $request->getSessionArray() as $k => $v ) {
 			$wgRequest->setSessionData( $k, $v );
 		}
-		
+
 		return $output->getHTML();
 	}
 
@@ -1217,7 +1217,7 @@ class LqtView {
 				'href' => self::permalinkUrlWithQuery( $thread, 'action=watch' ),
 				'enabled' => true
 			);
-		} else if ( !$this->user->isAnon() ) {
+		} elseif ( !$this->user->isAnon() ) {
 			$commands['unwatch'] = array(
 				'label' => wfMsg( 'unwatch' ),
 				'href' => self::permalinkUrlWithQuery( $thread, 'action=unwatch' ),
@@ -1871,7 +1871,7 @@ class LqtView {
 		} else {
 			$class .= ' lqt-thread-no-subthreads';
 		}
-		
+
 		if ( ! $thread->title()->userCan('edit') ) {
 			$class .= ' lqt-thread-uneditable';
 		}
@@ -1905,7 +1905,7 @@ class LqtView {
 				$thread->sortkey(),
 				array( 'id' => 'lqt-thread-sortkey-' . $thread->id() )
 			);
-			
+
 			$html .= Html::hidden(
 				'lqt-thread-talkpage-' . $thread->id(),
 				$thread->article()->getTitle()->getPrefixedText(),

@@ -8,7 +8,7 @@ class ThreadProtectionFormView extends LqtView {
 
 		if ( array_key_exists( 'protect', $content_actions ) )
 		$content_actions['protect']['class'] = 'selected';
-		else if ( array_key_exists( 'unprotect', $content_actions ) )
+		elseif ( array_key_exists( 'unprotect', $content_actions ) )
 		$content_actions['unprotect']['class'] = 'selected';
 	}
 
