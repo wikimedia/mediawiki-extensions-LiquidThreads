@@ -88,7 +88,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 
 		$res = $this->select( __METHOD__ );
-		
+
 		$ids = array();
 		$count = 0;
 		foreach ( $res as $row )
@@ -104,7 +104,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				$fields = self::$propRelations[$name];
 				self::formatProperty( $name, $fields, $row, $entry );
 			}
-			
+
 			if ( isset( $entry['reactions'] ) ) {
 				$result->setIndexedTagName( $entry['reactions'], 'reaction' );
 			}
@@ -113,7 +113,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			if ( $params['render'] ) {
 				self::renderThread( $row, $params, $entry );
 			}
-			
+
 			$ids[$row->thread_id] = $row->thread_id;
 
 			if ( $entry ) {
@@ -126,25 +126,25 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				}
 			}
 		}
-		
+
 		if ( isset( $prop['reactions'] ) ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$res = $dbr->select( 'thread_reaction', '*', array( 'tr_thread' => $ids ),
 						__METHOD__ );
-			
-			foreach( $res as $row ) {				
+
+			foreach( $res as $row ) {
 				$info = array(
 				     'type' => $row->tr_type,
 				     'user-id' => $row->tr_user,
 				     'user-name' => $row->tr_user_text,
 				     'value' => $row->tr_value,
 				);
-					
+
 				$result->addValue( array( 'query', $this->getModuleName(), $row->tr_thread, 'reactions' ),
 							null, $info );
 			}
 		}
-		
+
 		$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'thread' );
 	}
 
@@ -157,11 +157,11 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		// Setup
 		$thread = Thread::newFromRow( $row );
 		$article = $thread->root();
-		
+
 		if ( ! $article ) {
 			return;
 		}
-		
+
 		$title = $article->getTitle();
 		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );
 
@@ -262,9 +262,9 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		if ( in_array( $prop, $titleParams ) ) {
 			// Special cases
 			$this->addPageCond( $prop, $value );
-		} else if ( $prop == 'author' ) {
+		} elseif ( $prop == 'author' ) {
 			$this->addWhereFld( 'thread_author_name', $value );
-		} else if ( !is_array( $fields ) ) {
+		} elseif ( !is_array( $fields ) ) {
 			// Common case
 			return $this->addWhereFld( $fields, $value );
 		}

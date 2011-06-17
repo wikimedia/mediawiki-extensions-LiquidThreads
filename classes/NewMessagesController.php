@@ -9,7 +9,7 @@ class NewMessages {
 	static function markThreadAsReadByUser( $thread, $user ) {
 		if ( is_object( $thread ) ) {
 			$thread_id = $thread->id();
-		} else if ( is_integer( $thread ) ) {
+		} elseif ( is_integer( $thread ) ) {
 			$thread_id = $thread;
 		} else {
 			throw new MWException( __METHOD__ . " expected Thread or integer but got $thread" );
@@ -17,7 +17,7 @@ class NewMessages {
 
 		if ( is_object( $user ) ) {
 			$user_id = $user->getID();
-		} else if ( is_integer( $user ) ) {
+		} elseif ( is_integer( $user ) ) {
 			$user_id = $user;
 		} else {
 			throw new MWException( __METHOD__ . " expected User or integer but got $user" );
@@ -37,7 +37,7 @@ class NewMessages {
 	static function markAllReadByUser( $user ) {
 		if ( is_object( $user ) ) {
 			$user_id = $user->getID();
-		} else if ( is_integer( $user ) ) {
+		} elseif ( is_integer( $user ) ) {
 			$user_id = $user;
 		} else {
 			throw new MWException( __METHOD__ . " expected User or integer but got $user" );
@@ -57,7 +57,7 @@ class NewMessages {
 	private static function writeUserMessageState( $thread, $user, $timestamp ) {
 		if ( is_object( $thread ) ) {
 			$thread_id = $thread->id();
-		} else if ( is_integer( $thread ) ) {
+		} elseif ( is_integer( $thread ) ) {
 			$thread_id = $thread;
 		} else {
 			throw new MWException( "writeUserMessageState expected Thread or integer but got $thread" );
@@ -65,7 +65,7 @@ class NewMessages {
 
 		if ( is_object( $user ) ) {
 			$user_id = $user->getID();
-		} else if ( is_integer( $user ) ) {
+		} elseif ( is_integer( $user ) ) {
 			$user_id = $user;
 		} else {
 			throw new MWException( "writeUserMessageState expected User or integer but got $user" );

@@ -22,7 +22,7 @@ class LqtDispatch {
 		}
 
 		$action = $request->getVal( 'action', 'view' );
-		
+
 		// Actions handled by LQT.
 		$lqt_actions = array( 'view', 'protect', 'unprotect' );
 
@@ -60,17 +60,17 @@ class LqtDispatch {
 
 		if ( $lqt_method == 'thread_history' ) {
 			$viewname = 'ThreadHistoryListingView';
-		} else if ( $lqt_method == 'diff' ) {
+		} elseif ( $lqt_method == 'diff' ) {
 			// this clause and the next must be in this order.
 			$viewname = 'ThreadDiffView';
-		} else if ( $action == 'history'
+		} elseif ( $action == 'history'
 			|| $request->getVal( 'diff', null ) !== null ) {
 			$viewname = 'IndividualThreadHistoryView';
-		} else if ( $action == 'protect' || $action == 'unprotect' ) {
+		} elseif ( $action == 'protect' || $action == 'unprotect' ) {
 			$viewname = 'ThreadProtectionFormView';
-		} else if ( $request->getVal( 'lqt_oldid', null ) !== null ) {
+		} elseif ( $request->getVal( 'lqt_oldid', null ) !== null ) {
 			$viewname = 'ThreadHistoricalRevisionView';
-		} else if ( $action == 'watch' || $action == 'unwatch' ) {
+		} elseif ( $action == 'watch' || $action == 'unwatch' ) {
 			$viewname = 'ThreadWatchView';
 		} elseif ( $action == 'delete' || $action == 'rollback' || $action == 'markpatrolled' ) {
 			return true;
@@ -177,10 +177,10 @@ class LqtDispatch {
 		if ( LqtDispatch::isLqtPage( $title ) ) {
 			// LiquidThreads pages, Talk:X etc
 			return self::talkpageMain( $output, $article, $title, $user, $request );
-		} else if ( $title->getNamespace() == NS_LQT_THREAD ) {
+		} elseif ( $title->getNamespace() == NS_LQT_THREAD ) {
 			// Thread permalink pages, Thread:X
 			return self::threadPermalinkMain( $output, $article, $title, $user, $request );
-		} else if ( $title->getNamespace() == NS_LQT_SUMMARY ) {
+		} elseif ( $title->getNamespace() == NS_LQT_SUMMARY ) {
 			// Summary pages, Summary:X
 			return self::threadSummaryMain( $output, $article, $title, $user, $request );
 		}
