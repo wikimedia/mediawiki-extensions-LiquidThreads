@@ -359,7 +359,8 @@ class LqtView {
 	}
 
 	static function getInlineEditForm( $talkpage, $method, $operand ) {
-		$output = new OutputPage;
+		$req = new RequestContext;
+		$output = $req->getOutput();
 		$request = new FauxRequest( array() );
 
 		// Workaround for loss of session data when using FauxRequest
