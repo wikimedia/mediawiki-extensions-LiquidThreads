@@ -101,7 +101,7 @@ class ApiFeedLQTThreads extends ApiBase {
 				? 'lqt-feed-reply-intro'
 				: 'lqt-feed-new-thread-intro',
 			array( 'parse', 'replaceafter' ),
-			array( $talkpageLink, $userLink, $superthreadLink, $user )
+			array( $talkpageLink, $userLink, $superthreadLink )
 		);
 		$completeText = $description . $completeText;
 

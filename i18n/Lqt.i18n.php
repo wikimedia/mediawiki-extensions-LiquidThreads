@@ -566,13 +566,11 @@ Displayed in a list of actions to confirm in a confirmation dialog.',
 	'lqt-feed-new-thread-intro' => 'Parameters:
 * $1 is a link to the talk page with the thread
 * $2 is a link to the user posting in the thread
-* $3 -not used- 
-* $4 is the name of the user posting to the thread, optional, can be used for GENDER',
+* $3 -not used-.',
 	'lqt-feed-reply-intro' => 'Parameters:
 * $1 is a link to the talk page with the thread
 * $2 is a link to the user posting in the thread
-* $3 is a link to the super thread
-* $4 is the name of the user posting to the thread, optional, can be used for GENDER',
+* $3 is a link to the super thread',
 	'lqt-newmessages-n' => '{{Identical|New messages}}
 
 Link at the top of the page for logged-in users. $1 is the number of new messages.',
@@ -1201,8 +1199,6 @@ $messages['ar'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — {{PLURAL:$2||نقاش جديد|نقاشان جديدان|نقاشات جديدة}} من $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — ردود',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — ردود من $1',
-	'lqt-feed-new-thread-intro' => 'نقاش جديد على $1 {{GENDER:$4|أرسله|أرسلته}} $2',
-	'lqt-feed-reply-intro' => 'رد على $3 (في $1) {{GENDER:$4|أرسله|أرسلته}} $2',
 	'lqt-newmessages-n' => 'الرسائل الجديدة ($1)',
 	'lqt_newmessages' => 'رسائلي الجديدة (لا شيء)',
 	'lqt_newmessages-title' => 'رسائل جديدة',
@@ -1501,8 +1497,6 @@ $messages['arz'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — {{PLURAL:$2||نقاش جديد|نقاشان جديدان|نقاشات جديدة}} من $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — ردود',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — ردود من $1',
-	'lqt-feed-new-thread-intro' => 'نقاش جديد على $1 {{GENDER:$4|أرسله|أرسلته}} $2',
-	'lqt-feed-reply-intro' => 'رد على $3 (فى $1) {{GENDER:$4|أرسله|أرسلته}} $2',
 	'lqt-newmessages-n' => 'الرسائل الجديده ($1)',
 	'lqt_newmessages' => 'رسائل جديدة',
 	'lqt_newmessages-title' => 'رسائل جديدة',
@@ -3668,8 +3662,6 @@ Podpis se zobrazuje automaticky.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} – Nová vlákna z $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} – Odpovědi',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} – Odpovědi z $1',
-	'lqt-feed-new-thread-intro' => '$2 {{GENDER:$4|založil|založila|založil}} na $1 nové vlákno',
-	'lqt-feed-reply-intro' => '$2 {{GENDER:$4|přidal|přidala|přidal}} odpověď k $3 (v $1)',
 	'tooltip-pt-newmessages' => 'Zobrazí nové zprávy ve vláknech nebo na diskusních stránkách, které sledujete',
 	'lqt-newmessages-n' => 'Nové zprávy ($1)',
 	'lqt_newmessages' => 'Mé nové zprávy (žádné)',
@@ -11149,8 +11141,6 @@ De „Ongerschreff“ weed automattesch jezeijsch.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Neu {{int:lqt-history-thread}}e vun dä {{PLURAL:$2|Sigg|Sigge}}: $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Antwoote',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antwoote vun dä {{PLURAL:$2|Sigg|Sigge}}: $1',
-	'lqt-feed-new-thread-intro' => 'Ene neuje Jeshprääschßfäddem, dä hät {{GENDER:$4|dä|et|dä Medtmaacher|de|dat}} $2 op dä Sigg „$1“ opjemaat.',
-	'lqt-feed-reply-intro' => '{{GENDER:$4|Dä|Et|Dä Medtmaacher|De|Dat}} $2 hät en Antwoot en dä {{int:lqt-history-thread}} „$3“ op de Sigg „$1“ jeschrevve.',
 	'tooltip-pt-newmessages' => 'Donn de neue Nohreeschte aanzeije, di en {{int:lqt-history-thread}}e enjedraare woodte, wo De draan bedeilesch bes udder drop aam oppaßße bes.',
 	'lqt-newmessages-n' => 'ming {{PLURAL:$1|Nohreesch (ein neu)|Nohreeschte ($1 neu)|Nohreeschte (kein neue)}}',
 	'lqt_newmessages' => 'ming Nohreeschte (keine)',
