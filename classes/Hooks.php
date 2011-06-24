@@ -199,7 +199,7 @@ class LqtHooks {
 			$threadInfo .= "\t" . Xml::element( $key, null, $value ) . "\n";
 		}
 
-		$out .= Xml::tags( 'DiscussionThreading', null, $threadInfo ) . "\n";
+		$out .= UtfNormal::cleanUp( Xml::tags( 'DiscussionThreading', null, $threadInfo ) . "\n" );
 
 		return true;
 	}
