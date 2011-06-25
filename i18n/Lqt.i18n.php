@@ -2761,6 +2761,7 @@ Dont a raio ar sinadur war wel e-unan",
 	'lqt_newmessages' => "Ma c'hemennadennoù nevez (hini ebet)",
 	'lqt_newmessages-title' => 'Kemennadennoù nevez',
 	'lqt-newpost-summary' => 'Neudennad nevez : $1',
+	'lqt-newpost-defaultbody-user-submitted-empty-textbody' => "Merkit ho testenn evit ar gaozeadenn-mañ. Dleout a rafec'h diverkañ al linenn-mañ goude.",
 	'lqt-reply-summary' => 'Respont da [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Istor ar bajenn gaozeal',
 	'lqt-talkpage-history-subtitle' => 'Evit $1',
@@ -4168,7 +4169,7 @@ Die Nachricht lautet:
 $7',
 	'lqt-enotif-reply' => 'Hallo $1,
 
-dies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ zum Diskussionsthema „$2“ eine neue Nachricht verfasst.
+dies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ zum Thema „$2“ eine neue Nachricht verfasst.
 
 Du kannst sie unter diesem Link einsehen: <$6>
 
@@ -4261,22 +4262,22 @@ Es ist möglich, dass er
 	'lqt_youhavenewmessages' => 'Sie haben [[$1|neue Nachrichten]].',
 	'lqt_summary_notice' => 'Zu dieser Diskussion gibt es seit $2 {{PLURAL:$2|Tag|Tagen}} keine neuen Beiträge.
 Wenn die Diskussion beendet ist, möchten Sie vielleicht eine $1.',
-	'lqt_delete_unallowed' => 'Sie haben nicht die Berechtigung Diskussionsstränge zu löschen.',
+	'lqt_delete_unallowed' => 'Sie haben nicht die Berechtigung Themen zu löschen.',
 	'lqt_header_warning_big' => 'Sie bearbeiten gerade den $1.',
 	'lqt_header_warning_after_big' => 'Dieser Bereich ist für Ankündigungen, Einleitungen und Hinweise vorgesehen.
 Möglicherweise möchten Sie stattdessen ein $2.',
 	'lqt-no-new-messages' => 'Sie haben keine neuen Nachrichten.',
-	'lqt-new-messages' => '✒ Sie haben neue Nachrichten.',
-	'lqt-email-info-undo' => 'Holen Sie den Diskussionsstrang zurück, den Sie gerade fortgeschickt haben.',
-	'lqt-summarize-intro' => 'Bitte fassen Sie den untenstehenden Diskussionsstrang im Bearbeitungsfenster zusammen.
-Sie können Wikitext in Ihrer Zusammenfassung verwenden. Wenn Sie fertig sind, klicken Sie auf „{{int:savearticle}}“.',
+	'lqt-new-messages' => '→ Sie haben neue Nachrichten.',
+	'lqt-email-info-undo' => 'Holen Sie das Thema zurück, das Sie gerade weggeklickt haben.',
+	'lqt-summarize-intro' => 'Bitte fassen Sie das untenstehende Thema im Bearbeitungsfenster zusammen.
+Sie können Wikitext in Ihrer Zusammenfassung verwenden. Sobald Sie fertig sind, klicken Sie auf „{{int:savearticle}}“.',
 	'lqt-split-success' => 'Sie haben den Diskussionsstrang $1 erfolgreich abgetrennt.',
 	'lqt-delete-parent-warning' => 'Dies ist ein Thema auf höchster Ebene mit Antworten.
 Auch seine Antworten werden automatisch gelöscht.
 Um dies zu vermeiden, teilen Sie sie von diesem Thema ab, bevor Sie es löschen.',
 	'lqt-enotif-newthread' => 'Hallo $1,
 
-dies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ das neue Diskussionsthema „$2“ eröffnet.
+dies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ das neue Thema „$2“ begonnen.
 
 Sie können es unter diesem Link einsehen: <$6>
 
@@ -4284,7 +4285,7 @@ Die Nachricht lautet:
 $7',
 	'lqt-enotif-reply' => 'Hallo $1,
 
-dies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ zum Diskussionsthema „$2“ eine neue Nachricht verfasst.
+dies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ zum Thema „$2“ eine neue Nachricht verfasst.
 
 Sie können sie unter diesem Link einsehen: <$6>
 
@@ -4292,10 +4293,10 @@ Die Nachricht lautet:
 $7',
 	'lqt-sign-not-necessary' => 'Es ist nicht notwendig, Ihre Antwort mit vier Tilden zu signieren.
 Die Signatur wird automatisch ergänzt.',
-	'lqt-ajax-no-subject' => 'Sie müssen einen Betreff angeben.',
+	'lqt-ajax-no-subject' => 'Sie müssen einen Betreff für das neuen Thema angeben.',
 	'lqt-save-subject-error-unknown' => 'Beim Festlegen des Betreffs ist ein unbekannter Fehler aufgetreten. Bitte versuchen Sie es über „bearbeiten“ beim obersten Beitrag.',
 	'lqt-drag-confirm' => 'Um die folgenden Aktionen abzuschließen, geben Sie bitte einen Grund an und klicken Sie auf „Bestätigen“.',
-	'tooltip-pt-newmessages' => 'Zeigt neue Nachrichten zu den von Ihnen beobachteten Diskussionssträngen oder deren zugehörigen Diskussionsseiten',
+	'tooltip-pt-newmessages' => 'Zeigt neue Nachrichten zu den von Ihnen beobachteten Themen oder deren zugehörigen Diskussionsseiten',
 	'lqt-newpost-defaultbody-user-submitted-empty-textbody' => 'Bitte geben Sie Ihren Text für diesen Diskussionsstrang an. Sie sollten dann diese Zeile löschen.',
 	'lqt-protected-reply-thread' => 'Da dieser Diskussionsstrang geschützt ist, können Sie hierauf nicht antworten.',
 	'lqt-protected-reply-talkpage' => 'Diese Diskussionsseite wurde geschützt, sodass Sie auf die Diskussionsstränge nicht antworten können.',
@@ -11403,7 +11404,7 @@ $7",
 	'lqt-save-subject' => 'Späicheren',
 	'lqt-save-subject-failed' => 'Wéi Dir de Sujet vun dëser Rubrik ännere wollt ass dëse Feeler geschitt: $1',
 	'lqt-ajax-invalid-subject' => 'De Sujet deen Dir uginn hutt as ne valabel, wahrscheinlech ass en ze laang.',
-	'lqt-ajax-no-subject' => 'Dir musst e Sujet uginn.',
+	'lqt-ajax-no-subject' => 'Dir musst e Sujet fir déi nei Rubrik uginn.',
 	'lqt-save-subject-error-unknown' => 'Wéi Dir de Sujet vun dëser Rubrik festleeë wollt ass en onbekannte Feeler geschitt. Versicht et w.e.g. an deems Dir op "Änneren" um ieweschte Beitrag klickt.',
 	'lqt-cancel-subject-edit' => 'Ofbriechen',
 	'lqt-drag-activate' => 'Op déi nei Plaz zéien',
@@ -11416,7 +11417,7 @@ $7",
 	'lqt-drag-save' => 'Confirméieren',
 	'lqt-drag-title' => 'Réckele confirméieren',
 	'lqt-drag-reason' => 'Grond:',
-	'lqt-drag-subject' => 'Sujet fir déi nei Rubrik:',
+	'lqt-drag-subject' => 'Sujet fir déi nei Rubrik (obligatoresch):',
 	'lqt-edit-signature' => '(Ënnerschrëft änneren)',
 	'lqt-preview-signature' => '(kucken ouni ze späicheren)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Nei Messagen',
@@ -11432,6 +11433,7 @@ $7",
 	'lqt_newmessages' => 'Meng nei Messagen (Keen)',
 	'lqt_newmessages-title' => 'Nei Messagen',
 	'lqt-newpost-summary' => 'Nei Rubrik: $1',
+	'lqt-newpost-defaultbody-user-submitted-empty-textbody' => 'Gitt w.e.g. den Text fir dës Rubrik an. Duerno sollt Dir dann dës Linn läschen.',
 	'lqt-reply-summary' => 'Äntwert op [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Versioune vun der Diskussiounssäit',
 	'lqt-talkpage-history-subtitle' => 'Fir $1',
@@ -15613,7 +15615,7 @@ $7",
 	'lqt-save-subject' => 'Reggistre',
 	'lqt-save-subject-failed' => "'U seguende errore se verifiche quanne ste pruève a cangià 'u suggette de st'argomende: $1",
 	'lqt-ajax-invalid-subject' => "'U suggette specificate ere invalide, probbabbilmende purcé jè troppe luènghe.",
-	'lqt-ajax-no-subject' => "Tu à specificà 'nu suggette.",
+	'lqt-ajax-no-subject' => "Tu à specificà 'nu suggette pe 'n'argomende nuève.",
 	'lqt-save-subject-error-unknown' => "'N'errore scanusciute s'à verificate quanne è pruvate a 'mbostà 'u suggette de st'argomende. Pe piacere pruève a fà sta cose cazzanne \"cange\" 'ngape a 'u messagge.",
 	'lqt-cancel-subject-edit' => 'Annulle',
 	'lqt-drag-activate' => "Trascine sus 'a posiziona nove",
@@ -15626,7 +15628,7 @@ $7",
 	'lqt-drag-save' => 'Conferme',
 	'lqt-drag-title' => "Conferme 'u trascinamende",
 	'lqt-drag-reason' => 'Mutive:',
-	'lqt-drag-subject' => "Suggette pe l'argomende nuève:",
+	'lqt-drag-subject' => "Suggette pe l'argomende nuève (obbligatorie):",
 	'lqt-edit-signature' => "(cange 'a firme)",
 	'lqt-preview-signature' => '(andeprime)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Messagge nuève',
