@@ -271,6 +271,15 @@ class TalkpageView extends LqtView {
 			$this->showHeader();
 		}
 
+		global $wgLang, $wgBetterDirectionality;
+		if( $wgBetterDirectionality ) {
+			// This closes the div of mw-content-ltr/rtl containing lang and dir attributes
+			$this->output->addHTML( Html::closeElement( 'div' ) );
+		}
+		$this->output->addHTML( Html::openElement( 'div', 
+			array( 'class' => 'lqt-talkpage', 'lang' => $wgLang->getCode(), 'dir' => wfUILang()->getDir() )
+		) );
+
 		$html = '';
 
 		// Set up a per-page header for new threads, search box, and sorting stuff.

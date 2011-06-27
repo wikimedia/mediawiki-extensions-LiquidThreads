@@ -1,3 +1,10 @@
+/* @noflip */.lqt_post_ltr {
+	direction: ltr;
+}
+/* @noflip */.lqt_post_rtl {
+	direction: rtl;
+}
+
 .lqt_watchlist_messages_notice {
 	background-color: #eee;
 	border:           1px solid #ddd;

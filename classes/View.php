@@ -1419,6 +1419,8 @@ class LqtView {
 		$signature = Xml::tags( 'span', array( 'class' => 'lqt-thread-user-signature' ),
 					$signature );
 
+		$signature .= $wgLang->getDirMark();
+
 		$timestamp = $wgLang->timeanddate( $thread->created(), true );
 		$signature .= Xml::element( 'span',
 					array( 'class' => 'lqt-thread-toolbar-timestamp' ),
@@ -1530,11 +1532,13 @@ class LqtView {
 	}
 
 	function postDivClass( $thread ) {
+		global $wgContLang;
 		$levelClass = 'lqt-thread-nest-' . $this->threadNestingLevel;
 		$alternatingType = ( $this->threadNestingLevel % 2 ) ? 'odd' : 'even';
 		$alternatingClass = "lqt-thread-$alternatingType";
+		$dir = $wgContLang->getDir();
 
-		return "lqt_post $levelClass $alternatingClass";
+		return "lqt_post $levelClass $alternatingClass lqt_post_$dir";
 	}
 
 	static function anchorName( $thread ) {
