@@ -202,4 +202,18 @@ class LqtDispatch {
 
 		return true;
 	}
+
+	# Most stuff is in the user language.
+	static function onPageContentLanguage( $title, &$pageLang, $wgLang ) {
+		global $wgRequest;
+		$method = $wgRequest->getVal( 'lqt_method' );
+		$oldid = $wgRequest->getVal( 'lqt_oldid' );
+		if( $method == 'diff' ) {
+			# the diff contains the wikitext, which is in the content language
+			return true;
+		} elseif ( $method == 'talkpage_history' || $method == 'thread_history' || $oldid != '' ) {
+			$pageLang = $wgLang;
+		}
+		return true;
+	}
 }

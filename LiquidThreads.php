@@ -91,6 +91,7 @@ $wgHooks['CanonicalNamespaces'][] = 'LqtHooks::onCanonicalNamespaces';
 $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
 $wgHooks['SkinTemplateTabs'][] = 'LqtDispatch::onSkinTemplateTabs';
 $wgHooks['SkinTemplateNavigation'][] = 'LqtDispatch::onSkinTemplateNavigation';
+$wgHooks['PageContentLanguage'][] = 'LqtDispatch::onPageContentLanguage';
 
 // Customisation of recentchanges
 $wgHooks['OldChangesListRecentChangesLine'][] = 'LqtHooks::customizeOldChangesList';
