@@ -4186,7 +4186,7 @@ $7',
 	'lqt-ajax-update-link' => 'Aktualisieren',
 	'lqt-thread-show-replies' => '$1 {{PLURAL:$1|Antwort anzeigen|Antworten anzeigen}}',
 	'lqt-thread-show-more' => 'Mehr Antworten anzeigen',
-	'lqt-thread-link-url' => 'Link-URL:',
+	'lqt-thread-link-url' => 'URL des Links:',
 	'lqt-thread-link-title' => 'Wikitext-Link:',
 	'lqt-thread-link-copy' => 'In die Zwischenablage kopieren',
 	'lqt-sign-not-necessary' => 'Es ist nicht notwendig, deine Antwort mit vier Tilden zu signieren.
