@@ -147,7 +147,7 @@ class TalkpageView extends LqtView {
 					Threads::stripHTML( $thread->formattedSubject() ) );
 			$row .= Xml::tags( 'td', null, $subject );
 
-			$row .= Xml::element( 'td', null, $thread->replyCount() );
+			$row .= Xml::element( 'td', null, $wgLang->formatNum( $thread->replyCount() ) );
 
 			$timestamp = $wgLang->timeanddate( $thread->modified(), true );
 			$row .= Xml::element( 'td', null, $timestamp );

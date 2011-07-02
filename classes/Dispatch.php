@@ -208,7 +208,9 @@ class LqtDispatch {
 		global $wgRequest;
 		$method = $wgRequest->getVal( 'lqt_method' );
 		$oldid = $wgRequest->getVal( 'lqt_oldid' );
-		if( $method == 'diff' ) {
+		if( $title->getNamespace() == NS_LQT_THREAD ) {
+			$pageLang = $wgLang;
+		} elseif( $method == 'diff' ) {
 			# the diff contains the wikitext, which is in the content language
 			return true;
 		} elseif ( $method == 'talkpage_history' || $method == 'thread_history' || $oldid != '' ) {
