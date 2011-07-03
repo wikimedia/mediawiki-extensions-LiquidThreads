@@ -611,7 +611,7 @@ class LqtHooks {
 	 */
 
 	public static function handlePageXMLTag( $reader, &$pageInfo ) {
-		if ( !( $reader->nodeType == XmlReader::ELEMENT &&
+		if ( !isset( $reader->nodeType ) || !( $reader->nodeType == XmlReader::ELEMENT &&
 				$reader->name == 'DiscussionThreading' ) ) {
 			return true;
 		}
