@@ -4001,7 +4001,7 @@ Es ist möglich, dass er
 	'lqt-history-title' => 'Diskussionsverlauf',
 	'lqt_hist_comment_edited' => 'Kommentartext [$2 bearbeitet]',
 	'lqt_hist_summary_changed' => 'Zusammenfassung geändert',
-	'lqt_hist_reply_created' => '[[$1|Neue Antwort]] erstellt',
+	'lqt_hist_reply_created' => '[[$1|Neue Antwort]] gegeben',
 	'lqt_hist_thread_created' => 'Neues Thema begonnen',
 	'lqt_hist_deleted' => 'gelöscht',
 	'lqt_hist_undeleted' => 'wiederhergestellt',
