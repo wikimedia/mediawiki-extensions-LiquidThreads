@@ -47,6 +47,8 @@ class LqtHooks {
 			$link = LqtView::linkInContext( $thread );
 			$s .= ' ' . wfMsgExt( $msg, array( 'parseinline', 'replaceafter' ), $link );
 
+			$s .= $wgLang->getDirMark();
+
 			// add the truncated post content
 			$quote = $thread->root()->getContent();
 			$quote = $wgLang->truncate( $quote, 200 );

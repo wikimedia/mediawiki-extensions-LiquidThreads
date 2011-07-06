@@ -1493,6 +1493,7 @@ class LqtView {
 	/** Shows the headING for a thread (as opposed to the headeER for a post within
 		a thread). */
 	function showThreadHeading( $thread ) {
+		global $wgContLang;
 		if ( $thread->hasDistinctSubject() ) {
 			if ( $thread->hasSuperthread() ) {
 				$commands_html = "";
@@ -1517,7 +1518,7 @@ class LqtView {
 				$html = Xml::tags( 'span', array( 'class' => 'mw-headline' ), $html );
 				$html .= Html::hidden( 'raw-header', $thread->subject() );
 				$html = Xml::tags( 'h' . $this->headerLevel,
-						array( 'class' => 'lqt_header', 'id' => $id ),
+						array( 'class' => 'lqt_header', 'id' => $id, 'dir' => $wgContLang->getDir() ),
 						$html ) . $commands_html;
 			}
 
@@ -1538,7 +1539,7 @@ class LqtView {
 		$alternatingClass = "lqt-thread-$alternatingType";
 		$dir = $wgContLang->getDir();
 
-		return "lqt_post $levelClass $alternatingClass lqt_post_$dir";
+		return "lqt_post $levelClass $alternatingClass mw-content-$dir";
 	}
 
 	static function anchorName( $thread ) {

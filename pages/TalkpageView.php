@@ -117,7 +117,7 @@ class TalkpageView extends LqtView {
 	}
 
 	function getTOC( $threads ) {
-		global $wgLang;
+		global $wgLang, $wgContLang;
 
 		$html = '';
 
@@ -145,7 +145,7 @@ class TalkpageView extends LqtView {
 			$anchor = '#' . $this->anchorName( $thread );
 			$subject = Xml::tags( 'a', array( 'href' => $anchor ),
 					Threads::stripHTML( $thread->formattedSubject() ) );
-			$row .= Xml::tags( 'td', null, $subject );
+			$row .= Xml::tags( 'td', array( 'dir' => $wgContLang->getDir() ), $subject );
 
 			$row .= Xml::element( 'td', null, $wgLang->formatNum( $thread->replyCount() ) );
 

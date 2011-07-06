@@ -76,7 +76,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 	}
 
 	function formatValue( $name, $value ) {
-		global $wgLang;
+		global $wgLang, $wgContLang;
 
 		static $sk = null;
 
@@ -110,7 +110,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 					array( 'known' )
 				);
 
-				return $link;
+				return Html::rawElement( 'div', array( 'dir' => $wgContLang->getDir() ), $link );
 			case 'th_timestamp':
 				$formatted = $wgLang->timeanddate( $value );
 				$title = Title::makeTitleSafe(

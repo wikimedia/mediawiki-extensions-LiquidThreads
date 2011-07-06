@@ -1,10 +1,3 @@
-/* @noflip */.lqt_post_ltr {
-	direction: ltr;
-}
-/* @noflip */.lqt_post_rtl {
-	direction: rtl;
-}
-
 .lqt_watchlist_messages_notice {
 	background-color: #eee;
 	border:           1px solid #ddd;
@@ -188,12 +181,12 @@ body.skin-monobook li#ca-nstab-thread {
 
 .lqt_toc th {
 	border-bottom: 1px solid #000000;
+	text-align: left;
 }
 
 .lqt_toc td,.lqt_toc th {
 	margin: 0;
 	padding: 0.2em;
-	text-align: left;
 }
 
 .lqt_toc td {
