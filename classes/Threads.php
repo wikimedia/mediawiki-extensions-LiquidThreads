@@ -271,6 +271,7 @@ class Threads {
 
 	/** Keep trying titles starting with $basename until one is unoccupied. */
 	public static function incrementedTitle( $basename, $namespace ) {
+		global $wgContLang;
 		$i = 2;
 
 		// Try to make the title valid.
@@ -284,7 +285,8 @@ class Threads {
 				throw new MWException( "Error in creating title for basename $basename" );
 			}
 
-			$t = Title::makeTitleSafe( $namespace, $basename . ' (' . $i . ')' );
+			$n = $wgContLang->formatNum( $i );
+			$t = Title::makeTitleSafe( $namespace, $basename . ' (' . $n . ')' );
 			$i++;
 		}
 		return $t;
