@@ -181,6 +181,7 @@ To avoid this, split them from this thread before deleting it.',
 	// Rights
 	'right-lqt-split' => 'Split threads',
 	'right-lqt-merge' => 'Merge threads',
+	'right-lqt-react' => 'Reply to threads',
 
 	// Merging
 	'lqt-thread-merge' => 'Merge into another thread',
