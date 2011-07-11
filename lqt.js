@@ -220,8 +220,7 @@ window.liquidThreads = {
 
 		mwEditButtons = [];
 
-		//Shouldn't this use RL?
-		$j.getScript( wgScriptPath + '/resources/mediawiki.action/mediawiki.action.edit.js',
+		mediaWiki.loader.using( ['mediawiki.action.edit.js'],
 			function() {
 				if ( isIE7 ) {
 					$j(container).empty().show();
