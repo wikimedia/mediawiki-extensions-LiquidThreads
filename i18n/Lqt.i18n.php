@@ -1830,11 +1830,13 @@ $7',
  * @author Mucalexx
  */
 $messages['bar'] = array(
-	'lqt-new-messages' => 'Du host naiche Nochrichten',
+	'lqt-new-messages' => 'Du host neiche Noochrichten',
 	'searchprofile-threads' => 'Diskussionen',
-	'lqt_newmessages' => 'Naiche Nochrichten',
-	'lqt_newmessages-title' => 'Naiche Nochrichten',
-	'lqt-newpost-summary' => 'Naicher Diskussionsstrång: $1',
+	'tooltip-pt-newmessages' => "Zoagt neiche Noochrichten zua d' voh dir beówochteten Thémen óder d' zuaghering Dischkrirseiten",
+	'lqt-newmessages-n' => 'Neiche Noochrichten ($1)',
+	'lqt_newmessages' => 'Neiche Noochrichten',
+	'lqt_newmessages-title' => 'Neiche Noochrichten',
+	'lqt-newpost-summary' => 'Neicher Diskussionsstrång: $1',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
