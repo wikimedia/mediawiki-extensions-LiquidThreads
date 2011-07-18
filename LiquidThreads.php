@@ -72,7 +72,7 @@ $lqtResourceTemplate = array(
 
 $wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
 	'styles' => array( 'lqt.css', 'jquery/jquery.thread_collapse.css' ),
-	'scripts' => array( 'lqt.js', 'js/lqt.toolbar.js', 'jquery/jquery.thread_collapse.js', 'jquery/jquery.autogrow.js' ),
+//	'scripts' => array( 'lqt.js', 'js/lqt.toolbar.js', 'jquery/jquery.thread_collapse.js', 'jquery/jquery.autogrow.js' ),
 	'dependencies' => array( 'jquery.ui.dialog' ),
 	'messages' => $lqtMessages
 );
@@ -93,9 +93,9 @@ $wgResourceModules['ext.liquidThreads.newMessages'] = $lqtResourceTemplate + arr
 // $wgHooks['CanonicalNamespaces'][] = 'LqtHooks::onCanonicalNamespaces';
 // 
 // // Main dispatch hook
-// $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
-// $wgHooks['SkinTemplateTabs'][] = 'LqtDispatch::onSkinTemplateTabs';
-// $wgHooks['SkinTemplateNavigation'][] = 'LqtDispatch::onSkinTemplateNavigation';
+$wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
+$wgHooks['SkinTemplateTabs'][] = 'LqtDispatch::onSkinTemplateTabs';
+$wgHooks['SkinTemplateNavigation'][] = 'LqtDispatch::onSkinTemplateNavigation';
 // 
 // // Customisation of recentchanges
 // $wgHooks['OldChangesListRecentChangesLine'][] = 'LqtHooks::customizeOldChangesList';
@@ -178,15 +178,15 @@ $wgResourceModules['ext.liquidThreads.newMessages'] = $lqtResourceTemplate + arr
 // $wgHooks['userCan'][] = 'LqtHooks::onGetUserPermissionsErrors';
 // 
 // // Classes
-// $wgAutoloadClasses['LqtDispatch'] = $dir . 'classes/Dispatch.php';
-// $wgAutoloadClasses['LqtView'] = $dir . 'classes/View.php';
+$wgAutoloadClasses['LqtDispatch'] = $dir . 'classes/Dispatch.php';
+$wgAutoloadClasses['LqtView'] = $dir . 'classes/View.php';
 // $wgAutoloadClasses['HistoricalThread'] = $dir . 'classes/HistoricalThread.php';
 // $wgAutoloadClasses['Thread'] = $dir . 'classes/Thread.php';
 // $wgAutoloadClasses['Threads'] = $dir . 'classes/Threads.php';
 // $wgAutoloadClasses['NewMessages'] = $dir . 'classes/NewMessagesController.php';
 // $wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/ParserFunctions.php';
 // $wgAutoloadClasses['LqtDeletionController'] = $dir . 'classes/DeletionController.php';
-// $wgAutoloadClasses['LqtHooks'] = $dir . 'classes/Hooks.php';
+$wgAutoloadClasses['LqtHooks'] = $dir . 'classes/Hooks.php';
 // $wgAutoloadClasses['ThreadRevision'] = $dir . "classes/ThreadRevision.php";
 // $wgAutoloadClasses['SynchroniseThreadArticleDataJob'] = $dir . 'classes/SynchroniseThreadArticleDataJob.php';
 // $wgAutoloadClasses['ThreadHistoryPager'] = $dir . 'classes/ThreadHistoryPager.php';
@@ -195,7 +195,7 @@ $wgResourceModules['ext.liquidThreads.newMessages'] = $lqtResourceTemplate + arr
 // $wgAutoloadClasses['LqtLogFormatter'] = $dir . 'classes/LogFormatter.php';
 // 
 // // View classes
-// $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
+$wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
 // $wgAutoloadClasses['ThreadPermalinkView'] = $dir . 'pages/ThreadPermalinkView.php';
 // $wgAutoloadClasses['TalkpageHeaderView'] = $dir . 'pages/TalkpageHeaderView.php';
 // $wgAutoloadClasses['IndividualThreadHistoryView'] = $dir . 'pages/IndividualThreadHistoryView.php';
@@ -271,6 +271,10 @@ $wgAutoloadClasses['LiquidThreadsTopicToolbar'] = "$dir/classes/view/TopicToolba
 // Edit Forms
 $wgAutoloadClasses['LiquidThreadsEditForm'] = "$dir/classes/view/EditForm.php";
 $wgAutoloadClasses['LiquidThreadsNewTopicForm'] = "$dir/classes/view/NewTopicForm.php";
+$wgAutoloadClasses['LiquidThreadsReplyForm'] = "$dir/classes/view/ReplyForm.php";
+
+// Views
+$wgAutoloadClasses['LiquidThreadsChannelView'] = "$dir/classes/view/ChannelView.php";	
 
 /** CONFIGURATION SECTION */
 

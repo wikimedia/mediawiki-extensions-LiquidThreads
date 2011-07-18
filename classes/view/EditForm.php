@@ -15,6 +15,46 @@ abstract class LiquidThreadsEditForm {
 	public function __construct( $user ) {
 		$this->user = $user;
 	}
+	
+	/**
+	 * Shows the form, and submits it if necessary
+	 * @param $request Web request
+	 * @return String: HTML
+	 */
+	public function show( $request = null ) {
+		if ( ! $request ) {
+			global $wgRequest;
+			$request = $wgRequest;
+		}
+		
+		$tokenMatch = $this->user->matchEditToken( $request->getVal('edittoken') );
+		
+		if ( $request->wasPosted() && $tokenMatch ) {
+			$result = $this->validate( $request );
+			
+			if ( $result === true ) {
+				$result = $this->submit( $request );
+				
+				if ( $result ) {
+					return $result;
+				}
+			} elseif ( $result !== false ) {
+				return $result;
+			}
+		}
+		
+		return $this->getFormHTML();
+	}
+	
+	/**
+	 * Runs form submission
+	 * @param $request: The WebRequest to submit.
+	 * @return boolean: False to show the rest of the form, else HTML result
+	 */
+	abstract public function submit( $request = null );
+	
+	/**
+	 * Validates form fields
 
 	/**
 	 * Gets the HTML of the form, in edit mode.
@@ -64,6 +104,19 @@ abstract class LiquidThreadsEditForm {
 		
 		$fields['edittoken'] = $this->user->editToken();
 		
+		// TODO Testing
+		global $wgTitle;
+		$fields['title'] = $wgTitle->getPrefixedText();
+		$action = LqtDispatch::getAction();
+		
+		if ( count($action) ) {
+			$fields['lqt_action'] = $action[0];
+		}
+		
+		if ( count($action) > 1 ) {
+			$fields['lqt_target'] = $action[1];
+		}
+		
 		return $fields;
 	}
 	
@@ -74,7 +127,7 @@ abstract class LiquidThreadsEditForm {
 	protected function getButtons() {
 		$buttons = array();
 		
-		$buttons[] = Html::input( 'save', wfMsg('savearticle'), 'button',
+		$buttons[] = Html::input( 'save', wfMsg('savearticle'), 'submit',
 				array(
 					'class' => 'lqt-save',
 				) );

@@ -117,10 +117,17 @@ class LiquidThreadsPostToolbar extends LiquidThreadsToolbar {
 // 			);
 // 		}
 
+		$replyQuery = array(
+			'lqt_action' => 'reply',
+			'lqt_target' => $post->getUniqueIdentifier(),
+		);
+
+		$replyLink = wfAppendQuery( $context->get('base-url'), $replyQuery );
+
 		// TODO permissions checking, proper URL
 		$commands['reply'] = array(
 			'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
-			 'href' => SpecialPage::getTitleFor('Reply', $post->getID() )->getFullURL(),
+			 'href' => $replyLink,
 			 'enabled' => true,
 			 'showlabel' => 1,
 			 'tooltip' => wfMsg( 'lqt_reply' ),
@@ -129,11 +136,11 @@ class LiquidThreadsPostToolbar extends LiquidThreadsToolbar {
 
 		// Parent post link
 		if ( $version->getParentID() ) {
-			$parentID = $version->getParentID();
+			$parent = LiquidThreadsPost::newFromID( $version->getParentID() );
 
 			$commands['parent'] = array(
 				'label' => wfMsgExt( 'lqt-parent', 'parseinline' ),
-				'href' => '#' . $this->getAnchor($parentID),
+				'href' => '#' . $this->getAnchor($parent),
 				'enabled' => true,
 				'showlabel' => 1,
 			);

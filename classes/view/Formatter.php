@@ -48,8 +48,8 @@ abstract class LiquidThreadsFormatter {
 			return true;
 		}
 		
-		if ( isset( $callbacks[$object->getID()] ) ) {
-			$callback = $callbacks[$object->getID()];
+		if ( isset( $callbacks[$object->getUniqueIdentifier()] ) ) {
+			$callback = $callbacks[$object->getUniqueIdentifier()];
 			call_user_func_array( $callback, array( $object, $context ) );
 			return false;
 		} else {
@@ -156,5 +156,25 @@ abstract class LiquidThreadsFormatterContext {
 	 */
 	public function decrement( $field ) {
 		$this->set( $field, $this->get($field) - 1);
+	}
+	
+	/**
+	 * Gets the action for a given object.
+	 * @param $object LiquidThreadsObject: The object to search for.
+	 * @return String: Either an action or false.
+	 */
+	public function getActionFor( $object ) {
+		if ( $this->isValidField('action') && $this->get( 'action' ) ) {
+			$actionStruct = $this->get('action');
+			$match = $actionStruct[1] == $object->getUniqueIdentifier();
+			
+			if ( count($actionStruct) > 0 && $match ) {
+				return $actionStruct[0];
+			}
+		} elseif ( $this->isValidField('parent-context') && $this->get('parent-context') ) {
+			return $this->get('parent-context')->getActionFor($object);
+		}
+		
+		return false;
 	}
 }

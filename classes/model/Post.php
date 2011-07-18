@@ -163,7 +163,7 @@ class LiquidThreadsPost {
 	protected function initialiseNew( $topic, $parent = null ) {
 		$this->id = 0;
 		
-		$this->currentVersion = LiquidThreadsPostVersion::createNewPost( $topic, $parent );
+		$this->currentVersion = LiquidThreadsPostVersion::createNewPost( $this, $topic, $parent );
 		$this->pendingVersion = $this->currentVersion;
 		
 		$this->topic = $topic;
@@ -217,14 +217,6 @@ class LiquidThreadsPost {
 	public function save( $comment = null ) {
 		if ( $this->pendingVersion ) {
 			$this->pendingVersion->commit( $comment );
-			$this->currentVersion = $this->pendingVersion;
-			$this->pendingVersion = null;
-			
-			if ( !$this->id ) {
-				$this->insert();
-			} else {
-				$this->update();
-			}
 		} else {
 			throw new MWException( "There are no pending changes." );
 		}
@@ -262,8 +254,9 @@ class LiquidThreadsPost {
 	 * Inserts this Post into the database.
 	 * ONLY to be called *after* the first PostVersion is saved to the database.
 	 * This should only really be called from LiquidThreadsPost::save
+	 * @param $version The LiquidThreadsPostVersion that has just been inserted.
 	 */
-	protected function insert() {
+	public function insert( $version ) {
 		$dbw = wfGetDB( DB_MASTER );
 		
 		if ( $this->getID() ) {
@@ -277,7 +270,9 @@ class LiquidThreadsPost {
 		$postId = $dbw->insertId();
 		$this->id = $postId;
 		
-		$this->currentVersion->setPostID( $postId );
+		$this->currentVersion = $version;
+		$this->pendingVersion = null;
+		$version->setPostID( $postId );
 		
 		if ( $this->topic ) {
 			$this->topic->addPost( $this );
@@ -288,18 +283,25 @@ class LiquidThreadsPost {
 	 * Updates this post in the database.
 	 * ONLY to be called *after* a PostVersion has been moved into currentVersion.
 	 * Only to be called from LiquidThreadsPost::update()
+	 * @param $version The newest version of the post.
 	 */
-	protected function update() {
+	public function update( $version ) {
 		$dbw = wfGetDB( DB_MASTER );
 		
 		if ( ! $this->getID() ) {
 			throw new MWException( "Post has not been saved!" );
 		}
 		
+		$this->previousVersion = $this->currentVersion;
+		$this->currentVersion = $version;
+		$this->pendingVersion = null;
+		
 		$row = $this->getRow();
 		
 		$dbw->update( 'lqt_post', $row, array( 'lqp_id' => $this->getID() ),
 				__METHOD__ );
+				
+		$this->getTopic()->touch();
 	}
 
 	/* PROPERTY ACCESSORS */
@@ -332,6 +334,17 @@ class LiquidThreadsPost {
 	 */
 	public function getTopicID() {
 		return $this->getCurrentVersion()->getTopicID();
+	}
+	
+	/**
+	 * Returns the LiquidThreadsTopic that this post belongs to.
+	 */
+	public function getTopic() {
+		if ( !$this->topic ) {
+			$this->topic = LiquidThreadsTopic::newFromID( $this->getTopicID() );
+		}
+		
+		return $this->topic;
 	}
 	
 	/**
@@ -448,6 +461,14 @@ class LiquidThreadsPost {
 		}
 		
 		return $this->replies;
+	}
+	
+	/**
+	 * Gets a globally unique (for all objects) identifier for this object
+	 * @return String
+	 */
+	public function getUniqueIdentifier() {
+		return 'lqt-post:'.$this->getID();
 	}
 }
 

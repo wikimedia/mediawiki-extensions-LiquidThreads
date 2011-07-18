@@ -15,6 +15,9 @@ abstract class LiquidThreadsObject {
 	 * @return Integer: an ID for the text table.
 	 */
 	public static function saveText( $data ) {
+		if ( $data === null ) {
+			throw new MWException( "Attempt to save NULL text" );
+		}
 		global $wgDefaultExternalStore;
 		
 		$dbw = wfGetDB( DB_MASTER );
@@ -49,4 +52,10 @@ abstract class LiquidThreadsObject {
 		
 		return $dbw->insertId();
 	}
+	
+	/**
+	 * Gets a globally unique (for all objects) identifier for this object
+	 * @return String
+	 */
+	abstract public function getUniqueIdentifier();
 }

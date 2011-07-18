@@ -784,50 +784,6 @@ class LqtView {
 		return true;
 	}
 
-	public function getSubjectEditor( $db_subject, $subject ) {
-		if ( $subject === false ) $subject = $db_subject;
-
-		$subject_label = wfMsg( 'lqt_subject' );
-
-		$attr = array( 'tabindex' => 1 );
-
-		return Xml::inputLabel( $subject_label, 'lqt_subject_field',
-				'lqt_subject_field', 60, $subject, $attr ) .
-			Xml::element( 'br' );
-	}
-
-	public function getSignatureEditor( $from ) {
-		$signatureText = $this->request->getVal( 'wpLqtSignature', null );
-
-		if ( is_null( $signatureText ) ) {
-			if ( $from instanceof User ) {
-				$signatureText = LqtView::getUserSignature( $from );
-			} elseif ( $from instanceof Thread ) {
-				$signatureText = $from->signature();
-			}
-		}
-
-		$signatureHTML = LqtView::parseSignature( $signatureText );
-
-		// Signature edit box
-		$signaturePreview = Xml::tags(
-			'span',
-			array(
-				'class' => 'lqt-signature-preview',
-				'style' => 'display: none;'
-			),
-			$signatureHTML
-		);
-		$signatureEditBox = Xml::input(
-			'wpLqtSignature', 45, $signatureText,
-			array( 'class' => 'lqt-signature-edit' )
-		);
-
-		$signatureEditor = $signaturePreview . $signatureEditBox;
-
-		return array( $signatureEditor, $signatureHTML );
-	}
-
 	static function replyMetadataUpdates( $data = array() ) {
 		$requiredFields = array( 'replyTo', 'root', 'text' );
 

@@ -69,6 +69,8 @@ class LiquidThreadsTopicFormatter extends LiquidThreadsFormatter {
 			$postContext->set( 'timestamp', $context->get('timestamp') );
 			$postContext->set( 'user', $context->get('user') );
 			$postContext->set( 'language', $context->get('language') );
+			$postContext->set( 'parent-context', $context );
+			$postContext->set( 'base-url', $context->get('base-url') );
 		}
 		
 		// Set up formatter
@@ -161,7 +163,10 @@ class LiquidThreadsTopicFormatterContext extends LiquidThreadsFormatterContext {
 		'timestamp',
 		'user',
 		'language',
-		'post-context',
+		'parent-context',
 		'version',
+		'action',
+		'post-context',
+		'base-url',
 	);
 }

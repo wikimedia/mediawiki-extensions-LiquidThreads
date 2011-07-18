@@ -216,15 +216,20 @@ class LiquidThreadsPostVersion {
 	
 	/**
 	 * Factory method to create a Version for a new Post.
+	 * @param $post LiquidThreadsPost: The new post.
+	 * @param $topic LiquidThreadsTopic: The topic that this post is in.
+	 * @param $parent LiquidThreadsPost: (Optional) A parent Post for this one.
 	 * @return LiquidThreadsPostVersion: A Version object for a new post.
 	 */
-	public static function createNewPost( LiquidThreadsTopic $topic, $parent = null )
-	{
-		$post = new LiquidThreadsPostVersion;
+	public static function createNewPost( LiquidThreadsPost $post,
+		LiquidThreadsTopic $topic,
+		$parent = null
+	) {
+		$version = new LiquidThreadsPostVersion;
 		
-		$post->initialiseNewPost( $topic, $parent );
+		$version->initialiseNewPost( $post, $topic, $parent );
 		
-		return $post;
+		return $version;
 	}
 	
 	/* Initialisation functions. One of these has to be called on a new object */
@@ -327,26 +332,32 @@ class LiquidThreadsPostVersion {
 	
 	/**
 	 * Initialise a new version object for a new post.
+	 * @param $post LiquidThreadsPost: The new post.
 	 * @param $topic LiquidThreadsTopic: The topic that this post is in.
 	 * @param $parent LiquidThreadsPost: (Optional) A parent Post for this one.
 	 */
-	protected function initialiseNewPost( LiquidThreadsTopic $topic,
-			$parent = null )
-	{
+	protected function initialiseNewPost( LiquidThreadsPost $post,
+			LiquidThreadsTopic $topic,
+			$parent = null
+	) {
 		global $wgUser;
 		
 		$this->id = 0;
 		$this->poster = $wgUser;
 		$this->versionUser = $wgUser;
+		$this->post = $post;
 		$this->postID = 0; // Filled later
 		$this->textID = 0;
 		$this->textRow = null;
 		$this->textDirty = true;
 		$this->topicID = $topic->getID();
 		$this->signature = '';
+		$this->postTime = wfTimestampNow();
 		
 		if ( $parent ) {
 			$this->parentID = $parent->getID();
+		} else {
+			$this->parentID = null;
 		}
 	}
 	
@@ -472,6 +483,7 @@ class LiquidThreadsPostVersion {
 			'lpv_topic' => $this->topicID,
 			'lpv_signature' => $this->signature,
 			'lpv_post_time' => $this->postTime,
+			'lpv_parent_post' => $this->parentID,
 		);
 		
 		$this->timestamp = $row['lpv_timestamp'];
@@ -506,6 +518,12 @@ class LiquidThreadsPostVersion {
 		$dbw->insert( 'lqt_post_version', $row, __METHOD__ );
 		
 		$this->id = $dbw->insertId();
+		
+		if ( $this->getPostID() == 0 ) {
+			$this->getPost()->insert($this);
+		} else {
+			$this->getPost()->update($this);
+		}
 	}
 
 	/* PROPERTY ACCESSORS */
@@ -700,5 +718,13 @@ class LiquidThreadsPostVersion {
 		}
 		
 		$this->post = $post;
+	}
+	
+	/**
+	 * Gets a globally unique (for all objects) identifier for this object
+	 * @return String
+	 */
+	public function getUniqueIdentifier() {
+		return 'lqt-post-version:'.$this->getID();
 	}
 }

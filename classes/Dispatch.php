@@ -47,7 +47,7 @@ class LqtDispatch {
 			$viewname = 'TalkpageView';
 		}
 
-		Thread::$titleCacheById[$article->getId()] = $title;
+//		Thread::$titleCacheById[$article->getId()] = $title;
 
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		self::$primaryView = $view;
@@ -201,5 +201,30 @@ class LqtDispatch {
 		self::$primaryView->customizeTabs( $skinTemplate, $links );
 
 		return true;
+	}
+	
+	/**
+	 * Gets a description of the action to be taken from the web request.
+	 * @param $request The request to get the data from.
+	 * @return Mixed: NULL for no action, array(action, target) for an action
+	 */
+	public static function getAction( $request = null ) {
+		global $wgRequest;
+		
+		if ( $request == null ) {
+			$request = $wgRequest;
+		}
+		
+		if ( $request->getCheck( 'lqt_action' ) ) {
+			$ret = array( $request->getVal('lqt_action') );
+			
+			if ( $request->getCheck('lqt_target') ) {
+				$ret[] = $request->getVal('lqt_target');
+			}
+			
+			return $ret;
+		} else {
+			return null;
+		}
 	}
 }

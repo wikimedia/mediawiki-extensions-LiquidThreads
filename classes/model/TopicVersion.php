@@ -11,6 +11,9 @@ class LiquidThreadsTopicVersion {
 	/** ID of this version **/
 	protected $id;
 	
+	/** The topic that this version applies to **/
+	protected $topic;
+	
 	/** ID of the topic that this version applies to **/
 	protected $topicID;
 	
@@ -98,7 +101,7 @@ class LiquidThreadsTopicVersion {
 		$tables = array( 'lqt_topic_version' );
 		$fields = '*';
 		
-		$res = $dbr->select( $tables, $fields, $conditions, __METHOD__, array(), $joins );
+		$res = $dbr->select( $tables, $fields, $conditions, __METHOD__, array() );
 		
 		$output = array();
 		
@@ -192,14 +195,16 @@ class LiquidThreadsTopicVersion {
 	
 	/**
 	 * Factory method to create a Version for a new LiquidThreadsTopic.
+	 * @param $topic The LiquidThreadsTopic being created
 	 * @param $channel The LiquidThreadsChannel to put this topic in.
 	 * @return LiquidThreadsTopicVersion: A Version object for a new topic.
 	 */
-	public static function createNewTopic( LiquidThreadsChannel $channel )
+	public static function createNewTopic( LiquidThreadsTopic $topic,
+		LiquidThreadsChannel $channel )
 	{
 		$version = new LiquidThreadsTopicVersion;
 		
-		$version->initialiseNewTopic( $channel );
+		$version->initialiseNewTopic( $topic, $channel );
 		
 		return $version;
 	}
@@ -277,9 +282,11 @@ class LiquidThreadsTopicVersion {
 	
 	/**
 	 * Initialise a new version object for a new topic.
+	 * @param $topic The LiquidThreadsTopic being created
 	 * @param $channel LiquidThreadsChannel: The channel that this topic is in.
 	 */
-	protected function initialiseNewTopic( LiquidThreadsChannel $channel )
+	protected function initialiseNewTopic( LiquidThreadsTopic $topic,
+		LiquidThreadsChannel $channel )
 	{
 		global $wgUser;
 		
@@ -291,6 +298,8 @@ class LiquidThreadsTopicVersion {
 		$this->summaryTextID = 0;
 		$this->summaryTextRow = null;
 		$this->summaryTextDirty = true;
+		$this->summaryText = '';
+		$this->topic = $topic;
 	}
 	
 	/* SETTING AND SAVING */
@@ -383,13 +392,12 @@ class LiquidThreadsTopicVersion {
 		
 		$this->timestamp = $row['ltv_timestamp'];
 		
-		if ( $this->summaryTextDirty ) {
+		if ( $this->summaryTextDirty && $this->summaryText != '' ) {
 			$this->summaryTextID = LiquidThreadsObject::saveText($this->summaryText);
 			$this->summaryTextDirty = false;
-		}
-		
-		if ( $this->summaryTextID == 0 ) {
-			throw new MWException( "Unable to store revision text" );
+		} elseif ( $this->summaryText == '' ) {
+			$this->summaryTextID = 0;
+			$this->summaryTextDirty = false;
 		}
 		
 		$row['ltv_summary_text_id'] = $this->summaryTextID;
@@ -406,6 +414,12 @@ class LiquidThreadsTopicVersion {
 		$dbw->insert( 'lqt_topic_version', $row, __METHOD__ );
 		
 		$this->id = $dbw->insertId();
+		
+		if ( $this->getTopicID() == 0 ) {
+			$this->getTopic()->insert( $this );
+		} else {
+			$this->getTopic()->update( $this );
+		}
 	}
 
 	/* PROPERTY ACCESSORS */
@@ -468,6 +482,29 @@ class LiquidThreadsTopicVersion {
 	}
 	
 	/**
+	 * @return The ID of the topic that this version is of.
+	 */
+	public function getTopicID() {
+		return $this->topicID;
+	}
+	
+	/**
+	 * @return The LiquidThreadsTopic that this version is of.
+	 */
+	public function getTopic() {
+		$id = $this->getTopicID();
+		if ( ! $this->topic ) {
+			if ( ! $id ) {
+				throw new MWException( "This Topic Version is not associated with a topic" );
+			}
+			
+			$this->topic = LiquidThreadsTopic::newFromID( $id );
+		}
+		
+		return $this->topic;
+	}
+	
+	/**
 	 * Lets you set the topic ID, once.
 	 * Only valid use is from LiquidThreadsTopic::save(), for a new LiquidThreadsTopic
 	 * @param $id Integer: The topic ID that this version applies to.
@@ -513,5 +550,13 @@ class LiquidThreadsTopicVersion {
 		} else {
 			return false;
 		}
+	}
+	
+	/**
+	 * Gets a globally unique (for all objects) identifier for this object
+	 * @return String
+	 */
+	public function getUniqueIdentifier() {
+		return 'lqt-topic-version:'.$this->getID();
 	}
 }

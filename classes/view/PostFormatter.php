@@ -53,6 +53,11 @@ class LiquidThreadsPostFormatter extends LiquidThreadsFormatter {
 			$context->set('nesting-level', 0);
 		}
 		
+		if ( ! $context->get('base-url') ) {
+			global $wgTitle;
+			$context->set( 'base-url', $wgTitle->getFullURL() );
+		}
+		
 		$timestamp = $context->get('timestamp');
 		// NULL means current version
 		$version = LiquidThreadsPostVersion::newPointInTime( $object, $timestamp );
@@ -91,22 +96,47 @@ class LiquidThreadsPostFormatter extends LiquidThreadsFormatter {
 				'class' => implode(' ', $wrapperClasses ),
 				'id' => "lqt-post-id-".$object->getID(),
 			) );
-		$html .= Xml::element( 'a', array('name' => $this->getAnchor($object) ) );
+		$html .= Xml::tags( 'span', array('id' => $this->getAnchor($object) ), '&nbsp;' );
 		
 		$html .= $this->formatSingleComment( $object, $version, $context );
 		
-		if ( count($children) ) {
+		$replyForm = false;
+		
+		$myAction = $context->getActionFor( $object );
+		
+		if ( count($children) || $myAction == 'reply' ) {
 			$html .= Xml::openElement( 'div', array( 'class' => 'lqt-replies' ) );
 			foreach( $children as $child ) {
-				$html .= $this->formatSingleComment( $child );
+				$childVersion = LiquidThreadsPostVersion::newPointInTime( $child, $context->get('timestamp') );
+				$html .= $this->formatCommentTree( $child, $childVersion, $context );
 			}
+			
+			if ( $myAction == 'reply' ) {
+				$form = new LiquidThreadsReplyForm( $context->get('user'), $object->getTopic(), $object );
+				$formResult = $form->show();
+				
+				if ( $formResult !== true ) {
+					$html .= $formResult;
+				} else {
+					// TODO hack
+					global $wgOut;
+					$wgOut->redirect( $context->get('base-url') );
+				}
+			}
+			
 			$html .= Xml::closeElement( 'div' );
 		}
+		
+		$html .= Xml::closeElement( 'div' );
 		
 		$context->decrement('nesting-level');
 		
 		return $html;
 	}
+	
+	/**
+	 * Get the action for a given object.
+	 * @param $context LiquidThreadsFormatterContext object
 	
 	/**
 	 * Get the HTML for a *single comment*.
@@ -136,7 +166,6 @@ class LiquidThreadsPostFormatter extends LiquidThreadsFormatter {
 
 			$html .= $this->getToolbar( $object, $context );
 			$html .= $this->getPostSignature( $object, $version, $context );
-			$html .= Xml::closeElement( 'div' );
 		}
 		
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-post-wrapper' ), $html );
@@ -251,5 +280,7 @@ class LiquidThreadsPostFormatterContext extends LiquidThreadsFormatterContext {
 		'nesting-level',
 		'post-callbacks',
 		'version',
+		'parent-context',
+		'base-url',
 	);
 }

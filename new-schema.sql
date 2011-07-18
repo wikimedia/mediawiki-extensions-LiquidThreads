@@ -30,10 +30,12 @@ CREATE TABLE /*_*/lqt_topic (
 	
 	-- The Channel that this topic is contained in.
 	-- Foreign key to lqt_channel.lqc_id
-	lqt_channel bigint(10) unsigned not null
+	lqt_channel bigint(10) unsigned not null,
+	
+	lqt_touched varbinary(14) not null
 ) /*$wgDBTableOptions*/;
 
-CREATE INDEX /*i*/lqt_topic_channel ON /*_*/lqt_topic (lqt_channel);
+CREATE INDEX /*i*/lqt_topic_channel ON /*_*/lqt_topic (lqt_channel,lqt_touched);
 
 
 -- Topic Version table

@@ -33,6 +33,9 @@ class LiquidThreadsTopic {
 	/** The number of replies that this topic has **/
 	protected $replyCount;
 	
+	/** The last time this LiquidThreadsTopic was modified or replied to. **/
+	protected $touchedTime;
+	
 	/* FACTORY METHODS */
 	
 	/**
@@ -142,6 +145,7 @@ class LiquidThreadsTopic {
 		$this->channelID = $row->lqt_channel;
 		$this->currentVersionID = $row->lqt_current_version;
 		$this->replyCount = $row->lqt_replies;
+		$this->touchedTime = $row->lqt_touched;
 		
 		if ( isset($row->ltv_id) ) {
 			$version = LiquidThreadsTopicVersion::newFromRow( $row );
@@ -157,7 +161,7 @@ class LiquidThreadsTopic {
 		$this->id = 0;
 		
 		$this->currentVersionID = 0;
-		$this->currentVersion = LiquidThreadsTopicVersion::createNewTopic( $channel );
+		$this->currentVersion = LiquidThreadsTopicVersion::createNewTopic( $this, $channel );
 		$this->pendingVersion = $this->currentVersion;
 		$this->replyCount = 0;
 		
@@ -174,14 +178,6 @@ class LiquidThreadsTopic {
 	public function save( $comment = null ) {
 		if ( $this->pendingVersion ) {
 			$this->pendingVersion->commit( $comment );
-			$this->currentVersion = $this->pendingVersion;
-			$this->pendingVersion = null;
-			
-			if ( $this->id ) {
-				$this->update( );
-			} else {
-				$this->insert( );
-			}
 		} else {
 			throw new MWException( "There are no pending changes." );
 		}
@@ -191,30 +187,41 @@ class LiquidThreadsTopic {
 	 * Updates the Topic row in the database.
 	 * To be called after a new LiquidThreadsTopicVersion is inserted and
 	 *  $this->currentVersion has been updated.
-	 * Should only really be called from LiquidThreadsPost::save
+	 * Should only really be called from LiquidThreadsTopicVersion::commit
 	 * @param $version The LiquidThreadsTopicVersion object that was just saved.
 	 */
-	protected function update( ) {
+	public function update( $version ) {
 		if ( ! $this->getID() ) {
 			throw new MWException( "Attempt to call update() on a topic not yet in the database." );
 		}
 		
 		$dbw = wfGetDB( DB_MASTER );
 		
+		$this->pendingVersion = null;
+		$this->previousVersion = $this->currentVersion;
+		$this->currentVersion = $version;
+		
 		$row = $this->getRow();
 		$dbw->update( 'lqt_topic', $row, array( 'lqt_id' => $this->getID() ),
 				__METHOD__ );
+
+		$title = $this->getChannel()->getTitle();
+		$title->invalidateCache();
 	}
 	
 	/**
 	 * Inserts this Post into the database.
 	 * ONLY to be called *after* the first PostVersion is saved to the database.
-	 * This should only really be called from LiquidThreadsPost::save
+	 * This should only really be called from LiquidThreadsTopicVersion::commit
+	 * @param $version The LiquidThreadsTopicVersion object that was just saved.
 	 */
-	protected function insert() {
+	public function insert( $version ) {
 		if ( $this->getID() ) {
 			throw new MWException( "Attempt to call insert() on a topic already inserted" );
 		}
+		
+		$this->currentVersion = $version;
+		$this->pendingVersion = null;
 		
 		$dbw = wfGetDB( DB_MASTER );
 		
@@ -224,7 +231,10 @@ class LiquidThreadsTopic {
 		$topicID = $dbw->insertId();
 		$this->id = $topicID;
 		
-		$this->currentVersion->setTopicID( $topicID );
+		$version->setTopicID( $topicID );
+		
+		$title = $this->getChannel()->getTitle();
+		$title->invalidateCache();
 	}
 	
 	/**
@@ -237,6 +247,7 @@ class LiquidThreadsTopic {
 			'lqt_current_version' => $this->currentVersion->getID(),
 			'lqt_channel' => $this->getChannelID(),
 			'lqt_replies' => $this->replyCount,
+			'lqt_touched' => $dbw->timestamp( wfTimestampNow() ),
 		);
 		
 		if ( !$this->id ) {
@@ -340,6 +351,7 @@ class LiquidThreadsTopic {
 		$conds = array( 'lqp_topic' => $this->getId() );
 		
 		$this->posts = LiquidThreadsPost::loadFromConditions( $conds );
+		$this->replyCount = count($this->posts);
 		
 		return $this->posts;
 	}
@@ -366,6 +378,23 @@ class LiquidThreadsTopic {
 		
 		return $this->directResponses;
 	}
+	
+	/**
+	 * Retrieves the "touched time" of this Topic.
+	 * The last time this topic was modified or replied to.
+	 * @return MW format timestamp.
+	 */
+	public function getTouchedTime() {
+		return wfTimestamp( TS_MW, $this->touchedTime );
+	}
+	
+	/**
+	 * @return The number of posts in this topic.
+	 */
+	public function getPostCount() {
+		return count( $this->getPosts() );
+	}
+	
 	
 	/* PROPERTY SETTERS */
 	
@@ -420,6 +449,31 @@ class LiquidThreadsTopic {
 		}
 		
 		$this->posts[$post->getId()] = $post;
+		
+		$this->touch();
+	}
+	
+	/**
+	 * Gets a globally unique (for all objects) identifier for this object
+	 * @return String
+	 */
+	public function getUniqueIdentifier() {
+		return 'lqt-topic:'.$this->getID();
+	}
+	
+	/**
+	 * Update the last-modified date for this topic.
+	 */
+	public function touch() {
+		$dbw = wfGetDB( DB_MASTER );
+		
+		$dbw->update( 'lqt_topic',
+			array( 'lqt_touched' => $dbw->timestamp( wfTimestampNow() ) ),
+			array( 'lqt_id' => $this->getID() ),
+			__METHOD__ );
+		
+		$title = $this->getChannel()->getTitle();
+		$title->invalidateCache();
 	}
 }
 

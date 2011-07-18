@@ -190,4 +190,12 @@ class LiquidThreadsChannel extends LiquidThreadsObject {
 		
 		return $row;
 	}
+	
+	/**
+	 * Gets a globally unique (for all objects) identifier for this object
+	 * @return String
+	 */
+	public function getUniqueIdentifier() {
+		return 'lqt-channel:'.$this->getID();
+	}
 }
