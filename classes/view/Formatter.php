@@ -76,24 +76,13 @@ abstract class LiquidThreadsFormatter {
 	
 	/**
 	 * Generates an anchor name for a LiquidThreads object
-	 * @param $object Mixed: A LiquidThreads object, or an integer.
-	 * @param $type Mixed: If specified, allows $object to be an integer.
-	 *     Valid values:
-	 *         post: $object is a post ID
-	 *         topic: $object is a topic ID
-	 * @return String The anchor name, without the #
+	 * @param $object Mixed: A LiquidThreadsObject.
 	 */
-	public function getAnchor( $object, $type = null ) {
-		if ( $object instanceof LiquidThreadsPost ) {
-			return 'comment_'.$object->getID();
-		} elseif ( $type == 'post' ) {
-			return 'comment_'.$object;
-		} elseif ( $object instanceof LiquidThreadsTopic ) {
-			return 'topic_'.$object->getID();
-		} elseif ( $type == 'topic' ) {
-			return "topic_$object";
+	public static function getAnchor( $object, $type = null ) {
+		if ( $object instanceof LiquidThreadsObject ) {
+			return Sanitizer::escapeId( $object->getUniqueIdentifier() );
 		} else {
-			throw new MWException( "Unknown arguments to ".__METHOD__ );
+			throw new MWException( "Invalid argument to getAnchor()" );
 		}
 	}
 }

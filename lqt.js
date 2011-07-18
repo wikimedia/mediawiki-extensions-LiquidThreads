@@ -27,7 +27,7 @@ var liquidThreads = {
 			target = $j(e.target);
 		}
 
-		var container = $j(target).closest('.lqt_thread')[0];
+		var container = $j(target).closest('.lqt-post-tree-wrapper')[0];
 		var thread_id = $j(this).data('thread-id');
 
 		// hide the form for this thread if it's currently being shown
@@ -38,7 +38,7 @@ var liquidThreads = {
 
 		var params = { 'method' : 'reply', 'thread' : thread_id };
 
-		var repliesElement = $j(container).contents().filter('.lqt-thread-replies');
+		var repliesElement = $j(container).contents().filter('.lqt-replies');
 		var replyDiv = repliesElement.contents().filter('.lqt-reply-form');
 		replyDiv = replyDiv.add( $j(container).contents().filter('.lqt-reply-form') );
 		if (!replyDiv.length) {
@@ -60,11 +60,11 @@ var liquidThreads = {
 		liquidThreads.currentReplyThread = thread_id;
 	},
 
-	'getRepliesElement' : function(thread /* a .lqt_thread */ ) {
-		var repliesElement = thread.contents().filter('.lqt-thread-replies');
+	'getRepliesElement' : function(thread /* a .lqt-post-tree-wrapper */ ) {
+		var repliesElement = thread.contents().filter('.lqt-replies');
 
 		if ( !repliesElement.length ) {
-			repliesElement = $j('<div class="lqt-thread-replies"/>' );
+			repliesElement = $j('<div class="lqt-replies"/>' );
 
 			var finishDiv = $j('<div class="lqt-replies-finish"/>');
 			finishDiv.append($j('<div class="lqt-replies-finish-corner"/>'));
@@ -302,7 +302,7 @@ var liquidThreads = {
 
 		$j('.lqt-edit-form').not(e).each(
 			function() {
-				var repliesElement = $j(this).closest('.lqt-thread-replies');
+				var repliesElement = $j(this).closest('.lqt-replies');
 				$j(this).fadeOut('slow',
 					function() {
 						$j(this).empty();
@@ -499,7 +499,7 @@ var liquidThreads = {
 				spinner.remove();
 				header.next().find('.lqt-command-edit-subject').show();
 
-				var thread = $j('#lqt_thread_id_'+threadId);
+				var thread = $j('#lqt-post-tree-wrapper_id_'+threadId);
 				liquidThreads.doReloadThread( thread );
 			} else {
 				errorHandler(reply);
@@ -552,7 +552,7 @@ var liquidThreads = {
 
 	'showUpdated' : function(id) {
 		// Check if there's already an updated marker here
-		var threadObject = $j("#lqt_thread_id_"+id);
+		var threadObject = $j("#lqt-post-tree-wrapper_id_"+id);
 
 		if ( threadObject.find('.lqt-updated-notification').length ) {
 			return;
@@ -575,12 +575,12 @@ var liquidThreads = {
 	'updateThread' : function(e) {
 		e.preventDefault();
 
-		var thread = $j(this).closest('.lqt_thread');
+		var thread = $j(this).closest('.lqt-post-tree-wrapper');
 
 		liquidThreads.doReloadThread( thread );
 	},
 
-	'doReloadThread' : function( thread /* The .lqt_thread */ ) {
+	'doReloadThread' : function( thread /* The .lqt-post-tree-wrapper */ ) {
 		var post = thread.find('div.lqt-post-wrapper')[0];
 		post = $j(post);
 		var threadId = thread.data('thread-id');
@@ -606,7 +606,7 @@ var liquidThreads = {
 				header.hide();
 
 				// Replace post content
-				var newThread = newContent.filter('div.lqt_thread');
+				var newThread = newContent.filter('div.lqt-post-tree-wrapper');
 				var newThreadContent = newThread.contents();
 				thread.append( newThreadContent );
 				thread.attr( 'class', newThread.attr('class') );
@@ -637,18 +637,18 @@ var liquidThreads = {
 	},
 
 	'setupThread' : function(threadContainer) {
-		var prefixLength = "lqt_thread_id_".length;
+		var prefixLength = "lqt-post-tree-wrapper_id_".length;
 		// add the interruption class if it needs it
 		// Fixme - misses a lot of cases
 		$parentWrapper = $j( threadContainer )
 			.closest( '.lqt-thread-wrapper' ).parent().closest( '.lqt-thread-wrapper' );
 		if( $parentWrapper.next( '.lqt-thread-wrapper' ).length > 0 ) {
 			$parentWrapper
-				.find( '.lqt-thread-replies' )
-				.addClass( 'lqt-thread-replies-interruption' );
+				.find( '.lqt-replies' )
+				.addClass( 'lqt-replies-interruption' );
 		}
 		// Update reply links
-		var threadWrapper = $j(threadContainer).closest('.lqt_thread')[0]
+		var threadWrapper = $j(threadContainer).closest('.lqt-post-tree-wrapper')[0]
 		var threadId = threadWrapper.id.substring( prefixLength );
 
 		$j(threadContainer).data( 'thread-id', threadId );
@@ -699,10 +699,10 @@ var liquidThreads = {
 		e.preventDefault();
 
 		// Grab the closest thread
-		var thread = $j(this).closest('.lqt_thread').find('div.lqt-post-wrapper')[0];
+		var thread = $j(this).closest('.lqt-post-tree-wrapper').find('div.lqt-post-wrapper')[0];
 		thread = $j(thread);
 		var threadId = thread.data('thread-id');
-		var replies = thread.parent().find('.lqt-thread-replies');
+		var replies = thread.parent().find('.lqt-replies');
 		var loader = $j('<div class="mw-ajax-loader"/>');
 		var sep = $j('<div class="lqt-post-sep">&nbsp;</div>');
 
@@ -717,7 +717,7 @@ var liquidThreads = {
 			function(data) {
 				// Interpret
 				var content = data.query.threads[threadId].content;
-				content = $j(content).find('.lqt-thread-replies')[0];
+				content = $j(content).find('.lqt-replies')[0];
 
 				// Inject
 				replies.empty().append( $j(content).contents() );
@@ -748,7 +748,7 @@ var liquidThreads = {
 		$j(this).after(loader);
 
 		// Grab the appropriate thread
-		var thread = $j(this).closest('.lqt_thread').find('div.lqt-post-wrapper')[0];
+		var thread = $j(this).closest('.lqt-post-tree-wrapper').find('div.lqt-post-wrapper')[0];
 		thread = $j(thread);
 		var threadId = thread.data('thread-id');
 
@@ -765,7 +765,7 @@ var liquidThreads = {
 		$j.get( wgScriptPath+'/api.php', apiParams,
 			function(data) {
 				var content = data.query.threads[threadId].content;
-				content = $j(content).find('.lqt-thread-replies')[0];
+				content = $j(content).find('.lqt-replies')[0];
 				content = $j(content).contents();
 				content = content.not('.lqt-replies-finish');
 
@@ -793,7 +793,7 @@ var liquidThreads = {
 		var tlcOffset = "lqt-threadlevel-commands-".length;
 
 		// Find the title of the thread
-		var threadLevelCommands = button.closest('.lqt_threadlevel_commands');
+		var threadLevelCommands = button.closest('.lqt-post-tree-wrapperlevel_commands');
 		var threadID = threadLevelCommands.attr('id').substring( tlcOffset );
 		var title = $j('#lqt-thread-title-'+threadID).val();
 
@@ -828,7 +828,7 @@ var liquidThreads = {
 
 	'showThreadLinkWindow' : function(e) {
 		e.preventDefault();
-		var thread = $j(this).closest('.lqt_thread');
+		var thread = $j(this).closest('.lqt-post-tree-wrapper');
 		var linkTitle = thread.find('.lqt-thread-title-metadata').val();
 		var linkURL = wgArticlePath.replace( "$1", linkTitle.replace(' ', '_' ) );
 		linkURL = wgServer + linkURL;
@@ -921,10 +921,10 @@ var liquidThreads = {
 		editform.prepend(spinner);
 
 		var replyCallback = function( data ) {
-			$parent = $j( '#lqt_thread_id_' + data.threadaction.thread['parent-id'] );
+			$parent = $j( '#lqt-post-tree-wrapper_id_' + data.threadaction.thread['parent-id'] );
 			$html = $j( data.threadaction.thread['html'] );
-			$newThread = $html.find( '#lqt_thread_id_' + data.threadaction.thread['thread-id'] );
-			$parent.find( '.lqt-thread-replies:first' ).append( $newThread );
+			$newThread = $html.find( '#lqt-post-tree-wrapper_id_' + data.threadaction.thread['thread-id'] );
+			$parent.find( '.lqt-replies:first' ).append( $newThread );
 			$parent.closest( '.lqt-thread-topmost' )
 				.find( 'input.lqt-thread-modified' )
 				.val( data.threadaction.thread['modified'] );
@@ -1159,7 +1159,7 @@ var liquidThreads = {
 		e.preventDefault();
 
 		// Set up draggability.
-		var $thread = $j( this ).closest( '.lqt_thread' );
+		var $thread = $j( this ).closest( '.lqt-post-tree-wrapper' );
 		var threadID = $thread.find( '.lqt-post-wrapper' ).data( 'thread-id' );
 		var scrollOffset;
 		// determine wether it's an entire thread or just one of the replies
@@ -1183,7 +1183,7 @@ var liquidThreads = {
 			helperFunc =
 				function() {
 					var $helper = $thread.clone();
-					$helper.find( '.lqt-thread-replies' ).remove();
+					$helper.find( '.lqt-replies' ).remove();
 					return $helper;
 				};
 		}
@@ -1221,12 +1221,12 @@ var liquidThreads = {
 		} );
 
 		// Now one underneath every thread except the drag thread
-		$j('.lqt_thread').not( $thread ).each( function() {
+		$j('.lqt-post-tree-wrapper').not( $thread ).each( function() {
 			var $curThread = $j( this );
 			// don't put any drop zones under child threads
 			if ( $j.contains( $thread[0], $curThread[0] ) ) return;
 			// don't put it right next to the thread
-			if ( $curThread.find( '.lqt-thread-replies:first > .lqt_thread:last' )[0] == $thread[0] ) return;
+			if ( $curThread.find( '.lqt-replies:first > .lqt-post-tree-wrapper:last' )[0] == $thread[0] ) return;
 			var repliesElement = liquidThreads.getRepliesElement( $curThread );
 			repliesElement.contents().filter('.lqt-replies-finish').before( createDropZone( 'now', $curThread.data( 'thread-id' ) ) );
 		} );
@@ -1272,7 +1272,7 @@ var liquidThreads = {
 		// Remove drop points and schedule removal of empty replies elements.
 		var emptyChecks = [];
 		$j('.lqt-drop-zone').each( function() {
-			var repliesHolder = $j(this).closest('.lqt-thread-replies');
+			var repliesHolder = $j(this).closest('.lqt-replies');
 
 			$j(this).remove();
 
@@ -1467,7 +1467,7 @@ var liquidThreads = {
 							!= 'undefined' ) {
 						var ancestorId = payload['new-ancestor-id'];
 						reloadThread =
-							$j('#lqt_thread_id_'+ancestorId);
+							$j('#lqt-post-tree-wrapper_id_'+ancestorId);
 					}
 
 					liquidThreads.doReloadThread( reloadThread );

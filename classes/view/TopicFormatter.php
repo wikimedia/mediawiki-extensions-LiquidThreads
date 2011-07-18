@@ -51,7 +51,7 @@ class LiquidThreadsTopicFormatter extends LiquidThreadsFormatter {
 	
 		$html = Xml::openElement( 'div',
 			array( 'class' => 'lqt-topic',
-				'id' => 'lqt-topic-id-'.$object->getID() ) );
+				'id' => LiquidThreadsFormatter::getAnchor($object) ) );
 				
 		// Show topic heading
 		$html .= $this->getHeading( $object, $context );

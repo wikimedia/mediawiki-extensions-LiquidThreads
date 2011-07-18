@@ -5,7 +5,7 @@
  * This class represents a single threaded discussion.
  * @addtogroup LiquidThreads model
  */
-class LiquidThreadsTopic {
+class LiquidThreadsTopic extends LiquidThreadsObject {
 
 	/* MEMBER VARIABLES */
 	/** The current LiquidThreadsTopicVersion object. **/

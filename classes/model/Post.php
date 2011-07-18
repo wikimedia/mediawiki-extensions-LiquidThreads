@@ -5,7 +5,7 @@
  * This class represents a single comment in a threaded discussion.
  * @addtogroup LiquidThreads model
  */
-class LiquidThreadsPost {
+class LiquidThreadsPost extends LiquidThreadsObject {
 
 	/* MEMBER VARIABLES */
 	

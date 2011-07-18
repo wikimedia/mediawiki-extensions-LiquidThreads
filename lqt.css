@@ -39,16 +39,19 @@
 	float: left;
 	width: 100%;
 }
-.lqt_thread_heading {
+
+.lqt-heading {
 	border-bottom: 1px solid #AAAAAA;
 	margin-bottom: 0.6em;
 	padding: 10px 0 0;
 }
-.lqt_header {
+
+.lqt-header {
 	border: none;
 	margin-bottom: 0;
 	display: inline;
 }
+
 .lqt_header_commands {
 	float:      right;
 	clear:      both;
@@ -124,19 +127,20 @@
 	margin-right: 20%;
 }
 
-.lqt_threadlevel_commands {
+.lqt-heading .lqt-toolbar {
 	float: right;
 	color: #777;
 	margin-bottom: 0 !important;
 	margin-top: 0;
 }
 
-.lqt_threadlevel_commands li {
+.lqt-heading .lqt-toolbar li {
 	display:         inline;
 	list-style-type: none;
 	padding-right:   0.6em;
 	line-height: 1em;
 }
+
 #lqt_subject_field {
 	margin-top:    0.7em;
 	margin-bottom: 0.5em;
@@ -500,7 +504,7 @@ table.lqt-new-messages {
 	text-align:right;
 }
 /* Float Clearing - If you confused, http://www.positioniseverything.net/easyclearing.html */
-.lqt_thread_heading:after,
+.lqt-heading:after,
 .lqt-thread-toolbar-commands:after,
 .lqt-post-wrapper:after
 { 
@@ -511,18 +515,18 @@ table.lqt-new-messages {
  visibility: hidden; 
 }
 
-.lqt_thread_heading,
+.lqt-heading,
 .lqt-thread-toolbar-commands,
 .lqt-post-wrapper
 {display: inline-block;}
 
 /* Hides from IE-mac */
-* html .lqt_thread_heading,
+* html .lqt-heading,
 * html .lqt-thread-toolbar-commands,
 * html .lqt-post-wrapper
 {height: 1%;}
 
-.lqt_thread_heading,
+.lqt-heading,
 .lqt-thread-toolbar-commands,
 .lqt-post-wrapper
 {display: block;}

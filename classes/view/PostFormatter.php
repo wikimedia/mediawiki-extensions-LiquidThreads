@@ -94,9 +94,8 @@ class LiquidThreadsPostFormatter extends LiquidThreadsFormatter {
 		$html = Xml::openElement( 'div',
 			array(
 				'class' => implode(' ', $wrapperClasses ),
-				'id' => "lqt-post-id-".$object->getID(),
+				'id' => LiquidThreadsFormatter::getAnchor($object),
 			) );
-		$html .= Xml::tags( 'span', array('id' => $this->getAnchor($object) ), '&nbsp;' );
 		
 		$html .= $this->formatSingleComment( $object, $version, $context );
 		
