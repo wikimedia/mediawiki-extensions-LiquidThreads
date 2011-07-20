@@ -6674,6 +6674,7 @@ Pour éviter cela, séparez les de ce fil de discussion avant de supprimer celui
 	'lqt_rc_new_reply' => 'posté une réponse à « $1 »',
 	'right-lqt-split' => 'Scinder les fils de discussion',
 	'right-lqt-merge' => 'Fusionner les fils de discussion',
+	'right-lqt-react' => 'Répondre aux messages',
 	'lqt-thread-merge' => 'Fusionner dans un autre fil',
 	'lqt-thread-merge-to' => 'Fusionner dans ce fil',
 	'lqt_merge_thread' => 'Fusionner le fil',
