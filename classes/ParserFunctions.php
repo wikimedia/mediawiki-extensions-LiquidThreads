@@ -168,7 +168,7 @@ class LqtParserFunctions {
 			}
 			
 			$out->mLqtReplacements[$text] = $result;
-			LqtView::addJsAndCss();
+			$out->addModules( 'ext.liquidThreads' );
 		}
 		
 		return true;
