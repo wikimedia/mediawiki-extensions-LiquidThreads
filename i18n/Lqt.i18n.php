@@ -6948,6 +6948,7 @@ Por èvitar cen, dèpondéd-les de ceti fil de discussion devant que suprimar ce
 	'lqt_rc_new_reply' => 'at pôstâ una rèponsa a « $1 »',
 	'right-lqt-split' => 'Dèpondre los fils de discussion',
 	'right-lqt-merge' => 'Fusionar los fils de discussion',
+	'right-lqt-react' => 'Rèpondre ux mèssâjos',
 	'lqt-thread-merge' => 'Fusionar dens un ôtro fil',
 	'lqt-thread-merge-to' => 'Fusionar dens ceti fil',
 	'lqt_merge_thread' => 'Fusionar lo fil',
