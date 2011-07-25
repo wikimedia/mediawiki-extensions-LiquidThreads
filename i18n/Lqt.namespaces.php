@@ -18,10 +18,10 @@ $namespaceNames['en'] = array(
 );
 
 $namespaceNames['de'] = array(
-		NS_LQT_THREAD       => 'Thema',
-		NS_LQT_THREAD_TALK  => 'Thema_Diskussion',
-		NS_LQT_SUMMARY      => 'Themazusammenfassung',
-		NS_LQT_SUMMARY_TALK => 'Themazusammenfassung_Diskussion',
+	NS_LQT_THREAD       => 'Thema',
+	NS_LQT_THREAD_TALK  => 'Thema_Diskussion',
+	NS_LQT_SUMMARY      => 'Themazusammenfassung',
+	NS_LQT_SUMMARY_TALK => 'Themazusammenfassung_Diskussion',
 );
 
 $namespaceNames['fi'] = array(
