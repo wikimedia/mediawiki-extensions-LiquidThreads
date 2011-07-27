@@ -1830,9 +1830,10 @@ $7',
  * @author Mucalexx
  */
 $messages['bar'] = array(
+	'lqt-no-new-messages' => 'Du host koane neichen Noochrichten.',
 	'lqt-new-messages' => 'Du host neiche Noochrichten',
 	'searchprofile-threads' => 'Diskussionen',
-	'tooltip-pt-newmessages' => "Zoagt neiche Noochrichten zua d' voh dir beówochteten Thémen óder d' zuaghering Dischkrirseiten",
+	'tooltip-pt-newmessages' => "Zoagt neiche Noochrichten zua d' voh dir beówochterden Thémen óder d' zuaghering Dischkrirseiten",
 	'lqt-newmessages-n' => 'Neiche Noochrichten ($1)',
 	'lqt_newmessages' => 'Neiche Noochrichten',
 	'lqt_newmessages-title' => 'Neiche Noochrichten',
@@ -2023,6 +2024,7 @@ $messages['be-tarask'] = array(
 	'lqt_rc_new_reply' => 'напісаны адказ на «$1»',
 	'right-lqt-split' => 'падзел галінаў',
 	'right-lqt-merge' => "аб'яднаньне галінаў",
+	'right-lqt-react' => 'адказ у галінах',
 	'lqt-thread-merge' => "Аб'яднаць у іншую галіну",
 	'lqt-thread-merge-to' => "Аб'яднаць у гэту галіну",
 	'lqt_merge_thread' => "Аб'яднаць галіну",
