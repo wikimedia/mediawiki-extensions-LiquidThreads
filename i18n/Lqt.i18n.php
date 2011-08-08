@@ -7315,6 +7315,7 @@ Para evitar isto, sepáreas deste fío antes de borralo.',
 	'lqt_rc_new_reply' => 'publicou unha resposta a "$1"',
 	'right-lqt-split' => 'Separar fíos',
 	'right-lqt-merge' => 'Fusionar fíos',
+	'right-lqt-react' => 'Responder aos fíos',
 	'lqt-thread-merge' => 'Fusionar noutro fío',
 	'lqt-thread-merge-to' => 'Fusionar neste fío',
 	'lqt_merge_thread' => 'Fusionar o fío',
@@ -20372,15 +20373,19 @@ $messages['zh-hans'] = array(
 	'lqt-enotif-subject-reply' => '{{SITENAME}}的讨论 - 回复：$1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}的讨论 - 新话题：$1',
 	'lqt-enotif-newthread' => '$1您好，
-这是{{SITENAME}}自动发送的一封提醒邮件。$3 $4时$5上发起了新话题“$2”，
 
-您可以访问<$6>阅读之。',
-	'lqt-enotif-reply' => '$1 您好，
-这是{{SITENAME}}自动发送的一封提醒邮件。$3 $4时$5上的话题“$2”有新回复，
+这是来自{{SITENAME}}的一封提醒邮件。$8于$3$4时，在$5上发起了新话题“$2”，
 
-您可以访问<$6>阅读之。
+您可以访问<$6>阅读之
 
-回复的文字是：
+内容为：
+$7',
+	'lqt-enotif-reply' => '$1您好，
+这是来自{{SITENAME}}的一封提醒邮件。$8于$3$4时，对$5上的话题“$2”进行了回复，
+
+您可以访问<$6>阅读之
+
+回复的内容是：
 $7',
 	'lqt-quote-intro' => '[[User:$1|$1]]在$2 $3时写道：',
 	'lqt-quote' => '引用',
@@ -20402,7 +20407,7 @@ $7',
 	'lqt-save-subject' => '保存',
 	'lqt-save-subject-failed' => '在试图修改此话题的主题时，发生了下列错误：$1',
 	'lqt-ajax-invalid-subject' => '您输入的主题不可用，可能是由于其长度超限。',
-	'lqt-ajax-no-subject' => '您必须指定主题。',
+	'lqt-ajax-no-subject' => '您必须指定新话题的主题。',
 	'lqt-save-subject-error-unknown' => '在试图设置此话题的主题时发生了未知错误。请尝试点击顶部的“编辑”进行。',
 	'lqt-cancel-subject-edit' => '取消',
 	'lqt-drag-activate' => '拖动到新的位置',
@@ -20415,7 +20420,7 @@ $7',
 	'lqt-drag-save' => '确认',
 	'lqt-drag-title' => '确认',
 	'lqt-drag-reason' => '原因：',
-	'lqt-drag-subject' => '新话题的主题：',
+	'lqt-drag-subject' => '新话题的主题（必需）：',
 	'lqt-edit-signature' => '（编辑签名）',
 	'lqt-preview-signature' => '（预览）',
 	'lqt-feed-title-all' => '{{SITENAME}} — 新发言',
@@ -20426,7 +20431,7 @@ $7',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — 来自$1的回复',
 	'lqt-feed-new-thread-intro' => '$2在$1上发起的新话题',
 	'lqt-feed-reply-intro' => '$2在$1上对$3的回复',
-	'tooltip-pt-newmessages' => '显示线程或在您正在监视的螺纹的讨论页上的新职位',
+	'tooltip-pt-newmessages' => '显示话题或您正在监视的话题讨论页中的新发言',
 	'lqt-newmessages-n' => '新消息（$1）',
 	'lqt_newmessages' => '我的新消息（无）',
 	'lqt_newmessages-title' => '新消息',
