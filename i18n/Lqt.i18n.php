@@ -16173,7 +16173,7 @@ $messages['rue'] = array(
 	'nstab-summary' => 'Резюме',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -20346,6 +20346,7 @@ $messages['zh-hans'] = array(
 	'lqt_rc_new_reply' => '对$1发表回复',
 	'right-lqt-split' => '分割话题',
 	'right-lqt-merge' => '合并话题',
+	'right-lqt-react' => '回复话题',
 	'lqt-thread-merge' => '合并到其他话题',
 	'lqt-thread-merge-to' => '合并到此话题',
 	'lqt_merge_thread' => '合并话题',
@@ -20433,6 +20434,7 @@ $7',
 	'lqt_newmessages' => '我的新消息（无）',
 	'lqt_newmessages-title' => '新消息',
 	'lqt-newpost-summary' => '新话题：$1',
+	'lqt-newpost-defaultbody-user-submitted-empty-textbody' => '请输入您对该话题的发言，然后请删除本行。',
 	'lqt-reply-summary' => '回复到[[$2|$1]]',
 	'lqt-talkpage-history-title' => '讨论页历史',
 	'lqt-talkpage-history-subtitle' => '对$1',
