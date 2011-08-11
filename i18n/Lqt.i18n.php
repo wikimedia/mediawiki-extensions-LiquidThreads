@@ -214,7 +214,7 @@ To avoid this, split them from this thread before deleting it.',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} discussion - Reply: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} discussion - New thread: $1',
 	'lqt-enotif-newthread' => "Hi $1,
-	
+
 this is a notification from {{SITENAME}} that a new thread on $5, '$2',
 was created on $3 at $4 by $8
 
@@ -256,13 +256,10 @@ The signature is shown automatically.',
 	'lqt-marked-as-read-placeholder' => 'The thread $1 was marked as read.',
 	'lqt-change-subject' => 'Change subject',
 	'lqt-save-subject' => 'Save',
-	'lqt-save-subject-failed' => 'The following error occurred while attempting to ' .
-'change the subject of this thread: $1',
-	'lqt-ajax-invalid-subject' => 'The subject you specified was invalid, probably ' .
-'because it was too long.',
+	'lqt-save-subject-failed' => 'The following error occurred while attempting to change the subject of this thread: $1',
+	'lqt-ajax-invalid-subject' => 'The subject you specified was invalid, probably because it was too long.',
 	'lqt-ajax-no-subject' => 'You must specify a subject for the new thread.',
-	'lqt-save-subject-error-unknown' => 'An unknown error occurred when attempting ' .
-'to set the subject of this thread. Please try to do this by clicking "edit" on the top post.',
+	'lqt-save-subject-error-unknown' => 'An unknown error occurred when attempting to set the subject of this thread. Please try to do this by clicking "edit" on the top post.',
 	'lqt-cancel-subject-edit' => 'Cancel',
 	'lqt-drag-activate' => 'Drag to new location',
 	'lqt-drag-drop-zone' => 'Drop here',
@@ -2050,7 +2047,7 @@ $messages['be-tarask'] = array(
 	'lqt-enotif-subject-newthread' => 'Абмеркаваньне {{GRAMMAR:родны|{{SITENAME}}}} — Новая галіна: $1',
 	'lqt-enotif-newthread' => "Вітаем $1,
 
-Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новую галіну $5, '$2', 
+Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новую галіну $5, '$2',
 створаную $3 $4 удзельнікам $8.
 
 Вы можаце паглядзець яе на <$6>
@@ -2059,7 +2056,7 @@ $messages['be-tarask'] = array(
 $7",
 	'lqt-enotif-reply' => "Вітаем, $1!
 
-Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новы адказ '$2' на старонцы $5, 
+Гэта паведамленьне з {{GRAMMAR:родны|{{SITENAME}}}} пра новы адказ '$2' на старонцы $5,
 створаны ў $4 $3 удзельнікам $8.
 
 Вы можаце паглядзець яго на <$6>.
@@ -2312,7 +2309,7 @@ $messages['bg'] = array(
 	'lqt-thread-link-url' => 'URL на препратката:',
 	'lqt-thread-link-title' => 'Уикитекст на препратката:',
 	'lqt-thread-link-copy' => 'Копиране в системния буфер',
-	'lqt-sign-not-necessary' => 'Не е нужно да подписвате коментара си с четири вълнички. 
+	'lqt-sign-not-necessary' => 'Не е нужно да подписвате коментара си с четири вълнички.
 Подписът ви ще се покаже автоматично.',
 	'lqt-marked-as-read-placeholder' => 'Тема $1 беше отбелязана като прочетена.',
 	'lqt-change-subject' => 'Смяна на темата',
@@ -2617,7 +2614,7 @@ Ul lodenn eus $2 eo an neudennad-mañ.",
 	'lqt_delete_show_checkbox' => "Diskouez ar c'haozeadennoù diverket",
 	'lqt_talkpage_autocreate_summary' => "Pajenn gaozeal krouet ent emgefre p'eo bet kaset an neudennad kaozioù kentañ",
 	'lqt_header_warning_big' => "Emaoc'h o kemmañ ur $1",
-	'lqt_header_warning_after_big' => "Evit ar c'hemennoù hag ar rakgerioù eo an talbennoù. 
+	'lqt_header_warning_after_big' => "Evit ar c'hemennoù hag ar rakgerioù eo an talbennoù.
 Marteze e fell deoc'h $2 kentoc'h.",
 	'lqt_header_warning_bold' => 'Talbenn ur bajenn gaozeal',
 	'lqt_header_warning_new_discussion' => "boulc'hañ gant ur gaoz nevez",
@@ -3089,7 +3086,7 @@ $messages['ca'] = array(
 	'lqt_new_thread' => 'Comença una nova discussió',
 	'lqt_invalid_subject' => 'El tema que heu introduït no és vàlid.
 Pot:
-* ser massa llarg, o 
+* ser massa llarg, o
 * entrar en conflicte amb prefixos interwiki o altres espai de noms.',
 	'lqt_empty_subject' => "Heu d'introduir un tema.",
 	'lqt_reply' => 'Respon',
@@ -3265,7 +3262,7 @@ Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que un
 
 El podeu veure a <$6>',
 	'lqt-enotif-reply' => 'Hola $1,
-Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que ha aparegut una resposta al fil «$2» a $5, 
+Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que ha aparegut una resposta al fil «$2» a $5,
 creada el dia $3 a les $4.
 
 El podeu veure a <$6>
@@ -3723,8 +3720,8 @@ $messages['cy'] = array(
 	'lqt_toc_thread_modified' => 'Newidiwyd ddiwethaf',
 	'lqt_add_header' => 'Ychwanegu pennawd',
 	'lqt_new_thread' => 'Dechrau trafodaeth newydd',
-	'lqt_invalid_subject' => "Mae'r pwnc a roddoch yn annilys. 
-Efallai: 
+	'lqt_invalid_subject' => "Mae'r pwnc a roddoch yn annilys.
+Efallai:
 * ei fod yn rhy hir, neu
 * bod gwrthdaro yn codi rhyngddo a rhagddodiaid rhyngwici neu ag enwau parthau'r wici.",
 	'lqt_empty_subject' => "Mae'n rhaid gosod pwnc.",
@@ -5515,7 +5512,7 @@ Para evitarlo, divídalas a partir de este hilo antes de eliminarlas.',
 	'lqt-preference-custom-signatures' => 'Mostrar firmas de usuario personalizadas',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} discusión - Respuesta: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} discusión - Nuevo hilo: $1',
-	'lqt-enotif-newthread' => "Hola $1, 
+	'lqt-enotif-newthread' => "Hola $1,
 
 esta es una notificación de {{SITENAME}} de que un nuevo hilo en $5, '$2',
 ha sido creado el $3 a las $4 por $8.
@@ -6177,7 +6174,7 @@ $7",
 	'lqt-marked-as-read-placeholder' => 'مبحث $1 به عنوان خوانده‌شده نشانه‌گذاری شده است.',
 	'lqt-change-subject' => 'تغییر عنوان',
 	'lqt-save-subject' => 'ذخیره',
-	'lqt-save-subject-failed' => 'هنگامی که قصد تغییر عنوان این مبحث را داشتید خطای زیر رخ داد: 
+	'lqt-save-subject-failed' => 'هنگامی که قصد تغییر عنوان این مبحث را داشتید خطای زیر رخ داد:
 $1',
 	'lqt-ajax-invalid-subject' => 'عنوانی که مشخص کردید نامعتبر بود، احتمالاً به خاطر طولانی‌بودن بیش از حد.',
 	'lqt-ajax-no-subject' => 'شما باید یک عنوان مشخص کنید.',
@@ -6312,7 +6309,7 @@ Jos se on päättynyt, voi olla että haluat $1.',
 	'lqt_nosuchthread' => 'Määrittämääsi viestiketjua ei ole.',
 	'lqt_nosuchthread_title' => 'Ketjua ei löydy',
 	'lqt_threadrequired' => 'Sinun tulee antaa ketju URL-osoitteessa.',
-	'lqt_move_movingthread' => 'Siirretään $1. 
+	'lqt_move_movingthread' => 'Siirretään $1.
 Tämä ketju on osa sivua $2.',
 	'lqt_move_torename' => 'Nimetäksesi uudelleen tämän ketjun – $1 ja muuta Aihe-kenttää.',
 	'lqt_move_torename_edit' => 'muokkaa sitä',
@@ -6335,7 +6332,7 @@ Tämä ketju on osa sivua $2.',
 	'lqt_delete_show_checkbox' => 'Näytä poistetut ketjut',
 	'lqt_talkpage_autocreate_summary' => 'Keskustelusivu luotiin automaattisesti kun ensimmäinen ketju lähettiin.',
 	'lqt_header_warning_big' => 'Muokkaat $1.',
-	'lqt_header_warning_after_big' => 'Otsakkeet ovat ilmoituksille ja johdannoille. 
+	'lqt_header_warning_after_big' => 'Otsakkeet ovat ilmoituksille ja johdannoille.
 Saatat etsiä sivua $2 sen sijaan.',
 	'lqt_header_warning_bold' => 'keskustelusivun otsikkoa',
 	'lqt_header_warning_new_discussion' => 'aloita uusi keskustelu',
@@ -6423,7 +6420,7 @@ Välttääksesi tämän, jaa ne tästä ketjusta erilleen ennen sen poistamista.
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} – Uusi viestiketju: $1',
 	'lqt-enotif-newthread' => 'Hei $1,
 
-Tämä on ilmoitus sivustolta {{SITENAME}}, että sivulle $5 on luotu uusi ketju, ”$2”, 
+Tämä on ilmoitus sivustolta {{SITENAME}}, että sivulle $5 on luotu uusi ketju, ”$2”,
 $3 $4.
 
 Näet sen osoitteessa <$6>.',
@@ -8192,9 +8189,9 @@ $messages['hr'] = array(
 	'lqt_toc_thread_modified' => 'Zadnje izmjenjeno',
 	'lqt_add_header' => 'Dodaj zaglavlje',
 	'lqt_new_thread' => 'Započnite novu raspravu',
-	'lqt_invalid_subject' => 'Naziv teme koji ste unijeli nije ispravan. 
-Može biti: 
-* predug je, ili 
+	'lqt_invalid_subject' => 'Naziv teme koji ste unijeli nije ispravan.
+Može biti:
+* predug je, ili
 * naziv je isti kao međuwiki prefiks ili ime imenskog prostora.',
 	'lqt_empty_subject' => 'Morate upisati temu/sažetak.',
 	'lqt_reply' => 'Odgovori',
@@ -8246,11 +8243,11 @@ Može biti:
 	'lqt_protectedfromreply_link' => 'zaštićen',
 	'lqt_subject' => 'Tema:',
 	'lqt_noreason' => 'bez obrazloženja',
-	'lqt_move_placeholder' => 'Tema $1 premještena je odavdje na $5. 
+	'lqt_move_placeholder' => 'Tema $1 premještena je odavdje na $5.
 Premještaj je napravio suradnik $2 dana $3 u $4.',
 	'lqt_thread_deleted_for_sysops' => "Tema je '''obrisana''' te je vidljiva samo administratorima.",
 	'lqt_thread_deleted' => 'Tema je obrisana.',
-	'lqt_summary_notice' => 'Nije bilo uređivanja ove rasprave najmanje $2 {{PLURAL:$2|dan|dana|dana}}. 
+	'lqt_summary_notice' => 'Nije bilo uređivanja ove rasprave najmanje $2 {{PLURAL:$2|dan|dana|dana}}.
 Ukoliko je tema zaključena, možda želite urediti sažetak $1.',
 	'lqt_summary_notice_link' => 'napiši sažetak',
 	'lqt_summary_label' => 'Sažetak teme:',
@@ -8259,7 +8256,7 @@ Ukoliko je tema zaključena, možda želite urediti sažetak $1.',
 	'lqt_nosuchthread' => 'Tema koju ste naveli ne postoji.',
 	'lqt_nosuchthread_title' => 'Ne postoji tema s tim nazivom',
 	'lqt_threadrequired' => 'Morate navesti temu u URL-u.',
-	'lqt_move_movingthread' => 'Premještam $1. 
+	'lqt_move_movingthread' => 'Premještam $1.
 Ova tema je dio $2.',
 	'lqt_move_torename' => "Za promjenu naslova ove teme, $1 i promijenite polje 'Subject'.",
 	'lqt_move_torename_edit' => 'uredi',
@@ -8282,7 +8279,7 @@ Ova tema je dio $2.',
 	'lqt_delete_show_checkbox' => 'Pokaži obrisane teme',
 	'lqt_talkpage_autocreate_summary' => 'Stranica za razgovor automatski je stvorena kad je započeta prva tema',
 	'lqt_header_warning_big' => 'Uređujete $1.',
-	'lqt_header_warning_after_big' => 'Zaglavlja služe za obavijesti i predgovore. 
+	'lqt_header_warning_after_big' => 'Zaglavlja služe za obavijesti i predgovore.
 Možda želite $2.',
 	'lqt_header_warning_bold' => 'zaglavlje stranice za razgovor',
 	'lqt_header_warning_new_discussion' => 'započnite novu temu',
@@ -8294,11 +8291,11 @@ Možda želite $2.',
 	'lqt-summary' => 'Sažetak',
 	'lqt-searching' => 'Pretražujem teme',
 	'lqt-read-message' => 'Označi kao pročitano',
-	'lqt-read-message-tooltip' => 'Ukloni ovu temu iz novih poruka. 
+	'lqt-read-message-tooltip' => 'Ukloni ovu temu iz novih poruka.
 Ona će još uvijek biti vidljiva na njenoj stranici za razgovor.',
 	'lqt-read-all' => 'Označi sve pročitanim',
-	'lqt-read-all-tooltip' => 'Uklonite sve teme iz novih poruke. 
-One će još uvijek biti vidljive na njihove izvornim stranicama za razgovor. 
+	'lqt-read-all-tooltip' => 'Uklonite sve teme iz novih poruke.
+One će još uvijek biti vidljive na njihove izvornim stranicama za razgovor.
 Ovu operaciju je moguće povratiti.',
 	'lqt-marked-read' => "Tema '''$1''' označena je pročitanom.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|poruka označena je pročitanom|poruke označene su pročitanima|poruka označene su pročitanima}}.',
@@ -8330,8 +8327,8 @@ Možete rabiti bilo koji wikitekst. Kada završite, kliknite "{{int:savearticle}
 	'lqt-split-submit' => 'Razdvoji',
 	'lqt_split_badsubject' => 'Tema koju ste unijeli nije ispravna.',
 	'lqt-no-threads' => 'Na ovoj stranici još uvijek ne postoji rasprava.',
-	'lqt-delete-parent-warning' => 'Ovo je najviši-nivo teme s njenim odgovorima. 
-Odgovori će također biti automatski obrisani. 
+	'lqt-delete-parent-warning' => 'Ovo je najviši-nivo teme s njenim odgovorima.
+Odgovori će također biti automatski obrisani.
 Kako bi to izbjegli, podijelite ih iz ove teme prije nego ju obrišete.',
 	'lqt-delete-parent-deleted' => 'Tema "roditelj" je obrisana ($1)',
 	'lqt-delete-replies-done' => 'Svi odgovori ove teme također su obrisani.',
@@ -8378,12 +8375,12 @@ Tekst glasi:
 $7",
 	'lqt-enotif-reply' => "Pozdrav $1,
 
-ovo je obavijest s {{SITENAME}} o novom odgovoru na '$2' na $5, 
+ovo je obavijest s {{SITENAME}} o novom odgovoru na '$2' na $5,
 dan $3 u $4 od strane $8
 
 Odgovor možete vidjeti ovdje <$6>
 
-Odgovor glasi: 
+Odgovor glasi:
 $7",
 	'lqt-quote-intro' => '$2 u $3, [[User:$1|$1]] je napisao:',
 	'lqt-quote' => 'Citiraj',
@@ -10382,8 +10379,8 @@ $messages['ka'] = array(
 	'lqt-read-message-tooltip' => 'წაშალეთ ეს ტოტი თქვენი კონტროლის სიიდან.
 იგი მაინც დარჩება განხილვის თავდაპირველ გვერდზე.',
 	'lqt-read-all' => 'მონიშნეთ ყველა, როგორც წაკითხული',
-	'lqt-read-all-tooltip' => 'წაშალეთ ყველა ტოტი ახალი შეტყობინებების სიიდან. 
-ისინი ისევ დარჩებიან შესაბამის გვერდებზე. 
+	'lqt-read-all-tooltip' => 'წაშალეთ ყველა ტოტი ახალი შეტყობინებების სიიდან.
+ისინი ისევ დარჩებიან შესაბამის გვერდებზე.
 ამ მოქმედების გაუქმება შეუძლებელია.',
 	'lqt-marked-read' => "ტოტი '''$1''' მონიშნულია როგორც წაკითხული.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|შეტყობინება მონიშნულია|შეტყობინებები მონიშნულია}} როგორც წაკითხული.',
@@ -12036,7 +12033,7 @@ $messages['mk'] = array(
 $7',
 	'lqt-enotif-reply' => 'Здраво $1,
 
-ова е известување од {{SITENAME}} дека на страницата $5 на $3 во $4 ч. 
+ова е известување од {{SITENAME}} дека на страницата $5 на $3 во $4 ч.
 е објавен одговор на „$2“ од страна на корисникот $8
 
 Можете да го погледате на <$6>
@@ -13511,7 +13508,7 @@ Det kan:
 	'lqt_protectedfromreply_link' => 'låst',
 	'lqt_subject' => 'Emne:',
 	'lqt_noreason' => 'Ingen grunn gitt.',
-	'lqt_move_placeholder' => 'Denne tråden eksisterer kun for å vise at tråden $1 ble flyttet fra denne siden til en annen diskusjonsside. 
+	'lqt_move_placeholder' => 'Denne tråden eksisterer kun for å vise at tråden $1 ble flyttet fra denne siden til en annen diskusjonsside.
 Denne flyttingen ble foretatt av $2 $3 $4.
 Denne tråden ligger nå på $5',
 	'lqt_thread_deleted_for_sysops' => "Denne tråden har blitt '''slettet''' og er kun synlig for administratorer.",
@@ -15897,7 +15894,7 @@ $messages['ru'] = array(
 	'lqt-enotif-newthread' => 'Привет, $1.
 
 Это уведомление с сайта {{SITENAME}} о том, что $3 $4 на странице $5
-участником $8 была создана новая ветка «$2» 
+участником $8 была создана новая ветка «$2»
 
 Вы можете увидеть её по адресу <$6>
 
@@ -16243,7 +16240,7 @@ $messages['sah'] = array(
 	'lqt_protectedfromreply_link' => 'көмүскэммит',
 	'lqt_subject' => 'Аата:',
 	'lqt_noreason' => 'Төрүөтэ ыйыллыбатах.',
-	'lqt_move_placeholder' => 'Бу салаа бүөтэ $1 салаа бу сирэйтэн көһөрүллүбүтүн көрдөрөр. 
+	'lqt_move_placeholder' => 'Бу салаа бүөтэ $1 салаа бу сирэйтэн көһөрүллүбүтүн көрдөрөр.
 Көһөрүүнү $3 $4 сирэйгэ $2 кыттааччы оҥорбут. Онон салаа маннык буолбут $5.',
 	'lqt_thread_deleted_for_sysops' => "Бу салаа '''сотуллубут''', дьаһабылларга эрэ костөр кыахтаах.",
 	'lqt_thread_deleted' => 'Бу салаа сотуллубут.',
@@ -16256,7 +16253,7 @@ $messages['sah'] = array(
 	'lqt_nosuchthread' => 'Ыйбыт салааҥ суох эбит.',
 	'lqt_nosuchthread_title' => 'Маннык салаа суох',
 	'lqt_threadrequired' => 'URL-га салааны ыйыахтааххын.',
-	'lqt_move_movingthread' => '$1 көһөрүү. 
+	'lqt_move_movingthread' => '$1 көһөрүү.
 Бу салаа $2 сорҕото буолар.',
 	'lqt_move_torename' => "Салааны аатын уларытыаххын баҕарар буоллаххына, $1 уонна 'Аата' диэн түннүгү уларыт.",
 	'lqt_move_torename_edit' => 'маны көннөр',
@@ -16279,7 +16276,7 @@ $messages['sah'] = array(
 	'lqt_delete_show_checkbox' => 'Сотуллубут салаалары көрдөр',
 	'lqt_talkpage_autocreate_summary' => 'Саҥа ырытыы сирэйэ бастакы этии оҥоһуллубутун кэннэ апатмаатынан оҥоһулунна.',
 	'lqt_header_warning_big' => 'Маны эрэдээксийэлиигин $1.',
-	'lqt_header_warning_after_big' => 'Ааттар биллэрии уонна киирии быһыытынан туттуллаллар. 
+	'lqt_header_warning_after_big' => 'Ааттар биллэрии уонна киирии быһыытынан туттуллаллар.
 Эн маны оҥоруоххун сөп $2.',
 	'lqt_header_warning_bold' => 'ырытар сирэй аата',
 	'lqt_header_warning_new_discussion' => 'саҥа ырытыыны саҕалааһын',
@@ -16365,11 +16362,11 @@ $messages['sah'] = array(
 	'lqt-enotif-subject-reply' => '{{SITENAME}} ырытыы — Хоруй: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} ырытыы — Саҥа салаа: $1',
 	'lqt-enotif-newthread' => 'Дорообо, $1.
-Бу $3 $4 {{SITENAME}} саайка баар $5 сирэйгэ «$2» диэн саҥа салаа үөскээбитин туһунан биллэрии. 
+Бу $3 $4 {{SITENAME}} саайка баар $5 сирэйгэ «$2» диэн саҥа салаа үөскээбитин туһунан биллэрии.
 
 Бу аадырыска <$6> көрүөххүн сөп.',
 	'lqt-enotif-reply' => 'Дорообо, $1.
-Бу $3 $4 {{SITENAME}} саайка баар $5 сирэй «$2» салаатыгар саҥа хоруй баар буолбутун туһунан биллэрии. 
+Бу $3 $4 {{SITENAME}} саайка баар $5 сирэй «$2» салаатыгар саҥа хоруй баар буолбутун туһунан биллэрии.
 
 Бу аадырыска <$6> көрүөххүн сөп.
 
@@ -18382,7 +18379,7 @@ Belkem:
 	'lqt_subject' => 'Tema:',
 	'lqt_noreason' => 'Sebäp görkezilmedik.',
 	'lqt_move_placeholder' => 'Bu tred , $1 trediniň bu sahypadan başga bir ýere geçirilendigini görkezýän ýer-saklaýjydyr.
-Tred $4 $3 senesinde $2 tarapyndan geçirilipdir. 
+Tred $4 $3 senesinde $2 tarapyndan geçirilipdir.
 Tred häzirki wagtda $5 adresinde ýerleşýär.',
 	'lqt_thread_deleted_for_sysops' => "Bu tred '''öçürilipdir''' we ony diňe administratorlar görüp bilýär.",
 	'lqt_thread_deleted' => 'Bu tred öçürilipdir.',
@@ -18505,7 +18502,7 @@ Bu {{SITENAME}} saýtynyň bir uwedomleniýesidir: $5 sahypasynda $4 $3 senesind
 
 Ony <$6> adresinde görüp bilersiňiz.",
 	'lqt-enotif-reply' => "Salam $1,
-Bu {{SITENAME}} saýtynyň uwedomleniýasydyr: $5 sahypasynda $4 $3 senesinde '$2' tredine täze bir jogap döredildi. 
+Bu {{SITENAME}} saýtynyň uwedomleniýasydyr: $5 sahypasynda $4 $3 senesinde '$2' tredine täze bir jogap döredildi.
 
 Ony <$6> adresinde görüp bilersiňiz.",
 	'lqt-quote-intro' => '$2, $3 senesinde [[User:$1|$1]] ýazdy:',
@@ -18775,13 +18772,13 @@ Makikita mo ito sa <$6>
 Ang teksto ay:
 $7",
 	'lqt-enotif-reply' => "Kumusta ka $1,
- 
-Isa itong pabatid mula sa {{SITENAME}} na may isang bagong tugon sa '$2' na nasa $5, 
-na nalikha ni $8 noong $3 sa ganap na ika-$4. 
 
-Makikita mo ito sa <$6> 
+Isa itong pabatid mula sa {{SITENAME}} na may isang bagong tugon sa '$2' na nasa $5,
+na nalikha ni $8 noong $3 sa ganap na ika-$4.
 
-Ang teksto ng tugon ay: 
+Makikita mo ito sa <$6>
+
+Ang teksto ng tugon ay:
 $7",
 	'lqt-quote-intro' => 'Noong $2 noong $3, si [[User:$1|$1]] ang nagsulat ng:',
 	'lqt-quote' => 'Sipi',
