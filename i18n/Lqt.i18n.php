@@ -613,7 +613,7 @@ $messages['niu'] = array(
 	'lqt_newmessages' => 'Tau tohi foou',
 );
 
-/** Goanese Konkani (Latin) (कोंकणी/Konknni  (Latin))
+/** Goan Konkani (Latin) (कोंकणी/Konknni  (Latin))
  * @author Deepak D'Souza
  */
 $messages['gom-latn'] = array(
@@ -1827,8 +1827,38 @@ $7',
  * @author Mucalexx
  */
 $messages['bar'] = array(
+	'lqt_sort_newest_changes' => 'zlétzt gänderden Thémen ois ersters',
+	'lqt_sort_newest_threads' => 'neicherste Thémen zerst',
+	'lqt_sort_oldest_threads' => 'öderste Thémen zerst',
+	'lqt-title' => 'Titel',
+	'lqt-summary' => 'Inhoidsågob',
+	'lqt-searching' => 'Suach noch Thémen',
+	'lqt-read-message' => 'Ois gleesen markirn',
+	'lqt-read-message-tooltip' => "Entfern dés Théma aus d' neichen Noochrichten.
+'s werd weiderhih auf da ursprynglichen Dischkrirseiten z' seeng seih.",
+	'lqt-read-all' => 'Olle ois gleesen markirn',
+	'lqt-read-all-tooltip' => "Entfern olle Thémen aus d' neichen Noochrichten.
+Sé wern weiderhih auf d' ursprynglichen Dischkrirseiten siagbor seih.
+Dé Operazión kå ryckgängég gmocht wern.",
+	'lqt-marked-read' => "Théma '''$1''' is ois gleesen markird worn.",
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|Noochricht|Noochrichten}} ois gleesen markird.',
+	'lqt-email-undo' => 'Ryckgängég',
 	'lqt-no-new-messages' => 'Du host koane neichen Noochrichten.',
 	'lqt-new-messages' => 'Du host neiche Noochrichten',
+	'lqt-email-info-undo' => "Hóis Théma zrucké, dés d' grod wegdruckt host.",
+	'lqt-date-info' => 'Der Link do is néd aktiav, weil du Thémen voh olle Daaten åschaugst.',
+	'lqt-newmessages-context' => 'Gsåmmts Théma',
+	'lqt-thread-created' => 'Erstöd',
+	'lqt-history-time' => 'Zeid',
+	'lqt-history-user' => 'Benutzer',
+	'lqt-history-action' => 'Aktiavität',
+	'lqt-history-comment' => 'Kommentar',
+	'lqt-history-thread' => 'Théma',
+	'lqt-thread-edited-author' => 'Vom Autor beorweidt.<br />
+Létzde Beorweidung: $4, $3 Uar',
+	'lqt-movethread' => 'Vaschiam',
+	'lqt-menu-trigger' => 'Merer',
+	'lqt-newmessages-from' => 'Voh $1',
 	'searchprofile-threads' => 'Diskussionen',
 	'tooltip-pt-newmessages' => "Zoagt neiche Noochrichten zua d' voh dir beówochterden Thémen óder d' zuaghering Dischkrirseiten",
 	'lqt-newmessages-n' => 'Neiche Noochrichten ($1)',
@@ -8083,6 +8113,7 @@ $7",
 );
 
 /** Hindi (हिन्दी)
+ * @author Bhawani Gautam
  * @author Bhawani Gautam Rhk
  * @author Kaustubh
  * @author Kiranmayee
@@ -13952,7 +13983,7 @@ $messages['or'] = array(
 	'lqt-summary' => 'ସାରକଥା',
 );
 
-/** Ossetic (Иронау)
+/** Ossetic (Ирон)
  * @author Amikeco
  */
 $messages['os'] = array(
