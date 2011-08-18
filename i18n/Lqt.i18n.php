@@ -459,7 +459,8 @@ The drop-down box contains the following messages:
 	'lqt-history-user' => 'Column header for table of thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]
 
 {{identical|User}}',
-	'lqt-history-action' => 'Column header for table of thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]',
+	'lqt-history-action' => 'Column header for table of thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]
+{{Identical|Activity}}',
 	'lqt-history-comment' => 'Column header for table of thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]
 
 {{Identical|Comment}}',
@@ -17633,6 +17634,7 @@ $messages['su'] = array(
  * @author Jon Harald Søby
  * @author Lejonel
  * @author M.M.S.
+ * @author MagnusA
  * @author Najami
  * @author Per
  * @author Rotsee
@@ -17710,7 +17712,7 @@ Denna flyttning gjordes av $2 $3 $4.
 Tråden finns nu på $5.',
 	'lqt_thread_deleted_for_sysops' => "Denna tråd har '''raderats''' och är endast synlig för administratörer.",
 	'lqt_thread_deleted' => 'Den här diskussionssidan har blivit raderad.',
-	'lqt_summary_notice' => 'Den här diskussionen har inte ändrats på minst $2 {{PLURAL:$2|dag|dagar}}.
+	'lqt_summary_notice' => 'Den här diskussionen har inte ändrats på minst $2 {{PLURAL:$2|dygn|dygn}}.
 Om den är avslutad, vill du kanske $1.',
 	'lqt_summary_notice_link' => 'skriva en sammanfattning',
 	'lqt_summary_label' => 'Diskussionssammanfattning:',
