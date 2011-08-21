@@ -5635,7 +5635,7 @@ La firma es mostrada automaticamente.',
  */
 $messages['et'] = array(
 	'lqt-desc' => 'Võimaldab aruteluleheküljele lõimarutelu lisada.',
-	'lqt_movethread' => 'Teisalda lõim teisele leheküljele',
+	'lqt_movethread' => 'Lõime teisaldamine teisele leheküljele',
 	'lqt_deletethread' => 'Kustuta või taasta lõim',
 	'lqt_contents_title' => 'Sisukord',
 	'lqt_toc_thread_title' => 'Lõime pealkiri',
