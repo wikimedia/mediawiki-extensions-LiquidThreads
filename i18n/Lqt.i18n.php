@@ -17610,6 +17610,7 @@ Uum dit tou fermieden, deel do fon dit Thema ou, eer du et läskest.',
 
 /** Sundanese (Basa Sunda)
  * @author Irwangatot
+ * @author Kandar
  */
 $messages['su'] = array(
 	'lqt_contents_title' => 'Eusi',
@@ -17621,7 +17622,7 @@ $messages['su'] = array(
 	'lqt_move_noreason' => 'Henteu di béré alesan.',
 	'lqt_delete_return' => 'Balik deui ka $1.',
 	'lqt_header_warning_big' => 'Anjeun keur ngédit $1',
-	'lqt_newmessages' => 'Talatah anyar',
+	'lqt_newmessages' => 'Talatah anyar (teu aya)',
 );
 
 /** Swedish (Svenska)
