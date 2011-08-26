@@ -242,7 +242,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		return 'This module returns a feed of discussion threads';
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		return array (
 			'api.php?action=feedthreads',
 			'api.php?action=feedthreads&type=replies&thread=Thread:Foo',

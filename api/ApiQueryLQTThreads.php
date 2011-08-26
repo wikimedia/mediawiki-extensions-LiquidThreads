@@ -376,7 +376,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		return 'Show details of LiquidThreads threads.';
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
  		return array(
  			'api.php?action=query&list=threads&thpage=Talk:Main_Page',
  			'api.php?action=query&list=threads&thid=1|2|3|4&thprop=id|subject|modified'
