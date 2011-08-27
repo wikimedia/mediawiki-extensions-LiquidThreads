@@ -10541,6 +10541,13 @@ $messages['ka'] = array(
 	'nstab-summary' => 'დისკუსიის რეზიუმე',
 );
 
+/** Kazakh (Cyrillic) (Қазақша (Cyrillic))
+ * @author GaiJin
+ */
+$messages['kk-cyrl'] = array(
+	'lqt-search-button' => 'Іздеу',
+);
+
 /** Kalaallisut (Kalaallisut)
  * @author Qaqqalik
  */
