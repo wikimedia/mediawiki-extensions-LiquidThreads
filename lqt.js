@@ -228,10 +228,7 @@ window.liquidThreads = {
 				liquidThreads.loadInlineEditForm( params, container,
 					function() {
 						if ( typeof mediaWiki.loader != 'undefined' && mediaWiki.loader ) {
-							mediaWiki.loader.using(
-								[ 'ext.wikiEditor', 'ext.wikiEditor.toolbar.i18n',
-									'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.dialogs',
-									'jquery.async', 'jquery.cookie' ],
+							mediaWiki.loader.using( 'ext.liquidThreads.edit',
 								finishSetup );
 						} else {
 							finishSetup();

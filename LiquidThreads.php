@@ -70,7 +70,7 @@ $lqtResourceTemplate = array(
 
 $wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
 	'styles' => array( 'lqt.css', 'jquery/jquery.thread_collapse.css', 'lqt.dialogs.css' ),
-	'scripts' => array( 'lqt.js', 'js/lqt.toolbar.js', 'jquery/jquery.thread_collapse.js', 'jquery/jquery.autogrow.js' ),
+	'scripts' => array( 'lqt.js', 'jquery/jquery.thread_collapse.js', 'jquery/jquery.autogrow.js' ),
 	'dependencies' => array( 'jquery.ui.dialog', 'jquery.ui.droppable' ),
 	'messages' => $lqtMessages
 );
@@ -78,6 +78,13 @@ $wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
 $wgResourceModules['ext.liquidThreads.newMessages'] = $lqtResourceTemplate + array(
 	'scripts' => array( 'newmessages.js' ),
 	'dependencies' => array( 'ext.liquidThreads' )
+);
+
+$wgResourceModules['ext.liquidThreads.edit'] = $lqtResourceTemplate + array(
+	'scripts' => array( 'js/lqt.toolbar.js' ),
+	'dependancies' => array( 'ext.liquidThreads', 'ext.wikiEditor', 'ext.wikiEditor.toolbar.i18n',
+				'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.dialogs',
+				'query.async', 'jquery.cookie')
 );
 
 // Hooks
