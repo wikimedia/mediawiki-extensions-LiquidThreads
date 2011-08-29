@@ -285,7 +285,7 @@ class NewMessages {
 		global $wgPasswordSender;
 		$link_title = clone $t->getTitle();
 		$link_title->setFragment( '#' . $t->getAnchorName() );
-		$permalink = LqtView::linkInContextFullURL( $t );
+		$permalink = LqtView::linkInContextCanonicalURL( $t );
 		$talkPage = $t->getTitle()->getPrefixedText();
 		$from = new MailAddress( $wgPasswordSender, 'WikiAdmin' );
 		$threadSubject = $t->subject();

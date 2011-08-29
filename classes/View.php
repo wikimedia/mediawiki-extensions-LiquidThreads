@@ -161,6 +161,12 @@ class LqtView {
 
 		return $title->getFullURL( $query );
 	}
+	
+	static function linkInContextCanonicalURL( $thread, $contextType = 'page' ) {
+		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
+
+		return $title->getCanonicalURL( $query );
+	}
 
 	static function diffQuery( $thread, $revision ) {
 		$changed_thread = $revision->getChangeObject();
