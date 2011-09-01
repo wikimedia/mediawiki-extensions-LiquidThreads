@@ -1148,15 +1148,21 @@ $messages['ar'] = array(
 	'lqt-enotif-newthread' => "مرحبًا $1.
 
 هذا إخطار من {{SITENAME}} بأن موضوعًا جديدًا في $5 ('$2')
-قد أنشئ في يوم $3 عند $4.
+قد أنشئ في يوم $3 عند $4 بواسطة $8
 
-بإمكانك مراجعته عبر <$6>",
+بإمكانك مراجعته عبر <$6>
+
+النص هو:
+$7",
 	'lqt-enotif-reply' => "مرحبًا $1.
 
 هذا إخطار من {{SITENAME}} بأن ردًا جديدًا على '$2' في $5
-قد وُضع في يوم $3 عند $4.
+قد وُضع في يوم $3 عند $4 بواسطة $8
 
-بإمكانك مراجعته عبر <$6>",
+بإمكانك مراجعته عبر <$6>
+
+نص الرد هو:
+$7",
 	'lqt-quote-intro' => 'في $2 عند $3، كتب [[User:$1|$1]]:',
 	'lqt-quote' => 'اقتبس',
 	'lqt-search-legend' => 'ابحث في نقاشات هذه الصفحة',
@@ -1178,7 +1184,7 @@ $messages['ar'] = array(
 	'lqt-save-subject' => 'احفظ',
 	'lqt-save-subject-failed' => 'الخطأ التالي حدث أثناء محاولة تغيير موضوع هذا الخيط: $1',
 	'lqt-ajax-invalid-subject' => 'الموضوع الذي حددته كان غير صحيح، على الأرجح لأنه كان طويلا جدا.',
-	'lqt-ajax-no-subject' => 'يجب أن تحدد موضوعا.',
+	'lqt-ajax-no-subject' => 'يجب أن تحدد موضوعا للخيط الجديد.',
 	'lqt-save-subject-error-unknown' => 'خطأ غير معروف حدث أثناء محاولة ضبط موضوع هذا الخيط. من فضلك حاول فعل هذا بواسطة الضغط على "عدل" على التعليق الاعلى.',
 	'lqt-cancel-subject-edit' => 'ألغِ',
 	'lqt-drag-activate' => 'اسحب إلى الموقع الجديد',
@@ -1190,7 +1196,7 @@ $messages['ar'] = array(
 	'lqt-drag-bump' => 'انقل الرسالة أعلى صفحة النقاش',
 	'lqt-drag-save' => 'تأكيد',
 	'lqt-drag-reason' => 'السبب:',
-	'lqt-drag-subject' => 'العنوان للخيط الجديد:',
+	'lqt-drag-subject' => 'العنوان للخيط الجديد (إجباري):',
 	'lqt-edit-signature' => '(عدل التوقيع)',
 	'lqt-preview-signature' => '(معاينة)',
 	'lqt-feed-title-all' => '{{SITENAME}} — مرسلات جديدة',
@@ -1887,6 +1893,7 @@ $messages['be'] = array(
  * @author EugeneZelenko
  * @author Jim-by
  * @author Mormegil
+ * @author Renessaince
  * @author Wizardist
  * @author Александр Сигачёв
  */
@@ -2037,7 +2044,7 @@ $messages['be-tarask'] = array(
 	'lqt-thread-split-thread' => 'Галіна:',
 	'lqt-split-submit' => 'Падзяліць',
 	'lqt_split_badsubject' => 'Уведзеная Вамі назва — няслушная.',
-	'lqt-no-threads' => 'На гэтай старонцы пакуль няма галінаў.',
+	'lqt-no-threads' => 'Гэтая старонка пакуль ня мае галінаў.',
 	'lqt-delete-parent-warning' => 'Гэта верхняя галіна з адказамі.
 Усе адказы будуць аўтаматычна выдаленыя.
 Каб пазьбегнуць гэтага, вынесіце іх з гэтай галіны перад выдаленьнем.',
@@ -5295,7 +5302,7 @@ La subskribo estas aŭtomate montrita.',
 	'lqt-save-subject' => 'Konservi',
 	'lqt-save-subject-failed' => 'La jena eraro okazis dum provante ŝanĝi la temon de ĉi tiu fadeno: $1',
 	'lqt-ajax-invalid-subject' => 'La temo kiun vi enigis estis malvalida, verŝajne ĉar ĝi estis tro longa.',
-	'lqt-ajax-no-subject' => 'Vi devas specifigi temon.',
+	'lqt-ajax-no-subject' => 'Vi devas specifigi temon por la nova fadeno.',
 	'lqt-save-subject-error-unknown' => 'Nekonata eraro okazis kiam provante farigi la temon de ĉi tiu fadeno. Bonvolu provi fari ĉi tiel klakante "redakti" en la plej alta afiŝo.',
 	'lqt-cancel-subject-edit' => 'Nuligi',
 	'lqt-drag-activate' => 'Ŝovu al nova loko',
@@ -5308,7 +5315,7 @@ La subskribo estas aŭtomate montrita.',
 	'lqt-drag-save' => 'Konfirmi',
 	'lqt-drag-title' => 'Konfirmi trenadon',
 	'lqt-drag-reason' => 'Kialo:',
-	'lqt-drag-subject' => 'Temo por nova fadeno:',
+	'lqt-drag-subject' => 'Temo por nova fadeno (nepre):',
 	'lqt-edit-signature' => '(redakti subskribon)',
 	'lqt-preview-signature' => '(antaŭvido)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Novaj afiŝoj',
