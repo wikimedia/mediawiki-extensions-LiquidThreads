@@ -91,7 +91,7 @@ class LqtHooks {
 	}
 
 	static function beforeWatchlist( &$conds, &$tables, &$join_conds, &$fields ) {
-		global $wgOut;
+		global $wgOut, $wgUser;
 
 		$db = wfGetDB( DB_SLAVE );
 
