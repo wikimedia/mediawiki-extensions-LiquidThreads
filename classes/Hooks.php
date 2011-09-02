@@ -1,4 +1,5 @@
 <?php
+
 class LqtHooks {
 	// Used to inform hooks about edits that are taking place.
 	public static $editType = null;
@@ -7,7 +8,7 @@ class LqtHooks {
 	public static $editArticle = null;
 	public static $editTalkpage = null;
 	public static $scriptVariables = array();
-	
+
 	public static $editedStati = array(
 		Threads::EDITED_NEVER => 'never',
 		Threads::EDITED_HAS_REPLY => 'has-reply',
@@ -21,28 +22,28 @@ class LqtHooks {
 	);
 
 	static function customizeOldChangesList( &$changeslist, &$s, $rc ) {
-		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD )
+		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			return true;
+		}
 
 		$thread = Threads::withRoot( new Article( $rc->getTitle() ) );
 		if ( !$thread ) {
 			return true;
 		}
 
-		global $wgUser, $wgLang, $wgOut;
-		$sk = $wgUser->getSkin();
+		global $wgLang, $wgOut;
 		$wgOut->addModules( 'ext.liquidThreads' );
 
 		// Custom display for new posts.
 		if ( $rc->mAttribs['rc_new'] ) {
 			// Article link, timestamp, user
 			$s = '';
-			$s .= $sk->link( $thread->getTitle() );
+			$s .= Linker::link( $thread->getTitle() );
 			$changeslist->insertTimestamp( $s, $rc );
 			$changeslist->insertUserRelatedLinks( $s, $rc );
 
 			// Action text
-			$msg = $thread->isTopmostThread()
+			$msg = $thread->isTopmostThread() 
 				? 'lqt_rc_new_discussion' : 'lqt_rc_new_reply';
 			$link = LqtView::linkInContext( $thread );
 			$s .= ' ' . wfMsgExt( $msg, array( 'parseinline', 'replaceafter' ), $link );
@@ -52,18 +53,19 @@ class LqtHooks {
 			// add the truncated post content
 			$quote = $thread->root()->getContent();
 			$quote = $wgLang->truncate( $quote, 200 );
-			$s .= ' ' . $sk->commentBlock( $quote );
+			$s .= ' ' . Linker::commentBlock( $quote );
 
 			$classes = array();
 			$changeslist->insertTags( $s, $rc, $classes );
 			$changeslist->insertExtra( $s, $rc, $classes );
 		}
+
 		return true;
 	}
 
 	static function setNewtalkHTML( $skintemplate, $tpl ) {
 		global $wgUser, $wgTitle, $wgOut;
-		
+
 		// If the user isn't using LQT on their talk page, bail out
 		if ( ! LqtDispatch::isLqtPage( $wgUser->getTalkPage() ) ) {
 			return true;
@@ -89,7 +91,7 @@ class LqtHooks {
 	}
 
 	static function beforeWatchlist( &$conds, &$tables, &$join_conds, &$fields ) {
-		global $wgOut, $wgUser;
+		global $wgOut;
 
 		$db = wfGetDB( DB_SLAVE );
 
@@ -113,8 +115,7 @@ class LqtHooks {
 		$messages_title = SpecialPage::getTitleFor( 'NewMessages' );
 		$new_messages = wfMsgExt( 'lqt-new-messages', 'parseinline' );
 
-		$sk = $wgUser->getSkin();
-		$link = $sk->link( $messages_title, $new_messages,
+		$link = Linker::link( $messages_title, $new_messages,
 					array( 'class' => 'lqt_watchlist_messages_notice' ) );
 		$wgOut->addHTML( $link );
 
@@ -173,25 +174,29 @@ class LqtHooks {
 		if ( empty( $row->thread_id ) ) {
 			return true;
 		}
-		
+
 		$thread = Thread::newFromRow( $row );
 		$threadInfo = "\n";
 		$attribs = array();
 		$attribs['ThreadSubject'] = $thread->subject();
+
 		if ( $thread->hasSuperThread() ) {
 			if ( $thread->superThread()->title() ) {
 				$attribs['ThreadParent'] = $thread->superThread()->title()->getPrefixedText();
 			}
-			
+
 			if ( $thread->topmostThread()->title() ) {
 				$attribs['ThreadAncestor'] = $thread->topmostThread()->title()->getPrefixedText();
 			}
 		}
+
 		$attribs['ThreadPage'] = $thread->getTitle()->getPrefixedText();
 		$attribs['ThreadID'] = $thread->id();
+
 		if ( $thread->hasSummary() && $thread->summary() ) {
 			$attribs['ThreadSummaryPage'] = $thread->summary()->getTitle()->getPrefixedText();
 		}
+
 		$attribs['ThreadAuthor'] = $thread->author()->getName();
 		$attribs['ThreadEditStatus'] = self::$editedStati[$thread->editedness()];
 		$attribs['ThreadType'] = self::$threadTypes[$thread->type()];
@@ -250,11 +255,13 @@ class LqtHooks {
 				array( 'thread_author_name', 'thread_author_id', 'thread_modified' );
 		$renameUserSQL->tablesJob['thread_history'] =
 				array( 'th_user_text', 'th_user', 'th_timestamp' );
+
 		return true;
 	}
 
 	static function editCheckboxes( $editPage, &$checkboxes, &$tabIndex ) {
 		global $wgRequest;
+
 		$article = $editPage->getArticle();
 		$title = $article->getTitle();
 
@@ -399,8 +406,9 @@ class LqtHooks {
 			// If the page actually exists, allow the user to edit posts on their own talk page.
 			$thread = Threads::withRoot( new Article( $title ) );
 
-			if ( !$thread )
+			if ( !$thread ) {
 				return true;
+			}
 
 			$articleTitle = $thread->getTitle();
 
@@ -547,12 +555,14 @@ class LqtHooks {
 
 	static function afterUserMessage( $user, $article, $subject, $text, $signature, $summary, $editor ) {
 		global $wgLqtTalkPages;
+
 		$talk = $user->getTalkPage();
 
 		if ( $wgLqtTalkPages && LqtDispatch::isLqtPage( $talk ) ) {
 			// Need to edit as another user. Lqt does not provide an interface to alternative users,
 			// so replacing $wgUser here.
 			global $wgUser;
+
 			$parkedUser = $wgUser;
 			$wgUser = $editor;
 
@@ -573,13 +583,16 @@ class LqtHooks {
 
 			// Set $wgUser back to the newly created user
 			$wgUser = $parkedUser;
+
 			return false;
 		}
+
 		return true;
 	}
 
 	public static function onMakeGlobalVariablesScript( &$vars ) {
 		$vars += self::$scriptVariables;
+
 		return true;
 	}
 
@@ -607,7 +620,7 @@ class LqtHooks {
 			return '';
 		}
 	}
-	
+
 	/**
 	 * Handles tags in Page sections of XML dumps
 	 */
@@ -617,7 +630,7 @@ class LqtHooks {
 				$reader->name == 'DiscussionThreading' ) ) {
 			return true;
 		}
-		
+
 		$pageInfo['DiscussionThreading'] = array();
 		$fields = array(
 				'ThreadSubject',
@@ -631,38 +644,38 @@ class LqtHooks {
 				'ThreadType',
 				'ThreadSignature',
 			);
-		
+
 		$skip = false;
-		
+
 		while ( $skip ? $reader->next() : $reader->read() ) {
 			if ( $reader->nodeType == XmlReader::END_ELEMENT &&
 					$reader->name == 'DiscussionThreading') {
 				break;
 			}
-			
+
 			$tag = $reader->name;
-			
+
 			if ( in_array( $tag, $fields ) ) {
 				$pageInfo['DiscussionThreading'][$tag] = $reader->nodeContents();
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	// Processes discussion threading data in XML dumps (extracted in handlePageXMLTag).
 	public static function afterImportPage( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
 		// in-process cache of pending thread relationships
 		static $pendingRelationships = null;
-		
+
 		if ( $pendingRelationships === null ) {
 			$pendingRelationships = self::loadPendingRelationships();
 		}
-		
+
 		$titlePendingRelationships = array();
 		if ( isset($pendingRelationships[$title->getPrefixedText()]) ) {
 			$titlePendingRelationships = $pendingRelationships[$title->getPrefixedText()];
-			
+
 			foreach( $titlePendingRelationships as $k => $v ) {
 				if ( $v['type'] == 'article' ) {
 					self::applyPendingArticleRelationship( $v, $title );
@@ -670,34 +683,35 @@ class LqtHooks {
 				}
 			}
 		}
-	
+
  		if ( ! isset( $pageInfo['DiscussionThreading'] ) ) {
  			return true;
  		}
-		
+
  		$statusValues = array_flip( self::$editedStati );
  		$typeValues = array_flip( self::$threadTypes );
-		
+
 		$info = $pageInfo['DiscussionThreading'];
-		
+
 		$root = new Article( $title );
 		$article = new Article( Title::newFromText( $info['ThreadPage'] ) );
 		$type = $typeValues[$info['ThreadType']];
 		$editedness = $statusValues[$info['ThreadEditStatus']];
 		$subject = $info['ThreadSubject'];
 		$summary = wfMsgForContent( 'lqt-imported' );
-		
+
 		$signature = null;
 		if ( isset( $info['ThreadSignature'] ) ) {
 			$signature = $info['ThreadSignature'];
 		}
-		
+
 		$thread = Thread::create( $root, $article, null, $type,
 						$subject, $summary, null, $signature );
-	
+
 		if ( isset( $info['ThreadSummaryPage'] ) ) {
 			$summaryPageName = $info['ThreadSummaryPage'];
 			$summaryPage = new Article( Title::newFromText( $summaryPageName ) );
+
 			if ( $summaryPage->exists() ) {
 				$thread->setSummaryPage( $summaryPage );
 			} else {
@@ -705,12 +719,12 @@ class LqtHooks {
 						$summaryPageName, 'article', $pendingRelationships );
 			}
 		}
-		
+
 		if ( isset( $info['ThreadParent'] ) ) {
 			$threadPageName = $info['ThreadParent'];
 			$parentArticle = new Article( Title::newFromText( $threadPageName ) );
 			$superthread = Threads::withRoot( $parentArticle );
-			
+
 			if ( $superthread ) {
 				$thread->setSuperthread( $superthread );
 			} else {
@@ -718,48 +732,48 @@ class LqtHooks {
 								$threadPageName, 'thread', $pendingRelationships );
 			}
 		}
-		
+
 		$thread->save();
-		
+
 		foreach( $titlePendingRelationships as $k => $v ) {
 			if ( $v['type'] == 'thread' ) {
 				self::applyPendingThreadRelationship( $v, $thread );
 				unset( $titlePendingRelationships[$k] );
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	public static function applyPendingThreadRelationship( $pendingRelationship, $thread ) {
 		if ( $pendingRelationship['relationship'] == 'thread_parent' ) {
 			$childThread = Threads::withID( $pendingRelationship['thread'] );
-			
+
 			$childThread->setSuperthread( $thread );
 			$childThread->save();
 			$thread->save();
 		}
 	}
-	
+
 	public static function applyPendingArticleRelationship( $pendingRelationship, $title ) {
 		$articleID = $title->getArticleId();
-		
+
 		$dbw = wfGetDB( DB_MASTER );
-		
+
 		$dbw->update( 'thread', array( $pendingRelationship['relationship'] => $articleID ),
 				array( 'thread_id' => $pendingRelationship['thread'] ),
 				__METHOD__ );
-		
+
 		$dbw->delete( 'thread_pending_relationship',
 				array( 'tpr_title' => $pendingRelationship['title'] ), __METHOD__ );
 	}
-	
+
 	public static function loadPendingRelationships() {
 		$dbr = wfGetDB( DB_MASTER );
 		$arr = array();
-		
+
 		$res = $dbr->select( 'thread_pending_relationship', '*', array(1), __METHOD__ );
-		
+
 		foreach( $res as $row ) {
 			$title = $row->tpr_title;
 			$entry = array(
@@ -768,17 +782,17 @@ class LqtHooks {
 				'title' => $title,
 				'type' => $row->tpr_type,
 			);
-			
+
 			if ( !isset($arr[$title]) ) {
 				$arr[$title] = array();
 			}
-			
+
 			$arr[$title][] = $entry;
 		}
-		
+
 		return $arr;
 	}
-	
+
 	public static function addPendingRelationship( $thread, $relationship, $title, $type, &$array ) {
 		$entry = array(
 			'thread' => $thread,
@@ -786,19 +800,19 @@ class LqtHooks {
 			'title' => $title,
 			'type' => $type,
 		);
-		
+
 		$row = array();
 		foreach( $entry as $k => $v ) {
 			$row['tpr_'.$k] = $v;
 		}
-		
+
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->insert( 'thread_pending_relationship', $row, __METHOD__ );
-		
+
 		if ( !isset( $array[$title] ) ) {
 			$array[$title] = array();
 		}
-		
+
 		$array[$title][] = $entry;
 	}
 
@@ -809,8 +823,9 @@ class LqtHooks {
 
 		$thread = Threads::withRoot( new Article($title) );
 
-		if ( ! $thread )
+		if ( ! $thread ) {
 			return true;
+		}
 
 		$talkpage = $thread->article();
 
@@ -834,9 +849,9 @@ class LqtHooks {
 			'lqtpagelimit',
 			array( 'LqtParserFunctions', 'lqtPageLimit' )
 		);
-	
+
 		global $wgLiquidThreadsAllowEmbedding;
-	
+
 		if ( $wgLiquidThreadsAllowEmbedding ) {
 			$parser->setHook( 'talkpage', array( 'LqtParserFunctions', 'lqtTalkPage' ) );
 			$parser->setHook( 'thread', array( 'LqtParserFunctions', 'lqtThread' ) );

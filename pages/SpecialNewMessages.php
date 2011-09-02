@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class SpecialNewMessages extends SpecialPage {
 	private $user, $output, $request;
@@ -10,8 +9,8 @@ class SpecialNewMessages extends SpecialPage {
 	}
 
 	/**
-	* @see SpecialPage::getDescription
-	*/
+	 * @see SpecialPage::getDescription
+	 */
 	function getDescription() {
 		return wfMsg( 'lqt_newmessages-title' );
 	}
