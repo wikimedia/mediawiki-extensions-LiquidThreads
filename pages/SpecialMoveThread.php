@@ -1,10 +1,9 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class SpecialMoveThread extends ThreadActionPage {
 	/**
-	* @see SpecialPage::getDescription
-	*/
+	 * @see SpecialPage::getDescription
+	 */
 	function getDescription() {
 		return wfMsg( 'lqt_movethread' );
 	}
@@ -35,12 +34,10 @@ class SpecialMoveThread extends ThreadActionPage {
 		// Generate introduction
 		$intro = '';
 
-		global $wgUser;
-		$sk = $wgUser->getSkin();
 		$page = $this->mThread->getTitle()->getPrefixedText();
 
 		$edit_text = wfMsgExt( 'lqt_move_torename_edit', 'parseinline' );
-		$edit_link = $sk->link(
+		$edit_link = Linker::link(
 			$this->mThread->title(),
 			$edit_text,
 			array(),
@@ -103,13 +100,12 @@ class SpecialMoveThread extends ThreadActionPage {
 		if ( $rightsResult !== true )
 			return $rightsResult;
 
-		// TODO no status code from this method.
+		// @todo No status code from this method.
 		$this->mThread->moveToPage( $newtitle, $reason, true );
 
-		global $wgOut, $wgUser;
-		$sk = $wgUser->getSkin();
+		global $wgOut;
 		$wgOut->addHTML( wfMsgExt( 'lqt_move_success', array( 'parse', 'replaceafter' ),
-			array( $sk->link( $newtitle ) ) ) );
+			array( Linker::link( $newtitle ) ) ) );
 
 		return true;
 	}
