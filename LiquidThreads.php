@@ -82,7 +82,7 @@ $wgResourceModules['ext.liquidThreads.newMessages'] = $lqtResourceTemplate + arr
 
 $wgResourceModules['ext.liquidThreads.edit'] = $lqtResourceTemplate + array(
 	'scripts' => array( 'js/lqt.toolbar.js' ),
-	'dependencies' => array( 'ext.liquidThreads', 'ext.wikiEditor', 'ext.wikiEditor.toolbar.i18n',
+	'dependancies' => array( 'ext.liquidThreads', 'ext.wikiEditor', 'ext.wikiEditor.toolbar.i18n',
 				'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.dialogs',
 				'query.async', 'jquery.cookie')
 );
