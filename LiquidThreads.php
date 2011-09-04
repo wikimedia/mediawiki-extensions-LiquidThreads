@@ -235,14 +235,17 @@ $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
 // $wgDefaultUserOptions['lqtdisplaycount'] = 25;
 // $wgDefaultUserOptions['lqtcustomsignatures'] = true;
 // 
-// // API
+// API
 // $wgAutoloadClasses['ApiQueryLQTThreads'] = $dir . 'api/ApiQueryLQTThreads.php';
 // $wgAPIListModules['threads'] = 'ApiQueryLQTThreads';
 // $wgAutoloadClasses['ApiFeedLQTThreads'] = $dir . 'api/ApiFeedLQTThreads.php';
 // $wgAPIModules['feedthreads'] = 'ApiFeedLQTThreads';
 // $wgAutoloadClasses['ApiThreadAction'] = $dir . '/api/ApiThreadAction.php';
 // $wgAPIModules['threadaction'] = 'ApiThreadAction';
-// 
+
+$wgAutoloadClasses['ApiLqtForm'] = $dir.'/api/ApiLqtForm.php';
+$wgAPIModules['lqtform'] = 'ApiLqtForm';
+
 // // Path to the LQT directory
 // $wgLiquidThreadsExtensionPath = "{$wgScriptPath}/extensions/LiquidThreads";
 

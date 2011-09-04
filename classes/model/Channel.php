@@ -196,6 +196,6 @@ class LiquidThreadsChannel extends LiquidThreadsObject {
 	 * @return String
 	 */
 	public function getUniqueIdentifier() {
-		return 'lqt-channel:'.$this->getID();
+		return 'lqt-channel_'.$this->getID();
 	}
 }

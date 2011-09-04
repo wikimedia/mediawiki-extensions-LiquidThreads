@@ -468,7 +468,7 @@ class LiquidThreadsPost extends LiquidThreadsObject {
 	 * @return String
 	 */
 	public function getUniqueIdentifier() {
-		return 'lqt-post:'.$this->getID();
+		return 'lqt-post_'.$this->getID();
 	}
 }
 

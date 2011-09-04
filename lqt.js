@@ -16,6 +16,14 @@ jQuery.getCSS = function( url, media ) {
 var liquidThreads = {
 	currentReplyThread : null,
 	currentToolbar : null,
+	
+	'removePrefix' : function(string, prefix) {
+		if ( string.substr(0,prefix.length) != prefix ) {
+			throw "Invalid prefix for this string";
+		}
+		
+		return string.substr(prefix.length);
+	},
 
 	'handleReplyLink' : function(e) {
 		if (e.preventDefault)
@@ -27,27 +35,33 @@ var liquidThreads = {
 			target = $j(e.target);
 		}
 
-		var container = $j(target).closest('.lqt-post-tree-wrapper')[0];
-		var thread_id = $j(this).data('thread-id');
+		var postContainer = $j(target).closest('.lqt-post-tree-wrapper')[0];
+		var topicContainer = $j(target).closest('.lqt-topic')[0];
 
-		// hide the form for this thread if it's currently being shown
-		if ( thread_id == liquidThreads.currentReplyThread && $j( '#wpTextbox1' ).is( ':visible' ) ) {
-			liquidThreads.cancelEdit({});
-			return;
+// 		// hide the form for this thread if it's currently being shown
+// 		if ( thread_id == liquidThreads.currentReplyThread && $j( '#wpTextbox1' ).is( ':visible' ) ) {
+// 			liquidThreads.cancelEdit({});
+// 			return;
+// 		}
+
+		var topicID = liquidThreads.removePrefix( topicContainer.id, 'lqt-topic_' );
+		var params = { 'form' : 'reply', 'topic' : topicID };
+		
+		if ( $j(postContainer).parent()[0] != topicContainer ) {
+			var postID = liquidThreads.removePrefix( postContainer.id, 'lqt-post_' );
+			params['reply-post'] = postID;
 		}
 
-		var params = { 'method' : 'reply', 'thread' : thread_id };
-
-		var repliesElement = $j(container).contents().filter('.lqt-replies');
+		var repliesElement = $j(postContainer).contents().filter('.lqt-replies');
 		var replyDiv = repliesElement.contents().filter('.lqt-reply-form');
-		replyDiv = replyDiv.add( $j(container).contents().filter('.lqt-reply-form') );
+		replyDiv = replyDiv.add( $j(postContainer).contents().filter('.lqt-reply-form') );
 		if (!replyDiv.length) {
 			// Create a div for it
 			replyDiv = $j('<div class="lqt-reply-form lqt-edit-form"/>');
 
 			// Try to find a place for it
 			if ( !repliesElement.length ) {
-				repliesElement = liquidThreads.getRepliesElement( $j(container) );
+				repliesElement = liquidThreads.getRepliesElement( $j(postContainer) );
 			}
 
 			repliesElement.find('.lqt-replies-finish').before( replyDiv );
@@ -57,7 +71,6 @@ var liquidThreads = {
 		replyDiv = replyDiv[0];
 
 		liquidThreads.injectEditForm( params, replyDiv, e.preload );
-		liquidThreads.currentReplyThread = thread_id;
 	},
 
 	'getRepliesElement' : function(thread /* a .lqt-post-tree-wrapper */ ) {
@@ -99,10 +112,16 @@ var liquidThreads = {
 	'handleNewLink' : function(e) {
 		e.preventDefault();
 
-		var talkpage = $j(this).attr('lqt_talkpage');
-		var params = {'talkpage' : talkpage, 'method' : 'talkpage_new_thread' };
+		var talkpage = $j(this).attr('lqt_channel');
+		var params = {'form' : 'new', 'channel' : talkpage };
 
 		var container = $j('.lqt-new-thread' );
+		
+		if ( container.length == 0 ) {
+			container = $j('<div class="lqt-new-thread" />')
+				.prependTo('#lqt-channel_'+talkpage);
+		}
+		
 		container.data('lqt-talkpage', talkpage);
 
 		liquidThreads.injectEditForm( params, container );
@@ -157,7 +176,7 @@ var liquidThreads = {
 			$j(container).find('#lqt_subject_field').focus();
 
 			// Update signature editor
-			$j(container).find('input[name=wpLqtSignature]').hide();
+			$j(container).find('input[name=lqt-signature]').hide();
 			$j(container).find('.lqt-signature-preview').show();
 			var editLink = $j('<a class="lqt-signature-edit-button"/>' );
 			editLink.text( mediaWiki.msg('lqt-edit-signature') );
@@ -241,13 +260,14 @@ var liquidThreads = {
 	},
 	
 	'loadInlineEditForm' : function( params, container, callback ) {
-		params['action'] = 'threadaction';
-		params['threadaction'] = 'inlineeditform';
+		params['action'] = 'lqtform';
 		
 		liquidThreads.apiRequest( params,
 			function(result) {
-				var content = $j(result.threadaction.inlineeditform.html);
+				var content = $j(result.form.html);
 				$j(container).empty().append(content);
+				content.data('token', result.form.token);
+				content.data('params', params );
 
 				callback();
 			} );
@@ -885,25 +905,117 @@ var liquidThreads = {
 				callback(token);
 			}, 'json' );
 	},
+	
+	// Old AJAX save code
+// 		var replyCallback = function( data ) {
+// 			$parent = $j( '#lqt-post-tree-wrapper_id_' + data.threadaction.thread['parent-id'] );
+// 			$html = $j( data.threadaction.thread['html'] );
+// 			$newThread = $html.find( '#lqt-post-tree-wrapper_id_' + data.threadaction.thread['thread-id'] );
+// 			$parent.find( '.lqt-replies:first' ).append( $newThread );
+// 			$parent.closest( '.lqt-thread-topmost' )
+// 				.find( 'input.lqt-thread-modified' )
+// 				.val( data.threadaction.thread['modified'] );
+// 			liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
+// 			$j( 'html,body' ).animate({scrollTop: $newThread.offset().top}, 'slow');
+// 		};
+// 
+// 		var newCallback = function( data ) {
+// 			var $newThread = $j( data.threadaction.thread['html'] );
+// 			$j( '.lqt-threads' ).prepend( $newThread );
+// 			// remove the no threads message if it's on the page
+// 			$j('.lqt-no-threads').remove();
+// 			liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
+// 			$j( 'html,body' ).animate( { scrollTop: $newThread.offset().top }, 'slow' );
+// 		};
+// 
+// 		var editCallback = function( data ) {
+// 			var thread = editform.closest('.lqt-thread-topmost');
+// 
+// 			liquidThreads.doReloadThread( thread );
+// 		}
+// 
+// 		var doneCallback = function(data) {
+// 			try {
+// 				var result = data.threadaction.thread.result;
+// 			} catch ( err ) {
+// 				result = 'error';
+// 			}
+// 
+// 			if ( result != 'Success' ) {
+// 				// Create a hidden field to mimic the save button, and
+// 				// submit it normally, so they'll get a real error message.
+// 
+// 				var saveHidden = $j('<input/>');
+// 				saveHidden.attr( 'type', 'hidden' );
+// 				saveHidden.attr( 'name', 'wpSave' );
+// 				saveHidden.attr( 'value', 'Save' );
+// 
+// 				var form = editform.find('#editform');
+// 				form.append(saveHidden);
+// 				form.submit();
+// 				return;
+// 			}
+// 
+// 			var callback;
+// 
+// 			if ( type == 'reply' ) {
+// 				callback = replyCallback;
+// 			}
+// 
+// 			if ( type == 'talkpage_new_thread' ) {
+// 				callback = newCallback;
+// 			}
+// 
+// 			if ( type == 'edit' ) {
+// 				callback = editCallback;
+// 			}
+// 
+// 			editform.empty().hide();
+// 
+// 			callback(data);
+// 
+// 			// Load the new TOC
+// 			liquidThreads.reloadTOC();
+// 		};
+// 
+// 		if ( type == 'reply' ) {
+// 			liquidThreads.doReply( replyThread, text, summary,
+// 						doneCallback, bump, signature );
+// 
+// 			e.preventDefault();
+// 		} else if ( type == 'new' ) {
+// 			var container = editform.closest('.lqt-new-thread');
+// 			var page = container.data('lqt-talkpage');
+// 			liquidThreads.doNewThread( page, subject, text, summary,
+// 					doneCallback, bump, signature );
+// 
+// 			e.preventDefault();
+// 		} else if ( type == 'edit' ) {
+// 			liquidThreads.doEditThread( replyThread, subject, text, summary,
+// 					doneCallback, bump, signature );
+// 			e.preventDefault();
+// 		}
 
 	'handleAJAXSave' : function( e ) {
+		e.preventDefault();
 		var editform = $j(this).closest('.lqt-edit-form');
-		var type = editform.find('input[name=lqt_method]').val();
-		var wikiEditorContext = editform.find('#wpTextbox1').data( 'wikiEditor-context' );
+		var params = $.extend( {}, editform.data('params') );
+		var type = params.form;
+		var wikiEditorContext = editform.find('.lqt-editform-textbox').data( 'wikiEditor-context' );
 		var text;
 		
 		if ( !wikiEditorContext || typeof(wikiEditorContext) == 'undefined' ||
 				! wikiEditorContext.$iframe) {
-			text = editform.find('#wpTextbox1').val();
+			text = editform.find('.lqt-editform-textbox').val();
 		} else {
 			text = wikiEditorContext.$textarea.textSelection( 'getContents' );
 		}
 		
-		var summary = editform.find('#wpSummary').val();
+		var summary = editform.find('#lqt-summary').val();
 
 		var signature;
-		if ( editform.find('input[name=wpLqtSignature]').length ) {
-			signature = editform.find('input[name=wpLqtSignature]').val();
+		if ( editform.find('input[name=lqt-signature]').length ) {
+			signature = editform.find('input[name=lqt-signature]').val();
 		} else {
 			signature = undefined
 		}
@@ -913,100 +1025,28 @@ var liquidThreads = {
 			summary = '';
 		}
 
-		var subject = editform.find( '#lqt_subject_field' ).val();
-		var replyThread = editform.find('input[name=lqt_operand]').val();
-		var bump = editform.find('#wpBumpThread').is(':checked') ? 1 : 0;
+		var subject = editform.find( '#lqt-subject' ).val();
 
 		var spinner = $j('<div class="mw-ajax-loader"/>');
 		editform.prepend(spinner);
-
-		var replyCallback = function( data ) {
-			$parent = $j( '#lqt-post-tree-wrapper_id_' + data.threadaction.thread['parent-id'] );
-			$html = $j( data.threadaction.thread['html'] );
-			$newThread = $html.find( '#lqt-post-tree-wrapper_id_' + data.threadaction.thread['thread-id'] );
-			$parent.find( '.lqt-replies:first' ).append( $newThread );
-			$parent.closest( '.lqt-thread-topmost' )
-				.find( 'input.lqt-thread-modified' )
-				.val( data.threadaction.thread['modified'] );
-			liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
-			$j( 'html,body' ).animate({scrollTop: $newThread.offset().top}, 'slow');
-		};
-
-		var newCallback = function( data ) {
-			var $newThread = $j( data.threadaction.thread['html'] );
-			$j( '.lqt-threads' ).prepend( $newThread );
-			// remove the no threads message if it's on the page
-			$j('.lqt-no-threads').remove();
-			liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
-			$j( 'html,body' ).animate( { scrollTop: $newThread.offset().top }, 'slow' );
-		};
-
-		var editCallback = function( data ) {
-			var thread = editform.closest('.lqt-thread-topmost');
-
-			liquidThreads.doReloadThread( thread );
-		}
-
-		var doneCallback = function(data) {
-			try {
-				var result = data.threadaction.thread.result;
-			} catch ( err ) {
-				result = 'error';
-			}
-
-			if ( result != 'Success' ) {
-				// Create a hidden field to mimic the save button, and
-				// submit it normally, so they'll get a real error message.
-
-				var saveHidden = $j('<input/>');
-				saveHidden.attr( 'type', 'hidden' );
-				saveHidden.attr( 'name', 'wpSave' );
-				saveHidden.attr( 'value', 'Save' );
-
-				var form = editform.find('#editform');
-				form.append(saveHidden);
-				form.submit();
-				return;
-			}
-
-			var callback;
-
-			if ( type == 'reply' ) {
-				callback = replyCallback;
-			}
-
-			if ( type == 'talkpage_new_thread' ) {
-				callback = newCallback;
-			}
-
-			if ( type == 'edit' ) {
-				callback = editCallback;
-			}
-
-			editform.empty().hide();
-
-			callback(data);
-
-			// Load the new TOC
-			liquidThreads.reloadTOC();
-		};
-
-		if ( type == 'reply' ) {
-			liquidThreads.doReply( replyThread, text, summary,
-						doneCallback, bump, signature );
-
-			e.preventDefault();
-		} else if ( type == 'talkpage_new_thread' ) {
-			var container = editform.closest('.lqt-new-thread');
-			var page = container.data('lqt-talkpage');
-			liquidThreads.doNewThread( page, subject, text, summary,
-					doneCallback, bump, signature );
-
-			e.preventDefault();
-		} else if ( type == 'edit' ) {
-			liquidThreads.doEditThread( replyThread, subject, text, summary,
-					doneCallback, bump, signature );
-			e.preventDefault();
+		
+		params.token = editform.data('token');
+		params.submit = 1;
+		if ( type == 'new' ) {
+			params.subject = subject;
+			params.content = text;
+			params.signature = signature;
+			
+			liquidThreads.apiRequest( params, function() {
+				window.location.reload(true);
+			} );
+		} else if ( type == 'reply' ) {
+			params.content = text;
+			params.signature = signature;
+			
+			liquidThreads.apiRequest( params, function() {
+				window.location.reload(true);
+			} );
 		}
 	},
 
@@ -1031,87 +1071,6 @@ var liquidThreads = {
 			} );
 	},
 
-	'doNewThread' : function( talkpage, subject, text, summary, callback, bump, signature ) {
-		liquidThreads.getToken(
-			function(token) {
-				var newTopicParams =
-				{
-					'action' : 'threadaction',
-					'threadaction' : 'newthread',
-					'talkpage' : talkpage,
-					'subject' : subject,
-					'text' : text,
-					'token' : token,
-					'format' : 'json',
-					'render' : '1',
-					'reason' : summary,
-					'bump' : bump
-				};
-
-				if ( typeof signature != 'undefined' ) {
-					newTopicParams.signature = signature;
-				}
-
-				$j.post( wgScriptPath+'/api'+wgScriptExtension, newTopicParams,
-					function(data) {
-						if (callback) {
-							callback(data);
-						}
-					}, 'json' );
-			} );
-	},
-
-	'doReply' : function( thread, text, summary, callback, bump, signature ) {
-		liquidThreads.getToken(
-			function(token) {
-				var replyParams =
-				{
-					'action' : 'threadaction',
-					'threadaction' : 'reply',
-					'thread' : thread,
-					'text' : text,
-					'token' : token,
-					'format' : 'json',
-					'render' : '1',
-					'reason' : summary,
-					'bump' : bump
-				};
-
-				if ( typeof signature != 'undefined' ) {
-					replyParams.signature = signature;
-				}
-
-				$j.post( wgScriptPath+'/api'+wgScriptExtension, replyParams,
-					function(data) {
-						if (callback) {
-							callback(data);
-						}
-					}, 'json' );
-			} );
-	},
-
-	'doEditThread' : function( thread, subject, text, summary,
-					callback, bump, signature ) {
-		var request =
-		{
-			'action' : 'threadaction',
-			'threadaction' : 'edit',
-			'thread' : thread,
-			'text'   : text,
-			'format' : 'json',
-			'render' : 1,
-			'reason' : summary,
-			'bump'   : bump,
-			'subject':subject
-		};
-
-		if ( typeof signature != 'undefined' ) {
-			request.signature = signature;
-		}
-
-		liquidThreads.apiRequest( request, callback );
-	},
-
 	'onTextboxKeyUp' : function(e) {
 		// Check if a user has signed their post, and if so, tell them they don't have to.
 		var text = $j(this).val().trim();
@@ -1133,25 +1092,15 @@ var liquidThreads = {
 	},
 
 	'apiRequest' : function( request, callback ) {
-		// Set new subject through API.
-		liquidThreads.getToken( function(token) {
+		request.format = 'json';
 
-			if ( typeof request == 'function' ) {
-				request = request(token);
-			} else {
-				request.token = token;
-			}
-
-			request.format = 'json';
-
-			var path = wgScriptPath+'/api'+wgScriptExtension;
-			$j.post( path, request,
-					function(data) {
-						if (callback) {
-							callback(data);
-						}
-					}, 'json' );
-		} );
+		var path = wgScriptPath+'/api'+wgScriptExtension;
+		$j.post( path, request,
+				function(data) {
+					if (callback) {
+						callback(data);
+					}
+				}, 'json' );
 	},
 
 	'activateDragDrop' : function(e) {
@@ -1537,7 +1486,7 @@ var liquidThreads = {
 		var container = $j(this).parent();
 
 		container.find('.lqt-signature-preview').hide();
-		container.find('input[name=wpLqtSignature]').show();
+		container.find('input[name=lqt-signature]').show();
 		$j(this).hide();
 
 		// Add a save button
@@ -1545,7 +1494,7 @@ var liquidThreads = {
 		saveButton.text( mediaWiki.msg('lqt-preview-signature') );
 		saveButton.click( liquidThreads.handlePreviewSignature );
 
-		container.find('input[name=wpLqtSignature]').after(saveButton);
+		container.find('input[name=lqt-signature]').after(saveButton);
 	},
 
 	'handlePreviewSignature' : function(e) {
@@ -1556,7 +1505,7 @@ var liquidThreads = {
 		var spinner = $j('<span class="mw-small-spinner"/>');
 		$j(this).replaceWith(spinner);
 
-		var textbox = container.find('input[name=wpLqtSignature]');
+		var textbox = container.find('input[name=lqt-signature]');
 		var preview = container.find('.lqt-signature-preview');
 
 		textbox.hide();
@@ -1570,11 +1519,11 @@ var liquidThreads = {
 			'prop' : 'text'
 		};
 
-		liquidThreads.apiRequest( function() { return apiReq; },
+		liquidThreads.apiRequest( apiReq,
 			function(data) {
 				var html = $j(data.parse.text['*'].trim());
 
-				if (html.length == 2) { // Not 1, because of the NewPP report
+				if (html.length == 3) { // Not 1, because of the NewPP report and space
 					html = html.contents();
 				}
 
@@ -1628,8 +1577,8 @@ $j(document).ready( function() {
 	$j('.lqt-command-edit > a').live( 'click', liquidThreads.handleEditLink );
 
 	// Save handlers
-	$j('#wpSave').live( 'click', liquidThreads.handleAJAXSave );
-	$j('#wpTextbox1').live( 'keyup', liquidThreads.onTextboxKeyUp );
+	$j('.lqt-save').live( 'click', liquidThreads.handleAJAXSave );
+	$j('.lqt-edit-content').live( 'keyup', liquidThreads.onTextboxKeyUp );
 	$j('#wpPreview').die('click');
 	$j('#wpPreview').live('click', liquidThreads.doLivePreview );
 

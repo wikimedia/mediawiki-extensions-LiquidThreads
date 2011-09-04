@@ -458,7 +458,7 @@ class LiquidThreadsTopic extends LiquidThreadsObject {
 	 * @return String
 	 */
 	public function getUniqueIdentifier() {
-		return 'lqt-topic:'.$this->getID();
+		return 'lqt-topic_'.$this->getID();
 	}
 	
 	/**
