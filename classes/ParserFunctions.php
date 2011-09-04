@@ -36,8 +36,8 @@ class LqtParserFunctions {
 			$title = $parser->getTitle();
 		}
 		
-		$talkpage = new Article( $title );
-		$article = new Article( $parser->getTitle() );
+		$talkpage = new Article( $title, 0 );
+		$article = new Article( $parser->getTitle(), 0 );
 		
 		$data = array(
 			'type' => 'talkpage',
@@ -69,7 +69,7 @@ class LqtParserFunctions {
 			if ( is_numeric( $args['thread'] ) ) {
 				$thread = Threads::withId( $args['thread'] );
 			} elseif ( $title ) {
-				$article = new Article( $title );
+				$article = new Article( $title, 0 );
 				$thread = Threads::withRoot( $article );
 			}
 		}
@@ -135,7 +135,7 @@ class LqtParserFunctions {
 		$oldOut = $wgOut->getHTML();
 		$wgOut->clearHTML();
 		
-		$root = new Article( $title );
+		$root = new Article( $title, 0 );
 		$thread = Threads::withRoot( $root );
 		
 		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );
