@@ -528,68 +528,6 @@ class LqtHooks {
  		return true;
  	}
 
-	static function setupUserMessageArticle( $user, &$article, $subject, $text, $signature, $summary, $editor ) {
-		global $wgLqtTalkPages;
-
-		if ( $wgLqtTalkPages && LqtDispatch::isLqtPage( $article->getTitle() ) ) {
-			$threadTitle = Threads::newThreadTitle( $subject, $article );
-
-			if ( !$threadTitle ) {
-				wfDebug( __METHOD__ . ": invalid title $threadTitle\n" );
-				return true;
-			}
-
-			$article = new Article( $threadTitle );
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * Take care of formatting a user message.  We don't really need
-	 * to do anything, we just need to stop others from doing stuff.
-	 */
-	static function formatUserMessage( $subject, &$text, $signature ) {
-		return false;
-	}
-
-	static function afterUserMessage( $user, $article, $subject, $text, $signature, $summary, $editor ) {
-		global $wgLqtTalkPages;
-
-		$talk = $user->getTalkPage();
-
-		if ( $wgLqtTalkPages && LqtDispatch::isLqtPage( $talk ) ) {
-			// Need to edit as another user. Lqt does not provide an interface to alternative users,
-			// so replacing $wgUser here.
-			global $wgUser;
-
-			$parkedUser = $wgUser;
-			$wgUser = $editor;
-
-			$title = preg_replace( "{/[^/]+}", "", $article->getTitle()->getBaseText() );
-			$baseArticle = new Article( Title::newFromText( $title ) );
-			$threadTitle = preg_replace( "{.*/([^/]+)}", '$1', $article->getTitle()->getBaseText() );
-
-			LqtView::newPostMetadataUpdates(
-				array(
-					'talkpage' => $baseArticle,
-					'text' => $text,
-					'summary' => $summary,
-					'root' => $article,
-					'subject' => $threadTitle,
-					'signature' => $signature,
-				)
-			);
-
-			// Set $wgUser back to the newly created user
-			$wgUser = $parkedUser;
-
-			return false;
-		}
-
-		return true;
-	}
-
 	public static function onMakeGlobalVariablesScript( &$vars ) {
 		$vars += self::$scriptVariables;
 
