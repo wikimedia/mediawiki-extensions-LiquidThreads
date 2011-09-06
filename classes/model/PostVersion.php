@@ -322,6 +322,7 @@ class LiquidThreadsPostVersion {
 		$this->topicID = $baseVersion->getTopicID();
 		$this->parentID = $baseVersion->getParentID();
 		$this->signature = $baseVersion->getSignature();
+		$this->postTime = $baseVersion->getPostTime();
 		
 		global $wgUser;
 		$this->versionUser = $wgUser;

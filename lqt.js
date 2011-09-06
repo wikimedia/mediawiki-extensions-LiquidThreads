@@ -132,12 +132,13 @@ var liquidThreads = {
 		e.preventDefault();
 
 		// Grab the container.
-		var parent = $j(this).closest('.lqt-post-wrapper');
+		var parent = $j(this).closest('.lqt-post-tree-wrapper');
 
 		var container = $j('<div/>').addClass('lqt-edit-form');
 		parent.contents().fadeOut();
 		parent.append(container);
-		var params = { 'method' : 'edit', 'thread' : parent.data('thread-id') };
+		var postID = liquidThreads.removePrefix( parent.attr('id'), 'lqt-post_' );
+		var params = { 'form' : 'edit', 'post' : postID };
 
 		liquidThreads.injectEditForm( params, container );
 	},
@@ -921,7 +922,7 @@ var liquidThreads = {
 			text = wikiEditorContext.$textarea.textSelection( 'getContents' );
 		}
 		
-		var summary = editform.find('#lqt-summary').val();
+		var summary = editform.find('input[name=lqt-summary]').val();
 
 		var signature;
 		if ( editform.find('input[name=lqt-signature]').length ) {
@@ -935,7 +936,7 @@ var liquidThreads = {
 			summary = '';
 		}
 
-		var subject = editform.find( '#lqt-subject' ).val();
+		var subject = editform.find( 'input[name=lqt-subject]' ).val();
 
 		var spinner = $j('<div class="mw-ajax-loader"/>');
 		editform.prepend(spinner);
@@ -951,6 +952,14 @@ var liquidThreads = {
 				window.location.reload(true);
 			} );
 		} else if ( type == 'reply' ) {
+			params.content = text;
+			params.signature = signature;
+			
+			liquidThreads.apiRequest( params, function() {
+				window.location.reload(true);
+			} );
+		} else if ( type == 'edit' ) {
+			params.summary = summary;
 			params.content = text;
 			params.signature = signature;
 			

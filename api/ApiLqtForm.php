@@ -20,6 +20,7 @@ class ApiLqtForm extends ApiBase {
 			$requestParams['lqt-subject'] = $params['subject'];
 			$requestParams['lqt-edit-content'] = $params['content'];
 			$requestParams['lqt-signature'] = $params['signature'];
+			$requestParams['lqt-summary'] = $params['summary'];
 			
 			$request = new FauxRequest( $requestParams );
 			
@@ -51,6 +52,7 @@ class ApiLqtForm extends ApiBase {
 		return array(
 			'new' => 'LiquidThreadsNewTopicForm',
 			'reply' => 'LiquidThreadsReplyForm',
+			'edit' => 'LiquidThreadsPostEditForm',
 		);
 	}
 	
@@ -97,6 +99,18 @@ class ApiLqtForm extends ApiBase {
 			}
 			
 			return new LiquidThreadsReplyForm( $wgUser, $topic, $replyPost );
+		} elseif ( $formName == 'edit' ) {
+			if ( ! $params['post'] ) {
+				$this->dieUsage( 'You must specify a post to edit' );
+			}
+			
+			try {
+				$post = LiquidThreadsPost::newFromID( $params['post'] );
+			} catch ( MWException $e ) {
+				$this->dieUsage( "Invalid post", 'invalid-param' );
+			}
+			
+			return new LiquidThreadsPostEditForm( $wgUser, $post );
 		} else {
 			$this->dieUsage( "Not yet implemented", 'not-implemented' );
 		}
@@ -115,6 +129,9 @@ class ApiLqtForm extends ApiBase {
 			// Parameters for reply form
 			'topic' => NULL,
 			'reply-post' => NULL,
+
+			// Parameters for edit form
+			'post' => NULL,
 			
 			// Submission parameters
 			'submit' => array(
@@ -124,6 +141,7 @@ class ApiLqtForm extends ApiBase {
 			'subject' => NULL,
 			'content' => NULL,
 			'signature' => NULL,
+			'summary' => NULL,
 			
 			'token' => NULL,
 		);

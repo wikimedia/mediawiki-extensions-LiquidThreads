@@ -275,6 +275,7 @@ $wgAutoloadClasses['LiquidThreadsTopicToolbar'] = "$dir/classes/view/TopicToolba
 $wgAutoloadClasses['LiquidThreadsEditForm'] = "$dir/classes/view/EditForm.php";
 $wgAutoloadClasses['LiquidThreadsNewTopicForm'] = "$dir/classes/view/NewTopicForm.php";
 $wgAutoloadClasses['LiquidThreadsReplyForm'] = "$dir/classes/view/ReplyForm.php";
+$wgAutoloadClasses['LiquidThreadsPostEditForm'] = "$dir/classes/view/PostEditForm.php";
 
 // Views
 $wgAutoloadClasses['LiquidThreadsChannelView'] = "$dir/classes/view/ChannelView.php";	
