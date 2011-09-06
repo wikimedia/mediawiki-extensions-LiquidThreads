@@ -397,6 +397,8 @@ Parameters:
 	'lqt_change_undeleted' => 'Parameters:
 * $1 is a web link to the referenced post. It must remain immediately after the opening bracket.
 Action results from button {{msg-mw|lqt_undelete}}',
+	'lqt_change_moved' => 'Thread contents when a thread was moved. Parameters:
+* $1 is a link to the new thread location.',
 	'lqt_change_edited_subject' => 'Parameters:
 * $2 is the old subject
 * $3 is the new subject',
@@ -411,20 +413,28 @@ Action results from button {{msg-mw|lqt_undelete}}',
 	'lqt_protectedfromreply_link' => '{{Identical|Protected}}',
 	'lqt_subject' => '{{Identical|Subject}}',
 	'lqt_noreason' => '{{Identical|No reason given}}',
+	'lqt_move_placeholder' => 'Thread contents when a thread was moved. Parameters:
+* $1 is a thread name
+* $2 is a username
+* $3 is a date
+* $4 is a time
+* $5 is the destination page.',
 	'lqt_thread_deleted_for_sysops' => '',
 	'lqt_summary_notice' => '* $1 is a link with {{msg-mw|lqt_summary_notice_link}} as display text
 * $2 is a number of days',
 	'lqt_summary_notice_link' => 'This fragment is situated in the following context: [[MediaWiki:Lqt summary notice]]',
 	'lqt_summary_subtitle' => 'Used as a page subtitle. Parameters:
 * $1 is the thread that is being summarised',
+	'lqt_move_movingthread' => 'Used on Special:MoveThread when moving a thread. Parameters:
+* $1 is the name of the thread that is being moved.
+* $2 is the page the thread is currently on.',
 	'lqt_move_torename' => '$1 is replaced with {{msg-mw|Lqt move torename edit}}',
 	'lqt_move_torename_edit' => 'This message is used inside {{msg-mw|Lqt move torename}}.
 {{Identical|Edit}}',
 	'lqt_move_move' => '{{Identical|Move}}',
 	'lqt_move_noreason' => '{{Identical|No reason given}}',
-	'lqt_delete_return' => '$1 is a link back to the talk page, link text from {{msg-mw|lqt_delete_return_link}}.
-{{Identical|Return to $1}}',
-	'lqt_delete_return_link' => 'This message is $1 in {{msg-mw|lqt_delete_return}}.',
+	'lqt_move_success' => 'Thread move confirmation. Parameters:
+* $1 is the page where the thread was moved.',
 	'lqt_header_warning_big' => '$1 is a bold text, from {{msg-mw|lqt_header_warning_bold}}',
 	'lqt_header_warning_after_big' => '$2 is {{msg-mw|Lqt header warning new discussion}}',
 	'lqt_header_warning_bold' => 'Bolded text in {{msg-mw|lqt_header_warning_big}}, followed by {{msg-mw|lqt_header_warning_after_big}} + {{msg-mw|lqt_header_warning_new_discussion}}.',
@@ -454,6 +464,7 @@ The drop-down box contains the following messages:
 	'lqt-history-comment' => 'Column header for table of thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]
 
 {{Identical|Comment}}',
+	'lqt-history-thread' => '{{Identical|Thread}}',
 	'lqt-thread-edited-author' => '* $1: date/time of the last edit
 * $2: Unused (Number of users who edited the thread but not useful in this context. Used by [[MediaWiki:Lqt-thread-edited-others]])
 * $3: time of the last edit (optional, instead of using $1)
@@ -467,6 +478,7 @@ This is a note which appears alongside an edited post - see [[Thread:Support/Pay
 
 This is a note which appears alongside an edited post - see [[Thread:Translating talk:Wikia/Typo in MediaWiki:Feed-title-leaderboard|example]].',
 	'lqt-header-actions' => '{{Identical|Action}}',
+	'lqt-thread-split-thread' => '{{Identical|Thread}}',
 	'lqt-no-threads' => '[http://translatewiki.net/wiki/Project_talk:MediaWiki_localisation_in_the_50_most_spoken_languages Example]',
 	'lqt-delete-parent-deleted' => '$1 is the reason for deletion of the parent.',
 	'lqt-movethread' => '{{Identical|Move}}',
@@ -574,7 +586,8 @@ Link at the top of the page for logged-in users. $1 is the number of new message
 	'lqt-reply-subpage' => 'Part of the page title when a LiquidThread answer is given. Should probably be translated as a noun and not as a verb.
 
 {{Identical|Reply}}',
-	'nstab-thread' => 'Used as tab title of the Thread namespace.',
+	'nstab-thread' => 'Used as tab title of the Thread namespace.
+{{Identical|Thread}}',
 	'nstab-summary' => 'Used as tab title for the Summary namespace.
 {{Identical|Summary}}',
 );
@@ -5294,16 +5307,6 @@ Se ĝi estas fermita, eble vi volus $1.',
 	'lqt_move_samedestination' => 'La fadeno estas jam en ĉi tiu paĝo!',
 	'lqt_move_noreason' => 'Nenia kialo donata',
 	'lqt_move_success' => 'Ĉi tiu fadeno estis movita al $1.',
-	'lqt_delete_undeletethread' => 'Restarigu fadenon',
-	'lqt_delete_partof' => "Ĉi tiu fadeno estas parto de '''$1'''.",
-	'lqt_delete_deleting' => "Forigante '''$1''' kaj ''ĉiuj respondoj''' al ĝi.",
-	'lqt_delete_deletethread' => 'Forigu fadenon kaj respondojn',
-	'lqt_delete_deleted' => 'La fadeno estis forigita.',
-	'lqt_delete_undeleted' => 'La fadeno estis restarigita.',
-	'lqt_delete_return' => 'Reiri al $1.',
-	'lqt_delete_return_link' => 'la diskuto-paĝo',
-	'lqt_delete_unallowed' => 'Vi ne estas permesita forigi fadenojn.',
-	'lqt_delete_show_checkbox' => 'Montri forigitajn fadenojn',
 	'lqt_talkpage_autocreate_summary' => 'Diskuto-paĝo aŭtomate kreiĝis kiam unu fadeno estis afiŝita.',
 	'lqt_header_warning_big' => 'Vi redaktas $1.',
 	'lqt_header_warning_after_big' => 'Titoloj estas por anoncoj kaj antaŭlegaĵoj.
@@ -5454,6 +5457,7 @@ La subskribo estas aŭtomate montrita.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respondoj de $1',
 	'lqt-feed-new-thread-intro' => 'Nova fadeno en $1 afiŝita de $2',
 	'lqt-feed-reply-intro' => 'Respondo al $3 (en $1) afiŝita de $2',
+	'tooltip-pt-newmessages' => 'Montras novajn afiŝojn al fadenoj aŭ en fadenaj diskuto-paĝoj kiujn vi atentas',
 	'lqt-newmessages-n' => 'Novaj mesaĝoj ($1)',
 	'lqt_newmessages' => 'Neniuj novaj mesaĝoj por mi',
 	'lqt_newmessages-title' => 'Novaj mesaĝoj',
@@ -14659,16 +14663,6 @@ Sta discussion-sì a l'é part ëd $2.",
 	'lqt_move_samedestination' => "La discussion a l'é già dzora a sta pàgina-sì!",
 	'lqt_move_noreason' => 'Pa gnun-e rason dàite.',
 	'lqt_move_success' => "La discussion a l'é stàita tramudà a $1.",
-	'lqt_delete_undeletethread' => 'Arcuperé la discussion',
-	'lqt_delete_partof' => "Sta discussion-sì a l'é part ëd '''$1'''.",
-	'lqt_delete_deleting' => "Scancelassion ëd '''$1''' e ëd '''tute soe arspòste'''.",
-	'lqt_delete_deletethread' => 'Scancelé la discussion e le répliche',
-	'lqt_delete_deleted' => "La discussion a l'é stàita scancelà.",
-	'lqt_delete_undeleted' => "La discussion a l'é stàita arcuperà.",
-	'lqt_delete_return' => 'Torna andré a $1.',
-	'lqt_delete_return_link' => 'la pàgina ëd discussion',
-	'lqt_delete_unallowed' => "A l'ha nen ël drit dë scancelé dle discussion.",
-	'lqt_delete_show_checkbox' => 'Smon-e le discussion ëscancelà',
 	'lqt_talkpage_autocreate_summary' => "Pàgina ëd discussion creà an automàtich quand la prima discussion a l'é stàita mandà.",
 	'lqt_header_warning_big' => "A l'é an camin ch'a modìfica un $1.",
 	'lqt_header_warning_after_big' => "J'antestassion a son për j'anonsi e le prefassion.
@@ -14796,7 +14790,7 @@ La firma a l'é mostrà automaticament.",
 	'lqt-save-subject' => 'Salva',
 	'lqt-save-subject-failed' => "L'eror sota a l'é capità antramentre ch'as provava a cangé ël soget dë sta discussion-sì: $1",
 	'lqt-ajax-invalid-subject' => "Ël soget ch'it l'has specificà a l'é pa bon, miraco përchè a l'é tròp longh.",
-	'lqt-ajax-no-subject' => 'A deuv specifiché un soget për la discussion neuva.',
+	'lqt-ajax-no-subject' => 'A dev spessifiché un soget për la neuva linia ëd discussion.',
 	'lqt-save-subject-error-unknown' => "N'eror pa conossù a l'é capità an provand a amposté ël soget dë sta discussion-sì. Për piasì ch'a preuva a fé sòn an sgnacand \"modifiché\" dzora al prim mëssagi.",
 	'lqt-cancel-subject-edit' => 'Scancela',
 	'lqt-drag-activate' => 'Tira a la locassion neuva',
@@ -20777,6 +20771,7 @@ $7',
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Alexsh
+ * @author Anakmalaysia
  * @author Gaoxuewei
  * @author Horacewai2
  * @author Liangent
@@ -20870,16 +20865,6 @@ $messages['zh-hant'] = array(
 	'lqt_move_samedestination' => '目標頁已有該話題！',
 	'lqt_move_noreason' => '無給出原因。',
 	'lqt_move_success' => '討論串已經移動到 $1。',
-	'lqt_delete_undeletethread' => '反刪除討論串',
-	'lqt_delete_partof' => "此話題是 '''$1''' 的一部分。",
-	'lqt_delete_deleting' => "正在刪除'''$1'''及其'''所有回覆'''。",
-	'lqt_delete_deletethread' => '刪除討論串和回覆',
-	'lqt_delete_deleted' => '討論串已經刪除。',
-	'lqt_delete_undeleted' => '討論串已經反刪除。',
-	'lqt_delete_return' => '回到 $1。',
-	'lqt_delete_return_link' => '討論頁',
-	'lqt_delete_unallowed' => '您是不容許去刪除討論串。',
-	'lqt_delete_show_checkbox' => '顯示已刪除的話題',
 	'lqt_talkpage_autocreate_summary' => '當第一個討論串貼上後自動建立討論頁。',
 	'lqt_header_warning_big' => '您現正在編輯 $1。',
 	'lqt_header_warning_after_big' => '用來作為公告和導言的頁頂。您可能想去 $2。',
@@ -20942,6 +20927,7 @@ $messages['zh-hant'] = array(
 	'lqt_rc_new_reply' => '對 $1 發表回覆',
 	'right-lqt-split' => '分割話題',
 	'right-lqt-merge' => '合併話題',
+	'right-lqt-react' => '回复話題',
 	'lqt-thread-merge' => '合併到其他話題',
 	'lqt-thread-merge-to' => '合併到此話題',
 	'lqt_merge_thread' => '合併話題',
@@ -20973,12 +20959,12 @@ $messages['zh-hant'] = array(
 
 文字是：
 $7',
-	'lqt-enotif-reply' => '$1 您好，
-這是由 {{SITENAME}} 發送的一封提醒郵件。 $3 $4時$8上的$5討論頁之話題“$2”有新回复。
+	'lqt-enotif-reply' => '$1您好，
+這是來自{{SITENAME}}的一封提醒郵件。 $8於$3$4時，對$5上的話題“$2”進行了回复，
 
-您可以訪問 <$6> 閱讀
+您可以訪問<$6>閱讀之
 
-回應的訊息是：
+回复的內容是：
 $7',
 	'lqt-quote-intro' => '[[User:$1|$1]] 在 $2 $3 時寫道：',
 	'lqt-quote' => '引用',
@@ -21000,7 +20986,7 @@ $7',
 	'lqt-save-subject' => '儲存',
 	'lqt-save-subject-failed' => '在試圖修改此話題的主題時，發生了下列錯誤：$1',
 	'lqt-ajax-invalid-subject' => '您輸入的主題不可用，可能是由於其長度超限。',
-	'lqt-ajax-no-subject' => '您必須指定主題。',
+	'lqt-ajax-no-subject' => '您必須指定新話題的主題。',
 	'lqt-save-subject-error-unknown' => '在試圖設定此話題的主題時發生了未知錯誤。請嘗試點擊頂部「編輯」進行。',
 	'lqt-cancel-subject-edit' => '取消',
 	'lqt-drag-activate' => '拖曳到新的位置',
@@ -21013,7 +20999,7 @@ $7',
 	'lqt-drag-save' => '確認',
 	'lqt-drag-title' => '確認',
 	'lqt-drag-reason' => '原因：',
-	'lqt-drag-subject' => '新話題的主題：',
+	'lqt-drag-subject' => '新話題的主題（必需）：',
 	'lqt-edit-signature' => '（編輯簽名檔）',
 	'lqt-preview-signature' => '（預覽）',
 	'lqt-feed-title-all' => '{{SITENAME}} — 新發言',
@@ -21029,6 +21015,7 @@ $7',
 	'lqt_newmessages' => '我的新訊息（無）',
 	'lqt_newmessages-title' => '新訊息',
 	'lqt-newpost-summary' => '新話題：$1',
+	'lqt-newpost-defaultbody-user-submitted-empty-textbody' => '請輸入您對該話題的發言，然後請刪除本行。',
 	'lqt-reply-summary' => '回覆到 [[$2|$1]]',
 	'lqt-talkpage-history-title' => '討論頁的歷史',
 	'lqt-talkpage-history-subtitle' => '對 $1',
