@@ -16402,6 +16402,8 @@ $messages['rue'] = array(
 	'lqt_change_moved' => '[$1 Тото волокно] было перенесене на іншу діскузну сторінку',
 	'lqt_change_split' => '[$1 Тото волокно] было оддїлене з другого',
 	'lqt_change_edited_subject' => 'Тема того волокна была змінена з "$2" на "$3"',
+	'lqt_change_merged_from' => '[$1 Одповідь] у тім волокнї была переміщена до іншого волокна',
+	'lqt_change_merged_to' => '[$1 Звыразнена одповідь] была переміщена з іншого волокна',
 	'lqt_change_split_from' => '[$1 Часть того волокна] была оддїлена до окремого волокна',
 	'lqt_change_root_blanked' => 'Текст [$1 коментаря] быв вылученый.',
 	'lqt_youhavenewmessages' => 'Маєте [[$1|новы повідомлїня]].',
@@ -16409,7 +16411,12 @@ $messages['rue'] = array(
 	'lqt_protectedfromreply_link' => 'хранена',
 	'lqt_subject' => 'Тема:',
 	'lqt_noreason' => 'Причіна не была задана.',
+	'lqt_move_placeholder' => 'Тото є решта волокна $1, котре было переміщене з той сторінкы до іншой діскузії.
+Пересун {{GENDER:$2|учінив|учінила|учінив}} $2 в $4, $3. Волокно є теперь на $5.',
+	'lqt_thread_deleted_for_sysops' => "Волокно было '''змазане''' і можуть го відїти лем адміністраторы.",
 	'lqt_thread_deleted' => 'Волокно было вылучене.',
+	'lqt_summary_notice' => 'Тота діскузія не была змінена уж принайменшім $2 {{PLURAL:$2|день|днїв|днїв}}.
+Кідь была діскузія скінчена, можете ку ній $1.',
 	'lqt_summary_notice_link' => 'створити резюме',
 	'lqt_summary_label' => 'Резюме волокна:',
 	'lqt_summary_subtitle' => 'Сумар „$1“',
@@ -16419,6 +16426,7 @@ $messages['rue'] = array(
 	'lqt_threadrequired' => 'Мусите в URL задати волокно.',
 	'lqt_move_movingthread' => 'Переміщїня $1.
 Тото волокно є частёв $2.',
+	'lqt_move_torename' => 'Про переменованя волокна го $1 і зміньте обсяг поля „Тема“.',
 	'lqt_move_torename_edit' => 'едітуйте єй',
 	'lqt_move_destinationtitle' => 'Назва цілёвой діскузной сторінкы:',
 	'lqt_move_move' => 'Пересунути',
@@ -16427,32 +16435,33 @@ $messages['rue'] = array(
 	'lqt_move_samedestination' => 'Волокно уж на тій сторінцї є!',
 	'lqt_move_noreason' => 'Причіна не была задана.',
 	'lqt_move_success' => 'Волокно было пересунуте на $1.',
-	'lqt_delete_undeletethread' => 'Обновити волокно',
-	'lqt_delete_partof' => "Тото волокно є частёв '''$1'''.",
-	'lqt_delete_deletethread' => 'Змазати волокно і одповідї',
-	'lqt_delete_deleted' => 'Волокно было змазане.',
-	'lqt_delete_undeleted' => 'Волокно было обновлене.',
-	'lqt_delete_return' => 'Вернути ся на $1.',
-	'lqt_delete_return_link' => 'діскузну сторінку',
-	'lqt_delete_unallowed' => 'Не можете мазати волокна.',
-	'lqt_delete_show_checkbox' => 'Указати вылучены волокна',
 	'lqt_talkpage_autocreate_summary' => 'Діскузна сторінка створена автоматічно почас публікації першого волокна',
 	'lqt_header_warning_big' => 'Едітуєте $1.',
+	'lqt_header_warning_after_big' => 'Головкы суть становлены про повідомлїня і вступы.
+Може скоре хочете $2.',
 	'lqt_header_warning_bold' => 'заголовя діскузной сторінкы',
 	'lqt_header_warning_new_discussion' => 'зачати нову діскузію',
 	'lqt_sorting_order' => 'Порядок сортованя:',
+	'lqt_sort_newest_changes' => 'остатнїй раз змінены першы',
 	'lqt_sort_newest_threads' => 'найновшы волокна першы',
 	'lqt_sort_oldest_threads' => 'найстаршы волокна першы',
 	'lqt-title' => 'Надпис',
 	'lqt-summary' => 'Попис',
 	'lqt-searching' => 'Глядають ся волокна',
 	'lqt-read-message' => 'Означіти як прочітане',
+	'lqt-read-message-tooltip' => 'Вылучіть тото волокно з новых повідомлїнь.
+І дале буде зображене на оріґіналній діскузній сторінцї.',
 	'lqt-read-all' => 'Означіти вшытко як прочітане',
+	'lqt-read-all-tooltip' => 'Вылучіть вшыткы волокна з новых повідомлїнь.
+І дале будуть зображены на оріґіналных діскузных сторінках.
+Тоту операцію годен вернути назад.',
 	'lqt-marked-read' => "Волокно '''$1''' было означене як прочітане.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|повідомлїня позначене як проччтане|повідомлїня позначены як прочітаны|повідомлїнь позначеных як прочітаных}}.',
 	'lqt-email-undo' => 'Вернути назад',
 	'lqt-no-new-messages' => 'Не маєте жадны новы повідомлїя.',
 	'lqt-new-messages' => '✒ Маєте новы повідомлїня.',
+	'lqt-email-info-undo' => 'Верне назад волокно, котре сьте акурат одбыли.',
+	'lqt-date-info' => 'Тот одказ недоступный, бо зображуєте волокна без огляду на датум.',
 	'lqt-newmessages-context' => 'Цале волокно',
 	'lqt-thread-created' => 'Створено',
 	'lqt-history-time' => 'Час',
@@ -16460,15 +16469,27 @@ $messages['rue'] = array(
 	'lqt-history-action' => 'Дїї',
 	'lqt-history-comment' => 'Коментарь',
 	'lqt-history-thread' => 'Волокно',
+	'lqt-thread-edited-author' => 'Управене автором.<br />
+Послїднє едітованя: $1',
+	'lqt-thread-edited-others' => 'Едітоване {{PLURAL:$2|іншым хоснователём|іншыма хоснователями}}.<br />
+Послїднє едітованя: $1',
 	'lqt-header-actions' => 'Дїї',
 	'lqt_summarize_link' => 'Резюмовати',
+	'lqt-summarize-intro' => 'Напиште згорнутя ниже зображеного волокна до едітачного окна.
+У згорнутю можете хосновати любовольный вікітест. Як будете {{GENDER:|готовый|готова|готовы}}, кликните на „{{int:savearticle}}“.',
 	'lqt-thread-split' => 'Оддїлити до нового волокна',
+	'lqt-split-success' => 'Успішно сьте {{GENDER:|оддїлив|оддїлила|оддїлили}} волокно $1.',
 	'lqt_split_thread' => 'Роздїлити волокно',
 	'lqt-thread-split-subject' => 'Тема нового волокна:',
 	'lqt-thread-split-thread' => 'Волокно:',
 	'lqt-split-submit' => 'Роздїлити',
 	'lqt_split_badsubject' => 'Задана тема ся не може хосновати.',
 	'lqt-no-threads' => 'На тій сторінцї не суть жадны діскузны волокна.',
+	'lqt-delete-parent-warning' => 'Тото є корїнёве діскузне волокно, у котрім суть і одповідї.
+Тоты одповідї будуть тыж автоматічно змазаны.
+Кідь тому хочете забранити, так їх перед змазанём наперед оддїльте з того волокна.',
+	'lqt-delete-parent-deleted' => 'Наньківске волокно змазане  ($1)',
+	'lqt-delete-replies-done' => 'Вшыткы одповідї у тім волокнї были змазаны.',
 	'lqt-movethread' => 'Пересунути',
 	'lqt-menu-trigger' => 'Веце',
 	'lqt-newmessages-from' => 'З $1',
@@ -16478,22 +16499,48 @@ $messages['rue'] = array(
 	'lqt_rc_new_reply' => 'написав одповідь на «$1»',
 	'right-lqt-split' => 'Роздїлити волокна',
 	'right-lqt-merge' => 'Злучованя волокн',
+	'right-lqt-react' => 'Одповісти на волокно',
 	'lqt-thread-merge' => 'Злучіти до іншого волокна',
 	'lqt-thread-merge-to' => 'Злучіти до того волокна',
 	'lqt_merge_thread' => 'Злучіти волокна',
 	'lqt-thread-merge-source' => 'Жрідлове волокно:',
 	'lqt-thread-merge-dest' => 'Цілёве волокно:',
 	'lqt-merge-submit' => 'Злучіти',
+	'lqt-merge-success' => 'Успішно сьте {{GENDER:|злучів|злучіла|злучіли}} волокно $1 під $2.',
+	'lqt-log-name' => 'Лоґ діскузій у волокнах',
+	'lqt-log-header' => 'Тото є список операцій з діскузныма волокнами.',
 	'lqt-log-action-move' => 'перенїс [[$1]] з [[$2]] до [[$3]]',
 	'lqt-log-action-split' => 'роздїлив [[$1]] з-під [[$3]], з новов темов "$2"',
 	'lqt-log-action-merge-across' => 'перемістив [[$1]] із [[$2]] в [[$3]]',
 	'lqt-log-action-merge-down' => 'злучів [[$1]] з [[$3]]',
 	'lqt-log-action-subjectedit' => 'змінив тему [[$1]] з "$2" на "$3"',
 	'lqt-log-action-resort' => 'змінив порядок сортованя [[$1]]. Зміненый ключ сортованя з $2 на $3',
+	'lqt-preference-notify-talk' => 'Послати імейл при реакціях у слїдованых волокнах',
+	'lqt-preference-watch-threads' => 'Придавати волокна, котры створюю я або одповідам',
+	'prefs-lqt' => 'Діскузія у волокнах',
 	'lqt-preference-display-depth' => 'Зобразовати одповідї до глубкы:',
 	'lqt-preference-display-count' => 'Максімалне чісло зображеных одповідей:',
+	'lqt-preference-custom-signatures' => 'Указовати приспособлены підписы хоснователїв',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} діскузія - Одповідь: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} діскузія - Нове волокно: $1',
+	'lqt-enotif-newthread' => 'Честованых хоснователю $1,
+
+тото є повідомлїня з {{grammar:2sg|{{SITENAME}}}}, же $3 в $4
+{{GENDER:$8|створив|створила|створив(а)}} $8 v $5 нове волокно „$2“.
+
+Можете собі го посмотрити на <$6>.
+
+Ёго текст:
+$7',
+	'lqt-enotif-reply' => 'Честованый хоснователю $1,
+
+Тото є повідомлїня з {{grammar:2sg|{{SITENAME}}}}, же $3 в $4
+{{GENDER:$8|придав|придала|придав(а)}} $8 в $5 нову одповідь на „$2“.
+
+Можете собі го посмотрити <$6>.
+
+Текст одповідї:
+$7',
 	'lqt-quote-intro' => '$2 о $3, [[User:$1|$1]] написав:',
 	'lqt-quote' => 'Цітовати',
 	'lqt-search-legend' => 'Глядати в діскузіях на тій сторінцї',
@@ -16508,10 +16555,15 @@ $messages['rue'] = array(
 	'lqt-thread-link-url' => 'URL одказу:',
 	'lqt-thread-link-title' => 'Вікітекстовый одказ:',
 	'lqt-thread-link-copy' => 'Копіровати до кліпборду',
+	'lqt-sign-not-necessary' => 'Свій приспевок не мусите підписовати штирьма тілдами.
+Підпис ся зображує автоматічно.',
 	'lqt-marked-as-read-placeholder' => 'Волокно $1 позначене як прочітане.',
 	'lqt-change-subject' => 'Змінити тему',
 	'lqt-save-subject' => 'Уложыти',
-	'lqt-ajax-no-subject' => 'Мусите увести тему.',
+	'lqt-save-subject-failed' => 'При спробі о зміну темы того волокна дішло ку наступній хыбі: $1',
+	'lqt-ajax-invalid-subject' => 'Вами уведеный предмет неправилный, правдоподобно є дуже довгый',
+	'lqt-ajax-no-subject' => 'Мусите увести тему про нове волокно.',
+	'lqt-save-subject-error-unknown' => 'При спробі о зміну темы того волокна дішло ку хыбі. Попробуйте зміну выконати кликнутём на "едітовати" у верьхнїм приспевку.',
 	'lqt-cancel-subject-edit' => 'Сторно',
 	'lqt-drag-activate' => 'Перемістити на інше місце',
 	'lqt-drag-drop-zone' => 'Ту пустити',
@@ -16523,7 +16575,7 @@ $messages['rue'] = array(
 	'lqt-drag-save' => 'Підтвердити',
 	'lqt-drag-title' => 'Підтвердити пересун',
 	'lqt-drag-reason' => 'Причіна:',
-	'lqt-drag-subject' => 'Тема нового волокна:',
+	'lqt-drag-subject' => 'Тема нового волокна (повинна):',
 	'lqt-edit-signature' => '(управити підпис)',
 	'lqt-preview-signature' => '(нагляд)',
 	'lqt-feed-title-all' => '{{SITENAME}} – Новы приспевкы',
@@ -16534,6 +16586,7 @@ $messages['rue'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} – Одповідї од $1',
 	'lqt-feed-new-thread-intro' => 'Нове волокно на $1 послане $2',
 	'lqt-feed-reply-intro' => 'Одповідь про $3 (на $1), публікована $2',
+	'tooltip-pt-newmessages' => 'Указує новы повідомлїня у волокнах або на діскузных сторінках, котры слїдуєте',
 	'lqt-newmessages-n' => 'Новы повідомлїня $1',
 	'lqt_newmessages' => 'Новы повідомлїня (жадны)',
 	'lqt_newmessages-title' => 'Новы повідомлїня',
@@ -19722,12 +19775,15 @@ $messages['uk'] = array(
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} обговорення - Нова гілка: $1',
 	'lqt-enotif-newthread' => "Привіт, $1.
 Це повідомлення з {{SITENAME}} про те, що нова гілка '$2' на $5
-була створена $3 о $4.
+була створена користувачем $8 $3 о $4.
 
-Ви можете переглянути її: <$6>",
+Ви можете переглянути її: <$6>
+
+Текст:
+$7",
 	'lqt-enotif-reply' => "Привіт, $1.
 Це повідомлення з {{SITENAME}} про те, що нова відповідь у гілці '$2' на $5
-була створена $3 о $4.
+була створена користувачем $8 $3 о $4.
 
 Ви можете переглянути її: <$6>
 
