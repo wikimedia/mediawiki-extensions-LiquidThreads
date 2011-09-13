@@ -34,6 +34,12 @@ $magicWords['ce'] = array(
 	'useliquidthreads' => array( 0, 'ЛелайеLiquidThreads', 'ИспользоватьLiquidThreads', 'UseLiquidThreads' ),
 );
 
+/** German (Deutsch) */
+$magicWords['de'] = array(
+	'useliquidthreads' => array( 0, 'themenverwenden' ),
+	'lqtpagelimit' => array( 0, 'lqtseitenbegrenzung' ),
+);
+
 /** Spanish (Español) */
 $magicWords['es'] = array(
 	'useliquidthreads' => array( 0, 'UsarHilosLiquidos', 'UsarHilosLíquidos', 'UseLiquidThreads' ),
@@ -48,7 +54,7 @@ $magicWords['ja'] = array(
 
 /** Nedersaksisch (Nedersaksisch) */
 $magicWords['nds-nl'] = array(
-	'useliquidthreads' => array( 0, 'LiquidThreads_gebruken', 'LiquidThreadsGebruiken', 'UseLiquidThreads' ),
+	'useliquidthreads' => array( 0, 'LiquidThreads_gebruken', 'LiquidThreadsGebruiken' ),
 );
 
 /** Dutch (Nederlands) */
