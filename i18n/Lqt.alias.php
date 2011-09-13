@@ -67,9 +67,12 @@ $specialPageAliases['cs'] = array(
 
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
-	'DeleteThread' => array( 'Thread_löschen' ),
-	'MoveThread' => array( 'Thread_verschieben' ),
+	'DeleteThread' => array( 'Thema_löschen', 'Thread_löschen' ),
+	'HotTopics' => array( 'Populäre_Themen' ),
+	'MoveThread' => array( 'Thema_verschieben', 'Thread_verschieben' ),
 	'NewMessages' => array( 'Neue_Nachrichten' ),
+	'SplitThread' => array( 'Thema_aufteilen' ),
+	'MergeThread' => array( 'Thema_zusammenführen' ),
 );
 
 /** Lower Sorbian (Dolnoserbski) */
@@ -323,8 +326,9 @@ $specialPageAliases['myv'] = array(
 /** Nedersaksisch (Nedersaksisch) */
 $specialPageAliases['nds-nl'] = array(
 	'DeleteThread' => array( 'Draod_vortdoon' ),
-	'MoveThread' => array( 'Draod_verplaosen' ),
-	'NewMessages' => array( 'Nieje_berichen' ),
+	'HotTopics' => array( 'Populaire_onderwarpen' ),
+	'MoveThread' => array( 'Draod_verplaotsen' ),
+	'NewMessages' => array( 'Nieje_berichten' ),
 	'SplitThread' => array( 'Onderwarp_splitsen' ),
 	'MergeThread' => array( 'Draod_samenvoegen' ),
 );
@@ -410,7 +414,7 @@ $specialPageAliases['sk'] = array(
 	'SplitThread' => array( 'RozdeliťVlákno' ),
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬) */
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬) */
 $specialPageAliases['sr-ec'] = array(
 	'DeleteThread' => array( 'Обриши_тему' ),
 	'HotTopics' => array( 'Вруће_теме' ),
@@ -455,7 +459,7 @@ $specialPageAliases['tr'] = array(
 	'MergeThread' => array( 'BaşlıkBirleştir' ),
 );
 
-/** Татарча (Татарча) */
+/** Tatar (Cyrillic script) (Татарча) */
 $specialPageAliases['tt-cyrl'] = array(
 	'NewMessages' => array( 'Яңа_хатлар' ),
 );
