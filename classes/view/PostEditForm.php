@@ -61,4 +61,8 @@ class LiquidThreadsPostEditForm extends LiquidThreadsEditForm {
 	public function validate( $request = null ) {
 		return true;
 	}
+	
+	public function getModifiedObject() {
+		return $this->post;
+	}
 }

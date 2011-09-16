@@ -195,5 +195,11 @@ abstract class LiquidThreadsEditForm {
 
 		return $signatureEditor;
 	}
-	 
+	
+	
+	/**
+	 * Call after submit() to get the object that you created or modified
+	 * @return LiquidThreadsObject: The object created/modified
+	 */
+	public abstract function getModifiedObject();
 }

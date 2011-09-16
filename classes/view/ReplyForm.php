@@ -6,6 +6,7 @@
 class LiquidThreadsReplyForm extends LiquidThreadsEditForm {
 
 	protected $topic;
+	protected $object;
 
 	/**
 	 * Initialises a LiquidThreadsNewTopicForm.
@@ -48,6 +49,8 @@ class LiquidThreadsReplyForm extends LiquidThreadsEditForm {
 		
 		$post->save();
 		
+		$this->object = $post;
+		
 		return true;
 	}
 	
@@ -57,5 +60,9 @@ class LiquidThreadsReplyForm extends LiquidThreadsEditForm {
 		}
 		
 		return true;
+	}
+	
+	public function getModifiedObject() {
+		return $this->object;
 	}
 }

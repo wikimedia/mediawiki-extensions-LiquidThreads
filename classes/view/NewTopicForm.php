@@ -6,6 +6,7 @@
 class LiquidThreadsNewTopicForm extends LiquidThreadsEditForm {
 
 	protected $channel;
+	protected $object;
 
 	/**
 	 * Initialises a LiquidThreadsNewTopicForm.
@@ -54,6 +55,8 @@ class LiquidThreadsNewTopicForm extends LiquidThreadsEditForm {
 		
 		$post->save();
 		
+		$this->object = $topic;
+		
 		return true;
 	}
 	
@@ -67,5 +70,9 @@ class LiquidThreadsNewTopicForm extends LiquidThreadsEditForm {
 		}
 		
 		return true;
+	}
+	
+	public function getModifiedObject() {
+		return $this->object;
 	}
 }

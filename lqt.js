@@ -948,25 +948,77 @@ var liquidThreads = {
 			params.content = text;
 			params.signature = signature;
 			
-			liquidThreads.apiRequest( params, function() {
-				window.location.reload(true);
+			liquidThreads.apiRequest( params, function(data) {
+				var params = {
+					'formatter' : 'topic',
+					'object' : data.form.object
+				};
+				liquidThreads.loadFormattedObject( params, function($obj) {
+					editform.closest('.lqt-threads').prepend($obj);
+					editform.remove();
+					$obj.find('.lqt-post-wrapper').each( function() {
+						liquidThreads.setupThread( this );
+					} );
+					liquidThreads.reloadTOC();
+				} );
 			} );
 		} else if ( type == 'reply' ) {
 			params.content = text;
 			params.signature = signature;
 			
-			liquidThreads.apiRequest( params, function() {
-				window.location.reload(true);
+			liquidThreads.apiRequest( params, function(data) {
+				var params = {
+					'formatter' : 'post',
+					'object' : data.form.object
+				};
+				liquidThreads.loadFormattedObject( params, function($obj) {
+					editform.closest('div.lqt-reply-form')
+						.after($obj)
+						.remove();
+					$obj.closest('.lqt-post-tree-wrapper')
+						.removeClass('lqt-post-without-replies')
+						.addClass('lqt-post-with-replies');
+					$obj.find('.lqt-post-wrapper').each( function() {
+						liquidThreads.setupThread( this );
+					} );
+					liquidThreads.reloadTOC();
+				} );
 			} );
 		} else if ( type == 'edit' ) {
 			params.summary = summary;
 			params.content = text;
 			params.signature = signature;
 			
-			liquidThreads.apiRequest( params, function() {
-				window.location.reload(true);
+			liquidThreads.apiRequest( params, function(data) {
+				var params = {
+					'formatter' : 'post',
+					'object' : data.form.object
+				};
+				liquidThreads.loadFormattedObject( params, function($obj) {
+					editform.closest('.lqt-post-tree-wrapper')
+						.replaceWith($obj);
+					$obj.find('.lqt-post-wrapper').each( function() {
+						liquidThreads.setupThread( this );
+					} );
+					liquidThreads.reloadTOC();
+				} );
 			} );
 		}
+	},
+	
+	// Formats an object into a jQuery object and calls the callback with that
+	// as a parameter.
+	'loadFormattedObject' : function( params, callback ) {
+		params = $.extend( {}, params );
+		
+		params.action = 'lqtformat';
+		params['base-url'] = window.location.href;
+
+		liquidThreads.apiRequest( params, function(data) { 
+			var html = data.formatter.html;
+			var $formatted = $(html);
+			callback($formatted);
+		} );
 	},
 
 	'reloadTOC' : function() {

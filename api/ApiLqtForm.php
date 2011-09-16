@@ -33,6 +33,9 @@ class ApiLqtForm extends ApiBase {
 			if ( $formResult ) {
 				$formOutput = array( 'submit' => 'success' );
 				
+				$object = $form->getModifiedObject();
+				$formOutput['object'] = $object->getUniqueIdentifier();
+				
 				$result->addValue( null, 'form', $formOutput );
 			}
 		} else {
@@ -71,7 +74,8 @@ class ApiLqtForm extends ApiBase {
 			}
 			
 			try {
-				$channel = LiquidThreadsChannel::newFromID( $params['channel'] );
+				$id = $params['channel'];
+				$channel = self::getObject( $id, 'LiquidThreadsChannel' );
 			} catch ( MWException $excep ) {
 				$this->dieUsage( "You must specify a valid channel", 'invalid-param' );
 			}
@@ -85,14 +89,16 @@ class ApiLqtForm extends ApiBase {
 			$replyPost = null;
 			
 			try {
-				$topic = LiquidThreadsTopic::newFromID( $params['topic'] );
+				$topicID = $params['topic'];
+				$topic = self::getObject( $topicID, 'LiquidThreadsTopic' );
 			} catch ( MWException $e ) {
 				$this->dieUsage( "You must specify a valid topic", 'invalid-param' );
 			}
 			
 			if ( $params['reply-post'] ) {
+				$replyPostID = $params['reply-post'];
 				try {
-					$replyPost = LiquidThreadsPost::newFromID( $params['reply-post'] );
+					$replyPost = self::getObject( $replyPostID, 'LiquidThreadsPost' );
 				} catch ( MWException $e ) {
 					$this->dieUsage( "Invalid reply-post", 'invalid-param' );
 				}
@@ -105,7 +111,7 @@ class ApiLqtForm extends ApiBase {
 			}
 			
 			try {
-				$post = LiquidThreadsPost::newFromID( $params['post'] );
+				$post = self::getObject( $params['post'], 'LiquidThreadsPost' );
 			} catch ( MWException $e ) {
 				$this->dieUsage( "Invalid post", 'invalid-param' );
 			}
@@ -114,6 +120,27 @@ class ApiLqtForm extends ApiBase {
 		} else {
 			$this->dieUsage( "Not yet implemented", 'not-implemented' );
 		}
+	}
+	
+	/**
+	 * Retrieves an object by user-supplied ID
+	 * @param $id The object ID, may be either an integer ID specific
+	 * to the given class or a LiquidThreads unique identifier suitable for
+	 * passing to LiquidThreadsObject::retrieve()
+	 * @param $class The class of object to retrieve.
+	 */
+	protected static function getObject( $id, $class ) {
+		if ( is_numeric($id) ) {
+			$object = $class::newFromId( $id );
+		} else {
+			$object = LiquidThreadsObject::retrieve($id);
+			
+			if ( ! $object instanceof $class ) {
+				throw new MWException( "$id does not represent a $class" );
+			}
+		}
+		
+		return $object;
 	}
 	
 	public function getAllowedParams() {
