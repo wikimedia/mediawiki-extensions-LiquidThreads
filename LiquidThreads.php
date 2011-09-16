@@ -246,6 +246,9 @@ $wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
 $wgAutoloadClasses['ApiLqtForm'] = $dir.'/api/ApiLqtForm.php';
 $wgAPIModules['lqtform'] = 'ApiLqtForm';
 
+$wgAutoloadClasses['ApiLqtFormatter'] = $dir.'/api/ApiLqtFormatter.php';
+$wgAPIModules['lqtformat'] = 'ApiLqtFormatter';
+
 // // Path to the LQT directory
 // $wgLiquidThreadsExtensionPath = "{$wgScriptPath}/extensions/LiquidThreads";
 

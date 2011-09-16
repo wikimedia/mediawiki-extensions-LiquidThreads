@@ -58,4 +58,23 @@ abstract class LiquidThreadsObject {
 	 * @return String
 	 */
 	abstract public function getUniqueIdentifier();
+	
+	/**
+	 * Retrieves an object by unique identifier
+	 * @param $id String: Unique identifier returned by getUniqueIdentifier()
+	 * @return LiquidThreadsObject
+	 */
+	public static function retrieve($id) {
+		static $classes = array(
+			'lqt-post' => 'LiquidThreadsPost',
+			'lqt-topic' => 'LiquidThreadsTopic',
+			'lqt-channel' => 'LiquidThreadsChannel',
+		);
+		
+		list($type, $id) = explode('_', $id);
+		
+		$class = $classes[$type];
+		
+		return $class::newFromID( $id );
+	}
 }
