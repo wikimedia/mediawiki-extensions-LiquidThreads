@@ -84,6 +84,6 @@ class ApiLqtFormatter extends ApiBase {
 	}
 
 	public function getVersion() {
-		return __CLASS__ . ': $Id: ApiLqtForm.php 79941 2011-01-10 17:18:57Z hartman $';
+		return __CLASS__ . ': $Id$';
 	}	
 }
