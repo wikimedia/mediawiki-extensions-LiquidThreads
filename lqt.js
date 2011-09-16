@@ -47,10 +47,8 @@ var liquidThreads = {
 		var topicID = liquidThreads.removePrefix( topicContainer.id, 'lqt-topic_' );
 		var params = { 'form' : 'reply', 'topic' : topicID };
 		
-		if ( $j(postContainer).parent()[0] != topicContainer ) {
-			var postID = liquidThreads.removePrefix( postContainer.id, 'lqt-post_' );
-			params['reply-post'] = postID;
-		}
+		var postID = liquidThreads.removePrefix( postContainer.id, 'lqt-post_' );
+		params['reply-post'] = postID;
 
 		var repliesElement = $j(postContainer).contents().filter('.lqt-replies');
 		var replyDiv = repliesElement.contents().filter('.lqt-reply-form');
