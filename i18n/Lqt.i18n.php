@@ -3465,6 +3465,11 @@ $messages['ckb'] = array(
 	'lqt-drag-reason' => 'هۆکار:',
 );
 
+/** Corsican (Corsu) */
+$messages['co'] = array(
+	'lqt_subject' => 'Sughjettu:',
+);
+
 /** Czech (Česky)
  * @author Kuvaly
  * @author Matěj Grabovský
@@ -7350,7 +7355,7 @@ $messages['gl'] = array(
 	'lqt_empty_subject' => 'Debe inserir un asunto.',
 	'lqt_reply' => 'Responder',
 	'lqt-parent' => 'Pai',
-	'lqt_delete' => 'Eliminar',
+	'lqt_delete' => 'Borrar',
 	'lqt_undelete' => 'Recuperar',
 	'lqt_permalink' => 'Ligazón a',
 	'lqt_fragment' => 'Fragmento dunha $1 de $2',
@@ -7421,16 +7426,6 @@ Este fío forma parte de "$2".',
 	'lqt_move_samedestination' => 'O fío xa está nesta páxina!',
 	'lqt_move_noreason' => 'Non se deu ningunha razón.',
 	'lqt_move_success' => 'O fío moveuse a $1.',
-	'lqt_delete_undeletethread' => 'Restaurar o fío',
-	'lqt_delete_partof' => "Este fío forma parte de '''$1'''.",
-	'lqt_delete_deleting' => "Borrando '''$1''' e '''todas as respostas''' asociadas.",
-	'lqt_delete_deletethread' => 'Eliminar o fío e as súas respostas',
-	'lqt_delete_deleted' => 'Eliminouse o fío.',
-	'lqt_delete_undeleted' => 'Recuperouse o fío.',
-	'lqt_delete_return' => 'Volver $1.',
-	'lqt_delete_return_link' => 'á páxina de conversa',
-	'lqt_delete_unallowed' => 'Non lle está permitido eliminar fíos.',
-	'lqt_delete_show_checkbox' => 'Amosar os fíos borrados',
 	'lqt_talkpage_autocreate_summary' => 'Páxina de conversa creada automaticametne cando se publicou o primeiro fío.',
 	'lqt_header_warning_big' => 'Está editando a $1.',
 	'lqt_header_warning_after_big' => 'As cabeceiras son para a introdución e os avisos.
@@ -13114,12 +13109,7 @@ $messages['ne'] = array(
 	'lqt_toc_thread_modified' => 'पछिल्लो संशोधन',
 	'lqt_add_header' => 'शीर्षक जोड़ने',
 	'lqt_new_thread' => 'नयाँ चर्चा सुरु गर्ने',
-	'lqt_invalid_subject' => 'The subject you entered is invalid.
-It may:
-* Be too long, or
-* Conflict with interwiki prefixes or namespace names.
-
-तापाईंले हालेको विषय अमान्य छ।
+	'lqt_invalid_subject' => 'तपाईंले हालेको विषय अमान्य छ।
 यो:
 * अति लामो भएको   अथवा
 * अन्तर विकि उपसर्ग अथवा नेमस्पेस (नामस्थान)सित अन्तर विरोधि भएकोछ।',
@@ -13129,15 +13119,18 @@ It may:
 	'lqt_delete' => 'मेट्ने',
 	'lqt_undelete' => 'मेटेको रद्द गर्ने',
 	'lqt_permalink' => 'यो सित लिंक गर्ने',
+	'lqt_fragment' => ' $2 बाट एउटा  $1 को अंश',
 	'lqt_discussion_link' => 'चर्चा',
 	'lqt_from_talk' => ' $1बाट',
+	'lqt-history-title' => 'थ्रेड इतिहास',
 	'lqt_hist_thread_created' => 'नयाँ धागो(thread) शिर्जना गरीयो',
 	'lqt_hist_deleted' => 'मेटियो',
 	'lqt_hist_undeleted' => 'मेट्नेकार्यबाट पूर्व रुपमा फर्काइयो',
 	'lqt_hist_moved_talkpage' => 'सारियो',
-	'lqt_hist_listing_subtitle' => 'इतिहास सुचीकरण हेर्दै',
-	'lqt_hist_view_whole_thread' => 'पूरै धागो(thread)को इतिहस हेर्ने',
-	'lqt_hist_no_revisions_error' => 'यो धागो(thread)को कुनै पनि इतिहास संस्करणहरु छैनन्',
+	'lqt_hist_listing_subtitle' => 'इतिहास सूचीकरण हेरिंदै',
+	'lqt_hist_view_whole_thread' => 'पूर्कोन थ्रेडको लागि इतिहास हेर्ने',
+	'lqt_hist_no_revisions_error' => 'यो थ्रेडको कुनै पनि इतिहास संस्करणहरु छैनन्',
+	'lqt_hist_past_last_page_error' => 'तपाईं इतिहासका पृष्ठ इतिहासदेखि टाड़ा हुनुहुन्छ',
 	'lqt_hist_edited_subject' => '"$3"बाट "$2"मा विषय सारिएको',
 	'lqt_hist_edited_subject_corrupt' => 'विषय सारियो',
 	'lqt_hist_merged_from' => '[[$1|जवाफ दिने]] अर्को धागो(thread)मा सारिएको',
@@ -13146,7 +13139,7 @@ It may:
 	'lqt_hist_root_blanked' => 'टिप्पनी गरिएको पाठ हटाउने',
 	'lqt_hist_adjusted_sortkey' => 'धागो(thread)को स्थान परिवर्रन गर्ने',
 	'lqt_revision_as_of' => '$2को संशोधन समय $3मा',
-	'lqt_youhavenewmessages' => ' तपाईंलाई [[$1|नयाँ सन्देशहरु छन्]]।',
+	'lqt_youhavenewmessages' => ' तपाईंको लागि [[$1|नयाँ सन्देश]]।',
 	'lqt_protectedfromreply_link' => 'सुरक्षित',
 	'lqt_subject' => 'विषय:',
 	'lqt_noreason' => 'कारण दिइएको छैन',
@@ -13197,7 +13190,7 @@ It may:
 	'lqt-thread-split-subject' => 'नयाँ धागो(thread) विषय',
 	'lqt-thread-split-thread' => 'धागो(thread) :',
 	'lqt-split-submit' => 'टुक्राउने',
-	'lqt_split_badsubject' => 'प्रविष्ट गरिएको विषय अमान्यछ ।',
+	'lqt_split_badsubject' => 'तपाईंले हाल्नु भएको विषय अमान्य छ ।',
 	'lqt-no-threads' => 'यस पृष्ठमा कुने पनि धागो(thread)हरु छैनन् ।',
 	'lqt-delete-parent-deleted' => 'मूल(प्यारेन्ट) धागो(thread) मेटिएको छ \\',
 	'lqt-delete-replies-done' => 'यस धागो(thread)का जवाफहरु पनि मेटिएका छन्',
