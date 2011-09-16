@@ -169,10 +169,10 @@ class LiquidThreadsPostToolbar extends LiquidThreadsToolbar {
 		$version = $context->get('version');
 
 		// TODO make this link operate properly
-		$history_url = SpecialPage::getTitleFor( 'PostHistory', $post->getID() );
+		$history = SpecialPage::getTitleFor( 'PostHistory', $post->getID() );
 		$commands['history'] = array(
 			'label' => wfMsgExt( 'history_short', 'parseinline' ),
-			'href' => $history_url,
+			'href' => $history->getFullURL(),
 			'enabled' => true,
 		);
 		
