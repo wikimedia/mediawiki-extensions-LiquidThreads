@@ -30,7 +30,7 @@ class ApiLqtFormatter extends ApiBase {
 			'html' => $formatter->getHTML($object, $context),
 		);
 		
-		$result->addValue( null, 'form', $output );
+		$result->addValue( null, 'formatter', $output );
 	}
 	
 	/**
