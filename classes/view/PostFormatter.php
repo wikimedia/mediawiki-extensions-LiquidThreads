@@ -157,7 +157,23 @@ class LiquidThreadsPostFormatter extends LiquidThreadsFormatter {
 		if ( $showAnything && $this->runCallback( $object, $context ) ) {
 			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
 			
-			$text = $version->getContentHTML();
+			if ( $context->getActionFor( $object ) == 'edit' ) {
+				$form = new LiquidThreadsPostEditForm(
+						$context->get('user'),
+						$object
+					);
+				$formResult = $form->show();
+				
+				if ( $formResult === true ) {
+					$object = $form->getModifiedObject();
+					$version = $object->getCurrentVersion();
+					$text .= $version->getContentHTML();
+				} else {
+					$text = $formResult;
+				}
+			} else {
+				$text = $version->getContentHTML();
+			}
 						
 			$html .= $text;
 

@@ -124,7 +124,6 @@ class LiquidThreadsPostToolbar extends LiquidThreadsToolbar {
 
 		$replyLink = wfAppendQuery( $context->get('base-url'), $replyQuery );
 
-		// TODO permissions checking, proper URL
 		$commands['reply'] = array(
 			'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
 			 'href' => $replyLink,
@@ -172,12 +171,18 @@ class LiquidThreadsPostToolbar extends LiquidThreadsToolbar {
 		$history = SpecialPage::getTitleFor( 'PostHistory', $post->getID() );
 		$commands['history'] = array(
 			'label' => wfMsgExt( 'history_short', 'parseinline' ),
-			'href' => $history->getFullURL(),
+			'href' => $history->getLocalURL(),
 			'enabled' => true,
 		);
 		
 		// TODO permissions checking
-		$edit_url = SpecialPage::getTitleFor( 'EditPost', $post->getID() );
+		$editQuery = array(
+			'lqt_action' => 'edit',
+			'lqt_target' => $post->getUniqueIdentifier(),
+		);
+		
+		$edit_url = wfAppendQuery( $context->get('base-url'), $editQuery );
+		
 		$commands['edit'] = array(
 			'label' => wfMsgExt( 'edit', 'parseinline' ),
 			'href' => $edit_url,
@@ -188,7 +193,7 @@ class LiquidThreadsPostToolbar extends LiquidThreadsToolbar {
 			$splitUrl = SpecialPage::getTitleFor( 'SplitThread', $post->getID() )->getFullURL();
 			$commands['split'] = array(
 				'label' => wfMsgExt( 'lqt-thread-split', 'parseinline' ),
-				'href' => $splitUrl,
+				'href' => $splitUrl->getLocalURL(),
 				'enabled' => true
 			);
 		}
@@ -210,9 +215,11 @@ class LiquidThreadsPostToolbar extends LiquidThreadsToolbar {
 // 			);
 // 		}
 
+		$linkTarget = SpecialPage::getTitleFor( 'Post', $post->getID() );
+
 		$commands['link'] = array(
 			'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
-			'href' => SpecialPage::getTitleFor( 'Post', $post->getID() ),
+			'href' => $linkTarget->getLocalURL(),
 			'enabled' => true,
 			'showlabel' => true,
 			'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' )

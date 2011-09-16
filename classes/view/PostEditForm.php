@@ -39,7 +39,7 @@ class LiquidThreadsPostEditForm extends LiquidThreadsEditForm {
 	protected function getSummaryBox() {
 		$label = wfMsg( 'summary' );
 		return Xml::inputLabel( $label, 'lqt-summary',
-				'lqt-summary', 60, $subject ) .
+				'lqt-summary', 60 ) .
 			Xml::element( 'br' );
 	}
 	
