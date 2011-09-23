@@ -97,9 +97,13 @@ class LqtDispatch {
 			return false;
 		}
 
-		global $wgLqtPages, $wgLqtTalkPages;
+		global $wgLqtPages, $wgLqtTalkPages, $wgLqtNamespaces;
 		$isTalkPage = ( $title->isTalkPage() && $wgLqtTalkPages ) ||
 				in_array( $title->getPrefixedText(), $wgLqtPages );
+				
+		if ( in_array( $title->getNamespace(), $wgLqtNamespaces ) ) {
+			$isTalkPage = true;
+		}
 
 		if ( $title->exists() ) {
 			$override = self::getUserLqtOverride( $title );

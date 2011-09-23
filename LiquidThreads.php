@@ -288,3 +288,6 @@ $wgLiquidThreadsAllowUserControlNamespaces = null;
 
 /** Allow LiquidThreads embedding */
 $wgLiquidThreadsAllowEmbedding = true;
+
+// Namespaces in which to enable LQT
+$wgLqtNamespaces = array();
