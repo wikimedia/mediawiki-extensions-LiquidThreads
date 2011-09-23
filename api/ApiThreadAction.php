@@ -183,6 +183,13 @@ class ApiThreadAction extends ApiBase {
 			$newParent = Threads::withRoot( $article );
 		}
 		
+		if ( isset($params['captchaword']) ) {
+			$requestData['captchaword'] = $params['captchaword'];
+		}
+		if ( isset($params['captchaid']) ) {
+			$requestData['captchaid'] = $params['captchaid'];
+		}
+		
 		global $wgUser;
 		$errors = $newParent->title()->getUserPermissionsErrors( 'lqt-merge', $wgUser );
 		if ( $errors ) {
@@ -300,6 +307,14 @@ class ApiThreadAction extends ApiBase {
 
 		if ( $wgUser->isAllowed('bot') ) {
 			$requestData['bot'] = true;
+		}
+		
+		if ( $params['captchaword'] !== null ) {
+			$requestData['captchaword'] = $params['captchaword'];
+		}
+		
+		if ( $params['captchaid'] !== null ) {
+			$requestData['captchaid'] = $params['captchaid'];
 		}
 
 		$editReq = new FauxRequest( $requestData, true );
@@ -421,6 +436,14 @@ class ApiThreadAction extends ApiBase {
 		if ( $wgUser->isAllowed('bot') ) {
 			$requestData['bot'] = true;
 		}
+		
+		if ( $params['captchaword'] !== null ) {
+			$requestData['captchaword'] = $params['captchaword'];
+		}
+		
+		if ( $params['captchaid'] !== null ) {
+			$requestData['captchaid'] = $params['captchaid'];
+		}
 
 		$editReq = new FauxRequest( $requestData, true );
 		LqtView::fixFauxRequestSession( $editReq );
@@ -537,6 +560,14 @@ class ApiThreadAction extends ApiBase {
 
 		if ( $wgUser->isAllowed('bot') ) {
 			$requestData['bot'] = true;
+		}
+		
+		if ( $params['captchaword'] !== null ) {
+			$requestData['captchaword'] = $params['captchaword'];
+		}
+		
+		if ( $params['captchaid'] !== null ) {
+			$requestData['captchaid'] = $params['captchaid'];
 		}
 
 		$editReq = new FauxRequest( $requestData, true );
@@ -940,6 +971,8 @@ class ApiThreadAction extends ApiBase {
 			'method' => null,
 			'operand' => null,
 			'gettoken' => null,
+			'captchaword' => null,
+			'captchaid' => null,
 		);
 	}
 

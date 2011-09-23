@@ -1056,6 +1056,14 @@ window.liquidThreads = {
 					'reason' : summary,
 					'bump' : bump
 				};
+				
+				if ( $j('#wpCaptchaWord') ) {
+					newTopicParams.captchaword = $j('#wpCaptchaWord').val();
+				}
+				
+				if ( $j('#wpCaptchaId') ) {
+					newTopicParams.captchaid = $j('#wpCaptchaId').val();
+				}
 
 				if ( typeof signature != 'undefined' ) {
 					newTopicParams.signature = signature;
@@ -1085,6 +1093,14 @@ window.liquidThreads = {
 					'reason' : summary,
 					'bump' : bump
 				};
+				
+				if ( $j('#wpCaptchaWord') ) {
+					replyParams.captchaword = $j('#wpCaptchaWord').val();
+				}
+				
+				if ( $j('#wpCaptchaId') ) {
+					replyParams.captchaid = $j('#wpCaptchaId').val();
+				}
 
 				if ( typeof signature != 'undefined' ) {
 					replyParams.signature = signature;
@@ -1113,6 +1129,14 @@ window.liquidThreads = {
 			'bump'   : bump,
 			'subject':subject
 		};
+		
+		if ( $j('#wpCaptchaWord') ) {
+			request.captchaword = $j('#wpCaptchaWord').val();
+		}
+		
+		if ( $j('#wpCaptchaId') ) {
+			request.captchaid = $j('#wpCaptchaId').val();
+		}
 
 		if ( typeof signature != 'undefined' ) {
 			request.signature = signature;
