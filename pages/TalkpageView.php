@@ -59,7 +59,7 @@ class TalkpageView extends LqtView {
 		global $wgUser;
 		$sk = $wgUser->getSkin();
 
-		$article = new Article( $this->title );
+		$article = $this->talkpage;
 
 		// If $article_text == "", the talkpage was probably just created
 		// when the first thread was posted to make the links blue.
@@ -69,12 +69,14 @@ class TalkpageView extends LqtView {
 			$article->view();
 
 			$actionLinks = array();
-			$actionLinks[] = $sk->link(
-				$this->title,
-				wfMsgExt( 'edit', 'parseinline' ) . "↑",
-				array(),
-				array( 'action' => 'edit' )
-			);
+			if ( $article->getTitle()->userCan('edit') ) {
+				$actionLinks[] = $sk->link(
+					$article->getTitle(),
+					wfMsgExt( 'edit', 'parsemag' ) . "↑",
+					array(),
+					array( 'action' => 'edit' )
+				);
+			}
 			$actionLinks[] = $sk->link(
 				$this->title,
 				wfMsgExt( 'history_short', 'parseinline' ) . "↑",
@@ -84,7 +86,7 @@ class TalkpageView extends LqtView {
 
 			if ( $wgUser->isAllowed( 'delete' ) ) {
 				$actionLinks[] = $sk->link(
-					$this->title,
+					$article->getTitle(),
 					wfMsgExt( 'delete', 'parseinline' ) . '↑',
 					array(),
 					array( 'action' => 'delete' )
@@ -101,10 +103,10 @@ class TalkpageView extends LqtView {
 			$html = Xml::tags( 'div', array( 'class' => 'lqt_header_content' ), $html );
 
 			$this->output->addHTML( $html );
-		} else {
+		} elseif ( $article->getTitle()->userCan('edit') ) {
 
 			$editLink = $sk->link(
-				$this->title,
+				$this->talkpage->getTitle(),
 				wfMsgExt( 'lqt_add_header', 'parseinline' ),
 				array(),
 				array( 'action' => 'edit' )
@@ -226,6 +228,12 @@ class TalkpageView extends LqtView {
 
 	function show() {
 		$this->output->addModules( 'ext.liquidThreads' );
+		
+		$article = $this->talkpage;
+		if ( ! LqtDispatch::isLqtPage( $article->getTitle() ) {
+			$this->output->addWikiMsg( 'lqt-not-discussion-page' );
+			return false;
+		}
 
 		$this->output->setPageTitle( $this->title->getPrefixedText() );
 
@@ -242,12 +250,14 @@ class TalkpageView extends LqtView {
 
 		$sk = $this->user->getSkin();
 
-		$article = new Article( $this->title );
-
 		if ( $this->request->getBool( 'lqt_inline' ) ) {
 			$this->doInlineEditForm();
 			return false;
 		}
+		
+		$this->output->addHTML(
+			Xml::openElement( 'div', array( 'class' => 'lqt-talkpage' ) )
+		);
 
 		// Search!
 		if ( $this->request->getCheck( 'lqt_search' ) ) {
@@ -286,7 +296,7 @@ class TalkpageView extends LqtView {
 
 		$talkpageHeader = '';
 
-		if ( Thread::canUserPost( $this->user, $this->article ) ) {
+		if ( Thread::canUserPost( $this->user, $this->talkpage ) ) {
 			$newThreadText = wfMsgExt( 'lqt_new_thread', 'parseinline' );
 			$newThreadLink = $sk->link(
 				$this->title, $newThreadText,
@@ -321,7 +331,7 @@ class TalkpageView extends LqtView {
 		if ( $this->methodApplies( 'talkpage_new_thread' ) ) {
 			$params = array( 'class' => 'lqt-new-thread lqt-edit-form' );
 			$this->output->addHTML( Xml::openElement( 'div', $params ) );
-			$this->showNewThreadForm( $this->article );
+			$this->showNewThreadForm( $this->talkpage );
 			$this->output->addHTML( Xml::closeElement( 'div' ) );
 		} else {
 			$this->output->addHTML( Xml::tags( 'div',
@@ -348,7 +358,11 @@ class TalkpageView extends LqtView {
 			$this->showThread( $t );
 		}
 
-		$this->output->addHTML( Xml::closeElement( 'div' ) . $pager->getNavigationBar() );
+		$this->output->addHTML(
+			Xml::closeElement( 'div' ) .
+			$pager->getNavigationBar() .
+			Xml::closeElement( 'div' )
+		);
 		
 		// Workaround for bug 25077
 		global $wgOut, $wgUser;
