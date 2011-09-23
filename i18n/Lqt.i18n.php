@@ -351,6 +351,7 @@ $messages['qqq'] = array(
 {{Identical|Reply}}',
 	'lqt_toc_thread_modified' => 'Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].',
 	'lqt_new_thread' => '{{Identical|Start a new discussion}}',
+	'lqt-empty-text' => 'Used in JavaScript alert.',
 	'lqt_reply' => 'is this noun or verb?
 
 :A verb; see also {{msg-mw|Lqt delete}} and {{msg-mw|Lqt undelete}}.
@@ -3836,6 +3837,7 @@ $messages['da'] = array(
 Det kan være fordi det er
 * for langt eller
 * i konflikt med interwikipræfikser eller navne på navnerum.',
+	'lqt-empty-text' => 'Du kan ikke sende en tom besked',
 	'lqt_empty_subject' => 'Du skal angive et emne.',
 	'lqt_reply' => 'Besvar',
 	'lqt-parent' => 'Forælder',
@@ -3910,16 +3912,6 @@ Denne tråd er en del af $2.',
 	'lqt_move_samedestination' => 'Tråden er allerede på denne side!',
 	'lqt_move_noreason' => 'Ingen begrundelse angivet.',
 	'lqt_move_success' => 'Tråden blev flyttet til $1.',
-	'lqt_delete_undeletethread' => 'Gendan tråd',
-	'lqt_delete_partof' => "Denne tråd er en del af '''$1'''.",
-	'lqt_delete_deleting' => "Sletter '''$1''' og '''alle tilhørende svar'''.",
-	'lqt_delete_deletethread' => 'Slet tråd og svar',
-	'lqt_delete_deleted' => 'Tråden blev slettet.',
-	'lqt_delete_undeleted' => 'Tråden blev gendannet.',
-	'lqt_delete_return' => 'Tilbage til $1.',
-	'lqt_delete_return_link' => 'diskussionssiden',
-	'lqt_delete_unallowed' => 'Du har ikke tilladelse til at slette tråde.',
-	'lqt_delete_show_checkbox' => 'Vis slettede tråde',
 	'lqt_talkpage_autocreate_summary' => 'Diskussionsside blev automatisk oprettet, da den første tråd påbegyndtes',
 	'lqt_header_warning_big' => 'Du er ved at redigere en $1.',
 	'lqt_header_warning_after_big' => 'Overskrifter er beregnet til bekendtgørelser og indledninger.
@@ -4133,6 +4125,7 @@ $messages['de'] = array(
 Es ist möglich, dass er
 * zu lang ist oder
 * im Konflikt mit Interwikipräfixen oder Namensraumbezeichnern steht.',
+	'lqt-empty-text' => 'Es kann keine leere Nachricht gespeichert werden.',
 	'lqt_empty_subject' => 'Du musst einen Betreff eingeben.',
 	'lqt_reply' => 'Antworten',
 	'lqt-parent' => 'übergeordnete Antwort',
@@ -4206,16 +4199,6 @@ Dieses Thema ist Teil der Seite „$2“.',
 	'lqt_move_samedestination' => 'Dieses Thema ist bereits auf dieser Seite vorhanden!',
 	'lqt_move_noreason' => 'kein Grund angegeben.',
 	'lqt_move_success' => 'Das Thema wurde nach $1 verschoben.',
-	'lqt_delete_undeletethread' => 'Thema wiederherstellen',
-	'lqt_delete_partof' => "Das Thema ist Teil von '''$1.'''",
-	'lqt_delete_deleting' => "Löschung von '''$1''' und '''aller zugehörigen Antworten.'''",
-	'lqt_delete_deletethread' => 'Das Thema mitsamt allen Beiträgen löschen.',
-	'lqt_delete_deleted' => 'Das Thema wurde gelöscht.',
-	'lqt_delete_undeleted' => 'Das Thema wurde wiederhergestellt.',
-	'lqt_delete_return' => 'Zurück zu $1.',
-	'lqt_delete_return_link' => 'der Diskussionsseite',
-	'lqt_delete_unallowed' => 'Du hast nicht die Berechtigung Themen zu löschen.',
-	'lqt_delete_show_checkbox' => 'Zeige gelöschte Themen',
 	'lqt_talkpage_autocreate_summary' => 'Die Diskussionsseite wurde automatisch mit dem ersten Thema angelegt',
 	'lqt_header_warning_big' => 'Du bearbeitest gerade den $1.',
 	'lqt_header_warning_after_big' => 'Dieser Bereich ist für Ankündigungen, Einleitungen und Hinweise vorgesehen.
@@ -9160,6 +9143,7 @@ $messages['ia'] = array(
 	'lqt_invalid_subject' => 'Le subjecto que tu entrava es invalide. Illo pote:
 * esser troppo longe, o
 * confliger con prefixos interwiki o nomines de spatios de nomines.',
+	'lqt-empty-text' => 'Tu non pote publicar un message vacue',
 	'lqt_empty_subject' => 'Tu debe entrar un subjecto.',
 	'lqt_reply' => 'Responder',
 	'lqt-parent' => 'Genitor',
@@ -9234,16 +9218,6 @@ Iste filo face parte de $2.',
 	'lqt_move_samedestination' => 'Le filo es jam presente in iste pagina!',
 	'lqt_move_noreason' => 'Nulle ration date.',
 	'lqt_move_success' => 'Le filo ha essite displaciate verso $1.',
-	'lqt_delete_undeletethread' => 'Restaurar filo',
-	'lqt_delete_partof' => "Iste filo face parte de '''$1'''.",
-	'lqt_delete_deleting' => "Deletion de '''$1''' e de '''tote le responsas''' a illo.",
-	'lqt_delete_deletethread' => 'Deler filo e responsas',
-	'lqt_delete_deleted' => 'Le filo ha essite delite.',
-	'lqt_delete_undeleted' => 'Le filo ha essite restaurate.',
-	'lqt_delete_return' => 'Retornar a $1.',
-	'lqt_delete_return_link' => 'le pagina de discussion',
-	'lqt_delete_unallowed' => 'Tu non ha le permission de deler filos.',
-	'lqt_delete_show_checkbox' => 'Revelar filos delite',
 	'lqt_talkpage_autocreate_summary' => 'Pagina de discussion create automaticamente al invio del prime filo.',
 	'lqt_header_warning_big' => 'Tu modifica un $1.',
 	'lqt_header_warning_after_big' => 'Le capites es pro annuncios e prefacios.
