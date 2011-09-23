@@ -262,10 +262,7 @@ class ApiThreadAction extends ApiBase {
 
 		// Check for text
 		if ( empty( $params['text'] ) ) {
-			// $this->dieUsage( 'You must include text in your post', 'no-text' );
-			// creating a thread with a body dummy rendered as "edit" link for itself
-			$defaultBody = wfMsgForContent( 'lqt-newpost-defaultbody-user-submitted-empty-textbody', $subject ) ;
-			$params['text'] = "''[{{fullurl:{{FULLPAGENAMEE}}|action=edit}} $defaultBody]''<br/>";
+			$this->dieUsage( 'You must include text in your post', 'no-text' );
 		}
 		$text = $params['text'];
 

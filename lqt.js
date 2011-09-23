@@ -902,6 +902,11 @@ window.liquidThreads = {
 			text = wikiEditorContext.$textarea.textSelection( 'getContents' );
 		}
 		
+		if ( text.trim().length == 0 ) {
+			alert(mediaWiki.msg('lqt-empty-text'));
+			return;
+		}
+		
 		var summary = editform.find('#wpSummary').val();
 
 		var signature;

@@ -59,7 +59,8 @@ $lqtMessages = array(
 	'lqt-drag-subject',
 	'lqt-edit-signature',
 	'lqt-preview-signature',
-	'lqt_contents_title'
+	'lqt_contents_title',
+	'lqt-empty-text',
 );
 
 // ResourceLoader
