@@ -169,7 +169,7 @@ window.liquidThreads = {
 
 		var finishSetup = function() {
 			// Kill the loader.
-			loadSpinner.remove();
+			$j('.lqt-loader').remove();
 
 			if (preload) {
 				$j("textarea", container)[0].value = preload;
@@ -918,7 +918,8 @@ window.liquidThreads = {
 
 		var subject = editform.find( '#lqt_subject_field' ).val();
 		var replyThread = editform.find('input[name=lqt_operand]').val();
-		var bump = editform.find('#wpBumpThread').is(':checked') ? 1 : 0;
+		var bumpBox = editform.find('#wpBumpThread');
+		var bump = bumpBox.length == 0 || bumpBox.is(':checked');
 
 		var spinner = $j('<div class="mw-ajax-loader"/>');
 		editform.prepend(spinner);
