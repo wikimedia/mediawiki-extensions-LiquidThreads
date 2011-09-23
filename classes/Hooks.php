@@ -171,7 +171,7 @@ class LqtHooks {
 
 	static function dumpThreadData( $writer, &$out, $row, $title ) {
 		// Is it a thread
-		if ( empty( $row->thread_id ) ) {
+		if ( empty( $row->thread_id ) || $row->thread_type >= 2 ) {
 			return true;
 		}
 

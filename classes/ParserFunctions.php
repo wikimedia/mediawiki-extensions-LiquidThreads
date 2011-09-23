@@ -161,6 +161,10 @@ class LqtParserFunctions {
 		foreach( $pout->mLqtReplacements as $text => $details ) {
 			$result = '';
 			
+			if ( ! is_array($details) ) {
+				continue;
+			}
+			
 			if ( $details['type'] == 'talkpage' ) {
 				$result = self::runLqtTalkPage( $details );
 			} elseif ( $details['type'] == 'thread' ) {
