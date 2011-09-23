@@ -230,7 +230,7 @@ class TalkpageView extends LqtView {
 		$this->output->addModules( 'ext.liquidThreads' );
 		
 		$article = $this->talkpage;
-		if ( ! LqtDispatch::isLqtPage( $article->getTitle() ) {
+		if ( ! LqtDispatch::isLqtPage( $article->getTitle() ) ) {
 			$this->output->addWikiMsg( 'lqt-not-discussion-page' );
 			return false;
 		}
