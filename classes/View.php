@@ -587,7 +587,8 @@ class LqtView {
 		$e->edit();
 
 		if ( $e->didSave ) {
-			$bump = $this->request->getBool( 'wpBumpThread' );
+			$bump = !$this->request->getCheck('wpBumpThread') ||
+				$this->request->getBool( 'wpBumpThread' );
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
 
 			$info = array(
@@ -695,7 +696,8 @@ class LqtView {
 		$e->edit();
 
 		if ( $e->didSave ) {
-			$bump = $this->request->getBool( 'wpBumpThread' );
+			$bump = !$this->request->getCheck('wpBumpThread') ||
+				$this->request->getBool( 'wpBumpThread' );
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
 
 			LqtView::editMetadataUpdates(
@@ -764,7 +766,8 @@ class LqtView {
 		$e->edit();
 
 		if ( $e->didSave ) {
-			$bump = $this->request->getBool( 'wpBumpThread' );
+			$bump = !$this->request->getCheck('wpBumpThread') ||
+				$this->request->getBool( 'wpBumpThread' );
 
 			LqtView::summarizeMetadataUpdates(
 				array(

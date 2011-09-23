@@ -291,3 +291,6 @@ $wgLiquidThreadsAllowEmbedding = true;
 
 // Namespaces in which to enable LQT
 $wgLqtNamespaces = array();
+
+/** Enable/disable the bump checkbox. **/
+$wgLiquidThreadsShowBumpCheckbox = false;

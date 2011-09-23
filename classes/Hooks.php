@@ -260,7 +260,7 @@ class LqtHooks {
 	}
 
 	static function editCheckboxes( $editPage, &$checkboxes, &$tabIndex ) {
-		global $wgRequest;
+		global $wgRequest, $wgLiquidThreadsShowBumpCheckbox;
 
 		$article = $editPage->getArticle();
 		$title = $article->getTitle();
@@ -270,7 +270,9 @@ class LqtHooks {
 			unset( $checkboxes['watch'] );
 		}
 
-		if ( $title->getNamespace() == NS_LQT_THREAD && self::$editType != 'new' ) {
+		if ( $title->getNamespace() == NS_LQT_THREAD && self::$editType != 'new' &&
+			$wgLiquidThreadsShowBumpCheckbox )
+		{
 			$label = wfMsgExt( 'lqt-edit-bump', 'parseinline' );
 			$tooltip = wfMsgExt( 'lqt-edit-bump-tooltip', 'parsemag' );
 
