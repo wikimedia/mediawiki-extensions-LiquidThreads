@@ -1932,6 +1932,7 @@ $messages['be-tarask'] = array(
 	'lqt_invalid_subject' => 'Вы ўвялі няслушную назву тэмы. Верагодна яна:
 * Занадта доўгая, альбо
 * Канфліктуе з прэфіксамі інтэрвікі альбо прасторамі назваў.',
+	'lqt-empty-text' => 'Адпраўка пустых паведамленьняў забароненая',
 	'lqt_empty_subject' => 'Вам неабходна ўвесьці тэму.',
 	'lqt_reply' => 'Адказаць',
 	'lqt-parent' => 'Бацькоўская',
@@ -2006,16 +2007,6 @@ $messages['be-tarask'] = array(
 	'lqt_move_samedestination' => 'Гэта галіна ўжо ёсьць на гэтай старонцы!',
 	'lqt_move_noreason' => 'Прычына не пазначана.',
 	'lqt_move_success' => 'Галіна была перанесена ў $1.',
-	'lqt_delete_undeletethread' => 'Аднаўленьне галіны',
-	'lqt_delete_partof' => "Гэтая галіна зьяўляецца часткай '''$1'''.",
-	'lqt_delete_deleting' => "Выдаленьне '''$1''' і '''усіх адказаў''' на яе.",
-	'lqt_delete_deletethread' => 'Выдаліць галіну і адказы',
-	'lqt_delete_deleted' => 'Галіна была выдалена.',
-	'lqt_delete_undeleted' => 'Галіна была адноўлена.',
-	'lqt_delete_return' => 'Вярнуцца да $1.',
-	'lqt_delete_return_link' => 'старонка абмеркаваньня',
-	'lqt_delete_unallowed' => 'Вам не дазволена выдаляць галіны.',
-	'lqt_delete_show_checkbox' => 'Паказаць выдаленыя галіны',
 	'lqt_talkpage_autocreate_summary' => 'Старонка абмеркаваньня была створана аўтаматычна, калі было створаная першая галіна.',
 	'lqt_header_warning_big' => 'Вы рэдагуеце $1.',
 	'lqt_header_warning_after_big' => "Загалоўкі ўжываюцца для аб'яваў і ўводных частак.
@@ -20067,6 +20058,7 @@ $messages['vi'] = array(
 	'lqt_invalid_subject' => 'Bạn đã nhập chủ đề không hợp lệ. Có lẽ nó:
 * Dài quá, hoặc
 * Xung đột với tiền tố liên wiki hay tên của không gian tên.',
+	'lqt-empty-text' => 'Bạn không thể nhắn tin trống',
 	'lqt_empty_subject' => 'Bạn cần phải nhập chủ đề.',
 	'lqt_reply' => 'Hồi âm',
 	'lqt-parent' => 'Mẹ',
@@ -20140,16 +20132,6 @@ Nếu nó đã đi đến kết thúc, có thể bạn sẽ muốn $1.{{PLURAL:$
 	'lqt_move_samedestination' => 'Luồng đã nằm vào trang này!',
 	'lqt_move_noreason' => 'Không đưa ra lý do.',
 	'lqt_move_success' => 'Luồng đã được di chuyển đến $1.',
-	'lqt_delete_undeletethread' => 'Phục hồi cuộc thảo luận',
-	'lqt_delete_partof' => "Luồng này thuộc về '''$1'''.",
-	'lqt_delete_deleting' => "Đang xóa '''$1''' và '''tất cả các trả lời''' vào nó.",
-	'lqt_delete_deletethread' => 'Xóa cuộc thảo luận và các trả lời',
-	'lqt_delete_deleted' => 'Luồng đã bị xóa.',
-	'lqt_delete_undeleted' => 'Luồng đã được phục hồi.',
-	'lqt_delete_return' => 'Trở về $1.',
-	'lqt_delete_return_link' => 'trang thảo luận',
-	'lqt_delete_unallowed' => 'Bạn không được phép xóa luồng.',
-	'lqt_delete_show_checkbox' => 'Hiện các luồng đã xóa',
 	'lqt_talkpage_autocreate_summary' => 'Trang thảo luận được tự động tạo ra khi luồng đầu tiên được đăng lên.',
 	'lqt_header_warning_big' => 'Bạn đang sửa đổi một $1.',
 	'lqt_header_warning_after_big' => 'Đầu đề dùng để thông báo và mở đầu.
