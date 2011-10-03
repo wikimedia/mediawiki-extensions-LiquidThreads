@@ -6631,6 +6631,7 @@ Allekirjoitus näytetään automaattisesti.',
 /** French (Français)
  * @author Crochet.david
  * @author Dereckson
+ * @author Gomoko
  * @author Grondin
  * @author Hercule
  * @author IAlex
@@ -6658,6 +6659,7 @@ $messages['fr'] = array(
 	'lqt_invalid_subject' => 'Le sujet que vous avez entré est invalide. Il peut :
 * être trop long ;
 * entrer en conflit avec un préfixe interwiki, ou un espace de noms.',
+	'lqt-empty-text' => 'Vous ne pouvez pas publier un message vide',
 	'lqt_empty_subject' => 'Vous devez entrer un objet.',
 	'lqt_reply' => 'Répondre',
 	'lqt-parent' => 'Parent',
@@ -6731,16 +6733,6 @@ Si elle a été conclue, vous pouvez avoir besoin de $1.',
 	'lqt_move_samedestination' => 'Le fil est déjà sur cette page !',
 	'lqt_move_noreason' => 'Aucune raison donnée',
 	'lqt_move_success' => 'Le fil a été déplacé dans $1.',
-	'lqt_delete_undeletethread' => 'Récupérer ce fil',
-	'lqt_delete_partof' => "Ce fil fait partie de '''$1'''.",
-	'lqt_delete_deleting' => "Suppression du fil '''$1''' et de '''toutes les réponses''' associées.",
-	'lqt_delete_deletethread' => 'Effacer le fil et ses réponses',
-	'lqt_delete_deleted' => 'Le fil a été effacé.',
-	'lqt_delete_undeleted' => 'Le fil a été récupéré.',
-	'lqt_delete_return' => 'Revenir à $1',
-	'lqt_delete_return_link' => 'la page de discussion',
-	'lqt_delete_unallowed' => "Vous n'avez pas les droits pour effacer des fils.",
-	'lqt_delete_show_checkbox' => 'Afficher les fils supprimés',
 	'lqt_talkpage_autocreate_summary' => 'Page de discussion créée automatiquement quand le premier fil de discussion a été envoyé.',
 	'lqt_header_warning_big' => 'Vous modifiez un $1.',
 	'lqt_header_warning_after_big' => 'Les en-têtes sont pour les annonces et les préfaces.
@@ -7312,7 +7304,7 @@ $messages['gl'] = array(
 	'lqt_hist_summary_changed' => 'Modificouse o resumo',
 	'lqt_hist_reply_created' => 'Creouse unha [[$1|nova resposta]]',
 	'lqt_hist_thread_created' => 'Creouse un novo fío',
-	'lqt_hist_deleted' => 'Eliminado',
+	'lqt_hist_deleted' => 'Borrado',
 	'lqt_hist_undeleted' => 'Recuperado',
 	'lqt_hist_moved_talkpage' => 'Trasladado',
 	'lqt_hist_listing_subtitle' => 'Ollando unha lista de historiais',
@@ -10341,6 +10333,13 @@ $7',
 	'lqt-reply-subpage' => '返信',
 	'nstab-thread' => 'スレッド',
 	'nstab-summary' => '要約',
+);
+
+/** Jamaican Creole English (Patios)
+ * @author Hazard-SJ
+ */
+$messages['jam'] = array(
+	'lqt_newmessages' => 'Mi new message dem',
 );
 
 /** Lojban (Lojban)
@@ -14228,6 +14227,7 @@ $messages['pfl'] = array(
 
 /** Polish (Polski)
  * @author Airwolf
+ * @author Grzechooo
  * @author Holek
  * @author Leinad
  * @author Maikking
@@ -14252,6 +14252,7 @@ $messages['pl'] = array(
 	'lqt_invalid_subject' => 'Wprowadzony temat jest nieprawidłowy. Możliwe, że:
 * jest za długi,
 * koliduje z prefiksami interwiki lub przestrzeniami nazw.',
+	'lqt-empty-text' => 'Nie możesz wysłać pustej wiadomości',
 	'lqt_empty_subject' => 'Musisz wpisać temat.',
 	'lqt_reply' => 'Odpowiedz',
 	'lqt-parent' => 'Do góry',
@@ -14326,16 +14327,6 @@ Ten wątek jest częścią $2.',
 	'lqt_move_samedestination' => 'Ten wątek jest już na tej stronie!',
 	'lqt_move_noreason' => 'Nie podano powodu.',
 	'lqt_move_success' => 'Wątek został przeniesiony do $1',
-	'lqt_delete_undeletethread' => 'Odtwórz wątek',
-	'lqt_delete_partof' => "Ten wątek jest fragmentem '''$1'''.",
-	'lqt_delete_deleting' => "Usuwanie '''$1''' oraz '''wszystkich odpowiedzi''' udzielonych na niego.",
-	'lqt_delete_deletethread' => 'Usuń wątek oraz odpowiedzi',
-	'lqt_delete_deleted' => 'Wątek został usunięty.',
-	'lqt_delete_undeleted' => 'Wątek został odtworzony.',
-	'lqt_delete_return' => 'Wróć do $1.',
-	'lqt_delete_return_link' => 'strona dyskusji',
-	'lqt_delete_unallowed' => 'Nie masz uprawnień do usuwania wątków.',
-	'lqt_delete_show_checkbox' => 'Pokaż usunięte wątki',
 	'lqt_talkpage_autocreate_summary' => 'Strona dyskusji została automatycznie utworzona, gdy utworzono nowy wątek.',
 	'lqt_header_warning_big' => 'Edytujesz $1.',
 	'lqt_header_warning_after_big' => 'Nagłówki służą do zamieszczania ogłoszeń lub przedmowy. Zamiast tego możesz $2.',
@@ -15948,6 +15939,7 @@ $messages['ru'] = array(
 	'lqt_invalid_subject' => 'Указанный вами заголовок ошибочен, по одной из следующих причин:
 * слишком длинен;
 * совпадает с интервики-приставками или названиями пространств имён.',
+	'lqt-empty-text' => 'Вы не можете отправить пустое сообщение',
 	'lqt_empty_subject' => 'Вы должны указать тему.',
 	'lqt_reply' => 'Ответить',
 	'lqt-parent' => 'Родитель',
@@ -16021,16 +16013,6 @@ $messages['ru'] = array(
 	'lqt_move_samedestination' => 'Ветка уже на этой странице!',
 	'lqt_move_noreason' => 'Не была указана причина.',
 	'lqt_move_success' => 'Эта ветка была перемещена в $1.',
-	'lqt_delete_undeletethread' => 'Восстановление ветки',
-	'lqt_delete_partof' => "Эта ветка является частью '''$1'''.",
-	'lqt_delete_deleting' => "Удаление '''$1''' и '''всех ответов''' на неё.",
-	'lqt_delete_deletethread' => 'Удалить ветку и ответы',
-	'lqt_delete_deleted' => 'Ветка была удалена.',
-	'lqt_delete_undeleted' => 'Ветка была восстановлена.',
-	'lqt_delete_return' => 'Возвратиться на $1.',
-	'lqt_delete_return_link' => 'страницу обсуждения',
-	'lqt_delete_unallowed' => 'Вы не можете удалять обсуждения.',
-	'lqt_delete_show_checkbox' => 'Показать удалённые ветки',
 	'lqt_talkpage_autocreate_summary' => 'Страница обсуждения создаётся автоматически, как только отправлено первое сообщение.',
 	'lqt_header_warning_big' => 'Вы редактируете $1.',
 	'lqt_header_warning_after_big' => 'Заголовки служат для объявлений и введений. Вы можете $2.',
