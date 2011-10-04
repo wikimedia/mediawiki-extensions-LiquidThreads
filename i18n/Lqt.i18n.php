@@ -20441,6 +20441,7 @@ $messages['yue'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Bencmq
  * @author Gaoxuewei
  * @author Hydra
  * @author Liangent
@@ -20464,6 +20465,7 @@ $messages['zh-hans'] = array(
 	'lqt_invalid_subject' => '您输入的主题无效，可能是由下列原因导致的：
 * 标题太长，或者
 * 与跨wiki前缀或名字空间名称冲突。',
+	'lqt-empty-text' => '您不能发布空白消息',
 	'lqt_empty_subject' => '您必须输入一个主题。',
 	'lqt_reply' => '回复',
 	'lqt-parent' => '上一帖',
@@ -20536,16 +20538,6 @@ $messages['zh-hans'] = array(
 	'lqt_move_samedestination' => '目标页已有该帖子！',
 	'lqt_move_noreason' => '未给出原因。',
 	'lqt_move_success' => '帖子已被移动到$1。',
-	'lqt_delete_undeletethread' => '恢复帖子',
-	'lqt_delete_partof' => "此帖子是'''$1'''的一部分。",
-	'lqt_delete_deleting' => "正在删除'''$1'''及其'''所有回复'''。",
-	'lqt_delete_deletethread' => '删除帖子和回复',
-	'lqt_delete_deleted' => '帖子已删除。',
-	'lqt_delete_undeleted' => '帖子已恢复。',
-	'lqt_delete_return' => '返回$1。',
-	'lqt_delete_return_link' => '讨论页',
-	'lqt_delete_unallowed' => '您没有删除帖子的权限。',
-	'lqt_delete_show_checkbox' => '显示已删除帖子',
 	'lqt_talkpage_autocreate_summary' => '在发起第一个帖子时讨论页已自动创建。',
 	'lqt_header_warning_big' => '您正在编辑$1。',
 	'lqt_header_warning_after_big' => '首段用于公告和导言。您的目的可能是$2。',
