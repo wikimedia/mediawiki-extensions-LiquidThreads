@@ -835,6 +835,9 @@ window.liquidThreads = {
 		var linkTitle = thread.find('.lqt-thread-title-metadata').val();
 		var linkURL = wgArticlePath.replace( "$1", linkTitle.replace(/ /g, '_' ) );
 		linkURL = wgServer + linkURL;
+		if ( linkURL.substr( 0, 2 ) == '//' ) {
+			linkURL = window.location.protocol + linkURL;
+		}
 		liquidThreads.showLinkWindow( linkTitle, linkURL );
 	},
 
