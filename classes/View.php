@@ -65,7 +65,7 @@ class LqtView {
 		if( $relative ) {
 			return $title->getLocalUrl( $queryString );
 		} else {
-			return $title->getFullUrl( $queryString );
+			return $title->getCanonicalUrl( $queryString );
 		}
 	}
 
