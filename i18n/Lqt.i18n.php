@@ -338,6 +338,7 @@ The signature is shown automatically.',
  * @author Siebrand
  * @author Spiritia
  * @author The Evil IP address
+ * @author Umherirrender
  * @author Wikinaut
  */
 $messages['qqq'] = array(
@@ -492,9 +493,9 @@ threads on a wiki',
 * $1 is a link to a thread with the thread subject as link description',
 	'lqt_rc_new_reply' => 'Parameters:
 * $1 is a link to a thread with the thread subject as link description',
-	'right-lqt-split' => '{{doc-right}}',
-	'right-lqt-merge' => '{{doc-right}}',
-	'right-lqt-react' => '{{doc-right}}',
+	'right-lqt-split' => '{{doc-right|lqt-split}}',
+	'right-lqt-merge' => '{{doc-right|lqt-merge}}',
+	'right-lqt-react' => '{{doc-right|lqt-react}}',
 	'lqt-log-action-move' => 'Parameteres:
 * $1 is the link text to the topic
 * $2 is the link text to the source page the topic was moved from
