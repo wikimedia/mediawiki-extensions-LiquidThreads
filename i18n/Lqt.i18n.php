@@ -3119,6 +3119,7 @@ $messages['ca'] = array(
 Pot:
 * ser massa llarg, o
 * entrar en conflicte amb prefixos interwiki o altres espai de noms.',
+	'lqt-empty-text' => 'No es pot publicar un missatge en blanc',
 	'lqt_empty_subject' => "Heu d'introduir un tema.",
 	'lqt_reply' => 'Respon',
 	'lqt-parent' => 'Pare',
@@ -3191,16 +3192,6 @@ Aquest fil és part de $2.',
 	'lqt_move_samedestination' => 'El fil ja està en aquesta pàgina!',
 	'lqt_move_noreason' => "No s'ha donat cap motiu.",
 	'lqt_move_success' => "S'ha traslladat el fil a $1.",
-	'lqt_delete_undeletethread' => 'Restauració de fil',
-	'lqt_delete_partof' => "Aquest fil és part de '''$1'''.",
-	'lqt_delete_deleting' => "Suprimeix '''$1''' i '''totes les seves respostes'''.",
-	'lqt_delete_deletethread' => 'Elimina el fil i les respostes',
-	'lqt_delete_deleted' => 'El fil ha estat esborrat.',
-	'lqt_delete_undeleted' => 'El fil ha estat restaurat.',
-	'lqt_delete_return' => 'Torna cap a $1.',
-	'lqt_delete_return_link' => 'la pàgina de discussió',
-	'lqt_delete_unallowed' => 'No esteu autoritzat per eliminar fils.',
-	'lqt_delete_show_checkbox' => 'Mostra els fils eliminats',
 	'lqt_talkpage_autocreate_summary' => 'Pàgina de discussió creada automàticament quan es va crear el primer fil.',
 	'lqt_header_warning_big' => 'Esteu editant un $1.',
 	'lqt_header_warning_after_big' => 'Les capçaleres són per anuncis i prefacis.
@@ -3265,6 +3256,7 @@ Si ho voleu evitar, cal que les separeu d'aquest fil abans d'eliminar-lo.",
 	'lqt_rc_new_reply' => 'publicada una resposta a "$1"',
 	'right-lqt-split' => 'Separar fils',
 	'right-lqt-merge' => 'Fusionar fils',
+	'right-lqt-react' => 'Respondre els fils de discussió',
 	'lqt-thread-merge' => 'Fusiona-ho amb un altre fil',
 	'lqt-thread-merge-to' => 'Fusiona en aquest fil',
 	'lqt_merge_thread' => 'Fusiona fils',
@@ -3288,18 +3280,23 @@ Si ho voleu evitar, cal que les separeu d'aquest fil abans d'eliminar-lo.",
 	'lqt-preference-custom-signatures' => "Mostra les signatures d'usuari personalitzades",
 	'lqt-enotif-subject-reply' => 'Discussió a {{SITENAME}} - Resposta: $1',
 	'lqt-enotif-subject-newthread' => 'Discussió a {{SITENAME}} - Nou tema: $1',
-	'lqt-enotif-newthread' => 'Hola $1,
-Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que un nou fil de de discussió «$2» a $5, ha estat creat el dia $3 a les $4.
+	'lqt-enotif-newthread' => "Hola $1,
 
-El podeu veure a <$6>',
-	'lqt-enotif-reply' => 'Hola $1,
-Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que ha aparegut una resposta al fil «$2» a $5,
-creada el dia $3 a les $4.
+Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que un nou fil de de discussió «$2» a $5, ha estat creat el dia $3 a les $4 per part de l'usuari $8
+
+El podeu veure a <$6>
+
+El text és:
+$7",
+	'lqt-enotif-reply' => "Hola $1,
+
+Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que una nova resposta al fil «$2» de $5,
+ha aparegut el dia $3 a les $4 per part de l'usuari $8
 
 El podeu veure a <$6>
 
 El text de la resposta és:
-$7',
+$7",
 	'lqt-quote-intro' => 'El dia $2 a les $3, [[User:$1|$1]] va escriure:',
 	'lqt-quote' => 'Cita-ho',
 	'lqt-search-legend' => 'Cerca discussions en aquesta pàgina',
@@ -3321,7 +3318,7 @@ La signatura es mostrarà automàticament.',
 	'lqt-save-subject' => 'Desa',
 	'lqt-save-subject-failed' => "S'ha produït l'error següent mentre es provava de canviar el tema del fil: $1",
 	'lqt-ajax-invalid-subject' => 'El tema que heu especificat no era vàlid, probablement perquè era massa llarg.',
-	'lqt-ajax-no-subject' => "Heu d'especificar un tema.",
+	'lqt-ajax-no-subject' => "Heu d'especificar un tema pel fil nou.",
 	'lqt-save-subject-error-unknown' => "S'ha produït un error desconegut que es provava de definir el tema del fil. Torneu-ho a provar fent clic a «edita» a l'apunt superior.",
 	'lqt-cancel-subject-edit' => 'Cancel·la',
 	'lqt-drag-activate' => 'Arrossega una ubicació nova',
@@ -3334,7 +3331,7 @@ La signatura es mostrarà automàticament.',
 	'lqt-drag-save' => 'Confirma',
 	'lqt-drag-title' => "Confirmeu l'arrossegament",
 	'lqt-drag-reason' => 'Motiu:',
-	'lqt-drag-subject' => 'Tema del nou fil:',
+	'lqt-drag-subject' => 'Tema del nou fil (obligatori):',
 	'lqt-edit-signature' => '(edita la signatura)',
 	'lqt-preview-signature' => '(previsualització)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Nous missatges',
@@ -3345,6 +3342,7 @@ La signatura es mostrarà automàticament.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respostes de $1',
 	'lqt-feed-new-thread-intro' => 'Nou fil a $1 publicat per $2',
 	'lqt-feed-reply-intro' => 'Resposta al fil $3 (dins $1) publicada per $2',
+	'tooltip-pt-newmessages' => 'Mostra els nous missatges dels fils o pàgines de discussió que esteu vigilant',
 	'lqt-newmessages-n' => 'Missatges nous ($1)',
 	'lqt_newmessages' => 'Els meus missatges nous (Cap)',
 	'lqt_newmessages-title' => 'Missatges nous',
