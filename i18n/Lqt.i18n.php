@@ -7566,6 +7566,7 @@ $messages['grc'] = array(
 );
 
 /** Swiss German (Alemannisch)
+ * @author Als-Chlämens
  * @author Als-Holder
  * @author Purodha
  */
@@ -7583,6 +7584,7 @@ $messages['gsw'] = array(
 	'lqt_invalid_subject' => 'Dr Diskussionsgegestand, wu du yygee hesch, isch nit giltig. S cha syy, ass es:
 * ass er z lang isch oder
 * ass es e Konflikt git mit Interwiki-Präfix oder Namensryym',
+	'lqt-empty-text' => 'Du chasch kei lääri Noochricht hinterlo.',
 	'lqt_empty_subject' => 'Du muesch e Beträff yygee.',
 	'lqt_reply' => 'Antwort gee',
 	'lqt-parent' => 'Byytrag, wu des d Antwort druf isch',
@@ -7656,16 +7658,6 @@ Wänn mit dr Diskussion ufghert woren isch, mechtscht si villicht $1.',
 	'lqt_move_samedestination' => 'Dr Diskussionsstrang git s scho uf däre Syte.',
 	'lqt_move_noreason' => 'kei Grund aagee.',
 	'lqt_move_success' => 'Diskussionsstrang verschobe no $1.',
-	'lqt_delete_undeletethread' => 'Widerhärgstellte Diskussionsstrang',
-	'lqt_delete_partof' => "Dää Diskussionsstrang isch e Teil vu '''$1'''.",
-	'lqt_delete_deleting' => "Leschig vu '''$1''' un '''allene Antworte''' druf.",
-	'lqt_delete_deletethread' => 'Diskussionsstrang un Antworte lesche',
-	'lqt_delete_deleted' => 'Dr Diskussionsstrang isch glescht wore.',
-	'lqt_delete_undeleted' => 'Dr Diskussionsstrang isch widerhärgstellt wore.',
-	'lqt_delete_return' => 'Zrugg zue $1.',
-	'lqt_delete_return_link' => 'd Diskussionssyte',
-	'lqt_delete_unallowed' => 'Du derfsch kei Diskussionssträng lesche.',
-	'lqt_delete_show_checkbox' => 'Zeig gleschti Diskussionssträng',
 	'lqt_talkpage_autocreate_summary' => 'Diskussionssyte automatisch mit em erschte Diskussionsstrang aagleit.',
 	'lqt_header_warning_big' => 'Du bearbeitsch e $1.',
 	'lqt_header_warning_after_big' => 'Kopfzyyle sin fir Aachindigen un Yyleitige.
@@ -7730,6 +7722,7 @@ Wänn du des witt verhindere, no teil si ab vum Strang, voreb du ne leschesch.',
 	'lqt_rc_new_reply' => 'het e Antwort gee uf „$1“',
 	'right-lqt-split' => 'Strang ufteile',
 	'right-lqt-merge' => 'Strang zämmefiere',
+	'right-lqt-react' => 'Uff Threads antworte',
 	'lqt-thread-merge' => 'In e andere Strang yyfiege',
 	'lqt-thread-merge-to' => 'In dää Strang yyfiege',
 	'lqt_merge_thread' => 'Strang zämmefiere',
@@ -7753,18 +7746,20 @@ Wänn du des witt verhindere, no teil si ab vum Strang, voreb du ne leschesch.',
 	'lqt-preference-custom-signatures' => 'Signature fir fortgschritteni Benutzer aazeige',
 	'lqt-enotif-subject-reply' => '{{SITENAME}}-Diskussion - Antwort: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-Diskussion - Neje Diskussionstrang: $1',
-	'lqt-enotif-newthread' => "Sali $1,
-Des isch e Nochricht vu {{SITENAME}}, ass e neje Diskussionsstrang iber $5, '$2',
-aagleit woren isch uf $3 am $4.
-Du chasch e säh uf <$6>",
-	'lqt-enotif-reply' => "Sali $1,
-Des isch e Nochricht vu {{SITENAME}}, ass e neji Antwort uf '$2' iber $5,
-aagleit woren isch uf $3 am $4.
+	'lqt-enotif-newthread' => 'Sali $1,
+Des isch e Nochricht vu {{SITENAME}}. De Benutzer $8 het am $3 um $4 Uhr uff de Syte „$5“ s nöii Thema „$2“ aagfange.
 
-Du chasch si säh uf <$6>
+Du chasch es über de Link aaluege: <$6>
 
 D Antwort isch:
-$7",
+$7',
+	'lqt-enotif-reply' => 'Sali $1,
+Des isch e Nochricht vu {{SITENAME}}. De Benutzer $8 het am $3 um $4 Uhr uff de Syte „$5“ zum Thema „$2“ e nöii Noochricht gschrybe.
+
+Du chasch es über de Link aaluege: <$6>
+
+D Antwort isch:
+$7',
 	'lqt-quote-intro' => 'Am $2 am $3, het [[User:$1|$1]] gschribe:',
 	'lqt-quote' => 'Zitiere',
 	'lqt-search-legend' => 'Dursuech d Diskussionsbyytreg uf däre Syte',
@@ -7786,7 +7781,7 @@ D Signatur wird automatisch aazeigt.',
 	'lqt-save-subject' => 'Spychere',
 	'lqt-save-subject-failed' => 'Bim Versuech s Thema vu däm Strang z ändere isch dää Fähler ufträtte: $1',
 	'lqt-ajax-invalid-subject' => 'S Thema, wu du yygee hesch, isch nit giltig, villicht isch s z lang.',
-	'lqt-ajax-no-subject' => 'Du muesch e Thema aagee.',
+	'lqt-ajax-no-subject' => 'Du muesch e Betreff für s nöii Thema aagee.',
 	'lqt-save-subject-error-unknown' => 'Bim Versuech s Thema vu däm Strang z setze, isch e nit bekannte Fähler ufträtte. Bitte versuech des, indäm du bim oberschte Byytrag uf „Ändere“ drucksch.',
 	'lqt-cancel-subject-edit' => 'Abbräche',
 	'lqt-drag-activate' => 'Uf e neje Platz setze',
@@ -7799,7 +7794,7 @@ D Signatur wird automatisch aazeigt.',
 	'lqt-drag-save' => 'Bstetige',
 	'lqt-drag-title' => 'Zie bstetige',
 	'lqt-drag-reason' => 'Grund:',
-	'lqt-drag-subject' => 'Thema vum neje Diskussionsstrang:',
+	'lqt-drag-subject' => 'Betreff vum neje Threat (muess yygee werde):',
 	'lqt-edit-signature' => '(Unterschrift bearbeite)',
 	'lqt-preview-signature' => '(Vorschau)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Neji Byytreg',
@@ -7810,8 +7805,9 @@ D Signatur wird automatisch aazeigt.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antworte vu $1',
 	'lqt-feed-new-thread-intro' => 'E neje Diskussionsstrang uf $1, aagleit vu $2',
 	'lqt-feed-reply-intro' => 'Antworte uf $3 (uf $1) vu $2',
+	'tooltip-pt-newmessages' => 'Zeig nöii Noochrichte für d Theme un Diskussione, wo du beobachte duesch',
 	'lqt-newmessages-n' => 'Neji Nochrichte ($1)',
-	'lqt_newmessages' => 'Neji Nochrichte',
+	'lqt_newmessages' => 'Neji Nochrichte (keini)',
 	'lqt_newmessages-title' => 'Neji Nochrichte',
 	'lqt-newpost-summary' => 'Neje Diskussionstrang: $1',
 	'lqt-reply-summary' => 'Anwort uf [[$2|$1]]',
