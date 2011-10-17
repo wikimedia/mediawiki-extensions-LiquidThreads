@@ -961,6 +961,7 @@ $messages['an'] = array(
 );
 
 /** Arabic (العربية)
+ * @author AwamerT
  * @author Meno25
  * @author OsamaK
  * @author Ouda
@@ -982,6 +983,7 @@ $messages['ar'] = array(
 ربما:
 * يكون طويلا جدا، أو
 * يتعارض مع بادئات الإنترويكي أو أسماء النطاقات.',
+	'lqt-empty-text' => 'لاتستطيع نشر رسالة فارغة',
 	'lqt_empty_subject' => 'يجب أن تدخل موضوعًا.',
 	'lqt_reply' => 'رُد',
 	'lqt-parent' => 'والد',
@@ -1056,16 +1058,6 @@ $messages['ar'] = array(
 	'lqt_move_samedestination' => 'الموضوع أصلًا على هذه الصفحة!',
 	'lqt_move_noreason' => 'لا سبب معطى.',
 	'lqt_move_success' => 'تم نقل النقاش إلى $1.',
-	'lqt_delete_undeletethread' => 'استرجع النقاش',
-	'lqt_delete_partof' => "هذا النقاش جزء من '''$1'''.",
-	'lqt_delete_deleting' => "حذف '''$1''' و '''كل الردود''' له.",
-	'lqt_delete_deletethread' => 'احذف النقاش والردود',
-	'lqt_delete_deleted' => 'تم حذف النقاش.',
-	'lqt_delete_undeleted' => 'تم استرجاع النقاش.',
-	'lqt_delete_return' => 'ارجع إلى $1.',
-	'lqt_delete_return_link' => 'صفحة النقاش',
-	'lqt_delete_unallowed' => 'أنت غير مسموح لك بحذف مجموعات الرسائل.',
-	'lqt_delete_show_checkbox' => 'اعرض مجموعات الرسائل المحذوفة',
 	'lqt_talkpage_autocreate_summary' => 'صفحة النقاش تم إنشاؤها تلقائيا عندما تم إرسال أول نقاش.',
 	'lqt_header_warning_big' => 'أنت تعدل $1.',
 	'lqt_header_warning_after_big' => 'العناوين للإعلانات والمقدمات.
