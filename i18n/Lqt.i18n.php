@@ -2561,6 +2561,7 @@ $messages['br'] = array(
 Marteze :
 * ez eo re hir
 * e sav tabut gant ur rakger etrewiki pe un esaouenn anvioù.",
+	'lqt-empty-text' => "N'hallit ket postañ ur gemennadenn c'houllo",
 	'lqt_empty_subject' => "Ret eo deoc'h merkañ un tem.",
 	'lqt_reply' => 'Respont',
 	'lqt-parent' => 'Usrummad',
@@ -16464,7 +16465,7 @@ $messages['rue'] = array(
 	'lqt-preference-custom-signatures' => 'Указовати приспособлены підписы хоснователїв',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} діскузія - Одповідь: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} діскузія - Нове волокно: $1',
-	'lqt-enotif-newthread' => 'Честованых хоснователю $1,
+	'lqt-enotif-newthread' => 'Честованый хоснователю $1,
 
 тото є повідомлїня з {{grammar:2sg|{{SITENAME}}}}, же $3 в $4
 {{GENDER:$8|створив|створила|створив(а)}} $8 v $5 нове волокно „$2“.
@@ -20162,7 +20163,7 @@ $messages['vi'] = array(
 	'lqt_youhavenewmessages' => 'Bạn có [[$1|tin nhắn mới]].',
 	'lqt_protectedfromreply' => 'Luồng này đã được $1 từ những gì trả lời.',
 	'lqt_protectedfromreply_link' => 'khóa',
-	'lqt_subject' => 'Chủ đề:',
+	'lqt_subject' => 'Tiêu đề:',
 	'lqt_noreason' => 'Không đưa ra lý do.',
 	'lqt_move_placeholder' => 'Luồng này là một nơi lưu trữ cho thấy rằng một luồng, $1, đã được di chuyển khỏi trang.
 Sự di chuyển này do $2 thực hiện vào ngày $3 lúc $4. Luồng hiện nằm tại $5.',
