@@ -9677,6 +9677,7 @@ $messages['ilo'] = array(
 	'lqt_add_header' => 'Ikkan ti paulo',
 	'lqt_new_thread' => 'Mangirugi ti baro nga pagtutungtongan',
 	'lqt_reply' => 'Sungbat',
+	'lqt-parent' => 'Naggapuan na',
 	'lqt_delete' => 'Ikkaten',
 	'lqt_undelete' => 'Isubli ti pinaikkat',
 	'lqt_permalink' => 'Isilpo idiay',
