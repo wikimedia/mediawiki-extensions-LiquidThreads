@@ -14607,6 +14607,7 @@ $messages['pms'] = array(
 A podrìa:
 * esse tròp longh, o
 * esse an conflit con dij prefiss antërwiki o nòm dë spassi nominal.",
+	'lqt-empty-text' => 'It peule pa spedì un mëssagi veuid',
 	'lqt_empty_subject' => "A deuv anserì n'oget.",
 	'lqt_reply' => 'Arspond',
 	'lqt-parent' => 'Cé',
