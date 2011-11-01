@@ -4692,6 +4692,7 @@ $messages['dsb'] = array(
 	'lqt_invalid_subject' => 'Tema, kótaruž sy zapódał, jo njepłaśiwa. Snaź:
 * jo pśedłujko abo
 * jo konfilikt z interwikijowymi prefiksami abo mjenja mjenjowych rumow.',
+	'lqt-empty-text' => 'Njamóžoš proznu powěsć słaś.',
 	'lqt_empty_subject' => 'Musyš temowe nadpismo zapódaś.',
 	'lqt_reply' => 'Wótegroniś',
 	'lqt-parent' => 'Nadrědowany',
@@ -4766,16 +4767,6 @@ Toś ta nitka jo źěl z $2.',
 	'lqt_move_samedestination' => 'Nitka jo južo na toś tom boku!',
 	'lqt_move_noreason' => 'Žedna pśicyna pódana.',
 	'lqt_move_success' => 'Nitka jo se pśesunuła do $1.',
-	'lqt_delete_undeletethread' => 'Nitku wótnowiś',
-	'lqt_delete_partof' => "Toś ta nitka jo źěl z '''$1'''.",
-	'lqt_delete_deleting' => "'''$1''' a '''wše wótegrona''' na nju se lašuju.",
-	'lqt_delete_deletethread' => 'Nitki a wótegrona wulašowaś',
-	'lqt_delete_deleted' => 'Nitka jo se wulašowała.',
-	'lqt_delete_undeleted' => 'Nitka jo se wótnowiła.',
-	'lqt_delete_return' => 'Slědk k $1.',
-	'lqt_delete_return_link' => 'diskusijny bok',
-	'lqt_delete_unallowed' => 'Njesmějoš nitki lašowaś.',
-	'lqt_delete_show_checkbox' => 'Wulašowane nitki pokazaś',
 	'lqt_talkpage_autocreate_summary' => 'Diskusijny bok awtomatiski napórany, gaž prědna nitka jo se napórała.',
 	'lqt_header_warning_big' => 'Wobźěłujoš $1.',
 	'lqt_header_warning_after_big' => 'Głowowe smužki su za pśipowěźenja a zawjeźenja.
@@ -4840,6 +4831,7 @@ Aby se to wobinuło, wótźěl je wót toś teje nitki, nježli až ju lašujoš
 	'lqt_rc_new_reply' => 'jo pósłał wótegrono na "$1"',
 	'right-lqt-split' => 'Nitki rozdźěliś',
 	'right-lqt-merge' => 'Nitki zjadnośiś',
+	'right-lqt-react' => 'Wótegrono na temy',
 	'lqt-thread-merge' => 'Z drugeju nitku zjadnośiś',
 	'lqt-thread-merge-to' => 'Z toś teju nitku zjadnośiś',
 	'lqt_merge_thread' => 'Nitku zjadnośiś',
@@ -4864,11 +4856,16 @@ Aby se to wobinuło, wótźěl je wót toś teje nitki, nježli až ju lašujoš
 	'lqt-enotif-subject-reply' => '{{SITENAME}} diskusija - wótegrono: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} diskusija - nowa nitka: $1',
 	'lqt-enotif-newthread' => "Witaj $1,
-to jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo se nowa nitka na $5, '$2' $3 $4 napórała.
 
-Móžoš jo na <$6> wiźeś",
+to jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo nowa nitka na $5, '$2', $3 $4 wót $8 napórała.
+
+Móžoš jo na <$6> wiźeś
+
+Tekst jo:
+$7",
 	'lqt-enotif-reply' => "Witaj $1,
-to jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo se nowe wótegrono k '$2' na $5 $3 $4 napórało.
+
+to jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo se nowe wótegrono k '$2' na $5, $3 $4 wót $8 napórało.
 
 Móžoš jo na <$6> wiźeś
 
@@ -4895,7 +4892,7 @@ Pódpis pokazujo se awtomatiski.',
 	'lqt-save-subject' => 'Składowaś',
 	'lqt-save-subject-failed' => 'Pśi wopyśe temu toś teje nitki změniś, jo slědujuca zmólka nastała: $1',
 	'lqt-ajax-invalid-subject' => 'Tema, kótaruž sy pódał, jo njepłaśiwa była, nejskerjej, dokulaž jo pśedłujko była.',
-	'lqt-ajax-no-subject' => 'Musyš temu pódaś.',
+	'lqt-ajax-no-subject' => 'Musyš temu za nowu nitku pódaś.',
 	'lqt-save-subject-error-unknown' => 'Pśi wopyśe temu toś teje nitki pódaś, jo njeznata zmólka nastała. Klikni na "wobźěłaś", aby to cynił.',
 	'lqt-cancel-subject-edit' => 'Pśetergnuś',
 	'lqt-drag-activate' => 'Do nowego městna śěgnuś',
@@ -4908,7 +4905,7 @@ Pódpis pokazujo se awtomatiski.',
 	'lqt-drag-save' => 'Wobkšuśiś',
 	'lqt-drag-title' => 'Śěgnjenje wobkšuśiś',
 	'lqt-drag-reason' => 'Pśicyna:',
-	'lqt-drag-subject' => 'Nadpismo za nowu nitku:',
+	'lqt-drag-subject' => 'Nadpismo za nowu nitku (trěbne):',
 	'lqt-edit-signature' => '(pódpis wobźěłaś)',
 	'lqt-preview-signature' => '(pśeglěd)',
 	'lqt-feed-title-all' => '{{SITENAME}} - nowe powěsći',
@@ -4921,7 +4918,7 @@ Pódpis pokazujo se awtomatiski.',
 	'lqt-feed-reply-intro' => 'Wótegrono na $3 (na $1) pósłane wót $2',
 	'tooltip-pt-newmessages' => 'Pokazujo nowe powěsći k nitkam abo na diskusijnych bokach nitkow, kótarež wobglědujoš',
 	'lqt-newmessages-n' => 'nowe powěsći ($1)',
-	'lqt_newmessages' => 'nowe powěsći',
+	'lqt_newmessages' => 'nowe powěsći (žedne)',
 	'lqt_newmessages-title' => 'Nowe powěsći',
 	'lqt-newpost-summary' => 'Nowa nitka: $1',
 	'lqt-reply-summary' => 'Wótegrono na [[$2|$1]]',
