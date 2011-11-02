@@ -8551,6 +8551,7 @@ $messages['hsb'] = array(
 	'lqt_invalid_subject' => 'Tema, kotryž sy zapodał, je njepłaćiwa. Snano:
 * je předołho abo
 * je konflikt z interwikijowymi prefiksami abo mjenami mjenowych rumow.',
+	'lqt-empty-text' => 'Njemóžeš prózdnu powěsć pósłać',
 	'lqt_empty_subject' => 'Dyrbiš temowe nadpismo zapodać.',
 	'lqt_reply' => 'Wotmołwić',
 	'lqt-parent' => 'Nadrjadowany',
@@ -8685,6 +8686,7 @@ Zo by to wobešoł, wotdźěl je wot tuteje nitki, prjedy hač ju wušmóruješ.
 	'lqt_rc_new_reply' => 'pósła wotmołwu na "$1"',
 	'right-lqt-split' => 'Nitki rozdźělić',
 	'right-lqt-merge' => 'Nitki zjednoćić',
+	'right-lqt-react' => 'Na temy wotmołwić',
 	'lqt-thread-merge' => 'z druhej nitku zjednoćić',
 	'lqt-thread-merge-to' => 'Z tutej nitku zjednoćić',
 	'lqt_merge_thread' => 'Nitku zjednoćić',
