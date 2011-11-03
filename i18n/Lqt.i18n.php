@@ -5172,8 +5172,8 @@ $messages['eo'] = array(
 	'lqt_toc_thread_author' => 'Komencis de',
 	'lqt_toc_thread_replycount' => 'Respondoj',
 	'lqt_toc_thread_modified' => 'Laste ŝanĝita',
-	'lqt_add_header' => 'Aldonu titolon',
-	'lqt_new_thread' => 'Kreu novan diskuton',
+	'lqt_add_header' => 'Aldoni titolon',
+	'lqt_new_thread' => 'Krei novan diskuton',
 	'lqt_invalid_subject' => 'La tempo kiun vi enigis estas malvalida.
 Eble ĝi estas:
 *Tro longa, aŭ
@@ -5243,7 +5243,7 @@ Se ĝi estas fermita, eble vi volus $1.',
 	'lqt_threadrequired' => 'Vi devas enigi fadenon en la URL-o.',
 	'lqt_move_movingthread' => 'Movante $1. Ĉi tiu fadeno estas parto de $2.',
 	'lqt_move_torename' => "Por renomigi ĉi tiun fadenon, $1 kaj ŝanĝu la kampon 'Temo'.",
-	'lqt_move_torename_edit' => 'redaktu ĝin',
+	'lqt_move_torename_edit' => 'redakti ĝin',
 	'lqt_move_destinationtitle' => 'Titolo de destina diskuto-paĝo:',
 	'lqt_move_move' => 'Alinomigi',
 	'lqt_move_nodestination' => 'Vi nepre specifu destinon.',
