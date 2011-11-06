@@ -9817,6 +9817,7 @@ $messages['io'] = array(
 
 /** Icelandic (Íslenska)
  * @author S.Örvarr.S
+ * @author Snævar
  * @author Spacebirdy
  * @author Ævar Arnfjörð Bjarmason
  */
@@ -9891,7 +9892,7 @@ Síðast breytt: $1',
 	'lqt-edit-signature' => '(breyta undirskrift)',
 	'lqt-preview-signature' => '(forskoða)',
 	'lqt-newmessages-n' => 'Ný skilaboð ($1)',
-	'lqt_newmessages' => 'Ný skilaboð',
+	'lqt_newmessages' => 'Engin ný skilaboð',
 	'lqt_newmessages-title' => 'Ný skilaboð',
 	'lqt-edit-bump' => 'Stjaka þessum þræði',
 );
