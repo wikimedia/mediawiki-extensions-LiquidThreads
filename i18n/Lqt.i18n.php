@@ -16828,6 +16828,7 @@ $messages['shi'] = array(
 );
 
 /** Sinhala (සිංහල)
+ * @author Singhalawap
  * @author බිඟුවා
  */
 $messages['si'] = array(
@@ -16840,6 +16841,8 @@ $messages['si'] = array(
 	'lqt-history-time' => 'වේලාව',
 	'lqt-history-user' => 'පරිශීලක',
 	'lqt-history-comment' => 'පරිකථනය',
+	'lqt-save-subject' => 'තහවුරු කරන්න',
+	'lqt-drag-save' => 'තහවුරුකරන්න',
 );
 
 /** Slovak (Slovenčina)
