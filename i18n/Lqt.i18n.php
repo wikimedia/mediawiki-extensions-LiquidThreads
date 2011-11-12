@@ -17328,8 +17328,8 @@ $7',
 	'lqt-thread-link-url' => 'URL povezave:',
 	'lqt-thread-link-title' => 'Povezava wikibesedila:',
 	'lqt-thread-link-copy' => 'Kopiraj v odložišče',
-	'lqt-sign-not-necessary' => 'Ni potrebno podpisati svoje objave s štirimi tildami.
-Podpis je prikazan samodejno.',
+	'lqt-sign-not-necessary' => 'Svoje objave ne rabite podpisati s štirimi tildami.
+Podpis se prikaže samodejno.',
 	'lqt-marked-as-read-placeholder' => 'Razprava $1 je bila označena kot prebrana.',
 	'lqt-change-subject' => 'Spremeni zadevo',
 	'lqt-save-subject' => 'Shrani',
