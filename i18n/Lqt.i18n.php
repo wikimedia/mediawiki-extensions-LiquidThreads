@@ -8863,6 +8863,7 @@ $messages['ht'] = array(
 /** Hungarian (Magyar)
  * @author BáthoryPéter
  * @author Dani
+ * @author Dj
  * @author Enbéká
  * @author Glanthor Reviol
  * @author Hunyadym
@@ -8882,6 +8883,7 @@ $messages['hu'] = array(
 	'lqt_invalid_subject' => 'A megadott tárgy érvénytelen, mert:
 * túl hosszú, vagy
 * ütközik névtérközi hivatkozások előtagjával vagy névterek nevével.',
+	'lqt-empty-text' => 'Üres üzenetet nem lehet elküldeni',
 	'lqt_empty_subject' => 'Meg kell adnod a tárgyat.',
 	'lqt_reply' => 'válasz',
 	'lqt-parent' => 'Szülő',
@@ -8956,16 +8958,6 @@ Jelenleg a(z) $2 című lap része.',
 	'lqt_move_samedestination' => 'A téma már ezen a lapon van!',
 	'lqt_move_noreason' => 'Nincs ok megadva.',
 	'lqt_move_success' => 'A téma át lett helyezve a(z) $1 című lapra.',
-	'lqt_delete_undeletethread' => 'Téma visszaállítása',
-	'lqt_delete_partof' => "Ez a téma a(z) '''$1''' című lap része.",
-	'lqt_delete_deleting' => "'''$1''' és a hozzá tartozó '''összes válasz''' törlése.",
-	'lqt_delete_deletethread' => 'A téma és a hozzá tartozó válaszok törlése',
-	'lqt_delete_deleted' => 'Téma törölve.',
-	'lqt_delete_undeleted' => 'Téma helyreállítva.',
-	'lqt_delete_return' => 'Visszatérés a $1.',
-	'lqt_delete_return_link' => 'vitalapra',
-	'lqt_delete_unallowed' => 'Nincs jogosultságod témákat törölni.',
-	'lqt_delete_show_checkbox' => 'Törölt témák megjelenítése',
 	'lqt_talkpage_autocreate_summary' => 'A vitalap automatikusan létrejött az első téma elküldésekor',
 	'lqt_header_warning_big' => 'Te most egy $1 szerkesztesz.',
 	'lqt_header_warning_after_big' => 'A fejlécek bejelentések és előszavak számára vannak. Nem $2 akarsz indítani?',
@@ -9030,6 +9022,7 @@ Ha ezt meg szeretnéd akadályozni, válaszd szét a témát, mielőtt töröln�
 	'lqt_rc_new_reply' => 'Válasz erre: „$1”',
 	'right-lqt-split' => 'témák szétválasztása',
 	'right-lqt-merge' => 'témák összevonása',
+	'right-lqt-react' => 'Válasz a témára',
 	'lqt-thread-merge' => 'Összevonás egy másik témával',
 	'lqt-thread-merge-to' => 'Összevonás ezzel a témával',
 	'lqt_merge_thread' => 'Témák összevonása',
@@ -9053,10 +9046,14 @@ Ha ezt meg szeretnéd akadályozni, válaszd szét a témát, mielőtt töröln�
 	'lqt-preference-custom-signatures' => 'Felhasználók egyéni aláírásainak megjelenítése',
 	'lqt-enotif-subject-reply' => '{{SITENAME}}-megbeszélés – Válasz: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-megbeszélés – Új téma: $1',
-	'lqt-enotif-newthread' => 'Szia, $1!
-Ez egy értesítés a(z) {{SITENAME}} wikiről. Új témát indítottak a(z) $5 lapon „$2” címmel, $3 $4-kor.
+	'lqt-enotif-newthread' => 'Szia $1!
 
-A következő címen tekintheted meg: <$6>',
+Ez egy értesítés a(z) {{SITENAME}} wikiről. Új témát indított $8 a(z) $5 lapon „$2” címmel, $3, $4-kor.
+
+A következő címen tekintheted meg: <$6>
+
+A szöveg a következő:
+$7',
 	'lqt-enotif-reply' => '!Szia, $1!
 Ez egy {{SITENAME}}-értesítés. Új válasz érkezett a(z) „$2” című témához a(z) $5 lapon, $3 $4-kor.
 
@@ -9085,7 +9082,7 @@ Az aláírásod automatikusan meg fog jelenni.',
 	'lqt-save-subject' => 'Mentés',
 	'lqt-save-subject-failed' => 'A téma tárgyának megváltoztatása közben a következő hiba történt: $1',
 	'lqt-ajax-invalid-subject' => 'A megadott tárgy érvénytelen, valószínűleg mert túl hosszú volt.',
-	'lqt-ajax-no-subject' => 'Meg kell adnod a tárgyat.',
+	'lqt-ajax-no-subject' => 'Meg kell adnod a téma tárgyát!',
 	'lqt-save-subject-error-unknown' => 'Ismeretlen hiba történt a téma tárgyának megváltoztatása közben. Próbálkozz újra a legfelső hozzászólás mellett található „szerkesztés” linkre való kattintással.',
 	'lqt-cancel-subject-edit' => 'Mégse',
 	'lqt-drag-activate' => 'Húzd az új helyre',
@@ -9098,7 +9095,7 @@ Az aláírásod automatikusan meg fog jelenni.',
 	'lqt-drag-save' => 'Megerősítés',
 	'lqt-drag-title' => 'Áthelyezés megerősítése',
 	'lqt-drag-reason' => 'Indoklás:',
-	'lqt-drag-subject' => 'Az új téma tárgya:',
+	'lqt-drag-subject' => 'Az új téma tárgya (kötelező):',
 	'lqt-edit-signature' => '(aláírás szerkesztése)',
 	'lqt-preview-signature' => '(előnézet)',
 	'lqt-feed-title-all' => '{{SITENAME}} – új hozzászólások',
