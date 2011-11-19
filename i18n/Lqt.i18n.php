@@ -8173,7 +8173,7 @@ $7",
 	'lqt-thread-link-copy' => 'העתקה ללוח',
 	'lqt-sign-not-necessary' => 'אין צורך לחתום על ההודעה בארבע טילדות.
 החתימה מוצגת אוטומטית.',
-	'lqt-marked-as-read-placeholder' => 'האשכול $1 סומן כנקרא.',
+	'lqt-marked-as-read-placeholder' => 'השרשור $1 סומן כנקרא.',
 	'lqt-change-subject' => 'שינוי הנושא',
 	'lqt-save-subject' => 'שמירה',
 	'lqt-save-subject-failed' => 'השגיאה הבאה אירעה בעת ניסיון לשינוי כותרת השרשור הבא: $1',
