@@ -359,7 +359,7 @@ class LqtView {
 	 * @param $request FauxRequest object to have session data injected into.
 	 */
 	static function fixFauxRequestSession( $request ) {
-		foreach( $_SESSION as $k => $v ) {
+		foreach( (array)$_SESSION as $k => $v ) {
 			$request->setSessionData( $k, $v );
 		}
 	}
