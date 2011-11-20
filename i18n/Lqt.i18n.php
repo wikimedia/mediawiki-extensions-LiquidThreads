@@ -12872,10 +12872,10 @@ Mungkin anda ingin $2.',
 	'lqt-title' => 'Tajuk',
 	'lqt-summary' => 'Ringkasan',
 	'lqt-searching' => 'Mencari tred',
-	'lqt-read-message' => 'Tandai sebagai sudah dibaca',
+	'lqt-read-message' => 'Tanda sebagai sudah dibaca',
 	'lqt-read-message-tooltip' => 'Gugurkan semua tred daripada pesanan baru.
 Tred-tred itu akan masih boleh dilihat di laman perbincangan asalnya.',
-	'lqt-read-all' => 'Tandai semua sebagai sudah dibaca',
+	'lqt-read-all' => 'Tanda semua sebagai sudah dibaca',
 	'lqt-read-all-tooltip' => 'Gugurkan semua tred daripada pesanan baru.
 Tred-tred itu akan masih boleh dilihat di laman perbincangan asalnya.
 Selepas ini dilakukan, tred-tred itu tidak boleh dikembalikan.',
