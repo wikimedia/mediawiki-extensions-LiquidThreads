@@ -5409,6 +5409,7 @@ La subskribo estas aŭtomate montrita.',
  * @author Crazymadlover
  * @author Dferg
  * @author Fitoschido
+ * @author Gustronico
  * @author Heldergeovane
  * @author Imre
  * @author Locos epraix
@@ -5662,8 +5663,8 @@ La firma es mostrada automaticamente.',
 	'lqt-feed-new-thread-intro' => 'Nuevo hilo en $1 enviado por $2',
 	'lqt-feed-reply-intro' => 'Respuesta a $3 (en $1) enviado por $2',
 	'tooltip-pt-newmessages' => 'Muestra los mensajes nuevos publicados en hilos o en páginas de discusión que estás vigilando',
-	'lqt-newmessages-n' => 'Mensajes nuevos ($1)',
-	'lqt_newmessages' => 'Mensajes nuevos (ninguno)',
+	'lqt-newmessages-n' => 'Mensajes ($1)',
+	'lqt_newmessages' => 'Mensajes (–)',
 	'lqt_newmessages-title' => 'Mensajes nuevos',
 	'lqt-newpost-summary' => 'Hilo nuevo: $1',
 	'lqt-reply-summary' => 'Respuesta a [[$2|$1]]',
@@ -10735,6 +10736,7 @@ $messages['ko'] = array(
 	'lqt_invalid_subject' => '주제가 잘못되었습니다.
 * 주제가 너무 길거나,
 * 인터위키나 다른 네임스페이스와의 충돌이 발생했을 수 있습니다.',
+	'lqt-empty-text' => '아무 내용 없는 메시지를 남길 수는 없습니다.',
 	'lqt_empty_subject' => '주제를 반드시 입력해야 합니다.',
 	'lqt_reply' => '답변',
 	'lqt-parent' => '상위 스레드',
@@ -10875,6 +10877,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt_rc_new_reply' => '"$1"에 대한 답글을 남겼습니다.',
 	'right-lqt-split' => '스레드 분할하기',
 	'right-lqt-merge' => '스레드 합치기',
+	'right-lqt-react' => '스레드에 답변하기',
 	'lqt-thread-merge' => '다른 스레드로 합치기',
 	'lqt-thread-merge-to' => '이 스레드에 합치기',
 	'lqt_merge_thread' => '스레드 합치기',
@@ -10899,11 +10902,16 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} 토론 - 답변: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} 토론 - 새 스레드: $1',
 	'lqt-enotif-newthread' => "$1님 안녕하세요.
-{{SITENAME}}의 $5에서 새 스레드 '$2'(이)가 $3 $4에 생성되었습니다.
 
-해당 스레드를 <$6>에서 볼 수 있습니다.",
+{{SITENAME}}의 $5에서 새 스레드 '$2'(이)가 $3 $4에 $8 사용자에 의해 생성되었습니다.
+
+해당 스레드를 <$6>에서 볼 수 있습니다.
+
+내용은 다음과 같습니다:
+$7",
 	'lqt-enotif-reply' => "$1님 안녕하세요.
-{{SITENAME}}에서 $5 문서의 '$2' 스레드에 $3 $4에 새 답변이 올라왔습니다.
+
+{{SITENAME}}에서 $5 문서의 '$2' 스레드에 $3 $4에 $8 사용자가 남긴 새 답변이 올라왔습니다.
 
 해당하는 글을 <$6>에서 볼 수 있습니다.
 
@@ -10930,7 +10938,7 @@ $7",
 	'lqt-save-subject' => '저장',
 	'lqt-save-subject-failed' => '이 스레드의 제목을 바꾸는 중 다음 오류가 발생했습니다: $1',
 	'lqt-ajax-invalid-subject' => '당신이 입력한 제목이 잘못되었습니다. 제목이 너무 길기 때문일 수 있습니다.',
-	'lqt-ajax-no-subject' => '제목을 반드시 입력해야 합니다.',
+	'lqt-ajax-no-subject' => '새 스레드의 제목을 반드시 입력해야 합니다.',
 	'lqt-save-subject-error-unknown' => '이 스레드의 제목을 정하는 중 알 수 없는 오류가 발생했습니다. 맨 윗글의 "편집" 버튼을 눌러 시도해 보십시오.',
 	'lqt-cancel-subject-edit' => '취소',
 	'lqt-drag-activate' => '다른 위치로 옮기기',
@@ -10943,7 +10951,7 @@ $7",
 	'lqt-drag-save' => '확인',
 	'lqt-drag-title' => '드래그 확인',
 	'lqt-drag-reason' => '이유:',
-	'lqt-drag-subject' => '새 스레드의 주제:',
+	'lqt-drag-subject' => '새 스레드의 주제 (필수):',
 	'lqt-edit-signature' => '(서명 편집하기)',
 	'lqt-preview-signature' => '(미리 보기)',
 	'lqt-feed-title-all' => '{{SITENAME}} — 새 게시물',
@@ -10954,6 +10962,7 @@ $7",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1에서의 답글',
 	'lqt-feed-new-thread-intro' => '$1에서 $2가 작성한 새 스레드',
 	'lqt-feed-reply-intro' => '$1 문서의 $3 스레드에 대한 $2 사용자의 답글',
+	'tooltip-pt-newmessages' => '스레드나 주시하고 있는 스레드식 토론 문서의 새 글 보기',
 	'lqt-newmessages-n' => '새 메시지 ($1)',
 	'lqt_newmessages' => '새 메시지 (없음)',
 	'lqt_newmessages-title' => '새 메시지',
