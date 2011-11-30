@@ -6030,6 +6030,7 @@ Eztabaida hau $2-(e)ko zati da.',
  * @author Mjbmr
  * @author Sahim
  * @author Wayiran
+ * @author ZxxZxxZ
  */
 $messages['fa'] = array(
 	'lqt-desc' => 'افزودن بحث‌های تاپیکی به صفحات بحث',
@@ -6046,6 +6047,7 @@ $messages['fa'] = array(
 ممکن است:
 *خیلی طولانی باشد، یا
 *با پیشوندهای میان‌ویکی یا نام‌های فضای نام ناسازگار باشد.',
+	'lqt-empty-text' => 'شما نمی‌توانید پیامی خالی بفرستید',
 	'lqt_empty_subject' => 'باید یک عنوان وارد کنید.',
 	'lqt_reply' => 'پاسخ',
 	'lqt-parent' => 'ریشه',
@@ -6256,7 +6258,7 @@ $1',
 	'lqt-drag-split' => 'پست را به مبحث خودش انتقال بده',
 	'lqt-drag-setsortkey' => 'جایگاه پست در صفحه را تنظیم کنید',
 	'lqt-drag-bump' => 'انتقال پست به بالای صفحهٔ بحث',
-	'lqt-drag-save' => 'تأئید',
+	'lqt-drag-save' => 'تأیید',
 	'lqt-drag-title' => 'تأئید کشیدن',
 	'lqt-drag-reason' => 'دلیل:',
 	'lqt-drag-subject' => 'عنوان برای مبحث جدید (اجباری):',
@@ -7263,8 +7265,8 @@ $messages['gl'] = array(
 	'lqt_protectedfromreply_link' => 'protexido',
 	'lqt_subject' => 'Asunto:',
 	'lqt_noreason' => 'Non se deu ningunha razón.',
-	'lqt_move_placeholder' => 'Este fío é un substituto que indica que outro fío, $1, foi movido desta páxina.
-Este traslado realizouno $2 o $3 ás $4. Agora o fío está en $5.',
+	'lqt_move_placeholder' => 'O fío que se atopaba aquí, "$1", foi trasladado a "$5".
+O traslado realizouno $2 o $3 ás $4.',
 	'lqt_thread_deleted_for_sysops' => "Este fío foi '''borrado''' e só pode ser visto polos administradores.",
 	'lqt_thread_deleted' => 'Este fío foi eliminado.',
 	'lqt_summary_notice' => 'Non houbo modificacións nesta conversa en, polo menos, {{PLURAL:$2|un día|$2 días}}.
@@ -7347,7 +7349,7 @@ Para evitar isto, sepáreas deste fío antes de borralo.',
 	'lqt-newmessages-from' => 'De "$1"',
 	'lqt-hot-topics' => 'Temas máis vistos',
 	'lqt-add-reply' => 'Engadir unha resposta',
-	'lqt_rc_new_discussion' => 'publicou un novo fío, "$1"',
+	'lqt_rc_new_discussion' => 'publicou un novo fío: "$1"',
 	'lqt_rc_new_reply' => 'publicou unha resposta a "$1"',
 	'right-lqt-split' => 'Separar fíos',
 	'right-lqt-merge' => 'Fusionar fíos',
@@ -12808,7 +12810,7 @@ Tandatangan diisikan secara automatik.',
 	'lqt-drag-reason' => 'Sebab:',
 	'lqt-drag-subject' => 'Subjek tred baru (wajib):',
 	'lqt-edit-signature' => '(tandatangan suntingan)',
-	'lqt-preview-signature' => '(pratonton)',
+	'lqt-preview-signature' => '(pralihat)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Kiriman baru',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Kiriman baru dari $1',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Tred baru',
