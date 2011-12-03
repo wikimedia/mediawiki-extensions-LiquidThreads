@@ -4775,7 +4775,7 @@ Snaź coš město togo $2.',
 	'lqt-searching' => 'Pytanje za nitkami',
 	'lqt-read-message' => 'Ako pśecytany markěrowaś',
 	'lqt-read-message-tooltip' => 'Wótpóraj toś tu nitku z nowych powěsćow.
-Buźo jano hyšći na swójem originalnem diskusijnem boku widobne.',
+Buźo jano hyšći na swójom originalnem diskusijnem boku widobne.',
 	'lqt-read-all' => 'Wšykne ako pśecytane markěrowaś',
 	'lqt-read-all-tooltip' => 'Wše nitki z nowych powěsćow wótpóraś.
 Budu hyšći na swojich originalnych diskusijnych bokach widobne.
@@ -6935,7 +6935,7 @@ Ceti fil est avouéc $2.',
 	'lqt_move_success' => 'Lo fil at étâ dèplaciê dens $1.',
 	'lqt_talkpage_autocreate_summary' => 'Pâge de discussion fêta ôtomaticament quand lo premiér fil de discussion at étâ mandâ.',
 	'lqt_header_warning_big' => 'Vos changiéd un $1.',
-	'lqt_header_warning_after_big' => 'Los en-tétes sont por les anonces et les prèfaces.
+	'lqt_header_warning_after_big' => 'Les en-tétes sont por les anonces et les prèfaces.
 Vos devriâd a la place $2.',
 	'lqt_header_warning_bold' => 'en-téta d’una pâge de discussion',
 	'lqt_header_warning_new_discussion' => 'lanciér un fil de discussion novél',
@@ -6963,13 +6963,13 @@ Ceta opèracion est revèrsibla.',
 	'lqt-newmessages-context' => 'Fil complèt',
 	'lqt-thread-created' => 'Fêt',
 	'lqt-history-time' => 'Hora',
-	'lqt-history-user' => 'Utilisator',
+	'lqt-history-user' => 'Usanciér',
 	'lqt-history-action' => 'Activitât',
 	'lqt-history-comment' => 'Comentèro',
 	'lqt-history-thread' => 'Fil de discussion',
 	'lqt-thread-edited-author' => 'Changiê per l’ôtor.<br />
 Dèrriér changement : $1',
-	'lqt-thread-edited-others' => 'Changiê per {{PLURAL:$2|un ôtro utilisator|$2 utilisators}}.<br />
+	'lqt-thread-edited-others' => 'Changiê per {{PLURAL:$2|un ôtro usanciér|$2 usanciérs}}.<br />
 Dèrriér changement : $1',
 	'lqt-header-actions' => 'Accions',
 	'lqt_summarize_link' => 'Rèsumar',
@@ -10102,7 +10102,7 @@ $messages['ja'] = array(
 	'lqt-empty-text' => '空白のメッセージは投稿できません',
 	'lqt_empty_subject' => '表題を入力する必要があります。',
 	'lqt_reply' => '返答',
-	'lqt-parent' => '上位メッセージ',
+	'lqt-parent' => '上位',
 	'lqt_delete' => '削除',
 	'lqt_undelete' => '復帰',
 	'lqt_permalink' => 'この発言へのリンク',
@@ -17182,7 +17182,7 @@ $messages['sr-ec'] = array(
 Разлог томе може бити:
 * наслов је предугачак
 * дошло је до сукоба с међувики префиксима или називима именских простора.',
-	'lqt_empty_subject' => 'Морате унети наслов.',
+	'lqt_empty_subject' => 'Морате да унесете наслов.',
 	'lqt_reply' => 'Одговори',
 	'lqt-parent' => 'Надређени',
 	'lqt_delete' => 'Обриши',
