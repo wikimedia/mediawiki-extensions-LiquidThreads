@@ -621,9 +621,10 @@ $messages['niu'] = array(
 
 /** Goan Konkani (Latin script) (Konknni)
  * @author Deepak D'Souza
+ * @author The Discoverer
  */
 $messages['gom-latn'] = array(
-	'lqt_newmessages' => 'Noveo sondes',
+	'lqt_newmessages' => 'Noveo sondes (Kai na)',
 );
 
 /** Abkhazian (Аҧсуа)
