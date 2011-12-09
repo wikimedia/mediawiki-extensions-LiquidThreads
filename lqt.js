@@ -259,7 +259,7 @@ window.liquidThreads = {
 		if ( typeof doLivePreview == 'function' ) {
 			doLivePreview(e);
 		} else {
-			$j.getScript( stylepath+'/common/preview.js',
+			$j.getScript( mw.config.get( 'stylepath' ) +'/common/preview.js',
 				function() { doLivePreview(e); });
 		}
 	},
@@ -538,7 +538,7 @@ window.liquidThreads = {
 		var getData = { 'action' : 'query', 'list' : 'threads', 'thid' : threads.join('|'),
 						'format' : 'json', 'thprop' : 'id|subject|parent|modified' };
 
-		$j.get( wgScriptPath+'/api.php', getData,
+		$j.get( mw.util.wikiScript( 'api' ), getData,
 			function(data) {
 				var threads = data.query.threads;
 
@@ -596,7 +596,7 @@ window.liquidThreads = {
 		var apiReq = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
 						'format' : 'json', 'thrender' : 1 };
 
-		$j.get( wgScriptPath+'/api.php', apiReq,
+		$j.get( mw.util.wikiScript( 'api' ), apiReq,
 			function(data) {
 				// Load data from JSON
 				var html = data.query.threads[threadId].content;
@@ -716,7 +716,7 @@ window.liquidThreads = {
 		var apiParams = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
 					'format' : 'json', 'thrender' : '1', 'thprop' : 'id' };
 
-		$j.get( wgScriptPath+'/api'+wgScriptExtension, apiParams,
+		$j.get( mw.util.wikiScript( 'api' ), apiParams,
 			function(data) {
 				// Interpret
 				var content = data.query.threads[threadId].content;
@@ -765,7 +765,7 @@ window.liquidThreads = {
 					'format' : 'json', 'thrender' : '1', 'thprop' : 'id',
 					'threnderstartrepliesat' : startAt };
 
-		$j.get( wgScriptPath+'/api.php', apiParams,
+		$j.get( mw.util.wikiScript( 'api' ), apiParams,
 			function(data) {
 				var content = data.query.threads[threadId].content;
 				content = $j(content).find('.lqt-thread-replies')[0];
@@ -820,7 +820,7 @@ window.liquidThreads = {
 			apiParams.unwatch = 'yes';
 		}
 
-		$j.get( wgScriptPath+'/api'+wgScriptExtension, apiParams,
+		$j.get( mw.util.wikiScript( 'api' ), apiParams,
 			function( data ) {
 				threadLevelCommands.load( window.location.href+' '+
 						'#'+threadLevelCommands.attr('id')+' > *' );
@@ -833,8 +833,8 @@ window.liquidThreads = {
 		e.preventDefault();
 		var thread = $j(this).closest('.lqt_thread');
 		var linkTitle = thread.find('.lqt-thread-title-metadata').val();
-		var linkURL = wgArticlePath.replace( "$1", linkTitle.replace(/ /g, '_' ) );
-		linkURL = wgServer + linkURL;
+		var linkURL = mw.config.get( 'wgArticlePath' ).replace( "$1", linkTitle.replace(/ /g, '_' ) );
+		linkURL = mw.config.get( 'wgServer' ) + linkURL;
 		if ( linkURL.substr( 0, 2 ) == '//' ) {
 			linkURL = window.location.protocol + linkURL;
 		}
@@ -884,7 +884,7 @@ window.liquidThreads = {
 			'format' : 'json'
 		};
 
-		$j.post( wgScriptPath+'/api'+wgScriptExtension, getTokenParams,
+		$j.post( mw.util.wikiScript( 'api' ), getTokenParams,
 			function( data ) {
 				var token = data.threadaction.token;
 
@@ -1072,7 +1072,7 @@ window.liquidThreads = {
 					newTopicParams.signature = signature;
 				}
 
-				$j.post( wgScriptPath+'/api'+wgScriptExtension, newTopicParams,
+				$j.post( mw.util.wikiScript( 'api' ), newTopicParams,
 					function(data) {
 						if (callback) {
 							callback(data);
@@ -1109,7 +1109,7 @@ window.liquidThreads = {
 					replyParams.signature = signature;
 				}
 
-				$j.post( wgScriptPath+'/api'+wgScriptExtension, replyParams,
+				$j.post( mw.util.wikiScript( 'api' ), replyParams,
 					function(data) {
 						if (callback) {
 							callback(data);
@@ -1180,8 +1180,7 @@ window.liquidThreads = {
 
 			request.format = 'json';
 
-			var path = wgScriptPath+'/api'+wgScriptExtension;
-			$j.post( path, request,
+			$j.post( mw.util.wikiScript( 'api' ), request,
 					function(data) {
 						if (callback) {
 							callback(data);

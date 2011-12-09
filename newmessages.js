@@ -28,7 +28,7 @@ $j.extend( liquidThreads,
 				title = title.replace( ' ', '_' );
 				title = encodeURIComponent(title);
 				title = title.replace( '%2F', '/' );
-				var url = wgArticlePath.replace( '$1', title );
+				var url = mw.config.get( 'wgArticlePath' ).replace( '$1', title );
 				var link = $j('<a/>').attr('href', url).text(subject);
 				elem.append(link);
 				
@@ -39,7 +39,7 @@ $j.extend( liquidThreads,
 			}
 			
 			// Add the "undo" link.
-			var undoURL = wgArticlePath.replace( '$1', wgPageName );
+			var undoURL = mw.config.get( 'wgArticlePath' ).replace( '$1', mw.config.get( 'wgPageName' ) );
 			var query = 'lqt_method=mark_as_unread&lqt_operand='+operand;
 			if ( undoURL.indexOf('?') == -1 ) {
 				query = '?'+query;
