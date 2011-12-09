@@ -13350,6 +13350,7 @@ Wijzig het onderwerp door op "Bewerken" te klikken in de bovenste bijdrage.',
  * @author Harald Khan
  * @author Jon Harald Søby
  * @author Nghtwlkr
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'lqt-desc' => 'Legg til tråda diskusjonar til diskusjonssider',
@@ -13416,7 +13417,7 @@ Kan henda er det:
 	'lqt_protectedfromreply_link' => 'låst',
 	'lqt_subject' => 'Emne:',
 	'lqt_noreason' => 'Inga grunngjeving.',
-	'lqt_move_placeholder' => 'Denne tråden finst berre for å syna at tråden $1 vart flytt frå denne sida til ei anna diskusjonssida.
+	'lqt_move_placeholder' => 'Ein tråd, $1, vart flytt herfrå til $5.
 Flyttinga vart gjort av $2 $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Denne tråden har vorten '''sletta''' og er berre synleg for administratorar.",
 	'lqt_thread_deleted' => 'Denne tråden har vorten sletta.',
@@ -13476,7 +13477,8 @@ Denne handlinga kan ikkje verta gjort om.',
 	'lqt-history-thread' => 'Tråd',
 	'lqt-thread-edited-author' => 'Endra av forfattaren.<br />
 Førre endringa: $1',
-	'lqt-thread-edited-others' => 'Endra av andre brukarar',
+	'lqt-thread-edited-others' => 'Endra av {{PLURAL:$2|ein annan brukar|$2 andre brukarar}}.<br />
+Siste endringa: $1',
 	'lqt-header-actions' => 'Handlingar',
 	'lqt_summarize_link' => 'Lag samandrag',
 	'lqt-summarize-intro' => 'Du kan laga eit samandrag av tråden med wikitekst i redigeringsboksen under. Trykk på  «{{int:savearticle}}» når du er ferdig.',
@@ -13502,6 +13504,7 @@ For å unngå dette, kan du kløyva av svara før du slettar tråden.',
 	'lqt_rc_new_reply' => 'skreiv eit svar til «$1»',
 	'right-lqt-split' => 'Kløyva trådar',
 	'right-lqt-merge' => 'Fletta trådar',
+	'right-lqt-react' => 'Svara i tråder',
 	'lqt-thread-merge' => 'Flett saman med ein annan tråd',
 	'lqt-thread-merge-to' => 'Flett inn i denne tråden',
 	'lqt_merge_thread' => 'Flett saman tråd',
@@ -13529,6 +13532,7 @@ dette er eit varsel frå {{SITENAME}} om at det vart oppretta eit svar til «$2�
 
 Du kan lesa svaret på <$6>',
 	'lqt-quote-intro' => 'Den $2 kl. $3 skreiv [[User:$1|$1]]:',
+	'lqt-quote' => 'Siter',
 	'lqt-search-legend' => 'Søk i diskusjonar på denne sida',
 	'lqt-search-label' => 'Søkjeord:',
 	'lqt-search-button' => 'Søk',
@@ -13546,13 +13550,13 @@ Du kan lesa svaret på <$6>',
 	'lqt-save-subject' => 'Lagra',
 	'lqt-save-subject-failed' => 'Den fylgjande feilen oppsto under endringa av trådemnet: $1',
 	'lqt-ajax-invalid-subject' => 'Du oppgav eit ugyldig emne. Sannsynlegvis var det for langt.',
-	'lqt-ajax-no-subject' => 'Du er nøydd til å oppgje eit emne.',
+	'lqt-ajax-no-subject' => 'Du er nøydd til å gje opp eit emne for den nye tråden.',
 	'lqt-cancel-subject-edit' => 'Avbryt',
 	'lqt-drag-activate' => 'Dra til ny plassering',
 	'lqt-drag-drop-zone' => 'Slepp her',
 	'lqt-drag-save' => 'Stadfest',
 	'lqt-drag-reason' => 'Årsak:',
-	'lqt-drag-subject' => 'Emne for ny tråd:',
+	'lqt-drag-subject' => 'Emne for ny tråd (naudsynt):',
 	'lqt-edit-signature' => '(endra signatur)',
 	'lqt-preview-signature' => '(førehandsvis)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Nye innlegg',
@@ -13574,6 +13578,7 @@ Du kan lesa svaret på <$6>',
 	'lqt-edit-bump' => 'Flytt denne tråden opp',
 	'lqt-edit-bump-tooltip' => 'Flytt tråden til toppen av diskusjonssida hans',
 	'lqt-reply-subpage' => 'svar',
+	'nstab-summary' => 'Samandrag',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
