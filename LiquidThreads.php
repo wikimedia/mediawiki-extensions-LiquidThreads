@@ -6,7 +6,7 @@ $wgExtensionCredits['other'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Liquid Threads',
 	'version'        => '2.0-alpha',
-	'url'            => 'http://www.mediawiki.org/wiki/Extension:LiquidThreads',
+	'url'            => 'https://www.mediawiki.org/wiki/Extension:LiquidThreads',
 	'author'         => array( 'David McCabe', 'Andrew Garrett' ),
 	'descriptionmsg' => 'lqt-desc',
 );
