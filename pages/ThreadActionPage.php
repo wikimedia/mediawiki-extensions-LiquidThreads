@@ -4,7 +4,7 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 
 	function __construct() {
 		parent::__construct( $this->getPageName(), $this->getRightRequirement() );
-		$this->includable( false );
+		$this->mIncludable = false;
 
 		global $wgOut, $wgUser, $wgRequest;
 		$this->output = $wgOut;
