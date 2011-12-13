@@ -3,12 +3,10 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class TalkpageHistoryView extends TalkpageView {
 	function show() {
-		global $wgUser;
-
-		$sk = $wgUser->getSkin();
+		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
 		$talkpageTitle = $this->article->getTitle();
-		$talkpageLink = $sk->link( $talkpageTitle );
+		$talkpageLink = $linker->link( $talkpageTitle );
 
 		$this->output->setPageTitle( wfMsg( 'lqt-talkpage-history-title' ) );
 		$this->output->setSubtitle( wfMsgExt(
@@ -78,11 +76,10 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 	function formatValue( $name, $value ) {
 		global $wgLang, $wgContLang;
 
-		static $sk = null;
+		static $linker = null;
 
-		if ( empty( $sk ) ) {
-			global $wgUser;
-			$sk = $wgUser->getSkin();
+		if ( empty( $linker ) ) {
+			$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 		}
 
 		$row = $this->mCurrentRow;
@@ -102,7 +99,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 					$title
 				);
 
-				$link = $sk->link(
+				$link = $linker->link(
 					$title,
 					$value,
 					array(),
@@ -118,7 +115,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 					$title
 				);
 
-				return $sk->link(
+				return $linker->link(
 					$title,
 					$formatted,
 					array(),

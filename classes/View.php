@@ -98,17 +98,16 @@ class LqtView {
 	}
 
 	static function permalink( $thread, $text = null, $method = null, $operand = null,
-					$sk = null, $attribs = array(), $uquery = array() ) {
-		if ( is_null( $sk ) ) {
-			global $wgUser;
-			$sk = $wgUser->getSkin();
+					$linker = null, $attribs = array(), $uquery = array() ) {
+		if ( is_null( $linker ) ) {
+			$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 		}
 
 		list( $title, $query ) = self::permalinkData( $thread, $method, $operand );
 
 		$query = array_merge( $query, $uquery );
 
-		return $sk->link( $title, $text, $attribs, $query );
+		return $linker->link( $title, $text, $attribs, $query );
 	}
 
 	static function linkInContextData( $thread, $contextType = 'page' ) {
@@ -144,10 +143,9 @@ class LqtView {
 			$text = Threads::stripHTML( $thread->formattedSubject() );
 		}
 
-		global $wgUser;
-		$sk = $wgUser->getSkin();
+		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
-		return $sk->link( $title, $text, array(), $query );
+		return $linker->link( $title, $text, array(), $query );
 	}
 
 	static function linkInContextURL( $thread, $contextType = 'page' ) {
@@ -204,10 +202,9 @@ class LqtView {
 			$perpetuateOffset
 		);
 
-		global $wgUser;
-		$sk = $wgUser->getSkin();
+		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
-		return $sk->link( $title, $text, $attribs, $query, $options );
+		return $linker->link( $title, $text, $attribs, $query, $options );
 	}
 
 	static function talkpageLinkData( $title, $method = null, $operand = null,
@@ -1444,9 +1441,9 @@ class LqtView {
 	}
 
 	function threadInfoPanel( $thread ) {
-		global $wgUser, $wgLang;
+		global $wgLang;
 
-		$sk = $wgUser->getSkin();
+		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
 		$infoElements = array();
 
@@ -1468,8 +1465,8 @@ class LqtView {
 
 			foreach ( $editors as $ed ) {
 				$id = IP::isIPAddress( $ed ) ? 0 : 1;
-				$fEditor = $sk->userLink( $id, $ed ) .
-					$sk->userToolLinks( $id, $ed );
+				$fEditor = $linker->userLink( $id, $ed ) .
+					$linker->userToolLinks( $id, $ed );
 				$formattedEditors[] = $fEditor;
 			}
 
@@ -1559,7 +1556,7 @@ class LqtView {
 	function showMovedThread( $thread ) {
 		global $wgLang;
 
-		$sk = $this->user->getSkin();
+		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
 		// Grab target thread
 		if ( !$thread->title() ) {
@@ -1579,17 +1576,17 @@ class LqtView {
 
 		// Grab data about the new post.
 		$author = $thread->author();
-		$sig = $sk->userLink( $author->getID(), $author->getName() ) .
-			$sk->userToolLinks( $author->getID(), $author->getName() );
+		$sig = $linker->userLink( $author->getID(), $author->getName() ) .
+			$linker->userToolLinks( $author->getID(), $author->getName() );
 		$newTalkpage = is_object( $t_thread ) ? $t_thread->getTitle() : '';
 
 		$html = wfMsgExt( 'lqt_move_placeholder',
 			array( 'parseinline', 'replaceafter' ),
-			$sk->link( $target ),
+			$linker->link( $target ),
 			$sig,
 			$wgLang->date( $thread->modified() ),
 			$wgLang->time( $thread->modified() ),
-			$sk->link( $newTalkpage )
+			$linker->link( $newTalkpage )
 		);
 
 		$this->output->addHTML( $html );
@@ -1672,13 +1669,13 @@ class LqtView {
 	}
 
 	function getShowMore( $thread, $st, $i ) {
-		$sk = $this->user->getSkin();
+		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
 		$linkText = wfMsgExt( 'lqt-thread-show-more', 'parseinline' );
 		$linkTitle = clone $thread->topmostThread()->title();
 		$linkTitle->setFragment( '#' . $st->getAnchorName() );
 
-		$link = $sk->link( $linkTitle, $linkText,
+		$link = $linker->link( $linkTitle, $linkText,
 				array( 'class' => 'lqt-show-more-posts' ) );
 		$link .= Html::hidden( 'lqt-thread-start-at', $i,
 				array( 'class' => 'lqt-thread-start-at' ) );
@@ -1689,14 +1686,14 @@ class LqtView {
 	function getShowReplies( $thread ) {
 		global $wgLang;
 
-		$sk = $this->user->getSkin();
+		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
 		$replyCount = $wgLang->formatNum( $thread->replyCount() );
 		$linkText = wfMsgExt( 'lqt-thread-show-replies', 'parseinline', $replyCount );
 		$linkTitle = clone $thread->topmostThread()->title();
 		$linkTitle->setFragment( '#' . $thread->getAnchorName() );
 
-		$link = $sk->link( $linkTitle, $linkText,
+		$link = $linker->link( $linkTitle, $linkText,
 				array( 'class' => 'lqt-show-replies' ) );
 		$link = Xml::tags( 'div', array( 'class' => 'lqt-thread-replies' ), $link );
 
@@ -2071,8 +2068,8 @@ class LqtView {
 		if ( !$t->summary()->getContent() ) {
 			return; // Blank summary
 		}
-		global $wgUser;
-		$sk = $wgUser->getSkin();
+		
+		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
 		$label = wfMsgExt( 'lqt_summary_label', 'parseinline' );
 		$edit_text = wfMsgExt( 'edit', 'parseinline' );
@@ -2086,7 +2083,7 @@ class LqtView {
 			$label
 		);
 
-		$link = $sk->link( $t->summary()->getTitle(), $link_text,
+		$link = $linker->link( $t->summary()->getTitle(), $link_text,
 				array( 'class' => 'lqt-summary-link' ) );
 		$link .= Html::hidden( 'summary-title', $t->summary()->getTitle()->getPrefixedText() );
 		$edit_link = self::permalink( $t, $edit_text, 'summarize', $t->id() );
@@ -2199,8 +2196,7 @@ class LqtView {
 	// Copy-and-modify of Linker::formatComment
 	static function formatSubject( $s ) {
 		wfProfileIn( __METHOD__ );
-		global $wgUser;
-		$sk = $wgUser->getSkin();
+		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
 		# Sanitize text a bit:
 		$s = str_replace( "\n", " ", $s );
@@ -2208,7 +2204,7 @@ class LqtView {
 		$s = Sanitizer::escapeHtmlAllowEntities( $s );
 
 		# Render links:
-		$s = $sk->formatLinksInComment( $s, null, false );
+		$s = $linker->formatLinksInComment( $s, null, false );
 
 		wfProfileOut( __METHOD__ );
 		return $s;

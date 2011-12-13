@@ -150,7 +150,7 @@ class ThreadPermalinkView extends LqtView {
 	}
 
 	function getSubtitle() {
-		$sk = $this->user->getSkin();
+		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 		$fragment = '#' . $this->anchorName( $this->thread );
 
 		//if ( $this->thread->isHistorical() ) {
@@ -162,14 +162,14 @@ class ThreadPermalinkView extends LqtView {
 
 		$talkpage = $this->thread->getTitle();
 		$talkpage->setFragment( $fragment );
-		$talkpage_link = $sk->link( $talkpage );
+		$talkpage_link = $linker->link( $talkpage );
 
 		if ( $this->thread->hasSuperthread() ) {
 			$topmostTitle = $this->thread->topmostThread()->title();
 			$topmostTitle->setFragment( $fragment );
 
 			$linkText = wfMsgExt( 'lqt_discussion_link', 'parseinline' );
-			$permalink = $sk->link( $topmostTitle, $linkText );
+			$permalink = $linker->link( $topmostTitle, $linkText );
 
 			return wfMsgExt(
 				'lqt_fragment',

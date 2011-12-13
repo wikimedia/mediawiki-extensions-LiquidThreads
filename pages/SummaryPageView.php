@@ -5,10 +5,9 @@ class SummaryPageView extends LqtView {
 	function show() {
 		$thread = Threads::withSummary( $this->article );
 		if ( $thread && $thread->root() ) {
-			global $wgUser;
-
 			$t = $thread->root()->getTitle();
-			$link = $wgUser->getSkin()->link( $t );
+			$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
+			$link = $linker->link( $t );
 			$this->output->setSubtitle(
 				wfMsgExt(
 					'lqt_summary_subtitle',

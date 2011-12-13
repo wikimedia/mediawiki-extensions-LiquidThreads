@@ -57,7 +57,7 @@ class TalkpageView extends LqtView {
 		/* Show the contents of the actual talkpage article if it exists. */
 
 		global $wgUser;
-		$sk = $wgUser->getSkin();
+		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
 		$article = $this->talkpage;
 
@@ -70,14 +70,14 @@ class TalkpageView extends LqtView {
 
 			$actionLinks = array();
 			if ( $article->getTitle()->userCan('edit') ) {
-				$actionLinks[] = $sk->link(
+				$actionLinks[] = $linker->link(
 					$article->getTitle(),
 					wfMsgExt( 'edit', 'parsemag' ) . "↑",
 					array(),
 					array( 'action' => 'edit' )
 				);
 			}
-			$actionLinks[] = $sk->link(
+			$actionLinks[] = $linker->link(
 				$this->title,
 				wfMsgExt( 'history_short', 'parseinline' ) . "↑",
 				array(),
@@ -85,7 +85,7 @@ class TalkpageView extends LqtView {
 			);
 
 			if ( $wgUser->isAllowed( 'delete' ) ) {
-				$actionLinks[] = $sk->link(
+				$actionLinks[] = $linker->link(
 					$article->getTitle(),
 					wfMsgExt( 'delete', 'parseinline' ) . '↑',
 					array(),
@@ -105,7 +105,7 @@ class TalkpageView extends LqtView {
 			$this->output->addHTML( $html );
 		} elseif ( $article->getTitle()->userCan('edit') ) {
 
-			$editLink = $sk->link(
+			$editLink = $linker->link(
 				$this->talkpage->getTitle(),
 				wfMsgExt( 'lqt_add_header', 'parseinline' ),
 				array(),
@@ -248,7 +248,7 @@ class TalkpageView extends LqtView {
 			$this->output->addFeedLink( $format, $url );
 		}
 
-		$sk = $this->user->getSkin();
+		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
 		if ( $this->request->getBool( 'lqt_inline' ) ) {
 			$this->doInlineEditForm();
@@ -298,7 +298,7 @@ class TalkpageView extends LqtView {
 
 		if ( Thread::canUserPost( $this->user, $this->talkpage ) ) {
 			$newThreadText = wfMsgExt( 'lqt_new_thread', 'parseinline' );
-			$newThreadLink = $sk->link(
+			$newThreadLink = $linker->link(
 				$this->title, $newThreadText,
 				array( 'lqt_talkpage' => $this->talkpage->getTitle()->getPrefixedText() ),
 				array( 'lqt_method' => 'talkpage_new_thread' ),
@@ -366,9 +366,9 @@ class TalkpageView extends LqtView {
 		
 		// Workaround for bug 25077
 		global $wgOut, $wgUser;
-		$sk = $wgUser->getSkin();
-		if ( method_exists( $sk, 'setTitle' ) ) {
-			# Skin::setTitle was removed in 1.18, it already shares the same source of title with $wgOut.
+		# Skin::setTitle was removed in 1.18, it already shares the same source of title with $wgOut.
+		if ( method_exists( 'Skin', 'setTitle' ) ) {
+			$sk = $wgUser->getSkin();
 			$sk->setTitle( $wgOut->getTitle() );
 		}
 
