@@ -4209,7 +4209,7 @@ Sie sind weiterhin auf den ursprünglichen Diskussionsseiten sichtbar.
 Diese Operation kann rückgängig gemacht werden.',
 	'lqt-marked-read' => "Thema '''$1''' wurde als gelesen markiert.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|Nachricht|Nachrichten}} als gelesen markiert.',
-	'lqt-email-undo' => 'Rückgängig',
+	'lqt-email-undo' => 'Rückgängig machen',
 	'lqt-no-new-messages' => 'Du hast keine neuen Nachrichten.',
 	'lqt-new-messages' => '→ Du hast neue Nachrichten.',
 	'lqt-email-info-undo' => 'Hole das Thema zurück, das du gerade weggeklickt hast.',
