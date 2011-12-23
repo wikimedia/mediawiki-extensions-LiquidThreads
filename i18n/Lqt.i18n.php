@@ -7189,6 +7189,11 @@ $messages['fy'] = array(
 	'lqt_move_move' => 'Werneam',
 );
 
+/** Simplified Gan script (‪赣语(简体)‬) */
+$messages['gan-hans'] = array(
+	'lqt-search-button' => '寻吖',
+);
+
 /** Traditional Gan script (‪贛語(繁體)‬)
  * @author Symane
  */
@@ -10074,6 +10079,7 @@ La firma è mostrata automaticamente.',
 	'lqt-historicalrevision-error' => 'La revisione che hai selezionato è corrotta, e non può essere visualizzata.',
 	'lqt-reply-subpage' => 'rispondi',
 	'nstab-thread' => 'Thread',
+	'nstab-summary' => 'Sommario',
 );
 
 /** Japanese (日本語)
@@ -17480,11 +17486,13 @@ Razlog za ovo može biti:
 	'lqt_hist_past_last_page_error' => 'Prekoračili ste broj strana koje ima postojeća istorija.',
 	'lqt_hist_tooltip_newer_disabled' => 'Ova veza je onemogućena jer ste na prvoj strani.',
 	'lqt_hist_tooltip_older_disabled' => 'Ova veza je onemogućena jer ste na zadnjoj strani.',
+	'lqt_hist_split' => 'Razdvoji odgovor na novu temu',
 	'lqt_hist_edited_subject' => 'Naslov promenjen sa "$2" na "$3"',
 	'lqt_hist_edited_subject_corrupt' => 'Naslov promenjen',
 	'lqt_hist_merged_from' => '[[$1|Odgovor]] je premešten na drugu temu',
 	'lqt_hist_merged_to' => '[[$1|Odgovor]] je premešten sa druge teme',
 	'lqt_hist_split_from' => 'Razdvoj u novu temu',
+	'lqt_hist_root_blanked' => 'Tekst komentara je uklonjen.',
 	'lqt_hist_adjusted_sortkey' => 'Podešeno je mesto teme',
 	'lqt_revision_as_of' => 'Revizija od $2 u $3.',
 	'lqt_change_new_thread' => 'Ovo je prva revizija teme.',
@@ -17498,23 +17506,41 @@ Razlog za ovo može biti:
 	'lqt_change_edited_subject' => 'Naslov ove teme je promenjen sa "$2" na "$3"',
 	'lqt_change_merged_from' => '[$1 Odgovor] sa ove teme je premešten na drugu temu',
 	'lqt_change_merged_to' => '[$1 Označena poruka] je ovde premeštena sa neke druge teme',
+	'lqt_change_split_from' => '[$1 Podtema] ove teme je izdvojena u novu temu.',
 	'lqt_change_root_blanked' => 'Tekst [$1 jednog komentara] je obrisan.',
 	'lqt_youhavenewmessages' => 'Imate [[$1|novih poruka]].',
+	'lqt_protectedfromreply' => 'Ova tema je $1 i u njoj ne možete odgovarati.',
 	'lqt_protectedfromreply_link' => 'zaštićeno',
 	'lqt_subject' => 'Naslov:',
 	'lqt_noreason' => 'Nije dat razlog.',
+	'lqt_move_placeholder' => 'Tema „$1“ je premeštena odavde u $5.
+Premeštanje {{GENDER:$2|je izvršio|je izvršila|izvrši}} $2, $3 u $4.',
+	'lqt_thread_deleted_for_sysops' => "Ova tema je '''obrisana''' i vidljiva je samo administratorima.",
+	'lqt_thread_deleted' => 'Ova tema je obrisana.',
+	'lqt_summary_notice' => 'Na ovom razgovoru nije bilo izmena bar $2 {{PLURAL:$2|dan|dana|dana}}.
+Ako je završen, možete $1.',
 	'lqt_summary_notice_link' => 'napišite sažetak',
 	'lqt_summary_label' => 'Sažetak teme:',
 	'lqt_summary_subtitle' => 'Sažetak za "$1"',
 	'lqt_nosuchrevision' => 'Nema takve revizije ove teme.',
 	'lqt_nosuchthread' => 'Tema koju ste naveli ne postoji.',
 	'lqt_nosuchthread_title' => 'Nema takve teme',
+	'lqt_threadrequired' => 'Morate uneti URL adresu teme.',
 	'lqt_move_movingthread' => 'Premeštam $1.
 Ova tema je deo $2.',
+	'lqt_move_torename' => 'Da biste preimenovali ovu temu, $1 i promenite polje za naslov.',
 	'lqt_move_torename_edit' => 'izmeni ga',
+	'lqt_move_destinationtitle' => 'Naslov odredišne stranice za razgovor:',
 	'lqt_move_move' => 'Premesti',
+	'lqt_move_nodestination' => 'Morate uneti odredište.',
+	'lqt_move_thread_bad_destination' => 'Odredišna stranica nije stranica za razgovor.',
+	'lqt_move_samedestination' => 'Tema se već nalazi na ovoj stranici!',
 	'lqt_move_noreason' => 'Nije dat razlog.',
+	'lqt_move_success' => 'Tema je premeštena u $1.',
+	'lqt_talkpage_autocreate_summary' => 'Stranica za razgovor je samostalno napravljena kada je prva tema postavljena.',
 	'lqt_header_warning_big' => 'Vi menjate $1.',
+	'lqt_header_warning_after_big' => 'Zaglavlja se koriste za saopštenja i predgovore.
+Možda bi bilo bolje da $2.',
 	'lqt_header_warning_bold' => 'zaglavlje strane rasprave',
 	'lqt_header_warning_new_discussion' => 'započni novi razgovor',
 	'lqt_sorting_order' => 'Redosled sortiranja:',
@@ -17523,11 +17549,21 @@ Ova tema je deo $2.',
 	'lqt_sort_oldest_threads' => 'prvo najstarije teme',
 	'lqt-title' => 'Naslov',
 	'lqt-summary' => 'Sažetak',
+	'lqt-searching' => 'Traženje tema',
 	'lqt-read-message' => 'Označi kao pročitano',
+	'lqt-read-message-tooltip' => 'Uklonite ovu temu iz novih poruka.
+Ona će još uvek biti dostupna na stranici za razgovor.',
 	'lqt-read-all' => 'Označi sve kao pročitano',
+	'lqt-read-all-tooltip' => 'Uklonite sve teme iz novih poruka.
+One će još uvek biti dostupne na stranici za razgovor.
+Ova radnja se ne može opozvati.',
 	'lqt-marked-read' => "Tema '''$1''' je označena kao pročitana.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|poruka označena kao pročitana|poruka označenih kao pročitane}}.',
 	'lqt-email-undo' => 'Vrati',
+	'lqt-no-new-messages' => 'Nema novih poruka.',
+	'lqt-new-messages' => '✒ Imate novih poruka.',
+	'lqt-email-info-undo' => 'Vratite temu koju ste upravo odbacili.',
+	'lqt-date-info' => 'Ova veza je onemogućena jer pregledate teme iz svih datuma.',
 	'lqt-newmessages-context' => 'Cela tema',
 	'lqt-thread-created' => 'Napravljeno',
 	'lqt-history-time' => 'Vreme',
@@ -17537,15 +17573,30 @@ Ova tema je deo $2.',
 	'lqt-history-thread' => 'Tema',
 	'lqt-thread-edited-author' => 'Izmenio autor.<br />
 Poslednja izmena: $1',
+	'lqt-thread-edited-others' => 'Izmenjeno od strane {{PLURAL:$2|drugog korisnika|$2 korisnika|$2 korisnika}}.<br />
+Poslednja izmena: $1',
 	'lqt-header-actions' => 'Radnje',
+	'lqt_summarize_link' => 'Sažmi',
+	'lqt-summarize-intro' => 'Sažmite temu putem okvira za uređivanje.
+Možete koristiti bilo koji vikitekst u sažetku.
+Kada završite, kliknite na „{{int:savearticle}}“.',
+	'lqt-thread-split' => 'Razdvoji u novu temu',
 	'lqt-split-success' => 'Uspešno ste podelili temu $1.',
 	'lqt_split_thread' => 'Podeli temu',
 	'lqt-thread-split-subject' => 'Naslov nove teme:',
 	'lqt-thread-split-thread' => 'Tema:',
 	'lqt-split-submit' => 'Podeli',
+	'lqt_split_badsubject' => 'Naslov je neispravan.',
+	'lqt-no-threads' => 'Još uvek nema tema na ovoj stranici.',
+	'lqt-delete-parent-warning' => 'Ovo je tema najvećeg nivoa s odgovorima.
+Njeni odgovori biće samostalno obrisani.
+Da biste ovo izbegli, razdvojte ih s ove teme pre brisanja.',
+	'lqt-delete-parent-deleted' => 'Nadređena tema je obrisana ($1).',
+	'lqt-delete-replies-done' => 'Svi odgovori na ovoj temi su obrisani.',
 	'lqt-movethread' => 'Premesti',
 	'lqt-menu-trigger' => 'Više',
 	'lqt-newmessages-from' => 'Od $1',
+	'lqt-hot-topics' => 'Vruće teme',
 	'lqt-add-reply' => 'Dodaj odgovor',
 	'lqt_rc_new_discussion' => 'postavljena nova tema, "$1"',
 	'lqt_rc_new_reply' => 'poslat novi odgovor na "$1"',
@@ -17558,6 +17609,8 @@ Poslednja izmena: $1',
 	'lqt-thread-merge-dest' => 'Ciljana tema:',
 	'lqt-merge-submit' => 'Spoji',
 	'lqt-merge-success' => 'Uspešno ste spojili temu $1 sa $2.',
+	'lqt-log-name' => 'Izveštaj razgovora na temama',
+	'lqt-log-header' => 'Ovaj izveštaj opisuje radnje koje su izvršene na temama.',
 	'lqt-log-action-move' => 'moved [[$1]] from [[$2]] to [[$3]]
 premeštena [[$1]] sa [[$2]] na [[$3]]',
 	'lqt-log-action-split' => 'split [[$1]] from under [[$3]], with the new subject "$2"
@@ -17567,28 +17620,67 @@ premeštena [[$1]] sa [[$2]] na [[$3]]',
 	'lqt-log-action-merge-down' => 'spojena [[$1]] sa [[$3]]',
 	'lqt-log-action-subjectedit' => '{{GENDER:|je promenio|je promenila|promeni}} naslov [[$1]] iz „$2“ u „$3“',
 	'lqt-log-action-resort' => 'promenjen je redosled sortiranja od [[$1]]. Ključ sortiranja promenjen sa $2 na $3',
+	'lqt-preference-notify-talk' => 'Pošalji mi e-poruku kada se promeni tema koju nadgledam',
+	'lqt-preference-watch-threads' => 'Dodaj teme koje izmenim u spisak nadgledanja',
+	'prefs-lqt' => 'Razgovori na temama',
+	'lqt-preference-display-depth' => 'Najveći niz odgovora:',
+	'lqt-preference-display-count' => 'Najveći broj odgovora:',
 	'lqt-preference-custom-signatures' => 'Pokaži podesive korisničke potpise',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} razgovor - Odgovor: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} razgovor - Nova tema: $1',
+	'lqt-enotif-newthread' => 'Zdravo, $1,
+
+Ovo je obaveštenje sa {{SITENAME}} da je nova tema na $5, „$2“,
+napravljena $3 u $4 od strane člana $8.
+
+Možete je pogledati na $6
+
+Tekst poruke glasi:
+$7',
+	'lqt-enotif-reply' => 'Zdravo, $1,
+
+Ovo je obaveštenje sa {{SITENAME}} da je nova tema na $5, „$2“,
+napravljena $3 u $4 od strane člana $8.
+
+Možete je pogledati na $6
+
+Tekst poruke glasi:
+$7',
+	'lqt-quote-intro' => '$2 u $3, [[User:$1|$1]] {{GENDER:$1|je napisao|je napisala|napisa}}:',
 	'lqt-quote' => 'Citat',
+	'lqt-search-legend' => 'Pretraži rasprave na ovoj stranici',
 	'lqt-search-label' => 'Uslovi pretrage:',
 	'lqt-search-button' => 'Pretraga',
 	'searchprofile-threads' => 'Razgovori',
+	'searchprofile-threads-tooltip' => 'Pretražite rasprave na temama i stranice za razgovor',
 	'lqt-ajax-updated' => 'Ova tema ima novih poruka.',
 	'lqt-ajax-update-link' => 'Ažuriraj',
 	'lqt-thread-show-replies' => 'Pokaži $1 {{PLURAL:$1|odgovor|odgovora}}',
 	'lqt-thread-show-more' => 'Prikaži više odgovora',
 	'lqt-thread-link-url' => 'Putanja veze (URL):',
+	'lqt-thread-link-title' => 'Veza vikiteksta:',
 	'lqt-thread-link-copy' => 'Iskopiraj u klipbord',
+	'lqt-sign-not-necessary' => 'Nije neophodno da se potpišete.
+Potpis je automatski prikazan.',
+	'lqt-marked-as-read-placeholder' => 'Tema „$1“ je označena kao pročitana.',
 	'lqt-change-subject' => 'Izmeni naslov',
 	'lqt-save-subject' => 'Snimi',
-	'lqt-ajax-no-subject' => 'Morate navesti naslov.',
+	'lqt-save-subject-failed' => 'Došlo je do sledeće greške pri menjanju naslova teme: $1',
+	'lqt-ajax-invalid-subject' => 'Naslov koji ste uneli nije ispravan. Probajte da ga skratite.',
+	'lqt-ajax-no-subject' => 'Morate da navedete naslov za novu temu.',
+	'lqt-save-subject-error-unknown' => 'Došlo je do nepoznate greške pri postavljanju naslova teme. Pokušajte da izvršite ovu radnju klikom na dugme „uredi“.',
 	'lqt-cancel-subject-edit' => 'Otkaži',
 	'lqt-drag-activate' => 'Prevuci',
 	'lqt-drag-drop-zone' => 'Ispusti ovde',
+	'lqt-drag-confirm' => 'Da biste završili sledeće radnje, unesite razlog i kliknite na „Potvrdi“.',
+	'lqt-drag-reparent' => 'Premesti poruku ispod nadređene.',
+	'lqt-drag-split' => 'Premesti poruku u novu temu',
+	'lqt-drag-setsortkey' => 'Podesi položaj poruke na stranici',
+	'lqt-drag-bump' => 'Premesti poruku na vrh stranice za razgovor',
 	'lqt-drag-save' => 'Potvrdi',
+	'lqt-drag-title' => 'Potvrdi prevlačenje',
 	'lqt-drag-reason' => 'Razlog:',
-	'lqt-drag-subject' => 'Naslov nove teme:',
+	'lqt-drag-subject' => 'Naslov nove teme (obavezno):',
 	'lqt-edit-signature' => '(izmeni potpis)',
 	'lqt-preview-signature' => '(pregled)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Nove poruke',
@@ -17599,6 +17691,7 @@ premeštena [[$1]] sa [[$2]] na [[$3]]',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Odgovori od $1',
 	'lqt-feed-new-thread-intro' => 'Nove teme na $1 postavljene od $2',
 	'lqt-feed-reply-intro' => 'Odgovor na $3 (na $1) poslat od $2',
+	'tooltip-pt-newmessages' => 'Prikazuje nove poruke na temama ili na stranicama za razgovor koje pratite',
 	'lqt-newmessages-n' => 'Nove poruke ($1)',
 	'lqt_newmessages' => 'Nove poruke',
 	'lqt_newmessages-title' => 'Nove poruke',
@@ -17609,8 +17702,15 @@ premeštena [[$1]] sa [[$2]] na [[$3]]',
 	'lqt-talkpage-history-tab' => 'Zaglavlje',
 	'restriction-reply' => 'Slanje odgovora',
 	'restriction-newthread' => 'Postavljanje novih tema',
+	'lqt-protected-reply-thread' => 'Ne možete postavljati poruke na ovu temu jer je ona zaštićena.',
+	'lqt-protected-reply-talkpage' => 'Ne možete postavljati poruke na ovu temu jer je stranica za razgovor zaštićena.',
+	'lqt-protected-newthread' => 'Ne možete postavljati nove teme na ovu stranicu za razgovor jer je ona zaštićena.',
+	'lqt-edit-bump' => 'Oživi ovu temu',
+	'lqt-edit-bump-tooltip' => 'Premesti ovu temu na vrh stranice za razgovor',
 	'lqt-historicalrevision-error' => 'Revizija koju ste izabrali je korumpirana, i ne može biti prikazana.',
 	'lqt-reply-subpage' => 'odgovori',
+	'nstab-thread' => 'Tema',
+	'nstab-summary' => 'Opis',
 );
 
 /** Seeltersk (Seeltersk)
@@ -19235,6 +19335,7 @@ $messages['uk'] = array(
 Можливі причини:
 * тема занадто довга або
 * конфлікт з інтервікі-префіксами або просторами назв.',
+	'lqt-empty-text' => 'Не вдається опублікувати порожнє повідомлення',
 	'lqt_empty_subject' => 'Ви повинні ввести тему.',
 	'lqt_reply' => 'Відповісти',
 	'lqt-parent' => 'Батьківський пост',
@@ -20496,6 +20597,7 @@ $messages['zh-hant'] = array(
 	'lqt_invalid_subject' => '您輸入的主題無效，可能是由下列原因導致的：
 * 標題太長，或者
 * 與跨 wiki 前綴或名字空間名稱衝突。',
+	'lqt-empty-text' => '您不能發布空白消息',
 	'lqt_empty_subject' => '請輸入主題。',
 	'lqt_reply' => '回覆',
 	'lqt-parent' => '上層',
