@@ -151,7 +151,12 @@ $specialPageAliases['gag'] = array(
 
 /** Galician (Galego) */
 $specialPageAliases['gl'] = array(
+	'DeleteThread' => array( 'Eliminar_o_fío' ),
+	'HotTopics' => array( 'Fíos_populares' ),
+	'MoveThread' => array( 'Mover_o_fío' ),
 	'NewMessages' => array( 'Mensaxes_novas' ),
+	'SplitThread' => array( 'Separar_o_fío' ),
+	'MergeThread' => array( 'Fusionar_o_fío' ),
 );
 
 /** Swiss German (Alemannisch) */
@@ -323,6 +328,16 @@ $specialPageAliases['myv'] = array(
 	'MergeThread' => array( 'ПальдямсСуре' ),
 );
 
+/** Norwegian Bokmål (‪Norsk (bokmål)‬) */
+$specialPageAliases['nb'] = array(
+	'DeleteThread' => array( 'Slett_tråd' ),
+	'HotTopics' => array( 'Aktuelle_saker' ),
+	'MoveThread' => array( 'Flytt_tråd' ),
+	'NewMessages' => array( 'Nye_beskjeder' ),
+	'SplitThread' => array( 'Splitt_tråd' ),
+	'MergeThread' => array( 'Slå_sammen_tråd' ),
+);
+
 /** Nedersaksisch (Nedersaksisch) */
 $specialPageAliases['nds-nl'] = array(
 	'DeleteThread' => array( 'Draod_vortdoon' ),
@@ -348,16 +363,6 @@ $specialPageAliases['nn'] = array(
 	'DeleteThread' => array( 'Slett_tråd' ),
 	'MoveThread' => array( 'Flytt_tråd' ),
 	'NewMessages' => array( 'Nye_meldingar' ),
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
-$specialPageAliases['nb'] = array(
-	'DeleteThread' => array( 'Slett_tråd' ),
-	'HotTopics' => array( 'Aktuelle_saker' ),
-	'MoveThread' => array( 'Flytt_tråd' ),
-	'NewMessages' => array( 'Nye_beskjeder' ),
-	'SplitThread' => array( 'Splitt_tråd' ),
-	'MergeThread' => array( 'Slå_sammen_tråd' ),
 );
 
 /** Occitan (Occitan) */
@@ -394,7 +399,7 @@ $specialPageAliases['pt-br'] = array(
 	'NewMessages' => array( 'Novas_mensagens' ),
 );
 
-/** Sanskrit (संस्कृत) */
+/** Sanskrit (संस्कृतम्) */
 $specialPageAliases['sa'] = array(
 	'DeleteThread' => array( 'सूत्रपरित्यजति' ),
 	'MoveThread' => array( 'सूत्रस्थानान्तर' ),
@@ -501,8 +506,3 @@ $specialPageAliases['zh-hant'] = array(
 	'SplitThread' => array( '分割話題' ),
 	'MergeThread' => array( '合併話題' ),
 );
-
-/**
- * For backwards compatibility with MediaWiki 1.15 and earlier.
- */
-$aliases =& $specialPageAliases;

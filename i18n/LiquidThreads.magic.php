@@ -42,8 +42,8 @@ $magicWords['de'] = array(
 
 /** Spanish (Español) */
 $magicWords['es'] = array(
-	'useliquidthreads' => array( 0, 'UsarHilosLiquidos', 'UsarHilosLíquidos', 'UseLiquidThreads' ),
-	'lqtpagelimit' => array( 0, 'limitedepaginasdehlq', 'límitedepáginasdehlq', 'lqtpagelimit' ),
+	'useliquidthreads' => array( 0, 'UsarHilosLiquidos', 'UsarHilosLíquidos' ),
+	'lqtpagelimit' => array( 0, 'limitedepaginasdehlq', 'límitedepáginasdehlq' ),
 );
 
 /** Japanese (日本語) */
@@ -67,6 +67,12 @@ $magicWords['nl'] = array(
 $magicWords['ru'] = array(
 	'useliquidthreads' => array( 0, 'ИспользоватьLiquidThreads' ),
 	'lqtpagelimit' => array( 0, 'ограничение_страниц_lqt' ),
+);
+
+/** Serbian (Latin script) (‪Srpski (latinica)‬) */
+$magicWords['sr-el'] = array(
+	'useliquidthreads' => array( 0, 'UseLiquidThreads' ),
+	'lqtpagelimit' => array( 0, 'lqtpagelimit' ),
 );
 
 /** Turkish (Türkçe) */
