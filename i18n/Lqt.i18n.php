@@ -13594,7 +13594,7 @@ Du kan lesa svaret på <$6>',
  * @author Laaknor
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'lqt-desc' => 'Legger til trådede diskusjoner til diskusjonssider',
 	'lqt_movethread' => 'Flytt tråd til en annen side',
 	'lqt_deletethread' => 'Slett eller gjenopprett tråd',

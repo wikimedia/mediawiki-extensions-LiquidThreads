@@ -351,7 +351,7 @@ $specialPageAliases['nn'] = array(
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
-$specialPageAliases['no'] = array(
+$specialPageAliases['nb'] = array(
 	'DeleteThread' => array( 'Slett_tråd' ),
 	'HotTopics' => array( 'Aktuelle_saker' ),
 	'MoveThread' => array( 'Flytt_tråd' ),
