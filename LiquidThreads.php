@@ -26,7 +26,7 @@ $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'i18n/Lqt.i18n.php';
 $wgExtensionMessagesFiles['LiquidThreadsMagic'] = $dir . 'i18n/LiquidThreads.magic.php';
 $wgExtensionMessagesFiles['LiquidThreadsNamespaces'] = $dir . 'i18n/Lqt.namespaces.php';
-$wgExtensionAliasesFiles['LiquidThreads'] = $dir . 'i18n/Lqt.alias.php';
+$wgExtensionMessagesFiles['LiquidThreadsAlias'] = $dir . 'i18n/Lqt.alias.php';
 
 $lqtMessages = array(
 	'lqt-quote-intro',
