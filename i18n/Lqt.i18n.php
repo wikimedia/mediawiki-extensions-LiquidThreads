@@ -16653,12 +16653,21 @@ $7',
 );
 
 /** Sicilian (Sicilianu)
+ * @author Aushulz
  * @author Melos
  */
 $messages['scn'] = array(
+	'lqt_discussion_link' => 'discussioni',
 	'lqt_hist_deleted' => 'Cancillatu',
 	'lqt_hist_undeleted' => 'Ripristinatu',
 	'lqt_hist_moved_talkpage' => 'Spustatu',
+	'lqt-title' => 'Tìtulu',
+	'lqt-history-user' => 'Utenti',
+	'lqt-merge-submit' => 'Junci',
+	'lqt-search-button' => "Va' cerca",
+	'searchprofile-threads' => 'Discussioni',
+	'lqt-save-subject' => 'Sarva',
+	'lqt-drag-reason' => 'Mutivu:',
 );
 
 /** Tachelhit (Tašlḥiyt/ⵜⴰⵛⵍⵃⵉⵜ)
