@@ -5,6 +5,10 @@ class LqtHooks {
 	public static $editType = null;
 	public static $editThread = null;
 	public static $editAppliesTo = null;
+
+	/**
+	 * @var Article
+	 */
 	public static $editArticle = null;
 	public static $editTalkpage = null;
 	public static $scriptVariables = array();
@@ -21,6 +25,12 @@ class LqtHooks {
 		Threads::TYPE_DELETED => 'deleted'
 	);
 
+	/**
+	 * @param $changeslist ChangesList
+	 * @param $s string
+	 * @param $rc RecentChange
+	 * @return bool
+	 */
 	static function customizeOldChangesList( &$changeslist, &$s, $rc ) {
 		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			return true;
@@ -158,15 +168,15 @@ class LqtHooks {
 		return true;
 	}
 
+	/**
+	 * @param $article Article
+	 * @return bool
+	 */
 	static function updateNewtalkOnEdit( $article ) {
 		$title = $article->getTitle();
 
-		if ( LqtDispatch::isLqtPage( $title ) ) {
-			// They're only editing the header, don't update newtalk.
-			return false;
-		}
-
-		return true;
+		// They're only editing the header, don't update newtalk.
+		return !LqtDispatch::isLqtPage( $title );
 	}
 
 	static function dumpThreadData( $writer, &$out, $row, $title ) {
@@ -259,6 +269,12 @@ class LqtHooks {
 		return true;
 	}
 
+	/**
+	 * @param $editPage EditPage
+	 * @param $checkboxes
+	 * @param $tabIndex
+	 * @return bool
+	 */
 	static function editCheckboxes( $editPage, &$checkboxes, &$tabIndex ) {
 		global $wgRequest, $wgLiquidThreadsShowBumpCheckbox;
 
@@ -317,59 +333,36 @@ class LqtHooks {
 		return true;
 	}
 
+	/**
+	 * @param $updater DatabaseUpdater
+	 * @return bool
+	 */
 	public static function onLoadExtensionSchemaUpdates( $updater = null ) {
 		$dir = realpath( dirname( __FILE__ ) . '/..' );
 
-		if ( $updater === null ) {
-			// DB updates
-			$wgExtNewTables[] = array( 'thread', "$dir/lqt.sql" );
-			$wgExtNewTables[] = array( 'user_message_state', "$dir/lqt.sql" );
-			$wgExtNewTables[] = array( 'thread_history', "$dir/schema-changes/thread_history_table.sql" );
-			$wgExtNewTables[] = array( 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.sql" );
-			$wgExtNewTables[] = array( 'thread_reaction', "$dir/schema-changes/thread_reactions.sql" );
+		$updater->addExtensionUpdate( array( 'addTable', 'thread', "$dir/lqt.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addTable', 'user_message_state', "$dir/lqt.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addTable', 'thread_history', "$dir/schema-changes/thread_history_table.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addTable', 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addTable', 'thread_reaction', "$dir/schema-changes/thread_reactions.sql", true ) );
 
-			$wgExtNewFields[] = array( "thread", "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql" );
-			$wgExtNewFields[] = array( "thread", "thread_article_title", "$dir/schema-changes/split-thread_article.sql" );
-			$wgExtNewFields[] = array( "thread", "thread_ancestor", "$dir/schema-changes/normalise-ancestry.sql" );
-			$wgExtNewFields[] = array( "thread", "thread_parent", "$dir/schema-changes/normalise-ancestry.sql" );
-			$wgExtNewFields[] = array( "thread", "thread_modified", "$dir/schema-changes/split-timestamps.sql" );
-			$wgExtNewFields[] = array( "thread", "thread_created", "$dir/schema-changes/split-timestamps.sql" );
-			$wgExtNewFields[] = array( "thread", "thread_editedness", "$dir/schema-changes/store-editedness.sql" );
-			$wgExtNewFields[] = array( "thread", "thread_subject", "$dir/schema-changes/store_subject-author.sql" );
-			$wgExtNewFields[] = array( "thread", "thread_author_id", "$dir/schema-changes/store_subject-author.sql" );
-			$wgExtNewFields[] = array( "thread", "thread_author_name", "$dir/schema-changes/store_subject-author.sql" );
-			$wgExtNewFields[] = array( "thread", "thread_sortkey", "$dir/schema-changes/new-sortkey.sql" );
-			$wgExtNewFields[] = array( 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql" );
-			$wgExtNewFields[] = array( 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql" );
-			$wgExtNewFields[] = array( 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql" );
-			$wgExtNewFields[] = array( 'user_message_state', 'ums_conversation', "$dir/schema-changes/ums_conversation.sql" );
+		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_article_title", "$dir/schema-changes/split-thread_article.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_ancestor", "$dir/schema-changes/normalise-ancestry.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_parent", "$dir/schema-changes/normalise-ancestry.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_modified", "$dir/schema-changes/split-timestamps.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_created", "$dir/schema-changes/split-timestamps.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_editedness", "$dir/schema-changes/store-editedness.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_subject", "$dir/schema-changes/store_subject-author.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_author_id", "$dir/schema-changes/store_subject-author.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_author_name", "$dir/schema-changes/store_subject-author.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_sortkey", "$dir/schema-changes/new-sortkey.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addField', 'user_message_state', 'ums_conversation', "$dir/schema-changes/ums_conversation.sql", true ) );
 
-			$wgExtNewIndexes[] = array( 'thread', 'thread_summary_page', '(thread_summary_page)' );
-		} else {
-			$updater->addExtensionUpdate( array( 'addTable', 'thread', "$dir/lqt.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addTable', 'user_message_state', "$dir/lqt.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addTable', 'thread_history', "$dir/schema-changes/thread_history_table.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addTable', 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addTable', 'thread_reaction', "$dir/schema-changes/thread_reactions.sql", true ) );
-
-			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_article_title", "$dir/schema-changes/split-thread_article.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_ancestor", "$dir/schema-changes/normalise-ancestry.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_parent", "$dir/schema-changes/normalise-ancestry.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_modified", "$dir/schema-changes/split-timestamps.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_created", "$dir/schema-changes/split-timestamps.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_editedness", "$dir/schema-changes/store-editedness.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_subject", "$dir/schema-changes/store_subject-author.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_author_id", "$dir/schema-changes/store_subject-author.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_author_name", "$dir/schema-changes/store_subject-author.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', "thread", "thread_sortkey", "$dir/schema-changes/new-sortkey.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', 'user_message_state', 'ums_conversation', "$dir/schema-changes/ums_conversation.sql", true ) );
-
-			$updater->addExtensionUpdate( array( 'addIndex', 'thread', 'thread_summary_page', '(thread_summary_page)' ) );
-		}
+		$updater->addExtensionUpdate( array( 'addIndex', 'thread', 'thread_summary_page', '(thread_summary_page)' ) );
 
 		return true;
 	}
@@ -395,6 +388,13 @@ class LqtHooks {
 		return true;
 	}
 
+	/**
+	 * @param $user User
+	 * @param $title Title
+	 * @param $isBlocked bool
+	 * @param $allowUserTalk bool
+	 * @return bool
+	 */
 	static function userIsBlockedFrom( $user, $title, &$isBlocked, &$allowUserTalk ) {
 		// Limit applicability
 		if ( !( $isBlocked && $allowUserTalk && $title->getNamespace() == NS_LQT_THREAD ) ) {
@@ -473,6 +473,20 @@ class LqtHooks {
 		return true;
 	}
 
+	/**
+	 * @param $article Article
+	 * @param $user User
+	 * @param $text
+	 * @param $summary
+	 * @param $minoredit
+	 * @param $watchthis
+	 * @param $sectionanchor
+	 * @param $flags
+	 * @param $revision
+	 * @param $status Status
+	 * @param $baseRevId
+	 * @return bool
+	 */
 	static function onArticleSaveComplete( &$article, &$user, $text, $summary,
 			$minoredit, $watchthis, $sectionanchor, &$flags, $revision,
 			&$status, $baseRevId ) {
@@ -510,6 +524,11 @@ class LqtHooks {
  		return true;
  	}
 
+	/**
+	 * @param $title Title
+	 * @param $types
+	 * @return bool
+	 */
  	static function getProtectionTypes( $title, &$types ) {
  		$isLqtPage = LqtDispatch::isLqtPage( $title );
  		$isThread = $title->getNamespace() == NS_LQT_THREAD;
@@ -530,6 +549,10 @@ class LqtHooks {
  		return true;
  	}
 
+	/**
+	 * @param $vars sttsu
+	 * @return bool
+	 */
 	public static function onMakeGlobalVariablesScript( &$vars ) {
 		$vars += self::$scriptVariables;
 
@@ -540,6 +563,7 @@ class LqtHooks {
 	 * Returns the text contents of a template page set in given key contents
 	 * Returns empty string if no text could be retrieved.
 	 * @param $key String: message key that should contain a template page name
+	 * @return String
 	 */
 	private static function getTextForPageInKey( $key ) {
 		$templateTitleText = wfMsgForContent( $key );
@@ -564,7 +588,6 @@ class LqtHooks {
 	/**
 	 * Handles tags in Page sections of XML dumps
 	 */
-
 	public static function handlePageXMLTag( $reader, &$pageInfo ) {
 		if ( !isset( $reader->nodeType ) || !( $reader->nodeType == XmlReader::ELEMENT &&
 				$reader->name == 'DiscussionThreading' ) ) {
@@ -603,7 +626,16 @@ class LqtHooks {
 		return false;
 	}
 
-	// Processes discussion threading data in XML dumps (extracted in handlePageXMLTag).
+	/**
+	 * Processes discussion threading data in XML dumps (extracted in handlePageXMLTag).
+	 *
+	 * @param $title Title
+	 * @param $origTitle Title
+	 * @param $revCount
+	 * @param $sRevCount
+	 * @param $pageInfo
+	 * @return bool
+	 */
 	public static function afterImportPage( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
 		// in-process cache of pending thread relationships
 		static $pendingRelationships = null;
@@ -695,6 +727,10 @@ class LqtHooks {
 		}
 	}
 
+	/**
+	 * @param $pendingRelationship
+	 * @param $title Title
+	 */
 	public static function applyPendingArticleRelationship( $pendingRelationship, $title ) {
 		$articleID = $title->getArticleId();
 
@@ -708,6 +744,9 @@ class LqtHooks {
 				array( 'tpr_title' => $pendingRelationship['title'] ), __METHOD__ );
 	}
 
+	/**
+	 * @return array
+	 */
 	public static function loadPendingRelationships() {
 		$dbr = wfGetDB( DB_MASTER );
 		$arr = array();
@@ -756,7 +795,15 @@ class LqtHooks {
 		$array[$title][] = $entry;
 	}
 
-	// Do not allow users to read threads on talkpages that they cannot read.
+	/**
+	 * Do not allow users to read threads on talkpages that they cannot read.
+	 *
+	 * @param $title Title
+	 * @param $user
+	 * @param $action
+	 * @param $result
+	 * @return bool
+	 */
 	public static function onGetUserPermissionsErrors( $title, $user, $action, &$result ) {
 		if ( $title->getNamespace() != NS_LQT_THREAD || $action != 'read' )
 			return true;
@@ -779,6 +826,10 @@ class LqtHooks {
 		}
 	}
 
+	/**
+	 * @param $parser Parser
+	 * @return bool
+	 */
 	public static function onParserFirstCallInit( $parser ) {
 		$parser->setFunctionHook(
 			'useliquidthreads',
@@ -800,6 +851,10 @@ class LqtHooks {
 		return true;
 	}
 
+	/**
+	 * @param $list array
+	 * @return bool
+	 */
 	public static function onCanonicalNamespaces( &$list ) {
 		$list[NS_LQT_THREAD] = 'Thread';
 		$list[NS_LQT_THREAD_TALK] = 'Thread_talk';

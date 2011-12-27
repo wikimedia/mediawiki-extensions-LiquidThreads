@@ -90,6 +90,10 @@ class LqtDispatch {
 		return $view->show();
 	}
 
+	/**
+	 * @param $title Title
+	 * @return bool|null
+	 */
 	static function isLqtPage( $title ) {
 		// Ignore it if it's a thread or a summary, makes no sense to have LiquidThreads there.
 		if ( $title->getNamespace() == NS_LQT_THREAD ||
