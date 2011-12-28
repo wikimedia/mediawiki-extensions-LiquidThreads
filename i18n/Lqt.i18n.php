@@ -4419,6 +4419,7 @@ Die Signatur wird automatisch ergänzt.',
 
 /** Zazaki (Zazaki)
  * @author Aspar
+ * @author Erdemaslancan
  * @author Mirzali
  * @author Xoser
  */
@@ -4651,7 +4652,7 @@ ti ney, adresa <$6>'i de eşkêni bıvini.",
 	'lqt-feed-new-thread-intro' => "pelê $1'i de gıreyo newe hetê $2 ra erşawiya",
 	'lqt-feed-reply-intro' => "gıreyê $3'i re cewab (pelê $1'i de) hetê $2'i ra erşawiya",
 	'lqt-newmessages-n' => 'mesajo newe ($1)',
-	'lqt_newmessages' => 'mesajo newe',
+	'lqt_newmessages' => 'mesaco newe',
 	'lqt_newmessages-title' => 'Mesacê newey',
 	'lqt-newpost-summary' => 'gıreyo newe: $1',
 	'lqt-reply-summary' => "gıreyê [[$2|$1]]'i re cewab bıd'",
@@ -8120,6 +8121,7 @@ $7",
 );
 
 /** Hindi (हिन्दी)
+ * @author Ansumang
  * @author Bhawani Gautam
  * @author Bhawani Gautam Rhk
  * @author Kaustubh
@@ -8188,8 +8190,40 @@ $messages['hi'] = array(
 	'lqt_sort_newest_changes' => 'आखिर में बदले गये पहले',
 	'lqt_sort_newest_threads' => 'नये थ्रेड पहले',
 	'lqt_sort_oldest_threads' => 'पुराने थ्रेड पहले',
+	'lqt-thread-created' => 'बनाई हुई',
+	'lqt-history-time' => 'समय',
+	'lqt-history-user' => 'सदस्य',
+	'lqt-history-action' => 'गतिविधि',
+	'lqt-history-comment' => 'टिप्पणी',
+	'lqt-history-thread' => 'सूत्र',
+	'lqt-header-actions' => 'क्रियाएँ',
+	'lqt_summarize_link' => 'संक्षेप में',
+	'lqt-thread-split-subject' => 'नई सूत्र विषय:',
+	'lqt-thread-split-thread' => 'सूत्र:',
+	'lqt-split-submit' => 'टुकड़े करना',
+	'lqt-movethread' => 'स्थानांतरण करें',
+	'lqt-menu-trigger' => 'अधिक',
+	'lqt-newmessages-from' => '$1 से',
+	'lqt-add-reply' => 'एक उत्तर जोड़ें',
+	'lqt-merge-submit' => 'मर्ज करें',
+	'lqt-quote' => 'उद्धरण',
+	'lqt-search-button' => 'खोज',
+	'searchprofile-threads' => 'वार्ता',
+	'lqt-change-subject' => 'परिवर्तन विषय',
+	'lqt-save-subject' => 'सहेजें',
+	'lqt-cancel-subject-edit' => 'रद्द करें',
+	'lqt-drag-drop-zone' => 'यहाँ छोड़ें',
+	'lqt-drag-save' => 'निश्चित करें',
+	'lqt-drag-reason' => 'कारण:',
+	'lqt-edit-signature' => '(संपादन हस्ताक्षर)',
+	'lqt-preview-signature' => '(पूर्वावलोकन)',
+	'lqt-feed-title-replies' => '{{SITENAME}} — उत्तर',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} —  $1 से उत्तर',
 	'lqt-newmessages-n' => 'नये सन्देश ($1)',
 	'lqt_newmessages' => 'नये संदेश',
+	'lqt_newmessages-title' => 'नए संदेश',
+	'lqt-reply-subpage' => 'जवाब',
+	'nstab-summary' => 'सारांश',
 );
 
 /** Hiligaynon (Ilonggo)
@@ -12906,7 +12940,7 @@ $messages['mt'] = array(
 	'lqt-drag-save' => 'Ikkonferma',
 	'lqt-drag-reason' => 'Raġuni:',
 	'lqt-newmessages-n' => 'Messaġġi ġodda ($1)',
-	'lqt_newmessages' => 'il-messaġġi ġodda tiegħi (xejn)',
+	'lqt_newmessages' => 'messaġġi ġodda (xejn)',
 	'lqt_newmessages-title' => 'Messaġġi ġodda',
 	'lqt-talkpage-history-title' => "Kronoloġija tal-paġna ta' diskussjoni",
 );
@@ -16691,22 +16725,34 @@ $messages['shi'] = array(
  * @author බිඟුවා
  */
 $messages['si'] = array(
+	'lqt_contents_title' => 'අන්තර්ගතයන්',
+	'lqt_toc_thread_modified' => 'අවසන් වරට වෙනස්කම් කල',
+	'lqt_new_thread' => 'නව සාකච්ඡාවක් අරඹන්න',
+	'lqt_empty_subject' => 'ඔබ විෂයක් යෙදිය යුතුයි.',
+	'lqt_reply' => 'පිළිතුරු දෙන්න',
 	'lqt_delete' => 'මකන්න',
+	'lqt_undelete' => 'මකානොදමන්න',
 	'lqt_from_talk' => '$1 වෙතින්',
 	'lqt_hist_deleted' => 'මකා දමන ලදී',
 	'lqt_hist_undeleted' => 'මකාදැමීම අවලංගු කරන ලදී',
 	'lqt_subject' => 'විෂයය:',
+	'lqt_move_torename_edit' => 'එය සංස්කරණය කරන්න',
 	'lqt_move_move' => 'ගෙනයන්න',
+	'lqt_move_noreason' => 'කිසිදු හේතුවක් දක්වා නොමැත.',
 	'lqt-title' => 'මාතෘකාව',
 	'lqt-summary' => 'සාරාංශය',
 	'lqt-email-undo' => 'අහෝසිය',
+	'lqt-thread-created' => 'තනන ලද',
 	'lqt-history-time' => 'වේලාව',
 	'lqt-history-user' => 'පරිශීලක',
+	'lqt-history-action' => 'ක්‍රියාකාරකම',
 	'lqt-history-comment' => 'පරිකථනය',
 	'lqt-header-actions' => 'කාර්යයන්',
 	'lqt-movethread' => 'ගෙනයන්න',
 	'lqt-menu-trigger' => 'තවත්',
 	'lqt-newmessages-from' => '$1 ගෙන්',
+	'lqt-hot-topics' => 'උණුසුම් මාතෘකා',
+	'lqt-add-reply' => 'පිළිතුරක් එක් කරන්න',
 	'lqt-search-button' => 'සොයන්න',
 	'lqt-ajax-update-link' => 'යාවත්කාල කරන්න',
 	'lqt-save-subject' => 'තහවුරු කරන්න',
@@ -16718,6 +16764,7 @@ $messages['si'] = array(
 	'lqt-newmessages-n' => 'මගේ නව පණිවුඩ ($1)',
 	'lqt_newmessages' => 'මගේ නව පණිවුඩ (නැත)',
 	'lqt_newmessages-title' => 'නව පණිවුඩ',
+	'lqt-talkpage-history-subtitle' => '$1 සඳහා',
 	'lqt-talkpage-history-tab' => 'ශීර්ෂකය',
 	'nstab-summary' => 'සාරාංශය',
 );
@@ -19448,45 +19495,44 @@ $messages['uk'] = array(
 	'lqt_hist_past_last_page_error' => 'Ви вийшли за межі діапазону існуючих номерів сторінок історії.',
 	'lqt_hist_tooltip_newer_disabled' => 'Це посилання відключене, тому що ви знаходитесь на першій сторінці.',
 	'lqt_hist_tooltip_older_disabled' => 'Це посилання відключене, тому що ви знаходитесь на останній сторінці.',
-	'lqt_hist_split' => 'Відповідь відокремлена у нову гілку',
+	'lqt_hist_split' => 'Відповідь відокремлена у нову тему',
 	'lqt_hist_edited_subject' => 'Змінено тему з "$2" на "$3"',
 	'lqt_hist_edited_subject_corrupt' => 'Змінено тему',
-	'lqt_hist_merged_from' => '[[$1|Відповідь]] переміщено до іншої гілки',
-	'lqt_hist_merged_to' => '[[$1|Відповідь]] переміщено з іншої гілки',
-	'lqt_hist_split_from' => 'Відокремити в нову гілку',
+	'lqt_hist_merged_from' => '[[$1|Відповідь]] переміщено до іншої теми',
+	'lqt_hist_merged_to' => '[[$1|Відповідь]] переміщено з іншої теми',
+	'lqt_hist_split_from' => 'Відокремити у нову тему',
 	'lqt_hist_root_blanked' => 'Вилучений текст коментаря',
 	'lqt_hist_adjusted_sortkey' => 'Змінив позицію розташування теми',
 	'lqt_revision_as_of' => 'Версія станом на $3 $2.',
-	'lqt_change_new_thread' => 'Це початкова версія гілки.',
+	'lqt_change_new_thread' => 'Це початкова версія теми.',
 	'lqt_change_reply_created' => '[$1 Підкреслений коментар] створений в цій версії.',
 	'lqt_change_edited_root' => '[$1 Підкреслений коментар] відредаговано в цій версії.',
 	'lqt_change_edited_summary' => 'Резюме теми змінено',
 	'lqt_change_deleted' => '[$1 Ця тема] або її батьківська вилучені',
 	'lqt_change_undeleted' => '[$1 Підкреслене повідомлення] було відновлено',
-	'lqt_change_moved' => '[$1 Ця гілка] перенесена на іншу сторінку обговорення',
-	'lqt_change_split' => '[$1 Ця гілка] була відокремлена з іншої гілки',
-	'lqt_change_edited_subject' => 'Тема цієї гілки була змінена з "$2" на "$3"',
-	'lqt_change_merged_from' => '[$1 Відповідь] з цієї гілки була перенесена в іншу гілку',
-	'lqt_change_merged_to' => '[$1 Підкреслена відповідь] була перенесена з іншої гілки',
-	'lqt_change_split_from' => '[$1 Додаткова гілка] цієї гілки була відокремлена в окрему гілку',
+	'lqt_change_moved' => '[$1 Ця тема] перенесена на іншу сторінку обговорення',
+	'lqt_change_split' => '[$1 Ця тема] була відокремлена з іншої теми',
+	'lqt_change_edited_subject' => 'Назва цієї теми змінена з "$2" на "$3"',
+	'lqt_change_merged_from' => '[$1 Відповідь] з цієї теми перенесено в іншу тему',
+	'lqt_change_merged_to' => '[$1 Підкреслену відповідь] перенесено з іншої теми',
+	'lqt_change_split_from' => '[$1 Додаткова тема] цієї теми була відокремлена у власну тему',
 	'lqt_change_root_blanked' => 'Текст [$1 коментаря] був вилучений.',
 	'lqt_youhavenewmessages' => 'У вас є [[$1|нове повідомлення]].',
-	'lqt_protectedfromreply' => 'Ця гілка була $1 від відповідей.',
+	'lqt_protectedfromreply' => 'Ця тема була $1 від відповідей.',
 	'lqt_protectedfromreply_link' => 'захищена',
 	'lqt_subject' => 'Заголовок:',
 	'lqt_noreason' => 'Не вказано причини.',
-	'lqt_move_placeholder' => 'Ця гілка позначає місце, звідки гілка $1 була перенесена з цієї сторінки.
-Переміщення здійснив $2 $3 о $4.
-Гілка наразі розміщена на $5.',
+	'lqt_move_placeholder' => 'Тему $1 перенесено на $5.
+Переміщення здійснив $2 $3 о $4.',
 	'lqt_thread_deleted_for_sysops' => "Ця гілка '''вилучена''' і доступна для перегляду тільки адміністраторам.",
-	'lqt_thread_deleted' => 'Ця гілка вилучена.',
+	'lqt_thread_deleted' => 'Цю тему вилучено.',
 	'lqt_summary_notice' => 'У цьому обговоренні не було змін принаймні $2 {{PLURAL:$2|день|дні|днів}}.
 Якщо воно завершене, ви можете $1.',
 	'lqt_summary_notice_link' => 'створити резюме',
 	'lqt_summary_label' => 'Резюме теми:',
 	'lqt_summary_subtitle' => 'Підсумок "$1"',
 	'lqt_nosuchrevision' => 'Немає такої версії цієї теми.',
-	'lqt_nosuchthread' => 'Зазначеної гілки не існує.',
+	'lqt_nosuchthread' => 'Зазначеної теми не існує.',
 	'lqt_nosuchthread_title' => 'Немає такої гілки',
 	'lqt_threadrequired' => 'Ви повинні вказати тему в URL.',
 	'lqt_move_movingthread' => 'Переміщення $1.
@@ -19497,10 +19543,10 @@ $messages['uk'] = array(
 	'lqt_move_move' => 'Перемістити',
 	'lqt_move_nodestination' => 'Ви повинні вказати сторінку призначення.',
 	'lqt_move_thread_bad_destination' => 'Сторінка призначення не є сторінкою обговорення.',
-	'lqt_move_samedestination' => 'Гілка вже на цій сторінці!',
+	'lqt_move_samedestination' => 'Тема вже на цій сторінці!',
 	'lqt_move_noreason' => 'Не вказано причини.',
-	'lqt_move_success' => 'Ця гілка була переміщена на $1.',
-	'lqt_talkpage_autocreate_summary' => 'Сторінка обговорення створена автоматично під час публікації першої гілки.',
+	'lqt_move_success' => 'Цю тему перенесено на $1.',
+	'lqt_talkpage_autocreate_summary' => 'Сторінка обговорення створена автоматично під час публікації першої теми.',
 	'lqt_header_warning_big' => 'Ви редагуєте $1.',
 	'lqt_header_warning_after_big' => 'Заголовки призначені для оголошень і передмов.
 Ви можете $2.',
@@ -19514,10 +19560,10 @@ $messages['uk'] = array(
 	'lqt-summary' => 'Опис',
 	'lqt-searching' => 'Пошук теми',
 	'lqt-read-message' => 'Позначити як прочитане',
-	'lqt-read-message-tooltip' => 'Вилучити цю гілку з списку нових повідомлень.
+	'lqt-read-message-tooltip' => 'Вилучити цю тему з списку нових повідомлень.
 Її все одно буде видно на відповідній сторінці обговорення.',
 	'lqt-read-all' => 'Позначити всі як прочитані',
-	'lqt-read-all-tooltip' => 'Вилучити всі гілки зі списку нових повідомлень.
+	'lqt-read-all-tooltip' => 'Вилучити всі теми зі списку нових повідомлень.
 Їх все одно буде видно на відповідних сторінках обговорення.
 Цю операцію пізніше можна скасувати.',
 	'lqt-marked-read' => "Тема '''$1''' позначена як прочитана.",
@@ -19525,7 +19571,7 @@ $messages['uk'] = array(
 	'lqt-email-undo' => 'Скасувати',
 	'lqt-no-new-messages' => 'Немає нових повідомлень для вас.',
 	'lqt-new-messages' => '✒ Є нові повідомлення для вас.',
-	'lqt-email-info-undo' => 'Повернути назад гілку, яку ви щойно відключили.',
+	'lqt-email-info-undo' => 'Повернути назад тему, яку ви щойно відключили.',
 	'lqt-date-info' => 'Це посилання відключене, тому що ви переглядаєте гілки за всі дати.',
 	'lqt-newmessages-context' => 'Вся тема',
 	'lqt-thread-created' => 'Створена',
@@ -19540,7 +19586,7 @@ $messages['uk'] = array(
 Останнє редагування: $1',
 	'lqt-header-actions' => 'Дії',
 	'lqt_summarize_link' => 'Резюмувати',
-	'lqt-summarize-intro' => 'Будь ласка, надайте коротку інформацію про зміст гілки у полі редагування.
+	'lqt-summarize-intro' => 'Будь ласка, надайте коротку інформацію про зміст теми у полі редагування.
 Ви може використовувати будь-який вікітекст у вашому резюме.
 Коли ви закінчите, натисніть "{{int:savearticle}}".',
 	'lqt-thread-split' => 'Відокремити в нову тему',
@@ -19564,31 +19610,31 @@ $messages['uk'] = array(
 	'lqt_rc_new_discussion' => 'написав нову тему, "$1"',
 	'lqt_rc_new_reply' => 'написав відповідь на «$1»',
 	'right-lqt-split' => 'Розділити теми',
-	'right-lqt-merge' => "об'єднання гілок",
+	'right-lqt-merge' => "об'єднання тем",
 	'right-lqt-react' => 'Відповідати у темах',
 	'lqt-thread-merge' => 'Приєднати до іншої теми',
 	'lqt-thread-merge-to' => 'Приєднати до цієї гілки',
 	'lqt_merge_thread' => 'Приєднання гілок',
-	'lqt-thread-merge-source' => 'Вихідна гілка:',
+	'lqt-thread-merge-source' => 'Вихідна тема:',
 	'lqt-thread-merge-dest' => 'Тема призначення:',
 	'lqt-merge-submit' => 'Приєднати',
-	'lqt-merge-success' => 'Ви успішно приєднали гілку $1 до батьківської $2.',
+	'lqt-merge-success' => 'Ви успішно приєднали тему $1 до батьківської $2.',
 	'lqt-log-name' => 'Журнал тем обговорення',
 	'lqt-log-header' => 'В цей журнал записуються дії, що здійснюються у темах обговорень.',
 	'lqt-log-action-move' => 'переніс [[$1]] з [[$2]] до [[$3]]',
 	'lqt-log-action-split' => 'розподіл [[$1]] з-під [[$3]], з новою темою "$2"',
 	'lqt-log-action-merge-across' => 'перемістив [[$1]] із [[$2]] в [[$3]]',
 	'lqt-log-action-merge-down' => "об'єднав [[$1]] з [[$3]]",
-	'lqt-log-action-subjectedit' => 'змінив тему [[$1]] з "$2" на "$3"',
+	'lqt-log-action-subjectedit' => 'змінив назву теми [[$1]] з "$2" на "$3"',
 	'lqt-log-action-resort' => 'змінив порядок сортування [[$1]]. Змінено ключ сортування з $2 на $3',
-	'lqt-preference-notify-talk' => 'Повідомляти мене електронною поштою про відповіді на гілці, за якою я спостерігаю',
-	'lqt-preference-watch-threads' => 'Спостерігати за гілками, що я створюю або в яких відповідаю',
+	'lqt-preference-notify-talk' => 'Повідомляти мене електронною поштою про відповіді у темі, за якою я спостерігаю',
+	'lqt-preference-watch-threads' => 'Спостерігати за темами, що я створюю або в яких відповідаю',
 	'prefs-lqt' => 'Обговорення у темах',
 	'lqt-preference-display-depth' => 'Максимальна глибина відповідей для показу:',
 	'lqt-preference-display-count' => 'Максимальна кількість відповідей для показу:',
 	'lqt-preference-custom-signatures' => 'Показувати підписи, налаштовані користувачами',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} обговорення - Відповідь: $1',
-	'lqt-enotif-subject-newthread' => '{{SITENAME}} обговорення - Нова гілка: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}} обговорення - Нова тема: $1',
 	'lqt-enotif-newthread' => "Привіт, $1.
 
 Це повідомлення з {{SITENAME}} про те, що нова тема '$2' на $5
@@ -19628,13 +19674,13 @@ $7",
 	'lqt-save-subject' => 'Зберегти',
 	'lqt-save-subject-failed' => 'Під час спроби зміни теми цієї гілки виникла така помилка: $1',
 	'lqt-ajax-invalid-subject' => 'Введена вами тема недопустима, ймовірно, тому що вона задовга.',
-	'lqt-ajax-no-subject' => 'Ви повинні вказати тему.',
-	'lqt-save-subject-error-unknown' => 'Сталася невідома помилка при спробі встановити тему цієї гілки. Будь ласка, спробуйте зробити це, натиснувши кнопку "Змінити" у верхній частині повідомлення.',
+	'lqt-ajax-no-subject' => 'Ви повинні вказати назву нової теми.',
+	'lqt-save-subject-error-unknown' => 'Сталася невідома помилка при спробі встановити назву цієї теми. Будь ласка, спробуйте зробити це, натиснувши кнопку "Змінити" у верхній частині повідомлення.',
 	'lqt-cancel-subject-edit' => 'Скасувати',
 	'lqt-drag-activate' => 'Перемістити в інше місце',
 	'lqt-drag-drop-zone' => 'Залишити тут',
 	'lqt-drag-confirm' => 'Щоб виконати наступні дії, вкажіть, будь ласка, причину та натисніть "Підтвердити".',
-	'lqt-drag-reparent' => 'Перемістити гілку до іншої батьківської.',
+	'lqt-drag-reparent' => 'Перемістити тему до іншої батьківської.',
 	'lqt-drag-split' => 'Перемістити запис у нову окрему гілку',
 	'lqt-drag-setsortkey' => 'Змінити позицію розташування запису на сторінці',
 	'lqt-drag-bump' => 'Перемістити запис на початок сторінки обговорення',
@@ -19940,7 +19986,7 @@ La firma la vien fora da sola.',
 	'nstab-summary' => 'Somario',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
@@ -19976,7 +20022,7 @@ $messages['vep'] = array(
 	'lqt-search-button' => 'Ectä',
 	'searchprofile-threads' => 'Lodu',
 	'lqt-ajax-update-link' => 'Udištada',
-	'lqt_newmessages' => 'Uded tedotused',
+	'lqt_newmessages' => 'Uded tedotused (ei ole)',
 );
 
 /** Vietnamese (Tiếng Việt)
