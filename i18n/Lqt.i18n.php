@@ -10083,7 +10083,7 @@ La firma è mostrata automaticamente.',
 	'lqt-save-subject' => 'Salva',
 	'lqt-save-subject-failed' => "Nella modifica dell'oggetto del presente thread si è verificato il seguente errore: $1",
 	'lqt-ajax-invalid-subject' => "L'oggetto specificato non è valido, probabilmente perché era troppo lungo.",
-	'lqt-ajax-no-subject' => 'È necessario specificare un oggetto.',
+	'lqt-ajax-no-subject' => 'È necessario specificare un oggetto per il nuovo thread.',
 	'lqt-save-subject-error-unknown' => "In seguito al tentativo di impostare l'oggetto di questo thread si è verificato un errore sconosciuto. Provare a ripetere l'operazione attivando l'opzione \"modifica\" sul post superiore",
 	'lqt-cancel-subject-edit' => 'Annulla',
 	'lqt-drag-activate' => 'Trascina in una nuova posizione',
@@ -10096,7 +10096,7 @@ La firma è mostrata automaticamente.',
 	'lqt-drag-save' => 'Conferma',
 	'lqt-drag-title' => 'Conferma trascinamento',
 	'lqt-drag-reason' => 'Motivo:',
-	'lqt-drag-subject' => 'Oggetto per la nuova discussione:',
+	'lqt-drag-subject' => 'Oggetto per la nuova discussione (obbligatorio):',
 	'lqt-edit-signature' => '(modifica firma)',
 	'lqt-preview-signature' => '(anteprima)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Nuovi messaggi',
@@ -16741,13 +16741,24 @@ $messages['shi'] = array(
  */
 $messages['si'] = array(
 	'lqt_contents_title' => 'අන්තර්ගතයන්',
-	'lqt_toc_thread_modified' => 'අවසන් වරට වෙනස්කම් කල',
+	'lqt_toc_thread_title' => 'සම්බන්ධයේ මාතෘකාව',
+	'lqt_toc_thread_replycount' => 'පිළිතුරු',
+	'lqt_toc_thread_modified' => 'අන්තිමට වෙනස් කලේ',
+	'lqt_add_header' => 'ශිර්ෂකයක් එක් කරන්න',
 	'lqt_new_thread' => 'නව සාකච්ඡාවක් අරඹන්න',
+	'lqt-empty-text' => 'ඔබට හිස් පණිවුඩයක් තැපැල් කල නොහැක',
 	'lqt_empty_subject' => 'ඔබ විෂයක් යෙදිය යුතුයි.',
-	'lqt_reply' => 'පිළිතුරු දෙන්න',
+	'lqt_reply' => 'පිළිතුරු',
+	'lqt-parent' => 'ජනකය',
 	'lqt_delete' => 'මකන්න',
 	'lqt_undelete' => 'මකානොදමන්න',
+	'lqt_permalink' => 'සම්බන්ධ කරන්න',
+	'lqt_discussion_link' => 'සාකච්ඡාව',
 	'lqt_from_talk' => '$1 වෙතින්',
+	'lqt-history-title' => 'සම්බන්ධයේ ඉතිහාසය',
+	'lqt_hist_summary_changed' => 'සාරාංශය වෙනස් විණි',
+	'lqt_hist_reply_created' => '[[$1|නව පිළිතුරක්]] තැනිණි',
+	'lqt_hist_thread_created' => 'නව සම්බන්ධයක් තැනිණි',
 	'lqt_hist_deleted' => 'මකා දමන ලදී',
 	'lqt_hist_undeleted' => 'මකාදැමීම අවලංගු කරන ලදී',
 	'lqt_hist_moved_talkpage' => 'ගෙනයනලද',
@@ -16811,7 +16822,7 @@ $messages['si'] = array(
 	'lqt-newpost-summary' => 'නව සම්බන්ධය: $1',
 	'lqt-talkpage-history-subtitle' => '$1 සඳහා',
 	'lqt-talkpage-history-tab' => 'ශීර්ෂකය',
-	'lqt-reply-subpage' => 'පිළිතුරු දෙන්න',
+	'lqt-reply-subpage' => 'පිළිතුරු',
 	'nstab-thread' => 'සම්බන්ධය',
 	'nstab-summary' => 'සාරාංශය',
 );
@@ -20397,6 +20408,7 @@ $messages['xal'] = array(
 );
 
 /** Yiddish (ייִדיש)
+ * @author Imre
  * @author פוילישער
  */
 $messages['yi'] = array(
@@ -20433,6 +20445,7 @@ $messages['yi'] = array(
 	'searchprofile-threads' => 'דיסקוסיעס',
 	'lqt-save-subject' => 'אויפֿהיטן',
 	'lqt-cancel-subject-edit' => 'אַנולירן',
+	'lqt-drag-save' => 'באַשטעטיקן',
 );
 
 /** Cantonese (粵語)
