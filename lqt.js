@@ -220,7 +220,7 @@ window.liquidThreads = {
 
 		mwEditButtons = [];
 
-		mediaWiki.loader.using( ['mediawiki.action.edit.js'],
+		mediaWiki.loader.using( ['mediawiki.action.edit'],
 			function() {
 				if ( isIE7 ) {
 					$j(container).empty().show();
