@@ -229,7 +229,7 @@ window.liquidThreads = {
 					function() {
 						if ( typeof mediaWiki.loader != 'undefined' && mediaWiki.loader ) {
 							mediaWiki.loader.using(
-								[ 'ext.wikiEditor', 'ext.wikiEditor.toolbar.i18n',
+								[ 'ext.wikiEditor',
 									'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.dialogs',
 									'jquery.async', 'jquery.cookie' ],
 								finishSetup );
