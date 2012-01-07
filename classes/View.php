@@ -170,11 +170,12 @@ class LqtView {
 		$changed_thread = $revision->getChangeObject();
 		$curr_rev_id = $changed_thread->rootRevision();
 		$curr_rev = Revision::newFromId( $curr_rev_id );
-		if ( !$curr_rev ) {
-			throw new MWException( "Undefined revision in diffQuery" );
+
+		$oldid = '';
+		if ( $curr_rev ) {
+			$prev_rev = $curr_rev->getPrevious();
+			$oldid = $prev_rev ? $prev_rev->getId() : '';
 		}
-		$prev_rev = $curr_rev->getPrevious();
-		$oldid = $prev_rev ? $prev_rev->getId() : "";
 
 		$query = array(
 			'lqt_method' => 'diff',
