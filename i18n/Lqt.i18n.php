@@ -6379,7 +6379,7 @@ Syy voi olla:
 	'lqt_hist_root_blanked' => 'Kommenttiteksti poistettu',
 	'lqt_hist_adjusted_sortkey' => 'Säädetty ketjusijainti',
 	'lqt_revision_as_of' => 'Versio, joka on päivätty $2 kello $3.',
-	'lqt_change_new_thread' => 'Tämä on ketjun alustava versio.',
+	'lqt_change_new_thread' => 'Tämä on ketjun aloitus.',
 	'lqt_change_reply_created' => '[$1 Korostettu kommentti] luotiin tässä versiossa.',
 	'lqt_change_edited_root' => '[$1 Korostettua kommenttia] muokattiin tässä versiossa.',
 	'lqt_change_edited_summary' => 'Ketjun yhteenvetoa on muokattu',
@@ -16958,7 +16958,7 @@ $messages['si'] = array(
 	'lqt-thread-merge-dest' => 'ගමනාන්ත සම්බන්ධය:',
 	'lqt-merge-submit' => 'ඒකාබද්ධ කරන්න',
 	'prefs-lqt' => 'සම්බන්ධක සාකච්ඡාව',
-	'lqt-preference-custom-signatures' => 'ව්‍යවහාර පරිශිලක අත්සන් පෙන්වන්න',
+	'lqt-preference-custom-signatures' => 'රිසිකරණයය කල පරිශිලක අත්සන් පෙන්වන්න',
 	'lqt-quote' => 'උද්ධරණය',
 	'lqt-search-legend' => 'මෙම පිටුවේ ඇති සාකච්ඡා සොයන්න',
 	'lqt-search-label' => 'සෙවුම් කොන්දේසි:',
@@ -19834,7 +19834,7 @@ $messages['uk'] = array(
 	'lqt-delete-parent-warning' => 'Це гілка верхнього рівня з відповідями.
 Її відповіді також буде вилучено автоматично.
 Щоб уникнути цього, перенесіть їх з цієї гілки до її вилучення.',
-	'lqt-delete-parent-deleted' => 'Батьківська гілка вилучена ($1)',
+	'lqt-delete-parent-deleted' => 'Батьківська тема вилучена ($1)',
 	'lqt-delete-replies-done' => 'Усі відповіді цієї гілки також були вилучені.',
 	'lqt-movethread' => 'Перемістити',
 	'lqt-menu-trigger' => 'Більше',
