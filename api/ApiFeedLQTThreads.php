@@ -33,6 +33,7 @@ class ApiFeedLQTThreads extends ApiBase {
 
 	/**
 	 * This module uses a custom feed wrapper printer.
+	 * @return ApiFormatFeedWrapper
 	 */
 	public function getCustomPrinter() {
 		return new ApiFormatFeedWrapper( $this->getMain() );
@@ -145,6 +146,11 @@ class ApiFeedLQTThreads extends ApiBase {
 		return wfMsgExt( $msg, array( 'parsemag' ), $fromPlaces, $fromCount );
 	}
 
+	/**
+	 * @param $params array
+	 * @param $db DatabaseBase
+	 * @return array
+	 */
 	function getConditions( $params, $db ) {
 		$conds = array();
 
