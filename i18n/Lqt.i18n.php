@@ -6054,6 +6054,7 @@ Eztabaida hau $2-(e)ko zati da.',
  * @author Ebraminio
  * @author Huji
  * @author Ladsgroup
+ * @author Mehdi
  * @author Mjbmr
  * @author Sahim
  * @author Wayiran
@@ -6230,7 +6231,7 @@ $messages['fa'] = array(
 	'lqt-log-action-merge-down' => '[[$1]] به تحت [[$3]] ادغام شد',
 	'lqt-log-action-subjectedit' => 'عنوان [[$1]] از «$2» به «$3» تغییر یافت',
 	'lqt-log-action-resort' => 'ترتیب مرتب‌سازی [[$1]] تغییر کرد. کلید مرتب‌سازی از $2 به $3 تغییر یافت.',
-	'lqt-preference-notify-talk' => 'پاسخ مبحث‌هایی که من پی‌گیری می‌کنم را به من پست الکترونیکی بفرست',
+	'lqt-preference-notify-talk' => 'پاسخ مبحث‌هایی که من پی‌گیری می‌کنم را به پست الکترونیکی من بفرست',
 	'lqt-preference-watch-threads' => 'تاپیک‌هایی که من می‌سازم یا پاسخ می‌دهم را دنبال کن',
 	'prefs-lqt' => 'بحث تاپیک‌شده',
 	'lqt-preference-display-depth' => 'حداکثر عمق پاسخ برای نمایش:',
