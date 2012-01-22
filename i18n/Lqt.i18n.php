@@ -7246,9 +7246,10 @@ $messages['gl'] = array(
 	'lqt_toc_thread_modified' => 'Última modificación',
 	'lqt_add_header' => 'Engadir unha cabeceira',
 	'lqt_new_thread' => 'Comezar un novo debate',
-	'lqt_invalid_subject' => 'O asunto que introduciu non é válido. Pode:
-* ser demasiado longo ou
-* haber un conflito cos prefixos interwiki ou os nomes dos espazos de nomes.',
+	'lqt_invalid_subject' => 'O asunto que introduciu non é válido.
+Pode deberse a algún dos seguintes motivos:
+* É longo de máis.
+* Hai un conflito cos prefixos interwiki ou os nomes dos espazos de nomes.',
 	'lqt-empty-text' => 'Non pode publicar unha mensaxe en branco',
 	'lqt_empty_subject' => 'Debe inserir un asunto.',
 	'lqt_reply' => 'Responder',
@@ -7256,9 +7257,9 @@ $messages['gl'] = array(
 	'lqt_delete' => 'Borrar',
 	'lqt_undelete' => 'Recuperar',
 	'lqt_permalink' => 'Ligazón a',
-	'lqt_fragment' => 'Fragmento dunha $1 de $2',
+	'lqt_fragment' => 'Fragmento dunha $1 de "$2"',
 	'lqt_discussion_link' => 'conversa',
-	'lqt_from_talk' => 'De $1',
+	'lqt_from_talk' => 'De "$1"',
 	'lqt-history-title' => 'Historial do fío',
 	'lqt_hist_comment_edited' => '[$2 Editouse] o texto do comentario',
 	'lqt_hist_summary_changed' => 'Modificouse o resumo',
@@ -7358,10 +7359,10 @@ Esta operación non se pode desfacer.',
 	'lqt-history-action' => 'Actividade',
 	'lqt-history-comment' => 'Comentario',
 	'lqt-history-thread' => 'Fío',
-	'lqt-thread-edited-author' => 'Editado polo autor<br />
-Última edición: $1',
+	'lqt-thread-edited-author' => 'Editado polo autor.<br />
+Última edición: $4 ás $3',
 	'lqt-thread-edited-others' => 'Editado por {{PLURAL:$2|outro usuario|$2 usuarios}}.<br />
-Última edición: o $4 ás $3',
+Última edición: $4 ás $3',
 	'lqt-header-actions' => 'Accións',
 	'lqt_summarize_link' => 'Resumir',
 	'lqt-summarize-intro' => 'Por favor, resuma o seguinte fío na caixa de edición.
@@ -7395,7 +7396,7 @@ Para evitar isto, sepáreas deste fío antes de borralo.',
 	'lqt-thread-merge-source' => 'Fío de orixe:',
 	'lqt-thread-merge-dest' => 'Fío de destino:',
 	'lqt-merge-submit' => 'Fusionar',
-	'lqt-merge-success' => 'Fusionou con éxito o fío $1 con $2.',
+	'lqt-merge-success' => 'Fusionou con éxito o fío "$1" con "$2".',
 	'lqt-log-name' => 'Rexistro de fíos de conversa',
 	'lqt-log-header' => 'Este rexistro detalla as accións feitas nos fíos de conversa.',
 	'lqt-log-action-move' => 'moveu "[[$1]]" de "[[$2]]" a "[[$3]]".',
@@ -7481,7 +7482,7 @@ $7',
 	'lqt-newpost-summary' => 'Novo fío: $1',
 	'lqt-reply-summary' => 'Responder a [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Historial da páxina de conversa',
-	'lqt-talkpage-history-subtitle' => 'De $1',
+	'lqt-talkpage-history-subtitle' => 'De "$1"',
 	'lqt-talkpage-history-tab' => 'Cabeceira',
 	'restriction-reply' => 'Publicar respostas',
 	'restriction-newthread' => 'Publicar novos fíos',
