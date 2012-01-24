@@ -16033,6 +16033,7 @@ $7",
 /** Russian (Русский)
  * @author Ferrer
  * @author Innv
+ * @author KPu3uC B Poccuu
  * @author Kaganer
  * @author Kv75
  * @author Lockal
@@ -16193,7 +16194,7 @@ $messages['ru'] = array(
 	'lqt_rc_new_reply' => 'написал ответ на «$1»',
 	'right-lqt-split' => 'разделение ветвей',
 	'right-lqt-merge' => 'объединение ветвей',
-	'right-lqt-react' => 'Ответить на ветку',
+	'right-lqt-react' => 'отвечать в ветках обсуждений',
 	'lqt-thread-merge' => 'Присоединить к другой ветке',
 	'lqt-thread-merge-to' => 'Присоединить к этой ветке',
 	'lqt_merge_thread' => 'Присоединение веток',
@@ -16209,8 +16210,8 @@ $messages['ru'] = array(
 	'lqt-log-action-merge-down' => 'объединил [[$1]] в [[$3]]',
 	'lqt-log-action-subjectedit' => 'изменил тему [[$1]] с «$2» на «$3»',
 	'lqt-log-action-resort' => 'изменил порядок сортировки [[$1]]. Смена ключа сортировки с $2 на $3',
-	'lqt-preference-notify-talk' => 'Уведомлять меня по почте о новых ответах на ветке, за которой я слежу',
-	'lqt-preference-watch-threads' => 'Следить за ветками, которые я создал, или на которые отвечал',
+	'lqt-preference-notify-talk' => 'Уведомлять меня по почте о новых ответах на ветке, за которой я слежу.',
+	'lqt-preference-watch-threads' => 'Следить за ветками, которые я создал, или на которые отвечал.',
 	'prefs-lqt' => 'Обсуждения по веткам',
 	'lqt-preference-display-depth' => '* Максимальная глубина ответов для отображения:',
 	'lqt-preference-display-count' => '* Максимальное количество ответов для отображения:',
