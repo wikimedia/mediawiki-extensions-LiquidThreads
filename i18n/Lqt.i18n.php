@@ -7328,7 +7328,7 @@ Este fío forma parte de "$2".',
 	'lqt_talkpage_autocreate_summary' => 'Páxina de conversa creada automaticametne cando se publicou o primeiro fío.',
 	'lqt_header_warning_big' => 'Está editando a $1.',
 	'lqt_header_warning_after_big' => 'As cabeceiras son para a introdución e os avisos.
-É posíbel que no canto disto queira $2.',
+É posible que no canto disto queira $2.',
 	'lqt_header_warning_bold' => 'cabeceira dunha páxina de conversa',
 	'lqt_header_warning_new_discussion' => 'comezar unha nova conversa',
 	'lqt_sorting_order' => 'Organizar:',
