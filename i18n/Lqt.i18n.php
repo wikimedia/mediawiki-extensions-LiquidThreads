@@ -7830,7 +7830,8 @@ $messages['gu'] = array(
 	'lqt_move_torename_edit' => 'ફેરફાર કરો',
 	'lqt_move_move' => 'ખસેડો',
 	'lqt_move_noreason' => 'કોઇ કારણ દર્શાવવામાં આવ્યું નથી',
-	'lqt_newmessages' => 'નવા સંદેશા',
+	'lqt-newmessages-n' => 'મારા નવા સંદેશા ($1)',
+	'lqt_newmessages' => 'મારા નવા સંદેશા (ખાલી)',
 );
 
 /** Manx (Gaelg)
