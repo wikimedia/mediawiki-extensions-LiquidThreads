@@ -35,7 +35,8 @@ class LqtDispatch {
 			$viewname = 'TalkpageView';
 		} elseif ( !$lqt_action && (
 				( !in_array( $action, $lqt_actions ) && $action) ||
-				$request->getVal( 'diff', null ) !== null ) ) {
+				$request->getVal( 'diff', null ) !== null  ||
+				$request->getVal( 'oldid', null ) !== null ) ) {
 			// Pass through wrapper
 			$viewname = 'TalkpageHeaderView';
 		} elseif ( $action == 'protect' || $action == 'unprotect' ) {
