@@ -279,7 +279,7 @@ class Threads {
 
 		$t = Title::makeTitleSafe( $namespace, $basename );
 		while ( !$t ||
-			in_array( $t->getPrefixedDBkey(), self::$occupied_titles ||
+			in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) ||
 			$t->exists() ||
 			$t->isDeletedQuick()
 		 ) {
