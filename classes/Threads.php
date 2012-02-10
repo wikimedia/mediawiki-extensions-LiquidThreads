@@ -278,8 +278,11 @@ class Threads {
 		$basename = Threads::makeTitleValid( $basename );
 
 		$t = Title::makeTitleSafe( $namespace, $basename );
-		while ( !$t || $t->exists() ||
-				in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) ) {
+		while ( !$t ||
+			in_array( $t->getPrefixedDBkey(), self::$occupied_titles ||
+			$t->exists() ||
+			$t->isDeletedQuick()
+		 ) {
 
 			if ( !$t ) {
 				throw new MWException( "Error in creating title for basename $basename" );
