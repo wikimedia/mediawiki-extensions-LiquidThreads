@@ -154,6 +154,9 @@ $wgHooks['SetupNewUserMessageBody'][] = 'LqtHooks::setupNewUserMessageBody';
 // JS variables
 $wgHooks['MakeGlobalVariablesScript'][] = 'LqtHooks::onMakeGlobalVariablesScript';
 
+// API
+$wgHooks['APIQueryAfterExecute'][] = 'LqtHooks::onAPIQueryAfterExecute';
+
 // Special pages
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';

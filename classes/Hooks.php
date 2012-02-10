@@ -862,4 +862,21 @@ class LqtHooks {
 		$list[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
 		return true;
 	}
+
+	public static function onAPIQueryAfterExecute( &$module ) {
+		if( $module instanceof ApiQueryInfo ) {
+			$result = $module->getResult();
+			$data = $result->getData();
+
+			foreach( $data['query']['pages'] as $pageid => $page ) {
+				if( $page == 'page' ) continue;
+
+				if( LqtDispatch::isLqtPage( Title::newFromText( $page['title'] ) ) ) {
+					$result->addValue( array( 'query', 'pages' ), $pageid, array( 'islqttalkpage' => '' ) );
+				}
+			}
+		}
+
+		return true;
+	}
 }
