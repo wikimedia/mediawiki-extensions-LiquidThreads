@@ -2,25 +2,26 @@
 
 BEGIN;
 
-CREATE SEQUENCE thread_thread_id_seq;
+CREATE SEQUENCE thread_thread_id;
 CREATE TABLE thread (
-  thread_id                INTEGER     NOT NULL PRIMARY KEY DEFAULT nextval('thread_thread_id_seq'),
-  thread_root              INTEGER     NOT NULL,
+  thread_id                INTEGER         NULL PRIMARY KEY DEFAULT nextval('thread_thread_id'),
+  thread_root              INTEGER     NOT NULL UNIQUE,
   thread_ancestor          INTEGER     NOT NULL,
-  thread_parent            INTEGER     NOT NULL,
-  thread_summary_page      INTEGER     NOT NULL,
+  thread_parent            INTEGER         NULL,
+  thread_summary_page      INTEGER         NULL,
   thread_subject           TEXT            NULL,
   thread_author_id         INTEGER         NULL,
   thread_author_name       TEXT            NULL,
-  thread_modified          TIMESTAMPTZ     NULL DEFAULT now(),
-  thread_created           TIMESTAMPTZ     NULL DEFAULT now(),
+  thread_modified          TIMESTAMPTZ NOT NULL DEFAULT now(),
+  thread_created           TIMESTAMPTZ NOT NULL DEFAULT now(),
   thread_editedness        SMALLINT    NOT NULL DEFAULT 0,
   thread_article_namespace SMALLINT    NOT NULL,
   thread_article_title     TEXT        NOT NULL,
   thread_article_id        INTEGER     NOT NULL,
   thread_type              SMALLINT    NOT NULL DEFAULT 0,
   thread_sortkey           TEXT        NOT NULL DEFAULT '',
-  thread_replies           INTEGER     NOT NULL DEFAULT -1
+  thread_replies           INTEGER     NOT NULL DEFAULT -1,
+  thread_signature         varchar(255)    NULL
 );
 
 CREATE UNIQUE INDEX thread_root_page ON thread(thread_root);
@@ -38,7 +39,7 @@ CREATE TABLE historical_thread (
   hthread_revision      INTEGER NOT NULL,
   hthread_contents      TEXT    NOT NULL,
   hthread_change_type   INTEGER NOT NULL,
-  hthread_change_object INTEGER NOT NULL
+  hthread_change_object INTEGER     NULL
 );
 CREATE UNIQUE INDEX historical_thread_unique ON historical_thread(hthread_id, hthread_revision);
 
@@ -49,9 +50,9 @@ CREATE TABLE user_message_state (
 );
 CREATE UNIQUE INDEX user_message_state_unique ON user_message_state(ums_user, ums_thread);
 
-CREATE SEQUENCE thread_history_th_id_seq;
+CREATE SEQUENCE thread_history_th_id;
 CREATE TABLE thread_history (
-  th_id             INTEGER NOT NULL PRIMARY KEY DEFAULT nextval('thread_history_th_id_seq'),
+  th_id             INTEGER NOT NULL PRIMARY KEY DEFAULT nextval('thread_history_th_id'),
   th_thread         INTEGER NOT NULL,
   th_timestamp      TEXT    NOT NULL,
   th_user           INTEGER NOT NULL,
