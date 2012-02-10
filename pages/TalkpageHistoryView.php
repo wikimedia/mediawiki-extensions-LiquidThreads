@@ -74,9 +74,10 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 	}
 
 	function formatValue( $name, $value ) {
-		global $wgLang, $wgContLang;
-
+		global $wgLang, $wgContLang, $wgOut;
 		static $linker = null;
+
+		$wgOut->setRobotPolicy('noindex, nofollow');
 
 		if ( empty( $linker ) ) {
 			$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
