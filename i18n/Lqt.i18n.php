@@ -12689,6 +12689,7 @@ $messages['mn'] = array(
 );
 
 /** Marathi (मराठी)
+ * @author Ankitgadgil
  * @author Htt
  * @author Kaustubh
  * @author Mahitgar
@@ -12756,7 +12757,9 @@ $messages['mr'] = array(
 	'lqt_sort_newest_changes' => 'शेवटी बदललेले पहिल्यांदा',
 	'lqt_sort_newest_threads' => 'नवीन थ्रेड पहिल्यांदा',
 	'lqt_sort_oldest_threads' => 'जुने थ्रेड पहिल्यांदा',
+	'lqt-newmessages-n' => 'माझे नवीन संदेश ($1)',
 	'lqt_newmessages' => 'माझे नवीन संदेश',
+	'lqt_newmessages-title' => 'नवीन संदेश',
 );
 
 /** Malay (Bahasa Melayu)
@@ -20970,6 +20973,7 @@ $7',
  * @author Horacewai2
  * @author Liangent
  * @author Mark85296341
+ * @author Oapbtommy
  * @author Shinjiman
  * @author Waihorace
  */
@@ -21002,7 +21006,7 @@ $messages['zh-hant'] = array(
 	'lqt_hist_summary_changed' => '已更改摘要',
 	'lqt_hist_reply_created' => '已發表[[$1|新回覆]]',
 	'lqt_hist_thread_created' => '已建立新的討論串',
-	'lqt_hist_deleted' => '已經刪除',
+	'lqt_hist_deleted' => '已刪除',
 	'lqt_hist_undeleted' => '已經反刪除',
 	'lqt_hist_moved_talkpage' => '已移動',
 	'lqt_hist_listing_subtitle' => '正在檢視歷史列表',
@@ -21087,7 +21091,7 @@ $messages['zh-hant'] = array(
 	'lqt-email-info-undo' => '恢復之前您取消的話題。',
 	'lqt-date-info' => '此連結已被停用，因為您正在瀏覽所有日期的話題。',
 	'lqt-newmessages-context' => '話題的所有內容',
-	'lqt-thread-created' => '建立於',
+	'lqt-thread-created' => '已建立',
 	'lqt-history-time' => '時間',
 	'lqt-history-user' => '用戶',
 	'lqt-history-action' => '活躍度',
