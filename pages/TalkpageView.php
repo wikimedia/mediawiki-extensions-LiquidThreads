@@ -286,7 +286,7 @@ class TalkpageView extends LqtView {
 			// This closes the div of mw-content-ltr/rtl containing lang and dir attributes
 			$this->output->addHTML(
 				Html::closeElement( 'div' ) . Html::openElement( 'div', 
-				array( 'class' => 'lqt-talkpage', 'lang' => $wgLang->getCode(), 'dir' => wfUILang()->getDir() )
+				array( 'class' => 'lqt-talkpage', 'lang' => $wgLang->getCode(), 'dir' => $wgLang->getDir() )
 			) );
 		}
 
@@ -560,11 +560,11 @@ class LqtDiscussionPager extends IndexPager {
 	 * Stolen from TablePager because it's pretty.
 	 */
 	function getNavigationBar() {
-		global $wgStylePath;
-
 		if ( method_exists( $this, 'isNavigationBarShown' ) &&
-				!$this->isNavigationBarShown() )
+				!$this->isNavigationBarShown() ) {
 			return '';
+		}
+		global $wgStylePath, $wgLang;
 
 		$path = "$wgStylePath/common/images";
 		$labels = array(
@@ -585,7 +585,7 @@ class LqtDiscussionPager extends IndexPager {
 			'next' => 'arrow_disabled_right_25.png',
 			'last' => 'arrow_disabled_last_25.png',
 		);
-		if( wfUILang()->isRTL() ) {
+		if( $wgLang->isRTL() ) {
 			$keys = array_keys( $labels );
 			$images = array_combine( $keys, array_reverse( $images ) );
 			$disabledImages = array_combine( $keys, array_reverse( $disabledImages ) );
