@@ -10868,6 +10868,7 @@ $messages['km'] = array(
 	'lqt-header-actions' => 'សកម្មភាព​',
 	'lqt_summarize_link' => 'សង្ខេប​',
 	'lqt-search-button' => 'ស្វែង​រក​',
+	'lqt-save-subject' => 'រក្សាទុក',
 	'lqt-newmessages-n' => 'សារថ្មីៗ ($1)',
 	'lqt_newmessages' => 'សារថ្មីៗ (គ្មាន)',
 	'lqt_newmessages-title' => 'សារថ្មីៗ',
