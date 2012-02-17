@@ -13419,6 +13419,7 @@ $messages['nds-nl'] = array(
 /** Nepali (नेपाली)
  * @author Bhawani Gautam
  * @author Bhawani Gautam Rhk
+ * @author RajeshPandey
  * @author सरोज कुमार ढकाल
  */
 $messages['ne'] = array(
@@ -13441,7 +13442,7 @@ $messages['ne'] = array(
 	'lqt_discussion_link' => 'चर्चा',
 	'lqt_from_talk' => ' $1बाट',
 	'lqt-history-title' => 'थ्रेड इतिहास',
-	'lqt_hist_thread_created' => 'नयाँ धागो(thread) शिर्जना गरीयो',
+	'lqt_hist_thread_created' => 'नयाँ वार्तालाप(thread) सिर्जना गरीयो',
 	'lqt_hist_deleted' => 'मेटियो',
 	'lqt_hist_undeleted' => 'मेट्नेकार्यबाट पूर्व रुपमा फर्काइयो',
 	'lqt_hist_moved_talkpage' => 'सारियो',
@@ -13490,7 +13491,7 @@ $messages['ne'] = array(
 	'lqt-no-new-messages' => 'तपाईंलाई नयाँ सन्देशहरु छैनन्।',
 	'lqt-new-messages' => '✒ तपाईकोनिम्ति नयाँ सन्देशहरु छन्।',
 	'lqt-newmessages-context' => 'पूरा धागो(thread)',
-	'lqt-thread-created' => 'शिर्जना गरियो',
+	'lqt-thread-created' => 'सिर्जना गरियो',
 	'lqt-history-time' => 'समय',
 	'lqt-history-user' => 'प्रयोगकर्ता',
 	'lqt-history-action' => 'क्रियाकलाप',
