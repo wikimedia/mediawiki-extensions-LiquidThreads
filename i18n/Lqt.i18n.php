@@ -13848,6 +13848,7 @@ Wijzig het onderwerp door op "Bewerken" te klikken in de bovenste bijdrage.',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Dittaeva
  * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
@@ -14030,9 +14031,13 @@ For å unngå dette, kan du kløyva av svara før du slettar tråden.',
 	'lqt-enotif-subject-reply' => '{{SITENAME}}-diskusjon - Svar: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}}-diskusjon - Ny tråd: $1',
 	'lqt-enotif-reply' => 'Hei $1,
-dette er eit varsel frå {{SITENAME}} om at det vart oppretta eit svar til «$2» på $5 den $3 kl. $4.
 
-Du kan lesa svaret på <$6>',
+dette er eit varsel frå {{SITENAME}} om at det er oppretta eit svar til «$2» på $5 den $3 kl. $4 av $8.
+
+Du kan lesa svaret på <$6>
+
+Innhaldet i svaret er:
+$7',
 	'lqt-quote-intro' => 'Den $2 kl. $3 skreiv [[User:$1|$1]]:',
 	'lqt-quote' => 'Siter',
 	'lqt-search-legend' => 'Søk i diskusjonar på denne sida',
