@@ -8151,6 +8151,7 @@ $7",
  * @author Kaustubh
  * @author Kiranmayee
  * @author Knightsofdawn
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
 	'lqt-desc' => 'वार्ता पृष्ठ पर वार्ता के थ्रेड्स बढायें',
@@ -8299,7 +8300,7 @@ $messages['hi'] = array(
 	'lqt-quote' => 'उद्धरण',
 	'lqt-search-legend' => 'इस पृष्ठ पे आलोचना ढूँढे',
 	'lqt-search-label' => 'खोज आइटम:',
-	'lqt-search-button' => 'खोज',
+	'lqt-search-button' => 'खोजें',
 	'searchprofile-threads' => 'वार्ता',
 	'searchprofile-threads-tooltip' => 'सूत्र आलोचना और आलोचना पृष्ठ ढूँढे',
 	'lqt-ajax-updated' => 'इस सूत्र में नया संदेस ।',
