@@ -12263,7 +12263,7 @@ $messages['mk'] = array(
 	'lqt_move_placeholder' => 'Оваа нишка е показател кој означува дека нишката $1 била преместена од оваа страница.
 Преместувањето го извршил корисникот $2 на $3 во $4 ч. Нишката сега се наоѓа на $5.',
 	'lqt_thread_deleted_for_sysops' => "Оваа нишка е '''избришана''' и е видлива само за администратори.",
-	'lqt_thread_deleted' => 'Оваа ниншка била избришана.',
+	'lqt_thread_deleted' => 'Оваа нишка е избришана.',
 	'lqt_summary_notice' => 'Овој разговор не е изменет барем $2 {{PLURAL:$2|ден|дена}}.
 Ако е завршен, препорачуваме да $1.',
 	'lqt_summary_notice_link' => 'внесете опис',
@@ -13871,6 +13871,7 @@ $messages['nn'] = array(
 Kan henda er det:
 * For langt
 * I konflikt med interwiki-forstavingar eller namn på namnerom',
+	'lqt-empty-text' => 'Du får ikkje senda ei tom melding',
 	'lqt_empty_subject' => 'Du lyt skriva inn eit emne.',
 	'lqt_reply' => 'Svar',
 	'lqt-parent' => 'Forelder',
