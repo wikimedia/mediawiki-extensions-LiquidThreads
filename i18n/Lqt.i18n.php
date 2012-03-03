@@ -4372,7 +4372,7 @@ Die Signatur wird automatisch ergänzt.',
 	'lqt-historicalrevision-error' => 'Die ausgewählte Version ist beschädigt und kann nicht angezeigt werden.',
 	'lqt-reply-subpage' => 'Antwort',
 	'nstab-thread' => 'Thema',
-	'nstab-summary' => 'Themazusammenfassung',
+	'nstab-summary' => 'Themenzusammenfassung',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
