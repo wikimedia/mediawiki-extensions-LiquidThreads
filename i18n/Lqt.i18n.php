@@ -1570,6 +1570,7 @@ $messages['az'] = array(
 /** Bashkir (Башҡортса)
  * @author Assele
  * @author Haqmar
+ * @author Roustammr
  */
 $messages['ba'] = array(
 	'lqt-desc' => 'Фекер алышыу биттәренә фекер алышыу тармаҡтарын өҫтәй',
@@ -1659,7 +1660,7 @@ $3 $4 уны $2 күсергән.',
 	'lqt_move_samedestination' => 'Тармаҡ был биттә инде!',
 	'lqt_move_noreason' => 'Сәбәп белдерелмәгән.',
 	'lqt_move_success' => 'Был тармаҡ $1 битенә күсерелгән.',
-	'lqt_talkpage_autocreate_summary' => 'Беренсе хәбәр ебәрелеү менән, фекер алышыу бите үҙенән-үҙе барлыҡҡа килә',
+	'lqt_talkpage_autocreate_summary' => 'Беренсе хәбәр ебәрелеү менән, әңгәмә бите үҙенән-үҙе барлыҡҡа килә',
 	'lqt_header_warning_big' => 'Һеҙ $1 мөхәррирләйһегеҙ.',
 	'lqt_header_warning_after_big' => 'Исемдәр иғлан һәм инеш булараҡ хеҙмәт итә.
 Һеҙ $2 алаһығыҙ.',
@@ -7304,7 +7305,7 @@ Pode deberse a algún dos seguintes motivos:
 	'lqt_move_placeholder' => 'O fío que se atopaba aquí, "$1", foi trasladado a "$5".
 O traslado realizouno $2 o $3 ás $4.',
 	'lqt_thread_deleted_for_sysops' => "Este fío foi '''borrado''' e só pode ser visto polos administradores.",
-	'lqt_thread_deleted' => 'Este fío foi eliminado.',
+	'lqt_thread_deleted' => 'Este fío foi borrado.',
 	'lqt_summary_notice' => 'Non houbo modificacións nesta conversa en, polo menos, {{PLURAL:$2|un día|$2 días}}.
 Se xa foi rematada, ao mellor quere $1.',
 	'lqt_summary_notice_link' => 'escribir un resumo',
@@ -12080,6 +12081,8 @@ Tai galėjo atsitikti, jei:
 	'lqt_header_warning_new_discussion' => 'Pradėti naują diskusiją',
 	'lqt_sorting_order' => 'Rūšiavimo tvarka:',
 	'lqt-title' => 'Pavadinimas',
+	'lqt-summary' => 'Apibendrinimas',
+	'lqt-searching' => 'Žinučių paieška',
 	'lqt-read-message' => 'Žymėti kaip perskaitytą',
 	'lqt-read-all' => 'Pažymėti visus kaip skaitytus',
 	'lqt-email-undo' => 'Anuliuoti',
