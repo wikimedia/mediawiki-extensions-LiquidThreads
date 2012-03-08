@@ -10562,6 +10562,7 @@ $messages['jv'] = array(
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  * @author Dawid Deutschland
  * @author ITshnik
  * @author გიორგიმელა
@@ -10736,7 +10737,7 @@ $messages['ka'] = array(
 	'lqt-save-subject' => 'შენახვა',
 	'lqt-save-subject-failed' => 'წარმოიშვა შეცდომა თემის სათაურის შეცვლისას: $1',
 	'lqt-ajax-invalid-subject' => 'თქვენს მიერ მითითებული სათაური არასწორი აღმოჩნდა, შეიძლება ის ძალიან გრძელია.',
-	'lqt-ajax-no-subject' => 'თქვენ უნდა მიუთითოთ სათაური.',
+	'lqt-ajax-no-subject' => 'თქვენ უნდა მიუთითოთ ახალი ტოტის სათაური.',
 	'lqt-save-subject-error-unknown' => 'წარმოიშვა შეცდომა თემის სათაურის შექმნისას. გთხოვთ სცადეთ კვლავ ღილაკის "რედაქტირება" დაჭერით.',
 	'lqt-cancel-subject-edit' => 'გაუქმება',
 	'lqt-drag-activate' => 'ახალ ადგილას გადატანა',
