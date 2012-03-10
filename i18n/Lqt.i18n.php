@@ -20897,6 +20897,7 @@ $messages['yue'] = array(
  * @author Shizhao
  * @author Tommyang
  * @author Wmr89502270
+ * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
 	'lqt-desc' => '在讨论页增加话题讨论功能',
@@ -21027,7 +21028,7 @@ $messages['zh-hans'] = array(
 	'lqt-thread-split-thread' => '话题：',
 	'lqt-split-submit' => '分割',
 	'lqt_split_badsubject' => '您输入的主题无效。',
-	'lqt-no-threads' => '此页还没有话题。',
+	'lqt-no-threads' => '本页面还没有话题。',
 	'lqt-delete-parent-warning' => '该顶级话题带有回复。删除时将自动删除所有回复。如需避免，请在删除前将要保留的回复从此话题中分割。',
 	'lqt-delete-parent-deleted' => '父话题已删除（$1）',
 	'lqt-delete-replies-done' => '所有对该话题的回复亦被删除。',
