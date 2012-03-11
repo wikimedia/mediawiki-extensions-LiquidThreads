@@ -732,7 +732,7 @@ class LqtHooks {
 	 * @param $title Title
 	 */
 	public static function applyPendingArticleRelationship( $pendingRelationship, $title ) {
-		$articleID = $title->getArticleId();
+		$articleID = $title->getArticleID();
 
 		$dbw = wfGetDB( DB_MASTER );
 

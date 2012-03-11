@@ -668,15 +668,15 @@ class Thread {
 			foreach( $res as $row ) {
 				$t = Title::newFromRow( $row );
 
-				if ( isset( $restrictionRows[$t->getArticleId()] ) ) {
-					$t->loadRestrictionsFromRows( $restrictionRows[$t->getArticleId()],
+				if ( isset( $restrictionRows[$t->getArticleID()] ) ) {
+					$t->loadRestrictionsFromRows( $restrictionRows[$t->getArticleID()],
 									$row->page_restrictions );
 				}
 
 				$article = new Article( $t );
 				$article->loadPageData( $row );
 
-				self::$titleCacheById[$t->getArticleId()] = $t;
+				self::$titleCacheById[$t->getArticleID()] = $t;
 				$articlesById[$article->getId()] = $article;
 
 				if ( count( self::$titleCacheById ) > 10000 ) {
@@ -858,7 +858,7 @@ class Thread {
 
 			$this->articleNamespace = $newTitle->getNamespace();
 			$this->articleTitle = $newTitle->getDbKey();
-			$this->articleId = $newTitle->getArticleId();
+			$this->articleId = $newTitle->getArticleID();
 
 			$this->article = $newArticle;
 		}
@@ -872,7 +872,7 @@ class Thread {
 
 			$this->articleNamespace = $title->getNamespace();
 			$this->articleTitle = $title->getDbKey();
-			$this->articleId = $title->getArticleId();
+			$this->articleId = $title->getArticleID();
 
 			$this->article = $ancestor->article();
 		}
@@ -890,9 +890,9 @@ class Thread {
 
 		// If still unfilled, the article ID referred to is no longer valid. Re-fill it
 		//  from the namespace/title pair if an article ID is provided
-		if ( !$articleTitle && ( $this->articleId != 0 || $dbTitle->getArticleId() != 0 ) ) {
+		if ( !$articleTitle && ( $this->articleId != 0 || $dbTitle->getArticleID() != 0 ) ) {
 			$articleTitle = $dbTitle;
-			$this->articleId = $articleTitle->getArticleId();
+			$this->articleId = $articleTitle->getArticleID();
 			$this->article = new Article( $dbTitle );
 
 			$set['thread_article_id'] = $this->articleId;

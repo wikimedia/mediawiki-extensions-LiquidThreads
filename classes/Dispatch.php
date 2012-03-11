@@ -131,7 +131,7 @@ class LqtDispatch {
 			return null;
 		}
 
-		$articleid = $title->getArticleId();
+		$articleid = $title->getArticleID();
 
 		global $wgLiquidThreadsAllowUserControlNamespaces;
 		global $wgLiquidThreadsAllowUserControl;
