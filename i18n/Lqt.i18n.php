@@ -627,6 +627,14 @@ $messages['gom-latn'] = array(
 	'lqt_newmessages' => 'Noveo sondes (Kai na)',
 );
 
+/** Ṫuroyo (Ṫuroyo)
+ * @author Ariyo
+ */
+$messages['tru'] = array(
+	'lqt-newmessages-n' => 'Ṫebe ḥaṭe ($1)',
+	'lqt_newmessages' => 'aṪebe ḥaṭe (0)',
+);
+
 /** Abkhazian (Аҧсуа)
  * @author Temuri rajavi
  */
