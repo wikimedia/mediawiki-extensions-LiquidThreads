@@ -3476,6 +3476,7 @@ $messages['co'] = array(
  * @author Kuvaly
  * @author Matěj Grabovský
  * @author Mormegil
+ * @author Tchoř
  */
 $messages['cs'] = array(
 	'lqt-desc' => 'Umožňuje uspořádávat diskusní stránky do vláken',
@@ -3492,6 +3493,7 @@ $messages['cs'] = array(
 Možná, že:
 * je příliš dlouhý,
 * koliduje s prefixem interwiki nebo názvem jmenného prostoru.',
+	'lqt-empty-text' => 'Nemůžete poslat prázdnou zprávu.',
 	'lqt_empty_subject' => 'Musíte vyplnit předmět.',
 	'lqt_reply' => 'Odpovědět',
 	'lqt-parent' => 'Předchozí',
