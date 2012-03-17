@@ -338,10 +338,9 @@ class LqtHooks {
 	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( $updater = null ) {
-		$dir = realpath( dirname( __FILE__ ) . '/..' );
+		$dir = dirname( __FILE__ );
 
 		$updater->addExtensionUpdate( array( 'addTable', 'thread', "$dir/lqt.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addTable', 'user_message_state', "$dir/lqt.sql", true ) );
 		$updater->addExtensionUpdate( array( 'addTable', 'thread_history', "$dir/schema-changes/thread_history_table.sql", true ) );
 		$updater->addExtensionUpdate( array( 'addTable', 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.sql", true ) );
 		$updater->addExtensionUpdate( array( 'addTable', 'thread_reaction', "$dir/schema-changes/thread_reactions.sql", true ) );
