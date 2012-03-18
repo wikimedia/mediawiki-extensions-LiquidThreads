@@ -17187,6 +17187,7 @@ $messages['si'] = array(
  * @author Helix84
  * @author Jkjk
  * @author Mormegil
+ * @author Teslaton
  */
 $messages['sk'] = array(
 	'lqt-desc' => 'Pridáva organizáciu správ na diskusných stránkach do vlákien',
@@ -17202,6 +17203,7 @@ $messages['sk'] = array(
 	'lqt_invalid_subject' => 'Predmet, ktorý ste zadali je neplatný. Môže:
 * byť príliš dlhý alebo
 * byť v konflikte s predponami interwiki alebo názvami menných priestorov.',
+	'lqt-empty-text' => 'Nemôžete poslať prázdnu správu.',
 	'lqt_empty_subject' => 'Musíte napísať predmet.',
 	'lqt_reply' => 'Odpovedať',
 	'lqt-parent' => 'Nadradené',
@@ -17336,6 +17338,7 @@ Ak tomu chcete zabrániť, oddeľte ich od tohto vlákna predtým, než ho zmaž
 	'lqt_rc_new_reply' => 'odpovedal na „$1“',
 	'right-lqt-split' => 'Oddeliť vlákna',
 	'right-lqt-merge' => 'Zlúčiť vlákna',
+	'right-lqt-react' => 'Odpovedať na vlákna',
 	'lqt-thread-merge' => 'Zlúčiť do iného vlákna',
 	'lqt-thread-merge-to' => 'Zlúčiť do tohto vlákna',
 	'lqt_merge_thread' => 'Zlúčiť vlákna',
@@ -17396,7 +17399,7 @@ Podpis sa zobrazí automaticky.',
 	'lqt-save-subject' => 'Uložiť',
 	'lqt-save-subject-failed' => 'Počas zmeny predmetu tohto vlákna sa vyskytla nasledovná chyba: $1',
 	'lqt-ajax-invalid-subject' => 'Predmet, ktorý ste uviedli nie je platný, pravdepodobne preto, že je príliš dlhý.',
-	'lqt-ajax-no-subject' => 'Musíte uviesť predmet.',
+	'lqt-ajax-no-subject' => 'Pri novom vlákne musíte uviesť predmet.',
 	'lqt-save-subject-error-unknown' => 'Počas zmeny predmetu tohto vlákna sa vyskytla neznáma chyba. Prosím, skúste to kliknutím na „upraviť“ v hornom príspevku.',
 	'lqt-cancel-subject-edit' => 'Zrušiť',
 	'lqt-drag-activate' => 'Pretiahnuť na novú pozíciu',
@@ -17409,7 +17412,7 @@ Podpis sa zobrazí automaticky.',
 	'lqt-drag-save' => 'Potvrdiť',
 	'lqt-drag-title' => 'Potvrdiť ťahanie',
 	'lqt-drag-reason' => 'Dôvod:',
-	'lqt-drag-subject' => 'Predmet nového vlákna:',
+	'lqt-drag-subject' => 'Predmet nového vlákna (povinný):',
 	'lqt-edit-signature' => '(upraviť podpis)',
 	'lqt-preview-signature' => '(náhľad)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Nové príspevky',
