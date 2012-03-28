@@ -719,27 +719,29 @@ window.liquidThreads = {
 		$j.get( mw.util.wikiScript( 'api' ), apiParams,
 			function(data) {
 				// Interpret
-				var content = data.query.threads[threadId].content;
-				content = $j(content).find('.lqt-thread-replies')[0];
+				if( typeof data.query.threads[threadId] !== 'undefined' ) {
+					var content = data.query.threads[threadId].content;
+					content = $j(content).find('.lqt-thread-replies')[0];
 
-				// Inject
-				replies.empty().append( $j(content).contents() );
+					// Inject
+					replies.empty().append( $j(content).contents() );
 
-				// Remove post separator, if it follows the replies element
-				if ( replies.next().is('.lqt-post-sep') ) {
-					replies.next().remove();
+					// Remove post separator, if it follows the replies element
+					if ( replies.next().is('.lqt-post-sep') ) {
+						replies.next().remove();
+					}
+
+					// Set up
+					replies.find('div.lqt-post-wrapper').each( function() {
+						liquidThreads.setupThread( $j(this) );
+					} );
+
+					replies.before(sep);
+
+					// Show
+					loader.remove();
+					replies.fadeIn('slow');
 				}
-
-				// Set up
-				replies.find('div.lqt-post-wrapper').each( function() {
-					liquidThreads.setupThread( $j(this) );
-				} );
-
-				replies.before(sep);
-
-				// Show
-				loader.remove();
-				replies.fadeIn('slow');
 			}, 'json' );
 	},
 
