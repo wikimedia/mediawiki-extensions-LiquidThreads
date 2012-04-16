@@ -4459,7 +4459,7 @@ $messages['diq'] = array(
 	'lqt_toc_thread_title' => 'sernameyê gıreyi',
 	'lqt_toc_thread_author' => 'o yo ke dano destpêkerdış',
 	'lqt_toc_thread_replycount' => 'cewabi',
-	'lqt_toc_thread_modified' => 'vurnayoxo peyın',
+	'lqt_toc_thread_modified' => 'Vurnayışo Verên',
 	'lqt_add_header' => 'sername bıerz cı',
 	'lqt_new_thread' => 'newe yew werîameyiş kewe',
 	'lqt_invalid_subject' => 'sernameyo ke şıma pê kewti cı nemeqbulo..
@@ -4511,7 +4511,7 @@ Sebebê ey:
 	'lqt_change_merged_to' => '[$1 cevabo servınderte] yewna gıre ra kırışiya',
 	'lqt_change_split_from' => '[$1 yew bıngıreyê] no gıreyi no gıre ra bı ciya',
 	'lqt_change_root_blanked' => 'metnê [$1 yew mışoreyi] erziya.',
-	'lqt_youhavenewmessages' => ' [[$1|Mesacê tuyê newey]] estê.',
+	'lqt_youhavenewmessages' => '[[$1|Mesacê toyo newe]] esto.',
 	'lqt_protectedfromreply' => 'no gıre, cewabdayiş nêwazeno $1.',
 	'lqt_protectedfromreply_link' => 'pawıteyo',
 	'lqt_subject' => 'muhtewa:',
@@ -4553,7 +4553,7 @@ no gıre parçeyê $2'i yo.",
 	'lqt-title' => 'sername',
 	'lqt-summary' => 'xulasa',
 	'lqt-searching' => 'gıreyi gêriyene',
-	'lqt-read-message' => 'bı wende nişane bıker',
+	'lqt-read-message' => 'Wanaye deye nişane kerê',
 	'lqt-read-message-tooltip' => 'mesajanê neweyan ra no gıre vec.
 pelê werêameyişi yo orijinal de anciya zi aseno.',
 	'lqt-read-all' => 'pêroyin têde wende nişane bıker',
@@ -4561,7 +4561,7 @@ pelê werêameyişi yo orijinal de anciya zi aseno.',
 pelê werêameyişi yo orijinal de anciya zi aseno.
 no operasyon tepiya geriyeno.',
 	'lqt-marked-read' => "gıreyê '''$1'''i bı wende nişane bı:",
-	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mesaj|mesaj}} wende nişane bı.',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mesac|mesac}} waneyayo deye nışan bı',
 	'lqt-email-undo' => 'tepiya bıger',
 	'lqt-no-new-messages' => 'Şıma rê mesajeko newe çino.',
 	'lqt-new-messages' => '✒ şıma re mesajê neweyi esti.',
@@ -4625,16 +4625,22 @@ eke şıma qayili tera xo bıkeri (qayil niyê), cewaban verê esterıtışê g�
 	'lqt-preference-display-depth' => 'Gösterilecek azami cevap derinliği:',
 	'lqt-preference-display-count' => 'amarê cewabi yo azami ramociyeno:',
 	'lqt-preference-custom-signatures' => 'imzayê karberani yê xusûsiyan ramocın',
-	'lqt-enotif-subject-reply' => "werêameyişê {{SITENAME}}'i  - Cevab: $1",
-	'lqt-enotif-subject-newthread' => "werêameyişê {{SITENAME}}'i - gıreyo newe: $1",
+	'lqt-enotif-subject-reply' => '{{SITENAME}} ra vatene - Cevab: $1',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}} ra vatene  -mesaco newe: $1',
 	'lqt-enotif-newthread' => "Merheba $1,
-no, keyepelê {{SITENAME}}'i ra yew ilan o (pêhesnayişo): pelê $5'i de no name de '$2' yew gıreyo newe, no $3 $4 tarix de vıraziya.
+no, web site dê {{SITENAME}} ra yew Peyhesnayışo: pelê $5'i de no name de '$2' yew gıreyo newe, no $3 $4 tarix de $8 vıraşto
 
-ti ney, adresa <$6>'i de eşkêni bıvini.",
+Kerek ke şırê ena adres <$6>'i vurnayışan bivinê.
+
+Bahdo bivine:
+$7",
 	'lqt-enotif-reply' => "Merheba $1,
-no, keyepelê {{SITENAME}}'i ra yew ilan o (pêhesnayişo): pelê $5'i de gıreyê '$2'i re yew cewabo newe no $3 $4 tarix de vıraziya.
+no, web site dê {{SITENAME}} ra yew Peyhesnayışo: pelê $5'i de no name de '$2' yew gıreyo newe, no $3 $4 tarix de $8'i vıraşto
 
-ti ney, adresa <$6>'i de eşkêni bıvini.",
+Kerem ke şırê ena adres <$6>'i vurnayışan bivinê.
+
+Metnê cıwabi:
+$7",
 	'lqt-quote-intro' => '$2 $3 tarix de, [[User:$1|$1]] nuşt:',
 	'lqt-quote' => 'gırewte',
 	'lqt-search-legend' => 'werêameyişê no peli bıgêr',
@@ -14546,12 +14552,17 @@ $messages['pdc'] = array(
 );
 
 /** Pälzisch (Pälzisch)
+ * @author Manuae
  * @author Xqt
  */
 $messages['pfl'] = array(
 	'lqt_delete' => 'Lesche',
 	'lqt_move_move' => 'Verschiewe',
+	'lqt-no-new-messages' => 'Du hoschd kä naie Nochrischde.',
+	'lqt-new-messages' => '→ Du hoschd naie Nochrischde.',
 	'lqt-movethread' => 'Verschiewe',
+	'lqt-save-subject' => 'Schbaischere',
+	'lqt-cancel-subject-edit' => 'Uffhere',
 );
 
 /** Polish (Polski)
@@ -15442,15 +15453,16 @@ $messages['pt-br'] = array(
 	'lqt_add_header' => 'Adicionar cabeçalho',
 	'lqt_new_thread' => 'Iniciar um novo tópico',
 	'lqt_invalid_subject' => 'O assunto fornecido é inválido.
-Ele pode:
-* Ser logo de mais, ou
-* Estar em conflito com os prefixos das ligações interprojeto ou nomes dos espaços nominais.',
+Talvez ele:
+* Seja muito longo
+* Esteja em conflito com os prefixos dos links interwiki ou nomes de espaços nominais.',
+	'lqt-empty-text' => 'Você não pode postar uma mensagem em branco',
 	'lqt_empty_subject' => 'Você deve fornecer um assunto.',
 	'lqt_reply' => 'Responder',
 	'lqt-parent' => 'Tópico de raiz',
 	'lqt_delete' => 'Apagar',
 	'lqt_undelete' => 'Restaurar',
-	'lqt_permalink' => 'Ligação permanente',
+	'lqt_permalink' => 'Link permanente',
 	'lqt_fragment' => 'Fragmento de uma $1 de $2',
 	'lqt_discussion_link' => 'discussão',
 	'lqt_from_talk' => 'De $1',
@@ -15466,8 +15478,8 @@ Ele pode:
 	'lqt_hist_view_whole_thread' => 'Ver histórico do tópico completo',
 	'lqt_hist_no_revisions_error' => 'Este tópico não tem quaisquer revisões de histórico.',
 	'lqt_hist_past_last_page_error' => 'Você está além do número de páginas de histórico existentes.',
-	'lqt_hist_tooltip_newer_disabled' => 'Esta ligação está desativada porque você está na primeira página.',
-	'lqt_hist_tooltip_older_disabled' => 'Esta ligação está desativada porque se você está na última página.',
+	'lqt_hist_tooltip_newer_disabled' => 'Este link está desativado porque você está na primeira página.',
+	'lqt_hist_tooltip_older_disabled' => 'Este link está desativado porque você está na última página.',
 	'lqt_hist_split' => 'Resposta separada em um novo tópico',
 	'lqt_hist_edited_subject' => 'Assunto alterado de "$2" para "$3"',
 	'lqt_hist_edited_subject_corrupt' => 'Assunto alterado',
@@ -15545,7 +15557,7 @@ Esta operação é reversível.',
 	'lqt-no-new-messages' => 'Não há novas mensagens para você.',
 	'lqt-new-messages' => '✒ Há novas mensagens para você.',
 	'lqt-email-info-undo' => 'Trazer de volta o tópico que você acabou de descartar.',
-	'lqt-date-info' => 'Esta ligação está inativa porque você está a visualizando tópicos de todas as datas.',
+	'lqt-date-info' => 'Este link está inativo porque você está visualizando tópicos de todas as datas.',
 	'lqt-newmessages-context' => 'Tópico completo',
 	'lqt-thread-created' => 'Criado',
 	'lqt-history-time' => 'Data',
@@ -15593,7 +15605,7 @@ Para evitá-lo, separe-as antes de apagar o tópico.',
 	'lqt-merge-success' => 'Você mesclou com sucesso o tópico $1 abaixo de $2',
 	'lqt-log-name' => 'Registro de discussões em tópicos',
 	'lqt-log-header' => 'Este registro detalha as ações tomadas nos tópicos de discussão',
-	'lqt-log-action-move' => 'movido [[$1]] de [[$2]] para [[$3]].',
+	'lqt-log-action-move' => 'moveu [[$1]] de [[$2]] para [[$3]].',
 	'lqt-log-action-split' => 'separou [[$1]] do tópico [[$3]], e deu-lhe o novo assunto "$2"',
 	'lqt-log-action-merge-across' => 'moveu [[$1]] do tópico [[$2]] para o tópico [[$3]]',
 	'lqt-log-action-merge-down' => 'moveu [[$1]] para o tópico [[$3]]',
@@ -15669,7 +15681,7 @@ A assinatura é apresentada automaticamente.',
 	'lqt-feed-reply-intro' => 'Resposta a $3 (em $1) enviada por $2',
 	'tooltip-pt-newmessages' => 'Mostra, nas páginas que estiver vigiando, mensagens novas nos tópicos ou páginas de discussão por tópicos',
 	'lqt-newmessages-n' => 'Novas mensagens ($1)',
-	'lqt_newmessages' => 'Mensagens novas (nenhuma)',
+	'lqt_newmessages' => 'Mensagens novas (0)',
 	'lqt_newmessages-title' => 'Novas mensagens',
 	'lqt-newpost-summary' => 'Tópico novo: $1',
 	'lqt-reply-summary' => 'Resposta a [[$2|$1]]',
@@ -17203,7 +17215,7 @@ $messages['sk'] = array(
 	'lqt_invalid_subject' => 'Predmet, ktorý ste zadali je neplatný. Môže:
 * byť príliš dlhý alebo
 * byť v konflikte s predponami interwiki alebo názvami menných priestorov.',
-	'lqt-empty-text' => 'Nemôžete poslať prázdnu správu.',
+	'lqt-empty-text' => 'Nemôžete poslať prázdnu správu',
 	'lqt_empty_subject' => 'Musíte napísať predmet.',
 	'lqt_reply' => 'Odpovedať',
 	'lqt-parent' => 'Nadradené',
