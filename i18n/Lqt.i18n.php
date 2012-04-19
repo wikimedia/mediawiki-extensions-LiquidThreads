@@ -10271,6 +10271,7 @@ La firma è mostrata automaticamente.',
  * @author JtFuruhata
  * @author Ohgi
  * @author Schu
+ * @author Shirayuki
  * @author Whym
  * @author 青子守歌
  */
@@ -10299,7 +10300,7 @@ $messages['ja'] = array(
 	'lqt_discussion_link' => '議論',
 	'lqt_from_talk' => '$1 より',
 	'lqt-history-title' => 'スレッド履歴',
-	'lqt_hist_comment_edited' => 'コメントの[$2 編集]',
+	'lqt_hist_comment_edited' => 'コメントを[$2 編集]',
 	'lqt_hist_summary_changed' => '要約の変更',
 	'lqt_hist_reply_created' => '[[$1|返答]]の新規作成',
 	'lqt_hist_thread_created' => 'スレッドの新規作成',
@@ -10313,7 +10314,7 @@ $messages['ja'] = array(
 	'lqt_hist_tooltip_newer_disabled' => '最初のページにつき、このリンクは動作しません。',
 	'lqt_hist_tooltip_older_disabled' => '最後のページにつき、このリンクは動作しません。',
 	'lqt_hist_split' => '新しいスレッドに分割された返信',
-	'lqt_hist_edited_subject' => '表題の「$2」から「$3」への変更',
+	'lqt_hist_edited_subject' => '表題を「$2」から「$3」に変更',
 	'lqt_hist_edited_subject_corrupt' => '話題が変更されています',
 	'lqt_hist_merged_from' => '[[$1|返信]]の別のスレッドへの移動',
 	'lqt_hist_merged_to' => '[[$1|返信]]の別のスレッドからの移動',
@@ -10362,10 +10363,10 @@ $messages['ja'] = array(
 	'lqt_move_noreason' => '理由が付記されていません。',
 	'lqt_move_success' => 'このスレッドは $1 に移動しました。',
 	'lqt_talkpage_autocreate_summary' => '最初のスレッドが始まる際、{{int:talk}}ページは自動的に作成されます。',
-	'lqt_header_warning_big' => 'あなたは$1を編集しようとしています。',
+	'lqt_header_warning_big' => 'あなたは$1を編集中です。',
 	'lqt_header_warning_after_big' => '見出しは、告知や序文のためにあります。代わりに$2べきでしょう。',
 	'lqt_header_warning_bold' => '議論ページの見出し',
-	'lqt_header_warning_new_discussion' => '新しい議論を始める',
+	'lqt_header_warning_new_discussion' => '新しい議論を開始',
 	'lqt_sorting_order' => '並び替え順:',
 	'lqt_sort_newest_changes' => '最終更新を上に',
 	'lqt_sort_newest_threads' => '新しいスレッドを上に',
