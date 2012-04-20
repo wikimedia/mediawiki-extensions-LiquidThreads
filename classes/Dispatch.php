@@ -4,6 +4,14 @@ class LqtDispatch {
 	static $userLqtOverride = array();
 	static $primaryView = null;
 
+	/**
+	 * @param $output OutputPage
+	 * @param $article Article
+	 * @param $title Title
+	 * @param $user User
+	 * @param $request WebRequest
+	 * @return bool
+	 */
 	static function talkpageMain( &$output, &$article, &$title, &$user, &$request ) {
 		// We are given a talkpage article and title. Fire up a TalkpageView
 
@@ -55,6 +63,14 @@ class LqtDispatch {
 		return $view->show();
 	}
 
+	/**
+	 * @param $output OutputPage
+	 * @param $article Article
+	 * @param $title Title
+	 * @param $user User
+	 * @param $request WebRequest
+	 * @return bool
+	 */
 	static function threadPermalinkMain( &$output, &$article, &$title, &$user, &$request ) {
 		$action =  $request->getVal( 'action' );
 		$lqt_method = $request->getVal( 'lqt_method' );
@@ -96,6 +112,9 @@ class LqtDispatch {
 	 * @return bool|null
 	 */
 	static function isLqtPage( $title ) {
+		if ( !$title ) {
+			return false;
+		}
 		// Ignore it if it's a thread or a summary, makes no sense to have LiquidThreads there.
 		if ( $title->getNamespace() == NS_LQT_THREAD ||
 				$title->getNamespace() == NS_LQT_SUMMARY ) {
@@ -126,6 +145,9 @@ class LqtDispatch {
 		return $isTalkPage;
 	}
 
+	/**
+	 * @param $title Title
+	 */
 	static function getUserLqtOverride( $title ) {
 		if ( ! is_object( $title ) ) {
 			return null;
@@ -179,9 +201,15 @@ class LqtDispatch {
 	}
 
 	/**
-	* If the page we recieve is a LiquidThreads page of any kind, process it
-	* as needed and return True. If it's a normal, non-liquid page, return false.
-	*/
+	 * If the page we recieve is a LiquidThreads page of any kind, process it
+	 * as needed and return True. If it's a normal, non-liquid page, return false.
+	 * @param $output OutputPage
+	 * @param $article Article
+	 * @param $title Title
+	 * @param $user User
+	 * @param $request WebRequest
+	 * @return bool
+	 */
 	static function tryPage( $output, $article, $title, $user, $request ) {
 		if ( LqtDispatch::isLqtPage( $title ) ) {
 			// LiquidThreads pages, Talk:X etc
@@ -212,7 +240,13 @@ class LqtDispatch {
 		return true;
 	}
 
-	# Most stuff is in the user language.
+	/**
+	 * Most stuff is in the user language.
+	 * @param $title Title
+	 * @param $pageLang
+	 * @param $wgLang
+	 * @return bool
+	 */
 	static function onPageContentLanguage( $title, &$pageLang, $wgLang ) {
 		global $wgRequest;
 		$method = $wgRequest->getVal( 'lqt_method' );
