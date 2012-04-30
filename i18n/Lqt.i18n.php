@@ -4693,7 +4693,7 @@ $7",
 	'lqt-talkpage-history-title' => 'hal-verinê pelê werêameyişi',
 	'lqt-talkpage-history-subtitle' => 'seba $1',
 	'lqt-talkpage-history-tab' => 'Ser',
-	'restriction-reply' => 'Cewaban darde bike',
+	'restriction-reply' => 'Cewab bırşe',
 	'restriction-newthread' => 'Sernameyanê neweyan darde bike',
 	'lqt-protected-reply-thread' => 'Ti nişkenê itiya de binuse cunki ena pele kilit biyo.',
 	'lqt-protected-reply-talkpage' => 'Ti nişkenê itiya de binuse cunki ena pele kilit biyo.',
@@ -10447,7 +10447,7 @@ $messages['ja'] = array(
 	'prefs-lqt' => 'スレッド型議論',
 	'lqt-preference-display-depth' => '表示する返信の最大の深さ：',
 	'lqt-preference-display-count' => '表示する返信の最大数:',
-	'lqt-preference-custom-signatures' => 'カスタムの利用者署名を表示する',
+	'lqt-preference-custom-signatures' => 'カスタムの利用者署名を表示',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} の討論 - 返信: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} の討論 - 新スレッド: $1',
 	'lqt-enotif-newthread' => 'こんにちは、$1 さん。
@@ -10456,7 +10456,7 @@ $8 によって $3 $4 に作成されたことのお知らせです。
 
 <$6> で確認できます。
 
-内容は、次のとおりです:
+内容は以下の通りです：
 $7',
 	'lqt-enotif-reply' => '$1 さん、
 
@@ -10465,11 +10465,11 @@ $3 $4 に $8 さんから新しい返信があったことをお知らせしま�
 
 <$6> でご覧いただけます。
 
-返信内容は次のとおりです：
+返信内容は以下の通りです：
 $7',
 	'lqt-quote-intro' => '$2 $3に[[User:$1|$1]]が書きました:',
 	'lqt-quote' => '引用',
-	'lqt-search-legend' => 'このページ上の議論を検索する',
+	'lqt-search-legend' => 'このページ上の議論を検索',
 	'lqt-search-label' => '検索語句:',
 	'lqt-search-button' => '検索',
 	'searchprofile-threads' => '議論',
@@ -15156,6 +15156,7 @@ $messages['ps'] = array(
 	'lqt-save-subject' => 'خوندي کول',
 	'lqt-cancel-subject-edit' => 'ناګارل',
 	'lqt-drag-drop-zone' => 'دلته پرېښودل',
+	'lqt-drag-save' => 'تاييد',
 	'lqt-drag-reason' => 'سبب:',
 	'lqt-edit-signature' => '(لاسليک سمول)',
 	'lqt-feed-title-replies' => '{{SITENAME}} — ځوابونه',
