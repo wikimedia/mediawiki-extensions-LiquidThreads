@@ -340,10 +340,27 @@ class LqtHooks {
 	public static function onLoadExtensionSchemaUpdates( $updater = null ) {
 		$dir = realpath( dirname( __FILE__ ) . '/..' );
 
-		$updater->addExtensionUpdate( array( 'addTable', 'thread', "$dir/lqt.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addTable', 'thread_history', "$dir/schema-changes/thread_history_table.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addTable', 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addTable', 'thread_reaction', "$dir/schema-changes/thread_reactions.sql", true ) );
+		if ( $updater instanceof PostgresUpdater ) {
+			$updater->addExtensionUpdate( array( 'addTable', 'thread', "$dir/lqt.pg.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addTable', 'thread_history',
+					"$dir/schema-changes/thread_history_table.pg.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addTable', 'thread_pending_relationship',
+					"$dir/schema-changes/thread_pending_relationship.pg.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addTable', 'thread_reaction',
+					"$dir/schema-changes/thread_reactions.pg.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', 'user_message_state', 'ums_conversation',
+					"$dir/schema-changes/ums_conversation.pg.sql", true ) );
+		} else {
+			$updater->addExtensionUpdate( array( 'addTable', 'thread', "$dir/lqt.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addTable', 'thread_history',
+					"$dir/schema-changes/thread_history_table.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addTable', 'thread_pending_relationship',
+					"$dir/schema-changes/thread_pending_relationship.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addTable', 'thread_reaction',
+					"$dir/schema-changes/thread_reactions.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', 'user_message_state', 'ums_conversation',
+					"$dir/schema-changes/ums_conversation.sql", true ) );
+		}
 
 		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql", true ) );
 		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_article_title", "$dir/schema-changes/split-thread_article.sql", true ) );
@@ -359,7 +376,6 @@ class LqtHooks {
 		$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql", true ) );
 		$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql", true ) );
 		$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', 'user_message_state', 'ums_conversation', "$dir/schema-changes/ums_conversation.sql", true ) );
 
 		$updater->addExtensionUpdate( array( 'addIndex', 'thread', 'thread_summary_page', '(thread_summary_page)' ) );
 
