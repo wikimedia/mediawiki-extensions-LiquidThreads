@@ -15620,7 +15620,7 @@ Para evitá-lo, separe-as antes de apagar o tópico.',
 	'lqt-log-action-merge-down' => 'moveu [[$1]] para o tópico [[$3]]',
 	'lqt-log-action-subjectedit' => 'alterou o assunto de [[$1]], de "$2" para "$3"',
 	'lqt-log-action-resort' => 'modificou a ordenação de [[$1]]. Alterou a chave de ordenação, de $2 para $3',
-	'lqt-preference-notify-talk' => 'Notificar-me por e-mail sobre as respostas de tópicos que eu estou vigiando',
+	'lqt-preference-notify-talk' => 'Receber e-mail sobre as respostas de tópicos que eu estou vigiando',
 	'lqt-preference-watch-threads' => 'Vigiar tópicos que eu venha a criar ou responder',
 	'prefs-lqt' => 'Discussão em tópicos',
 	'lqt-preference-display-depth' => 'Profundidade máxima de respostas a serem mostradas:',
@@ -17749,6 +17749,7 @@ $messages['so'] = array(
 
 /** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Mormegil
+ * @author Nikola Smolenski
  * @author Rancher
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
@@ -17948,7 +17949,7 @@ $7',
 
 Текст поруке гласи:
 $7',
-	'lqt-quote-intro' => '$2 у $3, [[User:$1|$1]] {{GENDER:$1|је написао|је написала|је написао}}:',
+	'lqt-quote-intro' => '$2 у $3, [[User:$1|$1]] {{GENDER:$1|је написао|је написала|написа}}:',
 	'lqt-quote' => 'Цитат',
 	'lqt-search-legend' => 'Претражи расправе на овој страници',
 	'lqt-search-label' => 'Упити претраге:',
@@ -20836,6 +20837,7 @@ $messages['yi'] = array(
 	'lqt-summary' => 'רעזומע',
 	'lqt-read-message' => 'מאַרקירן געליינט',
 	'lqt-read-all' => 'מאַרקירן אַלע געליינט',
+	'lqt-email-undo' => 'אַנולירן',
 	'lqt-thread-created' => 'געשאַפֿן',
 	'lqt-history-time' => 'צײַט',
 	'lqt-history-user' => 'באַניצער',
