@@ -20837,6 +20837,7 @@ $messages['yi'] = array(
 	'lqt-summary' => 'רעזומע',
 	'lqt-read-message' => 'מאַרקירן געליינט',
 	'lqt-read-all' => 'מאַרקירן אַלע געליינט',
+	'lqt-email-undo' => 'אַנולירן',
 	'lqt-thread-created' => 'געשאַפֿן',
 	'lqt-history-time' => 'צײַט',
 	'lqt-history-user' => 'באַניצער',
