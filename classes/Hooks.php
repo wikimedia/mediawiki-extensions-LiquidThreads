@@ -867,6 +867,9 @@ class LqtHooks {
 			$result = $module->getResult();
 			$data = $result->getData();
 
+			if ( !isset( $data['query']['pages'] ) ) {
+				return true;
+			}
 			foreach( $data['query']['pages'] as $pageid => $page ) {
 				if( $page == 'page' ) continue;
 
