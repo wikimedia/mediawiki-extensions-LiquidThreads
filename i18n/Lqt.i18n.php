@@ -635,7 +635,7 @@ $messages['tru'] = array(
 	'lqt_newmessages' => 'aṪebe ḥaṭe (0)',
 );
 
-/** Abkhazian (Аҧсуа)
+/** Abkhazian (Аҧсшәа)
  * @author Temuri rajavi
  */
 $messages['ab'] = array(
@@ -5457,6 +5457,7 @@ La subskribo estas aŭtomate montrita.',
  * @author Piolinfax
  * @author Platonides
  * @author Sanbec
+ * @author Savh
  * @author Toliño
  * @author Translationista
  */
@@ -5538,7 +5539,7 @@ Si está concluída, talvez quieras $1.',
 	'lqt_summary_subtitle' => 'Resumen de «$1»',
 	'lqt_nosuchrevision' => 'No hay tal revisión de este hilo.',
 	'lqt_nosuchthread' => 'El hilo que has especificado no existe.',
-	'lqt_nosuchthread_title' => 'No hay al hilo',
+	'lqt_nosuchthread_title' => 'No hay tal hilo',
 	'lqt_threadrequired' => 'Debes especificar un hilo en el URL.',
 	'lqt_move_movingthread' => 'Moviendo $1
 Este hilo es parte de $2.',
@@ -6777,7 +6778,7 @@ Pour éviter cela, séparez les de ce fil de discussion avant de supprimer celui
 	'lqt-hot-topics' => 'Sujets brûlants',
 	'lqt-add-reply' => 'Ajouter une réponse',
 	'lqt_rc_new_discussion' => 'a posté un nouveau fil « $1 »',
-	'lqt_rc_new_reply' => 'posté une réponse à « $1 »',
+	'lqt_rc_new_reply' => 'a posté une réponse à « $1 »',
 	'right-lqt-split' => 'Scinder les fils de discussion',
 	'right-lqt-merge' => 'Fusionner les fils de discussion',
 	'right-lqt-react' => 'Répondre aux messages',
@@ -7066,7 +7067,7 @@ Por èvitar cen, dèpondéd-les de ceti fil de discussion devant que suprimar ce
 	'prefs-lqt' => 'Discussions en fil',
 	'lqt-preference-display-depth' => 'Provondior la ples granta de les rèponses a fâre vêre :',
 	'lqt-preference-display-count' => 'Nombro lo ples grant de rèponses a fâre vêre :',
-	'lqt-preference-custom-signatures' => 'Montrar les signatures pèrsonalisâs ux utilisators',
+	'lqt-preference-custom-signatures' => 'Montrar les signatures pèrsonalisâs ux usanciérs',
 	'lqt-enotif-subject-reply' => 'Discussion dessus {{SITENAME}} - Rèponsa : $1',
 	'lqt-enotif-subject-newthread' => 'Discussion dessus {{SITENAME}} - Sujèt novél : $1',
 	'lqt-enotif-newthread' => 'Bonjorn $1,
@@ -7574,7 +7575,7 @@ $messages['gsw'] = array(
 	'lqt-parent' => 'Byytrag, wu des d Antwort druf isch',
 	'lqt_delete' => 'Lesche',
 	'lqt_undelete' => 'Widerhärstelle',
-	'lqt_permalink' => 'Gleich (Link) uf',
+	'lqt_permalink' => 'Link uf',
 	'lqt_fragment' => 'Fragmänt vun ere $1 vu $2',
 	'lqt_discussion_link' => 'Diskussion',
 	'lqt_from_talk' => 'Vu $1',
@@ -7590,8 +7591,8 @@ $messages['gsw'] = array(
 	'lqt_hist_view_whole_thread' => 'Versionsgschicht vun eme ganze Diskussionsstrang aaluege',
 	'lqt_hist_no_revisions_error' => 'Dää Diskussionsstrang het kei Versionsgschicht.',
 	'lqt_hist_past_last_page_error' => 'Du bisch usserhalb vu dr Sytezahl, wu s git vu dr vu dr Versionsgeschichte.',
-	'lqt_hist_tooltip_newer_disabled' => 'Des Gleich isch deaktiviert, weil Du uf dr erschte Syte bisch.',
-	'lqt_hist_tooltip_older_disabled' => 'Des Gleich Link isch deaktiviert, weil Du uf dr letschte Syte bisch.',
+	'lqt_hist_tooltip_newer_disabled' => 'De Link isch deaktiviert, weil Du uf dr erschte Syte bisch.',
+	'lqt_hist_tooltip_older_disabled' => 'De Link isch deaktiviert, weil Du uf dr letschte Syte bisch.',
 	'lqt_hist_split' => 'Antwort abteile in e neje Strang',
 	'lqt_hist_edited_subject' => 'S Thema isch vu „$2“ uf „$3“ gänderet wore',
 	'lqt_hist_edited_subject_corrupt' => 'Diskussionsgegestand gänderet',
@@ -7668,7 +7669,7 @@ Die Operation cha rugggängig gmacht wäre.',
 	'lqt-no-new-messages' => 'Du hesch kei neji Nochrichte.',
 	'lqt-new-messages' => '✒ Du hesch neji Nochrichte.',
 	'lqt-email-info-undo' => 'Hol dr Diskussionsstrang zrugg, wu Du grad furtgschickt hesch.',
-	'lqt-date-info' => 'Des Gleich isch nit aktiv, wel du Diskussionssträng vu allene Date aaluege.',
+	'lqt-date-info' => 'De Link isch nit aktiv, wel du Diskussionssträng vu allene Date aaluegsch.',
 	'lqt-newmessages-context' => 'Ganze Strang',
 	'lqt-thread-created' => 'Aagleit',
 	'lqt-history-time' => 'Zyt',
@@ -11470,9 +11471,10 @@ De „Ongerschreff“ weed automattesch jezeijsch.',
 /** Cornish (Kernowek)
  * @author Kw-Moon
  * @author Nicky.ker
+ * @author Nrowe
  */
 $messages['kw'] = array(
-	'lqt_newmessages' => 'Ow messajys noweth (nagonen)',
+	'lqt_newmessages' => 'Ow messajys nowyth (nagonen)',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -12339,7 +12341,7 @@ $messages['mk'] = array(
 	'lqt_invalid_subject' => 'Насловот кој го внесовте е неважечки.
 Можни причини:
 * Предолга е, или
-* Се коси со интервики префикси или називи на именски простори.',
+* Се коси со меѓувики-префикси или називи на именски простори.',
 	'lqt-empty-text' => 'Не можете да објавите празна порака',
 	'lqt_empty_subject' => 'Мора да внесете наслов.',
 	'lqt_reply' => 'Одговори',
@@ -17038,6 +17040,7 @@ $7',
 
 /** Sicilian (Sicilianu)
  * @author Aushulz
+ * @author Gmelfi
  * @author Melos
  */
 $messages['scn'] = array(
@@ -17052,6 +17055,7 @@ $messages['scn'] = array(
 	'searchprofile-threads' => 'Discussioni',
 	'lqt-save-subject' => 'Sarva',
 	'lqt-drag-reason' => 'Mutivu:',
+	'lqt_newmessages' => 'Missaggi novi (mancu unu)',
 );
 
 /** Tachelhit (Tašlḥiyt/ⵜⴰⵛⵍⵃⵉⵜ)
@@ -17535,8 +17539,8 @@ Lahko:
 	'lqt_protectedfromreply_link' => 'zaščitena',
 	'lqt_subject' => 'Zadeva:',
 	'lqt_noreason' => 'Razlog ni podan.',
-	'lqt_move_placeholder' => 'Razprava, $1, je bila prestavljena od tukaj na $5.
-Prestavitev je izvedel $2 dne $3 ob $4.',
+	'lqt_move_placeholder' => 'Razpravo $1 je od tukaj prestavil na $5 uporabnik $2.
+Prestavitev je izvedel dne $3 ob $4.',
 	'lqt_thread_deleted_for_sysops' => "Ta razprava je bila '''izbrisana''' in je vidna samo administratorjem.",
 	'lqt_thread_deleted' => 'Ta razprava je bila izbrisana.',
 	'lqt_summary_notice' => 'V tej razpravi ni bilo sprememb že najmanj $2 {{PLURAL:$2|dan|dneva|dnevi|dni}}.
@@ -19033,7 +19037,7 @@ $messages['tg-cyrl'] = array(
 	'lqt_newmessages' => 'Пайёмҳои нав',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -20425,7 +20429,7 @@ La firma la vien fora da sola.',
 	'nstab-summary' => 'Somario',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
