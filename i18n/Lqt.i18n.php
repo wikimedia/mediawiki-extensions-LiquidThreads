@@ -7547,7 +7547,7 @@ $messages['grc'] = array(
 	'lqt-search-button' => 'Ζητεῖν',
 	'lqt-ajax-update-link' => 'Ἐνημεροῦν',
 	'lqt-cancel-subject-edit' => 'Ἀκυροῦν',
-	'lqt_newmessages' => 'Νέαι ἀγγέλιαι',
+	'lqt_newmessages' => 'Τα νέα μηνύματά μου (οὐδέν)',
 );
 
 /** Swiss German (Alemannisch)
