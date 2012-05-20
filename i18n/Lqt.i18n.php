@@ -4571,7 +4571,7 @@ no operasyon tepiya geriyeno.',
 	'lqt-thread-created' => 'vıraziya',
 	'lqt-history-time' => 'zeman',
 	'lqt-history-user' => 'karber',
-	'lqt-history-action' => 'kar/şuxul',
+	'lqt-history-action' => 'Aktivitey',
 	'lqt-history-comment' => 'mışore',
 	'lqt-history-thread' => 'gıre',
 	'lqt-thread-edited-author' => 'Hetê nuştoxi ra vuriya.<br />
@@ -4692,7 +4692,7 @@ $7",
 	'lqt-reply-summary' => "gıreyê [[$2|$1]]'i re cewab bıd'",
 	'lqt-talkpage-history-title' => 'hal-verinê pelê werêameyişi',
 	'lqt-talkpage-history-subtitle' => 'seba $1',
-	'lqt-talkpage-history-tab' => 'Ser',
+	'lqt-talkpage-history-tab' => 'Seror',
 	'restriction-reply' => 'Cewab bırşe',
 	'restriction-newthread' => 'Sernameyanê neweyan darde bike',
 	'lqt-protected-reply-thread' => 'Ti nişkenê itiya de binuse cunki ena pele kilit biyo.',
@@ -12280,6 +12280,27 @@ $messages['ltg'] = array(
 	'lqt-ajax-update-link' => 'Atjaunynuot',
 );
 
+/** Lushai (Mizo ţawng)
+ * @author RMizo
+ */
+$messages['lus'] = array(
+	'lqt_youhavenewmessages' => '[[$1|Thudawn thar]] i nei.',
+	'lqt_protectedfromreply_link' => 'vènhim',
+	'lqt_subject' => 'Thupui:',
+	'lqt_noreason' => 'Chhan pêk loh.',
+	'lqt-email-undo' => 'Sûtna',
+	'lqt-no-new-messages' => 'Thudawn thar i nei lo.',
+	'lqt-new-messages' => '✒ Thudawn thar i nei.',
+	'lqt-newmessages-n' => 'Thudawn thar ({{PLURAL:$1|$1|$1 lái}} ka nei!)',
+	'lqt_newmessages' => 'Thudawn thar (ka nei lo)',
+	'lqt_newmessages-title' => 'Thudawn thar',
+	'lqt-newpost-summary' => 'Ṭhuang thar: $1',
+	'lqt-reply-summary' => '[[$2|$1]] chhànna',
+	'lqt-talkpage-history-title' => 'Sawihona phêk hunhlui-chanhin',
+	'lqt-talkpage-history-subtitle' => '$1 tán',
+	'lqt-talkpage-history-tab' => 'Thulú',
+);
+
 /** Latvian (Latviešu)
  * @author GreenZeb
  * @author Papuass
@@ -17953,7 +17974,7 @@ $7',
 
 Текст поруке гласи:
 $7',
-	'lqt-quote-intro' => '$2 у $3, [[User:$1|$1]] {{GENDER:$1|је написао|је написала|написа}}:',
+	'lqt-quote-intro' => '$2 у $3, [[User:$1|$1]] {{GENDER:$1|је написао|је написала|је написао}}:',
 	'lqt-quote' => 'Цитат',
 	'lqt-search-legend' => 'Претражи расправе на овој страници',
 	'lqt-search-label' => 'Упити претраге:',
