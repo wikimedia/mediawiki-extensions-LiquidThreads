@@ -4595,7 +4595,7 @@ cewabi zi bı otomatik esteriyeni.
 eke şıma qayili tera xo bıkeri (qayil niyê), cewaban verê esterıtışê gıreyan ra gıre ra ciya ker.',
 	'lqt-delete-parent-deleted' => 'gıreyo bıngeyın esteriya ($1)',
 	'lqt-delete-replies-done' => 'cewabê ke no gıre re ameyi, esteriyê',
-	'lqt-movethread' => 'bıkırış',
+	'lqt-movethread' => 'Ahûln',
 	'lqt-menu-trigger' => 'hema/hona zêd',
 	'lqt-newmessages-from' => 'Rışten $1',
 	'lqt-hot-topics' => 'sernameyê neweyi',
