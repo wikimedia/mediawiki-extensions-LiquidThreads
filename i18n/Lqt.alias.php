@@ -37,6 +37,15 @@ $specialPageAliases['arz'] = array(
 	'MergeThread' => array( 'دمج_الخيط' ),
 );
 
+/** Banjar (Bahasa Banjar) */
+$specialPageAliases['bjn'] = array(
+	'DeleteThread' => array( 'Hapus_tupik' ),
+	'MoveThread' => array( 'Pindahakan_tupik' ),
+	'NewMessages' => array( 'Pasan_hanyar' ),
+	'SplitThread' => array( 'Pisah_tupik' ),
+	'MergeThread' => array( 'Gabung_tupik' ),
+);
+
 /** Breton (Brezhoneg) */
 $specialPageAliases['br'] = array(
 	'DeleteThread' => array( 'DiverkañNeudennad' ),
@@ -72,7 +81,7 @@ $specialPageAliases['de'] = array(
 	'MoveThread' => array( 'Thema_verschieben', 'Thread_verschieben' ),
 	'NewMessages' => array( 'Neue_Nachrichten' ),
 	'SplitThread' => array( 'Thema_aufteilen' ),
-	'MergeThread' => array( 'Thema_zusammenführen' ),
+	'MergeThread' => array( 'Themen_zusammenführen', 'Thema_zusammenführen' ),
 );
 
 /** Lower Sorbian (Dolnoserbski) */
@@ -161,9 +170,12 @@ $specialPageAliases['gl'] = array(
 
 /** Swiss German (Alemannisch) */
 $specialPageAliases['gsw'] = array(
-	'DeleteThread' => array( 'Thread lesche' ),
-	'MoveThread' => array( 'Thread verschiebe' ),
-	'NewMessages' => array( 'Neji Nochrichte' ),
+	'DeleteThread' => array( 'Thread_lesche' ),
+	'HotTopics' => array( 'Beliebti_Themene' ),
+	'MoveThread' => array( 'Thread_verschiebe' ),
+	'NewMessages' => array( 'Neji_Nochrichte' ),
+	'SplitThread' => array( 'Thema_uffdeile' ),
+	'MergeThread' => array( 'Thema_zämmelege' ),
 );
 
 /** Hebrew (עברית) */
@@ -476,6 +488,11 @@ $specialPageAliases['vec'] = array(
 	'NewMessages' => array( 'MessagiNovi' ),
 	'SplitThread' => array( 'DividiArgomento' ),
 	'MergeThread' => array( 'UnissiArgomento' ),
+);
+
+/** Yiddish (ייִדיש) */
+$specialPageAliases['yi'] = array(
+	'NewMessages' => array( 'נייע_מעלדונגנען' ),
 );
 
 /** Chinese (中文) */
