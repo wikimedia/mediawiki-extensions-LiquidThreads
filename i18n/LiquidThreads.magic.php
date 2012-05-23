@@ -52,6 +52,11 @@ $magicWords['ja'] = array(
 	'lqtpagelimit' => array( 0, 'lqtページ制限' ),
 );
 
+/** Macedonian (Македонски) */
+$magicWords['mk'] = array(
+	'useliquidthreads' => array( 0, 'КористиТечниНишки' ),
+);
+
 /** Nedersaksisch (Nedersaksisch) */
 $magicWords['nds-nl'] = array(
 	'useliquidthreads' => array( 0, 'LiquidThreads_gebruken', 'LiquidThreadsGebruiken' ),
