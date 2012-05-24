@@ -5460,6 +5460,7 @@ La subskribo estas aŭtomate montrita.',
  * @author Savh
  * @author Toliño
  * @author Translationista
+ * @author Vivaelcelta
  */
 $messages['es'] = array(
 	'lqt-desc' => 'Agregar discusiones en hilos a páginas de discusión',
@@ -5495,7 +5496,7 @@ Puede:
 	'lqt_hist_undeleted' => 'Restaurado',
 	'lqt_hist_moved_talkpage' => 'Trasladado',
 	'lqt_hist_listing_subtitle' => 'Viendo un listado de historiales',
-	'lqt_hist_view_whole_thread' => 'Ver historial del todo el hilo',
+	'lqt_hist_view_whole_thread' => 'Ver el historial del hilo completo',
 	'lqt_hist_no_revisions_error' => 'Este hilo no tiene revisiones de historial.',
 	'lqt_hist_past_last_page_error' => 'Estás más alla del número de páginas del hisorial que existen',
 	'lqt_hist_tooltip_newer_disabled' => 'Este vínculo está deshabilitado porque estás en la primera página.',
