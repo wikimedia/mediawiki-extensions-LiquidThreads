@@ -5444,7 +5444,7 @@ La subskribo estas aŭtomate montrita.',
 	'nstab-summary' => 'Resumo',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  * @author Dferg
  * @author Fitoschido
@@ -11186,6 +11186,13 @@ $7",
 	'lqt-reply-subpage' => '답글',
 	'nstab-thread' => '스레드',
 	'nstab-summary' => '편집 요약',
+);
+
+/** Karachay-Balkar (Къарачай-Малкъар)
+ * @author Iltever
+ */
+$messages['krc'] = array(
+	'lqt_newmessages' => 'Джангы билдириуле (Джокъду)',
 );
 
 /** Krio (Krio)
