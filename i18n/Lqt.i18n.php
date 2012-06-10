@@ -4578,7 +4578,7 @@ no operasyon tepiya geriyeno.',
 Vurnayisa peyine: $1',
 	'lqt-thread-edited-others' => 'Hetê {{PLURAL:$2|karberanê binan|$2 karberan}} ra vuriya.<br />
 Vurnayisa peyine: $1',
-	'lqt-header-actions' => 'kari/şuxuli',
+	'lqt-header-actions' => 'Kerdeni',
 	'lqt_summarize_link' => 'xulasa bıker',
 	'lqt-summarize-intro' => 'kerem kerê gıreyo cêrın qutiya vurnayişi de xulasa bıkerê.
 şıma xulasaya xo de eşkêni yew metnê wikiyi bışuxulni.Özetinizde herhangi bir vikimetnini kullanabilirsiniz. wexta ke şıma qedna "{{int:savearticle}}" bıtıknê.',
@@ -4649,7 +4649,7 @@ $7",
 	'searchprofile-threads' => 'Persiyayışi',
 	'searchprofile-threads-tooltip' => 'Düğümlü tartışmaları ve tartışma sayfalarını ara',
 	'lqt-ajax-updated' => 'no gıre re postayê neweyi esti',
-	'lqt-ajax-update-link' => 'Newen ke',
+	'lqt-ajax-update-link' => 'Anewen ke',
 	'lqt-thread-show-replies' => '$1 cevab ramocın',
 	'lqt-thread-show-more' => 'hema zaf cewaban ramocın',
 	'lqt-thread-link-url' => "URL'yê gıreyi:",
@@ -10292,7 +10292,7 @@ $messages['ja'] = array(
 	'lqt_invalid_subject' => 'あなたが入力した表題は不正です。以下の可能性があります。
 * 長すぎる
 * インターウィキ用接頭辞や名前空間名と衝突している',
-	'lqt-empty-text' => '空白のメッセージは投稿できません',
+	'lqt-empty-text' => '空のメッセージは投稿できません',
 	'lqt_empty_subject' => '表題を入力する必要があります。',
 	'lqt_reply' => '返信',
 	'lqt-parent' => '上位',
@@ -10347,7 +10347,8 @@ $messages['ja'] = array(
 この移動は$3$4に、$2によって行われました。',
 	'lqt_thread_deleted_for_sysops' => "このスレッドは'''削除'''されており、{{int:group-sysop}}だけが内容を見ることができます。",
 	'lqt_thread_deleted' => 'このスレッドは削除されました。',
-	'lqt_summary_notice' => 'この議論は少なくとも$2{{PLURAL:$2|日間}}進展がありません。議論が終結しているなら、$1のも良いでしょう。',
+	'lqt_summary_notice' => 'この議論は少なくとも$2{{PLURAL:$2|日間}}進展がありません。
+議論が終結している場合は、$1のもいいでしょう。',
 	'lqt_summary_notice_link' => '要約を記述する',
 	'lqt_summary_label' => 'スレッドの要約:',
 	'lqt_summary_subtitle' => '「$1」の要約',
@@ -10370,7 +10371,7 @@ $messages['ja'] = array(
 	'lqt_header_warning_after_big' => '見出しは、告知や序文のためにあります。代わりに$2するべきでしょう。',
 	'lqt_header_warning_bold' => '議論ページの見出し',
 	'lqt_header_warning_new_discussion' => '新しい議論を開始',
-	'lqt_sorting_order' => '並び替え順:',
+	'lqt_sorting_order' => '並び順：',
 	'lqt_sort_newest_changes' => '最終更新を上に',
 	'lqt_sort_newest_threads' => '新しいスレッドを上に',
 	'lqt_sort_oldest_threads' => '古いスレッドを上に',
@@ -10385,7 +10386,7 @@ $messages['ja'] = array(
 元のトークページでは表示され続けます。
 この操作は取り消せます。',
 	'lqt-marked-read' => "スレッド '''$1''' を既読にしました。",
-	'lqt-count-marked-read' => '$1件の{{PLURAL:$1|メッセージ}}を既読としました。',
+	'lqt-count-marked-read' => '$1件の{{PLURAL:$1|メッセージ}}を既読にしました。',
 	'lqt-email-undo' => '取り消し',
 	'lqt-no-new-messages' => '新しいメッセージは届いていません。',
 	'lqt-new-messages' => '✒ 新しいメッセージが届いています。',
@@ -19920,12 +19921,13 @@ $messages['tt-cyrl'] = array(
 	'restriction-newthread' => 'яңа элемтәләр ясау',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author AS
  * @author Alex Khimich
  * @author Dim Grits
  * @author Microcell
  * @author NickK
+ * @author Olvin
  * @author Prima klasy4na
  * @author Тест
  */
@@ -20102,7 +20104,7 @@ $messages['uk'] = array(
 	'lqt-log-action-resort' => 'змінив порядок сортування [[$1]]. Змінено ключ сортування з $2 на $3',
 	'lqt-preference-notify-talk' => 'Повідомляти мене електронною поштою про відповіді у темі, за якою я спостерігаю',
 	'lqt-preference-watch-threads' => 'Спостерігати за темами, що я створюю або в яких відповідаю',
-	'prefs-lqt' => 'Обговорення у темах',
+	'prefs-lqt' => 'Обговорення за темами',
 	'lqt-preference-display-depth' => 'Максимальна глибина відповідей для показу:',
 	'lqt-preference-display-count' => 'Максимальна кількість відповідей для показу:',
 	'lqt-preference-custom-signatures' => 'Показувати підписи, налаштовані користувачами',
@@ -20801,11 +20803,17 @@ $messages['vo'] = array(
 	'lqt-talkpage-history-subtitle' => 'Pro $1',
 );
 
-/** Walloon (Walon)
+/** Walloon (walon)
  * @author Lucyin
+ * @author Srtxg
  */
 $messages['wa'] = array(
 	'lqt_hist_deleted' => 'Disfacé',
+	'lqt-preference-notify-talk' => "M' emiler po m' dire cwand i gn a ene response d' on sudjet shuvou",
+	'lqt-search-button' => 'Cweri',
+	'searchprofile-threads' => 'Copenes',
+	'lqt-newmessages-n' => 'Mes messaedjes ($1)',
+	'lqt_newmessages' => 'Mes messaedjes (nouk)',
 );
 
 /** Wu (吴语) */
