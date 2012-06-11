@@ -46,7 +46,7 @@ $specialPageAliases['bjn'] = array(
 	'MergeThread' => array( 'Gabung_tupik' ),
 );
 
-/** Breton (Brezhoneg) */
+/** Breton (brezhoneg) */
 $specialPageAliases['br'] = array(
 	'DeleteThread' => array( 'DiverkañNeudennad' ),
 	'MoveThread' => array( 'Dilec\'hiañNeudennad' ),
@@ -55,7 +55,7 @@ $specialPageAliases['br'] = array(
 	'MergeThread' => array( 'KendeuziñNeudennad' ),
 );
 
-/** Bosnian (Bosanski) */
+/** Bosnian (bosanski) */
 $specialPageAliases['bs'] = array(
 	'DeleteThread' => array( 'ObrisiTok' ),
 	'HotTopics' => array( 'VruceTeme' ),
@@ -65,7 +65,7 @@ $specialPageAliases['bs'] = array(
 	'MergeThread' => array( 'SpojiTok' ),
 );
 
-/** Czech (Česky) */
+/** Czech (česky) */
 $specialPageAliases['cs'] = array(
 	'DeleteThread' => array( 'Smazat_vlákno', 'Smazat_vlakno' ),
 	'MoveThread' => array( 'Přesunout_vlákno', 'Presunout_vlakno' ),
@@ -84,6 +84,16 @@ $specialPageAliases['de'] = array(
 	'MergeThread' => array( 'Themen_zusammenführen', 'Thema_zusammenführen' ),
 );
 
+/** Zazaki (Zazaki) */
+$specialPageAliases['diq'] = array(
+	'DeleteThread' => array( 'SernameBesterne' ),
+	'HotTopics' => array( 'WesiqeyêAktivi' ),
+	'MoveThread' => array( 'SernameAhulne' ),
+	'NewMessages' => array( 'MesacêNewey' ),
+	'SplitThread' => array( 'SernameLetekerdış' ),
+	'MergeThread' => array( 'SernameJewkerdış' ),
+);
+
 /** Lower Sorbian (Dolnoserbski) */
 $specialPageAliases['dsb'] = array(
 	'DeleteThread' => array( 'Nitku_lašowaś' ),
@@ -98,7 +108,7 @@ $specialPageAliases['el'] = array(
 	'NewMessages' => array( 'ΝέαΜηνύματα' ),
 );
 
-/** Spanish (Español) */
+/** Spanish (español) */
 $specialPageAliases['es'] = array(
 	'DeleteThread' => array( 'BorrarHilo', 'Borrar_hilo' ),
 	'MoveThread' => array( 'MoverHilo', 'Mover_hilo' ),
@@ -107,7 +117,7 @@ $specialPageAliases['es'] = array(
 	'MergeThread' => array( 'FusionarHilo', 'Fusionar_hilo' ),
 );
 
-/** Estonian (Eesti) */
+/** Estonian (eesti) */
 $specialPageAliases['et'] = array(
 	'DeleteThread' => array( 'Lõime_kustutamine' ),
 	'MoveThread' => array( 'Lõime_teisaldamine' ),
@@ -116,7 +126,7 @@ $specialPageAliases['et'] = array(
 	'MergeThread' => array( 'Lõime_liitmine' ),
 );
 
-/** Basque (Euskara) */
+/** Basque (euskara) */
 $specialPageAliases['eu'] = array(
 	'NewMessages' => array( 'MezuBerriak' ),
 );
@@ -131,7 +141,7 @@ $specialPageAliases['fa'] = array(
 	'MergeThread' => array( 'ادغام_رشته' ),
 );
 
-/** Finnish (Suomi) */
+/** Finnish (suomi) */
 $specialPageAliases['fi'] = array(
 	'DeleteThread' => array( 'Poista_keskusteluketju' ),
 	'HotTopics' => array( 'Keskustelluimmat' ),
@@ -141,12 +151,12 @@ $specialPageAliases['fi'] = array(
 	'MergeThread' => array( 'Yhdistä_keskusteluja' ),
 );
 
-/** French (Français) */
+/** French (français) */
 $specialPageAliases['fr'] = array(
 	'NewMessages' => array( 'NouveauxMessages', 'Nouveaux_Messages' ),
 );
 
-/** Franco-Provençal (Arpetan) */
+/** Franco-Provençal (arpetan) */
 $specialPageAliases['frp'] = array(
 	'DeleteThread' => array( 'Èfaciér_lo_fil', 'ÈfaciérLoFil' ),
 	'MoveThread' => array( 'Dèplaciér_lo_fil', 'DèplaciérLoFil' ),
@@ -204,7 +214,7 @@ $specialPageAliases['ht'] = array(
 	'MergeThread' => array( 'FizyoneFil' ),
 );
 
-/** Hungarian (Magyar) */
+/** Hungarian (magyar) */
 $specialPageAliases['hu'] = array(
 	'DeleteThread' => array( 'Szál_törlése' ),
 	'HotTopics' => array( 'Népszerű_témák' ),
@@ -214,7 +224,7 @@ $specialPageAliases['hu'] = array(
 	'MergeThread' => array( 'Szál_egyesítése' ),
 );
 
-/** Interlingua (Interlingua) */
+/** Interlingua (interlingua) */
 $specialPageAliases['ia'] = array(
 	'DeleteThread' => array( 'Deler_filo' ),
 	'HotTopics' => array( 'Topicos_active' ),
@@ -234,7 +244,7 @@ $specialPageAliases['id'] = array(
 	'MergeThread' => array( 'Gabung_topik', 'GabungTopik', 'Gabung_utas', 'GabungUtas' ),
 );
 
-/** Italian (Italiano) */
+/** Italian (italiano) */
 $specialPageAliases['it'] = array(
 	'DeleteThread' => array( 'CancellaDiscussione' ),
 	'HotTopics' => array( 'InEvidenza' ),
@@ -266,7 +276,12 @@ $specialPageAliases['km'] = array(
 
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
-	'NewMessages' => array( '새_메시지' ),
+	'DeleteThread' => array( '스레드삭제' ),
+	'HotTopics' => array( '핫토픽', '핫주제' ),
+	'MoveThread' => array( '스레드이동' ),
+	'NewMessages' => array( '새메시지' ),
+	'SplitThread' => array( '스레드분할', '스레드나누기' ),
+	'MergeThread' => array( '스레드병합' ),
 );
 
 /** Colognian (Ripoarisch) */
@@ -277,7 +292,7 @@ $specialPageAliases['ksh'] = array(
 	'SplitThread' => array( 'JeschprääschßfäddemOpdeile' ),
 );
 
-/** Cornish (Kernowek) */
+/** Cornish (kernowek) */
 $specialPageAliases['kw'] = array(
 	'NewMessages' => array( 'MessajowNowyth' ),
 );
@@ -302,7 +317,7 @@ $specialPageAliases['lb'] = array(
 	'MergeThread' => array( 'Rubrike_fusionéieren' ),
 );
 
-/** Macedonian (Македонски) */
+/** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'DeleteThread' => array( 'НишкаНаБришење' ),
 	'HotTopics' => array( 'АктуелниТеми' ),
@@ -340,7 +355,7 @@ $specialPageAliases['myv'] = array(
 	'MergeThread' => array( 'ПальдямсСуре' ),
 );
 
-/** Norwegian Bokmål (‪Norsk (bokmål)‬) */
+/** Norwegian Bokmål (‪norsk (bokmål)‬) */
 $specialPageAliases['nb'] = array(
 	'DeleteThread' => array( 'Slett_tråd' ),
 	'HotTopics' => array( 'Aktuelle_saker' ),
@@ -370,19 +385,19 @@ $specialPageAliases['nl'] = array(
 	'MergeThread' => array( 'OnderwerpSamenvoegen' ),
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬) */
 $specialPageAliases['nn'] = array(
 	'DeleteThread' => array( 'Slett_tråd' ),
 	'MoveThread' => array( 'Flytt_tråd' ),
 	'NewMessages' => array( 'Nye_meldingar' ),
 );
 
-/** Occitan (Occitan) */
+/** Occitan (occitan) */
 $specialPageAliases['oc'] = array(
 	'NewMessages' => array( 'Messatges_novèls', 'MessatgesNovèls' ),
 );
 
-/** Polish (Polski) */
+/** Polish (polski) */
 $specialPageAliases['pl'] = array(
 	'DeleteThread' => array( 'Usuwanie_wątku' ),
 	'MoveThread' => array( 'Przenoszenie_wątku' ),
@@ -396,7 +411,7 @@ $specialPageAliases['ps'] = array(
 	'NewMessages' => array( 'نوي_پيغامونه' ),
 );
 
-/** Portuguese (Português) */
+/** Portuguese (português) */
 $specialPageAliases['pt'] = array(
 	'DeleteThread' => array( 'Eliminar_tópico' ),
 	'HotTopics' => array( 'Tópicos_populares' ),
@@ -406,7 +421,7 @@ $specialPageAliases['pt'] = array(
 	'MergeThread' => array( 'Fundir_tópico' ),
 );
 
-/** Brazilian Portuguese (Português do Brasil) */
+/** Brazilian Portuguese (português do Brasil) */
 $specialPageAliases['pt-br'] = array(
 	'NewMessages' => array( 'Novas_mensagens' ),
 );
@@ -423,7 +438,7 @@ $specialPageAliases['si'] = array(
 	'NewMessages' => array( 'නවපණිවුඩ' ),
 );
 
-/** Slovak (Slovenčina) */
+/** Slovak (slovenčina) */
 $specialPageAliases['sk'] = array(
 	'DeleteThread' => array( 'ZmazaťVlákno' ),
 	'MoveThread' => array( 'PresunúťVlákno' ),
@@ -431,7 +446,7 @@ $specialPageAliases['sk'] = array(
 	'SplitThread' => array( 'RozdeliťVlákno' ),
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬) */
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬) */
 $specialPageAliases['sr-ec'] = array(
 	'DeleteThread' => array( 'Обриши_тему' ),
 	'HotTopics' => array( 'Вруће_теме' ),
@@ -441,7 +456,7 @@ $specialPageAliases['sr-ec'] = array(
 	'MergeThread' => array( 'Споји_тему' ),
 );
 
-/** Swedish (Svenska) */
+/** Swedish (svenska) */
 $specialPageAliases['sv'] = array(
 	'DeleteThread' => array( 'Radera_tråd' ),
 	'MoveThread' => array( 'Flytta_tråd' ),
@@ -476,12 +491,21 @@ $specialPageAliases['tr'] = array(
 	'MergeThread' => array( 'BaşlıkBirleştir' ),
 );
 
-/** Tatar (Cyrillic script) (Татарча) */
+/** Tatar (Cyrillic script) (татарча) */
 $specialPageAliases['tt-cyrl'] = array(
 	'NewMessages' => array( 'Яңа_хатлар' ),
 );
 
-/** Vèneto (Vèneto) */
+/** Ukrainian (українська) */
+$specialPageAliases['uk'] = array(
+	'DeleteThread' => array( 'Видалити_гілку_повідомлень' ),
+	'MoveThread' => array( 'Перемістити_гілку_повідомлень' ),
+	'NewMessages' => array( 'Нові_повідомлення' ),
+	'SplitThread' => array( 'Розділити_гілку_повідомлень' ),
+	'MergeThread' => array( 'Об\'єднати_гілки_повідомлень' ),
+);
+
+/** vèneto (vèneto) */
 $specialPageAliases['vec'] = array(
 	'DeleteThread' => array( 'ScancelaArgomento' ),
 	'MoveThread' => array( 'SpostaArgomento' ),
@@ -504,7 +528,7 @@ $specialPageAliases['zh'] = array(
 	'MergeThread' => array( '合并话题', '合併話題' ),
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文（简体）‬) */
 $specialPageAliases['zh-hans'] = array(
 	'DeleteThread' => array( '删除话题' ),
 	'HotTopics' => array( '热门话题' ),
@@ -514,7 +538,7 @@ $specialPageAliases['zh-hans'] = array(
 	'MergeThread' => array( '合并话题' ),
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文（繁體）‬) */
 $specialPageAliases['zh-hant'] = array(
 	'DeleteThread' => array( '刪除話題' ),
 	'HotTopics' => array( '熱門話題' ),

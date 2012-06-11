@@ -23,7 +23,7 @@ $magicWords['arz'] = array(
 	'lqtpagelimit' => array( 0, 'حد_صفحة_خس', 'lqtpagelimit' ),
 );
 
-/** Bosnian (Bosanski) */
+/** Bosnian (bosanski) */
 $magicWords['bs'] = array(
 	'useliquidthreads' => array( 0, 'KoristiTekuceNizove' ),
 	'lqtpagelimit' => array( 0, 'tnogranicenjestranica' ),
@@ -40,7 +40,13 @@ $magicWords['de'] = array(
 	'lqtpagelimit' => array( 0, 'lqtseitenbegrenzung' ),
 );
 
-/** Spanish (Español) */
+/** Zazaki (Zazaki) */
+$magicWords['diq'] = array(
+	'useliquidthreads' => array( 0, 'LiquidThreadsAkarfi' ),
+	'lqtpagelimit' => array( 0, 'Iqtsinorepela' ),
+);
+
+/** Spanish (español) */
 $magicWords['es'] = array(
 	'useliquidthreads' => array( 0, 'UsarHilosLiquidos', 'UsarHilosLíquidos' ),
 	'lqtpagelimit' => array( 0, 'limitedepaginasdehlq', 'límitedepáginasdehlq' ),
@@ -52,7 +58,13 @@ $magicWords['ja'] = array(
 	'lqtpagelimit' => array( 0, 'lqtページ制限' ),
 );
 
-/** Macedonian (Македонски) */
+/** Korean (한국어) */
+$magicWords['ko'] = array(
+	'useliquidthreads' => array( 0, '리퀴드스레드사용' ),
+	'lqtpagelimit' => array( 0, 'lqt문서제한' ),
+);
+
+/** Macedonian (македонски) */
 $magicWords['mk'] = array(
 	'useliquidthreads' => array( 0, 'КористиТечниНишки' ),
 );
@@ -68,13 +80,13 @@ $magicWords['nl'] = array(
 	'lqtpagelimit' => array( 0, 'lqtaginalimiet' ),
 );
 
-/** Russian (Русский) */
+/** Russian (русский) */
 $magicWords['ru'] = array(
 	'useliquidthreads' => array( 0, 'ИспользоватьLiquidThreads' ),
 	'lqtpagelimit' => array( 0, 'ограничение_страниц_lqt' ),
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬) */
+/** Serbian (Latin script) (‪srpski (latinica)‬) */
 $magicWords['sr-el'] = array(
 	'useliquidthreads' => array( 0, 'UseLiquidThreads' ),
 	'lqtpagelimit' => array( 0, 'lqtpagelimit' ),
@@ -84,4 +96,10 @@ $magicWords['sr-el'] = array(
 $magicWords['tr'] = array(
 	'useliquidthreads' => array( 0, 'LiquidThreadEtkin' ),
 	'lqtpagelimit' => array( 0, 'lqtsayfasınırı' ),
+);
+
+/** Ukrainian (українська) */
+$magicWords['uk'] = array(
+	'useliquidthreads' => array( 0, 'ВикористатиLiquidThreads' ),
+	'lqtpagelimit' => array( 0, 'обмеження_сторінок_lqt' ),
 );
