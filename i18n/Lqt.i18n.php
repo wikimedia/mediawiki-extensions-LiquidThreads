@@ -1534,14 +1534,14 @@ $messages['arz'] = array(
 	'lqt-reply-subpage' => 'رد',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
 	'lqt-preview-signature' => '(entever)',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  * @author PPerviz
  */
@@ -1948,7 +1948,7 @@ $messages['bcc'] = array(
 	'lqt_youhavenewmessages' => 'شما را هست $1.',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Тест
  */
 $messages['be'] = array(
@@ -2226,7 +2226,7 @@ $7",
 	'nstab-summary' => 'Апісаньне',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  * @author Rancher
  * @author Spiritia
@@ -2583,7 +2583,7 @@ $messages['bn'] = array(
 	'nstab-summary' => 'সারাংশ',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fohanno
  * @author Fulup
  * @author Gwendal
@@ -2850,7 +2850,7 @@ Dont a raio ar sinadur war wel e-unan",
 	'nstab-summary' => 'Diverradur',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -3119,7 +3119,7 @@ $messages['bxr'] = array(
 	'lqt_newmessages' => 'Минии шэнэ бэшэг (нэгэшье үгы)',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Aleator
  * @author Jordi Roqué
  * @author Loupeter
@@ -3453,7 +3453,7 @@ $messages['ch'] = array(
 	'lqt_discussion_link' => 'kombetsasion',
 );
 
-/** Sorani (کوردی) */
+/** Sorani Kurdish (کوردی) */
 $messages['ckb'] = array(
 	'lqt_delete' => 'سڕینەوە',
 	'lqt_undelete' => 'گەڕاندنەوەی سڕین',
@@ -3467,12 +3467,12 @@ $messages['ckb'] = array(
 	'lqt-drag-reason' => 'هۆکار:',
 );
 
-/** Corsican (Corsu) */
+/** Corsican (corsu) */
 $messages['co'] = array(
 	'lqt_subject' => 'Sughjettu:',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Kuvaly
  * @author Matěj Grabovský
  * @author Mormegil
@@ -3834,7 +3834,7 @@ Efallai:
 	'lqt_newmessages-title' => 'Negeseuon newydd',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Jon Harald Søby
  * @author Peter Alberti
  */
@@ -4968,7 +4968,7 @@ Pódpis pokazujo se awtomatiski.',
 	'nstab-summary' => 'Zespominanje',
 );
 
-/** Ewe (Eʋegbe)
+/** Ewe (eʋegbe)
  * @author Natsubee
  */
 $messages['ee'] = array(
@@ -5727,7 +5727,7 @@ La firma es mostrada automaticamente.',
 	'nstab-summary' => 'Resumen',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author Pikne
  */
@@ -5972,7 +5972,7 @@ Allkiri kuvatakse iseenesest.',
 	'nstab-summary' => 'Kokkuvõte',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Joxemai
  * @author Kobazulo
@@ -6342,7 +6342,7 @@ $1',
 	'nstab-summary' => 'خلاصه',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Nedergard
@@ -6614,7 +6614,7 @@ Allekirjoitus näytetään automaattisesti.',
 	'nstab-summary' => 'Yhteenveto',
 );
 
-/** French (Français)
+/** French (français)
  * @author Crochet.david
  * @author Dereckson
  * @author Gomoko
@@ -6890,7 +6890,7 @@ La signature est affichée automatiquement.',
 	'nstab-summary' => 'Résumé',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author Cedric31
  * @author ChrisPtDe
  */
@@ -7157,7 +7157,7 @@ La signatura est montrâ ôtomaticament.',
 	'nstab-summary' => 'Rèsumâ',
 );
 
-/** Friulian (Furlan)
+/** Friulian (furlan)
  * @author Klenje
  */
 $messages['fur'] = array(
@@ -7238,12 +7238,12 @@ $messages['fy'] = array(
 	'lqt_move_move' => 'Werneam',
 );
 
-/** Simplified Gan script (‪赣语(简体)‬) */
+/** Simplified Gan script (‪赣语（简体）‬) */
 $messages['gan-hans'] = array(
 	'lqt-search-button' => '寻吖',
 );
 
-/** Traditional Gan script (‪贛語(繁體)‬)
+/** Traditional Gan script (‪贛語（繁體）‬)
  * @author Symane
  */
 $messages['gan-hant'] = array(
@@ -8375,7 +8375,7 @@ $messages['hil'] = array(
 	'lqt_move_move' => 'Saylohon',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Dalibor Bosits
  * @author Ex13
  * @author Herr Mlinka
@@ -8911,7 +8911,7 @@ $messages['ht'] = array(
 	'lqt_newmessages' => 'Nouvo mesaj',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author BáthoryPéter
  * @author Dani
  * @author Dj
@@ -9179,7 +9179,7 @@ Az aláírásod automatikusan meg fog jelenni.',
 	'nstab-summary' => 'Összefoglaló',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -9912,7 +9912,7 @@ $messages['io'] = array(
 	'lqt-talkpage-history-subtitle' => 'Por $1',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author S.Örvarr.S
  * @author Snævar
  * @author Spacebirdy
@@ -9994,7 +9994,7 @@ Síðast breytt: $1',
 	'lqt-edit-bump' => 'Stjaka þessum þræði',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Aushulz
  * @author Beta16
  * @author Blaisorblade
@@ -10814,7 +10814,7 @@ $messages['kk-cyrl'] = array(
 	'lqt-search-button' => 'Іздеу',
 );
 
-/** Kalaallisut (Kalaallisut)
+/** Kalaallisut (kalaallisut)
  * @author Qaqqalik
  */
 $messages['kl'] = array(
@@ -11479,7 +11479,7 @@ De „Ongerschreff“ weed automattesch jezeijsch.',
 	'nstab-summary' => 'Zosammefaßung',
 );
 
-/** Cornish (Kernowek)
+/** Cornish (kernowek)
  * @author Kw-Moon
  * @author Nicky.ker
  * @author Nrowe
@@ -12024,7 +12024,7 @@ Wiezig 't ongerwerp door op \"Bewirk\" te klikke in t baoveste berich.",
 	'lqt-reply-subpage' => 'antjwaord',
 );
 
-/** Lumbaart (Lumbaart)
+/** lumbaart (lumbaart)
  * @author Dakrismeno
  */
 $messages['lmo'] = array(
@@ -12042,7 +12042,7 @@ $messages['loz'] = array(
 	'lqt_newmessages' => 'Nca Mulumiwa',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Pėstininkas
  * @author Tomasdd
@@ -12283,7 +12283,7 @@ $7",
 	'nstab-summary' => 'Apibendrinimas',
 );
 
-/** Latgalian (Latgaļu)
+/** Latgalian (latgaļu)
  * @author Dark Eagle
  */
 $messages['ltg'] = array(
@@ -12312,7 +12312,7 @@ $messages['lus'] = array(
 	'lqt-talkpage-history-tab' => 'Thulú',
 );
 
-/** Latvian (Latviešu)
+/** Latvian (latviešu)
  * @author GreenZeb
  * @author Papuass
  */
@@ -12356,7 +12356,7 @@ $messages['mhr'] = array(
 	'lqt_protectedfromreply_link' => 'тӧрлаташ чарыме',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -12888,7 +12888,7 @@ $5 താളിലെ '$2' എന്നതിനു പുതിയൊരു മ
 	'nstab-summary' => 'ചുരുക്കം',
 );
 
-/** Mongolian (Монгол)
+/** Mongolian (монгол)
  * @author Chinneeb
  */
 $messages['mn'] = array(
@@ -14013,7 +14013,7 @@ Wijzig het onderwerp door op "Bewerken" te klikken in de bovenste bijdrage.',
 	'nstab-summary' => 'Samenvatting',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Dittaeva
  * @author Gunnernett
  * @author Harald Khan
@@ -14264,7 +14264,7 @@ $messages['nso'] = array(
 	'lqt_subject' => 'Tabataba:',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -14607,7 +14607,7 @@ $messages['pfl'] = array(
 	'lqt-cancel-subject-edit' => 'Uffhere',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Airwolf
  * @author Grzechooo
  * @author Holek
@@ -15203,7 +15203,7 @@ $messages['ps'] = array(
 	'nstab-summary' => 'لنډيز',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Crazymadlover
  * @author Giro720
@@ -15474,7 +15474,7 @@ A assinatura é apresentada automaticamente.',
 	'nstab-summary' => 'Resumo',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author 555
  * @author Crazymadlover
  * @author Eduardo.mps
@@ -15753,7 +15753,7 @@ $messages['rif'] = array(
 	'lqt_newmessages' => 'Tibratin timaynutin',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author AdiJapan
  * @author Cin
  * @author Danutz
@@ -15995,7 +15995,7 @@ Semnătura este afișată automat.',
 	'nstab-summary' => 'Rezumat',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -16262,7 +16262,7 @@ $7",
 	'nstab-summary' => 'Riepileghe',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ferrer
  * @author Innv
  * @author KPu3uC B Poccuu
@@ -16814,7 +16814,7 @@ $messages['sa'] = array(
 	'lqt-cancel-subject-edit' => 'निवर्तयते',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -17070,7 +17070,7 @@ $7',
 	'nstab-summary' => 'Быһаарыы',
 );
 
-/** Sicilian (Sicilianu)
+/** Sicilian (sicilianu)
  * @author Aushulz
  * @author Gmelfi
  * @author Melos
@@ -17240,7 +17240,7 @@ $messages['si'] = array(
 	'nstab-summary' => 'සාරාංශය',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  * @author Jkjk
  * @author Mormegil
@@ -17502,7 +17502,7 @@ Podpis sa zobrazí automaticky.',
 	'nstab-summary' => 'Zhrnutie',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -17783,7 +17783,7 @@ $messages['so'] = array(
 	'lqt-search-button' => 'Raadi',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Mormegil
  * @author Nikola Smolenski
  * @author Rancher
@@ -18052,7 +18052,7 @@ $7',
 	'nstab-summary' => 'Опис',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  * @author Mormegil
  * @author Rancher
@@ -18420,7 +18420,7 @@ $messages['su'] = array(
 	'lqt_newmessages' => 'Talatah anyar (teu aya)',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Ainali
  * @author Boivie
  * @author Cohan
@@ -19016,7 +19016,7 @@ $messages['te'] = array(
 	'nstab-summary' => 'సారాంశం',
 );
 
-/** Tetum (Tetun)
+/** Tetum (tetun)
  * @author MF-Warburg
  */
 $messages['tet'] = array(
@@ -19032,7 +19032,7 @@ $messages['tet'] = array(
 	'nstab-summary' => 'Rezumu',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -19069,7 +19069,7 @@ $messages['tg-cyrl'] = array(
 	'lqt_newmessages' => 'Пайёмҳои нав',
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -19890,7 +19890,7 @@ Bunu <$6> adresinde görebilirsin.",
 	'lqt-reply-subpage' => 'cevap',
 );
 
-/** Tatar (Cyrillic script) (Татарча)
+/** Tatar (Cyrillic script) (татарча)
  * @author Ерней
  * @author Ильнар
  */
@@ -20206,7 +20206,7 @@ $messages['ur'] = array(
 	'lqt-drag-reason' => 'وجہ:',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -21055,7 +21055,7 @@ $messages['yue'] = array(
 	'lqt_newmessages' => '新訊息',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Bencmq
  * @author Gaoxuewei
  * @author Hydra
@@ -21314,7 +21314,7 @@ $7',
 	'nstab-summary' => '摘要',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Alexsh
  * @author Anakmalaysia
  * @author Gaoxuewei
