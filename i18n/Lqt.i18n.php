@@ -6610,7 +6610,7 @@ Allekirjoitus näytetään automaattisesti.',
 	'lqt-edit-bump' => 'Tökkää tätä ketjua',
 	'lqt-edit-bump-tooltip' => 'Siirrä tämä ketju keskustelusivun ylimmäksi',
 	'lqt-historicalrevision-error' => 'Valitsemasi versio on korruptoitunut – eikä sitä voida näyttää.',
-	'lqt-reply-subpage' => 'vastaa',
+	'lqt-reply-subpage' => 'vastaus',
 	'nstab-thread' => 'Säie',
 	'nstab-summary' => 'Yhteenveto',
 );
