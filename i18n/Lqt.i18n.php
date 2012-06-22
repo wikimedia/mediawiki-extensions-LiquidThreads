@@ -10929,6 +10929,7 @@ $messages['kn'] = array(
  * @author Klutzy
  * @author Kwj2772
  * @author Ryuch
+ * @author 아라
  */
 $messages['ko'] = array(
 	'lqt-desc' => '토론 문서의 스레드 토론 확장기능을 추가',
@@ -11056,7 +11057,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-history-thread' => '스레드',
 	'lqt-thread-edited-author' => '작성자가 수정함<br />
 마지막 편집: $1',
-	'lqt-thread-edited-others' => '다른 {{PLURAL:$2|사용자|$2명의 사용자}}가 편집하였음.<br />
+	'lqt-thread-edited-others' => '사용자 $2명이 편집함.<br />
 마지막 편집: $1',
 	'lqt-header-actions' => '동작',
 	'lqt_summarize_link' => '요약',
@@ -20618,7 +20619,7 @@ Chúng vẫn còn tại các trang thảo luận đầu tiên.
 Có thể lùi lại tác động này.',
 	'lqt-marked-read' => "Đã đánh dấu luồng '''$1''' là đã đọc.",
 	'lqt-count-marked-read' => 'Đã đánh dấu {{PLURAL:$1|tin nhắn|$1 tin nhắn}} là đã đọc.',
-	'lqt-email-undo' => 'Lùi',
+	'lqt-email-undo' => 'Hoàn tác',
 	'lqt-no-new-messages' => 'Bạn không có tin nhắn mới.',
 	'lqt-new-messages' => '✒ Bạn có tin nhắn mới.',
 	'lqt-email-info-undo' => 'Lấy lại luồng vừa được bỏ qua.',
