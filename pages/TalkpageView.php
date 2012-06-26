@@ -4,13 +4,13 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 class TalkpageView extends LqtView {
 	protected $mShowItems = array( 'toc', 'options', 'header' );
 	protected $talkpage;
-	
+
 	function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		parent::__construct( $output, $article, $title, $user, $request );
-		
+
 		$this->talkpage = $article;
 	}
-	
+
 	function setTalkPage($tp) {
 		$this->talkpage = $tp;
 	}
@@ -162,7 +162,7 @@ class TalkpageView extends LqtView {
 		$html = $h2_header . Xml::tags( 'table', array( 'class' => 'lqt_toc' ), $html );
 		// wrap our output in a div for containment
 		$html = Xml::tags( 'div', array( 'class' => 'lqt-contents-wrapper' ), $html );
-		
+
 		return $html;
 	}
 
@@ -228,7 +228,7 @@ class TalkpageView extends LqtView {
 
 	function show() {
 		$this->output->addModules( 'ext.liquidThreads' );
-		
+
 		$article = $this->talkpage;
 		if ( ! LqtDispatch::isLqtPage( $article->getTitle() ) ) {
 			$this->output->addWikiMsg( 'lqt-not-discussion-page' );
@@ -254,7 +254,7 @@ class TalkpageView extends LqtView {
 			$this->doInlineEditForm();
 			return false;
 		}
-		
+
 		$this->output->addHTML(
 			Xml::openElement( 'div', array( 'class' => 'lqt-talkpage' ) )
 		);
@@ -285,7 +285,7 @@ class TalkpageView extends LqtView {
 		if( $wgBetterDirectionality ) {
 			// This closes the div of mw-content-ltr/rtl containing lang and dir attributes
 			$this->output->addHTML(
-				Html::closeElement( 'div' ) . Html::openElement( 'div', 
+				Html::closeElement( 'div' ) . Html::openElement( 'div',
 				array( 'class' => 'lqt-talkpage', 'lang' => $wgLang->getCode(), 'dir' => $wgLang->getDir() )
 			) );
 		}
@@ -310,7 +310,7 @@ class TalkpageView extends LqtView {
 				array( 'class' => 'lqt_start_discussion' ),
 				$newThreadLink
 			);
-			
+
 			$talkpageHeader .= $newThreadLink;
 		}
 
@@ -363,14 +363,6 @@ class TalkpageView extends LqtView {
 			$pager->getNavigationBar() .
 			Xml::closeElement( 'div' )
 		);
-		
-		// Workaround for bug 25077
-		global $wgOut, $wgUser;
-		# Skin::setTitle was removed in 1.18, it already shares the same source of title with $wgOut.
-		if ( method_exists( 'Skin', 'setTitle' ) ) {
-			$sk = $wgUser->getSkin();
-			$sk->setTitle( $wgOut->getTitle() );
-		}
 
 		return false;
 	}
@@ -430,24 +422,24 @@ class TalkpageView extends LqtView {
 		// Default
 		return LQT_NEWEST_CHANGES;
 	}
-	
+
 	// Hide a number of items from the view
 	// Valid values: toc, options, header
 	function hideItems( $items ) {
 		$this->mShowItems = array_diff( $this->mShowItems, (array)$items );
 	}
-	
+
 	// Show a number of items in the view
 	// Valid values: toc, options, header
 	function showItems( $items ) {
 		$this->mShowItems = array_merge( $this->mShowItems, (array)$items );
 	}
-	
+
 	// Whether or not to show an item
 	function shouldShow( $item ) {
 		return in_array( $item, $this->mShowItems );
 	}
-	
+
 	// Set the items shown
 	function setShownItems( $items ) {
 		$this->mShowItems = $items;
