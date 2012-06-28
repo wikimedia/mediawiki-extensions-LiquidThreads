@@ -1957,7 +1957,7 @@ $messages['be'] = array(
 	'lqt-drag-reason' => 'Прычына:',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Mormegil
@@ -2076,7 +2076,7 @@ $messages['be-tarask'] = array(
 Гэтае дзеяньне немагчыма адмяніць.',
 	'lqt-marked-read' => "Галіна '''$1''' пазначана як прачытаная.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|паведамленьне пазначанае як прачытанае|паведамленьні пазначаныя як прачынаныя|паведамленьняў пазначаныя як прачынаныя}}.',
-	'lqt-email-undo' => 'Адмяніць',
+	'lqt-email-undo' => 'Скасаваць',
 	'lqt-no-new-messages' => 'Для Вас няма новых паведамленьняў.',
 	'lqt-new-messages' => '✒ Для Вас ёсьць новыя паведамленьні.',
 	'lqt-email-info-undo' => 'Вярнуць галіну якую Вы толькі што прапусьцілі.',
@@ -7251,7 +7251,7 @@ $messages['gan-hant'] = array(
 	'lqt-search-button' => '尋吖',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Alma
  * @author Toliño
  * @author Xosé
@@ -7434,19 +7434,17 @@ Para evitar isto, sepáreas deste fío antes de borralo.',
 	'lqt-preference-custom-signatures' => 'Mostrar as sinaturas personalizadas de usuario',
 	'lqt-enotif-subject-reply' => 'Conversa {{SITENAME}} - Resposta: $1',
 	'lqt-enotif-subject-newthread' => 'Conversa {{SITENAME}} - Novo fío: $1',
-	'lqt-enotif-newthread' => 'Ola $1:
+	'lqt-enotif-newthread' => 'Boas, $1:
 
-Esta é unha notificación de {{SITENAME}} que informa de que $8 creou un novo fío en $5, "$2",
-o $3 ás $4.
+Esta é unha notificación de {{SITENAME}} que informa de que $8 creou un novo fío en $5, "$2", o $3 ás $4.
 
 Pode velo en <$6>
 
 O texto é:
 $7',
-	'lqt-enotif-reply' => 'Ola $1:
+	'lqt-enotif-reply' => 'Boas, $1:
 
-Esta é unha notificación de {{SITENAME}} que informa de que $8 creou unha nova resposta a "$2" en $5
-o $3 ás $4.
+Esta é unha notificación de {{SITENAME}} que informa de que $8 creou unha nova resposta a "$2" en $5 o $3 ás $4.
 
 Pode vela en <$6>
 
