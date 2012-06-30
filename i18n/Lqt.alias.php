@@ -37,6 +37,12 @@ $specialPageAliases['arz'] = array(
 	'MergeThread' => array( 'دمج_الخيط' ),
 );
 
+/** Assamese (অসমীয়া) */
+$specialPageAliases['as'] = array(
+	'HotTopics' => array( 'শীৰ্ষক_বিষয়সমূহ' ),
+	'NewMessages' => array( 'নতুন_সংবাদসমূহ' ),
+);
+
 /** Banjar (Bahasa Banjar) */
 $specialPageAliases['bjn'] = array(
 	'DeleteThread' => array( 'Hapus_tupik' ),
@@ -94,7 +100,7 @@ $specialPageAliases['diq'] = array(
 	'MergeThread' => array( 'SernameJewkerdış' ),
 );
 
-/** Lower Sorbian (Dolnoserbski) */
+/** Lower Sorbian (dolnoserbski) */
 $specialPageAliases['dsb'] = array(
 	'DeleteThread' => array( 'Nitku_lašowaś' ),
 	'MoveThread' => array( 'Nitku_pśesunuś' ),
@@ -168,7 +174,7 @@ $specialPageAliases['gag'] = array(
 	'NewMessages' => array( 'EniSözleşmäkler' ),
 );
 
-/** Galician (Galego) */
+/** Galician (galego) */
 $specialPageAliases['gl'] = array(
 	'DeleteThread' => array( 'Eliminar_o_fío' ),
 	'HotTopics' => array( 'Fíos_populares' ),
@@ -197,7 +203,7 @@ $specialPageAliases['he'] = array(
 	'MergeThread' => array( 'מיזוג_שרשור' ),
 );
 
-/** Upper Sorbian (Hornjoserbsce) */
+/** Upper Sorbian (hornjoserbsce) */
 $specialPageAliases['hsb'] = array(
 	'DeleteThread' => array( 'Nitku_wušmórnyć' ),
 	'MoveThread' => array( 'Nitku_přesunyć' ),
