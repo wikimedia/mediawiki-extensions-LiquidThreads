@@ -963,7 +963,7 @@ $messages['am'] = array(
 	'lqt-title' => 'አርዕስት',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -2717,7 +2717,7 @@ N'haller ket dizober an oberiadenn-mañ ur wezh kaset da bet.",
 	'lqt-history-thread' => 'Neudennad',
 	'lqt-thread-edited-author' => 'Kemmet gant an aozer.<br />
 Kemm diwezhañ : $1',
-	'lqt-thread-edited-others' => 'Kemmet gant $2 implijer{{PLURAL:$2||}} all.<br />
+	'lqt-thread-edited-others' => 'Kemmet gant $2 implijer {{PLURAL:$2||}} all.<br />
 Kemm diwezhañ : $1',
 	'lqt-header-actions' => 'Obererezhioù',
 	'lqt_summarize_link' => 'Diverrañ',
@@ -3742,7 +3742,7 @@ Podpis se zobrazuje automaticky.',
 	'nstab-summary' => 'Shrnutí',
 );
 
-/** Kashubian (Kaszëbsczi)
+/** Kashubian (kaszëbsczi)
  * @author Kaszeba
  */
 $messages['csb'] = array(
@@ -3751,7 +3751,7 @@ $messages['csb'] = array(
 	'lqt_newmessages-title' => 'Nowé wiadła',
 );
 
-/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -4706,7 +4706,7 @@ $7",
 	'lqt-reply-subpage' => 'cewab bıde',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -8642,7 +8642,7 @@ Potpis se prikazuje automatski.',
 	'nstab-summary' => 'Sažetak',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -10930,7 +10930,7 @@ $messages['kn'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'lqt-desc' => '토론 문서의 스레드 토론 확장기능을 추가',
+	'lqt-desc' => '토론 문서의 스레드 토론 확장 기능을 추가',
 	'lqt_movethread' => '스레드를 다른 문서로 이동',
 	'lqt_deletethread' => '스레드 삭제/복구',
 	'lqt_contents_title' => '목차',
@@ -11047,7 +11047,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-email-info-undo' => '방금 없앤 스레드를 되돌립니다.',
 	'lqt-date-info' => '모든 날짜의 스레드를 보고 있기 때문에 이 링크는 비활성화되어있습니다.',
 	'lqt-newmessages-context' => '전체 스레드',
-	'lqt-thread-created' => '생성됨',
+	'lqt-thread-created' => '만들어짐',
 	'lqt-history-time' => '시간',
 	'lqt-history-user' => '사용자',
 	'lqt-history-action' => '활동 내역',
@@ -16536,7 +16536,7 @@ $7',
 	'nstab-summary' => 'Описание',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
@@ -18793,7 +18793,7 @@ Haririo ya mwisho: $1',
 	'nstab-summary' => 'Muhtasari',
 );
 
-/** Silesian (Ślůnski)
+/** Silesian (ślůnski)
  * @author Herr Kriss
  * @author Timpul
  */
