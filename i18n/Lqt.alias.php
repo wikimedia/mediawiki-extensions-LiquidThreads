@@ -482,9 +482,9 @@ $specialPageAliases['th'] = array(
 
 /** Tagalog (Tagalog) */
 $specialPageAliases['tl'] = array(
-	'DeleteThread' => array( 'Burahin ang bagting' ),
-	'MoveThread' => array( 'Ilipat ang bagting' ),
-	'NewMessages' => array( 'Bagong mga mensahe' ),
+	'DeleteThread' => array( 'Burahin_ang_bagting' ),
+	'MoveThread' => array( 'Ilipat_ang_bagting' ),
+	'NewMessages' => array( 'Bagong_mga_mensahe' ),
 );
 
 /** Turkish (Türkçe) */
