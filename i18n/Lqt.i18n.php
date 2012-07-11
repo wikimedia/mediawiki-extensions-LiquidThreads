@@ -1576,7 +1576,7 @@ $messages['az'] = array(
 	'nstab-summary' => 'Xülasə',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Assele
  * @author Haqmar
  * @author Roustammr
@@ -3113,7 +3113,7 @@ Potpis će se prikazati automatski.',
 	'nstab-summary' => 'Sažetak',
 );
 
-/** Буряад (Буряад)
+/** буряад (буряад)
  * @author Bjargal
  */
 $messages['bxr'] = array(
@@ -3391,7 +3391,7 @@ La signatura es mostrarà automàticament.',
 	'nstab-summary' => 'Resum',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -10807,7 +10807,7 @@ $messages['ka'] = array(
 	'nstab-summary' => 'დისკუსიის რეზიუმე',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬)
+/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬)
  * @author GaiJin
  */
 $messages['kk-cyrl'] = array(
@@ -10957,14 +10957,14 @@ $messages['ko'] = array(
 	'lqt_hist_comment_edited' => '의견 글을 [$2 수정함]',
 	'lqt_hist_summary_changed' => '요약문을 변경함',
 	'lqt_hist_reply_created' => '[[$1|답글]]을 남김',
-	'lqt_hist_thread_created' => '새 스레드 생성',
+	'lqt_hist_thread_created' => '새 스레드 만듦',
 	'lqt_hist_deleted' => '삭제함',
 	'lqt_hist_undeleted' => '복구됨',
 	'lqt_hist_moved_talkpage' => '이동함',
 	'lqt_hist_listing_subtitle' => '스레드 역사 보기',
 	'lqt_hist_view_whole_thread' => '전체 스레드의 역사 보기',
-	'lqt_hist_no_revisions_error' => '이 스레드는 변경 내역이 없습니다.',
-	'lqt_hist_past_last_page_error' => '변경 내력이 있는 페이지 수를 넘어섰습니다.',
+	'lqt_hist_no_revisions_error' => '이 스레드는 바뀜 내역이 없습니다.',
+	'lqt_hist_past_last_page_error' => '바뀜 내역이 있는 페이지 수를 넘어섰습니다.',
 	'lqt_hist_tooltip_newer_disabled' => '이 페이지가 첫 페이지이기 때문에 링크가 비활성화되었습니다.',
 	'lqt_hist_tooltip_older_disabled' => '이 페이지가 마지막 페이지이기 때문에 링크가 비활성화되었습니다.',
 	'lqt_hist_split' => '답글이 새 스레드로 분할됨',
@@ -11099,7 +11099,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-log-action-merge-across' => '[[$1]]을 [[$2]]에서 [[$3]]으로 옮김',
 	'lqt-log-action-merge-down' => '[[$1]]을 [[$3]]에 합침',
 	'lqt-log-action-subjectedit' => '[[$1]]의 주제를 "$2"에서 "$3"으로 바꿈',
-	'lqt-log-action-resort' => '[[$1]]의 정렬 순서를 변경. 정렬 키를 $2에서 $3으로 바꿈',
+	'lqt-log-action-resort' => '[[$1]]의 정렬 순서를 바꿈. 정렬 키를 $2에서 $3으로 바꿈',
 	'lqt-preference-notify-talk' => '내가 주시하고 있는 스레드에 답글이 올라오면 이메일 보내기',
 	'lqt-preference-watch-threads' => '내가 생성하거나 답변한 스레드를 주시하기',
 	'prefs-lqt' => '스레드식 토론',
@@ -11191,7 +11191,7 @@ $7",
 	'nstab-summary' => '편집 요약',
 );
 
-/** Karachay-Balkar (Къарачай-Малкъар)
+/** Karachay-Balkar (къарачай-малкъар)
  * @author Iltever
  */
 $messages['krc'] = array(
@@ -12382,7 +12382,7 @@ $messages['mg'] = array(
 	'right-lqt-split' => 'Mizara ny resaka',
 );
 
-/** Eastern Mari (Олык Марий)
+/** Eastern Mari (олык марий)
  * @author Сай
  */
 $messages['mhr'] = array(
@@ -13315,7 +13315,7 @@ $messages['mt'] = array(
 	'lqt-talkpage-history-title' => "Kronoloġija tal-paġna ta' diskussjoni",
 );
 
-/** Erzya (Эрзянь)
+/** Erzya (эрзянь)
  * @author Botuzhaleny-sodamo
  */
 $messages['myv'] = array(
@@ -13353,12 +13353,12 @@ $messages['nah'] = array(
 	'lqt_newmessages' => 'Yancuīc notētītlaniliz (ayāc)',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Event
  * @author Harald Khan
- * @author Jon Harald Søby
  * @author Laaknor
  * @author Nghtwlkr
+ * @author Njardarlogar
  */
 $messages['nb'] = array(
 	'lqt-desc' => 'Legger til trådede diskusjoner til diskusjonssider',
@@ -20499,7 +20499,7 @@ La firma la vien fora da sola.',
 	'nstab-summary' => 'Somario',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
@@ -20932,7 +20932,7 @@ $messages['wuu'] = array(
 	'lqt-drag-reason' => '理由：',
 );
 
-/** Kalmyk (Хальмг)
+/** Kalmyk (хальмг)
  * @author Huuchin
  */
 $messages['xal'] = array(

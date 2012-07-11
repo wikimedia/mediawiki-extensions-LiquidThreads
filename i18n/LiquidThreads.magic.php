@@ -29,7 +29,7 @@ $magicWords['bs'] = array(
 	'lqtpagelimit' => array( 0, 'tnogranicenjestranica' ),
 );
 
-/** Chechen (Нохчийн) */
+/** Chechen (нохчийн) */
 $magicWords['ce'] = array(
 	'useliquidthreads' => array( 0, 'ЛелайеLiquidThreads', 'ИспользоватьLiquidThreads', 'UseLiquidThreads' ),
 );

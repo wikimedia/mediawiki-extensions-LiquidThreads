@@ -353,7 +353,7 @@ $specialPageAliases['mt'] = array(
 	'NewMessages' => array( 'MessaġġiĠodda' ),
 );
 
-/** Erzya (Эрзянь) */
+/** Erzya (эрзянь) */
 $specialPageAliases['myv'] = array(
 	'DeleteThread' => array( 'НардамсСуре' ),
 	'MoveThread' => array( 'ПечтевтемсСуре' ),
