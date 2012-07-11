@@ -504,8 +504,8 @@ $specialPageAliases['tt-cyrl'] = array(
 
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
-	'DeleteThread' => array( 'Видалити_гілку_повідомлень' ),
-	'MoveThread' => array( 'Перемістити_гілку_повідомлень' ),
+	'DeleteThread' => array( 'Вилучити_гілку_повідомлень' ),
+	'MoveThread' => array( 'Перейменувати_гілку_повідомлень' ),
 	'NewMessages' => array( 'Нові_повідомлення' ),
 	'SplitThread' => array( 'Розділити_гілку_повідомлень' ),
 	'MergeThread' => array( 'Об\'єднати_гілки_повідомлень' ),
