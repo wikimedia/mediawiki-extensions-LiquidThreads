@@ -282,12 +282,12 @@ class NewMessages {
 		);
 
 		// Set up one-time data.
-		global $wgPasswordSender;
+		global $wgPasswordSender, $wgPasswordSenderName;
 		$link_title = clone $t->getTitle();
 		$link_title->setFragment( '#' . $t->getAnchorName() );
 		$permalink = LqtView::linkInContextCanonicalURL( $t );
 		$talkPage = $t->getTitle()->getPrefixedText();
-		$from = new MailAddress( $wgPasswordSender, 'WikiAdmin' );
+		$from = new MailAddress( $wgPasswordSender, $wgPasswordSenderName );
 		$threadSubject = $t->subject();
 
 		// Parse content and strip HTML of post content
