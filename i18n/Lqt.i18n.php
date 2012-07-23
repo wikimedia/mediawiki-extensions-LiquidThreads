@@ -1535,6 +1535,24 @@ $messages['arz'] = array(
 	'lqt-reply-subpage' => 'رد',
 );
 
+/** Assamese (অসমীয়া)
+ * @author Bishnu Saikia
+ */
+$messages['as'] = array(
+	'lqt-title' => 'শিৰোনামা',
+	'lqt-summary' => 'সাৰাংশ',
+	'lqt-new-messages' => '✒ তাত আপোনৰ বাবে নতুন বাৰ্তা আছে ।',
+	'lqt-history-time' => 'সময়',
+	'lqt-history-user' => 'সদস্য',
+	'lqt-movethread' => 'স্থানান্তৰ কৰক',
+	'lqt-menu-trigger' => 'অধিক',
+	'lqt-search-button' => 'সন্ধান কৰক',
+	'lqt-save-subject' => 'সাঁচি থওক',
+	'lqt-cancel-subject-edit' => 'বাতিল কৰক',
+	'lqt-drag-reason' => 'কাৰণ:',
+	'lqt-talkpage-history-tab' => 'শীৰ্ষক',
+);
+
 /** Asturian (asturianu)
  * @author Xuacu
  */
@@ -4122,6 +4140,7 @@ Signaturen vises automatisk.',
  * @author Raimond Spekking
  * @author Revolus
  * @author Salasar
+ * @author Schniggendiller
  * @author Tbleher
  * @author The Evil IP address
  * @author Umherirrender
@@ -4230,12 +4249,9 @@ Möglicherweise möchtest du stattdessen ein $2.',
 	'lqt-summary' => 'Inhaltsangabe',
 	'lqt-searching' => 'Suche nach Themen',
 	'lqt-read-message' => 'Als gelesen markieren',
-	'lqt-read-message-tooltip' => 'Entferne dieses Thema aus den neuen Nachrichten.
-Er wird weiterhin auf der ursprünglichen Diskussionsseite zu sehen sein.',
+	'lqt-read-message-tooltip' => 'Entferne dieses Thema aus den neuen Nachrichten. Es wird weiterhin auf der ursprünglichen Diskussionsseite zu sehen sein.',
 	'lqt-read-all' => 'Alle als gelesen markieren',
-	'lqt-read-all-tooltip' => 'Entferne alle Themen aus neuen Nachrichten.
-Sie sind weiterhin auf den ursprünglichen Diskussionsseiten sichtbar.
-Diese Operation kann rückgängig gemacht werden.',
+	'lqt-read-all-tooltip' => 'Entferne alle Themen aus neuen Nachrichten. Sie sind weiterhin auf den ursprünglichen Diskussionsseiten sichtbar. Diese Operation kann rückgängig gemacht werden.',
 	'lqt-marked-read' => "Thema '''$1''' wurde als gelesen markiert.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|Nachricht|Nachrichten}} als gelesen markiert.',
 	'lqt-email-undo' => 'Rückgängig machen',
@@ -4573,7 +4589,7 @@ no operasyon tepiya geriyeno.',
 	'lqt-history-time' => 'zeman',
 	'lqt-history-user' => 'karber',
 	'lqt-history-action' => 'Aktivitey',
-	'lqt-history-comment' => 'mışore',
+	'lqt-history-comment' => 'Mışewre',
 	'lqt-history-thread' => 'gıre',
 	'lqt-thread-edited-author' => 'Hetê nuştoxi ra vuriya.<br />
 Vurnayisa peyine: $1',
@@ -4688,7 +4704,7 @@ $7",
 	'lqt-feed-reply-intro' => "gıreyê $3'i re cewab (pelê $1'i de) hetê $2'i ra erşawiya",
 	'tooltip-pt-newmessages' => 'Mesacanê şıma newan yana pelanê kısande şıma mocnêno.',
 	'lqt-newmessages-n' => 'mesajo newe ($1)',
-	'lqt_newmessages' => 'Mesacê mınê newey (çıniyê)',
+	'lqt_newmessages' => 'Mesacê newey (çıniyê)',
 	'lqt_newmessages-title' => 'Mesacê newey',
 	'lqt-newpost-summary' => 'gıreyo newe: $1',
 	'lqt-reply-summary' => "Cıwabê  [[$2|$1]]'i",
@@ -9246,8 +9262,8 @@ $messages['ia'] = array(
 	'lqt_protectedfromreply_link' => 'protegite',
 	'lqt_subject' => 'Subjecto:',
 	'lqt_noreason' => 'Nulle motivo specificate.',
-	'lqt_move_placeholder' => 'Iste filo es un substituto indicante que un filo, $1, ha essite displaciate ab iste pagina.
-Iste displaciamento ha essite facite per $2 le $3 a $4. Le filo se trova ora a $5.',
+	'lqt_move_placeholder' => 'Le discussion que se trovava hic, $1, ha essite displaciate al pagina $5.
+Iste displaciamento ha essite facite per $2 le $3 a $4.',
 	'lqt_thread_deleted_for_sysops' => "Iste filo ha essite '''delite''' e es solmente visibile al administratores.",
 	'lqt_thread_deleted' => 'Iste filo ha essite delite.',
 	'lqt_summary_notice' => 'Nihil ha essite modificate in iste discussion depost al minus $2 {{PLURAL:$2|die|dies}}.
@@ -10955,7 +10971,7 @@ $messages['ko'] = array(
 	'lqt_from_talk' => '$1에서의 토론',
 	'lqt-history-title' => '스레드 역사',
 	'lqt_hist_comment_edited' => '의견 글을 [$2 수정함]',
-	'lqt_hist_summary_changed' => '요약문을 변경함',
+	'lqt_hist_summary_changed' => '요약문을 바꿈',
 	'lqt_hist_reply_created' => '[[$1|답글]]을 남김',
 	'lqt_hist_thread_created' => '새 스레드 만듦',
 	'lqt_hist_deleted' => '삭제함',
@@ -11019,7 +11035,7 @@ $messages['ko'] = array(
 	'lqt_move_samedestination' => '이 스레드가 이미 이 문서에 있습니다!',
 	'lqt_move_noreason' => '이유를 입력하지 않았습니다.',
 	'lqt_move_success' => '스레드가 $1(으)로 옮겨졌습니다.',
-	'lqt_talkpage_autocreate_summary' => '스레드가 처음 게시되었을 때 토론 문서를 자동으로 생성함',
+	'lqt_talkpage_autocreate_summary' => '스레드가 처음 게시되었을 때 토론 문서를 자동으로 만듦',
 	'lqt_header_warning_big' => '당신은 $1을 편집하고 있습니다.',
 	'lqt_header_warning_after_big' => '머리말은 안내 사항을 알리는 용도로 사용됩니다.
 $2를 누르면 새 토론을 시작할 수 있습니다.',
@@ -11101,7 +11117,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-log-action-subjectedit' => '[[$1]]의 주제를 "$2"에서 "$3"으로 바꿈',
 	'lqt-log-action-resort' => '[[$1]]의 정렬 순서를 바꿈. 정렬 키를 $2에서 $3으로 바꿈',
 	'lqt-preference-notify-talk' => '내가 주시하고 있는 스레드에 답글이 올라오면 이메일 보내기',
-	'lqt-preference-watch-threads' => '내가 생성하거나 답변한 스레드를 주시하기',
+	'lqt-preference-watch-threads' => '내가 만들거나 답변한 스레드를 주시하기',
 	'prefs-lqt' => '스레드식 토론',
 	'lqt-preference-display-depth' => '보여 줄 답글의 최대 깊이:',
 	'lqt-preference-display-count' => '보여 줄 답글의 최대 개수:',
@@ -11110,7 +11126,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} 토론 - 새 스레드: $1',
 	'lqt-enotif-newthread' => "$1님 안녕하세요.
 
-{{SITENAME}}의 $5에서 새 스레드 '$2'(이)가 $3 $4에 $8 사용자에 의해 생성되었습니다.
+{{SITENAME}}의 $5에서 새 스레드 '$2'(이)가 $3 $4에 $8 사용자에 의해 만들어졌습니다.
 
 해당 스레드를 <$6>에서 볼 수 있습니다.
 
@@ -11182,7 +11198,7 @@ $7",
 	'restriction-newthread' => '새 토론 시작하기',
 	'lqt-protected-reply-thread' => '이 스레드가 새 게시물을 올릴 수 없도록 보호되어 있기 때문에 이 스레드에 글을 남길 수 없습니다.',
 	'lqt-protected-reply-talkpage' => '이 토론 문서가 스레드에 답글을 달 수 없도록 보호되어 있기 때문에 이 스레드에 답글을 남길 수 없습니다.',
-	'lqt-protected-newthread' => '이 토론 문서가 새 스레드를 생성하지 못하게 잠겨 있기 때문에 이 토론 문서에 새 스레드를 올릴 수 없습니다.',
+	'lqt-protected-newthread' => '이 토론 문서가 새 스레드를 만들지 못하게 잠겨 있기 때문에 이 토론 문서에 새 스레드를 올릴 수 없습니다.',
 	'lqt-edit-bump' => '이 스레드를 맨 위로 옮기기',
 	'lqt-edit-bump-tooltip' => '이 스레드를 토론 문서의 맨 위로 옮깁니다.',
 	'lqt-historicalrevision-error' => '당신이 선택한 판에 문제가 있어서 볼 수 없습니다.',
