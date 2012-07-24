@@ -102,7 +102,7 @@ abstract class LiquidThreadsEditForm {
 	protected function getHiddenFields() {
 		$fields = array();
 		
-		$fields['edittoken'] = $this->user->editToken();
+		$fields['edittoken'] = $this->user->getEditToken();
 		
 		// TODO Testing
 		global $wgTitle;
