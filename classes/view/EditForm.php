@@ -69,7 +69,7 @@ abstract class LiquidThreadsEditForm {
 		$buttons = join( "\n", $buttons );
 		
 		foreach( $hidden as $key => $value ) {
-			$hiddenHTML .= Xml::hidden( $key, $value );
+			$hiddenHTML .= Html::hidden( $key, $value );
 		}
 		
 		$innerHTML = Html::rawElement('div',
