@@ -124,7 +124,7 @@ class TalkpageView extends LqtView {
 		try {
 			$channel = LiquidThreadsChannel::newFromTitle( $this->title );
 		} catch ( MWException $excep ) {
-			$channel = LiquidThreadsChannel::create( $title );
+			$channel = LiquidThreadsChannel::create( $this->title );
 		}
 		
 		$action = LqtDispatch::getAction();
