@@ -81,6 +81,12 @@ class LqtHooks {
 			return true;
 		}
 
+		global $wgLiquidThreadsNotificationTypes;
+
+		if ( ! in_array( 'standard', $wgLiquidThreadsNotificationTypes ) ) {
+			return true;
+		}
+
 		$newmsg_t = SpecialPage::getTitleFor( 'NewMessages' );
 		$watchlist_t = SpecialPage::getTitleFor( 'Watchlist' );
 		$usertalk_t = $wgUser->getTalkPage();
@@ -467,6 +473,12 @@ class LqtHooks {
 		global $wgUser, $wgLang;
 
 		if ( $wgUser->isAnon() ) {
+			return true;
+		}
+
+		global $wgLiquidThreadsNotificationTypes;
+
+		if ( ! in_array( 'standard', $wgLiquidThreadsNotificationTypes ) ) {
 			return true;
 		}
 

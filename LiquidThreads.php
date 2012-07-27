@@ -102,6 +102,7 @@ $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtHooks::setNewtalkHTML';
 $wgHooks['SpecialWatchlistQuery'][] = 'LqtHooks::beforeWatchlist';
 $wgHooks['ArticleEditUpdateNewTalk'][] = 'LqtHooks::updateNewtalkOnEdit';
 $wgHooks['PersonalUrls'][] = 'LqtHooks::onPersonalUrls';
+$wgHooks['EchoGetDefaultNotifiedUsers'][] = 'NewMessages::getDefaultNotifiedUsers';
 
 // Preferences
 $wgHooks['GetPreferences'][] = 'LqtHooks::getPreferences';
@@ -179,6 +180,7 @@ $wgAutoloadClasses['HistoricalThread'] = $dir . 'classes/HistoricalThread.php';
 $wgAutoloadClasses['Thread'] = $dir . 'classes/Thread.php';
 $wgAutoloadClasses['Threads'] = $dir . 'classes/Threads.php';
 $wgAutoloadClasses['NewMessages'] = $dir . 'classes/NewMessagesController.php';
+$wgAutoloadClasses['EchoLiquidThreadsFormatter'] = "$dir/classes/EchoLiquidThreadsFormatter.php";
 $wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/ParserFunctions.php';
 $wgAutoloadClasses['LqtDeletionController'] = $dir . 'classes/DeletionController.php';
 $wgAutoloadClasses['LqtHooks'] = $dir . 'classes/Hooks.php';
@@ -237,6 +239,33 @@ $wgAutoloadClasses['ApiFeedLQTThreads'] = $dir . 'api/ApiFeedLQTThreads.php';
 $wgAPIModules['feedthreads'] = 'ApiFeedLQTThreads';
 $wgAutoloadClasses['ApiThreadAction'] = $dir . '/api/ApiThreadAction.php';
 $wgAPIModules['threadaction'] = 'ApiThreadAction';
+
+// Whether or not to use the standard LiquidThreads notifications
+$wgLiquidThreadsNotificationTypes = array('standard');
+
+// Echo
+if ( isset( $wgEchoNotificationFormatters ) ) {
+	$wgLiquidThreadsNotificationTypes = array('echo');
+
+	$wgEchoNotificationFormatters += array(
+		'lqt-new-topic' => array(
+			'class' => 'EchoLiquidThreadsFormatter',
+			'title-message' => 'notification-add-talkpage-topic',
+			'title-params' => array( 'agent', 'subject', 'title' ),
+			'content-message' => 'notification-talkpage-content',
+			'content-params' => array('commentText'),
+			'icon' => 'chat',
+		),
+		'lqt-reply' => array(
+			'class' => 'EchoLiquidThreadsFormatter',
+			'title-message' => 'notification-add-comment',
+			'title-params' => array( 'agent', 'subject', 'title' ),
+			'content-message' => 'notification-talkpage-content',
+			'content-params' => array('commentText'),
+			'icon' => 'chat',
+		),
+	);
+}
 
 // Path to the LQT directory
 $wgLiquidThreadsExtensionPath = "{$wgScriptPath}/extensions/LiquidThreads";

@@ -142,8 +142,52 @@ class NewMessages {
 	 */
 	static function writeMessageStateForUpdatedThread( $t, $type, $changeUser ) {
 		wfDebugLog( 'LiquidThreads', 'Doing notifications' );
+
+		global $wgLiquidThreadsNotificationTypes;
+
+		if ( 	class_exists( 'EchoEvent' ) &&
+			in_array( 'echo', $wgLiquidThreadsNotificationTypes )
+		) {
+			self::doEchoNotifications( $t, $type, $changeUser );
+		}
+
+		if ( ! in_array( 'standard', $wgLiquidThreadsNotificationTypes ) ) {
+			return;
+		}
+
 		wfProfileIn( __METHOD__ );
 
+		$usersByCategory = self::getNotifyUsers( $t, $changeUser );
+		$userIds = $usersByCategory['notify'];
+		$notifyUsers = $usersByCategory['email'];
+
+		// Do the actual updates
+		if ( count( $userIds ) ) {
+			foreach ( $userIds as $u ) {
+				$insertRows[] = array(
+					'ums_user' => $u,
+					'ums_thread' => $t->id(),
+					'ums_read_timestamp' => null,
+					'ums_conversation' => $t->topmostThread()->id(),
+				);
+			}
+
+			$dbw = wfGetDB( DB_MASTER );
+			$dbw->replace(
+				'user_message_state',
+				array( array( 'ums_user', 'ums_thread' ) ),
+				$insertRows, __METHOD__
+			);
+		}
+
+		global $wgLqtEnotif;
+		if ( count( $notifyUsers ) && $wgLqtEnotif ) {
+			self::notifyUsersByMail( $t, $notifyUsers, wfTimestampNow(), $type );
+		}
+		wfProfileOut( __METHOD__ );
+	}
+
+	static function getNotifyUsers( $t, $changeUser ) {
 		// Pull users to update the message state for, including whether or not a
 		//  user_message_state row exists for them, and whether or not to send an email
 		//  notification.
@@ -184,30 +228,68 @@ class NewMessages {
 			}
 		}
 
-		// Do the actual updates
-		if ( count( $userIds ) ) {
-			foreach ( $userIds as $u ) {
-				$insertRows[] = array(
-					'ums_user' => $u,
-					'ums_thread' => $t->id(),
-					'ums_read_timestamp' => null,
-					'ums_conversation' => $t->topmostThread()->id(),
-				);
+		return array(
+			'notify' => $userIds,
+			'email' => $notifyUsers,
+		);
+	}
+
+	/**
+	 * Distribute Echo notifications for a change
+	 *
+	 * @param $thread The Thread object in question.
+	 * @param $type The change_type (see constants in Threads)
+	 * @param $changeUser the User who made the change
+	 * @return null
+	 */
+	static function doEchoNotifications( $thread, $type, $changeUser ) {
+		$events = array(
+			Threads::CHANGE_REPLY_CREATED => 'lqt-reply',
+			Threads::CHANGE_NEW_THREAD => 'lqt-new-topic',
+		);
+
+		foreach( $events as $change_type => $event_type ) {
+			if ( $type == $change_type ) {
+				EchoEvent::create( array(
+					'type' => $event_type,
+					'title' => $thread->article()->getTitle(),
+					'agent' => $changeUser,
+					'extra' => array(
+						'thread' => $thread->id(),
+						'subject' => $thread->subject(),
+						'root' => $thread->root()->getTitle()->getPrefixedText(),
+					),
+				) );
 			}
+		}
+	}
 
-			$dbw = wfGetDB( DB_MASTER );
-			$dbw->replace(
-				'user_message_state',
-				array( array( 'ums_user', 'ums_thread' ) ),
-				$insertRows, __METHOD__
-			);
+	public static function getDefaultNotifiedUsers($event, &$users) {
+		$type = $event->getType();
+		$lqtEvents = array( 'lqt-reply', 'lqt-new-topic' );
+
+		if ( ! in_array( $type, $lqtEvents ) ) {
+			return true;
 		}
 
-		global $wgLqtEnotif;
-		if ( count( $notifyUsers ) && $wgLqtEnotif ) {
-			self::notifyUsersByMail( $t, $notifyUsers, wfTimestampNow(), $type );
+		$extra = $event->getExtra();
+		if ( !$extra || !$extra['thread'] ) {
+			return true;
 		}
-		wfProfileOut( __METHOD__ );
+
+		$thread = Threads::withId( $extra['thread'] );
+
+		if ( ! $thread ) {
+			return true;
+		}
+
+		$targets = self::getNotifyUsers( $thread, $event->getAgent() );
+
+		foreach( $targets['notify'] as $uid ) {
+			$users[$uid] = User::newFromId( $uid );
+		}
+
+		return true;
 	}
 
 	// Would refactor User::decodeOptions, but the whole point is that this is
