@@ -256,11 +256,12 @@ window.liquidThreads = {
 
 	'doLivePreview' : function( e ) {
 		e.preventDefault();
-		if ( typeof doLivePreview == 'function' ) {
-			doLivePreview(e);
-		} else {
+		if ( typeof doLivePreview !== 'function' ) {
 			$j.getScript( mw.config.get( 'stylepath' ) +'/common/preview.js',
-				function() { doLivePreview(e); });
+				function() {
+					$j('#wpPreview').die('click', liquidThreads.doLivePreview );
+					doLivePreview(e);
+				});
 		}
 	},
 
