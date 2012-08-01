@@ -244,27 +244,39 @@ $wgAPIModules['threadaction'] = 'ApiThreadAction';
 $wgLiquidThreadsNotificationTypes = array('standard');
 
 // Echo
-if ( isset( $wgEchoNotificationFormatters ) ) {
-	$wgLiquidThreadsNotificationTypes = array('echo');
+$wgExtensionFunctions[] = 'wfLiquidThreadsSetupEcho';
 
-	$wgEchoNotificationFormatters += array(
-		'lqt-new-topic' => array(
-			'class' => 'EchoLiquidThreadsFormatter',
-			'title-message' => 'notification-add-talkpage-topic',
-			'title-params' => array( 'agent', 'subject', 'title' ),
-			'content-message' => 'notification-talkpage-content',
-			'content-params' => array('commentText'),
-			'icon' => 'chat',
-		),
-		'lqt-reply' => array(
-			'class' => 'EchoLiquidThreadsFormatter',
-			'title-message' => 'notification-add-comment',
-			'title-params' => array( 'agent', 'subject', 'title' ),
-			'content-message' => 'notification-talkpage-content',
-			'content-params' => array('commentText'),
-			'icon' => 'chat',
-		),
-	);
+function wfLiquidThreadsSetupEcho() {
+	global $wgLiquidThreadsNotificationTypes;
+	global $wgEchoNotificationFormatters;
+
+	if ( isset( $wgEchoNotificationFormatters ) ) {
+		$wgLiquidThreadsNotificationTypes = array( 'echo' );
+
+		$wgEchoNotificationFormatters += array(
+			'lqt-new-topic' => array(
+				'class' => 'EchoLiquidThreadsFormatter',
+				'title-message' => 'notification-add-talkpage-topic',
+				'title-params' => array( 'agent', 'subject', 'title' ),
+				'content-message' => 'notification-talkpage-content',
+				'content-params' => array( 'commentText' ),
+				'icon' => 'chat',
+			),
+			'lqt-reply' => array(
+				'class' => 'EchoLiquidThreadsFormatter',
+				'title-message' => 'notification-add-comment',
+				'title-params' => array( 'agent', 'subject', 'title' ),
+				'content-message' => 'notification-talkpage-content',
+				'content-params' => array( 'commentText' ),
+				'icon' => 'chat',
+			),
+		);
+
+		$wgEchoEnabledEvents = array_merge( $wgEchoEnabledEvents, array(
+			'lqt-new-topic',
+			'lqt-reply',
+		) );
+	}
 }
 
 // Path to the LQT directory
