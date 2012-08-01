@@ -42,8 +42,8 @@ $magicWords['de'] = array(
 
 /** Zazaki (Zazaki) */
 $magicWords['diq'] = array(
-	'useliquidthreads' => array( 0, 'LiquidThreadsAkarfi' ),
-	'lqtpagelimit' => array( 0, 'Iqtsinorepela' ),
+	'useliquidthreads' => array( 0, 'ZelalPineAkarfi' ),
+	'lqtpagelimit' => array( 0, 'Iqtsinorêpela' ),
 );
 
 /** Spanish (español) */
