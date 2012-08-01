@@ -258,7 +258,7 @@ function wfLiquidThreadsSetupEcho() {
 			'lqt-new-topic' => array(
 				'class' => 'EchoLiquidThreadsFormatter',
 				'title-message' => 'notification-add-talkpage-topic',
-				'title-params' => array( 'agent', 'subject', 'title' ),
+				'title-params' => array( 'agent', 'subject', 'title', 'content-page' ),
 				'content-message' => 'notification-talkpage-content',
 				'content-params' => array( 'commentText' ),
 				'icon' => 'chat',
@@ -266,7 +266,7 @@ function wfLiquidThreadsSetupEcho() {
 			'lqt-reply' => array(
 				'class' => 'EchoLiquidThreadsFormatter',
 				'title-message' => 'notification-add-comment',
-				'title-params' => array( 'agent', 'subject', 'title' ),
+				'title-params' => array( 'agent', 'subject', 'title', 'content-page' ),
 				'content-message' => 'notification-talkpage-content',
 				'content-params' => array( 'commentText' ),
 				'icon' => 'chat',

@@ -22,6 +22,12 @@ class EchoLiquidThreadsFormatter extends EchoBasicFormatter {
 			} else {
 				$message->params( '' );
 			}
+		} elseif ( $param === 'content-page' ) {
+			if ( $event->getTitle() ) {
+				$message->params( $event->getTitle()->getSubjectPage()->getPrefixedText() );
+			} else {
+				$message->params( '' );
+			}
 		} else {
 			parent::processParam( $event, $param, $message, $user );
 		}
