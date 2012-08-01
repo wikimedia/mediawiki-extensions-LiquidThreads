@@ -249,6 +249,7 @@ $wgExtensionFunctions[] = 'wfLiquidThreadsSetupEcho';
 function wfLiquidThreadsSetupEcho() {
 	global $wgLiquidThreadsNotificationTypes;
 	global $wgEchoNotificationFormatters;
+	global $wgEchoEnabledEvents;
 
 	if ( isset( $wgEchoNotificationFormatters ) ) {
 		$wgLiquidThreadsNotificationTypes = array( 'echo' );
