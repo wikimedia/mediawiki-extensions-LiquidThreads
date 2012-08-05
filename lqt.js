@@ -1,7 +1,3 @@
-// Prototype in string.trim on browsers that haven't yet implemented
-if ( typeof String.prototype.trim !== "function" )
-	String.prototype.trim = function() { return this.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); };
-
 var wgWikiEditorIconVersion = 0;
 
 jQuery.getCSS = function( url, media ) {
@@ -227,15 +223,11 @@ window.liquidThreads = {
 				}
 				liquidThreads.loadInlineEditForm( params, container,
 					function() {
-						if ( typeof mediaWiki.loader != 'undefined' && mediaWiki.loader ) {
-							mediaWiki.loader.using(
-								[ 'ext.wikiEditor',
-									'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.dialogs',
-									'jquery.async', 'jquery.cookie' ],
-								finishSetup );
-						} else {
-							finishSetup();
-						}
+						mediaWiki.loader.using(
+							[ 'ext.wikiEditor', 'user.options',
+								'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.dialogs',
+								'jquery.async', 'jquery.cookie' ],
+							finishSetup );
 					} );
 			} );
 
@@ -447,7 +439,7 @@ window.liquidThreads = {
 		var header = subjectForm.closest('.lqt_header');
 		var threadId = subjectForm.data('thread-id');
 		var textbox = $j('#lqt-subject-input-'+threadId);
-		var newSubject = textbox.val().trim();
+		var newSubject = $j.trim( textbox.val() );
 
 		if (!newSubject) {
 			alert( mediaWiki.msg('lqt-ajax-no-subject') );
@@ -462,7 +454,7 @@ window.liquidThreads = {
 		var request = {
 			'action' : 'threadaction',
 			'threadaction' : 'setsubject',
-			'subject' : newSubject.trim(),
+			'subject' : $j.trim( newSubject ),
 			'thread' : threadId
 		};
 
@@ -907,7 +899,7 @@ window.liquidThreads = {
 			text = wikiEditorContext.$textarea.textSelection( 'getContents' );
 		}
 		
-		if ( text.trim().length == 0 ) {
+		if ( $j.trim( text ).length == 0 ) {
 			alert(mediaWiki.msg('lqt-empty-text'));
 			return;
 		}
@@ -1152,7 +1144,7 @@ window.liquidThreads = {
 
 	'onTextboxKeyUp' : function(e) {
 		// Check if a user has signed their post, and if so, tell them they don't have to.
-		var text = $j(this).val().trim();
+		var text = $j.trim( $j(this).val() );
 		var prevWarning = $j('#lqt-sign-warning');
 		if ( text.match(/~~~~$/) ) {
 			if ( prevWarning.length ) {
@@ -1618,7 +1610,7 @@ window.liquidThreads = {
 
 		liquidThreads.apiRequest( function() { return apiReq; },
 			function(data) {
-				var html = $j(data.parse.text['*'].trim());
+				var html = $j( $j.trim( data.parse.text['*'] ) );
 
 				if (html.length == 2) { // Not 1, because of the NewPP report
 					html = html.contents();
