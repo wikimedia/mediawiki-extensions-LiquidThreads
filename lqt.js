@@ -335,6 +335,7 @@ window.liquidThreads = {
 		trigger.show();
 		menu.hide();
 
+		// FIXME: After a drag-and-drop, this stops working on the thread and its replies
 		trigger.click(
 			function(e) {
 				e.stopImmediatePropagation();
@@ -443,10 +444,10 @@ window.liquidThreads = {
 		subjectForm.hide();
 
 		var request = {
-			'action' : 'threadaction',
-			'threadaction' : 'setsubject',
-			'subject' : $j.trim( newSubject ),
-			'thread' : threadId
+			action: 'threadaction',
+			threadaction: 'setsubject',
+			subject: $j.trim( newSubject ),
+			thread: threadId
 		};
 
 		var errorHandler = function(reply) {
@@ -624,8 +625,8 @@ window.liquidThreads = {
 
 	'setupThread' : function(threadContainer) {
 		var prefixLength = "lqt_thread_id_".length;
-		// add the interruption class if it needs it
-		// Fixme - misses a lot of cases
+		// Add the interruption class if it needs it
+		// FIXME: misses a lot of cases
 		$parentWrapper = $j( threadContainer )
 			.closest( '.lqt-thread-wrapper' ).parent().closest( '.lqt-thread-wrapper' );
 		if( $parentWrapper.next( '.lqt-thread-wrapper' ).length > 0 ) {
@@ -1175,7 +1176,7 @@ window.liquidThreads = {
 	},
 
 	'activateDragDrop' : function(e) {
-		// FIX ME: Need a cancel drop action
+		// FIXME: Need a cancel drop action
 		e.preventDefault();
 
 		// Set up draggability.
@@ -1235,9 +1236,31 @@ window.liquidThreads = {
 			.before( createDropZone( 'now', 'top' ) );
 
 		// Now one after every thread except the drag thread
+		// FIXME: Do not add one right before the current thread (bug 26237 comment 2)
 		$j( '.lqt-thread-topmost' ).not( $thread ).each( function() {
-			var sortkey = parseInt( $j( this ).contents().filter( 'input[name=lqt-thread-sortkey]' ).val() );
-			$j( this ).after( createDropZone( sortkey - 1, 'top' ) );
+			var sortkey = $j( this ).contents().filter( 'input[name=lqt-thread-sortkey]' ).val(),
+				d = new Date(
+					sortkey.substr(0,4),
+					sortkey.substr(4,2) - 1, // month is from 0 to 11
+					sortkey.substr(6,2),
+					sortkey.substr(8,2),
+					sortkey.substr(10,2),
+					sortkey.substr(12,2)
+				);
+
+			// Use proper date manipulation to avoid invalid timestamps such as
+			// 20120101000000 - 1 = 20120100999999 (instead of 20111231235959)
+			// (in that case the API would return an "invalid-sortkey" error)
+			d.setTime( d.getTime() - 1 );
+			sortkey = [
+				d.getFullYear(),
+				( d.getMonth() < 9 ? '0' : '' ) + (d.getMonth() + 1),
+				( d.getDate() < 10 ? '0' : '' ) + d.getDate(),
+				( d.getHours() < 10 ? '0' : '' ) + d.getHours(),
+				( d.getMinutes() < 10 ? '0' : '' ) + d.getMinutes(),
+				( d.getSeconds() < 10? '0' : '' ) + d.getSeconds()
+			].join('');
+			$j( this ).after( createDropZone( sortkey, 'top' ) );
 		} );
 
 		// Now one underneath every thread except the drag thread
@@ -1396,12 +1419,12 @@ window.liquidThreads = {
 
 				if ( !wasTopLevel && topLevel ) {
 					params.subject =
-						$j(this).find('input[name=subject]').val();
+						$j.trim( $j(this).find('input[name=subject]').val() );
 				}
 
 				// Add spinners
-				spinner = $j('<div class="mw-ajax-loader" />');
-				thread.before(spinner);
+				spinner = $j('<div id="lqt-drag-spinner" class="mw-ajax-loader" />');
+				thread.before(spinner)
 
 				if ( typeof params.insertAfter !== 'undefined' ) {
 					params.insertAfter.after(spinner);
@@ -1425,6 +1448,12 @@ window.liquidThreads = {
 		var bump = (params.sortkey === 'now');
 		var topLevel = (newParent === 'top');
 		var wasTopLevel = thread.hasClass( 'lqt-thread-topmost' );
+		var apiRequest = {
+			'action' : 'threadaction',
+			'thread' : threadId,
+			'format' : 'json',
+			'reason' : params.reason
+		};
 
 		var doEmptyChecks = function() {
 			$j.each( params.emptyChecks, function( k, element ) {
@@ -1443,13 +1472,14 @@ window.liquidThreads = {
 					result = 'failure';
 				}
 
-				if (typeof data.error !== 'undefined') {
-					result = data.error.code+': '+data.error.description;
+				if (typeof data.error != 'undefined') {
+					result = data.error.code+': '+data.error.info;
 				}
 
 				if (result !== 'success') {
 					alert( "Error: "+result );
 					doEmptyChecks();
+					$j( '#lqt-drag-spinner' ).remove();
 					return;
 				}
 
@@ -1521,15 +1551,16 @@ window.liquidThreads = {
 		if ( !topLevel || !wasTopLevel ) {
 
 			// Is it a split or a merge
-			var apiRequest =
-			{
-				'action' : 'threadaction',
-				'thread' : threadId,
-				'format' : 'json',
-				'reason' : params.reason
-			};
 
 			if (topLevel) {
+				// It is a split, and needs a new subject
+				if ( typeof params.subject !== 'string' || params.subject.length === 0 ) {
+
+					$j( '#lqt-drag-spinner' ).remove();
+					alert( mediaWiki.msg( 'lqt-ajax-no-subject' ) );
+					// here we should prompt the user again to enter a new subject
+					return;
+				}
 				apiRequest.threadaction = 'split';
 				apiRequest.subject = params.subject;
 			} else {
@@ -1540,29 +1571,11 @@ window.liquidThreads = {
 			if ( newSortkey !== 'none' ) {
 				apiRequest.sortkey = newSortkey;
 			}
+			liquidThreads.apiRequest( apiRequest, doneCallback );
 
-			if ( params.subject.length === 0 ) {
-
-				$j( '.mw-ajax-loader' ).remove(); // remove spinner
-				alert( mediaWiki.msg( 'lqt-ajax-no-subject' ) );
-				// here we should prompt the user again to enter a new subject
-
-			} else {
-
-   				liquidThreads.apiRequest( apiRequest, doneCallback );
-			}
-
-
-		} else if (newSortkey !== 'none' ) {
-			var apiRequest =
-			{
-				'action' : 'threadaction',
-				'threadaction' : 'setsortkey',
-				'thread' : threadId,
-				'sortkey' : newSortkey,
-				'format' : 'json',
-				'reason' : params.reason
-			};
+		} else if (newSortkey != 'none' ) {
+			apiRequest.threadaction = 'setsortkey';
+			apiRequest.sortkey = newSortkey;
 
 			liquidThreads.apiRequest( apiRequest, doneCallback );
 		}
