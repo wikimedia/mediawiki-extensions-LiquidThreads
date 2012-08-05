@@ -331,6 +331,7 @@ The signature is shown automatically.',
  * @author Malafaya
  * @author Minh Nguyen
  * @author Mormegil
+ * @author Nemo bis
  * @author Nike
  * @author Purodha
  * @author Rancher
@@ -497,6 +498,7 @@ threads on a wiki',
 	'right-lqt-split' => '{{doc-right|lqt-split}}',
 	'right-lqt-merge' => '{{doc-right|lqt-merge}}',
 	'right-lqt-react' => '{{doc-right|lqt-react}}',
+	'lqt-log-name' => '{{doc-logpage}}',
 	'lqt-log-action-move' => 'Parameteres:
 * $1 is the link text to the topic
 * $2 is the link text to the source page the topic was moved from
@@ -554,7 +556,7 @@ Parameters are:
 	'lqt-thread-link-title' => 'A form label, for the wikitext link to a thread',
 	'lqt-save-subject' => '{{Identical|Save}}',
 	'lqt-cancel-subject-edit' => '{{Identical|Cancel}}',
-	'lqt-drag-reparent' => 'Description of the action of moving a thread underneath another, existing parent thread.
+	'lqt-drag-reparent' => 'Description of the action of moving a message underneath another, existing parent thread, to merge the two (sib)threads into one. Eqivalent to cutting a part of a discussion section and pasting it into another discussion section in the normal talk system.
 Displayed in a list of actions to confirm in a confirmation dialog.',
 	'lqt-drag-save' => '{{Identical|Confirm}}',
 	'lqt-drag-reason' => '{{Identical|Reason}}',
