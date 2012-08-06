@@ -15832,10 +15832,10 @@ $messages['ro'] = array(
 	'lqt_toc_thread_modified' => 'Ultima modificare',
 	'lqt_add_header' => 'Adaugă antet',
 	'lqt_new_thread' => 'Începe o nouă discuție',
-	'lqt_invalid_subject' => 'Subiectul care l-ați introdus este invalid.
+	'lqt_invalid_subject' => 'Subiectul pe care l-ați introdus este invalid.
 Acesta poate fi:
-* Prea lung, sau
-* Întâmpină conflicte cu prefixele interwiki sau nume de spațiu de nume.',
+* prea lung sau
+* întâmpină conflicte cu prefixele interwiki spațiul de nume.',
 	'lqt-empty-text' => 'Nu puteți publica un mesaj gol',
 	'lqt_empty_subject' => 'Trebuie să introduceți un subiect.',
 	'lqt_reply' => 'Răspunde',
@@ -15883,6 +15883,7 @@ Acesta poate fi:
 	'lqt_change_split_from' => 'Un [subthread $1] al acestui thread a fost separat în propriul său thread',
 	'lqt_change_root_blanked' => 'Textul de la [un comentariu $1] a fost eliminat.',
 	'lqt_youhavenewmessages' => 'Aveți [[$1|noi mesaje]].',
+	'lqt_protectedfromreply' => 'Acest subiect a fost $1 astfel încât nu se mai pot trimite răspunsuri.',
 	'lqt_protectedfromreply_link' => 'protejat',
 	'lqt_subject' => 'Subiect:',
 	'lqt_noreason' => 'Niciun motiv oferit.',
@@ -15890,6 +15891,8 @@ Acesta poate fi:
 Mutarea a fost efectuată de $2 la $3 $4.',
 	'lqt_thread_deleted_for_sysops' => "Acest thread a fost '''șters''' și este vizibil doar administratorilor.",
 	'lqt_thread_deleted' => 'Acest thread a fost șters.',
+	'lqt_summary_notice' => 'Nu au fost aduse modificări acestei discuții de cel puțin $2 {{PLURAL:$2|zi|zile|de zile}}.
+Dacă s-a ajuns la o concluzie, ați putea să $1.',
 	'lqt_summary_notice_link' => 'scrieți un rezumat',
 	'lqt_summary_label' => 'Rezumatul discuției:',
 	'lqt_summary_subtitle' => 'Rezumatul lui „$1”',
@@ -15905,11 +15908,13 @@ Acest thread este parte a $2.',
 	'lqt_move_move' => 'Redenumire',
 	'lqt_move_nodestination' => 'Trebuie să specificați o destinație.',
 	'lqt_move_thread_bad_destination' => 'Destinația de discuție nu este o pagină de discuție.',
-	'lqt_move_samedestination' => 'Threadul este deja pe această pagină !',
+	'lqt_move_samedestination' => 'Subiectul este deja pe această pagină!',
 	'lqt_move_noreason' => 'Niciun motiv oferit.',
 	'lqt_move_success' => 'Threadul a fost mutat la $1.',
 	'lqt_talkpage_autocreate_summary' => 'Pagina de discuții a fost creată automat când primul thread a fost postat.',
 	'lqt_header_warning_big' => 'Modificați un/o $1.',
+	'lqt_header_warning_after_big' => 'Antetele sunt pentru anunțuri și prefețe.
+În schimb ați putea $2.',
 	'lqt_header_warning_bold' => 'antetul paginii de discuție',
 	'lqt_header_warning_new_discussion' => 'începe o nouă discuție',
 	'lqt_sorting_order' => 'Ordine de sortare:',
@@ -15977,6 +15982,7 @@ Ultima modificare: $ 1',
 	'lqt-log-action-resort' => 'a modificat ordinea de sortare pentru [[$1]]. A schimbat cheia de sortare din $2 în $3',
 	'lqt-preference-notify-talk' => 'Trimite-mi e-mail la răspunsurile discuțiilor pe care le urmăresc',
 	'lqt-preference-display-count' => 'Numărul maxim de răspunsuri de arătat:',
+	'lqt-preference-custom-signatures' => 'Arată semnăturile personalizate ale utilizatorilor',
 	'lqt-enotif-subject-reply' => 'Discuție {{SITENAME}} - Răspuns: $1',
 	'lqt-enotif-subject-newthread' => 'Discuție {{SITENAME}} - Subiect nou: $1',
 	'lqt-enotif-newthread' => "Bună ziua $1,
