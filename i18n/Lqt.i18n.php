@@ -273,8 +273,8 @@ The signature is shown automatically.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — New threads from $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Replies',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Replies from $1',
-	'lqt-feed-new-thread-intro' => 'New thread on $1 posted by $2',
-	'lqt-feed-reply-intro' => 'Reply to $3 (on $1) posted by $2',
+	'lqt-feed-new-thread-intro' => 'New thread on $1 posted by {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Reply to $3 (on $1) posted by {{GENDER:$4|$2}}',
 
 	// Personal tool links
 	'tooltip-pt-newmessages' => 'Shows new posts to threads or on threaded talk pages you are watching',
@@ -573,11 +573,13 @@ Displayed in a list of actions to confirm in a confirmation dialog.',
 	'lqt-feed-new-thread-intro' => 'Parameters:
 * $1 is a link to the talk page with the thread
 * $2 is a link to the user posting in the thread
-* $3 -not used-.',
+* $3 -not used-,
+* $4 is the posting user in plain text, used for GENDER.',
 	'lqt-feed-reply-intro' => 'Parameters:
 * $1 is a link to the talk page with the thread
 * $2 is a link to the user posting in the thread
-* $3 is a link to the super thread',
+* $3 is a link to the super thread,
+* $4 is the posting user in plain text, used for GENDER.',
 	'lqt-newmessages-n' => '{{Identical|New messages}}
 
 Link at the top of the page for logged-in users. $1 is the number of new messages.',

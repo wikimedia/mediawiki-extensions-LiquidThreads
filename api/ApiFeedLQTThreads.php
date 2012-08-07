@@ -97,13 +97,10 @@ class ApiFeedLQTThreads extends ApiBase {
 		$userLink = $linker->userLink( $thread->author()->getId(), $user );
 		$talkpageLink = $linker->link( $thread->getTitle() );
 		$superthreadLink = $linker->link( $stTitle );
-		$description = wfMsgExt(
-			$thread->hasSuperThread()
-				? 'lqt-feed-reply-intro'
-				: 'lqt-feed-new-thread-intro',
-			array( 'parse', 'replaceafter' ),
-			array( $talkpageLink, $userLink, $superthreadLink )
-		);
+		$user = $thread->author()->getName();
+		$message = $thread->hasSuperThread() ? 'lqt-feed-reply-intro' : 'lqt-feed-new-thread-intro' );
+		$rawParams = array( $talkpageLink, $userLink, $superthreadLink );
+		$description = wfMessage( $message )->rawParams( $rawParams )->params( $user )->parseAsBlock();
 		$completeText = $description . $completeText;
 
 		return new FeedItem( $titleStr, $completeText, $titleUrl, $timestamp, $user );
