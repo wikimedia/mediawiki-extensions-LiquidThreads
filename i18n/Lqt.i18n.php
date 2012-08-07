@@ -981,6 +981,7 @@ $messages['an'] = array(
 );
 
 /** Arabic (العربية)
+ * @author Avocato
  * @author AwamerT
  * @author Meno25
  * @author OsamaK
@@ -4383,8 +4384,8 @@ Die Signatur wird automatisch ergänzt.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} – Neue Themen von $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} – Antworten',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} – Antworten von $1',
-	'lqt-feed-new-thread-intro' => 'Neues Thema auf $1 von $2',
-	'lqt-feed-reply-intro' => 'Antwort auf $3 (auf $1) von $2',
+	'lqt-feed-new-thread-intro' => 'Neues Thema auf $1 von {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Antwort auf $3 (auf $1) von {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Zeigt neue Nachrichten zu den von dir beobachteten Themen oder deren zugehörigen Diskussionsseiten',
 	'lqt-newmessages-n' => 'Neue Nachrichten ($1)',
 	'lqt_newmessages' => 'Neue Nachrichten (keine)',
@@ -10028,6 +10029,7 @@ Síðast breytt: $1',
  * @author Gianfranco
  * @author Marco 27
  * @author Melos
+ * @author Nemo bis
  * @author PaoloRomano
  * @author Una giornata uggiosa '94
  * @author VittGam
@@ -10161,7 +10163,7 @@ Ultima modifica: $1",
 Ultima modifica: $1',
 	'lqt-header-actions' => 'Azioni',
 	'lqt_summarize_link' => 'Riassumi',
-	'lqt-summarize-intro' => 'Si prega di riassumere il thread nella casella di edizione. Può essere usato qualsiasi wikitesto. Terminata l\'operazione, fare clic su "{{int:savearticle}}".',
+	'lqt-summarize-intro' => 'Si prega di riassumere il thread nella casella di modifica. Può essere usato qualsiasi wikitesto. Terminata l\'operazione, fare clic su "{{int:savearticle}}".',
 	'lqt-thread-split' => 'Suddiviso in un nuovo thread',
 	'lqt-split-success' => 'Hai diviso con successo la discussione $1.',
 	'lqt_split_thread' => 'Dividi un thread',
