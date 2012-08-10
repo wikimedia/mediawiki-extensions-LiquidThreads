@@ -1618,6 +1618,7 @@ $messages['ba'] = array(
 	'lqt_invalid_subject' => 'Һеҙ кереткән исем дөрөҫ түгел, түбәндәге хаталар булыуы мөмкин:
 * бигерәк оҙон
 *  интерфики-префикстар йәки исемдәр арауығы исемдәре менән тап килә',
+	'lqt-empty-text' => 'Буш хәбәр ебәрә алмайһығыҙ',
 	'lqt_empty_subject' => 'Һеҙ исемде керетергә тейешһегеҙ.',
 	'lqt_reply' => 'Яуап бирергә',
 	'lqt-parent' => 'Башланғыс хәбәр',
@@ -1817,7 +1818,7 @@ $7',
 	'lqt-save-subject' => 'Һаҡларға',
 	'lqt-save-subject-failed' => 'Был тармаҡтың исемен үҙгәртергә тырышҡан ваҡытта түбәндәге хаталар булды: $1',
 	'lqt-ajax-invalid-subject' => 'Һеҙ күрһәткән исем дөрөҫ түгел, уның бигерәк оҙон булыуы мөмкин.',
-	'lqt-ajax-no-subject' => 'Һеҙ исем керетергә тейешһегеҙ.',
+	'lqt-ajax-no-subject' => 'Һеҙ яңы тармаҡ өсөн исем керетергә тейешһегеҙ.',
 	'lqt-save-subject-error-unknown' => 'Был тармаҡтың исемен үҙгәртергә тырышҡан ваҡытта билдәһеҙ хата булды. Зинһар, хәбәрҙең өҫкө өлөшөндәге "үҙгәртергә" төймәһенә баҫып үҙгәртеп ҡарағыҙ.',
 	'lqt-cancel-subject-edit' => 'Кире алырға',
 	'lqt-drag-activate' => 'Күсерергә',
@@ -1830,7 +1831,7 @@ $7',
 	'lqt-drag-save' => 'Раҫларға',
 	'lqt-drag-title' => 'Күсереүҙе раҫларға',
 	'lqt-drag-reason' => 'Сәбәп:',
-	'lqt-drag-subject' => 'Яңы тармаҡ исеме:',
+	'lqt-drag-subject' => 'Яңы тармаҡ темаһы (мотлаҡ):',
 	'lqt-edit-signature' => '(имзаны үҙгәртергә)',
 	'lqt-preview-signature' => '(ҡарап сығыу)',
 	'lqt-feed-title-all' => '{{SITENAME}} — Яңы хәбәрҙәр',
@@ -1839,7 +1840,7 @@ $7',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — $1 биттәренән яңы тармаҡтар',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Яуаптар',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1 биттәренән яңы яуаптар',
-	'lqt-feed-new-thread-intro' => '$1 битендә яңы хәбәр, $2 тарафынан өҫтәлгән',
+	'lqt-feed-new-thread-intro' => '$1 битендә яңы тармаҡ, $2 тарафынан өҫтәлгән',
 	'lqt-feed-reply-intro' => '$1 битендә $3 тармағына яңы яуап, $2 тарафынан өҫтәлгән',
 	'tooltip-pt-newmessages' => 'Һеҙ күҙәткән тармаҡтарҙың яңы хәбәрҙәрен күрһәтә',
 	'lqt-newmessages-n' => 'Яңы хәбәрҙәр ($1)',
@@ -3500,6 +3501,7 @@ $messages['co'] = array(
  * @author Kuvaly
  * @author Matěj Grabovský
  * @author Mormegil
+ * @author Reaperman
  * @author Tchoř
  */
 $messages['cs'] = array(
@@ -3741,8 +3743,8 @@ Podpis se zobrazuje automaticky.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} – Nová vlákna z $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} – Odpovědi',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} – Odpovědi z $1',
-	'lqt-feed-new-thread-intro' => '$2 {{GENDER:$2|přidal|přidala|přidal}} do $1 nové vlákno',
-	'lqt-feed-reply-intro' => '$2 {{GENDER:$2|reagoval|reagovala|reagoval}} na $3 (v $1)',
+	'lqt-feed-new-thread-intro' => '$2 {{GENDER:$4|přidal|přidala|přidal}} do $1 nové vlákno',
+	'lqt-feed-reply-intro' => '$2 {{GENDER:$4|reagoval|reagovala|reagoval}} na $3 (v $1)',
 	'tooltip-pt-newmessages' => 'Zobrazí nové zprávy ve vláknech nebo na diskusních stránkách, které sledujete',
 	'lqt-newmessages-n' => 'Nové zprávy ($1)',
 	'lqt_newmessages' => 'Mé nové zprávy (žádné)',
@@ -5766,6 +5768,7 @@ $messages['et'] = array(
 	'lqt_deletethread' => 'Kustuta või taasta lõim',
 	'lqt_contents_title' => 'Sisukord',
 	'lqt_toc_thread_title' => 'Lõime pealkiri',
+	'lqt_toc_thread_author' => 'Algatanud',
 	'lqt_toc_thread_replycount' => 'Vastuseid',
 	'lqt_toc_thread_modified' => 'Viimati muudetud',
 	'lqt_add_header' => 'Lisa päis',
@@ -8168,8 +8171,8 @@ $7",
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — שרשורים חדשים מתוך $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — תגובות',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — תגובות מתוך $1',
-	'lqt-feed-new-thread-intro' => 'שרשור חדש ב$1 שנוצר על־ידי $2',
-	'lqt-feed-reply-intro' => 'תגובה לשרשור $3 (ב$1) שנוצר על־ידי $2',
+	'lqt-feed-new-thread-intro' => 'שרשור חדש {{GENDER:$4|ששלח|ששלחה}} $2 ב$1',
+	'lqt-feed-reply-intro' => 'תגובה לשרשור $3 (ב$1) {{GENDER:$4|ששלח|ששלחה}} $2',
 	'tooltip-pt-newmessages' => 'הצגת הודעות חדשות בשרשורים או בדפי שיחה בשרשורים שרשימת המעקב שלך',
 	'lqt-newmessages-n' => 'הודעות חדשות ($1)',
 	'lqt_newmessages' => 'ההודעות החדשות שלי (אין)',
@@ -13281,8 +13284,8 @@ Tandatangan diisikan secara automatik.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Tred baru dari $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Balasan',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Balasan dari $1',
-	'lqt-feed-new-thread-intro' => 'Tred baru di $1 dikirim oleh $2',
-	'lqt-feed-reply-intro' => 'Balasan kepada $3 (di $1) dikirim oleh $2',
+	'lqt-feed-new-thread-intro' => 'Tred baru di $1 dikirim oleh {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Balasan kepada $3 (di $1) dikirim oleh {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Menunjukkan kiriman baru pada tred atau laman perbincangan bertred yang anda pantau',
 	'lqt-newmessages-n' => 'Pesanan baru saya ($1)',
 	'lqt_newmessages' => 'Pesanan baru saya (Tiada)',
@@ -18874,6 +18877,7 @@ $messages['szl'] = array(
 );
 
 /** Tamil (தமிழ்)
+ * @author Shanmugamp7
  * @author TRYPPN
  * @author செல்வா
  */
@@ -18906,6 +18910,7 @@ $messages['ta'] = array(
 	'lqt-movethread' => 'நகர்த்தவும்',
 	'lqt-menu-trigger' => 'மேலும்',
 	'lqt-merge-submit' => 'இணைக்கவும்',
+	'lqt-quote' => 'மேற்கோள்',
 	'lqt-search-button' => 'தேடுக',
 	'searchprofile-threads' => 'உரையாடல்',
 	'lqt-ajax-update-link' => 'புதுப்பி',
@@ -18914,7 +18919,12 @@ $messages['ta'] = array(
 	'lqt-drag-save' => 'உறுதிப்படுத்து',
 	'lqt-drag-reason' => 'காரணம்:',
 	'lqt-preview-signature' => '(முன்தோற்றம்)',
+	'lqt-newmessages-n' => 'எனது புதியசெய்திகள் ( $1 )',
+	'lqt_newmessages' => 'எனது புதிய செய்திகள்(ஏதுமில்லை)',
+	'lqt_newmessages-title' => 'புதிய செய்திகள்',
+	'lqt-talkpage-history-title' => 'உரையாடல் பக்க வரலாறு',
 	'lqt-talkpage-history-tab' => 'தலைப்பு',
+	'restriction-reply' => 'மறுமொழியைப் பதிவிடவும்',
 	'lqt-reply-subpage' => 'பதில்',
 	'nstab-summary' => 'சுருக்கம்',
 );
