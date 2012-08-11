@@ -632,7 +632,7 @@ $messages['gom-latn'] = array(
 	'lqt_newmessages' => 'Noveo sondes (Kai na)',
 );
 
-/** Ṫuroyo (Ṫuroyo)
+/** Turoyo (Ṫuroyo)
  * @author Ariyo
  */
 $messages['tru'] = array(
@@ -14677,6 +14677,7 @@ $messages['pfl'] = array(
 
 /** Polish (polski)
  * @author Airwolf
+ * @author Ankry
  * @author Grzechooo
  * @author Holek
  * @author Leinad
