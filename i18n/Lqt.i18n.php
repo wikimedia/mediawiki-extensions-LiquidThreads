@@ -1112,7 +1112,7 @@ $messages['ar'] = array(
 	'lqt-history-user' => 'المستخدم',
 	'lqt-history-action' => 'النشاط',
 	'lqt-history-comment' => 'تعليق',
-	'lqt-history-thread' => 'نقاش',
+	'lqt-history-thread' => 'خيط',
 	'lqt-thread-edited-author' => 'عدّلها المؤلف.<br />
 كان آخر تعديل في: $1',
 	'lqt-thread-edited-others' => 'عدّلها {{PLURAL:$2||مستخدم آخر|مستخدمان آخران|$2 مستخدمين آخرين|$2 مستخدمًا آخرًا|$2 مستخدم آخر}}.<br />
@@ -1125,7 +1125,7 @@ $messages['ar'] = array(
 	'lqt-split-success' => 'لقد فصلت بنجاح الموضوع $1.',
 	'lqt_split_thread' => 'فصل موضوع',
 	'lqt-thread-split-subject' => 'عنوان الموضوع الجديد:',
-	'lqt-thread-split-thread' => 'الموضوع:',
+	'lqt-thread-split-thread' => 'الخيط:',
 	'lqt-split-submit' => 'افصل',
 	'lqt_split_badsubject' => 'العنوان الذي أدخلته غير صحيح.',
 	'lqt-no-threads' => 'لا توجد أي مواضيع في هذه الصفحة إلى الآن.',
@@ -1248,7 +1248,7 @@ $7",
 	'lqt-edit-bump-tooltip' => 'انقل هذا النقاش إلى أعلى صفحة النقاش',
 	'lqt-historicalrevision-error' => 'المراجعة التي اخترتها معطوبة، ولا يمكن رؤيتها.',
 	'lqt-reply-subpage' => 'رد',
-	'nstab-thread' => 'موضوع',
+	'nstab-thread' => 'خيط',
 	'nstab-summary' => 'الملخص',
 );
 
@@ -7270,6 +7270,26 @@ $messages['fy'] = array(
 	'lqt_move_move' => 'Werneam',
 );
 
+/** Irish (Gaeilge)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ga'] = array(
+	'lqt_delete' => 'Scrios',
+	'lqt_discussion_link' => 'Plé',
+	'lqt-title' => 'Teideal',
+	'lqt-summary' => 'Achoimriú',
+	'lqt-history-user' => 'Úsáideoir',
+	'lqt-history-comment' => 'Nóta tráchta',
+	'lqt-menu-trigger' => 'Níos mó',
+	'lqt-search-button' => 'Cuardaigh',
+	'searchprofile-threads' => 'Plé',
+	'lqt-save-subject' => 'Sábháil',
+	'lqt-cancel-subject-edit' => 'Cealaigh',
+	'lqt-drag-save' => 'Deimhnigh',
+	'lqt-drag-reason' => 'Fáth:',
+	'nstab-summary' => 'Achoimriú',
+);
+
 /** Simplified Gan script (‪赣语（简体）‬) */
 $messages['gan-hans'] = array(
 	'lqt-search-button' => '寻吖',
@@ -10759,6 +10779,7 @@ $messages['ka'] = array(
 	'lqt_rc_new_reply' => 'დატოვა პასუხი "$1"-ს',
 	'right-lqt-split' => 'გაყავით ტოტები',
 	'right-lqt-merge' => 'გააერთიანეთ ტოტები',
+	'right-lqt-react' => 'პასუხი განხილვის ტოტებში',
 	'lqt-thread-merge' => 'დაუკავშირდით სხვა ტოტს',
 	'lqt-thread-merge-to' => 'გაუერთიანეთ ამ ტოტს',
 	'lqt_merge_thread' => 'ტოტების გაერთიანება',
@@ -10809,6 +10830,7 @@ $messages['ka'] = array(
 	'lqt-drag-setsortkey' => 'პოსტის პოზიციის მორგება ამ გვერდზე',
 	'lqt-drag-bump' => 'თემის გადატანა განხილვის გვერდის თავში',
 	'lqt-drag-save' => 'დადასტურება',
+	'lqt-drag-title' => 'გადათრევის დამოწმება',
 	'lqt-drag-reason' => 'მიზეზი:',
 	'lqt-drag-subject' => 'სათაური ახალი ტოტისათვის (სავალდებულო):',
 	'lqt-edit-signature' => '(რედაქტირების ხელმოწერა)',
@@ -10819,8 +10841,8 @@ $messages['ka'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — ახალი თემები $1-დან',
 	'lqt-feed-title-replies' => '{{SITENAME}} — პასუხები',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — პასუხები $1-დან',
-	'lqt-feed-new-thread-intro' => 'ახალი თემა $1-ზე, დადებული $2-ის მიერ',
-	'lqt-feed-reply-intro' => 'პასუხი $3-ს ($1-ზე), დადებული $2-ის მიერ',
+	'lqt-feed-new-thread-intro' => 'ახალი თემა $1-ზე, დადებული {{GENDER:$4|$2}}-ის მიერ',
+	'lqt-feed-reply-intro' => 'პასუხი $3-ს ($1-ზე), დადებული {{GENDER:$4|$2}}-ის მიერ',
 	'lqt-newmessages-n' => 'ახალი შეტყობინებები ($1)',
 	'lqt_newmessages' => 'ჩემი ახალი შეტყობინებები (არა)',
 	'lqt_newmessages-title' => 'ახალი შეტყობინებები',
@@ -10834,6 +10856,7 @@ $messages['ka'] = array(
 	'lqt-protected-reply-thread' => 'თქვენ არ შეგიძლიათ თემის დადება ამ ტოტში, ვინაიდან ის დაცულია ახალი თემებისაგან.',
 	'lqt-protected-reply-talkpage' => 'თქვენ არ შეგიძლიათ თემის დადება ამ ტოტში, ვინაიდან ეს განხილვის გვერდი დაცულია პასუხებისაგან მის ტოტში.',
 	'lqt-protected-newthread' => 'თქვენ არ შეგიძლიათ ახალი ტოტების დადება ამ განხილვის გვერდზე, ვინაიდან ის დაცულია ახალი ტოტებისაგან.',
+	'lqt-edit-bump' => 'ამ ტოტის აწევა',
 	'lqt-edit-bump-tooltip' => 'ამ ტოტის მისი განხილვის გვერდის თავში გადატანა',
 	'lqt-reply-subpage' => 'პასუხი',
 	'nstab-thread' => 'დისკუსიის თემა',
