@@ -6898,8 +6898,8 @@ La signature est affichée automatiquement.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} - Nouveaux fils de discussion de $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} - Réponses',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} - Réponses de $1',
-	'lqt-feed-new-thread-intro' => 'Nouveau fil de discussion sur $1 posté par $2',
-	'lqt-feed-reply-intro' => 'Réponse à $3 (sur $1) postée par $2',
+	'lqt-feed-new-thread-intro' => 'Nouveau fil de discussion sur $1 posté par {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Réponse à $3 (sur $1) postée par {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Montre les nouveaux messages sur les sujets ou sur les pages de discussions que vous suivez',
 	'lqt-newmessages-n' => 'Nouveaux messages ($1)',
 	'lqt_newmessages' => 'Nouveaux messages (aucun)',
@@ -10608,6 +10608,7 @@ $messages['jbo'] = array(
 
 /** Javanese (Basa Jawa)
  * @author Meursault2004
+ * @author NoiX180
  * @author Pras
  */
 $messages['jv'] = array(
@@ -10639,7 +10640,42 @@ $messages['jv'] = array(
 	'lqt_header_warning_big' => 'Panjenengan nyunting sawijining $1.',
 	'lqt_header_warning_new_discussion' => 'miwiti dhiskusi anyar',
 	'lqt_sorting_order' => 'Urutan sortir:',
-	'lqt_newmessages' => 'Pesen anyar',
+	'lqt-quote-intro' => 'Tanggal $2 wanci $3, [[User:$1|$1]] nulis:',
+	'lqt-quote' => 'Kutip',
+	'lqt-search-legend' => 'Golèk parembugan nèng kaca iki',
+	'lqt-search-label' => 'Golèk istilah:',
+	'lqt-search-button' => 'Golèk',
+	'searchprofile-threads' => 'Parembugan',
+	'lqt-ajax-update-link' => 'Anyari',
+	'lqt-thread-show-replies' => 'Tuduhaké $1 {{PLURAL:$1|walesan|walesan}}',
+	'lqt-thread-show-more' => 'Tuduhaké luwih akèh walesan',
+	'lqt-thread-link-url' => 'URL pranala:',
+	'lqt-thread-link-title' => 'Pranala TèksWiki:',
+	'lqt-thread-link-copy' => 'Salin nèng blabag klip',
+	'lqt-change-subject' => 'Ganti jejer',
+	'lqt-save-subject' => 'Simpen',
+	'lqt-cancel-subject-edit' => 'Batal',
+	'lqt-drag-activate' => 'Surung nèng panggon anyar',
+	'lqt-drag-drop-zone' => 'Sèlèh kéné',
+	'lqt-drag-save' => 'Konfirmasi',
+	'lqt-drag-title' => 'Konfirmasi pamindhahan',
+	'lqt-drag-reason' => 'Alesan:',
+	'lqt-edit-signature' => '(sunting tapak asta)',
+	'lqt-preview-signature' => '(pratayang)',
+	'lqt-feed-title-all' => '{{SITENAME}} — Kiriman anyar',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Kiriman anyar saka $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Walesan',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Walesan saka $1',
+	'lqt-newmessages-n' => 'Layang anyar kula ($1)',
+	'lqt_newmessages' => 'Layang anyar kula (ora ana)',
+	'lqt_newmessages-title' => 'Layang anyar',
+	'lqt-reply-summary' => 'Ngawales [[$2|$1]]',
+	'lqt-talkpage-history-title' => 'Riwayat kaca parembugan',
+	'lqt-talkpage-history-subtitle' => 'Kanggo $1',
+	'lqt-talkpage-history-tab' => 'Irah-irahan',
+	'restriction-reply' => 'Kirim walesan',
+	'lqt-reply-subpage' => 'wales',
+	'nstab-summary' => 'Ringkesan',
 );
 
 /** Georgian (ქართული)
