@@ -648,6 +648,13 @@ $messages['ab'] = array(
 	'lqt_newmessages' => 'Адырра ҿыцқәа',
 );
 
+/** Achinese (Acèh)
+ * @author Si Gam Acèh
+ */
+$messages['ace'] = array(
+	'lqt-search-button' => 'Mita',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Arnobarnard
  * @author Naudefj
@@ -3478,12 +3485,14 @@ $messages['ch'] = array(
 	'lqt_discussion_link' => 'kombetsasion',
 );
 
-/** Sorani Kurdish (کوردی) */
+/** Sorani Kurdish (کوردی)
+ * @author Calak
+ */
 $messages['ckb'] = array(
 	'lqt_delete' => 'سڕینەوە',
 	'lqt_undelete' => 'گەڕاندنەوەی سڕین',
 	'lqt_move_move' => 'گواستنەوە',
-	'lqt-summary' => 'پوختە',
+	'lqt-summary' => 'کورتە',
 	'lqt-history-user' => 'بەکارهێنەر',
 	'lqt-movethread' => 'گواستنەوە',
 	'lqt-search-button' => 'گەڕان',
@@ -16543,6 +16552,7 @@ $7",
  * @author Innv
  * @author KPu3uC B Poccuu
  * @author Kaganer
+ * @author Kalan
  * @author Kv75
  * @author Lockal
  * @author MaxSem
@@ -16787,8 +16797,8 @@ $7',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Новые ветки $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Ответы',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Ответы $1',
-	'lqt-feed-new-thread-intro' => 'Новая ветка в $1, размещена $2',
-	'lqt-feed-reply-intro' => 'Ответ на $3 (в $1), размещена $2',
+	'lqt-feed-new-thread-intro' => 'Новая ветка в $1, {{GENDER:$4|написал|написала}} $2',
+	'lqt-feed-reply-intro' => 'Ответ на $3 (в $1), {{GENDER:$4|написал|написала}} $2',
 	'tooltip-pt-newmessages' => 'Показывает новые сообщения на ветках и нитях обсуждений, за которыми вы наблюдаете',
 	'lqt-newmessages-n' => 'Новые сообщения ($1)',
 	'lqt_newmessages' => 'Новые сообщения (Нет)',
@@ -21139,8 +21149,8 @@ $7',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} – Luồng mới từ $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} – Trả lời',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} – Trả lời từ $1',
-	'lqt-feed-new-thread-intro' => 'Luồng mới về $1 do $2 đăng',
-	'lqt-feed-reply-intro' => 'Trả lời $3 (về $1) do $2 đăng',
+	'lqt-feed-new-thread-intro' => '{{GENDER:$4}}Luồng mới về $1 do $2 đăng',
+	'lqt-feed-reply-intro' => '{{GENDER:$4}}Trả lời $3 (về $1) do $2 đăng',
 	'tooltip-pt-newmessages' => 'Các bài mới trong luồng hoặc trang thảo luận có luồng mà bạn đang theo dõi',
 	'lqt-newmessages-n' => 'Tin nhắn mới ($1)',
 	'lqt_newmessages' => 'Tin nhắn mới (không có)',
