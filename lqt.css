@@ -507,7 +507,7 @@ table.lqt-new-messages {
 .lqt-thread-toolbar-commands:after,
 .lqt-post-wrapper:after
 { 
- content: ".";  
+ content: "";
  display: block; 
  height: 0; 
  clear: both; 
