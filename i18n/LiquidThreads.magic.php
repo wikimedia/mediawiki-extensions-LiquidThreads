@@ -67,6 +67,7 @@ $magicWords['ko'] = array(
 /** Macedonian (македонски) */
 $magicWords['mk'] = array(
 	'useliquidthreads' => array( 0, 'КористиТечниНишки' ),
+	'lqtpagelimit' => array( 0, 'ОгранСтранТечниНишки' ),
 );
 
 /** Nedersaksisch (Nedersaksisch) */
