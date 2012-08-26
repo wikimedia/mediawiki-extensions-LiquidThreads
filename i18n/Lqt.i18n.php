@@ -10469,7 +10469,7 @@ $messages['ja'] = array(
 最後の編集: $1',
 	'lqt-header-actions' => '操作',
 	'lqt_summarize_link' => '要約',
-	'lqt-summarize-intro' => '以下のスレッドを編集ボックス内に要約してください。
+	'lqt-summarize-intro' => '下記のスレッドを編集ボックス内に要約してください。
 要約ではウィキテキストを使用できます。
 完了したら「{{int:savearticle}}」をクリックします。',
 	'lqt-thread-split' => '新規スレッドに分割',
