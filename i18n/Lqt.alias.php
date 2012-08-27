@@ -490,7 +490,7 @@ $specialPageAliases['tl'] = array(
 /** Turkish (Türkçe) */
 $specialPageAliases['tr'] = array(
 	'DeleteThread' => array( 'BaşlıkSil' ),
-	'HotTopics' => array( 'AktifKonular' ),
+	'HotTopics' => array( 'EtkinKonular', 'AktifKonular' ),
 	'MoveThread' => array( 'BaşlıkTaşı' ),
 	'NewMessages' => array( 'YeniMesajlar', 'Yeniİletiler' ),
 	'SplitThread' => array( 'BaşlıkBöl' ),
