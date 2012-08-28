@@ -5643,7 +5643,7 @@ Cuando finalice, haga clic en ''{{int:savearticle}}''.",
 	'lqt-thread-split-thread' => 'Hilo:',
 	'lqt-split-submit' => 'Dividir',
 	'lqt_split_badsubject' => 'El tema que has ingresado es inválido.',
-	'lqt-no-threads' => 'No hay hilos en esta página aún.',
+	'lqt-no-threads' => 'Aún no hay hilos en esta página.',
 	'lqt-delete-parent-warning' => 'Este es un hilo de alto nivel con respuestas.
 Sus respuestas también serán automáticamente eliminadas.
 Para evitarlo, divídalas a partir de este hilo antes de eliminarlas.',
