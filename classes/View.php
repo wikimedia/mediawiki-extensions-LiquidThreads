@@ -383,6 +383,8 @@ class LqtView {
 			if ( $thread ) {
 				$talkpage = $thread->article();
 				$title = $talkpage->getTitle();
+			} else {
+				throw new MWException( "Cannot get title" );
 			}
 		}
 
