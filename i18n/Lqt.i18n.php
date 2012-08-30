@@ -4514,7 +4514,7 @@ Sebebê ey:
 	'lqt_hist_summary_changed' => 'xulasa vuriya',
 	'lqt_hist_reply_created' => '[[$1|Cewabo newe]] bi hazır',
 	'lqt_hist_thread_created' => 'gıreyo newe bı hazır',
-	'lqt_hist_deleted' => 'Besterneya',
+	'lqt_hist_deleted' => 'Esteriya',
 	'lqt_hist_undeleted' => 'esterıtış tepiya geriya',
 	'lqt_hist_moved_talkpage' => 'kırışiya',
 	'lqt_hist_listing_subtitle' => 'listeya halê verin ramociyeno',
