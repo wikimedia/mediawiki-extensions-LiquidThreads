@@ -3491,6 +3491,7 @@ $messages['ch'] = array(
 $messages['ckb'] = array(
 	'lqt_delete' => 'سڕینەوە',
 	'lqt_undelete' => 'گەڕاندنەوەی سڕین',
+	'lqt_youhavenewmessages' => '[[$1|پەیامی نوێ]]ت ھەیە.',
 	'lqt_move_move' => 'گواستنەوە',
 	'lqt-summary' => 'کورتە',
 	'lqt-history-user' => 'بەکارهێنەر',
