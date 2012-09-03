@@ -16164,9 +16164,9 @@ Aceasta va fi încă vizibilă pe pagina sa de discuţie originală.',
 	'lqt-history-comment' => 'Comentariu',
 	'lqt-history-thread' => 'Subiect',
 	'lqt-thread-edited-author' => 'Modificat de autor. <br />
-Ultima modificare: $ 1',
-	'lqt-thread-edited-others' => 'Modificat de {{PLURAL: $ 2 |un alt utilizator |$2 utilizatori}}. <br />
-Ultima modificare: $ 1',
+Ultima modificare: $1',
+	'lqt-thread-edited-others' => 'Modificat de {{PLURAL: $2|un alt utilizator|$2 utilizatori|$2 de utilizatori}}. <br />
+Ultima modificare: $1',
 	'lqt-header-actions' => 'Acțiuni',
 	'lqt_summarize_link' => 'Rezumare',
 	'lqt-thread-split' => 'Desparte într-o nouă discuție',
