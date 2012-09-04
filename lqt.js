@@ -1358,7 +1358,12 @@ window.liquidThreads = {
 		var summaryField = $j('<input type="text" size="45"/>');
 		summaryField.addClass( 'lqt-drag-confirm-reason' )
 			.attr( 'name', 'reason' )
-			.attr( 'id', 'reason' );
+			.attr( 'id', 'reason' )
+			.keyup(function(event) {
+				if (event.keyCode == 13) {
+					$('#lqt-drag-save-button').click();
+				}
+			});
 		summaryWrapper.append( summaryPrompt );
 		summaryWrapper.append( summaryField );
 		confirmDialog.append( summaryWrapper );
@@ -1388,10 +1393,10 @@ window.liquidThreads = {
 			liquidThreads.reloadTOC();
 		};
 
-		var buttonLabel = mediaWiki.msg('lqt-drag-save');
-		var buttons = {};
-		buttons[buttonLabel] =
-			function() {
+		buttons = [{
+			id: 'lqt-drag-save-button',
+			text: mediaWiki.msg('lqt-drag-save'),
+			click: function() {
 				// Load data
 				params.reason = $j(this).find('input[name=reason]').val();
 
@@ -1412,7 +1417,8 @@ window.liquidThreads = {
 
 				liquidThreads.submitDragDrop( thread, params,
 					successCallback );
-			};
+			}
+		}];
 		confirmDialog.dialog( { 'title': mediaWiki.msg('lqt-drag-title'),
 			'buttons' : buttons, 'modal' : true, 'width': 550 } );
 	},
