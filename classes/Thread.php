@@ -102,7 +102,7 @@ class Thread {
 
 			$superthread->commitRevision( $change_type, $thread, $summary, $bump );
 		} else {
-			$hthread = ThreadRevision::create( $thread, $change_type );
+			ThreadRevision::create( $thread, $change_type );
 		}
 
 		// Create talk page
@@ -120,7 +120,7 @@ class Thread {
 
 	function insert() {
 		$this->dieIfHistorical();
-		
+
 		if ( $this->id() ) {
 			throw new MWException( "Attempt to insert a thread that already exists." );
 		}
@@ -148,7 +148,7 @@ class Thread {
 	function setRoot( $article ) {
 		$this->rootId = $article->getId();
 		$this->root = $article;
-		
+
 		if ( $article->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			throw new MWException( "Attempt to set thread root to a non-Thread page" );
 		}
@@ -286,7 +286,7 @@ class Thread {
 		}
 
 		// If there's no root, bail out with an error message
-		if ( ! $this->rootId && ! ($this->type & Threads::TYPE_DELETED) ) {
+		if ( ! $this->rootId && ! ( $this->type & Threads::TYPE_DELETED ) ) {
 			throw new MWException( "Non-deleted thread saved with empty root ID" );
 		}
 
@@ -332,9 +332,9 @@ class Thread {
 		if ( $this->type == Threads::TYPE_DELETED ) {
 			return;
 		}
-		
+
 		$this->type = Threads::TYPE_DELETED;
-		
+
 		if ( $commit ) {
 			$this->commitRevision( Threads::CHANGE_DELETED, $this, $reason );
 		} else {
@@ -569,7 +569,7 @@ class Thread {
 		$linkBatch = new LinkBatch();
 		$userIds = array();
 		$loadEditorsFor = array();
-		
+
 		$dbr = wfGetDB( DB_SLAVE );
 
 		if ( !is_array( self::$replyCacheById ) ) {
@@ -595,7 +595,7 @@ class Thread {
 				self::$replyCacheById[$row->thread_id] = array();
 			}
 		}
-		
+
 		$all_thread_ids = $top_thread_ids;
 
 		// Pull replies to the threads provided, and as above, pull page IDs to pull data for,
@@ -606,7 +606,7 @@ class Thread {
 							'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ),
 						__METHOD__ );
 
-			foreach( $res as $row ) {
+			foreach ( $res as $row ) {
 				// Grab page data while we're here.
 				if ( $row->thread_root ) {
 					$pageIds[] = $row->thread_root;
@@ -618,34 +618,33 @@ class Thread {
 				$all_thread_ids[$row->thread_id] = $row->thread_id;
 			}
 		}
-		
+
 		// Pull thread reactions
 		if ( count( $all_thread_ids ) ) {
 			$res = $dbr->select( 'thread_reaction', '*',
 						array( 'tr_thread' => $all_thread_ids ),
 						__METHOD__ );
-			
-			foreach( $res as $row ) {
+
+			foreach ( $res as $row ) {
 				$thread_id = $row->tr_thread;
-				$user = $row->tr_user_text;
 				$info = array(
 					'type' => $row->tr_type,
 					'user-id' => $row->tr_user,
 					'user-name' => $row->tr_user_text,
 					'value' => $row->tr_value,
 				);
-				
+
 				$type = $info['type'];
 				$user = $info['user-name'];
-				
+
 				if ( ! isset( self::$reactionCacheById[$thread_id] ) ) {
 					self::$reactionCacheById[$thread_id] = array();
 				}
-				
+
 				if ( ! isset( self::$reactionCacheById[$thread_id][$type] ) ) {
 					self::$reactionCacheById[$thread_id][$type] = array();
 				}
-				
+
 				self::$reactionCacheById[$thread_id][$type][$user] = $info;
 			}
 		}
@@ -659,13 +658,13 @@ class Thread {
 			$restrictionRows = array_fill_keys( $pageIds, array() );
 			$res = $dbr->select( 'page_restrictions', '*', array( 'pr_page' => $pageIds ),
 									__METHOD__ );
-			foreach( $res as $row ) {
+			foreach ( $res as $row ) {
 				$restrictionRows[$row->pr_page][] = $row;
 			}
 
 			$res = $dbr->select( 'page', '*', array( 'page_id' => $pageIds ), __METHOD__ );
 
-			foreach( $res as $row ) {
+			foreach ( $res as $row ) {
 				$t = Title::newFromRow( $row );
 
 				if ( isset( $restrictionRows[$t->getArticleID()] ) ) {
@@ -702,13 +701,13 @@ class Thread {
 
 			User::$idCacheByName[$row->thread_author_name] = $row->thread_author_id;
 			$userIds[$row->thread_author_id] = true;
-			
+
 			if ( $row->thread_editedness > Threads::EDITED_BY_AUTHOR ) {
 				$loadEditorsFor[$row->thread_root] = $thread;
 				$thread->setEditors( array() );
 			}
 		}
-		
+
 		// Pull list of users who have edited
 		if ( count( $loadEditorsFor ) ) {
 			$res = $dbr->select( 'revision', array( 'rev_user_text', 'rev_page' ),
@@ -719,7 +718,7 @@ class Thread {
 				$pageid = $row->rev_page;
 				$editor = $row->rev_user_text;
 				$t = $loadEditorsFor[$pageid];
-				
+
 				$t->addEditor( $editor );
 			}
 		}
@@ -1008,7 +1007,7 @@ class Thread {
 					__METHOD__ );
 
 		$rows = array();
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$rows[] = $row;
 		}
 
@@ -1172,12 +1171,12 @@ class Thread {
 
 			if ( !$title && $this->type() != Threads::TYPE_DELETED ) {
 				if ( ! $this->isHistorical() ) {
-					$this->delete('', false /* !commit */);
+					$this->delete( '', false /* !commit */ );
 				} else {
 					$this->type = Threads::TYPE_DELETED;
 				}
 			}
-			
+
 			if ( !$title ) {
 				return null;
 			}
@@ -1579,7 +1578,7 @@ class Thread {
 		$sig = LqtView::signaturePST( $sig, $this->author() );
 		$this->signature = $sig;
 	}
-	
+
 	public function editors() {
 		if ( is_null( $this->editors ) ) {
 			if ( $this->editedness() < Threads::EDITED_BY_AUTHOR ) {
@@ -1587,29 +1586,29 @@ class Thread {
 			} elseif ( $this->editedness == Threads::EDITED_BY_AUTHOR ) {
 				return array( $this->author()->getName() );
 			}
-			
+
 			// Load editors
 			$this->editors = array();
-			
+
 			$dbr = wfGetDB( DB_SLAVE );
 			$res = $dbr->select( 'revision', 'rev_user_text',
 				array( 'rev_page' => $this->root()->getId(),
 				'rev_parent_id != ' . $dbr->addQuotes( 0 ) ), __METHOD__ );
-			
+
 			foreach ( $res as $row ) {
 				$this->editors[$row->rev_user_text] = 1;
 			}
-			
+
 			$this->editors = array_keys( $this->editors );
 		}
-		
+
 		return $this->editors;
 	}
-	
+
 	public function setEditors( $e ) {
 		$this->editors = $e;
 	}
-	
+
 	public function addEditor( $e ) {
 		$this->editors[] = $e;
 		$this->editors = array_unique( $this->editors );
@@ -1621,7 +1620,7 @@ class Thread {
 	public function getTitle() {
 		return $this->article()->getTitle();
 	}
-	
+
 	public function getReactions( $requestedType = null ) {
 		if ( is_null( $this->reactions ) ) {
 			if ( isset( self::$reactionCacheById[$this->id()] ) ) {
@@ -1634,9 +1633,8 @@ class Thread {
 				$res = $dbr->select( 'thread_reaction',
 						array( 'tr_thread' => $this->id() ),
 						__METHOD__ );
-			
-				foreach( $res as $row ) {
-					$thread_id = $row->tr_thread;
+
+				foreach ( $res as $row ) {
 					$user = $row->tr_user_text;
 					$type = $row->tr_type;
 					$info = array(
@@ -1645,25 +1643,25 @@ class Thread {
 						'user-name' => $row->tr_user_text,
 						'value' => $row->tr_value,
 					);
-					
+
 					if ( ! isset( $reactions[$type] ) ) {
 						$reactions[$type] = array();
 					}
-					
+
 					$reactions[$type][$user] = $info;
 				}
-				
+
 				$this->reactions = $reactions;
 			}
 		}
-		
-		if ( is_null($requestedType) )  {
+
+		if ( is_null( $requestedType ) )  {
 			return $this->reactions;
 		} else {
 			return $this->reactions[$requestedType];
 		}
 	}
-	
+
 	public function addReaction( $user, $type, $value ) {
 		$info = array(
 			'type' => $type,
@@ -1671,13 +1669,13 @@ class Thread {
 			'user-name' => $user->getName(),
 			'value' => $value,
 		);
-		
+
 		if ( ! isset( $this->reactions[$type] ) ) {
 			$this->reactions[$type] = array();
 		}
-		
+
 		$this->reactions[$type][$user->getName()] = $info;
-		
+
 		$row = array(
 			'tr_type' => $type,
 			'tr_thread' => $this->id(),
@@ -1685,19 +1683,19 @@ class Thread {
 			'tr_user_text' => $user->getName(),
 			'tr_value' => $value,
 		);
-		
+
 		$dbw = wfGetDB( DB_MASTER );
-		
+
 		$dbw->insert( 'thread_reaction', $row, __METHOD__ );
 	}
-	
+
 	public function deleteReaction( $user, $type ) {
 		$dbw = wfGetDB( DB_MASTER );
-		
+
 		if ( isset( $this->reactions[$type][$user->getName()] ) ) {
 			unset( $this->reactions[$type][$user->getName()] );
 		}
-		
+
 		$dbw->delete( 'thread_reaction',
 				array( 'tr_thread' => $this->id(),
 					'tr_user' => $user->getId(),

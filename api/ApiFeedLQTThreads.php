@@ -50,7 +50,7 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		$db = wfGetDB( DB_SLAVE );
 
-		$feedTitle = self::createFeedTitle( $params );
+		$feedTitle = $this->createFeedTitle( $params );
 		$feedClass = $wgFeedClasses[$params['feedformat']];
 		$feedItems = array();
 
@@ -73,13 +73,12 @@ class ApiFeedLQTThreads extends ApiBase {
 	}
 
 	private function createFeedItem( $row ) {
-		global $wgOut;
 		$thread = Thread::newFromRow( $row );
 		$linker = new Linker;
 
 		$titleStr = $thread->subject();
 		$completeText = $thread->root()->getContent();
-		$completeText = $wgOut->parse( $completeText );
+		$completeText = $this->getOutput()->parse( $completeText );
 		$threadTitle = clone $thread->topmostThread()->title();
 		$threadTitle->setFragment( '#' . $thread->getAnchorName() );
 		$titleUrl = $threadTitle->getFullURL();
@@ -106,7 +105,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		return new FeedItem( $titleStr, $completeText, $titleUrl, $timestamp, $user );
 	}
 
-	public static function createFeedTitle( $params ) {
+	public function createFeedTitle( $params ) {
 		$fromPlaces = array();
 
 		foreach ( (array)$params['thread'] as $thread ) {
@@ -119,9 +118,8 @@ class ApiFeedLQTThreads extends ApiBase {
 			$fromPlaces[] = $t->getPrefixedText();
 		}
 
-		global $wgLang;
 		$fromCount = count( $fromPlaces );
-		$fromPlaces = $wgLang->commaList( $fromPlaces );
+		$fromPlaces = $this->getLanguage()->commaList( $fromPlaces );
 
 		// What's included?
 		$types = (array)$params['type'];
@@ -140,7 +138,7 @@ class ApiFeedLQTThreads extends ApiBase {
 			$msg .= '-from';
 		}
 
-		return wfMsgExt( $msg, array( 'parsemag' ), $fromPlaces, $fromCount );
+		return wfMessage( $msg, $fromPlaces )->numParams( $fromCount )->text();
 	}
 
 	/**

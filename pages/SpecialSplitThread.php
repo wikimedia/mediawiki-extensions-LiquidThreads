@@ -26,7 +26,7 @@ class SpecialSplitThread extends ThreadActionPage {
 	* @see SpecialPage::getDescription
 	*/
 	function getDescription() {
-		return wfMsg( 'lqt_split_thread' );
+		return $this->msg( 'lqt_split_thread' )->text();
 	}
 
 	protected function getRightRequirement() { return 'lqt-split'; }
@@ -40,16 +40,14 @@ class SpecialSplitThread extends ThreadActionPage {
 
 		$link = LqtView::linkInContext( $this->mThread );
 
-		global $wgOut;
-		$wgOut->addHTML( wfMsgExt( 'lqt-split-success', array( 'parseinline', 'replaceafter' ),
-							 $link ) );
+		$this->getOutput()->addHTML( $this->msg( 'lqt-split-success' )->rawParams( $link )->parse() );
 
 		return true;
 	}
 
 	function validateSubject( $target ) {
 		if ( !$target ) {
-			return wfMsgExt( 'lqt_split_nosubject', 'parseinline' );
+			return $this->msg( 'lqt_split_nosubject' )->parse();
 		}
 
 		$title = null;
@@ -58,7 +56,7 @@ class SpecialSplitThread extends ThreadActionPage {
 		$ok = Thread::validateSubject( $target, $title, null, $article );
 
 		if ( !$ok ) {
-			return wfMsgExt( 'lqt_split_badsubject', 'parseinline' );
+			return $this->msg( 'lqt_split_badsubject' )->parse();
 		}
 
 		return true;
@@ -69,6 +67,6 @@ class SpecialSplitThread extends ThreadActionPage {
 	}
 
 	function getSubmitText() {
-		return wfMsg( 'lqt-split-submit' );
+		return $this->msg( 'lqt-split-submit' )->text();
 	}
 }

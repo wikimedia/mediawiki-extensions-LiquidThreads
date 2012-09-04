@@ -161,7 +161,7 @@ window.liquidThreads = {
 			editLink.attr('href', '#');
 			$j(container).find('.lqt-signature-preview').after(editLink);
 			editLink.before(' ');
-		}
+		};
 
 		var finishSetup = function() {
 			// Kill the loader.
@@ -185,21 +185,21 @@ window.liquidThreads = {
 
 			if ( $j.fn.wikiEditor && $j.wikiEditor.isSupported( $j.wikiEditor.modules.toolbar ) ) {
 				var useDialogs;
-				
+
 				if ( typeof wgWikiEditorPreferences != 'undefined' ) {
 					useDialogs = wgWikiEditorPreferences.toolbar.dialogs;
 				} else {
 					useDialogs = mediaWiki.user.options.get( 'usebetatoolbar-cgd' );
 				}
-				
+
 				if ( useDialogs && $j.wikiEditor.isSupported( $j.wikiEditor.modules.dialogs ) ) {
 					$j( '#wpTextbox1' ).addClass( 'toolbar-dialogs' );
 				}
-				
+
 				// Add wikiEditor toolbar
 				$j( '#wpTextbox1' ).wikiEditor( 'addModule', { 'toolbar': liquidThreads.toolbar.config, 'dialogs': liquidThreads.toolbar.dialogs } );
 
-				
+
 				// cleanup unnecessary things from the old toolbar
 				$j( '#editpage-specialchars' ).remove();
 				$j( '#wpTextbox1' ).focus();
@@ -232,11 +232,11 @@ window.liquidThreads = {
 			} );
 
 	},
-	
+
 	'loadInlineEditForm' : function( params, container, callback ) {
 		params['action'] = 'threadaction';
 		params['threadaction'] = 'inlineeditform';
-		
+
 		liquidThreads.apiRequest( params,
 			function(result) {
 				var content = $j(result.threadaction.inlineeditform.html);
@@ -340,7 +340,7 @@ window.liquidThreads = {
 		// Remove split and merge
 		menu.contents().filter('.lqt-command-split,.lqt-command-merge').remove();
 
-		var trigger = menuContainer.find( '.lqt-thread-actions-trigger' )
+		var trigger = menuContainer.find( '.lqt-thread-actions-trigger' );
 
 		trigger.show();
 		menu.hide();
@@ -382,7 +382,7 @@ window.liquidThreads = {
 		editSubjectLink.text( mediaWiki.msg('lqt-change-subject') );
 		editSubjectField.append( editSubjectLink );
 		editSubjectField.click( liquidThreads.handleChangeSubject );
-		editSubjectField.data( 'thread-id', id )
+		editSubjectField.data( 'thread-id', id );
 
 		editSubjectField.addClass( 'lqt-command-edit-subject' );
 
@@ -479,7 +479,7 @@ window.liquidThreads = {
 				header.contents().filter('.mw-headline').show();
 				header.next().find('.lqt-command-edit-subject').show();
 			}
-		}
+		};
 
 		// Set new subject through API.
 		liquidThreads.apiRequest( request, function(reply) {
@@ -644,7 +644,7 @@ window.liquidThreads = {
 				.addClass( 'lqt-thread-replies-interruption' );
 		}
 		// Update reply links
-		var threadWrapper = $j(threadContainer).closest('.lqt_thread')[0]
+		var threadWrapper = $j(threadContainer).closest('.lqt_thread')[0];
 		var threadId = threadWrapper.id.substring( prefixLength );
 
 		$j(threadContainer).data( 'thread-id', threadId );
@@ -892,19 +892,19 @@ window.liquidThreads = {
 		var type = editform.find('input[name=lqt_method]').val();
 		var wikiEditorContext = editform.find('#wpTextbox1').data( 'wikiEditor-context' );
 		var text;
-		
+
 		if ( !wikiEditorContext || typeof(wikiEditorContext) == 'undefined' ||
 				! wikiEditorContext.$iframe) {
 			text = editform.find('#wpTextbox1').val();
 		} else {
 			text = wikiEditorContext.$textarea.textSelection( 'getContents' );
 		}
-		
+
 		if ( $j.trim( text ).length == 0 ) {
 			alert(mediaWiki.msg('lqt-empty-text'));
 			return;
 		}
-		
+
 		var summary = editform.find('#wpSummary').val();
 
 		var signature;
@@ -952,7 +952,7 @@ window.liquidThreads = {
 			var thread = editform.closest('.lqt-thread-topmost');
 
 			liquidThreads.doReloadThread( thread );
-		}
+		};
 
 		var doneCallback = function(data) {
 			try {
@@ -1054,11 +1054,11 @@ window.liquidThreads = {
 					'reason' : summary,
 					'bump' : bump
 				};
-				
+
 				if ( $j('#wpCaptchaWord') ) {
 					newTopicParams.captchaword = $j('#wpCaptchaWord').val();
 				}
-				
+
 				if ( $j('#wpCaptchaId') ) {
 					newTopicParams.captchaid = $j('#wpCaptchaId').val();
 				}
@@ -1091,11 +1091,11 @@ window.liquidThreads = {
 					'reason' : summary,
 					'bump' : bump
 				};
-				
+
 				if ( $j('#wpCaptchaWord') ) {
 					replyParams.captchaword = $j('#wpCaptchaWord').val();
 				}
-				
+
 				if ( $j('#wpCaptchaId') ) {
 					replyParams.captchaid = $j('#wpCaptchaId').val();
 				}
@@ -1127,11 +1127,11 @@ window.liquidThreads = {
 			'bump'   : bump,
 			'subject':subject
 		};
-		
+
 		if ( $j('#wpCaptchaWord') ) {
 			request.captchaword = $j('#wpCaptchaWord').val();
 		}
-		
+
 		if ( $j('#wpCaptchaId') ) {
 			request.captchaid = $j('#wpCaptchaId').val();
 		}
@@ -1194,7 +1194,7 @@ window.liquidThreads = {
 		var scrollOffset;
 		// determine wether it's an entire thread or just one of the replies
 		var isThreadReply = ! $thread.is( '.lqt-thread-topmost' );
-		// FIXME: what does all of this do? From here 
+		// FIXME: what does all of this do? From here
 		$j( 'html,body' ).each(
 			function() {
 				if ( $j(this).attr( 'scrollTop' ) )
@@ -1218,7 +1218,7 @@ window.liquidThreads = {
 				};
 		}
 		// to here.
-		
+
 		var draggableOptions = {
 			'axis' : 'y',
 			'opacity' : '0.70',
@@ -1238,12 +1238,12 @@ window.liquidThreads = {
 				.data( 'sortkey', sortKey )
 				.data( 'parent', parent );
 		};
-		
+
 		// Add a drop zone at the very top unless the drag thread is the very first thread
 		$j( '.lqt-thread-topmost:first' )
 			.not( $thread )
 			.before( createDropZone( 'now', 'top' ) );
-		
+
 		// Now one after every thread except the drag thread
 		$j( '.lqt-thread-topmost' ).not( $thread ).each( function() {
 			var sortkey = parseInt( $j( this ).contents().filter( 'input[name=lqt-thread-sortkey]' ).val() );
@@ -1407,7 +1407,7 @@ window.liquidThreads = {
 
 				// Add spinners
 				spinner = $j('<div class="mw-ajax-loader" />');
-				thread.before(spinner)
+				thread.before(spinner);
 
 				if ( typeof params.insertAfter != 'undefined' ) {
 					params.insertAfter.after(spinner);
@@ -1524,7 +1524,7 @@ window.liquidThreads = {
 				}
 
 				doEmptyChecks();
-			}
+			};
 
 		if ( !topLevel || !wasTopLevel ) {
 
@@ -1535,7 +1535,7 @@ window.liquidThreads = {
 				'thread' : threadId,
 				'format' : 'json',
 				'reason' : params.reason
-			}
+			};
 
 			if (topLevel) {
 				apiRequest.threadaction = 'split';
@@ -1556,7 +1556,7 @@ window.liquidThreads = {
 				// here we should prompt the user again to enter a new subject
 
 			} else {
-			
+
    				liquidThreads.apiRequest( apiRequest, doneCallback );
 			}
 
@@ -1629,16 +1629,16 @@ window.liquidThreads = {
 				container.find('.lqt-signature-edit-button').show();
 			} );
 	}
-}
+};
 
 $j(document).ready( function() {
 	// One-time setup for the full page
 
 	// Update the new thread link
 	var newThreadLink = $j('.lqt_start_discussion a');
-	
+
 	$j('li#ca-addsection a').attr('lqt_talkpage', $j('.lqt_start_discussion a').attr('lqt_talkpage'));
-	
+
 	newThreadLink = newThreadLink.add( $j('li#ca-addsection a') );
 
 	if (newThreadLink) {

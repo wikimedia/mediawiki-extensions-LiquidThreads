@@ -5,7 +5,7 @@ if ( !defined( 'MEDIAWIKI' ) )
 $wgExtensionCredits['other'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Liquid Threads',
-	'version'        => '2.0-alpha',
+	'version'        => '2.1-alpha',
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:LiquidThreads',
 	'author'         => array( 'David McCabe', 'Andrew Garrett' ),
 	'descriptionmsg' => 'lqt-desc',
@@ -163,7 +163,6 @@ $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
 $wgSpecialPages['SplitThread'] = 'SpecialSplitThread';
 $wgSpecialPages['MergeThread'] = 'SpecialMergeThread';
-// $wgSpecialPages['HotTopics'] = 'SpecialHotTopics';
 $wgSpecialPageGroups['NewMessages'] = 'wiki';
 
 // Embedding
@@ -188,7 +187,6 @@ $wgAutoloadClasses['ThreadRevision'] = $dir . "classes/ThreadRevision.php";
 $wgAutoloadClasses['SynchroniseThreadArticleDataJob'] = $dir . 'classes/SynchroniseThreadArticleDataJob.php';
 $wgAutoloadClasses['ThreadHistoryPager'] = $dir . 'classes/ThreadHistoryPager.php';
 $wgAutoloadClasses['TalkpageHistoryView'] = $dir . 'pages/TalkpageHistoryView.php';
-$wgAutoloadClasses['LqtHotTopicsController'] = $dir . 'classes/HotTopics.php';
 $wgAutoloadClasses['LqtLogFormatter'] = $dir . 'classes/LogFormatter.php';
 
 // View classes
@@ -241,7 +239,7 @@ $wgAutoloadClasses['ApiThreadAction'] = $dir . '/api/ApiThreadAction.php';
 $wgAPIModules['threadaction'] = 'ApiThreadAction';
 
 // Whether or not to use the standard LiquidThreads notifications
-$wgLiquidThreadsNotificationTypes = array('standard');
+$wgLiquidThreadsNotificationTypes = array( 'standard' );
 
 // Echo
 $wgExtensionFunctions[] = 'wfLiquidThreadsSetupEcho';

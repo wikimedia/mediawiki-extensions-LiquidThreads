@@ -9,12 +9,7 @@ class SummaryPageView extends LqtView {
 			$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 			$link = $linker->link( $t );
 			$this->output->setSubtitle(
-				wfMsgExt(
-					'lqt_summary_subtitle',
-					array( 'parseinline', 'replaceafter' ),
-					$link
-				)
-			);
+				wfMessage( 'lqt_summary_subtitle' )->rawParams( $link )->parse() );
 		}
 		return true;
 	}

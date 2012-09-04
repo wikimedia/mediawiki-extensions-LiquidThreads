@@ -25,10 +25,10 @@ class NewUserMessagesView extends LqtView {
 
 	function getReadAllButton( ) {
 		return $this->htmlForReadButton(
-			wfMsg( 'lqt-read-all' ),
-			wfMsg( 'lqt-read-all-tooltip' ),
-			"lqt_newmessages_read_all_button",
-			array('all')
+			wfMessage( 'lqt-read-all' )->text(),
+			wfMessage( 'lqt-read-all-tooltip' )->text(),
+			'lqt_newmessages_read_all_button',
+			array( 'all' )
 		);
 	}
 
@@ -38,10 +38,9 @@ class NewUserMessagesView extends LqtView {
 			$t = Threads::withId( $ids[0] );
 			if ( !$t )
 				return; // empty or just bogus operand.
-			$msg = wfMsgExt( 'lqt-marked-read', 'parseinline', LqtView::formatSubject( $t->subject() )  );
+			$msg = wfMessage( 'lqt-marked-read', LqtView::formatSubject( $t->subject() )  )->parse();
 		} else {
-			$count = count( $ids );
-			$msg =	wfMsgExt( 'lqt-count-marked-read', 'parseinline', array( $count ) );
+			$msg = wfMessage( 'lqt-count-marked-read' )->numParams( count( $ids ) )->parse();
 		}
 		$operand = implode( ',', $ids );
 
@@ -50,10 +49,10 @@ class NewUserMessagesView extends LqtView {
 		$html .= Html::hidden( 'lqt_method', 'mark_as_unread' );
 		$html .= Html::hidden( 'lqt_operand', $operand );
 		$html .= ' ' . Xml::submitButton(
-			wfMsg( 'lqt-email-undo' ),
+			wfMessage( 'lqt-email-undo' )->text(),
 			array(
 				'name' => 'lqt_read_button',
-				'title' => wfMsg( 'lqt-email-info-undo' )
+				'title' => wfMessage( 'lqt-email-info-undo' )->text()
 			)
 		);
 
@@ -115,12 +114,12 @@ class NewUserMessagesView extends LqtView {
 	function show() {
 		$pager = new LqtNewMessagesPager( $this->user );
 		$this->messagesInfo = $pager->getThreads();
-		
+
 		if ( ! $this->messagesInfo ) {
 			$this->output->addWikiMsg( 'lqt-no-new-messages' );
 			return false;
 		}
-		
+
 		$this->output->addHTML( $this->getReadAllButton() );
 		$this->output->addHTML( $pager->getNavigationBar() );
 
@@ -137,7 +136,7 @@ class NewUserMessagesView extends LqtView {
 		}
 
 		$this->output->addHTML( '</tbody></table>' );
-		
+
 		$this->output->addHTML( $pager->getNavigationBar() );
 
 		return false;
@@ -145,8 +144,8 @@ class NewUserMessagesView extends LqtView {
 
 	function showWrappedThread( $t ) {
 		$read_button = $this->htmlForReadButton(
-			wfMsg( 'lqt-read-message' ),
-			wfMsg( 'lqt-read-message-tooltip' ),
+			wfMessage( 'lqt-read-message' )->text(),
+			wfMessage( 'lqt-read-message-tooltip' )->text(),
 			'lqt_newmessages_read_button',
 			$this->highlightThreads );
 
@@ -164,18 +163,15 @@ class NewUserMessagesView extends LqtView {
 
 		$contextLink = $linker->link(
 			$title,
-			wfMsgExt( 'lqt-newmessages-context', 'parseinline' ),
+			wfMessage( 'lqt-newmessages-context' )->parse(),
 			array(),
 			array( 'offset' => $offset ),
 			array( 'known' )
 		);
 
 		$talkpageLink = $linker->link( $topmostThread->getTitle() );
-		$talkpageInfo = wfMsgExt(
-			'lqt-newmessages-from',
-			array( 'parse', 'replaceafter' ),
-			$talkpageLink
-		);
+		$talkpageInfo = wfMessage( 'lqt-newmessages-from' )
+			->rawParams( $talkpageLink )->parseAsBlock();
 
 		$leftColumn = Xml::tags( 'p', null, $read_button ) .
 						Xml::tags( 'p', null, $contextLink ) .
@@ -195,13 +191,13 @@ class NewUserMessagesView extends LqtView {
 
 class LqtNewMessagesPager extends LqtDiscussionPager {
 	private $user;
-	
+
 	function __construct( $user ) {
 		$this->user = $user;
-		
+
 		parent::__construct( false, false );
 	}
-	
+
 	/**
 	 * Returns an array of structures. Each structure has the keys 'top' and 'posts'.
 	 * 'top' contains the top-level thread to display.
@@ -209,21 +205,21 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 	 */
 	function getThreads() {
 		$rows = $this->getRows();
-		
-		if ( ! count($rows) ) {
+
+		if ( ! count( $rows ) ) {
 			return false;
 		}
-		
+
 		$threads = Thread::bulkLoad( $rows );
 		$thread_ids = array_keys( $threads );
 		$output = array();
-		
-		foreach( $threads as $id => $thread ) {
+
+		foreach ( $threads as $id => $thread ) {
 			$output[$id] = array( 'top' => $thread, 'posts' => array() );
 		}
-		
+
 		$dbr = wfGetDB( DB_SLAVE );
-		
+
 		$res = $dbr->select( array( 'user_message_state' ),
 					array( 'ums_thread', 'ums_conversation' ),
 					array(
@@ -232,16 +228,16 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 					),
 					__METHOD__
 					);
-					
-		foreach( $res as $row ) {
+
+		foreach ( $res as $row ) {
 			$top = $row->ums_conversation;
 			$thread = $row->ums_thread;
 			$output[$top]['posts'][] = $thread;
 		}
-		
+
 		return $output;
 	}
-	
+
 	function getQueryInfo() {
 		$dbr = wfGetDB( DB_SLAVE );
 
@@ -262,16 +258,16 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 
 		return $queryInfo;
 	}
-	
+
 	function getPageLimit() {
 		return 25;
 	}
-	
+
 	function getDefaultDirections() {
 		return true; // Descending
 	}
-	
+
 	function getIndexField() {
-		return array('ums_conversation');
+		return array( 'ums_conversation' );
 	}
 }

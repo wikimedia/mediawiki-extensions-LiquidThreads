@@ -305,7 +305,7 @@ body.skin-monobook li#ca-nstab-thread {
 
 .lqt-thread-replies {
 	padding-left: 1em;
-	
+
 }
 
 .lqt-thread-replies-interruption {
@@ -506,12 +506,12 @@ table.lqt-new-messages {
 .lqt_thread_heading:after,
 .lqt-thread-toolbar-commands:after,
 .lqt-post-wrapper:after
-{ 
- content: "";
- display: block; 
- height: 0; 
- clear: both; 
- visibility: hidden; 
+{
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
 }
 
 .lqt_thread_heading,

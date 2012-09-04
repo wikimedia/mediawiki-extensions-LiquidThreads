@@ -27,7 +27,7 @@ class ThreadPermalinkView extends LqtView {
 		unset( $content_actions['talk'] );
 
 		if ( ! $view->thread->title() ) {
-			throw new MWException( "Thread ".$view->thread->id()." has null title" );
+			throw new MWException( "Thread " . $view->thread->id() . " has null title" );
 		}
 
 		$subpage = $view->thread->title()->getPrefixedText();
@@ -120,7 +120,7 @@ class ThreadPermalinkView extends LqtView {
 
 		$tabs['article'] =
 			array(
-				'text' => wfMsg( $articleTitle->getNamespaceKey() ),
+				'text' => wfMessage( $articleTitle->getNamespaceKey() )->text(),
 				'href' => $articleTitle->getLocalURL(),
 				'class' => implode( ' ', $articleClasses ),
 			);
@@ -128,7 +128,7 @@ class ThreadPermalinkView extends LqtView {
 		$tabs['lqt_talk'] =
 			array(
 				// talkpage certainly exists since this thread is from it.
-				'text' => wfMsg( 'talk' ),
+				'text' => wfMessage( 'talk' )->text(),
 				'href' => $talkTitle->getLocalURL(),
 				'class' => implode( ' ', $talkClasses ),
 			);
@@ -145,20 +145,13 @@ class ThreadPermalinkView extends LqtView {
 	}
 
 	function showMissingThreadPage() {
-		$this->output->setPageTitle( wfMsg( 'lqt_nosuchthread_title' ) );
+		$this->output->setPageTitle( wfMessage( 'lqt_nosuchthread_title' ) );
 		$this->output->addWikiMsg( 'lqt_nosuchthread' );
 	}
 
 	function getSubtitle() {
 		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 		$fragment = '#' . $this->anchorName( $this->thread );
-
-		//if ( $this->thread->isHistorical() ) {
-			// TODO: Point to the relevant part of the archive.
-		//	$query = '';
-		//} else {
-		//	$query = '';
-		//}
 
 		$talkpage = $this->thread->getTitle();
 		$talkpage->setFragment( $fragment );
@@ -168,20 +161,12 @@ class ThreadPermalinkView extends LqtView {
 			$topmostTitle = $this->thread->topmostThread()->title();
 			$topmostTitle->setFragment( $fragment );
 
-			$linkText = wfMsgExt( 'lqt_discussion_link', 'parseinline' );
+			$linkText = wfMessage( 'lqt_discussion_link' )->parse();
 			$permalink = $linker->link( $topmostTitle, $linkText );
 
-			return wfMsgExt(
-				'lqt_fragment',
-				array( 'parseinline', 'replaceafter' ),
-				array( $permalink, $talkpage_link )
-			);
+			return wfMessage( 'lqt_fragment' )->rawParams( $permalink, $talkpage_link )->parse();
 		} else {
-			return wfMsgExt(
-				'lqt_from_talk',
-				array( 'parseinline', 'replaceafter' ),
-				array( $talkpage_link )
-			);
+			return wfMessage( 'lqt_from_talk' )->rawParams( $talkpage_link )->parse();
 		}
 	}
 

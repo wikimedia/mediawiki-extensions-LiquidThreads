@@ -42,13 +42,13 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 		// Handle parameter
 		$this->mTarget = $par;
 		if ( $par === null || $par === "" ) {
-			$this->output->addHTML( wfMsg( 'lqt_threadrequired' ) );
+			$this->output->addHTML( wfMessage( 'lqt_threadrequired' )->escaped() );
 			return false;
 		}
 
 		$thread = Threads::withRoot( new Article( Title::newFromURL( $par ) ) );
 		if ( !$thread ) {
-			$this->output->addHTML( wfMsg( 'lqt_nosuchthread' ) );
+			$this->output->addHTML( wfMessage( 'lqt_nosuchthread' )->escaped() );
 			return false;
 		}
 

@@ -1,8 +1,6 @@
 <?php
 
 class SpecialNewMessages extends SpecialPage {
-	private $user, $output, $request;
-
 	function __construct() {
 		parent::__construct( 'NewMessages' );
 		$this->mIncludable = true;
@@ -12,14 +10,13 @@ class SpecialNewMessages extends SpecialPage {
 	 * @see SpecialPage::getDescription
 	 */
 	function getDescription() {
-		return wfMsg( 'lqt_newmessages-title' );
+		return $this->msg( 'lqt_newmessages-title' )->text();
 	}
 
 	function execute( $par ) {
-		global $wgOut, $wgRequest, $wgUser;
-		$this->user = $wgUser;
-		$this->output = $wgOut;
-		$this->request = $wgRequest;
+		$user = $this->getUser();
+		$output = $this->getOutput();
+		$request = $this->getRequest();
 
 		$this->setHeaders();
 
@@ -27,12 +24,12 @@ class SpecialNewMessages extends SpecialPage {
 		$title = $this->getTitle();
 
 		// Clear newtalk
-		$this->user->setNewtalk( false );
+		$user->setNewtalk( false );
 
-		$view = new NewUserMessagesView( $this->output, $article,
-			$title, $this->user, $this->request );
+		$view = new NewUserMessagesView( $output, $article,
+			$title, $user, $request );
 
-		if ( $this->request->getBool( 'lqt_inline' ) ) {
+		if ( $request->getBool( 'lqt_inline' ) ) {
 			$view->doInlineEditForm();
 			return;
 		}

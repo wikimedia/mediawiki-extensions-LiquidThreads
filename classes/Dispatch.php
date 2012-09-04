@@ -42,7 +42,7 @@ class LqtDispatch {
 
 			$viewname = 'TalkpageView';
 		} elseif ( !$lqt_action && (
-				( !in_array( $action, $lqt_actions ) && $action) ||
+				( !in_array( $action, $lqt_actions ) && $action ) ||
 				$request->getVal( 'diff', null ) !== null  ||
 				$request->getVal( 'oldid', null ) !== null ) ) {
 			// Pass through wrapper
@@ -124,7 +124,7 @@ class LqtDispatch {
 		global $wgLqtPages, $wgLqtTalkPages, $wgLqtNamespaces;
 		$isTalkPage = ( $title->isTalkPage() && $wgLqtTalkPages ) ||
 				in_array( $title->getPrefixedText(), $wgLqtPages );
-				
+
 		if ( in_array( $title->getNamespace(), $wgLqtNamespaces ) ) {
 			$isTalkPage = true;
 		}
@@ -251,9 +251,9 @@ class LqtDispatch {
 		global $wgRequest;
 		$method = $wgRequest->getVal( 'lqt_method' );
 		$oldid = $wgRequest->getVal( 'lqt_oldid' );
-		if( $title->getNamespace() == NS_LQT_THREAD ) {
+		if ( $title->getNamespace() == NS_LQT_THREAD ) {
 			$pageLang = $wgLang;
-		} elseif( $method == 'diff' ) {
+		} elseif ( $method == 'diff' ) {
 			# the diff contains the wikitext, which is in the content language
 			return true;
 		} elseif ( $method == 'talkpage_history' || $method == 'thread_history' || $oldid != '' ) {

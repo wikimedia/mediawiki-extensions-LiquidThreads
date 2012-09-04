@@ -13,7 +13,7 @@ class TalkpageHeaderView extends LqtView {
 		$content_actions['talk']['class'] = false;
 		$content_actions['header'] = array(
 			'class' => 'selected',
-			'text' => wfMsg( 'lqt-talkpage-history-tab' ),
+			'text' => wfMessage( 'lqt-talkpage-history-tab' )->text(),
 			'href' => '',
 		);
 	}
@@ -23,7 +23,7 @@ class TalkpageHeaderView extends LqtView {
 			'actions/edit',
 			'actions/addsection',
 			'views/history',
-			'actions/watch','actions/move'
+			'actions/watch', 'actions/move'
 		);
 
 		foreach ( $remove as $rem ) {
@@ -33,7 +33,7 @@ class TalkpageHeaderView extends LqtView {
 
 		$links['views']['header'] = array(
 			'class' => 'selected',
-			'text' => wfMsg( 'lqt-talkpage-history-tab' ),
+			'text' => wfMessage( 'lqt-talkpage-history-tab' )->text(),
 			'href' => '',
 		);
 	}
@@ -47,35 +47,25 @@ class TalkpageHeaderView extends LqtView {
 			$warn_bold = Xml::tags(
 				'strong',
 				null,
-				wfMsgExt( 'lqt_header_warning_bold', 'parseinline' )
+				wfMessage( 'lqt_header_warning_bold' )->parse()
 			);
 
 			$warn_link = $this->talkpageLink(
 				$wgTitle,
-				wfMsgExt( 'lqt_header_warning_new_discussion', 'parseinline' ),
+				wfMessage( 'lqt_header_warning_new_discussion' )->parse(),
 				'talkpage_new_thread'
 			);
 
-			$html .= wfMsgExt(
-				'lqt_header_warning_before_big',
-				array( 'parseinline', 'replaceafter' ),
-				array( $warn_bold, $warn_link )
-			);
+			$html .= wfMessage( 'lqt_header_warning_before_big' )
+				->rawParams( $warn_bold, $warn_link )->parse();
 			$html .= Xml::tags(
 				'big',
 				null,
-				wfMsgExt(
-					'lqt_header_warning_big',
-					array( 'parseinline', 'replaceafter' ),
-					array( $warn_bold, $warn_link )
-				)
+				wfMessage( 'lqt_header_warning_big' )->rawParams( $warn_bold, $warn_link )->parse()
 			);
-			$html .= wfMsg( 'word-separator' );
-			$html .= wfMsgExt(
-				'lqt_header_warning_after_big',
-				array( 'parseinline', 'replaceafter' ),
-				array( $warn_bold, $warn_link )
-			);
+			$html .= wfMessage( 'word-separator' )->text();
+			$html .= wfMessage( 'lqt_header_warning_after_big' )
+				->rawParams( $warn_bold, $warn_link )->parse();
 
 			$html = Xml::tags( 'p', array( 'class' => 'lqt_header_warning' ), $html );
 

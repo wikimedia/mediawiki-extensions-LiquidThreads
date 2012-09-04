@@ -11,7 +11,7 @@ class TalkpageView extends LqtView {
 		$this->talkpage = $article;
 	}
 
-	function setTalkPage($tp) {
+	function setTalkPage( $tp ) {
 		$this->talkpage = $tp;
 	}
 
@@ -69,17 +69,17 @@ class TalkpageView extends LqtView {
 			$article->view();
 
 			$actionLinks = array();
-			if ( $article->getTitle()->userCan('edit') ) {
+			if ( $article->getTitle()->userCan( 'edit' ) ) {
 				$actionLinks[] = $linker->link(
 					$article->getTitle(),
-					wfMsgExt( 'edit', 'parsemag' ) . "↑",
+					wfMessage( 'edit' )->parse() . "↑",
 					array(),
 					array( 'action' => 'edit' )
 				);
 			}
 			$actionLinks[] = $linker->link(
 				$this->title,
-				wfMsgExt( 'history_short', 'parseinline' ) . "↑",
+				wfMessage( 'history_short' )->parse() . "↑",
 				array(),
 				array( 'action' => 'history' )
 			);
@@ -87,7 +87,7 @@ class TalkpageView extends LqtView {
 			if ( $wgUser->isAllowed( 'delete' ) ) {
 				$actionLinks[] = $linker->link(
 					$article->getTitle(),
-					wfMsgExt( 'delete', 'parseinline' ) . '↑',
+					wfMessage( 'delete' )->parse() . '↑',
 					array(),
 					array( 'action' => 'delete' )
 				);
@@ -103,11 +103,11 @@ class TalkpageView extends LqtView {
 			$html = Xml::tags( 'div', array( 'class' => 'lqt_header_content' ), $html );
 
 			$this->output->addHTML( $html );
-		} elseif ( $article->getTitle()->userCan('edit') ) {
+		} elseif ( $article->getTitle()->userCan( 'edit' ) ) {
 
 			$editLink = $linker->link(
 				$this->talkpage->getTitle(),
-				wfMsgExt( 'lqt_add_header', 'parseinline' ),
+				wfMessage( 'lqt_add_header' )->parse(),
 				array(),
 				array( 'action' => 'edit' )
 			);
@@ -123,14 +123,14 @@ class TalkpageView extends LqtView {
 
 		$html = '';
 
-		$h2_header = Xml::tags( 'h2', null, wfMsgExt( 'lqt_contents_title', 'parseinline' ) );
+		$h2_header = Xml::tags( 'h2', null, wfMessage( 'lqt_contents_title' )->parse() );
 
 		// Header row
 		$headerRow = '';
 		$headers = array( 'lqt_toc_thread_title',
 				'lqt_toc_thread_replycount', 'lqt_toc_thread_modified' );
 		foreach ( $headers as $msg ) {
-			$headerRow .= Xml::tags( 'th', null, wfMsgExt( $msg, 'parseinline' ) );
+			$headerRow .= Xml::tags( 'th', null, wfMessage( $msg )->parse() );
 		}
 		$headerRow = Xml::tags( 'tr', null, $headerRow );
 		$headerRow = Xml::tags( 'thead', null, $headerRow );
@@ -177,8 +177,6 @@ class TalkpageView extends LqtView {
 	}
 
 	function getArchiveWidget( ) {
-		$url = $this->talkpageUrl( $this->title, 'talkpage_archive' );
-
 		$html = '';
 		$html = Xml::tags( 'div', array( 'class' => 'lqt_archive_teaser' ), $html );
 		return $html;
@@ -188,27 +186,27 @@ class TalkpageView extends LqtView {
 		$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
 		$html = '';
 
-		$html .= Xml::label( wfMsg( 'lqt_sorting_order' ), 'lqt_sort_select' ) . ' ';
+		$html .= Xml::label( wfMessage( 'lqt_sorting_order' )->text(), 'lqt_sort_select' ) . ' ';
 
 		$sortOrderSelect =
 			new XmlSelect( 'lqt_order', 'lqt_sort_select', $this->getSortType() );
 
 		$sortOrderSelect->setAttribute( 'class', 'lqt_sort_select' );
 		$sortOrderSelect->addOption(
-			wfMsg( 'lqt_sort_newest_changes' ),
+			wfMessage( 'lqt_sort_newest_changes' )->text(),
 			LQT_NEWEST_CHANGES
 		);
 		$sortOrderSelect->addOption(
-			wfMsg( 'lqt_sort_newest_threads' ),
+			wfMessage( 'lqt_sort_newest_threads' )->text(),
 			LQT_NEWEST_THREADS
 		);
 		$sortOrderSelect->addOption(
-			wfMsg( 'lqt_sort_oldest_threads' ),
+			wfMessage( 'lqt_sort_oldest_threads' )->text(),
 			LQT_OLDEST_THREADS
 		);
 		$html .= $sortOrderSelect->getHTML();
 
-		$html .= Xml::submitButton( wfMsg( 'go' ), array( 'class' => 'lqt_go_sort' ) );
+		$html .= Xml::submitButton( wfMessage( 'go' )->text(), array( 'class' => 'lqt_go_sort' ) );
 		$html .= Html::hidden( 'title', $this->title->getPrefixedText() );
 
 
@@ -277,12 +275,12 @@ class TalkpageView extends LqtView {
 			return true;
 		}
 
-		if ( $this->shouldShow('header') ) {
+		if ( $this->shouldShow( 'header' ) ) {
 			$this->showHeader();
 		}
 
 		global $wgLang, $wgBetterDirectionality;
-		if( $wgBetterDirectionality ) {
+		if ( $wgBetterDirectionality ) {
 			// This closes the div of mw-content-ltr/rtl containing lang and dir attributes
 			$this->output->addHTML(
 				Html::closeElement( 'div' ) . Html::openElement( 'div',
@@ -297,7 +295,7 @@ class TalkpageView extends LqtView {
 		$talkpageHeader = '';
 
 		if ( Thread::canUserPost( $this->user, $this->talkpage ) ) {
-			$newThreadText = wfMsgExt( 'lqt_new_thread', 'parseinline' );
+			$newThreadText = wfMessage( 'lqt_new_thread' )->parse();
 			$newThreadLink = $linker->link(
 				$this->title, $newThreadText,
 				array( 'lqt_talkpage' => $this->talkpage->getTitle()->getPrefixedText() ),
@@ -322,9 +320,9 @@ class TalkpageView extends LqtView {
 			$talkpageHeader
 		);
 
- 		if ( $this->shouldShow('options') ) {
+ 		if ( $this->shouldShow( 'options' ) ) {
  			$this->output->addHTML( $talkpageHeader );
- 		} elseif ( $this->shouldShow('simplenew') ) {
+ 		} elseif ( $this->shouldShow( 'simplenew' ) ) {
  			$this->output->addHTML( $newThreadLink );
  		}
 
@@ -342,11 +340,11 @@ class TalkpageView extends LqtView {
 
 		$threads = $this->getPageThreads( $pager );
 
-		if ( count( $threads ) > 0 && $this->shouldShow('toc') ) {
+		if ( count( $threads ) > 0 && $this->shouldShow( 'toc' ) ) {
 			$html .= $this->getTOC( $threads );
-		} elseif ( count($threads) == 0 ) {
+		} elseif ( count( $threads ) == 0 ) {
 			$html .= Xml::tags( 'div', array( 'class' => 'lqt-no-threads' ),
-					wfMsgExt( 'lqt-no-threads', 'parseinline' ) );
+				wfMessage( 'lqt-no-threads' )->parse() );
 		}
 
 		$html .= $pager->getNavigationBar();
@@ -370,13 +368,13 @@ class TalkpageView extends LqtView {
 	function getSearchBox() {
 		$html = '';
 		$html .= Xml::inputLabel(
-			wfMsg( 'lqt-search-label' ),
+			wfMessage( 'lqt-search-label' )->text(),
 			'lqt_search',
 			'lqt-search-box',
 			45
 		);
 
-		$html .= ' ' . Xml::submitButton( wfMsg( 'lqt-search-button' ) );
+		$html .= ' ' . Xml::submitButton( wfMessage( 'lqt-search-button' )->text() );
 		$html .= Html::hidden( 'title', $this->title->getPrefixedText() );
 		$html = Xml::tags(
 			'form',
@@ -577,7 +575,7 @@ class LqtDiscussionPager extends IndexPager {
 			'next' => 'arrow_disabled_right_25.png',
 			'last' => 'arrow_disabled_last_25.png',
 		);
-		if( $wgLang->isRTL() ) {
+		if ( $wgLang->isRTL() ) {
 			$keys = array_keys( $labels );
 			$images = array_combine( $keys, array_reverse( $images ) );
 			$disabledImages = array_combine( $keys, array_reverse( $disabledImages ) );
@@ -586,7 +584,7 @@ class LqtDiscussionPager extends IndexPager {
 		$linkTexts = array();
 		$disabledTexts = array();
 		foreach ( $labels as $type => $label ) {
-			$msgLabel = wfMsgHtml( $label );
+			$msgLabel = wfMessage( $label )->escaped();
 			$linkTexts[$type] = "<img src=\"$path/{$images[$type]}\" alt=\"$msgLabel\"/><br />$msgLabel";
 			$disabledTexts[$type] = "<img src=\"$path/{$disabledImages[$type]}\" alt=\"$msgLabel\"/><br />$msgLabel";
 		}

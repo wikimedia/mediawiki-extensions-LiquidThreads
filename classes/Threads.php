@@ -63,7 +63,7 @@ class Threads {
 			try {
 				$talkpage->doEdit(
 					"",
-					wfMsgForContent( 'lqt_talkpage_autocreate_summary' ),
+					wfMessage( 'lqt_talkpage_autocreate_summary' )->inContentLanguage()->text(),
 					EDIT_NEW | EDIT_SUPPRESS_RC
 				);
 			} catch ( DBQueryError $e ) {
@@ -77,7 +77,7 @@ class Threads {
 		$rows = array();
 		$threads = array();
 
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$rows[] = $row;
 
 			if ( !$bulkLoad ) {
@@ -124,8 +124,9 @@ class Threads {
 
 		if ( count( $threads ) > 1 ) {
 			Threads::databaseError( "More than one thread with $attribute = $value." );
-			return null;
 		}
+
+		return null;
 	}
 
 	/**
@@ -138,7 +139,7 @@ class Threads {
 			// No articles outside the thread namespace have threads associated with them;
 			return null;
 		}
-		
+
 		if ( $post->getId() == 0 ) {
 			// Page ID zero doesn't exist.
 			return null;
@@ -219,7 +220,7 @@ class Threads {
 		$topThread = $thread->topmostThread();
 
 		$base = $topThread->title()->getText() . '/'
-			. wfMsgForContent( 'lqt-reply-subpage' );
+			. wfMessage( 'lqt-reply-subpage' )->inContentLanguage()->text();
 
 		return self::incrementedTitle( $base, NS_LQT_THREAD );
 	}
@@ -308,10 +309,10 @@ class Threads {
 	// If the queueMore parameter is set and rows are left to update, a job queue item
 	//  will then be added with the same limit, to finish the remainder of the update.
 	static function synchroniseArticleData( $article, $limit = false, $queueMore = false ) {
-		if (!$article) {
+		if ( !$article ) {
 			throw new MWException( "synchroniseArticleData called on null article" );
 		}
-	
+
 		$dbr = wfGetDB( DB_SLAVE );
 		$dbw = wfGetDB( DB_MASTER );
 
