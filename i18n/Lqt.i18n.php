@@ -4723,7 +4723,7 @@ $7",
 	'lqt-feed-new-thread-intro' => "Pelê $1'i de gıreyo newe hetê {{GENDER:$4|$2}} ra erşawiya",
 	'lqt-feed-reply-intro' => "Pelê $1'i de gıreyo newe hetê {{GENDER:$4|$2}} ra erşawiya",
 	'tooltip-pt-newmessages' => 'Mesacanê şıma newan yana pelanê kısande şıma mocnêno.',
-	'lqt-newmessages-n' => 'mesajo newe ($1)',
+	'lqt-newmessages-n' => 'Mesacê mınê newey ($1)',
 	'lqt_newmessages' => 'Mesacê newey (çıniyê)',
 	'lqt_newmessages-title' => 'Mesacê newey',
 	'lqt-newpost-summary' => 'gıreyo newe: $1',
@@ -11018,7 +11018,7 @@ $messages['ka'] = array(
 	'lqt-drag-title' => 'გადათრევის დამოწმება',
 	'lqt-drag-reason' => 'მიზეზი:',
 	'lqt-drag-subject' => 'სათაური ახალი ტოტისათვის (სავალდებულო):',
-	'lqt-edit-signature' => '(რედაქტირების ხელმოწერა)',
+	'lqt-edit-signature' => '(ხელმოწერის რედაქტირება)',
 	'lqt-preview-signature' => '(წინა)',
 	'lqt-feed-title-all' => '{{SITENAME}} — ახალი თემები',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — ახალი თემები $1-დან',
@@ -19967,6 +19967,13 @@ Kusang ipinapakita ang lagda.',
 	'lqt-reply-subpage' => 'tumugon',
 	'nstab-thread' => 'Sinulid',
 	'nstab-summary' => 'Buod',
+);
+
+/** толышә зывон (толышә зывон)
+ * @author Гусейн
+ */
+$messages['tly'] = array(
+	'lqt_newmessages' => 'Тожә хәбон (Нин)',
 );
 
 /** Turkish (Türkçe)
