@@ -246,17 +246,6 @@ window.liquidThreads = {
 			} );
 	},
 
-	'doLivePreview' : function( e ) {
-		e.preventDefault();
-		if ( typeof doLivePreview !== 'function' ) {
-			$j.getScript( mw.config.get( 'stylepath' ) +'/common/preview.js',
-				function() {
-					$j('#wpPreview').die('click', liquidThreads.doLivePreview );
-					doLivePreview(e);
-				});
-		}
-	},
-
 	//From http://clipmarks.com/clipmark/CEFC94CB-94D6-4495-A7AA-791B7355E284/
 	'insertAtCursor' : function(myField, myValue) {
 		//IE support
@@ -1675,8 +1664,6 @@ $j(document).ready( function() {
 	// Save handlers
 	$j('#wpSave').live( 'click', liquidThreads.handleAJAXSave );
 	$j('#wpTextbox1').live( 'keyup', liquidThreads.onTextboxKeyUp );
-	$j('#wpPreview').die('click');
-	$j('#wpPreview').live('click', liquidThreads.doLivePreview );
 
 	// Hide menus when a click happens outside them
 	$j(document).click( liquidThreads.handleDocumentClick );
