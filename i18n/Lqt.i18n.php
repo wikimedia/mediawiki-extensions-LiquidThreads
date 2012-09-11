@@ -2235,7 +2235,7 @@ $7",
 	'lqt-feed-title-replies' => '{{SITENAME}} — Адказы',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Адказы $1',
 	'lqt-feed-new-thread-intro' => '$2 {{GENDER:$4|пачаў|пачала}} новую галіну ў $1',
-	'lqt-feed-reply-intro' => 'Адказ на $3 (на $1) разьмешчаны $2',
+	'lqt-feed-reply-intro' => 'Адказ на $3 (на $1) {{GENDER:$4|разьмясьціў|разьмясьціла}} $2',
 	'tooltip-pt-newmessages' => 'Паказвае новыя паведамленьні ў галінах альбо на старонках абмеркаваньня, за якімі Вы назіраеце',
 	'lqt-newmessages-n' => 'Новыя паведамленьні ($1)',
 	'lqt_newmessages' => 'Мае новыя паведамленьні (Няма)',
@@ -12618,7 +12618,10 @@ $messages['lv'] = array(
  * @author Jagwar
  */
 $messages['mg'] = array(
+	'lqt_youhavenewmessages' => 'Manana [[$1|hafatra vaovao]]',
 	'lqt_move_move' => 'Hanolo anarana',
+	'lqt-no-new-messages' => 'Tsy misy hafatra vaovao ho anao.',
+	'lqt-new-messages' => '✒ Manana hafatra vaovao',
 	'lqt-movethread' => 'Hanolo anarana',
 	'right-lqt-split' => 'Mizara ny resaka',
 );
