@@ -476,7 +476,7 @@ The drop-down box contains the following messages:
 
 This is a note which appears alongside an edited post - see [[Thread:Support/Payflowpro gateway-month/reply (4)|example]].',
 	'lqt-thread-edited-others' => '* $1: date/time of the last edit
-* $2: Number of users who edited the thread
+* $2: number of users who edited the thread message, including the original poster
 * $3: time of the last edit (optional, instead of using $1)
 * $4: date of the last edit (optional, instead of using $1)
 
@@ -10196,7 +10196,7 @@ Questa operazione non è annullabile.',
 	'lqt-history-thread' => 'Thread',
 	'lqt-thread-edited-author' => "Modificato dall'autore.<br />
 Ultima modifica: $1",
-	'lqt-thread-edited-others' => 'Modificato da {{PLURAL:$2|un altro utente|$2 altri utenti}}.<br />
+	'lqt-thread-edited-others' => 'Modificato da {{PLURAL:$2|un altro utente|$2 utenti}}.<br />
 Ultima modifica: $1',
 	'lqt-header-actions' => 'Azioni',
 	'lqt_summarize_link' => 'Riassumi',
