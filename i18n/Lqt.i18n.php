@@ -4591,7 +4591,7 @@ no gıre parçeyê $2'i yo.",
 	'lqt-read-message' => 'Wanaye deye nişane kerê',
 	'lqt-read-message-tooltip' => 'mesajanê neweyan ra no gıre vec.
 pelê werêameyişi yo orijinal de anciya zi aseno.',
-	'lqt-read-all' => 'pêroyin têde wende nişane bıker',
+	'lqt-read-all' => 'Pêro waneyayê deye nışan karè',
 	'lqt-read-all-tooltip' => 'mesajanê neweyan ra heme gıreyan vec.
 pelê werêameyişi yo orijinal de anciya zi aseno.
 no operasyon tepiya geriyeno.',
