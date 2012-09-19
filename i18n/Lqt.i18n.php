@@ -12006,8 +12006,8 @@ $7",
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Nei Rubrike vum $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Äntwerten',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Äntwerte vum $1',
-	'lqt-feed-new-thread-intro' => 'Nei Rubrik iwwer $1 geschriwwe vum $2',
-	'lqt-feed-reply-intro' => 'Äntwert vum $2 op $3 (op $1)',
+	'lqt-feed-new-thread-intro' => 'Nei Rubrik iwwer $1 geschriwwe vum {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Äntwert vum {{GENDER:$4|$2}} op $3 (op $1)',
 	'tooltip-pt-newmessages' => 'Weist nei Noriichten a Rubriken oder op Diskussiounssäiten déi Dir iwwerwaacht',
 	'lqt-newmessages-n' => 'Nei Messagen ($1)',
 	'lqt_newmessages' => 'Meng nei Messagen (Keen)',
@@ -19977,6 +19977,14 @@ Kusang ipinapakita ang lagda.',
  */
 $messages['tly'] = array(
 	'lqt_newmessages' => 'Тожә хәбон (Нин)',
+);
+
+/** Tok Pisin (Tok Pisin)
+ * @author Iketsi
+ */
+$messages['tpi'] = array(
+	'lqt_discussion_link' => 'toktok',
+	'searchprofile-threads' => 'Toktok',
 );
 
 /** Turkish (Türkçe)
