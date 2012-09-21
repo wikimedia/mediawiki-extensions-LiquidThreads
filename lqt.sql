@@ -51,7 +51,7 @@ CREATE TABLE /*$wgDBprefix*/historical_thread (
   hthread_change_type int(4) unsigned NOT NULL,
   hthread_change_object int(8) unsigned NULL,
 
-  PRIMARY KEY (hthread_id, hthread_revision) 
+  PRIMARY KEY (hthread_id, hthread_revision)
 ) /*$wgDBTableOptions*/;
 
 CREATE TABLE /*$wgDBprefix*/user_message_state (

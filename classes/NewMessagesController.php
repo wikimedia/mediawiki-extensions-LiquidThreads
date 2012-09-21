@@ -71,7 +71,7 @@ class NewMessages {
 			throw new MWException( "writeUserMessageState expected User or integer but got $user" );
 		}
 
-		$conversation = Threads::withId($thread_id)->topmostThread()->id();
+		$conversation = Threads::withId( $thread_id )->topmostThread()->id();
 
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->replace(
@@ -194,7 +194,7 @@ class NewMessages {
 		$userIds = array();
 		$notifyUsers = array();
 		$res = self::getRowsObject( $t );
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			// Don't notify yourself
 			if ( $changeUser->getId() == $row->wl_user )
 				continue;
@@ -248,7 +248,7 @@ class NewMessages {
 			Threads::CHANGE_NEW_THREAD => 'lqt-new-topic',
 		);
 
-		foreach( $events as $change_type => $event_type ) {
+		foreach ( $events as $change_type => $event_type ) {
 			if ( $type == $change_type ) {
 				EchoEvent::create( array(
 					'type' => $event_type,
@@ -264,7 +264,7 @@ class NewMessages {
 		}
 	}
 
-	public static function getDefaultNotifiedUsers($event, &$users) {
+	public static function getDefaultNotifiedUsers( $event, &$users ) {
 		$type = $event->getType();
 		$lqtEvents = array( 'lqt-reply', 'lqt-new-topic' );
 
@@ -285,7 +285,7 @@ class NewMessages {
 
 		$targets = self::getNotifyUsers( $thread, $event->getAgent() );
 
-		foreach( $targets['notify'] as $uid ) {
+		foreach ( $targets['notify'] as $uid ) {
 			$users[$uid] = User::newFromId( $uid );
 		}
 
@@ -374,7 +374,7 @@ class NewMessages {
 
 		// Parse content and strip HTML of post content
 
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$u = User::newFromRow( $row );
 
 			if ( $row->language ) {
@@ -400,12 +400,10 @@ class NewMessages {
 						$t->author()->getName() );
 
 			// Get message in user's own language, bug 20645
-			$msg = wfMsgReal( $msgName, $params, true /* use DB */, $langCode,
-								true /*transform*/ );
+			$msg = wfMessage( $msgName, $params )->inLanguage( $langCode )->text();
 
 			$to = new MailAddress( $u );
-			$subject = wfMsgReal( $subjectMsg, array( $threadSubject ), true /* use DB */,
-									$langCode, true /* transform */ );
+			$subject = wfMessage( $subjectMsg, $threadSubject )->inLanguage( $langCode )->text();
 
 			UserMailer::send( $to, $from, $subject, $msg );
 		}
@@ -460,7 +458,7 @@ class NewMessages {
 
 		$res = $dbr->select( 'user_message_state', '1', $cond, __METHOD__, $options );
 
-		if( $res ) {
+		if ( $res ) {
 			$count = $res->numRows();
 
 			if ( $count >= 500 ) {

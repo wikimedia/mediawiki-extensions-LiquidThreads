@@ -45,7 +45,7 @@
 		this.interval	 	  	= null;
 		this.line_height	  	= this.options.lineHeight || parseInt($(e).css('line-height'));
 		this.min_height		  	= this.options.minHeight || parseInt($(e).css('min-height'));
-		this.max_height		  	= this.options.maxHeight || parseInt($(e).css('max-height'));;
+		this.max_height		  	= this.options.maxHeight || parseInt($(e).css('max-height'));
 		this.textarea		  	= $(e);
 		
 		if(this.line_height == NaN)

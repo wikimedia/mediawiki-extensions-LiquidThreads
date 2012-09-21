@@ -11,20 +11,20 @@ class ThreadHistoryPager extends TablePager {
 
 		self::$change_names =
 		array(
-			Threads::CHANGE_EDITED_ROOT => wfMsgNoTrans( 'lqt_hist_comment_edited' ),
-			Threads::CHANGE_EDITED_SUMMARY => wfMsgNoTrans( 'lqt_hist_summary_changed' ),
-			Threads::CHANGE_REPLY_CREATED => wfMsgNoTrans( 'lqt_hist_reply_created' ),
-			Threads::CHANGE_NEW_THREAD => wfMsgNoTrans( 'lqt_hist_thread_created' ),
-			Threads::CHANGE_DELETED => wfMsgNoTrans( 'lqt_hist_deleted' ),
-			Threads::CHANGE_UNDELETED => wfMsgNoTrans( 'lqt_hist_undeleted' ),
-			Threads::CHANGE_MOVED_TALKPAGE => wfMsgNoTrans( 'lqt_hist_moved_talkpage' ),
-			Threads::CHANGE_EDITED_SUBJECT => wfMsgNoTrans( 'lqt_hist_edited_subject' ),
-			Threads::CHANGE_SPLIT => wfMsgNoTrans( 'lqt_hist_split' ),
-			Threads::CHANGE_MERGED_FROM => wfMsgNoTrans( 'lqt_hist_merged_from' ),
-			Threads::CHANGE_MERGED_TO => wfMsgNoTrans( 'lqt_hist_merged_to' ),
-			Threads::CHANGE_SPLIT_FROM => wfMsgNoTrans( 'lqt_hist_split_from' ),
-			Threads::CHANGE_ROOT_BLANKED => wfMsgNoTrans( 'lqt_hist_root_blanked' ),
-			Threads::CHANGE_ADJUSTED_SORTKEY => wfMsgNoTrans( 'lqt_hist_adjusted_sortkey' ),
+			Threads::CHANGE_EDITED_ROOT => wfMessage( 'lqt_hist_comment_edited' )->plain(),
+			Threads::CHANGE_EDITED_SUMMARY => wfMessage( 'lqt_hist_summary_changed' )->plain(),
+			Threads::CHANGE_REPLY_CREATED => wfMessage( 'lqt_hist_reply_created' )->plain(),
+			Threads::CHANGE_NEW_THREAD => wfMessage( 'lqt_hist_thread_created' )->plain(),
+			Threads::CHANGE_DELETED => wfMessage( 'lqt_hist_deleted' )->plain(),
+			Threads::CHANGE_UNDELETED => wfMessage( 'lqt_hist_undeleted' )->plain(),
+			Threads::CHANGE_MOVED_TALKPAGE => wfMessage( 'lqt_hist_moved_talkpage' )->plain(),
+			Threads::CHANGE_EDITED_SUBJECT => wfMessage( 'lqt_hist_edited_subject' )->plain(),
+			Threads::CHANGE_SPLIT => wfMessage( 'lqt_hist_split' )->plain(),
+			Threads::CHANGE_MERGED_FROM => wfMessage( 'lqt_hist_merged_from' )->plain(),
+			Threads::CHANGE_MERGED_TO => wfMessage( 'lqt_hist_merged_to' )->plain(),
+			Threads::CHANGE_SPLIT_FROM => wfMessage( 'lqt_hist_split_from' )->plain(),
+			Threads::CHANGE_ROOT_BLANKED => wfMessage( 'lqt_hist_root_blanked' )->plain(),
+			Threads::CHANGE_ADJUSTED_SORTKEY => wfMessage( 'lqt_hist_adjusted_sortkey' )->plain()
 		);
 	}
 
@@ -70,7 +70,6 @@ class ThreadHistoryPager extends TablePager {
 		static $linker = null;
 
 		if ( empty( $linker ) ) {
-			global $wgUser;
 			$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 		}
 
@@ -126,7 +125,7 @@ class ThreadHistoryPager extends TablePager {
 					$args[] = $lastChangeObject->subject();
 					$args[] = $changeObject->subject();
 				} else {
-					$msg = wfMsg( 'lqt_hist_edited_subject_corrupt', 'parseinline' );
+					$msg = wfMessage( 'lqt_hist_edited_subject_corrupt' )->parse();
 				}
 				break;
 			case Threads::CHANGE_EDITED_ROOT:

@@ -12,25 +12,19 @@ class LqtLogFormatter {
 				}
 				break;
 			default:
-				$msg = 'lqt-log-action-' . $action;
+				$msg = "lqt-log-action-$action";
 				break;
 		}
 
-		$options = array( 'parseinline' );
-
+		array_unshift( $parameters, $title->getPrefixedText() );
+		$html = wfMessage( $msg, $parameters );
 		$forIRC = $sk === null;
 
 		if ( $forIRC ) {
-			global $wgContLang;
-			$options['language'] = $wgContLang->getCode();
-		}
-
-		$replacements = array_merge( array( $title->getPrefixedText() ), $parameters );
-
-		$html = wfMsgExt( $msg, $options, $replacements );
-
-		if ( $forIRC ) {
+			$html = $html->inContentLanguage()->parse();
 			$html = StringUtils::delimiterReplace( '<', '>', '', $html );
+		} else {
+			$html = $html->parse();
 		}
 
 		return $html;

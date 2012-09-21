@@ -971,7 +971,7 @@ liquidThreads.toolbar = {
 						$j( '.ui-dialog:visible .ui-dialog-buttonpane button:first' )
 							.attr( 'disabled', true )
 							.addClass( 'disabled' );
-					} else { 
+					} else {
 						$j( '.ui-dialog:visible .ui-dialog-buttonpane button:first' )
 							.removeAttr('disabled')
 							.removeClass('disabled');
@@ -980,7 +980,7 @@ liquidThreads.toolbar = {
 				// Updates the UI to show if the page title being inputed by the user exists or not
 				// accepts parameter internal for bypassing external link detection
 				function updateExistence( internal ) {
-					// ensure the internal parameter is a boolean 
+					// ensure the internal parameter is a boolean
 					if ( internal != true ) internal = false;
 					// Abort previous request
 					var request = $j( '#wikieditor-toolbar-link-int-target-status' ).data( 'request' );
@@ -1118,7 +1118,7 @@ liquidThreads.toolbar = {
 							updateExistence();
 						}
 						if ( $j( '#wikieditor-toolbar-link-int-text' ).data( 'untouched' ) )
-							if ( $j( '#wikieditor-toolbar-link-int-target' ).val() == 
+							if ( $j( '#wikieditor-toolbar-link-int-target' ).val() ==
 								$j( '#wikieditor-toolbar-link-int-target' ).data( 'tooltip' ) ) {
 									$j( '#wikieditor-toolbar-link-int-text' )
 										.addClass( 'wikieditor-toolbar-dialog-hint' )
@@ -1352,7 +1352,7 @@ liquidThreads.toolbar = {
 					// Restore and immediately save selection state, needed for inserting stuff later
 					context.fn.restoreSelection();
 					context.fn.saveSelection();
-					var selection = context.$textarea.textSelection( 'getSelection' ); 
+					var selection = context.$textarea.textSelection( 'getSelection' );
 					$j( '#wikieditor-toolbar-link-int-target' ).focus();
 					// Trigger the change event, so the link status indicator is up to date
 					$j( '#wikieditor-toolbar-link-int-target' ).change();
@@ -1494,7 +1494,7 @@ liquidThreads.toolbar = {
 					// Restore and immediately save selection state, needed for inserting stuff later
 					context.fn.restoreSelection();
 					context.fn.saveSelection();
-					var selection = context.$textarea.textSelection( 'getSelection' ); 
+					var selection = context.$textarea.textSelection( 'getSelection' );
 					// set focus
 					$j( '#wikieditor-toolbar-reference-text' ).focus();
 					$j( '#wikieditor-toolbar-reference-dialog' )

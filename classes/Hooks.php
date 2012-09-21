@@ -53,10 +53,10 @@ class LqtHooks {
 			$changeslist->insertUserRelatedLinks( $s, $rc );
 
 			// Action text
-			$msg = $thread->isTopmostThread() 
+			$msg = $thread->isTopmostThread()
 				? 'lqt_rc_new_discussion' : 'lqt_rc_new_reply';
 			$link = LqtView::linkInContext( $thread );
-			$s .= ' ' . wfMsgExt( $msg, array( 'parseinline', 'replaceafter' ), $link );
+			$s .= ' ' . wfMessage( $msg )->rawParams( $link )->parse();
 
 			$s .= $wgLang->getDirMark();
 
@@ -95,8 +95,7 @@ class LqtHooks {
 				&& ! $watchlist_t->equals( $wgTitle )
 				&& ! $usertalk_t->equals( $wgTitle )
 				) {
-			$s = wfMsgExt( 'lqt_youhavenewmessages', array( 'parseinline' ),
-							$newmsg_t->getPrefixedText() );
+			$s = wfMessage( 'lqt_youhavenewmessages', $newmsg_t->getPrefixedText() )->parse();
 			$tpl->set( "newtalk", $s );
 			$wgOut->setSquidMaxage( 0 );
 		} else {
@@ -129,7 +128,7 @@ class LqtHooks {
 
 		$wgOut->addModules( 'ext.liquidThreads' );
 		$messages_title = SpecialPage::getTitleFor( 'NewMessages' );
-		$new_messages = wfMsgExt( 'lqt-new-messages', 'parseinline' );
+		$new_messages = wfMessage( 'lqt-new-messages' )->parse();
 
 		$link = Linker::link( $messages_title, $new_messages,
 					array( 'class' => 'lqt_watchlist_messages_notice' ) );
@@ -295,8 +294,8 @@ class LqtHooks {
 		if ( $title->getNamespace() == NS_LQT_THREAD && self::$editType != 'new' &&
 			$wgLiquidThreadsShowBumpCheckbox )
 		{
-			$label = wfMsgExt( 'lqt-edit-bump', 'parseinline' );
-			$tooltip = wfMsgExt( 'lqt-edit-bump-tooltip', 'parsemag' );
+			$label = wfMessage( 'lqt-edit-bump' )->parse();
+			$tooltip = wfMessage( 'lqt-edit-bump-tooltip' )->text();
 
 			$checked = ! $wgRequest->wasPosted() ||
 					$wgRequest->getBool( 'wpBumpThread' );
@@ -452,7 +451,7 @@ class LqtHooks {
 				self::$editAppliesTo->getTitle()->equals( $talkPage ) );
 
 			# FIXME: self::$editArticle is sometimes not set; is that ok and if not why is it happening?
-			if( self::$editArticle instanceof Article ){
+			if ( self::$editArticle instanceof Article ) {
 				$isOnTalkPage = $isOnTalkPage ||
 					( self::$editArticle->getTitle()->equals( $talkPage ) );
 			}
@@ -470,7 +469,7 @@ class LqtHooks {
 	}
 
 	static function onPersonalUrls( &$personal_urls, &$title ) {
-		global $wgUser, $wgLang;
+		global $wgUser;
 
 		if ( $wgUser->isAnon() ) {
 			return true;
@@ -489,7 +488,7 @@ class LqtHooks {
 		$msg = $newMessagesCount ? 'lqt-newmessages-n' : 'lqt_newmessages';
 		$newMessagesLink = array(
 			'href' => $url,
-			'text' => wfMsg( $msg, $wgLang->formatNum( $newMessagesCount ) ),
+			'text' => wfMessage( $msg )->numParams( $newMessagesCount )->text(),
 			'active' => $newMessagesCount > 0,
 		);
 
@@ -593,7 +592,7 @@ class LqtHooks {
 	 * @return String
 	 */
 	private static function getTextForPageInKey( $key ) {
-		$templateTitleText = wfMsgForContent( $key );
+		$templateTitleText = wfMessage( $key )->inContentLanguage()->text();
 		$templateTitle = Title::newFromText( $templateTitleText );
 
 		// Do not continue if there is no valid subject title
@@ -639,7 +638,7 @@ class LqtHooks {
 
 		while ( $skip ? $reader->next() : $reader->read() ) {
 			if ( $reader->nodeType == XmlReader::END_ELEMENT &&
-					$reader->name == 'DiscussionThreading') {
+					$reader->name == 'DiscussionThreading' ) {
 				break;
 			}
 
@@ -672,10 +671,10 @@ class LqtHooks {
 		}
 
 		$titlePendingRelationships = array();
-		if ( isset($pendingRelationships[$title->getPrefixedText()]) ) {
+		if ( isset( $pendingRelationships[$title->getPrefixedText()] ) ) {
 			$titlePendingRelationships = $pendingRelationships[$title->getPrefixedText()];
 
-			foreach( $titlePendingRelationships as $k => $v ) {
+			foreach ( $titlePendingRelationships as $k => $v ) {
 				if ( $v['type'] == 'article' ) {
 					self::applyPendingArticleRelationship( $v, $title );
 					unset( $titlePendingRelationships[$k] );
@@ -695,9 +694,8 @@ class LqtHooks {
 		$root = new Article( $title );
 		$article = new Article( Title::newFromText( $info['ThreadPage'] ) );
 		$type = $typeValues[$info['ThreadType']];
-		$editedness = $statusValues[$info['ThreadEditStatus']];
 		$subject = $info['ThreadSubject'];
-		$summary = wfMsgForContent( 'lqt-imported' );
+		$summary = wfMessage( 'lqt-imported' )->inContentLanguage()->text();
 
 		$signature = null;
 		if ( isset( $info['ThreadSignature'] ) ) {
@@ -734,7 +732,7 @@ class LqtHooks {
 
 		$thread->save();
 
-		foreach( $titlePendingRelationships as $k => $v ) {
+		foreach ( $titlePendingRelationships as $k => $v ) {
 			if ( $v['type'] == 'thread' ) {
 				self::applyPendingThreadRelationship( $v, $thread );
 				unset( $titlePendingRelationships[$k] );
@@ -778,9 +776,9 @@ class LqtHooks {
 		$dbr = wfGetDB( DB_MASTER );
 		$arr = array();
 
-		$res = $dbr->select( 'thread_pending_relationship', '*', array(1), __METHOD__ );
+		$res = $dbr->select( 'thread_pending_relationship', '*', array( 1 ), __METHOD__ );
 
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$title = $row->tpr_title;
 			$entry = array(
 				'thread' => $row->tpr_thread,
@@ -789,7 +787,7 @@ class LqtHooks {
 				'type' => $row->tpr_type,
 			);
 
-			if ( !isset($arr[$title]) ) {
+			if ( !isset( $arr[$title] ) ) {
 				$arr[$title] = array();
 			}
 
@@ -808,8 +806,8 @@ class LqtHooks {
 		);
 
 		$row = array();
-		foreach( $entry as $k => $v ) {
-			$row['tpr_'.$k] = $v;
+		foreach ( $entry as $k => $v ) {
+			$row['tpr_' . $k] = $v;
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
@@ -835,7 +833,7 @@ class LqtHooks {
 		if ( $title->getNamespace() != NS_LQT_THREAD || $action != 'read' )
 			return true;
 
-		$thread = Threads::withRoot( new Article($title) );
+		$thread = Threads::withRoot( new Article( $title ) );
 
 		if ( ! $thread ) {
 			return true;
@@ -891,17 +889,17 @@ class LqtHooks {
 	}
 
 	public static function onAPIQueryAfterExecute( &$module ) {
-		if( $module instanceof ApiQueryInfo ) {
+		if ( $module instanceof ApiQueryInfo ) {
 			$result = $module->getResult();
 			$data = $result->getData();
 
 			if ( !isset( $data['query']['pages'] ) ) {
 				return true;
 			}
-			foreach( $data['query']['pages'] as $pageid => $page ) {
-				if( $page == 'page' ) continue;
+			foreach ( $data['query']['pages'] as $pageid => $page ) {
+				if ( $page == 'page' ) continue;
 
-				if( LqtDispatch::isLqtPage( Title::newFromText( $page['title'] ) ) ) {
+				if ( LqtDispatch::isLqtPage( Title::newFromText( $page['title'] ) ) ) {
 					$result->addValue( array( 'query', 'pages' ), $pageid, array( 'islqttalkpage' => '' ) );
 				}
 			}

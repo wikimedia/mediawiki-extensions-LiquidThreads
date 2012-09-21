@@ -47,15 +47,12 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	function showHistoryInfo() {
 		global $wgLang;
 
-		$html = wfMsgExt(
+		$html = wfMessage(
 			'lqt_revision_as_of',
-			'parseinline',
-			array(
-				$wgLang->timeanddate( $this->mDisplayRevision->getTimestamp() ),
-				$wgLang->date( $this->mDisplayRevision->getTimestamp() ),
-				$wgLang->time( $this->mDisplayRevision->getTimestamp() )
-			)
-		);
+			$wgLang->timeanddate( $this->mDisplayRevision->getTimestamp() ),
+			$wgLang->date( $this->mDisplayRevision->getTimestamp() ),
+			$wgLang->time( $this->mDisplayRevision->getTimestamp() )
+		)->parse();
 
 		$html .= '<br />';
 		$html .=  $this->getChangeDescription();
@@ -83,16 +80,17 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 				break;
 		}
 
-		$html = wfMsgExt( $msg, 'parseinline', $args );
+		$html = wfMessage( $msg, $args )->parse();
 
 		if ( $change_type == Threads::CHANGE_ROOT_BLANKED ||
 				$change_type == Threads::CHANGE_EDITED_ROOT ) {
 			$diff_link = $this->diffPermalink(
 				$post,
-				wfMsgExt( 'diff', 'parseinline' ),
+				wfMessage( 'diff' )->parse(),
 				$this->mDisplayRevision
 			);
 
+			// @todo FIXME: Hard coded brackets.
 			$html .= " [$diff_link]";
 		}
 

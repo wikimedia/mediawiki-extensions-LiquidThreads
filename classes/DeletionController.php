@@ -23,7 +23,7 @@ class LqtDeletionController {
 
 		// Avoid orphaning subthreads, update their parentage.
 		if ( $thread->replies() && $thread->isTopmostThread() ) {
-			$reason = wfMsg( 'lqt-delete-parent-deleted', $reason );
+			$reason = wfMessage( 'lqt-delete-parent-deleted', $reason )->text();
 			self::recursivelyDeleteReplies( $thread, $reason );
 			global $wgOut;
 			$wgOut->addWikiMsg( 'lqt-delete-replies-done' );

@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class ThreadHistoryListingView extends ThreadPermalinkView {
 	function show() {
@@ -10,10 +9,10 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 
 		$this->thread->updateHistory();
 
-		$this->output->setPageTitle( wfMsg( 'lqt-history-title' ) );
+		$this->output->setPageTitle( wfMessage( 'lqt-history-title' ) );
 		$this->output->setSubtitle(
 			$this->getSubtitle() . '<br />' .
-			wfMsg( 'lqt_hist_listing_subtitle' )
+				wfMessage( 'lqt_hist_listing_subtitle' )->escaped()
 		);
 		$this->showThreadHeading( $this->thread );
 

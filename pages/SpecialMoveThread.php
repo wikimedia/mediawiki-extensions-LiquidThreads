@@ -5,7 +5,7 @@ class SpecialMoveThread extends ThreadActionPage {
 	 * @see SpecialPage::getDescription
 	 */
 	function getDescription() {
-		return wfMsg( 'lqt_movethread' );
+		return $this->msg( 'lqt_movethread' )->text();
 	}
 
 	function getFormFields() {
@@ -25,7 +25,7 @@ class SpecialMoveThread extends ThreadActionPage {
 	function getPageName() { return 'MoveThread'; }
 
 	function getSubmitText() {
-		return wfMsg( 'lqt_move_move' );
+		return $this->msg( 'lqt_move_move' )->text();
 	}
 
 	function buildForm() {
@@ -36,7 +36,7 @@ class SpecialMoveThread extends ThreadActionPage {
 
 		$page = $this->mThread->getTitle()->getPrefixedText();
 
-		$edit_text = wfMsgExt( 'lqt_move_torename_edit', 'parseinline' );
+		$edit_text = $this->msg( 'lqt_move_torename_edit' )->parse();
 		$edit_link = Linker::link(
 			$this->mThread->title(),
 			$edit_text,
@@ -47,16 +47,11 @@ class SpecialMoveThread extends ThreadActionPage {
 			)
 		);
 
-		$intro .= wfMsgExt(
+		$intro .= $this->msg(
 			'lqt_move_movingthread',
-			'parse',
 			array( '[[' . $this->mTarget . ']]', '[[' . $page . ']]' )
-		);
-		$intro .= wfMsgExt(
-			'lqt_move_torename',
-			array( 'parse', 'replaceafter' ),
-			array( $edit_link )
-		);
+		)->parseAsBlock();
+		$intro .= $this->msg( 'lqt_move_torename' )->rawParams( $edit_link )->parseAsBlock();
 
 		$form->setIntro( $intro );
 
@@ -64,10 +59,9 @@ class SpecialMoveThread extends ThreadActionPage {
 	}
 
 	function checkUserRights( $oldTitle, $newTitle ) {
-		global $wgUser, $wgOut;
-
-		$oldErrors = $oldTitle->getUserPermissionsErrors( 'move', $wgUser );
-		$newErrors = $newTitle->getUserPermissionsErrors( 'move', $wgUser );
+		$user = $this->getUser();
+		$oldErrors = $oldTitle->getUserPermissionsErrors( 'move', $user );
+		$newErrors = $newTitle->getUserPermissionsErrors( 'move', $user );
 
 		// Custom merge/unique function because we don't have the second parameter to
 		// array_unique on Wikimedia.
@@ -81,8 +75,9 @@ class SpecialMoveThread extends ThreadActionPage {
 		}
 
 		if ( count( $mergedErrors ) > 0 ) {
-			return $wgOut->parse(
-				$wgOut->formatPermissionsErrorMessage( $mergedErrors, 'move' )
+			$out = $this->getOutput();
+			return $out->parse(
+				$out->formatPermissionsErrorMessage( $mergedErrors, 'move' )
 			);
 		}
 
@@ -103,26 +98,25 @@ class SpecialMoveThread extends ThreadActionPage {
 		// @todo No status code from this method.
 		$this->mThread->moveToPage( $newtitle, $reason, true );
 
-		global $wgOut;
-		$wgOut->addHTML( wfMsgExt( 'lqt_move_success', array( 'parse', 'replaceafter' ),
-			array( Linker::link( $newtitle ) ) ) );
+		$this->getOutput()->addHTML( $this->msg( 'lqt_move_success' )
+			->rawParams( Linker::link( $newtitle ) )->parseAsBlock() );
 
 		return true;
 	}
 
 	function validateTarget( $target ) {
 		if ( !$target ) {
-			return wfMsgExt( 'lqt_move_nodestination', 'parseinline' );
+			return $this->msg( 'lqt_move_nodestination' )->parse();
 		}
 
 		$title = Title::newFromText( $target );
 
 		if ( !$title || !LqtDispatch::isLqtPage( $title ) ) {
-			return wfMsgExt( 'lqt_move_thread_bad_destination', 'parseinline' );
+			return $this->msg( 'lqt_move_thread_bad_destination' )->parse();
 		}
 
 		if ( $title->equals( $this->mThread->getTitle() ) ) {
-			return wfMsgExt( 'lqt_move_samedestination', 'parseinline' );
+			return $this->msg( 'lqt_move_samedestination' )->parse();
 		}
 
 		return true;

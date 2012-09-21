@@ -1,13 +1,11 @@
 <?php
 
 class ApiThreadAction extends ApiEditPage {
-
 	public function execute() {
 		$params = $this->extractRequestParams();
 
 		if ( isset( $params['gettoken'] ) ) {
-			global $wgUser;
-			$result = array( 'token' => $wgUser->editToken() );
+			$result = array( 'token' => $this->getUser()->getEditToken() );
 			$this->getResult()->addValue( null, 'threadaction', $result );
 			return;
 		}
@@ -50,12 +48,12 @@ class ApiThreadAction extends ApiEditPage {
 	}
 
 	public function actionMarkRead( $threads, $params ) {
-		global $wgUser;
+		$user = $this->getUser();
 
 		$result = array();
 
 		if ( in_array( 'all', $threads ) ) {
-			NewMessages::markAllReadByUser( $wgUser );
+			NewMessages::markAllReadByUser( $user );
 			$result[] = array(
 				'result' => 'Success',
 				'action' => 'markread',
@@ -63,7 +61,7 @@ class ApiThreadAction extends ApiEditPage {
 			);
 		} else {
 			foreach ( $threads as $t ) {
-				NewMessages::markThreadAsReadByUser( $t, $wgUser );
+				NewMessages::markThreadAsReadByUser( $t, $user );
 				$result[] = array(
 					'result' => 'Success',
 					'action' => 'markread',
@@ -78,12 +76,11 @@ class ApiThreadAction extends ApiEditPage {
 	}
 
 	public function actionMarkUnread( $threads, $params ) {
-		global $wgUser;
-
 		$result = array();
 
+		$user = $this->getUser();
 		foreach ( $threads as $t ) {
-			NewMessages::markThreadAsUnreadByUser( $t, $wgUser );
+			NewMessages::markThreadAsUnreadByUser( $t, $user );
 
 			$result[] = array(
 				'result' => 'Success',
@@ -109,8 +106,7 @@ class ApiThreadAction extends ApiEditPage {
 
 		$thread = array_pop( $threads );
 
-		global $wgUser;
-		$errors = $thread->title()->getUserPermissionsErrors( 'lqt-split', $wgUser );
+		$errors = $thread->title()->getUserPermissionsErrors( 'lqt-split', $this->getUser() );
 		if ( $errors ) {
 			// We don't care about multiple errors, just report one of them
 			$this->dieUsageMsg( reset( $errors ) );
@@ -183,8 +179,7 @@ class ApiThreadAction extends ApiEditPage {
 			$newParent = Threads::withRoot( $article );
 		}
 
-		global $wgUser;
-		$errors = $newParent->title()->getUserPermissionsErrors( 'lqt-merge', $wgUser );
+		$errors = $newParent->title()->getUserPermissionsErrors( 'lqt-merge', $this->getUser() );
 		if ( $errors ) {
 			// We don't care about multiple errors, just report one of them
 			$this->dieUsageMsg( reset( $errors ) );
@@ -222,8 +217,6 @@ class ApiThreadAction extends ApiEditPage {
 	}
 
 	public function actionNewThread( $threads, $params ) {
-		global $wgUser;
-
 		// Validate talkpage parameters
 		if ( !count( $params['talkpage'] ) ) {
 			$this->dieUsageMsg( array( 'missingparam', 'talkpage' ) );
@@ -238,7 +231,8 @@ class ApiThreadAction extends ApiEditPage {
 		$talkpage = new Article( $talkpageTitle, 0 );
 
 		// Check if we can post.
-		if ( Thread::canUserPost( $wgUser, $talkpage ) !== true ) {
+		$user = $this->getUser();
+		if ( Thread::canUserPost( $user, $talkpage ) !== true ) {
 			$this->dieUsage( 'You cannot post to the specified talkpage, ' .
 				'because it is protected from new posts', 'talkpage-protected' );
 		}
@@ -247,8 +241,6 @@ class ApiThreadAction extends ApiEditPage {
 		if ( empty( $params['subject'] ) ) {
 			$this->dieUsageMsg( array( 'missingparam', 'subject' ) );
 		}
-
-		$bump = isset( $params['bump'] ) ? $params['bump'] : null;
 
 		$subject = $params['subject'];
 		$title = null;
@@ -267,7 +259,7 @@ class ApiThreadAction extends ApiEditPage {
 		$text = $params['text'];
 
 		// Generate or pull summary
-		$summary = wfMsgForContent( 'lqt-newpost-summary', $subject );
+		$summary = wfMessage( 'lqt-newpost-summary', $subject )->inContentLanguage()->text();
 		if ( !empty( $params['reason'] ) ) {
 			$summary = $params['reason'];
 		}
@@ -298,7 +290,7 @@ class ApiThreadAction extends ApiEditPage {
 			'format' => 'json',
 		);
 
-		if ( $wgUser->isAllowed('bot') ) {
+		if ( $user->isAllowed( 'bot' ) ) {
 			$requestData['bot'] = true;
 		}
 
@@ -338,7 +330,7 @@ class ApiThreadAction extends ApiEditPage {
 		);
 
 		if ( !empty( $params['render'] ) ) {
-			$result['html'] = self::renderThreadPostAction( $thread );
+			$result['html'] = $this->renderThreadPostAction( $thread );
 		}
 
 		$result = array( 'thread' => $result );
@@ -416,9 +408,7 @@ class ApiThreadAction extends ApiEditPage {
 			'format' => 'json',
 		);
 
-		global $wgUser;
-
-		if ( $wgUser->isAllowed('bot') ) {
+		if ( $this->getUser()->isAllowed( 'bot' ) ) {
 			$requestData['bot'] = true;
 		}
 
@@ -454,7 +444,7 @@ class ApiThreadAction extends ApiEditPage {
 		);
 
 		if ( !empty( $params['render'] ) ) {
-			$result['html'] = self::renderThreadPostAction( $thread );
+			$result['html'] = $this->renderThreadPostAction( $thread );
 		}
 
 		$result = array( 'thread' => $result );
@@ -463,8 +453,6 @@ class ApiThreadAction extends ApiEditPage {
 	}
 
 	public function actionReply( $threads, $params ) {
-		global $wgUser;
-
 		// Validate thread parameter
 		if ( count( $threads ) > 1 ) {
 			$this->dieUsage( 'You may only reply to one thread at a time',
@@ -476,7 +464,8 @@ class ApiThreadAction extends ApiEditPage {
 		$replyTo = array_pop( $threads );
 
 		// Check if we can reply to that thread.
-		$perm_result = $replyTo->canUserReply( $wgUser );
+		$user = $this->getUser();
+		$perm_result = $replyTo->canUserReply( $user );
 		if ( $perm_result !== true ) {
 			$this->dieUsage( "You cannot reply to this thread, because the " .
 				$perm_result . " is protected from replies.",
@@ -493,8 +482,8 @@ class ApiThreadAction extends ApiEditPage {
 		$bump = isset( $params['bump'] ) ? $params['bump'] : null;
 
 		// Generate/pull summary
-		$summary = wfMsgForContent( 'lqt-reply-summary', $replyTo->subject(),
-				$replyTo->title()->getPrefixedText() );
+		$summary = wfMessage( 'lqt-reply-summary', $replyTo->subject(),
+				$replyTo->title()->getPrefixedText() )->inContentLanguage()->text();
 
 		if ( !empty( $params['reason'] ) ) {
 			$summary = $params['reason'];
@@ -507,10 +496,9 @@ class ApiThreadAction extends ApiEditPage {
 
 		// Grab data from parent
 		$talkpage = $replyTo->article();
-		$subject = $replyTo->subject();
 
 		// Generate a reply title.
-		$title = Threads::newReplyTitle( $replyTo, $wgUser );
+		$title = Threads::newReplyTitle( $replyTo, $user );
 		$article = new Article( $title, 0 );
 
 		// Inform hooks what we're doing
@@ -535,7 +523,7 @@ class ApiThreadAction extends ApiEditPage {
 			'format' => 'json',
 		);
 
-		if ( $wgUser->isAllowed('bot') ) {
+		if ( $user->isAllowed( 'bot' ) ) {
 			$requestData['bot'] = true;
 		}
 
@@ -579,7 +567,7 @@ class ApiThreadAction extends ApiEditPage {
 		);
 
 		if ( !empty( $params['render'] ) ) {
-			$result['html'] = self::renderThreadPostAction( $thread );
+			$result['html'] = $this->renderThreadPostAction( $thread );
 		}
 
 		$result = array( 'thread' => $result );
@@ -587,24 +575,24 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
-	static function renderThreadPostAction( $thread ) {
+	protected function renderThreadPostAction( $thread ) {
 		$thread = $thread->topmostThread();
 
 		// Set up OutputPage
-		global $wgOut, $wgUser, $wgRequest;
-		$oldOutputText = $wgOut->getHTML();
-		$wgOut->clearHTML();
+		$out = $this->getOutput();
+		$oldOutputText = $out->getHTML();
+		$out->clearHTML();
 
 		// Setup
 		$article = $thread->root();
 		$title = $article->getTitle();
-		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );
+		$view = new LqtView( $out, $article, $title, $this->getUser(), $this->getRequest() );
 
 		$view->showThread( $thread );
 
-		$result = $wgOut->getHTML();
-		$wgOut->clearHTML();
-		$wgOut->addHTML( $oldOutputText );
+		$result = $out->getHTML();
+		$out->clearHTML();
+		$out->addHTML( $oldOutputText );
 
 		return $result;
 	}
@@ -620,8 +608,7 @@ class ApiThreadAction extends ApiEditPage {
 		}
 		$thread = array_pop( $threads );
 
-		global $wgUser;
-		$errors = $thread->title()->getUserPermissionsErrors( 'edit', $wgUser );
+		$errors = $thread->title()->getUserPermissionsErrors( 'edit', $this->getUser() );
 		if ( $errors ) {
 			// We don't care about multiple errors, just report one of them
 			$this->dieUsageMsg( reset( $errors ) );
@@ -699,8 +686,7 @@ class ApiThreadAction extends ApiEditPage {
 
 		$thread = array_pop( $threads );
 
-		global $wgUser;
-		$errors = $thread->title()->getUserPermissionsErrors( 'edit', $wgUser );
+		$errors = $thread->title()->getUserPermissionsErrors( 'edit', $this->getUser() );
 		if ( $errors ) {
 			// We don't care about multiple errors, just report one of them
 			$this->dieUsageMsg( reset( $errors ) );
@@ -723,28 +709,26 @@ class ApiThreadAction extends ApiEditPage {
 	}
 
 	public function actionAddReaction( $threads, $params ) {
-		global $wgUser;
-
 		if ( !count( $threads ) ) {
 			$this->dieUsage( 'You must specify a thread to add a reaction for',
 					'no-specified-threads' );
 		}
 
-		if ( ! $wgUser->isAllowed( 'lqt-react' ) ) {
+		if ( ! $this->getUser()->isAllowed( 'lqt-react' ) ) {
 			$this->dieUsage( 'You are not allowed to react to threads.', 'permission-denied' );
 		}
 
 		$required = array( 'type', 'value' );
 
-		if ( count( array_diff( $required, array_keys($params) ) ) ) {
+		if ( count( array_diff( $required, array_keys( $params ) ) ) ) {
 			$this->dieUsage( 'You must specify both a type and a value for the reaction',
 						'missing-parameter' );
 		}
 
 		$result = array();
 
-		foreach( $threads as $thread ) {
-			$thread->addReaction( $wgUser, $params['type'], $params['value'] );
+		foreach ( $threads as $thread ) {
+			$thread->addReaction( $this->getUser(), $params['type'], $params['value'] );
 
 			$result[] = array(
 				'result' => 'Success',
@@ -758,28 +742,27 @@ class ApiThreadAction extends ApiEditPage {
 	}
 
 	public function actionDeleteReaction( $threads, $params ) {
-		global $wgUser;
-
 		if ( !count( $threads ) ) {
 			$this->dieUsage( 'You must specify a thread to delete a reaction for',
 					'no-specified-threads' );
 		}
 
-		if ( ! $wgUser->isAllowed( 'lqt-react' ) ) {
+		$user = $this->getUser();
+		if ( ! $user->isAllowed( 'lqt-react' ) ) {
 			$this->dieUsage( 'You are not allowed to react to threads.', 'permission-denied' );
 		}
 
 		$required = array( 'type', 'value' );
 
-		if ( count( array_diff( $required, array_keys($params) ) ) ) {
+		if ( count( array_diff( $required, array_keys( $params ) ) ) ) {
 			$this->dieUsage( 'You must specify both a type for the reaction',
 						'missing-parameter' );
 		}
 
 		$result = array();
 
-		foreach( $threads as $thread ) {
-			$thread->deleteReaction( $wgUser, $params['type'] );
+		foreach ( $threads as $thread ) {
+			$thread->deleteReaction( $user, $params['type'] );
 
 			$result[] = array(
 				'result' => 'Success',
@@ -795,7 +778,7 @@ class ApiThreadAction extends ApiEditPage {
 	public function actionInlineEditForm( $threads, $params ) {
 		$method = $talkpage = $operand = null;
 
-		if ( isset($params['method']) ) {
+		if ( isset( $params['method'] ) ) {
 			$method = $params['method'];
 		}
 
@@ -809,7 +792,7 @@ class ApiThreadAction extends ApiEditPage {
 			$talkpage = null;
 		}
 
-		if ( count($threads) ) {
+		if ( count( $threads ) ) {
 			$operand = $threads[0];
 			$operand = $operand->id();
 		}

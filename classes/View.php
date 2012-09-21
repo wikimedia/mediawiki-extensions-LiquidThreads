@@ -13,6 +13,9 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class LqtView {
 	public $article;
+	/*
+	 * @var OutputPage
+	 */
 	public $output;
 	public $user;
 	public $title;
@@ -62,7 +65,7 @@ class LqtView {
 
 		$queryString = wfArrayToCGI( $query );
 
-		if( $relative ) {
+		if ( $relative ) {
 			return $title->getLocalUrl( $queryString );
 		} else {
 			return $title->getCanonicalUrl( $queryString );
@@ -81,7 +84,7 @@ class LqtView {
 		}
 
 		if ( ! $thread ) {
-			throw new MWException( "Empty thread passed to ".__METHOD__ );
+			throw new MWException( "Empty thread passed to " . __METHOD__ );
 		}
 
 		return array( $thread->root()->getTitle(), $query );
@@ -159,7 +162,7 @@ class LqtView {
 
 		return $title->getFullURL( $query );
 	}
-	
+
 	static function linkInContextCanonicalURL( $thread, $contextType = 'page' ) {
 		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
 
@@ -298,20 +301,23 @@ class LqtView {
 
 	/**
 	 * Return an HTML form element whose value is gotten from the request.
-	 * TODO: figure out a clean way to expand this to other forms.
+	 * @todo Figure out a clean way to expand this to other forms.
 	 */
 	function perpetuate( $name, $as = 'hidden' ) {
 		$value = $this->request->getVal( $name, '' );
 		if ( $as == 'hidden' ) {
 			return Html::hidden( $name, $value );
 		}
+
+		return '';
 	}
 
 	function showReplyProtectedNotice( $thread ) {
 		$log_url = SpecialPage::getTitleFor( 'Log' )->getLocalURL(
 			"type=protect&user=&page={$thread->title()->getPrefixedURL()}" );
-		$this->output->addHTML( '<p>' . wfMsg( 'lqt_protectedfromreply',
-			'<a href="' . $log_url . '">' . wfMsg( 'lqt_protectedfromreply_link' ) . '</a>' ) );
+		$link = '<a href="' . $log_url . '">' . wfMessage( 'lqt_protectedfromreply_link' )->escaped() . '</a>';
+		$this->output->addHTML( '<p>' . wfMessage( 'lqt_protectedfromreply' )
+			->rawParams( $link )->escaped() );
 	}
 
 	function doInlineEditForm() {
@@ -360,7 +366,7 @@ class LqtView {
 	 * @param $request FauxRequest object to have session data injected into.
 	 */
 	static function fixFauxRequestSession( $request ) {
-		foreach( (array)$_SESSION as $k => $v ) {
+		foreach ( (array)$_SESSION as $k => $v ) {
 			$request->setSessionData( $k, $v );
 		}
 	}
@@ -397,7 +403,7 @@ class LqtView {
 
 		$view->doInlineEditForm();
 
-		foreach( $request->getSessionArray() as $k => $v ) {
+		foreach ( $request->getSessionArray() as $k => $v ) {
 			$wgRequest->setSessionData( $k, $v );
 		}
 
@@ -453,7 +459,7 @@ class LqtView {
 
 				$e->editFormPageTop .=
 					Xml::tags( 'div', array( 'class' => 'error' ),
-						wfMsgExt( $msg, 'parse' ) );
+						wfMessage( $msg )->parseAsBlock() );
 			}
 		}
 
@@ -465,7 +471,7 @@ class LqtView {
 
 		$e->mShowSummaryField = false;
 
-		$summary = wfMsgForContent( 'lqt-newpost-summary', $subject );
+		$summary = wfMessage( 'lqt-newpost-summary', $subject )->inContentLanguage()->text();
 		$wgRequest->setVal( 'wpSummary', $summary );
 
 		list( $signatureEditor, $signatureHTML ) = $this->getSignatureEditor( $this->user );
@@ -507,7 +513,7 @@ class LqtView {
 
 		if ( $this->output->getRedirect() != '' ) {
 			   $redirectTitle = clone $talkpage->getTitle();
-			   if ( !empty($thread) ) {
+			   if ( !empty( $thread ) ) {
 				   $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
 			   }
 			   $this->output->redirect( $this->title->getLocalURL() );
@@ -537,7 +543,6 @@ class LqtView {
 			$t = $this->newReplyTitle( null, $thread );
 		} catch ( MWException $excep ) {
 			$t = $this->scratchTitle();
-			$valid_subject = false;
 		}
 
 		$article = new Article( $t );
@@ -555,11 +560,11 @@ class LqtView {
 
 		$reply_subject = $thread->subject();
 		$reply_title = $thread->title()->getPrefixedText();
-		$summary = wfMsgForContent(
+		$summary = wfMessage(
 			'lqt-reply-summary',
 			$reply_subject,
 			$reply_title
-		);
+		)->inContentLanguage()->text();
 		$wgRequest->setVal( 'wpSummary', $summary );
 
 		// Add an offset so it works if it's on the wrong page.
@@ -590,7 +595,7 @@ class LqtView {
 		$e->edit();
 
 		if ( $e->didSave ) {
-			$bump = !$this->request->getCheck('wpBumpThread') ||
+			$bump = !$this->request->getCheck( 'wpBumpThread' ) ||
 				$this->request->getBool( 'wpBumpThread' );
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
 
@@ -631,7 +636,6 @@ class LqtView {
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
 		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
 
-		$subject_expected = $thread->isTopmostThread();
 		$subject = $this->request->getVal( 'lqt_subject_field', '' );
 
 		if ( !$subject ) {
@@ -667,7 +671,7 @@ class LqtView {
 			if ( $this->request->wasPosted() ) {
 				$e->editFormPageTop .=
 					Xml::tags( 'div', array( 'class' => 'error' ),
-						wfMsgExt( 'lqt_invalid_subject', 'parse' ) );
+						wfMessage( 'lqt_invalid_subject' )->parse() );
 			}
 		}
 
@@ -699,7 +703,7 @@ class LqtView {
 		$e->edit();
 
 		if ( $e->didSave ) {
-			$bump = !$this->request->getCheck('wpBumpThread') ||
+			$bump = !$this->request->getCheck( 'wpBumpThread' ) ||
 				$this->request->getBool( 'wpBumpThread' );
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
 
@@ -769,7 +773,7 @@ class LqtView {
 		$e->edit();
 
 		if ( $e->didSave ) {
-			$bump = !$this->request->getCheck('wpBumpThread') ||
+			$bump = !$this->request->getCheck( 'wpBumpThread' ) ||
 				$this->request->getBool( 'wpBumpThread' );
 
 			LqtView::summarizeMetadataUpdates(
@@ -814,7 +818,7 @@ class LqtView {
 	public function getSubjectEditor( $db_subject, $subject ) {
 		if ( $subject === false ) $subject = $db_subject;
 
-		$subject_label = wfMsg( 'lqt_subject' );
+		$subject_label = wfMessage( 'lqt_subject' )->text();
 
 		$attr = array( 'tabindex' => 1 );
 
@@ -875,7 +879,6 @@ class LqtView {
 
 		$replyTo = $data['replyTo'];
 		$root = $data['root'];
-		$text = $data['text'];
 		$bump = !empty( $data['bump'] );
 
 		$subject = $replyTo->subject();
@@ -973,7 +976,6 @@ class LqtView {
 
 		$talkpage = $data['talkpage'];
 		$root = $data['root'];
-		$text = $data['text'];
 		$subject = $data['subject'];
 
 		$thread = Thread::create(
@@ -1052,10 +1054,10 @@ class LqtView {
 		$commands = array();
 
 		$history_url = self::permalinkUrlWithQuery( $thread, array( 'action' => 'history' ) );
-		$commands['history'] = array( 'label' => wfMsgExt(
-			'history_short', 'parseinline' ),
-			 'href' => $history_url,
-			 'enabled' => true
+		$commands['history'] = array(
+			'label' => wfMessage( 'history_short' )->parse(),
+			'href' => $history_url,
+			'enabled' => true
 		);
 
 		if ( $thread->isHistorical() ) {
@@ -1065,7 +1067,7 @@ class LqtView {
 		$editMsg = $user_can_edit ? 'edit' : 'viewsource';
 
 		$commands['edit'] = array(
-			'label' => wfMsgExt( $editMsg, 'parseinline' ),
+			'label' => wfMessage( $editMsg )->parse(),
 			'href' => $this->talkpageUrl(
 				$this->title,
 				'edit', $thread,
@@ -1080,7 +1082,7 @@ class LqtView {
 			$deleteMsg = $thread->type() == Threads::TYPE_DELETED ? 'lqt_undelete' : 'delete';
 
 			$commands['delete'] = array(
-				'label' => wfMsgExt( $deleteMsg, 'parseinline' ),
+				'label' => wfMessage( $deleteMsg )->parse(),
 				 'href' => $delete_url,
 				 'enabled' => true
 				);
@@ -1090,7 +1092,7 @@ class LqtView {
 			$splitUrl = SpecialPage::getTitleFor( 'SplitThread',
 					$thread->title()->getPrefixedText() )->getLocalURL();
 			$commands['split'] = array(
-				'label' => wfMsgExt( 'lqt-thread-split', 'parseinline' ),
+				'label' => wfMessage( 'lqt-thread-split' )->parse(),
 				'href' => $splitUrl,
 				'enabled' => true
 			);
@@ -1103,7 +1105,7 @@ class LqtView {
 			unset( $mergeParams['title'] );
 
 			$mergeUrl = $this->title->getLocalURL( wfArrayToCGI( $mergeParams ) );
-			$label = wfMsgExt( 'lqt-thread-merge', 'parseinline' );
+			$label = wfMessage( 'lqt-thread-merge' )->parse();
 
 			$commands['merge'] = array(
 				'label' => $label,
@@ -1113,11 +1115,11 @@ class LqtView {
 		}
 
 		$commands['link'] = array(
-			'label' => wfMsgExt( 'lqt_permalink', 'parseinline' ),
+			'label' => wfMessage( 'lqt_permalink' )->parse(),
 			'href' => $thread->title()->getLocalURL(),
 			'enabled' => true,
 			'showlabel' => true,
-			'tooltip' => wfMsgExt( 'lqt_permalink', 'parseinline' )
+			'tooltip' => wfMessage( 'lqt_permalink' )->parse()
 		);
 
 		wfRunHooks( 'LiquidThreadsThreadCommands', array( $thread, &$commands ) );
@@ -1134,7 +1136,7 @@ class LqtView {
 			$commands = array();
 
 			$commands['history'] = array(
-				'label' => wfMsgExt( 'history_short', 'parseinline' ),
+				'label' => wfMessage( 'history_short' )->parse(),
 				 'href' => $history_url,
 				 'enabled' => true );
 
@@ -1149,10 +1151,11 @@ class LqtView {
 			$par = $srcThread->title()->getPrefixedText();
 			$mergeTitle = SpecialPage::getTitleFor( 'MergeThread', $par );
 			$mergeUrl = $mergeTitle->getLocalURL( 'dest=' . $thread->id() );
-			$label = wfMsgExt( 'lqt-thread-merge-to', 'parseinline' );
+			$label = wfMessage( 'lqt-thread-merge-to' )->parse();
 
 			$commands['merge-to'] = array(
-				'label' => $label, 'href' => $mergeUrl,
+				'label' => $label,
+				'href' => $mergeUrl,
 				'enabled' => true,
 				'tooltip' => $label
 			);
@@ -1160,12 +1163,12 @@ class LqtView {
 
 		if ( $thread->canUserReply( $this->user ) === true ) {
 			$commands['reply'] = array(
-				'label' => wfMsgExt( 'lqt_reply', 'parseinline' ),
+				'label' => wfMessage( 'lqt_reply' )->parse(),
 				 'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
 					true /* include fragment */, $this->request ),
 				 'enabled' => true,
 				 'showlabel' => 1,
-				 'tooltip' => wfMsg( 'lqt_reply' ),
+				 'tooltip' => wfMessage( 'lqt_reply' )->parse(),
 				 'icon' => 'reply.png',
 			);
 		}
@@ -1176,7 +1179,7 @@ class LqtView {
 			$anchor = $parent->getAnchorName();
 
 			$commands['parent'] = array(
-				'label' => wfMsgExt( 'lqt-parent', 'parseinline' ),
+				'label' => wfMessage( 'lqt-parent' )->parse(),
 				'href' => '#' . $anchor,
 				'enabled' => true,
 				'showlabel' => 1,
@@ -1193,7 +1196,7 @@ class LqtView {
 		$commands = array();
 
 		$commands['history'] = array(
-			'label' => wfMsg( 'history_short' ),
+			'label' => wfMessage( 'history_short' )->parse(),
 			'href' => self::permalinkUrl( $thread, 'thread_history' ),
 			'enabled' => true
 		);
@@ -1201,7 +1204,7 @@ class LqtView {
 		if ( $this->user->isAllowed( 'move' ) ) {
 			$move_href = SpecialPage::getTitleFor( 'MoveThread', $thread->title()->getPrefixedText() )->getLocalURL();
 			$commands['move'] = array(
-				'label' => wfMsg( 'lqt-movethread' ),
+				'label' => wfMessage( 'lqt-movethread' )->parse(),
 				'href' => $move_href,
 				'enabled' => true
 			);
@@ -1212,9 +1215,9 @@ class LqtView {
 
 			// Check if it's already protected
 			if ( !$thread->title()->isProtected() ) {
-				$label = wfMsg( 'protect' );
+				$label = wfMessage( 'protect' )->parse();
 			} else {
-				$label = wfMsg( 'unprotect' );
+				$label = wfMessage( 'unprotect' )->parse();
 			}
 
 			$commands['protect'] = array(
@@ -1226,13 +1229,13 @@ class LqtView {
 
 		if ( !$this->user->isAnon() && !$thread->title()->userIsWatching() ) {
 			$commands['watch'] = array(
-				'label' => wfMsg( 'watch' ),
+				'label' => wfMessage( 'watch' )->parse(),
 				'href' => self::permalinkUrlWithQuery( $thread, 'action=watch' ),
 				'enabled' => true
 			);
 		} elseif ( !$this->user->isAnon() ) {
 			$commands['unwatch'] = array(
-				'label' => wfMsg( 'unwatch' ),
+				'label' => wfMessage( 'unwatch' )->parse(),
 				'href' => self::permalinkUrlWithQuery( $thread, 'action=unwatch' ),
 				'enabled' => true
 			);
@@ -1240,7 +1243,7 @@ class LqtView {
 
 		$summarizeUrl = self::permalinkUrl( $thread, 'summarize', $thread->id() );
 		$commands['summarize'] = array(
-			'label' => wfMsgExt( 'lqt_summarize_link', 'parseinline' ),
+			'label' => wfMessage( 'lqt_summarize_link' )->parse(),
 			'href' => $summarizeUrl,
 			'enabled' => true,
 		);
@@ -1250,7 +1253,7 @@ class LqtView {
 		return $commands;
 	}
 
-	/* @return False if the article and revision do not exist. The HTML of the page to
+	/* @return false if the article and revision do not exist. The HTML of the page to
 	 * display if it exists. Note that this impacts the state out OutputPage by adding
 	 * all the other relevant parts of the parser output. If you don't want this, call
 	 * $post->getParserOutput. */
@@ -1289,9 +1292,11 @@ class LqtView {
 		$menuHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-command-list' ),
 					$this->listItemsForCommands( $commands ) );
 
-		$triggerText =	Xml::tags( 'a', array( 'class' => 'lqt-thread-actions-icon',
-							'href' => '#' ),
-					wfMsgHTML( 'lqt-menu-trigger' ) );
+		$triggerText = Xml::tags( 'a', array(
+				'class' => 'lqt-thread-actions-icon',
+				'href' => '#'
+			),
+			wfMessage( 'lqt-menu-trigger' )->escaped() );
 		$dropDownTrigger = Xml::tags( 'div',
 				array( 'class' => 'lqt-thread-actions-trigger ' .
 					'lqt-command-icon', 'style' => 'display: none;' ),
@@ -1482,13 +1487,12 @@ class LqtView {
 		if ( isset( $ebLookup[$editedFlag] ) ) {
 			$editedBy = $ebLookup[$editedFlag];
 			// Used messages: lqt-thread-edited-author, lqt-thread-edited-others
-			$editedNotice = wfMsgExt( 'lqt-thread-edited-' . $editedBy,
-					array( 'parseinline' ),
-					array( $lastEdit, $editorCount, $lastEditTime,
-						$lastEditDate ) );
+			$editedNotice = wfMessage( "lqt-thread-edited-$editedBy" )
+				->params( $lastEdit )->numParams( $editorCount )
+				->params( $lastEditTime, $lastEditDate )->parse();
 			$editedNotice = str_replace( '$3', $editors, $editedNotice );
 			$infoElements[] = Xml::tags( 'div', array( 'class' =>
-						'lqt-thread-toolbar-edited-' . $editedBy ),
+						"lqt-thread-toolbar-edited-$editedBy" ),
 						$editedNotice );
 		}
 
@@ -1586,14 +1590,10 @@ class LqtView {
 			$linker->userToolLinks( $author->getID(), $author->getName() );
 		$newTalkpage = is_object( $t_thread ) ? $t_thread->getTitle() : '';
 
-		$html = wfMsgExt( 'lqt_move_placeholder',
-			array( 'parseinline', 'replaceafter' ),
-			$linker->link( $target ),
-			$sig,
-			$wgLang->date( $thread->modified() ),
-			$wgLang->time( $thread->modified() ),
-			$linker->link( $newTalkpage )
-		);
+		$html = wfMessage( 'lqt_move_placeholder' )
+			->rawParams( $linker->link( $target ), $sig )
+			->params( $wgLang->date( $thread->modified() ), $wgLang->time( $thread->modified() ) )
+			->rawParams( $linker->link( $newTalkpage ) )->parse();
 
 		$this->output->addHTML( $html );
 	}
@@ -1604,7 +1604,7 @@ class LqtView {
 			$this->output->addWikiMsg( 'lqt_thread_deleted_for_sysops' );
 			return true;
 		} else {
-			$msg = wfMsgExt( 'lqt_thread_deleted', 'parseinline' );
+			$msg = wfMessage( 'lqt_thread_deleted' )->parse();
 			$msg = Xml::tags( 'em', null, $msg );
 			$msg = Xml::tags( 'p', null, $msg );
 
@@ -1658,7 +1658,6 @@ class LqtView {
 		foreach ( $threads as $walk_thread ) {
 			do {
 				if ( !is_object( $walk_thread ) ) {
-					$old_walk_thread = $walk_thread;
 					$walk_thread = Threads::withId( $walk_thread );
 				}
 
@@ -1677,7 +1676,7 @@ class LqtView {
 	function getShowMore( $thread, $st, $i ) {
 		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
-		$linkText = wfMsgExt( 'lqt-thread-show-more', 'parseinline' );
+		$linkText = wfMessage( 'lqt-thread-show-more' )->parse();
 		$linkTitle = clone $thread->topmostThread()->title();
 		$linkTitle->setFragment( '#' . $st->getAnchorName() );
 
@@ -1695,7 +1694,7 @@ class LqtView {
 		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
 		$replyCount = $wgLang->formatNum( $thread->replyCount() );
-		$linkText = wfMsgExt( 'lqt-thread-show-replies', 'parseinline', $replyCount );
+		$linkText = wfMessage( 'lqt-thread-show-replies' )->numParams( $replyCount )->parse();
 		$linkTitle = clone $thread->topmostThread()->title();
 		$linkTitle->setFragment( '#' . $thread->getAnchorName() );
 
@@ -1890,7 +1889,7 @@ class LqtView {
 			$class .= ' lqt-thread-no-subthreads';
 		}
 
-		if ( ! $thread->title()->userCan('edit') ) {
+		if ( ! $thread->title()->userCan( 'edit' ) ) {
 			$class .= ' lqt-thread-uneditable';
 		}
 
@@ -2074,12 +2073,12 @@ class LqtView {
 		if ( !$t->summary()->getContent() ) {
 			return; // Blank summary
 		}
-		
+
 		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
-		$label = wfMsgExt( 'lqt_summary_label', 'parseinline' );
-		$edit_text = wfMsgExt( 'edit', 'parseinline' );
-		$link_text = wfMsg( 'lqt_permalink', 'parseinline' );
+		$label = wfMessage( 'lqt_summary_label' )->parse();
+		$edit_text = wfMessage( 'edit' )->parse();
+		$link_text = wfMessage( 'lqt_permalink' )->parse();
 
 		$html = '';
 

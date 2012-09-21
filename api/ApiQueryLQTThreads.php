@@ -111,7 +111,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 
 			// Render if requested
 			if ( $params['render'] ) {
-				self::renderThread( $row, $params, $entry );
+				$this->renderThread( $row, $params, $entry );
 			}
 
 			$ids[$row->thread_id] = $row->thread_id;
@@ -132,7 +132,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			$res = $dbr->select( 'thread_reaction', '*', array( 'tr_thread' => $ids ),
 						__METHOD__ );
 
-			foreach( $res as $row ) {
+			foreach ( $res as $row ) {
 				$info = array(
 				     'type' => $row->tr_type,
 				     'user-id' => $row->tr_user,
@@ -148,11 +148,11 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'thread' );
 	}
 
-	static function renderThread( $row, $params, &$entry ) {
+	protected function renderThread( $row, $params, &$entry ) {
 		// Set up OutputPage
-		global $wgOut, $wgUser, $wgRequest;
-		$oldOutputText = $wgOut->getHTML();
-		$wgOut->clearHTML();
+		$out = $this->getOutput();
+		$oldOutputText = $out->getHTML();
+		$out->clearHTML();
 
 		// Setup
 		$thread = Thread::newFromRow( $row );
@@ -163,7 +163,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 
 		$title = $article->getTitle();
-		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );
+		$view = new LqtView( $out, $article, $title, $this->getUser(), $this->getRequest() );
 
 		// Parameters
 		$view->threadNestingLevel = $params['renderlevel'];
@@ -181,9 +181,9 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 
 		$view->showThread( $thread, $renderpos, $rendercount, $options );
 
-		$result = $wgOut->getHTML();
-		$wgOut->clearHTML();
-		$wgOut->addHTML( $oldOutputText );
+		$result = $out->getHTML();
+		$out->clearHTML();
+		$out->addHTML( $oldOutputText );
 
 		$entry['content'] = $result;
 	}

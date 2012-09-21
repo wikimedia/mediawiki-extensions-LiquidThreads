@@ -11,7 +11,6 @@ $specialPageAliases = array();
 /** English (English) */
 $specialPageAliases['en'] = array(
 	'DeleteThread' => array( 'DeleteThread' ),
-	'HotTopics' => array( 'HotTopics' ),
 	'MoveThread' => array( 'MoveThread' ),
 	'NewMessages' => array( 'NewMessages' ),
 	'SplitThread' => array( 'SplitThread' ),

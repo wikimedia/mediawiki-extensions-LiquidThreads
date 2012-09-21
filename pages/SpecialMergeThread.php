@@ -1,6 +1,6 @@
 <?php
 
-// TODO access control
+// @todo FIXME: access control
 class SpecialMergeThread extends ThreadActionPage {
 	function getFormFields() {
 		$splitForm = array(
@@ -28,7 +28,6 @@ class SpecialMergeThread extends ThreadActionPage {
 	protected function getRightRequirement() { return 'lqt-merge'; }
 
 	public function checkParameters( $par ) {
-		global $wgOut;
 		if ( !parent::checkParameters( $par ) ) {
 			return false;
 		}
@@ -36,14 +35,14 @@ class SpecialMergeThread extends ThreadActionPage {
 		$dest = $this->request->getVal( 'dest' );
 
 		if ( !$dest ) {
-			$wgOut->addWikiMsg( 'lqt_threadrequired' );
+			$this->getOutput()->addWikiMsg( 'lqt_threadrequired' );
 			return false;
 		}
 
 		$thread = Threads::withId( $dest );
 
 		if ( !$thread ) {
-			$wgOut->addWikiMsg( 'lqt_nosuchthread' );
+			$this->getOutput()->addWikiMsg( 'lqt_nosuchthread' );
 			return false;
 		}
 
@@ -53,7 +52,6 @@ class SpecialMergeThread extends ThreadActionPage {
 	}
 
 	function formatThreadField( $field, $threadid ) {
-
 		if ( !is_object( $threadid ) ) {
 			$t = Threads::withId( $threadid );
 		} else {
@@ -71,7 +69,7 @@ class SpecialMergeThread extends ThreadActionPage {
 	* @see SpecialPage::getDescription
 	*/
 	function getDescription() {
-		return wfMsg( 'lqt_merge_thread' );
+		return $this->msg( 'lqt_merge_thread' )->text();
 	}
 
 	function trySubmit( $data ) {
@@ -85,9 +83,8 @@ class SpecialMergeThread extends ThreadActionPage {
 		$srcLink = LqtView::linkInContext( $srcThread );
 		$dstLink = LqtView::linkInContext( $dstThread );
 
-		global $wgOut;
-		$wgOut->addHTML( wfMsgExt( 'lqt-merge-success', array( 'parseinline', 'replaceafter' ),
-							 $srcLink, $dstLink ) );
+		$this->getOutput()->addHTML( $this->msg( 'lqt-merge-success' )
+			->rawParams( $srcLink, $dstLink )->parse() );
 
 		return true;
 	}
@@ -97,6 +94,6 @@ class SpecialMergeThread extends ThreadActionPage {
 	}
 
 	function getSubmitText() {
-		return wfMsg( 'lqt-merge-submit' );
+		return $this->msg( 'lqt-merge-submit' )->text();
 	}
 }
