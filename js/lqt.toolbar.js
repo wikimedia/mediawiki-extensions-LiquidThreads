@@ -951,7 +951,7 @@ liquidThreads.toolbar = {
 					// All of these are potentially valid titles, and the latter two
 					// categories match about 6300 titles in enwiki's ns0. Out of 6.9M
 					// titles, that's 0.09%
-					if ( typeof arguments.callee.regex == 'undefined' ) {
+					if ( typeof arguments.callee.regex === 'undefined' ) {
 						// Cache the regex
 						arguments.callee.regex =
 							new RegExp( "^(" + mw.config.get( 'wgUrlProtocols' ) + "|www\\.)", 'i');
@@ -967,7 +967,7 @@ liquidThreads.toolbar = {
 						$j( '#wikieditor-toolbar-link-int-target-status-' + status ).show();
 						$j( '#wikieditor-toolbar-link-int-target' ).parent().addClass( 'status-' + status );
 					}
-					if ( status == 'invalid' ) {
+					if ( status === 'invalid' ) {
 						$j( '.ui-dialog:visible .ui-dialog-buttonpane button:first' )
 							.attr( 'disabled', true )
 							.addClass( 'disabled' );
@@ -981,34 +981,41 @@ liquidThreads.toolbar = {
 				// accepts parameter internal for bypassing external link detection
 				function updateExistence( internal ) {
 					// ensure the internal parameter is a boolean
-					if ( internal != true ) internal = false;
+					if ( internal !== true ) {
+						internal = false;
+					}
+
 					// Abort previous request
 					var request = $j( '#wikieditor-toolbar-link-int-target-status' ).data( 'request' );
 					if ( request ) {
 						request.abort();
 					}
-					var target = $j( '#wikieditor-toolbar-link-int-target' ).val();
-					var cache = $j( '#wikieditor-toolbar-link-int-target-status' ).data( 'existencecache' );
+					var target = $j( '#wikieditor-toolbar-link-int-target' ).val(),
+						cache = $j( '#wikieditor-toolbar-link-int-target-status' ).data( 'existencecache' );
+
 					if ( cache[target] ) {
 						updateWidget( cache[target] );
 						return;
 					}
-					if ( target.replace( /^\s+$/,'' ) == '' ) {
+
+					if ( target.replace( /^\s+$/,'' ) === '' ) {
 						// Hide the widget when the textbox is empty
 						updateWidget( false );
 						return;
 					}
+
 					// If the forced internal paremter was not true, check if the target is an external link
 					if ( !internal && isExternalLink( target ) ) {
 						updateWidget( 'external' );
 						return;
 					}
-					if ( target.indexOf( '|' ) != -1 ) {
+					if ( target.indexOf( '|' ) !== -1 ) {
 						// Title contains | , which means it's invalid
 						// but confuses the API. Show invalid and bypass API
 						updateWidget( 'invalid' );
 						return;
 					}
+
 					// Show loading spinner while waiting for the API to respond
 					updateWidget( 'loading' );
 					// Call the API to check page status, saving the request object so it can be aborted if necessary
@@ -1029,18 +1036,22 @@ liquidThreads.toolbar = {
 									return;
 								}
 								var status;
-								if ( typeof data.query == 'undefined' ) {
+								if ( typeof data.query === 'undefined' ) {
 									status = 'invalid';
 								} else {
 									var page = data.query.pages[data.query.pageids[0]];
 									status = 'exists';
-									if ( typeof page.missing != 'undefined' )
+									if ( typeof page.missing !== 'undefined' ) {
 										status = 'notexists';
-									else if ( typeof page.invalid != 'undefined' )
+									} else if ( typeof page.invalid !== 'undefined' ) {
 										status = 'invalid';
+									}
 								}
 								// Cache the status of the link target if the force internal parameter was not passed
-								if ( !internal ) cache[target] = status;
+								if ( !internal ) {
+									cache[target] = status;
+								}
+
 								updateWidget( status );
 							}
 						} )
@@ -1055,8 +1066,9 @@ liquidThreads.toolbar = {
 						}
 						updateWidget( 'external' );
 					}
-					if( $j( '#wikieditor-toolbar-link-type-int' ).is( ':checked' ) )
+					if( $j( '#wikieditor-toolbar-link-type-int' ).is( ':checked' ) ) {
 						updateExistence( true );
+					}
 				});
 				// Set labels of tabs based on rel values
 				$j(this).find( '[rel]' ).each( function() {
@@ -1072,14 +1084,15 @@ liquidThreads.toolbar = {
 				$j( '#wikieditor-toolbar-link-int-target, #wikieditor-toolbar-link-int-text' )
 					.each( function() {
 						var tooltip = mediaWiki.msg( $j( this ).attr( 'id' ) + '-tooltip' );
-						if ( $j( this ).val() == '' )
+						if ( $j( this ).val() === '' ) {
 							$j( this )
 								.addClass( 'wikieditor-toolbar-dialog-hint' )
 								.val( $j( this ).data( 'tooltip' ) )
 								.data( 'tooltip-mode', true );
+						}
 					} )
 					.focus( function() {
-						if( $j( this ).val() == $j( this ).data( 'tooltip' ) ) {
+						if( $j( this ).val() === $j( this ).data( 'tooltip' ) ) {
 							$j( this )
 								.val( '' )
 								.removeClass( 'wikieditor-toolbar-dialog-hint' )
@@ -1087,14 +1100,14 @@ liquidThreads.toolbar = {
 						}
 					})
 					.bind( 'change', function() {
-						if ( $j( this ).val() != $j( this ).data( 'tooltip' ) ) {
+						if ( $j( this ).val() !== $j( this ).data( 'tooltip' ) ) {
 							$j( this )
 								.removeClass( 'wikieditor-toolbar-dialog-hint' )
 								.data( 'tooltip-mode', false );
 						}
 					})
 					.bind( 'blur', function() {
-						if ( $j( this ).val() == '' ) {
+						if ( $j( this ).val() === '' ) {
 							$j( this )
 								.addClass( 'wikieditor-toolbar-dialog-hint' )
 								.val( $j( this ).data( 'tooltip' ) )
@@ -1117,35 +1130,40 @@ liquidThreads.toolbar = {
 							$j( '#wikieditor-toolbar-link-type-int' ).attr( 'checked', 'checked' );
 							updateExistence();
 						}
-						if ( $j( '#wikieditor-toolbar-link-int-text' ).data( 'untouched' ) )
-							if ( $j( '#wikieditor-toolbar-link-int-target' ).val() ==
+						if ( $j( '#wikieditor-toolbar-link-int-text' ).data( 'untouched' ) ) {
+							if ( $j( '#wikieditor-toolbar-link-int-target' ).val() ===
 								$j( '#wikieditor-toolbar-link-int-target' ).data( 'tooltip' ) ) {
-									$j( '#wikieditor-toolbar-link-int-text' )
-										.addClass( 'wikieditor-toolbar-dialog-hint' )
-										.val( $j( '#wikieditor-toolbar-link-int-text' ).data( 'tooltip' ) )
-										.change();
-								} else {
-									$j( '#wikieditor-toolbar-link-int-text' )
-										.val( $j( '#wikieditor-toolbar-link-int-target' ).val() )
-										.change();
-								}
+								$j( '#wikieditor-toolbar-link-int-text' )
+									.addClass( 'wikieditor-toolbar-dialog-hint' )
+									.val( $j( '#wikieditor-toolbar-link-int-text' ).data( 'tooltip' ) )
+									.change();
+							} else {
+								$j( '#wikieditor-toolbar-link-int-text' )
+									.val( $j( '#wikieditor-toolbar-link-int-target' ).val() )
+									.change();
+							}
+						}
 					}, 0 );
 				});
 				$j( '#wikieditor-toolbar-link-int-text' ).bind( 'change keydown paste cut', function() {
-					var oldVal = $j(this).val();
-					var that = this;
+					var oldVal = $j(this).val(),
+						that = this;
+
 					setTimeout( function() {
-						if ( $j(that).val() != oldVal )
+						if ( $j(that).val() !== oldVal ) {
 							$j(that).data( 'untouched', false );
+						}
 					}, 0 );
 				});
+
 				// Add images to the page existence widget, which will be shown mutually exclusively to communicate if the
 				// page exists, does not exist or the title is invalid (like if it contains a | character)
-				var existsMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-exists' );
-				var notexistsMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-notexists' );
-				var invalidMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-invalid' );
-				var externalMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-external' );
-				var loadingMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-loading' );
+				var existsMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-exists' ),
+					notexistsMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-notexists' ),
+					invalidMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-invalid' ),
+					externalMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-external' ),
+					loadingMsg = mediaWiki.msg( 'wikieditor-toolbar-tool-link-int-target-status-loading' );
+
 				$j( '#wikieditor-toolbar-link-int-target-status' )
 					.append( $j( '<div />' )
 						.attr( 'id', 'wikieditor-toolbar-link-int-target-status-exists' )
@@ -1177,7 +1195,7 @@ liquidThreads.toolbar = {
 				$j( '#wikieditor-toolbar-link-int-target' )
 					.bind( 'keyup paste cut', function() {
 						// Cancel the running timer if applicable
-						if ( typeof $j(this).data( 'timerID' ) != 'undefined' ) {
+						if ( typeof $j(this).data( 'timerID' ) !== 'undefined' ) {
 							clearTimeout( $j(this).data( 'timerID' ) );
 						}
 						// Delay fetch for a while
@@ -1187,7 +1205,7 @@ liquidThreads.toolbar = {
 					} )
 					.change( function() {
 						// Cancel the running timer if applicable
-						if ( typeof $j(this).data( 'timerID' ) != 'undefined' ) {
+						if ( typeof $j(this).data( 'timerID' ) !== 'undefined' ) {
 							clearTimeout( $j(this).data( 'timerID' ) );
 						}
 						// Fetch right now
@@ -1197,16 +1215,16 @@ liquidThreads.toolbar = {
 				// Title suggestions
 				$j( '#wikieditor-toolbar-link-int-target' ).data( 'suggcache', {} ).suggestions( {
 					fetch: function( query ) {
-						var that = this;
-						var title = $j(this).val();
+						var that = this,
+							title = $j(this).val();
 
-						if ( isExternalLink( title ) || title.indexOf( '|' ) != -1  || title == '') {
+						if ( isExternalLink( title ) || title.indexOf( '|' ) !== -1  || title === '') {
 							$j(this).suggestions( 'suggestions', [] );
 							return;
 						}
 
 						var cache = $j(this).data( 'suggcache' );
-						if ( typeof cache[title] != 'undefined' ) {
+						if ( typeof cache[title] !== 'undefined' ) {
 							$j(this).suggestions( 'suggestions', cache[title] );
 							return;
 						}
@@ -1230,8 +1248,9 @@ liquidThreads.toolbar = {
 					},
 					cancel: function() {
 						var request = $j(this).data( 'request' );
-						if ( request )
+						if ( request ) {
 							request.abort();
+						}
 					}
 				});
 			},
@@ -1253,24 +1272,31 @@ liquidThreads.toolbar = {
 							// FIXME: Should this escape [ too? Seems to work without that
 							return s.replace( /(]+)/g, '<nowiki>$1</nowiki>' );
 						}
-						var insertText = '';
-						var whitespace = $j( '#wikieditor-toolbar-link-dialog' ).data( 'whitespace' );
-						var target = $j( '#wikieditor-toolbar-link-int-target' ).val();
-						var text = $j( '#wikieditor-toolbar-link-int-text' ).val();
+						var insertText = '',
+							whitespace = $j( '#wikieditor-toolbar-link-dialog' ).data( 'whitespace' ),
+							target = $j( '#wikieditor-toolbar-link-int-target' ).val(),
+							text = $j( '#wikieditor-toolbar-link-int-text' ).val();
+
 						// check if the tooltips were passed as target or text
-						if ( $j( '#wikieditor-toolbar-link-int-target' ).data( 'tooltip-mode' ) )
+						if ( $j( '#wikieditor-toolbar-link-int-target' ).data( 'tooltip-mode' ) ) {
 							target = "";
-						if ( $j( '#wikieditor-toolbar-link-int-text' ).data( 'tooltip-mode' ) )
+						}
+
+						if ( $j( '#wikieditor-toolbar-link-int-text' ).data( 'tooltip-mode' ) ) {
 							text = "";
-						if ( target == '' ) {
+						}
+
+						if ( target === '' ) {
 							alert( mediaWiki.msg( 'wikieditor-toolbar-tool-link-empty' ) );
 							return;
 						}
-						if ( $j.trim( text ) == '' ) {
+
+						if ( $j.trim( text ) === '' ) {
 							// [[Foo| ]] creates an invisible link
 							// Instead, generate [[Foo|]]
 							text = '';
 						}
+
 						if ( $j( '#wikieditor-toolbar-link-type-int' ).is( ':checked' ) ) {
 							// FIXME: Exactly how fragile is this?
 							if ( $j( '#wikieditor-toolbar-link-int-target-status-invalid' ).is( ':visible' ) ) {
@@ -1279,20 +1305,23 @@ liquidThreads.toolbar = {
 								return;
 							}
 
-							if ( target == text || !text.length )
+							if ( target === text || !text.length ) {
 								insertText = '[[' + target + ']]';
-							else
+							} else {
 								insertText = '[[' + target + '|' + escapeInternalText( text ) + ']]';
+							}
 						} else {
 							// Prepend http:// if there is no protocol
-							if ( !target.match( /^[a-z]+:\/\/./ ) )
+							if ( !target.match( /^[a-z]+:\/\/./ ) ) {
 								target = 'http://' + target;
+							}
 
 							// Detect if this is really an internal link in disguise
 							var match = target.match( $j(this).data( 'articlePathRegex' ) );
 							if ( match && !$j(this).data( 'ignoreLooksInternal' ) ) {
-								var buttons = { };
-								var that = this;
+								var buttons = { },
+									that = this;
+
 								buttons[ mediaWiki.msg( 'wikieditor-toolbar-tool-link-lookslikeinternal-int' ) ] = function() {
 									$j( '#wikieditor-toolbar-link-int-target' ).val( match[1] ).change();
 									$j(this).dialog( 'close' );
@@ -1310,18 +1339,21 @@ liquidThreads.toolbar = {
 								return;
 							}
 
-							var escTarget = escapeExternalTarget( target );
-							var escText = escapeExternalText( text );
+							var escTarget = escapeExternalTarget( target ),
+								escText = escapeExternalText( text );
 
-							if ( escTarget == escText )
+							if ( escTarget === escText ) {
 								insertText = escTarget;
-							else if ( text == '' )
+							} else if ( text === '' ) {
 								insertText = '[' + escTarget + ']';
-							else
+							} else {
 								insertText = '[' + escTarget + ' ' + escText + ']';
+							}
 						}
 						// Preserve whitespace in selection when replacing
-						if ( whitespace ) insertText = whitespace[0] + insertText + whitespace[1];
+						if ( whitespace ) {
+							insertText = whitespace[0] + insertText + whitespace[1];
+						}
 						$j(this).dialog( 'close' );
 						$j.wikiEditor.modules.toolbar.fn.doAction( $j(this).data( 'context' ), {
 							type: 'replace',
@@ -1347,17 +1379,21 @@ liquidThreads.toolbar = {
 						'^' + $.escapeRE( mw.config.get( 'wgServer' ) + mw.config.get( 'wgArticlePath' ) )
 							.replace( /\\\$1/g, '(.*)' ) + '$'
 					) );
+
 					// Pre-fill the text fields based on the current selection
 					var context = $j(this).data( 'context' );
+
 					// Restore and immediately save selection state, needed for inserting stuff later
 					context.fn.restoreSelection();
 					context.fn.saveSelection();
+
 					var selection = context.$textarea.textSelection( 'getSelection' );
 					$j( '#wikieditor-toolbar-link-int-target' ).focus();
+
 					// Trigger the change event, so the link status indicator is up to date
 					$j( '#wikieditor-toolbar-link-int-target' ).change();
 					$j( '#wikieditor-toolbar-link-dialog' ).data( 'whitespace', [ '', '' ] );
-					if ( selection != '' ) {
+					if ( selection !== '' ) {
 						var target, text, type;
 						var matches;
 						if ( ( matches = selection.match( /^(\s*)\[\[([^\]\|]+)(\|([^\]\|]*))?\]\](\s*)$/ ) ) ) {
@@ -1389,29 +1425,35 @@ liquidThreads.toolbar = {
 						}
 
 						// Change the value by calling val() doesn't trigger the change event, so let's do that ourselves
-						if ( typeof text != 'undefined' )
+						if ( typeof text !== 'undefined' ) {
 							$j( '#wikieditor-toolbar-link-int-text' ).val( text ).change();
-						if ( typeof target != 'undefined' )
+						}
+
+						if ( typeof target !== 'undefined' ) {
 							$j( '#wikieditor-toolbar-link-int-target' ).val( target ).change();
-						if ( typeof type != 'undefined' )
+						}
+
+						if ( typeof type !== 'undefined' ) {
 							$j( '#wikieditor-toolbar-link-' + type ).attr( 'checked', 'checked' );
+						}
 					}
 					$j( '#wikieditor-toolbar-link-int-text' ).data( 'untouched',
-						$j( '#wikieditor-toolbar-link-int-text' ).val() ==
+						$j( '#wikieditor-toolbar-link-int-text' ).val() ===
 								$j( '#wikieditor-toolbar-link-int-target' ).val() ||
 							$j( '#wikieditor-toolbar-link-int-text' ).hasClass( 'wikieditor-toolbar-dialog-hint' )
 					);
 					$j( '#wikieditor-toolbar-link-int-target' ).suggestions();
 
 					//don't overwrite user's text
-					if( selection != '' ){
+					if( selection !== '' ){
 						$j( '#wikieditor-toolbar-link-int-text' ).data( 'untouched', false );
 					}
 
 					$j( '#wikieditor-toolbar-link-int-text, #wikiedit-toolbar-link-int-target' )
 						.each( function() {
-							if ( $j(this).val() == '' )
+							if ( $j(this).val() === '' ) {
 								$j(this).parent().find( 'label' ).show();
+							}
 						});
 
 					if ( !( $j(this).data( 'dialogkeypressset' ) ) ) {
@@ -1419,7 +1461,7 @@ liquidThreads.toolbar = {
 						// Execute the action associated with the first button
 						// when the user presses Enter
 						$j(this).closest( '.ui-dialog' ).keypress( function( e ) {
-							if ( ( e.keyCode || e.which ) == 13 ) {
+							if ( ( e.keyCode || e.which ) === 13 ) {
 								var button = $j(this).data( 'dialogaction' ) || $j(this).find( 'button:first' );
 								button.click();
 								e.preventDefault();
@@ -1500,7 +1542,7 @@ liquidThreads.toolbar = {
 					$j( '#wikieditor-toolbar-reference-dialog' )
 						.data( 'whitespace', [ '', '' ] )
 						.data( 'attributes', '' );
-					if ( selection != '' ) {
+					if ( selection !== '' ) {
 						var matches, text;
 						if ( ( matches = selection.match( /^(\s*)<ref([^\>]*)>([^\<]*)<\/ref\>(\s*)$/ ) ) ) {
 							text = matches[3];
@@ -1517,7 +1559,7 @@ liquidThreads.toolbar = {
 						// Execute the action associated with the first button
 						// when the user presses Enter
 						$j( this ).closest( '.ui-dialog' ).keypress( function( e ) {
-							if ( ( e.keyCode || e.which ) == 13 ) {
+							if ( ( e.keyCode || e.which ) === 13 ) {
 								var button = $j( this ).data( 'dialogaction' ) || $j( this ).find( 'button:first' );
 								button.click();
 								e.preventDefault();
@@ -1621,7 +1663,7 @@ liquidThreads.toolbar = {
 					.addClass( 'sortable' )
 					.insertAfter( $j( '#wikieditor-toolbar-table-preview' ) )
 					.hide();
-				if ( typeof jQuery.fn.tablesorter == 'function' )
+				if ( typeof jQuery.fn.tablesorter === 'function' )
 						$j( '#wikieditor-toolbar-table-preview2' ).tablesorter();
 				$j( '#wikieditor-toolbar-table-sortable' ).click( function() {
 					// Swap the currently shown one clone with the other one
@@ -1642,7 +1684,7 @@ liquidThreads.toolbar = {
 					var hiddenHTML = $j( '.wikieditor-toolbar-table-preview-hidden' ).html();
 					$j( '.wikieditor-toolbar-table-preview-header' ).html( hiddenHTML );
 					$j( '.wikieditor-toolbar-table-preview-hidden' ).html( headerHTML );
-					if ( typeof jQuery.fn.tablesorter == 'function' ) {
+					if ( typeof jQuery.fn.tablesorter === 'function' ) {
 							$( '#wikieditor-toolbar-table-preview, #wikieditor-toolbar-table-preview2' )
 								.filter( '.sortable' )
 								.tablesorter();
@@ -1661,11 +1703,11 @@ liquidThreads.toolbar = {
 						var rows = parseInt( rowsVal, 10 );
 						var cols = parseInt( colsVal, 10 );
 						var header = $j( '#wikieditor-toolbar-table-dimensions-header' ).is( ':checked' ) ? 1 : 0;
-						if ( isNaN( rows ) || isNaN( cols ) || rows != rowsVal  || cols != colsVal ) {
+						if ( isNaN( rows ) || isNaN( cols ) || rows !== rowsVal  || cols !== colsVal ) {
 							alert( mediaWiki.msg( 'wikieditor-toolbar-tool-table-invalidnumber' ) );
 							return;
 						}
-						if ( rows + header == 0 || cols == 0 ) {
+						if ( rows + header === 0 || cols === 0 ) {
 							alert( mediaWiki.msg( 'wikieditor-toolbar-tool-table-zero' ) );
 							return;
 						}
@@ -1679,7 +1721,7 @@ liquidThreads.toolbar = {
 						for ( var r = 0; r < rows + header; r++ ) {
 							table += "|-\n";
 							for ( var c = 0; c < cols; c++ ) {
-								var isHeader = ( header && r == 0 );
+								var isHeader = ( header && r === 0 );
 								var delim = isHeader ? '!' : '|';
 								if ( c > 0 ) {
 									delim += delim;
@@ -1691,10 +1733,14 @@ liquidThreads.toolbar = {
 							table = table.substr( 0, table.length - 1 ) + "\n";
 						}
 						var classes = [];
-						if ( $j( '#wikieditor-toolbar-table-wikitable' ).is( ':checked' ) )
+						if ( $j( '#wikieditor-toolbar-table-wikitable' ).is( ':checked' ) ) {
 							classes.push( 'wikitable' );
-						if ( $j( '#wikieditor-toolbar-table-sortable' ).is( ':checked' ) )
+						}
+
+						if ( $j( '#wikieditor-toolbar-table-sortable' ).is( ':checked' ) ) {
 							classes.push( 'sortable' );
+						}
+
 						var classStr = classes.length > 0 ? ' class="' + classes.join( ' ' ) + '"' : '';
 						$j(this).dialog( 'close' );
 						$j.wikiEditor.modules.toolbar.fn.doAction(
@@ -1716,12 +1762,17 @@ liquidThreads.toolbar = {
 							$j( '#wikieditor-toolbar-table-dimensions-columns' ).val( 3 );
 						// Simulate clicks instead of setting values, so the according
 						// actions are performed
-							if ( !$j( '#wikieditor-toolbar-table-dimensions-header' ).is( ':checked' ) )
+							if ( !$j( '#wikieditor-toolbar-table-dimensions-header' ).is( ':checked' ) ) {
 								$j( '#wikieditor-toolbar-table-dimensions-header' ).click();
-							if ( !$j( '#wikieditor-toolbar-table-wikitable' ).is( ':checked' ) )
+							}
+
+							if ( !$j( '#wikieditor-toolbar-table-wikitable' ).is( ':checked' ) ) {
 								$j( '#wikieditor-toolbar-table-wikitable' ).click();
-							if ( $j( '#wikieditor-toolbar-table-sortable' ).is( ':checked' ) )
+							}
+
+							if ( $j( '#wikieditor-toolbar-table-sortable' ).is( ':checked' ) ) {
 								$j( '#wikieditor-toolbar-table-sortable' ).click();
+							}
 					},
 					'wikieditor-toolbar-tool-table-cancel': function() {
 						$j(this).dialog( 'close' );
@@ -1734,7 +1785,7 @@ liquidThreads.toolbar = {
 						// Execute the action associated with the first button
 						// when the user presses Enter
 						$j(this).closest( '.ui-dialog' ).keypress( function( e ) {
-							if ( ( e.keyCode || e.which ) == 13 ) {
+							if ( ( e.keyCode || e.which ) === 13 ) {
 								var button = $j(this).data( 'dialogaction' ) || $j(this).find( 'button:first' );
 								button.click();
 								e.preventDefault();
@@ -1808,7 +1859,7 @@ liquidThreads.toolbar = {
 				$j(this).data( 'replaceCallback', function( mode ) {
 					$j( '#wikieditor-toolbar-replace-nomatch, #wikieditor-toolbar-replace-success, #wikieditor-toolbar-replace-emptysearch, #wikieditor-toolbar-replace-invalidregex' ).hide();
 					var searchStr = $j( '#wikieditor-toolbar-replace-search' ).val();
-					if ( searchStr == '' ) {
+					if ( searchStr === '' ) {
 						$j( '#wikieditor-toolbar-replace-emptysearch' ).show();
 						return;
 					}
@@ -1819,7 +1870,7 @@ liquidThreads.toolbar = {
 					if ( !matchCase ) {
 						flags += 'i';
 					}
-					if ( mode == 'replaceAll' ) {
+					if ( mode === 'replaceAll' ) {
 						flags += 'g';
 					}
 					if ( !isRegex ) {
@@ -1838,7 +1889,7 @@ liquidThreads.toolbar = {
 					var text = $textarea.textSelection( 'getContents' );
 					var match = false;
 					var offset, s;
-					if ( mode != 'replaceAll' ) {
+					if ( mode !== 'replaceAll' ) {
 						offset = $j(this).data( 'offset' );
 						s = text.substr( offset );
 						match = s.match( regex );
@@ -1852,7 +1903,7 @@ liquidThreads.toolbar = {
 
 					if ( !match ) {
 						$j( '#wikieditor-toolbar-replace-nomatch' ).show();
-					} else if ( mode == 'replaceAll' ) {
+					} else if ( mode === 'replaceAll' ) {
 						// Instead of using repetitive .match() calls, we use one .match() call with /g
 						// and indexOf() followed by substr() to find the offsets. This is actually
 						// faster because our indexOf+substr loop is faster than a match loop, and the
@@ -1860,7 +1911,7 @@ liquidThreads.toolbar = {
 						var index;
 						for ( var i = 0; i < match.length; i++ ) {
 							index = s.indexOf( match[i] );
-							if ( index == -1 ) {
+							if ( index === -1 ) {
 								// This shouldn't happen
 								break;
 							}
@@ -1888,7 +1939,7 @@ liquidThreads.toolbar = {
 						var context = $j( this ).data( 'context' );
 						$textarea.textSelection( 'setSelection', { 'start': start,
 							'end': end } );
-						if ( mode == 'replace' ) {
+						if ( mode === 'replace' ) {
 							$textarea
 								.textSelection( 'encapsulateSelection', {
 									'peri': replaceStr,
@@ -1899,9 +1950,9 @@ liquidThreads.toolbar = {
 						}
 						$textarea.textSelection( 'scrollToCaretPosition' );
 						$textarea.textSelection( 'setSelection', { 'start': start,
-							'end': mode == 'replace' ? newEnd : end } );
-						$j( this ).data( 'offset', mode == 'replace' ? newEnd : end );
-						var textbox = typeof context.$iframe != 'undefined' ? context.$iframe[0].contentWindow : $textarea[0];
+							'end': mode === 'replace' ? newEnd : end } );
+						$j( this ).data( 'offset', mode === 'replace' ? newEnd : end );
+						var textbox = typeof context.$iframe !== 'undefined' ? context.$iframe[0].contentWindow : $textarea[0];
 						textbox.focus();
 					}
 				});
@@ -1935,7 +1986,7 @@ liquidThreads.toolbar = {
 						// Execute the action associated with the first button
 						// when the user presses Enter
 						$j(this).closest( '.ui-dialog' ).keypress( function( e ) {
-							if ( ( e.keyCode || e.which ) == 13 ) {
+							if ( ( e.keyCode || e.which ) === 13 ) {
 								var button = $j(this).data( 'dialogaction' ) || $j(this).find( 'button:first' );
 								button.click();
 								e.preventDefault();
@@ -1950,26 +2001,26 @@ liquidThreads.toolbar = {
 					var dialog = $j(this).closest( '.ui-dialog' );
 					var that = this;
 					var context = $j(this).data( 'context' );
-					var textbox = typeof context.$iframe != 'undefined' ?
+					var textbox = typeof context.$iframe !== 'undefined' ?
 						context.$iframe[0].contentWindow.document : context.$textarea;
 
 					$j( textbox )
 						.bind( 'keypress.srdialog', function( e ) {
-							if ( ( e.keyCode || e.which ) == 13 ) {
+							if ( ( e.keyCode || e.which ) === 13 ) {
 								// Enter
 								var button = dialog.data( 'dialogaction' ) || dialog.find( 'button:first' );
 								button.click();
 								e.preventDefault();
-							} else if ( ( e.keyCode || e.which ) == 27 ) {
+							} else if ( ( e.keyCode || e.which ) === 27 ) {
 								// Escape
 								$j(that).dialog( 'close' );
 							}
 						});
 				},
 				close: function() {
-					var context = $j(this).data( 'context' );
-					var textbox = typeof context.$iframe != 'undefined' ?
-						context.$iframe[0].contentWindow.document : context.$textarea;
+					var context = $j(this).data( 'context' ),
+						textbox = typeof context.$iframe !== 'undefined' ?
+							context.$iframe[0].contentWindow.document : context.$textarea;
 					$j( textbox ).unbind( 'keypress.srdialog' );
 					$j(this).closest( '.ui-dialog' ).data( 'dialogaction', false );
 				}

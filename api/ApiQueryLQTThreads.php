@@ -268,7 +268,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			$this->addWhereFld( 'thread_author_name', $value );
 		} elseif ( !is_array( $fields ) ) {
 			// Common case
-			return $this->addWhereFld( $fields, $value );
+			$this->addWhereFld( $fields, $value );
 		}
 	}
 

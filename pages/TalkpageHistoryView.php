@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class TalkpageHistoryView extends TalkpageView {
 	function show() {

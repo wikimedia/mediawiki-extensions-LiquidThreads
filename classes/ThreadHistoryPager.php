@@ -41,11 +41,11 @@ class ThreadHistoryPager extends TablePager {
 
 	function getFieldMessages() {
 		$headers = array(
-			'th_timestamp' => 'lqt-history-time',
-			'th_user_text' => 'lqt-history-user',
-			'th_change_type' => 'lqt-history-action',
-			'th_change_comment' => 'lqt-history-comment',
-			);
+			'th_timestamp' => $this->msg( 'lqt-history-time' )->text(),
+			'th_user_text' => $this->msg( 'lqt-history-user' )->text(),
+			'th_change_type' => $this->msg( 'lqt-history-action' )->text(),
+			'th_change_comment' => $this->msg( 'lqt-history-comment' )->text(),
+		);
 
 		return $headers;
 	}
@@ -57,11 +57,7 @@ class ThreadHistoryPager extends TablePager {
 			return $headers;
 		}
 
-		$headers = $this->getFieldMessages();
-
-		$headers = array_map( 'wfMsg', $headers );
-
-		return $headers;
+		return $this->getFieldMessages();
 	}
 
 	function formatValue( $name, $value ) {

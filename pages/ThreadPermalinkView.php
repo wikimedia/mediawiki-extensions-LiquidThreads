@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class ThreadPermalinkView extends LqtView {
 	protected $thread;

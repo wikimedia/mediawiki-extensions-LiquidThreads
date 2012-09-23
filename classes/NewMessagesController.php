@@ -410,7 +410,7 @@ class NewMessages {
 	}
 
 	static function newUserMessages( $user ) {
-		$talkPage = new Article( $user->getUserPage()->getTalkPage() );
+		$talkPage = WikiPage::factory( $user->getUserPage()->getTalkPage() );
 
 		$dbr = wfGetDB( DB_SLAVE );
 
@@ -482,7 +482,7 @@ class NewMessages {
 	}
 
 	static function watchedThreadsForUser( $user ) {
-		$talkPage = new Article( $user->getUserPage()->getTalkPage() );
+		$talkPage = WikiPage::factory( $user->getUserPage()->getTalkPage() );
 
 		$dbr = wfGetDB( DB_SLAVE );
 

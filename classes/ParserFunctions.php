@@ -36,8 +36,8 @@ class LqtParserFunctions {
 			$title = $parser->getTitle();
 		}
 
-		$talkpage = new Article( $title, 0 );
-		$article = new Article( $parser->getTitle(), 0 );
+		$talkpage = WikiPage::factory( $title );
+		$article = WikiPage::factory( $parser->getTitle() );
 
 		$data = array(
 			'type' => 'talkpage',
@@ -52,7 +52,7 @@ class LqtParserFunctions {
 		}
 
 		// Generate a token
-		$tok = wfGenerateToken();
+		$tok = MWCryptRand::generateHex( 32 );
 		$text = '<!--LQT-PAGE-' . $tok . '-->';
 		$pout->mLqtReplacements[$text] = $data;
 
@@ -69,7 +69,7 @@ class LqtParserFunctions {
 			if ( is_numeric( $args['thread'] ) ) {
 				$thread = Threads::withId( $args['thread'] );
 			} elseif ( $title ) {
-				$article = new Article( $title, 0 );
+				$article = WikiPage::factory( $title );
 				$thread = Threads::withRoot( $article );
 			}
 		}
@@ -90,7 +90,7 @@ class LqtParserFunctions {
 		}
 
 		// Generate a token
-		$tok = wfGenerateToken();
+		$tok = MWCryptRand::generateHex( 32 );
 		$text = '<!--LQT-THREAD-' . $tok . '-->';
 		$pout->mLqtReplacements[$text] = $data;
 
@@ -135,7 +135,7 @@ class LqtParserFunctions {
 		$oldOut = $wgOut->getHTML();
 		$wgOut->clearHTML();
 
-		$root = new Article( $title, 0 );
+		$root = WikiPage::factory( $title );
 		$thread = Threads::withRoot( $root );
 
 		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );

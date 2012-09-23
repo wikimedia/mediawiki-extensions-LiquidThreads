@@ -20,7 +20,7 @@ class SpecialNewMessages extends SpecialPage {
 
 		$this->setHeaders();
 
-		$article = new Article( $this->getTitle() );
+		$article = WikiPage::factory( $this->getTitle() );
 		$title = $this->getTitle();
 
 		// Clear newtalk

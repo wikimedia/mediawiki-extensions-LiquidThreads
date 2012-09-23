@@ -29,7 +29,7 @@ class ApiThreadAction extends ApiEditPage {
 					$threads = array( 'all' );
 				} else {
 					$title = Title::newFromText( $thread );
-					$article = new Article( $title, 0 );
+					$article = WikiPage::factory( $title );
 					$threadObj = Threads::withRoot( $article );
 				}
 
@@ -175,7 +175,7 @@ class ApiThreadAction extends ApiEditPage {
 			$newParent = Threads::withId( $newParent );
 		} else {
 			$title = Title::newFromText( $newParent );
-			$article = new Article( $title, 0 );
+			$article = WikiPage::factory( $title );
 			$newParent = Threads::withRoot( $article );
 		}
 
@@ -228,7 +228,7 @@ class ApiThreadAction extends ApiEditPage {
 			$this->dieUsage( 'The talkpage you specified is invalid, or does not ' .
 				'have discussion threading enabled.', 'invalid-talkpage' );
 		}
-		$talkpage = new Article( $talkpageTitle, 0 );
+		$talkpage = WikiPage::factory( $talkpageTitle );
 
 		// Check if we can post.
 		$user = $this->getUser();
@@ -250,7 +250,7 @@ class ApiThreadAction extends ApiEditPage {
 			$this->dieUsage( 'The subject you specified is not valid',
 				'invalid-subject' );
 		}
-		$article = new Article( $title, 0 );
+		$article = WikiPage::factory( $title );
 
 		// Check for text
 		if ( empty( $params['text'] ) ) {
@@ -499,7 +499,7 @@ class ApiThreadAction extends ApiEditPage {
 
 		// Generate a reply title.
 		$title = Threads::newReplyTitle( $replyTo, $user );
-		$article = new Article( $title, 0 );
+		$article = WikiPage::factory( $title );
 
 		// Inform hooks what we're doing
 		LqtHooks::$editTalkpage = $talkpage;
@@ -793,7 +793,7 @@ class ApiThreadAction extends ApiEditPage {
 		}
 
 		if ( $talkpage ) {
-			$talkpage = new Article( Title::newFromText( $talkpage ), 0 );
+			$talkpage = WikiPage::factory( Title::newFromText( $talkpage ) );
 		} else {
 			$talkpage = null;
 		}

@@ -1,8 +1,12 @@
 ( function( $ ) {
-	
+	"use strict";
+
 	$.fn.thread_collapse = function( $$options ) {
 		// return if the function is called on an empty jquery object
-		if( !this.length ) return this;
+		if( !this.length ) {
+			return this;
+		}
+
 		//merge options into the defaults
 		var $settings = $.extend( {}, $.thread_collapse.defaults, $$options );
 		// run the initialization on each jquery object

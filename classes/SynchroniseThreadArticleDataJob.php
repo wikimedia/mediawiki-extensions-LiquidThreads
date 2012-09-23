@@ -10,7 +10,7 @@ class SynchroniseThreadArticleDataJob extends Job {
 	 * @return bool
 	 */
 	public function run() {
-		$article = new Article( $this->title );
+		$article = WikiPage::factory( $this->title );
 		$limit = $this->params['limit'];
 		$cascade = $this->params['cascade'];
 

@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class TalkpageView extends LqtView {
 	protected $mShowItems = array( 'toc', 'options', 'header' );

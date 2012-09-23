@@ -80,7 +80,7 @@ class LqtDeletionController {
 
 			if ( count( $threads ) ) {
 				$thread = array_pop( $threads );
-				$thread->setRoot( new Article( $title ) );
+				$thread->setRoot( WikiPage::factory( $title ) );
 				$thread->undelete( $comment );
 			} else {
 				wfDebug( __METHOD__ . ":No thread found with root set to $pageid (??)\n" );
@@ -89,11 +89,17 @@ class LqtDeletionController {
 
 		// Synchronise the first 500 threads, in reverse order by thread id. If
 		// there are more threads to synchronise, the job queue will take over.
-		Threads::synchroniseArticleData( new Article( $udTitle ), 500, 'cascade' );
+		Threads::synchroniseArticleData( WikiPage::factory( $udTitle ), 500, 'cascade' );
 
 		return true;
 	}
 
+	/**
+	 * @param $article Article
+	 * @param $out OutputPage
+	 * @param $reason string
+	 * @return bool
+	 */
 	static function onArticleConfirmDelete( $article, $out, &$reason ) {
 		if ( $article->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			return true;

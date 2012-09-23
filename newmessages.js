@@ -41,7 +41,7 @@ $j.extend( liquidThreads,
 			// Add the "undo" link.
 			var undoURL = mw.config.get( 'wgArticlePath' ).replace( '$1', mw.config.get( 'wgPageName' ) );
 			var query = 'lqt_method=mark_as_unread&lqt_operand='+operand;
-			if ( undoURL.indexOf('?') == -1 ) {
+			if ( undoURL.indexOf('?') === -1 ) {
 				query = '?'+query;
 			} else {
 				query = '&'+query;

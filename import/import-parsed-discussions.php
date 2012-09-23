@@ -9,7 +9,7 @@ require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 
 $structure = json_decode( file_get_contents( $argv[0] ), true );
 
-$article = new Article( Title::newFromText( $argv[1] ) );
+$article = WikiPage::factory( Title::newFromText( $argv[1] ) );
 
 $wgOut->_unstub();
 $wgOut->setTitle( $article->getTitle() );
@@ -77,7 +77,7 @@ function createPost( $info, $subject, $super = null ) {
 
 	print "Creating thread $title as a subthread of " . ( $super ? $super->title() : 'none' ) . "\n";
 
-	$root = new Article( $title );
+	$root = WikiPage::factory( $title );
 	$root->doEdit( $info['content'], 'Imported from JSON', EDIT_NEW, false, $user );
 
 	$t = LqtView::postEditUpdates( $super ? 'reply' : 'new', $super, $root, $article,

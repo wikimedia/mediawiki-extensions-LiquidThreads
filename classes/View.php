@@ -6,12 +6,10 @@
 * @licence GPL2
 */
 
-if ( !defined( 'MEDIAWIKI' ) ) {
-	echo( "This file is an extension to the MediaWiki software and cannot be used standalone.\n" );
-	die( - 1 );
-}
-
 class LqtView {
+	/*
+	 * @var WikiPage
+	 */
 	public $article;
 	/*
 	 * @var OutputPage
@@ -499,7 +497,7 @@ class LqtView {
 			}
 		}
 
-		$article = new Article( $t );
+		$article = WikiPage::factory( $t );
 
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
@@ -533,7 +531,7 @@ class LqtView {
 		$e->editFormTextBeforeContent .=
 			$this->perpetuate( 'lqt_method', 'hidden' ) .
 			$this->perpetuate( 'lqt_operand', 'hidden' ) .
-			Html::hidden( 'lqt_nonce', wfGenerateToken() );
+			Html::hidden( 'lqt_nonce', MWCryptRand::generateHex( 32 ) );
 
 		$e->mShowSummaryField = false;
 
@@ -613,7 +611,7 @@ class LqtView {
 			$t = $this->scratchTitle();
 		}
 
-		$article = new Article( $t );
+		$article = WikiPage::factory( $t );
 		$talkpage = $thread->article();
 
 		LqtHooks::$editTalkpage = $talkpage;
@@ -645,7 +643,7 @@ class LqtView {
 		$e->editFormTextBeforeContent .=
 			$this->perpetuate( 'lqt_method', 'hidden' ) .
 			$this->perpetuate( 'lqt_operand', 'hidden' ) .
-			Html::hidden( 'lqt_nonce', wfGenerateToken() ) .
+			Html::hidden( 'lqt_nonce', MWCryptRand::generateHex( 32 ) ) .
 			Html::hidden( 'offset', $offset ) .
 			Html::hidden( 'wpMinorEdit', '' );
 
@@ -756,7 +754,7 @@ class LqtView {
 		$e->editFormTextBeforeContent .=
 			$this->perpetuate( 'lqt_method', 'hidden' ) .
 			$this->perpetuate( 'lqt_operand', 'hidden' ) .
-			Html::hidden( 'lqt_nonce', wfGenerateToken() ) .
+			Html::hidden( 'lqt_nonce', MWCryptRand::generateHex( 32 ) ) .
 			Html::hidden( 'offset', $offset );
 
 		list( $signatureEditor, $signatureHTML ) = $this->getSignatureEditor( $thread );
@@ -816,7 +814,7 @@ class LqtView {
 			$article = $thread->summary();
 		} else {
 			$t = $this->newSummaryTitle( $thread );
-			$article = new Article( $t );
+			$article = WikiPage::factory( $t );
 		}
 
 		$this->output->addWikiMsg( 'lqt-summarize-intro' );
@@ -841,7 +839,7 @@ class LqtView {
 		$e->editFormTextBeforeContent .=
 			$this->perpetuate( 'lqt_method', 'hidden' ) .
 			$this->perpetuate( 'lqt_operand', 'hidden' ) .
-			Html::hidden( 'lqt_nonce', wfGenerateToken() ) .
+			Html::hidden( 'lqt_nonce', MWCryptRand::generateHex( 32 ) ) .
 			Html::hidden( 'offset', $offset );
 
 		$e->edit();
@@ -1133,7 +1131,7 @@ class LqtView {
 	 * @return Title
 	 */
 	function scratchTitle() {
-		return Title::makeTitle( NS_LQT_THREAD, wfGenerateToken() );
+		return Title::makeTitle( NS_LQT_THREAD, MWCryptRand::generateHex( 32 ) );
 	}
 
 	/**
@@ -1705,7 +1703,7 @@ class LqtView {
 			return; // Odd case: moved thread with no title?
 		}
 
-		$article = new Article( $thread->title() );
+		$article = WikiPage::factory( $thread->title() );
 		$target = Title::newFromRedirect( $article->getContent() );
 
 		if ( !$target ) {
@@ -1714,7 +1712,7 @@ class LqtView {
 				$thread->root()->getTitle()->getPrefixedText() . '. Dying.' );
 		}
 
-		$t_thread = Threads::withRoot( new Article( $target ) );
+		$t_thread = Threads::withRoot( WikiPage::factory( $target ) );
 
 		// Grab data about the new post.
 		$author = $thread->author();

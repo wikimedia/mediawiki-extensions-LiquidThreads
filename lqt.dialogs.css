@@ -43,7 +43,7 @@ body.rtl .wikiEditor-toolbar-dialog .wikieditor-toolbar-table-preview-wrapper ta
 }
 body.rtl .wikieditor-toolbar-table-dimension-fields .wikieditor-toolbar-field-wrapper {
 	float: right;
-	margin-right: 0px;
+	margin-right: 0;
 	margin-left: 20px;
 }
 .wikiEditor-toolbar-dialog .ui-dialog-content {

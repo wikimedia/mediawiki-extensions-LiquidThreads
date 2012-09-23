@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class IndividualThreadHistoryView extends ThreadPermalinkView {
 	protected $oldid;

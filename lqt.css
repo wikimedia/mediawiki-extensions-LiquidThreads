@@ -9,7 +9,7 @@
 }
 
 .lqt_newmessages_section {
-	border-bottom: 0px;
+	border-bottom: 0;
 }
 
 .lqt_undo_mark_as_read {
@@ -246,7 +246,7 @@ body.skin-monobook li#ca-nstab-thread {
 	list-style: none;
 	padding: 0;
 	z-index: 10;
-	margin-top: 0px;
+	margin-top: 0;
 
 }
 

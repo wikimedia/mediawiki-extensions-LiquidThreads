@@ -147,6 +147,7 @@ class LqtDispatch {
 
 	/**
 	 * @param $title Title
+	 * @return null|int
 	 */
 	static function getUserLqtOverride( $title ) {
 		if ( ! is_object( $title ) ) {
