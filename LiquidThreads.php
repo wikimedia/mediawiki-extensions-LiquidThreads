@@ -22,11 +22,11 @@ define( 'LQT_NEWEST_THREADS', 'nt' );
 define( 'LQT_OLDEST_THREADS', 'ot' );
 
 // Localisation
-$dir = dirname( __FILE__ ) . '/';
-$wgExtensionMessagesFiles['LiquidThreads'] = $dir . 'i18n/Lqt.i18n.php';
-$wgExtensionMessagesFiles['LiquidThreadsMagic'] = $dir . 'i18n/LiquidThreads.magic.php';
-$wgExtensionMessagesFiles['LiquidThreadsNamespaces'] = $dir . 'i18n/Lqt.namespaces.php';
-$wgExtensionMessagesFiles['LiquidThreadsAlias'] = $dir . 'i18n/Lqt.alias.php';
+$dir = __DIR__;
+$wgExtensionMessagesFiles['LiquidThreads'] = $dir . '/i18n/Lqt.i18n.php';
+$wgExtensionMessagesFiles['LiquidThreadsMagic'] = $dir . '/i18n/LiquidThreads.magic.php';
+$wgExtensionMessagesFiles['LiquidThreadsNamespaces'] = $dir . '/i18n/Lqt.namespaces.php';
+$wgExtensionMessagesFiles['LiquidThreadsAlias'] = $dir . '/i18n/Lqt.alias.php';
 
 $lqtMessages = array(
 	'lqt-quote-intro',
@@ -65,14 +65,27 @@ $lqtMessages = array(
 
 // ResourceLoader
 $lqtResourceTemplate = array(
-	'localBasePath' => "$dir",
+	'localBasePath' => $dir,
 	'remoteExtPath' => 'LiquidThreads'
 );
 
 $wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
-	'styles' => array( 'lqt.css', 'jquery/jquery.thread_collapse.css', 'lqt.dialogs.css' ),
-	'scripts' => array( 'lqt.js', 'js/lqt.toolbar.js', 'jquery/jquery.thread_collapse.js', 'jquery/jquery.autogrow.js' ),
-	'dependencies' => array( 'jquery.ui.dialog', 'jquery.ui.droppable', 'mediawiki.legacy.preview' ),
+	'styles' => array(
+		'lqt.css',
+		'jquery/jquery.thread_collapse.css',
+		'lqt.dialogs.css',
+	),
+	'scripts' => array(
+		'lqt.js',
+		'js/lqt.toolbar.js',
+		'jquery/jquery.thread_collapse.js',
+		'jquery/jquery.autogrow.js',
+	),
+	'dependencies' => array(
+		'jquery.ui.dialog',
+		'jquery.ui.droppable',
+		'mediawiki.action.edit.preview',
+	),
 	'messages' => $lqtMessages
 );
 
@@ -173,44 +186,44 @@ $wgHooks['OutputPageBeforeHTML'][] = 'LqtParserFunctions::onAddHTML';
 $wgHooks['userCan'][] = 'LqtHooks::onGetUserPermissionsErrors';
 
 // Classes
-$wgAutoloadClasses['LqtDispatch'] = $dir . 'classes/Dispatch.php';
-$wgAutoloadClasses['LqtView'] = $dir . 'classes/View.php';
-$wgAutoloadClasses['HistoricalThread'] = $dir . 'classes/HistoricalThread.php';
-$wgAutoloadClasses['Thread'] = $dir . 'classes/Thread.php';
-$wgAutoloadClasses['Threads'] = $dir . 'classes/Threads.php';
-$wgAutoloadClasses['NewMessages'] = $dir . 'classes/NewMessagesController.php';
+$wgAutoloadClasses['LqtDispatch'] = $dir . '/classes/Dispatch.php';
+$wgAutoloadClasses['LqtView'] = $dir . '/classes/View.php';
+$wgAutoloadClasses['HistoricalThread'] = $dir . '/classes/HistoricalThread.php';
+$wgAutoloadClasses['Thread'] = $dir . '/classes/Thread.php';
+$wgAutoloadClasses['Threads'] = $dir . '/classes/Threads.php';
+$wgAutoloadClasses['NewMessages'] = $dir . '/classes/NewMessagesController.php';
 $wgAutoloadClasses['EchoLiquidThreadsFormatter'] = "$dir/classes/EchoLiquidThreadsFormatter.php";
-$wgAutoloadClasses['LqtParserFunctions'] = $dir . 'classes/ParserFunctions.php';
-$wgAutoloadClasses['LqtDeletionController'] = $dir . 'classes/DeletionController.php';
-$wgAutoloadClasses['LqtHooks'] = $dir . 'classes/Hooks.php';
-$wgAutoloadClasses['ThreadRevision'] = $dir . "classes/ThreadRevision.php";
-$wgAutoloadClasses['SynchroniseThreadArticleDataJob'] = $dir . 'classes/SynchroniseThreadArticleDataJob.php';
-$wgAutoloadClasses['ThreadHistoryPager'] = $dir . 'classes/ThreadHistoryPager.php';
-$wgAutoloadClasses['TalkpageHistoryView'] = $dir . 'pages/TalkpageHistoryView.php';
-$wgAutoloadClasses['LqtLogFormatter'] = $dir . 'classes/LogFormatter.php';
+$wgAutoloadClasses['LqtParserFunctions'] = $dir . '/classes/ParserFunctions.php';
+$wgAutoloadClasses['LqtDeletionController'] = $dir . '/classes/DeletionController.php';
+$wgAutoloadClasses['LqtHooks'] = $dir . '/classes/Hooks.php';
+$wgAutoloadClasses['ThreadRevision'] = $dir . '/classes/ThreadRevision.php';
+$wgAutoloadClasses['SynchroniseThreadArticleDataJob'] = $dir . '/classes/SynchroniseThreadArticleDataJob.php';
+$wgAutoloadClasses['ThreadHistoryPager'] = $dir . '/classes/ThreadHistoryPager.php';
+$wgAutoloadClasses['TalkpageHistoryView'] = $dir . '/pages/TalkpageHistoryView.php';
+$wgAutoloadClasses['LqtLogFormatter'] = $dir . '/classes/LogFormatter.php';
 
 // View classes
-$wgAutoloadClasses['TalkpageView'] = $dir . 'pages/TalkpageView.php';
-$wgAutoloadClasses['ThreadPermalinkView'] = $dir . 'pages/ThreadPermalinkView.php';
-$wgAutoloadClasses['TalkpageHeaderView'] = $dir . 'pages/TalkpageHeaderView.php';
-$wgAutoloadClasses['IndividualThreadHistoryView'] = $dir . 'pages/IndividualThreadHistoryView.php';
-$wgAutoloadClasses['ThreadDiffView'] = $dir . 'pages/ThreadDiffView.php';
-$wgAutoloadClasses['ThreadWatchView'] = $dir . 'pages/ThreadWatchView.php';
-$wgAutoloadClasses['ThreadProtectionFormView'] = $dir . 'pages/ThreadProtectionFormView.php';
-$wgAutoloadClasses['ThreadHistoryListingView'] = $dir . 'pages/ThreadHistoryListingView.php';
-$wgAutoloadClasses['ThreadHistoricalRevisionView'] = $dir . 'pages/ThreadHistoricalRevisionView.php';
-$wgAutoloadClasses['SummaryPageView'] = $dir . 'pages/SummaryPageView.php';
-$wgAutoloadClasses['NewUserMessagesView'] = $dir . 'pages/NewUserMessagesView.php';
+$wgAutoloadClasses['TalkpageView'] = $dir . '/pages/TalkpageView.php';
+$wgAutoloadClasses['ThreadPermalinkView'] = $dir . '/pages/ThreadPermalinkView.php';
+$wgAutoloadClasses['TalkpageHeaderView'] = $dir . '/pages/TalkpageHeaderView.php';
+$wgAutoloadClasses['IndividualThreadHistoryView'] = $dir . '/pages/IndividualThreadHistoryView.php';
+$wgAutoloadClasses['ThreadDiffView'] = $dir . '/pages/ThreadDiffView.php';
+$wgAutoloadClasses['ThreadWatchView'] = $dir . '/pages/ThreadWatchView.php';
+$wgAutoloadClasses['ThreadProtectionFormView'] = $dir . '/pages/ThreadProtectionFormView.php';
+$wgAutoloadClasses['ThreadHistoryListingView'] = $dir . '/pages/ThreadHistoryListingView.php';
+$wgAutoloadClasses['ThreadHistoricalRevisionView'] = $dir . '/pages/ThreadHistoricalRevisionView.php';
+$wgAutoloadClasses['SummaryPageView'] = $dir . '/pages/SummaryPageView.php';
+$wgAutoloadClasses['NewUserMessagesView'] = $dir . '/pages/NewUserMessagesView.php';
 
 // Pagers
-$wgAutoloadClasses['LqtDiscussionPager'] = $dir . "pages/TalkpageView.php";
+$wgAutoloadClasses['LqtDiscussionPager'] = $dir . '/pages/TalkpageView.php';
 
 // Special pages
-$wgAutoloadClasses['ThreadActionPage'] = $dir . 'pages/ThreadActionPage.php';
-$wgAutoloadClasses['SpecialMoveThread'] = $dir . 'pages/SpecialMoveThread.php';
-$wgAutoloadClasses['SpecialNewMessages'] = $dir . 'pages/SpecialNewMessages.php';
-$wgAutoloadClasses['SpecialSplitThread'] = $dir . 'pages/SpecialSplitThread.php';
-$wgAutoloadClasses['SpecialMergeThread'] = $dir . 'pages/SpecialMergeThread.php';
+$wgAutoloadClasses['ThreadActionPage'] = $dir . '/pages/ThreadActionPage.php';
+$wgAutoloadClasses['SpecialMoveThread'] = $dir . '/pages/SpecialMoveThread.php';
+$wgAutoloadClasses['SpecialNewMessages'] = $dir . '/pages/SpecialNewMessages.php';
+$wgAutoloadClasses['SpecialSplitThread'] = $dir . '/pages/SpecialSplitThread.php';
+$wgAutoloadClasses['SpecialMergeThread'] = $dir . '/pages/SpecialMergeThread.php';
 
 // Job queue
 $wgJobClasses['synchroniseThreadArticleData'] = 'SynchroniseThreadArticleDataJob';
@@ -231,9 +244,9 @@ $wgDefaultUserOptions['lqtdisplaycount'] = 25;
 $wgDefaultUserOptions['lqtcustomsignatures'] = true;
 
 // API
-$wgAutoloadClasses['ApiQueryLQTThreads'] = $dir . 'api/ApiQueryLQTThreads.php';
+$wgAutoloadClasses['ApiQueryLQTThreads'] = $dir . '/api/ApiQueryLQTThreads.php';
 $wgAPIListModules['threads'] = 'ApiQueryLQTThreads';
-$wgAutoloadClasses['ApiFeedLQTThreads'] = $dir . 'api/ApiFeedLQTThreads.php';
+$wgAutoloadClasses['ApiFeedLQTThreads'] = $dir . '/api/ApiFeedLQTThreads.php';
 $wgAPIModules['feedthreads'] = 'ApiFeedLQTThreads';
 $wgAutoloadClasses['ApiThreadAction'] = $dir . '/api/ApiThreadAction.php';
 $wgAPIModules['threadaction'] = 'ApiThreadAction';
