@@ -13530,6 +13530,7 @@ $messages['mt'] = array(
 	'lqt_discussion_link' => 'diskussjoni',
 	'lqt_hist_moved_talkpage' => 'Immexxi',
 	'lqt_hist_edited_subject_corrupt' => 'Suġġett mibdul',
+	'lqt_youhavenewmessages' => 'Għandek [[$1|messaġġi ġodda]].',
 	'lqt_subject' => 'Suġġett:',
 	'lqt_noreason' => 'Ma ngħatat ebda raġuni.',
 	'lqt_move_torename_edit' => 'immodifikaha',

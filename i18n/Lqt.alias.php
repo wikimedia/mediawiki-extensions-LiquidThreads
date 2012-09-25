@@ -340,7 +340,7 @@ $specialPageAliases['myv'] = array(
 	'MergeThread' => array( 'ПальдямсСуре' ),
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬) */
+/** Norwegian Bokmål (norsk (bokmål)‎) */
 $specialPageAliases['nb'] = array(
 	'DeleteThread' => array( 'Slett_tråd' ),
 	'MoveThread' => array( 'Flytt_tråd' ),
@@ -367,7 +367,7 @@ $specialPageAliases['nl'] = array(
 	'MergeThread' => array( 'OnderwerpSamenvoegen' ),
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬) */
+/** Norwegian Nynorsk (norsk (nynorsk)‎) */
 $specialPageAliases['nn'] = array(
 	'DeleteThread' => array( 'Slett_tråd' ),
 	'MoveThread' => array( 'Flytt_tråd' ),
@@ -427,7 +427,7 @@ $specialPageAliases['sk'] = array(
 	'SplitThread' => array( 'RozdeliťVlákno' ),
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬) */
+/** Serbian (Cyrillic script) (српски (ћирилица)‎) */
 $specialPageAliases['sr-ec'] = array(
 	'DeleteThread' => array( 'Обриши_тему' ),
 	'MoveThread' => array( 'Премести_тему' ),
@@ -507,7 +507,7 @@ $specialPageAliases['zh'] = array(
 	'MergeThread' => array( '合并话题', '合併話題' ),
 );
 
-/** Simplified Chinese (‪中文（简体）‬) */
+/** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'DeleteThread' => array( '删除话题' ),
 	'MoveThread' => array( '移动话题' ),
@@ -516,7 +516,7 @@ $specialPageAliases['zh-hans'] = array(
 	'MergeThread' => array( '合并话题' ),
 );
 
-/** Traditional Chinese (‪中文（繁體）‬) */
+/** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
 	'DeleteThread' => array( '刪除話題' ),
 	'MoveThread' => array( '移動話題' ),

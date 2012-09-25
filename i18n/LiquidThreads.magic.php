@@ -87,7 +87,7 @@ $magicWords['ru'] = array(
 	'lqtpagelimit' => array( 0, 'ограничение_страниц_lqt' ),
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬) */
+/** Serbian (Latin script) (srpski (latinica)‎) */
 $magicWords['sr-el'] = array(
 	'useliquidthreads' => array( 0, 'UseLiquidThreads' ),
 	'lqtpagelimit' => array( 0, 'lqtpagelimit' ),
