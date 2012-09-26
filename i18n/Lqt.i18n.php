@@ -4690,7 +4690,7 @@ $7",
 	'lqt-ajax-update-link' => 'Noroc resn',
 	'lqt-thread-show-replies' => '$1 cevab ramocın',
 	'lqt-thread-show-more' => 'hema zaf cewaban ramocın',
-	'lqt-thread-link-url' => "URL'yê gıreyi:",
+	'lqt-thread-link-url' => "Greyê URL'i:",
 	'lqt-thread-link-title' => 'gıreyê wikimetn',
 	'lqt-thread-link-copy' => 'pano re kopya ker',
 	'lqt-sign-not-necessary' => 'Luzım nêkeno ke tı nuştey xo be çehar tildan imza kerê.
@@ -6635,8 +6635,8 @@ Allekirjoitus näytetään automaattisesti.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} – Uudet ketjut sivuilla $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} – Vastaukset',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} – Vastaukset sivuilla $1',
-	'lqt-feed-new-thread-intro' => 'Uusi ketju sivulla $1, jonka on lähettänyt $2',
-	'lqt-feed-reply-intro' => 'Vastaa ketjuun $3 (sivulla $1), jonka on lähettänyt $2',
+	'lqt-feed-new-thread-intro' => 'Uusi ketju sivulla $1, jonka on lähettänyt {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Vastaa ketjuun $3 (sivulla $1), jonka on lähettänyt {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Näyttää uudet viestit ketjuihin tai ketjutetut keskustelusivut, joita tarkkailet',
 	'lqt-newmessages-n' => 'Uudet viestit ($1)',
 	'lqt_newmessages' => 'Ei uusia viestejä',
@@ -18352,7 +18352,7 @@ $7',
 	'nstab-summary' => 'Опис',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  * @author Mormegil
  * @author Rancher
@@ -18374,6 +18374,7 @@ $messages['sr-el'] = array(
 Razlog za ovo može biti:
 * To što je predugačak, ili
 * To što je u sukobu sa međuviki prefiksima ili nazivima imenskih prostora.',
+	'lqt-empty-text' => 'Ne možete da postavite praznu poruku',
 	'lqt_empty_subject' => 'Morate da unesete naslov.',
 	'lqt_reply' => 'Odgovor',
 	'lqt-parent' => 'Roditelj',
@@ -18513,6 +18514,7 @@ Da biste ovo izbegli, razdvojte ih s ove teme pre brisanja.',
 	'lqt_rc_new_reply' => 'poslat novi odgovor na "$1"',
 	'right-lqt-split' => 'Razdvoji teme',
 	'right-lqt-merge' => 'Spoji teme',
+	'right-lqt-react' => 'odgovaranje na teme',
 	'lqt-thread-merge' => 'Spoji sa drugom temom',
 	'lqt-thread-merge-to' => 'Spoji u ovu temu',
 	'lqt_merge_thread' => 'Spoji temu',
@@ -18600,8 +18602,8 @@ Potpis je automatski prikazan.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Nove teme od $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Odgovori',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Odgovori od $1',
-	'lqt-feed-new-thread-intro' => 'Nove teme na $1 postavljene od $2',
-	'lqt-feed-reply-intro' => 'Odgovor na $3 (na $1) poslat od $2',
+	'lqt-feed-new-thread-intro' => 'Nova tema na $1, koju je {{GENDER:$4|poslao|poslala|poslao}} $2',
+	'lqt-feed-reply-intro' => 'Odgovor na $3 (za $1), koji je {{GENDER:$4|postavio|postavila|postavio}} $2',
 	'tooltip-pt-newmessages' => 'Prikazuje nove poruke na temama ili na stranicama za razgovor koje pratite',
 	'lqt-newmessages-n' => 'Nove poruke ($1)',
 	'lqt_newmessages' => 'Nove poruke',
@@ -21863,7 +21865,7 @@ $7',
 	'nstab-summary' => '摘要',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Alexsh
  * @author Anakmalaysia
  * @author Gaoxuewei
@@ -22104,8 +22106,8 @@ $7',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — 來自 $1 的新話題',
 	'lqt-feed-title-replies' => '{{SITENAME}} — 回覆',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — 來自 $1 的回覆',
-	'lqt-feed-new-thread-intro' => '$2 在 $1 上發起的新話題',
-	'lqt-feed-reply-intro' => '$2 在 $1 上對 $3 的回覆',
+	'lqt-feed-new-thread-intro' => '{{GENDER:$4|$2}}在$1上發起的新話題',
+	'lqt-feed-reply-intro' => '{{GENDER:$4|$2}}在$1上對$3的回復',
 	'tooltip-pt-newmessages' => '顯示在你的監視列表中的新話題討論',
 	'lqt-newmessages-n' => '新訊息（$1）',
 	'lqt_newmessages' => '我的新訊息（無）',
