@@ -15448,6 +15448,7 @@ $messages['ps'] = array(
 	'lqt_protectedfromreply_link' => 'ژغورلی',
 	'lqt_subject' => 'سکالو:',
 	'lqt_noreason' => 'هېڅ سبب نه دی ورکړ شوی.',
+	'lqt_summary_subtitle' => 'د "$1" لنډيز',
 	'lqt_move_torename_edit' => 'دا سمول',
 	'lqt_move_move' => 'لېږدول',
 	'lqt_move_noreason' => 'هېڅ سبب نه دی ورکړ شوی.',
