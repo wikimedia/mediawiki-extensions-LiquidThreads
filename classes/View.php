@@ -17,8 +17,20 @@ class LqtView {
 	 * @var OutputPage
 	 */
 	public $output;
+
+	/**
+	 * @var User
+	 */
 	public $user;
+
+	/**
+	 * @var Title
+	 */
 	public $title;
+
+	/**
+	 * @var WebRequest
+	 */
 	public $request;
 
 	protected $headerLevel = 2; /* h1, h2, h3, etc. */
@@ -53,6 +65,7 @@ class LqtView {
 		return $this->request->getVal( 'lqt_method' ) == $method &&
 			$this->request->getVal( 'lqt_operand' ) == $thread->id();
 	}
+
 	function methodApplies( $method ) {
 		return $this->request->getVal( 'lqt_method' ) == $method;
 	}
@@ -72,7 +85,14 @@ class LqtView {
 		}
 	}
 
-	/** Gets an array of (title, query-parameters) for a permalink **/
+	/**
+	 * Gets an array of (title, query-parameters) for a permalink
+	 * @param $thread Thread
+	 * @param $method null
+	 * @param $operand null
+	 * @throws MWException
+	 * @return array
+	 */
 	static function permalinkData( $thread, $method = null, $operand = null ) {
 		$query = array();
 
@@ -90,8 +110,10 @@ class LqtView {
 		return array( $thread->root()->getTitle(), $query );
 	}
 
-	/* This is used for action=history so that the history tab works, which is
-	   why we break the lqt_method paradigm. */
+	/*
+	 * This is used for action=history so that the history tab works, which is
+	 * why we break the lqt_method paradigm.
+	*/
 	static function permalinkUrlWithQuery( $thread, $query, $relative = true ) {
 		if ( !is_array( $query ) ) {
 			$query = wfCGIToArray( $query );
@@ -113,6 +135,12 @@ class LqtView {
 		return $linker->link( $title, $text, $attribs, $query );
 	}
 
+	/**
+	 * @param $thread Thread
+	 * @param $contextType string
+	 * @throws MWException
+	 * @return array
+	 */
 	static function linkInContextData( $thread, $contextType = 'page' ) {
 		$query = array();
 
@@ -139,6 +167,12 @@ class LqtView {
 		return array( $title, $query );
 	}
 
+	/**
+	 * @param $thread thread
+	 * @param $contextType string
+	 * @param $text null
+	 * @return mixed
+	 */
 	static function linkInContext( $thread, $contextType = 'page', $text = null ) {
 		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
 
@@ -169,6 +203,11 @@ class LqtView {
 		return $title->getCanonicalURL( $query );
 	}
 
+	/**
+	 * @param $thread
+	 * @param $revision Revision
+	 * @return array
+	 */
 	static function diffQuery( $thread, $revision ) {
 		$changed_thread = $revision->getChangeObject();
 		$curr_rev_id = $changed_thread->rootRevision();
@@ -214,6 +253,14 @@ class LqtView {
 		return $linker->link( $title, $text, $attribs, $query, $options );
 	}
 
+	/**
+	 * @param $title Title
+	 * @param $method null
+	 * @param $operand null
+	 * @param $includeFragment bool
+	 * @param $perpetuateOffset bool
+	 * @return array
+	 */
 	static function talkpageLinkData( $title, $method = null, $operand = null,
 		$includeFragment = true, $perpetuateOffset = true )
 	{
@@ -260,6 +307,12 @@ class LqtView {
 	/**
 	 * If you want $perpetuateOffset to perpetuate from a specific request,
 	 * pass that instead of true
+	 * @param $title Title
+	 * @param $method null
+	 * @param $operand null
+	 * @param $includeFragment bool
+	 * @param $perpetuateOffset bool
+	 * @return
 	 */
 	static function talkpageUrl( $title, $method = null, $operand = null,
 		$includeFragment = true, $perpetuateOffset = true )
@@ -312,6 +365,9 @@ class LqtView {
 		return '';
 	}
 
+	/**
+	 * @param $thread Thread
+	 */
 	function showReplyProtectedNotice( $thread ) {
 		$log_url = SpecialPage::getTitleFor( 'Log' )->getLocalURL(
 			"type=protect&user=&page={$thread->title()->getPrefixedURL()}" );
@@ -371,6 +427,13 @@ class LqtView {
 		}
 	}
 
+	/**
+	 * @param $talkpage Thread
+	 * @param $method
+	 * @param $operand
+	 * @return String
+	 * @throws MWException
+	 */
 	static function getInlineEditForm( $talkpage, $method, $operand ) {
 		$req = new RequestContext;
 		$output = $req->getOutput();
@@ -410,6 +473,9 @@ class LqtView {
 		return $output->getHTML();
 	}
 
+	/**
+	 * @param $talkpage Thread
+	 */
 	function showNewThreadForm( $talkpage ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
@@ -518,9 +584,11 @@ class LqtView {
 			   }
 			   $this->output->redirect( $this->title->getLocalURL() );
 		}
-
 	}
 
+	/**
+	 * @param $thread Thread
+	 */
 	function showReplyForm( $thread ) {
 		global $wgRequest;
 
@@ -631,6 +699,9 @@ class LqtView {
 		$this->output->addHTML( '</div>' );
 	}
 
+	/**
+	 * @param $thread Thread
+	 */
 	function showPostEditingForm( $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
@@ -733,6 +804,9 @@ class LqtView {
 
 	}
 
+	/**
+	 * @param $thread Thread
+	 */
 	function showSummarizeForm( $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
@@ -955,8 +1029,7 @@ class LqtView {
 		return $thread;
 	}
 
-	static function newPostMetadataUpdates( $data )
-	{
+	static function newPostMetadataUpdates( $data ) {
 		$requiredFields = array( 'talkpage', 'root', 'text', 'subject' );
 
 		foreach ( $requiredFields as $f ) {
@@ -989,6 +1062,11 @@ class LqtView {
 		return $thread;
 	}
 
+	/**
+	 * @param $t Thread
+	 * @param $s
+	 * @param $reason
+	 */
 	function renameThread( $t, $s, $reason ) {
 		$this->simplePageMove( $t->root()->getTitle(), $s, $reason );
 		// TODO here create a redirect from old page to new.
@@ -998,19 +1076,35 @@ class LqtView {
 		}
 	}
 
+	/**
+	 * @param $subject
+	 * @return Title
+	 */
 	function newThreadTitle( $subject ) {
 		return Threads::newThreadTitle( $subject, $this->article );
 	}
 
+	/**
+	 * @param $thread Thread
+	 * @return Title
+	 */
 	function newSummaryTitle( $thread ) {
 		return Threads::newSummaryTitle( $thread );
 	}
 
+	/**
+	 * @param $unused
+	 * @param $thread Thread
+	 * @return Title
+	 */
 	function newReplyTitle( $unused, $thread ) {
 		return Threads::newReplyTitle( $thread, $this->user );
 	}
 
-	/* Adapted from MovePageForm::doSubmit in SpecialMovepage.php. */
+	/*
+	 * Adapted from MovePageForm::doSubmit in SpecialMovepage.php.
+	 * @param $old_title Title
+	 */
 	function simplePageMove( $old_title, $new_subject, $reason ) {
 		if ( $this->user->pingLimiter( 'move' ) ) {
 			$this->out->rateLimited();
@@ -1035,21 +1129,25 @@ class LqtView {
 		return true;
 	}
 
+	/**
+	 * @return Title
+	 */
 	function scratchTitle() {
 		return Title::makeTitle( NS_LQT_THREAD, wfGenerateToken() );
 	}
 
 	/**
-	* Example return value:
-	*	array (
-	*		edit => array( 'label'	 => 'Edit',
-	*					'href'	  => 'http...',
-	*					'enabled' => false ),
-	*		reply => array( 'label'	  => 'Reply',
-	*					'href'	  => 'http...',
-	*					'enabled' => true )
-	*	)
-	*/
+	 * @param $thread Thread
+	 * Example return value:
+	 *	array (
+	 *		edit => array( 'label'	 => 'Edit',
+	 *					'href'	  => 'http...',
+	 *					'enabled' => false ),
+	 *		reply => array( 'label'	  => 'Reply',
+	 *					'href'	  => 'http...',
+	 *					'enabled' => true )
+	 *	)
+	 */
 	function threadCommands( $thread ) {
 		$commands = array();
 
@@ -1127,7 +1225,10 @@ class LqtView {
 		return $commands;
 	}
 
-	// Commands for the bottom.
+	/**
+	 * Commands for the bottom.
+	 * @param $thread Thread
+	 */
 	function threadMajorCommands( $thread ) {
 		if ( $thread->isHistorical() ) {
 			// No links for historical threads.
@@ -1192,6 +1293,9 @@ class LqtView {
 		return $commands;
 	}
 
+	/**
+	 * @param $thread Thread
+	 */
 	function topLevelThreadCommands( $thread ) {
 		$commands = array();
 
@@ -1253,10 +1357,14 @@ class LqtView {
 		return $commands;
 	}
 
-	/* @return false if the article and revision do not exist. The HTML of the page to
+	/**
+	 * @param $post
+	 * @param $oldid null
+	 * @return bool false if the article and revision do not exist. The HTML of the page to
 	 * display if it exists. Note that this impacts the state out OutputPage by adding
 	 * all the other relevant parts of the parser output. If you don't want this, call
-	 * $post->getParserOutput. */
+	 * $post->getParserOutput.
+	 */
 	function showPostBody( $post, $oldid = null ) {
 		global $wgOut;
 
@@ -1269,12 +1377,15 @@ class LqtView {
 		// Remove title, so that it stays set correctly.
 		$parserOutput->setTitleText( '' );
 
-
 		$wgOut->addParserOutputNoText( $parserOutput );
 
 		return $parserOutput->getText();
 	}
 
+	/**
+	 * @param $thread Thread
+	 * @return string
+	 */
 	function showThreadToolbar( $thread ) {
 		$html = '';
 
@@ -1367,7 +1478,10 @@ class LqtView {
 		return $thisCommand;
 	}
 
-	/** Shows a normal (i.e. not deleted or moved) thread body */
+	/**
+	 * Shows a normal (i.e. not deleted or moved) thread body
+	 * @param $thread Thread
+	 */
 	function showThreadBody( $thread ) {
 
 		// Remove 'editsection', it won't work.
@@ -1427,6 +1541,9 @@ class LqtView {
 		$this->output->parserOptions( $popts );
 	}
 
+	/**
+	 * @param $thread Thread
+	 */
 	function threadSignature( $thread ) {
 		global $wgLang;
 
@@ -1451,6 +1568,9 @@ class LqtView {
 		return $signature;
 	}
 
+	/**
+	 * @param $thread Thread
+	 */
 	function threadInfoPanel( $thread ) {
 		global $wgLang;
 
@@ -1506,8 +1626,11 @@ class LqtView {
 							implode( "\n", $infoElements ) );
 	}
 
-	/** Shows the headING for a thread (as opposed to the headeER for a post within
-		a thread). */
+	/**
+	 * Shows the headING for a thread (as opposed to the headeER for a post within
+	 * a thread).
+	 * @param $thread Thread
+	 */
 	function showThreadHeading( $thread ) {
 		global $wgContLang;
 		if ( $thread->hasDistinctSubject() ) {
@@ -1558,11 +1681,20 @@ class LqtView {
 		return "lqt_post $levelClass $alternatingClass mw-content-$dir";
 	}
 
+	/**
+	 * @param $thread Thread
+	 */
 	static function anchorName( $thread ) {
 		return $thread->getAnchorName();
 	}
 
-	// Display a moved thread
+
+	/**
+	 * Display a moved thread
+	 *
+	 * @param $thread Thread
+	 * @throws MWException
+	 */
 	function showMovedThread( $thread ) {
 		global $wgLang;
 
@@ -1598,7 +1730,9 @@ class LqtView {
 		$this->output->addHTML( $html );
 	}
 
-	/** Shows a deleted thread. Returns true to show the thread body */
+	/**
+	 * Shows a deleted thread. Returns true to show the thread body
+	 */
 	function showDeletedThread( $thread ) {
 		if ( $this->user->isAllowed( 'deletedhistory' ) ) {
 			$this->output->addWikiMsg( 'lqt_thread_deleted_for_sysops' );
@@ -1613,7 +1747,11 @@ class LqtView {
 		}
 	}
 
-	// Shows a single thread, rather than a thread tree.
+	/**
+	 * Shows a single thread, rather than a thread tree.
+	 *
+	 * @param $thread Thread
+	 */
 	function showSingleThread( $thread ) {
 		$html = '';
 
@@ -1673,6 +1811,12 @@ class LqtView {
 		return $threads;
 	}
 
+	/**
+	 * @param $thread Thread
+	 * @param $st
+	 * @param $i
+	 * @return string
+	 */
 	function getShowMore( $thread, $st, $i ) {
 		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
@@ -1688,6 +1832,10 @@ class LqtView {
 		return $link;
 	}
 
+	/**
+	 * @param $thread Thread
+	 * @return string
+	 */
 	function getShowReplies( $thread ) {
 		global $wgLang;
 
@@ -1705,6 +1853,10 @@ class LqtView {
 		return $link;
 	}
 
+	/**
+	 * @param $thread Thread
+	 * @return bool
+	 */
 	static function threadContainsRepliesWithContent( $thread ) {
 		$replies = $thread->replies();
 
@@ -1728,6 +1880,14 @@ class LqtView {
 		return false;
 	}
 
+	/**
+	 * @param $thread Thread
+	 * @param $startAt
+	 * @param $maxCount
+	 * @param $showThreads
+	 * @param $cascadeOptions
+	 * @param $interruption bool
+	 */
 	function showThreadReplies( $thread, $startAt, $maxCount, $showThreads,
 			$cascadeOptions, $interruption = false ) {
 		$repliesClass = 'lqt-thread-replies lqt-thread-replies-' .
@@ -1800,6 +1960,13 @@ class LqtView {
 		$this->output->addHTML( $finishDiv . Xml::CloseElement( 'div' ) );
 	}
 
+	/**
+	 * @param $thread Thread
+	 * @param $levelNum int
+	 * @param $totalInLevel int
+	 * @param $options array
+	 * @throws MWException
+	 */
 	function showThread( $thread, $levelNum = 1, $totalInLevel = 1,
 			$options = array() ) {
 
@@ -2039,6 +2206,9 @@ class LqtView {
 		$this->threadNestingLevel--;
 	}
 
+	/**
+	 * @param $thread Thread
+	 */
 	function showReplyBox( $thread ) {
 		// Check if we're actually replying to this thread.
 		if ( $this->methodAppliesToThread( 'reply', $thread ) ) {
@@ -2057,6 +2227,10 @@ class LqtView {
 		$this->output->addHTML( $html );
 	}
 
+	/**
+	 * @param $thread Thread
+	 * @return string
+	 */
 	function threadDivClass( $thread ) {
 		$levelClass = 'lqt-thread-nest-' . $this->threadNestingLevel;
 		$alternatingType = ( $this->threadNestingLevel % 2 ) ? 'odd' : 'even';
@@ -2066,12 +2240,16 @@ class LqtView {
 		return "lqt_thread $levelClass $alternatingClass$topmostClass";
 	}
 
+	/**
+	 * @param $t Thread
+	 * @return string
+	 */
 	function getSummary( $t ) {
 		if ( !$t->summary() ) {
-			return;
+			return '';
 		}
 		if ( !$t->summary()->getContent() ) {
-			return; // Blank summary
+			return ''; // Blank summary
 		}
 
 		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
@@ -2136,7 +2314,7 @@ class LqtView {
 		if ( $this->user->getOption( 'lqtcustomsignatures' ) ) {
 			return $this->getUserSignature( $user, $uid, $name );
 		} else {
-			return $this->getBoringSignature( $user, $uid, $name );
+			return $this->getBoringSignature( $user, $uid, $name ); // FIXME: Method not found
 		}
 	}
 
@@ -2170,6 +2348,11 @@ class LqtView {
 		return $sig;
 	}
 
+	/**
+	 * @param $sig
+	 * @param $user User
+	 * @return string
+	 */
 	static function signaturePST( $sig, $user ) {
 		global $wgParser, $wgTitle;
 
