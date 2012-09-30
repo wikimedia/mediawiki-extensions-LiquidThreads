@@ -163,7 +163,9 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 
 		$title = $article->getTitle();
-		$view = new LqtView( $out, $article, $title, $this->getUser(), $this->getRequest() );
+		$user = $this->getUser();
+		$request = $this->getRequest();
+		$view = new LqtView( $out, $article, $title, $user , $request );
 
 		// Parameters
 		$view->threadNestingLevel = $params['renderlevel'];
