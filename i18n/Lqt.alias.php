@@ -451,7 +451,7 @@ $specialPageAliases['sw'] = array(
 
 /** Thai (ไทย) */
 $specialPageAliases['th'] = array(
-	'NewMessages' => array( 'ข้อควาใหม่' ),
+	'NewMessages' => array( 'ข้อความใหม่' ),
 );
 
 /** Tagalog (Tagalog) */
