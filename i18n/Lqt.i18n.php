@@ -1990,7 +1990,7 @@ $messages['be'] = array(
 	'lqt-drag-reason' => 'Прычына:',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Mormegil
@@ -4422,7 +4422,7 @@ Die Signatur wird automatisch ergänzt.',
 	'nstab-summary' => 'Themenzusammenfassung',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author ChrisiPK
  * @author Giftpflanze
  * @author Imre
@@ -7303,12 +7303,12 @@ $messages['ga'] = array(
 	'nstab-summary' => 'Achoimriú',
 );
 
-/** Simplified Gan script (‪赣语（简体）‬) */
+/** Simplified Gan script (赣语（简体）‎) */
 $messages['gan-hans'] = array(
 	'lqt-search-button' => '寻吖',
 );
 
-/** Traditional Gan script (‪贛語（繁體）‬)
+/** Traditional Gan script (贛語（繁體）‎)
  * @author Symane
  */
 $messages['gan-hant'] = array(
@@ -7930,7 +7930,7 @@ $messages['gv'] = array(
 	'lqt_newmessages' => 'Çhaghteraghtyn noa (gyn)',
 );
 
-/** Hausa (هَوُسَ) */
+/** Hausa (Hausa) */
 $messages['ha'] = array(
 	'lqt_delete' => 'Soke',
 	'lqt_move_move' => 'Gusarwa',
@@ -11050,7 +11050,7 @@ $messages['ka'] = array(
 	'nstab-summary' => 'დისკუსიის რეზიუმე',
 );
 
-/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬)
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
  * @author GaiJin
  */
 $messages['kk-cyrl'] = array(
@@ -11727,7 +11727,7 @@ De „Ongerschreff“ weed automattesch jezeijsch.',
 	'nstab-summary' => 'Zosammefaßong',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -13600,7 +13600,7 @@ $messages['nah'] = array(
 	'lqt_newmessages' => 'Yancuīc notētītlaniliz (ayāc)',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Event
  * @author Harald Khan
  * @author Laaknor
@@ -14295,7 +14295,7 @@ Wijzig het onderwerp door op "Bewerken" te klikken in de bovenste bijdrage.',
 	'nstab-summary' => 'Samenvatting',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Dittaeva
  * @author Gunnernett
  * @author Harald Khan
@@ -18082,7 +18082,7 @@ $messages['so'] = array(
 	'lqt-search-button' => 'Raadi',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Mormegil
  * @author Nikola Smolenski
  * @author Rancher
@@ -21607,7 +21607,7 @@ $messages['yue'] = array(
 	'lqt_newmessages' => '新訊息',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Bencmq
  * @author Gaoxuewei
  * @author Hydra
