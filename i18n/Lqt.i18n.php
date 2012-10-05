@@ -1293,7 +1293,7 @@ $messages['arc'] = array(
 	'lqt-change-subject' => 'ܫܚܠܦ ܡܠܘܐܐ',
 	'lqt-save-subject' => 'ܠܒܘܟ',
 	'lqt-cancel-subject-edit' => 'ܒܛܘܠ',
-	'lqt-drag-save' => 'ܚܬܬ',
+	'lqt-drag-save' => 'ܫܪܪ',
 	'lqt-drag-reason' => 'ܥܠܬܐ:',
 	'lqt-edit-signature' => '(ܫܚܠܦ ܪܡܝ ܐܝܕܐ)',
 	'lqt-preview-signature' => '(ܚܝܪܐ ܩܕܡܝܐ)',
@@ -11431,7 +11431,7 @@ $7",
 	'lqt-historicalrevision-error' => '당신이 선택한 판에 문제가 있어서 볼 수 없습니다.',
 	'lqt-reply-subpage' => '답글',
 	'nstab-thread' => '스레드',
-	'nstab-summary' => '편집 요약',
+	'nstab-summary' => '요약',
 );
 
 /** Karachay-Balkar (къарачай-малкъар)
