@@ -14534,6 +14534,7 @@ $7',
 	'lqt-edit-bump' => 'Flytt denne tråden opp',
 	'lqt-edit-bump-tooltip' => 'Flytt tråden til toppen av diskusjonssida hans',
 	'lqt-reply-subpage' => 'svar',
+	'nstab-thread' => 'Tråd',
 	'nstab-summary' => 'Samandrag',
 );
 
@@ -20698,6 +20699,8 @@ $messages['uz'] = array(
 	'lqt-history-action' => 'Faollik',
 	'lqt-history-comment' => 'Izoh',
 	'lqt-history-thread' => 'Tarmoq',
+	'lqt-thread-edited-others' => "{{PLURAL:$2|Boshqa ishtirokchi|$2 ta boshqa ishtirokchi}} tomonidan o'zgartirildi.<br />
+Oxirgi tahrir: $1",
 	'lqt-header-actions' => 'Amallar',
 	'lqt_summarize_link' => 'Xulosa chiqarish',
 	'lqt-thread-split' => 'Yangi tarmoqqa ajratish',
