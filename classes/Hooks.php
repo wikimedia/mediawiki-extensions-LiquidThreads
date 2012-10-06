@@ -36,7 +36,7 @@ class LqtHooks {
 			return true;
 		}
 
-		$thread = Threads::withRoot( WikiPage::factory( $rc->getTitle() ) );
+		$thread = Threads::withRoot( new Article( $rc->getTitle(), 0 ) );
 		if ( !$thread ) {
 			return true;
 		}
@@ -252,7 +252,7 @@ class LqtHooks {
 			return true;
 		}
 
-		$thread = Threads::withRoot( WikiPage::factory( $title ) );
+		$thread = Threads::withRoot( new Article( $title, 0 ) );
 
 		if ( $thread ) {
 			$text = $thread->subject();
@@ -395,7 +395,7 @@ class LqtHooks {
 
 		// Synchronise the first 500 threads, in reverse order by thread id. If
 		// there are more threads to synchronise, the job queue will take over.
-		Threads::synchroniseArticleData( WikiPage::factory( $nt ), 500, 'cascade' );
+		Threads::synchroniseArticleData( new Article( $nt, 0 ), 500, 'cascade' );
 
 		return true;
 	}
@@ -403,7 +403,7 @@ class LqtHooks {
 	static function onArticleMove( $ot, $nt, $user, &$err, $reason ) {
 		// Synchronise article data so that moving the article doesn't break any
 		//  article association.
-		Threads::synchroniseArticleData( WikiPage::factory( $ot ) );
+		Threads::synchroniseArticleData( new Article( $ot, 0 ) );
 
 		return true;
 	}
@@ -426,7 +426,7 @@ class LqtHooks {
 
 		if ( $title->exists() ) {
 			// If the page actually exists, allow the user to edit posts on their own talk page.
-			$thread = Threads::withRoot( WikiPage::factory( $title ) );
+			$thread = Threads::withRoot( new Article( $title, 0 ) );
 
 			if ( !$thread ) {
 				return true;
@@ -691,8 +691,8 @@ class LqtHooks {
 
 		$info = $pageInfo['DiscussionThreading'];
 
-		$root = WikiPage::factory( $title );
-		$article = WikiPage::factory( Title::newFromText( $info['ThreadPage'] ) );
+		$root = new Article( $title, 0 );
+		$article = new Article( Title::newFromText( $info['ThreadPage'] ), 0 );
 		$type = $typeValues[$info['ThreadType']];
 		$subject = $info['ThreadSubject'];
 		$summary = wfMessage( 'lqt-imported' )->inContentLanguage()->text();
@@ -707,7 +707,7 @@ class LqtHooks {
 
 		if ( isset( $info['ThreadSummaryPage'] ) ) {
 			$summaryPageName = $info['ThreadSummaryPage'];
-			$summaryPage = WikiPage::factory( Title::newFromText( $summaryPageName ) );
+			$summaryPage = new Article( Title::newFromText( $summaryPageName ), 0 );
 
 			if ( $summaryPage->exists() ) {
 				$thread->setSummaryPage( $summaryPage );
@@ -719,7 +719,7 @@ class LqtHooks {
 
 		if ( isset( $info['ThreadParent'] ) ) {
 			$threadPageName = $info['ThreadParent'];
-			$parentArticle = WikiPage::factory( Title::newFromText( $threadPageName ) );
+			$parentArticle = new Article( Title::newFromText( $threadPageName ), 0 );
 			$superthread = Threads::withRoot( $parentArticle );
 
 			if ( $superthread ) {
@@ -833,7 +833,7 @@ class LqtHooks {
 		if ( $title->getNamespace() != NS_LQT_THREAD || $action != 'read' )
 			return true;
 
-		$thread = Threads::withRoot( WikiPage::factory( $title ) );
+		$thread = Threads::withRoot( new Article( $title, 0 ) );
 
 		if ( ! $thread ) {
 			return true;

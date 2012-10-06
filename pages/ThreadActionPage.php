@@ -46,7 +46,7 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 			return false;
 		}
 
-		$thread = Threads::withRoot( WikiPage::factory( Title::newFromURL( $par ) ) );
+		$thread = Threads::withRoot( new Article( Title::newFromURL( $par ), 0 ) );
 		if ( !$thread ) {
 			$this->output->addHTML( wfMessage( 'lqt_nosuchthread' )->escaped() );
 			return false;

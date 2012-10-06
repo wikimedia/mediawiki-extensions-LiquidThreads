@@ -173,7 +173,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		// Thread conditions
 		$threads = (array)$params['thread'];
 		foreach ( $threads as $thread ) {
-			$root = WikiPage::factory( Title::newFromText( $thread ) );
+			$root = new Article( Title::newFromText( $thread ), 0 );
 			$thread = Threads::withRoot( $root );
 
 			if ( ! $thread ) {

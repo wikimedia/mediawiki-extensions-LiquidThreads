@@ -386,7 +386,7 @@ class Thread {
 		$new_articleID = $title->getArticleID();
 
 		if ( !$new_articleID ) {
-			$article = WikiPage::factory( $newTitle );
+			$article = new Article( $newTitle, 0 );
 			Threads::createTalkpageIfNeeded( $article );
 			$new_articleID = $article->getId();
 		}
@@ -426,12 +426,12 @@ class Thread {
 			' [[' . $this->title()->getPrefixedText() . "]]\n";
 
 		// Make the article edit.
-		$traceTitle = Threads::newThreadTitle( $this->subject(), WikiPage::factory( $oldTitle ) );
-		$redirectArticle = WikiPage::factory( $traceTitle );
+		$traceTitle = Threads::newThreadTitle( $this->subject(), new Article( $oldTitle, 0 ) );
+		$redirectArticle = new Article( $traceTitle, 0 );
 		$redirectArticle->doEdit( $redirectText, $reason, EDIT_NEW | EDIT_SUPPRESS_RC );
 
 		// Add the trace thread to the tracking table.
-		$thread = Thread::create( $redirectArticle, WikiPage::factory( $oldTitle ), null,
+		$thread = Thread::create( $redirectArticle, new Article( $oldTitle, 0 ), null,
 		 	Threads::TYPE_MOVED, $this->subject() );
 
 		 $thread->setSortkey( $this->sortkey() );
@@ -529,7 +529,7 @@ class Thread {
 
 		if ( isset( $line->page_namespace ) && isset( $line->page_title ) ) {
 			$root_title = Title::makeTitle( $line->page_namespace, $line->page_title );
-			$this->root = WikiPage::factory( $root_title );
+			$this->root = new Article( $root_title, 0 );
 			$this->root->loadPageData( $line );
 		} else {
 			if ( isset( self::$titleCacheById[$this->rootId] ) ) {
@@ -539,7 +539,7 @@ class Thread {
 			}
 
 			if ( $root_title ) {
-				$this->root = WikiPage::factory( $root_title );
+				$this->root = new Article( $root_title, 0 );
 			}
 		}
 
@@ -672,7 +672,7 @@ class Thread {
 									$row->page_restrictions );
 				}
 
-				$article = WikiPage::factory( $t );
+				$article = new Article( $t, 0 );
 				$article->loadPageData( $row );
 
 				self::$titleCacheById[$t->getArticleID()] = $t;
@@ -850,7 +850,7 @@ class Thread {
 				$articleTitle->getNamespace() != NS_LQT_THREAD &&
 				$wgLiquidThreadsMigrate ) {
 			$newTitle = $articleTitle->getTalkPage();
-			$newArticle = WikiPage::factory( $newTitle );
+			$newArticle = new Article( $newTitle, 0 );
 
 			$set['thread_article_namespace'] = $newTitle->getNamespace();
 			$set['thread_article_title'] = $newTitle->getDbKey();
@@ -882,7 +882,7 @@ class Thread {
 		if ( $this->articleId && isset( self::$titleCacheById[$this->articleId] ) ) {
 			// If it corresponds to a title, the article obviously exists.
 			$articleTitle = self::$titleCacheById[$this->articleId];
-			$this->article = WikiPage::factory( $articleTitle );
+			$this->article = new Article( $articleTitle, 0 );
 		} elseif ( $this->articleId ) {
 			$articleTitle = Title::newFromID( $this->articleId );
 		}
@@ -892,7 +892,7 @@ class Thread {
 		if ( !$articleTitle && ( $this->articleId != 0 || $dbTitle->getArticleID() != 0 ) ) {
 			$articleTitle = $dbTitle;
 			$this->articleId = $articleTitle->getArticleID();
-			$this->article = WikiPage::factory( $dbTitle );
+			$this->article = new Article( $dbTitle, 0 );
 
 			$set['thread_article_id'] = $this->articleId;
 			wfDebug( "Unfilled or non-existent thread_article_id, refilling to {$this->articleId}\n" );
@@ -1132,7 +1132,7 @@ class Thread {
 			}
 
 			if ( $title ) {
-				$article = WikiPage::factory( $title );
+				$article = new Article( $title, 0 );
 				self::$articleCacheById[$this->articleId] = $article;
 			}
 		}
@@ -1142,7 +1142,7 @@ class Thread {
 			return $article;
 		} else {
 			$title = Title::makeTitle( $this->articleNamespace, $this->articleTitle );
-			return WikiPage::factory( $title );
+			return new Article( $title, 0 );
 		}
 	}
 
@@ -1181,7 +1181,7 @@ class Thread {
 				return null;
 			}
 
-			$this->root = WikiPage::factory( $title );
+			$this->root = new Article( $title, 0 );
 		}
 		return $this->root;
 	}
@@ -1203,7 +1203,7 @@ class Thread {
 				return null;
 			}
 
-			$this->summary = WikiPage::factory( $title );
+			$this->summary = new Article( $title, 0 );
 
 		}
 
@@ -1295,7 +1295,7 @@ class Thread {
 		if ( !$rtitle ) return null;
 
 		$this->dieIfHistorical();
-		$rthread = Threads::withRoot( WikiPage::factory( $rtitle ) );
+		$rthread = Threads::withRoot( new Article( $rtitle, 0 ) );
 		return $rthread;
 	}
 

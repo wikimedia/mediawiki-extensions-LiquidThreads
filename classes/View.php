@@ -497,7 +497,7 @@ class LqtView {
 			}
 		}
 
-		$article = WikiPage::factory( $t );
+		$article = new Article( $t, 0 );
 
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
@@ -611,7 +611,7 @@ class LqtView {
 			$t = $this->scratchTitle();
 		}
 
-		$article = WikiPage::factory( $t );
+		$article = new Article( $t, 0 );
 		$talkpage = $thread->article();
 
 		LqtHooks::$editTalkpage = $talkpage;
@@ -814,7 +814,7 @@ class LqtView {
 			$article = $thread->summary();
 		} else {
 			$t = $this->newSummaryTitle( $thread );
-			$article = WikiPage::factory( $t );
+			$article = new Article( $t, 0 );
 		}
 
 		$this->output->addWikiMsg( 'lqt-summarize-intro' );
@@ -1703,7 +1703,7 @@ class LqtView {
 			return; // Odd case: moved thread with no title?
 		}
 
-		$article = WikiPage::factory( $thread->title() );
+		$article = new Article( $thread->title(), 0 );
 		$target = Title::newFromRedirect( $article->getContent() );
 
 		if ( !$target ) {
@@ -1712,7 +1712,7 @@ class LqtView {
 				$thread->root()->getTitle()->getPrefixedText() . '. Dying.' );
 		}
 
-		$t_thread = Threads::withRoot( WikiPage::factory( $target ) );
+		$t_thread = Threads::withRoot( new Article( $target, 0 ) );
 
 		// Grab data about the new post.
 		$author = $thread->author();
