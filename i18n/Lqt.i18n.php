@@ -308,7 +308,11 @@ The signature is shown automatically.',
 
 	// Echo preferences
 	'echo-pref-email-lqt-new-topic' => 'Creates a new threaded discussion',
-	'echo-pref-email-lqt-reply' => 'Replies to a threaded discussion'
+	'echo-pref-email-lqt-reply' => 'Replies to a threaded discussion',
+
+	// Page info
+	'pageinfo-usinglqt' => 'Threaded discussion enabled',
+	'pageinfo-usinglqt-yes' => 'Yes',
 );
 
 /** Message documentation (Message documentation)
@@ -625,8 +629,12 @@ Link at the top of the page for logged-in users. Parameters:
 {{Identical|Thread}}',
 	'nstab-summary' => 'Used as tab title for the Summary namespace.
 {{Identical|Summary}}',
+
 	'echo-pref-email-lqt-new-topic' => 'Used by the Echo extension in the Preferences -> Notifications tab as a label to enable email notification for the lqt-new-topic event.',
 	'echo-pref-email-lqt-reply' => 'Used by the Echo extension in the Preferences -> Notifications tab as a label to enable email notification for the lqt-reply event.',
+
+	'pageinfo-usinglqt' => 'Entry for whether the page uses LiquidThreads or not',
+	'pageinfo-usinglqt-yes' => 'Yes, this page uses LiquidThreads',
 );
 
 /** Abkhazian (Аҧсшәа)

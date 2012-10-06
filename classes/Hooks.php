@@ -900,4 +900,14 @@ class LqtHooks {
 
 		return true;
 	}
+
+	public static function onInfoAction( $context, $pageInfo ) {
+		if ( LqtDispatch::isLqtPage( $context->getTitle() ) ) {
+			$pageInfo['header-basic'][] = array(
+				wfMessage( 'pageinfo-usinglqt' ), wfMessage( 'pageinfo-usinglqt-yes' )
+			);
+		}
+
+		return true;
+	}
 }

@@ -170,6 +170,9 @@ $wgHooks['MakeGlobalVariablesScript'][] = 'LqtHooks::onMakeGlobalVariablesScript
 // API
 $wgHooks['APIQueryAfterExecute'][] = 'LqtHooks::onAPIQueryAfterExecute';
 
+// Info
+$wgHooks['InfoAction'][] = 'LqtHooks::onInfoAction';
+
 // Special pages
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
