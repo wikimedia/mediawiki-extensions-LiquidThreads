@@ -63,33 +63,27 @@ class ThreadHistoryPager extends TablePager {
 	function formatValue( $name, $value ) {
 		global $wgLang, $wgTitle;
 
-		static $linker = null;
-
-		if ( empty( $linker ) ) {
-			$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
-		}
-
 		$row = $this->mCurrentRow;
 
 		switch( $name ) {
 			case 'th_timestamp':
 				$formatted = $wgLang->timeanddate( $value );
-				return $linker->link(
+				return Linker::link(
 					$wgTitle,
 					$formatted,
 					array(),
 					array( 'lqt_oldid' => $row->th_id )
 				);
 			case 'th_user_text':
-				return $linker->userLink(
+				return Linker::userLink(
 						$row->th_user,
 						$row->th_user_text
 					) .
-					' ' . $linker->userToolLinks( $row->th_user, $row->th_user_text );
+					' ' . Linker::userToolLinks( $row->th_user, $row->th_user_text );
 			case 'th_change_type':
 				return $this->getActionDescription( $value );
 			case 'th_change_comment':
-				return $linker->commentBlock( $value );
+				return Linker::commentBlock( $value );
 			default:
 				return "Unable to format $name";
 				break;

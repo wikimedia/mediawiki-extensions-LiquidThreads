@@ -56,7 +56,6 @@ class TalkpageView extends LqtView {
 		/* Show the contents of the actual talkpage article if it exists. */
 
 		global $wgUser;
-		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
 		$article = $this->talkpage;
 
@@ -69,14 +68,14 @@ class TalkpageView extends LqtView {
 
 			$actionLinks = array();
 			if ( $article->getTitle()->userCan( 'edit' ) ) {
-				$actionLinks[] = $linker->link(
+				$actionLinks[] = Linker::link(
 					$article->getTitle(),
 					wfMessage( 'edit' )->parse() . "↑",
 					array(),
 					array( 'action' => 'edit' )
 				);
 			}
-			$actionLinks[] = $linker->link(
+			$actionLinks[] = Linker::link(
 				$this->title,
 				wfMessage( 'history_short' )->parse() . "↑",
 				array(),
@@ -84,7 +83,7 @@ class TalkpageView extends LqtView {
 			);
 
 			if ( $wgUser->isAllowed( 'delete' ) ) {
-				$actionLinks[] = $linker->link(
+				$actionLinks[] = Linker::link(
 					$article->getTitle(),
 					wfMessage( 'delete' )->parse() . '↑',
 					array(),
@@ -104,7 +103,7 @@ class TalkpageView extends LqtView {
 			$this->output->addHTML( $html );
 		} elseif ( $article->getTitle()->userCan( 'edit' ) ) {
 
-			$editLink = $linker->link(
+			$editLink = Linker::link(
 				$this->talkpage->getTitle(),
 				wfMessage( 'lqt_add_header' )->parse(),
 				array(),
@@ -245,8 +244,6 @@ class TalkpageView extends LqtView {
 			$this->output->addFeedLink( $format, $url );
 		}
 
-		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
-
 		if ( $this->request->getBool( 'lqt_inline' ) ) {
 			$this->doInlineEditForm();
 			return false;
@@ -295,7 +292,7 @@ class TalkpageView extends LqtView {
 
 		if ( Thread::canUserPost( $this->user, $this->talkpage ) ) {
 			$newThreadText = wfMessage( 'lqt_new_thread' )->parse();
-			$newThreadLink = $linker->link(
+			$newThreadLink = Linker::link(
 				$this->title, $newThreadText,
 				array( 'lqt_talkpage' => $this->talkpage->getTitle()->getPrefixedText() ),
 				array( 'lqt_method' => 'talkpage_new_thread' ),

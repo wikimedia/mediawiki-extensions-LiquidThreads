@@ -2,10 +2,8 @@
 
 class TalkpageHistoryView extends TalkpageView {
 	function show() {
-		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
-
 		$talkpageTitle = $this->article->getTitle();
-		$talkpageLink = $linker->link( $talkpageTitle );
+		$talkpageLink = Linker::link( $talkpageTitle );
 
 		$this->output->setPageTitle( wfMessage( 'lqt-talkpage-history-title' ) );
 		$this->output->setSubtitle( wfMessage( 'lqt-talkpage-history-subtitle' )
@@ -71,13 +69,8 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 
 	function formatValue( $name, $value ) {
 		global $wgLang, $wgContLang, $wgOut;
-		static $linker = null;
 
 		$wgOut->setRobotPolicy( 'noindex, nofollow' );
-
-		if ( empty( $linker ) ) {
-			$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
-		}
 
 		$row = $this->mCurrentRow;
 
@@ -96,7 +89,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 					$title
 				);
 
-				$link = $linker->link(
+				$link = Linker::link(
 					$title,
 					$value,
 					array(),
@@ -112,7 +105,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 					$title
 				);
 
-				return $linker->link(
+				return Linker::link(
 					$title,
 					$formatted,
 					array(),

@@ -74,7 +74,6 @@ class ApiFeedLQTThreads extends ApiBase {
 
 	private function createFeedItem( $row ) {
 		$thread = Thread::newFromRow( $row );
-		$linker = new Linker;
 
 		$titleStr = $thread->subject();
 		$completeText = $thread->root()->getContent();
@@ -93,9 +92,9 @@ class ApiFeedLQTThreads extends ApiBase {
 		}
 
 		// Prefix content with a quick description
-		$userLink = $linker->userLink( $thread->author()->getId(), $user );
-		$talkpageLink = $linker->link( $thread->getTitle() );
-		$superthreadLink = $linker->link( $stTitle );
+		$userLink = Linker::userLink( $thread->author()->getId(), $user );
+		$talkpageLink = Linker::link( $thread->getTitle() );
+		$superthreadLink = Linker::link( $stTitle );
 		$user = $thread->author()->getName();
 		$message = $thread->hasSuperThread() ? 'lqt-feed-reply-intro' : 'lqt-feed-new-thread-intro';
 		$rawParams = array( $talkpageLink, $userLink, $superthreadLink );

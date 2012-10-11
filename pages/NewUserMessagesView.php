@@ -151,7 +151,6 @@ class NewUserMessagesView extends LqtView {
 
 		// Left-hand column read button and context link to the full thread.
 		$topmostThread = $t->topmostThread();
-		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 		$title = clone $topmostThread->getTitle();
 		$title->setFragment( '#' . $t->getAnchorName() );
 
@@ -161,7 +160,7 @@ class NewUserMessagesView extends LqtView {
 		$offset = wfTimestamp( TS_UNIX, $topmostThread->modified() ) + 1;
 		$offset = $dbr->timestamp( $offset );
 
-		$contextLink = $linker->link(
+		$contextLink = Linker::link(
 			$title,
 			wfMessage( 'lqt-newmessages-context' )->parse(),
 			array(),
@@ -169,7 +168,7 @@ class NewUserMessagesView extends LqtView {
 			array( 'known' )
 		);
 
-		$talkpageLink = $linker->link( $topmostThread->getTitle() );
+		$talkpageLink = Linker::link( $topmostThread->getTitle() );
 		$talkpageInfo = wfMessage( 'lqt-newmessages-from' )
 			->rawParams( $talkpageLink )->parseAsBlock();
 

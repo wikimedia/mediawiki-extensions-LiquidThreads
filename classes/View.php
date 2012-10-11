@@ -122,15 +122,11 @@ class LqtView {
 
 	static function permalink( $thread, $text = null, $method = null, $operand = null,
 					$linker = null, $attribs = array(), $uquery = array() ) {
-		if ( is_null( $linker ) ) {
-			$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
-		}
-
 		list( $title, $query ) = self::permalinkData( $thread, $method, $operand );
 
 		$query = array_merge( $query, $uquery );
 
-		return $linker->link( $title, $text, $attribs, $query );
+		return Linker::link( $title, $text, $attribs, $query );
 	}
 
 	/**
@@ -178,9 +174,7 @@ class LqtView {
 			$text = Threads::stripHTML( $thread->formattedSubject() );
 		}
 
-		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
-
-		return $linker->link( $title, $text, array(), $query );
+		return Linker::link( $title, $text, array(), $query );
 	}
 
 	static function linkInContextURL( $thread, $contextType = 'page' ) {
@@ -246,9 +240,7 @@ class LqtView {
 			$perpetuateOffset
 		);
 
-		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
-
-		return $linker->link( $title, $text, $attribs, $query, $options );
+		return Linker::link( $title, $text, $attribs, $query, $options );
 	}
 
 	/**
@@ -1572,8 +1564,6 @@ class LqtView {
 	function threadInfoPanel( $thread ) {
 		global $wgLang;
 
-		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
-
 		$infoElements = array();
 
 		// Check for edited flag.
@@ -1594,8 +1584,8 @@ class LqtView {
 
 			foreach ( $editors as $ed ) {
 				$id = IP::isIPAddress( $ed ) ? 0 : 1;
-				$fEditor = $linker->userLink( $id, $ed ) .
-					$linker->userToolLinks( $id, $ed );
+				$fEditor = Linker::userLink( $id, $ed ) .
+					Linker::userToolLinks( $id, $ed );
 				$formattedEditors[] = $fEditor;
 			}
 
@@ -1696,8 +1686,6 @@ class LqtView {
 	function showMovedThread( $thread ) {
 		global $wgLang;
 
-		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
-
 		// Grab target thread
 		if ( !$thread->title() ) {
 			return; // Odd case: moved thread with no title?
@@ -1716,14 +1704,14 @@ class LqtView {
 
 		// Grab data about the new post.
 		$author = $thread->author();
-		$sig = $linker->userLink( $author->getID(), $author->getName() ) .
-			$linker->userToolLinks( $author->getID(), $author->getName() );
+		$sig = Linker::userLink( $author->getID(), $author->getName() ) .
+			Linker::userToolLinks( $author->getID(), $author->getName() );
 		$newTalkpage = is_object( $t_thread ) ? $t_thread->getTitle() : '';
 
 		$html = wfMessage( 'lqt_move_placeholder' )
-			->rawParams( $linker->link( $target ), $sig )
+			->rawParams( Linker::link( $target ), $sig )
 			->params( $wgLang->date( $thread->modified() ), $wgLang->time( $thread->modified() ) )
-			->rawParams( $linker->link( $newTalkpage ) )->parse();
+			->rawParams( Linker::link( $newTalkpage ) )->parse();
 
 		$this->output->addHTML( $html );
 	}
@@ -1816,13 +1804,11 @@ class LqtView {
 	 * @return string
 	 */
 	function getShowMore( $thread, $st, $i ) {
-		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
-
 		$linkText = wfMessage( 'lqt-thread-show-more' )->parse();
 		$linkTitle = clone $thread->topmostThread()->title();
 		$linkTitle->setFragment( '#' . $st->getAnchorName() );
 
-		$link = $linker->link( $linkTitle, $linkText,
+		$link = Linker::link( $linkTitle, $linkText,
 				array( 'class' => 'lqt-show-more-posts' ) );
 		$link .= Html::hidden( 'lqt-thread-start-at', $i,
 				array( 'class' => 'lqt-thread-start-at' ) );
@@ -1837,14 +1823,12 @@ class LqtView {
 	function getShowReplies( $thread ) {
 		global $wgLang;
 
-		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
-
 		$replyCount = $wgLang->formatNum( $thread->replyCount() );
 		$linkText = wfMessage( 'lqt-thread-show-replies' )->numParams( $replyCount )->parse();
 		$linkTitle = clone $thread->topmostThread()->title();
 		$linkTitle->setFragment( '#' . $thread->getAnchorName() );
 
-		$link = $linker->link( $linkTitle, $linkText,
+		$link = Linker::link( $linkTitle, $linkText,
 				array( 'class' => 'lqt-show-replies' ) );
 		$link = Xml::tags( 'div', array( 'class' => 'lqt-thread-replies' ), $link );
 
@@ -2250,8 +2234,6 @@ class LqtView {
 			return ''; // Blank summary
 		}
 
-		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
-
 		$label = wfMessage( 'lqt_summary_label' )->parse();
 		$edit_text = wfMessage( 'edit' )->parse();
 		$link_text = wfMessage( 'lqt_permalink' )->parse();
@@ -2264,7 +2246,7 @@ class LqtView {
 			$label
 		);
 
-		$link = $linker->link( $t->summary()->getTitle(), $link_text,
+		$link = Linker::link( $t->summary()->getTitle(), $link_text,
 				array( 'class' => 'lqt-summary-link' ) );
 		$link .= Html::hidden( 'summary-title', $t->summary()->getTitle()->getPrefixedText() );
 		$edit_link = self::permalink( $t, $edit_text, 'summarize', $t->id() );
@@ -2382,7 +2364,6 @@ class LqtView {
 	// Copy-and-modify of Linker::formatComment
 	static function formatSubject( $s ) {
 		wfProfileIn( __METHOD__ );
-		$linker = class_exists( 'DummyLinker' ) ? new DummyLinker() : new Linker();
 
 		# Sanitize text a bit:
 		$s = str_replace( "\n", " ", $s );
@@ -2390,7 +2371,7 @@ class LqtView {
 		$s = Sanitizer::escapeHtmlAllowEntities( $s );
 
 		# Render links:
-		$s = $linker->formatLinksInComment( $s, null, false );
+		$s = Linker::formatLinksInComment( $s, null, false );
 
 		wfProfileOut( __METHOD__ );
 		return $s;
