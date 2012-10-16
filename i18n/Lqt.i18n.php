@@ -6121,6 +6121,7 @@ Eztabaida hau $2-(e)ko zati da.',
  * @author Ladsgroup
  * @author Mehdi
  * @author Mjbmr
+ * @author Reza1615
  * @author Sahim
  * @author Wayiran
  * @author ZxxZxxZ
@@ -6363,8 +6364,8 @@ $1',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — مبحث‌های جدید از $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — پاسخ‌ها',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — پاسخ‌ها از $1',
-	'lqt-feed-new-thread-intro' => 'مبحث جدید در $1 فرستاده شده توسط $2',
-	'lqt-feed-reply-intro' => 'پاسخ به $3 (در $1) فرستاده شده توسط $2',
+	'lqt-feed-new-thread-intro' => 'مبحث جدید در $1 فرستاده شده توسط {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'پاسخ به $3 (در $1) فرستاده شده توسط {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'نمایش ارسالی‌های جدید به موضوع‌ها و یا صفحه‌های بحث موضوع‌هایی که شما آن‌ها را پی‌گیری می‌کنید',
 	'lqt-newmessages-n' => 'پیام‌های جدید ($1)',
 	'lqt_newmessages' => 'پیام‌های جدید من (هیچ)',
