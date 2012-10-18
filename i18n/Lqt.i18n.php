@@ -4497,7 +4497,7 @@ $messages['diq'] = array(
 	'lqt_toc_thread_replycount' => 'cewabi',
 	'lqt_toc_thread_modified' => 'Vurnayışo Verên',
 	'lqt_add_header' => 'Sername berzê cı',
-	'lqt_new_thread' => 'newe yew werîameyiş kewe',
+	'lqt_new_thread' => 'Zew behso newe  ake',
 	'lqt_invalid_subject' => 'sernameyo ke şıma pê kewti cı nemeqbulo..
 Sebebê ey:
 * ya zaf dergo, ya zi
@@ -4510,7 +4510,7 @@ Sebebê ey:
 	'lqt_undelete' => 'tepiya bıger',
 	'lqt_permalink' => 'gıre bıde ıney',
 	'lqt_fragment' => 'pelê $2i ra yew parçeyê $1i',
-	'lqt_discussion_link' => 'werênayış',
+	'lqt_discussion_link' => 'behse',
 	'lqt_from_talk' => 'pelê $1i ra',
 	'lqt-history-title' => 'hal-verinê gıreyi',
 	'lqt_hist_comment_edited' => 'Metnê mışewrey [$2 vuriya]',
