@@ -314,6 +314,7 @@ The signature is shown automatically.',
 /** Message documentation (Message documentation)
  * @author Amire80
  * @author Aotake
+ * @author Asmen
  * @author Bennylin
  * @author Blaisorblade
  * @author Crt
@@ -354,7 +355,7 @@ $messages['qqq'] = array(
 
 {{Identical|Reply}}',
 	'lqt_toc_thread_modified' => 'Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].',
-	'lqt_new_thread' => '{{Identical|Start a new discussion}}',
+	'lqt_new_thread' => 'werênayışê do newe sıfte ke',
 	'lqt-empty-text' => 'Used in JavaScript alert.',
 	'lqt_reply' => 'is this noun or verb?
 
@@ -369,7 +370,7 @@ This is the link in the bottom right-hand corner of a post, which you click to w
 * $1 is a link with {{msg-mw|lqt_discussion_link}} as text
 * $2 is a link to the talk page
 <!-- as used in /pages/ThreadPermalinkView.php -->',
-	'lqt_discussion_link' => 'Link text inserted into {{msg-mw|lqt_fragment}} as $1
+	'lqt_discussion_link' => 'Nuşteo gırêdae  {{msg-mw|lqt_fragment}}  $1 dekerdeyo
 
 {{Identical|Discussion}}',
 	'lqt_from_talk' => 'Used as page subtitle. Parameters:
@@ -3874,6 +3875,7 @@ Efallai:
 
 /** Danish (dansk)
  * @author Jon Harald Søby
+ * @author Kaare
  * @author Peter Alberti
  */
 $messages['da'] = array(
@@ -4116,8 +4118,8 @@ Signaturen vises automatisk.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} – Nye tråde fra $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} – Svar',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} – Svar fra $1',
-	'lqt-feed-new-thread-intro' => 'Ny tråd på $1 skrevet af $2',
-	'lqt-feed-reply-intro' => 'Svar til $3 (på $1) skrevet af $2',
+	'lqt-feed-new-thread-intro' => 'Ny tråd på $1 oprettet af {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Svar til $3 (på $1) skrevet af {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Viser nye indlæg i tråde eller på trådbaserede diskussionssider, du overvåger',
 	'lqt-newmessages-n' => 'Mine nye beskeder ($1)',
 	'lqt_newmessages' => 'Mine nye beskeder (ingen)',
@@ -4497,7 +4499,7 @@ $messages['diq'] = array(
 	'lqt_toc_thread_replycount' => 'cewabi',
 	'lqt_toc_thread_modified' => 'Vurnayışo Verên',
 	'lqt_add_header' => 'Sername berzê cı',
-	'lqt_new_thread' => 'Zew behso newe  ake',
+	'lqt_new_thread' => 'Yew werênayışo newe ake',
 	'lqt_invalid_subject' => 'sernameyo ke şıma pê kewti cı nemeqbulo..
 Sebebê ey:
 * ya zaf dergo, ya zi
@@ -4510,7 +4512,7 @@ Sebebê ey:
 	'lqt_undelete' => 'tepiya bıger',
 	'lqt_permalink' => 'gıre bıde ıney',
 	'lqt_fragment' => 'pelê $2i ra yew parçeyê $1i',
-	'lqt_discussion_link' => 'behse',
+	'lqt_discussion_link' => 'werênayış',
 	'lqt_from_talk' => 'pelê $1i ra',
 	'lqt-history-title' => 'hal-verinê gıreyi',
 	'lqt_hist_comment_edited' => 'Metnê mışewrey [$2 vuriya]',
