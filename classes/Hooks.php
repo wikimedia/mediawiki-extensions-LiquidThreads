@@ -346,43 +346,35 @@ class LqtHooks {
 		$dir = realpath( dirname( __FILE__ ) . '/..' );
 
 		if ( $updater instanceof PostgresUpdater ) {
-			$updater->addExtensionUpdate( array( 'addTable', 'thread', "$dir/lqt.pg.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addTable', 'thread_history',
-					"$dir/schema-changes/thread_history_table.pg.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addTable', 'thread_pending_relationship',
-					"$dir/schema-changes/thread_pending_relationship.pg.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addTable', 'thread_reaction',
-					"$dir/schema-changes/thread_reactions.pg.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', 'user_message_state', 'ums_conversation',
-					"$dir/schema-changes/ums_conversation.pg.sql", true ) );
+			$updater->addExtensionTable( 'thread', "$dir/lqt.pg.sql" );
+			$updater->addExtensionTable( 'thread_history', "$dir/schema-changes/thread_history_table.pg.sql"  );
+			$updater->addExtensionTable( 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.pg.sql" );
+			$updater->addExtensionTable( 'thread_reaction', "$dir/schema-changes/thread_reactions.pg.sql" );
+			$updater->addExtensionField( 'user_message_state', 'ums_conversation',"$dir/schema-changes/ums_conversation.pg.sql" );
 		} else {
-			$updater->addExtensionUpdate( array( 'addTable', 'thread', "$dir/lqt.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addTable', 'thread_history',
-					"$dir/schema-changes/thread_history_table.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addTable', 'thread_pending_relationship',
-					"$dir/schema-changes/thread_pending_relationship.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addTable', 'thread_reaction',
-					"$dir/schema-changes/thread_reactions.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', 'user_message_state', 'ums_conversation',
-					"$dir/schema-changes/ums_conversation.sql", true ) );
+			$updater->addExtensionTable( 'thread', "$dir/lqt.sql" );
+			$updater->addExtensionTable( 'thread_history', "$dir/schema-changes/thread_history_table.sql" );
+			$updater->addExtensionTable( 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.sql" );
+			$updater->addExtensionTable( 'thread_reaction', "$dir/schema-changes/thread_reactions.sql" );
+			$updater->addExtensionField( 'user_message_state', 'ums_conversation', "$dir/schema-changes/ums_conversation.sql" );
 		}
 
-		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_article_title", "$dir/schema-changes/split-thread_article.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_ancestor", "$dir/schema-changes/normalise-ancestry.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_parent", "$dir/schema-changes/normalise-ancestry.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_modified", "$dir/schema-changes/split-timestamps.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_created", "$dir/schema-changes/split-timestamps.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_editedness", "$dir/schema-changes/store-editedness.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_subject", "$dir/schema-changes/store_subject-author.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_author_id", "$dir/schema-changes/store_subject-author.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_author_name", "$dir/schema-changes/store_subject-author.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', "thread", "thread_sortkey", "$dir/schema-changes/new-sortkey.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addField', 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql", true ) );
+		$updater->addExtensionField( 'thread', "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql" );
+		$updater->addExtensionField( 'thread', "thread_article_title", "$dir/schema-changes/split-thread_article.sql" );
+		$updater->addExtensionField( 'thread', "thread_ancestor", "$dir/schema-changes/normalise-ancestry.sql" );
+		$updater->addExtensionField( 'thread', "thread_parent", "$dir/schema-changes/normalise-ancestry.sql" );
+		$updater->addExtensionField( 'thread', "thread_modified", "$dir/schema-changes/split-timestamps.sql" );
+		$updater->addExtensionField( 'thread', "thread_created", "$dir/schema-changes/split-timestamps.sql" );
+		$updater->addExtensionField( 'thread', "thread_editedness", "$dir/schema-changes/store-editedness.sql" );
+		$updater->addExtensionField( 'thread', "thread_subject", "$dir/schema-changes/store_subject-author.sql" );
+		$updater->addExtensionField( 'thread', "thread_author_id", "$dir/schema-changes/store_subject-author.sql" );
+		$updater->addExtensionField( 'thread', "thread_author_name", "$dir/schema-changes/store_subject-author.sql" );
+		$updater->addExtensionField( 'thread', "thread_sortkey", "$dir/schema-changes/new-sortkey.sql" );
+		$updater->addExtensionField( 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql" );
+		$updater->addExtensionField( 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql" );
+		$updater->addExtensionField( 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql" );
 
-		$updater->addExtensionUpdate( array( 'addIndex', 'thread', 'thread_summary_page', '(thread_summary_page)' ) );
+		$updater->addExtensionIndex( 'thread', 'thread_summary_page', "$dir/schema-changes/index-summary_page.sql" );
 
 		return true;
 	}
