@@ -39,6 +39,7 @@ CREATE INDEX thread_created ON /*$wgDBprefix*/thread (thread_created);
 CREATE INDEX thread_summary_page ON /*$wgDBprefix*/thread (thread_summary_page);
 CREATE INDEX thread_author_name ON /*$wgDBprefix*/thread (thread_author_id,thread_author_name);
 CREATE INDEX thread_sortkey ON /*$wgDBprefix*/thread (thread_sortkey);
+CREATE INDEX thread_parent ON /*$wgDBprefix*/thread(thread_parent);
 
 -- Old storage table for "historical" (i.e. non-current) threads
 -- Now superseded by thread_history.

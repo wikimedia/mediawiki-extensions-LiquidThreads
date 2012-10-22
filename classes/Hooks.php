@@ -375,6 +375,7 @@ class LqtHooks {
 		$updater->addExtensionField( 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql" );
 
 		$updater->addExtensionIndex( 'thread', 'thread_summary_page', "$dir/schema-changes/index-summary_page.sql" );
+		$updater->addExtensionIndex( 'thread', 'thread_parent', "$dir/schema-changes/index-thread_parent.sql"  );
 
 		return true;
 	}
