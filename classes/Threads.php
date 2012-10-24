@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 /** Module of factory methods. */
 class Threads {
@@ -40,7 +39,7 @@ class Threads {
 		self::CHANGE_SPLIT_FROM,
 		self::CHANGE_ROOT_BLANKED,
 		self::CHANGE_ADJUSTED_SORTKEY,
-		);
+	);
 
 	// Possible values of Thread->editedness.
 	const EDITED_NEVER = 0;
@@ -56,10 +55,10 @@ class Threads {
 	 * Create the talkpage if it doesn't exist so that links to it
 	 * will show up blue instead of red. For use upon new thread creation.
 	 *
-	 * @param $talkpage
+	 * @param $talkpage Article
 	 */
 	public static function createTalkpageIfNeeded( $talkpage ) {
-		if ( ! $talkpage->exists() ) {
+		if ( !$talkpage->exists() ) {
 			try {
 				$talkpage->doEdit(
 					"",
@@ -100,7 +99,7 @@ class Threads {
 
 		foreach ( $threads as $thread ) {
 			if ( $thread->root() ) {
-				self::$cache_by_root[$thread->root()->getID()] = $thread;
+				self::$cache_by_root[$thread->root()->getId()] = $thread;
 			}
 			self::$cache_by_id[$thread->id()] = $thread;
 		}
@@ -109,7 +108,7 @@ class Threads {
 	}
 
 	private static function databaseError( $msg ) {
-		// TODO tie into MW's error reporting facilities.
+		// @todo Tie into MW's error reporting facilities.
 		throw new MWException( "Corrupt LiquidThreads database: $msg" );
 	}
 
@@ -130,7 +129,7 @@ class Threads {
 	}
 
 	/**
-	 * @param $post
+	 * @param $post Article
 	 * @param $bulkLoad bool
 	 * @return Thread
 	 */
@@ -145,14 +144,13 @@ class Threads {
 			return null;
 		}
 
-		if ( array_key_exists( $post->getID(), self::$cache_by_root ) ) {
-			return self::$cache_by_root[$post->getID()];
+		if ( array_key_exists( $post->getId(), self::$cache_by_root ) ) {
+			return self::$cache_by_root[$post->getId()];
 		}
 
-		$ts = Threads::where( array( 'thread_root' => $post->getID() ), array(),
-					$bulkLoad );
+		$ts = Threads::where( array( 'thread_root' => $post->getId() ), array(), $bulkLoad );
 
-		return self::assertSingularity( $ts, 'thread_root', $post->getID() );
+		return self::assertSingularity( $ts, 'thread_root', $post->getId() );
 	}
 
 	/**
@@ -177,7 +175,7 @@ class Threads {
 	 */
 	static function withSummary( $article, $bulkLoad = true ) {
 		$ts = Threads::where( array( 'thread_summary_page' => $article->getId() ),
-					array(), $bulkLoad );
+			array(), $bulkLoad );
 		return self::assertSingularity( $ts, 'thread_summary_page', $article->getId() );
 	}
 
@@ -185,7 +183,7 @@ class Threads {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$titleCond = array( 'thread_article_title' => $article->getTitle()->getDBKey(),
-				'thread_article_namespace' => $article->getTitle()->getNamespace() );
+			'thread_article_namespace' => $article->getTitle()->getNamespace() );
 		$titleCond = $dbr->makeList( $titleCond, LIST_AND );
 
 		$conds = array( $titleCond );
@@ -283,7 +281,7 @@ class Threads {
 			in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) ||
 			$t->exists() ||
 			$t->isDeletedQuick()
-		 ) {
+		) {
 
 			if ( !$t ) {
 				throw new MWException( "Error in creating title for basename $basename" );
@@ -313,6 +311,8 @@ class Threads {
 			throw new MWException( "synchroniseArticleData called on null article" );
 		}
 
+		wfProfileIn( __METHOD__ );
+
 		$dbr = wfGetDB( DB_SLAVE );
 		$dbw = wfGetDB( DB_MASTER );
 
@@ -320,7 +320,7 @@ class Threads {
 		$id = $article->getId();
 
 		$titleCond = array( 'thread_article_namespace' => $title->getNamespace(),
-				'thread_article_title' => $title->getDBkey() );
+			'thread_article_title' => $title->getDBkey() );
 		$titleCondText = $dbr->makeList( $titleCond, LIST_AND );
 
 		$idCond = array( 'thread_article_id' => $id );
@@ -333,16 +333,19 @@ class Threads {
 		$options = array( 'LIMIT' => 500, 'ORDER BY' => 'thread_id DESC' );
 
 		// Batch in 500s
-		if ( $limit ) $options['LIMIT'] = min( $limit, 500 );
+		if ( $limit ) {
+			$options['LIMIT'] = min( $limit, 500 );
+		}
 
 		$rowsAffected = 0;
 		$roundRowsAffected = 1;
+
+		wfProfileIn( __METHOD__ . '-update' );
 		while ( ( !$limit || $rowsAffected < $limit ) && $roundRowsAffected > 0 ) {
 			$roundRowsAffected = 0;
 
 			// Fix wrong title.
-			$dbw->update( 'thread', $titleCond, $fixTitleCond,
-						__METHOD__, $options );
+			$dbw->update( 'thread', $titleCond, $fixTitleCond, __METHOD__, $options );
 			$roundRowsAffected += $dbw->affectedRows();
 
 			// Fix wrong ID
@@ -351,14 +354,15 @@ class Threads {
 
 			$rowsAffected += $roundRowsAffected;
 		}
+		wfProfileOut( __METHOD__ . '-update' );
 
 		if ( $limit && ( $rowsAffected >= $limit ) && $queueMore ) {
 			$jobParams = array( 'limit' => $limit, 'cascade' => true );
-			$job = new SynchroniseThreadArticleDataJob( $article->getTitle(),
-									$jobParams );
+			$job = new SynchroniseThreadArticleDataJob( $article->getTitle(), $jobParams );
 			$job->insert();
 		}
 
+		wfProfileOut( __METHOD__ );
 		return $limit ? ( $rowsAffected < $limit ) : true;
 	}
 }
