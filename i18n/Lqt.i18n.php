@@ -4578,7 +4578,7 @@ no operasyon tepiya geriyeno.',
 Vurnayisa peyine: $1',
 	'lqt-thread-edited-others' => 'Hetê {{PLURAL:$2|karberanê binan|$2 karberan}} ra vuriya.<br />
 Vurnayisa peyine: $1',
-	'lqt-header-actions' => 'Kerdeni',
+	'lqt-header-actions' => 'Kerdışi',
 	'lqt_summarize_link' => 'Xulasa ke',
 	'lqt-summarize-intro' => 'kerem kerê gıreyo cêrın qutiya vurnayişi de xulasa bıkerê.
 şıma xulasaya xo de eşkêni yew metnê wikiyi bışuxulni.Özetinizde herhangi bir vikimetnini kullanabilirsiniz. wexta ke şıma qedna "{{int:savearticle}}" bıtıknê.',
