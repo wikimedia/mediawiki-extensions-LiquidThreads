@@ -91,7 +91,8 @@ $wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
 
 $wgResourceModules['ext.liquidThreads.newMessages'] = $lqtResourceTemplate + array(
 	'scripts' => array( 'newmessages.js' ),
-	'dependencies' => array( 'ext.liquidThreads' )
+	'dependencies' => array( 'ext.liquidThreads' ),
+	'position' => 'top',
 );
 
 // Hooks
