@@ -12550,7 +12550,7 @@ $messages['ltg'] = array(
 	'lqt-ajax-update-link' => 'Atjaunynuot',
 );
 
-/** Lushai (Mizo ţawng)
+/** Mizo (Mizo ţawng)
  * @author RMizo
  */
 $messages['lus'] = array(
