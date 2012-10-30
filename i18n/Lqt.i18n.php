@@ -415,8 +415,9 @@ Action results from button {{msg-mw|lqt_undelete}}',
 	'lqt_youhavenewmessages' => '* $1 is a link to the new message or messages.
 
 {{doc-important|No PLURAL here! (The number of new messages is unknown.)}}',
-	'lqt_protectedfromreply' => '$1 is replaced with {{msg-mw|Lqt protectedfromreply link}}',
-	'lqt_protectedfromreply_link' => '{{Identical|Protected}}',
+	'lqt_protectedfromreply' => 'Displayed when a thread cannot be replied to. Parameters:
+* $1 is replaced with {{msg-mw|lqt protectedfromreply link}}.',
+	'lqt_protectedfromreply_link' => '{{Identical|Protected}}Substituted as $1 in {{msg-mw|lqt protectedfromreply}}.',
 	'lqt_subject' => '{{Identical|Subject}}',
 	'lqt_noreason' => '{{Identical|No reason given}}',
 	'lqt_move_placeholder' => 'Thread contents when a thread was moved. Parameters:
@@ -10440,10 +10441,10 @@ $messages['ja'] = array(
 	'lqt-history-action' => '活動',
 	'lqt-history-comment' => 'コメント',
 	'lqt-history-thread' => 'スレッド',
-	'lqt-thread-edited-author' => '著者による編集。<br />
-最後の編集: $1',
-	'lqt-thread-edited-others' => '{{PLURAL:$2|他の利用者|$2 利用者}}による編集。<br />
-最後の編集: $1',
+	'lqt-thread-edited-author' => '著者が編集しました。<br />
+最終編集: $1',
+	'lqt-thread-edited-others' => '{{PLURAL:$2|他の利用者|$2 人の利用者}}が編集しました。<br />
+最終編集: $1',
 	'lqt-header-actions' => '操作',
 	'lqt_summarize_link' => '要約',
 	'lqt-summarize-intro' => '下記のスレッドを編集ボックス内に要約してください。
@@ -14087,7 +14088,7 @@ $messages['nl'] = array(
 	'lqt_change_split_from' => 'Een [$1 subonderwerp] van dit onderwerp is afgesplitst in zijn eigen onderwerp',
 	'lqt_change_root_blanked' => 'De tekst van een [$1 opmerking] is verwijderd.',
 	'lqt_youhavenewmessages' => 'U hebt [[$1|nieuwe berichten]].',
-	'lqt_protectedfromreply' => 'Dit onderwerp is $1 van te worden beantwoord.',
+	'lqt_protectedfromreply' => 'Dit onderwerp is $1 en kan niet door u worden beantwoord.',
 	'lqt_protectedfromreply_link' => 'beveiligd',
 	'lqt_subject' => 'Onderwerp:',
 	'lqt_noreason' => 'Geen reden gegeven.',
