@@ -355,7 +355,7 @@ $messages['qqq'] = array(
 
 {{Identical|Reply}}',
 	'lqt_toc_thread_modified' => 'Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].',
-	'lqt_new_thread' => 'werênayışê do newe sıfte ke',
+	'lqt_new_thread' => '{{Identical|Start a new discussion}}',
 	'lqt-empty-text' => 'Used in JavaScript alert.',
 	'lqt_reply' => 'is this noun or verb?
 
@@ -370,7 +370,7 @@ This is the link in the bottom right-hand corner of a post, which you click to w
 * $1 is a link with {{msg-mw|lqt_discussion_link}} as text
 * $2 is a link to the talk page
 <!-- as used in /pages/ThreadPermalinkView.php -->',
-	'lqt_discussion_link' => 'Nuşteo gırêdae  {{msg-mw|lqt_fragment}}  $1 dekerdeyo
+	'lqt_discussion_link' => 'Link text inserted into {{msg-mw|lqt_fragment}} as $1
 
 {{Identical|Discussion}}',
 	'lqt_from_talk' => 'Used as page subtitle. Parameters:
@@ -417,7 +417,8 @@ Action results from button {{msg-mw|lqt_undelete}}',
 {{doc-important|No PLURAL here! (The number of new messages is unknown.)}}',
 	'lqt_protectedfromreply' => 'Displayed when a thread cannot be replied to. Parameters:
 * $1 is replaced with {{msg-mw|lqt protectedfromreply link}}.',
-	'lqt_protectedfromreply_link' => '{{Identical|Protected}}Substituted as $1 in {{msg-mw|lqt protectedfromreply}}.',
+	'lqt_protectedfromreply_link' => 'Substituted as $1 in {{msg-mw|lqt protectedfromreply}}.
+{{Identical|Protected}}',
 	'lqt_subject' => '{{Identical|Subject}}',
 	'lqt_noreason' => '{{Identical|No reason given}}',
 	'lqt_move_placeholder' => 'Thread contents when a thread was moved. Parameters:
