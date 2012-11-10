@@ -252,7 +252,7 @@ window.liquidThreads = {
 		liquidThreads.apiRequest( params,
 			function(result) {
 				var content = $(result.threadaction.inlineeditform.html);
-				$(container).empty().append(content);
+				$(container).empty().append( content.contents() );
 
 				callback();
 			} );

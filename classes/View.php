@@ -489,6 +489,10 @@ class LqtView {
 			}
 		}
 
+		$html = Xml::openElement( 'div',
+			array( 'class' => 'lqt-edit-form lqt-new-thread' ) );
+		$this->output->addHTML( $html );
+
 		$article = new Article( $t, 0 );
 
 		LqtHooks::$editTalkpage = $talkpage;
@@ -574,6 +578,8 @@ class LqtView {
 			   }
 			   $this->output->redirect( $this->title->getLocalURL() );
 		}
+
+		$this->output->addHTML( '</div>' );
 	}
 
 	/**
@@ -593,7 +599,7 @@ class LqtView {
 		}
 
 		$html = Xml::openElement( 'div',
-					array( 'class' => 'lqt-reply-form' ) );
+					array( 'class' => 'lqt-reply-form lqt-edit-form' ) );
 		$this->output->addHTML( $html );
 
 
@@ -697,6 +703,10 @@ class LqtView {
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
 		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
 
+		$html = Xml::openElement( 'div',
+			array( 'class' => 'lqt-edit-form' ) );
+		$this->output->addHTML( $html );
+
 		$subject = $this->request->getVal( 'lqt_subject_field', '' );
 
 		if ( !$subject ) {
@@ -792,6 +802,7 @@ class LqtView {
 			   $this->output->redirect( $this->title->getLocalURL() );
 		}
 
+		$this->output->addHTML( '</div>' );
 	}
 
 	/**
@@ -808,6 +819,10 @@ class LqtView {
 			$t = $this->newSummaryTitle( $thread );
 			$article = new Article( $t, 0 );
 		}
+
+		$html = Xml::openElement( 'div',
+			array( 'class' => 'lqt-edit-form lqt-summarize-form' ) );
+		$this->output->addHTML( $html );
 
 		$this->output->addWikiMsg( 'lqt-summarize-intro' );
 
@@ -861,6 +876,7 @@ class LqtView {
 			   $this->output->redirect( $this->title->getLocalURL() );
 		}
 
+		$this->output->addHTML( '</div>' );
 	}
 
 	public function handleNonce( $submitted_nonce, $nonce_key ) {
