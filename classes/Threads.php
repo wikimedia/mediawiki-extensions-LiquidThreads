@@ -340,21 +340,29 @@ class Threads {
 		$rowsAffected = 0;
 		$roundRowsAffected = 1;
 
-		wfProfileIn( __METHOD__ . '-update' );
 		while ( ( !$limit || $rowsAffected < $limit ) && $roundRowsAffected > 0 ) {
 			$roundRowsAffected = 0;
 
 			// Fix wrong title.
-			$dbw->update( 'thread', $titleCond, $fixTitleCond, __METHOD__, $options );
-			$roundRowsAffected += $dbw->affectedRows();
+			$fixTitleCount = $dbr->selectField( 'thread', 'COUNT(*)', $fixTitleCond, __METHOD__ );
+			if ( intval( $fixTitleCount ) ) {
+				wfProfileIn( __METHOD__ . '-update' );
+				$dbw->update( 'thread', $titleCond, $fixTitleCond, __METHOD__, $options );
+				$roundRowsAffected += $dbw->affectedRows();
+				wfProfileOut( __METHOD__ . '-update' );
+			}
 
 			// Fix wrong ID
-			$dbw->update( 'thread', $idCond, $fixIdCond, __METHOD__, $options );
-			$roundRowsAffected += $dbw->affectedRows();
+			$fixIdCount = $dbr->selectField( 'thread', 'COUNT(*)', $fixIdCond, __METHOD__ );
+			if ( intval( $fixIdCount ) ) {
+				wfProfileIn( __METHOD__ . '-update' );
+				$dbw->update( 'thread', $idCond, $fixIdCond, __METHOD__, $options );
+				$roundRowsAffected += $dbw->affectedRows();
+				wfProfileOut( __METHOD__ . '-update' );
+			}
 
 			$rowsAffected += $roundRowsAffected;
 		}
-		wfProfileOut( __METHOD__ . '-update' );
 
 		if ( $limit && ( $rowsAffected >= $limit ) && $queueMore ) {
 			$jobParams = array( 'limit' => $limit, 'cascade' => true );
