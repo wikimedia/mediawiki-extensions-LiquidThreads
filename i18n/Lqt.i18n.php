@@ -346,7 +346,7 @@ The signature is shown automatically.',
  * @author Wikinaut
  */
 $messages['qqq'] = array(
-	'lqt-desc' => '{{desc}}',
+	'lqt-desc' => '{{desc|name=Liquid Threads|url=http://www.mediawiki.org/wiki/Extension:LiquidThreads}}',
 	'lqt_movethread' => 'Title and header at [[Special:MoveThread]].',
 	'lqt_contents_title' => 'The title of a list of threads at the top of the page.
 {{Identical|Contents}}',
@@ -12609,6 +12609,7 @@ $messages['mg'] = array(
 	'lqt-new-messages' => '✒ Manana hafatra vaovao',
 	'lqt-movethread' => 'Hanolo anarana',
 	'right-lqt-split' => 'Mizara ny resaka',
+	'lqt_newmessages' => 'Hafatra vaovao (tsy misy)',
 );
 
 /** Eastern Mari (олык марий)
