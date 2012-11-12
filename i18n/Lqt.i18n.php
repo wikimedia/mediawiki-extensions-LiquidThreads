@@ -588,8 +588,8 @@ Displayed in a list of actions to confirm in a confirmation dialog.',
 * $4 is the posting user in plain text, used for GENDER.',
 	'lqt-newmessages-n' => '{{Identical|New messages}}
 
-Link at the top of the page for logged-in users. $1 is the number of new messages.',
-	'lqt_newmessages' => '{{Identical|New messages}}',
+Link at the top of the page for logged-in users. $1 is the number of new messages.', # Fuzzy
+	'lqt_newmessages' => '{{Identical|New messages}}', # Fuzzy
 	'lqt_newmessages-title' => '{{Identical|New messages}}',
 	'lqt-reply-summary' => 'Used on history page of message and thread. $2 is the message to which this message is a reply. $1 is the title of the thread.',
 	'lqt-talkpage-history-subtitle' => 'Parameters:
@@ -3722,8 +3722,8 @@ Podpis se zobrazuje automaticky.',
 	'lqt-feed-new-thread-intro' => '$2 {{GENDER:$4|přidal|přidala|přidal}} do $1 nové vlákno',
 	'lqt-feed-reply-intro' => '$2 {{GENDER:$4|reagoval|reagovala|reagoval}} na $3 (v $1)',
 	'tooltip-pt-newmessages' => 'Zobrazí nové zprávy ve vláknech nebo na diskusních stránkách, které sledujete',
-	'lqt-newmessages-n' => 'Nové zprávy ($1)',
-	'lqt_newmessages' => 'Nové zprávy (žádné)',
+	'lqt-newmessages-n' => 'Nové zprávy ($1)', # Fuzzy
+	'lqt_newmessages' => 'Nové zprávy (žádné)', # Fuzzy
 	'lqt_newmessages-title' => 'Nové zprávy',
 	'lqt-newpost-summary' => 'Nové vlákno: $1',
 	'lqt-reply-summary' => 'Odpověď na [[$2|$1]]',
@@ -12609,7 +12609,7 @@ $messages['mg'] = array(
 	'lqt-new-messages' => '✒ Manana hafatra vaovao',
 	'lqt-movethread' => 'Hanolo anarana',
 	'right-lqt-split' => 'Mizara ny resaka',
-	'lqt_newmessages' => 'Hafatra vaovao (tsy misy)',
+	'lqt_newmessages' => 'Hafatra vaovao (tsy misy)', # Fuzzy
 );
 
 /** Eastern Mari (олык марий)
