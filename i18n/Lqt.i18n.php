@@ -278,8 +278,8 @@ The signature is shown automatically.',
 
 	// Personal tool links
 	'tooltip-pt-newmessages' => 'Shows new posts to threads or on threaded talk pages you are watching',
-	'lqt-newmessages-n' => 'My new messages ($1)',
-	'lqt_newmessages' => 'My new messages (none)',
+	'lqt-newmessages-n' => 'New messages ($1)',
+	'lqt_newmessages' => 'New messages (none)',
 	'lqt_newmessages-title' => 'New messages',
 
 	// Automatic summaries
