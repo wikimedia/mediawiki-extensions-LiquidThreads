@@ -52,6 +52,11 @@ $magicWords['es'] = array(
 	'lqtpagelimit' => array( 0, 'limitedepaginasdehlq', 'límitedepáginasdehlq' ),
 );
 
+/** Italian (italiano) */
+$magicWords['it'] = array(
+	'useliquidthreads' => array( 0, 'UsaLiquidThreads' ),
+);
+
 /** Japanese (日本語) */
 $magicWords['ja'] = array(
 	'useliquidthreads' => array( 0, 'スレッド使用' ),
