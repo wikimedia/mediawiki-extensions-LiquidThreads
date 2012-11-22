@@ -414,6 +414,15 @@ $specialPageAliases['sa'] = array(
 	'NewMessages' => array( 'नूतनसन्देश' ),
 );
 
+/** Sicilian (sicilianu) */
+$specialPageAliases['scn'] = array(
+	'DeleteThread' => array( 'CancellaDiscussione' ),
+	'MoveThread' => array( 'SpostaDiscussione' ),
+	'NewMessages' => array( 'NuoviMessaggi' ),
+	'SplitThread' => array( 'DividiDiscussione' ),
+	'MergeThread' => array( 'UnisciThread' ),
+);
+
 /** Sinhala (සිංහල) */
 $specialPageAliases['si'] = array(
 	'NewMessages' => array( 'නවපණිවුඩ' ),

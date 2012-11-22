@@ -4366,8 +4366,8 @@ Die Signatur wird automatisch ergänzt.',
 	'lqt-feed-new-thread-intro' => 'Neues Thema auf $1 von {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Antwort auf $3 (auf $1) von {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Zeigt neue Nachrichten zu den von dir beobachteten Themen oder deren zugehörigen Diskussionsseiten',
-	'lqt-newmessages-n' => 'Neue Nachrichten ($1)',
-	'lqt_newmessages' => 'Neue Nachrichten (keine)',
+	'lqt-newmessages-n' => 'Nachrichten ($1)',
+	'lqt_newmessages' => 'Nachrichten (keine)',
 	'lqt_newmessages-title' => 'Neue Nachrichten',
 	'lqt-newpost-summary' => 'Neues Thema: $1',
 	'lqt-reply-summary' => 'Antwort auf [[$2|$1]]',
@@ -14812,12 +14812,17 @@ $messages['or'] = array(
 
 /** Ossetic (Ирон)
  * @author Amikeco
+ * @author Bouron
  */
 $messages['os'] = array(
 	'lqt_delete' => 'Аппар',
 	'lqt_hist_deleted' => 'Аппæрст',
+	'lqt_youhavenewmessages' => 'Æрцыд дæм [[$1|ног фыстæджы]].',
 	'lqt_protectedfromreply_link' => 'æхгæд',
-	'lqt-title' => 'Сæргонд',
+	'lqt-title' => 'Сæр',
+	'lqt-newmessages-n' => 'Ног фыстæджытæ ($1)',
+	'lqt_newmessages' => 'Ног фыстæджытæ (нæй)',
+	'lqt_newmessages-title' => 'Ног фыстæджытæ',
 );
 
 /** Pampanga (Kapampangan)
