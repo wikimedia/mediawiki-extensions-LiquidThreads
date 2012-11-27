@@ -349,7 +349,7 @@ $specialPageAliases['nb'] = array(
 	'MergeThread' => array( 'Slå_sammen_tråd' ),
 );
 
-/** Nedersaksisch (Nedersaksisch) */
+/** Nedersaksies (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'DeleteThread' => array( 'Draod_vortdoon' ),
 	'MoveThread' => array( 'Draod_verplaotsen' ),

@@ -75,7 +75,7 @@ $magicWords['mk'] = array(
 	'lqtpagelimit' => array( 0, 'ОгранСтранТечниНишки' ),
 );
 
-/** Nedersaksisch (Nedersaksisch) */
+/** Nedersaksies (Nedersaksies) */
 $magicWords['nds-nl'] = array(
 	'useliquidthreads' => array( 0, 'LiquidThreads_gebruken', 'LiquidThreadsGebruiken' ),
 );
