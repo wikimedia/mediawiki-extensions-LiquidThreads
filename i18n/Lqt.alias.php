@@ -283,7 +283,7 @@ $specialPageAliases['ksh'] = array(
 
 /** Cornish (kernowek) */
 $specialPageAliases['kw'] = array(
-	'NewMessages' => array( 'MessajowNowyth' ),
+	'NewMessages' => array( 'MessajysNowyth' ),
 );
 
 /** Ladino (Ladino) */

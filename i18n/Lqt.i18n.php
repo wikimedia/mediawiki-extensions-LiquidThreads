@@ -14335,7 +14335,7 @@ Kan henda er det:
 	'lqt_hist_deleted' => 'Sletta',
 	'lqt_hist_undeleted' => 'Sletting gjort om',
 	'lqt_hist_moved_talkpage' => 'Flytta',
-	'lqt_hist_listing_subtitle' => 'Syner ei historikklista',
+	'lqt_hist_listing_subtitle' => 'Syner ei historikkliste',
 	'lqt_hist_view_whole_thread' => 'Syn historikken for heile tråden',
 	'lqt_hist_no_revisions_error' => 'Denne tråden har ingen versjonar.',
 	'lqt_hist_past_last_page_error' => 'Det finst ikkje fleire sider med historikk.',
@@ -14521,8 +14521,8 @@ $7',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Svar',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Svar frå $1',
 	'lqt-feed-new-thread-intro' => 'Ny tråd på $1 oppretta av $2', # Fuzzy
-	'lqt-newmessages-n' => 'Nye meldingar ($1)',
-	'lqt_newmessages' => 'Nye meldingar (ingen)',
+	'lqt-newmessages-n' => 'Nye meldingar ($1)', # Fuzzy
+	'lqt_newmessages' => 'Nye meldingar (ingen)', # Fuzzy
 	'lqt_newmessages-title' => 'Nye meldingar',
 	'lqt-newpost-summary' => 'Ny tråd: $1',
 	'lqt-reply-summary' => 'Svar på [[$2|$1]]',
@@ -14819,7 +14819,7 @@ $messages['or'] = array(
  * @author Bouron
  */
 $messages['os'] = array(
-	'lqt_delete' => 'Аппар',
+	'lqt_delete' => 'Схафын',
 	'lqt_hist_deleted' => 'Аппæрст',
 	'lqt_youhavenewmessages' => 'Æрцыд дæм [[$1|ног фыстæджы]].',
 	'lqt_protectedfromreply_link' => 'æхгæд',
