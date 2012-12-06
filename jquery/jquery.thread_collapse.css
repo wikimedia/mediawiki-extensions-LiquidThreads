@@ -1,5 +1,5 @@
 .thread-collapse-control a {
-	display: block;
+	display: inline-block;
 	outline: none;
 	width: 17px;
 	height: 17px;
