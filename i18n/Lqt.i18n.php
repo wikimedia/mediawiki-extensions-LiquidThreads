@@ -9224,6 +9224,13 @@ Az aláírásod automatikusan meg fog jelenni.',
 	'nstab-summary' => 'Összefoglaló',
 );
 
+/** Armenian (Հայերեն)
+ * @author Chaojoker
+ */
+$messages['hy'] = array(
+	'lqt_newmessages' => 'Նոր ուղերձներ (դատարկ)',
+);
+
 /** Interlingua (interlingua)
  * @author McDutchie
  */
