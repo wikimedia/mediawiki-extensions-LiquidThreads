@@ -1229,6 +1229,9 @@ $7",
  * @author Basharh
  */
 $messages['arc'] = array(
+	'lqt_reply' => 'ܦܢܝ',
+	'lqt-parent' => 'ܐܒܐ',
+	'lqt_permalink' => 'ܐܣܘܪ ܠܗ',
 	'lqt_from_talk' => 'ܡܢ $1',
 	'lqt_hist_deleted' => 'ܫܝܦܬ',
 	'lqt_hist_undeleted' => 'ܠܐ ܫܝܦܬ',
@@ -20311,6 +20314,7 @@ $messages['tt-cyrl'] = array(
 /** Ukrainian (українська)
  * @author AS
  * @author Alex Khimich
+ * @author Base
  * @author Dim Grits
  * @author Microcell
  * @author NickK
@@ -20558,11 +20562,11 @@ $7",
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Нові теми на $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Відповіді',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Відповіді $1',
-	'lqt-feed-new-thread-intro' => 'Нова тема на $1 розміщена $2', # Fuzzy
+	'lqt-feed-new-thread-intro' => '$2 {{GENDER:$4|розпочав|розпочала}} нову тему на $1',
 	'lqt-feed-reply-intro' => 'Відповідь у $3 (на $1), опублікована $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Показує нові повідомлення в темах обговорень, за якими ви слідкуєте',
-	'lqt-newmessages-n' => 'Нові повідомлення ($1)',
-	'lqt_newmessages' => 'Повідомлень немає',
+	'lqt-newmessages-n' => 'Нові повідомлення ($1)', # Fuzzy
+	'lqt_newmessages' => 'Повідомлень немає', # Fuzzy
 	'lqt_newmessages-title' => 'Нові повідомлення',
 	'lqt-newpost-summary' => 'Нова тема: $1',
 	'lqt-reply-summary' => 'Відповідь на [[$2|$1]]',
