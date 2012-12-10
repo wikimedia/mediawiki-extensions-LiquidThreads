@@ -1817,10 +1817,13 @@ class LqtView {
 	}
 
 	/**
+	 * When some replies are hidden because the are nested too deep,
+	 * this method creates a link that can be used to show the hidden
+	 * threats.
 	 * @param $thread Thread
-	 * @return string
+	 * @return string Html
 	 */
-	function getShowReplies( $thread ) {
+	function getShowReplies( Thread $thread ) {
 		$linkText = wfMessage( 'lqt-thread-show-replies' )
 			->numParams( $thread->replyCount() )
 			->parse();
@@ -1828,7 +1831,7 @@ class LqtView {
 		$linkTitle->setFragment( '#' . $thread->getAnchorName() );
 
 		$link = Linker::link( $linkTitle, $linkText,
-				array( 'class' => 'lqt-show-replies' ) );
+			array( 'class' => 'lqt-show-replies' ) );
 		$link = Xml::tags( 'div', array( 'class' => 'lqt-thread-replies' ), $link );
 
 		return $link;
