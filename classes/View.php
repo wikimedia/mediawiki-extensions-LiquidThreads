@@ -1821,10 +1821,9 @@ class LqtView {
 	 * @return string
 	 */
 	function getShowReplies( $thread ) {
-		global $wgLang;
-
-		$replyCount = $wgLang->formatNum( $thread->replyCount() );
-		$linkText = wfMessage( 'lqt-thread-show-replies' )->numParams( $replyCount )->parse();
+		$linkText = wfMessage( 'lqt-thread-show-replies' )
+			->numParams( $thread->replyCount() )
+			->parse();
 		$linkTitle = clone $thread->topmostThread()->title();
 		$linkTitle->setFragment( '#' . $thread->getAnchorName() );
 
