@@ -21495,6 +21495,7 @@ $messages['xal'] = array(
  * @author פוילישער
  */
 $messages['yi'] = array(
+	'lqt_movethread' => 'באוועגן קייטל צו אן אנדער בלאט',
 	'lqt_deletethread' => 'אויסמעקן אדער צוריקשטעלן קייטל',
 	'lqt_contents_title' => 'אינהאַלטן',
 	'lqt_toc_thread_title' => 'קייטל קעפל',
@@ -21532,6 +21533,7 @@ $messages['yi'] = array(
 	'lqt_summary_subtitle' => 'קאנספעקט פון "$1"',
 	'lqt_nosuchrevision' => 'נישט פאראן אזא ווערסיע פון דעם קייטל.',
 	'lqt_move_torename_edit' => 'באַאַרבעטס עס',
+	'lqt_move_destinationtitle' => 'קעפל פון ציל שמועס בלאט:',
 	'lqt_move_move' => 'באַװעגן',
 	'lqt_sorting_order' => 'סארטירן סדר:',
 	'lqt_sort_newest_changes' => 'לעצטע מאדיפֿיצירט צוערשט',
@@ -21570,11 +21572,16 @@ $messages['yi'] = array(
 	'lqt-search-button' => 'זוכן',
 	'searchprofile-threads' => 'דיסקוסיעס',
 	'lqt-ajax-update-link' => 'דערהײַנטיקן',
+	'lqt-thread-show-replies' => 'ווייזן $1 {{PLURAL:$1|ענטפער|ענטפערן}}',
+	'lqt-change-subject' => 'ענדערן סוביעקט',
 	'lqt-save-subject' => 'אויפֿהיטן',
 	'lqt-cancel-subject-edit' => 'אַנולירן',
 	'lqt-drag-save' => 'באַשטעטיקן',
 	'lqt-drag-reason' => 'אורזאַך:',
+	'lqt-edit-signature' => '(באארבעטן חתימה)',
+	'lqt-preview-signature' => '(פארויסשטעלונג)',
 	'lqt-talkpage-history-subtitle' => 'פֿאַר $1',
+	'lqt-talkpage-history-tab' => 'קעפל',
 	'nstab-summary' => 'רעזומע',
 );
 
