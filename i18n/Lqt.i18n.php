@@ -9229,9 +9229,11 @@ Az aláírásod automatikusan meg fog jelenni.',
 
 /** Armenian (Հայերեն)
  * @author Chaojoker
+ * @author Vadgt
  */
 $messages['hy'] = array(
-	'lqt_newmessages' => 'Նոր ուղերձներ (դատարկ)',
+	'lqt_newmessages' => 'Նոր հաղորդագրություններ (չկան)',
+	'lqt_newmessages-title' => 'Նոր հաղորդագրություններ',
 );
 
 /** Interlingua (interlingua)
