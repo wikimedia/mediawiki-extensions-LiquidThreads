@@ -608,7 +608,7 @@ Link at the top of the page for logged-in users. $1 is the number of new message
 	'nstab-summary' => 'Used as tab title for the Summary namespace.
 {{Identical|Summary}}',
 	'echo-pref-email-lqt-new-topic' => 'Used by the Echo extension in the Preferences -> Notifications tab as a label to enable email notification for the lqt-new-topic event.',
-	'echo-pref-email-lqt-reply' => 'Used by the Echo extension in the Preferences -> Notifications tab as a label to enable email notification for the lqt-reply event.'
+	'echo-pref-email-lqt-reply' => 'Used by the Echo extension in the Preferences -> Notifications tab as a label to enable email notification for the lqt-reply event.',
 );
 
 /** Abkhazian (Аҧсшәа)
@@ -1582,6 +1582,16 @@ $messages['az'] = array(
 	'lqt-talkpage-history-subtitle' => '$1 üçün',
 	'lqt-reply-subpage' => 'yenidən',
 	'nstab-summary' => 'Xülasə',
+);
+
+/** South Azerbaijani (تورکجه)
+ * @author E THP
+ */
+$messages['azb'] = array(
+	'searchprofile-threads' => 'دانیشیقلار',
+	'lqt-newmessages-n' => 'یئنی مئساژلاریم ($1)',
+	'lqt_newmessages' => 'یئنی مئساژلاریم (یوخ‌دور)',
+	'lqt_newmessages-title' => 'یئنی مئساژلار',
 );
 
 /** Bashkir (башҡортса)
@@ -4398,6 +4408,8 @@ Die Signatur wird automatisch ergänzt.',
 	'lqt-reply-subpage' => 'Antwort',
 	'nstab-thread' => 'Thema',
 	'nstab-summary' => 'Themenzusammenfassung',
+	'echo-pref-email-lqt-new-topic' => 'Erstellt eine neue Threaddiskussion',
+	'echo-pref-email-lqt-reply' => 'Antwortet auf eine Threaddiskussion',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -6913,6 +6925,8 @@ La signature est affichée automatiquement.',
 	'lqt-reply-subpage' => 'répondre',
 	'nstab-thread' => 'Fil de discussion',
 	'nstab-summary' => 'Résumé',
+	'echo-pref-email-lqt-new-topic' => 'Crée une nouvelle discussion thématique',
+	'echo-pref-email-lqt-reply' => 'Répond à une discussion thématique',
 );
 
 /** Franco-Provençal (arpetan)
@@ -7559,6 +7573,8 @@ $7',
 	'lqt-reply-subpage' => 'resposta',
 	'nstab-thread' => 'Fío',
 	'nstab-summary' => 'Resumo',
+	'echo-pref-email-lqt-new-topic' => 'Crea unha nova conversa en forma de fío',
+	'echo-pref-email-lqt-reply' => 'Responde a unha conversa en forma de fío',
 );
 
 /** Goan Konkani (Latin script) (Konknni)
@@ -10601,6 +10617,8 @@ $7',
 	'lqt-reply-subpage' => '返信',
 	'nstab-thread' => 'スレッド',
 	'nstab-summary' => '要約',
+	'echo-pref-email-lqt-new-topic' => 'スレッド形式の新しい議論が作成されたとき',
+	'echo-pref-email-lqt-reply' => 'スレッド形式の議論に返信されたとき',
 );
 
 /** Jamaican Creole English (Patois)
@@ -12908,6 +12926,8 @@ $7',
 	'lqt-reply-subpage' => 'одговори',
 	'nstab-thread' => 'Нишка',
 	'nstab-summary' => 'Опис',
+	'echo-pref-email-lqt-new-topic' => 'Создава нов нанижан разговор',
+	'echo-pref-email-lqt-reply' => 'Одговара на нанижан разговор',
 );
 
 /** Malayalam (മലയാളം)
@@ -13526,6 +13546,8 @@ Tandatangan diisikan secara automatik.',
 	'lqt-reply-subpage' => 'balas',
 	'nstab-thread' => 'Tred',
 	'nstab-summary' => 'Ringkasan',
+	'echo-pref-email-lqt-new-topic' => 'Mewujudkan perbincangan bertred yang baru',
+	'echo-pref-email-lqt-reply' => 'Membalas perbincangan bertred',
 );
 
 /** Maltese (Malti)
@@ -14310,6 +14332,8 @@ Wijzig het onderwerp door op "Bewerken" te klikken in de bovenste bijdrage.',
 	'lqt-reply-subpage' => 'antwoord',
 	'nstab-thread' => 'Onderwerp',
 	'nstab-summary' => 'Samenvatting',
+	'echo-pref-email-lqt-new-topic' => 'Een nieuw draadoverleg start',
+	'echo-pref-email-lqt-reply' => 'Antwoordt op een draadoverleg',
 );
 
 /** Norwegian Nynorsk (norsk (nynorsk)‎)
@@ -20571,10 +20595,10 @@ $7",
 	'lqt-feed-title-replies' => '{{SITENAME}} — Відповіді',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Відповіді $1',
 	'lqt-feed-new-thread-intro' => '$2 {{GENDER:$4|розпочав|розпочала}} нову тему на $1',
-	'lqt-feed-reply-intro' => 'Відповідь у $3 (на $1), опублікована $2', # Fuzzy
+	'lqt-feed-reply-intro' => 'Відповідь на $3 (у $1), {{GENDER:$4|розмістив|розмістила}} $2',
 	'tooltip-pt-newmessages' => 'Показує нові повідомлення в темах обговорень, за якими ви слідкуєте',
-	'lqt-newmessages-n' => 'Нові повідомлення ($1)', # Fuzzy
-	'lqt_newmessages' => 'Повідомлень немає', # Fuzzy
+	'lqt-newmessages-n' => 'Нові повідомлення ($1)',
+	'lqt_newmessages' => 'Нові повідомлення (немає)',
 	'lqt_newmessages-title' => 'Нові повідомлення',
 	'lqt-newpost-summary' => 'Нова тема: $1',
 	'lqt-reply-summary' => 'Відповідь на [[$2|$1]]',
@@ -20592,6 +20616,8 @@ $7",
 	'lqt-reply-subpage' => 'відповідь',
 	'nstab-thread' => 'Тема',
 	'nstab-summary' => 'Резюме',
+	'echo-pref-email-lqt-new-topic' => 'Створює нове гілчасте обговорення',
+	'echo-pref-email-lqt-reply' => 'Відповідає на гілчасті обговорення',
 );
 
 /** Urdu (اردو)
@@ -21357,6 +21383,8 @@ $7',
 	'lqt-reply-subpage' => 'trả lời',
 	'nstab-thread' => 'Luồng',
 	'nstab-summary' => 'Tóm lược',
+	'echo-pref-email-lqt-new-topic' => 'Bắt đầu luồng thảo luận mới',
+	'echo-pref-email-lqt-reply' => 'Trả lời trong luồng thảo luận',
 );
 
 /** Volapük (Volapük)
