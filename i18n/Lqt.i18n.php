@@ -11047,7 +11047,7 @@ $messages['ka'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — პასუხები $1-დან',
 	'lqt-feed-new-thread-intro' => 'ახალი თემა $1-ზე, დადებული {{GENDER:$4|$2}}-ის მიერ',
 	'lqt-feed-reply-intro' => 'პასუხი $3-ს ($1-ზე), დადებული {{GENDER:$4|$2}}-ის მიერ',
-	'lqt-newmessages-n' => 'ახალი შეტყობინებები ($1)', # Fuzzy
+	'lqt-newmessages-n' => 'ახალი შეტყობინება ($1)',
 	'lqt_newmessages' => 'ახალი შეტყობინება (არა)',
 	'lqt_newmessages-title' => 'ახალი შეტყობინებები',
 	'lqt-newpost-summary' => 'ახალი თემა: $1',
@@ -11449,6 +11449,8 @@ $7",
 	'lqt-reply-subpage' => '답글',
 	'nstab-thread' => '스레드',
 	'nstab-summary' => '요약',
+	'echo-pref-email-lqt-new-topic' => '새 스레드 토론을 만듭니다',
+	'echo-pref-email-lqt-reply' => '스레드 토론에 대해 답변합니다',
 );
 
 /** Karachay-Balkar (къарачай-малкъар)
