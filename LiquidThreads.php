@@ -259,6 +259,9 @@ $wgLiquidThreadsNotificationTypes = array( 'standard' );
 $wgExtensionFunctions[] = 'wfLiquidThreadsSetupEcho';
 
 function wfLiquidThreadsSetupEcho() {
+	// LiquidThreads echo notifications have not been fully tested,
+	// turn it off temporarily till expected behaviors are verified
+	/*
 	global $wgLiquidThreadsNotificationTypes;
 	global $wgEchoNotificationFormatters;
 	global $wgEchoEnabledEvents;
@@ -290,6 +293,7 @@ function wfLiquidThreadsSetupEcho() {
 			'lqt-reply',
 		) );
 	}
+	*/
 }
 
 // Path to the LQT directory
