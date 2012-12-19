@@ -18105,7 +18105,7 @@ Podpis se prikaže samodejno.',
 	'lqt-feed-reply-intro' => 'Odgovor na $3 (na $1), {{GENDER:$4|objavil|objavila|objavil(-a)}} ga je $2',
 	'tooltip-pt-newmessages' => 'Prikaže nove objave v razpravah ali na razpravljalnih pogovornih straneh, ki jih spremljate',
 	'lqt-newmessages-n' => 'Nova sporočila ($1)',
-	'lqt_newmessages' => 'Moja nova sporočila (Nobena)',
+	'lqt_newmessages' => 'Nova sporočila (nobeno)',
 	'lqt_newmessages-title' => 'Nova sporočila',
 	'lqt-newpost-summary' => 'Nova razprava: $1',
 	'lqt-reply-summary' => 'Odgovor na [[$2|$1]]',
@@ -18123,6 +18123,8 @@ Podpis se prikaže samodejno.',
 	'lqt-reply-subpage' => 'odgovor',
 	'nstab-thread' => 'Razprava',
 	'nstab-summary' => 'Povzetek',
+	'echo-pref-email-lqt-new-topic' => 'Ustvari novo nitno razpravo',
+	'echo-pref-email-lqt-reply' => 'Odgovori na nitno razpravo',
 );
 
 /** Lower Silesian (Schläsch)
