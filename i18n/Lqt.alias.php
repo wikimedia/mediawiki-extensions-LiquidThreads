@@ -502,6 +502,15 @@ $specialPageAliases['vec'] = array(
 	'MergeThread' => array( 'UnissiArgomento' ),
 );
 
+/** Vietnamese (Tiếng Việt) */
+$specialPageAliases['vi'] = array(
+	'DeleteThread' => array( 'Xóa_luồng' ),
+	'MoveThread' => array( 'Di_chuyển_luồng' ),
+	'NewMessages' => array( 'Tin_nhắn_mới' ),
+	'SplitThread' => array( 'Chia_luồng' ),
+	'MergeThread' => array( 'Hợp_nhất_luồng' ),
+);
+
 /** Yiddish (ייִדיש) */
 $specialPageAliases['yi'] = array(
 	'NewMessages' => array( 'נייע_מעלדונגנען' ),
