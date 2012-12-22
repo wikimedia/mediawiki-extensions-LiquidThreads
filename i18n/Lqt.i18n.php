@@ -456,12 +456,18 @@ Action results from button {{msg-mw|lqt_undelete}}',
 	'lqt_sorting_order' => 'Legend for drop-down box, at the top of a page using liquid threads, for example [[Support]].
 
 The drop-down box contains the following messages:
-*[[MediaWiki:Lqt_sort_newest_changes/{{SUBPAGENAME}}]]
-*[[MediaWiki:Lqt_sort_newest_threads/{{SUBPAGENAME}}]]
-*[[MediaWiki:Lqt_sort_oldest_threads/{{SUBPAGENAME}}]]',
-	'lqt_sort_newest_changes' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]]. The legend for the drop-down box is [[MediaWiki:Lqt_sorting_order/{{SUBPAGENAME}}]].',
-	'lqt_sort_newest_threads' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]]. The legend for the drop-down box is [[MediaWiki:Lqt_sorting_order/{{SUBPAGENAME}}]].',
-	'lqt_sort_oldest_threads' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]]. The legend for the drop-down box is [[MediaWiki:Lqt_sorting_order/{{SUBPAGENAME}}]].',
+*{{msg-mw|Lqt_sort_newest_changes}}
+*{{msg-mw|Lqt_sort_newest_threads}}
+*{{msg-mw|Lqt_sort_oldest_threads}}',
+	'lqt_sort_newest_changes' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]].
+
+The legend for the drop-down box is {{msg-mw|Lqt_sorting_order}}.',
+	'lqt_sort_newest_threads' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]].
+
+The legend for the drop-down box is {{msg-mw|Lqt_sorting_order}}.',
+	'lqt_sort_oldest_threads' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]].
+
+The legend for the drop-down box is {{msg-mw|Lqt_sorting_order}}.',
 	'lqt-title' => '{{Identical|Title}}',
 	'lqt-summary' => '{{Identical|Summary}}',
 	'lqt-read-message' => '"Read" is past tense.',
@@ -563,6 +569,7 @@ Parameters are:
 * $1 is the number of replies. This can be used for PLURAL:$1',
 	'lqt-thread-link-url' => 'A form label, for the URL to a thread',
 	'lqt-thread-link-title' => 'A form label, for the wikitext link to a thread',
+	'lqt-change-subject' => 'Used as link text',
 	'lqt-save-subject' => '{{Identical|Save}}',
 	'lqt-cancel-subject-edit' => '{{Identical|Cancel}}',
 	'lqt-drag-reparent' => 'Description of the action of moving a message underneath another, existing parent thread, to merge the two (sib)threads into one. Eqivalent to cutting a part of a discussion section and pasting it into another discussion section in the normal talk system.
@@ -10365,12 +10372,12 @@ $messages['ja'] = array(
 	'lqt_contents_title' => '目次',
 	'lqt_toc_thread_title' => 'スレッド表題',
 	'lqt_toc_thread_author' => '開始者',
-	'lqt_toc_thread_replycount' => '返信',
+	'lqt_toc_thread_replycount' => '返信数',
 	'lqt_toc_thread_modified' => '最終更新',
 	'lqt_add_header' => 'ヘッダーを追加',
 	'lqt_new_thread' => '新しい議論を始める',
 	'lqt_invalid_subject' => '入力した表題は無効です。
-以下の可能性があります：
+以下に該当する可能性があります:
 * 長すぎる
 * インターウィキ用接頭辞や名前空間名と衝突している',
 	'lqt-empty-text' => '空のメッセージは投稿できません',
@@ -10453,7 +10460,7 @@ $messages['ja'] = array(
 	'lqt_header_warning_after_big' => '見出しは、告知や序文のためにあります。代わりに$2するべきでしょう。',
 	'lqt_header_warning_bold' => '議論ページの見出し',
 	'lqt_header_warning_new_discussion' => '新しい議論を開始',
-	'lqt_sorting_order' => '並び順：',
+	'lqt_sorting_order' => '並び順:',
 	'lqt_sort_newest_changes' => '最終更新を上に',
 	'lqt_sort_newest_threads' => '新しいスレッドを上に',
 	'lqt_sort_oldest_threads' => '古いスレッドを上に',
@@ -10493,7 +10500,7 @@ $messages['ja'] = array(
 	'lqt-thread-split' => '新規スレッドに分割',
 	'lqt-split-success' => 'スレッド「$1」を分割しました。',
 	'lqt_split_thread' => 'スレッドを分割',
-	'lqt-thread-split-subject' => '新規スレッドの表題：',
+	'lqt-thread-split-subject' => '新規スレッドの表題:',
 	'lqt-thread-split-thread' => 'スレッド:',
 	'lqt-split-submit' => '分割',
 	'lqt_split_badsubject' => '入力した表題は無効です。',
@@ -10531,8 +10538,8 @@ $messages['ja'] = array(
 	'lqt-preference-notify-talk' => 'ウォッチリストにあるスレッドに返信があったらメールを受け取る',
 	'lqt-preference-watch-threads' => '自分が作成または返信したスレッドをウォッチリストに追加',
 	'prefs-lqt' => 'スレッド型議論',
-	'lqt-preference-display-depth' => '表示する返信の最大の深さ：',
-	'lqt-preference-display-count' => '表示する返信の最大数：',
+	'lqt-preference-display-depth' => '表示する返信の最大の深さ:',
+	'lqt-preference-display-count' => '表示する返信の最大数:',
 	'lqt-preference-custom-signatures' => 'カスタムの利用者署名を表示',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} の討論 - 返信: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} の討論 - 新スレッド: $1',
@@ -10542,7 +10549,7 @@ $8 によって $3 $4 に作成されたことのお知らせです。
 
 <$6> で確認できます。
 
-内容は以下の通りです：
+内容は以下の通りです:
 $7',
 	'lqt-enotif-reply' => '$1 さん、
 
@@ -10551,7 +10558,7 @@ $3 $4 に $8 さんから新しい返信があったことをお知らせしま�
 
 <$6> でご覧いただけます。
 
-返信内容は以下の通りです：
+返信内容は以下の通りです:
 $7',
 	'lqt-quote-intro' => '$2 $3に[[User:$1|$1]]が書きました:',
 	'lqt-quote' => '引用',
@@ -10569,7 +10576,7 @@ $7',
 	'lqt-thread-link-copy' => 'クリップボードにコピー',
 	'lqt-sign-not-necessary' => '投稿に4つのチルダを付けて署名する必要はありません。署名は自動的に表示されます。',
 	'lqt-marked-as-read-placeholder' => 'スレッド $1 を既読にしました。',
-	'lqt-change-subject' => '表題の変更',
+	'lqt-change-subject' => '表題を変更',
 	'lqt-save-subject' => '保存',
 	'lqt-save-subject-failed' => 'このスレッドの表題を変更しようとした際に次のエラーが発生しました: $1',
 	'lqt-ajax-invalid-subject' => '指定された表題は無効です。おそらく長すぎるのが理由です。',
@@ -16318,7 +16325,7 @@ Semnătura este afișată automat.',
 	'lqt-feed-reply-intro' => 'Răspunde la $3 (la $1) postat de {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Afișează comentarii noi la discuții existente sau comentarii pe paginile de discuții urmărite',
 	'lqt-newmessages-n' => 'Mesaje noi ($1)',
-	'lqt_newmessages' => 'Mesajele mele noi (niciunul)',
+	'lqt_newmessages' => 'Mesaje noi (niciunul)',
 	'lqt_newmessages-title' => 'Mesaje noi',
 	'lqt-newpost-summary' => 'Discuție nouă: $1',
 	'lqt-reply-summary' => 'Răspunde la [[$2|$1]]',
