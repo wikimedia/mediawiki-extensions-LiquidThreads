@@ -573,9 +573,7 @@ Parameters are:
 * $1 is a user name
 * $2 is a date
 * $3 is a time',
-	'lqt-quote' => ' Verb or a noun?
-
-{{Identical|Quote}}', # Fuzzy
+	'lqt-quote' => '{{Identical|Quote}}',
 	'lqt-search-label' => 'Used as label for input field.',
 	'lqt-search-button' => '{{Identical|Search}}',
 	'searchprofile-threads' => '{{Identical|Discussion}}',
@@ -616,9 +614,9 @@ Displayed in a list of actions to confirm in a confirmation dialog.',
 * $3 is a link to the super thread,
 * $4 is the posting user in plain text, used for GENDER.',
 	'lqt-newmessages-n' => '{{Identical|New messages}}
-
-Link at the top of the page for logged-in users. $1 is the number of new messages.', # Fuzzy
-	'lqt_newmessages' => '{{Identical|New messages}}', # Fuzzy
+Link at the top of the page for logged-in users. Parameters:
+* $1 is the number of new messages.',
+	'lqt_newmessages' => '{{Identical|New messages}}',
 	'lqt_newmessages-title' => '{{Identical|New messages}}',
 	'lqt-reply-summary' => 'Used on history page of message and thread. $2 is the message to which this message is a reply. $1 is the title of the thread.',
 	'lqt-talkpage-history-subtitle' => 'Parameters:
@@ -2251,7 +2249,7 @@ $7",
 	'lqt-feed-reply-intro' => 'Адказ на $3 (на $1) {{GENDER:$4|разьмясьціў|разьмясьціла}} $2',
 	'tooltip-pt-newmessages' => 'Паказвае новыя паведамленьні ў галінах альбо на старонках абмеркаваньня, за якімі Вы назіраеце',
 	'lqt-newmessages-n' => 'Новыя паведамленьні ($1)',
-	'lqt_newmessages' => 'Мае новыя паведамленьні (Няма)',
+	'lqt_newmessages' => 'Новыя паведамленьні (няма)',
 	'lqt_newmessages-title' => 'Новыя паведамленьні',
 	'lqt-newpost-summary' => 'Новая галіна: $1',
 	'lqt-reply-summary' => 'Адказаць на [[$2|$1]]',
@@ -2269,6 +2267,8 @@ $7",
 	'lqt-reply-subpage' => 'адказаць',
 	'nstab-thread' => 'Галіна',
 	'nstab-summary' => 'Апісаньне',
+	'echo-pref-email-lqt-new-topic' => 'Стварае новую галіну абмеркаваньняў',
+	'echo-pref-email-lqt-reply' => 'Адказвае на галіну абмеркаваньняў',
 );
 
 /** Bulgarian (български)
@@ -9253,8 +9253,8 @@ Az aláírásod automatikusan meg fog jelenni.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} – válaszok a(z) $1 {{PLURAL:$2|lapról|lapokról}}',
 	'lqt-feed-new-thread-intro' => '$2 új témát indított a(z) $1 lapon', # Fuzzy
 	'lqt-feed-reply-intro' => '$2 új hozzászólást írt a(z) $3 témához a(z) $1 lapon', # Fuzzy
-	'lqt-newmessages-n' => 'Új üzenetek ($1)',
-	'lqt_newmessages' => 'Új üzenetek (nincs)',
+	'lqt-newmessages-n' => 'Új üzenetek ($1)', # Fuzzy
+	'lqt_newmessages' => 'Új üzenetek (nincs)', # Fuzzy
 	'lqt_newmessages-title' => 'Új üzenetek',
 	'lqt-newpost-summary' => 'Új téma: $1',
 	'lqt-reply-summary' => 'Válasz a következő témára: [[$2|$1]]',
@@ -9835,7 +9835,7 @@ Madu nwere I ki hü ya na ihü akíkó nke sinambu.',
 	'lqt-split-submit' => 'Wa',
 	'lqt-movethread' => 'Páfụ',
 	'lqt-menu-trigger' => 'Ọzȯ kwa',
-	'lqt-quote' => 'Kȯpùtà',
+	'lqt-quote' => 'Kọpùtà',
 	'lqt-search-button' => 'Chọwa',
 	'searchprofile-threads' => 'Akíkó',
 	'lqt-ajax-update-link' => 'Dịnwanye mmā',
@@ -9843,11 +9843,11 @@ Madu nwere I ki hü ya na ihü akíkó nke sinambu.',
 	'lqt-save-subject' => 'Domá',
 	'lqt-cancel-subject-edit' => 'Kàchá',
 	'lqt-drag-drop-zone' => 'Dòsé nga',
-	'lqt-drag-save' => 'Sị Í kwèrè',
+	'lqt-drag-save' => 'Kwèré',
 	'lqt-drag-reason' => 'Mgbághapụtà:',
 	'lqt-preview-signature' => '(lètú)',
-	'lqt-newmessages-n' => 'Ozi ohúrù ($1)',
-	'lqt_newmessages' => 'Ozi ohúrù',
+	'lqt-newmessages-n' => 'Ozi ohúrù ($1)', # Fuzzy
+	'lqt_newmessages' => 'Ozi ohúrù', # Fuzzy
 	'lqt_newmessages-title' => 'Ozi ohúrù',
 	'lqt-talkpage-history-subtitle' => 'Màkà $1',
 );
@@ -10397,7 +10397,7 @@ $messages['ja'] = array(
 	'lqt_invalid_subject' => '入力した表題は無効です。
 以下に該当する可能性があります:
 * 長すぎる
-* インターウィキ用接頭辞や名前空間名と衝突している',
+* インターウィキ接頭辞や名前空間名と衝突している',
 	'lqt-empty-text' => '空のメッセージは投稿できません',
 	'lqt_empty_subject' => '表題を入力する必要があります。',
 	'lqt_reply' => '返信',
@@ -11340,7 +11340,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-history-thread' => '스레드',
 	'lqt-thread-edited-author' => '작성자가 수정함<br />
 마지막 편집: $1',
-	'lqt-thread-edited-others' => '사용자 $2명이 편집함.<br />
+	'lqt-thread-edited-others' => '{{PLURAL:$2|다른 사용자가|사용자 $2명이}} 편집했습니다.<br />
 마지막 편집: $1',
 	'lqt-header-actions' => '동작',
 	'lqt_summarize_link' => '요약',
@@ -13647,6 +13647,8 @@ Jista' jkun li:
 Din it-tmexxija saret minn $2 nhar il-$3 fil-$4.',
 	'lqt_thread_deleted_for_sysops' => "Id-diskusssjoni ġiet '''imħassra''' u hija viżibbli biss lill-amministraturi.",
 	'lqt_thread_deleted' => 'Id-diskussjoni ġiet imħassra.',
+	'lqt_summary_notice' => "Ma kien hemm l-ebda bidla f'din id-diskussjoni minn tal-inqas {{PLURAL:$2|ġurnata|$2 ġranet}}.
+Jekk intemmet, $1.",
 	'lqt_summary_notice_link' => 'ikteb taqsira',
 	'lqt_summary_label' => 'Taqsira tad-diskussjoni:',
 	'lqt_summary_subtitle' => 'Taqsira ta\' "$1"',
@@ -13657,6 +13659,7 @@ Din it-tmexxija saret minn $2 nhar il-$3 fil-$4.',
 	'lqt_move_destinationtitle' => "Titlu tal-paġna ta' diskussjoni ta' destinazzjoni:",
 	'lqt_move_move' => 'Mexxi',
 	'lqt_move_nodestination' => 'Trid tispeċifika destinazzjoni.',
+	'lqt_move_thread_bad_destination' => "Il-paġna ta' destinazzjoni mhijiex paġna ta' diskussjoni.",
 	'lqt_move_samedestination' => 'Id-diskussjoni diġà tinsab fuq din il-paġna!',
 	'lqt_move_noreason' => 'Ma ngħatat ebda raġuni.',
 	'lqt_move_success' => 'Id-diskussjoni tmexxiet lejn $1.',
@@ -13730,6 +13733,10 @@ L-aħħar modifika: $1',
 	'lqt-log-action-merge-down' => "waħħad lil [[$1]] ma' [[$3]]",
 	'lqt-log-action-subjectedit' => 'biddel is-suġġett ta\' [[$1]] minn "$2" ma\' "$3"',
 	'lqt-preference-notify-talk' => "Ibgħatli b'permezz tal-ittra-e risposti fuq suġġetti li qiegħed insegwi",
+	'lqt-preference-display-count' => "Numru massimu ta' riposti x'jintwerew:",
+	'lqt-preference-custom-signatures' => 'Uri l-firem personali tal-utenti',
+	'lqt-enotif-subject-reply' => 'Diskussjoni fuq {{SITENAME}} - Risposta: $1',
+	'lqt-enotif-subject-newthread' => 'Diskussjoni fuq {{SITENAME}} - Diskussjoni ġdida: $1',
 	'lqt-search-button' => 'Fittex',
 	'searchprofile-threads' => 'Diskussjonijiet',
 	'lqt-ajax-update-link' => 'Aġġorna',
@@ -13739,10 +13746,30 @@ L-aħħar modifika: $1',
 	'lqt-cancel-subject-edit' => 'Annulla',
 	'lqt-drag-save' => 'Ikkonferma',
 	'lqt-drag-reason' => 'Raġuni:',
-	'lqt-newmessages-n' => 'Messaġġi ġodda ($1)', # Fuzzy
-	'lqt_newmessages' => 'messaġġi ġodda (xejn)', # Fuzzy
+	'lqt-feed-title-all' => '{{SITENAME}} — Messaġġi ġodda',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — Messaġġi ġodda minn $1',
+	'lqt-feed-title-new-threads' => '{{SITENAME}} — Diskussjonijiet ġodda',
+	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Diskussjonijiet ġodda minn $1',
+	'lqt-feed-title-replies' => '{{SITENAME}} — Risposti',
+	'lqt-feed-title-replies-from' => '{{SITENAME}} — Risposti minn $1',
+	'lqt-feed-new-thread-intro' => 'Diskussjoni ġdida fuq $1 imdaħħla minn {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Risposta lil $3 (fuq $1) imdaħħla minn {{GENDER:$4|$2}}',
+	'lqt-newmessages-n' => 'Messaġġi ġodda ($1)',
+	'lqt_newmessages' => 'Messaġġi ġodda (xejn)',
 	'lqt_newmessages-title' => 'Messaġġi ġodda',
+	'lqt-newpost-summary' => 'Diskussjoni ġdida: $1',
+	'lqt-reply-summary' => 'Risposta lil [[$2|$1]]',
 	'lqt-talkpage-history-title' => "Kronoloġija tal-paġna ta' diskussjoni",
+	'lqt-talkpage-history-subtitle' => 'Għal $1',
+	'lqt-talkpage-history-tab' => 'Intestatura',
+	'restriction-reply' => 'Ibgħat risposti',
+	'restriction-newthread' => 'Ibgħat diskussjonijiet ġodda',
+	'lqt-protected-reply-thread' => "Ma tistax tikteb f'din id-diskussjoni minħabba li din ġiet protetta minn messaġġi ġodda.",
+	'lqt-edit-bump-tooltip' => "Mexx din id-diskussjoni fil-bidu tal-paġna tagħha ta' diskussjoni",
+	'lqt-historicalrevision-error' => 'Ir-reviżjoni li għażilt hija korrotta, u ma tistax tintwera.',
+	'lqt-reply-subpage' => 'irrispondi',
+	'nstab-thread' => 'Diskussjoni',
+	'nstab-summary' => 'Taqsira',
 );
 
 /** Erzya (эрзянь)
