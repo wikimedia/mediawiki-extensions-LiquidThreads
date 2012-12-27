@@ -7011,7 +7011,7 @@ Pôt :
 	'lqt_change_edited_root' => 'Lo [$1 comentèro en surbrilyence] at étâ changiê dens ceta vèrsion.',
 	'lqt_change_edited_summary' => 'Lo rèsumâ du fil de discussion at étâ changiê',
 	'lqt_change_deleted' => '[$1 Ceti fil de discussion] ou ben son parent at étâ suprimâ',
-	'lqt_change_undeleted' => 'Lo [$1 pôste en surbrilyence] at étâ refêt',
+	'lqt_change_undeleted' => 'Lo [$1 mèssâjo en surbrilyence] est étâ refêt',
 	'lqt_change_moved' => '[$1 Ceti fil de discussion] at étâ dèplaciê vers una ôtra pâge de discussion',
 	'lqt_change_split' => '[$1 Ceti fil de discussion] at étâ dèpondu d’un ôtro fil de discussion',
 	'lqt_change_edited_subject' => 'Lo sujèt de ceti fil de discussion at étâ changiê de « $2 » en « $3 »',
@@ -7169,7 +7169,7 @@ $7',
 	'lqt-thread-link-url' => 'URL du lim :',
 	'lqt-thread-link-title' => 'Lim vouiquitèxto :',
 	'lqt-thread-link-copy' => 'Copiyér dens lo prèssa-papiérs',
-	'lqt-sign-not-necessary' => 'O est pas nècèssèro de signér voutron pôste avouéc quatro tildes.
+	'lqt-sign-not-necessary' => 'Y at pas fôta de signér voutron mèssâjo avouéc quatro tildes.
 La signatura est montrâ ôtomaticament.',
 	'lqt-marked-as-read-placeholder' => 'Lo fil $1 at étâ marcâ coment liesu.',
 	'lqt-change-subject' => 'Changiér lo sujèt',
@@ -7201,8 +7201,8 @@ La signatura est montrâ ôtomaticament.',
 	'lqt-feed-new-thread-intro' => 'Fil de discussion novél dessus $1 postâ per $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Rèponsa a $3 (dessus $1) postâ per $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Montre los mèssâjos novéls sur los sujèts ou ben sur les pâges de discussions que vos siude',
-	'lqt-newmessages-n' => 'Mèssâjos novéls ($1)',
-	'lqt_newmessages' => 'Mèssâjos novéls (nion)',
+	'lqt-newmessages-n' => 'Mèssâjos novéls ($1)', # Fuzzy
+	'lqt_newmessages' => 'Mèssâjos novéls (nion)', # Fuzzy
 	'lqt_newmessages-title' => 'Mèssâjos novéls',
 	'lqt-newpost-summary' => 'Fil de discussion novél : $1',
 	'lqt-reply-summary' => 'Rèpondre a [[$2|$1]]',
@@ -11816,6 +11816,16 @@ $messages['ku-latn'] = array(
  */
 $messages['kw'] = array(
 	'lqt_newmessages' => 'Ow messajys nowyth (nagonen)',
+);
+
+/** Kirghiz (Кыргызча)
+ * @author Growingup
+ */
+$messages['ky'] = array(
+	'lqt_youhavenewmessages' => 'Сиз [[$1|жаңы билдирүү]] алдыңыз.',
+	'lqt-newmessages-n' => 'Жаңы билдирүүлөр ($1)',
+	'lqt_newmessages' => 'Жаңы билдирүүлөр (Жок)',
+	'lqt_newmessages-title' => 'Жаңы билдирүүлөр',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -16767,8 +16777,8 @@ $7",
 	'lqt-feed-new-thread-intro' => 'Argomende nuève sus a $1 lassate da {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Resposte a $3 (sus a $1) lassate da {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => "Fa vedè le messagge nuève a le argomende o sus a le pàggene de le 'ngazzaminde argomendate ca tu stè uarde",
-	'lqt-newmessages-n' => 'Messagge nuève ($1)',
-	'lqt_newmessages' => 'Le messagge nuève mije (Ninde)',
+	'lqt-newmessages-n' => 'Messàgge nuève ($1)',
+	'lqt_newmessages' => 'Le messagge nuève (ninde)',
 	'lqt_newmessages-title' => 'Messagge nuève',
 	'lqt-newpost-summary' => 'Argomende nuève: $1',
 	'lqt-reply-summary' => 'Respunne a [[$2|$1]]',
@@ -16786,6 +16796,8 @@ $7",
 	'lqt-reply-subpage' => 'respunne',
 	'nstab-thread' => 'Argomende',
 	'nstab-summary' => 'Riepileghe',
+	'echo-pref-email-lqt-new-topic' => "Ccreje 'nu 'ngazzamende nuève argomendate",
+	'echo-pref-email-lqt-reply' => "Respunne a 'u 'ngazzamende argomendate",
 );
 
 /** Faeag Rotuma (Faeag Rotuma)
@@ -18318,10 +18330,14 @@ $messages['sli'] = array(
 );
 
 /** Somali (Soomaaliga)
+ * @author Abshirdheere
  * @author Maax
  */
 $messages['so'] = array(
+	'lqt-no-new-messages' => '✒ wax fariin cusub ah kuuma yaalaan.',
+	'lqt-new-messages' => '✒ waxaa kuu taala fariin cusub.',
 	'lqt-search-button' => 'Raadi',
+	'lqt_newmessages' => 'Fariin cusub (Maleh)',
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
