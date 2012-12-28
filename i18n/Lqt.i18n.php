@@ -7171,7 +7171,7 @@ $7',
 	'lqt-thread-link-copy' => 'Copiyér dens lo prèssa-papiérs',
 	'lqt-sign-not-necessary' => 'Y at pas fôta de signér voutron mèssâjo avouéc quatro tildes.
 La signatura est montrâ ôtomaticament.',
-	'lqt-marked-as-read-placeholder' => 'Lo fil $1 at étâ marcâ coment liesu.',
+	'lqt-marked-as-read-placeholder' => 'Lo fil $1 est étâ marcâ coment liesu.',
 	'lqt-change-subject' => 'Changiér lo sujèt',
 	'lqt-save-subject' => 'Sôvar',
 	'lqt-save-subject-failed' => 'Ceta èrror est arrevâ pendent la tentativa de changement de sujèt de ceti fil : $1',
@@ -10371,6 +10371,8 @@ La firma è mostrata automaticamente.',
 	'lqt-reply-subpage' => 'rispondi',
 	'nstab-thread' => 'Thread',
 	'nstab-summary' => 'Sommario',
+	'echo-pref-email-lqt-new-topic' => 'Creazione di una nuova discussione con thread',
+	'echo-pref-email-lqt-reply' => 'Risposta ad una discussione con thread',
 );
 
 /** Japanese (日本語)
@@ -15648,11 +15650,11 @@ La firma a l'é mostrà automaticament.",
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Discussion neuva da $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Arspòste',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Arspòste da $1',
-	'lqt-feed-new-thread-intro' => 'Discussion neuva ancaminà da $2', # Fuzzy
-	'lqt-feed-reply-intro' => 'Arspòsta a $3 (ël $1) mandà da $2', # Fuzzy
+	'lqt-feed-new-thread-intro' => 'Discussion neuva dzor $1 ancaminà da {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Arspòsta a $3 (ël $1) mandà da {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => "A mostra ij mëssagi neuv për soget o su pàgine ëd discussion an sël soget ch'a ten sot-euj",
 	'lqt-newmessages-n' => 'Mëssagi neuv ($1)',
-	'lqt_newmessages' => 'Mè mëssagi neuv (Gnun)',
+	'lqt_newmessages' => 'Mëssagi neuv (gnun)',
 	'lqt_newmessages-title' => 'Mëssagi neuv',
 	'lqt-newpost-summary' => 'Discussion neuva: $1',
 	'lqt-reply-summary' => 'Arspòsta a [[$2|$1]]',
@@ -15670,6 +15672,8 @@ La firma a l'é mostrà automaticament.",
 	'lqt-reply-subpage' => 'arspond',
 	'nstab-thread' => 'Discussion',
 	'nstab-summary' => 'Resumé',
+	'echo-pref-email-lqt-new-topic' => 'A crea na neuva discussion a caden-a',
+	'echo-pref-email-lqt-reply' => 'A arspond a na discussion a caden-a',
 );
 
 /** Pashto (پښتو)
@@ -18334,8 +18338,15 @@ $messages['sli'] = array(
  * @author Maax
  */
 $messages['so'] = array(
+	'lqt_new_thread' => 'Biloow wadahadal cusub',
+	'lqt_sorting_order' => 'Kala horaysiin:',
+	'lqt_sort_newest_changes' => 'Bedelkii ugu dambeeyey ee hore',
+	'lqt_sort_newest_threads' => 'Wadahadaladii ugu cusub ugu horayn',
+	'lqt_sort_oldest_threads' => 'Wadahadaladii ugu horeeyey koowaad',
 	'lqt-no-new-messages' => '✒ wax fariin cusub ah kuuma yaalaan.',
 	'lqt-new-messages' => '✒ waxaa kuu taala fariin cusub.',
+	'lqt-no-threads' => 'Ilaa iyo hadda wax qoraal ah kuma jiraan boggaan.',
+	'lqt-search-label' => 'Habka raadinta:',
 	'lqt-search-button' => 'Raadi',
 	'lqt_newmessages' => 'Fariin cusub (Maleh)',
 );
