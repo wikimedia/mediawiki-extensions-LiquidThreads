@@ -5003,8 +5003,8 @@ Pódpis pokazujo se awtomatiski.',
 	'lqt-feed-new-thread-intro' => 'Nowa nitka na $1 wót {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Wótegrono na $3 (na $1) wót {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Pokazujo nowe powěsći k nitkam abo na diskusijnych bokach nitkow, kótarež wobglědujoš',
-	'lqt-newmessages-n' => 'nowe powěsći ($1)',
-	'lqt_newmessages' => 'nowe powěsći (žedne)',
+	'lqt-newmessages-n' => 'Nowe powěsći ($1)',
+	'lqt_newmessages' => 'Nowe powěsći (žedne)',
 	'lqt_newmessages-title' => 'Nowe powěsći',
 	'lqt-newpost-summary' => 'Nowa nitka: $1',
 	'lqt-reply-summary' => 'Wótegrono na [[$2|$1]]',
@@ -5022,6 +5022,8 @@ Pódpis pokazujo se awtomatiski.',
 	'lqt-reply-subpage' => 'Wótegroniś',
 	'nstab-thread' => 'Nitka',
 	'nstab-summary' => 'Zespominanje',
+	'echo-pref-email-lqt-new-topic' => 'Napórajo nitkowu diskusiju',
+	'echo-pref-email-lqt-reply' => 'Wótegranja na nitkowu diskusiju',
 );
 
 /** Ewe (eʋegbe)
@@ -6969,11 +6971,12 @@ $messages['frp'] = array(
 	'lqt_toc_thread_replycount' => 'Rèponses',
 	'lqt_toc_thread_modified' => 'Dèrriér changement',
 	'lqt_add_header' => 'Apondre un en-téta',
-	'lqt_new_thread' => 'Lanciér una novèla discussion',
+	'lqt_new_thread' => 'Emmodar na novèla discussion',
 	'lqt_invalid_subject' => 'Lo sujèt que vos éd buchiê est envalido.
 Pôt :
 * étre trop long, ou ben
 * entrar en conflit avouéc un prèfixo entèrvouiqui ou ben un èspâço de noms.',
+	'lqt-empty-text' => 'Vos pouede pas mandar un mèssâjo vouedo',
 	'lqt_empty_subject' => 'Vos dête buchiér un sujèt.',
 	'lqt_reply' => 'Rèpondre',
 	'lqt-parent' => 'Parent',
@@ -7198,11 +7201,11 @@ La signatura est montrâ ôtomaticament.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Fils de discussion novéls de $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Rèponses',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Rèponses de $1',
-	'lqt-feed-new-thread-intro' => 'Fil de discussion novél dessus $1 postâ per $2', # Fuzzy
-	'lqt-feed-reply-intro' => 'Rèponsa a $3 (dessus $1) postâ per $2', # Fuzzy
+	'lqt-feed-new-thread-intro' => 'Fil de discussion novél dessus $1 mandâ per {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Rèponsa a $3 (dessus $1) mandâ per {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Montre los mèssâjos novéls sur los sujèts ou ben sur les pâges de discussions que vos siude',
-	'lqt-newmessages-n' => 'Mèssâjos novéls ($1)', # Fuzzy
-	'lqt_newmessages' => 'Mèssâjos novéls (nion)', # Fuzzy
+	'lqt-newmessages-n' => 'Mèssâjos novéls ($1)',
+	'lqt_newmessages' => 'Mèssâjos novéls (nion)',
 	'lqt_newmessages-title' => 'Mèssâjos novéls',
 	'lqt-newpost-summary' => 'Fil de discussion novél : $1',
 	'lqt-reply-summary' => 'Rèpondre a [[$2|$1]]',
@@ -7220,6 +7223,8 @@ La signatura est montrâ ôtomaticament.',
 	'lqt-reply-subpage' => 'rèpondre',
 	'nstab-thread' => 'Fil de discussion',
 	'nstab-summary' => 'Rèsumâ',
+	'echo-pref-email-lqt-new-topic' => 'Fât na novèla discussion tèmatica',
+	'echo-pref-email-lqt-reply' => 'Rèpond a na discussion tèmatica',
 );
 
 /** Friulian (furlan)
@@ -8977,8 +8982,8 @@ Podpis pokazuje so awtomatisce.',
 	'lqt-feed-new-thread-intro' => 'Nowa nitka na $1 wot {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Wotmołwa na $3 (na $1) wot {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Pokazuje nowe powěsće k nitkam abo na diskusijnych stronach nitkow, kotrež wobkedźbuješ',
-	'lqt-newmessages-n' => 'nowe powěsće ($1)',
-	'lqt_newmessages' => 'nowe powěsće (žane)',
+	'lqt-newmessages-n' => 'Nowe powěsće ($1)',
+	'lqt_newmessages' => 'Nowe powěsće (žane)',
 	'lqt_newmessages-title' => 'Nowe powěsće',
 	'lqt-newpost-summary' => 'Nowa nitka: $1',
 	'lqt-reply-summary' => 'Wotmołwa na [[$2|$1]]',
@@ -8996,6 +9001,8 @@ Podpis pokazuje so awtomatisce.',
 	'lqt-reply-subpage' => 'wotmołwić',
 	'nstab-thread' => 'Nitka',
 	'nstab-summary' => 'Zjeće',
+	'echo-pref-email-lqt-new-topic' => 'Wutworja nitkowu diskusiju',
+	'echo-pref-email-lqt-reply' => 'Wotmołwja na nitkowu diskusiju',
 );
 
 /** Haitian (Kreyòl ayisyen)
@@ -12076,7 +12083,7 @@ $7",
 	'lqt-feed-reply-intro' => 'Äntwert vum {{GENDER:$4|$2}} op $3 (op $1)',
 	'tooltip-pt-newmessages' => 'Weist nei Noriichten a Rubriken oder op Diskussiounssäiten déi Dir iwwerwaacht',
 	'lqt-newmessages-n' => 'Nei Messagen ($1)',
-	'lqt_newmessages' => 'Meng nei Messagen (Keen)',
+	'lqt_newmessages' => 'Nei Messagen (keen)',
 	'lqt_newmessages-title' => 'Nei Messagen',
 	'lqt-newpost-summary' => 'Nei Rubrik: $1',
 	'lqt-reply-summary' => 'Äntwert op [[$2|$1]]',
@@ -18340,6 +18347,7 @@ $messages['sli'] = array(
  */
 $messages['so'] = array(
 	'lqt_new_thread' => 'Biloow wadahadal cusub',
+	'lqt_reply' => 'Jawaab',
 	'lqt_youhavenewmessages' => 'Waxaa kuu taal [[$1|Fariin cusub]].',
 	'lqt_sorting_order' => 'Kala horaysiin:',
 	'lqt_sort_newest_changes' => 'Bedelkii ugu dambeeyey ee hore',
