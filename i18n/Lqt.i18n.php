@@ -9561,6 +9561,7 @@ Le signatura es adjungite automaticamente.',
  * @author Farras
  * @author Irwangatot
  * @author IvanLanin
+ * @author Naval Scene
  * @author Rex
  */
 $messages['id'] = array(
@@ -9801,8 +9802,8 @@ Tanda tangan akan dimunculkan secara otomatis.',
 	'lqt-feed-new-thread-intro' => 'Utas baru pada $1 dikirim oleh $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Balasan untuk $3 (pada $1) dikirim oleh $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Menunjukkan kiriman baru pada utas atau halaman pembicaraan berutas yang Anda pantau',
-	'lqt-newmessages-n' => 'Pesan baru ($1)',
-	'lqt_newmessages' => 'Pesan baru saya (Tidak ada)',
+	'lqt-newmessages-n' => 'Pesan baru ($1)', # Fuzzy
+	'lqt_newmessages' => 'Pesan baru saya (tidak ada)',
 	'lqt_newmessages-title' => 'Pesan baru',
 	'lqt-newpost-summary' => 'Utas baru: $1',
 	'lqt-reply-summary' => 'Balas ke [[$2|$1]]',
@@ -12707,6 +12708,13 @@ $messages['mhr'] = array(
 	'lqt_contents_title' => 'Вуйлымаш',
 	'lqt_delete' => 'Шӧраш',
 	'lqt_protectedfromreply_link' => 'тӧрлаташ чарыме',
+);
+
+/** Minangkabau (Baso Minangkabau)
+ * @author Naval Scene
+ */
+$messages['min'] = array(
+	'lqt_newmessages' => 'Pasan baru denai (indak ado)',
 );
 
 /** Macedonian (македонски)
