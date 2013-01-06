@@ -7648,7 +7648,8 @@ $messages['grc'] = array(
 	'lqt-search-button' => 'Ζητεῖν',
 	'lqt-ajax-update-link' => 'Ἐνημεροῦν',
 	'lqt-cancel-subject-edit' => 'Ἀκυροῦν',
-	'lqt_newmessages' => 'Τα νέα μηνύματά μου (οὐδέν)',
+	'lqt-newmessages-n' => 'Τα νέα μηνύματά μου ($1)',
+	'lqt_newmessages' => 'Τα νέα μηνύματά μου (οὐδέν)', # Fuzzy
 );
 
 /** Swiss German (Alemannisch)
@@ -18634,7 +18635,7 @@ $7',
 	'lqt-thread-show-more' => 'Прикажи више одговора',
 	'lqt-thread-link-url' => 'Адреса везе:',
 	'lqt-thread-link-title' => 'Веза викитекста:',
-	'lqt-thread-link-copy' => 'Умножи',
+	'lqt-thread-link-copy' => 'Копирај',
 	'lqt-sign-not-necessary' => 'Није неопходно да се потпишете.
 Потпис је аутоматски приказан.',
 	'lqt-marked-as-read-placeholder' => 'Тема „$1“ је означена као прочитана.',
@@ -18667,8 +18668,8 @@ $7',
 	'lqt-feed-new-thread-intro' => 'Нова тема на $1, коју је {{GENDER:$4|послао|послала|послао}} $2',
 	'lqt-feed-reply-intro' => 'Одговор на $3 (за $1), који је {{GENDER:$4|поставио|поставила|поставио}} $2',
 	'tooltip-pt-newmessages' => 'Приказује нове поруке на темама или на страницама за разговор које пратите',
-	'lqt-newmessages-n' => 'Нове поруке ($1)',
-	'lqt_newmessages' => 'Поруке',
+	'lqt-newmessages-n' => 'Нове поруке ($1)', # Fuzzy
+	'lqt_newmessages' => 'Поруке', # Fuzzy
 	'lqt_newmessages-title' => 'Поруке',
 	'lqt-newpost-summary' => 'Нова тема: $1',
 	'lqt-reply-summary' => 'Одговор на [[$2|$1]]',
