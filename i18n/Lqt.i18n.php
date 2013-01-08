@@ -12715,6 +12715,8 @@ $messages['mhr'] = array(
  * @author Naval Scene
  */
 $messages['min'] = array(
+	'lqt_youhavenewmessages' => 'Sanak mamiliaki [[$1|pasan baru]].',
+	'lqt-no-new-messages' => 'Indak ado pasan baru untuak Sanak.',
 	'lqt-change-subject' => 'Ganti judua',
 	'lqt_newmessages' => 'Pasan baru denai (indak ado)',
 );
