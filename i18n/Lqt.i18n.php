@@ -359,7 +359,8 @@ $messages['qqq'] = array(
 
 {{Identical|Reply}}',
 	'lqt_toc_thread_modified' => 'Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].',
-	'lqt_new_thread' => '{{Identical|Start a new discussion}}',
+	'lqt_new_thread' => '{{doc-actionlink}}
+{{Identical|Start a new discussion}}',
 	'lqt-empty-text' => 'Used in JavaScript alert.',
 	'lqt_reply' => 'is this noun or verb?
 
@@ -620,7 +621,8 @@ Link at the top of the page for logged-in users. Parameters:
 	'lqt_newmessages-title' => '{{Identical|New messages}}',
 	'lqt-reply-summary' => 'Used on history page of message and thread. $2 is the message to which this message is a reply. $1 is the title of the thread.',
 	'lqt-talkpage-history-subtitle' => 'Parameters:
-* $1 is a link to a talk page, with the talk page title as link label',
+* $1 is a link to a talk page, with the talk page title as link label
+{{Identical|For $1}}',
 	'lqt-talkpage-history-tab' => 'The text for the tab pointing to a discussion page header',
 	'lqt-edit-bump' => 'See {{msg-mw|Lqt-edit-bump-tooltip}} for the explanation of this feature.',
 	'lqt-reply-subpage' => 'Part of the page title when a LiquidThread answer is given. Should probably be translated as a noun and not as a verb.
@@ -1574,11 +1576,12 @@ $messages['ast'] = array(
 );
 
 /** Azerbaijani (azərbaycanca)
+ * @author AZISS
  * @author Cekli829
  * @author PPerviz
  */
 $messages['az'] = array(
-	'lqt_reply' => 'Yenidən',
+	'lqt_reply' => 'Geri göndər',
 	'lqt_delete' => 'Sil',
 	'lqt_hist_deleted' => 'Silinib',
 	'lqt_subject' => 'Mövzu:',
@@ -1599,8 +1602,8 @@ $messages['az'] = array(
 	'lqt-drag-save' => 'Təsdiq et',
 	'lqt-drag-reason' => 'Səbəb:',
 	'lqt-feed-title-all' => '{{SITENAME}} — Yeni ismarıclar',
-	'lqt-newmessages-n' => 'Yeni mesajlarım ($1)',
-	'lqt_newmessages' => 'Yeni mesajlarım (Yoxdur)',
+	'lqt-newmessages-n' => 'Yeni mesajlarım ($1)', # Fuzzy
+	'lqt_newmessages' => 'Yeni mesajlarım (Yoxdur)', # Fuzzy
 	'lqt_newmessages-title' => 'Yeni mesajlar',
 	'lqt-talkpage-history-subtitle' => '$1 üçün',
 	'lqt-reply-subpage' => 'yenidən',
