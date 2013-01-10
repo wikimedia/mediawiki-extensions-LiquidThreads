@@ -22288,6 +22288,7 @@ $7',
  * @author Mark85296341
  * @author Oapbtommy
  * @author Shinjiman
+ * @author Simon Shek
  * @author Waihorace
  */
 $messages['zh-hant'] = array(
@@ -22397,7 +22398,7 @@ $messages['zh-hant'] = array(
 您仍然可以在其原始討論頁找到它們。
 此操作是可撤銷的。',
 	'lqt-marked-read' => "話題 '''$1''' 已被標記為已讀。",
-	'lqt-count-marked-read' => '$1 條{{PLURAL:$1|訊息|訊息}}被標記為已讀。',
+	'lqt-count-marked-read' => '$1則{{PLURAL:$1|訊息|訊息}}被標記為已讀。',
 	'lqt-email-undo' => '撤銷',
 	'lqt-no-new-messages' => '您沒有新訊息。',
 	'lqt-new-messages' => '✒您有新的訊息。',
@@ -22524,7 +22525,7 @@ $7',
 	'lqt-feed-reply-intro' => '{{GENDER:$4|$2}}在$1上對$3的回復',
 	'tooltip-pt-newmessages' => '顯示在你的監視列表中的新話題討論',
 	'lqt-newmessages-n' => '新訊息（$1）',
-	'lqt_newmessages' => '我的新訊息（無）',
+	'lqt_newmessages' => '新訊息（無）',
 	'lqt_newmessages-title' => '新訊息',
 	'lqt-newpost-summary' => '新話題：$1',
 	'lqt-reply-summary' => '回覆到 [[$2|$1]]',
@@ -22542,4 +22543,6 @@ $7',
 	'lqt-reply-subpage' => '回覆',
 	'nstab-thread' => '話題',
 	'nstab-summary' => '摘要',
+	'echo-pref-email-lqt-new-topic' => '建立新討論串',
+	'echo-pref-email-lqt-reply' => '回覆討論串',
 );
