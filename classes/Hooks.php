@@ -31,7 +31,7 @@ class LqtHooks {
 	 * @param $rc RecentChange
 	 * @return bool
 	 */
-	static function customizeOldChangesList( &$changeslist, &$s, $rc ) {
+	static function customizeOldChangesList( &$changeslist, &$s, $rc, &$classes ) {
 		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			return true;
 		}
