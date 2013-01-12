@@ -358,7 +358,8 @@ $messages['qqq'] = array(
 	'lqt_toc_thread_replycount' => 'Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].
 
 {{Identical|Reply}}',
-	'lqt_toc_thread_modified' => 'Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].',
+	'lqt_toc_thread_modified' => 'Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].
+{{Identical|Last modified}}',
 	'lqt_new_thread' => '{{doc-actionlink}}
 {{Identical|Start a new discussion}}',
 	'lqt-empty-text' => 'Used in JavaScript alert.',
