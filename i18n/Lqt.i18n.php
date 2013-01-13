@@ -391,6 +391,7 @@ Parameters:
 * $1 is the text for a wiki link to the new reply",
 	'lqt_hist_thread_created' => "Summary for 'activity' in thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]",
 	'lqt_hist_deleted' => '{{Identical|Deleted}}',
+	'lqt_hist_moved_talkpage' => '{{Identical|Move}}',
 	'lqt_hist_listing_subtitle' => "Subtitle for 'thread history' page, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]",
 	'lqt_hist_view_whole_thread' => 'Link to history page for an entire thread, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount/reply&action=history example]',
 	'lqt_hist_edited_subject' => 'Parameters:
@@ -11321,7 +11322,7 @@ $messages['ko'] = array(
 	'lqt_move_noreason' => '이유를 입력하지 않았습니다.',
 	'lqt_move_success' => '스레드가 $1(으)로 옮겨졌습니다.',
 	'lqt_talkpage_autocreate_summary' => '스레드가 처음 게시되었을 때 토론 문서를 자동으로 만듦',
-	'lqt_header_warning_big' => '당신은 $1을 편집하고 있습니다.',
+	'lqt_header_warning_big' => '$1(을)를 편집하고 있습니다.',
 	'lqt_header_warning_after_big' => '머리말은 안내 사항을 알리는 용도로 사용됩니다.
 $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt_header_warning_bold' => '토론 문서의 머리말',
