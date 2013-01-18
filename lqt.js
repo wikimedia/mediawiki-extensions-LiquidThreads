@@ -1473,7 +1473,7 @@ window.liquidThreads = {
 					result = 'failure';
 				}
 
-				if (typeof data.error != 'undefined') {
+				if (typeof data.error !== 'undefined') {
 					result = data.error.code+': '+data.error.info;
 				}
 
@@ -1574,7 +1574,7 @@ window.liquidThreads = {
 			}
 			liquidThreads.apiRequest( apiRequest, doneCallback );
 
-		} else if (newSortkey != 'none' ) {
+		} else if (newSortkey !== 'none' ) {
 			apiRequest.threadaction = 'setsortkey';
 			apiRequest.sortkey = newSortkey;
 
