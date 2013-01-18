@@ -1,4 +1,6 @@
 {
+	"maxerr": "10000",
+
 	"predef": [
 		"mediaWiki",
 		"jQuery",
