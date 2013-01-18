@@ -1663,8 +1663,9 @@ liquidThreads.toolbar = {
 					.addClass( 'sortable' )
 					.insertAfter( $j( '#wikieditor-toolbar-table-preview' ) )
 					.hide();
-				if ( typeof jQuery.fn.tablesorter === 'function' )
+				if ( typeof jQuery.fn.tablesorter === 'function' ) {
 						$j( '#wikieditor-toolbar-table-preview2' ).tablesorter();
+				}
 				$j( '#wikieditor-toolbar-table-sortable' ).click( function() {
 					// Swap the currently shown one clone with the other one
 					$j( '#wikieditor-toolbar-table-preview' )

@@ -1188,8 +1188,9 @@ window.liquidThreads = {
 		// FIXME: what does all of this do? From here
 		$j( 'html,body' ).each(
 			function() {
-				if ( $j(this).attr( 'scrollTop' ) )
+				if ( $j(this).attr( 'scrollTop' ) ) {
 					scrollOffset = $j( this ).attr( 'scrollTop' );
+				}
 			} );
 
 		scrollOffset = scrollOffset - $thread.offset().top;
