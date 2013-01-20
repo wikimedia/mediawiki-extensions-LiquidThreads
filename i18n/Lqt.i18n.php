@@ -4526,7 +4526,7 @@ Sebebê ey:
 	'lqt_empty_subject' => 'gani şıma yew muhtewa bınusi',
 	'lqt_reply' => 'Cewab bıde',
 	'lqt-parent' => 'Piye',
-	'lqt_delete' => 'Besterne',
+	'lqt_delete' => 'Bestere',
 	'lqt_undelete' => 'tepiya bıger',
 	'lqt_permalink' => 'gıre bıde ıney',
 	'lqt_fragment' => 'pelê $2i ra yew parçeyê $1i',
