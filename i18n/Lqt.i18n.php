@@ -223,10 +223,6 @@ You can see it at <$6>
 The text of the reply is:
 $7",
 
-	// Quoting functionality
-	'lqt-quote-intro' => 'On $2 at $3, [[User:$1|$1]] wrote:',
-	'lqt-quote' => 'Quote',
-
 	// Search
 	'lqt-search-legend' => 'Search discussions on this page',
 	'lqt-search-label' => 'Search terms:',
@@ -572,11 +568,6 @@ Parameters are:
 * $6 is a permalink URL
 * $7 is a reply text
 * $8 is the reply author's user name",
-	'lqt-quote-intro' => 'Used as a header in thread entries.
-* $1 is a user name
-* $2 is a date
-* $3 is a time',
-	'lqt-quote' => '{{Identical|Quote}}',
 	'lqt-search-label' => 'Used as label for input field.',
 	'lqt-search-button' => '{{Identical|Search}}',
 	'searchprofile-threads' => '{{Identical|Discussion}}',
@@ -830,8 +821,6 @@ U kan dit sien by <$6>.
 
 Die teks van die antwoord is:
 $7",
-	'lqt-quote-intro' => 'Op $2 om $3 skryf [[User:$1|$1]]:',
-	'lqt-quote' => 'Aanhaal',
 	'lqt-search-legend' => 'Deursoek besprekings op hierdie bladsy',
 	'lqt-search-label' => 'Soekterme:',
 	'lqt-search-button' => 'Soek',
@@ -1190,8 +1179,6 @@ $7",
 
 نص الرد هو:
 $7",
-	'lqt-quote-intro' => 'في $2 عند $3، كتب [[User:$1|$1]]:',
-	'lqt-quote' => 'اقتبس',
 	'lqt-search-legend' => 'ابحث في نقاشات هذه الصفحة',
 	'lqt-search-label' => 'عبارة البحث:',
 	'lqt-search-button' => 'بحث',
@@ -1491,8 +1478,6 @@ $messages['arz'] = array(
 قد وُضع فى يوم $3 عند $4.
 
 بإمكانك مراجعته عبر <$6>", # Fuzzy
-	'lqt-quote-intro' => 'فى $2 عند $3، كتب [[User:$1|$1]]:',
-	'lqt-quote' => 'اقتبس',
 	'lqt-search-legend' => 'ابحث فى نقاشات هذه الصفحة',
 	'lqt-search-label' => 'عباره البحث:',
 	'lqt-search-button' => 'ابحث',
@@ -1820,8 +1805,6 @@ $7',
 
 Яуап:
 $7',
-	'lqt-quote-intro' => '$2 $3 [[User:$1|$1]] яҙған:',
-	'lqt-quote' => 'Цитата итеп алырға',
 	'lqt-search-legend' => 'Был биттәге фекер алышыуҙарҙы эҙләү',
 	'lqt-search-label' => 'Эҙләү шарттары:',
 	'lqt-search-button' => 'Табырға',
@@ -2207,8 +2190,6 @@ $7",
 
 Тэкст адказу:
 $7",
-	'lqt-quote-intro' => '$2 $3 [[User:$1|$1]] {{GENDER:$1|напісаў|напісала}}:',
-	'lqt-quote' => 'Цытаваць',
 	'lqt-search-legend' => 'Пошук абмеркаваньняў на гэтай старонцы',
 	'lqt-search-label' => 'Умовы пошуку:',
 	'lqt-search-button' => 'Знайсьці',
@@ -2430,8 +2411,6 @@ $messages['bg'] = array(
 	'lqt-preference-custom-signatures' => 'Показване на настройваемите потребителски подписи',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} обсъждане - Отговор: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} обсъждане - Нова нишка: $1',
-	'lqt-quote-intro' => 'На $2 в $3 [[User:$1|$1]] написа:',
-	'lqt-quote' => 'Цитат',
 	'lqt-search-legend' => 'Търсене на обсъжданията в тази страница',
 	'lqt-search-label' => 'Условия на търсенето:',
 	'lqt-search-button' => 'Търсене',
@@ -2594,7 +2573,6 @@ $messages['bn'] = array(
 	'lqt-preference-custom-signatures' => 'ব্যবহারকারী নির্ধারিত স্বাক্ষর দেখাও',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} আলোচনা - উত্তর: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} আলোচনা - নতুন থ্রেড: $1',
-	'lqt-quote' => 'উক্তি',
 	'lqt-search-legend' => 'এই পাতার আলোচনায় অনুসন্ধান করো',
 	'lqt-search-label' => 'অনুসন্ধানকৃত শব্দসমূহ:',
 	'lqt-search-button' => 'অনুসন্ধান',
@@ -2833,8 +2811,6 @@ E lenn a c'hallit ober war <$6>
 
 Setu testenn ar respont :
 $7",
-	'lqt-quote-intro' => "D'an $2 da $3, eo bet skrivet gant [[User:$1|$1]] :",
-	'lqt-quote' => 'Menegiñ',
 	'lqt-search-legend' => 'Klask kaozeadennoù war ar bajenn-mañ',
 	'lqt-search-label' => 'Termenoù enklask',
 	'lqt-search-button' => 'Klask',
@@ -3095,8 +3071,6 @@ Možete ga vidjeti na <$6>
 
 Tekst odgovora je:
 $7",
-	'lqt-quote-intro' => 'Dana $2 u $3, [[User:$1|korisnik $1]] je napisao:',
-	'lqt-quote' => 'Citat',
 	'lqt-search-legend' => 'Pretraži razgovore na ovoj stranici',
 	'lqt-search-label' => 'Traženi pojmovi:',
 	'lqt-search-button' => 'Traži',
@@ -3373,8 +3347,6 @@ El podeu veure a <$6>
 
 El text de la resposta és:
 $7",
-	'lqt-quote-intro' => 'El dia $2 a les $3, [[User:$1|$1]] va escriure:',
-	'lqt-quote' => 'Cita-ho',
 	'lqt-search-legend' => 'Cerca discussions en aquesta pàgina',
 	'lqt-search-label' => 'Termes de cerca:',
 	'lqt-search-button' => 'Cerca',
@@ -3729,8 +3701,6 @@ Můžete si ji prohlédnout na <$6>.
 
 Text odpovědi:
 $7',
-	'lqt-quote-intro' => '$2 v $3 {{GENDER:$1|napsal|napsala|napsal}} [[User:$1|$1]]:',
-	'lqt-quote' => 'Citovat',
 	'lqt-search-legend' => 'Hledat v diskusích na této stránce',
 	'lqt-search-label' => 'Hledané výrazy:',
 	'lqt-search-button' => 'Hledat',
@@ -4091,8 +4061,6 @@ Du kan se det på <$6>
 
 Svarets tekst lyder:
 $7",
-	'lqt-quote-intro' => 'Den $2 kl. $3, skrev [[User:$1|$1]]:',
-	'lqt-quote' => 'Citér',
 	'lqt-search-legend' => 'Søg i diskussioner på denne side',
 	'lqt-search-label' => 'Søgeord:',
 	'lqt-search-button' => 'Søg',
@@ -4373,8 +4341,6 @@ Du kannst sie unter diesem Link einsehen: <$6>
 
 Die Nachricht lautet:
 $7',
-	'lqt-quote-intro' => 'Am $2 um $3 Uhr schrieb [[User:$1|$1]]:',
-	'lqt-quote' => 'Zitieren',
 	'lqt-search-legend' => 'Durchsuche die Themenbeiträge auf dieser Seite',
 	'lqt-search-label' => 'Suchbegriffe:',
 	'lqt-search-button' => 'Suchen',
@@ -4699,8 +4665,6 @@ Kerem ke şırê ena adres <$6>'i vurnayışan bivinê.
 
 Metnê cıwabi:
 $7",
-	'lqt-quote-intro' => '$2 $3 tarix de, [[User:$1|$1]] nuşt:',
-	'lqt-quote' => 'Groteko',
 	'lqt-search-legend' => 'werêameyişê no peli bıgêr',
 	'lqt-search-label' => 'termê cıgêrayişi:',
 	'lqt-search-button' => 'Cı geyre',
@@ -4962,8 +4926,6 @@ Móžoš jo na <$6> wiźeś
 
 Tekst wótegrona jo:
 $7",
-	'lqt-quote-intro' => '$2 $3 jo [[User:$1|$1]] {{GENDER:$1|napisał|napisała|napisał}}:',
-	'lqt-quote' => 'Citěrowaś',
 	'lqt-search-legend' => 'Diskusije na toś tom boku pśepytaś',
 	'lqt-search-label' => 'Pytańske wuraze:',
 	'lqt-search-button' => 'Pytaś',
@@ -5182,8 +5144,6 @@ $messages['el'] = array(
 	'lqt-preference-display-count' => 'Μέγιστος αριθμός απαντήσεων προς εμφάνιση:',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} συζήτηση - Απάντηση: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} συζήτηση - Νέο θέμα: $1',
-	'lqt-quote-intro' => 'Την $2 στις $3, ο [[User:$1|$1]] έγραψε:',
-	'lqt-quote' => 'Απόσπασμα',
 	'lqt-search-legend' => 'Αναζήτηση συζητήσεων σε αυτή τη σελίδα',
 	'lqt-search-label' => 'Αναζήτηση όρων:',
 	'lqt-search-button' => 'Αναζήτηση',
@@ -5441,8 +5401,6 @@ Vi povas vidi ĝin ĉe <$6>
 
 La teksto de la respondo estas:
 $7",
-	'lqt-quote-intro' => 'Je $2, $3, [[User:$1|$1]] skribis:',
-	'lqt-quote' => 'Citi',
 	'lqt-search-legend' => 'Serĉi diskutojn en ĉi tiu paĝo',
 	'lqt-search-label' => 'Serĉaj parametroj:',
 	'lqt-search-button' => 'Serĉi',
@@ -5726,8 +5684,6 @@ Puedes verla en <$6>
 
 El texto de la respuesta es:
 $7",
-	'lqt-quote-intro' => 'El día $2 a las $3, [[User:$1|$1]] escribió:',
-	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Discusiones de búsqueda en esta página',
 	'lqt-search-label' => 'Términos de búsqueda:',
 	'lqt-search-button' => 'Buscar',
@@ -5977,8 +5933,6 @@ See on leitav asukohast <$6>.
 
 Vastus on järgmine:
 $7',
-	'lqt-quote-intro' => 'Kuupäeval $2, kell $3 kirjutas [[User:$1|$1]]:',
-	'lqt-quote' => 'Tsiteeri',
 	'lqt-search-label' => 'Otsitav:',
 	'lqt-search-button' => 'Otsi',
 	'searchprofile-threads' => 'Arutelud',
@@ -6111,7 +6065,6 @@ Eztabaida hau $2-(e)ko zati da.',
 	'lqt-merge-submit' => 'Merge',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} eztabaida - Erantzuna: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} eztabaida - Mintzagai berria: $1',
-	'lqt-quote' => 'Aipu',
 	'lqt-search-button' => 'Bilatu',
 	'searchprofile-threads' => 'Eztabaidak',
 	'lqt-ajax-update-link' => 'Eguneratu',
@@ -6344,8 +6297,6 @@ $7",
 
 متن پاسخ بدین شرح است:
 $7",
-	'lqt-quote-intro' => '[[User:$1|$1]] در تاریخ $2 در زمان $3 نوشت:',
-	'lqt-quote' => 'نقل قول',
 	'lqt-search-legend' => 'جستجوی بحث‌های این صفحه',
 	'lqt-search-label' => 'عبارات جستجو:',
 	'lqt-search-button' => 'جستجو',
@@ -6617,8 +6568,6 @@ Näet sen osoitteessa <$6>.
 
 Vastauksen teksti on:
 $7',
-	'lqt-quote-intro' => '[[User:$1|$1]] kirjoitti $2 kello $3:',
-	'lqt-quote' => 'Lainaa',
 	'lqt-search-legend' => 'Hae keskusteluja tältä sivulta',
 	'lqt-search-label' => 'Hae keskusteluista',
 	'lqt-search-button' => 'Etsi',
@@ -6893,8 +6842,6 @@ Vous pouvez la consulter sur « $6 »
 
 Le texte de la réponse est :
 $7",
-	'lqt-quote-intro' => 'Le $2 à $3, [[User:$1|$1]] a écrit :',
-	'lqt-quote' => 'Citer',
 	'lqt-search-legend' => 'Rechercher des discussions sur cette page',
 	'lqt-search-label' => 'Termes de recherche :',
 	'lqt-search-button' => 'Rechercher',
@@ -7163,8 +7110,6 @@ Vos la pouede vêre sur <$6>
 
 Lo tèxto de la rèponsa est :
 $7',
-	'lqt-quote-intro' => 'Lo $2 a $3, [[User:$1|$1]] at ècrit :',
-	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Rechèrchiér des discussions sur ceta pâge',
 	'lqt-search-label' => 'Tèrmos de rechèrche :',
 	'lqt-search-button' => 'Rechèrchiér',
@@ -7545,8 +7490,6 @@ Pode vela en <$6>
 
 O texto da resposta é:
 $7',
-	'lqt-quote-intro' => 'O $2 ás $3, o [[User:$1|usuario $1]] escribiu:',
-	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Procurar conversas nesta páxina',
 	'lqt-search-label' => 'Termos de procura:',
 	'lqt-search-button' => 'Procurar',
@@ -7852,8 +7795,6 @@ Du chasch es über de Link aaluege: <$6>
 
 D Antwort isch:
 $7',
-	'lqt-quote-intro' => 'Am $2 am $3, het [[User:$1|$1]] gschribe:',
-	'lqt-quote' => 'Zitiere',
 	'lqt-search-legend' => 'Dursuech d Diskussionsbyytreg uf däre Syte',
 	'lqt-search-label' => 'Suechuusdruck:',
 	'lqt-search-button' => 'Sueche',
@@ -8204,8 +8145,6 @@ $7",
 
 תוכן ההודעה:
 $7",
-	'lqt-quote-intro' => 'ב־$3, $2, נכתב על ידי [[User:$1|$1]]:',
-	'lqt-quote' => 'ציטוט',
 	'lqt-search-legend' => 'חיפוש דיונים בדף זה',
 	'lqt-search-label' => 'ביטויים לחיפוש:',
 	'lqt-search-button' => 'חיפוש',
@@ -8424,7 +8363,6 @@ $messages['hi'] = array(
 	'lqt-preference-custom-signatures' => 'मानुयल सदस्य हस्ताक्षर दिखाएँ',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} आलोचना - जवाब: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} आलोचना - नया सूत्र: $1',
-	'lqt-quote' => 'उद्धरण',
 	'lqt-search-legend' => 'इस पृष्ठ पे आलोचना ढूँढे',
 	'lqt-search-label' => 'खोज आइटम:',
 	'lqt-search-button' => 'खोजें',
@@ -8683,8 +8621,6 @@ Odgovor možete vidjeti ovdje <$6>
 
 Odgovor glasi:
 $7",
-	'lqt-quote-intro' => '$2 u $3, [[User:$1|$1]] je napisao:',
-	'lqt-quote' => 'Citiraj',
 	'lqt-search-legend' => 'Pretraži raspravu na ovoj stranici',
 	'lqt-search-label' => 'Pojmovi pretrage:',
 	'lqt-search-button' => 'Traži',
@@ -8942,8 +8878,6 @@ Móžeš ju na <$6> widźeć
 
 Tekst wotmołwy je:
 $7",
-	'lqt-quote-intro' => 'Dnja $2 $3 je [[User:$1|$1]] {{GENDER:$1|napisał|napisała|napisał}}:',
-	'lqt-quote' => 'Citować',
 	'lqt-search-legend' => 'Diskusije na tutej stronje přepytać',
 	'lqt-search-label' => 'Pytanske zapřijeća:',
 	'lqt-search-button' => 'Pytać',
@@ -9222,8 +9156,6 @@ A következő címen tekintheted meg: <$6>
 
 A válasz szövege:
 $7',
-	'lqt-quote-intro' => '[[User:$1|$1]] írta, $2 $3-kor:',
-	'lqt-quote' => 'idéz',
 	'lqt-search-legend' => 'Beszélgetések keresése ezen a lapon',
 	'lqt-search-label' => 'Keresett kifejezés:',
 	'lqt-search-button' => 'Keresés',
@@ -9495,8 +9427,6 @@ Tu pote vider lo a <$6>
 
 Le texto del responsa es:
 $7",
-	'lqt-quote-intro' => 'Le $2 a $3, [[User:$1|$1]] scribeva:',
-	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Cercar in discussiones in iste pagina',
 	'lqt-search-label' => 'Terminos de recerca:',
 	'lqt-search-button' => 'Cercar',
@@ -9762,8 +9692,6 @@ Anda dapat melihatnya di <$6>
 
 Teks balasan berisi:
 $7",
-	'lqt-quote-intro' => 'Pada $2 pukul $3, [[User:$1|$1]] menulis:',
-	'lqt-quote' => 'Kutip',
 	'lqt-search-legend' => 'Cari diskusi pada halaman ini',
 	'lqt-search-label' => 'Kata kunci pencarian:',
 	'lqt-search-button' => 'Cari',
@@ -9850,7 +9778,6 @@ Madu nwere I ki hü ya na ihü akíkó nke sinambu.',
 	'lqt-split-submit' => 'Wa',
 	'lqt-movethread' => 'Páfụ',
 	'lqt-menu-trigger' => 'Ọzȯ kwa',
-	'lqt-quote' => 'Kọpùtà',
 	'lqt-search-button' => 'Chọwa',
 	'searchprofile-threads' => 'Akíkó',
 	'lqt-ajax-update-link' => 'Dịnwanye mmā',
@@ -9966,7 +9893,6 @@ Naudi nga pinagbaliwan: $1',
 	'lqt-preference-custom-signatures' => 'Ipakitam dagiti naidumduma nga pirma ti agar-aramat',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} pagtungtungan - Sungbat: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} pagtungtungan - Baro nga sungbat: $1',
-	'lqt-quote-intro' => 'Idi $2 ti oras nga $3,  nagisurat ni [[User:$1|$1]] :',
 	'lqt-search-legend' => 'Birokem ti pagtutungtongan ditoy nga panid',
 	'lqt-search-button' => 'Biroken',
 	'searchprofile-threads' => 'Pagtutungtongan',
@@ -10320,8 +10246,6 @@ Puoi leggerlo a <$6>
 
 Il testo è:
 $7",
-	'lqt-quote-intro' => 'Il $2 alle $3, [[User:$1|$1]] ha scritto:',
-	'lqt-quote' => 'Cita',
 	'lqt-search-legend' => 'Cerca discussioni in questa pagina',
 	'lqt-search-label' => 'Termini di ricerca:',
 	'lqt-search-button' => 'Ricerca',
@@ -10595,8 +10519,6 @@ $3 $4 に $8 さんから新しい返信があったことをお知らせしま�
 
 返信内容は以下の通りです:
 $7',
-	'lqt-quote-intro' => '$2 $3に[[User:$1|$1]]が書きました:',
-	'lqt-quote' => '引用',
 	'lqt-search-legend' => 'このページ上の議論を検索',
 	'lqt-search-label' => '検索語句:',
 	'lqt-search-button' => '検索',
@@ -10821,8 +10743,6 @@ Yèn Sampéyan rampung, klik "{{int:savearticle}}".',
 	'lqt-no-threads' => 'Durung ana topik nèng kaca iki.',
 	'lqt-delete-parent-deleted' => 'Topik biyung dibusak ($1)',
 	'lqt-delete-replies-done' => 'Kabèh walesan topik iki uga wis dibusak.',
-	'lqt-quote-intro' => 'Tanggal $2 wanci $3, [[User:$1|$1]] nulis:',
-	'lqt-quote' => 'Kutip',
 	'lqt-search-legend' => 'Golèk parembugan nèng kaca iki',
 	'lqt-search-label' => 'Golèk istilah:',
 	'lqt-search-button' => 'Golèk',
@@ -11049,7 +10969,6 @@ $messages['ka'] = array(
 	'lqt-preference-custom-signatures' => 'აჩვენეთ მომხმარებლების კონფიგურირებადი ხელმოწერები',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} განხილვა - პასუხი: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} განხილვა - ახალი თემა: $1',
-	'lqt-quote' => 'ციტირება',
 	'lqt-search-legend' => 'განხილვის ძიება ამ გვერდზე',
 	'lqt-search-label' => 'ტერმინების ძიება:',
 	'lqt-search-button' => 'ძიება',
@@ -11426,8 +11345,6 @@ $7",
 
 답변의 내용은 다음과 같습니다:
 $7",
-	'lqt-quote-intro' => '[[User:$1|$1]] 사용자가 $2 $3에 남긴 글:',
-	'lqt-quote' => '인용',
 	'lqt-search-legend' => '이 문서에 있는 토론 검색하기',
 	'lqt-search-label' => '찾기:',
 	'lqt-search-button' => '찾기',
@@ -11728,8 +11645,6 @@ Dä Beidraach es:
 $7
 
 Ene schööne Jrohß!',
-	'lqt-quote-intro' => 'Aam $2 hät {{GENDER:$1|dä|dat|dä Metmaacher|dat|de}} [[User:$1|$1]] öm $3 Uhr jeschrevve:',
-	'lqt-quote' => 'Donn dat zitteere',
 	'lqt-search-legend' => 'En dä {{int:lqt-history-thread}}e op heh dä Sigg söhke',
 	'lqt-search-label' => 'Söhk noh:',
 	'lqt-search-button' => 'Söhke',
@@ -12043,8 +11958,6 @@ Dir kënnt se op <$6> gesinn.
 
 Den Text vun der Äntwert ass:
 $7",
-	'lqt-quote-intro' => 'De(n) $2 ëm $3 Auer, huet de(n) [[User:$1|$1]] geschriwwen:',
-	'lqt-quote' => 'Zitéieren',
 	'lqt-search-legend' => 'Diskussiounen zu dëser Säit sichen',
 	'lqt-search-label' => 'Sichbegrëffer:',
 	'lqt-search-button' => 'Sichen',
@@ -12315,8 +12228,6 @@ Doe kins \'t bekieke: <$6>.
 
 Hieónger steit \'t:
 $7', # Fuzzy
-	'lqt-quote-intro' => '[[User:$1|$1]] sjreef óm $3 óp $2:',
-	'lqt-quote' => 'Citeer',
 	'lqt-search-legend' => 'Zeuk óp euverlègk óp dees paasj',
 	'lqt-search-label' => 'Zeukterme:',
 	'lqt-search-button' => 'Zeuk',
@@ -12586,8 +12497,6 @@ Jūs šį atsakymą galite peržiūrėti: <$6>
 
 Atsakymo tekstas:
 $7",
-	'lqt-quote-intro' => '$2 d. $3 val. [[User:$1|$1]] rašė:',
-	'lqt-quote' => 'Citata',
 	'lqt-search-legend' => 'Ieškoti šio puslapio aptarimuose',
 	'lqt-search-label' => 'Ieškoti terminų:',
 	'lqt-search-button' => 'Paieška',
@@ -12925,8 +12834,6 @@ $7',
 Можете да го погледате на <$6>
 Текстот на одговорот гласи:
 $7',
-	'lqt-quote-intro' => 'На $2 во $3, [[User:$1|$1]] напиша:',
-	'lqt-quote' => 'Цитирај',
 	'lqt-search-legend' => 'Пребарување разговори на страницава',
 	'lqt-search-label' => 'Услови за пребарување:',
 	'lqt-search-button' => 'Пребарај',
@@ -13193,8 +13100,6 @@ $5 താളിലെ '$2' എന്നതിനു പുതിയൊരു മ
 താങ്കൾക്ക് അത് <$6> എന്ന കണ്ണിയിൽ കാണാം.
 
 മറുപടിയെഴുത്ത്: $7",
-	'lqt-quote-intro' => '$2 $3-ൽ [[User:$1|$1]] എഴുതി:',
-	'lqt-quote' => 'ഉദ്ധരണി',
 	'lqt-search-legend' => 'ഈ താളിലെ സംവാദങ്ങൾ തിരയുക',
 	'lqt-search-label' => 'പദങ്ങൾ തിരയുക:',
 	'lqt-search-button' => 'തിരയുക',
@@ -13545,8 +13450,6 @@ Anda boleh membacanya di <$6>
 
 Teksnya adalah seperti berikut:
 $7",
-	'lqt-quote-intro' => 'Pada $2, $3, [[User:$1|$1]] menulis:',
-	'lqt-quote' => 'Petikan',
 	'lqt-search-legend' => 'Cari perbincangan di laman ini',
 	'lqt-search-label' => 'Kata yang dicari:',
 	'lqt-search-button' => 'Cari',
@@ -14049,8 +13952,6 @@ Du kan se den på <$6>
 
 Teksten i svaret er:
 $7",
-	'lqt-quote-intro' => 'Den $2 klokka $3 skrev [[User:$1|$1]]:',
-	'lqt-quote' => 'Siter',
 	'lqt-search-legend' => 'Søk i diskusjoner på denne siden',
 	'lqt-search-label' => 'Søkeord:',
 	'lqt-search-button' => 'Søk',
@@ -14485,8 +14386,6 @@ U kunt het bekijken op <$6>.
 
 De inhoud is:
 $7',
-	'lqt-quote-intro' => 'Op $2 om $3 schreef [[User:$1|$1]]:',
-	'lqt-quote' => 'Citeren',
 	'lqt-search-legend' => 'Overleg op deze pagina doorzoeken',
 	'lqt-search-label' => 'Zoektermen:',
 	'lqt-search-button' => 'Zoeken',
@@ -14775,8 +14674,6 @@ Du kan lesa svaret på <$6>
 
 Innhaldet i svaret er:
 $7',
-	'lqt-quote-intro' => 'Den $2 kl. $3 skreiv [[User:$1|$1]]:',
-	'lqt-quote' => 'Siter',
 	'lqt-search-legend' => 'Søk i diskusjonar på denne sida',
 	'lqt-search-label' => 'Søkjeord:',
 	'lqt-search-button' => 'Søk',
@@ -15008,8 +14905,6 @@ Aquò es una notificacion de {{SITENAME}}, qu'una responsa novèla a « $2 » su
 es estada creada lo $3 a $4.
 
 O podètz veire a « $6 »", # Fuzzy
-	'lqt-quote-intro' => 'Lo $2 a $3, [[User:$1|$1]] a escrich :',
-	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Recercar de discussions sus aquesta pagina',
 	'lqt-search-label' => 'Tèrmes de recèrca :',
 	'lqt-search-button' => 'Recercar',
@@ -15390,8 +15285,6 @@ Możesz ją zobaczyć pod adresem <$6>
 
 Treść odpowiedzi to:
 $7',
-	'lqt-quote-intro' => 'Dnia $2 o $3 [[User:$1|$1]] napisał(a):',
-	'lqt-quote' => 'Cytuj',
 	'lqt-search-legend' => 'Szukaj dyskusji na tej stronie',
 	'lqt-search-label' => 'Szukaj frazy',
 	'lqt-search-button' => 'Szukaj',
@@ -15660,8 +15553,6 @@ A peul vëddla su <$6>
 
 Ël test ëd l'arspòsta a l'é:
 $7",
-	'lqt-quote-intro' => "Ël $2 a $3, [[User:$1|$1]] a l'ha scrivù:",
-	'lqt-quote' => 'Sité',
 	'lqt-search-legend' => 'Sërché dle discussion dzora a sta pàgina-sì',
 	'lqt-search-label' => "Element d'arserca:",
 	'lqt-search-button' => 'Sërca',
@@ -15994,8 +15885,6 @@ Pode vê-la em <$6>
 
 O texto da resposta é:
 $7",
-	'lqt-quote-intro' => 'A $2 às $3, [[User:$1|$1]] escreveu:',
-	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Pesquise as discussões nesta página',
 	'lqt-search-label' => 'Termos a pesquisar:',
 	'lqt-search-button' => 'Pesquisar',
@@ -16264,8 +16153,6 @@ Você pode vê-la em <$6>
 
 O texto da resposta é:
 $7",
-	'lqt-quote-intro' => 'Em $2 às $3, [[User:$1|$1]] escreveu:',
-	'lqt-quote' => 'Citar',
 	'lqt-search-legend' => 'Pesquise as discussões nesta página',
 	'lqt-search-label' => 'Termos a pesquisar:',
 	'lqt-search-button' => 'Pesquisar',
@@ -16522,8 +16409,6 @@ a fost creat pe $3 la $4 de către $8
 
 Textul este:
 $7",
-	'lqt-quote-intro' => 'Pe $2 la $3, [[User:$1|$1]] a scris:',
-	'lqt-quote' => 'Citare',
 	'lqt-search-legend' => 'Caută discuţii pe această pagină',
 	'lqt-search-label' => 'Termeni de căutat:',
 	'lqt-search-button' => 'Căutare',
@@ -16788,8 +16673,6 @@ Tu 'a puè vedè a <$6>
 
 'U teste d'a resposte jè:
 $7",
-	'lqt-quote-intro' => "'U $2 a le $3, [[User:$1|$1]] ha scritte:",
-	'lqt-quote' => 'Cite',
 	'lqt-search-legend' => "Cirche le 'ngazzaminde sus a sta pàgene",
 	'lqt-search-label' => 'Cirche le termine:',
 	'lqt-search-button' => 'Cirche',
@@ -17072,8 +16955,6 @@ $7',
 
 Текст ответа:
 $7',
-	'lqt-quote-intro' => '$2 $3, [[User:$1|$1]] написал:',
-	'lqt-quote' => 'Цитировать',
 	'lqt-search-legend' => 'Поиск обсуждений на этой странице',
 	'lqt-search-label' => 'Условия поиска:',
 	'lqt-search-button' => 'Найти',
@@ -17337,8 +17218,6 @@ $7',
 
 Текст одповідї:
 $7',
-	'lqt-quote-intro' => '$2 о $3, [[User:$1|$1]] написав:',
-	'lqt-quote' => 'Цітовати',
 	'lqt-search-legend' => 'Глядати в діскузіях на тій сторінцї',
 	'lqt-search-label' => 'Гляданы выразы:',
 	'lqt-search-button' => 'Глядати',
@@ -17607,8 +17486,6 @@ $messages['sah'] = array(
 
 Хоруй тиэкиһэ:
 $7', # Fuzzy
-	'lqt-quote-intro' => '$2 $3, [[User:$1|$1]] суруйбут:',
-	'lqt-quote' => 'Цитааталааһын',
 	'lqt-search-legend' => 'Бу сирэйгэ баар ырытыылары көрдөөһүн',
 	'lqt-search-label' => 'Көрдөөһүн усулуобуйата:',
 	'lqt-search-button' => 'Буларга',
@@ -17817,8 +17694,6 @@ $messages['si'] = array(
 	'lqt-preference-custom-signatures' => 'රිසිකරණයය කල පරිශිලක අත්සන් පෙන්වන්න',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} සාකච්ඡාව - පිළිතුර: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} සාකච්ඡාව - නව සම්බන්ධය: $1',
-	'lqt-quote-intro' => '$2 දී $3 හී, [[User:$1|$1]] ලියන ලදී:',
-	'lqt-quote' => 'උද්ධරණය',
 	'lqt-search-legend' => 'මෙම පිටුවේ ඇති සාකච්ඡා සොයන්න',
 	'lqt-search-label' => 'සෙවුම් කොන්දේසි:',
 	'lqt-search-button' => 'සොයන්න',
@@ -18063,8 +17938,6 @@ Môžete si ju pozrieť na <$6>
 
 Text odpovede je:
 $7',
-	'lqt-quote-intro' => '$2 $3 [[User:$1|$1]] napísal:',
-	'lqt-quote' => 'Citovať',
 	'lqt-search-legend' => 'Hľadať v diskusiách k tejto stránke',
 	'lqt-search-label' => 'Hľadaný výraz:',
 	'lqt-search-button' => 'Hľadať',
@@ -18330,8 +18203,6 @@ Odgovor si lahko ogledate na <$6>
 
 Besedilo odgovora je:
 $7',
-	'lqt-quote-intro' => 'Dne $2 ob $3 je [[User:$1|$1]] napisal:',
-	'lqt-quote' => 'Navedi',
 	'lqt-search-legend' => 'Iskanje razprav na tej strani',
 	'lqt-search-label' => 'Iskalni pojmi:',
 	'lqt-search-button' => 'Iskanje',
@@ -18630,8 +18501,6 @@ $7',
 
 Текст поруке гласи:
 $7',
-	'lqt-quote-intro' => '$2 у $3, [[User:$1|$1]] {{GENDER:$1|је написао|је написала|је написао}}:',
-	'lqt-quote' => 'Цитат',
 	'lqt-search-legend' => 'Претражи расправе на овој страници',
 	'lqt-search-label' => 'Упити претраге:',
 	'lqt-search-button' => 'Претражи',
@@ -18904,8 +18773,6 @@ Možete je pogledati na $6
 
 Tekst poruke glasi:
 $7',
-	'lqt-quote-intro' => '$2 u $3, [[User:$1|$1]] {{GENDER:$1|je napisao|je napisala|napisa}}:',
-	'lqt-quote' => 'Citat',
 	'lqt-search-legend' => 'Pretraži rasprave na ovoj stranici',
 	'lqt-search-label' => 'Uslovi pretrage:',
 	'lqt-search-button' => 'Pretraga',
@@ -19281,8 +19148,6 @@ Du kan läsa svaret på <$6>
 
 Texten i svaret är:
 $7",
-	'lqt-quote-intro' => 'Den $2 klockan $3 skrev [[User:$1|$1]]:',
-	'lqt-quote' => 'Citera',
 	'lqt-search-legend' => 'Sök i diskussionerna på den här sidan',
 	'lqt-search-label' => 'Sökord:',
 	'lqt-search-button' => 'Sök',
@@ -19503,7 +19368,6 @@ $messages['ta'] = array(
 	'lqt-add-reply' => 'மறுமொழியைச் சேர்',
 	'lqt-merge-submit' => 'இணைக்கவும்',
 	'lqt-preference-display-count' => 'காட்டப்பட வேண்டிய அதிகபட்ச மறுமொழிகள்:',
-	'lqt-quote' => 'மேற்கோள்',
 	'lqt-search-legend' => 'இப்பக்கத்தில் கலந்துரையாடல்களைத் தேடவும்',
 	'lqt-search-label' => 'பதங்களைத் தேடவும்:',
 	'lqt-search-button' => 'தேடுக',
@@ -19656,8 +19520,6 @@ $messages['te'] = array(
 	'lqt-preference-display-count' => 'చూపించాల్సిన స్పందనల యొక్క గరిష్ఠ సంఖ్య:',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} చర్చ - స్పందన: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} చర్చ - కొత్త చర్చాహారం: $1',
-	'lqt-quote-intro' => '$2 నాడు $3 కి, [[User:$1|$1]] వ్రాసారు:',
-	'lqt-quote' => 'ఉదహరించు',
 	'lqt-search-legend' => 'ఈ పేజీలోని చర్చల్లో వెతుకు',
 	'lqt-search-label' => 'అన్వేషణ పదాలు:',
 	'lqt-search-button' => 'వెతుకు',
@@ -19991,8 +19853,6 @@ Ony <$6> adresinde görüp bilersiňiz.", # Fuzzy
 Bu {{SITENAME}} saýtynyň uwedomleniýasydyr: $5 sahypasynda $4 $3 senesinde '$2' tredine täze bir jogap döredildi.
 
 Ony <$6> adresinde görüp bilersiňiz.", # Fuzzy
-	'lqt-quote-intro' => '$2, $3 senesinde [[User:$1|$1]] ýazdy:',
-	'lqt-quote' => 'Sitata',
 	'lqt-search-legend' => 'Şu sahypadaky çekişmeleri gözle',
 	'lqt-search-label' => 'Gözleg terminleri:',
 	'lqt-search-button' => 'Gözle',
@@ -20258,8 +20118,6 @@ Makikita mo ito sa <$6>
 
 Ang teksto ng tugon ay:
 $7",
-	'lqt-quote-intro' => 'Noong $2 noong $3, si [[User:$1|$1]] ang nagsulat ng:',
-	'lqt-quote' => 'Sipi',
 	'lqt-search-legend' => 'Maghanap sa mga talakayan sa pahinang ito',
 	'lqt-search-label' => 'Mga katagang hahanapin:',
 	'lqt-search-button' => 'Maghanap',
@@ -20532,8 +20390,6 @@ Bunu <$6> adresinde görebilirsin.", # Fuzzy
 Bu {{SITENAME}} sitesinden bir bildirimdir: $5 sayfasında '$2' ileti dizisine yeni bir cevap $3 $4 tarihinde oluşturuldu.
 
 Bunu <$6> adresinde görebilirsin.", # Fuzzy
-	'lqt-quote-intro' => '$2 $3 tarihinde, [[User:$1|$1]] yazdı:',
-	'lqt-quote' => 'Alıntı',
 	'lqt-search-legend' => 'Bu sayfadaki tartışmaları ara',
 	'lqt-search-label' => 'Arama terimleri:',
 	'lqt-search-button' => 'Ara',
@@ -20664,7 +20520,6 @@ $messages['ug-arab'] = array(
 	'lqt-movethread' => 'يۆتكە',
 	'lqt-menu-trigger' => 'كۆپ',
 	'lqt-merge-submit' => 'بىرىكتۈر',
-	'lqt-quote' => 'نەقىل',
 	'lqt-search-label' => 'ئىزدەيدىغان ھالقىلىق سۆز:',
 	'lqt-search-button' => 'ئىزدە',
 	'lqt-ajax-update-link' => 'يېڭىلا',
@@ -20888,8 +20743,6 @@ $7",
 
 Текст відповіді:
 $7",
-	'lqt-quote-intro' => '$2 о $3, [[User:$1|$1]] написав:',
-	'lqt-quote' => 'Цитувати',
 	'lqt-search-legend' => 'Пошук обговорень на цій сторінці',
 	'lqt-search-label' => 'Умови пошуку:',
 	'lqt-search-button' => 'Знайти',
@@ -21020,7 +20873,6 @@ $messages['ur'] = array(
 	'lqt-preference-display-depth' => 'زیادہ سے زیادہ جواب گہرائی کو دکھانے کے لئے:',
 	'lqt-preference-display-count' => 'جوابات کو دکھانے کے لئے زیادہ سے زیادہ تعداد:',
 	'lqt-preference-custom-signatures' => 'مخصوص صارف کے دستخط ظاہر',
-	'lqt-quote' => 'از:',
 	'lqt-search-legend' => 'اس صفحے پر تلاش کی بحث',
 	'lqt-search-label' => 'تلاش کی اصطلاحات:',
 	'lqt-search-button' => 'تلاش',
@@ -21124,7 +20976,6 @@ Oxirgi tahrir: $1",
 	'lqt-preference-display-depth' => "Tasvirlash uchun javoblarning eng ko'p chuqurligi:",
 	'lqt-preference-display-count' => "Tasvirlash uchun javoblarning eng ko'p soni:",
 	'lqt-preference-custom-signatures' => "Foydalanuvchilarning sozlanadigan imzolarini ko'rsatish",
-	'lqt-quote' => 'Iqtibos',
 	'lqt-search-legend' => 'Ushbu sahifada munozaralarni qidirish',
 	'lqt-search-label' => 'Qidiruv shartlari',
 	'lqt-search-button' => 'Qidiruv',
@@ -21353,8 +21204,6 @@ Te pol védarlo qua: $6
 
 El testo de la risposta xe:
 $7', # Fuzzy
-	'lqt-quote-intro' => 'El $2 a le $3, [[User:$1|$1]] el gà scrito:',
-	'lqt-quote' => 'Cita',
 	'lqt-search-legend' => 'Serca discussion in sta pagina',
 	'lqt-search-label' => 'Parole da sercar:',
 	'lqt-search-button' => 'Serca',
@@ -21451,7 +21300,6 @@ $messages['vep'] = array(
 	'lqt-header-actions' => 'Tegendad',
 	'lqt-split-submit' => 'Jagada',
 	'lqt-merge-submit' => 'Ühtenzoitta',
-	'lqt-quote' => 'Citiruida',
 	'lqt-search-button' => 'Ectä',
 	'searchprofile-threads' => 'Lodu',
 	'lqt-ajax-update-link' => 'Udištada',
@@ -21656,8 +21504,6 @@ Bạn có thể đọc nó tại <$6>
 
 Văn bản trả lời là:
 $7',
-	'lqt-quote-intro' => 'Ngày $2 lúc $3, [[User:$1|Thành viên:$1]] viết:',
-	'lqt-quote' => 'Trích dẫn',
 	'lqt-search-legend' => 'Tìm kiếm thảo luận tại trang này',
 	'lqt-search-label' => 'Từ khóa tìm kiếm:',
 	'lqt-search-button' => 'Tìm kiếm',
@@ -21750,7 +21596,6 @@ $messages['vo'] = array(
 	'lqt-history-user' => 'Geban',
 	'lqt-history-comment' => 'Küpet',
 	'lqt-movethread' => 'Topätükön',
-	'lqt-quote' => 'Saitön',
 	'lqt-search-button' => 'Sukön',
 	'searchprofile-threads' => 'Bespiks',
 	'lqt-change-subject' => 'Votükön yegädi',
@@ -22215,8 +22060,6 @@ $7',
 
 回复的内容是：
 $7',
-	'lqt-quote-intro' => '[[User:$1|$1]]在$2 $3时写道：',
-	'lqt-quote' => '引用',
 	'lqt-search-legend' => '在本页搜索讨论',
 	'lqt-search-label' => '搜索词语：',
 	'lqt-search-button' => '搜索',
@@ -22481,8 +22324,6 @@ $7',
 
 回复的內容是：
 $7',
-	'lqt-quote-intro' => '[[User:$1|$1]] 在 $2 $3 時寫道：',
-	'lqt-quote' => '引用',
 	'lqt-search-legend' => '在本頁搜尋討論',
 	'lqt-search-label' => '搜尋詞語：',
 	'lqt-search-button' => '搜尋',

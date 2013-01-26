@@ -29,8 +29,6 @@ $wgExtensionMessagesFiles['LiquidThreadsNamespaces'] = $dir . '/i18n/Lqt.namespa
 $wgExtensionMessagesFiles['LiquidThreadsAlias'] = $dir . '/i18n/Lqt.alias.php';
 
 $lqtMessages = array(
-	'lqt-quote-intro',
-	'lqt-quote',
 	'lqt-ajax-updated',
 	'lqt-ajax-update-link',
 	'watch',
