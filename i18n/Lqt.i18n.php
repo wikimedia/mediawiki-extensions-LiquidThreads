@@ -859,8 +859,8 @@ $7",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Antwoorde van $1',
 	'lqt-feed-new-thread-intro' => 'Nuwe onderwerp deur $2 op $1', # Fuzzy
 	'lqt-feed-reply-intro' => 'Antwoord op $3 (op $1) deur $2', # Fuzzy
-	'lqt-newmessages-n' => 'Nuwe boodskappe ($1)',
-	'lqt_newmessages' => 'My nuwe boodskappe (Geen)',
+	'lqt-newmessages-n' => 'Nuwe boodskappe ($1)', # Fuzzy
+	'lqt_newmessages' => 'My nuwe boodskappe (Geen)', # Fuzzy
 	'lqt_newmessages-title' => 'Nuwe boodskappe',
 	'lqt-newpost-summary' => 'Nuwe onderwerp: $1',
 	'lqt-reply-summary' => 'Reaksie op [[$2|$1]]',
@@ -1223,8 +1223,8 @@ $7",
 	'lqt-feed-new-thread-intro' => 'موضوع جديد في $1 من إرسال $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'الرد على $3 (في $1) من إرسال $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'يظهر جديد ما نشر في المواضيع أو صفحات النقاش التي تراقبها',
-	'lqt-newmessages-n' => 'رسائلي الجديدة ($1)',
-	'lqt_newmessages' => 'رسائلي الجديدة (لا يوجد)',
+	'lqt-newmessages-n' => 'رسائلي الجديدة ($1)', # Fuzzy
+	'lqt_newmessages' => 'رسائلي الجديدة (لا يوجد)', # Fuzzy
 	'lqt_newmessages-title' => 'رسائل جديدة',
 	'lqt-newpost-summary' => 'نقاش جديد: $1',
 	'lqt-reply-summary' => 'رد على [[$2|$1]]',
@@ -1518,7 +1518,7 @@ $messages['arz'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — {{PLURAL:$2||نقاش جديد|نقاشان جديدان|نقاشات جديدة}} من $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — ردود',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — ردود من $1',
-	'lqt-newmessages-n' => 'الرسائل الجديده ($1)',
+	'lqt-newmessages-n' => 'الرسائل الجديده ($1)', # Fuzzy
 	'lqt_newmessages' => 'رسائل جديدة', # Fuzzy
 	'lqt_newmessages-title' => 'رسائل جديدة',
 	'lqt-newpost-summary' => 'نقاش جديد: $1',
@@ -1849,8 +1849,8 @@ $7',
 	'lqt-feed-new-thread-intro' => '$1 битендә яңы тармаҡ, $2 тарафынан өҫтәлгән', # Fuzzy
 	'lqt-feed-reply-intro' => '$1 битендә $3 тармағына яңы яуап, $2 тарафынан өҫтәлгән', # Fuzzy
 	'tooltip-pt-newmessages' => 'Һеҙ күҙәткән тармаҡтарҙың яңы хәбәрҙәрен күрһәтә',
-	'lqt-newmessages-n' => 'Яңы хәбәрҙәр ($1)',
-	'lqt_newmessages' => 'Яңы хәбәрҙәр (Юҡ)',
+	'lqt-newmessages-n' => 'Яңы хәбәрҙәр ($1)', # Fuzzy
+	'lqt_newmessages' => 'Яңы хәбәрҙәр (Юҡ)', # Fuzzy
 	'lqt_newmessages-title' => 'Яңы хәбәрҙәр',
 	'lqt-newpost-summary' => 'Яңы тармаҡ: $1',
 	'lqt-reply-summary' => '[[$2|$1]] хәбәренә яуап',
@@ -1965,8 +1965,8 @@ Létzde Beorweidung: $4, $3 Uar',
 	'searchprofile-threads' => 'Diskussiónen',
 	'searchprofile-threads-tooltip' => 'Thémen und Dischkrierseiten durchéschaung',
 	'tooltip-pt-newmessages' => "Zoagt neiche Noochrichten zua d' voh dir beówochterden Thémen óder d' zuaghering Dischkrirseiten",
-	'lqt-newmessages-n' => 'Neiche Noochrichten ($1)',
-	'lqt_newmessages' => 'Neiche Noochrichten',
+	'lqt-newmessages-n' => 'Neiche Noochrichten ($1)', # Fuzzy
+	'lqt_newmessages' => 'Neiche Noochrichten', # Fuzzy
 	'lqt_newmessages-title' => 'Neiche Noochrichten',
 	'lqt-newpost-summary' => 'Neicher Diskussionsstrång: $1',
 	'nstab-summary' => 'Thémazaummfossung',
@@ -2448,8 +2448,8 @@ $messages['bg'] = array(
 	'lqt-feed-title-replies' => '{{SITENAME}} — Отговори',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Отговори от $1',
 	'lqt-feed-new-thread-intro' => 'Нова нишка в $1, публикувана от $2', # Fuzzy
-	'lqt-newmessages-n' => 'Нови съобщения ($1)',
-	'lqt_newmessages' => 'Моите нови съобщения (няма)',
+	'lqt-newmessages-n' => 'Нови съобщения ($1)', # Fuzzy
+	'lqt_newmessages' => 'Моите нови съобщения (няма)', # Fuzzy
 	'lqt_newmessages-title' => 'Нови съобщения',
 	'lqt-newpost-summary' => 'Нова нишка: $1',
 	'lqt-reply-summary' => 'Отговор на [[$2|$1]]',
@@ -2596,8 +2596,8 @@ $messages['bn'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — $1 হতে নতুন থ্রেড',
 	'lqt-feed-title-replies' => '{{SITENAME}} — উত্তর',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1 হতে উত্তর',
-	'lqt-newmessages-n' => 'নতুন বার্তা ($1)',
-	'lqt_newmessages' => 'আমার নতুন বার্তা (নাই)',
+	'lqt-newmessages-n' => 'নতুন বার্তা ($1)', # Fuzzy
+	'lqt_newmessages' => 'আমার নতুন বার্তা (নাই)', # Fuzzy
 	'lqt_newmessages-title' => 'নতুন বার্তা',
 	'lqt-newpost-summary' => 'নতুন থ্রেড: $1',
 	'lqt-reply-summary' => '[[$2|$1]] এর উত্তর',
@@ -2855,8 +2855,8 @@ Dont a raio ar sinadur war wel e-unan",
 	'lqt-feed-new-thread-intro' => 'Neudennadoù nevez war $1 postet gant $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Respontoù da $3 (war $1) postet gant $2', # Fuzzy
 	'tooltip-pt-newmessages' => "Diskouez a ra ar c'hemennadennoù nevez diwar-benn an danvezioù pa ar pajennoù kaozeal evezhiet ganeoc'h",
-	'lqt-newmessages-n' => 'Kemennadennoù nevez ($1)',
-	'lqt_newmessages' => "Ma c'hemennadennoù nevez (hini ebet)",
+	'lqt-newmessages-n' => 'Kemennadennoù nevez ($1)', # Fuzzy
+	'lqt_newmessages' => "Ma c'hemennadennoù nevez (hini ebet)", # Fuzzy
 	'lqt_newmessages-title' => 'Kemennadennoù nevez',
 	'lqt-newpost-summary' => 'Neudennad nevez : $1',
 	'lqt-reply-summary' => 'Respont da [[$2|$1]]',
@@ -3115,8 +3115,8 @@ Potpis će se prikazati automatski.',
 	'lqt-feed-new-thread-intro' => 'Novi niz na $1 poslano od strane $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Odgovor na $3 (na $1) poslan od strane $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Pokaži nove vijesti na niz ili na nizane stranice za razgovor koje vi pratite',
-	'lqt-newmessages-n' => 'Nove poruke ($1)',
-	'lqt_newmessages' => 'Moje nove poruke (nema)',
+	'lqt-newmessages-n' => 'Nove poruke ($1)', # Fuzzy
+	'lqt_newmessages' => 'Moje nove poruke (nema)', # Fuzzy
 	'lqt_newmessages-title' => 'Nove poruke',
 	'lqt-newpost-summary' => 'Novi niz: $1',
 	'lqt-reply-summary' => 'Odgovor na [[$2|$1]]',
@@ -3140,7 +3140,7 @@ Potpis će se prikazati automatski.',
  * @author Bjargal
  */
 $messages['bxr'] = array(
-	'lqt_newmessages' => 'Минии шэнэ бэшэг (нэгэшье үгы)',
+	'lqt_newmessages' => 'Минии шэнэ бэшэг (нэгэшье үгы)', # Fuzzy
 );
 
 /** Catalan (català)
@@ -3391,8 +3391,8 @@ La signatura es mostrarà automàticament.',
 	'lqt-feed-new-thread-intro' => 'Nou fil a $1 publicat per $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Resposta al fil $3 (dins $1) publicada per $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Mostra els nous missatges dels fils o pàgines de discussió que esteu vigilant',
-	'lqt-newmessages-n' => 'Missatges nous ($1)',
-	'lqt_newmessages' => 'Els meus missatges nous (Cap)',
+	'lqt-newmessages-n' => 'Missatges nous ($1)', # Fuzzy
+	'lqt_newmessages' => 'Els meus missatges nous (Cap)', # Fuzzy
 	'lqt_newmessages-title' => 'Missatges nous',
 	'lqt-newpost-summary' => 'Nou fil: $1',
 	'lqt-reply-summary' => 'Respon a [[$2|$1]]',
@@ -3460,7 +3460,7 @@ $messages['ce'] = array(
 	'lqt-drag-drop-zone' => 'Дехьа йаккха кхузе',
 	'lqt-preview-signature' => '(хьалха муха ю хьажар)',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Керла хаамаш $1',
-	'lqt-newmessages-n' => 'Керла хаамаш ($1)',
+	'lqt-newmessages-n' => 'Керла хаамаш ($1)', # Fuzzy
 	'lqt_newmessages' => 'Керла хаамаш', # Fuzzy
 	'lqt_newmessages-title' => 'Керла хаамаш',
 	'lqt-talkpage-history-tab' => 'Корта',
@@ -3745,8 +3745,8 @@ Podpis se zobrazuje automaticky.',
 	'lqt-feed-new-thread-intro' => '$2 {{GENDER:$4|přidal|přidala|přidal}} do $1 nové vlákno',
 	'lqt-feed-reply-intro' => '$2 {{GENDER:$4|reagoval|reagovala|reagoval}} na $3 (v $1)',
 	'tooltip-pt-newmessages' => 'Zobrazí nové zprávy ve vláknech nebo na diskusních stránkách, které sledujete',
-	'lqt-newmessages-n' => 'Nové zprávy ($1)', # Fuzzy
-	'lqt_newmessages' => 'Nové zprávy (žádné)', # Fuzzy
+	'lqt-newmessages-n' => 'Nové zprávy ($1)',
+	'lqt_newmessages' => 'Nové zprávy (žádné)',
 	'lqt_newmessages-title' => 'Nové zprávy',
 	'lqt-newpost-summary' => 'Nové vlákno: $1',
 	'lqt-reply-summary' => 'Odpověď na [[$2|$1]]',
@@ -3770,7 +3770,7 @@ Podpis se zobrazuje automaticky.',
  * @author Kaszeba
  */
 $messages['csb'] = array(
-	'lqt-newmessages-n' => 'Nowé wiadła ($1)',
+	'lqt-newmessages-n' => 'Nowé wiadła ($1)', # Fuzzy
 	'lqt_newmessages' => 'Nowé wiadła', # Fuzzy
 	'lqt_newmessages-title' => 'Nowé wiadła',
 );
@@ -3854,8 +3854,8 @@ Efallai:
 	'lqt-movethread' => 'Symud',
 	'lqt-menu-trigger' => 'Mwy',
 	'lqt-preview-signature' => '(rhagolwg)',
-	'lqt-newmessages-n' => 'Negeseuon newydd ($1)',
-	'lqt_newmessages' => 'Negeseuon newydd (Dim)',
+	'lqt-newmessages-n' => 'Negeseuon newydd ($1)', # Fuzzy
+	'lqt_newmessages' => 'Negeseuon newydd (Dim)', # Fuzzy
 	'lqt_newmessages-title' => 'Negeseuon newydd',
 );
 
@@ -4105,8 +4105,8 @@ Signaturen vises automatisk.',
 	'lqt-feed-new-thread-intro' => 'Ny tråd på $1 oprettet af {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Svar til $3 (på $1) skrevet af {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Viser nye indlæg i tråde eller på trådbaserede diskussionssider, du overvåger',
-	'lqt-newmessages-n' => 'Mine nye beskeder ($1)',
-	'lqt_newmessages' => 'Mine nye beskeder (ingen)',
+	'lqt-newmessages-n' => 'Mine nye beskeder ($1)', # Fuzzy
+	'lqt_newmessages' => 'Mine nye beskeder (ingen)', # Fuzzy
 	'lqt_newmessages-title' => 'Nye beskeder',
 	'lqt-newpost-summary' => 'Ny tråd: $1',
 	'lqt-reply-summary' => 'Svar på [[$2|$1]]',
@@ -5173,8 +5173,8 @@ $messages['el'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Νέα θέματα από $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Απαντήσεις',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Απαντήσεις από $1',
-	'lqt-newmessages-n' => 'Νέα μηνύματα ($1)',
-	'lqt_newmessages' => 'Νέα Μηνύματα μου (Κανένα)',
+	'lqt-newmessages-n' => 'Νέα μηνύματα ($1)', # Fuzzy
+	'lqt_newmessages' => 'Νέα Μηνύματα μου (Κανένα)', # Fuzzy
 	'lqt_newmessages-title' => 'Νέα μηνύματα',
 	'lqt-newpost-summary' => 'Νέο θέμα: $1',
 	'lqt-reply-summary' => 'Απάντηση σε [[$2|$1]]',
@@ -6083,8 +6083,8 @@ Eztabaida hau $2-(e)ko zati da.',
 	'lqt-feed-title-new-threads' => '{{SITENAME}} — Eztabaida berriak',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Eztabaida berriak $1 - (r)engandik',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Erantzunak',
-	'lqt-newmessages-n' => 'Mezu berriak ($1)',
-	'lqt_newmessages' => 'Mezu berriak',
+	'lqt-newmessages-n' => 'Mezu berriak ($1)', # Fuzzy
+	'lqt_newmessages' => 'Mezu berriak', # Fuzzy
 	'lqt_newmessages-title' => 'Mezu berriak',
 	'lqt-newpost-summary' => 'Mintzagai berria: $1',
 	'lqt-talkpage-history-tab' => 'Goiburua',
@@ -6342,8 +6342,8 @@ $1',
 	'lqt-feed-new-thread-intro' => 'مبحث جدید در $1 فرستاده شده توسط {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'پاسخ به $3 (در $1) فرستاده شده توسط {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'نمایش ارسالی‌های جدید به موضوع‌ها و یا صفحه‌های بحث موضوع‌هایی که شما آن‌ها را پی‌گیری می‌کنید',
-	'lqt-newmessages-n' => 'پیام‌های جدید ($1)',
-	'lqt_newmessages' => 'پیام‌های جدید من (هیچ)',
+	'lqt-newmessages-n' => 'پیام‌های جدید ($1)', # Fuzzy
+	'lqt_newmessages' => 'پیام‌های جدید من (هیچ)', # Fuzzy
 	'lqt_newmessages-title' => 'پیام‌های جدید',
 	'lqt-newpost-summary' => 'مبحث جدید: $1',
 	'lqt-reply-summary' => 'پاسخ به [[$2|$1]]',
@@ -7241,8 +7241,8 @@ Ultin cambiament: $1',
 	'lqt-preview-signature' => '(anteprime)',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Rispuestis',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Rispuestis di $1',
-	'lqt-newmessages-n' => 'Gnûfs messaçs ($1)',
-	'lqt_newmessages' => 'I miei messaçs gnûfs',
+	'lqt-newmessages-n' => 'Gnûfs messaçs ($1)', # Fuzzy
+	'lqt_newmessages' => 'I miei messaçs gnûfs', # Fuzzy
 	'lqt_newmessages-title' => 'Gnûfs messaçs',
 	'lqt-reply-summary' => 'Rispueste a [[$2|$1]]',
 	'lqt-talkpage-history-subtitle' => 'PAr $1',
@@ -7561,7 +7561,7 @@ $7',
  * @author The Discoverer
  */
 $messages['gom-latn'] = array(
-	'lqt_newmessages' => 'Noveo sondes (Kai na)',
+	'lqt_newmessages' => 'Noveo sondes (Kai na)', # Fuzzy
 );
 
 /** Gothic (Gothic)
@@ -7839,8 +7839,8 @@ D Signatur wird automatisch aazeigt.',
 	'lqt-feed-new-thread-intro' => 'E neje Diskussionsstrang uf $1, aagleit vu $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Antworte uf $3 (uf $1) vu $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Zeig nöii Noochrichte für d Theme un Diskussione, wo du beobachte duesch',
-	'lqt-newmessages-n' => 'Neji Nochrichte ($1)',
-	'lqt_newmessages' => 'Neji Nochrichte (keini)',
+	'lqt-newmessages-n' => 'Neji Nochrichte ($1)', # Fuzzy
+	'lqt_newmessages' => 'Neji Nochrichte (keini)', # Fuzzy
 	'lqt_newmessages-title' => 'Neji Nochrichte',
 	'lqt-newpost-summary' => 'Neje Diskussionstrang: $1',
 	'lqt-reply-summary' => 'Anwort uf [[$2|$1]]',
@@ -7897,8 +7897,8 @@ $messages['gu'] = array(
 	'lqt_move_torename_edit' => 'ફેરફાર કરો',
 	'lqt_move_move' => 'ખસેડો',
 	'lqt_move_noreason' => 'કોઇ કારણ દર્શાવવામાં આવ્યું નથી',
-	'lqt-newmessages-n' => 'મારા નવા સંદેશા ($1)',
-	'lqt_newmessages' => 'મારા નવા સંદેશા (ખાલી)',
+	'lqt-newmessages-n' => 'મારા નવા સંદેશા ($1)', # Fuzzy
+	'lqt_newmessages' => 'મારા નવા સંદેશા (ખાલી)', # Fuzzy
 );
 
 /** Manx (Gaelg)
@@ -7910,7 +7910,7 @@ $messages['gv'] = array(
 	'lqt_hist_deleted' => 'Scryssit',
 	'lqt_summary_notice_link' => 'screeu giare-choontey',
 	'lqt-drag-reason' => 'Fa:',
-	'lqt_newmessages' => 'Çhaghteraghtyn noa (gyn)',
+	'lqt_newmessages' => 'Çhaghteraghtyn noa (gyn)', # Fuzzy
 );
 
 /** Hausa (Hausa)
@@ -8063,7 +8063,7 @@ $messages['he'] = array(
 	'lqt-count-marked-read' => "{{PLURAL:$1|הודעה אחת סומנה כ'נקראה'|$1 הודעות סומנו כ'נקראו'}}.",
 	'lqt-email-undo' => 'ביטול',
 	'lqt-no-new-messages' => 'אין הודעות חדשות עבורכם.',
-	'lqt-new-messages' => 'יש לכם הודעות חדשות ',
+	'lqt-new-messages' => 'יש לכם הודעות חדשות',
 	'lqt-email-info-undo' => 'החזרת השרשור שהתעלמתם ממנו זה עתה.',
 	'lqt-date-info' => 'קישור זה מבוטל כיוון שאתם צופים בשרשורים מכל התאריכים.',
 	'lqt-newmessages-context' => 'שרשור מלא',
@@ -8396,8 +8396,8 @@ $messages['hi'] = array(
 	'lqt-feed-title-replies-from' => '{{SITENAME}} —  $1 से उत्तर',
 	'lqt-feed-new-thread-intro' => '$1 पे नया सूत्र $2 द्वारा', # Fuzzy
 	'lqt-feed-reply-intro' => 'जवाब $3 को ($1 पे) $2 द्वारा', # Fuzzy
-	'lqt-newmessages-n' => 'मेरे नये सन्देश ($1)',
-	'lqt_newmessages' => 'मेरे नये संदेश (कोई नहीं)',
+	'lqt-newmessages-n' => 'मेरे नये सन्देश ($1)', # Fuzzy
+	'lqt_newmessages' => 'मेरे नये संदेश (कोई नहीं)', # Fuzzy
 	'lqt_newmessages-title' => 'नए संदेश',
 	'lqt-newpost-summary' => 'नया सूत्र: $1',
 	'lqt-reply-summary' => 'जवाब दें [[$2|$1]]',
@@ -8665,8 +8665,8 @@ Potpis se prikazuje automatski.',
 	'lqt-feed-new-thread-intro' => 'Suradnik $2 započeo je nova tema o $1', # Fuzzy
 	'lqt-feed-reply-intro' => 'Odgovor $3 (na $1) napisao je suradnik $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Pokazuje nove postove na teme ili na stranicama za razgovor koje pratite',
-	'lqt-newmessages-n' => 'Nove poruke ($1)',
-	'lqt_newmessages' => 'Moje nove poruke (nema)',
+	'lqt-newmessages-n' => 'Nove poruke ($1)', # Fuzzy
+	'lqt_newmessages' => 'Moje nove poruke (nema)', # Fuzzy
 	'lqt_newmessages-title' => 'Nove poruke',
 	'lqt-newpost-summary' => 'Nova dretva: $1',
 	'lqt-reply-summary' => 'Odgovori na [[$2|$1]]',
@@ -9471,8 +9471,8 @@ Le signatura es adjungite automaticamente.',
 	'lqt-feed-new-thread-intro' => 'Nove filo in $1 publicate per {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Responsa a $3 (super $1) publicate per {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Monstra nove messages in filos o paginas de discussion arborescente que tu observa',
-	'lqt-newmessages-n' => 'Nove messages ($1)',
-	'lqt_newmessages' => 'Mi nove messages (nulle)',
+	'lqt-newmessages-n' => 'Nove messages ($1)', # Fuzzy
+	'lqt_newmessages' => 'Mi nove messages (nulle)', # Fuzzy
 	'lqt_newmessages-title' => 'Nove messages',
 	'lqt-newpost-summary' => 'Nove filo: $1',
 	'lqt-reply-summary' => 'Responder a [[$2|$1]]',
@@ -9916,8 +9916,8 @@ Naudi nga pinagbaliwan: $1',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Dagiti sungbat ni $1',
 	'lqt-feed-new-thread-intro' => 'Baro nga panait idi $1 inkabil ni $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Sungbat kenni $3 (on $1) inkabil ni $2', # Fuzzy
-	'lqt-newmessages-n' => 'Dagiti baro nga  mensahek ($1)',
-	'lqt_newmessages' => 'Dagiti baro nga  mensahek (awan)',
+	'lqt-newmessages-n' => 'Dagiti baro nga  mensahek ($1)', # Fuzzy
+	'lqt_newmessages' => 'Dagiti baro nga  mensahek (awan)', # Fuzzy
 	'lqt_newmessages-title' => 'Dagiti baro nga mensahe',
 	'lqt-newpost-summary' => 'Baro nga panait: $1',
 	'lqt-reply-summary' => 'Sungbat kenni [[$2|$1]]',
@@ -9951,7 +9951,7 @@ $messages['io'] = array(
 	'lqt-save-subject' => 'Registragar',
 	'lqt-drag-save' => 'Konfirmar',
 	'lqt-drag-reason' => 'Motivo:',
-	'lqt-newmessages-n' => 'Nova mesaji ($1)',
+	'lqt-newmessages-n' => 'Nova mesaji ($1)', # Fuzzy
 	'lqt_newmessages' => 'Nova mesaji', # Fuzzy
 	'lqt_newmessages-title' => 'Nova mesaji',
 	'lqt-talkpage-history-subtitle' => 'Por $1',
@@ -10033,8 +10033,8 @@ Síðast breytt: $1',
 	'lqt-drag-drop-zone' => 'Færðu innleggið hingað',
 	'lqt-edit-signature' => '(breyta undirskrift)',
 	'lqt-preview-signature' => '(forskoða)',
-	'lqt-newmessages-n' => 'Ný skilaboð ($1)',
-	'lqt_newmessages' => 'Engin ný skilaboð',
+	'lqt-newmessages-n' => 'Ný skilaboð ($1)', # Fuzzy
+	'lqt_newmessages' => 'Engin ný skilaboð', # Fuzzy
 	'lqt_newmessages-title' => 'Ný skilaboð',
 	'lqt-edit-bump' => 'Stjaka þessum þræði',
 );
@@ -10589,7 +10589,7 @@ $7',
  * @author Hazard-SJ
  */
 $messages['jam'] = array(
-	'lqt_newmessages' => 'Mi new message dem',
+	'lqt_newmessages' => 'Mi new message dem', # Fuzzy
 );
 
 /** Lojban (Lojban)
@@ -10787,8 +10787,8 @@ Tapak asta katuduhaké otomatis.',
 	'lqt-feed-new-thread-intro' => 'Topik anyar nèng $1 dikirim déning {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Walesan kanggo $3 (nèng $1) dikirim déning {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Tuduhaké kiriman anyar topik utawa kaca guneman sing dadi topik saka sng Sampéyan awasi',
-	'lqt-newmessages-n' => 'Layang anyar kula ($1)',
-	'lqt_newmessages' => 'Layang anyar kula (ora ana)',
+	'lqt-newmessages-n' => 'Layang anyar kula ($1)', # Fuzzy
+	'lqt_newmessages' => 'Layang anyar kula (ora ana)', # Fuzzy
 	'lqt_newmessages-title' => 'Layang anyar',
 	'lqt-newpost-summary' => 'Topik anyar: $1',
 	'lqt-reply-summary' => 'Ngawales [[$2|$1]]',
@@ -11122,8 +11122,8 @@ $messages['km'] = array(
 	'lqt_summarize_link' => 'សង្ខេប​',
 	'lqt-search-button' => 'ស្វែង​រក​',
 	'lqt-save-subject' => 'រក្សាទុក',
-	'lqt-newmessages-n' => 'សារថ្មីៗ ($1)',
-	'lqt_newmessages' => 'សារថ្មីៗ (គ្មាន)',
+	'lqt-newmessages-n' => 'សារថ្មីៗ ($1)', # Fuzzy
+	'lqt_newmessages' => 'សារថ្មីៗ (គ្មាន)', # Fuzzy
 	'lqt_newmessages-title' => 'សារថ្មីៗ',
 );
 
@@ -11416,7 +11416,7 @@ $7",
  * @author Iltever
  */
 $messages['krc'] = array(
-	'lqt_newmessages' => 'Джангы билдириуле (Джокъду)',
+	'lqt_newmessages' => 'Джангы билдириуле (Джокъду)', # Fuzzy
 );
 
 /** Krio (Krio)
@@ -11733,8 +11733,8 @@ $messages['ku-latn'] = array(
 	'lqt-cancel-subject-edit' => 'Betal bike',
 	'lqt-drag-reason' => 'Sedem:',
 	'lqt-feed-title-replies' => '{{SITENAME}} - Bersiv',
-	'lqt-newmessages-n' => 'Peyamên nû ($1)',
-	'lqt_newmessages' => 'Peyamên nû (tune)',
+	'lqt-newmessages-n' => 'Peyamên nû ($1)', # Fuzzy
+	'lqt_newmessages' => 'Peyamên nû (tune)', # Fuzzy
 	'lqt_newmessages-title' => 'Peyamên nû',
 	'lqt-talkpage-history-subtitle' => 'Bo $1',
 	'nstab-summary' => 'Kurte',
@@ -11746,7 +11746,7 @@ $messages['ku-latn'] = array(
  * @author Nrowe
  */
 $messages['kw'] = array(
-	'lqt_newmessages' => 'Ow messajys nowyth (nagonen)',
+	'lqt_newmessages' => 'Ow messajys nowyth (nagonen)', # Fuzzy
 );
 
 /** Kirghiz (Кыргызча)
@@ -12032,8 +12032,8 @@ $messages['lg'] = array(
 	'lqt-no-new-messages' => 'Tewali bubaka bupya',
 	'lqt-new-messages' => 'Ofunyeyo obubaka bupya.',
 	'lqt-movethread' => 'Simbuliza',
-	'lqt-newmessages-n' => 'Obubaka ($1)',
-	'lqt_newmessages' => 'Obubaka (Tewali bupya)',
+	'lqt-newmessages-n' => 'Obubaka ($1)', # Fuzzy
+	'lqt_newmessages' => 'Obubaka (Tewali bupya)', # Fuzzy
 	'lqt_newmessages-title' => 'Obubaka',
 );
 
@@ -12272,8 +12272,8 @@ Wiezig 't ongerwerp door op \"Bewirk\" te klikke in t baoveste berich.",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Reacties van $1',
 	'lqt-feed-new-thread-intro' => 'Nuuj ongerwerp op $1 door $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Reactie op $3 (op $1) door $2', # Fuzzy
-	'lqt-newmessages-n' => 'Nuuj berichter ($1)',
-	'lqt_newmessages' => 'Mien nuuj berichte (gein)',
+	'lqt-newmessages-n' => 'Nuuj berichter ($1)', # Fuzzy
+	'lqt_newmessages' => 'Mien nuuj berichte (gein)', # Fuzzy
 	'lqt_newmessages-title' => 'nuuj berichte',
 	'lqt-newpost-summary' => 'Nuuj ongerwerp: $1',
 	'lqt-reply-summary' => 'Reactie op [[$2|$1]]',
@@ -12529,8 +12529,8 @@ $7",
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Nauji atsakymai nuo $1',
 	'lqt-feed-new-thread-intro' => 'Nauja tema pasbelbta $1  $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Atsakymą į $3 (puslapyje $1) parašė $2', # Fuzzy
-	'lqt-newmessages-n' => 'Žinutės ($1)',
-	'lqt_newmessages' => 'Žinutės (Nėra)',
+	'lqt-newmessages-n' => 'Žinutės ($1)', # Fuzzy
+	'lqt_newmessages' => 'Žinutės (Nėra)', # Fuzzy
 	'lqt_newmessages-title' => 'Nauji pranešimai',
 	'lqt-newpost-summary' => 'Nauja tema: $1',
 	'lqt-reply-summary' => 'Atsakyti į [[$2|$1]]',
@@ -12567,8 +12567,8 @@ $messages['lus'] = array(
 	'lqt-email-undo' => 'Sûtna',
 	'lqt-no-new-messages' => 'Thudawn thar i nei lo.',
 	'lqt-new-messages' => 'Thudawn thar i nei.',
-	'lqt-newmessages-n' => 'Thudawn thar ({{PLURAL:$1|$1|$1 lái}} ka nei!)',
-	'lqt_newmessages' => 'Thudawn thar (ka nei lo)',
+	'lqt-newmessages-n' => 'Thudawn thar ({{PLURAL:$1|$1|$1 lái}} ka nei!)', # Fuzzy
+	'lqt_newmessages' => 'Thudawn thar (ka nei lo)', # Fuzzy
 	'lqt_newmessages-title' => 'Thudawn thar',
 	'lqt-newpost-summary' => 'Ṭhuang thar: $1',
 	'lqt-reply-summary' => '[[$2|$1]] chhànna',
@@ -12595,8 +12595,8 @@ $messages['lv'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Jaunie pavedieni no $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Atbildes',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Atbildes no $1',
-	'lqt-newmessages-n' => 'Mani jaunie ziņojumi ($1)',
-	'lqt_newmessages' => 'Mani jaunie ziņojumi (nav)',
+	'lqt-newmessages-n' => 'Mani jaunie ziņojumi ($1)', # Fuzzy
+	'lqt_newmessages' => 'Mani jaunie ziņojumi (nav)', # Fuzzy
 	'lqt_newmessages-title' => 'Jauni ziņojumi',
 	'lqt-newpost-summary' => 'Jauns pavediens: $1',
 	'lqt-reply-summary' => 'Rakstīt atbildi [[$2|$1]]',
@@ -13246,8 +13246,8 @@ $messages['mr'] = array(
 	'lqt_sort_newest_changes' => 'शेवटी बदललेले पहिल्यांदा',
 	'lqt_sort_newest_threads' => 'नवीन थ्रेड पहिल्यांदा',
 	'lqt_sort_oldest_threads' => 'जुने थ्रेड पहिल्यांदा',
-	'lqt-newmessages-n' => 'माझे नवीन संदेश ($1)',
-	'lqt_newmessages' => 'माझे नवीन संदेश',
+	'lqt-newmessages-n' => 'माझे नवीन संदेश ($1)', # Fuzzy
+	'lqt_newmessages' => 'माझे नवीन संदेश', # Fuzzy
 	'lqt_newmessages-title' => 'नवीन संदेश',
 );
 
@@ -13747,7 +13747,7 @@ $messages['nah'] = array(
 	'lqt_move_noreason' => 'Ahmo cah īxtlamatiliztli.',
 	'lqt-title' => 'Tōcāitl',
 	'lqt-read-message' => 'Quimachiyōtīz iuh tāmapōuh',
-	'lqt_newmessages' => 'Yancuīc notētītlaniliz (ayāc)',
+	'lqt_newmessages' => 'Yancuīc notētītlaniliz (ayāc)', # Fuzzy
 );
 
 /** Norwegian Bokmål (norsk (bokmål)‎)
@@ -13996,8 +13996,8 @@ Signaturen vises automatisk.',
 	'lqt-feed-new-thread-intro' => 'Ny tråd på $1 postet av $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Svar til $3 (på $1) postet av $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Viser nye innlegg i tråder eller i trådete diskusjonssider som du overvåker',
-	'lqt-newmessages-n' => 'Nye meldinger ($1)',
-	'lqt_newmessages' => 'Nye meldinger (Ingen)',
+	'lqt-newmessages-n' => 'Nye meldinger ($1)', # Fuzzy
+	'lqt_newmessages' => 'Nye meldinger (Ingen)', # Fuzzy
 	'lqt_newmessages-title' => 'Nye meldinger',
 	'lqt-newpost-summary' => 'Ny tråd: $1',
 	'lqt-reply-summary' => 'Svar på [[$2|$1]]',
@@ -14017,7 +14017,7 @@ Signaturen vises automatisk.',
 	'nstab-summary' => 'Sammendrag',
 );
 
-/** Nedersaksisch (Nedersaksisch)
+/** Nedersaksies (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(
@@ -14172,8 +14172,8 @@ $7",
 	'lqt-edit-signature' => '(हस्ताक्षर सम्पादन गर्ने)',
 	'lqt-preview-signature' => '(पूर्व रुप)',
 	'lqt-feed-title-all' => '{{SITENAME}} — नयाँ पोस्ट',
-	'lqt-newmessages-n' => 'नयाँ सन्देशहरु ($1)',
-	'lqt_newmessages' => 'मेरा नयाँ सन्देशहरु (छैनन्)',
+	'lqt-newmessages-n' => 'नयाँ सन्देशहरु ($1)', # Fuzzy
+	'lqt_newmessages' => 'मेरा नयाँ सन्देशहरु (छैनन्)', # Fuzzy
 	'lqt_newmessages-title' => 'नयाँ सन्देशहरू',
 );
 
@@ -14925,7 +14925,7 @@ O podètz veire a « $6 »", # Fuzzy
 	'lqt-feed-title-replies-from' => '{{SITENAME}} - Responsas de $1',
 	'lqt-feed-new-thread-intro' => 'Fial de discussion novèl sus $1 postat per $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Responsa a $3 (sus $1) postada per $2', # Fuzzy
-	'lqt-newmessages-n' => 'Messatges novèls ($1)',
+	'lqt-newmessages-n' => 'Messatges novèls ($1)', # Fuzzy
 	'lqt_newmessages' => 'Messatges Novèls', # Fuzzy
 	'lqt-newpost-summary' => 'Fial novèl : $1',
 	'lqt-reply-summary' => 'Respondre a [[$2|$1]]',
@@ -14986,8 +14986,8 @@ $messages['or'] = array(
 	'lqt-cancel-subject-edit' => 'ବାତିଲ',
 	'lqt-drag-save' => 'ନିଶ୍ଚିତ କରନ୍ତୁ',
 	'lqt-drag-reason' => 'କାରଣ:',
-	'lqt-newmessages-n' => 'ମୋ ନୂଆ ମେସେଜ ($1)',
-	'lqt_newmessages' => 'ମୋ ନୂଆ ମେସେଜ (କିଛି ନାହିଁ)',
+	'lqt-newmessages-n' => 'ମୋ ନୂଆ ମେସେଜ ($1)', # Fuzzy
+	'lqt_newmessages' => 'ମୋ ନୂଆ ମେସେଜ (କିଛି ନାହିଁ)', # Fuzzy
 	'lqt_newmessages-title' => 'ନୂଆ ସନ୍ଦେଶ',
 	'lqt-newpost-summary' => 'ନୂଆ ବିଭାଗ : $1',
 	'lqt-reply-summary' => '[[$2|$1]]କୁ ଉତ୍ତର ଦିଅନ୍ତୁ',
@@ -15058,8 +15058,8 @@ $messages['pdc'] = array(
 	'lqt-save-subject' => 'Beilege',
 	'lqt-drag-reason' => 'Grund:',
 	'lqt-preview-signature' => '(Aagucke)',
-	'lqt-newmessages-n' => 'Neiichkeede ($1)',
-	'lqt_newmessages' => 'Neiichkeede (ken)',
+	'lqt-newmessages-n' => 'Neiichkeede ($1)', # Fuzzy
+	'lqt_newmessages' => 'Neiichkeede (ken)', # Fuzzy
 	'lqt-talkpage-history-subtitle' => 'Fer $1',
 	'lqt-talkpage-history-tab' => 'Iwwerschrift',
 );
@@ -15670,8 +15670,8 @@ $messages['ps'] = array(
 	'lqt-feed-title-all' => '{{SITENAME}} — نوي پوستونه',
 	'lqt-feed-title-replies' => '{{SITENAME}} — ځوابونه',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — د $1 لخوا ځوابونه',
-	'lqt-newmessages-n' => 'نوي پيغامونه ($1)',
-	'lqt_newmessages' => 'زما نوي پيغامونه (هېڅ)',
+	'lqt-newmessages-n' => 'نوي پيغامونه ($1)', # Fuzzy
+	'lqt_newmessages' => 'زما نوي پيغامونه (هېڅ)', # Fuzzy
 	'lqt_newmessages-title' => 'نوي پيغامونه',
 	'lqt-reply-summary' => '[[$2|$1]] ته ځواب وييل',
 	'lqt-talkpage-history-title' => 'د خبرو اترو د مخ پېښليک',
@@ -15929,8 +15929,8 @@ A assinatura é apresentada automaticamente.',
 	'lqt-feed-new-thread-intro' => 'Novo tópico em $1 colocado por {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Resposta a $3 (em $1) colocada por {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Mostra as mensagens novas nos tópicos, ou nas páginas de discussão por tópicos, que está a vigiar',
-	'lqt-newmessages-n' => 'Mensagens novas ($1)',
-	'lqt_newmessages' => 'Mensagens (Nenhuma)',
+	'lqt-newmessages-n' => 'Mensagens novas ($1)', # Fuzzy
+	'lqt_newmessages' => 'Mensagens (Nenhuma)', # Fuzzy
 	'lqt_newmessages-title' => 'Mensagens',
 	'lqt-newpost-summary' => 'Tópico novo: $1',
 	'lqt-reply-summary' => 'Resposta a [[$2|$1]]',
@@ -16197,8 +16197,8 @@ A assinatura é apresentada automaticamente.',
 	'lqt-feed-new-thread-intro' => 'Tópico novo em $1 colocado por $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Resposta a $3 (em $1) enviada por $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Mostra, nas páginas que estiver vigiando, mensagens novas nos tópicos ou páginas de discussão por tópicos',
-	'lqt-newmessages-n' => 'Novas mensagens ($1)',
-	'lqt_newmessages' => 'Mensagens novas (0)',
+	'lqt-newmessages-n' => 'Novas mensagens ($1)', # Fuzzy
+	'lqt_newmessages' => 'Mensagens novas (0)', # Fuzzy
 	'lqt_newmessages-title' => 'Novas mensagens',
 	'lqt-newpost-summary' => 'Tópico novo: $1',
 	'lqt-reply-summary' => 'Resposta a [[$2|$1]]',
@@ -17262,8 +17262,8 @@ $7',
 	'lqt-feed-new-thread-intro' => 'Нове волокно на $1 послане $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Одповідь про $3 (на $1), публікована $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Указує новы повідомлїня у волокнах або на діскузных сторінках, котры слїдуєте',
-	'lqt-newmessages-n' => 'Новы повідомлїня $1',
-	'lqt_newmessages' => 'Новы повідомлїня (жадны)',
+	'lqt-newmessages-n' => 'Новы повідомлїня $1', # Fuzzy
+	'lqt_newmessages' => 'Новы повідомлїня (жадны)', # Fuzzy
 	'lqt_newmessages-title' => 'Новы повідомлїня',
 	'lqt-newpost-summary' => 'Нова волокно: $1',
 	'lqt-reply-summary' => 'Одповідь на [[$2|$1]]',
@@ -17530,8 +17530,8 @@ $7', # Fuzzy
 	'lqt-feed-new-thread-intro' => 'Манна $1 $2 оҥорбут саҥа салаата', # Fuzzy
 	'lqt-feed-reply-intro' => '$3 сурукка хоруй ($1) манна баар $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Эн кэтиир салааларгар уонна ырытыыларгар саҥа суруктары көрдөрөр',
-	'lqt-newmessages-n' => 'Саҥа этиилэр ($1)',
-	'lqt_newmessages' => 'Саҥа этиилэрим (Суох)',
+	'lqt-newmessages-n' => 'Саҥа этиилэр ($1)', # Fuzzy
+	'lqt_newmessages' => 'Саҥа этиилэрим (Суох)', # Fuzzy
 	'lqt_newmessages-title' => 'Саҥа этиилэр',
 	'lqt-newpost-summary' => 'Саҥа салаа: $1',
 	'lqt-reply-summary' => 'Манна [[$2|$1]] хоруй',
@@ -17568,7 +17568,7 @@ $messages['scn'] = array(
 	'searchprofile-threads' => 'Discussioni',
 	'lqt-save-subject' => 'Sarva',
 	'lqt-drag-reason' => 'Mutivu:',
-	'lqt_newmessages' => 'Missaggi novi (mancu unu)',
+	'lqt_newmessages' => 'Missaggi novi (mancu unu)', # Fuzzy
 );
 
 /** Tachelhit (Tašlḥiyt/ⵜⴰⵛⵍⵃⵉⵜ)
@@ -17982,8 +17982,8 @@ Podpis sa zobrazí automaticky.',
 	'lqt-feed-new-thread-intro' => 'Nové vlákno na tému $1, ktoré poslal $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Odpoveď na $3 (na tému $1), ktorú poslal $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Zobrazuje nové príspevky vo vláknach alebo na diskusných stránkach s vláknami, ktoré sledujete',
-	'lqt-newmessages-n' => '{{PLURAL:$1|Nová správa|Nové správy}} ($1)',
-	'lqt_newmessages' => 'Moje nové správy (žiadne)',
+	'lqt-newmessages-n' => '{{PLURAL:$1|Nová správa|Nové správy}} ($1)', # Fuzzy
+	'lqt_newmessages' => 'Moje nové správy (žiadne)', # Fuzzy
 	'lqt_newmessages-title' => 'Nové správy',
 	'lqt-newpost-summary' => 'Nové vlákno: $1',
 	'lqt-reply-summary' => 'Odpoveď na [[$2|$1]]',
@@ -18817,8 +18817,8 @@ Potpis je automatski prikazan.',
 	'lqt-feed-new-thread-intro' => 'Nova tema na $1, koju je {{GENDER:$4|poslao|poslala|poslao}} $2',
 	'lqt-feed-reply-intro' => 'Odgovor na $3 (za $1), koji je {{GENDER:$4|postavio|postavila|postavio}} $2',
 	'tooltip-pt-newmessages' => 'Prikazuje nove poruke na temama ili na stranicama za razgovor koje pratite',
-	'lqt-newmessages-n' => 'Nove poruke ($1)',
-	'lqt_newmessages' => 'Nove poruke',
+	'lqt-newmessages-n' => 'Nove poruke ($1)', # Fuzzy
+	'lqt_newmessages' => 'Nove poruke', # Fuzzy
 	'lqt_newmessages-title' => 'Nove poruke',
 	'lqt-newpost-summary' => 'Nova tema: $1',
 	'lqt-reply-summary' => 'Odgovor na [[$2|$1]]',
@@ -18931,7 +18931,7 @@ $messages['su'] = array(
 	'lqt_move_move' => 'Pindah',
 	'lqt_move_noreason' => 'Henteu di béré alesan.',
 	'lqt_header_warning_big' => 'Anjeun keur ngédit $1',
-	'lqt_newmessages' => 'Talatah anyar (teu aya)',
+	'lqt_newmessages' => 'Talatah anyar (teu aya)', # Fuzzy
 );
 
 /** Swedish (svenska)
@@ -19294,7 +19294,7 @@ Haririo ya mwisho: $1', # Fuzzy
 	'lqt-drag-subject' => 'Mada ya mlolongo mpya (inatakiwa):', # Fuzzy
 	'lqt-edit-signature' => '(hariri sahihi)', # Fuzzy
 	'lqt-preview-signature' => '(hakiki)',
-	'lqt-newmessages-n' => 'Jumbe mpya ($1)',
+	'lqt-newmessages-n' => 'Jumbe mpya ($1)', # Fuzzy
 	'lqt_newmessages' => 'Jumbe mpya', # Fuzzy
 	'lqt_newmessages-title' => 'Jumbe mpya',
 	'lqt-newpost-summary' => 'Mlolongo mpya: $1',
@@ -19551,8 +19551,8 @@ $messages['te'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — $1 నుండి కొత్త చర్చాహారాలు',
 	'lqt-feed-title-replies' => '{{SITENAME}} — స్పందనలు',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1 నుండి స్పందనలు',
-	'lqt-newmessages-n' => 'కొత్త సందేశాలు ($1)',
-	'lqt_newmessages' => 'నా కొత్త సందేశాలు (ఏమీలేవు)',
+	'lqt-newmessages-n' => 'కొత్త సందేశాలు ($1)', # Fuzzy
+	'lqt_newmessages' => 'నా కొత్త సందేశాలు (ఏమీలేవు)', # Fuzzy
 	'lqt_newmessages-title' => 'కొత్త సందేశాలు',
 	'lqt-newpost-summary' => 'కొత్త చర్చాహారం: $1',
 	'lqt-reply-summary' => '[[$2|$1]]కి స్పందన',
@@ -19896,8 +19896,8 @@ Gol awtomatik görkezilýär.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1 sahypalary üçin jogaplar',
 	'lqt-feed-new-thread-intro' => '$1 sahypasynda täze tred $2 tarapyndan iberildi', # Fuzzy
 	'lqt-feed-reply-intro' => '$3 tredine jogap ($1 sahypasynda) $2 tarapyndan iberildi', # Fuzzy
-	'lqt-newmessages-n' => 'Täze habarlaşyklar ($1)',
-	'lqt_newmessages' => 'Täze habarlarym (ýok)',
+	'lqt-newmessages-n' => 'Täze habarlaşyklar ($1)', # Fuzzy
+	'lqt_newmessages' => 'Täze habarlarym (ýok)', # Fuzzy
 	'lqt_newmessages-title' => 'Täze habarlaşyklar',
 	'lqt-newpost-summary' => 'Täze tred: $1',
 	'lqt-reply-summary' => '[[$2|$1]] tredine jogap ber',
@@ -20162,8 +20162,8 @@ Kusang ipinapakita ang lagda.',
 	'lqt-feed-new-thread-intro' => 'Bagong sinulid sa $1 na ipinaskil ni {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Tugon sa $3 (na nasa $1) na ipinaskil ni {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Nagpapakita ng bagong mga pagpapaskil sa mga sinulid o sa ibabaw ng sinulidang mga pahina ng usapan na binabantayan mo',
-	'lqt-newmessages-n' => 'Bagong mga mensahe ($1)',
-	'lqt_newmessages' => 'Mga bagong mensahe ko (wala)',
+	'lqt-newmessages-n' => 'Bagong mga mensahe ($1)', # Fuzzy
+	'lqt_newmessages' => 'Mga bagong mensahe ko (wala)', # Fuzzy
 	'lqt_newmessages-title' => 'Bagong mga mensahe',
 	'lqt-newpost-summary' => 'Bagong sinulid: $1',
 	'lqt-reply-summary' => 'Tumugon sa [[$2|$1]]',
@@ -20187,7 +20187,7 @@ Kusang ipinapakita ang lagda.',
  * @author Гусейн
  */
 $messages['tly'] = array(
-	'lqt_newmessages' => 'Тожә хәбон (Нин)',
+	'lqt_newmessages' => 'Тожә хәбон (Нин)', # Fuzzy
 );
 
 /** Tok Pisin (Tok Pisin)
@@ -20432,8 +20432,8 @@ Bunu <$6> adresinde görebilirsin.", # Fuzzy
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1 sayfaları için cevaplar',
 	'lqt-feed-new-thread-intro' => '$1 sayfasına $2 tarafından yeni bir ileti dizisi gönderildi', # Fuzzy
 	'lqt-feed-reply-intro' => '$3 ileti dizisine cevap ($1 sayfasında) $2 tarafından gönderildi', # Fuzzy
-	'lqt-newmessages-n' => 'Yeni mesaj ($1)',
-	'lqt_newmessages' => 'Yeni mesajlarım (Yok)',
+	'lqt-newmessages-n' => 'Yeni mesaj ($1)', # Fuzzy
+	'lqt_newmessages' => 'Yeni mesajlarım (Yok)', # Fuzzy
 	'lqt_newmessages-title' => 'Yeni mesaj',
 	'lqt-newpost-summary' => 'Yeni ileti dizisi: $1',
 	'lqt-reply-summary' => '[[$2|$1]] ileti dizisine cevap ver',
@@ -20455,8 +20455,8 @@ Bunu <$6> adresinde görebilirsin.", # Fuzzy
  * @author Ariyo
  */
 $messages['tru'] = array(
-	'lqt-newmessages-n' => 'Ṫebe ḥaṭe ($1)',
-	'lqt_newmessages' => 'aṪebe ḥaṭe (0)',
+	'lqt-newmessages-n' => 'Ṫebe ḥaṭe ($1)', # Fuzzy
+	'lqt_newmessages' => 'aṪebe ḥaṭe (0)', # Fuzzy
 );
 
 /** Tatar (Cyrillic script) (татарча)
@@ -20479,8 +20479,8 @@ $messages['tt-cyrl'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Яңа тармаклар $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Җаваплар',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Җаваплар $1',
-	'lqt-newmessages-n' => 'Яңа хатлар ($1)',
-	'lqt_newmessages' => 'Яңа хатлар (Юк)',
+	'lqt-newmessages-n' => 'Яңа хатлар ($1)', # Fuzzy
+	'lqt_newmessages' => 'Яңа хатлар (Юк)', # Fuzzy
 	'lqt_newmessages-title' => 'Яңа хатлар',
 	'lqt-newpost-summary' => 'Яңа элемтә: $1',
 	'lqt-reply-summary' => '[[$2|$1]]гә җавап',
@@ -20999,8 +20999,8 @@ Oxirgi tahrir: $1",
 	'lqt-drag-subject' => 'Yangi tarmoq uchun mavzu (majburiy)',
 	'lqt-edit-signature' => '(imzoni tahrirlash)',
 	'lqt-preview-signature' => "(ko'rib chiqish)",
-	'lqt-newmessages-n' => 'Yangi xabarlar ($1)',
-	'lqt_newmessages' => "Yangi xabarlar (yo'q)",
+	'lqt-newmessages-n' => 'Yangi xabarlar ($1)', # Fuzzy
+	'lqt_newmessages' => "Yangi xabarlar (yo'q)", # Fuzzy
 	'lqt_newmessages-title' => 'Yangi xabarlar',
 	'lqt-newpost-summary' => 'Yangi tarmoq: $1',
 	'lqt-reply-summary' => '[[$2|$1]]ning javobi',
@@ -21247,7 +21247,7 @@ La firma la vien fora da sola.',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Risposte da $1',
 	'lqt-feed-new-thread-intro' => 'Argomento novo su $1, tacà da $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Risposta a $3 (su $1) mandà da $2', # Fuzzy
-	'lqt-newmessages-n' => 'Messagi novi ($1)',
+	'lqt-newmessages-n' => 'Messagi novi ($1)', # Fuzzy
 	'lqt_newmessages' => 'Messagi novi', # Fuzzy
 	'lqt_newmessages-title' => 'Messagi novi',
 	'lqt-newpost-summary' => 'Argomento novo: $1',
@@ -21303,7 +21303,7 @@ $messages['vep'] = array(
 	'lqt-search-button' => 'Ectä',
 	'searchprofile-threads' => 'Lodu',
 	'lqt-ajax-update-link' => 'Udištada',
-	'lqt_newmessages' => 'Uded tedotused (ei ole)',
+	'lqt_newmessages' => 'Uded tedotused (ei ole)', # Fuzzy
 );
 
 /** Vietnamese (Tiếng Việt)
@@ -21602,7 +21602,7 @@ $messages['vo'] = array(
 	'lqt-save-subject' => 'Dakipön',
 	'lqt-cancel-subject-edit' => 'Stöpädön',
 	'lqt-drag-reason' => 'Kod:',
-	'lqt-newmessages-n' => 'Nuns nulik ($1)',
+	'lqt-newmessages-n' => 'Nuns nulik ($1)', # Fuzzy
 	'lqt_newmessages' => 'Nuns Nulik', # Fuzzy
 	'lqt_newmessages-title' => 'Nuns nulik',
 	'lqt-talkpage-history-subtitle' => 'Pro $1',
@@ -21686,8 +21686,8 @@ Cwand vos avoz fini, clitchîz so «{{int:savearticle}}».",
 	'lqt-drag-activate' => 'Displaecî al sori',
 	'lqt-drag-drop-zone' => 'El mete droci',
 	'tooltip-pt-newmessages' => 'Mostere les noveas messaedjes so les sudjets les pådjes di copene ki vos shuvoz',
-	'lqt-newmessages-n' => 'Mes messaedjes ($1)',
-	'lqt_newmessages' => 'Mes messaedjes (nouk)',
+	'lqt-newmessages-n' => 'Mes messaedjes ($1)', # Fuzzy
+	'lqt_newmessages' => 'Mes messaedjes (nouk)', # Fuzzy
 	'lqt_newmessages-title' => 'Noveas messaedjes',
 	'nstab-thread' => "Fyi d' berdelaedje",
 	'nstab-summary' => 'Rascourti',
@@ -21705,7 +21705,7 @@ $messages['wuu'] = array(
  */
 $messages['xal'] = array(
 	'lqt_youhavenewmessages' => 'Та [[$1|шин зәңгстә]] бәәнәт.',
-	'lqt_newmessages' => 'Шин зәңгс (уга)',
+	'lqt_newmessages' => 'Шин зәңгс (уга)', # Fuzzy
 );
 
 /** Yiddish (ייִדיש)
@@ -22103,8 +22103,8 @@ $7',
 	'lqt-feed-new-thread-intro' => '{{GENDER:$4|$2}}在$1上发起的新话题',
 	'lqt-feed-reply-intro' => '{{GENDER:$4|$2}}在$1上对$3的回复',
 	'tooltip-pt-newmessages' => '显示话题或您正在监视的话题讨论页中的新发言',
-	'lqt-newmessages-n' => '新消息（$1）',
-	'lqt_newmessages' => '我的新消息（无）',
+	'lqt-newmessages-n' => '新消息（$1）', # Fuzzy
+	'lqt_newmessages' => '我的新消息（无）', # Fuzzy
 	'lqt_newmessages-title' => '新消息',
 	'lqt-newpost-summary' => '新话题：$1',
 	'lqt-reply-summary' => '回复到[[$2|$1]]',
