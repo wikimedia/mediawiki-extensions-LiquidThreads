@@ -349,7 +349,7 @@ $specialPageAliases['nb'] = array(
 	'MergeThread' => array( 'Slå_sammen_tråd' ),
 );
 
-/** Nedersaksies (Nedersaksies) */
+/** Low Saxon (Netherlands) (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'DeleteThread' => array( 'Draod_vortdoon' ),
 	'MoveThread' => array( 'Draod_verplaotsen' ),
