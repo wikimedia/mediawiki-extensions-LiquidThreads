@@ -74,7 +74,7 @@ class LqtView {
 
 		$query = array_merge( $query, $uquery );
 
-		$queryString = wfArrayToCGI( $query );
+		$queryString = wfArrayToCgi( $query );
 
 		if ( $relative ) {
 			return $title->getLocalUrl( $queryString );
@@ -323,7 +323,7 @@ class LqtView {
 	function queryReplaceLink( $repls ) {
 		$query = $this->getReplacedQuery( $repls );
 
-		return $this->title->getLocalURL( wfArrayToCGI( $query ) );
+		return $this->title->getLocalURL( wfArrayToCgi( $query ) );
 	}
 
 	function getReplacedQuery( $replacements ) {
@@ -1192,7 +1192,7 @@ class LqtView {
 
 			unset( $mergeParams['title'] );
 
-			$mergeUrl = $this->title->getLocalURL( wfArrayToCGI( $mergeParams ) );
+			$mergeUrl = $this->title->getLocalURL( wfArrayToCgi( $mergeParams ) );
 			$label = wfMessage( 'lqt-thread-merge' )->parse();
 
 			$commands['merge'] = array(

@@ -240,7 +240,7 @@ class TalkpageView extends LqtView {
 		$urlPrefix = wfScript( 'api' ) . '?';
 		foreach ( $wgFeedClasses as $format => $class ) {
 			$theseParams = $apiParams + array( 'feedformat' => $format );
-			$url = $urlPrefix . wfArrayToCGI( $theseParams );
+			$url = $urlPrefix . wfArrayToCgi( $theseParams );
 			$this->output->addFeedLink( $format, $url );
 		}
 
@@ -265,7 +265,7 @@ class TalkpageView extends LqtView {
 			);
 
 			$t = SpecialPage::getTitleFor( 'Search' );
-			$url = $t->getLocalURL( wfArrayToCGI( $params ) );
+			$url = $t->getLocalURL( wfArrayToCgi( $params ) );
 
 			$this->output->redirect( $url );
 			return true;
