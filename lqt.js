@@ -235,8 +235,8 @@ window.liquidThreads = {
 	},
 
 	'loadInlineEditForm' : function( params, container, callback ) {
-		params['action'] = 'threadaction';
-		params['threadaction'] = 'inlineeditform';
+		params.action = 'threadaction';
+		params.threadaction = 'inlineeditform';
 
 		liquidThreads.apiRequest( params,
 			function(result) {
@@ -920,18 +920,18 @@ window.liquidThreads = {
 
 		var replyCallback = function( data ) {
 			$parent = $j( '#lqt_thread_id_' + data.threadaction.thread['parent-id'] );
-			$html = $j( data.threadaction.thread['html'] );
+			$html = $j( data.threadaction.thread.html );
 			$newThread = $html.find( '#lqt_thread_id_' + data.threadaction.thread['thread-id'] );
 			$parent.find( '.lqt-thread-replies:first' ).append( $newThread );
 			$parent.closest( '.lqt-thread-topmost' )
 				.find( 'input.lqt-thread-modified' )
-				.val( data.threadaction.thread['modified'] );
+				.val( data.threadaction.thread.modified );
 			liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
 			$j( 'html,body' ).animate({scrollTop: $newThread.offset().top}, 'slow');
 		};
 
 		var newCallback = function( data ) {
-			var $newThread = $j( data.threadaction.thread['html'] );
+			var $newThread = $j( data.threadaction.thread.html );
 			$j( '.lqt-threads' ).prepend( $newThread );
 			// remove the no threads message if it's on the page
 			$j('.lqt-no-threads').remove();
