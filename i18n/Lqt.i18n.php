@@ -21043,6 +21043,7 @@ Oxirgi tahrir: $1",
 
 /** vèneto (vèneto)
  * @author Candalua
+ * @author GatoSelvadego
  */
 $messages['vec'] = array(
 	'lqt-desc' => 'Zonta dei argomenti de discussion a le pagine de discussion',
@@ -21156,7 +21157,7 @@ Na olta fata sta operassion, no se pole mia anularla.',
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|messagio segnà come lèto|messagi segnà come lèti}}.',
 	'lqt-email-undo' => 'Anula',
 	'lqt-no-new-messages' => 'No ghe xe messagi novi par ti.',
-	'lqt-new-messages' => 'Ghe xe dei messagi novi par ti.',
+	'lqt-new-messages' => 'Ghe xe de i mesaji novi par ti.',
 	'lqt-email-info-undo' => "Recùpera l'argomento che te ghè pena butà via.",
 	'lqt-date-info' => "Sto colegamento no'l va, parché te sì drio védar i argomenti de tute le date.",
 	'lqt-newmessages-context' => 'Argomento intiero',
