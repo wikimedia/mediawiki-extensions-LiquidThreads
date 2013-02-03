@@ -1966,7 +1966,7 @@ liquidThreads.toolbar = {
 						$j(this).closest( '.ui-dialog' ).data( 'dialogaction', e.target );
 						$j(this).data( 'replaceCallback' ).call( this, 'find' );
 					},
-					'wikieditor-toolbar-tool-replace-button-replacenext': function( e ) {
+					'wikieditor-toolbar-tool-replace-button-replace': function( e ) {
 						$j(this).closest( '.ui-dialog' ).data( 'dialogaction', e.target );
 						$j(this).data( 'replaceCallback' ).call( this, 'replace' );
 					},
