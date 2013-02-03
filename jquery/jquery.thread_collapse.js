@@ -1,4 +1,8 @@
-( function( $ ) {
+/**
+ * jQuery plugin for collapsing LiquidThreads elements.
+ */
+
+( function ( $ ) {
 	'use strict';
 
 	$.fn.thread_collapse = function( $$options ) {
@@ -57,10 +61,10 @@
 						.parent()
 						.children( '.thread-collapsed-preview' )
 						.hide();
-				} else { 
-					// collapse! 
+				} else {
+					// collapse!
 					// if the thread preview already exists, don't bother recreating it
-					if( $thread.children( '.thread-collapsed-preview' ).size() > 0 ) {
+					if ( $thread.children( '.thread-collapsed-preview' ).length > 0 ) {
 						$thread
 							.addClass( 'collapsed_thread' )
 							.children()
@@ -70,7 +74,7 @@
 							.show();
 					} else {
 						// counter for the number of replies
-						var numReplies =  $thread.find( '.lqt_thread' ).size() + 1;
+						var numReplies =  $thread.find( '.lqt_thread' ).length + 1;
 						// create the thread preview we'll use in the collapsed state
 						var $preview = $( '<div class="thread-collapsed-preview"></div>' )
 							.addClass( 'lqt-post-wrapper' )

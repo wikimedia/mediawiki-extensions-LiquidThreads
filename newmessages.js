@@ -1,24 +1,28 @@
-$j.extend( liquidThreads,
-{
-	'markReadDone' :
-	{
-		'one' : function(reply,button,operand) {
-			var row = $j(button).closest('tr');
-			var right_col = row.find('td.lqt-newmessages-right');
-			$j(button).closest('td').empty();
+/**
+ * JavaScript for LiquidThread's Special:NewMessages.
+ */
+/*global liquidThreads */
+( function ( mw, $ ) {
 
-			var msg = mediaWiki.msg('lqt-marked-as-read-placeholder');
-			var undoMsg = mediaWiki.msg('lqt-email-undo');
+$.extend( liquidThreads, {
+	markReadDone: {
+		'one' : function(reply,button,operand) {
+			var row = $(button).closest('tr');
+			var right_col = row.find('td.lqt-newmessages-right');
+			$(button).closest('td').empty();
+
+			var msg = mw.msg('lqt-marked-as-read-placeholder');
+			var undoMsg = mw.msg('lqt-email-undo');
 			// We have to split the message to the part before the
 			// $1 and the part after the $1
 			var placeholderIndex = msg.indexOf( '$1' );
-			var elem = $j('<span class="lqt-read-placeholder"/>');
+			var elem = $('<span class="lqt-read-placeholder"/>');
 
 			if (placeholderIndex >= 0) {
 				var beforeMsg = msg.substr(0,placeholderIndex);
 				var afterMsg = msg.substr(placeholderIndex+2);
 
-				var beforeText = $j(document.createTextNode(beforeMsg));
+				var beforeText = $(document.createTextNode(beforeMsg));
 				elem.append(beforeText);
 
 				// Produce the link
@@ -29,10 +33,10 @@ $j.extend( liquidThreads,
 				title = encodeURIComponent(title);
 				title = title.replace( '%2F', '/' );
 				var url = mw.config.get( 'wgArticlePath' ).replace( '$1', title );
-				var link = $j('<a/>').attr('href', url).text(subject);
+				var link = $('<a/>').attr('href', url).text(subject);
 				elem.append(link);
 
-				var afterText = $j(document.createTextNode(afterMsg+' '));
+				var afterText = $(document.createTextNode(afterMsg+' '));
 				elem.append(afterText);
 			} else {
 				elem.text(msg);
@@ -48,14 +52,14 @@ $j.extend( liquidThreads,
 			}
 			undoURL += query;
 
-			var undoLink = $j('<a/>').attr('href', undoURL).text(undoMsg);
+			var undoLink = $('<a/>').attr('href', undoURL).text(undoMsg);
 			elem.append( undoLink );
 
 			right_col.empty().append(elem);
 		},
 
-		'all' : function(reply) {
-			var tables = $j('table.lqt-new-messages');
+		all: function () {
+			var tables = $('table.lqt-new-messages');
 			tables.fadeOut( 'slow',
 				function() { tables.remove(); } );
 		}
@@ -64,8 +68,7 @@ $j.extend( liquidThreads,
 	'doMarkRead' : function(e) {
 		e.preventDefault();
 
-		var button = $j(this);
-		var type = 'one';
+		var button = $(this);
 
 		// Find the operand.
 		var form = button.closest('form.lqt_newmessages_read_button');
@@ -82,13 +85,10 @@ $j.extend( liquidThreads,
 		var operand = form.find('input[name=lqt_operand]').val();
 		var threads = operand.replace( /\,/g, '|' );
 
-		var spinner = $j('<div class="mw-ajax-loader"/>');
-		$j(form).prepend( spinner );
+		var spinner = $('<div class="mw-ajax-loader"/>');
+		$(form).prepend( spinner );
 
-		liquidThreads.apiRequest;
-
-		var markReadParameters =
-		{
+		var markReadParameters = {
 			'action' : 'threadaction',
 			'threadaction' : 'markread',
 			'format' : 'json',
@@ -103,8 +103,8 @@ $j.extend( liquidThreads,
 	},
 
 	'doMarkAllRead' : function(form) {
-		var spinner = $j('<div class="mw-ajax-loader"/>');
-		$j(form).prepend( spinner );
+		var spinner = $('<div class="mw-ajax-loader"/>');
+		$(form).prepend( spinner );
 
 		var request = {
 			'action' : 'threadaction',
@@ -122,8 +122,7 @@ $j.extend( liquidThreads,
 } );
 
 // Setup
-$j( function() {
-	var buttons = $j('.lqt-read-button');
-
-	buttons.click( liquidThreads.doMarkRead );
+$( function () {
+	$('.lqt-read-button').click( liquidThreads.doMarkRead );
 } );
+}( mediaWiki, jQuery ) );

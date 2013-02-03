@@ -1,4 +1,15 @@
-var wgWikiEditorIconVersion = 0;
+/**
+ * LiquidThreads core javascript library.
+ *
+ * Exposes global object `liquidThreads`.
+ * Exposes static method `jQuery.getCSS`.
+ *
+ * FIXME: This module uses deprecated jQuery.browser.
+ */
+/*global liquidThreads, alert */
+( function ( mw, $ ) {
+
+window.wgWikiEditorIconVersion = 0;
 
 jQuery.getCSS = function( url, media ) {
 	jQuery( document.createElement('link') ).attr({
@@ -21,30 +32,30 @@ window.liquidThreads = {
 		var target = this;
 
 		if ( !this.className && e.target) {
-			target = $j(e.target);
+			target = $(e.target);
 		}
 
-		var container = $j(target).closest('.lqt_thread')[0];
-		var thread_id = $j(this).data('thread-id');
+		var container = $(target).closest('.lqt_thread')[0];
+		var thread_id = $(this).data('thread-id');
 
 		// hide the form for this thread if it's currently being shown
-		if ( thread_id === liquidThreads.currentReplyThread && $j( '#wpTextbox1' ).is( ':visible' ) ) {
+		if ( thread_id === liquidThreads.currentReplyThread && $( '#wpTextbox1' ).is( ':visible' ) ) {
 			liquidThreads.cancelEdit({});
 			return;
 		}
 
 		var params = { 'method' : 'reply', 'thread' : thread_id };
 
-		var repliesElement = $j(container).contents().filter('.lqt-thread-replies');
+		var repliesElement = $(container).contents().filter('.lqt-thread-replies');
 		var replyDiv = repliesElement.contents().filter('.lqt-reply-form');
-		replyDiv = replyDiv.add( $j(container).contents().filter('.lqt-reply-form') );
+		replyDiv = replyDiv.add( $(container).contents().filter('.lqt-reply-form') );
 		if (!replyDiv.length) {
 			// Create a div for it
-			replyDiv = $j('<div class="lqt-reply-form lqt-edit-form"/>');
+			replyDiv = $('<div class="lqt-reply-form lqt-edit-form"/>');
 
 			// Try to find a place for it
 			if ( !repliesElement.length ) {
-				repliesElement = liquidThreads.getRepliesElement( $j(container) );
+				repliesElement = liquidThreads.getRepliesElement( $(container) );
 			}
 
 			repliesElement.find('.lqt-replies-finish').before( replyDiv );
@@ -61,10 +72,10 @@ window.liquidThreads = {
 		var repliesElement = thread.contents().filter('.lqt-thread-replies');
 
 		if ( !repliesElement.length ) {
-			repliesElement = $j('<div class="lqt-thread-replies"/>' );
+			repliesElement = $('<div class="lqt-thread-replies"/>' );
 
-			var finishDiv = $j('<div class="lqt-replies-finish"/>');
-			finishDiv.append($j('<div class="lqt-replies-finish-corner"/>'));
+			var finishDiv = $('<div class="lqt-replies-finish"/>');
+			finishDiv.append($('<div class="lqt-replies-finish-corner"/>'));
 			finishDiv.contents().html('&nbsp;');
 			repliesElement.append(finishDiv);
 
@@ -85,7 +96,7 @@ window.liquidThreads = {
 		contents = contents.not('.lqt-replies-finish,.lqt-post-sep,.lqt-edit-form');
 
 		if ( !contents.length ) {
-			if ( typeof action === 'undefined' || action === 'remove' ) {
+			if ( action === undefined || action === 'remove' ) {
 				element.remove();
 			} else {
 				element.hide();
@@ -96,10 +107,10 @@ window.liquidThreads = {
 	'handleNewLink' : function(e) {
 		e.preventDefault();
 
-		var talkpage = $j(this).attr('lqt_talkpage');
+		var talkpage = $(this).attr('lqt_talkpage');
 		var params = {'talkpage' : talkpage, 'method' : 'talkpage_new_thread' };
 
-		var container = $j('.lqt-new-thread' );
+		var container = $('.lqt-new-thread' );
 		container.data('lqt-talkpage', talkpage);
 
 		liquidThreads.injectEditForm( params, container );
@@ -110,9 +121,9 @@ window.liquidThreads = {
 		e.preventDefault();
 
 		// Grab the container.
-		var parent = $j(this).closest('.lqt-post-wrapper');
+		var parent = $(this).closest('.lqt-post-wrapper');
 
-		var container = $j('<div/>').addClass('lqt-edit-form');
+		var container = $('<div/>').addClass('lqt-edit-form');
 		parent.contents().fadeOut();
 		parent.append(container);
 		var params = { 'method' : 'edit', 'thread' : parent.data('thread-id') };
@@ -121,24 +132,24 @@ window.liquidThreads = {
 	},
 
 	'injectEditForm' : function(params, container, preload) {
-		var page = $j(container).closest('.lqt-thread-topmost')
+		var page = $(container).closest('.lqt-thread-topmost')
 				.find('.lqt-thread-talkpage-metadata').val();
 		if ( !page ) {
-			page = $j(container).data('lqt-talkpage');
+			page = $(container).data('lqt-talkpage');
 		}
 
 		liquidThreads.cancelEdit( container );
 
-		var isIE7 = $j.browser.msie && $j.browser.version.substr(0,1) === '7';
+		var isIE7 = $.browser.msie && $.browser.version.substr(0, 1) === '7';
 
-		var loadSpinner = $j('<div class="mw-ajax-loader lqt-loader"/>');
-		$j(container).before( loadSpinner );
+		var loadSpinner = $('<div class="mw-ajax-loader lqt-loader"/>');
+		$(container).before( loadSpinner );
 
 		var finishShow = function() {
 			// Scroll to the textbox
-			var targetOffset = $j(container).offset().top;
-			var windowHeight = $j(window).height();
-			var editBoxHeight = $j(container).height();
+			var targetOffset = $(container).offset().top;
+			var windowHeight = $(window).height();
+			var editBoxHeight = $(container).height();
 
 			var scrollOffset;
 			if ( windowHeight < editBoxHeight ) {
@@ -147,69 +158,69 @@ window.liquidThreads = {
 				scrollOffset = targetOffset - windowHeight + editBoxHeight;
 			}
 
-			$j('html,body').animate({scrollTop: scrollOffset}, 'slow');
+			$('html, body').animate({scrollTop: scrollOffset}, 'slow');
 			// Auto-focus and set to auto-grow as well
-			$j(container).find('#wpTextbox1').focus();//.autogrow();
+			$(container).find('#wpTextbox1').focus();//.autogrow();
 			// Focus the subject field if there is one. Overrides previous line.
-			$j(container).find('#lqt_subject_field').focus();
+			$(container).find('#lqt_subject_field').focus();
 
 			// Update signature editor
-			$j(container).find('input[name=wpLqtSignature]').hide();
-			$j(container).find('.lqt-signature-preview').show();
-			var editLink = $j('<a class="lqt-signature-edit-button"/>' );
-			editLink.text( mediaWiki.msg('lqt-edit-signature') );
+			$(container).find('input[name=wpLqtSignature]').hide();
+			$(container).find('.lqt-signature-preview').show();
+			var editLink = $('<a class="lqt-signature-edit-button"/>' );
+			editLink.text( mw.msg('lqt-edit-signature') );
 			editLink.click( liquidThreads.handleEditSignature );
 			editLink.attr('href', '#');
-			$j(container).find('.lqt-signature-preview').after(editLink);
+			$(container).find('.lqt-signature-preview').after(editLink);
 			editLink.before(' ');
 		};
 
 		var finishSetup = function() {
 			// Kill the loader.
-			$j('.lqt-loader').remove();
+			$('.lqt-loader').remove();
 
 			if (preload) {
-				$j("textarea", container)[0].value = preload;
+				$("textarea", container)[0].value = preload;
 			}
 
 			if ( isIE7 ) {
 				setTimeout( finishShow, 500 );
 			} else {
-				$j(container).slideDown( 'slow', finishShow );
+				$(container).slideDown( 'slow', finishShow );
 			}
 
-			var cancelButton = $j(container).find('#mw-editform-cancel');
+			var cancelButton = $(container).find('#mw-editform-cancel');
 			cancelButton.click( liquidThreads.cancelEdit );
 
-			$j(container).find('#wpTextbox1').attr( 'rows', 12 );
-			$j(container).find('#wpDiff').hide();
+			$(container).find('#wpTextbox1').attr( 'rows', 12 );
+			$(container).find('#wpDiff').hide();
 
-			if ( $j.fn.wikiEditor && $j.wikiEditor.isSupported( $j.wikiEditor.modules.toolbar ) ) {
+			if ( $.fn.wikiEditor && $.wikiEditor.isSupported( $.wikiEditor.modules.toolbar ) ) {
 				var useDialogs;
 
 				if ( typeof wgWikiEditorPreferences !== 'undefined' ) {
 					useDialogs = wgWikiEditorPreferences.toolbar.dialogs;
 				} else {
-					useDialogs = mediaWiki.user.options.get( 'usebetatoolbar-cgd' );
+					useDialogs = mw.user.options.get( 'usebetatoolbar-cgd' );
 				}
 
-				if ( useDialogs && $j.wikiEditor.isSupported( $j.wikiEditor.modules.dialogs ) ) {
-					$j( '#wpTextbox1' ).addClass( 'toolbar-dialogs' );
+				if ( useDialogs && $.wikiEditor.isSupported( $.wikiEditor.modules.dialogs ) ) {
+					$( '#wpTextbox1' ).addClass( 'toolbar-dialogs' );
 				}
 
 				// Add wikiEditor toolbar
-				$j( '#wpTextbox1' ).wikiEditor( 'addModule', { 'toolbar': liquidThreads.toolbar.config, 'dialogs': liquidThreads.toolbar.dialogs } );
+				$( '#wpTextbox1' ).wikiEditor( 'addModule', { 'toolbar': liquidThreads.toolbar.config, 'dialogs': liquidThreads.toolbar.dialogs } );
 
 
 				// cleanup unnecessary things from the old toolbar
-				$j( '#editpage-specialchars' ).remove();
-				$j( '#wpTextbox1' ).focus();
+				$( '#editpage-specialchars' ).remove();
+				$( '#wpTextbox1' ).focus();
 			} else {
 				// Add old toolbar
 				mwSetupToolbar();
 			}
-			currentFocused = $j(container).find('#wpTextbox1');
-			$j(container).find('#wpTextbox1,#wpSummary').focus(
+			currentFocused = $(container).find('#wpTextbox1');
+			$(container).find('#wpTextbox1,#wpSummary').focus(
 				function() {
 					currentFocused = this;
 				} );
@@ -217,14 +228,14 @@ window.liquidThreads = {
 
 		mwEditButtons = [];
 
-		mediaWiki.loader.using( ['mediawiki.action.edit'],
+		mw.loader.using( ['mediawiki.action.edit'],
 			function() {
 				if ( isIE7 ) {
-					$j(container).empty().show();
+					$(container).empty().show();
 				}
 				liquidThreads.loadInlineEditForm( params, container,
 					function() {
-						mediaWiki.loader.using(
+						mw.loader.using(
 							[ 'ext.wikiEditor', 'user.options',
 								'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.dialogs',
 								'jquery.async', 'jquery.cookie' ],
@@ -240,8 +251,8 @@ window.liquidThreads = {
 
 		liquidThreads.apiRequest( params,
 			function(result) {
-				var content = $j(result.threadaction.inlineeditform.html);
-				$j(container).empty().append(content);
+				var content = $(result.threadaction.inlineeditform.html);
+				$(container).empty().append(content);
 
 				callback();
 			} );
@@ -252,7 +263,7 @@ window.liquidThreads = {
 		//IE support
 		if (document.selection) {
 			myField.focus();
-			sel = document.selection.createRange();
+			var sel = document.selection.createRange();
 			sel.text = myValue;
 		}
 		//MOZILLA/NETSCAPE support
@@ -280,20 +291,21 @@ window.liquidThreads = {
 	},
 
 	'cancelEdit' : function( e ) {
-		if ( typeof e !== 'undefined' && typeof e.preventDefault === 'function' ) {
+		if ( e !== undefined && e.preventDefault ) {
 			e.preventDefault();
 		}
 
-		$j('.lqt-edit-form').not(e).each(
+		// XXX: Should this be e.target instead of e?
+		$('.lqt-edit-form').not(e).each(
 			function() {
-				var repliesElement = $j(this).closest('.lqt-thread-replies');
-				$j(this).fadeOut('slow',
+				var repliesElement = $(this).closest('.lqt-thread-replies');
+				$(this).fadeOut('slow',
 					function() {
-						$j(this).empty();
+						$(this).empty();
 
-						if ( $j(this).parent().is('.lqt-post-wrapper') ) {
-							$j(this).parent().contents().fadeIn();
-							$j(this).remove();
+						if ( $(this).parent().is('.lqt-post-wrapper') ) {
+							$(this).parent().contents().fadeIn();
+							$(this).remove();
 						}
 
 						liquidThreads.checkEmptyReplies( repliesElement );
@@ -304,7 +316,7 @@ window.liquidThreads = {
 	},
 
 	'setupMenus' : function() {
-		var post = $j(this);
+		var post = $(this);
 
 		var toolbar = post.contents().filter('.lqt-thread-toolbar');
 		var threadID = post.data('thread-id');
@@ -319,8 +331,8 @@ window.liquidThreads = {
 		replyLink.click( liquidThreads.handleReplyLink );
 
 		// Add "Drag to new location" to menu
-		var dragLI = $j('<li class="lqt-command-drag lqt-command" />' );
-		var dragLink = $j('<a/>').text( mediaWiki.msg('lqt-drag-activate') );
+		var dragLI = $('<li class="lqt-command-drag lqt-command" />' );
+		var dragLink = $('<a/>').text( mw.msg('lqt-drag-activate') );
 		dragLink.attr('href','#');
 		dragLI.append(dragLink);
 		dragLink.click( liquidThreads.activateDragDrop );
@@ -342,13 +354,13 @@ window.liquidThreads = {
 				e.preventDefault();
 
 				// Hide the other menus
-				$j('.lqt-thread-toolbar-command-list').not(menu).hide('fast');
+				$('.lqt-thread-toolbar-command-list').not(menu).hide('fast');
 
 				menu.toggle( 'fast' );
 
-				var windowHeight = $j(window).height();
+				var windowHeight = $(window).height();
 				var toolbarOffset = toolbar.offset().top;
-				var scrollPos = $j(window).scrollTop();
+				var scrollPos = $(window).scrollTop();
 
 				var menuBottom = ( toolbarOffset + 150 - scrollPos );
 
@@ -368,9 +380,9 @@ window.liquidThreads = {
 			return;
 		}
 
-		var editSubjectField = $j('<li/>');
-		var editSubjectLink = $j('<a href="#"/>');
-		editSubjectLink.text( mediaWiki.msg('lqt-change-subject') );
+		var editSubjectField = $('<li/>');
+		var editSubjectLink = $('<a href="#"/>');
+		editSubjectLink.text( mw.msg('lqt-change-subject') );
 		editSubjectField.append( editSubjectLink );
 		editSubjectField.click( liquidThreads.handleChangeSubject );
 		editSubjectField.data( 'thread-id', id );
@@ -383,27 +395,27 @@ window.liquidThreads = {
 	'handleChangeSubject' : function(e) {
 		e.preventDefault();
 
-		$j(this).closest('.lqt-command-edit-subject').hide();
+		$(this).closest('.lqt-command-edit-subject').hide();
 
 		// Grab the h2
-		var threadId = $j(this).data('thread-id');
-		var header = $j('#lqt-header-'+threadId);
+		var threadId = $(this).data('thread-id');
+		var header = $('#lqt-header-'+threadId);
 		var headerText = header.find("input[name='raw-header']").val();
 
-		var textbox = $j('<input type="textbox" />').val(headerText);
+		var textbox = $('<input type="textbox" />').val(headerText);
 		textbox.attr('id', 'lqt-subject-input-'+threadId);
 		textbox.attr('size', '75');
 		textbox.val(headerText);
 
-		var saveText = mediaWiki.msg('lqt-save-subject');
-		var saveButton = $j('<input type="button" />');
+		var saveText = mw.msg('lqt-save-subject');
+		var saveButton = $('<input type="button" />');
 		saveButton.val( saveText );
 		saveButton.click( liquidThreads.handleSubjectSave );
 
-		var cancelButton = $j('<input type="button" />');
-		cancelButton.val( mediaWiki.msg('lqt-cancel-subject-edit') );
-		cancelButton.click( function(e) {
-			var form = $j(this).closest('.mw-subject-editor');
+		var cancelButton = $('<input type="button" />');
+		cancelButton.val( mw.msg('lqt-cancel-subject-edit') );
+		cancelButton.click( function () {
+			var form = $(this).closest('.mw-subject-editor');
 			var header = form.closest('.lqt_header');
 			header.contents().filter('.mw-headline').show();
 			header.next().find('.lqt-command-edit-subject').show();
@@ -413,7 +425,7 @@ window.liquidThreads = {
 
 		header.contents().filter('span.mw-headline').hide();
 
-		var subjectForm = $j('<span class="mw-subject-editor"/>');
+		var subjectForm = $('<span class="mw-subject-editor"/>');
 		subjectForm.append(textbox);
 		subjectForm.append( '&nbsp;' );
 		subjectForm.append(saveButton);
@@ -425,40 +437,39 @@ window.liquidThreads = {
 
 	},
 
-	'handleSubjectSave' : function(e) {
-		var button = $j(this);
+	handleSubjectSave: function () {
+		var button = $(this);
 		var subjectForm = button.closest('.mw-subject-editor');
 		var header = subjectForm.closest('.lqt_header');
 		var threadId = subjectForm.data('thread-id');
-		var textbox = $j('#lqt-subject-input-'+threadId);
-		var newSubject = $j.trim( textbox.val() );
+		var textbox = $('#lqt-subject-input-'+threadId);
+		var newSubject = $.trim( textbox.val() );
 
 		if (!newSubject) {
-			alert( mediaWiki.msg('lqt-ajax-no-subject') );
+			alert( mw.msg('lqt-ajax-no-subject') );
 			return;
 		}
 
 		// Add a spinner
-		var spinner = $j('<div class="mw-ajax-loader"/>');
+		var spinner = $('<div class="mw-ajax-loader"/>');
 		header.append(spinner);
 		subjectForm.hide();
 
 		var request = {
 			action: 'threadaction',
 			threadaction: 'setsubject',
-			subject: $j.trim( newSubject ),
+			subject: $.trim( newSubject ),
 			thread: threadId
 		};
 
 		var errorHandler = function(reply) {
+			var code, description;
 			try {
 				code = reply.error.code;
 				description = reply.error.info;
 
 				if (code === 'invalid-subject') {
 					alert( mediaWiki.msg('lqt-ajax-invalid-subject') );
-				} else {
-					var msg = mediaWiki.msg('lqt-save-subject-failed', $description );
 				}
 
 				subjectForm.show();
@@ -486,7 +497,7 @@ window.liquidThreads = {
 				spinner.remove();
 				header.next().find('.lqt-command-edit-subject').show();
 
-				var thread = $j('#lqt_thread_id_'+threadId);
+				var thread = $('#lqt_thread_id_'+threadId);
 				liquidThreads.doReloadThread( thread );
 			} else {
 				errorHandler(reply);
@@ -494,17 +505,17 @@ window.liquidThreads = {
 		} );
 	},
 
-	'handleDocumentClick' : function(e) {
+	handleDocumentClick: function () {
 		// Collapse all menus
-		$j('.lqt-thread-toolbar-command-list').hide('fast');
+		$('.lqt-thread-toolbar-command-list').hide('fast');
 	},
 
 	'checkForUpdates' : function() {
 		var threadModifiedTS = {};
 		var threads = [];
 
-		$j('.lqt-thread-topmost').each( function() {
-			var tsField = $j(this).find('.lqt-thread-modified');
+		$('.lqt-thread-topmost').each( function() {
+			var tsField = $(this).find('.lqt-thread-modified');
 			if ( tsField.length ) {
 				var oldTS = tsField.val();
 				// Prefix is lqt-thread-modified-
@@ -522,11 +533,11 @@ window.liquidThreads = {
 		var getData = { 'action' : 'query', 'list' : 'threads', 'thid' : threads.join('|'),
 						'format' : 'json', 'thprop' : 'id|subject|parent|modified' };
 
-		$j.get( mw.util.wikiScript( 'api' ), getData,
+		$.get( mw.util.wikiScript( 'api' ), getData,
 			function(data) {
 				var threads = data.query.threads;
 
-				$j.each( threads, function( i, thread ) {
+				$.each( threads, function( i, thread ) {
 					var threadID = thread.id;
 					var threadModified = thread.modified;
 
@@ -539,18 +550,18 @@ window.liquidThreads = {
 
 	'showUpdated' : function(id) {
 		// Check if there's already an updated marker here
-		var threadObject = $j("#lqt_thread_id_"+id);
+		var threadObject = $("#lqt_thread_id_"+id);
 
 		if ( threadObject.find('.lqt-updated-notification').length ) {
 			return;
 		}
 
-		var notifier = $j('<div/>');
-		notifier.text( mediaWiki.msg('lqt-ajax-updated') + ' ' );
+		var notifier = $('<div/>');
+		notifier.text( mw.msg('lqt-ajax-updated') + ' ' );
 		notifier.addClass( 'lqt-updated-notification' );
 
-		var updateButton = $j('<a href="#"/>');
-		updateButton.text( mediaWiki.msg('lqt-ajax-update-link') );
+		var updateButton = $('<a href="#"/>');
+		updateButton.text( mw.msg('lqt-ajax-update-link') );
 		updateButton.addClass( 'lqt-update-link' );
 		updateButton.click( liquidThreads.updateThread );
 
@@ -562,17 +573,17 @@ window.liquidThreads = {
 	'updateThread' : function(e) {
 		e.preventDefault();
 
-		var thread = $j(this).closest('.lqt_thread');
+		var thread = $(this).closest('.lqt_thread');
 
 		liquidThreads.doReloadThread( thread );
 	},
 
 	'doReloadThread' : function( thread /* The .lqt_thread */ ) {
 		var post = thread.find('div.lqt-post-wrapper')[0];
-		post = $j(post);
+		post = $(post);
 		var threadId = thread.data('thread-id');
-		var loader = $j('<div class="mw-ajax-loader"/>');
-		var header = $j('#lqt-header-'+threadId);
+		var loader = $('<div class="mw-ajax-loader"/>');
+		var header = $('#lqt-header-'+threadId);
 
 		thread.prepend(loader);
 
@@ -580,11 +591,11 @@ window.liquidThreads = {
 		var apiReq = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
 						'format' : 'json', 'thrender' : 1 };
 
-		$j.get( mw.util.wikiScript( 'api' ), apiReq,
+		$.get( mw.util.wikiScript( 'api' ), apiReq,
 			function(data) {
 				// Load data from JSON
 				var html = data.query.threads[threadId].content;
-				var newContent = $j(html);
+				var newContent = $(html);
 
 				// Clear old post and header.
 				thread.empty();
@@ -598,27 +609,17 @@ window.liquidThreads = {
 				thread.append( newThreadContent );
 				thread.attr( 'class', newThread.attr('class') );
 
-// Replace header content
-// 				var newHeader = newContent.filter('#lqt-header-'+threadId);
-// 				if ( header.length ) {
-// 					var newHeaderContent = $j(newHeader).contents();
-// 					header.append( newHeaderContent );
-// 				} else {
-// 					// No existing header, add one before the thread
-// 					thread.before(newHeader);
-// 				}
-
 				// Set up thread.
 				thread.find('.lqt-post-wrapper').each( function() {
-					liquidThreads.setupThread( $j(this) );
+					liquidThreads.setupThread( $(this) );
 				} );
 
 				header.fadeIn();
 				thread.fadeIn();
 
 				// Scroll to the updated thread.
-				var targetOffset = $j(thread).offset().top;
-				$j('html,body').animate({scrollTop: targetOffset}, 'slow');
+				var targetOffset = $(thread).offset().top;
+				$('html, body').animate({scrollTop: targetOffset}, 'slow');
 
 			}, 'json' );
 	},
@@ -627,7 +628,7 @@ window.liquidThreads = {
 		var prefixLength = "lqt_thread_id_".length;
 		// Add the interruption class if it needs it
 		// FIXME: misses a lot of cases
-		$parentWrapper = $j( threadContainer )
+		$parentWrapper = $( threadContainer )
 			.closest( '.lqt-thread-wrapper' ).parent().closest( '.lqt-thread-wrapper' );
 		if( $parentWrapper.next( '.lqt-thread-wrapper' ).length > 0 ) {
 			$parentWrapper
@@ -635,21 +636,21 @@ window.liquidThreads = {
 				.addClass( 'lqt-thread-replies-interruption' );
 		}
 		// Update reply links
-		var threadWrapper = $j(threadContainer).closest('.lqt_thread')[0];
+		var threadWrapper = $(threadContainer).closest('.lqt_thread')[0];
 		var threadId = threadWrapper.id.substring( prefixLength );
 
-		$j(threadContainer).data( 'thread-id', threadId );
-		$j(threadWrapper).data( 'thread-id', threadId );
+		$(threadContainer).data( 'thread-id', threadId );
+		$(threadWrapper).data( 'thread-id', threadId );
 
 		// Set up reply link
-		var replyLinks = $j(threadWrapper).find('.lqt-add-reply');
+		var replyLinks = $(threadWrapper).find('.lqt-add-reply');
 		replyLinks.click( liquidThreads.handleReplyLink );
 		replyLinks.data( 'thread-id', threadId );
 
 		// Hide edit forms
-		$j(threadContainer).find('div.lqt-edit-form').each(
+		$(threadContainer).find('div.lqt-edit-form').each(
 			function() {
-				if ( $j(this).find('#wpTextbox1').length ) {
+				if ( $(this).find('#wpTextbox1').length ) {
 					return;
 				}
 
@@ -657,17 +658,17 @@ window.liquidThreads = {
 			} );
 
 		// Update menus
-		$j(threadContainer).each( liquidThreads.setupMenus );
+		$(threadContainer).each( liquidThreads.setupMenus );
 
 		// Update thread-level menu, if appropriate
-		if ( $j(threadWrapper).hasClass( 'lqt-thread-topmost' ) ) {
+		if ( $(threadWrapper).hasClass( 'lqt-thread-topmost' ) ) {
 			// To perform better, check the 3 elements before the top-level thread container before
 			//  scanning the whole document
-			var menu = undefined,
+			var menu,
 				threadLevelCommandSelector = '#lqt-threadlevel-commands-'+threadId,
-				traverseElement = $j(threadWrapper);
+				traverseElement = $(threadWrapper);
 
-			for( i=0;i<3 && typeof menu === 'undefined';++i ) {
+			for ( var i = 0; i < 3 && menu === undefined; ++i ) {
 				traverseElement = traverseElement.prev();
 				if ( traverseElement.is(threadLevelCommandSelector) ) {
 					menu = traverseElement;
@@ -675,7 +676,7 @@ window.liquidThreads = {
 			}
 
 			if ( typeof menu === 'undefined' ) {
-				menu = $j(threadLevelCommandSelector);
+				menu = $(threadLevelCommandSelector);
 			}
 
 			liquidThreads.setupThreadMenu( menu, threadId );
@@ -686,12 +687,12 @@ window.liquidThreads = {
 		e.preventDefault();
 
 		// Grab the closest thread
-		var thread = $j(this).closest('.lqt_thread').find('div.lqt-post-wrapper')[0];
-		thread = $j(thread);
+		var thread = $(this).closest('.lqt_thread').find('div.lqt-post-wrapper')[0];
+		thread = $(thread);
 		var threadId = thread.data('thread-id');
 		var replies = thread.parent().find('.lqt-thread-replies');
-		var loader = $j('<div class="mw-ajax-loader"/>');
-		var sep = $j('<div class="lqt-post-sep">&nbsp;</div>');
+		var loader = $('<div class="mw-ajax-loader"/>');
+		var sep = $('<div class="lqt-post-sep">&nbsp;</div>');
 
 		replies.empty();
 		replies.hide();
@@ -700,15 +701,15 @@ window.liquidThreads = {
 		var apiParams = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
 					'format' : 'json', 'thrender' : '1', 'thprop' : 'id' };
 
-		$j.get( mw.util.wikiScript( 'api' ), apiParams,
+		$.get( mw.util.wikiScript( 'api' ), apiParams,
 			function(data) {
 				// Interpret
 				if( typeof data.query.threads[threadId] !== 'undefined' ) {
 					var content = data.query.threads[threadId].content;
-					content = $j(content).find('.lqt-thread-replies')[0];
+					content = $(content).find('.lqt-thread-replies')[0];
 
 					// Inject
-					replies.empty().append( $j(content).contents() );
+					replies.empty().append( $(content).contents() );
 
 					// Remove post separator, if it follows the replies element
 					if ( replies.next().is('.lqt-post-sep') ) {
@@ -717,7 +718,7 @@ window.liquidThreads = {
 
 					// Set up
 					replies.find('div.lqt-post-wrapper').each( function() {
-						liquidThreads.setupThread( $j(this) );
+						liquidThreads.setupThread( $(this) );
 					} );
 
 					replies.before(sep);
@@ -733,16 +734,16 @@ window.liquidThreads = {
 		e.preventDefault();
 
 		// Add spinner
-		var loader = $j('<div class="mw-ajax-loader"/>');
-		$j(this).after(loader);
+		var loader = $('<div class="mw-ajax-loader"/>');
+		$(this).after(loader);
 
 		// Grab the appropriate thread
-		var thread = $j(this).closest('.lqt_thread').find('div.lqt-post-wrapper')[0];
-		thread = $j(thread);
+		var thread = $(this).closest('.lqt_thread').find('div.lqt-post-wrapper')[0];
+		thread = $(thread);
 		var threadId = thread.data('thread-id');
 
 		// Find the hidden field that gives the point to start at.
-		var startAtField = $j(this).siblings().filter('.lqt-thread-start-at');
+		var startAtField = $(this).siblings().filter('.lqt-thread-start-at');
 		var startAt = startAtField.val();
 		startAtField.remove();
 
@@ -751,15 +752,15 @@ window.liquidThreads = {
 					'format' : 'json', 'thrender' : '1', 'thprop' : 'id',
 					'threnderstartrepliesat' : startAt };
 
-		$j.get( mw.util.wikiScript( 'api' ), apiParams,
+		$.get( mw.util.wikiScript( 'api' ), apiParams,
 			function(data) {
 				var content = data.query.threads[threadId].content;
-				content = $j(content).find('.lqt-thread-replies')[0];
-				content = $j(content).contents();
+				content = $(content).find('.lqt-thread-replies')[0];
+				content = $(content).contents();
 				content = content.not('.lqt-replies-finish');
 
-				if ( $j(content[0]).is('.lqt-post-sep') ) {
-					content = content.not($j(content[0]));
+				if ( $(content[0]).is('.lqt-post-sep') ) {
+					content = content.not($(content[0]));
 				}
 
 				// Inject loaded content.
@@ -767,24 +768,24 @@ window.liquidThreads = {
 				loader.after( content );
 
 				content.find('div.lqt-post-wrapper').each( function() {
-					liquidThreads.setupThread( $j(this) );
+					liquidThreads.setupThread( $(this) );
 				} );
 
 				content.fadeIn();
 				loader.remove();
 			}, 'json' );
 
-		$j(this).remove();
+		$(this).remove();
 	},
 
 	'asyncWatch' : function(e) {
-		var button = $j(this);
+		var button = $(this);
 		var tlcOffset = "lqt-threadlevel-commands-".length;
 
 		// Find the title of the thread
 		var threadLevelCommands = button.closest('.lqt_threadlevel_commands');
 		var threadID = threadLevelCommands.attr('id').substring( tlcOffset );
-		var title = $j('#lqt-thread-title-'+threadID).val();
+		var title = $('#lqt-thread-title-'+threadID).val();
 
 		// Check if we're watching or unwatching.
 		var action = '';
@@ -806,8 +807,8 @@ window.liquidThreads = {
 			apiParams.unwatch = 'yes';
 		}
 
-		$j.get( mw.util.wikiScript( 'api' ), apiParams,
-			function( data ) {
+		$.get( mw.util.wikiScript( 'api' ), apiParams,
+			function () {
 				threadLevelCommands.load( window.location.href+' '+
 						'#'+threadLevelCommands.attr('id')+' > *' );
 			}, 'json' );
@@ -817,7 +818,7 @@ window.liquidThreads = {
 
 	'showThreadLinkWindow' : function(e) {
 		e.preventDefault();
-		var thread = $j(this).closest('.lqt_thread');
+		var thread = $(this).closest('.lqt_thread');
 		var linkTitle = thread.find('.lqt-thread-title-metadata').val();
 		var linkURL = mw.config.get( 'wgArticlePath' ).replace( "$1", linkTitle.replace(/ /g, '_' ) );
 		linkURL = mw.config.get( 'wgServer' ) + linkURL;
@@ -829,8 +830,8 @@ window.liquidThreads = {
 
 	'showSummaryLinkWindow' : function(e) {
 		e.preventDefault();
-		var linkURL = $j(this).attr('href');
-		var linkTitle = $j(this).parent().find('input[name=summary-title]').val();
+		var linkURL = $(this).attr('href');
+		var linkTitle = $(this).parent().find('input[name=summary-title]').val();
 		liquidThreads.showLinkWindow( linkTitle, linkURL );
 	},
 
@@ -838,22 +839,22 @@ window.liquidThreads = {
 		linkTitle = '[['+linkTitle+']]';
 
 		// Build dialog
-		var urlLabel = $j('<th/>').text(mediaWiki.msg('lqt-thread-link-url'));
-		var urlField = $j('<td/>').addClass( 'lqt-thread-link-url' );
+		var urlLabel = $('<th/>').text(mw.msg('lqt-thread-link-url'));
+		var urlField = $('<td/>').addClass( 'lqt-thread-link-url' );
 		urlField.text(linkURL);
-		var urlRow = $j('<tr/>').append(urlLabel).append(urlField );
+		var urlRow = $('<tr/>').append(urlLabel).append(urlField );
 
-		var titleLabel = $j('<th/>').text(mediaWiki.msg('lqt-thread-link-title'));
-		var titleField = $j('<td/>').addClass( 'lqt-thread-link-title' );
+		var titleLabel = $('<th/>').text(mw.msg('lqt-thread-link-title'));
+		var titleField = $('<td/>').addClass( 'lqt-thread-link-title' );
 		titleField.text(linkTitle);
-		var titleRow = $j('<tr/>').append(titleLabel).append(titleField );
+		var titleRow = $('<tr/>').append(titleLabel).append(titleField );
 
-		var table = $j('<table><tbody></tbody></table>');
+		var table = $('<table><tbody></tbody></table>');
 		table.find('tbody').append(urlRow).append(titleRow);
 
-		var dialog = $j('<div/>').append(table);
+		var dialog = $('<div/>').append(table);
 
-		$j('body').prepend(dialog);
+		$('body').prepend(dialog);
 
 		var dialogOptions = {
 			'width' : 600
@@ -870,7 +871,7 @@ window.liquidThreads = {
 			'format' : 'json'
 		};
 
-		$j.post( mw.util.wikiScript( 'api' ), getTokenParams,
+		$.post( mw.util.wikiScript( 'api' ), getTokenParams,
 			function( data ) {
 				var token = data.threadaction.token;
 
@@ -879,7 +880,7 @@ window.liquidThreads = {
 	},
 
 	'handleAJAXSave' : function( e ) {
-		var editform = $j(this).closest('.lqt-edit-form');
+		var editform = $(this).closest('.lqt-edit-form');
 		var type = editform.find('input[name=lqt_method]').val();
 		var wikiEditorContext = editform.find('#wpTextbox1').data( 'wikiEditor-context' );
 		var text;
@@ -891,8 +892,8 @@ window.liquidThreads = {
 			text = wikiEditorContext.$textarea.textSelection( 'getContents' );
 		}
 
-		if ( $j.trim( text ).length === 0 ) {
-			alert(mediaWiki.msg('lqt-empty-text'));
+		if ( $.trim( text ).length === 0 ) {
+			alert(mw.msg('lqt-empty-text'));
 			return;
 		}
 
@@ -915,39 +916,40 @@ window.liquidThreads = {
 		var bumpBox = editform.find('#wpBumpThread');
 		var bump = bumpBox.length === 0 || bumpBox.is(':checked');
 
-		var spinner = $j('<div class="mw-ajax-loader"/>');
+		var spinner = $('<div class="mw-ajax-loader"/>');
 		editform.prepend(spinner);
 
 		var replyCallback = function( data ) {
-			$parent = $j( '#lqt_thread_id_' + data.threadaction.thread['parent-id'] );
-			$html = $j( data.threadaction.thread.html );
+			$parent = $( '#lqt_thread_id_' + data.threadaction.thread['parent-id'] );
+			$html = $( data.threadaction.thread.html );
 			$newThread = $html.find( '#lqt_thread_id_' + data.threadaction.thread['thread-id'] );
 			$parent.find( '.lqt-thread-replies:first' ).append( $newThread );
 			$parent.closest( '.lqt-thread-topmost' )
 				.find( 'input.lqt-thread-modified' )
 				.val( data.threadaction.thread.modified );
 			liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
-			$j( 'html,body' ).animate({scrollTop: $newThread.offset().top}, 'slow');
+			$( 'html,body' ).animate({scrollTop: $newThread.offset().top}, 'slow');
 		};
 
 		var newCallback = function( data ) {
-			var $newThread = $j( data.threadaction.thread.html );
-			$j( '.lqt-threads' ).prepend( $newThread );
+			var $newThread = $( data.threadaction.thread.html );
+			$( '.lqt-threads' ).prepend( $newThread );
 			// remove the no threads message if it's on the page
-			$j('.lqt-no-threads').remove();
+			$('.lqt-no-threads').remove();
 			liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
-			$j( 'html,body' ).animate( { scrollTop: $newThread.offset().top }, 'slow' );
+			$( 'html,body' ).animate( { scrollTop: $newThread.offset().top }, 'slow' );
 		};
 
-		var editCallback = function( data ) {
+		var editCallback = function() {
 			var thread = editform.closest('.lqt-thread-topmost');
 
 			liquidThreads.doReloadThread( thread );
 		};
 
 		var doneCallback = function(data) {
+			var result;
 			try {
-				var result = data.threadaction.thread.result;
+				result = data.threadaction.thread.result;
 			} catch ( err ) {
 				result = 'error';
 			}
@@ -956,7 +958,7 @@ window.liquidThreads = {
 				// Create a hidden field to mimic the save button, and
 				// submit it normally, so they'll get a real error message.
 
-				var saveHidden = $j('<input/>');
+				var saveHidden = $('<input/>');
 				saveHidden.attr( 'type', 'hidden' );
 				saveHidden.attr( 'name', 'wpSave' );
 				saveHidden.attr( 'value', 'Save' );
@@ -1009,18 +1011,18 @@ window.liquidThreads = {
 	},
 
 	'reloadTOC' : function() {
-		var toc = $j('.lqt_toc');
+		var toc = $('.lqt_toc');
 
 		if ( !toc.length ) {
-			toc = $j('<table/>').addClass('lqt_toc');
-			$j('.lqt-new-thread').after(toc);
+			toc = $('<table/>').addClass('lqt_toc');
+			$('.lqt-new-thread').after(toc);
 
-			var contentsHeading = $j('<h2/>');
-			contentsHeading.text(mediaWiki.msg('lqt_contents_title'));
+			var contentsHeading = $('<h2/>');
+			contentsHeading.text(mw.msg('lqt_contents_title'));
 			toc.before(contentsHeading);
 		}
 
-		var loadTOCSpinner = $j('<div class="mw-ajax-loader"/>');
+		var loadTOCSpinner = $('<div class="mw-ajax-loader"/>');
 		loadTOCSpinner.css( 'height', toc.height() );
 		toc.empty().append( loadTOCSpinner );
 		toc.load( window.location.href + ' .lqt_toc > *',
@@ -1046,19 +1048,19 @@ window.liquidThreads = {
 					'bump' : bump
 				};
 
-				if ( $j('#wpCaptchaWord') ) {
-					newTopicParams.captchaword = $j('#wpCaptchaWord').val();
+				if ( $('#wpCaptchaWord') ) {
+					newTopicParams.captchaword = $('#wpCaptchaWord').val();
 				}
 
-				if ( $j('#wpCaptchaId') ) {
-					newTopicParams.captchaid = $j('#wpCaptchaId').val();
+				if ( $('#wpCaptchaId') ) {
+					newTopicParams.captchaid = $('#wpCaptchaId').val();
 				}
 
 				if ( typeof signature !== 'undefined' ) {
 					newTopicParams.signature = signature;
 				}
 
-				$j.post( mw.util.wikiScript( 'api' ), newTopicParams,
+				$.post( mw.util.wikiScript( 'api' ), newTopicParams,
 					function(data) {
 						if (callback) {
 							callback(data);
@@ -1083,19 +1085,19 @@ window.liquidThreads = {
 					'bump' : bump
 				};
 
-				if ( $j('#wpCaptchaWord') ) {
-					replyParams.captchaword = $j('#wpCaptchaWord').val();
+				if ( $('#wpCaptchaWord') ) {
+					replyParams.captchaword = $('#wpCaptchaWord').val();
 				}
 
-				if ( $j('#wpCaptchaId') ) {
-					replyParams.captchaid = $j('#wpCaptchaId').val();
+				if ( $('#wpCaptchaId') ) {
+					replyParams.captchaid = $('#wpCaptchaId').val();
 				}
 
 				if ( typeof signature !== 'undefined' ) {
 					replyParams.signature = signature;
 				}
 
-				$j.post( mw.util.wikiScript( 'api' ), replyParams,
+				$.post( mw.util.wikiScript( 'api' ), replyParams,
 					function(data) {
 						if (callback) {
 							callback(data);
@@ -1119,12 +1121,12 @@ window.liquidThreads = {
 			'subject':subject
 		};
 
-		if ( $j('#wpCaptchaWord') ) {
-			request.captchaword = $j('#wpCaptchaWord').val();
+		if ( $('#wpCaptchaWord') ) {
+			request.captchaword = $('#wpCaptchaWord').val();
 		}
 
-		if ( $j('#wpCaptchaId') ) {
-			request.captchaid = $j('#wpCaptchaId').val();
+		if ( $('#wpCaptchaId') ) {
+			request.captchaid = $('#wpCaptchaId').val();
 		}
 
 		if ( typeof signature !== 'undefined' ) {
@@ -1134,21 +1136,21 @@ window.liquidThreads = {
 		liquidThreads.apiRequest( request, callback );
 	},
 
-	'onTextboxKeyUp' : function(e) {
+	onTextboxKeyUp: function () {
 		// Check if a user has signed their post, and if so, tell them they don't have to.
-		var text = $j.trim( $j(this).val() );
-		var prevWarning = $j('#lqt-sign-warning');
+		var text = $.trim( $(this).val() );
+		var prevWarning = $('#lqt-sign-warning');
 		if ( text.match(/~~~~$/) ) {
 			if ( prevWarning.length ) {
 				return;
 			}
 
 			// Show the warning
-			var msg = mediaWiki.msg('lqt-sign-not-necessary');
-			var elem = $j('<div id="lqt-sign-warning" class="error"/>');
+			var msg = mw.msg('lqt-sign-not-necessary');
+			var elem = $('<div id="lqt-sign-warning" class="error"/>');
 			elem.text(msg);
 
-			$j(this).before( elem );
+			$(this).before( elem );
 		} else {
 			prevWarning.remove();
 		}
@@ -1166,7 +1168,7 @@ window.liquidThreads = {
 
 			request.format = 'json';
 
-			$j.post( mw.util.wikiScript( 'api' ), request,
+			$.post( mw.util.wikiScript( 'api' ), request,
 					function(data) {
 						if (callback) {
 							callback(data);
@@ -1180,16 +1182,14 @@ window.liquidThreads = {
 		e.preventDefault();
 
 		// Set up draggability.
-		var $thread = $j( this ).closest( '.lqt_thread' );
+		var $thread = $( this ).closest( '.lqt_thread' );
 		var threadID = $thread.find( '.lqt-post-wrapper' ).data( 'thread-id' );
 		var scrollOffset;
-		// determine wether it's an entire thread or just one of the replies
-		var isThreadReply = ! $thread.is( '.lqt-thread-topmost' );
 		// FIXME: what does all of this do? From here
-		$j( 'html,body' ).each(
+		$( 'html,body' ).each(
 			function() {
-				if ( $j(this).attr( 'scrollTop' ) ) {
-					scrollOffset = $j( this ).attr( 'scrollTop' );
+				if ( $(this).attr( 'scrollTop' ) ) {
+					scrollOffset = $( this ).attr( 'scrollTop' );
 				}
 			} );
 
@@ -1197,9 +1197,9 @@ window.liquidThreads = {
 
 		var helperFunc;
 		if ( $thread.hasClass( 'lqt-thread-topmost' ) ) {
-			var $header = $j( '#lqt-header-' + threadID );
+			var $header = $( '#lqt-header-' + threadID );
 			var $headline = $header.contents().filter( '.mw-headline' ).clone();
-			var $helper = $j( '<h2 />' ).append( $headline );
+			var $helper = $( '<h2 />' ).append( $headline );
 			helperFunc = function() { return $helper; };
 		} else {
 			helperFunc =
@@ -1220,26 +1220,26 @@ window.liquidThreads = {
 		$thread.draggable( draggableOptions );
 
 		// Kill all existing drop zones
-		$j( '.lqt-drop-zone' ).remove();
+		$( '.lqt-drop-zone' ).remove();
 
 		// Set up some dropping targets. Add one before the first thread, after every
 		//  other thread, and as a subthread of every post.
 		var createDropZone = function( sortKey, parent ) {
-			return $j( '<div class="lqt-drop-zone" />' )
-				.text( mediaWiki.msg('lqt-drag-drop-zone') )
+			return $( '<div class="lqt-drop-zone" />' )
+				.text( mw.msg('lqt-drag-drop-zone') )
 				.data( 'sortkey', sortKey )
 				.data( 'parent', parent );
 		};
 
 		// Add a drop zone at the very top unless the drag thread is the very first thread
-		$j( '.lqt-thread-topmost:first' )
+		$( '.lqt-thread-topmost:first' )
 			.not( $thread )
 			.before( createDropZone( 'now', 'top' ) );
 
 		// Now one after every thread except the drag thread
 		// FIXME: Do not add one right before the current thread (bug 26237 comment 2)
-		$j( '.lqt-thread-topmost' ).not( $thread ).each( function() {
-			var sortkey = $j( this ).contents().filter( 'input[name=lqt-thread-sortkey]' ).val(),
+		$( '.lqt-thread-topmost' ).not( $thread ).each( function() {
+			var sortkey = $( this ).contents().filter( 'input[name=lqt-thread-sortkey]' ).val(),
 				d = new Date(
 					sortkey.substr(0,4),
 					sortkey.substr(4,2) - 1, // month is from 0 to 11
@@ -1261,14 +1261,14 @@ window.liquidThreads = {
 				( d.getMinutes() < 10 ? '0' : '' ) + d.getMinutes(),
 				( d.getSeconds() < 10? '0' : '' ) + d.getSeconds()
 			].join('');
-			$j( this ).after( createDropZone( sortkey, 'top' ) );
+			$( this ).after( createDropZone( sortkey, 'top' ) );
 		} );
 
 		// Now one underneath every thread except the drag thread
-		$j('.lqt_thread').not( $thread ).each( function() {
-			var $curThread = $j( this );
+		$('.lqt_thread').not( $thread ).each( function() {
+			var $curThread = $( this );
 			// don't put any drop zones under child threads
-			if ( $j.contains( $thread[0], $curThread[0] ) ) {
+			if ( $.contains( $thread[0], $curThread[0] ) ) {
 				return;
 			}
 			// don't put it right next to the thread
@@ -1286,30 +1286,30 @@ window.liquidThreads = {
 			'tolerance' : 'intersect'
 		};
 
-		$j( '.lqt-drop-zone' ).droppable( droppableOptions );
+		$( '.lqt-drop-zone' ).droppable( droppableOptions );
 
 		scrollOffset = scrollOffset + $thread.offset().top;
 
 		// Reset scroll position
-		$j( 'html,body' ).attr( 'scrollTop', scrollOffset );
+		$( 'html,body' ).attr( 'scrollTop', scrollOffset );
 	},
 
 	'completeDragDrop' : function( e, ui ) {
-		var thread = $j(ui.draggable);
+		var thread = $(ui.draggable);
 
 		// Determine parameters
 		var params = {
-			'sortkey' : $j(this).data('sortkey'),
-			'parent' : $j(this).data('parent')
+			'sortkey' : $(this).data('sortkey'),
+			'parent' : $(this).data('parent')
 		};
 
 		// Figure out an insertion point
-		if ( $j(this).prev().length ) {
-			params.insertAfter = $j(this).prev();
-		} else if ( $j(this).next().length ) {
-			params.insertBefore = $j(this).next();
+		if ( $(this).prev().length ) {
+			params.insertAfter = $(this).prev();
+		} else if ( $(this).next().length ) {
+			params.insertBefore = $(this).next();
 		} else {
-			params.insertUnder = $j(this).parent();
+			params.insertUnder = $(this).parent();
 		}
 
 		// Kill the helper.
@@ -1319,14 +1319,14 @@ window.liquidThreads = {
 
 		// Remove drop points and schedule removal of empty replies elements.
 		var emptyChecks = [];
-		$j('.lqt-drop-zone').each( function() {
-			var repliesHolder = $j(this).closest('.lqt-thread-replies');
+		$('.lqt-drop-zone').each( function() {
+			var repliesHolder = $(this).closest('.lqt-thread-replies');
 
-			$j(this).remove();
+			$(this).remove();
 
 			if (repliesHolder.length) {
 				liquidThreads.checkEmptyReplies( repliesHolder, 'hide' );
-				emptyChecks = $j.merge( emptyChecks, repliesHolder );
+				emptyChecks = $.merge( emptyChecks, repliesHolder );
 			}
 		} );
 
@@ -1337,22 +1337,21 @@ window.liquidThreads = {
 	},
 
 	'confirmDragDrop' : function( thread, params ) {
-		var confirmDialog = $j( '<div class="lqt-drag-confirm" />' );
+		var confirmDialog = $( '<div class="lqt-drag-confirm" />' );
 
 		// Add an intro
-		var intro = $j( '<p/>' ).text( mediaWiki.msg('lqt-drag-confirm') );
+		var intro = $( '<p/>' ).text( mw.msg('lqt-drag-confirm') );
 		confirmDialog.append( intro );
 
 		// Summarize changes to be made
-		var actionSummary = $j('<ul/>');
+		var actionSummary = $('<ul/>');
 
 		var addAction = function(msg) {
-			var li = $j('<li/>');
-			li.text( mediaWiki.msg(msg) );
+			var li = $('<li/>');
+			li.text( mw.msg(msg) );
 			actionSummary.append(li);
 		};
 
-		var bump = (params.sortkey === 'now');
 		var topLevel = (params.parent === 'top');
 		var wasTopLevel = thread.hasClass( 'lqt-thread-topmost' );
 
@@ -1371,9 +1370,9 @@ window.liquidThreads = {
 		confirmDialog.append(actionSummary);
 
 		// Summary prompt
-		var summaryWrapper = $j('<p/>');
-		var summaryPrompt = $j('<label for="reason" />').text( mediaWiki.msg('lqt-drag-reason') );
-		var summaryField = $j('<input type="text" size="45"/>');
+		var summaryWrapper = $('<p/>');
+		var summaryPrompt = $('<label for="reason" />').text( mw.msg('lqt-drag-reason') );
+		var summaryField = $('<input type="text" size="45"/>');
 		summaryField.addClass( 'lqt-drag-confirm-reason' )
 			.attr( 'name', 'reason' )
 			.attr( 'id', 'reason' )
@@ -1392,8 +1391,8 @@ window.liquidThreads = {
 
 		// New subject prompt, if appropriate
 		if ( !wasTopLevel && topLevel ) {
-			var subjectPrompt = $j('<p/>').text( mediaWiki.msg('lqt-drag-subject') );
-			var subjectField = $j('<input type="text" size="45"/>');
+			var subjectPrompt = $('<p/>').text( mw.msg('lqt-drag-subject') );
+			var subjectField = $('<input type="text" size="45"/>');
 			subjectField.addClass( 'lqt-drag-confirm-subject' )
 					.attr( 'name', 'subject' );
 			subjectPrompt.append( subjectField );
@@ -1401,7 +1400,7 @@ window.liquidThreads = {
 		}
 
 		// Now dialogify it.
-		$j('body').append(confirmDialog);
+		$('body').append(confirmDialog);
 
 		var spinner;
 		var successCallback = function() {
@@ -1411,33 +1410,33 @@ window.liquidThreads = {
 			liquidThreads.reloadTOC();
 		};
 
-		buttons = [{
+		var buttons = [{
 			id: 'lqt-drag-save-button',
-			text: mediaWiki.msg('lqt-drag-save'),
+			text: mw.msg('lqt-drag-save'),
 			click: function() {
 				// Load data
-				params.reason = $j(this).find('input[name=reason]').val();
+				params.reason = $(this).find('input[name=reason]').val();
 
 				if ( !wasTopLevel && topLevel ) {
 					params.subject =
-						$j.trim( $j(this).find('input[name=subject]').val() );
+						$.trim( $(this).find('input[name=subject]').val() );
 				}
 
 				// Add spinners
-				spinner = $j('<div id="lqt-drag-spinner" class="mw-ajax-loader" />');
-				thread.before(spinner)
+				spinner = $('<div id="lqt-drag-spinner" class="mw-ajax-loader" />');
+				thread.before(spinner);
 
-				if ( typeof params.insertAfter !== 'undefined' ) {
+				if ( params.insertAfter !== undefined ) {
 					params.insertAfter.after(spinner);
 				}
 
-				$j(this).dialog('close');
+				$(this).dialog('close');
 
 				liquidThreads.submitDragDrop( thread, params,
 					successCallback );
 			}
 		}];
-		confirmDialog.dialog( { 'title': mediaWiki.msg('lqt-drag-title'),
+		confirmDialog.dialog( { 'title': mw.msg('lqt-drag-title'),
 			'buttons' : buttons, 'modal' : true, 'width': 550 } );
 	},
 
@@ -1446,7 +1445,6 @@ window.liquidThreads = {
 		var newParent = params.parent;
 		var threadId = thread.find('.lqt-post-wrapper').data('thread-id');
 
-		var bump = (params.sortkey === 'now');
 		var topLevel = (newParent === 'top');
 		var wasTopLevel = thread.hasClass( 'lqt-thread-topmost' );
 		var apiRequest = {
@@ -1457,8 +1455,8 @@ window.liquidThreads = {
 		};
 
 		var doEmptyChecks = function() {
-			$j.each( params.emptyChecks, function( k, element ) {
-				liquidThreads.checkEmptyReplies( $j(element) );
+			$.each( params.emptyChecks, function( k, element ) {
+				liquidThreads.checkEmptyReplies( $(element) );
 			} );
 		};
 
@@ -1480,7 +1478,7 @@ window.liquidThreads = {
 				if (result !== 'success') {
 					alert( "Error: "+result );
 					doEmptyChecks();
-					$j( '#lqt-drag-spinner' ).remove();
+					$( '#lqt-drag-spinner' ).remove();
 					return;
 				}
 
@@ -1491,7 +1489,7 @@ window.liquidThreads = {
 					payload = data.threadaction[0];
 				}
 
-				var oldParent = undefined;
+				var oldParent;
 				if (!wasTopLevel) {
 					oldParent = thread.closest('.lqt-thread-topmost');
 				}
@@ -1526,7 +1524,7 @@ window.liquidThreads = {
 					if ( ! topLevel && typeof payload['new-ancestor-id'] !== 'undefined' ) {
 						var ancestorId = payload['new-ancestor-id'];
 						reloadThread =
-							$j('#lqt_thread_id_'+ancestorId);
+							$('#lqt_thread_id_'+ancestorId);
 					}
 
 					liquidThreads.doReloadThread( reloadThread );
@@ -1557,8 +1555,8 @@ window.liquidThreads = {
 				// It is a split, and needs a new subject
 				if ( typeof params.subject !== 'string' || params.subject.length === 0 ) {
 
-					$j( '#lqt-drag-spinner' ).remove();
-					alert( mediaWiki.msg( 'lqt-ajax-no-subject' ) );
+					$( '#lqt-drag-spinner' ).remove();
+					alert( mw.msg( 'lqt-ajax-no-subject' ) );
 					// here we should prompt the user again to enter a new subject
 					return;
 				}
@@ -1585,15 +1583,15 @@ window.liquidThreads = {
 	'handleEditSignature' : function(e) {
 		e.preventDefault();
 
-		var container = $j(this).parent();
+		var container = $(this).parent();
 
 		container.find('.lqt-signature-preview').hide();
 		container.find('input[name=wpLqtSignature]').show();
-		$j(this).hide();
+		$(this).hide();
 
 		// Add a save button
-		var saveButton = $j('<a href="#"/>');
-		saveButton.text( mediaWiki.msg('lqt-preview-signature') );
+		var saveButton = $('<a href="#"/>');
+		saveButton.text( mw.msg('lqt-preview-signature') );
 		saveButton.click( liquidThreads.handlePreviewSignature );
 
 		container.find('input[name=wpLqtSignature]').after(saveButton);
@@ -1602,10 +1600,10 @@ window.liquidThreads = {
 	'handlePreviewSignature' : function(e) {
 		e.preventDefault();
 
-		var container = $j(this).parent();
+		var container = $(this).parent();
 
-		var spinner = $j('<span class="mw-small-spinner"/>');
-		$j(this).replaceWith(spinner);
+		var spinner = $('<span class="mw-small-spinner"/>');
+		$(this).replaceWith(spinner);
 
 		var textbox = container.find('input[name=wpLqtSignature]' ),
 			preview = container.find('.lqt-signature-preview');
@@ -1623,7 +1621,7 @@ window.liquidThreads = {
 
 		liquidThreads.apiRequest( function() { return apiReq; },
 			function(data) {
-				var html = $j( $j.trim( data.parse.text['*'] ) );
+				var html = $( $.trim( data.parse.text['*'] ) );
 
 				if (html.length === 2) { // Not 1, because of the NewPP report
 					html = html.contents();
@@ -1637,15 +1635,15 @@ window.liquidThreads = {
 	}
 };
 
-$j(document).ready( function() {
+$(document).ready( function() {
 	// One-time setup for the full page
 
 	// Update the new thread link
-	var newThreadLink = $j('.lqt_start_discussion a');
+	var newThreadLink = $('.lqt_start_discussion a');
 
-	$j('li#ca-addsection a').attr('lqt_talkpage', $j('.lqt_start_discussion a').attr('lqt_talkpage'));
+	$('li#ca-addsection a').attr('lqt_talkpage', $('.lqt_start_discussion a').attr('lqt_talkpage'));
 
-	newThreadLink = newThreadLink.add( $j('li#ca-addsection a') );
+	newThreadLink = newThreadLink.add( $('li#ca-addsection a') );
 
 	if (newThreadLink) {
 		newThreadLink.click( liquidThreads.handleNewLink );
@@ -1653,38 +1651,40 @@ $j(document).ready( function() {
 
 	// Find all threads, and do the appropriate setup for each of them
 
-	var threadContainers = $j('div.lqt-post-wrapper');
+	var threadContainers = $('div.lqt-post-wrapper');
 
-	threadContainers.each( function(i) {
+	threadContainers.each( function () {
 		liquidThreads.setupThread( this );
 	} );
 
 	// Live bind for unwatch/watch stuff.
-	$j('.lqt-command-watch').live( 'click', liquidThreads.asyncWatch );
-	$j('.lqt-command-unwatch').live( 'click', liquidThreads.asyncWatch );
+	$('.lqt-command-watch').live( 'click', liquidThreads.asyncWatch );
+	$('.lqt-command-unwatch').live( 'click', liquidThreads.asyncWatch );
 
 	// Live bind for link window
-	$j('.lqt-command-link').live( 'click', liquidThreads.showThreadLinkWindow );
+	$('.lqt-command-link').live( 'click', liquidThreads.showThreadLinkWindow );
 
 	// Live bind for summary links
-	$j('.lqt-summary-link').live( 'click', liquidThreads.showSummaryLinkWindow );
+	$('.lqt-summary-link').live( 'click', liquidThreads.showSummaryLinkWindow );
 
 	// For "show replies"
-	$j('a.lqt-show-replies').live( 'click', liquidThreads.showReplies );
+	$('a.lqt-show-replies').live( 'click', liquidThreads.showReplies );
 
 	// "Show more posts" link
-	$j('a.lqt-show-more-posts').live( 'click', liquidThreads.showMore );
+	$('a.lqt-show-more-posts').live( 'click', liquidThreads.showMore );
 
 	// Edit link handler
-	$j('.lqt-command-edit > a').live( 'click', liquidThreads.handleEditLink );
+	$('.lqt-command-edit > a').live( 'click', liquidThreads.handleEditLink );
 
 	// Save handlers
-	$j('#wpSave').live( 'click', liquidThreads.handleAJAXSave );
-	$j('#wpTextbox1').live( 'keyup', liquidThreads.onTextboxKeyUp );
+	$('#wpSave').live( 'click', liquidThreads.handleAJAXSave );
+	$('#wpTextbox1').live( 'keyup', liquidThreads.onTextboxKeyUp );
 
 	// Hide menus when a click happens outside them
-	$j(document).click( liquidThreads.handleDocumentClick );
+	$(document).click( liquidThreads.handleDocumentClick );
 
 	// Set up periodic update checking
 	setInterval( liquidThreads.checkForUpdates, 60000 );
 } );
+
+}( mediaWiki, jQuery ) );
