@@ -20838,19 +20838,36 @@ $7",
 );
 
 /** Urdu (اردو)
+ * @author Muhammad Shuaib
  * @author පසිඳු කාවින්ද
  */
 $messages['ur'] = array(
-	'lqt_movethread' => 'ایک اور پیج دھاگے میں منتقل',
-	'lqt_contents_title' => 'فہرست',
-	'lqt_toc_thread_replycount' => 'جواب دیتا ہے',
-	'lqt_toc_thread_modified' => 'آخری دفع جب تبدیل کیا گیا',
-	'lqt_add_header' => 'ہیڈر شامل کریں',
-	'lqt_reply' => 'جواب دیں',
-	'lqt-parent' => 'والدین',
-	'lqt_delete' => 'حذف کرو',
+	'lqt-desc' => 'اضافہ دھاگہ بند پیغامات در تبادلۂ خیال صفحات',
+	'lqt_movethread' => 'دھاگہ کو دوسرے صفحہ میں منتقل کریں',
+	'lqt_deletethread' => 'حذف یا بحالیٔ دھاگہ',
+	'lqt_contents_title' => 'مشمولات',
+	'lqt_toc_thread_title' => 'دھاگہ کا عنوان',
+	'lqt_toc_thread_author' => 'شروع از',
+	'lqt_toc_thread_replycount' => 'جوابات',
+	'lqt_toc_thread_modified' => 'آخری تبدیلی',
+	'lqt_add_header' => 'عنوان کا اندراج',
+	'lqt_new_thread' => 'نیا موضوع شروع کریں',
+	'lqt_invalid_subject' => 'جو موضوع آپ نے درج کیا ہے وہ غلط ہے۔
+شایہ یہ:
+٭ بہت طویل ہو، یا
+٭ بین الویکی سابقات یا نامہائے فضا سے متصادم ہو۔',
+	'lqt-empty-text' => 'آپ خالی پیغام ارسال نہیں کرسکتے',
+	'lqt_empty_subject' => 'موضوع کا اندراج لازمی ہے۔',
+	'lqt_reply' => 'جواب',
+	'lqt-parent' => 'مادہ',
+	'lqt_delete' => 'حذف',
+	'lqt_undelete' => 'بحال',
+	'lqt_permalink' => 'ربط بجانب',
+	'lqt_fragment' => 'قطعہ ایک $1 از $2',
 	'lqt_discussion_link' => 'تبادلہٴ خیال',
-	'lqt-history-title' => 'دھاگے کی تاریخ',
+	'lqt_from_talk' => 'از $1',
+	'lqt-history-title' => 'تاریخچہ دھاگہ',
+	'lqt_hist_comment_edited' => 'متن تبصرہ کی [$2 ترمیم کی گئی]',
 	'lqt_hist_thread_created' => 'نئے دھاگے پیدا',
 	'lqt_hist_deleted' => 'خارج کر دیا گیا',
 	'lqt_hist_moved_talkpage' => 'منتقل',
