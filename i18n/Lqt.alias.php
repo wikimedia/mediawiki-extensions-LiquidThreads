@@ -340,7 +340,7 @@ $specialPageAliases['myv'] = array(
 	'MergeThread' => array( 'ПальдямсСуре' ),
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎) */
+/** Norwegian Bokmål (norsk bokmål) */
 $specialPageAliases['nb'] = array(
 	'DeleteThread' => array( 'Slett_tråd' ),
 	'MoveThread' => array( 'Flytt_tråd' ),
@@ -367,7 +367,7 @@ $specialPageAliases['nl'] = array(
 	'MergeThread' => array( 'OnderwerpSamenvoegen' ),
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎) */
+/** Norwegian Nynorsk (norsk nynorsk) */
 $specialPageAliases['nn'] = array(
 	'DeleteThread' => array( 'Slett_tråd' ),
 	'MoveThread' => array( 'Flytt_tråd' ),
