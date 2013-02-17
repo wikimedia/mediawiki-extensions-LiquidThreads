@@ -98,6 +98,7 @@ $.extend( liquidThreads, {
 		liquidThreads.apiRequest( markReadParameters,
 			function(e) {
 				liquidThreads.markReadDone.one(e,form.find('input[type=submit]'),operand);
+				$( 'li#pt-newmessages' ).html( $( '<a>', e.threadactions[e.threadactions.length - 1].unreadlink ) ); // Unreadlink will be on the last threadaction
 				spinner.remove();
 			} );
 	},
@@ -115,6 +116,7 @@ $.extend( liquidThreads, {
 
 		liquidThreads.apiRequest( request, function(res) {
 			liquidThreads.markReadDone.all(res);
+			$( 'li#pt-newmessages' ).html( $( '<a>', res.threadactions[0].unreadlink ) );
 			spinner.remove();
 		} );
 	}

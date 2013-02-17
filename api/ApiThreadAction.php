@@ -54,10 +54,16 @@ class ApiThreadAction extends ApiEditPage {
 
 		if ( in_array( 'all', $threads ) ) {
 			NewMessages::markAllReadByUser( $user );
+			$newMessagesCount = NewMessages::newMessageCount( $user );
 			$result[] = array(
 				'result' => 'Success',
 				'action' => 'markread',
 				'threads' => 'all',
+				'unreadlink' => array(
+					'href' => SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL(),
+					'text' => wfMessage( $newMessagesCount ? 'lqt-newmessages-n' : 'lqt_newmessages' )->numParams( $newMessagesCount )->text(),
+					'active' => $newMessagesCount > 0,
+				)
 			);
 		} else {
 			foreach ( $threads as $t ) {
@@ -69,6 +75,12 @@ class ApiThreadAction extends ApiEditPage {
 					'title' => $t->title()->getPrefixedText()
 				);
 			}
+			$newMessagesCount = NewMessages::newMessageCount( $user );
+			$result[count( $result ) - 1]['unreadlink'] = array( // Only bother to put this on the last threadaction
+				'href' => SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL(),
+				'text' => wfMessage( $newMessagesCount ? 'lqt-newmessages-n' : 'lqt_newmessages' )->numParams( $newMessagesCount )->text(),
+				'active' => $newMessagesCount > 0,
+			);
 		}
 
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
