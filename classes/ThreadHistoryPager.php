@@ -67,7 +67,7 @@ class ThreadHistoryPager extends TablePager {
 
 		switch( $name ) {
 			case 'th_timestamp':
-				$formatted = $wgLang->timeanddate( $value );
+				$formatted = $wgLang->timeanddate( $value, true );
 				return Linker::link(
 					$wgTitle,
 					$formatted,
