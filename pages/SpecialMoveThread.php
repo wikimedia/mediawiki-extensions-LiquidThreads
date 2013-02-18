@@ -14,6 +14,7 @@ class SpecialMoveThread extends ThreadActionPage {
 				'label-message' => 'lqt_move_destinationtitle',
 				'type' => 'text',
 				'validation-callback' => array( $this, 'validateTarget' ),
+				'autofocus' => true,
 			),
 			'reason' => array(
 				'label-message' => 'movereason',
