@@ -204,11 +204,14 @@ class NewMessages {
 				NewMessages::recacheMessageCount( $row->wl_user );
 			}
 
-			$wantsTalkNotification = true;
+			global $wgHiddenPrefs;
+			if ( !in_array( 'lqtnotifytalk', $wgHiddenPrefs ) && isset( $row->up_value ) ) {
+				$wantsTalkNotification = (bool) $row->wl_user;
+			} else {
+				$wantsTalkNotification = User::getDefaultOption( 'lqtnotifytalk' );
+			}
 
-			$wantsTalkNotification = $wantsTalkNotification && User::getDefaultOption( 'lqtnotifytalk' );
-
-			if ( $wantsTalkNotification || $row->up_value ) {
+			if ( $wantsTalkNotification ) {
 				$notifyUsers[] = $row->wl_user;
 			}
 		}
