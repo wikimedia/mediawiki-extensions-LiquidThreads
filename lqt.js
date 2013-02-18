@@ -801,13 +801,18 @@ window.liquidThreads = {
 		button.empty().addClass( 'mw-small-spinner' );
 
 		// Do the AJAX call.
-		var apiParams = { 'action' : 'watch', 'title' : title, 'format' : 'json' };
+		var apiParams = {
+			'action': 'watch',
+			'title' : title,
+			'format': 'json',
+			'token' : mw.user.tokens.get( 'watchToken' )
+		};
 
 		if (action === 'unwatch') {
 			apiParams.unwatch = 'yes';
 		}
 
-		$.get( mw.util.wikiScript( 'api' ), apiParams,
+		$.post( mw.util.wikiScript( 'api' ), apiParams,
 			function () {
 				threadLevelCommands.load( window.location.href+' '+
 						'#'+threadLevelCommands.attr('id')+' > *' );
