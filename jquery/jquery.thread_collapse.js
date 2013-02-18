@@ -37,15 +37,14 @@
 						.bind( 'click.thread_collapse', $.thread_collapse.fn.toggleCollapse )
 						.end() );
 			},
-			// FIXME - appends parent nodes twice...bad logic here
 			'getPreview': function( thread, depth ) {
 				var $out = $( '<ul />' )
 					.addClass( 'thread-collapse-preview' )
 					.addClass( 'thread-collapse-preview-depth-' + depth )
 					.append( $( '<li />' )
-						.append( thread.find( '.lqt-post-wrapper:first .lqt-thread-signature' ).clone() )
+						.append( thread.find( '> .lqt-post-wrapper > .lqt-thread-signature' ).clone() )
 					);
-				thread.find( '.lqt-thread-replies' ).children( '.lqt_thread' ).each( function() {
+				thread.find( '> .lqt-thread-replies > .lqt_thread' ).each( function() {
 					$out.append( $.thread_collapse.fn.getPreview( $( this ), depth + 1 ) );
 				} );
 				return $out;
@@ -56,7 +55,7 @@
 					// expand!
 					$thread
 						.removeClass( 'collapsed_thread' )
-						.children()
+						.children( '.lqt-post-wrapper, .lqt-thread-replies' )
 						.show()
 						.parent()
 						.children( '.thread-collapsed-preview' )
@@ -67,7 +66,7 @@
 					if ( $thread.children( '.thread-collapsed-preview' ).length > 0 ) {
 						$thread
 							.addClass( 'collapsed_thread' )
-							.children()
+							.children( '.lqt-post-wrapper, .lqt-thread-replies' )
 							.hide()
 							.end()
 							.children( '.thread-collapsed-preview' )
@@ -90,7 +89,7 @@
 							.append( $.thread_collapse.fn.getPreview( $thread, 0 ) );
 						// hide the other elements of the thread, and append the collapsed preview
 						$thread
-							.children()
+							.children( '.lqt-post-wrapper, .lqt-thread-replies' )
 							.hide()
 							.end()
 							.addClass( 'collapsed_thread' )
