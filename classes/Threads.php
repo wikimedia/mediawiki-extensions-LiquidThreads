@@ -22,6 +22,7 @@ class Threads {
 	const CHANGE_SPLIT_FROM = 12;
 	const CHANGE_ROOT_BLANKED = 13;
 	const CHANGE_ADJUSTED_SORTKEY = 14;
+	const CHANGE_EDITED_SIGNATURE = 15;
 
 	static $VALID_CHANGE_TYPES = array(
 		self::CHANGE_EDITED_SUMMARY,
@@ -39,6 +40,7 @@ class Threads {
 		self::CHANGE_SPLIT_FROM,
 		self::CHANGE_ROOT_BLANKED,
 		self::CHANGE_ADJUSTED_SORTKEY,
+		self::CHANGE_EDITED_SIGNATURE,
 	);
 
 	// Possible values of Thread->editedness.
