@@ -9,17 +9,25 @@ class SpecialMoveThread extends ThreadActionPage {
 	}
 
 	function getFormFields() {
+		$destAdditions = array();
+		$reasonAdditions = array();
+		if ( $this->getRequest()->getCheck( 'dest' ) ) {
+			$destAdditions['default'] = $this->getRequest()->getText( 'dest' );
+			$reasonAdditions['autofocus'] = true;
+		} else {
+			$destAdditions['autofocus'] = true;
+		}
+
 		return array(
 			'dest-title' => array(
 				'label-message' => 'lqt_move_destinationtitle',
 				'type' => 'text',
 				'validation-callback' => array( $this, 'validateTarget' ),
-				'autofocus' => true,
-			),
+			) + $destAdditions,
 			'reason' => array(
 				'label-message' => 'movereason',
 				'type' => 'text',
-			)
+			) + $reasonAdditions,
 		);
 	}
 
@@ -88,6 +96,7 @@ class SpecialMoveThread extends ThreadActionPage {
 	function trySubmit( $data ) {
 		// Load data
 		$tmp = $data['dest-title'];
+		$oldtitle = $this->mThread->getTitle();
 		$newtitle = Title::newFromText( $tmp );
 		$reason = $data['reason'];
 
@@ -99,8 +108,15 @@ class SpecialMoveThread extends ThreadActionPage {
 		// @todo No status code from this method.
 		$this->mThread->moveToPage( $newtitle, $reason, true );
 
-		$this->getOutput()->addHTML( $this->msg( 'lqt_move_success' )
-			->rawParams( Linker::link( $newtitle ) )->parseAsBlock() );
+		$this->getOutput()->addHTML( $this->msg( 'lqt_move_success' )->rawParams(
+			Linker::link( $newtitle ),
+			Linker::link(
+				SpecialPage::getTitleFor( 'MoveThread', $this->mThread->root()->getTitle() ),
+				wfMessage( 'revertmove' )->text(),
+				array(),
+				array( 'dest' => $oldtitle )
+			)
+		)->parseAsBlock() );
 
 		return true;
 	}

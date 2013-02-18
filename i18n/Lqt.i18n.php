@@ -103,7 +103,7 @@ This thread is part of $2.',
 	'lqt_move_thread_bad_destination' => 'The destination page is not a discussion page.',
 	'lqt_move_samedestination' => 'The thread is already on this page!',
 	'lqt_move_noreason' => 'No reason given.',
-	'lqt_move_success' => 'The thread was moved to $1.',
+	'lqt_move_success' => 'The thread was moved to $1: $2.',
 	'lqt_talkpage_autocreate_summary' => 'Talk page autocreated when first thread was posted',
 	'lqt_header_warning_before_big' => '',
 	'lqt_header_warning_big' => 'You are editing a $1.',
@@ -188,7 +188,7 @@ To avoid this, split them from this thread before deleting it.',
 	// Logging
 	'lqt-log-name' => 'Threaded discussion log',
 	'lqt-log-header' => 'This log details actions taken on discussion threads.',
-	'lqt-log-action-move' => 'moved [[$1]] from [[$2]] to [[$3]]',
+	'lqt-log-action-move' => 'moved [[$1]] from [[$2]] to [[$3]] ($4)',
 	'lqt-log-action-split' => 'split [[$1]] from under [[$3]], with the new subject "$2"',
 	'lqt-log-action-merge-across' => 'moved [[$1]] from under [[$2]] to under [[$3]]',
 	'lqt-log-action-merge-down' => 'merged [[$1]] to underneath [[$3]]',
@@ -487,7 +487,8 @@ The link points to [[Special:Log]], and is used as <code>$1</code> in {{msg-mw|l
 	'lqt_move_nodestination' => 'Used as error message when specified destination is empty',
 	'lqt_move_noreason' => '{{Identical|No reason given}}',
 	'lqt_move_success' => 'Thread move confirmation. Parameters:
-* $1 is the page where the thread was moved.',
+* $1 is the page where the thread was moved.
+* $2 is the revert link, including {{msg-mw|parentheses}}.',
 	'lqt_header_warning_before_big' => '{{notranslate}}',
 	'lqt_header_warning_big' => 'Parameters:
 * $1 - a bold text, from {{msg-mw|Lqt header warning bold}}',
@@ -597,6 +598,7 @@ threads on a wiki',
 * $1 - the link text to the topic
 * $2 - the link text to the source page the topic was moved from
 * $3 - the link text to the target page the topic was moved to
+* $4 is the revert link, including {{msg-mw|revertmove}}
 {{Related|Lqt-log-action}}',
 	'lqt-log-action-split' => 'Used as log entry.
 

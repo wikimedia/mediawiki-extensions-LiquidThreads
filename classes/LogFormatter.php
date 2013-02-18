@@ -3,12 +3,32 @@
 // Contains formatter functions for all log entry types.
 class LqtLogFormatter {
 	static function formatLogEntry( $type, $action, $title, $sk, $parameters ) {
-		switch( $action ) {
+		$msg = "lqt-log-action-$action";
+
+		switch ( $action ) {
 			case 'merge':
 				if ( $parameters[0] ) {
 					$msg = 'lqt-log-action-merge-across';
 				} else {
 					$msg = 'lqt-log-action-merge-down';
+				}
+				break;
+			case 'move':
+				$smt = new SpecialMoveThread;
+				$rightsCheck = $smt->checkUserRights(
+					$parameters[1] instanceof Title ? $parameters[1] : Title::newFromText( $parameters[1] ),
+					$parameters[0] instanceof Title ? $parameters[0] : Title::newFromText( $parameters[0] )
+				);
+
+				if ( $rightsCheck === true ) {
+					$parameters[] = Message::rawParam( Linker::link(
+						SpecialPage::getTitleFor( 'MoveThread', $title ),
+						wfMessage( 'revertmove' )->text(),
+						array(),
+						array( 'dest' => $parameters[0] )
+					) );
+				} else {
+					$parameters[] = '';
 				}
 				break;
 			default:
@@ -21,15 +41,11 @@ class LqtLogFormatter {
 
 		array_unshift( $parameters, $title->getPrefixedText() );
 		$html = wfMessage( $msg, $parameters );
-		$forIRC = $sk === null;
 
-		if ( $forIRC ) {
-			$html = $html->inContentLanguage()->parse();
-			$html = StringUtils::delimiterReplace( '<', '>', '', $html );
-		} else {
-			$html = $html->parse();
+		if ( $sk === null ) {
+			return StringUtils::delimiterReplace( '<', '>', '', $html->inContentLanguage()->parse() );
 		}
 
-		return $html;
+		return $html->parse();
 	}
 }
