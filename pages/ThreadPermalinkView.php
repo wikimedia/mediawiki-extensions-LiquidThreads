@@ -117,9 +117,16 @@ class ThreadPermalinkView extends LqtView {
 		$talkClasses = array();
 		if ( !$talkTitle->exists() ) $talkClasses[] = 'new';
 
+		if ( wfMessage( $articleTitle->getNamespaceKey() )->exists() ) {
+			$articleNamespaceText = wfMessage( $articleTitle->getNamespaceKey() )->text();
+		} else {
+			global $wgExtraNamespaces;
+			$articleNamespaceText = $wgExtraNamespaces[$articleTitle->getNamespace()];
+		}
+
 		$tabs['article'] =
 			array(
-				'text' => wfMessage( $articleTitle->getNamespaceKey() )->text(),
+				'text' => $articleNamespaceText,
 				'href' => $articleTitle->getLocalURL(),
 				'class' => implode( ' ', $articleClasses ),
 			);
