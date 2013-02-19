@@ -69,7 +69,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$change_type = $revision->getChangeType();
 
 		$post = $revision->getChangeObject();
-		$args[] = LqtView::linkInContextURL( $post );
+		$args[] = LqtView::linkInContextFullURL( $post );
 
 		$msg = $this->getMessageForChangeType( $change_type );
 
