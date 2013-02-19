@@ -42,11 +42,11 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 
 	function getFieldMessages() {
 		$headers = array(
-			'th_timestamp' => 'lqt-history-time',
-			'thread_subject' => 'lqt-history-thread',
-			'th_user_text' => 'lqt-history-user',
-			'th_change_type' => 'lqt-history-action',
-			'th_change_comment' => 'lqt-history-comment',
+			'th_timestamp' => $this->msg( 'lqt-history-time' )->text(),
+			'thread_subject' => $this->msg( 'lqt-history-thread' )->text(),
+			'th_user_text' => $this->msg( 'lqt-history-user' )->text(),
+			'th_change_type' => $this->msg( 'lqt-history-action' )->text(),
+			'th_change_comment' => $this->msg( 'lqt-history-comment' )->text(),
 			);
 
 		return $headers;
