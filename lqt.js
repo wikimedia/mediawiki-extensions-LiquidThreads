@@ -1146,11 +1146,14 @@ window.liquidThreads = {
 			}
 
 			// Show the warning
-			var msg = mw.msg('lqt-sign-not-necessary');
-			var elem = $('<div id="lqt-sign-warning" class="error"/>');
-			elem.text(msg);
+			var elem = $( '<div>' ).attr( { 'id': 'lqt-sign-warning', 'class': 'error' } ).text( mw.msg( 'lqt-sign-not-necessary' ) ),
+				$weTop = $( this ).closest( '.lqt-edit-form' ).find( '.wikiEditor-ui-top' );
 
-			$(this).before( elem );
+			if ( $weTop.length ) {
+				$weTop.before( elem );
+			} else {
+				$( this ).before( elem );
+			}
 		} else {
 			prevWarning.remove();
 		}
