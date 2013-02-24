@@ -194,6 +194,7 @@ To avoid this, split them from this thread before deleting it.',
 	'lqt-log-action-merge-down' => 'merged [[$1]] to underneath [[$3]]',
 	'lqt-log-action-subjectedit' => 'changed the subject of [[$1]] from "$2" to "$3"',
 	'lqt-log-action-resort' => 'modified the sort order of [[$1]]. Changed sort key from $2 to $3',
+	'lqt-log-action-signatureedit' => 'changed the signature of [[$1]] from "$2" to "$3"',
 
 	// Preferences
 	'lqt-preference-notify-talk' => 'E-mail me on replies to a thread I am watching',
@@ -533,10 +534,14 @@ threads on a wiki',
 	'right-lqt-merge' => '{{doc-right|lqt-merge}}',
 	'right-lqt-react' => '{{doc-right|lqt-react}}',
 	'lqt-log-name' => '{{doc-logpage}}',
-	'lqt-log-action-move' => 'Parameteres:
+	'lqt-log-action-move' => 'Parameters:
 * $1 is the link text to the topic
 * $2 is the link text to the source page the topic was moved from
 * $3 is the link text to the target page the topic was moved to',
+	'lqt-log-action-signatureedit' => 'Parameters:
+* $1 is the link text to the topic
+* $2 is the old signature text
+* $3 is the new signature text',
 	'lqt-preference-notify-talk' => 'This appears in [[Special:Preferences]]. The wording should be similar to {{msg-mw|tog-enotifwatchlistpages}}.',
 	'lqt-preference-watch-threads' => 'The wording of this message should be similar to {{msg-mw|tog-watchdefault}}.',
 	'lqt-preference-display-depth' => "Used in Special:Preferences, tab Threaded Discussion (where Liquid Thread extension is installed).

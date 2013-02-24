@@ -236,7 +236,7 @@ $wgLogTypes[] = 'liquidthreads';
 $wgLogNames['liquidthreads']		  = 'lqt-log-name';
 $wgLogHeaders['liquidthreads']		  = 'lqt-log-header';
 
-foreach ( array( 'move', 'split', 'merge', 'subjectedit', 'resort' ) as $action ) {
+foreach ( array( 'move', 'split', 'merge', 'subjectedit', 'resort', 'signatureedit' ) as $action ) {
 	$wgLogActionsHandlers["liquidthreads/$action"] = 'LqtLogFormatter::formatLogEntry';
 }
 
