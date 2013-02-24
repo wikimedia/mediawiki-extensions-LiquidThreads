@@ -105,13 +105,13 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 
 		$oldid = $this->request->getInt( 'lqt_oldid' );
 		$this->mDisplayRevision = ThreadRevision::loadFromId( $oldid );
-
-		$this->thread = $this->mDisplayRevision->getThreadObj();
-
 		if ( !$this->mDisplayRevision ) {
 			$this->showMissingThreadPage();
 			return false;
-		} elseif ( !$this->thread ) {
+		}
+
+		$this->thread = $this->mDisplayRevision->getThreadObj();
+		if ( !$this->thread ) {
 			$this->output->addWikiMsg( 'lqt-historicalrevision-error' );
 			return false;
 		}
