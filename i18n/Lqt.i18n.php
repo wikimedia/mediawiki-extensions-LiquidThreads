@@ -164,6 +164,8 @@ To avoid this, split them from this thread before deleting it.',
 	'lqt-newmessages-from' => 'From $1',
 	'lqt-hot-topics' => 'Hot topics',
 	'lqt-add-reply' => 'Add a reply',
+	// Thread sort button
+	'lqt-changesortorder' => 'Sort',
 
 	// Recent changes display
 	'lqt_rc_new_discussion' => "posted a new thread, \"$1\"",
@@ -625,6 +627,7 @@ Link at the top of the page for logged-in users. Parameters:
 	'lqt-reply-subpage' => 'Part of the page title when a LiquidThread answer is given. Should probably be translated as a noun and not as a verb.
 
 {{Identical|Reply}}',
+	'lqt-changesortorder' => 'The text of the sort button for threads. {{mw-msg|go}} used to be used for this.',
 	'nstab-thread' => 'Used as tab title of the Thread namespace.
 {{Identical|Thread}}',
 	'nstab-summary' => 'Used as tab title for the Summary namespace.
