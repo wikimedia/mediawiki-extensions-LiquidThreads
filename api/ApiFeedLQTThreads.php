@@ -109,11 +109,17 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		foreach ( (array)$params['thread'] as $thread ) {
 			$t = Title::newFromText( $thread );
+			if ( !$t ) {
+				continue;
+			}
 			$fromPlaces[] = $t->getPrefixedText();
 		}
 
 		foreach ( (array)$params['talkpage'] as $talkpage ) {
 			$t = Title::newFromText( $talkpage );
+			if ( !$t ) {
+				continue;
+			}
 			$fromPlaces[] = $t->getPrefixedText();
 		}
 
