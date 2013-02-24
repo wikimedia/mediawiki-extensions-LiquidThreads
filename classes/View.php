@@ -1340,13 +1340,19 @@ class LqtView {
 		if ( !$this->user->isAnon() && !$thread->title()->userIsWatching() ) {
 			$commands['watch'] = array(
 				'label' => wfMessage( 'watch' )->parse(),
-				'href' => self::permalinkUrlWithQuery( $thread, 'action=watch' ),
+				'href' => self::permalinkUrlWithQuery(
+					$thread,
+					array( 'action' => 'watch', 'token' => WatchAction::getWatchToken( $thread->title(), $this->user, 'watch' ) )
+				),
 				'enabled' => true
 			);
 		} elseif ( !$this->user->isAnon() ) {
 			$commands['unwatch'] = array(
 				'label' => wfMessage( 'unwatch' )->parse(),
-				'href' => self::permalinkUrlWithQuery( $thread, 'action=unwatch' ),
+				'href' => self::permalinkUrlWithQuery(
+					$thread,
+					array( 'action' => 'unwatch', 'token' => WatchAction::getWatchToken( $thread->title(), $this->user, 'unwatch' ) )
+				),
 				'enabled' => true
 			);
 		}

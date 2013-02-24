@@ -83,7 +83,7 @@ $wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
 		'jquery.ui.dialog',
 		'jquery.ui.droppable',
 		'mediawiki.action.edit.preview',
-		'user.tokens',
+		'mediawiki.api.watch',
 	),
 	'messages' => $lqtMessages
 );
