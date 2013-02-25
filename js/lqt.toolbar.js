@@ -948,7 +948,7 @@ liquidThreads.toolbar = {
 						</div>\
 					</div>\
 				</fieldset>',
-			init: function() {
+			init: function () {
 				function isExternalLink( s ) {
 					// The following things are considered to be external links:
 					// * Starts a URL protocol
@@ -959,7 +959,7 @@ liquidThreads.toolbar = {
 					if ( arguments.callee.regex === undefined ) {
 						// Cache the regex
 						arguments.callee.regex =
-							new RegExp( "^(" + mw.config.get( 'wgUrlProtocols' ) + "|www\\.)", 'i');
+							new RegExp( "^(" + mw.config.get( 'wgUrlProtocols' ) + "|www\\.)", 'i' );
 					}
 					return s.match( arguments.callee.regex );
 				}
@@ -978,8 +978,8 @@ liquidThreads.toolbar = {
 							.addClass( 'disabled' );
 					} else {
 						$( '.ui-dialog:visible .ui-dialog-buttonpane button:first' )
-							.removeAttr('disabled')
-							.removeClass('disabled');
+							.removeAttr( 'disabled' )
+							.removeClass( 'disabled' );
 					}
 				}
 				// Updates the UI to show if the page title being inputed by the user exists or not
@@ -1035,7 +1035,7 @@ liquidThreads.toolbar = {
 								titles: target,
 								format: 'json'
 							},
-							success: function( data ) {
+							success: function ( data ) {
 								if ( !data ) {
 									// This happens in some weird cases
 									return;
@@ -1062,8 +1062,8 @@ liquidThreads.toolbar = {
 						} )
 					);
 				}
-				$( '#wikieditor-toolbar-link-type-int, #wikieditor-toolbar-link-type-ext' ).click( function() {
-					if( $( '#wikieditor-toolbar-link-type-ext' ).is( ':checked' ) ) {
+				$( '#wikieditor-toolbar-link-type-int, #wikieditor-toolbar-link-type-ext' ).click( function () {
+					if ( $( '#wikieditor-toolbar-link-type-ext' ).is( ':checked' ) ) {
 						// Abort previous request
 						var request = $( '#wikieditor-toolbar-link-int-target-status' ).data( 'request' );
 						if ( request ) {
@@ -1071,23 +1071,23 @@ liquidThreads.toolbar = {
 						}
 						updateWidget( 'external' );
 					}
-					if( $( '#wikieditor-toolbar-link-type-int' ).is( ':checked' ) ) {
+					if ( $( '#wikieditor-toolbar-link-type-int' ).is( ':checked' ) ) {
 						updateExistence( true );
 					}
-				});
+				} );
 				// Set labels of tabs based on rel values
-				$(this).find( '[rel]' ).each( function() {
-					$(this).text( mw.msg( $(this).attr( 'rel' ) ) );
-				});
+				$( this ).find( '[rel]' ).each( function () {
+					$( this ).text( mw.msg( $( this ).attr( 'rel' ) ) );
+				} );
 				// Set tabindexes on form fields
-				$.wikiEditor.modules.dialogs.fn.setTabindexes( $(this).find( 'input' ).not( '[tabindex]' ) );
+				$.wikiEditor.modules.dialogs.fn.setTabindexes( $( this ).find( 'input' ).not( '[tabindex]' ) );
 				// Setup the tooltips in the textboxes
 				$( '#wikieditor-toolbar-link-int-target' )
 					.data( 'tooltip', mw.msg( 'wikieditor-toolbar-tool-link-int-target-tooltip' ) );
 				$( '#wikieditor-toolbar-link-int-text' )
 					.data( 'tooltip', mw.msg( 'wikieditor-toolbar-tool-link-int-text-tooltip' ) );
 				$( '#wikieditor-toolbar-link-int-target, #wikieditor-toolbar-link-int-text' )
-					.each( function() {
+					.each( function () {
 						if ( $( this ).val() === '' ) {
 							$( this )
 								.addClass( 'wikieditor-toolbar-dialog-hint' )
@@ -1095,38 +1095,38 @@ liquidThreads.toolbar = {
 								.data( 'tooltip-mode', true );
 						}
 					} )
-					.focus( function() {
-						if( $( this ).val() === $( this ).data( 'tooltip' ) ) {
+					.focus( function () {
+						if ( $( this ).val() === $( this ).data( 'tooltip' ) ) {
 							$( this )
 								.val( '' )
 								.removeClass( 'wikieditor-toolbar-dialog-hint' )
 								.data( 'tooltip-mode', false );
 						}
-					})
-					.bind( 'change', function() {
+					} )
+					.bind( 'change', function () {
 						if ( $( this ).val() !== $( this ).data( 'tooltip' ) ) {
 							$( this )
 								.removeClass( 'wikieditor-toolbar-dialog-hint' )
 								.data( 'tooltip-mode', false );
 						}
-					})
-					.bind( 'blur', function() {
+					} )
+					.bind( 'blur', function () {
 						if ( $( this ).val() === '' ) {
 							$( this )
 								.addClass( 'wikieditor-toolbar-dialog-hint' )
 								.val( $( this ).data( 'tooltip' ) )
 								.data( 'tooltip-mode', true );
 						}
-					});
+					} );
 
 				// Automatically copy the value of the internal link page title field to the link text field unless the user
 				// has changed the link text field - this is a convenience thing since most link texts are going to be the
 				// the same as the page title
 				// Also change the internal/external radio button accordingly
-				$( '#wikieditor-toolbar-link-int-target' ).bind( 'change keydown paste cut', function() {
-					// $(this).val() is the old value, before the keypress
-					// Defer this until $(this).val() has been updated
-					setTimeout( function() {
+				$( '#wikieditor-toolbar-link-int-target' ).bind( 'change keydown paste cut', function () {
+					// $( this ).val() is the old value, before the keypress
+					// Defer this until $( this ).val() has been updated
+					setTimeout( function () {
 						if ( isExternalLink( $( '#wikieditor-toolbar-link-int-target' ).val() ) ) {
 							$( '#wikieditor-toolbar-link-type-ext' ).attr( 'checked', 'checked' );
 							updateWidget( 'external' );
@@ -1148,17 +1148,17 @@ liquidThreads.toolbar = {
 							}
 						}
 					}, 0 );
-				});
-				$( '#wikieditor-toolbar-link-int-text' ).bind( 'change keydown paste cut', function() {
-					var oldVal = $(this).val(),
+				} );
+				$( '#wikieditor-toolbar-link-int-text' ).bind( 'change keydown paste cut', function () {
+					var oldVal = $( this ).val(),
 						that = this;
 
-					setTimeout( function() {
-						if ( $(that).val() !== oldVal ) {
-							$(that).data( 'untouched', false );
+					setTimeout( function () {
+						if ( $( that ).val() !== oldVal ) {
+							$( that ).data( 'untouched', false );
 						}
 					}, 0 );
-				});
+				} );
 
 				// Add images to the page existence widget, which will be shown mutually exclusively to communicate if the
 				// page exists, does not exist or the title is invalid (like if it contains a | character)
@@ -1197,20 +1197,20 @@ liquidThreads.toolbar = {
 					.children().hide();
 
 				$( '#wikieditor-toolbar-link-int-target' )
-					.bind( 'keyup paste cut', function() {
+					.bind( 'keyup paste cut', function () {
 						// Cancel the running timer if applicable
 						if ( $( this ).data( 'timerID' ) !== undefined ) {
-							clearTimeout( $(this).data( 'timerID' ) );
+							clearTimeout( $( this ).data( 'timerID' ) );
 						}
 						// Delay fetch for a while
 						// FIXME: Make 120 configurable elsewhere
 						var timerID = setTimeout( updateExistence, 120 );
-						$(this).data( 'timerID', timerID );
+						$( this ).data( 'timerID', timerID );
 					} )
-					.change( function() {
+					.change( function () {
 						// Cancel the running timer if applicable
 						if ( $( this ).data( 'timerID' ) !== undefined ) {
-							clearTimeout( $(this).data( 'timerID' ) );
+							clearTimeout( $( this ).data( 'timerID' ) );
 						}
 						// Fetch right now
 						updateExistence();
@@ -1220,16 +1220,16 @@ liquidThreads.toolbar = {
 				$( '#wikieditor-toolbar-link-int-target' ).data( 'suggcache', {} ).suggestions( {
 					fetch: function () {
 						var that = this,
-							title = $(this).val();
+							title = $( this ).val();
 
-						if ( isExternalLink( title ) || title.indexOf( '|' ) !== -1  || title === '') {
-							$(this).suggestions( 'suggestions', [] );
+						if ( isExternalLink( title ) || title.indexOf( '|' ) !== -1  || title === '' ) {
+							$( this ).suggestions( 'suggestions', [] );
 							return;
 						}
 
-						var cache = $(this).data( 'suggcache' );
+						var cache = $( this ).data( 'suggcache' );
 						if ( cache[title] !== undefined ) {
-							$(this).suggestions( 'suggestions', cache[title] );
+							$( this ).suggestions( 'suggestions', cache[title] );
 							return;
 						}
 
@@ -1243,27 +1243,27 @@ liquidThreads.toolbar = {
 								format: 'json'
 							},
 							dataType: 'json',
-							success: function( data ) {
+							success: function ( data ) {
 								cache[title] = data[1];
-								$(that).suggestions( 'suggestions', data[1] );
+								$( that ).suggestions( 'suggestions', data[1] );
 							}
-						});
+						} );
 
-						$(this).data( 'request', request );
+						$( this ).data( 'request', request );
 					},
-					cancel: function() {
-						var request = $(this).data( 'request' );
+					cancel: function () {
+						var request = $( this ).data( 'request' );
 						if ( request ) {
 							request.abort();
 						}
 					}
-				});
+				} );
 			},
 			dialog: {
 				width: 500,
 				dialogClass: 'wikiEditor-toolbar-dialog',
 				buttons: {
-					'wikieditor-toolbar-tool-link-insert': function() {
+					'wikieditor-toolbar-tool-link-insert': function () {
 						function escapeInternalText( s ) {
 							return s.replace( /(\]{2,})/g, '<nowiki>$1</nowiki>' );
 						}
@@ -1320,20 +1320,20 @@ liquidThreads.toolbar = {
 							}
 
 							// Detect if this is really an internal link in disguise
-							var match = target.match( $(this).data( 'articlePathRegex' ) );
-							if ( match && !$(this).data( 'ignoreLooksInternal' ) ) {
-								var buttons = { },
+							var match = target.match( $( this ).data( 'articlePathRegex' ) );
+							if ( match && !$( this ).data( 'ignoreLooksInternal' ) ) {
+								var buttons = {},
 									that = this;
 
-								buttons[ mw.msg( 'wikieditor-toolbar-tool-link-lookslikeinternal-int' ) ] = function() {
+								buttons[ mw.msg( 'wikieditor-toolbar-tool-link-lookslikeinternal-int' ) ] = function () {
 									$( '#wikieditor-toolbar-link-int-target' ).val( match[1] ).change();
-									$(this).dialog( 'close' );
+									$( this ).dialog( 'close' );
 								};
-								buttons[ mw.msg( 'wikieditor-toolbar-tool-link-lookslikeinternal-ext' ) ] = function() {
-									$(that).data( 'ignoreLooksInternal', true );
-									$(that).closest( '.ui-dialog' ).find( 'button:first' ).click();
-									$(that).data( 'ignoreLooksInternal', false );
-									$(this).dialog( 'close' );
+								buttons[ mw.msg( 'wikieditor-toolbar-tool-link-lookslikeinternal-ext' ) ] = function () {
+									$( that ).data( 'ignoreLooksInternal', true );
+									$( that ).closest( '.ui-dialog' ).find( 'button:first' ).click();
+									$( that ).data( 'ignoreLooksInternal', false );
+									$( this ).dialog( 'close' );
 								};
 								$.wikiEditor.modules.dialogs.quickDialog(
 									mw.msg( 'wikieditor-toolbar-tool-link-lookslikeinternal', match[1] ),
@@ -1357,34 +1357,34 @@ liquidThreads.toolbar = {
 						if ( whitespace ) {
 							insertText = whitespace[0] + insertText + whitespace[1];
 						}
-						$(this).dialog( 'close' );
-						$.wikiEditor.modules.toolbar.fn.doAction( $(this).data( 'context' ), {
+						$( this ).dialog( 'close' );
+						$.wikiEditor.modules.toolbar.fn.doAction( $( this ).data( 'context' ), {
 							type: 'replace',
 							options: {
 								pre: insertText
 							}
-						}, $(this) );
+						}, $( this ) );
 
 						// Blank form
 						$( '#wikieditor-toolbar-link-int-target, #wikieditor-toolbar-link-int-text' ).val( '' );
 						$( '#wikieditor-toolbar-link-type-int, #wikieditor-toolbar-link-type-ext' ).attr( 'checked', '' );
 					},
-					'wikieditor-toolbar-tool-link-cancel': function() {
+					'wikieditor-toolbar-tool-link-cancel': function () {
 						// Clear any saved selection state
-						var context = $(this).data( 'context' );
+						var context = $( this ).data( 'context' );
 						context.fn.restoreSelection();
-						$(this).dialog( 'close' );
+						$( this ).dialog( 'close' );
 					}
 				},
-				open: function() {
+				open: function () {
 					// Cache the articlepath regex
-					$(this).data( 'articlePathRegex', new RegExp(
+					$( this ).data( 'articlePathRegex', new RegExp(
 						'^' + $.escapeRE( mw.config.get( 'wgServer' ) + mw.config.get( 'wgArticlePath' ) )
 							.replace( /\\\$1/g, '(.*)' ) + '$'
 					) );
 
 					// Pre-fill the text fields based on the current selection
-					var context = $(this).data( 'context' );
+					var context = $( this ).data( 'context' );
 
 					// Restore and immediately save selection state, needed for inserting stuff later
 					context.fn.restoreSelection();
@@ -1448,34 +1448,34 @@ liquidThreads.toolbar = {
 					$( '#wikieditor-toolbar-link-int-target' ).suggestions();
 
 					//don't overwrite user's text
-					if( selection !== '' ){
+					if ( selection !== '' ){
 						$( '#wikieditor-toolbar-link-int-text' ).data( 'untouched', false );
 					}
 
 					$( '#wikieditor-toolbar-link-int-text, #wikiedit-toolbar-link-int-target' )
-						.each( function() {
-							if ( $(this).val() === '' ) {
-								$(this).parent().find( 'label' ).show();
+						.each( function () {
+							if ( $( this ).val() === '' ) {
+								$( this ).parent().find( 'label' ).show();
 							}
-						});
+						} );
 
-					if ( !( $(this).data( 'dialogkeypressset' ) ) ) {
-						$(this).data( 'dialogkeypressset', true );
+					if ( !( $( this ).data( 'dialogkeypressset' ) ) ) {
+						$( this ).data( 'dialogkeypressset', true );
 						// Execute the action associated with the first button
 						// when the user presses Enter
-						$(this).closest( '.ui-dialog' ).keypress( function( e ) {
+						$( this ).closest( '.ui-dialog' ).keypress( function ( e ) {
 							if ( ( e.keyCode || e.which ) === 13 ) {
-								var button = $(this).data( 'dialogaction' ) || $(this).find( 'button:first' );
+								var button = $( this ).data( 'dialogaction' ) || $( this ).find( 'button:first' );
 								button.click();
 								e.preventDefault();
 							}
-						});
+						} );
 
 						// Make tabbing to a button and pressing
 						// Enter do what people expect
-						$(this).closest( '.ui-dialog' ).find( 'button' ).focus( function() {
-							$(this).closest( '.ui-dialog' ).data( 'dialogaction', this );
-						});
+						$( this ).closest( '.ui-dialog' ).find( 'button' ).focus( function () {
+							$( this ).closest( '.ui-dialog' ).data( 'dialogaction', this );
+						} );
 					}
 				}
 			}
@@ -1485,18 +1485,18 @@ liquidThreads.toolbar = {
 			titleMsg: 'wikieditor-toolbar-tool-reference-title',
 			id: 'wikieditor-toolbar-reference-dialog',
 			html: '\
-			<div class="wikieditor-toolbar-dialog-wrapper">\
-			<fieldset><div class="wikieditor-toolbar-table-form">\
-				<div class="wikieditor-toolbar-field-wrapper">\
-					<label for="wikieditor-toolbar-reference-text"\
-						rel="wikieditor-toolbar-tool-reference-text"></label>\
-					<input type="text" id="wikieditor-toolbar-reference-text" />\
-				</div>\
-			</div></fieldset>\
-			</div>',
-			init: function() {
+				<div class="wikieditor-toolbar-dialog-wrapper">\
+				<fieldset><div class="wikieditor-toolbar-table-form">\
+					<div class="wikieditor-toolbar-field-wrapper">\
+						<label for="wikieditor-toolbar-reference-text"\
+							rel="wikieditor-toolbar-tool-reference-text"></label>\
+						<input type="text" id="wikieditor-toolbar-reference-text" />\
+					</div>\
+				</div></fieldset>\
+				</div>',
+			init: function () {
 				// Insert translated strings into labels
-				$( this ).find( '[rel]' ).each( function() {
+				$( this ).find( '[rel]' ).each( function () {
 					$( this ).text( mw.msg( $( this ).attr( 'rel' ) ) );
 				} );
 
@@ -1505,7 +1505,7 @@ liquidThreads.toolbar = {
 				dialogClass: 'wikiEditor-toolbar-dialog',
 				width: 590,
 				buttons: {
-					'wikieditor-toolbar-tool-reference-insert': function() {
+					'wikieditor-toolbar-tool-reference-insert': function () {
 						var insertText = $( '#wikieditor-toolbar-reference-text' ).val();
 						var whitespace = $( '#wikieditor-toolbar-reference-dialog' ).data( 'whitespace' );
 						var attributes = $( '#wikieditor-toolbar-reference-dialog' ).data( 'attributes' );
@@ -1526,16 +1526,16 @@ liquidThreads.toolbar = {
 						// Restore form state
 						$( '#wikieditor-toolbar-reference-text' ).val( "" );
 					},
-					'wikieditor-toolbar-tool-reference-cancel': function() {
+					'wikieditor-toolbar-tool-reference-cancel': function () {
 						// Clear any saved selection state
 						var context = $( this ).data( 'context' );
 						context.fn.restoreSelection();
 						$( this ).dialog( 'close' );
 					}
 				},
-				open: function() {
+				open: function () {
 					// Pre-fill the text fields based on the current selection
-					var context = $(this).data( 'context' );
+					var context = $( this ).data( 'context' );
 					// Restore and immediately save selection state, needed for inserting stuff later
 					context.fn.restoreSelection();
 					context.fn.saveSelection();
@@ -1561,7 +1561,7 @@ liquidThreads.toolbar = {
 						$( this ).data( 'dialogkeypressset', true );
 						// Execute the action associated with the first button
 						// when the user presses Enter
-						$( this ).closest( '.ui-dialog' ).keypress( function( e ) {
+						$( this ).closest( '.ui-dialog' ).keypress( function ( e ) {
 							if ( ( e.keyCode || e.which ) === 13 ) {
 								var button = $( this ).data( 'dialogaction' ) || $( this ).find( 'button:first' );
 								button.click();
@@ -1570,7 +1570,7 @@ liquidThreads.toolbar = {
 						} );
 						// Make tabbing to a button and pressing
 						// Enter do what people expect
-						$( this ).closest( '.ui-dialog' ).find( 'button' ).focus( function() {
+						$( this ).closest( '.ui-dialog' ).find( 'button' ).focus( function () {
 							$( this ).closest( '.ui-dialog' ).data( 'dialogaction', this );
 						} );
 					}
@@ -1645,18 +1645,18 @@ liquidThreads.toolbar = {
 						</table>\
 					</div>\
 				</div></div>',
-			init: function() {
-				$(this).find( '[rel]' ).each( function() {
-					$(this).text( mw.msg( $(this).attr( 'rel' ) ) );
-				});
+			init: function () {
+				$( this ).find( '[rel]' ).each( function () {
+					$( this ).text( mw.msg( $( this ).attr( 'rel' ) ) );
+				} );
 				// Set tabindexes on form fields
-				$.wikiEditor.modules.dialogs.fn.setTabindexes( $(this).find( 'input' ).not( '[tabindex]' ) );
+				$.wikiEditor.modules.dialogs.fn.setTabindexes( $( this ).find( 'input' ).not( '[tabindex]' ) );
 
 				$( '#wikieditor-toolbar-table-dimensions-rows' ).val( 3 );
 				$( '#wikieditor-toolbar-table-dimensions-columns' ).val( 3 );
-				$( '#wikieditor-toolbar-table-wikitable' ).click( function() {
+				$( '#wikieditor-toolbar-table-wikitable' ).click( function () {
 					$( '.wikieditor-toolbar-table-preview' ).toggleClass( 'wikitable' );
-				});
+				} );
 
 				// Hack for sortable preview: dynamically adding
 				// sortable class doesn't work, so we use a clone
@@ -1669,7 +1669,7 @@ liquidThreads.toolbar = {
 				if ( $.isFunction( jQuery.fn.tablesorter ) ) {
 						$( '#wikieditor-toolbar-table-preview2' ).tablesorter();
 				}
-				$( '#wikieditor-toolbar-table-sortable' ).click( function() {
+				$( '#wikieditor-toolbar-table-sortable' ).click( function () {
 					// Swap the currently shown one clone with the other one
 					$( '#wikieditor-toolbar-table-preview' )
 						.hide()
@@ -1678,9 +1678,9 @@ liquidThreads.toolbar = {
 						.attr( 'id', 'wikieditor-toolbar-table-preview' )
 						.show();
 					$( '#wikieditor-toolbar-table-preview3' ).attr( 'id', 'wikieditor-toolbar-table-preview2' );
-				});
+				} );
 
-				$( '#wikieditor-toolbar-table-dimensions-header' ).click( function() {
+				$( '#wikieditor-toolbar-table-dimensions-header' ).click( function () {
 					// Instead of show/hiding, switch the HTML around
 					// We do this because the sortable tables script styles the first row,
 					// visible or not
@@ -1693,7 +1693,7 @@ liquidThreads.toolbar = {
 								.filter( '.sortable' )
 								.tablesorter();
 					}
-				});
+				} );
 
 			},
 			dialog: {
@@ -1701,7 +1701,7 @@ liquidThreads.toolbar = {
 				dialogClass: 'wikiEditor-toolbar-dialog',
 				width: 590,
 				buttons: {
-					'wikieditor-toolbar-tool-table-insert': function() {
+					'wikieditor-toolbar-tool-table-insert': function () {
 						var rowsVal = $( '#wikieditor-toolbar-table-dimensions-rows' ).val();
 						var colsVal = $( '#wikieditor-toolbar-table-dimensions-columns' ).val();
 						var rows = parseInt( rowsVal, 10 );
@@ -1746,9 +1746,9 @@ liquidThreads.toolbar = {
 						}
 
 						var classStr = classes.length > 0 ? ' class="' + classes.join( ' ' ) + '"' : '';
-						$(this).dialog( 'close' );
+						$( this ).dialog( 'close' );
 						$.wikiEditor.modules.toolbar.fn.doAction(
-							$(this).data( 'context' ),
+							$( this ).data( 'context' ),
 							{
 								type: 'replace',
 								options: {
@@ -1758,7 +1758,7 @@ liquidThreads.toolbar = {
 									ownline: true
 								}
 							},
-							$(this)
+							$( this )
 						);
 
 						// Restore form state
@@ -1778,29 +1778,29 @@ liquidThreads.toolbar = {
 								$( '#wikieditor-toolbar-table-sortable' ).click();
 							}
 					},
-					'wikieditor-toolbar-tool-table-cancel': function() {
-						$(this).dialog( 'close' );
+					'wikieditor-toolbar-tool-table-cancel': function () {
+						$( this ).dialog( 'close' );
 					}
 				},
-				open: function() {
+				open: function () {
 					$( '#wikieditor-toolbar-table-dimensions-rows' ).focus();
-					if ( !( $(this).data( 'dialogkeypressset' ) ) ) {
-						$(this).data( 'dialogkeypressset', true );
+					if ( !( $( this ).data( 'dialogkeypressset' ) ) ) {
+						$( this ).data( 'dialogkeypressset', true );
 						// Execute the action associated with the first button
 						// when the user presses Enter
-						$(this).closest( '.ui-dialog' ).keypress( function( e ) {
+						$( this ).closest( '.ui-dialog' ).keypress( function ( e ) {
 							if ( ( e.keyCode || e.which ) === 13 ) {
-								var button = $(this).data( 'dialogaction' ) || $(this).find( 'button:first' );
+								var button = $( this ).data( 'dialogaction' ) || $( this ).find( 'button:first' );
 								button.click();
 								e.preventDefault();
 							}
-						});
+						} );
 
 						// Make tabbing to a button and pressing
 						// Enter do what people expect
-						$(this).closest( '.ui-dialog' ).find( 'button' ).focus( function() {
-							$(this).closest( '.ui-dialog' ).data( 'dialogaction', this );
-						});
+						$( this ).closest( '.ui-dialog' ).find( 'button' ).focus( function () {
+							$( this ).closest( '.ui-dialog' ).data( 'dialogaction', this );
+						} );
 					}
 				}
 			}
@@ -1852,15 +1852,15 @@ liquidThreads.toolbar = {
 						<label for="wikieditor-toolbar-replace-regex" rel="wikieditor-toolbar-tool-replace-regex"></label>\
 					</div>\
 				</fieldset>',
-			init: function() {
-				$(this).find( '[rel]' ).each( function() {
-					$(this).text( mw.msg( $(this).attr( 'rel' ) ) );
-				});
+			init: function () {
+				$( this ).find( '[rel]' ).each( function () {
+					$( this ).text( mw.msg( $( this ).attr( 'rel' ) ) );
+				} );
 				// Set tabindexes on form fields
-				$.wikiEditor.modules.dialogs.fn.setTabindexes( $(this).find( 'input' ).not( '[tabindex]' ) );
+				$.wikiEditor.modules.dialogs.fn.setTabindexes( $( this ).find( 'input' ).not( '[tabindex]' ) );
 
 				// TODO: Find a cleaner way to share this function
-				$(this).data( 'replaceCallback', function( mode ) {
+				$( this ).data( 'replaceCallback', function ( mode ) {
 					$( '#wikieditor-toolbar-replace-nomatch, #wikieditor-toolbar-replace-success, #wikieditor-toolbar-replace-emptysearch, #wikieditor-toolbar-replace-invalidregex' ).hide();
 					var searchStr = $( '#wikieditor-toolbar-replace-search' ).val();
 					if ( searchStr === '' ) {
@@ -1890,12 +1890,12 @@ liquidThreads.toolbar = {
 							.show();
 						return;
 					}
-					var $textarea = $(this).data( 'context' ).$textarea;
+					var $textarea = $( this ).data( 'context' ).$textarea;
 					var text = $textarea.textSelection( 'getContents' );
 					var match = false;
 					var offset, s;
 					if ( mode !== 'replaceAll' ) {
-						offset = $(this).data( 'offset' );
+						offset = $( this ).data( 'offset' );
 						s = text.substr( offset );
 						match = s.match( regex );
 					}
@@ -1936,7 +1936,7 @@ liquidThreads.toolbar = {
 						$( '#wikieditor-toolbar-replace-success' )
 							.text( mw.msg( 'wikieditor-toolbar-tool-replace-success', match.length ) )
 							.show();
-						$(this).data( 'offset', 0 );
+						$( this ).data( 'offset', 0 );
 					} else {
 						var start = match.index + offset;
 						var end = start + match[0].length;
@@ -1960,52 +1960,52 @@ liquidThreads.toolbar = {
 						var textbox = context.$iframe !== undefined ? context.$iframe[0].contentWindow : $textarea[0];
 						textbox.focus();
 					}
-				});
+				} );
 			},
 			dialog: {
 				width: 500,
 				dialogClass: 'wikiEditor-toolbar-dialog',
 				buttons: {
-					'wikieditor-toolbar-tool-replace-button-findnext': function( e ) {
-						$(this).closest( '.ui-dialog' ).data( 'dialogaction', e.target );
-						$(this).data( 'replaceCallback' ).call( this, 'find' );
+					'wikieditor-toolbar-tool-replace-button-findnext': function ( e ) {
+						$( this ).closest( '.ui-dialog' ).data( 'dialogaction', e.target );
+						$( this ).data( 'replaceCallback' ).call( this, 'find' );
 					},
-					'wikieditor-toolbar-tool-replace-button-replace': function( e ) {
-						$(this).closest( '.ui-dialog' ).data( 'dialogaction', e.target );
-						$(this).data( 'replaceCallback' ).call( this, 'replace' );
+					'wikieditor-toolbar-tool-replace-button-replace': function ( e ) {
+						$( this ).closest( '.ui-dialog' ).data( 'dialogaction', e.target );
+						$( this ).data( 'replaceCallback' ).call( this, 'replace' );
 					},
-					'wikieditor-toolbar-tool-replace-button-replaceall': function( e ) {
-						$(this).closest( '.ui-dialog' ).data( 'dialogaction', e.target );
-						$(this).data( 'replaceCallback' ).call( this, 'replaceAll' );
+					'wikieditor-toolbar-tool-replace-button-replaceall': function ( e ) {
+						$( this ).closest( '.ui-dialog' ).data( 'dialogaction', e.target );
+						$( this ).data( 'replaceCallback' ).call( this, 'replaceAll' );
 					},
-					'wikieditor-toolbar-tool-replace-close': function() {
-						$(this).dialog( 'close' );
+					'wikieditor-toolbar-tool-replace-close': function () {
+						$( this ).dialog( 'close' );
 					}
 				},
-				open: function() {
-					$(this).data( 'offset', 0 );
+				open: function () {
+					$( this ).data( 'offset', 0 );
 					$( '#wikieditor-toolbar-replace-search' ).focus();
 					$( '#wikieditor-toolbar-replace-nomatch, #wikieditor-toolbar-replace-success, #wikieditor-toolbar-replace-emptysearch, #wikieditor-toolbar-replace-invalidregex' ).hide();
-					if ( !( $(this).data( 'onetimeonlystuff' ) ) ) {
-						$(this).data( 'onetimeonlystuff', true );
+					if ( !( $( this ).data( 'onetimeonlystuff' ) ) ) {
+						$( this ).data( 'onetimeonlystuff', true );
 						// Execute the action associated with the first button
 						// when the user presses Enter
-						$(this).closest( '.ui-dialog' ).keypress( function( e ) {
+						$( this ).closest( '.ui-dialog' ).keypress( function ( e ) {
 							if ( ( e.keyCode || e.which ) === 13 ) {
-								var button = $(this).data( 'dialogaction' ) || $(this).find( 'button:first' );
+								var button = $( this ).data( 'dialogaction' ) || $( this ).find( 'button:first' );
 								button.click();
 								e.preventDefault();
 							}
-						});
+						} );
 						// Make tabbing to a button and pressing
 						// Enter do what people expect
-						$(this).closest( '.ui-dialog' ).find( 'button' ).focus( function() {
-							$(this).closest( '.ui-dialog' ).data( 'dialogaction', this );
-						});
+						$( this ).closest( '.ui-dialog' ).find( 'button' ).focus( function () {
+							$( this ).closest( '.ui-dialog' ).data( 'dialogaction', this );
+						} );
 					}
-					var dialog = $(this).closest( '.ui-dialog' );
+					var dialog = $( this ).closest( '.ui-dialog' );
 					var that = this;
-					var context = $(this).data( 'context' );
+					var context = $( this ).data( 'context' );
 					var textbox = context.$iframe !== undefined ?
 						context.$iframe[0].contentWindow.document : context.$textarea;
 
@@ -2018,16 +2018,16 @@ liquidThreads.toolbar = {
 								e.preventDefault();
 							} else if ( ( e.keyCode || e.which ) === 27 ) {
 								// Escape
-								$(that).dialog( 'close' );
+								$( that ).dialog( 'close' );
 							}
-						});
+						} );
 				},
 				close: function () {
-					var context = $(this).data( 'context' ),
+					var context = $( this ).data( 'context' ),
 						textbox = context.$iframe !== undefined ?
 							context.$iframe[0].contentWindow.document : context.$textarea;
 					$( textbox ).unbind( 'keypress.srdialog' );
-					$(this).closest( '.ui-dialog' ).data( 'dialogaction', false );
+					$( this ).closest( '.ui-dialog' ).data( 'dialogaction', false );
 				}
 			}
 		}
