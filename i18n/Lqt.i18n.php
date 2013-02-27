@@ -197,14 +197,14 @@ To avoid this, split them from this thread before deleting it.',
 	'lqt-log-action-signatureedit' => 'changed the signature of [[$1]] from "$2" to "$3"',
 
 	// Preferences
-	'lqt-preference-notify-talk' => 'E-mail me on replies to a thread I am watching',
+	'lqt-preference-notify-talk' => 'Email me on replies to a thread I am watching',
 	'lqt-preference-watch-threads' => 'Watch threads that I create or reply to',
 	'prefs-lqt' => 'Threaded discussion',
 	'lqt-preference-display-depth' => 'Maximum reply depth to show:',
 	'lqt-preference-display-count' => 'Maximum number of replies to show:',
 	'lqt-preference-custom-signatures' => 'Show custom user signatures',
 
-	// E-mail notification
+	// Email notification
 	'lqt-enotif-subject-reply' => '{{SITENAME}} discussion - Reply: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} discussion - New thread: $1',
 	'lqt-enotif-newthread' => "Hi $1,
