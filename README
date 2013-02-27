@@ -8,9 +8,11 @@ hack Liquid Threads and make it more awesome.
 INSTALLATION:
 ============
 
-1. Rename this directory to extensions/LiquidThreads inside your
+1. This extension depends on WikiEditor, make sure you have the dependency
+   already installed.
+2. Rename this directory to extensions/LiquidThreads inside your
    MediaWiki directory.
-2. Add database tables from lqt.sql using the sql.php MediaWiki tool.
+3. Add database tables from lqt.sql using the sql.php MediaWiki tool.
    (On Unix, if the current directory is the MediaWiki root directory, you can
    say "php maintenance/sql.php extensions/LiquidThreads/lqt.sql".)
    If you haven't created the AdminSettings.php file, you will have to do that
@@ -19,7 +21,7 @@ INSTALLATION:
    "mysql -u $USER -p -e 'source lqt.sql'" on Unix), but you might have to
    edit it first, and replace the /*$wgDBprefix*/ and /*$wgDBTableOptions*/
    strings with the corresponding settings.
-3. Add this line to the end of your LocalSettings.php:
+4. Add this line to the end of your LocalSettings.php:
    require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
 
 Liquid Threads uses namespace numbers 90, 91, 92, and 93. If you are using
