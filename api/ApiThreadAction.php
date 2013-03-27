@@ -4,12 +4,6 @@ class ApiThreadAction extends ApiEditPage {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
-		if ( isset( $params['gettoken'] ) ) {
-			$result = array( 'token' => $this->getUser()->getEditToken() );
-			$this->getResult()->addValue( null, 'threadaction', $result );
-			return;
-		}
-
 		if ( !count( $params['threadaction'] ) ) {
 			$this->dieUsageMsg( array( 'missingparam', 'action' ) );
 		}
@@ -874,7 +868,6 @@ class ApiThreadAction extends ApiEditPage {
 			'value' => 'Specifies the value associated with the reaction to add',
 			'method' => 'For getting inline edit forms, the method to get a form for',
 			'operand' => '',
-			'gettoken' => 'Gets a thread token',
 		);
 	}
 
@@ -940,7 +933,6 @@ class ApiThreadAction extends ApiEditPage {
 			'value' => null,
 			'method' => null,
 			'operand' => null,
-			'gettoken' => null,
 		);
 	}
 

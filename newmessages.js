@@ -60,8 +60,9 @@ $.extend( liquidThreads, {
 
 		all: function () {
 			var tables = $('table.lqt-new-messages');
-			tables.fadeOut( 'slow',
-				function() { tables.remove(); } );
+			tables.fadeOut( 'slow', function () {
+				tables.remove();
+			} );
 		}
 	},
 
@@ -88,17 +89,14 @@ $.extend( liquidThreads, {
 		var spinner = $('<div class="mw-ajax-loader"/>');
 		$(form).prepend( spinner );
 
-		var markReadParameters = {
-			'action' : 'threadaction',
-			'threadaction' : 'markread',
-			'format' : 'json',
-			'thread' : threads
-		};
-
-		liquidThreads.apiRequest( markReadParameters,
-			function(e) {
+		( new mw.Api() ).post( {
+			action: 'threadaction',
+			threadaction: 'markread',
+			thread: threads,
+			token: mw.user.tokens.get( 'editToken' )
+		} ).done( function ( e ) {
 				liquidThreads.markReadDone.one(e,form.find('input[type=submit]'),operand);
-				$( 'li#pt-newmessages' ).html( $( '<a>', e.threadactions[e.threadactions.length - 1].unreadlink ) ); // Unreadlink will be on the last threadaction
+			$( 'li#pt-newmessages' ).html( $( '<a>', $( e.threadactions ).last().unreadlink ) ); // Unreadlink will be on the last threadaction
 				spinner.remove();
 			} );
 	},
@@ -107,14 +105,12 @@ $.extend( liquidThreads, {
 		var spinner = $('<div class="mw-ajax-loader"/>');
 		$(form).prepend( spinner );
 
-		var request = {
-			'action' : 'threadaction',
-			'threadaction' : 'markread',
-			'format' : 'json',
-			'thread' : 'all'
-		};
-
-		liquidThreads.apiRequest( request, function(res) {
+		( new mw.Api() ).post( {
+			action: 'threadaction',
+			threadaction: 'markread',
+			thread: 'all',
+			token: mw.user.tokens.get( 'editToken' )
+		} ).done( function ( res ) {
 			liquidThreads.markReadDone.all(res);
 			$( 'li#pt-newmessages' ).html( $( '<a>', res.threadactions[0].unreadlink ) );
 			spinner.remove();

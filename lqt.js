@@ -11,8 +11,8 @@
 
 window.wgWikiEditorIconVersion = 0;
 
-jQuery.getCSS = function( url, media ) {
-	jQuery( document.createElement('link') ).attr({
+$.getCSS = function ( url, media ) {
+	$( '<link>' ).attr( {
 		href: url,
 		media: media || 'screen',
 		type: 'text/css',
@@ -180,7 +180,7 @@ window.liquidThreads = {
 			$('.lqt-loader').remove();
 
 			if (preload) {
-				$("textarea", container)[0].value = preload;
+				$( 'textarea', container )[0].value = preload;
 			}
 
 			if ( isIE7 ) {
@@ -220,8 +220,7 @@ window.liquidThreads = {
 				mwSetupToolbar();
 			}
 			currentFocused = $(container).find('#wpTextbox1');
-			$(container).find('#wpTextbox1,#wpSummary').focus(
-				function() {
+			$( container ).find( '#wpTextbox1,#wpSummary' ).focus( function () {
 					currentFocused = this;
 				} );
 		};
@@ -233,13 +232,13 @@ window.liquidThreads = {
 				if ( isIE7 ) {
 					$(container).empty().show();
 				}
-				liquidThreads.loadInlineEditForm( params, container,
-					function() {
+				liquidThreads.loadInlineEditForm( params, container, function () {
 						mw.loader.using(
 							[ 'ext.wikiEditor', 'user.options',
 								'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.dialogs',
 								'jquery.async', 'jquery.cookie' ],
-							finishSetup );
+						finishSetup
+					);
 					} );
 			} );
 
@@ -248,11 +247,10 @@ window.liquidThreads = {
 	'loadInlineEditForm' : function( params, container, callback ) {
 		params.action = 'threadaction';
 		params.threadaction = 'inlineeditform';
+		params.token = mw.user.tokens.get( 'editToken' );
 
-		liquidThreads.apiRequest( params,
-			function(result) {
-				var content = $(result.threadaction.inlineeditform.html);
-				$(container).empty().append( content.contents() );
+		( new mw.Api() ).post( params ).done( function ( result ) {
+			$( container ).empty().append( $( result.threadaction.inlineeditform.html ).contents() );
 
 				callback();
 			} );
@@ -270,9 +268,7 @@ window.liquidThreads = {
 		else if (myField.selectionStart || myField.selectionStart === '0') {
 			var startPos = myField.selectionStart;
 			var endPos = myField.selectionEnd;
-			myField.value = myField.value.substring(0, startPos) +
-			myValue +
-			myField.value.substring(endPos, myField.value.length);
+			myField.value = myField.value.substring( 0, startPos ) + myValue + myField.value.substring( endPos, myField.value.length );
 		} else {
 			myField.value += myValue;
 		}
@@ -434,7 +430,6 @@ window.liquidThreads = {
 		subjectForm.data( 'thread-id', threadId );
 
 		header.append(subjectForm);
-
 	},
 
 	handleSubjectSave: function () {
@@ -459,10 +454,26 @@ window.liquidThreads = {
 			action: 'threadaction',
 			threadaction: 'setsubject',
 			subject: $.trim( newSubject ),
-			thread: threadId
+			thread: threadId,
+			token: mw.user.tokens.get( 'editToken' )
 		};
 
-		var errorHandler = function(reply) {
+		// Set new subject through API.
+		( new mw.Api() ).post( request ).done( function ( reply ) {
+			var result;
+
+			try {
+				result = reply.threadaction.thread.result;
+			} catch ( err ) {
+				result = 'error';
+			}
+
+			if ( result === 'success' ) {
+				spinner.remove();
+				header.next().find( '.lqt-command-edit-subject' ).show();
+
+				liquidThreads.doReloadThread( $( '#lqt_thread_id_' + threadId ) );
+			} else {
 			var code, description;
 			try {
 				code = reply.error.code;
@@ -481,26 +492,6 @@ window.liquidThreads = {
 				header.contents().filter('.mw-headline').show();
 				header.next().find('.lqt-command-edit-subject').show();
 			}
-		};
-
-		// Set new subject through API.
-		liquidThreads.apiRequest( request, function(reply) {
-			var result;
-
-			try {
-				result = reply.threadaction.thread.result;
-			} catch (err) {
-				result = 'error';
-			}
-
-			if ( result === 'success' ) {
-				spinner.remove();
-				header.next().find('.lqt-command-edit-subject').show();
-
-				var thread = $('#lqt_thread_id_'+threadId);
-				liquidThreads.doReloadThread( thread );
-			} else {
-				errorHandler(reply);
 			}
 		} );
 	},
@@ -519,7 +510,7 @@ window.liquidThreads = {
 			if ( tsField.length ) {
 				var oldTS = tsField.val();
 				// Prefix is lqt-thread-modified-
-				var threadID = tsField.attr('id').substr( "lqt-thread-modified-".length );
+				var threadID = tsField.attr( 'id' ).substr( 'lqt-thread-modified-'.length );
 				threadModifiedTS[threadID] = oldTS;
 				threads.push(threadID);
 			}
@@ -530,11 +521,12 @@ window.liquidThreads = {
 			return;
 		}
 
-		var getData = { 'action' : 'query', 'list' : 'threads', 'thid' : threads.join('|'),
-						'format' : 'json', 'thprop' : 'id|subject|parent|modified' };
-
-		$.get( mw.util.wikiScript( 'api' ), getData,
-			function(data) {
+		( new mw.Api() ).get( {
+			'action': 'query',
+			'list'  : 'threads',
+			'thid'  : threads.join( '|' ),
+			'thprop': 'id|subject|parent|modified'
+		} ).done ( function ( data ) {
 				var threads = data.query.threads;
 
 				$.each( threads, function( i, thread ) {
@@ -545,12 +537,12 @@ window.liquidThreads = {
 						liquidThreads.showUpdated(threadID);
 					}
 				} );
-			}, 'json' );
+		} );
 	},
 
 	'showUpdated' : function(id) {
 		// Check if there's already an updated marker here
-		var threadObject = $("#lqt_thread_id_"+id);
+		var threadObject = $( '#lqt_thread_id_' + id );
 
 		if ( threadObject.find('.lqt-updated-notification').length ) {
 			return;
@@ -588,11 +580,12 @@ window.liquidThreads = {
 		thread.prepend(loader);
 
 		// Build an AJAX request
-		var apiReq = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
-						'format' : 'json', 'thrender' : 1 };
-
-		$.get( mw.util.wikiScript( 'api' ), apiReq,
-			function(data) {
+		( new mw.Api() ).get( {
+			action  : 'query',
+			list    : 'threads',
+			thid    : threadId,
+			thrender: 1
+		} ).done( function ( data ) {
 				// Load data from JSON
 				var html = data.query.threads[threadId].content;
 				var newContent = $(html);
@@ -620,12 +613,11 @@ window.liquidThreads = {
 				// Scroll to the updated thread.
 				var targetOffset = $(thread).offset().top;
 				$('html, body').animate({scrollTop: targetOffset}, 'slow');
-
-			}, 'json' );
+		} );
 	},
 
 	'setupThread' : function(threadContainer) {
-		var prefixLength = "lqt_thread_id_".length;
+		var prefixLength = 'lqt_thread_id_'.length;
 		// Add the interruption class if it needs it
 		// FIXME: misses a lot of cases
 		$parentWrapper = $( threadContainer )
@@ -698,11 +690,13 @@ window.liquidThreads = {
 		replies.hide();
 		replies.before( loader );
 
-		var apiParams = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
-					'format' : 'json', 'thrender' : '1', 'thprop' : 'id' };
-
-		$.get( mw.util.wikiScript( 'api' ), apiParams,
-			function(data) {
+		( new mw.Api() ).get( {
+			action  : 'query',
+			list    : 'threads',
+			thid    : threadId,
+			thrender: '1',
+			thprop  : 'id'
+		} ).done( function ( data ) {
 				// Interpret
 				if( typeof data.query.threads[threadId] !== 'undefined' ) {
 					var content = data.query.threads[threadId].content;
@@ -727,7 +721,7 @@ window.liquidThreads = {
 					loader.remove();
 					replies.fadeIn('slow');
 				}
-			}, 'json' );
+		} );
 	},
 
 	'showMore' : function(e) {
@@ -747,13 +741,14 @@ window.liquidThreads = {
 		var startAt = startAtField.val();
 		startAtField.remove();
 
-		// API request
-		var apiParams = { 'action' : 'query', 'list' : 'threads', 'thid' : threadId,
-					'format' : 'json', 'thrender' : '1', 'thprop' : 'id',
-					'threnderstartrepliesat' : startAt };
-
-		$.get( mw.util.wikiScript( 'api' ), apiParams,
-			function(data) {
+		( new mw.Api() ).get( {
+			action   : 'query',
+			list     : 'threads',
+			thid     : threadId,
+			thrender : '1',
+			thprop   : 'id',
+			threnderstartrepliesat: startAt
+		} ).done( function ( data ) {
 				var content = data.query.threads[threadId].content;
 				content = $(content).find('.lqt-thread-replies')[0];
 				content = $(content).contents();
@@ -773,7 +768,7 @@ window.liquidThreads = {
 
 				content.fadeIn();
 				loader.remove();
-			}, 'json' );
+		} );
 
 		$(this).remove();
 	},
@@ -807,7 +802,7 @@ window.liquidThreads = {
 		e.preventDefault();
 		var thread = $(this).closest('.lqt_thread');
 		var linkTitle = thread.find('.lqt-thread-title-metadata').val();
-		var linkURL = mw.config.get( 'wgArticlePath' ).replace( "$1", linkTitle.replace(/ /g, '_' ) );
+		var linkURL = mw.config.get( 'wgArticlePath' ).replace( '$1', linkTitle.replace(/ /g, '_' ) );
 		linkURL = mw.config.get( 'wgServer' ) + linkURL;
 		if ( linkURL.substr( 0, 2 ) === '//' ) {
 			linkURL = window.location.protocol + linkURL;
@@ -843,27 +838,7 @@ window.liquidThreads = {
 
 		$('body').prepend(dialog);
 
-		var dialogOptions = {
-			'width' : 600
-		};
-
-		dialog.dialog( dialogOptions );
-	},
-
-	'getToken' : function( callback ) {
-		var getTokenParams =
-		{
-			'action' : 'threadaction',
-			'gettoken' : 'gettoken',
-			'format' : 'json'
-		};
-
-		$.post( mw.util.wikiScript( 'api' ), getTokenParams,
-			function( data ) {
-				var token = data.threadaction.token;
-
-				callback(token);
-			}, 'json' );
+		dialog.dialog( { 'width' : 600 } );
 	},
 
 	'handleAJAXSave' : function( e ) {
@@ -928,9 +903,7 @@ window.liquidThreads = {
 		};
 
 		var editCallback = function() {
-			var thread = editform.closest('.lqt-thread-topmost');
-
-			liquidThreads.doReloadThread( thread );
+			liquidThreads.doReloadThread( editform.closest( '.lqt-thread-topmost' ) );
 		};
 
 		var doneCallback = function(data) {
@@ -1012,27 +985,22 @@ window.liquidThreads = {
 		var loadTOCSpinner = $('<div class="mw-ajax-loader"/>');
 		loadTOCSpinner.css( 'height', toc.height() );
 		toc.empty().append( loadTOCSpinner );
-		toc.load( window.location.href + ' .lqt_toc > *',
-			function() {
+		toc.load( window.location.href + ' .lqt_toc > *', function () {
 				loadTOCSpinner.remove();
 			} );
 	},
 
 	'doNewThread' : function( talkpage, subject, text, summary, callback, bump, signature ) {
-		liquidThreads.getToken(
-			function(token) {
-				var newTopicParams =
-				{
-					'action' : 'threadaction',
-					'threadaction' : 'newthread',
-					'talkpage' : talkpage,
-					'subject' : subject,
-					'text' : text,
-					'token' : token,
-					'format' : 'json',
-					'render' : '1',
-					'reason' : summary,
-					'bump' : bump
+		var newTopicParams = {
+			action : 'threadaction',
+			threadaction : 'newthread',
+			talkpage : talkpage,
+			subject : subject,
+			text : text,
+			token : mw.user.tokens.get( 'editToken' ),
+			render : '1',
+			reason : summary,
+			bump : bump
 				};
 
 				if ( $('#wpCaptchaWord') ) {
@@ -1046,30 +1014,19 @@ window.liquidThreads = {
 				if ( typeof signature !== 'undefined' ) {
 					newTopicParams.signature = signature;
 				}
-
-				$.post( mw.util.wikiScript( 'api' ), newTopicParams,
-					function(data) {
-						if (callback) {
-							callback(data);
-						}
-					}, 'json' );
-			} );
+		( new mw.Api() ).post( newTopicParams ).done( callback );
 	},
 
 	'doReply' : function( thread, text, summary, callback, bump, signature ) {
-		liquidThreads.getToken(
-			function(token) {
-				var replyParams =
-				{
-					'action' : 'threadaction',
-					'threadaction' : 'reply',
-					'thread' : thread,
-					'text' : text,
-					'token' : token,
-					'format' : 'json',
-					'render' : '1',
-					'reason' : summary,
-					'bump' : bump
+		var replyParams = {
+			action : 'threadaction',
+			threadaction : 'reply',
+			thread : thread,
+			text : text,
+			token : mw.user.tokens.get( 'editToken' ),
+			render : '1',
+			reason : summary,
+			bump : bump
 				};
 
 				if ( $('#wpCaptchaWord') ) {
@@ -1084,28 +1041,21 @@ window.liquidThreads = {
 					replyParams.signature = signature;
 				}
 
-				$.post( mw.util.wikiScript( 'api' ), replyParams,
-					function(data) {
-						if (callback) {
-							callback(data);
-						}
-					}, 'json' );
-			} );
+		( new mw.Api() ).post( replyParams ).done( callback );
 	},
 
 	'doEditThread' : function( thread, subject, text, summary,
 					callback, bump, signature ) {
-		var request =
-		{
-			'action' : 'threadaction',
-			'threadaction' : 'edit',
-			'thread' : thread,
-			'text'   : text,
-			'format' : 'json',
-			'render' : 1,
-			'reason' : summary,
-			'bump'   : bump,
-			'subject':subject
+		var request = {
+			action       : 'threadaction',
+			threadaction : 'edit',
+			thread       : thread,
+			text         : text,
+			render       : 1,
+			reason       : summary,
+			bump         : bump,
+			subject      : subject,
+			token        : mw.user.tokens.get( 'editToken' )
 		};
 
 		if ( $('#wpCaptchaWord') ) {
@@ -1120,7 +1070,7 @@ window.liquidThreads = {
 			request.signature = signature;
 		}
 
-		liquidThreads.apiRequest( request, callback );
+		( new mw.Api() ).post( request ).done( callback );
 	},
 
 	onTextboxKeyUp: function () {
@@ -1146,27 +1096,6 @@ window.liquidThreads = {
 		}
 	},
 
-	'apiRequest' : function( request, callback ) {
-		// Set new subject through API.
-		liquidThreads.getToken( function(token) {
-
-			if ( typeof request === 'function' ) {
-				request = request(token);
-			} else {
-				request.token = token;
-			}
-
-			request.format = 'json';
-
-			$.post( mw.util.wikiScript( 'api' ), request,
-					function(data) {
-						if (callback) {
-							callback(data);
-						}
-					}, 'json' );
-		} );
-	},
-
 	'activateDragDrop' : function(e) {
 		// FIXME: Need a cancel drop action
 		e.preventDefault();
@@ -1176,8 +1105,7 @@ window.liquidThreads = {
 		var threadID = $thread.find( '.lqt-post-wrapper' ).data( 'thread-id' );
 		var scrollOffset;
 		// FIXME: what does all of this do? From here
-		$( 'html,body' ).each(
-			function() {
+		$( 'html,body' ).each( function () {
 				if ( $(this).attr( 'scrollTop' ) ) {
 					scrollOffset = $( this ).attr( 'scrollTop' );
 				}
@@ -1408,8 +1336,7 @@ window.liquidThreads = {
 				params.reason = $(this).find('input[name=reason]').val();
 
 				if ( !wasTopLevel && topLevel ) {
-					params.subject =
-						$.trim( $(this).find('input[name=subject]').val() );
+					params.subject = $.trim( $( this ).find( 'input[name=subject]' ).val() );
 				}
 
 				// Add spinners
@@ -1438,10 +1365,10 @@ window.liquidThreads = {
 		var topLevel = (newParent === 'top');
 		var wasTopLevel = thread.hasClass( 'lqt-thread-topmost' );
 		var apiRequest = {
-			'action' : 'threadaction',
-			'thread' : threadId,
-			'format' : 'json',
-			'reason' : params.reason
+			action: 'threadaction',
+			thread: threadId,
+			reason: params.reason,
+			token : mw.user.tokens.get( 'editToken' )
 		};
 
 		var doEmptyChecks = function() {
@@ -1450,14 +1377,11 @@ window.liquidThreads = {
 			} );
 		};
 
-		var doneCallback =
-			function(data) {
+		var doneCallback = function ( data ) {
 				// TODO error handling
-				var result;
-				result = 'success';
+			var result = 'success';
 
-				if (typeof data === 'undefined' || !data ||
-						typeof data.threadaction === 'undefined' ) {
+			if ( typeof data === 'undefined' || !data || typeof data.threadaction === 'undefined' ) {
 					result = 'failure';
 				}
 
@@ -1466,7 +1390,7 @@ window.liquidThreads = {
 				}
 
 				if (result !== 'success') {
-					alert( "Error: "+result );
+				alert( 'Error: ' + result );
 					doEmptyChecks();
 					$( '#lqt-drag-spinner' ).remove();
 					return;
@@ -1513,8 +1437,7 @@ window.liquidThreads = {
 
 					if ( ! topLevel && typeof payload['new-ancestor-id'] !== 'undefined' ) {
 						var ancestorId = payload['new-ancestor-id'];
-						reloadThread =
-							$('#lqt_thread_id_'+ancestorId);
+					reloadThread = $( '#lqt_thread_id_' + ancestorId );
 					}
 
 					liquidThreads.doReloadThread( reloadThread );
@@ -1538,7 +1461,6 @@ window.liquidThreads = {
 			};
 
 		if ( !topLevel || !wasTopLevel ) {
-
 			// Is it a split or a merge
 
 			if (topLevel) {
@@ -1560,13 +1482,11 @@ window.liquidThreads = {
 			if ( newSortkey !== 'none' ) {
 				apiRequest.sortkey = newSortkey;
 			}
-			liquidThreads.apiRequest( apiRequest, doneCallback );
-
+			( new mw.Api() ).post( apiRequest ).done( doneCallback );
 		} else if (newSortkey !== 'none' ) {
 			apiRequest.threadaction = 'setsortkey';
 			apiRequest.sortkey = newSortkey;
-
-			liquidThreads.apiRequest( apiRequest, doneCallback );
+			( new mw.Api() ).post( apiRequest ).done( doneCallback );
 		}
 	},
 
@@ -1600,17 +1520,12 @@ window.liquidThreads = {
 
 		textbox.hide();
 
-		var text = textbox.val(),
-			apiReq =
-			{
-				'action' : 'parse',
-				'text' : text,
-				'pst' : '1',
-				'prop' : 'text'
-			};
-
-		liquidThreads.apiRequest( function() { return apiReq; },
-			function(data) {
+		( new mw.Api() ).post( {
+			action : 'parse',
+			text   : textbox.val(),
+			pst    : '1',
+			prop   : 'text'
+		} ).done( function ( data ) {
 				var html = $( $.trim( data.parse.text['*'] ) );
 
 				if (html.length === 2) { // Not 1, because of the NewPP report

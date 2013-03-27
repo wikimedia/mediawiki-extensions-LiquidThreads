@@ -1030,10 +1030,10 @@ liquidThreads.toolbar = {
 							url: mw.util.wikiScript( 'api' ),
 							dataType: 'json',
 							data: {
-								'action': 'query',
-								'indexpageids': '',
-								'titles': target,
-								'format': 'json'
+								action: 'query',
+								indexpageids: '',
+								titles: target,
+								format: 'json'
 							},
 							success: function( data ) {
 								if ( !data ) {
@@ -1041,14 +1041,14 @@ liquidThreads.toolbar = {
 									return;
 								}
 								var status;
-								if ( typeof data.query === 'undefined' ) {
+								if ( data.query === undefined ) {
 									status = 'invalid';
 								} else {
 									var page = data.query.pages[data.query.pageids[0]];
 									status = 'exists';
-									if ( typeof page.missing !== 'undefined' ) {
+									if ( page.missing !== undefined ) {
 										status = 'notexists';
-									} else if ( typeof page.invalid !== 'undefined' ) {
+									} else if ( page.invalid !== undefined ) {
 										status = 'invalid';
 									}
 								}
@@ -1199,7 +1199,7 @@ liquidThreads.toolbar = {
 				$( '#wikieditor-toolbar-link-int-target' )
 					.bind( 'keyup paste cut', function() {
 						// Cancel the running timer if applicable
-						if ( typeof $(this).data( 'timerID' ) !== 'undefined' ) {
+						if ( $( this ).data( 'timerID' ) !== undefined ) {
 							clearTimeout( $(this).data( 'timerID' ) );
 						}
 						// Delay fetch for a while
@@ -1209,7 +1209,7 @@ liquidThreads.toolbar = {
 					} )
 					.change( function() {
 						// Cancel the running timer if applicable
-						if ( typeof $(this).data( 'timerID' ) !== 'undefined' ) {
+						if ( $( this ).data( 'timerID' ) !== undefined ) {
 							clearTimeout( $(this).data( 'timerID' ) );
 						}
 						// Fetch right now
@@ -1228,7 +1228,7 @@ liquidThreads.toolbar = {
 						}
 
 						var cache = $(this).data( 'suggcache' );
-						if ( typeof cache[title] !== 'undefined' ) {
+						if ( cache[title] !== undefined ) {
 							$(this).suggestions( 'suggestions', cache[title] );
 							return;
 						}
@@ -1236,11 +1236,11 @@ liquidThreads.toolbar = {
 						var request = $.ajax( {
 							url: mw.util.wikiScript( 'api' ),
 							data: {
-								'action': 'opensearch',
-								'search': title,
-								'namespace': 0,
-								'suggest': '',
-								'format': 'json'
+								action: 'opensearch',
+								search: title,
+								namespace: 0,
+								suggest: '',
+								format: 'json'
 							},
 							dataType: 'json',
 							success: function( data ) {
@@ -1248,6 +1248,7 @@ liquidThreads.toolbar = {
 								$(that).suggestions( 'suggestions', data[1] );
 							}
 						});
+
 						$(this).data( 'request', request );
 					},
 					cancel: function() {
@@ -1427,15 +1428,15 @@ liquidThreads.toolbar = {
 						}
 
 						// Change the value by calling val() doesn't trigger the change event, so let's do that ourselves
-						if ( typeof text !== 'undefined' ) {
+						if ( text !== undefined ) {
 							$( '#wikieditor-toolbar-link-int-text' ).val( text ).change();
 						}
 
-						if ( typeof target !== 'undefined' ) {
+						if ( target !== undefined ) {
 							$( '#wikieditor-toolbar-link-int-target' ).val( target ).change();
 						}
 
-						if ( typeof type !== 'undefined' ) {
+						if ( type !== undefined ) {
 							$( '#wikieditor-toolbar-link-' + type ).attr( 'checked', 'checked' );
 						}
 					}
@@ -1665,7 +1666,7 @@ liquidThreads.toolbar = {
 					.addClass( 'sortable' )
 					.insertAfter( $( '#wikieditor-toolbar-table-preview' ) )
 					.hide();
-				if ( typeof jQuery.fn.tablesorter === 'function' ) {
+				if ( $.isFunction( jQuery.fn.tablesorter ) ) {
 						$( '#wikieditor-toolbar-table-preview2' ).tablesorter();
 				}
 				$( '#wikieditor-toolbar-table-sortable' ).click( function() {
@@ -1687,7 +1688,7 @@ liquidThreads.toolbar = {
 					var hiddenHTML = $( '.wikieditor-toolbar-table-preview-hidden' ).html();
 					$( '.wikieditor-toolbar-table-preview-header' ).html( hiddenHTML );
 					$( '.wikieditor-toolbar-table-preview-hidden' ).html( headerHTML );
-					if ( typeof jQuery.fn.tablesorter === 'function' ) {
+					if ( $.isFunction( jQuery.fn.tablesorter ) ) {
 							$( '#wikieditor-toolbar-table-preview, #wikieditor-toolbar-table-preview2' )
 								.filter( '.sortable' )
 								.tablesorter();
@@ -1956,7 +1957,7 @@ liquidThreads.toolbar = {
 						$textarea.textSelection( 'setSelection', { 'start': start,
 							'end': mode === 'replace' ? newEnd : end } );
 						$( this ).data( 'offset', mode === 'replace' ? newEnd : end );
-						var textbox = typeof context.$iframe !== 'undefined' ? context.$iframe[0].contentWindow : $textarea[0];
+						var textbox = context.$iframe !== undefined ? context.$iframe[0].contentWindow : $textarea[0];
 						textbox.focus();
 					}
 				});
