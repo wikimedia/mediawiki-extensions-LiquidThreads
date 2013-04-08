@@ -354,9 +354,9 @@ The signature is shown automatically.',
  */
 $messages['qqq'] = array(
 	'lqt-desc' => '{{desc|name=Liquid Threads|url=http://www.mediawiki.org/wiki/Extension:LiquidThreads}}',
-	'lqt_movethread' => 'Title and header at [[Special:MoveThread]].',
+	'lqt_movethread' => '{{doc-special|MoveThread|unlisted=1}}',
 	'lqt_contents_title' => 'The title of a list of threads at the top of the page.
-{{Identical|Contents}}',
+{{Identical|Content}}',
 	'lqt_toc_thread_title' => 'Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].',
 	'lqt_toc_thread_replycount' => 'Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].
 
@@ -370,8 +370,10 @@ $messages['qqq'] = array(
 
 :A verb; see also {{msg-mw|Lqt delete}} and {{msg-mw|Lqt undelete}}.
 
-This is the link in the bottom right-hand corner of a post, which you click to write a reply to that post - see [[Support|examples]].',
-	'lqt-parent' => 'Link to the parent reply.',
+This is the link in the bottom right-hand corner of a post, which you click to write a reply to that post - see [[Support|examples]].
+{{Identical|Reply}}',
+	'lqt-parent' => 'Link to the parent reply.
+{{Identical|Parent}}',
 	'lqt_delete' => '{{Identical|Delete}}',
 	'lqt_undelete' => '{{Identical|Undelete}}',
 	'lqt_permalink' => "{{doc-important|This message is not followed by a parameter. The English version is short for '''Link to this post'''. It could also be translated as \"Perma[nent ]link\".}} Text for a link to the specific object (e.g. thread summary or discussion fragment).",
@@ -384,19 +386,19 @@ This is the link in the bottom right-hand corner of a post, which you click to w
 {{Identical|Discussion}}',
 	'lqt_from_talk' => 'Used as page subtitle. Parameters:
 * $1 is a link to a talk page (for example "User talk:Foo")',
-	'lqt-history-title' => 'Title of thread history page, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]',
+	'lqt-history-title' => 'Title of thread history page, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]',
 	'lqt_hist_comment_edited' => 'Parameters:
 * $2 is the URL to the comment',
-	'lqt_hist_summary_changed' => "Summary for 'activity' in thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]",
-	'lqt_hist_reply_created' => "Summary for 'activity' in thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]
+	'lqt_hist_summary_changed' => "Summary for 'activity' in thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]",
+	'lqt_hist_reply_created' => "Summary for 'activity' in thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]
 
 Parameters:
 * $1 is the text for a wiki link to the new reply",
-	'lqt_hist_thread_created' => "Summary for 'activity' in thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]",
+	'lqt_hist_thread_created' => "Summary for 'activity' in thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]",
 	'lqt_hist_deleted' => '{{Identical|Deleted}}',
 	'lqt_hist_moved_talkpage' => '{{Identical|Move}}',
-	'lqt_hist_listing_subtitle' => "Subtitle for 'thread history' page, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]",
-	'lqt_hist_view_whole_thread' => 'Link to history page for an entire thread, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount/reply&action=history example]',
+	'lqt_hist_listing_subtitle' => "Subtitle for 'thread history' page, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]",
+	'lqt_hist_view_whole_thread' => 'Link to history page for an entire thread, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount/reply|action=history}} example]',
 	'lqt_hist_edited_subject' => 'Parameters:
 * $2 is the old subject text
 * $3 is the new subject text',
@@ -407,23 +409,50 @@ Parameters:
 	'lqt_revision_as_of' => '* $1 is a timestamp (for backward compatibility)
 * $2 is a date
 * $3 is a time',
-	'lqt_change_new_thread' => 'Used in revision page, if the revision is initial revision.',
-	'lqt_change_reply_created' => 'Used in revision page, if the revision is not initial revision.',
+	'lqt_change_new_thread' => 'Used in revision page, if the revision is initial revision.
+{{Related|Lqt change}}',
+	'lqt_change_reply_created' => 'Used in revision page, if the revision is not initial revision.
+
+Parameters:
+* $1 - full URL of the post
+{{Related|Lqt change}}',
 	'lqt_change_edited_root' => 'Parameters:
-* $1 is a web link to the referenced comment. It must remain immediately after the opening bracket.',
-	'lqt_change_deleted' => 'Action results from button {{msg-mw|lqt_delete}}',
-	'lqt_change_undeleted' => 'Parameters:
-* $1 is a web link to the referenced post. It must remain immediately after the opening bracket.
-Action results from button {{msg-mw|lqt_undelete}}',
+* $1 - a web link to the referenced comment. It must remain immediately after the opening bracket.
+{{Related|Lqt change}}',
+	'lqt_change_edited_summary' => '{{Related|Lqt change}}',
+	'lqt_change_deleted' => 'Action results from button {{msg-mw|lqt_delete}}.
+
+Parameters:
+* $1 - full URL of the post
+{{Related|Lqt change}}',
+	'lqt_change_undeleted' => 'Action results from button {{msg-mw|lqt_undelete}}.
+
+Parameters:
+* $1 - full URL of the post
+{{Related|Lqt change}}',
 	'lqt_change_moved' => 'Thread contents when a thread was moved. Parameters:
-* $1 is a link to the new thread location.',
+* $1 - a link to the new thread location.
+{{Related|Lqt change}}',
+	'lqt_change_split' => 'Parameters:
+* $1 - full URL of the post
+{{Related|Lqt change}}',
 	'lqt_change_edited_subject' => 'Parameters:
-* $2 is the old subject
-* $3 is the new subject',
+* $1 - (Unused) full URL of the post
+* $2 - the old subject
+* $3 - the new subject
+{{Related|Lqt change}}',
 	'lqt_change_merged_from' => 'Parameters:
-* $1 is a web link to the referenced reply. It must remain immediately after the opening bracket.',
+* $1 - a web link to the referenced reply. It must remain immediately after the opening bracket.
+{{Related|Lqt change}}',
+	'lqt_change_merged_to' => 'Parameters:
+* $1 - full URL of the post
+{{Related|Lqt change}}',
+	'lqt_change_split_from' => 'Parameters:
+* $1 - full URL of the post
+{{Related|Lqt change}}',
 	'lqt_change_root_blanked' => 'Parameters:
-* $1 is a web link to the referenced comment. It must remain immediately after the opening bracket.',
+* $1 - a web link to the referenced comment. It must remain immediately after the opening bracket.
+{{Related|Lqt change}}',
 	'lqt_youhavenewmessages' => '* $1 is a link to the new message or messages.
 
 {{doc-important|No PLURAL here! (The number of new messages is unknown.)}}',
@@ -447,7 +476,7 @@ Action results from button {{msg-mw|lqt_undelete}}',
 * $1 is the thread that is being summarised',
 	'lqt_nosuchthread' => "Used as error message when the specified thread doesn't exist.",
 	'lqt_nosuchthread_title' => "Used as page heading when the specified thread doesn't exist.",
-	'lqt_move_movingthread' => 'Used on Special:MoveThread when moving a thread. Parameters:
+	'lqt_move_movingthread' => 'Used on [[Special:MoveThread]] when moving a thread. Parameters:
 * $1 is the name of the thread that is being moved.
 * $2 is the page the thread is currently on.',
 	'lqt_move_torename' => '$1 is replaced with {{msg-mw|Lqt move torename edit}}',
@@ -486,6 +515,14 @@ The legend for the drop-down box is {{msg-mw|Lqt_sorting_order}}.',
 	'lqt-read-message-tooltip' => 'Used as tooltip for {{msg-mw|Lqt-read-message}} button.',
 	'lqt-read-all' => 'Used as button text.',
 	'lqt-read-all-tooltip' => 'Used as tooltip for {{msg-mw|Lqt-read-all}} button.',
+	'lqt-marked-read' => 'Parameters:
+* $1 - subject of thread (message)
+See also:
+* {{msg-mw|Lqt-count-marked-read}}',
+	'lqt-count-marked-read' => 'Parameters:
+* $1 - number of messages (threads)
+See also:
+* {{msg-mw|Lqt-marked-read}}',
 	'lqt-email-undo' => '{{Identical|Undo}}',
 	'lqt-no-new-messages' => 'Used as notification text, when you have no new messages.',
 	'lqt-new-messages' => 'Used as notification text, when you have new messages.',
@@ -493,32 +530,38 @@ The legend for the drop-down box is {{msg-mw|Lqt_sorting_order}}.',
 	'lqt-history-time' => 'Column header on thread history
 
 {{Identical|Time}}',
-	'lqt-history-user' => 'Column header for table of thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]
-
-{{identical|User}}',
-	'lqt-history-action' => 'Column header for table of thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]
+	'lqt-history-user' => 'Column header for table of thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]
+{{Identical|User}}',
+	'lqt-history-action' => 'Column header for table of thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]
 {{Identical|Activity}}',
-	'lqt-history-comment' => 'Column header for table of thread history, see [http://translatewiki.net/w/i.php?title=Thread:Support/Payflowpro_gateway-select-dollar-amount&lqt_method=thread_history example]
-
+	'lqt-history-comment' => 'Column header for table of thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]
 {{Identical|Comment}}',
 	'lqt-history-thread' => '{{Identical|Thread}}',
-	'lqt-thread-edited-author' => '* $1: date/time of the last edit
-* $2: Unused (Number of users who edited the thread but not useful in this context. Used by [[MediaWiki:Lqt-thread-edited-others]])
-* $3: time of the last edit (optional, instead of using $1)
-* $4: date of the last edit (optional, instead of using $1)
+	'lqt-thread-edited-author' => 'This is a note which appears alongside an edited post - see [[Thread:Support/Payflowpro gateway-month/reply (4)|example]].
 
-This is a note which appears alongside an edited post - see [[Thread:Support/Payflowpro gateway-month/reply (4)|example]].',
-	'lqt-thread-edited-others' => '* $1: date/time of the last edit
-* $2: number of users who edited the thread message, including the original poster
-* $3: time of the last edit (optional, instead of using $1)
-* $4: date of the last edit (optional, instead of using $1)
+Parameters:
+* $1 - date/time of the last edit
+* $2 - Unused (Number of users who edited the thread but not useful in this context. Used by [[MediaWiki:Lqt-thread-edited-others]])
+* $3 - time of the last edit (optional, instead of using $1)
+* $4 - date of the last edit (optional, instead of using $1)',
+	'lqt-thread-edited-others' => 'This is a note which appears alongside an edited post - see [[Thread:Translating talk:Wikia/Typo in MediaWiki:Feed-title-leaderboard|example]].
 
-This is a note which appears alongside an edited post - see [[Thread:Translating talk:Wikia/Typo in MediaWiki:Feed-title-leaderboard|example]].',
+Parameters:
+* $1 - date/time of the last edit
+* $2 - number of users who edited the thread message, including the original poster
+* $3 - time of the last edit (optional, instead of using $1)
+* $4 - date of the last edit (optional, instead of using $1)',
 	'lqt-header-actions' => '{{Identical|Action}}',
 	'lqt_summarize_link' => 'Used as link title.',
 	'lqt-summarize-intro' => 'Used as introduction text in summarize page.',
+	'lqt-thread-split' => '{{doc-actionlink}}
+
+The opposite of {{msg-mw|lqt-thread-merge}}: "split" is imperative, not a participle.',
+	'lqt-split-success' => 'Used as success message. Parameters:
+* $1 - thread title with link',
+	'lqt_split_thread' => '{{doc-special|SplitThread|unlisted=1}}',
 	'lqt-thread-split-thread' => '{{Identical|Thread}}',
-	'lqt-no-threads' => '[http://translatewiki.net/wiki/Project_talk:MediaWiki_localisation_in_the_50_most_spoken_languages Example]',
+	'lqt-no-threads' => '[{{canonicalurl:Project_talk:Autoconfirmed_users}} Example]',
 	'lqt-delete-parent-deleted' => '$1 is the reason for deletion of the parent.',
 	'lqt-movethread' => '{{Identical|Move}}',
 	'lqt-menu-trigger' => '{{Identical|More}}',
@@ -526,6 +569,8 @@ This is a note which appears alongside an edited post - see [[Thread:Translating
 * $1 is a link to a talk page (for example "User talk:Foo")',
 	'lqt-hot-topics' => 'A page title, used for a special page with "hot" (most-commented-on)
 threads on a wiki',
+	'lqt-changesortorder' => 'The text of the sort button for threads. {{msg-mw|go}} used to be used for this.
+{{Identical|Sort}}',
 	'lqt_rc_new_discussion' => 'Parameters:
 * $1 is a link to a thread with the thread subject as link description',
 	'lqt_rc_new_reply' => 'Parameters:
@@ -533,8 +578,16 @@ threads on a wiki',
 	'right-lqt-split' => '{{doc-right|lqt-split}}',
 	'right-lqt-merge' => '{{doc-right|lqt-merge}}',
 	'right-lqt-react' => '{{doc-right|lqt-react}}',
+	'lqt_merge_thread' => '{{doc-special|MergeThread|unlisted=1}}',
+	'lqt-merge-success' => 'Used as success message. Parameters:
+* $1 - the source thread title, with link
+* $2 - the destination thread title, with link',
 	'lqt-log-name' => '{{doc-logpage}}',
 	'lqt-log-action-move' => 'Parameters:
+* $1 is the link text to the topic
+* $2 is the link text to the source page the topic was moved from
+* $3 is the link text to the target page the topic was moved to',
+	'lqt-log-action-merge-across' => 'Parameters:
 * $1 is the link text to the topic
 * $2 is the link text to the source page the topic was moved from
 * $3 is the link text to the target page the topic was moved to',
@@ -544,7 +597,7 @@ threads on a wiki',
 * $3 is the new signature text',
 	'lqt-preference-notify-talk' => 'This appears in [[Special:Preferences]]. The wording should be similar to {{msg-mw|tog-enotifwatchlistpages}}.',
 	'lqt-preference-watch-threads' => 'The wording of this message should be similar to {{msg-mw|tog-watchdefault}}.',
-	'lqt-preference-display-depth' => "Used in Special:Preferences, tab Threaded Discussion (where Liquid Thread extension is installed).
+	'lqt-preference-display-depth' => "Used in [[Special:Preferences]], tab Threaded Discussion (where Liquid Thread extension is installed).
 Depth refers to the nesting of replies that were given to replies to replies, etc. which is shown on-screen as indents in the discussion threads.
 
 In other words, 'depth' is the number of idents that will be displayed for a thread (''reply (5) to reply (4) to reply (3) to reply (2) of original post (1)'').
@@ -554,7 +607,7 @@ In other words, 'depth' is the number of idents that will be displayed for a thr
    |-- reply 2 (reply to reply 1) (depth 3)
  |-- reply 3 (reply to reply 1) (depth 2)
 </pre>",
-	'lqt-preference-display-count' => 'Used in [[Special:Preferences]], tab “{{int:prefs-lqt}}” (where Liquid Thread extension is installed).',
+	'lqt-preference-display-count' => 'Used in [[Special:Preferences]], tab {{msg-mw|prefs-lqt}} (where Liquid Thread extension is installed).',
 	'lqt-preference-custom-signatures' => "Checkbox in [[Special:Preferences]], tab ''{{int:prefs-lqt}}''",
 	'lqt-enotif-subject-reply' => 'This is the subject header of an e-mail notification.
 Parameters are:
@@ -584,12 +637,19 @@ Parameters are:
 	'searchprofile-threads' => '{{Identical|Discussion}}',
 	'lqt-ajax-updated' => 'Used as notification, when new posts are detected.',
 	'lqt-ajax-update-link' => '{{Identical|Update}}',
-	'lqt-thread-show-replies' => 'Parameters:
-* $1 is the number of replies. This can be used for PLURAL:$1',
+	'lqt-thread-show-replies' => '{{doc-actionlink}}
+Parameters:
+* $1 - the number of replies. This can be used for PLURAL:$1',
 	'lqt-thread-link-url' => 'A form label, for the URL to a thread',
 	'lqt-thread-link-title' => 'A form label, for the wikitext link to a thread',
+	'lqt-marked-as-read-placeholder' => "This message indicates the thread '''has been''' marked as read.
+
+Parameters:
+* $1 - thread subject, with link",
 	'lqt-change-subject' => 'Used as link text',
 	'lqt-save-subject' => '{{Identical|Save}}',
+	'lqt-save-subject-failed' => 'Unused at this time. Parameters:
+* $1 - thread title, with link',
 	'lqt-cancel-subject-edit' => '{{Identical|Cancel}}',
 	'lqt-drag-activate' => 'Used as link text in drop-down menu',
 	'lqt-drag-drop-zone' => 'Used as label for drop target',
@@ -618,31 +678,35 @@ Displayed in a list of actions to confirm in a confirmation dialog.',
 * $2 is a link to the user posting in the thread
 * $3 is a link to the super thread,
 * $4 is the posting user in plain text, used for GENDER.',
-	'lqt-newmessages-n' => '{{Identical|New messages}}
-Link at the top of the page for logged-in users. Parameters:
-* $1 is the number of new messages.',
+	'lqt-newmessages-n' => 'Link at the top of the page for logged-in users. Parameters:
+* $1 - the number of new messages
+{{Identical|New messages}}',
 	'lqt_newmessages' => '{{Identical|New messages}}',
-	'lqt_newmessages-title' => '{{Identical|New messages}}',
+	'lqt_newmessages-title' => '{{doc-special|NewMessages}}
+{{Identical|New messages}}',
+	'lqt-newpost-summary' => 'Used as the edit summary, if the specified reason is empty.
+
+Parameters:
+* $1 - thread subject',
 	'lqt-reply-summary' => 'Used on history page of message and thread. $2 is the message to which this message is a reply. $1 is the title of the thread.',
 	'lqt-talkpage-history-subtitle' => 'Parameters:
 * $1 is a link to a talk page, with the talk page title as link label
 {{Identical|For $1}}',
-	'lqt-talkpage-history-tab' => 'The text for the tab pointing to a discussion page header',
+	'lqt-talkpage-history-tab' => 'The text for the tab pointing to a discussion page header.
+{{Identical|Header}}',
 	'lqt-edit-bump' => 'See {{msg-mw|Lqt-edit-bump-tooltip}} for the explanation of this feature.',
 	'lqt-reply-subpage' => 'Part of the page title when a LiquidThread answer is given. Should probably be translated as a noun and not as a verb.
 
 {{Identical|Reply}}',
-	'lqt-changesortorder' => 'The text of the sort button for threads. {{mw-msg|go}} used to be used for this.',
 	'nstab-thread' => 'Used as tab title of the Thread namespace.
 {{Identical|Thread}}',
 	'nstab-summary' => 'Used as tab title for the Summary namespace.
 {{Identical|Summary}}',
-
 	'echo-pref-email-lqt-new-topic' => 'Used by the Echo extension in the Preferences -> Notifications tab as a label to enable email notification for the lqt-new-topic event.',
 	'echo-pref-email-lqt-reply' => 'Used by the Echo extension in the Preferences -> Notifications tab as a label to enable email notification for the lqt-reply event.',
-
 	'pageinfo-usinglqt' => 'Entry for whether the page uses LiquidThreads or not',
-	'pageinfo-usinglqt-yes' => 'Yes, this page uses LiquidThreads',
+	'pageinfo-usinglqt-yes' => 'Yes, this page uses LiquidThreads.
+{{Identical|Yes}}',
 );
 
 /** Abkhazian (Аҧсшәа)
@@ -3671,6 +3735,7 @@ Pokud tomu chcete zabránit, tak je před smazáním nejprve oddělte z tohoto v
 	'lqt-newmessages-from' => 'Z $1',
 	'lqt-hot-topics' => 'Horká témata',
 	'lqt-add-reply' => 'Přidat odpověď',
+	'lqt-changesortorder' => 'Seřadit',
 	'lqt_rc_new_discussion' => 'založil nové vlákno „$1“',
 	'lqt_rc_new_reply' => 'přidal odpověď do „$1“',
 	'right-lqt-split' => 'Oddělování vláken',
@@ -3691,6 +3756,7 @@ Pokud tomu chcete zabránit, tak je před smazáním nejprve oddělte z tohoto v
 	'lqt-log-action-merge-down' => 'sloučil [[$1]] pod [[$3]]',
 	'lqt-log-action-subjectedit' => 'změnil předmět [[$1]] z „$2“ na „$3“',
 	'lqt-log-action-resort' => 'upravil pořadí [[$1]]. Klíč řazení byl změněn z $2 na $3',
+	'lqt-log-action-signatureedit' => 'změnil podpis v [[$1]] z „$2“ na „$3“',
 	'lqt-preference-notify-talk' => 'Poslat e-mail při reakcích ve sledovaných vláknech',
 	'lqt-preference-watch-threads' => 'Přidávat vlákna, která založím nebo do kterých odpovím, ke sledovaným',
 	'prefs-lqt' => 'Diskuse ve vláknech',
@@ -3780,6 +3846,10 @@ Podpis se zobrazuje automaticky.',
 	'lqt-reply-subpage' => 'odpověď',
 	'nstab-thread' => 'Vlákno',
 	'nstab-summary' => 'Shrnutí',
+	'echo-pref-email-lqt-new-topic' => '…založí novou diskusi ve vláknech',
+	'echo-pref-email-lqt-reply' => '…odpoví na diskusi ve vláknech',
+	'pageinfo-usinglqt' => 'Aktivována diskuse ve vláknech',
+	'pageinfo-usinglqt-yes' => 'Ano',
 );
 
 /** Kashubian (kaszëbsczi)
@@ -10110,7 +10180,7 @@ Potrebbe:
 	'lqt_hist_tooltip_newer_disabled' => 'Questo collegamento è disattivato perché si è sulla prima pagina.',
 	'lqt_hist_tooltip_older_disabled' => "Questo collegamento è disattivato perché si è sull'ultima pagina.",
 	'lqt_hist_split' => 'Risposta suddivisa in un nuovo thread',
-	'lqt_hist_edited_subject' => 'Oggetto modificato da "$2" in "$3"',
+	'lqt_hist_edited_subject' => 'Oggetto modificato da "$2" a "$3"',
 	'lqt_hist_edited_subject_corrupt' => 'Oggetto cambiato',
 	'lqt_hist_merged_from' => "[[$1|Risposta]] trasferita in un'altra discussione",
 	'lqt_hist_merged_to' => "[[$1|Risposta]] trasferita da un'altra discussione",
@@ -10218,12 +10288,13 @@ Per evitarlo, dividi le risposte dal thread prima di cancellarlo.',
 	'lqt-newmessages-from' => 'Da $1',
 	'lqt-hot-topics' => 'Discussioni calde',
 	'lqt-add-reply' => 'Aggiungi una risposta',
+	'lqt-changesortorder' => 'Ordina',
 	'lqt_rc_new_discussion' => 'ha iniziato una nuova discussione, "$1"',
 	'lqt_rc_new_reply' => 'ha inviato una risposta a "$1"',
 	'right-lqt-split' => 'Divide discussioni',
 	'right-lqt-merge' => 'Unisce discussioni',
 	'right-lqt-react' => 'Risponde ai thread',
-	'lqt-thread-merge' => "Unisci ad un'altra discussione",
+	'lqt-thread-merge' => "Unisci a un'altra discussione",
 	'lqt-thread-merge-to' => 'Unisci a questa discussione',
 	'lqt_merge_thread' => 'Unisci discussione',
 	'lqt-thread-merge-source' => 'Discussione originaria:',
@@ -10238,6 +10309,7 @@ Per evitarlo, dividi le risposte dal thread prima di cancellarlo.',
 	'lqt-log-action-merge-down' => 'unito [[$1]] a [[$3]]',
 	'lqt-log-action-subjectedit' => 'modificato l\'oggetto di [[$1]] da "$2" a "$3"',
 	'lqt-log-action-resort' => "modificato l'ordinamento di [[$1]]. Cambiato criterio di ordinamento da $2 a $3",
+	'lqt-log-action-signatureedit' => 'modificato la firma di [[$1]] da "$2" a "$3"',
 	'lqt-preference-notify-talk' => 'Segnalami via e-mail le risposte a un thread che sto seguendo',
 	'lqt-preference-watch-threads' => 'Aggiungi le discussioni che ho creato o a cui ho risposto',
 	'prefs-lqt' => 'Discussioni in stile thread',
@@ -10327,6 +10399,8 @@ La firma è mostrata automaticamente.',
 	'nstab-summary' => 'Sommario',
 	'echo-pref-email-lqt-new-topic' => 'Creazione di una nuova discussione con thread',
 	'echo-pref-email-lqt-reply' => 'Risposta ad una discussione con thread',
+	'pageinfo-usinglqt' => 'Discussioni in stile thread attivate',
+	'pageinfo-usinglqt-yes' => 'Sì',
 );
 
 /** Japanese (日本語)
@@ -13788,7 +13862,7 @@ $messages['nah'] = array(
 	'lqt_move_noreason' => 'Ahmo cah īxtlamatiliztli.',
 	'lqt-title' => 'Tōcāitl',
 	'lqt-read-message' => 'Quimachiyōtīz iuh tāmapōuh',
-	'lqt_newmessages' => 'Yancuīc notētītlaniliz (ayāc)', # Fuzzy
+	'lqt_newmessages' => 'Yancuīc notētītlaniliz (ahtlein)',
 );
 
 /** Norwegian Bokmål (norsk (bokmål)‎)
@@ -14249,7 +14323,7 @@ $messages['nl'] = array(
 * te lang zijn, of
 * conflicteren met interwikivoorvoegsels of naamruimtenamen.',
 	'lqt-empty-text' => 'Lege berichten plaatsen is niet mogelijk',
-	'lqt_empty_subject' => 'U moet een onderwerp ingeven.',
+	'lqt_empty_subject' => 'U moet een onderwerp opgeven.',
 	'lqt_reply' => 'Antwoorden',
 	'lqt-parent' => 'Bovenliggend bericht',
 	'lqt_delete' => 'Verwijderen',
@@ -14278,7 +14352,7 @@ $messages['nl'] = array(
 	'lqt_hist_merged_from' => 'Het [[$1|antwoord]] is verplaatst naar een ander onderwerp',
 	'lqt_hist_merged_to' => 'Het [[$1|antwoord]] is verplaatst vanuit een ander onderwerp',
 	'lqt_hist_split_from' => 'Naar een nieuw onderwerp afsplitsen',
-	'lqt_hist_root_blanked' => 'Tekst van opmerking verwijderd',
+	'lqt_hist_root_blanked' => 'Reactietekst verwijderd',
 	'lqt_hist_adjusted_sortkey' => 'Plaats van het onderwerp aanpassen',
 	'lqt_revision_as_of' => 'Versie op $2 om $3.',
 	'lqt_change_new_thread' => 'Dit is de eerste versie van het onderwerp.',
@@ -14309,7 +14383,7 @@ Als het overleg is afgerond, wordt u aangemoedigd om $1.',
 	'lqt_summary_label' => 'Samenvatting onderwerp:',
 	'lqt_summary_subtitle' => 'Samenvatting van "$1"',
 	'lqt_nosuchrevision' => 'Deze versie van dit onderwerp bestaat niet.',
-	'lqt_nosuchthread' => 'Het aangegeven onderwerp bestaat niet.',
+	'lqt_nosuchthread' => 'Het opgegeven onderwerp bestaat niet.',
 	'lqt_nosuchthread_title' => 'Dit onderwerp bestaat niet',
 	'lqt_threadrequired' => 'U moet een onderwerppagina opgeven in de URL.',
 	'lqt_move_movingthread' => 'Verplaatsen van $1.
@@ -14383,6 +14457,7 @@ Splits dit overleg alvorens het te verwijderen om dit te voorkomen.',
 	'lqt-newmessages-from' => 'Van $1',
 	'lqt-hot-topics' => 'Populaire onderwerpen',
 	'lqt-add-reply' => 'Antwoorden',
+	'lqt-changesortorder' => 'Sorteren',
 	'lqt_rc_new_discussion' => 'heeft een nieuw onderwerp "$1" geplaatst',
 	'lqt_rc_new_reply' => 'heeft een antwoord op "$1" geplaatst',
 	'right-lqt-split' => 'Onderwerpen splitsen',
@@ -14403,6 +14478,7 @@ Splits dit overleg alvorens het te verwijderen om dit te voorkomen.',
 	'lqt-log-action-merge-down' => 'heeft [[$1]] samengevoegd naar [[$3]].',
 	'lqt-log-action-subjectedit' => 'heeft het onderwerp voor [[$1]] van "$2" naar "$3" gewijzigd',
 	'lqt-log-action-resort' => 'heeft de sorteervolgorde voor [[$1]] gewijzigd van $2 naar $3',
+	'lqt-log-action-signatureedit' => 'heeft de ondertekening voor [[$1]] gewijzigd van "$2" naar "$3"',
 	'lqt-preference-notify-talk' => 'Mij e-mailen bij antwoorden op een onderwerp dat ik volg',
 	'lqt-preference-watch-threads' => 'Onderwerpen volgen die ik aanmaak of waar ik op antwoord',
 	'prefs-lqt' => 'Gestructureerd overleg',
@@ -14492,6 +14568,8 @@ Wijzig het onderwerp door op "Bewerken" te klikken in de bovenste bijdrage.',
 	'nstab-summary' => 'Samenvatting',
 	'echo-pref-email-lqt-new-topic' => 'Een nieuw draadoverleg start',
 	'echo-pref-email-lqt-reply' => 'Antwoordt op een draadoverleg',
+	'pageinfo-usinglqt' => 'Getrapt overleg ingeschakeld',
+	'pageinfo-usinglqt-yes' => 'Ja',
 );
 
 /** Nederlands (informeel)‎ (Nederlands (informeel)‎)
@@ -14501,7 +14579,7 @@ $messages['nl-informal'] = array(
 	'lqt_invalid_subject' => 'Het onderwerp dat je hebt opgegeven is ongeldig. Het kan:
 * te lang zijn, of
 * conflicteren met interwikivoorvoegsels of naamruimtenamen.',
-	'lqt_empty_subject' => 'Je moet een onderwerp ingeven.',
+	'lqt_empty_subject' => 'Je moet een onderwerp opgeven.',
 	'lqt_hist_past_last_page_error' => 'Je hebt een hoger paginanummer gekozen dan bestaat in de geschiedenis.',
 	'lqt_hist_tooltip_newer_disabled' => 'Deze koppeling is niet actief omdat je op de eerste pagina bent.',
 	'lqt_hist_tooltip_older_disabled' => 'Deze koppeling is niet actief omdat je op de laatste pagina bent.',
@@ -21932,6 +22010,7 @@ $messages['yue'] = array(
  * @author Bencmq
  * @author Gaoxuewei
  * @author Hydra
+ * @author Kuailong
  * @author Liangent
  * @author PhiLiP
  * @author Shinjiman
@@ -21939,6 +22018,7 @@ $messages['yue'] = array(
  * @author Tommyang
  * @author Wmr89502270
  * @author Xiaomingyan
+ * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
 	'lqt-desc' => '在讨论页增加话题讨论功能',
@@ -22078,6 +22158,7 @@ $messages['zh-hans'] = array(
 	'lqt-newmessages-from' => '来自$1',
 	'lqt-hot-topics' => '热门话题',
 	'lqt-add-reply' => '添加回复',
+	'lqt-changesortorder' => '排序',
 	'lqt_rc_new_discussion' => '$1有新讨论',
 	'lqt_rc_new_reply' => '对$1发表回复',
 	'right-lqt-split' => '分割话题',
@@ -22183,6 +22264,10 @@ $7',
 	'lqt-reply-subpage' => '回复',
 	'nstab-thread' => '话题',
 	'nstab-summary' => '摘要',
+	'echo-pref-email-lqt-new-topic' => '创建新的讨论主题',
+	'echo-pref-email-lqt-reply' => '回复讨论主题',
+	'pageinfo-usinglqt' => '主题讨论已启用',
+	'pageinfo-usinglqt-yes' => '是',
 );
 
 /** Traditional Chinese (中文（繁體）‎)

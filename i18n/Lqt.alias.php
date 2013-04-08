@@ -108,6 +108,15 @@ $specialPageAliases['el'] = array(
 	'NewMessages' => array( 'ΝέαΜηνύματα' ),
 );
 
+/** Esperanto (Esperanto) */
+$specialPageAliases['eo'] = array(
+	'DeleteThread' => array( 'Forigi_fadenon' ),
+	'MoveThread' => array( 'Movi_fadenon' ),
+	'NewMessages' => array( 'Novaj_mesaĝoj' ),
+	'SplitThread' => array( 'Disigi_fadenon' ),
+	'MergeThread' => array( 'Kunigi_fadenon', 'Unuigi_fadenon' ),
+);
+
 /** Spanish (español) */
 $specialPageAliases['es'] = array(
 	'DeleteThread' => array( 'BorrarHilo', 'Borrar_hilo' ),
@@ -504,7 +513,7 @@ $specialPageAliases['vec'] = array(
 
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
-	'DeleteThread' => array( 'Xóa_luồng' ),
+	'DeleteThread' => array( 'Xóa_luồng', 'Xoá_luồng' ),
 	'MoveThread' => array( 'Di_chuyển_luồng' ),
 	'NewMessages' => array( 'Tin_nhắn_mới' ),
 	'SplitThread' => array( 'Chia_luồng' ),
