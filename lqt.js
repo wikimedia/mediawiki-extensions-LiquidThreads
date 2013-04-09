@@ -778,45 +778,27 @@ window.liquidThreads = {
 		$(this).remove();
 	},
 
-	'asyncWatch' : function(e) {
-		var button = $(this);
-		var tlcOffset = "lqt-threadlevel-commands-".length;
-
-		// Find the title of the thread
-		var threadLevelCommands = button.closest('.lqt_threadlevel_commands');
-		var threadID = threadLevelCommands.attr('id').substring( tlcOffset );
-		var title = $('#lqt-thread-title-'+threadID).val();
-
-		// Check if we're watching or unwatching.
-		var action = '';
-		if ( button.hasClass( 'lqt-command-watch' ) ) {
-			button.removeClass( 'lqt-command-watch' );
-			action = 'watch';
-		} else if ( button.hasClass( 'lqt-command-unwatch' ) ) {
-			button.removeClass( 'lqt-command-unwatch' );
-			action = 'unwatch';
-		}
+	'asyncWatch' : function ( e ) {
+		var button = $( this ),
+			oldButton = $( this ).clone(),
+			tlcOffset = 'lqt-threadlevel-commands-'.length,
+			// Find the title of the thread
+			threadLevelCommands = button.closest( '.lqt_threadlevel_commands' ),
+			title = $( '#lqt-thread-title-' + threadLevelCommands.attr( 'id' ).substring( tlcOffset ) ).val();
 
 		// Replace the watch link with a spinner
 		button.empty().addClass( 'mw-small-spinner' );
 
-		// Do the AJAX call.
-		var apiParams = {
-			'action': 'watch',
-			'title' : title,
-			'format': 'json',
-			'token' : mw.user.tokens.get( 'watchToken' )
-		};
-
-		if (action === 'unwatch') {
-			apiParams.unwatch = 'yes';
+		// Check if we're watching or unwatching.
+		var api = new mw.Api(),
+			success = function () {
+				threadLevelCommands.load( window.location.href + ' #' + threadLevelCommands.attr( 'id' ) + ' > *' );
+			};
+		if ( oldButton.hasClass( 'lqt-command-unwatch' ) ) {
+			api.unwatch( title ).done( success );
+		} else if ( oldButton.hasClass( 'lqt-command-watch' ) ) {
+			api.watch( title ).done( success );
 		}
-
-		$.post( mw.util.wikiScript( 'api' ), apiParams,
-			function () {
-				threadLevelCommands.load( window.location.href+' '+
-						'#'+threadLevelCommands.attr('id')+' > *' );
-			}, 'json' );
 
 		e.preventDefault();
 	},
