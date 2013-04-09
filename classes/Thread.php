@@ -378,6 +378,8 @@ class Thread {
 	}
 
 	function moveToPage( $title, $reason, $leave_trace ) {
+		global $wgUser;
+
 		if ( !$this->isTopmostThread() )
 			throw new MWException( "Attempt to move non-toplevel thread to another page" );
 
@@ -416,6 +418,9 @@ class Thread {
 		$this->article = null;
 
 		$this->commitRevision( Threads::CHANGE_MOVED_TALKPAGE, null, $reason );
+
+		// Notifications
+		NewMessages::writeMessageStateForUpdatedThread( $this, $this->type, $wgUser );
 
 		if ( $leave_trace ) {
 			$this->leaveTrace( $reason, $oldTitle, $newTitle );
