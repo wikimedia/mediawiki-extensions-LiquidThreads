@@ -35,7 +35,7 @@ $specialPageAliases['arz'] = array(
 	'MergeThread' => array( 'دمج_الخيط' ),
 );
 
-/** Assamese (অসমীয়া) */
+/** Assamese (অসমীয়া) */
 $specialPageAliases['as'] = array(
 	'NewMessages' => array( 'নতুন_সংবাদসমূহ' ),
 );
