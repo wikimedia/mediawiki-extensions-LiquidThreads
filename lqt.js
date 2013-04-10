@@ -775,24 +775,43 @@ window.liquidThreads = {
 
 	'asyncWatch' : function ( e ) {
 		var button = $( this ),
-			oldButton = $( this ).clone(),
 			tlcOffset = 'lqt-threadlevel-commands-'.length,
+			oldButton = button.clone();
 			// Find the title of the thread
 			threadLevelCommands = button.closest( '.lqt_threadlevel_commands' ),
 			title = $( '#lqt-thread-title-' + threadLevelCommands.attr( 'id' ).substring( tlcOffset ) ).val();
 
+		// Check if we're watching or unwatching.
+		var action = '';
+		if ( button.hasClass( 'lqt-command-watch' ) ) {
+			button.removeClass( 'lqt-command-watch' ).addClass( 'lqt-command-unwatch' );
+			button.find( 'a' ).attr( 'href', button.find( 'a' ).attr( 'href' ).replace( 'watch', 'unwatch' ) ).text( mw.msg( 'unwatch' ) );
+			action = 'watch';
+		} else if ( button.hasClass( 'lqt-command-unwatch' ) ) {
+			button.removeClass( 'lqt-command-unwatch' ).addClass( 'lqt-command-watch' );
+			action = 'unwatch';
+			button.find( 'a' ).attr( 'href', button.find( 'a' ).attr( 'href' ).replace( 'unwatch', 'watch' ) ).text( mw.msg( 'watch' ) );
+		}
+
 		// Replace the watch link with a spinner
-		button.empty().addClass( 'mw-small-spinner' );
+		var spinner = $( '<li/>' ).html( '&nbsp;' ).addClass( 'mw-small-spinner' );
+		button.replaceWith( spinner );
 
 		// Check if we're watching or unwatching.
 		var api = new mw.Api(),
 			success = function () {
-				threadLevelCommands.load( window.location.href + ' #' + threadLevelCommands.attr( 'id' ) + ' > *' );
+				spinner.replaceWith( button );
+			},
+			error = function () {
+				// FIXME: Use a better i18n way to show this
+				alert( 'failed to connect.. Please try again!' );
+				spinner.replaceWith( oldButton );
 			};
-		if ( oldButton.hasClass( 'lqt-command-unwatch' ) ) {
-			api.unwatch( title ).done( success );
-		} else if ( oldButton.hasClass( 'lqt-command-watch' ) ) {
-			api.watch( title ).done( success );
+
+		if ( action === 'unwatch' ) {
+			api.unwatch( title ).done( success ).fail( error );
+		} else if ( action === 'watch' ) {
+			api.watch( title ).done( success ).fail( error );
 		}
 
 		e.preventDefault();
