@@ -906,6 +906,20 @@ window.liquidThreads = {
 			liquidThreads.doReloadThread( editform.closest( '.lqt-thread-topmost' ) );
 		};
 
+		var errorCallback = function () {
+			// Create a hidden field to mimic the save button, and
+			// submit it normally, so they'll get a real error message.
+
+			var saveHidden = $( '<input/>' );
+			saveHidden.attr( 'type', 'hidden' );
+			saveHidden.attr( 'name', 'wpSave' );
+			saveHidden.attr( 'value', 'Save' );
+
+			var form = editform.find( '#editform' );
+			form.append( saveHidden );
+			form.submit();
+		}
+
 		var doneCallback = function ( data ) {
 			var result;
 			try {
@@ -915,17 +929,7 @@ window.liquidThreads = {
 			}
 
 			if ( result !== 'Success' ) {
-				// Create a hidden field to mimic the save button, and
-				// submit it normally, so they'll get a real error message.
-
-				var saveHidden = $( '<input/>' );
-				saveHidden.attr( 'type', 'hidden' );
-				saveHidden.attr( 'name', 'wpSave' );
-				saveHidden.attr( 'value', 'Save' );
-
-				var form = editform.find( '#editform' );
-				form.append( saveHidden );
-				form.submit();
+				errorCallback();
 				return;
 			}
 
@@ -953,19 +957,21 @@ window.liquidThreads = {
 
 		if ( type === 'reply' ) {
 			liquidThreads.doReply( replyThread, text, summary,
-						doneCallback, bump, signature );
+					doneCallback, bump, signature, errorCallback );
 
 			e.preventDefault();
 		} else if ( type === 'talkpage_new_thread' ) {
-			var container = editform.closest( '.lqt-new-thread' );
-			var page = container.data( 'lqt-talkpage' );
+			var page = editform.closest( '.lqt-new-thread' ).data( 'lqt-talkpage' );
+			if ( !page ) {
+				page = $( $( '[lqt_talkpage]' )[0] ).attr( 'lqt_talkpage' ); // A couple of elements have this attribute, it doesn't matter which
+			}
 			liquidThreads.doNewThread( page, subject, text, summary,
-					doneCallback, bump, signature );
+					doneCallback, bump, signature, errorCallback );
 
 			e.preventDefault();
 		} else if ( type === 'edit' ) {
 			liquidThreads.doEditThread( replyThread, subject, text, summary,
-					doneCallback, bump, signature );
+					doneCallback, bump, signature, errorCallback );
 			e.preventDefault();
 		}
 	},
@@ -990,7 +996,7 @@ window.liquidThreads = {
 		} );
 	},
 
-	'doNewThread' : function ( talkpage, subject, text, summary, callback, bump, signature ) {
+	'doNewThread' : function ( talkpage, subject, text, summary, doneCallback, bump, signature, errorCallback ) {
 		var newTopicParams = {
 			action : 'threadaction',
 			threadaction : 'newthread',
@@ -1014,7 +1020,7 @@ window.liquidThreads = {
 		if ( typeof signature !== 'undefined' ) {
 			newTopicParams.signature = signature;
 		}
-		( new mw.Api() ).post( newTopicParams ).done( callback );
+		( new mw.Api() ).post( newTopicParams ).done( doneCallback ).fail( errorCallback );
 	},
 
 	'doReply' : function ( thread, text, summary, callback, bump, signature ) {
