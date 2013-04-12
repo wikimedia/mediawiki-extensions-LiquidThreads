@@ -6610,6 +6610,7 @@ Välttääksesi tämän, jaa ne tästä ketjusta erilleen ennen sen poistamista.
 	'lqt-newmessages-from' => 'Sivulta $1',
 	'lqt-hot-topics' => 'Kuumat aiheet',
 	'lqt-add-reply' => 'Lisää vastaus',
+	'lqt-changesortorder' => 'Lajittele',
 	'lqt_rc_new_discussion' => 'aloitti uuden ketjun ”$1”',
 	'lqt_rc_new_reply' => 'vastasi ketjuun ”$1”',
 	'right-lqt-split' => 'Jakaa viestiketjuja',
@@ -6717,6 +6718,7 @@ Allekirjoitus näytetään automaattisesti.',
 	'lqt-reply-subpage' => 'vastaus',
 	'nstab-thread' => 'Säie',
 	'nstab-summary' => 'Yhteenveto',
+	'pageinfo-usinglqt-yes' => 'Kyllä',
 );
 
 /** French (français)
