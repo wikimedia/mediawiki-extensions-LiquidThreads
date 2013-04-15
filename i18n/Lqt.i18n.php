@@ -305,6 +305,8 @@ The signature is shown automatically.',
 	// Reply subpage name
 	'lqt-reply-subpage' => 'reply',
 
+	'lqt-pagechange-editformopen' => 'You have unsaved text open on this page. You may lose it if you go away from this page.',
+
 	// Tabs in skins
 	'nstab-thread' => 'Thread',
 	'nstab-summary' => 'Summary',
@@ -703,6 +705,7 @@ Parameters:
 	'lqt-reply-subpage' => 'Part of the page title when a LiquidThread answer is given. Should probably be translated as a noun and not as a verb.
 
 {{Identical|Reply}}',
+	'lqt-pagechange-editformopen' => 'Shown as a JavaScript confirmation dialog to the user when they try to leave the page while an LQT editing form is open.',
 	'nstab-thread' => 'Used as tab title of the Thread namespace.
 {{Identical|Thread}}',
 	'nstab-summary' => 'Used as tab title for the Summary namespace.

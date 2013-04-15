@@ -1596,6 +1596,19 @@ $( document ).ready( function () {
 
 	// Set up periodic update checking
 	setInterval( liquidThreads.checkForUpdates, 60000 );
+
+	$( window ).bind( 'beforeunload', function() {
+		var confirmExitPage = false;
+		$( '.lqt-edit-form' ).each( function( index, element ) {
+			var textArea = $( element ).children( 'form' ).find( 'textarea' );
+			if ( element.style.display !== 'none' && textArea.val() !== '' ) {
+				confirmExitPage = true;
+			}
+		} );
+		if ( confirmExitPage ) {
+			return mw.msg( 'lqt-pagechange-editformopen' );
+		}
+	} );
 } );
 
 }( mediaWiki, jQuery ) );

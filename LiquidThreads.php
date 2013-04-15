@@ -59,6 +59,7 @@ $lqtMessages = array(
 	'lqt-preview-signature',
 	'lqt_contents_title',
 	'lqt-empty-text',
+	'lqt-pagechange-editformopen',
 );
 
 // ResourceLoader
