@@ -2848,6 +2848,7 @@ Kuit na c'hoarvezfe, rannit an neudenndaoù kaozioù a-raok diverkañ homañ.",
 	'lqt-newmessages-from' => 'Diwar $1',
 	'lqt-hot-topics' => "Kaozeadennoù eus ar c'hiz",
 	'lqt-add-reply' => 'Ouzhpennañ ur respont',
+	'lqt-changesortorder' => 'Urzhiañ',
 	'lqt_rc_new_discussion' => 'en deus embannet un neudennad nevez, "$1"',
 	'lqt_rc_new_reply' => 'en deus embannet ur respont da "$1"',
 	'right-lqt-split' => 'Rannañ an neudennadoù',
@@ -2868,6 +2869,7 @@ Kuit na c'hoarvezfe, rannit an neudenndaoù kaozioù a-raok diverkañ homañ.",
 	'lqt-log-action-merge-down' => 'en deus kendeuzet [[$1]] a-us da [[$3]]',
 	'lqt-log-action-subjectedit' => 'en deus kemmet sujed [[$1]] eus "$2" da "$3"',
 	'lqt-log-action-resort' => "en deus kemmet urzh rummañ [[$1]]. Kemmet eo bet an alc'hwez rummañ eus $2 da $3",
+	'lqt-log-action-signatureedit' => 'en deus kemmet sinadur [[$1]] eus "$2" da "$3"',
 	'lqt-preference-notify-talk' => 'Kas ur postel din pa vez maget ur gaoz evezhiet ganin',
 	'lqt-preference-watch-threads' => 'Evezhiañ an neudennadoù a grouan pe a respontant dezho',
 	'prefs-lqt' => 'Kaozeadennoù dre neudennadoù',
@@ -2932,11 +2934,11 @@ Dont a raio ar sinadur war wel e-unan",
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Neudennadoù kaoz nevez a-berzh $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Respontoù',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respontoù digant $1',
-	'lqt-feed-new-thread-intro' => 'Neudennadoù nevez war $1 postet gant $2', # Fuzzy
-	'lqt-feed-reply-intro' => 'Respontoù da $3 (war $1) postet gant $2', # Fuzzy
+	'lqt-feed-new-thread-intro' => 'Neudennad nevez war $1 postet gant {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Respontoù da $3 (war $1) postet gant {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => "Diskouez a ra ar c'hemennadennoù nevez diwar-benn an danvezioù pa ar pajennoù kaozeal evezhiet ganeoc'h",
-	'lqt-newmessages-n' => 'Kemennadennoù nevez ($1)', # Fuzzy
-	'lqt_newmessages' => "Ma c'hemennadennoù nevez (hini ebet)", # Fuzzy
+	'lqt-newmessages-n' => 'Kemennadennoù nevez ($1)',
+	'lqt_newmessages' => 'Kemennadennoù nevez (hini ebet)',
 	'lqt_newmessages-title' => 'Kemennadennoù nevez',
 	'lqt-newpost-summary' => 'Neudennad nevez : $1',
 	'lqt-reply-summary' => 'Respont da [[$2|$1]]',
@@ -2945,7 +2947,7 @@ Dont a raio ar sinadur war wel e-unan",
 	'lqt-talkpage-history-tab' => 'Talbenn',
 	'restriction-reply' => 'Postañ respontoù',
 	'restriction-newthread' => 'Ouzhpennañ neudennadoù kaozeal nevez',
-	'lqt-protected-reply-thread' => "Ne c'helloc'h ket postañ en neudennad-mañ dre ma 'z eo bet gwarezet a-enep ar gemennadennoù nevez.",
+	'lqt-protected-reply-thread' => "N'hallit ket postañ en neudennad-mañ, gwarezet eo bet a-enep d'ar c'hemennadennoù nevez.",
 	'lqt-protected-reply-talkpage' => "Ne c'helloc'h ket postañ en neudennad-mañ dre ma 'z eo bet gwarezet an neudennad a-enep ar respontoù.",
 	'lqt-protected-newthread' => "Ne c'hellit ket postañ neudennadoù nevez er bajenn kaozeal-mañ dre ma 'z eo bet gwarezet a-enep an neudennadoù nevez.",
 	'lqt-edit-bump' => 'Adgweredekaat an neudennad-mañ',
@@ -2954,6 +2956,9 @@ Dont a raio ar sinadur war wel e-unan",
 	'lqt-reply-subpage' => 'respont',
 	'nstab-thread' => 'Neudennad',
 	'nstab-summary' => 'Diverradur',
+	'echo-pref-email-lqt-new-topic' => 'A grou un neudennad nevez',
+	'echo-pref-email-lqt-reply' => "A respont d'un neudennad",
+	'pageinfo-usinglqt-yes' => 'Ya',
 );
 
 /** Bosnian (bosanski)
@@ -4814,6 +4819,7 @@ $7",
 	'lqt-reply-subpage' => 'cewab bıde',
 	'nstab-thread' => 'Pine',
 	'nstab-summary' => 'Xulasa',
+	'pageinfo-usinglqt-yes' => 'Eya',
 );
 
 /** Lower Sorbian (dolnoserbski)
@@ -5088,7 +5094,7 @@ $messages['ee'] = array(
 	'lqt_move_move' => 'Ɖɔli eƒe nɔƒe',
 	'lqt-movethread' => 'Ɖɔli eƒe nɔƒe',
 	'lqt-search-button' => 'Dii',
-	'lqt_newmessages' => 'Du yeyewo', # Fuzzy
+	'lqt_newmessages' => 'Du yeyewo (ɖeke o)',
 );
 
 /** Greek (Ελληνικά)
@@ -5554,6 +5560,7 @@ La subskribo estas aŭtomate montrita.',
 
 /** Spanish (español)
  * @author Armando-Martin
+ * @author Ciencia Al Poder
  * @author Crazymadlover
  * @author Dalton2
  * @author Dferg
@@ -5563,6 +5570,7 @@ La subskribo estas aŭtomate montrita.',
  * @author Imre
  * @author Locos epraix
  * @author Manuelt15
+ * @author MarcoAurelio
  * @author McDutchie
  * @author Pertile
  * @author Piolinfax
@@ -5622,19 +5630,19 @@ Puede:
 	'lqt_hist_adjusted_sortkey' => 'Posición de hilo ajustada',
 	'lqt_revision_as_of' => 'Revisión del $2 a las $3.',
 	'lqt_change_new_thread' => 'Esta es la revisión inicial del hilo.',
-	'lqt_change_reply_created' => 'El [comentario resaltado $1] fue creado en esta revisión.',
-	'lqt_change_edited_root' => 'El [comentario resaltado $1] fue editado en esta revisión.',
+	'lqt_change_reply_created' => 'El [$1 comentario resaltado] fue creado en esta revisión.',
+	'lqt_change_edited_root' => 'El [$1 comentario resaltado] fue editado en esta revisión.',
 	'lqt_change_edited_summary' => 'El resumen del hilo fue editado',
-	'lqt_change_deleted' => '[Este hilo $1] o su raíz fue borrada',
-	'lqt_change_undeleted' => 'El [mensaje remarcado $1] fue reestablecido',
-	'lqt_change_moved' => '[Este hilo $1] fue movido a otra página de discusión',
-	'lqt_change_split' => '[Este hilo $1] fue separado de otro hilo',
+	'lqt_change_deleted' => '[$1 Este hilo] o su padre ha sido borrado',
+	'lqt_change_undeleted' => 'El [$1 mensaje resaltado] ha sido restaurado',
+	'lqt_change_moved' => '[$1 Este hilo] fue movido a otra página de discusión',
+	'lqt_change_split' => '[$1 Este hilo] fue separado desde otro hilo',
 	'lqt_change_edited_subject' => 'El tema de este hilo fue cambiado de "$2" a "$3".',
-	'lqt_change_merged_from' => 'Una [respuesta $1] a este hilo fue movida a otro hilo',
-	'lqt_change_merged_to' => 'La [respuesta remarcada $1] fue movida de otro hilo',
-	'lqt_change_split_from' => 'Un [subhilo $1] de este hilo fue separada en su propio hilo',
+	'lqt_change_merged_from' => 'Una [$1 respuesta] a este hilo fue movida a otro hilo',
+	'lqt_change_merged_to' => 'La [$1 respuesta resaltada] fue movida desde otro hilo',
+	'lqt_change_split_from' => 'Un [$1 subhilo] de este hilo se ha separado en su propio hilo',
 	'lqt_change_root_blanked' => 'El texto de [$1 un comentario] ha sido borrado.',
-	'lqt_youhavenewmessages' => 'Tienes [[$1|nuevos mensajes]].',
+	'lqt_youhavenewmessages' => 'Tienes [[$1|mensajes nuevos]].',
 	'lqt_protectedfromreply' => 'Este hilo ha sido $1. No es posible responder en él.',
 	'lqt_protectedfromreply_link' => 'protegido',
 	'lqt_subject' => 'Tema:',
@@ -5692,7 +5700,7 @@ Esta operación no se puede deshacer',
 	'lqt-date-info' => 'Este enlace está deshabilitado porque estás viendo hilos de todas las fechas.',
 	'lqt-newmessages-context' => 'Hilo completo',
 	'lqt-thread-created' => 'Creado',
-	'lqt-history-time' => 'Tiempo',
+	'lqt-history-time' => 'Hora',
 	'lqt-history-user' => 'Usuario',
 	'lqt-history-action' => 'Actividad',
 	'lqt-history-comment' => 'Comentario',
@@ -5783,7 +5791,7 @@ $7",
 	'lqt-thread-link-title' => 'Enlace Wikitexto:',
 	'lqt-thread-link-copy' => 'Copiar al portapapeles',
 	'lqt-sign-not-necessary' => 'No es necesario firmar tu mensaje con cuatro tildes.
-La firma es mostrada automaticamente.',
+La firma se muestra automáticamente.',
 	'lqt-marked-as-read-placeholder' => 'El hilo $1 se ha marcado como leído.',
 	'lqt-change-subject' => 'Cambiar tema',
 	'lqt-save-subject' => 'Guardar',
@@ -5815,7 +5823,7 @@ La firma es mostrada automaticamente.',
 	'lqt-feed-reply-intro' => 'Respuesta a $3 (en $1) publicada por {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Muestra los mensajes nuevos publicados en hilos o en páginas de discusión que estás vigilando',
 	'lqt-newmessages-n' => 'Nuevos mensajes ($1)',
-	'lqt_newmessages' => 'Nuevos mensajes (ninguno)',
+	'lqt_newmessages' => 'Mensajes nuevos (–)',
 	'lqt_newmessages-title' => 'Mensajes nuevos',
 	'lqt-newpost-summary' => 'Hilo nuevo: $1',
 	'lqt-reply-summary' => 'Respuesta a [[$2|$1]]',
@@ -5833,6 +5841,10 @@ La firma es mostrada automaticamente.',
 	'lqt-reply-subpage' => 'responder',
 	'nstab-thread' => 'Hilo',
 	'nstab-summary' => 'Resumen',
+	'echo-pref-email-lqt-new-topic' => 'Crea un nuevo hilo de discusión',
+	'echo-pref-email-lqt-reply' => 'Responde a un hilo de discusión',
+	'pageinfo-usinglqt' => 'Hilos de discusión activados',
+	'pageinfo-usinglqt-yes' => 'Sí',
 );
 
 /** Estonian (eesti)
@@ -11565,7 +11577,7 @@ $messages['krl'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'lqt-desc' => 'Määt {{int:lqt-history-thread}}e en Klaaf-Sigge müjjelesch.',
+	'lqt-desc' => 'Määt {{int:lqt-history-thread}}e en Klaaf-Sigge möjjelesch.',
 	'lqt_movethread' => 'Donn dä {{int:lqt-history-thread}} op en ander Sigg ömträke',
 	'lqt_deletethread' => 'Ene {{int:lqt-history-thread}} fottschmiiße odder zeröckholle',
 	'lqt_contents_title' => 'Enhallt',
@@ -15791,8 +15803,8 @@ $messages['ps'] = array(
 	'lqt-feed-title-all' => '{{SITENAME}} — نوي پوستونه',
 	'lqt-feed-title-replies' => '{{SITENAME}} — ځوابونه',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — د $1 لخوا ځوابونه',
-	'lqt-newmessages-n' => 'نوي پيغامونه ($1)', # Fuzzy
-	'lqt_newmessages' => 'زما نوي پيغامونه (هېڅ)', # Fuzzy
+	'lqt-newmessages-n' => 'نوي پيغامونه ($1)',
+	'lqt_newmessages' => 'نوي پيغامونه (هېڅ)',
 	'lqt_newmessages-title' => 'نوي پيغامونه',
 	'lqt-reply-summary' => '[[$2|$1]] ته ځواب وييل',
 	'lqt-talkpage-history-title' => 'د خبرو اترو د مخ پېښليک',
@@ -19111,7 +19123,7 @@ Det kan bero på att:
 	'lqt_hist_moved_talkpage' => 'Flyttad',
 	'lqt_hist_listing_subtitle' => 'Visar en historiklista',
 	'lqt_hist_view_whole_thread' => 'Se historiken för hela diskussionssidan',
-	'lqt_hist_no_revisions_error' => 'Den här diskussionssidan har ingen versionshistorik.',
+	'lqt_hist_no_revisions_error' => 'Den här tråden har ingen versionshistorik.',
 	'lqt_hist_past_last_page_error' => 'Det finns inga fler sidor med historik.',
 	'lqt_hist_tooltip_newer_disabled' => 'Den här länken är avaktiverad för du är på den första sidan.',
 	'lqt_hist_tooltip_older_disabled' => 'Den här länken är avaktiverad för att du är på den sista sidan.',
@@ -19124,7 +19136,7 @@ Det kan bero på att:
 	'lqt_hist_root_blanked' => 'Tog bort kommentartext',
 	'lqt_hist_adjusted_sortkey' => 'Justerade trådposition',
 	'lqt_revision_as_of' => 'Version från $2 vid $3.',
-	'lqt_change_new_thread' => 'Detta är diskussionssidans första version.',
+	'lqt_change_new_thread' => 'Detta är trådens första version.',
 	'lqt_change_reply_created' => 'Den [$1 markerade kommentaren] skapades i denna version.',
 	'lqt_change_edited_root' => 'Den [$1 markerade kommentaren] redigerades i denna version.',
 	'lqt_change_edited_summary' => 'Trådens sammanfattning har redigerats',
@@ -19226,6 +19238,7 @@ För att undvika detta, splitta dem från denna tråd innan du raderar den.',
 	'lqt-newmessages-from' => 'Från $1',
 	'lqt-hot-topics' => 'Heta ämnen',
 	'lqt-add-reply' => 'Lägg till ett svar',
+	'lqt-changesortorder' => 'Sortera',
 	'lqt_rc_new_discussion' => 'skapade en ny tråd, "$1"',
 	'lqt_rc_new_reply' => 'skrev ett svar till "$1"',
 	'right-lqt-split' => 'Delade trådar',
@@ -19246,6 +19259,7 @@ För att undvika detta, splitta dem från denna tråd innan du raderar den.',
 	'lqt-log-action-merge-down' => 'slog samman [[$1]] till under [[$3]]',
 	'lqt-log-action-subjectedit' => 'ändrade ämnet för [[$1]] från "$2" till "$3"',
 	'lqt-log-action-resort' => 'modifierade sorderingsordningen för [[$1]]. Ändrade sorderingsnyckel från $2 till $3.',
+	'lqt-log-action-signatureedit' => 'ändrade signaturen för [[$1]] från "$2" till "$3"',
 	'lqt-preference-notify-talk' => 'E-posta mig när någon svarar i en tråd jag bevakar',
 	'lqt-preference-watch-threads' => 'Bevaka trådar jag skapar eller svarar i',
 	'prefs-lqt' => 'Trådad diskussion',
@@ -19336,6 +19350,8 @@ Signaturen visas automatiskt.',
 	'nstab-summary' => 'Sammanfattning',
 	'echo-pref-email-lqt-new-topic' => 'Skapar en ny trådad diskussion',
 	'echo-pref-email-lqt-reply' => 'Svarar till en trådad diskussion',
+	'pageinfo-usinglqt' => 'Trådad diskussion aktiverat',
+	'pageinfo-usinglqt-yes' => 'Ja',
 );
 
 /** Swahili (Kiswahili)
