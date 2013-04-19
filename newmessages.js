@@ -96,7 +96,7 @@ $.extend( liquidThreads, {
 			token: mw.user.tokens.get( 'editToken' )
 		} ).done( function ( e ) {
 			liquidThreads.markReadDone.one( e, form.find( 'input[type=submit]' ), operand );
-			$( 'li#pt-newmessages' ).html( $( '<a>', $( e.threadactions ).last().unreadlink ) ); // Unreadlink will be on the last threadaction
+			$( 'li#pt-newmessages' ).html( $( '<a>', $( e.threadactions ).last().prop( 'unreadlink' ) ) ); // Unreadlink will be on the last threadaction
 			spinner.remove();
 		} );
 	},
