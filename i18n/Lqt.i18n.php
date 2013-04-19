@@ -513,7 +513,8 @@ The legend for the drop-down box is {{msg-mw|Lqt_sorting_order}}.',
 	'lqt-summary' => '{{Identical|Summary}}',
 	'lqt-read-message' => '"Read" is past tense.',
 	'lqt-read-message-tooltip' => 'Used as tooltip for {{msg-mw|Lqt-read-message}} button.',
-	'lqt-read-all' => 'Used as button text.',
+	'lqt-read-all' => 'Used as button text.
+{{Identical|Mark all as read}}',
 	'lqt-read-all-tooltip' => 'Used as tooltip for {{msg-mw|Lqt-read-all}} button.',
 	'lqt-marked-read' => 'Parameters:
 * $1 - subject of thread (message)
