@@ -3500,6 +3500,7 @@ La signatura es mostrarà automàticament.',
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
 	'lqt_contents_title' => 'Чулацам',
@@ -3519,7 +3520,7 @@ $messages['ce'] = array(
 	'lqt_sorting_order' => 'Къепе листар:',
 	'lqt_sort_newest_changes' => 'хийцам бинарш хьалха',
 	'lqt_sort_newest_threads' => 'керла гаьннаш хьалха',
-	'lqt_sort_oldest_threads' => 'къена гаьннаш хьалха',
+	'lqt_sort_oldest_threads' => 'шира гаьннаш хьалха',
 	'lqt-title' => 'Корта',
 	'lqt-searching' => 'Гаьнашца лахар',
 	'lqt-email-undo' => 'Цаоьшу',
@@ -21574,7 +21575,7 @@ Thay vào đó bạn có thể muốn $2.',
 	'lqt-read-message' => 'Đánh dấu đã đọc',
 	'lqt-read-message-tooltip' => 'Dời luồng này khỏi danh sách tin nhắn mới.
 Nó vẫn còn tại trang thảo luận đầu tiên.',
-	'lqt-read-all' => 'Đánh dấu đọc tất cả',
+	'lqt-read-all' => 'Đánh dấu tất cả là đã đọc',
 	'lqt-read-all-tooltip' => 'Dời các luồng khỏi danh sách tin nhắn mới.
 Chúng vẫn còn tại các trang thảo luận đầu tiên.
 Có thể lùi lại tác động này.',
@@ -21617,6 +21618,7 @@ Bạn có thể sử dụng cú pháp wiki trong tóm tắt. Khi nào xong, hãy
 	'lqt-newmessages-from' => 'Từ $1',
 	'lqt-hot-topics' => 'Chủ đề nóng',
 	'lqt-add-reply' => 'Ghi trả lời',
+	'lqt-changesortorder' => 'Sắp xếp',
 	'lqt_rc_new_discussion' => 'đã bắt đầu luồng mới, “$1”',
 	'lqt_rc_new_reply' => 'đã trả lời “$1”',
 	'right-lqt-split' => 'Chia luồng',
@@ -21637,6 +21639,7 @@ Bạn có thể sử dụng cú pháp wiki trong tóm tắt. Khi nào xong, hãy
 	'lqt-log-action-merge-down' => 'hợp nhất [[$1]] vào dưới [[$3]]',
 	'lqt-log-action-subjectedit' => 'đã đổi tiêu đề [[$1]] từ “$2” thành “$3”',
 	'lqt-log-action-resort' => 'đã thay đổi thứ tự sắp xếp của [[$1]] bằng cách đổi từ khóa sắp xếp từ $2 thành $3',
+	'lqt-log-action-signatureedit' => 'đã đổi chữ ký trong [[$1]] từ “$2” thành “$3”',
 	'lqt-preference-notify-talk' => 'Gửi thư cho tôi khi ai trả lời luồng tôi đang theo dõi',
 	'lqt-preference-watch-threads' => 'Theo dõi các luồng tôi tạo hay trả lời',
 	'prefs-lqt' => 'Thảo luận theo luồng',
@@ -21727,6 +21730,8 @@ $7',
 	'nstab-summary' => 'Tóm lược',
 	'echo-pref-email-lqt-new-topic' => 'Bắt đầu luồng thảo luận mới',
 	'echo-pref-email-lqt-reply' => 'Trả lời trong luồng thảo luận',
+	'pageinfo-usinglqt' => 'Thảo luận theo luồng được kích hoạt',
+	'pageinfo-usinglqt-yes' => 'Có',
 );
 
 /** Volapük (Volapük)
