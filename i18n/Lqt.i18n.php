@@ -1200,7 +1200,7 @@ $messages['ar'] = array(
 	'lqt-split-success' => 'لقد فصلت بنجاح الموضوع $1.',
 	'lqt_split_thread' => 'فصل موضوع',
 	'lqt-thread-split-subject' => 'عنوان الموضوع الجديد:',
-	'lqt-thread-split-thread' => 'الخيط:',
+	'lqt-thread-split-thread' => 'الموضوع:',
 	'lqt-split-submit' => 'افصل',
 	'lqt_split_badsubject' => 'العنوان الذي أدخلته غير صحيح.',
 	'lqt-no-threads' => 'لا توجد أي مواضيع في هذه الصفحة إلى الآن.',
@@ -20686,6 +20686,7 @@ $messages['ug-arab'] = array(
  * @author NickK
  * @author Olvin
  * @author Prima klasy4na
+ * @author Ата
  * @author Тест
  */
 $messages['uk'] = array(
@@ -20839,6 +20840,7 @@ $messages['uk'] = array(
 	'lqt-newmessages-from' => 'На $1',
 	'lqt-hot-topics' => 'Гарячі теми',
 	'lqt-add-reply' => 'Додати відповідь',
+	'lqt-changesortorder' => 'Сортувати',
 	'lqt_rc_new_discussion' => 'написав нову тему, "$1"',
 	'lqt_rc_new_reply' => 'написав відповідь на «$1»',
 	'right-lqt-split' => 'Розділити теми',
@@ -20859,6 +20861,7 @@ $messages['uk'] = array(
 	'lqt-log-action-merge-down' => "об'єднав [[$1]] з [[$3]]",
 	'lqt-log-action-subjectedit' => 'змінив назву теми [[$1]] з "$2" на "$3"',
 	'lqt-log-action-resort' => 'змінив порядок сортування [[$1]]. Змінено ключ сортування з $2 на $3',
+	'lqt-log-action-signatureedit' => 'змінено підпис [[$1]] з «$2» на «$3»',
 	'lqt-preference-notify-talk' => 'Повідомляти мене електронною поштою про відповіді у темі, за якою я спостерігаю',
 	'lqt-preference-watch-threads' => 'Спостерігати за темами, що я створюю або в яких відповідаю',
 	'prefs-lqt' => 'Обговорення за темами',
@@ -20950,6 +20953,8 @@ $7",
 	'nstab-summary' => 'Резюме',
 	'echo-pref-email-lqt-new-topic' => 'Створює нове гілчасте обговорення',
 	'echo-pref-email-lqt-reply' => 'Відповідає на гілчасті обговорення',
+	'pageinfo-usinglqt' => 'Увімкнено деревовидні теми обговорень',
+	'pageinfo-usinglqt-yes' => 'Так',
 );
 
 /** Urdu (اردو)
