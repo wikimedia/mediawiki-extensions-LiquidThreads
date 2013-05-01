@@ -15822,6 +15822,7 @@ $messages['ps'] = array(
  * @author Helder.wiki
  * @author Heldergeovane
  * @author Lijealso
+ * @author Luckas
  * @author Malafaya
  * @author SandroHc
  * @author 555
@@ -16027,7 +16028,7 @@ $7",
 	'searchprofile-threads' => 'Discussões',
 	'searchprofile-threads-tooltip' => 'Pesquisar discussões por tópicos e páginas de discussão',
 	'lqt-ajax-updated' => 'Este tópico tem respostas novas.',
-	'lqt-ajax-update-link' => 'Actualizar',
+	'lqt-ajax-update-link' => 'Atualizar',
 	'lqt-thread-show-replies' => 'Mostrar $1 {{PLURAL:$1|resposta|respostas}}',
 	'lqt-thread-show-more' => 'Mostrar mais respostas',
 	'lqt-thread-link-url' => 'URL do link:',
