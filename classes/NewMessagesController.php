@@ -445,7 +445,7 @@ class NewMessages {
 		return Threads::loadFromResult( $res, $dbr );
 	}
 
-	static function newMessageCount( $user ) {
+	static function newMessageCount( $user, $db = DB_SLAVE ) {
 		global $wgMemc;
 
 		$cval = $wgMemc->get( wfMemcKey( 'lqt-new-messages-count', $user->getId() ) );
@@ -454,7 +454,7 @@ class NewMessages {
 			return $cval;
 		}
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( $db );
 
 		$cond = array( 'ums_user' => $user->getId(), 'ums_read_timestamp' => null );
 		$options = array( 'LIMIT' => 500 );
