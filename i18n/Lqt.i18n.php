@@ -15950,14 +15950,14 @@ Esta operação é irreversível.',
 	'lqt-thread-created' => 'Criado',
 	'lqt-history-time' => 'Data',
 	'lqt-history-user' => 'Utilizador',
-	'lqt-history-action' => 'Acção',
+	'lqt-history-action' => 'Atividade',
 	'lqt-history-comment' => 'Comentário',
 	'lqt-history-thread' => 'Tópico',
 	'lqt-thread-edited-author' => 'Editado pelo autor.<br />
 Última edição: $1',
 	'lqt-thread-edited-others' => 'Editado por {{PLURAL:$2|outro utilizador|$2 outros utilizadores}}.<br />
 Última edição: $1',
-	'lqt-header-actions' => 'Acções',
+	'lqt-header-actions' => 'Ações',
 	'lqt_summarize_link' => 'Resumir',
 	'lqt-summarize-intro' => 'Por favor, resuma o tópico na caixa de edição.
 Pode usar texto wiki no resumo. Quando terminar, clique "{{int:savearticle}}".',
