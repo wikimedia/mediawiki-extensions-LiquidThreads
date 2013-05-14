@@ -3551,6 +3551,7 @@ $messages['ce'] = array(
 	'lqt-cancel-subject-edit' => 'Цаоьшу',
 	'lqt-drag-activate' => 'Дехьа йаккха',
 	'lqt-drag-drop-zone' => 'Дехьа йаккха кхузе',
+	'lqt-drag-reason' => 'Бахьан:',
 	'lqt-preview-signature' => '(хьалха муха ю хьажар)',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Керла хаамаш $1',
 	'lqt-newmessages-n' => 'Керла хаамаш ($1)', # Fuzzy
