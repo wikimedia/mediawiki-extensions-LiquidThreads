@@ -3954,9 +3954,13 @@ Efallai:
 	'lqt-movethread' => 'Symud',
 	'lqt-menu-trigger' => 'Mwy',
 	'lqt-preview-signature' => '(rhagolwg)',
-	'lqt-newmessages-n' => 'Negeseuon newydd ($1)', # Fuzzy
-	'lqt_newmessages' => 'Negeseuon newydd (Dim)', # Fuzzy
+	'lqt-newmessages-n' => 'Negeseuon newydd ($1)',
+	'lqt_newmessages' => 'Negeseuon newydd (dim)',
 	'lqt_newmessages-title' => 'Negeseuon newydd',
+	'lqt-newpost-summary' => 'Trywydd newydd: $1',
+	'lqt-talkpage-history-tab' => 'Pennawd',
+	'nstab-thread' => 'Trywydd',
+	'nstab-summary' => 'Crynodeb',
 );
 
 /** Danish (dansk)
@@ -6610,7 +6614,7 @@ Viimeisin muokkaus: $1',
 	'lqt-thread-edited-others' => '{{PLURAL:$2|Muun käyttäjän|$2 muun käyttäjän}} muokkaama.<br />
 Viimeisin muokkaus: $1',
 	'lqt-header-actions' => 'Toiminnot',
-	'lqt_summarize_link' => 'Tiivistä',
+	'lqt_summarize_link' => 'Tee yhteenveto',
 	'lqt-summarize-intro' => 'Tee yhteenveto alla olevasta ketjusta muokkauskenttään.
 Voit käyttää mitä tahansa wikitekstiä yhteenvedossa.
 Kun olet valmis, napsauta ”{{int:savearticle}}”.',
