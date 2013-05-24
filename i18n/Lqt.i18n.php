@@ -12796,7 +12796,7 @@ $messages['mk'] = array(
 	'lqt_invalid_subject' => 'Насловот кој го внесовте е неважечки.
 Можни причини:
 * Предолга е, или
-* Се коси со меѓувики-префикси или називи на именски простори.',
+* Се коси со меѓувики-претставки или називи на именски простори.',
 	'lqt-empty-text' => 'Не можете да објавите празна порака',
 	'lqt_empty_subject' => 'Мора да внесете наслов.',
 	'lqt_reply' => 'Одговори',
@@ -12932,6 +12932,7 @@ $messages['mk'] = array(
 	'lqt-newmessages-from' => 'Од $1',
 	'lqt-hot-topics' => 'Актуелни теми',
 	'lqt-add-reply' => 'Додај одговор',
+	'lqt-changesortorder' => 'Подреди',
 	'lqt_rc_new_discussion' => 'објави нова нишка, „$1“',
 	'lqt_rc_new_reply' => 'одговори на „$1“',
 	'right-lqt-split' => 'Раздели нишки',
@@ -12952,6 +12953,7 @@ $messages['mk'] = array(
 	'lqt-log-action-merge-down' => '[[$1]] ставена (споена) под [[$3]]',
 	'lqt-log-action-subjectedit' => 'изменет насловот на [[$1]] од „$2“ на „$3“',
 	'lqt-log-action-resort' => 'изменет редоследот на подредување на [[$1]]. Клучот за подредување изменет од $2 на $3.',
+	'lqt-log-action-signatureedit' => 'изменет потписот на [[$1]] од „$2“ на „$3“',
 	'lqt-preference-notify-talk' => 'Испрати ми е-пошта кога некој ќе одговори на нишка што ја набљудувам',
 	'lqt-preference-watch-threads' => 'Набљудувај ги нишките кои ги создавам или на кои одговарам',
 	'prefs-lqt' => 'Нанижан разговор',
@@ -13043,6 +13045,8 @@ $7',
 	'nstab-summary' => 'Опис',
 	'echo-pref-email-lqt-new-topic' => 'Создава нов нанижан разговор',
 	'echo-pref-email-lqt-reply' => 'Одговара на нанижан разговор',
+	'pageinfo-usinglqt' => 'Нанижаните разговори се овозможени',
+	'pageinfo-usinglqt-yes' => 'Да',
 );
 
 /** Malayalam (മലയാളം)
