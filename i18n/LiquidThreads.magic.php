@@ -31,7 +31,7 @@ $magicWords['bs'] = array(
 
 /** Chechen (нохчийн) */
 $magicWords['ce'] = array(
-	'useliquidthreads' => array( 0, 'ЛелайеLiquidThreads', 'ИспользоватьLiquidThreads', 'UseLiquidThreads' ),
+	'useliquidthreads' => array( 0, 'ЛелайеLiquidThreads', 'ИспользоватьLiquidThreads' ),
 );
 
 /** German (Deutsch) */
