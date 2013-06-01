@@ -812,7 +812,10 @@ window.liquidThreads = {
 
 	'showSummaryLinkWindow' : function ( e ) {
 		e.preventDefault();
-		var linkURL = $( this ).attr( 'href' );
+		var linkURL = mw.config.get( 'wgServer' ) + $( this ).attr( 'href' );
+		if ( linkURL.substr( 0, 2 ) === '//' ) {
+			linkURL = window.location.protocol + linkURL;
+		}
 		var linkTitle = $( this ).parent().find( 'input[name=summary-title]' ).val();
 		liquidThreads.showLinkWindow( linkTitle, linkURL );
 	},
