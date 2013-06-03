@@ -11600,7 +11600,7 @@ $messages['ksh'] = array(
 	'lqt_toc_thread_author' => 'Aanjevange vum',
 	'lqt_toc_thread_replycount' => 'Beidrähsch',
 	'lqt_toc_thread_modified' => 'Zoläz&nbsp;jeändert',
-	'lqt_add_header' => 'En Övvershreff dobei donn',
+	'lqt_add_header' => 'Donn en Övverschreff derbei',
 	'lqt_new_thread' => 'Fang ene neue {{int:lqt-history-thread}} aan',
 	'lqt_invalid_subject' => 'Dat Teema, wat De enjejovve häs, jeiht esu nit.
 * Et künnt ze lang sinn.
@@ -11732,6 +11732,7 @@ et läz aam $4 öm $3',
 	'lqt-newmessages-from' => 'Vun dä Klaafsigg „$1“',
 	'lqt-hot-topics' => '{{int:lqt-history-thread}}e met de miehtßte Beidrääsch',
 	'lqt-add-reply' => 'Donn en Antwoot derbei',
+	'lqt-changesortorder' => 'Zotteere!',
 	'lqt_rc_new_discussion' => 'hät ene neue {{int:lqt-history-thread}} över „$1“ aanjefange.',
 	'lqt_rc_new_reply' => 'als Antwoot op „$1“ jeschrevve.',
 	'right-lqt-split' => '{{int:lqt-history-thread}}e  opdeile',
@@ -11752,6 +11753,7 @@ et läz aam $4 öm $3',
 	'lqt-log-action-merge-down' => 'hät [[$1]] noh onger de Övverschreff [[$3]] ömjetrocke un dobei di {{int:lqt-history-thread}}e zosamme jelaat.',
 	'lqt-log-action-subjectedit' => 'hät de Övverschreff fun [[$1]] fun „$2“ op „$3“ omjenannt.',
 	'lqt-log-action-resort' => 'hät de Reijefolsch vum Zotteere för [[$1]] fun „$2“ op „$3“ ömjeschtallt.',
+	'lqt-log-action-signatureedit' => 'hät de Ongerschreff onger [[$1]] fun „$2“ op „$3“ verändert.',
 	'lqt-preference-notify-talk' => 'Donn mer en <i lang="en">e-mail</i> schecke, wann ene {{int:lqt-history-thread}} op minge Oppaßleß jeändert weet',
 	'lqt-preference-watch-threads' => 'Donn de {{int:lqt-history-thread}}e för op ming Oppassles ze donn vörschlonn, woh esch drop antwooden udder di esch aanfangen',
 	'prefs-lqt' => 'Klaaf met {{int:lqt-history-thread}}e',
@@ -11852,6 +11854,10 @@ De „Ongerschreff“ weed automattesch jezeijsch.',
 	'lqt-reply-subpage' => 'Antwoot',
 	'nstab-thread' => '{{int:lqt-history-thread}}',
 	'nstab-summary' => 'Zosammefaßong',
+	'echo-pref-email-lqt-new-topic' => 'Wann ene neue Klaaf met Jeschprääschsfäddemme aanjefange woode es',
+	'echo-pref-email-lqt-reply' => 'Wann ene neue Antwoot en enem Klaaf met Jeschprääschsfäddemme jejovve woode es',
+	'pageinfo-usinglqt' => 'Klaafe met Jeschprääschsfäddemme es ennjescahlldt.',
+	'pageinfo-usinglqt-yes' => 'Joh',
 );
 
 /** Kurdish (Latin script) (Kurdî (latînî)‎)
@@ -16112,6 +16118,7 @@ A assinatura é apresentada automaticamente.',
  * @author Giro720
  * @author Helder.wiki
  * @author Heldergeovane
+ * @author Luckas
  * @author Luckas Blade
  * @author MetalBrasil
  * @author 555
@@ -16353,7 +16360,7 @@ A assinatura é apresentada automaticamente.',
 	'lqt-feed-new-thread-intro' => 'Tópico novo em $1 colocado por $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Resposta a $3 (em $1) enviada por $2', # Fuzzy
 	'tooltip-pt-newmessages' => 'Mostra, nas páginas que estiver vigiando, mensagens novas nos tópicos ou páginas de discussão por tópicos',
-	'lqt-newmessages-n' => 'Novas mensagens ($1)', # Fuzzy
+	'lqt-newmessages-n' => 'Novas mensagens ($1)',
 	'lqt_newmessages' => 'Mensagens novas (0)', # Fuzzy
 	'lqt_newmessages-title' => 'Novas mensagens',
 	'lqt-newpost-summary' => 'Tópico novo: $1',
@@ -16372,6 +16379,7 @@ A assinatura é apresentada automaticamente.',
 	'lqt-reply-subpage' => 'responder',
 	'nstab-thread' => 'Tópico',
 	'nstab-summary' => 'Sumário',
+	'pageinfo-usinglqt-yes' => 'Sim',
 );
 
 /** Tarifit (Tarifit)
