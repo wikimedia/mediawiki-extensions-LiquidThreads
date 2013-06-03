@@ -1623,7 +1623,7 @@ $messages['arz'] = array(
 	'lqt-reply-subpage' => 'رد',
 );
 
-/** Assamese (অসমীয়া)
+/** Assamese (অসমীয়া)
  * @author Bishnu Saikia
  */
 $messages['as'] = array(
@@ -2230,6 +2230,7 @@ $messages['be-tarask'] = array(
 	'lqt-newmessages-from' => 'Ад $1',
 	'lqt-hot-topics' => 'Папулярныя тэмы',
 	'lqt-add-reply' => 'Дадаць адказ',
+	'lqt-changesortorder' => 'Сартыраваць',
 	'lqt_rc_new_discussion' => 'створаная новая галіна «$1»',
 	'lqt_rc_new_reply' => 'напісаны адказ на «$1»',
 	'right-lqt-split' => 'падзел галінаў',
@@ -2250,6 +2251,7 @@ $messages['be-tarask'] = array(
 	'lqt-log-action-merge-down' => "аб'яднаная [[$1]] у [[$3]]",
 	'lqt-log-action-subjectedit' => 'зьмененая тэма [[$1]] з «$2» на «$3»',
 	'lqt-log-action-resort' => 'зьмененая сартаваньне [[$1]]. Зьменены ключа сартаваньня з $2 на $3.',
+	'lqt-log-action-signatureedit' => 'подпіс [[$1]] зьменены з «$2» на «$3»',
 	'lqt-preference-notify-talk' => 'Дасылаць мне электронныя лісты ў выпадках адказаў у галіне, за якой я назіраю',
 	'lqt-preference-watch-threads' => 'Дадаваць у мой сьпіс назіраньня галіны, якія я буду ствараць альбо на якія я буду адказваць',
 	'prefs-lqt' => 'Галіны абмеркаваньняў',
@@ -2341,6 +2343,8 @@ $7",
 	'nstab-summary' => 'Апісаньне',
 	'echo-pref-email-lqt-new-topic' => 'Стварае новую галіну абмеркаваньняў',
 	'echo-pref-email-lqt-reply' => 'Адказвае на галіну абмеркаваньняў',
+	'pageinfo-usinglqt' => 'Разгалінаваныя гутаркі ўключаныя',
+	'pageinfo-usinglqt-yes' => 'Так',
 );
 
 /** Bulgarian (български)
@@ -3244,6 +3248,7 @@ $messages['bxr'] = array(
  * @author Solde
  * @author Ssola
  * @author Toniher
+ * @author Vriullop
  */
 $messages['ca'] = array(
 	'lqt-desc' => 'Afegeix fils de discussió a les pàgines de discussió',
@@ -3393,6 +3398,7 @@ Si ho voleu evitar, cal que les separeu d'aquest fil abans d'eliminar-lo.",
 	'lqt-newmessages-from' => 'De $1',
 	'lqt-hot-topics' => 'Temes populars',
 	'lqt-add-reply' => 'Respon',
+	'lqt-changesortorder' => 'Reordena',
 	'lqt_rc_new_discussion' => 'publicat un nou fil, "$1"',
 	'lqt_rc_new_reply' => 'publicada una resposta a "$1"',
 	'right-lqt-split' => 'Separar fils',
@@ -3413,6 +3419,7 @@ Si ho voleu evitar, cal que les separeu d'aquest fil abans d'eliminar-lo.",
 	'lqt-log-action-merge-down' => "s'ha fusionat [[$1]] a sota de [[$3]]",
 	'lqt-log-action-subjectedit' => "s'ha canviat el tema de [[$1]] de «$2» a «$3»",
 	'lqt-log-action-resort' => "s'ha modificat el criteri d'ordenació de [[$1]]. S'ha canviat la clau d'ordenació de $2 a $3",
+	'lqt-log-action-signatureedit' => 'ha canviat la signatura a [[$1]] de "$2" a "$3"',
 	'lqt-preference-notify-talk' => "Envia'm un missatge de correu electrònic per les respostes dels temes que vigilo",
 	'lqt-preference-watch-threads' => 'Vigila les discussions on hagi participat',
 	'prefs-lqt' => 'Discussió en fils',
@@ -3450,7 +3457,7 @@ $7",
 	'lqt-thread-link-url' => "URL de l'enllaç:",
 	'lqt-thread-link-title' => 'Enllaç del text wiki:',
 	'lqt-thread-link-copy' => 'Copia-ho al portaretalls',
-	'lqt-sign-not-necessary' => 'Es necessari que signeu el vostre apunt amb quatre titlles.
+	'lqt-sign-not-necessary' => 'No és necessari que signeu el vostre apunt amb quatre titlles.
 La signatura es mostrarà automàticament.',
 	'lqt-marked-as-read-placeholder' => "S'ha marcat el fil $1 com a llegit",
 	'lqt-change-subject' => 'Canvia el tema',
@@ -3479,11 +3486,11 @@ La signatura es mostrarà automàticament.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Nous fils de $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Respostes',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Respostes de $1',
-	'lqt-feed-new-thread-intro' => 'Nou fil a $1 publicat per $2', # Fuzzy
-	'lqt-feed-reply-intro' => 'Resposta al fil $3 (dins $1) publicada per $2', # Fuzzy
+	'lqt-feed-new-thread-intro' => 'Nou fil a $1 publicat per {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Resposta a $3 (de $1) publicada per {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Mostra els nous missatges dels fils o pàgines de discussió que esteu vigilant',
 	'lqt-newmessages-n' => 'Missatges nous ($1)', # Fuzzy
-	'lqt_newmessages' => 'Els meus missatges nous (Cap)', # Fuzzy
+	'lqt_newmessages' => 'Missatges nous (cap)',
 	'lqt_newmessages-title' => 'Missatges nous',
 	'lqt-newpost-summary' => 'Nou fil: $1',
 	'lqt-reply-summary' => 'Respon a [[$2|$1]]',
@@ -3501,6 +3508,8 @@ La signatura es mostrarà automàticament.',
 	'lqt-reply-subpage' => 'contesta',
 	'nstab-thread' => 'Fil',
 	'nstab-summary' => 'Resum',
+	'pageinfo-usinglqt' => 'Discussió per fils activada',
+	'pageinfo-usinglqt-yes' => 'Sí',
 );
 
 /** Chechen (нохчийн)
@@ -4209,8 +4218,8 @@ Signaturen vises automatisk.',
 	'lqt-feed-new-thread-intro' => 'Ny tråd på $1 oprettet af {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Svar til $3 (på $1) skrevet af {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Viser nye indlæg i tråde eller på trådbaserede diskussionssider, du overvåger',
-	'lqt-newmessages-n' => 'Mine nye beskeder ($1)', # Fuzzy
-	'lqt_newmessages' => 'Mine nye beskeder (ingen)', # Fuzzy
+	'lqt-newmessages-n' => 'Nye beskeder ($1)',
+	'lqt_newmessages' => 'Nye beskeder (ingen)',
 	'lqt_newmessages-title' => 'Nye beskeder',
 	'lqt-newpost-summary' => 'Ny tråd: $1',
 	'lqt-reply-summary' => 'Svar på [[$2|$1]]',
@@ -4228,6 +4237,8 @@ Signaturen vises automatisk.',
 	'lqt-reply-subpage' => 'svar',
 	'nstab-thread' => 'Tråd',
 	'nstab-summary' => 'Sammenfatning',
+	'pageinfo-usinglqt' => 'Trådet diskussion slået til',
+	'pageinfo-usinglqt-yes' => 'Ja',
 );
 
 /** German (Deutsch)
@@ -4401,6 +4412,7 @@ Um dies zu vermeiden, teile sie von diesem Thema ab, bevor du es löscht.',
 	'lqt-newmessages-from' => 'Von $1',
 	'lqt-hot-topics' => 'Populäre Themen',
 	'lqt-add-reply' => 'Antwort hinzufügen',
+	'lqt-changesortorder' => 'Sortieren',
 	'lqt_rc_new_discussion' => 'Startete die neue Diskussion „$1“',
 	'lqt_rc_new_reply' => 'antwortete auf „$1“',
 	'right-lqt-split' => 'Thema aufteilen',
@@ -4421,6 +4433,7 @@ Um dies zu vermeiden, teile sie von diesem Thema ab, bevor du es löscht.',
 	'lqt-log-action-merge-down' => 'führte [[$1]] nach [[$3]] zusammen',
 	'lqt-log-action-subjectedit' => 'änderte den Betreff von [[$1]] von „$2“ zu „$3“',
 	'lqt-log-action-resort' => 'veränderte den Sortierschlüssel von [[$1]]. Sortierschlüssel geändert von $2 nach $3',
+	'lqt-log-action-signatureedit' => 'änderte die Signatur von [[$1]] von „$2“ in „$3“',
 	'lqt-preference-notify-talk' => 'Bei Antworten zu beobachteten Themen E-Mails senden',
 	'lqt-preference-watch-threads' => 'Selbst erstellte oder von mir bearbeitete Themen beobachten',
 	'prefs-lqt' => 'Thema',
@@ -4508,8 +4521,10 @@ Die Signatur wird automatisch ergänzt.',
 	'lqt-reply-subpage' => 'Antwort',
 	'nstab-thread' => 'Thema',
 	'nstab-summary' => 'Themenzusammenfassung',
-	'echo-pref-email-lqt-new-topic' => 'Erstellt eine neue Threaddiskussion',
-	'echo-pref-email-lqt-reply' => 'Antwortet auf eine Threaddiskussion',
+	'echo-pref-email-lqt-new-topic' => 'ein neues Thema erstellt',
+	'echo-pref-email-lqt-reply' => 'auf ein Thema antwortet',
+	'pageinfo-usinglqt' => 'Themen aktiviert',
+	'pageinfo-usinglqt-yes' => 'Ja',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -5096,6 +5111,8 @@ Pódpis pokazujo se awtomatiski.',
 	'nstab-summary' => 'Zespominanje',
 	'echo-pref-email-lqt-new-topic' => 'Napórajo nitkowu diskusiju',
 	'echo-pref-email-lqt-reply' => 'Wótegranja na nitkowu diskusiju',
+	'pageinfo-usinglqt' => 'Nitkowa diskusija zmóžnjona',
+	'pageinfo-usinglqt-yes' => 'Jo',
 );
 
 /** Ewe (eʋegbe)
@@ -6105,6 +6122,8 @@ Allkiri kuvatakse iseenesest.',
 	'lqt-reply-subpage' => 'vasta',
 	'nstab-thread' => 'Lõim',
 	'nstab-summary' => 'Kokkuvõte',
+	'pageinfo-usinglqt' => 'Lõimarutelu lubatud',
+	'pageinfo-usinglqt-yes' => 'Jah',
 );
 
 /** Basque (euskara)
@@ -6912,6 +6931,7 @@ Pour éviter cela, séparez les de ce fil de discussion avant de supprimer celui
 	'lqt-newmessages-from' => 'Depuis $1',
 	'lqt-hot-topics' => 'Sujets brûlants',
 	'lqt-add-reply' => 'Ajouter une réponse',
+	'lqt-changesortorder' => 'Trier',
 	'lqt_rc_new_discussion' => 'a posté un nouveau fil « $1 »',
 	'lqt_rc_new_reply' => 'a posté une réponse à « $1 »',
 	'right-lqt-split' => 'Scinder les fils de discussion',
@@ -6932,6 +6952,7 @@ Pour éviter cela, séparez les de ce fil de discussion avant de supprimer celui
 	'lqt-log-action-merge-down' => 'a fusionné [[$1]] au dessous de [[$3]]',
 	'lqt-log-action-subjectedit' => 'a modifié le sujet de [[$1]] de « $2 » à « $3 »',
 	'lqt-log-action-resort' => "a modifié l'ordre de tri de [[$1]]. La clé de tri a été changée de « $2 » à « $3 ».",
+	'lqt-log-action-signatureedit' => 'a modifié la signature de [[$1]] de "$2" en "$3"',
 	'lqt-preference-notify-talk' => "M’avertir par couriel lors d'une réponse sur un sujet que je suis",
 	'lqt-preference-watch-threads' => 'Suivre les fils de discussion que je crée ou auxquels je participe',
 	'prefs-lqt' => 'Discussions en fil',
@@ -7021,6 +7042,8 @@ La signature est affichée automatiquement.',
 	'nstab-summary' => 'Résumé',
 	'echo-pref-email-lqt-new-topic' => 'Crée une nouvelle discussion thématique',
 	'echo-pref-email-lqt-reply' => 'Répond à une discussion thématique',
+	'pageinfo-usinglqt' => 'Discussion par fils activée',
+	'pageinfo-usinglqt-yes' => 'Oui',
 );
 
 /** Franco-Provençal (arpetan)
@@ -7560,6 +7583,7 @@ Para evitar isto, sepáreas deste fío antes de borralo.',
 	'lqt-newmessages-from' => 'De "$1"',
 	'lqt-hot-topics' => 'Temas máis vistos',
 	'lqt-add-reply' => 'Engadir unha resposta',
+	'lqt-changesortorder' => 'Ordenar',
 	'lqt_rc_new_discussion' => 'publicou un novo fío: "$1"',
 	'lqt_rc_new_reply' => 'publicou unha resposta a "$1"',
 	'right-lqt-split' => 'Separar fíos',
@@ -7580,6 +7604,7 @@ Para evitar isto, sepáreas deste fío antes de borralo.',
 	'lqt-log-action-merge-down' => 'fusionou "[[$1]]" co final de "[[$3]]"',
 	'lqt-log-action-subjectedit' => 'cambiou o asunto de "[[$1]]" de "$2" a "$3"',
 	'lqt-log-action-resort' => 'modificou o tipo de orde de "[[$1]]". Cambiou o tipo de clave de "$2" a "$3"',
+	'lqt-log-action-signatureedit' => 'cambiou a sinatura de "[[$1]]" de "$2" a "$3"',
 	'lqt-preference-notify-talk' => 'Enviádeme un correo electrónico cando haxa respostas nunha conversa que estea vixiando',
 	'lqt-preference-watch-threads' => 'Vixiar os fíos que creei ou aqueloutros nos que participei',
 	'prefs-lqt' => 'Fíos de conversa',
@@ -7668,6 +7693,8 @@ $7',
 	'nstab-summary' => 'Resumo',
 	'echo-pref-email-lqt-new-topic' => 'Crea unha nova conversa en forma de fío',
 	'echo-pref-email-lqt-reply' => 'Responde a unha conversa en forma de fío',
+	'pageinfo-usinglqt' => 'Conversa en fío activada',
+	'pageinfo-usinglqt-yes' => 'Si',
 );
 
 /** Goan Konkani (Latin script) (Konknni)
@@ -8214,6 +8241,7 @@ $messages['he'] = array(
 	'lqt-newmessages-from' => 'מתוך $1',
 	'lqt-hot-topics' => 'נושאים חמים',
 	'lqt-add-reply' => 'הוספת תגובה',
+	'lqt-changesortorder' => 'מיון',
 	'lqt_rc_new_discussion' => 'שלח שרשור חדש, "$1"',
 	'lqt_rc_new_reply' => 'שלח תגובה ל"$1"',
 	'right-lqt-split' => 'פיצול שרשורים',
@@ -8234,6 +8262,7 @@ $messages['he'] = array(
 	'lqt-log-action-merge-down' => 'איחד את [[$1]] לתוך [[$3]]',
 	'lqt-log-action-subjectedit' => 'שינה את הנושא של [[$1]] מ"$2" ל"$3"',
 	'lqt-log-action-resort' => 'שינה את סדר המיון של [[$1]]. מפתח המיון שונה מ־$2 ל־$3',
+	'lqt-log-action-signatureedit' => 'החתימה של [[$1]] שונתה שונתה מ"$2" ל"$3"',
 	'lqt-preference-notify-talk' => 'שליחת דוא"ל אליך כאשר מתקבלות תגובות בשרשור ברשימת המעקב שלך',
 	'lqt-preference-watch-threads' => 'מעקב אחרי שרשורים שיצרתי או הגבתי להם',
 	'prefs-lqt' => 'שיחות בשרשורים',
@@ -8323,6 +8352,10 @@ $7",
 	'lqt-reply-subpage' => 'תגובה',
 	'nstab-thread' => 'שרשור',
 	'nstab-summary' => 'תקציר',
+	'echo-pref-email-lqt-new-topic' => 'יצירת דיון משורשר חדש',
+	'echo-pref-email-lqt-reply' => 'תשובות לדיון משורשר',
+	'pageinfo-usinglqt' => 'דיון משורשר מופעל',
+	'pageinfo-usinglqt-yes' => 'כן',
 );
 
 /** Hindi (हिन्दी)
@@ -8949,6 +8982,7 @@ Zo by to wobešoł, wotdźěl je wot tuteje nitki, prjedy hač ju wušmóruješ.
 	'lqt-newmessages-from' => 'z $1',
 	'lqt-hot-topics' => 'Najčasćišo čitane temy',
 	'lqt-add-reply' => 'Wotmołwu přidać',
+	'lqt-changesortorder' => 'Sortěrować',
 	'lqt_rc_new_discussion' => 'pósła nowu nitku, "$1"',
 	'lqt_rc_new_reply' => 'pósła wotmołwu na "$1"',
 	'right-lqt-split' => 'Nitki rozdźělić',
@@ -8969,6 +9003,7 @@ Zo by to wobešoł, wotdźěl je wot tuteje nitki, prjedy hač ju wušmóruješ.
 	'lqt-log-action-merge-down' => 'zapřija [[$1]] pod [[$3]]',
 	'lqt-log-action-subjectedit' => 'změni temu wot [[$1]] z "$2" to "$3"',
 	'lqt-log-action-resort' => 'změni sortěrowanski porjad wot [[$1]]. Změni sortěrowanski kluč wot $2 do $3',
+	'lqt-log-action-signatureedit' => 'změni podpis wot [[$1]] z "$2" to "$3"',
 	'lqt-preference-notify-talk' => 'E-mejl wo wotmołwach k nitce, kotraž so wobkedźbuje, pósłać',
 	'lqt-preference-watch-threads' => 'Nitki wobkedźbować, kotrež tworju abo na kotrež wotmołwjam',
 	'prefs-lqt' => 'Diskusija w nitkach',
@@ -9058,6 +9093,8 @@ Podpis pokazuje so awtomatisce.',
 	'nstab-summary' => 'Zjeće',
 	'echo-pref-email-lqt-new-topic' => 'Wutworja nitkowu diskusiju',
 	'echo-pref-email-lqt-reply' => 'Wotmołwja na nitkowu diskusiju',
+	'pageinfo-usinglqt' => 'Nitkowa diskusija zmóžnjena',
+	'pageinfo-usinglqt-yes' => 'Haj',
 );
 
 /** Haitian (Kreyòl ayisyen)
@@ -9340,8 +9377,15 @@ Az aláírásod automatikusan meg fog jelenni.',
  * @author Vadgt
  */
 $messages['hy'] = array(
+	'lqt_hist_moved_talkpage' => 'Տեղափոխել է',
+	'lqt_move_move' => 'Տեղափոխել',
+	'lqt-history-thread' => 'Դերձան',
+	'lqt-thread-split-thread' => 'Դերձան՝',
+	'lqt-movethread' => 'Տեղափոխել',
+	'lqt-newmessages-n' => 'Նոր հաղորդագրություններ ($1)',
 	'lqt_newmessages' => 'Նոր հաղորդագրություններ (չկան)',
 	'lqt_newmessages-title' => 'Նոր հաղորդագրություններ',
+	'nstab-thread' => 'Դերձան',
 );
 
 /** Interlingua (interlingua)
@@ -9612,6 +9656,7 @@ Le signatura es adjungite automaticamente.',
  * @author Farras
  * @author Irwangatot
  * @author IvanLanin
+ * @author Kenrick95
  * @author Naval Scene
  * @author Rex
  */
@@ -9726,7 +9771,7 @@ Ini masih dapat dilihat pada halaman pembicaraan aslinya.
 Hal ini tidak dapat dibatalkan.',
 	'lqt-marked-read' => "Topik '''$1''' ditandai sudah dibaca.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|pesan|pesan}} ditandai sudah dibaca.',
-	'lqt-email-undo' => 'Batalkan',
+	'lqt-email-undo' => 'Balikkan',
 	'lqt-no-new-messages' => 'Tidak ada pesan baru untuk Anda.',
 	'lqt-new-messages' => 'Ada pesan baru untuk Anda.',
 	'lqt-email-info-undo' => 'Kembalikan topik yang baru Anda singkirkan.',
@@ -10593,7 +10638,8 @@ $messages['ja'] = array(
 	'lqt-newmessages-from' => '$1 より',
 	'lqt-hot-topics' => 'ホットな話題',
 	'lqt-add-reply' => '返信',
-	'lqt_rc_new_discussion' => '新規スレッドが投稿されました。"$1"',
+	'lqt-changesortorder' => '並べ替え',
+	'lqt_rc_new_discussion' => '新規スレッド「$1」が投稿されました',
 	'lqt_rc_new_reply' => '「$1」への返信を投稿',
 	'right-lqt-split' => 'スレッドを分割',
 	'right-lqt-merge' => 'スレッドを統合',
@@ -10608,11 +10654,12 @@ $messages['ja'] = array(
 	'lqt-log-name' => 'スレッド形式議論の記録',
 	'lqt-log-header' => 'これは議論スレッドで行われた操作の詳細を記録しています。',
 	'lqt-log-action-move' => '[[$1]]を[[$2]]から[[$3]]へ移動しました。',
-	'lqt-log-action-split' => '[[$1]]を[[$3]]から分割し、新しい表題 "$2" を付ける',
+	'lqt-log-action-split' => '[[$1]]を[[$3]]から分割し、新しい表題「$2」を付ける',
 	'lqt-log-action-merge-across' => '[[$1]]を[[$2]]から[[$3]]へ移動',
 	'lqt-log-action-merge-down' => '[[$1]]を[[$3]]の下位に統合',
-	'lqt-log-action-subjectedit' => '[[$1]]の表題を"$2"から"$3"へ変更',
+	'lqt-log-action-subjectedit' => '[[$1]]の表題を「$2」から「$3」に変更',
 	'lqt-log-action-resort' => '[[$1]]の並び順を変更。ソートキーを$2から$3へ変更',
+	'lqt-log-action-signatureedit' => '[[$1]] の署名を「$2」から「$3」に変更しました',
 	'lqt-preference-notify-talk' => 'ウォッチリストにあるスレッドに返信があったらメールを受け取る',
 	'lqt-preference-watch-threads' => '自分が作成または返信したスレッドをウォッチリストに追加',
 	'prefs-lqt' => 'スレッド型議論',
@@ -10702,6 +10749,8 @@ $7',
 	'nstab-summary' => '要約',
 	'echo-pref-email-lqt-new-topic' => 'スレッド形式の新しい議論が作成されたとき',
 	'echo-pref-email-lqt-reply' => 'スレッド形式の議論に返信されたとき',
+	'pageinfo-usinglqt' => 'スレッド形式議論が有効',
+	'pageinfo-usinglqt-yes' => 'はい',
 );
 
 /** Jamaican Creole English (Patois)
@@ -10949,6 +10998,7 @@ $messages['ka'] = array(
 შეიძლება:
 * ის ძალიან დიდია, ან
 * შეცდომაა საერთაშორისუ ბმულების ინდექსებში ან სახელთა სივრცის სახელებში.',
+	'lqt-empty-text' => 'თქვენ არ შეგიძლიათ ცარიელი შეტყობინების გაზავნა',
 	'lqt_empty_subject' => 'თქვენ უნდა მიუთითოთ თემა.',
 	'lqt_reply' => 'პასუხი',
 	'lqt-parent' => 'მშობელი',
@@ -11145,6 +11195,7 @@ $messages['ka'] = array(
 	'lqt-reply-subpage' => 'პასუხი',
 	'nstab-thread' => 'დისკუსიის თემა',
 	'nstab-summary' => 'დისკუსიის რეზიუმე',
+	'pageinfo-usinglqt-yes' => 'დიახ',
 );
 
 /** Kazakh (Cyrillic script) (қазақша (кирил)‎)
@@ -11445,6 +11496,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-newmessages-from' => '$1 문서에서의 토론',
 	'lqt-hot-topics' => '인기 주제',
 	'lqt-add-reply' => '답변하기',
+	'lqt-changesortorder' => '정렬',
 	'lqt_rc_new_discussion' => '새 스레드 "$1"을 게시함',
 	'lqt_rc_new_reply' => '"$1"에 대한 답글을 남겼습니다.',
 	'right-lqt-split' => '스레드 분할하기',
@@ -11465,6 +11517,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-log-action-merge-down' => '사용자가 [[$1]] 스레드를 [[$3]]에 합쳤습니다',
 	'lqt-log-action-subjectedit' => '사용자가 [[$1]]의 주제를 "$2"에서 "$3"으로 바꿨습니다',
 	'lqt-log-action-resort' => '사용자가 [[$1]]의 정렬 순서를 바꿨습니다. 정렬 키를 $2에서 $3으로 바꿨습니다',
+	'lqt-log-action-signatureedit' => '사용자가 [[$1]]의 서명을 "$2"에서 "$3"으로 바꿨습니다',
 	'lqt-preference-notify-talk' => '내가 주시하고 있는 스레드에 답글이 올라오면 이메일 보내기',
 	'lqt-preference-watch-threads' => '내가 만들거나 답변한 스레드를 주시하기',
 	'prefs-lqt' => '스레드식 토론',
@@ -11554,6 +11607,8 @@ $7",
 	'nstab-summary' => '요약',
 	'echo-pref-email-lqt-new-topic' => '새 스레드 토론을 만듭니다',
 	'echo-pref-email-lqt-reply' => '스레드 토론에 대해 답변합니다',
+	'pageinfo-usinglqt' => '스레드식 토론을 활성화',
+	'pageinfo-usinglqt-yes' => '예',
 );
 
 /** Karachay-Balkar (къарачай-малкъар)
@@ -13563,6 +13618,7 @@ Untuk mengelakkan ini daripada berlaku, pecahkannya dari tred ini sebelum mengha
 	'lqt-newmessages-from' => 'Dari $1',
 	'lqt-hot-topics' => 'Topik hangat',
 	'lqt-add-reply' => 'Balas',
+	'lqt-changesortorder' => 'Isih',
 	'lqt_rc_new_discussion' => 'tred baru, "$1" dikirim',
 	'lqt_rc_new_reply' => 'balasan dikirim kepada "$1"',
 	'right-lqt-split' => 'Memecahkan tred',
@@ -13583,6 +13639,7 @@ Untuk mengelakkan ini daripada berlaku, pecahkannya dari tred ini sebelum mengha
 	'lqt-log-action-merge-down' => '[[$1]] digabungkan ke bawah [[$3]]',
 	'lqt-log-action-subjectedit' => 'subjek [[$1]] ditukar dari "$2" menjadi "$3"',
 	'lqt-log-action-resort' => 'turutan [[$1]] diubah. Kunci turutan diubah dari $2 kepada $3',
+	'lqt-log-action-signatureedit' => 'menukar tandatangan [[$1]] dari "$2" menjadi "$3"',
 	'lqt-preference-notify-talk' => 'E-mel kepada saya tentang balasan pada tred yang saya pantau',
 	'lqt-preference-watch-threads' => 'Pantau tred-tred yang saya cipta atau balas',
 	'prefs-lqt' => 'Perbincangan bertred',
@@ -13672,6 +13729,8 @@ Tandatangan diisikan secara automatik.',
 	'nstab-summary' => 'Ringkasan',
 	'echo-pref-email-lqt-new-topic' => 'Mewujudkan perbincangan bertred yang baru',
 	'echo-pref-email-lqt-reply' => 'Membalas perbincangan bertred',
+	'pageinfo-usinglqt' => 'Perbincangan bertred dibolehkan',
+	'pageinfo-usinglqt-yes' => 'Ya',
 );
 
 /** Maltese (Malti)
@@ -13907,7 +13966,7 @@ $messages['nah'] = array(
 	'lqt_newmessages' => 'Yancuīc notētītlaniliz (ahtlein)',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Event
  * @author Harald Khan
  * @author Laaknor
@@ -14174,7 +14233,30 @@ Signaturen vises automatisk.',
 	'nstab-summary' => 'Sammendrag',
 );
 
-/** Nedersaksies (Nedersaksies)
+/** Low German (Plattdüütsch)
+ * @author Joachim Mos
+ */
+$messages['nds'] = array(
+	'lqt-parent' => 'Öllern',
+	'lqt_delete' => 'Wegdoon',
+	'lqt_undelete' => 'Wedderhalen',
+	'lqt_discussion_link' => 'Diskuschoon',
+	'lqt_hist_deleted' => 'Wegdaan',
+	'lqt_hist_undeleted' => 'Wedderhalen',
+	'lqt_hist_moved_talkpage' => 'Schuven',
+	'lqt-thread-created' => 'Opstellt',
+	'lqt-history-time' => 'Tied',
+	'lqt-history-user' => 'Bruker',
+	'lqt-history-comment' => 'Kommentar',
+	'lqt-header-actions' => 'Akschonen',
+	'lqt-movethread' => 'Schuven',
+	'searchprofile-threads' => 'Diskuschoon',
+	'lqt-save-subject' => 'Spiekern',
+	'lqt-cancel-subject-edit' => 'Afbreken',
+	'pageinfo-usinglqt-yes' => 'Jo',
+);
+
+/** Low Saxon (Netherlands) (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(
@@ -14643,7 +14725,7 @@ Wellicht kan je beter gebruik maken van $2.',
 	'lqt-historicalrevision-error' => 'De door jou geselecteerde versie is beschadigd en kan niet bekeken worden.',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Dittaeva
  * @author Gunnernett
  * @author Harald Khan
@@ -15100,14 +15182,14 @@ O podètz veire a « $6 »", # Fuzzy
 	'lqt-protected-newthread' => 'Podètz pas postar de fials novèls dins aquesta pagina de discussion perque es estada protegida contra los fials novèls.',
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
  * @author Jnanaranjan Sahu
  * @author Jose77
  * @author Psubhashish
  */
 $messages['or'] = array(
-	'lqt_contents_title' => 'ଭିତର ଚିଜ',
+	'lqt_contents_title' => 'ବିଷୟସୂଚୀ',
 	'lqt_toc_thread_author' => 'ଦ୍ଵାରା ଆରମ୍ଭ କରାଯାଇଛି',
 	'lqt_toc_thread_replycount' => 'ଉତ୍ତରଗୁଡିକ',
 	'lqt_toc_thread_modified' => 'ଗତଥର ବଦଳା ଯାଇଥିଲା',
@@ -15756,7 +15838,7 @@ La firma a l'é mostrà automaticament.",
 	'lqt-feed-title-replies' => '{{SITENAME}} — Arspòste',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Arspòste da $1',
 	'lqt-feed-new-thread-intro' => 'Discussion neuva dzor $1 ancaminà da {{GENDER:$4|$2}}',
-	'lqt-feed-reply-intro' => 'Arspòsta a $3 (ël $1) mandà da {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Rispòsta a $3 (su $1) mandà da {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => "A mostra ij mëssagi neuv për soget o su pàgine ëd discussion an sël soget ch'a ten sot-euj",
 	'lqt-newmessages-n' => 'Mëssagi neuv ($1)',
 	'lqt_newmessages' => 'Mëssagi neuv (gnun)',
@@ -15778,7 +15860,7 @@ La firma a l'é mostrà automaticament.",
 	'nstab-thread' => 'Discussion',
 	'nstab-summary' => 'Resumé',
 	'echo-pref-email-lqt-new-topic' => 'A crea na neuva discussion a caden-a',
-	'echo-pref-email-lqt-reply' => 'A arspond a na discussion a caden-a',
+	'echo-pref-email-lqt-reply' => 'A rëspond a na discussion a caden-a',
 );
 
 /** Pashto (پښتو)
@@ -16382,6 +16464,25 @@ A assinatura é apresentada automaticamente.',
 	'pageinfo-usinglqt-yes' => 'Sim',
 );
 
+/** Quechua (Runa Simi)
+ * @author AlimanRuna
+ */
+$messages['qu'] = array(
+	'lqt_hist_view_whole_thread' => "Tukuy q'aytup wiñay kawsayninta qhaway",
+	'lqt-read-message' => 'Ñawirisqa nispa unanchay',
+	'lqt-read-all' => 'Tukuykunata ñawirisqa nispa unanchay',
+	'lqt-no-new-messages' => 'Qampaq musuq willaykuna manam kachkanchu.',
+	'lqt-new-messages' => 'Qampaq musuq willaykunam kachkan.',
+	'lqt-newmessages-context' => "Tukuy q'aytu",
+	'lqt-preference-notify-talk' => "E-chaskita kutichispa watiqasqay q'aytuman kachamuway",
+	'lqt-ajax-updated' => "Q'aytupi musuq willaykunam kachkan.",
+	'lqt-feed-title-all' => '{{SITENAME}} — Musuq willaykuna',
+	'lqt-feed-title-all-from' => '{{SITENAME}} — $1-manta musuq willaykuna',
+	'tooltip-pt-newmessages' => "Watiqasqayki q'aytukunapi rimanakuy p'anqakunapipas musuq willaykunatam rikuchisunki",
+	'lqt-newmessages-n' => 'Musuq willaykuna ($1)',
+	'lqt_newmessages-title' => 'Musuq willaykuna',
+);
+
 /** Tarifit (Tarifit)
  * @author Jose77
  */
@@ -16918,6 +17019,7 @@ $messages['rtm'] = array(
 
 /** Russian (русский)
  * @author Ferrer
+ * @author Ignatus
  * @author Innv
  * @author KPu3uC B Poccuu
  * @author Kaganer
@@ -17077,6 +17179,7 @@ $messages['ru'] = array(
 	'lqt-newmessages-from' => 'Со страницы $1',
 	'lqt-hot-topics' => 'Горячие темы',
 	'lqt-add-reply' => 'Добавить ответ',
+	'lqt-changesortorder' => 'Сортировать',
 	'lqt_rc_new_discussion' => 'создал новую ветку, «$1»',
 	'lqt_rc_new_reply' => 'написал ответ на «$1»',
 	'right-lqt-split' => 'разделение ветвей',
@@ -17097,6 +17200,7 @@ $messages['ru'] = array(
 	'lqt-log-action-merge-down' => 'объединил [[$1]] в [[$3]]',
 	'lqt-log-action-subjectedit' => 'изменил тему [[$1]] с «$2» на «$3»',
 	'lqt-log-action-resort' => 'изменил порядок сортировки [[$1]]. Смена ключа сортировки с $2 на $3',
+	'lqt-log-action-signatureedit' => 'измениена подпись [[$1]] с «$2» на «$3»',
 	'lqt-preference-notify-talk' => 'Уведомлять меня по почте о новых ответах на ветке, за которой я слежу',
 	'lqt-preference-watch-threads' => 'Следить за ветками, которые я создал, или на которые отвечал',
 	'prefs-lqt' => 'Обсуждения по веткам',
@@ -17188,6 +17292,8 @@ $7',
 	'nstab-summary' => 'Описание',
 	'echo-pref-email-lqt-new-topic' => 'Создаёт новую ветку обсуждения',
 	'echo-pref-email-lqt-reply' => 'Отвечает в ветке обсуждения',
+	'pageinfo-usinglqt' => 'Дискуссия по веткам включена',
+	'pageinfo-usinglqt-yes' => 'Да',
 );
 
 /** Rusyn (русиньскый)
@@ -18327,6 +18433,7 @@ Da se temu izognete, jih pred brisanjem odcepite od razprave.',
 	'lqt-newmessages-from' => 'Od $1',
 	'lqt-hot-topics' => 'Vroče teme',
 	'lqt-add-reply' => 'Dodaj odgovor',
+	'lqt-changesortorder' => 'Razvrsti',
 	'lqt_rc_new_discussion' => 'objavil novo razpravo, »$1«',
 	'lqt_rc_new_reply' => 'objavil odgovor na »$1«',
 	'right-lqt-split' => 'Razcep razprav',
@@ -18347,6 +18454,7 @@ Da se temu izognete, jih pred brisanjem odcepite od razprave.',
 	'lqt-log-action-merge-down' => 'je združil(-a) [[$1]] pod [[$2]]',
 	'lqt-log-action-subjectedit' => 'je spremenil(-a) zadevo [[$1]] iz »$2« v »$3«',
 	'lqt-log-action-resort' => 'je spremenil(-a) vrsti red razvrščanja [[$1]]. Ključ razvrščanja je spremenjen iz $2 v $3',
+	'lqt-log-action-signatureedit' => 'je spremenil(-a) podpis [[$1]] z »$2« na »$3«',
 	'lqt-preference-notify-talk' => 'Pošlji e-pošto ob odgovorih na razprave, ki jih opazujem',
 	'lqt-preference-watch-threads' => 'Opazuj razprave, ki sem jih ustvaril ali nanje odgovoril',
 	'prefs-lqt' => 'Povezana razprava',
@@ -18438,6 +18546,8 @@ Podpis se prikaže samodejno.',
 	'nstab-summary' => 'Povzetek',
 	'echo-pref-email-lqt-new-topic' => 'Ustvari novo nitno razpravo',
 	'echo-pref-email-lqt-reply' => 'Odgovori na nitno razpravo',
+	'pageinfo-usinglqt' => 'Nitna razprava je omogočena',
+	'pageinfo-usinglqt-yes' => 'Da',
 );
 
 /** Lower Silesian (Schläsch)
@@ -21093,6 +21203,7 @@ $messages['ur'] = array(
 
 /** Uzbek (oʻzbekcha)
  * @author CoderSI
+ * @author Sociologist
  */
 $messages['uz'] = array(
 	'lqt-desc' => "Munozara sahifalariga munozaralar tarmog'ini (oqimini) qo'shadi",
@@ -21149,8 +21260,8 @@ $messages['uz'] = array(
 	'lqt-history-action' => 'Faollik',
 	'lqt-history-comment' => 'Izoh',
 	'lqt-history-thread' => 'Tarmoq',
-	'lqt-thread-edited-others' => "{{PLURAL:$2|Boshqa ishtirokchi|$2 ta boshqa ishtirokchi}} tomonidan o'zgartirildi.<br />
-Oxirgi tahrir: $1",
+	'lqt-thread-edited-others' => '{{PLURAL:$2|Bitta boshqa foydalanuvchi|$2 ta boshqa foydalanuvchi}} tomonidan oʻzgartirilgan.<br />
+Oxirgi tahrir: $1',
 	'lqt-header-actions' => 'Amallar',
 	'lqt_summarize_link' => 'Xulosa chiqarish',
 	'lqt-thread-split' => 'Yangi tarmoqqa ajratish',
