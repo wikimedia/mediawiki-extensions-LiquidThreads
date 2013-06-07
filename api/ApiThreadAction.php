@@ -647,8 +647,10 @@ class ApiThreadAction extends ApiEditPage {
 			$reason = $params['reason'];
 		}
 
-		$thread->setSubject( $subject );
-		$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT, $thread, $reason );
+		if ( $thread->dbVersion->subject() !== $subject ) {
+			$thread->setSubject( $subject );
+			$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT, $thread, $reason );
+		}
 
 		$result = array(
 			'action' => 'setsubject',
