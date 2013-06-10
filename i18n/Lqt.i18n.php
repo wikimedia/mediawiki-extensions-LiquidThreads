@@ -1697,6 +1697,7 @@ $messages['azb'] = array(
  * @author Assele
  * @author Haqmar
  * @author Roustammr
+ * @author Рустам Нурыев
  */
 $messages['ba'] = array(
 	'lqt-desc' => 'Фекер алышыу биттәренә фекер алышыу тармаҡтарын өҫтәй',
@@ -1765,7 +1766,7 @@ $messages['ba'] = array(
 	'lqt_noreason' => 'Сәбәп белдерелмәгән.',
 	'lqt_move_placeholder' => '$1 тармағы был биттән $5 битенә күсерелгән.
 $3 $4 уны $2 күсергән.',
-	'lqt_thread_deleted_for_sysops' => "Был тармаҡ '''юйылған''' һәм хәкимдәргә генә күренә.",
+	'lqt_thread_deleted_for_sysops' => "Был тармаҡ '''юйылған''' һәм хакимдәргә генә күренә.",
 	'lqt_thread_deleted' => 'Был тармаҡ юйылған.',
 	'lqt_summary_notice' => 'Был фекер алышыу кәмендә $2 {{PLURAL:$2|көн}} үҙгәртелмәгән.
 Әгәр ул тамамланһа, һеҙгә $1 мөмкин.',
@@ -9375,9 +9376,10 @@ Az aláírásod automatikusan meg fog jelenni.',
 /** Armenian (Հայերեն)
  * @author Chaojoker
  * @author Vadgt
+ * @author Xelgen
  */
 $messages['hy'] = array(
-	'lqt_hist_moved_talkpage' => 'Տեղափոխել է',
+	'lqt_hist_moved_talkpage' => 'Տեղափոխված է',
 	'lqt_move_move' => 'Տեղափոխել',
 	'lqt-history-thread' => 'Դերձան',
 	'lqt-thread-split-thread' => 'Դերձան՝',
@@ -11447,7 +11449,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt_sort_oldest_threads' => '오래 된 스레드를 먼저 배치하기',
 	'lqt-title' => '제목',
 	'lqt-summary' => '요약',
-	'lqt-searching' => '스레드 검색',
+	'lqt-searching' => '스레드 찾기',
 	'lqt-read-message' => '읽은 것으로 표시',
 	'lqt-read-message-tooltip' => '새 메시지 목록에서 이 스레드를 지웁니다.
 하지만 토론 문서에서는 계속 보여질 것입니다.',
@@ -11951,7 +11953,7 @@ $messages['ku-latn'] = array(
  * @author Nrowe
  */
 $messages['kw'] = array(
-	'lqt_newmessages' => 'Ow messajys nowyth (nagonen)', # Fuzzy
+	'lqt_newmessages' => 'Messajys nowyth (nagonan)',
 );
 
 /** Kirghiz (Кыргызча)
@@ -12519,6 +12521,7 @@ $messages['loz'] = array(
 
 /** Lithuanian (lietuvių)
  * @author Eitvys200
+ * @author Mantak111
  * @author Pėstininkas
  * @author Tomasdd
  * @author Vpovilaitis
@@ -12754,6 +12757,7 @@ $7",
 	'lqt-reply-subpage' => 'atsakyti',
 	'nstab-thread' => 'Tema',
 	'nstab-summary' => 'Apibendrinimas',
+	'pageinfo-usinglqt-yes' => 'Taip',
 );
 
 /** Latgalian (latgaļu)
@@ -21247,7 +21251,7 @@ $messages['uz'] = array(
 	'lqt_sort_oldest_threads' => 'eski tarmoqlar birinchi',
 	'lqt-title' => 'Sarlavha',
 	'lqt-summary' => 'Tavsif',
-	'lqt-searching' => "Tarmoqlar bo'yicha qidirish",
+	'lqt-searching' => 'Tarmoqlar boʻylab qidirish',
 	'lqt-read-message' => "O'qilgan deb belgilash",
 	'lqt-count-marked-read' => "$1 ta {{PLURAL:$1|xabar}} o'qilgan deb belgilandi.",
 	'lqt-email-undo' => 'Bekor qilish',
@@ -21279,19 +21283,19 @@ Oxirgi tahrir: $1',
 	'right-lqt-split' => "Tarmoqni bo'lish",
 	'lqt-merge-submit' => 'Birlashtirmoq',
 	'lqt-log-name' => "Munozaralar tarmog'i qaydlari",
-	'prefs-lqt' => "Tarmoqlar bo'yicha munozaralar",
+	'prefs-lqt' => 'Munozaralar (tarmoqlar boʻyicha)',
 	'lqt-preference-display-depth' => "Tasvirlash uchun javoblarning eng ko'p chuqurligi:",
 	'lqt-preference-display-count' => "Tasvirlash uchun javoblarning eng ko'p soni:",
-	'lqt-preference-custom-signatures' => "Foydalanuvchilarning sozlanadigan imzolarini ko'rsatish",
+	'lqt-preference-custom-signatures' => 'Foydalanuvchilarning sozlanadigan imzolarini koʻrsatish',
 	'lqt-search-legend' => 'Ushbu sahifada munozaralarni qidirish',
 	'lqt-search-label' => 'Qidiruv shartlari',
 	'lqt-search-button' => 'Qidiruv',
 	'searchprofile-threads' => 'Munozaralar',
-	'searchprofile-threads-tooltip' => "Tarmoqlar bo'yicha munozaralardan va munozara sahifalaridan izlash",
+	'searchprofile-threads-tooltip' => 'Tarmoqlar boʻyicha munozaralardan va munozara sahifalaridan izlash',
 	'lqt-ajax-updated' => 'Mazkur tarmoqda yangi xabarlar mavjud.',
 	'lqt-ajax-update-link' => 'Yangilash',
 	'lqt-thread-show-replies' => "$1 ta javobni ko'rsatish", # Fuzzy
-	'lqt-thread-show-more' => "Ko'proq javoblarni ko'rsatish",
+	'lqt-thread-show-more' => 'Yana boshqa javoblarni koʻrsatish',
 	'lqt-thread-link-url' => 'URLga havola:',
 	'lqt-thread-link-title' => 'Vikimatn-havola',
 	'lqt-thread-link-copy' => 'Xotiraga nusxalash',
@@ -21305,7 +21309,7 @@ Oxirgi tahrir: $1',
 	'lqt-drag-reason' => 'Sabab:',
 	'lqt-drag-subject' => 'Yangi tarmoq uchun mavzu (majburiy)',
 	'lqt-edit-signature' => '(imzoni tahrirlash)',
-	'lqt-preview-signature' => "(ko'rib chiqish)",
+	'lqt-preview-signature' => '(koʻrib chiqish)',
 	'lqt-newmessages-n' => 'Yangi xabarlar ($1)', # Fuzzy
 	'lqt_newmessages' => "Yangi xabarlar (yo'q)", # Fuzzy
 	'lqt_newmessages-title' => 'Yangi xabarlar',
