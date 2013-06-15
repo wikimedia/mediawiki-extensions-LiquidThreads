@@ -67,14 +67,13 @@ class TalkpageView extends LqtView {
 			$article->view();
 
 			$actionLinks = array();
-			if ( $article->getTitle()->userCan( 'edit' ) ) {
-				$actionLinks[] = Linker::link(
-					$article->getTitle(),
-					wfMessage( 'edit' )->parse() . "↑",
-					array(),
-					array( 'action' => 'edit' )
-				);
-			}
+			$actionLinks[] = Linker::link(
+				$article->getTitle(),
+				wfMessage( $article->getTitle()->userCan( 'edit' ) ? 'edit' : 'viewsource' )->parse() . "↑",
+				array(),
+				array( 'action' => 'edit' )
+			);
+
 			$actionLinks[] = Linker::link(
 				$this->title,
 				wfMessage( 'history_short' )->parse() . "↑",
