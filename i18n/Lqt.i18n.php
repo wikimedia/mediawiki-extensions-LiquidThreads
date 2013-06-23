@@ -15319,10 +15319,10 @@ $messages['pdc'] = array(
  */
 $messages['pfl'] = array(
 	'lqt_delete' => 'Lesche',
-	'lqt_move_move' => 'Verschiewe',
+	'lqt_move_move' => 'Vaschiewe',
 	'lqt-no-new-messages' => 'Du hoschd kä naie Nochrischde.',
 	'lqt-new-messages' => '→ Du hoschd naie Nochrischde.',
-	'lqt-movethread' => 'Verschiewe',
+	'lqt-movethread' => 'Vaschiewe',
 	'lqt-save-subject' => 'Schbaischere',
 	'lqt-cancel-subject-edit' => 'Uffhere',
 );
