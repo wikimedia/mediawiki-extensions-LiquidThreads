@@ -3548,6 +3548,7 @@ $messages['ce'] = array(
 	'lqt_summarize_link' => 'Жамl дан',
 	'lqt-movethread' => 'Кхечухьа йаккха',
 	'lqt-menu-trigger' => 'Кхин',
+	'lqt-log-action-signatureedit' => 'Хийца куьгтаӀор [[$1]] тӀера «$2» оцу «$3»',
 	'prefs-lqt' => 'Дийцарш оцу гéнашца',
 	'lqt-search-label' => 'Лахаран хьал:',
 	'lqt-search-button' => 'Лаха',
