@@ -528,6 +528,7 @@ See also:
 	'lqt-no-new-messages' => 'Used as notification text, when you have no new messages.',
 	'lqt-new-messages' => 'Used as notification text, when you have new messages.',
 	'lqt-newmessages-context' => 'Used as link text.',
+	'lqt-thread-created' => '{{Identical|Created}}',
 	'lqt-history-time' => 'Column header on thread history
 
 {{Identical|Time}}',
@@ -577,9 +578,11 @@ threads on a wiki',
 	'lqt_rc_new_reply' => 'Parameters:
 * $1 is a link to a thread with the thread subject as link description',
 	'right-lqt-split' => '{{doc-right|lqt-split}}',
-	'right-lqt-merge' => '{{doc-right|lqt-merge}}',
+	'right-lqt-merge' => '{{doc-right|lqt-merge}}
+{{Identical|Merge thread}}',
 	'right-lqt-react' => '{{doc-right|lqt-react}}',
-	'lqt_merge_thread' => '{{doc-special|MergeThread|unlisted=1}}',
+	'lqt_merge_thread' => '{{doc-special|MergeThread|unlisted=1}}
+{{Identical|Merge thread}}',
 	'lqt-merge-success' => 'Used as success message. Parameters:
 * $1 - the source thread title, with link
 * $2 - the destination thread title, with link',
@@ -19554,7 +19557,7 @@ $messages['sw'] = array(
 	'lqt_sort_newest_changes' => 'zilizobadilishwa mwishoni',
 	'lqt_sort_newest_threads' => 'zilizoanzishwa hivi karibuni',
 	'lqt_sort_oldest_threads' => 'zilizoanzishwa mwanzoni',
-	'lqt-title' => 'Cheo',
+	'lqt-title' => 'Kichwa',
 	'lqt-summary' => 'Muhtasari',
 	'lqt-newmessages-context' => 'Mlolongo wote',
 	'lqt-thread-created' => 'Ilianzishwa',
