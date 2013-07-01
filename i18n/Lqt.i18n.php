@@ -563,6 +563,7 @@ The opposite of {{msg-mw|lqt-thread-merge}}: "split" is imperative, not a partic
 * $1 - thread title with link',
 	'lqt_split_thread' => '{{doc-special|SplitThread|unlisted=1}}',
 	'lqt-thread-split-thread' => '{{Identical|Thread}}',
+	'lqt-split-submit' => '{{Identical|Split}}',
 	'lqt-no-threads' => '[{{canonicalurl:Project_talk:Autoconfirmed_users}} Example]',
 	'lqt-delete-parent-deleted' => '$1 is the reason for deletion of the parent.',
 	'lqt-movethread' => '{{Identical|Move}}',
@@ -18011,8 +18012,8 @@ $messages['si'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — $1 ගෙන් නව සම්බන්ධ',
 	'lqt-feed-title-replies' => '{{SITENAME}} — පිළිතුරු',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1 ගෙන් පිළිතුරු',
-	'lqt-newmessages-n' => 'මගේ නව පණිවුඩ ($1)', # Fuzzy
-	'lqt_newmessages' => 'මගේ නව පණිවුඩ (නැත)', # Fuzzy
+	'lqt-newmessages-n' => 'නව පණිවුඩ ($1)',
+	'lqt_newmessages' => 'නව පණිවුඩ (නැත)',
 	'lqt_newmessages-title' => 'නව පණිවුඩ',
 	'lqt-newpost-summary' => 'නව සම්බන්ධය: $1',
 	'lqt-reply-summary' => '[[$2|$1]] වෙත පිළිතුරු දෙන්න',

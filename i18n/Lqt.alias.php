@@ -89,9 +89,9 @@ $specialPageAliases['de'] = array(
 $specialPageAliases['diq'] = array(
 	'DeleteThread' => array( 'SernameBesterne' ),
 	'MoveThread' => array( 'SernameAhulne' ),
-	'NewMessages' => array( 'MesacêNewey' ),
+	'NewMessages' => array( 'MesacéNewey' ),
 	'SplitThread' => array( 'SernameLetekerdış' ),
-	'MergeThread' => array( 'SernameJewkerdış' ),
+	'MergeThread' => array( 'SernameZewkerdış' ),
 );
 
 /** Lower Sorbian (dolnoserbski) */
