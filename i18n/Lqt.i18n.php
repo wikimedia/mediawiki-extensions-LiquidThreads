@@ -670,6 +670,7 @@ Displayed in a list of actions to confirm in a confirmation dialog.',
 	'lqt-feed-title-new-threads-from' => 'Parameters:
 * $1 is comma separated list of all pages with new threads mentioned in the feed
 * $2 is the number of referenced pages in the feed (optional - can be used for PLURAL)',
+	'lqt-feed-title-replies' => '{{Identical|Reply}}',
 	'lqt-feed-title-replies-from' => 'Parameters:
 * $1 is comma separated list of all pages mentioned in the feed
 * $2 is the number of referenced pages in the feed (optional, can be used for PLURAL)',
