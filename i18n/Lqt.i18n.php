@@ -15336,6 +15336,7 @@ $messages['pfl'] = array(
 /** Polish (polski)
  * @author Airwolf
  * @author Ankry
+ * @author Chrumps
  * @author Grzechooo
  * @author Holek
  * @author Leinad
@@ -15605,6 +15606,7 @@ Podpis jest wyświetlany automatycznie.',
 	'nstab-summary' => 'Podsumowanie',
 	'echo-pref-email-lqt-new-topic' => 'Tworzy nowy wątek',
 	'echo-pref-email-lqt-reply' => 'Odpowiada w wątku',
+	'pageinfo-usinglqt-yes' => 'Tak',
 );
 
 /** Piedmontese (Piemontèis)
