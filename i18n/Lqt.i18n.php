@@ -5605,7 +5605,7 @@ La subskribo estas aŭtomate montrita.',
  * @author Dferg
  * @author Fitoschido
  * @author Gustronico
- * @author Heldergeovane
+ * @author Helder.wiki
  * @author Imre
  * @author Locos epraix
  * @author Manuelt15
@@ -15941,7 +15941,6 @@ $messages['ps'] = array(
  * @author Giro720
  * @author Hamilton Abreu
  * @author Helder.wiki
- * @author Heldergeovane
  * @author Lijealso
  * @author Luckas
  * @author Malafaya
@@ -16213,7 +16212,6 @@ A assinatura é apresentada automaticamente.',
  * @author Eduardo.mps
  * @author Giro720
  * @author Helder.wiki
- * @author Heldergeovane
  * @author Luckas
  * @author Luckas Blade
  * @author MetalBrasil
