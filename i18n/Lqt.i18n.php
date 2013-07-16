@@ -6790,6 +6790,7 @@ Allekirjoitus näytetään automaattisesti.',
  * @author Sherbrooke
  * @author Urhixidur
  * @author Verdy p
+ * @author Wyz
  * @author Zetud
  */
 $messages['fr'] = array(
@@ -6902,7 +6903,7 @@ Ils seront encore visibles sur leur page de discussion originale.
 Cette opération est réversible.',
 	'lqt-marked-read' => "Fil de discussion '''$1''' marqué comme lu.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|message marqué comme lu|messages marqués comme lus}}',
-	'lqt-email-undo' => 'Défaire',
+	'lqt-email-undo' => 'Annuler',
 	'lqt-no-new-messages' => 'Il n’y a aucun message pour vous.',
 	'lqt-new-messages' => 'Vous avez de nouveaux messages.',
 	'lqt-email-info-undo' => 'Rétablir le fil que vous venez juste d’enlever.',
