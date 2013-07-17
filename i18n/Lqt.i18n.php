@@ -3527,6 +3527,7 @@ $messages['ce'] = array(
 	'lqt_toc_thread_title' => 'Гаьний коьрте',
 	'lqt_toc_thread_replycount' => 'Жоьпаш',
 	'lqt_toc_thread_modified' => 'Тlаьххьара хийцамаш',
+	'lqt_add_header' => 'ТӀетоха «куй»',
 	'lqt_new_thread' => 'Керла дийцаре долор',
 	'lqt_reply' => 'Жоп ло',
 	'lqt-parent' => 'Кхоьлнарг',
