@@ -487,7 +487,11 @@ class LqtHooks {
 
 		$insertUrls = array( 'newmessages' => $newMessagesLink );
 
-		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'watchlist' );
+		if ( in_array( 'watchlist', array_keys( $personal_urls ) ) ) { // User has viewmywatchlist permission
+			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'watchlist' );
+		} else {
+			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'preferences' );
+		}
 
 		return true;
 	}
