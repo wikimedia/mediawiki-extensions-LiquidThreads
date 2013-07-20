@@ -3900,6 +3900,8 @@ $messages['csb'] = array(
 $messages['cu'] = array(
 	'lqt_delete' => 'поничьжє́ниѥ',
 	'lqt_protectedfromreply_link' => 'ꙁабранєно ѥ́стъ',
+	'lqt-search-button' => 'ищи',
+	'pageinfo-usinglqt-yes' => 'да',
 );
 
 /** Welsh (Cymraeg)
@@ -16203,7 +16205,7 @@ A assinatura é apresentada automaticamente.',
 	'lqt-protected-newthread' => 'Não pode criar tópicos porque esta página de discussão foi protegida contra tópicos novos.',
 	'lqt-edit-bump' => 'Puxar este tópico',
 	'lqt-edit-bump-tooltip' => 'Mover este tópico para o topo da página de discussão',
-	'lqt-historicalrevision-error' => 'A revisão que seleccionou está corrompida e não pode ser vista.',
+	'lqt-historicalrevision-error' => 'A revisão que selecionou está corrompida e não pode ser vista.',
 	'lqt-reply-subpage' => 'resposta',
 	'nstab-thread' => 'Tópico',
 	'nstab-summary' => 'Resumo',
