@@ -3538,6 +3538,7 @@ $messages['ce'] = array(
 	'lqt_youhavenewmessages' => 'Хьуна кхаьчна [[$1|керла хаамаш]].',
 	'lqt_subject' => 'Корта:',
 	'lqt_summary_notice_link' => 'жамl дан',
+	'lqt_header_warning_bold' => 'дийцаре агӀона корта',
 	'lqt_header_warning_new_discussion' => 'керла дийцаре долор',
 	'lqt_sorting_order' => 'Къепе листар:',
 	'lqt_sort_newest_changes' => 'хийцам бинарш хьалха',
@@ -3900,6 +3901,7 @@ $messages['csb'] = array(
 $messages['cu'] = array(
 	'lqt_delete' => 'поничьжє́ниѥ',
 	'lqt_protectedfromreply_link' => 'ꙁабранєно ѥ́стъ',
+	'lqt-history-user' => 'польꙃєватєл҄ь',
 	'lqt-search-button' => 'ищи',
 	'pageinfo-usinglqt-yes' => 'да',
 );
