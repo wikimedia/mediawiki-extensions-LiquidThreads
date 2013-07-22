@@ -160,20 +160,6 @@ body.skin-monobook li#ca-nstab-thread {
 	font-weight:bold;
 }
 
-.lqt_rc_blockquote {
-	font-style: italic;
-	margin: 0.5em 1em;
-}
-
-.lqt_rc_ellipsis {
-	font-style: normal;
-	font-weight: bold;
-}
-
-.lqt_rc_author_notice_others {
-	color: #cd9800;
-}
-
 .lqt_toc {
 	width: 80%;
 	border-collapse: collapse;
