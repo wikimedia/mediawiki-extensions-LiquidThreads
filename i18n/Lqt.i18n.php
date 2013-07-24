@@ -3553,6 +3553,7 @@ $messages['ce'] = array(
 	'lqt-history-user' => 'Декъашхо',
 	'lqt-thread-edited-others' => 'Нисдина {{PLURAL:$2|1 кхечу декъашхочо|$2 кхечу декъашхош|$2 кхечу декъашхош}}.<br />
 Тlяххьара нисдинарг: $1',
+	'lqt-header-actions' => 'Дийраш',
 	'lqt_summarize_link' => 'Жамl дан',
 	'lqt-movethread' => 'Кхечухьа йаккха',
 	'lqt-menu-trigger' => 'Кхин',
@@ -3577,6 +3578,7 @@ $messages['ce'] = array(
 	'lqt-newmessages-n' => 'Керла хаамаш ($1)', # Fuzzy
 	'lqt_newmessages' => 'Керла хаамаш', # Fuzzy
 	'lqt_newmessages-title' => 'Керла хаамаш',
+	'lqt-talkpage-history-subtitle' => 'Цунна $1',
 	'lqt-talkpage-history-tab' => 'Корта',
 	'lqt-reply-subpage' => 'жоп ло',
 	'nstab-summary' => 'Цунах лаьцна',
@@ -11572,7 +11574,7 @@ $7",
 	'lqt-thread-link-title' => '위키문법 링크:',
 	'lqt-thread-link-copy' => '클립보드에 복사하기',
 	'lqt-sign-not-necessary' => '물결표 4개로 서명할 필요가 없습니다.
-서명은 자동으로 표시됩니다.',
+서명은 자동으로 보여집니다.',
 	'lqt-marked-as-read-placeholder' => '$1 스레드를 읽은 것으로 표시했습니다.',
 	'lqt-change-subject' => '제목 바꾸기',
 	'lqt-save-subject' => '저장',
