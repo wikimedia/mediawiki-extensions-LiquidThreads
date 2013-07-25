@@ -15356,6 +15356,7 @@ $messages['pfl'] = array(
  * @author Odder
  * @author Sp5uhe
  * @author ToSter
+ * @author WTM
  * @author Wpedzich
  */
 $messages['pl'] = array(
@@ -15506,6 +15507,7 @@ Aby tego uniknąć, rozgałęź wątki odpowiedzi przed jej usunięciem.',
 	'lqt-newmessages-from' => 'Od $1',
 	'lqt-hot-topics' => 'Gorące tematy',
 	'lqt-add-reply' => 'Dodaj odpowiedź',
+	'lqt-changesortorder' => 'Sortuj',
 	'lqt_rc_new_discussion' => 'utworzył nowy wątek „$1”',
 	'lqt_rc_new_reply' => 'odpowiedział w wątku „$1”',
 	'right-lqt-split' => 'Rozgałęzianie wątków',
@@ -15526,6 +15528,7 @@ Aby tego uniknąć, rozgałęź wątki odpowiedzi przed jej usunięciem.',
 	'lqt-log-action-merge-down' => 'przyłączył [[$1]] do [[$3]]',
 	'lqt-log-action-subjectedit' => 'zmienił temat [[$1]] z „$2” na „$3”',
 	'lqt-log-action-resort' => 'zmienił sposób sortowania [[$1]] z $2 na $3',
+	'lqt-log-action-signatureedit' => 'zmienił podpis w [[$1]] z „$2” na „$3”',
 	'lqt-preference-notify-talk' => 'Wyślij do mnie e‐mail, jeśli któryś z obserwowanych przeze mnie wątków zostanie zmodyfikowany',
 	'lqt-preference-watch-threads' => 'Dodaj do obserwowanych wątki, w których biorę udział',
 	'prefs-lqt' => 'Wątki w dyskusjach',
