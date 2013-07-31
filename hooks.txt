@@ -1,0 +1,4 @@
+== JS hooks ==
+'ext.lqt.textareaCreated' is fired whenever a new LQT textarea is created.
+Params:
+* {jQuery} currentFocused The textarea element

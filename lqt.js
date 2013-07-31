@@ -220,6 +220,7 @@ window.liquidThreads = {
 				mwSetupToolbar();
 			}
 			currentFocused = $( container ).find( '#wpTextbox1' );
+			mw.hook( 'ext.lqt.textareaCreated' ).fire( currentFocused );
 			$( container ).find( '#wpTextbox1,#wpSummary' ).focus( function () {
 				currentFocused = this;
 			} );
