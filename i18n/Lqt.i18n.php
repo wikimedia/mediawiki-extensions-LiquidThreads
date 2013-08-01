@@ -18251,7 +18251,7 @@ $7',
 	'lqt-thread-link-url' => 'URL odkazu:',
 	'lqt-thread-link-title' => 'Odkaz wikitextu:',
 	'lqt-thread-link-copy' => 'Skopírovať do schránky',
-	'lqt-sign-not-necessary' => 'Je je nutné podpisovať vaše príspevky tildami.
+	'lqt-sign-not-necessary' => 'Nie je nutné podpisovať vaše príspevky vlnovkami.
 Podpis sa zobrazí automaticky.',
 	'lqt-marked-as-read-placeholder' => 'Vlákno $1 bolo označené ako prečítané.',
 	'lqt-change-subject' => 'Zmeniť predmet',
