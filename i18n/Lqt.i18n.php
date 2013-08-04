@@ -9650,8 +9650,8 @@ Le signatura es adjungite automaticamente.',
 	'lqt-feed-new-thread-intro' => 'Nove filo in $1 publicate per {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Responsa a $3 (super $1) publicate per {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Monstra nove messages in filos o paginas de discussion arborescente que tu observa',
-	'lqt-newmessages-n' => 'Nove messages ($1)', # Fuzzy
-	'lqt_newmessages' => 'Mi nove messages (nulle)', # Fuzzy
+	'lqt-newmessages-n' => 'Nove messages ($1)',
+	'lqt_newmessages' => 'Nove messages (nulle)',
 	'lqt_newmessages-title' => 'Nove messages',
 	'lqt-newpost-summary' => 'Nove filo: $1',
 	'lqt-reply-summary' => 'Responder a [[$2|$1]]',
