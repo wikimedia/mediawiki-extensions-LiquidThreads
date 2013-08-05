@@ -83,7 +83,7 @@ $magicWords['mk'] = array(
 
 /** Low Saxon (Netherlands) (Nedersaksies) */
 $magicWords['nds-nl'] = array(
-	'useliquidthreads' => array( 0, 'LiquidThreads_gebruken', 'LiquidThreadsGebruiken' ),
+	'useliquidthreads' => array( 0, 'LiquidThreads_gebruken' ),
 );
 
 /** Dutch (Nederlands) */
