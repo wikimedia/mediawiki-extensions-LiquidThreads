@@ -67,6 +67,15 @@ $specialPageAliases['bs'] = array(
 	'MergeThread' => array( 'SpojiTok' ),
 );
 
+/** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
+$specialPageAliases['cdo'] = array(
+	'DeleteThread' => array( '刪掉話題' ),
+	'MoveThread' => array( '移動話題' ),
+	'NewMessages' => array( '新其話題' ),
+	'SplitThread' => array( '分開話題' ),
+	'MergeThread' => array( '合併話題' ),
+);
+
 /** Czech (česky) */
 $specialPageAliases['cs'] = array(
 	'DeleteThread' => array( 'Smazat_vlákno', 'Smazat_vlakno' ),
