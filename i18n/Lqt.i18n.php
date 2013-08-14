@@ -378,11 +378,10 @@ This is the link in the bottom right-hand corner of a post, which you click to w
 	'lqt_undelete' => '{{Identical|Undelete}}',
 	'lqt_permalink' => "{{doc-important|This message is not followed by a parameter. The English version is short for '''Link to this post'''. It could also be translated as \"Perma[nent ]link\".}} Text for a link to the specific object (e.g. thread summary or discussion fragment).",
 	'lqt_fragment' => 'Parameters:
-* $1 is a link with {{msg-mw|lqt_discussion_link}} as text
-* $2 is a link to the talk page
-<!-- as used in /pages/ThreadPermalinkView.php -->',
-	'lqt_discussion_link' => 'Link text inserted into {{msg-mw|lqt_fragment}} as $1
-
+* $1 - a link with {{msg-mw|Lqt discussion link}} as text
+* $2 - a link to the talk page
+as used in /pages/ThreadPermalinkView.php',
+	'lqt_discussion_link' => 'Link text inserted into {{msg-mw|Lqt fragment}} as <code>$1</code>.
 {{Identical|Discussion}}',
 	'lqt_from_talk' => 'Used as page subtitle. Parameters:
 * $1 is a link to a talk page (for example "User talk:Foo")',
@@ -420,14 +419,10 @@ Parameters:
 * $1 - a web link to the referenced comment. It must remain immediately after the opening bracket.
 {{Related|Lqt change}}',
 	'lqt_change_edited_summary' => '{{Related|Lqt change}}',
-	'lqt_change_deleted' => 'Action results from button {{msg-mw|lqt_delete}}.
-
-Parameters:
+	'lqt_change_deleted' => 'Action results from button {{msg-mw|Lqt delete}}. Parameters:
 * $1 - full URL of the post
 {{Related|Lqt change}}',
-	'lqt_change_undeleted' => 'Action results from button {{msg-mw|lqt_undelete}}.
-
-Parameters:
+	'lqt_change_undeleted' => 'Action results from button {{msg-mw|Lqt undelete}}. Parameters:
 * $1 - full URL of the post
 {{Related|Lqt change}}',
 	'lqt_change_moved' => 'Thread contents when a thread was moved. Parameters:
@@ -469,8 +464,9 @@ Parameters:
 * $4 is a time
 * $5 is the destination page.',
 	'lqt_thread_deleted_for_sysops' => '',
-	'lqt_summary_notice' => '* $1 is a link with {{msg-mw|lqt_summary_notice_link}} as display text
-* $2 is a number of days',
+	'lqt_summary_notice' => 'Parameters:
+* $1 - a link with {{msg-mw|Lqt summary notice link}} as display text
+* $2 - a number of days',
 	'lqt_summary_notice_link' => 'This fragment is situated in the following context: [[MediaWiki:Lqt summary notice]]',
 	'lqt_summary_subtitle' => 'Used as a page subtitle. Parameters:
 * $1 is the thread that is being summarised',
@@ -489,26 +485,29 @@ Parameters:
 	'lqt_move_success' => 'Thread move confirmation. Parameters:
 * $1 is the page where the thread was moved.',
 	'lqt_header_warning_before_big' => '{{notranslate}}',
-	'lqt_header_warning_big' => '$1 is a bold text, from {{msg-mw|lqt_header_warning_bold}}',
+	'lqt_header_warning_big' => 'Parameters:
+* $1 - a bold text, from {{msg-mw|Lqt header warning bold}}',
 	'lqt_header_warning_after_big' => '$2 is {{msg-mw|Lqt header warning new discussion}}',
-	'lqt_header_warning_bold' => 'Bolded text in {{msg-mw|lqt_header_warning_big}}, followed by {{msg-mw|lqt_header_warning_after_big}} + {{msg-mw|lqt_header_warning_new_discussion}}.',
+	'lqt_header_warning_bold' => 'Bolded text in {{msg-mw|Lqt header warning big}}.
+
+Followed by {{msg-mw|Lqt header warning after big}} + {{msg-mw|Lqt header warning new discussion}}.',
 	'lqt_header_warning_new_discussion' => 'This message is $2 in {{msg-mw|Lqt header warning after big}}
 {{Identical|Start a new discussion}}',
 	'lqt_sorting_order' => 'Legend for drop-down box, at the top of a page using liquid threads, for example [[Support]].
 
 The drop-down box contains the following messages:
-*{{msg-mw|Lqt_sort_newest_changes}}
-*{{msg-mw|Lqt_sort_newest_threads}}
-*{{msg-mw|Lqt_sort_oldest_threads}}',
+* {{msg-mw|Lqt sort newest changes}}
+* {{msg-mw|Lqt sort newest threads}}
+* {{msg-mw|Lqt sort oldest threads}}',
 	'lqt_sort_newest_changes' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]].
 
-The legend for the drop-down box is {{msg-mw|Lqt_sorting_order}}.',
+The legend for the drop-down box is {{msg-mw|Lqt sorting order}}.',
 	'lqt_sort_newest_threads' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]].
 
-The legend for the drop-down box is {{msg-mw|Lqt_sorting_order}}.',
+The legend for the drop-down box is {{msg-mw|Lqt sorting order}}.',
 	'lqt_sort_oldest_threads' => 'Option in drop-down box, at the top of a page using liquid threads, for example [[Support]].
 
-The legend for the drop-down box is {{msg-mw|Lqt_sorting_order}}.',
+The legend for the drop-down box is {{msg-mw|Lqt sorting order}}.',
 	'lqt-title' => '{{Identical|Title}}',
 	'lqt-summary' => '{{Identical|Summary}}',
 	'lqt-read-message' => '"Read" is past tense.',
@@ -12826,8 +12825,8 @@ $messages['lv'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — Jaunie pavedieni no $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} — Atbildes',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — Atbildes no $1',
-	'lqt-newmessages-n' => 'Mani jaunie ziņojumi ($1)', # Fuzzy
-	'lqt_newmessages' => 'Mani jaunie ziņojumi (nav)', # Fuzzy
+	'lqt-newmessages-n' => 'Jauni ziņojumi ($1)',
+	'lqt_newmessages' => 'Jauni ziņojumi (nav)',
 	'lqt_newmessages-title' => 'Jauni ziņojumi',
 	'lqt-newpost-summary' => 'Jauns pavediens: $1',
 	'lqt-reply-summary' => 'Rakstīt atbildi [[$2|$1]]',
