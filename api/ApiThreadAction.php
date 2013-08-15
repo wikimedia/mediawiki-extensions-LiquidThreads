@@ -298,9 +298,7 @@ class ApiThreadAction extends ApiEditPage {
 		if ( $user->isAllowed( 'bot' ) ) {
 			$requestData['bot'] = true;
 		}
-
-		$editReq = new FauxRequest( $requestData, true );
-		LqtView::fixFauxRequestSession( $editReq );
+		$editReq = new DerivativeRequest( $this->getRequest(), $requestData, true );
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
 
@@ -417,8 +415,7 @@ class ApiThreadAction extends ApiEditPage {
 			$requestData['bot'] = true;
 		}
 
-		$editReq = new FauxRequest( $requestData, true );
-		LqtView::fixFauxRequestSession( $editReq );
+		$editReq = new DerivativeRequest( $this->getRequest(), $requestData, true );
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
 
@@ -532,8 +529,7 @@ class ApiThreadAction extends ApiEditPage {
 			$requestData['bot'] = true;
 		}
 
-		$editReq = new FauxRequest( $requestData, true );
-		LqtView::fixFauxRequestSession( $editReq );
+		$editReq = new DerivativeRequest( $this->getRequest(), $requestData, true );
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
 
