@@ -3568,6 +3568,7 @@ $messages['ce'] = array(
 	'lqt-ajax-update-link' => 'Карлаяккха',
 	'lqt-thread-show-replies' => '* Гайта $1 жоьпаш', # Fuzzy
 	'lqt-thread-show-more' => 'Гайта шорта жоьпаш',
+	'lqt-thread-link-url' => 'Хьажориг URL тӀе:',
 	'lqt-change-subject' => 'Нисбе коьрта могlа',
 	'lqt-save-subject' => 'lалашдан',
 	'lqt-cancel-subject-edit' => 'Цаоьшу',
@@ -15023,9 +15024,9 @@ $messages['oc'] = array(
 	'lqt_discussion_link' => 'discussion',
 	'lqt_from_talk' => 'De $1',
 	'lqt-history-title' => 'Istoric del fial',
-	'lqt_hist_comment_edited' => 'Comentari modificat', # Fuzzy
+	'lqt_hist_comment_edited' => 'Tèxte de comentari [$2 modificat]',
 	'lqt_hist_summary_changed' => 'Somari modificat',
-	'lqt_hist_reply_created' => 'Responsa novèla creada', # Fuzzy
+	'lqt_hist_reply_created' => '[[$1|Novèla responsa]] creada',
 	'lqt_hist_thread_created' => 'Fial novèl creat',
 	'lqt_hist_deleted' => 'Escafat',
 	'lqt_hist_undeleted' => 'Recuperat',
@@ -15037,9 +15038,9 @@ $messages['oc'] = array(
 	'lqt_hist_tooltip_newer_disabled' => 'Aqueste ligam es inactiu perque sètz sus la primièra pagina.',
 	'lqt_hist_tooltip_older_disabled' => 'Aqueste ligam es inactiu perque sètz sus la darrièra pagina.',
 	'lqt_hist_split' => 'Responsa separada dins un fial de discussion novèl',
-	'lqt_hist_edited_subject' => 'Subjècte modificat', # Fuzzy
-	'lqt_hist_merged_from' => 'Responsa desplaçada dins un autre fial de discussion', # Fuzzy
-	'lqt_hist_merged_to' => 'Responsa desplaçada dempuèi un autre fial de discussion', # Fuzzy
+	'lqt_hist_edited_subject' => 'Subjècte modificat de « $2 » a « $3 »',
+	'lqt_hist_merged_from' => '[[$1|Responsa]] desplaçada dins un autre fial de discussion',
+	'lqt_hist_merged_to' => '[[$1|Responsa]] desplaçada dempuèi un autre fial de discussion',
 	'lqt_hist_split_from' => 'Separar cap a un fial de discussion novèl',
 	'lqt_hist_root_blanked' => 'Tèxte de comentari suprimit',
 	'lqt_revision_as_of' => 'Revision en data del $2 a $3.',
@@ -15066,7 +15067,7 @@ Aqueste desplaçament es estat fach per $2 a $3 $4. Lo fial se tròba ara a $5."
 	'lqt_thread_deleted' => 'Aqueste fial es estat escafat.',
 	'lqt_summary_notice' => 'I a pas agut cap de cambiament dins aquesta discussion dempuèi almens $2 {{PLURAL:$2|jorn|jorns}}. Se es estada concluïda, podètz aver besonh de $1.',
 	'lqt_summary_notice_link' => 'escriure un resumit',
-	'lqt_summary_label' => 'Aqueste fial es estat resumit per :', # Fuzzy
+	'lqt_summary_label' => 'Resumit del fial :',
 	'lqt_summary_subtitle' => 'Resumit de $1.',
 	'lqt_nosuchrevision' => 'Cap de revision per aqueste fial correspond pas.',
 	'lqt_nosuchthread' => "Lo fial qu'avètz especificat existís pas.",
@@ -15115,8 +15116,10 @@ Aquesta operacion es irreversibla.',
 	'lqt-history-action' => 'Activitat',
 	'lqt-history-comment' => 'Comentari',
 	'lqt-history-thread' => 'Fial de discussion',
-	'lqt-thread-edited-author' => 'Editat per l’autor', # Fuzzy
-	'lqt-thread-edited-others' => 'Editat per d’autres utilizaires', # Fuzzy
+	'lqt-thread-edited-author' => 'Modificat per l’autor<br />
+Darrièra modificacion : $1',
+	'lqt-thread-edited-others' => 'Modificat $2 utilizaires<br />
+Darrièra modificacion : $1', # Fuzzy
 	'lqt-header-actions' => 'Accions',
 	'lqt_summarize_link' => 'Resumit',
 	'lqt-summarize-intro' => 'Resumir lo subjècte çaisús dins la bóstia d’edicion
@@ -15138,8 +15141,8 @@ Per evitar aquò, separatz-los d'aqueste fial de discussion abans de suprimir aq
 	'lqt-menu-trigger' => 'Mai',
 	'lqt-newmessages-from' => 'Dempuèi $1',
 	'lqt-hot-topics' => 'Subjèctes brutlants',
-	'lqt_rc_new_discussion' => 'Discussion novèla « $1 » sus $2. • $3 escriu :', # Fuzzy
-	'lqt_rc_new_reply' => 'Respondre a « $1 » sus $2 • $3 escriu :', # Fuzzy
+	'lqt_rc_new_discussion' => 'a postat un novèl fial « $1 »',
+	'lqt_rc_new_reply' => 'a postat una responsa a « $1 »',
 	'right-lqt-split' => 'Separar los fials de discussion',
 	'right-lqt-merge' => 'Fusionar los fials de discussion',
 	'lqt-thread-merge' => 'Fusionar dins un autre fial',
@@ -15161,10 +15164,13 @@ Per evitar aquò, separatz-los d'aqueste fial de discussion abans de suprimir aq
 	'lqt-enotif-subject-reply' => 'Discussion sus {{SITENAME}} - Responsa : $1',
 	'lqt-enotif-subject-newthread' => 'Discussion sus {{SITENAME}}  - Subjècte novèl : $1',
 	'lqt-enotif-newthread' => "Bonjorn $1,
-Aquò es una notificacion de {{SITENAME}}, qu'indica un subjècte novèl de $5, « $2 »,
-es estada creada lo $3 a $4.
 
-O podètz veire a « $6 »", # Fuzzy
+Aquò es una notificacion de {{SITENAME}}, qu'indica un subjècte novèl de $5, « $2 »,
+es estat creat lo $3 a $4, per $8.
+
+Lo podètz consultar a « $6 »
+
+Lo tèxte es : $7",
 	'lqt-enotif-reply' => "Bonjorn $1,
 Aquò es una notificacion de {{SITENAME}}, qu'una responsa novèla a « $2 » sus $5,
 es estada creada lo $3 a $4.
@@ -15190,8 +15196,8 @@ O podètz veire a « $6 »", # Fuzzy
 	'lqt-feed-title-replies-from' => '{{SITENAME}} - Responsas de $1',
 	'lqt-feed-new-thread-intro' => 'Fial de discussion novèl sus $1 postat per $2', # Fuzzy
 	'lqt-feed-reply-intro' => 'Responsa a $3 (sus $1) postada per $2', # Fuzzy
-	'lqt-newmessages-n' => 'Messatges novèls ($1)', # Fuzzy
-	'lqt_newmessages' => 'Messatges Novèls', # Fuzzy
+	'lqt-newmessages-n' => 'Messatges novèls ($1)',
+	'lqt_newmessages' => 'Messatges Novèls (pas cap)',
 	'lqt-newpost-summary' => 'Fial novèl : $1',
 	'lqt-reply-summary' => 'Respondre a [[$2|$1]]',
 	'lqt-talkpage-history-title' => 'Istoric de la pagina de discussion',
