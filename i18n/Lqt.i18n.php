@@ -4541,6 +4541,7 @@ Die Signatur wird automatisch ergänzt.',
 	'lqt-edit-bump-tooltip' => 'Dieses Thema an den Seitenanfang verschieben',
 	'lqt-historicalrevision-error' => 'Die ausgewählte Version ist beschädigt und kann nicht angezeigt werden.',
 	'lqt-reply-subpage' => 'Antwort',
+	'lqt-pagechange-editformopen' => 'Auf dieser Seite befindet sich ungespeicherter Text. Dieser geht verloren, wenn du diese Seite verlässt.',
 	'nstab-thread' => 'Thema',
 	'nstab-summary' => 'Themenzusammenfassung',
 	'echo-pref-email-lqt-new-topic' => 'ein neues Thema erstellt',
@@ -10769,6 +10770,7 @@ $7',
 	'lqt-edit-bump-tooltip' => 'このスレッドを議論ページの先頭に移動する',
 	'lqt-historicalrevision-error' => '選択した版は壊れているため表示できません。',
 	'lqt-reply-subpage' => '返信',
+	'lqt-pagechange-editformopen' => 'このページには未保存のテキストがあります。このページから離れると、未保存のテキストが失われてしまうおそれがあります。',
 	'nstab-thread' => 'スレッド',
 	'nstab-summary' => '要約',
 	'echo-pref-email-lqt-new-topic' => 'スレッド形式の新しい議論が作成されたとき',
@@ -11627,6 +11629,7 @@ $7",
 	'lqt-edit-bump-tooltip' => '이 스레드를 토론 문서의 맨 위로 옮깁니다.',
 	'lqt-historicalrevision-error' => '선택한 판에 문제가 있어서 볼 수 없습니다.',
 	'lqt-reply-subpage' => '답글',
+	'lqt-pagechange-editformopen' => '이 문서에 열려 있는 텍스트가 저장되지 않았습니다. 이 문서에서 떠나면 사라질 수 있습니다.',
 	'nstab-thread' => '스레드',
 	'nstab-summary' => '요약',
 	'echo-pref-email-lqt-new-topic' => '새 스레드 토론을 만듭니다',
@@ -20856,6 +20859,7 @@ $messages['ug-arab'] = array(
 /** Ukrainian (українська)
  * @author AS
  * @author Alex Khimich
+ * @author Andriykopanytsia
  * @author Base
  * @author Dim Grits
  * @author Microcell
@@ -21125,6 +21129,7 @@ $7",
 	'lqt-edit-bump-tooltip' => 'Перемістити цю гілку на початок її сторінки обговорення',
 	'lqt-historicalrevision-error' => 'Версія, що ви обрали, пошкоджена і не може бути відображена.',
 	'lqt-reply-subpage' => 'відповідь',
+	'lqt-pagechange-editformopen' => 'У вас є не незбережений текст, відкритий на цій сторінці. Ви можете втратити його, якщо ви залишите сторінку.',
 	'nstab-thread' => 'Тема',
 	'nstab-summary' => 'Резюме',
 	'echo-pref-email-lqt-new-topic' => 'Створює нове гілчасте обговорення',
