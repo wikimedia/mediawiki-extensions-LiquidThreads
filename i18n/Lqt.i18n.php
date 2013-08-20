@@ -10497,6 +10497,7 @@ La firma è mostrata automaticamente.',
 	'lqt-edit-bump-tooltip' => 'Sposta questo thread in cima alla sua pagina di discussione',
 	'lqt-historicalrevision-error' => 'La revisione che hai selezionato è corrotta, e non può essere visualizzata.',
 	'lqt-reply-subpage' => 'rispondi',
+	'lqt-pagechange-editformopen' => "C'è del testo non salvato su questa pagina. Se esci potresti perderlo.",
 	'nstab-thread' => 'Thread',
 	'nstab-summary' => 'Sommario',
 	'echo-pref-email-lqt-new-topic' => 'Creazione di una nuova discussione con thread',
@@ -13427,6 +13428,7 @@ $messages['mn'] = array(
  * @author Htt
  * @author Kaustubh
  * @author Mahitgar
+ * @author V.narsikar
  */
 $messages['mr'] = array(
 	'lqt-desc' => 'चर्चा पानावर चर्चेचे मुद्दे वाढवा',
@@ -13494,6 +13496,7 @@ $messages['mr'] = array(
 	'lqt-newmessages-n' => 'माझे नवीन संदेश ($1)', # Fuzzy
 	'lqt_newmessages' => 'माझे नवीन संदेश', # Fuzzy
 	'lqt_newmessages-title' => 'नवीन संदेश',
+	'lqt-pagechange-editformopen' => 'या पानावर अद्याप आपण जतन न केलेला मजकूर आहे. या पानावरुन बाहेर निघण्याने  तो अदृश्य होईल.',
 );
 
 /** Malay (Bahasa Melayu)
