@@ -22251,6 +22251,7 @@ $messages['yue'] = array(
  * @author Bencmq
  * @author Gaoxuewei
  * @author Hydra
+ * @author Hzy980512
  * @author Kuailong
  * @author Liangent
  * @author PhiLiP
@@ -22420,6 +22421,7 @@ $messages['zh-hans'] = array(
 	'lqt-log-action-merge-down' => '已将[[$1]]合并到下方的[[$3]]',
 	'lqt-log-action-subjectedit' => "已将[[$1]]的主题由'''$2'''改为'''$3'''。",
 	'lqt-log-action-resort' => '已将[[$1]]的次序调转。从$2到$3。',
+	'lqt-log-action-signatureedit' => '将[[$1]]的签名从“$2”改为“$3”',
 	'lqt-preference-notify-talk' => '当监视话题有新回复时发送电子邮件通知我',
 	'lqt-preference-watch-threads' => '监视我发起或回复的话题',
 	'prefs-lqt' => '话题讨论',
@@ -22503,6 +22505,7 @@ $7',
 	'lqt-edit-bump-tooltip' => '将此话题移动到讨论页顶部',
 	'lqt-historicalrevision-error' => '您选择的修订已损坏，故无法查看。',
 	'lqt-reply-subpage' => '回复',
+	'lqt-pagechange-editformopen' => '您在此页面有未保存的文本，离开的话这些文本将会丢失。',
 	'nstab-thread' => '话题',
 	'nstab-summary' => '摘要',
 	'echo-pref-email-lqt-new-topic' => '创建新的讨论主题',
