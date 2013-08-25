@@ -1601,7 +1601,7 @@ $( document ).ready( function () {
 		var confirmExitPage = false;
 		$( '.lqt-edit-form' ).each( function( index, element ) {
 			var textArea = $( element ).children( 'form' ).find( 'textarea' );
-			if ( element.style.display !== 'none' && textArea.val() !== '' ) {
+			if ( element.style.display !== 'none' && textArea.val() ) {
 				confirmExitPage = true;
 			}
 		} );
