@@ -91,7 +91,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 
 				$link = Linker::link(
 					$title,
-					$value,
+					htmlspecialchars( $value ),
 					array(),
 					array(),
 					array( 'known' )
