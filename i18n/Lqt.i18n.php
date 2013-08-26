@@ -589,18 +589,45 @@ threads on a wiki',
 * $1 - the source thread title, with link
 * $2 - the destination thread title, with link',
 	'lqt-log-name' => '{{doc-logpage}}',
-	'lqt-log-action-move' => 'Parameters:
-* $1 is the link text to the topic
-* $2 is the link text to the source page the topic was moved from
-* $3 is the link text to the target page the topic was moved to',
-	'lqt-log-action-merge-across' => 'Parameters:
-* $1 is the link text to the topic
-* $2 is the link text to the source page the topic was moved from
-* $3 is the link text to the target page the topic was moved to',
-	'lqt-log-action-signatureedit' => 'Parameters:
+	'lqt-log-action-move' => 'Used as log entry. Parameters:
+* $1 - the link text to the topic
+* $2 - the link text to the source page the topic was moved from
+* $3 - the link text to the target page the topic was moved to
+{{Related|Lqt-log-action}}',
+	'lqt-log-action-split' => 'Used as log entry.
+
+"split" is the past tense.
+
+Parameters:
+* $1 - the link text to the topic
+* $2 - subject
+* $3 - page title
+{{Related|Lqt-log-action}}',
+	'lqt-log-action-merge-across' => 'Used as log entry. Parameters:
+* $1 - the link text to the topic
+* $2 - the link text to the source page the topic was moved from
+* $3 - the link text to the target page the topic was moved to
+{{Related|Lqt-log-action}}',
+	'lqt-log-action-merge-down' => 'Used as log entry. Parameters:
+* $1 - the link text to the topic
+* $2 - (Unused)
+* $3 - the link text to the target page the topic was merged to
+{{Related|Lqt-log-action}}',
+	'lqt-log-action-subjectedit' => 'Used as log entry. Parameters:
+* $1 - the link text to the topic
+* $2 - old subject
+* $3 - new subject
+{{Related|Lqt-log-action}}',
+	'lqt-log-action-resort' => 'Used as log entry. Parameters:
+* $1 - the link text to the topic
+* $2 - old sort key
+* $3 - new sort key
+{{Related|Lqt-log-action}}',
+	'lqt-log-action-signatureedit' => 'Used as log entry. Parameters:
 * $1 is the link text to the topic
 * $2 is the old signature text
-* $3 is the new signature text',
+* $3 is the new signature text
+{{Related|Lqt-log-action}}',
 	'lqt-preference-notify-talk' => 'This appears in [[Special:Preferences]]. The wording should be similar to {{msg-mw|tog-enotifwatchlistpages}}.',
 	'lqt-preference-watch-threads' => 'The wording of this message should be similar to {{msg-mw|tog-watchdefault}}.',
 	'lqt-preference-display-depth' => "Used in [[Special:Preferences]], tab Threaded Discussion (where Liquid Thread extension is installed).
@@ -7715,6 +7742,7 @@ $7',
 	'lqt-edit-bump-tooltip' => 'Mover este fío ao inicio da páxina de conversa',
 	'lqt-historicalrevision-error' => 'A revisión que seleccionou está corrompida e non se pode ver.',
 	'lqt-reply-subpage' => 'resposta',
+	'lqt-pagechange-editformopen' => 'Ten texto sen gardar nesta páxina. Pode perdelo se marcha desta páxina.',
 	'nstab-thread' => 'Fío',
 	'nstab-summary' => 'Resumo',
 	'echo-pref-email-lqt-new-topic' => 'Crea unha nova conversa en forma de fío',
@@ -10682,13 +10710,13 @@ $messages['ja'] = array(
 	'lqt-merge-success' => 'スレッド「$1」を「$2」の下位に統合しました。',
 	'lqt-log-name' => 'スレッド形式議論の記録',
 	'lqt-log-header' => 'これは議論スレッドで行われた操作の詳細を記録しています。',
-	'lqt-log-action-move' => '[[$1]]を[[$2]]から[[$3]]へ移動しました。',
-	'lqt-log-action-split' => '[[$1]]を[[$3]]から分割し、新しい表題「$2」を付ける',
-	'lqt-log-action-merge-across' => '[[$1]]を[[$2]]から[[$3]]へ移動',
-	'lqt-log-action-merge-down' => '[[$1]]を[[$3]]の下位に統合',
-	'lqt-log-action-subjectedit' => '[[$1]]の表題を「$2」から「$3」に変更',
-	'lqt-log-action-resort' => '[[$1]]の並び順を変更。ソートキーを$2から$3へ変更',
-	'lqt-log-action-signatureedit' => '[[$1]] の署名を「$2」から「$3」に変更しました',
+	'lqt-log-action-move' => '[[$1]] を [[$2]] から [[$3]] に移動',
+	'lqt-log-action-split' => '[[$1]] を [[$3]] から分割して、新しい表題「$2」を設定',
+	'lqt-log-action-merge-across' => '[[$1]] を [[$2]] から [[$3]] に移動',
+	'lqt-log-action-merge-down' => '[[$1]] を [[$3]] の下位に統合',
+	'lqt-log-action-subjectedit' => '[[$1]] の表題を「$2」から「$3」に変更',
+	'lqt-log-action-resort' => '[[$1]] の並び順を変更して、ソートキーを $2 から $3 に変更',
+	'lqt-log-action-signatureedit' => '[[$1]] の署名を「$2」から「$3」に変更',
 	'lqt-preference-notify-talk' => 'ウォッチリストにあるスレッドに返信があったらメールを受け取る',
 	'lqt-preference-watch-threads' => '自分が作成または返信したスレッドをウォッチリストに追加',
 	'prefs-lqt' => 'スレッド型議論',
@@ -18587,6 +18615,7 @@ Podpis se prikaže samodejno.',
 	'lqt-edit-bump-tooltip' => 'Prestavi razpravo na vrh pogovorne strani',
 	'lqt-historicalrevision-error' => 'Izbrana redakcije je poškodovana in si je ni mogoče ogledati.',
 	'lqt-reply-subpage' => 'odgovor',
+	'lqt-pagechange-editformopen' => 'Na strani imate odprto neshranjeno besedila. Če greste s te strani vstran, ga boste morda izgubili.',
 	'nstab-thread' => 'Razprava',
 	'nstab-summary' => 'Povzetek',
 	'echo-pref-email-lqt-new-topic' => 'Ustvari novo nitno razpravo',
