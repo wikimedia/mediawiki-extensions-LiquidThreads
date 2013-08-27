@@ -455,7 +455,9 @@ Parameters:
 {{doc-important|No PLURAL here! (The number of new messages is unknown.)}}',
 	'lqt_protectedfromreply' => 'Displayed when a thread cannot be replied to. Parameters:
 * $1 is replaced with {{msg-mw|lqt protectedfromreply link}}.',
-	'lqt_protectedfromreply_link' => 'Substituted as $1 in {{msg-mw|lqt protectedfromreply}}.
+	'lqt_protectedfromreply_link' => 'Used as link text.
+
+The link points to [[Special:Log]], and is used as <code>$1</code> in {{msg-mw|lqt protectedfromreply}}.
 {{Identical|Protected}}',
 	'lqt_subject' => '{{Identical|Subject}}',
 	'lqt_noreason' => '{{Identical|No reason given}}',
@@ -489,11 +491,13 @@ Parameters:
 	'lqt_header_warning_before_big' => '{{notranslate}}',
 	'lqt_header_warning_big' => 'Parameters:
 * $1 - a bold text, from {{msg-mw|Lqt header warning bold}}',
-	'lqt_header_warning_after_big' => '$2 is {{msg-mw|Lqt header warning new discussion}}',
+	'lqt_header_warning_after_big' => 'Used as warning. Parameters:
+* $1 - (Unused) warning {{msg-mw|Lqt header warning bold}}
+* $2 - link text {{msg-mw|Lqt header warning new discussion}}. The link points to the talk page',
 	'lqt_header_warning_bold' => 'Bolded text in {{msg-mw|Lqt header warning big}}.
 
 Followed by {{msg-mw|Lqt header warning after big}} + {{msg-mw|Lqt header warning new discussion}}.',
-	'lqt_header_warning_new_discussion' => 'This message is $2 in {{msg-mw|Lqt header warning after big}}
+	'lqt_header_warning_new_discussion' => 'Used as <code>$2</code> in {{msg-mw|Lqt header warning after big}}
 {{Identical|Start a new discussion}}',
 	'lqt_sorting_order' => 'Legend for drop-down box, at the top of a page using liquid threads, for example [[Support]].
 
