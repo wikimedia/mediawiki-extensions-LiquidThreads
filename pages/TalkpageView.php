@@ -261,6 +261,7 @@ class TalkpageView extends LqtView {
 				'search' => $q,
 				'fulltext' => 1,
 				'ns' . NS_LQT_THREAD => 1,
+				'srbackend' => 'LuceneSearch',
 			);
 
 			$t = SpecialPage::getTitleFor( 'Search' );
