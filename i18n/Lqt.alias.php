@@ -115,6 +115,8 @@ $specialPageAliases['el'] = array(
 	'DeleteThread' => array( 'ΔιαγραφήΝήματος' ),
 	'MoveThread' => array( 'ΜετακίνησηΝήματος' ),
 	'NewMessages' => array( 'ΝέαΜηνύματα' ),
+	'SplitThread' => array( 'ΔιαχωρισμόςΝήματος' ),
+	'MergeThread' => array( 'ΣυγχώνευσηΝήματος' ),
 );
 
 /** Esperanto (Esperanto) */
