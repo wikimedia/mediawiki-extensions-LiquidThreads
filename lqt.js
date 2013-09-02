@@ -917,6 +917,7 @@ window.liquidThreads = {
 
 			var form = editform.find( '#editform' );
 			form.append( saveHidden );
+			form.parent().data( 'non-ajax-submit', true ); // To avoid edit form open warning
 			form.submit();
 		}
 
@@ -1599,9 +1600,9 @@ $( document ).ready( function () {
 
 	$( window ).bind( 'beforeunload', function() {
 		var confirmExitPage = false;
-		$( '.lqt-edit-form' ).each( function( index, element ) {
+		$( '.lqt-edit-form:not(.lqt-summarize-form)' ).each( function( index, element ) {
 			var textArea = $( element ).children( 'form' ).find( 'textarea' );
-			if ( element.style.display !== 'none' && textArea.val() ) {
+			if ( element.style.display !== 'none' && !$( element ).data( 'non-ajax-submit' ) && textArea.val() ) {
 				confirmExitPage = true;
 			}
 		} );
