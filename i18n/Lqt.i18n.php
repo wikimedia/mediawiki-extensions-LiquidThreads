@@ -5188,6 +5188,7 @@ $messages['ee'] = array(
  * @author Geraki
  * @author Glavkos
  * @author Omnipaedista
+ * @author Protnet
  * @author ZaDiak
  * @author Απεργός
  */
@@ -5202,7 +5203,7 @@ $messages['el'] = array(
 	'lqt_toc_thread_modified' => 'Τελευταία επεξεργάστηκε',
 	'lqt_add_header' => 'Προσθήκη επικεφαλίδας',
 	'lqt_new_thread' => 'Ξεκινήστε μια νέα συζήτηση',
-	'lqt_empty_subject' => 'Πρέπει να εισάγετε ένα υποκείμενο.',
+	'lqt_empty_subject' => 'Πρέπει να εισαγάγετε θέμα.',
 	'lqt_reply' => 'Απάντηση',
 	'lqt-parent' => 'Γονικό',
 	'lqt_delete' => 'Διαγράψτε',
@@ -16222,7 +16223,7 @@ $7",
 A assinatura é apresentada automaticamente.',
 	'lqt-marked-as-read-placeholder' => 'O tópico $1 foi marcado como lido.',
 	'lqt-change-subject' => 'Alterar assunto',
-	'lqt-save-subject' => 'Gravar',
+	'lqt-save-subject' => 'Salvar',
 	'lqt-save-subject-failed' => 'Ocorreu o seguinte erro ao tentar alterar o assunto deste tópico: $1',
 	'lqt-ajax-invalid-subject' => 'O assunto que introduziu era inválido, provavelmente por ser demasiado longo.',
 	'lqt-ajax-no-subject' => 'Tem de especificar o assunto do tópico novo.',
