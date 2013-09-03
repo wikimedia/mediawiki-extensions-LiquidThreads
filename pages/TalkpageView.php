@@ -308,7 +308,10 @@ class TalkpageView extends LqtView {
 			$talkpageHeader .= $newThreadLink;
 		}
 
-		$talkpageHeader .= $this->getSearchBox();
+		global $wgSearchTypeAlternatives;
+		if ( in_array( "LuceneSearch", $wgSearchTypeAlternatives ?: array() ) ) {
+			$talkpageHeader .= $this->getSearchBox();
+		}
 		$talkpageHeader .= $this->showTalkpageViewOptions( $article );
 		$talkpageHeader = Xml::tags(
 			'div',
