@@ -407,9 +407,24 @@ Parameters:
 * $1 is text for a wiki link to the reply',
 	'lqt_hist_merged_to' => 'Parameters:
 * $1 is the text for a wiki link to the reply',
-	'lqt_revision_as_of' => '* $1 is a timestamp (for backward compatibility)
-* $2 is a date
-* $3 is a time',
+	'lqt_revision_as_of' => 'Followed by any one of the following messages:
+* {{msg-mw|Lqt change new thread}}
+* {{msg-mw|Lqt change reply created}}
+* {{msg-mw|Lqt change deleted}}
+* {{msg-mw|Lqt change undeleted}}
+* {{msg-mw|Lqt change moved}}
+* {{msg-mw|Lqt change split}}
+* {{msg-mw|Lqt change edited subject}}
+* {{msg-mw|Lqt change merged from}}
+* {{msg-mw|Lqt change merged to}}
+* {{msg-mw|Lqt change split from}}
+* {{msg-mw|Lqt change edited summary}}
+* {{msg-mw|Lqt change root blanked}}
+* {{msg-mw|Lqt change edited root}}
+Parameters:
+* $1 - (Optional) a timestamp (for backward compatibility)
+* $2 - a date
+* $3 - a time',
 	'lqt_change_new_thread' => 'Used in revision page, if the revision is initial revision.
 {{Related|Lqt change}}',
 	'lqt_change_reply_created' => 'Used in revision page, if the revision is not initial revision.
@@ -679,7 +694,8 @@ Parameters are:
 	'lqt-thread-show-replies' => '{{doc-actionlink}}
 Parameters:
 * $1 - the number of replies. This can be used for PLURAL:$1',
-	'lqt-thread-link-url' => 'A form label, for the URL to a thread',
+	'lqt-thread-link-url' => 'A form label, for the URL to a thread.
+{{Identical|Link URL}}',
 	'lqt-thread-link-title' => 'A form label, for the wikitext link to a thread',
 	'lqt-marked-as-read-placeholder' => "This message indicates the thread '''has been''' marked as read.
 
@@ -5211,8 +5227,8 @@ $messages['el'] = array(
 	'lqt_delete' => 'Διαγράψτε',
 	'lqt_undelete' => 'Επαναφορά',
 	'lqt_permalink' => 'Σύνδεση με',
-	'lqt_fragment' => 'Τμήμα ενός $1 στη $2',
-	'lqt_discussion_link' => 'συζήτηση',
+	'lqt_fragment' => 'Τμήμα μίας $1 στη σελίδα $2',
+	'lqt_discussion_link' => 'συζήτησης',
 	'lqt_from_talk' => 'Από $1',
 	'lqt-history-title' => 'Ιστορία θέματος',
 	'lqt_hist_comment_edited' => '[$2 Επεξεργάστηκε] το κείμενο σχολίων',
@@ -5264,7 +5280,7 @@ $messages['el'] = array(
 	'lqt_move_thread_bad_destination' => 'Η σελίδα προορισμού δεν είναι μια σελίδα συζήτησης.',
 	'lqt_move_samedestination' => 'Το θέμα είναι ήδη σε αυτή τη σελίδα!',
 	'lqt_move_noreason' => 'Δεν δίνεται λόγος.',
-	'lqt_move_success' => 'Το θέμα μεταφέρθηκε στο $1.',
+	'lqt_move_success' => 'Το θέμα μεταφέρθηκε στο $1.', # Fuzzy
 	'lqt_talkpage_autocreate_summary' => 'Σελίδα Συζήτησης αυτοδημιουργήθηκε όταν το πρώτο  νήμα δημοσιεύτηκε',
 	'lqt_header_warning_big' => 'Επεξεργάζεστε το $1.',
 	'lqt_header_warning_bold' => 'επικεφαλίδα σελίδας συζήτησης',
@@ -5317,7 +5333,7 @@ $messages['el'] = array(
 	'lqt-thread-merge-dest' => 'Προορισμός θέματος:',
 	'lqt-merge-submit' => 'Συγχώνευση',
 	'lqt-log-name' => 'Αρχείο συζητήσεων χωρισμένο κατά τμήματα',
-	'lqt-log-action-move' => 'μετακίνησε το [[$1]] από [[$2]] σε [[$3]].',
+	'lqt-log-action-move' => 'μετακίνησε το [[$1]] από [[$2]] σε [[$3]].', # Fuzzy
 	'lqt-log-action-merge-down' => 'συγχωνεύθηκαν  το [[$1]] με το από κάτω [[$3]]',
 	'lqt-preference-notify-talk' => 'Στείλτε μου e-mail για απαντήσεις σε ένα νήμα συζητήσεων που παρακολουθώ',
 	'prefs-lqt' => 'Συζήτηση σε νήματα',
@@ -7582,7 +7598,7 @@ Este fío forma parte de "$2".',
 	'lqt_move_thread_bad_destination' => 'A páxina de destino non é unha páxina de conversa.',
 	'lqt_move_samedestination' => 'O fío xa está nesta páxina!',
 	'lqt_move_noreason' => 'Non se deu ningunha razón.',
-	'lqt_move_success' => 'O fío moveuse a "$1".',
+	'lqt_move_success' => 'O fío moveuse a "$1".', # Fuzzy
 	'lqt_talkpage_autocreate_summary' => 'Páxina de conversa creada automaticametne cando se publicou o primeiro fío.',
 	'lqt_header_warning_big' => 'Está editando a $1.',
 	'lqt_header_warning_after_big' => 'As cabeceiras son para a introdución e os avisos.
@@ -7658,7 +7674,7 @@ Para evitar isto, sepáreas deste fío antes de borralo.',
 	'lqt-merge-success' => 'Fusionou con éxito o fío "$1" con "$2".',
 	'lqt-log-name' => 'Rexistro de fíos de conversa',
 	'lqt-log-header' => 'Este rexistro detalla as accións feitas nos fíos de conversa.',
-	'lqt-log-action-move' => 'moveu "[[$1]]" de "[[$2]]" a "[[$3]]".',
+	'lqt-log-action-move' => 'moveu "[[$1]]" de "[[$2]]" a "[[$3]]".', # Fuzzy
 	'lqt-log-action-split' => 'separou "[[$1]]" de debaixo de "[[$3]]", co novo asunto "$2"',
 	'lqt-log-action-merge-across' => 'moveu "[[$1]]" de debaixo de "[[$2]]" a debaixo de "[[$3]]"',
 	'lqt-log-action-merge-down' => 'fusionou "[[$1]]" co final de "[[$3]]"',
@@ -10599,7 +10615,7 @@ $messages['ja'] = array(
 	'lqt_hist_split_from' => '新規スレッドに分割',
 	'lqt_hist_root_blanked' => 'コメント文の削除',
 	'lqt_hist_adjusted_sortkey' => '修正されたスレッド位置',
-	'lqt_revision_as_of' => '$2 $3 時点の版',
+	'lqt_revision_as_of' => '$2 $3 時点の版です。',
 	'lqt_change_new_thread' => 'このスレッドの最初の版です。',
 	'lqt_change_reply_created' => '[$1 強調されているコメント]がこの版で作成されました。',
 	'lqt_change_edited_root' => '[$1 強調されているコメント]がこの版で変更されました。',
@@ -10641,7 +10657,7 @@ $messages['ja'] = array(
 	'lqt_move_thread_bad_destination' => '移動先が議論ページではありません。',
 	'lqt_move_samedestination' => 'スレッドはこのページに既にあります!',
 	'lqt_move_noreason' => '理由が付記されていません。',
-	'lqt_move_success' => 'このスレッドは $1 に移動しました。',
+	'lqt_move_success' => 'このスレッドは $1 に移動しました。', # Fuzzy
 	'lqt_talkpage_autocreate_summary' => '最初のスレッドが始まる際、{{int:talk}}ページは自動的に作成されます。',
 	'lqt_header_warning_big' => '$1を編集しています。',
 	'lqt_header_warning_after_big' => '見出しは、告知や序文のためにあります。代わりに$2するべきでしょう。',
@@ -10717,7 +10733,7 @@ $messages['ja'] = array(
 	'lqt-merge-success' => 'スレッド「$1」を「$2」の下位に統合しました。',
 	'lqt-log-name' => 'スレッド形式議論の記録',
 	'lqt-log-header' => 'これは議論スレッドで行われた操作の詳細を記録しています。',
-	'lqt-log-action-move' => '[[$1]] を [[$2]] から [[$3]] に移動',
+	'lqt-log-action-move' => '[[$1]] を [[$2]] から [[$3]] に移動', # Fuzzy
 	'lqt-log-action-split' => '[[$1]] を [[$3]] から分割して、新しい表題「$2」を設定',
 	'lqt-log-action-merge-across' => '[[$1]] を [[$2]] から [[$3]] に移動',
 	'lqt-log-action-merge-down' => '[[$1]] を [[$3]] の下位に統合',
@@ -11499,7 +11515,7 @@ $messages['ko'] = array(
 	'lqt_move_thread_bad_destination' => '이동할 문서가 토론 문서가 아닙니다.',
 	'lqt_move_samedestination' => '이 스레드가 이미 이 문서에 있습니다!',
 	'lqt_move_noreason' => '이유를 입력하지 않았습니다.',
-	'lqt_move_success' => '스레드가 $1(으)로 옮겨졌습니다.',
+	'lqt_move_success' => '스레드가 $1(으)로 옮겨졌습니다.', # Fuzzy
 	'lqt_talkpage_autocreate_summary' => '스레드가 처음 게시되었을 때 토론 문서를 자동으로 만듦',
 	'lqt_header_warning_big' => '$1(을)를 편집하고 있습니다.',
 	'lqt_header_warning_after_big' => '머리말은 안내 사항을 알리는 용도로 사용됩니다.
@@ -11576,7 +11592,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-merge-success' => '스레드 $1을 $2에 성공적으로 병합했습니다.',
 	'lqt-log-name' => '스레드식 토론 기록',
 	'lqt-log-header' => '이 기록은 스레드 토론에 관한 동작에 대한 기록입니다.',
-	'lqt-log-action-move' => '사용자가 [[$1]] 스레드를 [[$2]]에서 [[$3]]으로 옮겼습니다',
+	'lqt-log-action-move' => '사용자가 [[$1]] 스레드를 [[$2]]에서 [[$3]]으로 옮겼습니다', # Fuzzy
 	'lqt-log-action-split' => '사용자가 [[$3]] 스레드에서 [[$1]]을 분리하여 "$2"라는 새 제목을 붙였습니다',
 	'lqt-log-action-merge-across' => '사용자가 [[$1]] 스레드를 [[$2]]에서 [[$3]]으로 옮겼습니다',
 	'lqt-log-action-merge-down' => '사용자가 [[$1]] 스레드를 [[$3]]에 합쳤습니다',
@@ -16103,7 +16119,7 @@ Se está terminada, talvez queira $1.',
 	'lqt_move_thread_bad_destination' => 'A página de destino não é uma página de discussão.',
 	'lqt_move_samedestination' => 'Esse tópico já existe nesta página!',
 	'lqt_move_noreason' => 'Não foi especificado um motivo.',
-	'lqt_move_success' => 'O tópico foi movido para $1.',
+	'lqt_move_success' => 'O tópico foi movido para $1.', # Fuzzy
 	'lqt_talkpage_autocreate_summary' => 'Página de discussão criada automaticamente quando o primeiro tópico foi criado.',
 	'lqt_header_warning_big' => 'Está a editar um $1.',
 	'lqt_header_warning_after_big' => 'Os cabeçalhos são para anúncios e prefácios.
@@ -16178,7 +16194,7 @@ Para evitá-lo, separe-as antes de apagar o tópico.',
 	'lqt-merge-success' => 'Juntou o tópico $1 ao tópico $2 com sucesso.',
 	'lqt-log-name' => 'Registo de discussões em tópicos',
 	'lqt-log-header' => 'Este registro detalha as ações tomadas nos tópicos de discussão.',
-	'lqt-log-action-move' => 'movido [[$1]] de [[$2]] para [[$3]].',
+	'lqt-log-action-move' => 'movido [[$1]] de [[$2]] para [[$3]].', # Fuzzy
 	'lqt-log-action-split' => 'separou [[$1]] do tópico [[$3]], e deu-lhe o novo assunto "$2"',
 	'lqt-log-action-merge-across' => 'moveu [[$1]] do tópico [[$2]] para o tópico [[$3]]',
 	'lqt-log-action-merge-down' => 'moveu [[$1]] para o tópico [[$3]]',
