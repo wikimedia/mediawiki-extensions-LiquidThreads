@@ -494,7 +494,12 @@ The link points to [[Special:Log]], and is used as <code>$1</code> in {{msg-mw|l
 	'lqt_move_movingthread' => 'Used on [[Special:MoveThread]] when moving a thread. Parameters:
 * $1 is the name of the thread that is being moved.
 * $2 is the page the thread is currently on.',
-	'lqt_move_torename' => '$1 is replaced with {{msg-mw|Lqt move torename edit}}',
+	'lqt_move_torename' => 'Used as intro text for the form.
+
+Preceded by {{msg-mw|Lqt move movingthread}}.
+
+Parameters:
+* $1 - link text {{msg-mw|Lqt move torename edit}}',
 	'lqt_move_torename_edit' => 'This message is used inside {{msg-mw|Lqt move torename}}.
 {{Identical|Edit}}',
 	'lqt_move_destinationtitle' => 'Used as label for input field',
@@ -586,7 +591,8 @@ The opposite of {{msg-mw|lqt-thread-merge}}: "split" is imperative, not a partic
 	'lqt-thread-split-thread' => '{{Identical|Thread}}',
 	'lqt-split-submit' => '{{Identical|Split}}',
 	'lqt-no-threads' => '[{{canonicalurl:Project_talk:Autoconfirmed_users}} Example]',
-	'lqt-delete-parent-deleted' => '$1 is the reason for deletion of the parent.',
+	'lqt-delete-parent-deleted' => 'Used as reason for deletion of the reply. Parameters:
+* $1 - the reason for deletion of the parent thread of the reply',
 	'lqt-movethread' => '{{Identical|Move}}',
 	'lqt-menu-trigger' => '{{Identical|More}}',
 	'lqt-newmessages-from' => 'Used as page subtitle. Parameters:
@@ -5218,7 +5224,7 @@ $messages['el'] = array(
 	'lqt_toc_thread_title' => 'Τίτλος θέματος',
 	'lqt_toc_thread_author' => 'Άρχισε από',
 	'lqt_toc_thread_replycount' => 'Απαντήσεις',
-	'lqt_toc_thread_modified' => 'Τελευταία επεξεργάστηκε',
+	'lqt_toc_thread_modified' => 'Τροποποιήθηκε τελευταία φορά',
 	'lqt_add_header' => 'Προσθήκη επικεφαλίδας',
 	'lqt_new_thread' => 'Ξεκινήστε μια νέα συζήτηση',
 	'lqt_empty_subject' => 'Πρέπει να εισαγάγετε θέμα.',
@@ -6039,7 +6045,7 @@ See lõim on osa leheküljest $2.',
 	'lqt_move_thread_bad_destination' => 'Sihtlehekülg pole arutelulehekülg.',
 	'lqt_move_samedestination' => 'Lõim on juba sellel leheküljel!',
 	'lqt_move_noreason' => 'Põhjust pole antud.',
-	'lqt_move_success' => 'Lõim teisaldati asukohta $1.',
+	'lqt_move_success' => 'Lõim teisaldati asukohta $1: $2.',
 	'lqt_talkpage_autocreate_summary' => 'Arutelulehekülg loodi automaatselt esimese lõime postitamisega.',
 	'lqt_header_warning_big' => 'Muudad $1.',
 	'lqt_header_warning_after_big' => 'Päised on teadaannete ja saatesõnade jaoks. Võid tahta hoopis $2.',
@@ -6111,7 +6117,7 @@ Selle vältimiseks lahuta vastused enne kustutamist sellest lõimest.',
 	'lqt-merge-success' => 'Oled lõime $1 edukalt lõimega $2 liitnud.',
 	'lqt-log-name' => 'Lõimarutelulogi',
 	'lqt-log-header' => 'See logi toob üksikasjalikult ära lõimaruteludes sooritatud toiminguid.',
-	'lqt-log-action-move' => 'teisaldas lõime [[$1]] leheküljelt [[$2]] leheküljele [[$3]].',
+	'lqt-log-action-move' => 'teisaldas lõime [[$1]] leheküljelt [[$2]] leheküljele [[$3]] ($4)',
 	'lqt-log-action-subjectedit' => 'muutis lõime [[$1]] pealkirja "$2" kujule "$3"',
 	'lqt-preference-notify-talk' => 'Teata e-posti teel vastusest minu jälgitavale lõimele',
 	'lqt-preference-watch-threads' => 'Jälgi minu loodud või minu vastusega lõimi',
@@ -16291,6 +16297,7 @@ A assinatura é apresentada automaticamente.',
 );
 
 /** Brazilian Portuguese (português do Brasil)
+ * @author Cainamarques
  * @author Crazymadlover
  * @author Eduardo.mps
  * @author Giro720
@@ -16389,7 +16396,7 @@ Este tópico é parte de $2.',
 	'lqt_move_thread_bad_destination' => 'A página de destino não é uma página de discussão.',
 	'lqt_move_samedestination' => 'Esse tópico já existe nesta página!',
 	'lqt_move_noreason' => 'Nenhum motivo foi especificado.',
-	'lqt_move_success' => 'O tópico foi movido para $1.',
+	'lqt_move_success' => 'O tópico foi movido para $1: $2.',
 	'lqt_talkpage_autocreate_summary' => 'Página de discussão criada automaticamente após o primeiro tópico ter sido colocado.',
 	'lqt_header_warning_big' => 'Você está a editar um $1.',
 	'lqt_header_warning_after_big' => 'Os cabeçalhos são para anúncios e prefácios.
@@ -16464,7 +16471,7 @@ Para evitá-lo, separe-as antes de apagar o tópico.',
 	'lqt-merge-success' => 'Você mesclou com sucesso o tópico $1 abaixo de $2',
 	'lqt-log-name' => 'Registro de discussões em tópicos',
 	'lqt-log-header' => 'Este registro detalha as ações tomadas nos tópicos de discussão',
-	'lqt-log-action-move' => 'moveu [[$1]] de [[$2]] para [[$3]].',
+	'lqt-log-action-move' => 'moveu [[$1]] de [[$2]] para [[$3]] ($4)',
 	'lqt-log-action-split' => 'separou [[$1]] do tópico [[$3]], e deu-lhe o novo assunto "$2"',
 	'lqt-log-action-merge-across' => 'moveu [[$1]] do tópico [[$2]] para o tópico [[$3]]',
 	'lqt-log-action-merge-down' => 'moveu [[$1]] para o tópico [[$3]]',
@@ -16534,11 +16541,11 @@ A assinatura é apresentada automaticamente.',
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} - Tópicos novos {{PLURAL:$2|na página $1|nas páginas $1}}',
 	'lqt-feed-title-replies' => '{{SITENAME}} - Respostas',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} - Respostas {{PLURAL:$2|na página $1|nas páginas $1}}',
-	'lqt-feed-new-thread-intro' => 'Tópico novo em $1 colocado por $2', # Fuzzy
-	'lqt-feed-reply-intro' => 'Resposta a $3 (em $1) enviada por $2', # Fuzzy
+	'lqt-feed-new-thread-intro' => 'Novo tópico em $1 postado por {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Resposta a $3 (em $1) enviada por {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Mostra, nas páginas que estiver vigiando, mensagens novas nos tópicos ou páginas de discussão por tópicos',
 	'lqt-newmessages-n' => 'Novas mensagens ($1)',
-	'lqt_newmessages' => 'Mensagens novas (0)', # Fuzzy
+	'lqt_newmessages' => 'Mensagens novas (0)',
 	'lqt_newmessages-title' => 'Novas mensagens',
 	'lqt-newpost-summary' => 'Tópico novo: $1',
 	'lqt-reply-summary' => 'Resposta a [[$2|$1]]',
