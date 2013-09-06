@@ -4023,7 +4023,7 @@ Efallai:
 	'lqt_threadrequired' => "Rhaid enwi'r trywydd yn yr URL.",
 	'lqt_move_move' => 'Symud',
 	'lqt_move_noreason' => 'Dim rheswm wedi ei roi',
-	'lqt_move_success' => 'Symudwyd y trywydd i $1.',
+	'lqt_move_success' => 'Symudwyd y trywydd i $1: $2.',
 	'lqt_sorting_order' => 'Gosod y trywyddau yn nhrefn:',
 	'lqt_sort_newest_changes' => "y diweddaraf i'w addasu",
 	'lqt_sort_newest_threads' => 'y diweddaraf',
