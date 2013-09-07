@@ -465,9 +465,9 @@ Parameters:
 	'lqt_change_root_blanked' => 'Parameters:
 * $1 - a web link to the referenced comment. It must remain immediately after the opening bracket.
 {{Related|Lqt change}}',
-	'lqt_youhavenewmessages' => '* $1 is a link to the new message or messages.
-
-{{doc-important|No PLURAL here! (The number of new messages is unknown.)}}',
+	'lqt_youhavenewmessages' => '{{doc-important|No PLURAL here! (The number of new messages is unknown.)}}
+Parameters:
+* $1 - [[Special:NewMessages]]',
 	'lqt_protectedfromreply' => 'Displayed when a thread cannot be replied to. Parameters:
 * $1 is replaced with {{msg-mw|lqt protectedfromreply link}}.',
 	'lqt_protectedfromreply_link' => 'Used as link text.
@@ -731,15 +731,19 @@ Displayed in a list of actions to confirm in a confirmation dialog.',
 * $1 is comma separated list of all pages mentioned in the feed
 * $2 is the number of referenced pages in the feed (optional, can be used for PLURAL)',
 	'lqt-feed-new-thread-intro' => 'Parameters:
-* $1 is a link to the talk page with the thread
-* $2 is a link to the user posting in the thread
-* $3 -not used-,
-* $4 is the posting user in plain text, used for GENDER.',
+* $1 - a link to the talk page with the thread
+* $2 - a link to the user posting in the thread
+* $3 - (Unused)
+* $4 - the posting user, used for GENDER
+See also:
+* {{msg-mw|Lqt-feed-reply-intro}} - if the thread has superthread',
 	'lqt-feed-reply-intro' => 'Parameters:
-* $1 is a link to the talk page with the thread
-* $2 is a link to the user posting in the thread
-* $3 is a link to the super thread,
-* $4 is the posting user in plain text, used for GENDER.',
+* $1 - a link to the talk page with the thread
+* $2 - a link to the user posting in the thread
+* $3 - a link to the super thread
+* $4 - the posting user in plain text, used for GENDER
+See also:
+* {{msg-mw|Lqt-feed-new-thread-intro}} - if the thread does not have superthread',
 	'lqt-newmessages-n' => 'Link at the top of the page for logged-in users. Parameters:
 * $1 - the number of new messages
 {{Identical|New messages}}',
