@@ -11525,7 +11525,7 @@ $messages['ko'] = array(
 	'lqt_move_thread_bad_destination' => '이동할 문서가 토론 문서가 아닙니다.',
 	'lqt_move_samedestination' => '이 스레드가 이미 이 문서에 있습니다!',
 	'lqt_move_noreason' => '이유를 입력하지 않았습니다.',
-	'lqt_move_success' => '스레드가 $1(으)로 옮겨졌습니다.', # Fuzzy
+	'lqt_move_success' => '스레드가 $1(으)로 옮겨졌습니다: $2',
 	'lqt_talkpage_autocreate_summary' => '스레드가 처음 게시되었을 때 토론 문서를 자동으로 만듦',
 	'lqt_header_warning_big' => '$1(을)를 편집하고 있습니다.',
 	'lqt_header_warning_after_big' => '머리말은 안내 사항을 알리는 용도로 사용됩니다.
@@ -11602,7 +11602,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-merge-success' => '스레드 $1을 $2에 성공적으로 병합했습니다.',
 	'lqt-log-name' => '스레드식 토론 기록',
 	'lqt-log-header' => '이 기록은 스레드 토론에 관한 동작에 대한 기록입니다.',
-	'lqt-log-action-move' => '사용자가 [[$1]] 스레드를 [[$2]]에서 [[$3]]으로 옮겼습니다', # Fuzzy
+	'lqt-log-action-move' => '사용자가 [[$1]] 스레드를 [[$2]]에서 [[$3]]으로 옮겼습니다 ($4)',
 	'lqt-log-action-split' => '사용자가 [[$3]] 스레드에서 [[$1]]을 분리하여 "$2"라는 새 제목을 붙였습니다',
 	'lqt-log-action-merge-across' => '사용자가 [[$1]] 스레드를 [[$2]]에서 [[$3]]으로 옮겼습니다',
 	'lqt-log-action-merge-down' => '사용자가 [[$1]] 스레드를 [[$3]]에 합쳤습니다',
@@ -11824,7 +11824,7 @@ $messages['ksh'] = array(
 	'lqt_move_thread_bad_destination' => 'De Sigg woh dat hen sull, es kein Klaafsigg.',
 	'lqt_move_samedestination' => 'Dä {{int:lqt-history-thread}} es alld op dä Sigg!',
 	'lqt_move_noreason' => 'Keine Aanlass aanjejovve.',
-	'lqt_move_success' => 'Dä {{int:lqt-history-thread}} es noh $1 ömjtrocke woode.',
+	'lqt_move_success' => 'Dä {{int:lqt-history-thread}} es noh $1 ömjtrocke woode.', # Fuzzy
 	'lqt_talkpage_autocreate_summary' => 'Di Klaafsigg es automattesch aanjelaat woode, wi dä eetßte {{int:lqt-history-thread}} jeschrvve wood.',
 	'lqt_header_warning_big' => 'Do bes en $1 aam ändere.',
 	'lqt_header_warning_after_big' => 'Kopp_Reije sin för Aankündijunge un Aanfäng.
@@ -11851,7 +11851,7 @@ Künnt sin, De wells en $2 han.',
 	'lqt-date-info' => 'Dä Lengk es afjeschaldt. De bes ene {{int:lqt-history-thread}} vun alle Daate am beloore.',
 	'lqt-newmessages-context' => 'Dä janze {{int:lqt-history-thread}}',
 	'lqt-thread-created' => 'Neu aanjelaat',
-	'lqt-history-time' => 'Zick',
+	'lqt-history-time' => 'Zigg',
 	'lqt-history-user' => '{{ns:User}}',
 	'lqt-history-action' => 'Aktivitäht',
 	'lqt-history-comment' => 'Koot Zosammejefass, Aanlaß, Quell:',
@@ -11894,7 +11894,7 @@ et läz aam $4 öm $3',
 	'lqt-merge-success' => 'Do häß jäz der {{int:lqt-history-thread}} „$1“ onger däm {{int:lqt-history-thread}} „$2“ enjehane.',
 	'lqt-log-name' => 'Logboch övver {{int:lqt-history-thread}}e',
 	'lqt-log-header' => 'En däm Logbooch heh sin de Einzelheite faßjehallde övver wat met de {{int:lqt-history-thread}}e jedonn woodt.',
-	'lqt-log-action-move' => 'hät [[$1]] vun [[$2]] noh [[$3]] ömjetroke.',
+	'lqt-log-action-move' => 'hät [[$1]] vun [[$2]] noh [[$3]] ömjetroke.', # Fuzzy
 	'lqt-log-action-split' => 'hät [[$1]] onger dä Övverschreff [[$3]] eruß jenumme un onger de neue Övverschreff „$2“ jeschtallt.',
 	'lqt-log-action-merge-across' => 'hät [[$1]] onger dä Övverschreff [[$2]] eruß jenumme un onger [[$3]] jedonn.',
 	'lqt-log-action-merge-down' => 'hät [[$1]] noh onger de Övverschreff [[$3]] ömjetrocke un dobei di {{int:lqt-history-thread}}e zosamme jelaat.',
@@ -14525,6 +14525,7 @@ $messages['niu'] = array(
 
 /** Dutch (Nederlands)
  * @author Annabel
+ * @author HanV
  * @author McDutchie
  * @author SPQRobin
  * @author Siebrand
@@ -14617,7 +14618,7 @@ Dit onderwerp is onderdeel van $2.',
 	'lqt_move_thread_bad_destination' => 'De doelpagina is geen overlegpagina.',
 	'lqt_move_samedestination' => 'Het onderwerp staat al op deze pagina!',
 	'lqt_move_noreason' => 'Geen reden gegeven.',
-	'lqt_move_success' => 'Het onderwerp is verplaatst naar $1.',
+	'lqt_move_success' => 'Het onderwerp is verplaatst naar $1: $2.',
 	'lqt_talkpage_autocreate_summary' => 'Overlegpagina automatisch aangemaakt bij aanmaken eerste onderwerp.',
 	'lqt_header_warning_big' => 'U bent een $1 aan het bewerken.',
 	'lqt_header_warning_after_big' => 'Koppen zijn voor aankondigingen en inleidingen. Wellicht kunt u beter gebruik maken van $2.',
@@ -14693,7 +14694,7 @@ Splits dit overleg alvorens het te verwijderen om dit te voorkomen.',
 	'lqt-merge-success' => 'Het onderwerp $1 is samengevoegd onder $2.',
 	'lqt-log-name' => 'Onderwerpenlogboek',
 	'lqt-log-header' => 'Dit logboek bevat details over handelingen ten aanzien van onderwerpen.',
-	'lqt-log-action-move' => 'heeft [[$1]] verplaatst van [[$2]] naar [[$3]].',
+	'lqt-log-action-move' => 'heeft [[$1]] verplaatst van [[$2]] naar [[$3]].', # Fuzzy
 	'lqt-log-action-split' => 'heeft [[$1]] afgesplitst van [[$3]] met als nieuw onderwerp "$2".',
 	'lqt-log-action-merge-across' => 'heeft [[$1]] verplaatst uit [[$2]] naar [[$3]].',
 	'lqt-log-action-merge-down' => 'heeft [[$1]] samengevoegd naar [[$3]].',
