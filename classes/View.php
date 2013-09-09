@@ -222,7 +222,7 @@ class LqtView {
 
 	static function diffPermalinkURL( $thread, $revision ) {
 		$query = self::diffQuery( $thread, $revision );
-		return self::permalinkUrl( $thread, null, null, $query, false );
+		return wfExpandUrl( self::permalinkUrl( $thread, null, null, $query ), PROTO_RELATIVE );
 	}
 
 	static function diffPermalink( $thread, $text, $revision ) {
