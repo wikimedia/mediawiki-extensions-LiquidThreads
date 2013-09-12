@@ -581,7 +581,9 @@ Parameters:
 * $4 - date of the last edit (optional, instead of using $1)',
 	'lqt-header-actions' => '{{Identical|Action}}',
 	'lqt_summarize_link' => 'Used as link title.',
-	'lqt-summarize-intro' => 'Used as introduction text in summarize page.',
+	'lqt-summarize-intro' => 'Used as introduction text in summarize page.
+
+Refers to {{msg-mw|Savearticle}}.',
 	'lqt-thread-split' => '{{doc-actionlink}}
 
 The opposite of {{msg-mw|lqt-thread-merge}}: "split" is imperative, not a participle.',
