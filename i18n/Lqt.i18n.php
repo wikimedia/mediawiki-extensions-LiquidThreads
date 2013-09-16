@@ -17140,6 +17140,7 @@ $messages['rtm'] = array(
  * @author MaxSem
  * @author McDutchie
  * @author Mormegil
+ * @author Okras
  * @author VasilievVV
  * @author Александр Сигачёв
  */
@@ -17230,7 +17231,7 @@ $messages['ru'] = array(
 	'lqt_move_thread_bad_destination' => 'Страница назначения не является страницей обсуждения.',
 	'lqt_move_samedestination' => 'Ветка уже на этой странице!',
 	'lqt_move_noreason' => 'Не была указана причина.',
-	'lqt_move_success' => 'Эта ветка была перемещена в $1.',
+	'lqt_move_success' => 'Эта ветка была перемещена в $1: $2.',
 	'lqt_talkpage_autocreate_summary' => 'Страница обсуждения создаётся автоматически, как только отправлено первое сообщение.',
 	'lqt_header_warning_big' => 'Вы редактируете $1.',
 	'lqt_header_warning_after_big' => 'Заголовки служат для объявлений и введений. Вы можете $2.',
@@ -17305,7 +17306,7 @@ $messages['ru'] = array(
 	'lqt-merge-success' => 'Вы успешно присоединили ветку $1 к ветке $2.',
 	'lqt-log-name' => 'Журнал веток обсуждений',
 	'lqt-log-header' => 'В этот журнал записываются действия, предпринятые в ветках обсуждений.',
-	'lqt-log-action-move' => 'перемещено [[$1]] из [[$2]] в [[$3]].',
+	'lqt-log-action-move' => 'перемещено [[$1]] из [[$2]] в [[$3]].', # Fuzzy
 	'lqt-log-action-split' => 'выделил [[$1]] из [[$3]], с новой темой «$2»',
 	'lqt-log-action-merge-across' => 'переместил [[$1]] из [[$2]] в [[$3]]',
 	'lqt-log-action-merge-down' => 'объединил [[$1]] в [[$3]]',
