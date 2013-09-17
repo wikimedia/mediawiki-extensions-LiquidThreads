@@ -6958,7 +6958,7 @@ Si elle a été conclue, vous pouvez avoir besoin de $1.',
 	'lqt_move_thread_bad_destination' => "La page de destination n'est pas une page de discussion.",
 	'lqt_move_samedestination' => 'Le fil est déjà sur cette page !',
 	'lqt_move_noreason' => 'Aucune raison donnée',
-	'lqt_move_success' => 'Le fil a été déplacé dans $1.',
+	'lqt_move_success' => 'Le fil a été déplacé dans $1 : $2.',
 	'lqt_talkpage_autocreate_summary' => 'Page de discussion créée automatiquement quand le premier fil de discussion a été envoyé.',
 	'lqt_header_warning_big' => 'Vous modifiez un $1.',
 	'lqt_header_warning_after_big' => 'Les en-têtes sont pour les annonces et les préfaces.
@@ -7034,7 +7034,7 @@ Pour éviter cela, séparez les de ce fil de discussion avant de supprimer celui
 	'lqt-merge-success' => 'Vous avez fusionné le fil de discussion $1 dans $2.',
 	'lqt-log-name' => 'Journal des fils de discussion',
 	'lqt-log-header' => 'Ce journal détaille les actions faites sur les fils de discussion.',
-	'lqt-log-action-move' => 'a déplacé [[$1]] de [[$2]] vers [[$3]].',
+	'lqt-log-action-move' => 'a déplacé [[$1]] de [[$2]] vers [[$3]].($4)',
 	'lqt-log-action-split' => 'a scindé [[$1]] sous [[$3]], avec le nouveau sujet « $2 ».',
 	'lqt-log-action-merge-across' => 'a déplacé [[$1]] depuis sous [[$2]] à sous [[$3]].',
 	'lqt-log-action-merge-down' => 'a fusionné [[$1]] au dessous de [[$3]]',
@@ -8178,6 +8178,7 @@ $messages['haw'] = array(
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author Guycn1
  * @author Rotemliss
  * @author YaronSh
  */
@@ -8196,7 +8197,7 @@ $messages['he'] = array(
 ייתכן שהוא:
 * ארוך מדי, או
 * מתנגש עם קידומות בינוויקי או שמות של מרחבי שם.',
-	'lqt-empty-text' => 'אי־אפשר לשלוח הודעה ריקה',
+	'lqt-empty-text' => 'לא ניתן לשלוח הודעה ריקה',
 	'lqt_empty_subject' => 'יש להקליד נושא.',
 	'lqt_reply' => 'תגובה',
 	'lqt-parent' => 'קישור להורה',
@@ -8270,7 +8271,7 @@ $messages['he'] = array(
 	'lqt_move_thread_bad_destination' => 'דף היעד אינו דף דיון.',
 	'lqt_move_samedestination' => 'השרשור נמצא כבר בדף זה!',
 	'lqt_move_noreason' => 'לא צוינה סיבה.',
-	'lqt_move_success' => 'השרשור הועבר אל $1.',
+	'lqt_move_success' => 'השרשור הועבר אל $1.', # Fuzzy
 	'lqt_talkpage_autocreate_summary' => 'דף השיחה נוצר אוטומטית בעת פרסום השרשור הראשון.',
 	'lqt_header_warning_big' => 'אתם עורכים את $1',
 	'lqt_header_warning_after_big' => 'כותרות מיועדות להכרזות ולדברי מבוא.
@@ -8346,7 +8347,7 @@ $messages['he'] = array(
 	'lqt-merge-success' => 'מיזגתם בהצלחה את השרשור $1 לתוך $2.',
 	'lqt-log-name' => 'יומן השיחות בשרשורים',
 	'lqt-log-header' => 'יומן זה מפרט את הפעולות שבוצעו על שרשורים של שיחות.',
-	'lqt-log-action-move' => 'העביר את [[$1]] מ[[$2]] ל[[$3]].',
+	'lqt-log-action-move' => 'העביר את [[$1]] מ[[$2]] ל[[$3]].', # Fuzzy
 	'lqt-log-action-split' => 'פיצל את [[$1]] מתוך [[$3]] עם הנושא החדש "$2"',
 	'lqt-log-action-merge-across' => 'העביר את [[$1]] שהיה ב[[$2]] אל [[$3]]',
 	'lqt-log-action-merge-down' => 'איחד את [[$1]] לתוך [[$3]]',
@@ -12062,6 +12063,7 @@ $messages['ky'] = array(
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
 	'lqt-desc' => "Setz Diskussiouns -Rubriken  op d'Diskussiounssäiten derbäi",
@@ -12230,8 +12232,8 @@ Fir dëst ze verhënneren, trennt se vun dëser Rubrik ier Dir se läscht.',
 	'lqt-log-name' => 'Logbuch vun den Diskussiouns-Rubriken',
 	'lqt-log-header' => 'An dësem Logbuch sinn Detailer vun den Aktioune vun den Diskusssiouns-Rubriken.',
 	'lqt-log-action-move' => 'huet [[$1]] vu(n) [[$2]] op [[$3]]($4) geréckelt.',
-	'lqt-log-action-split' => 'huet [[$1]] vun ënnert [[$3]] opgedeelt, mat dem neie Sujct "$2".',
-	'lqt-log-action-merge-across' => 'huet [[$1]] vun ënnert [[$2]] op ënnert [[$3]] geréckelt.',
+	'lqt-log-action-split' => 'huet [[$1]] vun ënner [[$3]] opgedeelt, mam neie Sujet "$2".',
+	'lqt-log-action-merge-across' => 'huet [[$1]] vun ënner [[$2]] op ënner [[$3]] geréckelt.',
 	'lqt-log-action-merge-down' => 'huet [[$1]] zesummelgeluecht op [[$3]]',
 	'lqt-log-action-subjectedit' => 'huet de Sujet vu(n) [[$1]] vun "$2" op "$3" geännert',
 	'lqt-log-action-resort' => 'huet de Reiefolleg vum Zortéiere vu(n) [[$1]] gännert. De Zortéierschlësel giuf vun $2 op $3 geännert.',
