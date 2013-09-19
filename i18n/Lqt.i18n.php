@@ -541,7 +541,7 @@ The legend for the drop-down box is {{msg-mw|Lqt sorting order}}.',
 	'lqt-read-message-tooltip' => 'Used as tooltip for {{msg-mw|Lqt-read-message}} button.',
 	'lqt-read-all' => 'Used as button text.
 {{Identical|Mark all as read}}',
-	'lqt-read-all-tooltip' => 'Used as tooltip for {{msg-mw|Lqt-read-all}} button.',
+	'lqt-read-all-tooltip' => 'Used as tooltip for {{msg-mw|Lqt-read-all}} button in [[Special:NewMessages]].',
 	'lqt-marked-read' => 'Parameters:
 * $1 - subject of thread (message)
 See also:
@@ -17308,7 +17308,7 @@ $messages['ru'] = array(
 	'lqt-merge-success' => 'Вы успешно присоединили ветку $1 к ветке $2.',
 	'lqt-log-name' => 'Журнал веток обсуждений',
 	'lqt-log-header' => 'В этот журнал записываются действия, предпринятые в ветках обсуждений.',
-	'lqt-log-action-move' => 'перемещено [[$1]] из [[$2]] в [[$3]].', # Fuzzy
+	'lqt-log-action-move' => 'перемещено [[$1]] из [[$2]] в [[$3]] ($4).',
 	'lqt-log-action-split' => 'выделил [[$1]] из [[$3]], с новой темой «$2»',
 	'lqt-log-action-merge-across' => 'переместил [[$1]] из [[$2]] в [[$3]]',
 	'lqt-log-action-merge-down' => 'объединил [[$1]] в [[$3]]',
