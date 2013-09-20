@@ -4018,6 +4018,8 @@ Efallai:
 	'lqt_hist_no_revisions_error' => 'Nid oes gan y trywydd hwn unrhyw hanes diwygio.',
 	'lqt_hist_tooltip_newer_disabled' => "Nid yw'r cyswllt hwn yn gweithio oherwydd eich bod ar y dudalen gyntaf yn barod.",
 	'lqt_hist_tooltip_older_disabled' => "Nid yw'r cyswllt hwn yn gweithio oherwydd eich bod ar y dudalen olaf yn barod.",
+	'lqt_hist_edited_subject' => 'Newidiwyd y pwnc o "$2" i "$3"',
+	'lqt_hist_edited_subject_corrupt' => 'Newidiwyd y pwnc',
 	'lqt_youhavenewmessages' => 'Mae [[$1|negeseuon newydd]] gennych.',
 	'lqt_subject' => 'Pwnc:',
 	'lqt_noreason' => 'Dim rheswm wedi ei grybwyll.',
@@ -22125,8 +22127,10 @@ Cwand vos avoz fini, clitchîz so «{{int:savearticle}}».",
 );
 
 /** Wu (吴语)
+ * @author 十弌
  */
 $messages['wuu'] = array(
+	'lqt-log-action-move' => '從[[$2]]畀[[$1]]移到[[$3]]($4)',
 	'lqt-cancel-subject-edit' => '取消',
 	'lqt-drag-reason' => '理由：',
 );
