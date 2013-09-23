@@ -22340,6 +22340,7 @@ $messages['yue'] = array(
  * @author Hzy980512
  * @author Kuailong
  * @author Liangent
+ * @author Liuxinyu970226
  * @author PhiLiP
  * @author Shinjiman
  * @author Shizhao
@@ -22434,7 +22435,7 @@ $messages['zh-hans'] = array(
 	'lqt_move_thread_bad_destination' => '目标页不是讨论页。',
 	'lqt_move_samedestination' => '目标页已有该帖子！',
 	'lqt_move_noreason' => '未给出原因。',
-	'lqt_move_success' => '帖子已被移动到$1。',
+	'lqt_move_success' => '帖子已被移动到$1：$2。',
 	'lqt_talkpage_autocreate_summary' => '在发起第一个帖子时讨论页已自动创建。',
 	'lqt_header_warning_big' => '您正在编辑$1。',
 	'lqt_header_warning_after_big' => '首段用于公告和导言。您的目的可能是$2。',
@@ -22501,7 +22502,7 @@ $messages['zh-hans'] = array(
 	'lqt-merge-success' => '您已成功地将话题$1合并到话题$2下。',
 	'lqt-log-name' => '话题讨论日志',
 	'lqt-log-header' => '此日志记录了对讨论话题进行的操作。',
-	'lqt-log-action-move' => '将[[$1]]从[[$2]]移动到[[$3]]。',
+	'lqt-log-action-move' => '将[[$1]]从[[$2]]移动到[[$3]]（$4）。',
 	'lqt-log-action-split' => '将[[$1]]移动[[$3]]，以$2作新主题。',
 	'lqt-log-action-merge-across' => '已将[[$1]] (在[[$2]]之下)移到[[$3]]之下。',
 	'lqt-log-action-merge-down' => '已将[[$1]]合并到下方的[[$3]]',
