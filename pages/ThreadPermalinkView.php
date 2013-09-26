@@ -63,7 +63,7 @@ class ThreadPermalinkView extends LqtView {
 			$links['actions'] = array();
 
 			unset( $links['namespaces'][$talkKey] );
-			return true;
+			return;
 		}
 
 		// Insert 'article' and 'discussion' namespace-tabs
@@ -79,17 +79,18 @@ class ThreadPermalinkView extends LqtView {
 		unset( $views['viewsource'] );
 		unset( $views['edit'] );
 
+		$subpageTitle = $view->thread->title();
 		// Re-point move, delete and history actions
-		$subpage = $view->thread->title()->getPrefixedText();
 		$actions =& $links['actions'];
-		if ( isset( $actions['move'] ) ) {
+		if ( isset( $actions['move'] ) && $subpageTitle ) {
+			$subpage = $subpageTitle->getPrefixedText();
 			$actions['move']['href'] =
-			SpecialPage::getTitleFor( 'MoveThread', $subpage )->getLocalURL();
+				SpecialPage::getTitleFor( 'MoveThread', $subpage )->getLocalURL();
 		}
 
-		if ( isset( $actions['delete'] ) ) {
+		if ( isset( $actions['delete'] ) && $subpageTitle ) {
 			$actions['delete']['href'] =
-				$view->thread->title()->getLocalURL( 'action=delete' );
+				$subpageTitle->getLocalURL( 'action=delete' );
 		}
 
 		if ( isset( $views['history'] ) ) {
