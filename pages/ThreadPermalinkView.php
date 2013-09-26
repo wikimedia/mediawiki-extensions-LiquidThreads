@@ -209,19 +209,22 @@ class ThreadPermalinkView extends LqtView {
 			$this->request->setVal( 'lqt_operand', $this->thread->id() );
 		}
 
-		// Expose feed links.
-		global $wgFeedClasses;
-		$thread = $this->thread->topmostThread()->title()->getPrefixedText();
-		$apiParams = array(
-			'action' => 'feedthreads',
-			'type' => 'replies|newthreads',
-			'thread' => $thread
-		);
-		$urlPrefix = wfScript( 'api' ) . '?';
-		foreach ( $wgFeedClasses as $format => $class ) {
-			$theseParams = $apiParams + array( 'feedformat' => $format );
-			$url = $urlPrefix . wfArrayToCgi( $theseParams );
-			$this->output->addFeedLink( $format, $url );
+		$topmostThreadTitle = $this->thread->topmostThread()->title();
+		if ( $topmostThreadTitle ) {
+			// Expose feed links.
+			global $wgFeedClasses;
+			$thread = $topmostThreadTitle->getPrefixedText();
+			$apiParams = array(
+				'action' => 'feedthreads',
+				'type' => 'replies|newthreads',
+				'thread' => $thread
+			);
+			$urlPrefix = wfScript( 'api' ) . '?';
+			foreach ( $wgFeedClasses as $format => $class ) {
+				$theseParams = $apiParams + array( 'feedformat' => $format );
+				$url = $urlPrefix . wfArrayToCgi( $theseParams );
+				$this->output->addFeedLink( $format, $url );
+			}
 		}
 
 		$this->output->setSubtitle( $this->getSubtitle() );
