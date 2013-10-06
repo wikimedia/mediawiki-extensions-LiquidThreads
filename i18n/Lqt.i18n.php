@@ -11582,7 +11582,7 @@ $2를 누르면 새 토론을 시작할 수 있습니다.',
 	'lqt-thread-created' => '만들어짐',
 	'lqt-history-time' => '시간',
 	'lqt-history-user' => '사용자',
-	'lqt-history-action' => '활동 내역',
+	'lqt-history-action' => '활동',
 	'lqt-history-comment' => '요약',
 	'lqt-history-thread' => '스레드',
 	'lqt-thread-edited-author' => '저자가 편집했습니다.<br />
