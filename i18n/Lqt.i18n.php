@@ -14721,7 +14721,7 @@ Splits dit overleg alvorens het te verwijderen om dit te voorkomen.',
 	'lqt-merge-success' => 'Het onderwerp $1 is samengevoegd onder $2.',
 	'lqt-log-name' => 'Onderwerpenlogboek',
 	'lqt-log-header' => 'Dit logboek bevat details over handelingen ten aanzien van onderwerpen.',
-	'lqt-log-action-move' => 'heeft [[$1]] verplaatst van [[$2]] naar [[$3]].', # Fuzzy
+	'lqt-log-action-move' => 'heeft [[$1]] verplaatst van [[$2]] naar [[$3]] ($4)',
 	'lqt-log-action-split' => 'heeft [[$1]] afgesplitst van [[$3]] met als nieuw onderwerp "$2".',
 	'lqt-log-action-merge-across' => 'heeft [[$1]] verplaatst uit [[$2]] naar [[$3]].',
 	'lqt-log-action-merge-down' => 'heeft [[$1]] samengevoegd naar [[$3]].',
