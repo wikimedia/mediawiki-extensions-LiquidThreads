@@ -4695,6 +4695,7 @@ Die Signatur wird automatisch ergänzt.',
 /** Zazaki (Zazaki)
  * @author Aspar
  * @author Erdemaslancan
+ * @author Gorizon
  * @author Mirzali
  * @author Xoser
  */
@@ -4848,6 +4849,7 @@ eke şıma qayili tera xo bıkeri (qayil niyê), cewaban verê esterıtışê g�
 	'lqt-newmessages-from' => 'Rışten $1',
 	'lqt-hot-topics' => 'sernameyê neweyi',
 	'lqt-add-reply' => 'Yew cewab cı ke',
+	'lqt-changesortorder' => 'Kılm',
 	'lqt_rc_new_discussion' => 'Yew werêameyişo newe nuşto, "$1"',
 	'lqt_rc_new_reply' => '"$1"i re cewab nusiya',
 	'right-lqt-split' => 'gıreyan ciya ker',
@@ -17426,6 +17428,7 @@ $7',
 	'lqt-edit-bump-tooltip' => 'Перенести эту ветку в начало её страницы обсуждения',
 	'lqt-historicalrevision-error' => 'Выбранная версия повреждена, она не может быть просмотрена.',
 	'lqt-reply-subpage' => 'ответить',
+	'lqt-pagechange-editformopen' => 'На этой странице имеется несохранённый открытый текст. Он пропадёт, если вы уйдёте с этой страницы.',
 	'nstab-thread' => 'Ветка',
 	'nstab-summary' => 'Описание',
 	'echo-pref-email-lqt-new-topic' => 'Создаёт новую ветку обсуждения',
