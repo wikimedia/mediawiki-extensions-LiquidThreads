@@ -7815,7 +7815,7 @@ $7',
  * @author The Discoverer
  */
 $messages['gom-latn'] = array(
-	'lqt_newmessages' => 'Noveo sondes (Kai na)', # Fuzzy
+	'lqt_newmessages' => 'Noveo sondes (kai na)',
 );
 
 /** Gothic (Gothic)
@@ -16006,7 +16006,7 @@ La firma a l'é mostrà automaticament.",
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
-	'lqt_contents_title' => 'منځپانګه',
+	'lqt_contents_title' => 'منځپانگه',
 	'lqt_toc_thread_replycount' => 'ځوابونه',
 	'lqt_reply' => 'ځوابول',
 	'lqt_delete' => 'ړنگول',
