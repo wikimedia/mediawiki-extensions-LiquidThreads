@@ -18512,7 +18512,7 @@ Ta razprava je del $2.',
 	'lqt_move_thread_bad_destination' => 'Ciljna stran ni stran z razpravo.',
 	'lqt_move_samedestination' => 'Razprava je že na tej strani!',
 	'lqt_move_noreason' => 'Razlog ni podan.',
-	'lqt_move_success' => 'Razprava je bila predstavljena na $1.', # Fuzzy
+	'lqt_move_success' => 'Razpravo ste predstavili na $1: $2',
 	'lqt_talkpage_autocreate_summary' => 'Pogovorna stran je bila samodejno ustvarjena, ko je bila objavljena prva razprava',
 	'lqt_header_warning_big' => 'Urejate $1.',
 	'lqt_header_warning_after_big' => 'Glave so namenjene objavam in predgovorom.
@@ -18589,7 +18589,7 @@ Da se temu izognete, jih pred brisanjem odcepite od razprave.',
 	'lqt-merge-success' => 'Uspešno ste združili razpravo $1 pod $2.',
 	'lqt-log-name' => 'Dnevnik nitnih razprav',
 	'lqt-log-header' => 'Ta dnevnik navaja podrobnosti dejanj, ki so bila storjena nitnim razpravam.',
-	'lqt-log-action-move' => 'je prestavil(-a) [[$1]] iz [[$2]] v [[$3]]', # Fuzzy
+	'lqt-log-action-move' => 'je prestavil(-a) [[$1]] iz [[$2]] v [[$3]] ($4)',
 	'lqt-log-action-split' => 'je razcepil(-a) [[$1]] od [[$3]], z novo zadevo »$2«',
 	'lqt-log-action-merge-across' => 'je prestavil(-a) [[$1]] izpod [[$2]] pod [[$3]]',
 	'lqt-log-action-merge-down' => 'je združil(-a) [[$1]] pod [[$2]]',
