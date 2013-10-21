@@ -4099,6 +4099,7 @@ Efallai:
 );
 
 /** Danish (dansk)
+ * @author Christian List
  * @author Jon Harald Søby
  * @author Kaare
  * @author Peter Alberti
@@ -4184,7 +4185,7 @@ Hvis den er afsluttet, vil du måske $1.',
 	'lqt_threadrequired' => 'Du skal angive en tråd i URL-adressen.',
 	'lqt_move_movingthread' => 'Flytter $1.
 Denne tråd er en del af $2.',
-	'lqt_move_torename' => "For at omdøbe denne tråd, $1 og ændr 'Emne'-feltet.",
+	'lqt_move_torename' => "For at omdøbe denne tråd, $1 og ændre 'Emne'-feltet.",
 	'lqt_move_torename_edit' => 'rediger den',
 	'lqt_move_destinationtitle' => 'Titel på destinationsdiskussionssiden:',
 	'lqt_move_move' => 'Flyt',
@@ -6724,7 +6725,7 @@ Tämä ketju on osa sivua $2.',
 	'lqt_move_thread_bad_destination' => 'Kohdesivu ei ole keskustelusivu.',
 	'lqt_move_samedestination' => 'Ketju on jo tällä sivulla.',
 	'lqt_move_noreason' => 'Syytä ei annettu.',
-	'lqt_move_success' => 'Ketju siirrettiin kohteeseen $1.', # Fuzzy
+	'lqt_move_success' => 'Ketju siirrettiin kohteeseen $1: $2.',
 	'lqt_talkpage_autocreate_summary' => 'Keskustelusivu luotiin automaattisesti kun ensimmäinen ketju lähettiin.',
 	'lqt_header_warning_big' => 'Muokkaat $1.',
 	'lqt_header_warning_after_big' => 'Otsakkeet ovat ilmoituksille ja johdannoille.
