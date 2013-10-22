@@ -11339,10 +11339,12 @@ $messages['ka'] = array(
 );
 
 /** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ * @author Arystanbek
  * @author GaiJin
  */
 $messages['kk-cyrl'] = array(
 	'lqt-search-button' => 'Іздеу',
+	'lqt-newmessages-n' => 'Жаңа хабарламалар ($1)',
 );
 
 /** Kalaallisut (kalaallisut)
