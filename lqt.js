@@ -386,7 +386,8 @@ window.liquidThreads = {
 
 		editSubjectField.addClass( 'lqt-command-edit-subject' );
 
-		menu.append( editSubjectField );
+		// appending a space first to prevent cursive script character joining across elements
+		menu.append( ' ', editSubjectField );
 	},
 
 	'handleChangeSubject' : function ( e ) {
