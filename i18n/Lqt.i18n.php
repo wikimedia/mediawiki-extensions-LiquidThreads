@@ -4071,6 +4071,8 @@ Efallai:
 	'lqt-thread-merge-to' => "Cyfuno â'r trywydd hwn",
 	'lqt_merge_thread' => "Cyfuno'r trywydd",
 	'lqt-merge-submit' => 'Cyfuner',
+	'lqt-log-name' => 'Lòg y trywyddau trafod',
+	'prefs-lqt' => 'Trywydd trafod',
 	'lqt-search-label' => 'Termau chwilio:',
 	'lqt-search-button' => 'Chwilier',
 	'searchprofile-threads' => 'Trafodaethau',
