@@ -22106,8 +22106,8 @@ $messages['vo'] = array(
 	'lqt-save-subject' => 'Dakipön',
 	'lqt-cancel-subject-edit' => 'Stöpädön',
 	'lqt-drag-reason' => 'Kod:',
-	'lqt-newmessages-n' => 'Nuns nulik ($1)', # Fuzzy
-	'lqt_newmessages' => 'Nuns Nulik', # Fuzzy
+	'lqt-newmessages-n' => 'Nuns nulik ($1)',
+	'lqt_newmessages' => 'Nuns nulik (nonik)',
 	'lqt_newmessages-title' => 'Nuns nulik',
 	'lqt-talkpage-history-subtitle' => 'Pro $1',
 );
