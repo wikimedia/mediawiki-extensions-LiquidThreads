@@ -77,7 +77,7 @@ $specialPageAliases['cdo'] = array(
 	'MergeThread' => array( '合併話題' ),
 );
 
-/** Czech (česky) */
+/** Czech (čeština) */
 $specialPageAliases['cs'] = array(
 	'DeleteThread' => array( 'Smazat_vlákno', 'Smazat_vlakno' ),
 	'MoveThread' => array( 'Přesunout_vlákno', 'Presunout_vlakno' ),

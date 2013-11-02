@@ -12192,7 +12192,7 @@ Wann se eriwwer ass wëllt dir vläicht $1.',
 	'lqt_summary_subtitle' => 'Résumé vu(n) $1',
 	'lqt_nosuchrevision' => 'Et gëtt déi Versioun vun deser Rubrik net.',
 	'lqt_nosuchthread' => 'Déi Rubrik déi Dir uginn hutt gëtt et net.',
-	'lqt_nosuchthread_title' => 'Keng esou Rubrik',
+	'lqt_nosuchthread_title' => 'Keng sou Rubrik',
 	'lqt_threadrequired' => 'Dir musst eng Rubrik an der URL uginn.',
 	'lqt_move_movingthread' => '$1 gëtt geréckelt.
 Dës Rubrik ghéiert zu $2.',
