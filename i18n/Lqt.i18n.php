@@ -15230,7 +15230,7 @@ Aqueste desplaçament es estat fach per $2 a $3 $4. Lo fial se tròba ara a $5."
 	'lqt_move_thread_bad_destination' => 'La pagina de destinacion es pas una pagina de discussion.',
 	'lqt_move_samedestination' => 'Lo fial ja es sus aquesta pagina !',
 	'lqt_move_noreason' => 'Cap de rason balhada',
-	'lqt_move_success' => 'Lo fial es estat desplaçat dins $1.', # Fuzzy
+	'lqt_move_success' => 'Lo fial es estat desplaçat dins $1 : $2.',
 	'lqt_talkpage_autocreate_summary' => 'Pagina de discussion creada automaticament quand lo primièr fial de discussion es estat mandat.',
 	'lqt_header_warning_big' => 'Modificatz un $1.',
 	'lqt_header_warning_after_big' => 'Las entèstas son pels anoncis e las prefàcias. Deuriatz a la plaça $2.',
@@ -15302,7 +15302,7 @@ Per evitar aquò, separatz-los d'aqueste fial de discussion abans de suprimir aq
 	'lqt-merge-success' => 'Avètz fusionat lo fial de discussion $1 dins $2.',
 	'lqt-log-name' => 'Jornal dels fials de discussion',
 	'lqt-log-header' => 'Aqueste jornal detalha las accions fachas suls fials de discussion.',
-	'lqt-log-action-move' => 'a desplaçat [[$1]] de [[$2]] cap a [[$3]].', # Fuzzy
+	'lqt-log-action-move' => 'a desplaçat [[$1]] de [[$2]] cap a [[$3]] ($4)',
 	'lqt-preference-notify-talk' => "M’avisar per corrièr electronic al moment d'una responsa sus un subjècte que segueissi",
 	'lqt-preference-watch-threads' => 'Seguir los fials de discussion que crèi o als quals participi',
 	'prefs-lqt' => 'Discussions en fial',
@@ -15320,10 +15320,14 @@ Lo podètz consultar a « $6 »
 
 Lo tèxte es : $7",
 	'lqt-enotif-reply' => "Bonjorn $1,
-Aquò es una notificacion de {{SITENAME}}, qu'una responsa novèla a « $2 » sus $5,
-es estada creada lo $3 a $4.
+Aquò es una notificacion de {{SITENAME}}, 
+qu'una responsa novèla a « $2 » sus $5,
+es estada creada lo $3 a $4 per $8.
 
-O podètz veire a « $6 »", # Fuzzy
+O podètz veire a « $6 »
+
+Lo tèxte de la responsa es :
+$7",
 	'lqt-search-legend' => 'Recercar de discussions sus aquesta pagina',
 	'lqt-search-label' => 'Tèrmes de recèrca :',
 	'lqt-search-button' => 'Recercar',
@@ -15342,8 +15346,8 @@ O podètz veire a « $6 »", # Fuzzy
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} - Fials de discussion novèls de $1',
 	'lqt-feed-title-replies' => '{{SITENAME}} - Responsas',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} - Responsas de $1',
-	'lqt-feed-new-thread-intro' => 'Fial de discussion novèl sus $1 postat per $2', # Fuzzy
-	'lqt-feed-reply-intro' => 'Responsa a $3 (sus $1) postada per $2', # Fuzzy
+	'lqt-feed-new-thread-intro' => 'Fial de discussion novèl sus $1 postat per {{GENDER:$4|$2}}',
+	'lqt-feed-reply-intro' => 'Responsa a $3 (sus $1) postada per {{GENDER:$4|$2}}',
 	'lqt-newmessages-n' => 'Messatges novèls ($1)',
 	'lqt_newmessages' => 'Messatges Novèls (pas cap)',
 	'lqt-newpost-summary' => 'Fial novèl : $1',
