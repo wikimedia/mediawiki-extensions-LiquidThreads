@@ -44,6 +44,10 @@
 	margin-bottom: 0.6em;
 	padding: 10px 0 0;
 }
+.lqt_thread.ui-draggable > .lqt-post-wrapper {
+    border-color: Aquamarine;
+    background-color: PowderBlue;
+}
 .lqt_header {
 	border: none;
 	margin-bottom: 0;
