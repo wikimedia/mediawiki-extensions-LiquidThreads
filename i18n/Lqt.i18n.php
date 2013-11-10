@@ -351,6 +351,7 @@ The signature is shown automatically.',
  * @author Siebrand
  * @author Spiritia
  * @author The Evil IP address
+ * @author Theklan
  * @author Umherirrender
  * @author Wikinaut
  */
@@ -551,7 +552,7 @@ See also:
 See also:
 * {{msg-mw|Lqt-marked-read}}',
 	'lqt-email-undo' => '{{Identical|Undo}}',
-	'lqt-no-new-messages' => 'Used as notification text, when you have no new messages.',
+	'lqt-no-new-messages' => 'Ez dago mezu berririk zuretzat.',
 	'lqt-new-messages' => 'Used as notification text, when you have new messages.',
 	'lqt-newmessages-context' => 'Used as link text.',
 	'lqt-thread-created' => '{{Identical|Created}}',
@@ -7110,14 +7111,14 @@ Vous pouvez le consulter à <$6>
 
 Le texte est :
 $7',
-	'lqt-enotif-reply' => "Bonjour $1,
-Ceci est une notification de {{SITENAME}}, qu'une nouvelle réponse à « $2 » sur $5
+	'lqt-enotif-reply' => 'Bonjour $1,
+Ceci est une notification de {{SITENAME}} qu’une nouvelle réponse à « $2 » sur $5
 a été créée le $3 à $4 par $8
 
 Vous pouvez la consulter sur « $6 »
 
 Le texte de la réponse est :
-$7",
+$7',
 	'lqt-search-legend' => 'Rechercher des discussions sur cette page',
 	'lqt-search-label' => 'Termes de recherche :',
 	'lqt-search-button' => 'Rechercher',
