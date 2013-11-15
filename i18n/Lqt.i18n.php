@@ -10911,10 +10911,14 @@ $messages['jam'] = array(
 
 /** Lojban (Lojban)
  * @author (vinny)
+ * @author Gleki
  */
 $messages['jbo'] = array(
 	'lqt_delete' => 'daspo',
 	'lqt_move_move' => 'stika lo cmene',
+	'lqt-no-new-messages' => '0 lo cnino xatra be do',
+	'lqt_newmessages' => '0 lo cnino notci',
+	'lqt_newmessages-title' => 'loi cnino notci',
 );
 
 /** Javanese (Basa Jawa)
