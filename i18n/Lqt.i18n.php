@@ -552,7 +552,7 @@ See also:
 See also:
 * {{msg-mw|Lqt-marked-read}}',
 	'lqt-email-undo' => '{{Identical|Undo}}',
-	'lqt-no-new-messages' => 'Ez dago mezu berririk zuretzat.',
+	'lqt-no-new-messages' => 'Used as notification text, when you have no new messages.',
 	'lqt-new-messages' => 'Used as notification text, when you have new messages.',
 	'lqt-newmessages-context' => 'Used as link text.',
 	'lqt-thread-created' => '{{Identical|Created}}',
@@ -3647,6 +3647,7 @@ $messages['ce'] = array(
 	'lqt-drag-activate' => 'Дехьа йаккха',
 	'lqt-drag-drop-zone' => 'Дехьа яккха кхузе',
 	'lqt-drag-reason' => 'Бахьан:',
+	'lqt-edit-signature' => '(нийсде куьг)',
 	'lqt-preview-signature' => '(хьалха муха ю хьажар)',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Керла хаамаш $1',
 	'lqt-newmessages-n' => 'Керла хаамаш ($1)', # Fuzzy
@@ -10916,7 +10917,8 @@ $messages['jam'] = array(
 $messages['jbo'] = array(
 	'lqt_delete' => 'daspo',
 	'lqt_move_move' => 'stika lo cmene',
-	'lqt-no-new-messages' => '0 lo cnino xatra be do',
+	'lqt-no-new-messages' => '0 da cnino xatra do',
+	'lqt-new-messages' => '0 da cnino xatra do',
 	'lqt_newmessages' => '0 lo cnino notci',
 	'lqt_newmessages-title' => 'loi cnino notci',
 );
