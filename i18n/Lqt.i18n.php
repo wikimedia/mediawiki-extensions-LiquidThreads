@@ -4728,6 +4728,7 @@ Die Signatur wird automatisch ergänzt.',
  * @author Aspar
  * @author Erdemaslancan
  * @author Gorizon
+ * @author Marmase
  * @author Mirzali
  * @author Xoser
  */
@@ -4754,7 +4755,7 @@ Sebebê ey:
 	'lqt_undelete' => 'tepiya bıger',
 	'lqt_permalink' => 'gıre bıde ıney',
 	'lqt_fragment' => 'pelê $2i ra yew parçeyê $1i',
-	'lqt_discussion_link' => 'werênayış',
+	'lqt_discussion_link' => 'Vaten',
 	'lqt_from_talk' => 'pelê $1i ra',
 	'lqt-history-title' => 'hal-verinê gıreyi',
 	'lqt_hist_comment_edited' => 'Metnê mışewrey [$2 vuriya]',
@@ -4927,7 +4928,7 @@ $7",
 	'lqt-search-legend' => 'werêameyişê no peli bıgêr',
 	'lqt-search-label' => 'termê cıgêrayişi:',
 	'lqt-search-button' => 'Cı geyre',
-	'searchprofile-threads' => 'Werênayışi',
+	'searchprofile-threads' => 'Vaten',
 	'searchprofile-threads-tooltip' => 'Düğümlü tartışmaları ve tartışma sayfalarını ara',
 	'lqt-ajax-updated' => 'no gıre re postayê neweyi esti',
 	'lqt-ajax-update-link' => 'Noroc resn',
