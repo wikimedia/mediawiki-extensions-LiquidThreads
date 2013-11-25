@@ -3657,6 +3657,7 @@ $messages['ce'] = array(
 	'lqt-talkpage-history-tab' => 'Корта',
 	'lqt-reply-subpage' => 'жоп ло',
 	'nstab-summary' => 'Цунах лаьцна',
+	'pageinfo-usinglqt-yes' => 'ХӀаъ',
 );
 
 /** Chamorro (Chamoru)
@@ -4195,8 +4196,8 @@ Hvis den er afsluttet, vil du måske $1.',
 	'lqt_threadrequired' => 'Du skal angive en tråd i URL-adressen.',
 	'lqt_move_movingthread' => 'Flytter $1.
 Denne tråd er en del af $2.',
-	'lqt_move_torename' => "For at omdøbe denne tråd, $1 og ændre 'Emne'-feltet.",
-	'lqt_move_torename_edit' => 'rediger den',
+	'lqt_move_torename' => "For at omdøbe denne tråd, $1 og ændr 'Emne'-feltet.",
+	'lqt_move_torename_edit' => 'redigér den',
 	'lqt_move_destinationtitle' => 'Titel på destinationsdiskussionssiden:',
 	'lqt_move_move' => 'Flyt',
 	'lqt_move_nodestination' => 'Du skal angive en destination.',
@@ -4816,7 +4817,7 @@ no gıre parçeyê $2'i yo.",
 	'lqt_move_torename' => "qey newe ra namedayişê no gıreyi, $1 u mıntıqayê 'muhtewayi' bıvurnê.",
 	'lqt_move_torename_edit' => 'Bıvurnê',
 	'lqt_move_destinationtitle' => 'sernameyê pelê werêameyişi yo hedefi:',
-	'lqt_move_move' => 'Beré',
+	'lqt_move_move' => 'Bere',
 	'lqt_move_nodestination' => 'şıma gani yew hedef nişan bıkeri.',
 	'lqt_move_thread_bad_destination' => 'pelê hedefi pelê yew werêameyiş niyo.',
 	'lqt_move_samedestination' => 'gıre ca ra no pel de yo',
@@ -4877,7 +4878,7 @@ cewabi zi bı otomatik esteriyeni.
 eke şıma qayili tera xo bıkeri (qayil niyê), cewaban verê esterıtışê gıreyan ra gıre ra ciya ker.',
 	'lqt-delete-parent-deleted' => 'gıreyo bıngeyın esteriya ($1)',
 	'lqt-delete-replies-done' => 'cewabê ke no gıre re ameyi, esteriyê',
-	'lqt-movethread' => 'Beré',
+	'lqt-movethread' => 'Bere',
 	'lqt-menu-trigger' => 'Zewbi',
 	'lqt-newmessages-from' => 'Rışten $1',
 	'lqt-hot-topics' => 'sernameyê neweyi',
@@ -6486,7 +6487,7 @@ $messages['fa'] = array(
 	'lqt-read-all-tooltip' => 'همهٔ عنوان‌ها را از پیغام‌های جدید حذف کن.
 این عنوان‌ها هم‌چنان از صفحه‌های بحث اصلی قابل مشاهده هستند.
 این عمل غیر قابل برگشت است.',
-	'lqt-marked-read' => "مبحث '''$1''' به عنوان خوانده‌شده نشانه‌گذاری شد.",
+	'lqt-marked-read' => "مبحث '''$1''' به‌عنوان خوانده‌شده نشانه‌گذاری شد.",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|message|messages}} به‌عنوان خوانده‌شده نشانه‌گذاری شده است.',
 	'lqt-email-undo' => 'خنثی‌سازی',
 	'lqt-no-new-messages' => 'هیچ پیام جدیدی برای شما وجود ندارد.',
