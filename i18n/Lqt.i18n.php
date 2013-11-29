@@ -3313,6 +3313,7 @@ $messages['bxr'] = array(
  * @author Aleator
  * @author Jordi Roqué
  * @author Loupeter
+ * @author Papapep
  * @author Paucabot
  * @author Qllach
  * @author SMP
@@ -3370,12 +3371,12 @@ Pot:
 	'lqt_hist_adjusted_sortkey' => 'Posició del fil ajustada',
 	'lqt_revision_as_of' => 'Revisió del dia $2 a $3.',
 	'lqt_change_new_thread' => 'Aquesta és la versió inicial del fil.',
-	'lqt_change_reply_created' => 'El [$1 comentari destacat] ha estat creat en aquesta revisió.',
-	'lqt_change_edited_root' => 'El [$1 comentari destacat] ha estat editat en aquesta revisió.',
-	'lqt_change_edited_summary' => 'El tema del fil ha estat modificat',
-	'lqt_change_deleted' => '[$1 Aquest fil] o el seu originari ha estat esborrat.',
-	'lqt_change_undeleted' => 'El [$1 comentari destacat] ha estat restaurat',
-	'lqt_change_moved' => '[$1 Aquest fil] ha estat traslladat a una altra pàgina de discussió',
+	'lqt_change_reply_created' => "S'ha creat el [$1 comentari destacat] en aquesta revisió.",
+	'lqt_change_edited_root' => "S'ha editat el [$1 comentari destacat] en aquesta revisió.",
+	'lqt_change_edited_summary' => "S'ha modificat el tema del fil",
+	'lqt_change_deleted' => "S'ha suprimit [$1 Aquest fil] o el seu originari.",
+	'lqt_change_undeleted' => "S'ha restaurat el [$1 comentari destacat]",
+	'lqt_change_moved' => "S'ha traslladat [$1 Aquest fil] a una altra pàgina de discussió",
 	'lqt_change_split' => "[$1 Aquest fil] prové de la divisió d'un altre fil",
 	'lqt_change_edited_subject' => "S'ha canviat el tema del fil de «$2» a «$3»",
 	'lqt_change_merged_from' => 'Una [$1 resposta] a aquest fil va ser moguda a un altre fil',
@@ -3388,8 +3389,8 @@ Pot:
 	'lqt_subject' => 'Assumpte:',
 	'lqt_noreason' => "No s'ha donat cap motiu.",
 	'lqt_move_placeholder' => "Aquest fil és un marcador que indica que un fil, $1, va ser desplaçat d'aquesta pàgina cap a una altra pàgina de discussió. Aquest trasllat va ser fet per $2 el $3 a les $4. El fil es troba ara a $5.",
-	'lqt_thread_deleted_for_sysops' => "Aquest fil ha estat '''esborrat''' i només és visible pels administradors.",
-	'lqt_thread_deleted' => 'Aquest fil ha estat esborrat.',
+	'lqt_thread_deleted_for_sysops' => "S'ha '''suprimit''' aquest fil i només és visible pels administradors.",
+	'lqt_thread_deleted' => "S'ha esborrat aquest fil.",
 	'lqt_summary_notice' => 'No hi ha hagut canvis en aquesta discussió en $2 {{PLURAL:$2|dia|dies}}. Si es conclou potser voldreu $1.',
 	'lqt_summary_notice_link' => 'escriure un resum',
 	'lqt_summary_label' => 'Resum del fil:',
@@ -4817,7 +4818,7 @@ no gıre parçeyê $2'i yo.",
 	'lqt_move_torename' => "qey newe ra namedayişê no gıreyi, $1 u mıntıqayê 'muhtewayi' bıvurnê.",
 	'lqt_move_torename_edit' => 'Bıvurnê',
 	'lqt_move_destinationtitle' => 'sernameyê pelê werêameyişi yo hedefi:',
-	'lqt_move_move' => 'Bere',
+	'lqt_move_move' => 'Ber',
 	'lqt_move_nodestination' => 'şıma gani yew hedef nişan bıkeri.',
 	'lqt_move_thread_bad_destination' => 'pelê hedefi pelê yew werêameyiş niyo.',
 	'lqt_move_samedestination' => 'gıre ca ra no pel de yo',
@@ -4878,7 +4879,7 @@ cewabi zi bı otomatik esteriyeni.
 eke şıma qayili tera xo bıkeri (qayil niyê), cewaban verê esterıtışê gıreyan ra gıre ra ciya ker.',
 	'lqt-delete-parent-deleted' => 'gıreyo bıngeyın esteriya ($1)',
 	'lqt-delete-replies-done' => 'cewabê ke no gıre re ameyi, esteriyê',
-	'lqt-movethread' => 'Bere',
+	'lqt-movethread' => 'Ber',
 	'lqt-menu-trigger' => 'Zewbi',
 	'lqt-newmessages-from' => 'Rışten $1',
 	'lqt-hot-topics' => 'sernameyê neweyi',
