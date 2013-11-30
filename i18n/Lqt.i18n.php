@@ -18786,6 +18786,7 @@ $messages['so'] = array(
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Milicevic01
  * @author Mormegil
  * @author Nikola Smolenski
  * @author Rancher
@@ -18955,7 +18956,7 @@ $messages['sr-ec'] = array(
 	'lqt-thread-merge-dest' => 'Одредишна тема:',
 	'lqt-merge-submit' => 'Споји',
 	'lqt-merge-success' => 'Успешно сте спојили тему $1 са $2.',
-	'lqt-log-name' => 'Извештај разговора на темама',
+	'lqt-log-name' => 'Дневник разговора на темама',
 	'lqt-log-header' => 'Овај извештај описује радње које су извршене на темама.',
 	'lqt-log-action-move' => '{{GENDER:|је преместио|је преместила|премести}} [[$1]] из [[$2]] у [[$3]]', # Fuzzy
 	'lqt-log-action-split' => '{{GENDER:|је раздвојио|је раздвојила|раздвоји}} [[$1]] из [[$3]], с новим насловом „$2“',
@@ -19056,6 +19057,7 @@ $7',
 
 /** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
+ * @author Milicevic01
  * @author Mormegil
  * @author Rancher
  * @author Жељко Тодоровић
@@ -19224,7 +19226,7 @@ Da biste ovo izbegli, razdvojte ih s ove teme pre brisanja.',
 	'lqt-thread-merge-dest' => 'Ciljana tema:',
 	'lqt-merge-submit' => 'Spoji',
 	'lqt-merge-success' => 'Uspešno ste spojili temu $1 sa $2.',
-	'lqt-log-name' => 'Izveštaj razgovora na temama',
+	'lqt-log-name' => 'Dnevnik razgovora na temama',
 	'lqt-log-header' => 'Ovaj izveštaj opisuje radnje koje su izvršene na temama.',
 	'lqt-log-action-move' => 'moved [[$1]] from [[$2]] to [[$3]]
 premeštena [[$1]] sa [[$2]] na [[$3]]', # Fuzzy
