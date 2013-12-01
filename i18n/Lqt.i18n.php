@@ -3311,6 +3311,7 @@ $messages['bxr'] = array(
 
 /** Catalan (català)
  * @author Aleator
+ * @author Alvaro Vidal-Abarca
  * @author Jordi Roqué
  * @author Loupeter
  * @author Papapep
@@ -3409,7 +3410,7 @@ Aquest fil és part de $2.',
 	'lqt_move_thread_bad_destination' => 'La pàgina de destinació no és una pàgina de discussió.',
 	'lqt_move_samedestination' => 'El fil ja està en aquesta pàgina!',
 	'lqt_move_noreason' => "No s'ha donat cap motiu.",
-	'lqt_move_success' => "S'ha traslladat el fil a $1.", # Fuzzy
+	'lqt_move_success' => "S'ha traslladat el fil a $1: $2.",
 	'lqt_talkpage_autocreate_summary' => 'Pàgina de discussió creada automàticament quan es va crear el primer fil.',
 	'lqt_header_warning_big' => 'Esteu editant un $1.',
 	'lqt_header_warning_after_big' => 'Les capçaleres són per anuncis i prefacis.
@@ -3561,7 +3562,7 @@ La signatura es mostrarà automàticament.',
 	'lqt-feed-new-thread-intro' => 'Nou fil a $1 publicat per {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Resposta a $3 (de $1) publicada per {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Mostra els nous missatges dels fils o pàgines de discussió que esteu vigilant',
-	'lqt-newmessages-n' => 'Missatges nous ($1)', # Fuzzy
+	'lqt-newmessages-n' => 'Missatges nous ($1)',
 	'lqt_newmessages' => 'Missatges nous (cap)',
 	'lqt_newmessages-title' => 'Missatges nous',
 	'lqt-newpost-summary' => 'Nou fil: $1',
