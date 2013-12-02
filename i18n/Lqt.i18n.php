@@ -3503,7 +3503,7 @@ Si ho voleu evitar, cal que les separeu d'aquest fil abans d'eliminar-lo.",
 	'lqt-enotif-subject-newthread' => 'Discussió a {{SITENAME}} - Nou tema: $1',
 	'lqt-enotif-newthread' => "Hola $1,
 
-Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que un nou fil de de discussió «$2» a $5, ha estat creat el dia $3 a les $4 per part de l'usuari $8
+Açò és una notificació des del projecte {{SITENAME}} per a avisar-vos que s'ha creat un nou fil de de discussió «$2» a $5, el dia $3 a les $4 per part de l'usuari $8
 
 El podeu veure a <$6>
 
@@ -8164,7 +8164,7 @@ $messages['gu'] = array(
 	'lqt_reply' => 'પ્રત્યુત્તર',
 	'lqt_delete' => 'રદ કરો',
 	'lqt_undelete' => 'રદ કરેલું પાછુ લાવો',
-	'lqt_permalink' => 'સ્થાયી કડી', # Fuzzy
+	'lqt_permalink' => 'સ્થાયી કડી',
 	'lqt_fragment' => '$2થી $1નો થોડો ભાગ',
 	'lqt_discussion_link' => 'ચર્ચા',
 	'lqt_from_talk' => '$1 થી',
@@ -14875,6 +14875,7 @@ Wijzig het onderwerp door op "Bewerken" te klikken in de bovenste bijdrage.',
 	'lqt-edit-bump-tooltip' => 'Dit overleg activeren door het bovenaan de overlegpagina te plaatsen',
 	'lqt-historicalrevision-error' => 'De door u geselecteerde versie is beschadigd en kan niet bekeken worden.',
 	'lqt-reply-subpage' => 'antwoord',
+	'lqt-pagechange-editformopen' => 'U hebt nog niet opgeslagen wijzigingen op deze pagina. Als u deze pagina verlaat, gaan die verloren.',
 	'nstab-thread' => 'Onderwerp',
 	'nstab-summary' => 'Samenvatting',
 	'echo-pref-email-lqt-new-topic' => 'Een nieuw draadoverleg start',

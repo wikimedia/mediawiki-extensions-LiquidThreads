@@ -19,8 +19,8 @@ $magicWords['ar'] = array(
 
 /** Egyptian Spoken Arabic (مصرى) */
 $magicWords['arz'] = array(
-	'useliquidthreads' => array( 0, 'استخدم_الخيوط_السائلة', 'UseLiquidThreads' ),
-	'lqtpagelimit' => array( 0, 'حد_صفحة_خس', 'lqtpagelimit' ),
+	'useliquidthreads' => array( 0, 'استخدم_الخيوط_السائلة' ),
+	'lqtpagelimit' => array( 0, 'حد_صفحة_خس' ),
 );
 
 /** Bosnian (bosanski) */
