@@ -4847,7 +4847,7 @@ pelê werêameyişi yo orijinal de anciya zi aseno.
 no operasyon tepiya geriyeno.',
 	'lqt-marked-read' => "gıreyê '''$1'''i bı wende nişane bı:",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|mesac|mesac}} waneyayo deye nışan bı',
-	'lqt-email-undo' => 'Peyser bıgi',
+	'lqt-email-undo' => 'Peyser biya',
 	'lqt-no-new-messages' => 'Şıma rê mesaco newe çıniyo.',
 	'lqt-new-messages' => 'Mesacê şımayê newey estê.',
 	'lqt-email-info-undo' => 'gıreyo ke şıma cıwa ver eşto tepiya biyar',
