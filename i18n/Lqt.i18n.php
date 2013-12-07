@@ -3693,7 +3693,7 @@ $messages['co'] = array(
 	'lqt_subject' => 'Sughjettu:',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Kuvaly
  * @author Matěj Grabovský
  * @author Mormegil
@@ -3976,7 +3976,7 @@ $messages['csb'] = array(
 	'lqt_newmessages-title' => 'Nowé wiadła',
 );
 
-/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -4824,7 +4824,7 @@ no gıre parçeyê $2'i yo.",
 	'lqt_move_thread_bad_destination' => 'pelê hedefi pelê yew werêameyiş niyo.',
 	'lqt_move_samedestination' => 'gıre ca ra no pel de yo',
 	'lqt_move_noreason' => 'sebeb nêvaciyayo nişan nêbiyo',
-	'lqt_move_success' => 'gıre kırışiya $1.', # Fuzzy
+	'lqt_move_success' => 'Gıra krırşiye: $1: $2.',
 	'lqt_talkpage_autocreate_summary' => 'wexta gıreyo ewwil şawiya bı otomatik pelê werêamyişi zi vıraziya.',
 	'lqt_header_warning_big' => 'Şımayê yew $1 vurnenê',
 	'lqt_header_warning_after_big' => 'Qey sername, ilan (pêhesnayiş) u vervateyano.
@@ -4900,7 +4900,7 @@ eke şıma qayili tera xo bıkeri (qayil niyê), cewaban verê esterıtışê g�
 	'lqt-merge-success' => "gıreyê $1'i bı serkewte şıma eşt bınê gıreyê $2'i.",
 	'lqt-log-name' => 'roceyê werêameyişi yo gıre biyaye',
 	'lqt-log-header' => 'no, karê ke gıreyê werêameyişê roceyi de biyê, detay keno.',
-	'lqt-log-action-move' => "gıreyê [[$1]]'i pelê [[$2]]'i ra kırışt no [[$3]] pel.", # Fuzzy
+	'lqt-log-action-move' => "Gıra [[$1]]'i per [[$2]]'i ra şi [[$3]] ($4)",
 	'lqt-log-action-split' => '[[$1]], [[$3]] bibirne, pê yew sernameyo newe "$2"',
 	'lqt-log-action-merge-across' => '[[$1]], [[$2]] ra berd [[$3]]',
 	'lqt-log-action-merge-down' => '[[$1]] yew kerd binê [[$3]]',
@@ -8239,6 +8239,7 @@ $messages['haw'] = array(
 /** Hebrew (עברית)
  * @author Amire80
  * @author Guycn1
+ * @author Guycn2
  * @author Rotemliss
  * @author YaronSh
  */
@@ -11479,8 +11480,8 @@ $messages['km'] = array(
 	'lqt_summarize_link' => 'សង្ខេប​',
 	'lqt-search-button' => 'ស្វែង​រក​',
 	'lqt-save-subject' => 'រក្សាទុក',
-	'lqt-newmessages-n' => 'សារថ្មីៗ ($1)', # Fuzzy
-	'lqt_newmessages' => 'សារថ្មីៗ (គ្មាន)', # Fuzzy
+	'lqt-newmessages-n' => 'សារថ្មីៗ ($1)',
+	'lqt_newmessages' => 'សារថ្មីៗ (គ្មាន)',
 	'lqt_newmessages-title' => 'សារថ្មីៗ',
 );
 
@@ -16561,6 +16562,7 @@ Para evitá-lo, separe-as antes de apagar o tópico.',
 	'lqt-newmessages-from' => 'Página: $1',
 	'lqt-hot-topics' => 'Tópicos quentes',
 	'lqt-add-reply' => 'Adicionar resposta',
+	'lqt-changesortorder' => 'Ordenar',
 	'lqt_rc_new_discussion' => 'criou um novo tópico: "$1"',
 	'lqt_rc_new_reply' => 'respondeu "$1"',
 	'right-lqt-split' => 'Separar tópicos',
@@ -16581,6 +16583,7 @@ Para evitá-lo, separe-as antes de apagar o tópico.',
 	'lqt-log-action-merge-down' => 'moveu [[$1]] para o tópico [[$3]]',
 	'lqt-log-action-subjectedit' => 'alterou o assunto de [[$1]], de "$2" para "$3"',
 	'lqt-log-action-resort' => 'modificou a ordenação de [[$1]]. Alterou a chave de ordenação, de $2 para $3',
+	'lqt-log-action-signatureedit' => 'alterou a assinatura de [[$1]] de "$2" para "$3"',
 	'lqt-preference-notify-talk' => 'Receber e-mail sobre as respostas de tópicos que eu estou vigiando',
 	'lqt-preference-watch-threads' => 'Vigiar tópicos que eu venha a criar ou responder',
 	'prefs-lqt' => 'Discussão em tópicos',
@@ -16665,8 +16668,12 @@ A assinatura é apresentada automaticamente.',
 	'lqt-edit-bump-tooltip' => 'Mover este tópico para o topo da página de discussão',
 	'lqt-historicalrevision-error' => 'A revisão que você selecionou está corrompida e não pode ser visualizada.',
 	'lqt-reply-subpage' => 'responder',
+	'lqt-pagechange-editformopen' => 'Você tem texto que ainda não foi salvo aberto nesta página. Você poderá perdê-lo se sair desta página.',
 	'nstab-thread' => 'Tópico',
 	'nstab-summary' => 'Sumário',
+	'echo-pref-email-lqt-new-topic' => 'Cria uma nova discussão em tópicos',
+	'echo-pref-email-lqt-reply' => 'Responde a uma discussão em tópicos',
+	'pageinfo-usinglqt' => 'Discussão em tópicos ativada',
 	'pageinfo-usinglqt-yes' => 'Sim',
 );
 
