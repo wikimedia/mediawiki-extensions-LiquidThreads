@@ -3633,7 +3633,7 @@ $messages['ce'] = array(
 	'lqt-newmessages-from' => 'АгӀона чура $1',
 	'lqt-changesortorder' => 'Къестош хьажар',
 	'lqt-log-action-signatureedit' => 'Хийца куьгтаӀор [[$1]] тӀера «$2» оцу «$3»',
-	'prefs-lqt' => 'Дийцарш оцу гéнашца',
+	'prefs-lqt' => 'Дийцарш гéнашца',
 	'lqt-search-label' => 'Лахаран хьал:',
 	'lqt-search-button' => 'Лаха',
 	'searchprofile-threads' => 'Дийцаре',
@@ -8249,7 +8249,7 @@ $messages['he'] = array(
 	'lqt_deletethread' => 'מחיקת או שחזור שרשור',
 	'lqt_contents_title' => 'רשימת דיונים',
 	'lqt_toc_thread_title' => 'כותרת השרשור',
-	'lqt_toc_thread_author' => 'נפתח על ידי',
+	'lqt_toc_thread_author' => 'נפתח על־ידי',
 	'lqt_toc_thread_replycount' => 'תגובות',
 	'lqt_toc_thread_modified' => 'שינוי אחרון',
 	'lqt_add_header' => 'הוספת כותרת',
@@ -8310,7 +8310,7 @@ $messages['he'] = array(
 	'lqt_subject' => 'נושא:',
 	'lqt_noreason' => 'לא צוינה סיבה.',
 	'lqt_move_placeholder' => 'השרשור $1 הועבר מדף זה אל $5.
-ההעברה בוצעה על ידי $2 ב־$4, $3.',
+ההעברה בוצעה על־ידי $2 ב־$4, $3.',
 	'lqt_thread_deleted_for_sysops' => "שרשור זה '''נמחק''' ורק מפעילי מערכת יכולים לצפות בו.",
 	'lqt_thread_deleted' => 'שרשור זה נמחק.',
 	'lqt_summary_notice' => 'לא חלו שינויים בדיון זה לפחות במשך {{PLURAL:$2|היום האחרון|היומיים האחרונים|$2 הימים האחרונים}}.
@@ -8367,9 +8367,9 @@ $messages['he'] = array(
 	'lqt-history-action' => 'פעילות',
 	'lqt-history-comment' => 'הערה',
 	'lqt-history-thread' => 'שרשור',
-	'lqt-thread-edited-author' => 'נערך על ידי המחבר.<br />
+	'lqt-thread-edited-author' => 'נערך על־ידי המחבר.<br />
 עריכה אחרונה: $1',
-	'lqt-thread-edited-others' => 'נערך על ידי {{PLURAL:$2|משתמש אחר|$2 משתמשים}}.<br />
+	'lqt-thread-edited-others' => 'נערך על־ידי {{PLURAL:$2|משתמש אחד|$2 משתמשים}}.<br />
 עריכה אחרונה: $1',
 	'lqt-header-actions' => 'פעולות',
 	'lqt_summarize_link' => 'סיכום',
