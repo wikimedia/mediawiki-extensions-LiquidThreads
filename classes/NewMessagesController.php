@@ -437,8 +437,8 @@ class NewMessages {
 			__METHOD__,
 			array(),
 			array(
-				'user_message_state' =>
-				array( 'RIGHT JOIN', $joinClause )
+				'thread' =>
+				array( 'LEFT JOIN', $joinClause )
 			)
 		);
 
