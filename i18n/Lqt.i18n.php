@@ -757,7 +757,9 @@ See also:
 
 Parameters:
 * $1 - thread subject',
-	'lqt-reply-summary' => 'Used on history page of message and thread. $2 is the message to which this message is a reply. $1 is the title of the thread.',
+	'lqt-reply-summary' => 'Used on history page of message and thread. Parameters:
+* $1 - the title of the thread
+* $2 - the message to which this message is a reply',
 	'lqt-talkpage-history-subtitle' => 'Parameters:
 * $1 is a link to a talk page, with the talk page title as link label
 {{Identical|For $1}}',
@@ -6374,6 +6376,7 @@ Eztabaida hau $2-(e)ko zati da.',
  * @author Ladsgroup
  * @author Mehdi
  * @author Mjbmr
+ * @author Omidh
  * @author Reza1615
  * @author Sahim
  * @author Wayiran
@@ -6530,6 +6533,7 @@ $messages['fa'] = array(
 	'lqt-newmessages-from' => 'از $1',
 	'lqt-hot-topics' => 'موضوعات داغ',
 	'lqt-add-reply' => 'افزودن یک پاسخ',
+	'lqt-changesortorder' => 'مرتب کردن',
 	'lqt_rc_new_discussion' => 'یک مبحث جدید فرستاده شد، «$1»',
 	'lqt_rc_new_reply' => 'یک پاسخ به "$1" فرستاده شد',
 	'right-lqt-split' => 'تقسیم عنوان‌ها',
@@ -6635,8 +6639,12 @@ $1',
 	'lqt-edit-bump-tooltip' => 'این مبحث را به بالای صفحهٔ بحثش منتقل کن',
 	'lqt-historicalrevision-error' => 'نسخه‌ای که انتخاب کرده‌اید خراب است، و قابل مشاهده نیست.',
 	'lqt-reply-subpage' => 'پاسخ',
+	'lqt-pagechange-editformopen' => 'متن شما در این صفحه ذخیره نشده است. درصورتی که این صفحهٔ را ترک کنید ممکن است متن نوشته شده ازدست برود.',
 	'nstab-thread' => 'موضوع',
 	'nstab-summary' => 'خلاصه',
+	'echo-pref-email-lqt-new-topic' => 'ایجاد بحث جدید',
+	'echo-pref-email-lqt-reply' => 'پاسخ ها به بحث',
+	'pageinfo-usinglqt-yes' => 'بله',
 );
 
 /** Finnish (suomi)
@@ -11486,12 +11494,14 @@ $messages['km'] = array(
 );
 
 /** Kannada (ಕನ್ನಡ)
+ * @author Dimension10
  * @author Nayvik
  */
 $messages['kn'] = array(
 	'lqt_delete' => 'ಅಳಿಸು',
 	'lqt-title' => 'ಶೀರ್ಷಿಕೆ',
 	'lqt-summary' => 'ಸಾರಾಂಶ',
+	'lqt-history-comment' => 'ಟಿಪ್ಪಣಿ',
 	'lqt-search-button' => 'ಹುಡುಕು',
 	'lqt-cancel-subject-edit' => 'ರದ್ದು ಮಾಡು',
 	'lqt-drag-reason' => 'ಕಾರಣ:',
@@ -12134,7 +12144,7 @@ $messages['ky'] = array(
  * @author Soued031
  */
 $messages['lb'] = array(
-	'lqt-desc' => "Setz Diskussiouns -Rubriken  op d'Diskussiounssäiten derbäi",
+	'lqt-desc' => "Setz Diskussiouns -Rubriken  op d'Diskussiounssäiten dobäi",
 	'lqt_movethread' => 'Rubrik op eng aner Säit réckelen',
 	'lqt_deletethread' => 'Rubrik läschen oder restauréieren',
 	'lqt_contents_title' => 'Inhalter',
@@ -12142,7 +12152,7 @@ $messages['lb'] = array(
 	'lqt_toc_thread_author' => 'Ugefaang vum',
 	'lqt_toc_thread_replycount' => 'Äntwerten',
 	'lqt_toc_thread_modified' => "Fir d'lescht geännert",
-	'lqt_add_header' => 'Iwwerschrëft derbäisetzen',
+	'lqt_add_header' => 'Iwwerschrëft dobäisetzen',
 	'lqt_new_thread' => 'Eng nei Diskussioun ufänken',
 	'lqt_invalid_subject' => 'De Sujet deen Dir aginn hutt ass net valabel.
 Et ass méiglech, datt:
@@ -12283,7 +12293,7 @@ Fir dëst ze verhënneren, trennt se vun dëser Rubrik ier Dir se läscht.',
 	'lqt-menu-trigger' => 'Méi',
 	'lqt-newmessages-from' => 'Vu(n) $1',
 	'lqt-hot-topics' => 'Waarm Sujeten',
-	'lqt-add-reply' => 'Eng Äntwert derbäisetzen',
+	'lqt-add-reply' => 'Eng Äntwert dobäisetzen',
 	'lqt-changesortorder' => 'Zortéieren',
 	'lqt_rc_new_discussion' => 'huet eng nei Diskussioun, "$1" geschriwwen',
 	'lqt_rc_new_reply' => 'huet eng Äntwert op "$1" geschriwwen',
@@ -16079,12 +16089,12 @@ $messages['ps'] = array(
 	'lqt_toc_thread_replycount' => 'ځوابونه',
 	'lqt_reply' => 'ځوابول',
 	'lqt_delete' => 'ړنگول',
-	'lqt_undelete' => 'ناړنګول',
+	'lqt_undelete' => 'ناړنگول',
 	'lqt_discussion_link' => 'خبرې اترې',
 	'lqt_from_talk' => 'د $1 لخوا',
 	'lqt_hist_reply_created' => '[[$1|نوی ځواب]] جوړ شو',
 	'lqt_hist_deleted' => 'ړنگ شو',
-	'lqt_hist_undeleted' => 'ناړنګ شو',
+	'lqt_hist_undeleted' => 'ناړنگ شو',
 	'lqt_youhavenewmessages' => 'تاسې [[$1|نوي پيغامونه]] لری.',
 	'lqt_protectedfromreply_link' => 'ژغورلی',
 	'lqt_subject' => 'سکالو:',
