@@ -10841,7 +10841,7 @@ $8 によって $3 $4 に作成されたことのお知らせです。
 $7',
 	'lqt-enotif-reply' => '$1 さん、
 
-{{SITENAME}} の $5 でスレッド「$2」で、
+{{SITENAME}} の $5 のスレッド「$2」で、
 $3 $4 に $8 さんから新しい返信があったことをお知らせします。
 
 <$6> でご覧いただけます。
@@ -12144,7 +12144,7 @@ $messages['ky'] = array(
  * @author Soued031
  */
 $messages['lb'] = array(
-	'lqt-desc' => "Setz Diskussiouns -Rubriken  op d'Diskussiounssäiten dobäi",
+	'lqt-desc' => "Setz Diskussiouns -Rubriken  op d'Diskussiounssäiten derbäi",
 	'lqt_movethread' => 'Rubrik op eng aner Säit réckelen',
 	'lqt_deletethread' => 'Rubrik läschen oder restauréieren',
 	'lqt_contents_title' => 'Inhalter',
@@ -12152,7 +12152,7 @@ $messages['lb'] = array(
 	'lqt_toc_thread_author' => 'Ugefaang vum',
 	'lqt_toc_thread_replycount' => 'Äntwerten',
 	'lqt_toc_thread_modified' => "Fir d'lescht geännert",
-	'lqt_add_header' => 'Iwwerschrëft dobäisetzen',
+	'lqt_add_header' => 'Iwwerschrëft derbäisetzen',
 	'lqt_new_thread' => 'Eng nei Diskussioun ufänken',
 	'lqt_invalid_subject' => 'De Sujet deen Dir aginn hutt ass net valabel.
 Et ass méiglech, datt:
@@ -12293,7 +12293,7 @@ Fir dëst ze verhënneren, trennt se vun dëser Rubrik ier Dir se läscht.',
 	'lqt-menu-trigger' => 'Méi',
 	'lqt-newmessages-from' => 'Vu(n) $1',
 	'lqt-hot-topics' => 'Waarm Sujeten',
-	'lqt-add-reply' => 'Eng Äntwert dobäisetzen',
+	'lqt-add-reply' => 'Eng Äntwert derbäisetzen',
 	'lqt-changesortorder' => 'Zortéieren',
 	'lqt_rc_new_discussion' => 'huet eng nei Diskussioun, "$1" geschriwwen',
 	'lqt_rc_new_reply' => 'huet eng Äntwert op "$1" geschriwwen',
