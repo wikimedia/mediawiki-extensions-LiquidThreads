@@ -3990,6 +3990,7 @@ $messages['cu'] = array(
 );
 
 /** Welsh (Cymraeg)
+ * @author Cymrodor
  * @author Lloffiwr
  * @author Malafaya
  */
@@ -4096,7 +4097,7 @@ Efallai:
 	'lqt-thread-link-url' => 'URL y cyswllt:',
 	'lqt-thread-link-title' => 'Cyswllt mewn cystrawen wici:',
 	'lqt-change-subject' => 'Newid y pwnc',
-	'lqt-save-subject' => 'Cadwer',
+	'lqt-save-subject' => 'Cadw',
 	'lqt-cancel-subject-edit' => 'Diddymer',
 	'lqt-drag-activate' => 'Llusgo i fan newydd',
 	'lqt-drag-drop-zone' => 'Gollwng yma',
