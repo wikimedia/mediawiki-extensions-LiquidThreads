@@ -6278,6 +6278,7 @@ Allkiri kuvatakse iseenesest.',
  * @author An13sa
  * @author Joxemai
  * @author Kobazulo
+ * @author Xabier Armendaritz
  */
 $messages['eu'] = array(
 	'lqt_movethread' => 'Mintzagaia beste orrialde batera mugitu',
@@ -6320,9 +6321,9 @@ Eztabaida hau $2-(e)ko zati da.',
 	'lqt_sort_oldest_threads' => 'mintzagai zaharrenak lehenik',
 	'lqt-title' => 'Izenburua',
 	'lqt-summary' => 'Laburpena',
-	'lqt-read-message' => 'Irakurrita moduan adierazi',
-	'lqt-read-all' => 'Markatu irakurrita gisa',
-	'lqt-count-marked-read' => '{{PLURAL:$1|mezu bat|$1 mezu}} markatuak irakurrita gisa.',
+	'lqt-read-message' => 'Markatu irakurritzat',
+	'lqt-read-all' => 'Markatu irakurritzat',
+	'lqt-count-marked-read' => '{{PLURAL:$1|Mezu bat dago|$1 mezu daude}} markatuta irakurritzat.',
 	'lqt-email-undo' => 'Desegin',
 	'lqt-no-new-messages' => 'Ez dago zuretzako mezu berririk.',
 	'lqt-new-messages' => 'Zuretzako mezu berriak daude.',
