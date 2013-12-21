@@ -7546,11 +7546,13 @@ Ultin cambiament: $1',
 );
 
 /** Western Frisian (Frysk)
+ * @author Kening Aldgilles
  * @author Snakesteuben
  */
 $messages['fy'] = array(
 	'lqt_delete' => 'Wiskje',
 	'lqt_move_move' => 'Werneam',
+	'lqt-cancel-subject-edit' => 'Ofbrekke',
 );
 
 /** Irish (Gaeilge)
