@@ -38,6 +38,7 @@ It may:
 
 	'lqt-history-title' => 'Thread history',
 	'lqt_hist_comment_edited' => 'Comment text [$2 edited]',
+	'lqt_hist_comment_edited_deleted' => 'Comment text edited (since deleted)',
 	'lqt_hist_summary_changed' => 'Summary changed',
 	'lqt_hist_reply_created' => '[[$1|New reply]] created',
 	'lqt_hist_reply_created_deleted' => 'New reply created (since deleted)',
@@ -392,6 +393,7 @@ as used in /pages/ThreadPermalinkView.php',
 	'lqt-history-title' => 'Title of thread history page, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]',
 	'lqt_hist_comment_edited' => 'Parameters:
 * $2 is the URL to the comment',
+	'lqt_hist_comment_edited_deleted' => 'Same as {{msg-mw|lqt_hist_comment_edited}} but when the comment has been deleted',
 	'lqt_hist_summary_changed' => "Summary for 'activity' in thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]",
 	'lqt_hist_reply_created' => "Summary for 'activity' in thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]
 
