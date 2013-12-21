@@ -129,6 +129,11 @@ class ThreadHistoryPager extends TablePager {
 					$args[] = '';
 				}
 				break;
+			case Threads::CHANGE_REPLY_CREATED:
+				if ( !$changeObject || !$changeObject->title() ) {
+					$msg = wfMessage( 'lqt_hist_reply_created_deleted' )->parse();
+				}
+				break;
 		}
 
 		$content = wfMsgReplaceArgs( $msg, $args );
