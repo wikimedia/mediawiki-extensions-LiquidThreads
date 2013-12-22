@@ -392,26 +392,57 @@ as used in /pages/ThreadPermalinkView.php',
 * $1 is a link to a talk page (for example "User talk:Foo")',
 	'lqt-history-title' => 'Title of thread history page, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]',
 	'lqt_hist_comment_edited' => 'Parameters:
-* $2 is the URL to the comment',
-	'lqt_hist_comment_edited_deleted' => 'Same as {{msg-mw|lqt_hist_comment_edited}} but when the comment has been deleted',
-	'lqt_hist_summary_changed' => "Summary for 'activity' in thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]",
-	'lqt_hist_reply_created' => "Summary for 'activity' in thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]
+* $1 - (Unused)
+* $2 - the URL to the comment
+{{Related|Lqt hist}}',
+	'lqt_hist_comment_edited_deleted' => 'Summary for "activity" in thread history.
+
+Same as {{msg-mw|Lqt hist comment edited}} but when the comment has been deleted.
+{{Related|Lqt hist}}',
+	'lqt_hist_summary_changed' => 'Summary for "activity" in thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example].
+{{Related|Lqt hist}}',
+	'lqt_hist_reply_created' => 'Summary for "activity" in thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example].
 
 Parameters:
-* $1 is the text for a wiki link to the new reply",
-	'lqt_hist_thread_created' => "Summary for 'activity' in thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]",
-	'lqt_hist_reply_created_deleted' => 'Same as {{msg-mw|lqt_hist_reply_created}} but when the reply has been deleted',
-	'lqt_hist_deleted' => '{{Identical|Deleted}}',
-	'lqt_hist_moved_talkpage' => '{{Identical|Move}}',
+* $1 - the text for a wiki link to the new reply
+{{Related|Lqt hist}}',
+	'lqt_hist_reply_created_deleted' => 'Summary for "activity" in thread history.
+
+Same as {{msg-mw|Lqt hist reply created}} but when the reply has been deleted.
+{{Related|Lqt hist}}',
+	'lqt_hist_thread_created' => 'Summary for "activity" in thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example].
+{{Related|Lqt hist}}',
+	'lqt_hist_deleted' => '{{Related|Lqt hist}}
+{{Identical|Deleted}}',
+	'lqt_hist_undeleted' => '{{Related|Lqt hist}}',
+	'lqt_hist_moved_talkpage' => '{{Related|Lqt hist}}
+{{Identical|Move}}',
 	'lqt_hist_listing_subtitle' => "Subtitle for 'thread history' page, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]",
 	'lqt_hist_view_whole_thread' => 'Link to history page for an entire thread, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount/reply|action=history}} example]',
+	'lqt_hist_split' => 'Summary for "activity" in thread history.
+
+This means "Split up the reply into a new thread".
+{{Related|Lqt hist}}',
 	'lqt_hist_edited_subject' => 'Parameters:
-* $2 is the old subject text
-* $3 is the new subject text',
-	'lqt_hist_merged_from' => 'Parameters:
-* $1 is text for a wiki link to the reply',
-	'lqt_hist_merged_to' => 'Parameters:
-* $1 is the text for a wiki link to the reply',
+* $1 - (Unused)
+* $2 - the old subject text
+* $3 - the new subject text
+{{Related|Lqt hist}}',
+	'lqt_hist_merged_from' => 'This means "Moved the thread to another thread".
+
+Parameters:
+* $1 - text for a wiki link to the reply
+{{Related|Lqt hist}}',
+	'lqt_hist_merged_to' => 'This means "Moved the reply from another thread".
+
+Parameters:
+* $1 - the text for a wiki link to the reply
+{{Related|Lqt hist}}',
+	'lqt_hist_split_from' => '{{Related|Lqt hist}}',
+	'lqt_hist_root_blanked' => 'Summary for "activity" in thread history.
+{{Related|Lqt hist}}',
+	'lqt_hist_adjusted_sortkey' => 'Summary for "activity" in thread history.
+{{Related|Lqt hist}}',
 	'lqt_revision_as_of' => 'Followed by any one of the following messages:
 * {{msg-mw|Lqt change new thread}}
 * {{msg-mw|Lqt change reply created}}
@@ -3634,6 +3665,7 @@ $messages['ce'] = array(
 Тlяххьара нисдинарг: $1',
 	'lqt-header-actions' => 'Дийраш',
 	'lqt_summarize_link' => 'Жамl дан',
+	'lqt-no-threads' => 'ХӀокху агӀона хӀинца а дац дийцарийн ганаш.',
 	'lqt-movethread' => 'Кхечухьа йаккха',
 	'lqt-menu-trigger' => 'Кхин',
 	'lqt-newmessages-from' => 'АгӀона чура $1',
@@ -4440,8 +4472,10 @@ Es ist möglich, dass er
 	'lqt_from_talk' => 'Von $1',
 	'lqt-history-title' => 'Diskussionsverlauf',
 	'lqt_hist_comment_edited' => 'Kommentartext [$2 bearbeitet]',
+	'lqt_hist_comment_edited_deleted' => 'Kommentartext bearbeitet (seit gelöscht)',
 	'lqt_hist_summary_changed' => 'Zusammenfassung geändert',
 	'lqt_hist_reply_created' => '[[$1|Neue Antwort]] gegeben',
+	'lqt_hist_reply_created_deleted' => 'Neue Antwort gegeben (seit gelöscht)',
 	'lqt_hist_thread_created' => 'Neues Thema gestartet',
 	'lqt_hist_deleted' => 'Gelöscht',
 	'lqt_hist_undeleted' => 'Wiederhergestellt',
@@ -10686,9 +10720,9 @@ $messages['ja'] = array(
 	'lqt_from_talk' => '$1 より',
 	'lqt-history-title' => 'スレッド履歴',
 	'lqt_hist_comment_edited' => 'コメントを[$2 編集]',
-	'lqt_hist_summary_changed' => '要約の変更',
-	'lqt_hist_reply_created' => '[[$1|返答]]の新規作成',
-	'lqt_hist_thread_created' => 'スレッドの新規作成',
+	'lqt_hist_summary_changed' => '要約を変更',
+	'lqt_hist_reply_created' => '[[$1|返答]]を新規作成',
+	'lqt_hist_thread_created' => 'スレッドを新規作成',
 	'lqt_hist_deleted' => '削除',
 	'lqt_hist_undeleted' => '復帰',
 	'lqt_hist_moved_talkpage' => '移動',
@@ -10698,14 +10732,14 @@ $messages['ja'] = array(
 	'lqt_hist_past_last_page_error' => '存在する履歴ページ番号を超えた指定が行われました。',
 	'lqt_hist_tooltip_newer_disabled' => '最初のページにつき、このリンクは動作しません。',
 	'lqt_hist_tooltip_older_disabled' => '最後のページにつき、このリンクは動作しません。',
-	'lqt_hist_split' => '新規スレッドに分割された返信',
+	'lqt_hist_split' => '返信を新規スレッドに分割',
 	'lqt_hist_edited_subject' => '表題を「$2」から「$3」に変更',
 	'lqt_hist_edited_subject_corrupt' => '話題が変更されています',
-	'lqt_hist_merged_from' => '[[$1|返信]]の別のスレッドへの移動',
-	'lqt_hist_merged_to' => '[[$1|返信]]の別のスレッドからの移動',
+	'lqt_hist_merged_from' => '[[$1|返信]]を別のスレッドに移動',
+	'lqt_hist_merged_to' => '[[$1|返信]]を別のスレッドから移動',
 	'lqt_hist_split_from' => '新規スレッドに分割',
-	'lqt_hist_root_blanked' => 'コメント文の削除',
-	'lqt_hist_adjusted_sortkey' => '修正されたスレッド位置',
+	'lqt_hist_root_blanked' => 'コメント本文を除去',
+	'lqt_hist_adjusted_sortkey' => 'スレッドの位置を調整',
 	'lqt_revision_as_of' => '$2 $3 時点の版です。',
 	'lqt_change_new_thread' => 'このスレッドの最初の版です。',
 	'lqt_change_reply_created' => '[$1 強調されているコメント]がこの版で作成されました。',
@@ -12178,6 +12212,7 @@ Et ass méiglech, datt:
 	'lqt_from_talk' => 'Vum $1',
 	'lqt-history-title' => 'Historique vun der Rubrik',
 	'lqt_hist_comment_edited' => 'Text vun der Bemierkung [$2 geännert]',
+	'lqt_hist_comment_edited_deleted' => 'Text vun der Bemierkung geännert (zanter geläscht)',
 	'lqt_hist_summary_changed' => 'Résumé geännert',
 	'lqt_hist_reply_created' => '[[$1|Nei Äntwert]] ginn',
 	'lqt_hist_thread_created' => 'Nei Rubrik ugeluecht',
@@ -21100,6 +21135,7 @@ $messages['uk'] = array(
 	'lqt_hist_comment_edited' => 'Текст коментаря [$2 відредагований]',
 	'lqt_hist_summary_changed' => 'Резюме змінено',
 	'lqt_hist_reply_created' => 'Створена [[$1|нова відповідь]]',
+	'lqt_hist_reply_created_deleted' => 'Створено нову відповідь (з часу видалення)',
 	'lqt_hist_thread_created' => 'Створено нову тему',
 	'lqt_hist_deleted' => 'Вилучена',
 	'lqt_hist_undeleted' => 'Відновлена',
@@ -21888,6 +21924,7 @@ $messages['vi'] = array(
 	'lqt_hist_comment_edited' => 'Văn bản bình luận [$2 đã sửa]',
 	'lqt_hist_summary_changed' => 'Tóm tắt đã thay đổi',
 	'lqt_hist_reply_created' => '[[$1|Hồi âm mới]] đã tạo ra',
+	'lqt_hist_reply_created_deleted' => 'Bài trả lời mới được tạo ra (đã bị xóa)',
 	'lqt_hist_thread_created' => 'Luồng mới đã được tạo',
 	'lqt_hist_deleted' => 'Đã xóa',
 	'lqt_hist_undeleted' => 'Đã phục hồi',
