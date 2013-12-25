@@ -3639,6 +3639,8 @@ $messages['ce'] = array(
 	'lqt_undelete' => 'МеттахӀоттае',
 	'lqt_permalink' => 'Хьажораг кхузе',
 	'lqt_hist_summary_changed' => 'Жамl хийцна',
+	'lqt_hist_reply_created' => '[[$1|Керла жоп]] кхоьлина',
+	'lqt_hist_adjusted_sortkey' => 'Билгало йолу меттиг хийцина',
 	'lqt_youhavenewmessages' => 'Хьуна кхаьчна [[$1|керла хаамаш]].',
 	'lqt_subject' => 'Корта:',
 	'lqt_summary_notice_link' => 'жамl дан',
@@ -3657,6 +3659,7 @@ $messages['ce'] = array(
 	'lqt-email-undo' => 'Цаоьшу',
 	'lqt-new-messages' => 'Хьуна кхаьчна керла хаамаш.',
 	'lqt-newmessages-context' => 'Дуьзина га',
+	'lqt-thread-created' => 'Кхоьллина',
 	'lqt-history-time' => 'Хан',
 	'lqt-history-user' => 'Декъашхо',
 	'lqt-thread-edited-author' => 'Авторо нийса йина.<br />
@@ -3670,8 +3673,27 @@ $messages['ce'] = array(
 	'lqt-menu-trigger' => 'Кхин',
 	'lqt-newmessages-from' => 'АгӀона чура $1',
 	'lqt-changesortorder' => 'Къестош хьажар',
+	'lqt-log-action-subjectedit' => 'Хийцина тема [[$1]] «$2» → «$3»',
+	'lqt-log-action-resort' => 'хийцина къастам [[$1]]. Къастаман догӀа хийцар $2 → $3',
 	'lqt-log-action-signatureedit' => 'Хийца куьгтаӀор [[$1]] тӀера «$2» оцу «$3»',
 	'prefs-lqt' => 'Дийцарш гéнашца',
+	'lqt-enotif-subject-newthread' => '{{SITENAME}} дийцаре — Керла га: $1',
+	'lqt-enotif-newthread' => 'Маршалла, $1.
+
+ХӀара хаам {{SITENAME}} сайтера бу $3 $4 агӀонехь $5 $8 декъашхочо керла га кхоллар хоуьйтуш «$2»
+
+Оьцунга хьажа йиш ю <$6> адресца
+
+Гана йоза:
+$7',
+	'lqt-enotif-reply' => 'Маршалла, $1.
+
+ХӀара хаам {{SITENAME}} сайтера бу $3 $4 агӀонехь $5 $8 декъашхочо керла га кхоллар хоуьйтуш «$2».
+
+Оьцунга хьажа йиш ю <$6> адресца
+
+Гана йоза:
+$7',
 	'lqt-search-label' => 'Лахаран хьал:',
 	'lqt-search-button' => 'Лаха',
 	'searchprofile-threads' => 'Дийцаре',
@@ -5064,8 +5086,10 @@ $messages['dsb'] = array(
 	'lqt_from_talk' => 'z $1',
 	'lqt-history-title' => 'Stawizny nitki',
 	'lqt_hist_comment_edited' => 'Komentarowy tekst [$2 wobźěłany]',
+	'lqt_hist_comment_edited_deleted' => 'Komentarowy tekst wobźěłany (wót togo casa, ako komentar jo wulašowany)',
 	'lqt_hist_summary_changed' => 'Zespominanje změnjone',
 	'lqt_hist_reply_created' => '[[$1|Nowe wótegrono]] napórane',
+	'lqt_hist_reply_created_deleted' => 'Nowe wótegrono (wót togo casa, ako komentar jo wulašowany)',
 	'lqt_hist_thread_created' => 'Nowa nitka napórana',
 	'lqt_hist_deleted' => 'Wulašowany',
 	'lqt_hist_undeleted' => 'Wótnowjony',
@@ -5187,6 +5211,7 @@ Aby se to wobinuło, wótźěl je wót toś teje nitki, nježli až ju lašujoš
 	'lqt-newmessages-from' => 'z $1',
 	'lqt-hot-topics' => 'Nejcesćej cytane temy',
 	'lqt-add-reply' => 'Wótegrono pśidaś',
+	'lqt-changesortorder' => 'Sortěrowaś',
 	'lqt_rc_new_discussion' => 'jo pósłał nowu nitku, "$1"',
 	'lqt_rc_new_reply' => 'jo pósłał wótegrono na "$1"',
 	'right-lqt-split' => 'Nitki rozdźěliś',
@@ -5207,6 +5232,7 @@ Aby se to wobinuło, wótźěl je wót toś teje nitki, nježli až ju lašujoš
 	'lqt-log-action-merge-down' => 'jo zjadnośił [[$1]] do [[$3]]',
 	'lqt-log-action-subjectedit' => 'jo změnił [[$1]] wót "$2" do "$3"',
 	'lqt-log-action-resort' => 'jo změnił sortěrowański pórěd [[$1]]. Sortěrowański kluc jo se změnił wót $2 do $3',
+	'lqt-log-action-signatureedit' => 'jo signaturu wót [[$1]] z "$2" do "$3" změnił',
 	'lqt-preference-notify-talk' => 'E-mail wó wótegronach k nitce, kótaraž se wobglědujo, pósłaś',
 	'lqt-preference-watch-threads' => 'Nitki wobglědowaś, kótarež napórajom abo na kótarež wótegranjam',
 	'prefs-lqt' => 'Diskusija w nitkach',
@@ -5292,6 +5318,7 @@ Pódpis pokazujo se awtomatiski.',
 	'lqt-edit-bump-tooltip' => 'Toś tu nitku do zachopjeńka jeje diskusijnego boka pśesunuś',
 	'lqt-historicalrevision-error' => 'Wersija, kótaruž sy wubrał, jo wobškóźona, a njedajo se zwobrazniś.',
 	'lqt-reply-subpage' => 'Wótegroniś',
+	'lqt-pagechange-editformopen' => 'Maš njeskładowany tekst na toś tom boku. Móžo se zgubiś, jolic spušćaš toś ten bok.',
 	'nstab-thread' => 'Nitka',
 	'nstab-summary' => 'Zespominanje',
 	'echo-pref-email-lqt-new-topic' => 'Napórajo nitkowu diskusiju',
@@ -9068,8 +9095,10 @@ $messages['hsb'] = array(
 	'lqt_from_talk' => 'z $1',
 	'lqt-history-title' => 'Stawizny nitki',
 	'lqt_hist_comment_edited' => 'Tekst komentara [$2 wobdźěłany]',
+	'lqt_hist_comment_edited_deleted' => 'Komentarowy tekst wobdźěłany (wot toho časa, zo komentar je zhašany)',
 	'lqt_hist_summary_changed' => 'Zjeće změnjene',
 	'lqt_hist_reply_created' => '[[$1|Nowa wotmołwa]] wutworjena',
+	'lqt_hist_reply_created_deleted' => 'Nowa wotmołwa (wot toho časa, zo komentar je zhašany)',
 	'lqt_hist_thread_created' => 'Nowa nitka wutworjena',
 	'lqt_hist_deleted' => 'Wušmórnjeny',
 	'lqt_hist_undeleted' => 'Wobnowjeny',
@@ -9208,7 +9237,7 @@ Zo by to wobešoł, wotdźěl je wot tuteje nitki, prjedy hač ju wušmóruješ.
 	'lqt-log-action-merge-down' => 'zapřija [[$1]] pod [[$3]]',
 	'lqt-log-action-subjectedit' => 'změni temu wot [[$1]] z "$2" to "$3"',
 	'lqt-log-action-resort' => 'změni sortěrowanski porjad wot [[$1]]. Změni sortěrowanski kluč wot $2 do $3',
-	'lqt-log-action-signatureedit' => 'změni podpis wot [[$1]] z "$2" to "$3"',
+	'lqt-log-action-signatureedit' => 'změni podpis wot [[$1]] z "$2" do "$3"',
 	'lqt-preference-notify-talk' => 'E-mejl wo wotmołwach k nitce, kotraž so wobkedźbuje, pósłać',
 	'lqt-preference-watch-threads' => 'Nitki wobkedźbować, kotrež tworju abo na kotrež wotmołwjam',
 	'prefs-lqt' => 'Diskusija w nitkach',
@@ -9294,6 +9323,7 @@ Podpis pokazuje so awtomatisce.',
 	'lqt-edit-bump-tooltip' => 'Tutu nitku do spočatka jeje diskusijneje strony přesunyć',
 	'lqt-historicalrevision-error' => 'Wersija, kotruž sy wubrał, je wobškodźena a njeda so pokazać.',
 	'lqt-reply-subpage' => 'wotmołwić',
+	'lqt-pagechange-editformopen' => 'Maš njeskładowany tekst na tutej stronje. Móže so zhubić, jeli tutu stronu wopušćeš.',
 	'nstab-thread' => 'Nitka',
 	'nstab-summary' => 'Zjeće',
 	'echo-pref-email-lqt-new-topic' => 'Wutworja nitkowu diskusiju',
@@ -21135,6 +21165,7 @@ $messages['uk'] = array(
 	'lqt_from_talk' => 'З $1',
 	'lqt-history-title' => 'Історія теми',
 	'lqt_hist_comment_edited' => 'Текст коментаря [$2 відредагований]',
+	'lqt_hist_comment_edited_deleted' => 'Текст коментаря відредаговано (бо вилучено)',
 	'lqt_hist_summary_changed' => 'Резюме змінено',
 	'lqt_hist_reply_created' => 'Створена [[$1|нова відповідь]]',
 	'lqt_hist_reply_created_deleted' => 'Створено нову відповідь (з часу видалення)',
