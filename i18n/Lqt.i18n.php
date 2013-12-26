@@ -3640,6 +3640,7 @@ $messages['ce'] = array(
 	'lqt_permalink' => 'Хьажораг кхузе',
 	'lqt_hist_summary_changed' => 'Жамl хийцна',
 	'lqt_hist_reply_created' => '[[$1|Керла жоп]] кхоьлина',
+	'lqt_hist_edited_subject_corrupt' => 'Тема хийцина',
 	'lqt_hist_adjusted_sortkey' => 'Билгало йолу меттиг хийцина',
 	'lqt_youhavenewmessages' => 'Хьуна кхаьчна [[$1|керла хаамаш]].',
 	'lqt_subject' => 'Корта:',
@@ -3715,6 +3716,7 @@ $7',
 	'lqt-newmessages-n' => 'Керла хаамаш ($1)', # Fuzzy
 	'lqt_newmessages' => 'Керла хаамаш', # Fuzzy
 	'lqt_newmessages-title' => 'Керла хаамаш',
+	'lqt-talkpage-history-title' => 'Дийцарийн агӀона истори',
 	'lqt-talkpage-history-subtitle' => 'Цунна $1',
 	'lqt-talkpage-history-tab' => 'Корта',
 	'lqt-reply-subpage' => 'жоп ло',
@@ -11589,6 +11591,7 @@ $messages['kn'] = array(
  * @author Gapo
  * @author Klutzy
  * @author Kwj2772
+ * @author Priviet
  * @author Ryuch
  * @author 아라
  */
@@ -11802,7 +11805,7 @@ $7",
 	'lqt-thread-link-title' => '위키문법 링크:',
 	'lqt-thread-link-copy' => '클립보드에 복사하기',
 	'lqt-sign-not-necessary' => '물결표 4개로 서명할 필요가 없습니다.
-서명은 자동으로 보여집니다.',
+서명은 자동으로 보입니다.',
 	'lqt-marked-as-read-placeholder' => '$1 스레드를 읽은 것으로 표시했습니다.',
 	'lqt-change-subject' => '제목 바꾸기',
 	'lqt-save-subject' => '저장',
