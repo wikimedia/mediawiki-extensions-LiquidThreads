@@ -226,8 +226,6 @@ window.liquidThreads = {
 			} );
 		};
 
-		mwEditButtons = [];
-
 		mw.loader.using( ['mediawiki.action.edit'],
 			function () {
 				if ( isIE7 ) {
