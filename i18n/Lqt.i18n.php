@@ -1875,7 +1875,7 @@ $3 $4 уны $2 күсергән.',
 	'lqt_thread_deleted_for_sysops' => "Был тармаҡ '''юйылған''' һәм хакимдәргә генә күренә.",
 	'lqt_thread_deleted' => 'Был тармаҡ юйылған.',
 	'lqt_summary_notice' => 'Был фекер алышыу кәмендә $2 {{PLURAL:$2|көн}} үҙгәртелмәгән.
-Әгәр ул тамамланһа, һеҙгә $1 мөмкин.',
+Әгәр ул тамамланһа, һеҙгә $1 мөмкин.', # Fuzzy
 	'lqt_summary_notice_link' => 'һөҙөмтә яһарға',
 	'lqt_summary_label' => 'Тармаҡтың тасуирламаһы:',
 	'lqt_summary_subtitle' => '"$1" тармағының һөҙөмтәһе',
@@ -1915,7 +1915,7 @@ $3 $4 уны $2 күсергән.',
 Улар үҙҙәренең фекер алышыу битендә тороп ҡаласаҡ.
 Был үҙгәртеүҙе кире алыу мөмкин түгел.',
 	'lqt-marked-read' => "'''$1''' тармағы уҡылған тип билдәләнде.",
-	'lqt-count-marked-read' => '$1 {{PLURAL:$1|хәбәр}} уҡылған тип билдәләнде.',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|хәбәр}} уҡылған тип билдәләнде.', # Fuzzy
 	'lqt-email-undo' => 'Кире алырға',
 	'lqt-no-new-messages' => 'Һеҙҙең өсөн яңы хәбәрҙәр юҡ.',
 	'lqt-new-messages' => 'Һеҙҙең өсөн яңы хәбәрҙәр бар.',
@@ -1930,8 +1930,8 @@ $3 $4 уны $2 күсергән.',
 	'lqt-history-thread' => 'Тармаҡ',
 	'lqt-thread-edited-author' => 'Автор тарафынан үҙгәртелгән.<br />
 Һуңғы үҙгәртеү: $1',
-	'lqt-thread-edited-others' => 'Башҡа {{PLURAL:$2|ҡатнашыусы|$2 ҡатнашыусылар}} тарафынан үҙгәртелгән.
-Һуңғы үҙгәртеү:',
+	'lqt-thread-edited-others' => 'Башҡа {{PLURAL:$2|1=ҡатнашыусы|$2 ҡатнашыусылар}} тарафынан үҙгәртелгән.
+Һуңғы үҙгәртеү:', # Fuzzy
 	'lqt-header-actions' => 'Ваҡиғалар',
 	'lqt_summarize_link' => 'Һөҙөмтә яһарға',
 	'lqt-summarize-intro' => 'Зинһар, мөхәррирләү юлында түбәндәге фекер алышыу тармағының һөҙөмтәһен килтерегеҙ.
@@ -2005,7 +2005,7 @@ $7',
 	'searchprofile-threads-tooltip' => 'Фекер алышыу тармаҡтарында һәм биттәрендә эҙләү',
 	'lqt-ajax-updated' => 'Был тармаҡта яңы хәбәрҙәр бар.',
 	'lqt-ajax-update-link' => 'Яңыртырға',
-	'lqt-thread-show-replies' => '$1 {{PLURAL:$1|яуап}} күрһәтергә',
+	'lqt-thread-show-replies' => '$1 {{PLURAL:$1|яуап}} күрһәтергә', # Fuzzy
 	'lqt-thread-show-more' => 'Күберәк яуап күрһәтергә',
 	'lqt-thread-link-url' => 'Һылтанманың URL адресы:',
 	'lqt-thread-link-title' => 'Вики-һылтанма:',
@@ -3666,7 +3666,7 @@ $messages['ce'] = array(
 	'lqt-thread-edited-author' => 'Авторо нийса йина.<br />
 ТӀехьара дина нисдар: $1',
 	'lqt-thread-edited-others' => 'Нисдина {{PLURAL:$2|1 кхечу декъашхочо|$2 кхечу декъашхош|$2 кхечу декъашхош}}.<br />
-Тlяххьара нисдинарг: $1',
+Тlяххьара нисдинарг: $1', # Fuzzy
 	'lqt-header-actions' => 'Дийраш',
 	'lqt_summarize_link' => 'Жамl дан',
 	'lqt-no-threads' => 'ХӀокху агӀона хӀинца а дац дийцарийн ганаш.',
@@ -17413,8 +17413,8 @@ $messages['ru'] = array(
 Перемещение произведено участником $2 $3 в $4.',
 	'lqt_thread_deleted_for_sysops' => "Эта ветка была '''удалена''' и видна только администраторам.",
 	'lqt_thread_deleted' => 'Эта ветка была удалена.',
-	'lqt_summary_notice' => 'Это обсуждение не изменялось как минимум $2 {{PLURAL:$2|день|дня|дней}}.
-Если оно подошло к концу, вы можете $1.',
+	'lqt_summary_notice' => 'Это обсуждение не изменялось как минимум $2 {{PLURAL:$2|день|дней|дня}}.
+Если оно подошло к концу, вы можете $1.', # Fuzzy
 	'lqt_summary_notice_link' => 'подвести итог',
 	'lqt_summary_label' => 'Краткое описание ветки:',
 	'lqt_summary_subtitle' => 'Описание ветки «$1»',
@@ -17452,7 +17452,7 @@ $messages['ru'] = array(
 Они останутся видны на соответствующих страницах обсуждений.
 Эта операция необратима.',
 	'lqt-marked-read' => "Ветка '''$1''' отмечена как прочитанная.",
-	'lqt-count-marked-read' => '$1 {{PLURAL:$1|сообщение отмечено как прочитанное|сообщения отмечены как прочитанные|сообщений отмечены как прочитанные}}.',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|сообщение отмечено как прочитанное|сообщений отмечены как прочитанные|сообщения отмечены как прочитанные}}.', # Fuzzy
 	'lqt-email-undo' => 'Отменить',
 	'lqt-no-new-messages' => 'Для вас нет новых сообщений.',
 	'lqt-new-messages' => 'Для вас есть новые сообщения.',
@@ -17468,7 +17468,7 @@ $messages['ru'] = array(
 	'lqt-thread-edited-author' => 'Исправлено автором.<br />
 Последняя правка: $1',
 	'lqt-thread-edited-others' => 'Исправлено {{PLURAL:$2|1 другим участником|$2 другими участниками|$2 другими участниками}}.<br />
-Последняя правка: $1',
+Последняя правка: $1', # Fuzzy
 	'lqt-header-actions' => 'Действия',
 	'lqt_summarize_link' => 'Подвести итог',
 	'lqt-summarize-intro' => 'Пожалуйста, кратко опишите в поле редактирования содержимое данной ветки обсуждения.
@@ -17546,7 +17546,7 @@ $7',
 	'searchprofile-threads-tooltip' => 'Поиск в обсуждениях по веткам и на страницах обсуждений',
 	'lqt-ajax-updated' => 'В этой ветке есть новые сообщения.',
 	'lqt-ajax-update-link' => 'Обновить',
-	'lqt-thread-show-replies' => 'Показать $1 {{PLURAL:$1|ответ|ответа|ответов}}',
+	'lqt-thread-show-replies' => 'Показать $1 {{PLURAL:$1|ответ|ответов|ответа}}', # Fuzzy
 	'lqt-thread-show-more' => 'Показать больше ответов',
 	'lqt-thread-link-url' => 'Ссылка на URL:',
 	'lqt-thread-link-title' => 'Вики-ссылка:',
@@ -19280,7 +19280,7 @@ Ona će još uvek biti dostupna na stranici za razgovor.',
 One će još uvek biti dostupne na stranici za razgovor.
 Ova radnja se ne može opozvati.',
 	'lqt-marked-read' => "Tema '''$1''' je označena kao pročitana.",
-	'lqt-count-marked-read' => '$1 {{PLURAL:$1|poruka označena kao pročitana|poruka označenih kao pročitane}}.',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|1=poruka označena kao pročitana|poruka označenih kao pročitane}}.', # Fuzzy
 	'lqt-email-undo' => 'Vrati',
 	'lqt-no-new-messages' => 'Nema novih poruka.',
 	'lqt-new-messages' => 'Imate novih poruka.',
@@ -19376,7 +19376,7 @@ $7',
 	'searchprofile-threads-tooltip' => 'Pretražite rasprave na temama i stranice za razgovor',
 	'lqt-ajax-updated' => 'Ova tema ima novih poruka.',
 	'lqt-ajax-update-link' => 'Ažuriraj',
-	'lqt-thread-show-replies' => 'Pokaži $1 {{PLURAL:$1|odgovor|odgovora}}',
+	'lqt-thread-show-replies' => 'Pokaži $1 {{PLURAL:$1|1=odgovor|odgovora}}', # Fuzzy
 	'lqt-thread-show-more' => 'Prikaži više odgovora',
 	'lqt-thread-link-url' => 'Putanja veze (URL):',
 	'lqt-thread-link-title' => 'Veza vikiteksta:',
@@ -21067,7 +21067,7 @@ $messages['tru'] = array(
  */
 $messages['tt-cyrl'] = array(
 	'lqt_subject' => 'Тема:',
-	'lqt-count-marked-read' => '$1 {{PLURAL:$1|хат укылган итеп билгеләнде|хатлар укылган итеп билгеләнде|хат укылган итеп билгеләнде}}.',
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|хат укылган итеп билгеләнде|хат укылган итеп билгеләнде|хатлар укылган итеп билгеләнде}}.', # Fuzzy
 	'lqt-email-undo' => 'Кире кагу',
 	'lqt-no-new-messages' => 'Сезнең өчен яңа хатлар юк.',
 	'lqt-new-messages' => 'Сезнең өчен яңа хатлар бар.',
