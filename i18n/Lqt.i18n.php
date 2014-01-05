@@ -4272,7 +4272,7 @@ Denne tråd er en del af $2.',
 	'lqt_move_thread_bad_destination' => 'Destinationssiden er ikke en diskussionsside.',
 	'lqt_move_samedestination' => 'Tråden er allerede på denne side!',
 	'lqt_move_noreason' => 'Ingen begrundelse angivet.',
-	'lqt_move_success' => 'Tråden blev flyttet til $1.', # Fuzzy
+	'lqt_move_success' => 'Tråden blev flyttet til $1: $2.',
 	'lqt_talkpage_autocreate_summary' => 'Diskussionsside blev automatisk oprettet, da den første tråd påbegyndtes',
 	'lqt_header_warning_big' => 'Du er ved at redigere en $1.',
 	'lqt_header_warning_after_big' => 'Overskrifter er beregnet til bekendtgørelser og indledninger.
@@ -4348,7 +4348,7 @@ For at undgå dette, del dem fra denne tråd, før den slettes.',
 	'lqt-merge-success' => 'Du har med held flettet tråden $1 ind under $2.',
 	'lqt-log-name' => 'Log for trådbaserede diskussioner',
 	'lqt-log-header' => 'Denne log oplister handlinger foretaget på diskussionstråde.',
-	'lqt-log-action-move' => 'flyttede [[$1]] fra [[$2]] til [[$3]]', # Fuzzy
+	'lqt-log-action-move' => 'flyttede [[$1]] fra [[$2]] til [[$3]] ($4)',
 	'lqt-log-action-split' => 'adskilte [[$1]] fra under [[$3]] med det nye emne "$2"',
 	'lqt-log-action-merge-across' => 'flyttede [[$1]] fra under [[$2]] til under [[$3]]',
 	'lqt-log-action-merge-down' => 'flettede [[$1]] ind under [[$3]]',
@@ -9015,7 +9015,7 @@ $7",
 	'searchprofile-threads-tooltip' => 'Pretraži dretve rasprava i stranice za razgovor',
 	'lqt-ajax-updated' => 'Napisane su nove poruke u ovoj temi.',
 	'lqt-ajax-update-link' => 'Osvježi',
-	'lqt-thread-show-replies' => 'Prikaži $1 {{plural:$1|odgovor|odgovora|odgovora}}',
+	'lqt-thread-show-replies' => 'Prikaži $1 {{PLURAL:$1|odgovor|odgovora|odgovora}}', # Fuzzy
 	'lqt-thread-show-more' => 'Prikaži više odgovora',
 	'lqt-thread-link-url' => 'URL poveznice:',
 	'lqt-thread-link-title' => 'Wikitekst poveznica:',
@@ -16933,7 +16933,7 @@ Aceasta va fi încă vizibilă pe pagina sa de discuţie originală.',
 	'lqt-history-thread' => 'Subiect',
 	'lqt-thread-edited-author' => 'Modificat de autor. <br />
 Ultima modificare: $1',
-	'lqt-thread-edited-others' => 'Modificat de {{PLURAL: $2|un alt utilizator|$2 utilizatori|$2 de utilizatori}}. <br />
+	'lqt-thread-edited-others' => 'Modificat de {{PLURAL:$2|un alt utilizator|$2 utilizatori|$2 de utilizatori}}. <br />
 Ultima modificare: $1',
 	'lqt-header-actions' => 'Acțiuni',
 	'lqt_summarize_link' => 'Rezumare',
