@@ -2665,6 +2665,7 @@ $messages['bg'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Aftab1995
  * @author Bellayet
  * @author Ehsanulhb
  * @author Wikitanvir
@@ -2794,8 +2795,8 @@ $messages['bn'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — $1 হতে নতুন থ্রেড',
 	'lqt-feed-title-replies' => '{{SITENAME}} — উত্তর',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1 হতে উত্তর',
-	'lqt-newmessages-n' => 'নতুন বার্তা ($1)', # Fuzzy
-	'lqt_newmessages' => 'আমার নতুন বার্তা (নাই)', # Fuzzy
+	'lqt-newmessages-n' => 'নতুন বার্তা ($1)',
+	'lqt_newmessages' => 'নতুন বার্তা (নাই)',
 	'lqt_newmessages-title' => 'নতুন বার্তা',
 	'lqt-newpost-summary' => 'নতুন থ্রেড: $1',
 	'lqt-reply-summary' => '[[$2|$1]] এর উত্তর',
@@ -3343,7 +3344,7 @@ Potpis će se prikazati automatski.',
  * @author Bjargal
  */
 $messages['bxr'] = array(
-	'lqt_newmessages' => 'Минии шэнэ бэшэг (нэгэшье үгы)', # Fuzzy
+	'lqt_newmessages' => 'Шэнэ бэшэг (үгы)',
 );
 
 /** Catalan (català)
@@ -5544,6 +5545,7 @@ When you finish, click "{{int:savearticle}}".',
  * @author AVRS
  * @author ArnoLagrange
  * @author Blahma
+ * @author KuboF
  * @author Michawiki
  * @author Yekrats
  */
@@ -5785,8 +5787,8 @@ La subskribo estas aŭtomate montrita.',
 	'lqt-feed-new-thread-intro' => 'Nova fadeno en $1 afiŝita de {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Respondo al $3 (en $1) afiŝita de {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Montras novajn afiŝojn al fadenoj aŭ en fadenaj diskuto-paĝoj kiujn vi atentas',
-	'lqt-newmessages-n' => 'Novaj mesaĝoj ($1)', # Fuzzy
-	'lqt_newmessages' => 'Neniuj novaj mesaĝoj por mi', # Fuzzy
+	'lqt-newmessages-n' => 'Novaj mesaĝoj ($1)',
+	'lqt_newmessages' => 'Novaj mesaĝoj (neniu)',
 	'lqt_newmessages-title' => 'Novaj mesaĝoj',
 	'lqt-newpost-summary' => 'Nova fadeno: $1',
 	'lqt-reply-summary' => 'Respondi al [[$2|$1]]',
