@@ -60,12 +60,11 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 	abstract function getSubmitText();
 
 	function buildForm() {
-		$form = new HTMLForm( $this->getFormFields(), 'lqt-' . $this->getPageName() );
+		$form = new HTMLForm( $this->getFormFields(), $this->getContext(), 'lqt-' . $this->getPageName() );
 
 		$par = $this->mThread->title()->getPrefixedText();
 
 		$form->setSubmitText( $this->getSubmitText() );
-		$form->setTitle( SpecialPage::getTitleFor( $this->getPageName(), $par ) );
 		$form->setSubmitCallback( array( $this, 'trySubmit' ) );
 
 		return $form;
