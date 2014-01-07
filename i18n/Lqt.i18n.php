@@ -4950,7 +4950,7 @@ eke şıma qayili tera xo bıkeri (qayil niyê), cewaban verê esterıtışê g�
 	'lqt-delete-parent-deleted' => 'gıreyo bıngeyın esteriya ($1)',
 	'lqt-delete-replies-done' => 'cewabê ke no gıre re ameyi, esteriyê',
 	'lqt-movethread' => 'Ber',
-	'lqt-menu-trigger' => 'Zewbi',
+	'lqt-menu-trigger' => 'Zêde',
 	'lqt-newmessages-from' => 'Rışten $1',
 	'lqt-hot-topics' => 'sernameyê neweyi',
 	'lqt-add-reply' => 'Yew cewab cı ke',
@@ -6445,6 +6445,7 @@ Eztabaida hau $2-(e)ko zati da.',
 );
 
 /** Persian (فارسی)
+ * @author Armin1392
  * @author Ebraminio
  * @author Huji
  * @author Ladsgroup
@@ -6483,8 +6484,10 @@ $messages['fa'] = array(
 	'lqt_from_talk' => 'از $1',
 	'lqt-history-title' => 'تاریخچهٔ مبحث',
 	'lqt_hist_comment_edited' => 'متن نظر [$2 ویرایش شد]',
+	'lqt_hist_comment_edited_deleted' => 'متن نظر ویرایش شده ( از زمان حذف)',
 	'lqt_hist_summary_changed' => 'خلاصه تغییر کرد',
 	'lqt_hist_reply_created' => '[[$1|پاسخ جدید]] ایجاد شد',
+	'lqt_hist_reply_created_deleted' => 'پاسخ جدید ویرایش شده (از زمان حذف)',
 	'lqt_hist_thread_created' => 'مبحث جدید ایجاد شد',
 	'lqt_hist_deleted' => 'حذف شده',
 	'lqt_hist_undeleted' => 'حذف نشده',
