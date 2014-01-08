@@ -6610,7 +6610,7 @@ $messages['fa'] = array(
 	'lqt-newmessages-from' => 'از $1',
 	'lqt-hot-topics' => 'موضوعات داغ',
 	'lqt-add-reply' => 'افزودن یک پاسخ',
-	'lqt-changesortorder' => 'مرتب کردن',
+	'lqt-changesortorder' => 'مرتب‌کردن',
 	'lqt_rc_new_discussion' => 'یک مبحث جدید فرستاده شد، «$1»',
 	'lqt_rc_new_reply' => 'یک پاسخ به "$1" فرستاده شد',
 	'right-lqt-split' => 'تقسیم عنوان‌ها',
@@ -9727,7 +9727,7 @@ Iste filo face parte de $2.',
 	'lqt_move_thread_bad_destination' => 'Le pagina de destination non es un pagina de discussion.',
 	'lqt_move_samedestination' => 'Le filo es jam presente in iste pagina!',
 	'lqt_move_noreason' => 'Nulle motivo specificate.',
-	'lqt_move_success' => 'Le filo ha essite displaciate verso $1.', # Fuzzy
+	'lqt_move_success' => 'Le filo ha essite displaciate verso $1: $2.',
 	'lqt_talkpage_autocreate_summary' => 'Pagina de discussion create automaticamente al invio del prime filo.',
 	'lqt_header_warning_big' => 'Tu modifica un $1.',
 	'lqt_header_warning_after_big' => 'Le capites es pro annuncios e prefacios.
@@ -9802,7 +9802,7 @@ Pro evitar isto, separa los de iste filo ante de deler lo.',
 	'lqt-merge-success' => 'Tu ha fusionate le filo $1 in $2 con successo.',
 	'lqt-log-name' => 'Registro de filos de discussion',
 	'lqt-log-header' => 'Iste registro detalia le actiones prendite in le filos de discussion.',
-	'lqt-log-action-move' => 'displaciava [[$1]] de [[$2]] a [[$3]]', # Fuzzy
+	'lqt-log-action-move' => 'displaciava [[$1]] de [[$2]] a [[$3]] ($4)',
 	'lqt-log-action-split' => 'separava [[$1]] de sub [[$3]], con le nove subjecto "$2".',
 	'lqt-log-action-merge-across' => 'displaciava [[$1]] de sub [[$2]] a sub [[$3]].',
 	'lqt-log-action-merge-down' => 'fusionava [[$1]] sub [[$3]]',
@@ -10489,8 +10489,10 @@ Potrebbe:
 	'lqt_from_talk' => 'Da $1',
 	'lqt-history-title' => 'Cronologia thread',
 	'lqt_hist_comment_edited' => 'Commento [$2 modificato]',
+	'lqt_hist_comment_edited_deleted' => 'Commento modificato (poi cancellato)',
 	'lqt_hist_summary_changed' => 'Sommario cambiato',
 	'lqt_hist_reply_created' => '[[$1|Nuova risposta]] creata',
+	'lqt_hist_reply_created_deleted' => 'Nuova risposta creata (poi cancellata)',
 	'lqt_hist_thread_created' => 'Nuovo thread creato',
 	'lqt_hist_deleted' => 'Cancellato',
 	'lqt_hist_undeleted' => 'Ripristinato',
@@ -17419,7 +17421,7 @@ $messages['ru'] = array(
 	'lqt_thread_deleted_for_sysops' => "Эта ветка была '''удалена''' и видна только администраторам.",
 	'lqt_thread_deleted' => 'Эта ветка была удалена.',
 	'lqt_summary_notice' => 'Это обсуждение не изменялось как минимум $2 {{PLURAL:$2|день|дней|дня}}.
-Если оно подошло к концу, вы можете $1.', # Fuzzy
+Если оно исчерпано, вы можете $1.',
 	'lqt_summary_notice_link' => 'подвести итог',
 	'lqt_summary_label' => 'Краткое описание ветки:',
 	'lqt_summary_subtitle' => 'Описание ветки «$1»',
@@ -17457,7 +17459,7 @@ $messages['ru'] = array(
 Они останутся видны на соответствующих страницах обсуждений.
 Эта операция необратима.',
 	'lqt-marked-read' => "Ветка '''$1''' отмечена как прочитанная.",
-	'lqt-count-marked-read' => '$1 {{PLURAL:$1|сообщение отмечено как прочитанное|сообщений отмечены как прочитанные|сообщения отмечены как прочитанные}}.', # Fuzzy
+	'lqt-count-marked-read' => '$1 {{PLURAL:$1|сообщение отмечено как прочитанное|сообщений отмечены как прочитанные|сообщения отмечены как прочитанные}}.',
 	'lqt-email-undo' => 'Отменить',
 	'lqt-no-new-messages' => 'Для вас нет новых сообщений.',
 	'lqt-new-messages' => 'Для вас есть новые сообщения.',
@@ -17472,8 +17474,8 @@ $messages['ru'] = array(
 	'lqt-history-thread' => 'Ветка',
 	'lqt-thread-edited-author' => 'Исправлено автором.<br />
 Последняя правка: $1',
-	'lqt-thread-edited-others' => 'Исправлено {{PLURAL:$2|1 другим участником|$2 другими участниками|$2 другими участниками}}.<br />
-Последняя правка: $1', # Fuzzy
+	'lqt-thread-edited-others' => 'Исправлено {{PLURAL:$2|$2 другим участником|$2 другими участниками|1=другим участником}}.<br />
+Последняя правка: $1',
 	'lqt-header-actions' => 'Действия',
 	'lqt_summarize_link' => 'Подвести итог',
 	'lqt-summarize-intro' => 'Пожалуйста, кратко опишите в поле редактирования содержимое данной ветки обсуждения.
@@ -17551,7 +17553,7 @@ $7',
 	'searchprofile-threads-tooltip' => 'Поиск в обсуждениях по веткам и на страницах обсуждений',
 	'lqt-ajax-updated' => 'В этой ветке есть новые сообщения.',
 	'lqt-ajax-update-link' => 'Обновить',
-	'lqt-thread-show-replies' => 'Показать $1 {{PLURAL:$1|ответ|ответов|ответа}}', # Fuzzy
+	'lqt-thread-show-replies' => 'Показать $1 {{PLURAL:$1|ответ|ответов|ответа}}',
 	'lqt-thread-show-more' => 'Показать больше ответов',
 	'lqt-thread-link-url' => 'Ссылка на URL:',
 	'lqt-thread-link-title' => 'Вики-ссылка:',
@@ -21633,8 +21635,8 @@ Oxirgi tahrir: $1',
 	'lqt-drag-subject' => 'Yangi tarmoq uchun mavzu (majburiy)',
 	'lqt-edit-signature' => '(imzoni tahrirlash)',
 	'lqt-preview-signature' => '(koʻrib chiqish)',
-	'lqt-newmessages-n' => 'Yangi xabarlar ($1)', # Fuzzy
-	'lqt_newmessages' => "Yangi xabarlar (yo'q)", # Fuzzy
+	'lqt-newmessages-n' => 'Yangi xabarlar ($1)',
+	'lqt_newmessages' => 'Yangi xabarlar (yoʻq)',
 	'lqt_newmessages-title' => 'Yangi xabarlar',
 	'lqt-newpost-summary' => 'Yangi tarmoq: $1',
 	'lqt-reply-summary' => '[[$2|$1]]ning javobi',
