@@ -11880,6 +11880,7 @@ $7",
  * @author Iltever
  */
 $messages['krc'] = array(
+	'lqt-ajax-update-link' => 'Джангырт',
 	'lqt_newmessages' => 'Джангы билдириуле (Джокъду)', # Fuzzy
 );
 
