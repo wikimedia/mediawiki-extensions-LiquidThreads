@@ -275,14 +275,13 @@ class TalkpageView extends LqtView {
 			$this->showHeader();
 		}
 
-		global $wgLang, $wgBetterDirectionality;
-		if ( $wgBetterDirectionality ) {
-			// This closes the div of mw-content-ltr/rtl containing lang and dir attributes
-			$this->output->addHTML(
-				Html::closeElement( 'div' ) . Html::openElement( 'div',
-				array( 'class' => 'lqt-talkpage', 'lang' => $wgLang->getCode(), 'dir' => $wgLang->getDir() )
-			) );
-		}
+		global $wgLang;
+
+		// This closes the div of mw-content-ltr/rtl containing lang and dir attributes
+		$this->output->addHTML(
+			Html::closeElement( 'div' ) . Html::openElement( 'div',
+			array( 'class' => 'lqt-talkpage', 'lang' => $wgLang->getCode(), 'dir' => $wgLang->getDir() )
+		) );
 
 		$html = '';
 
