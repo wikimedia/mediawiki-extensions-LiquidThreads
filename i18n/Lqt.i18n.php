@@ -5064,6 +5064,7 @@ $7",
 );
 
 /** Lower Sorbian (dolnoserbski)
+ * @author Derbeth
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -5207,7 +5208,7 @@ Móžoš wikitekst w swójom zespominanju wužywaś. Gaž kóńcyš, klikni na "
 	'lqt-split-submit' => 'Rozšćěpiś',
 	'lqt_split_badsubject' => 'Tema, kótaruž sy zapódał, jo njepłaśiwa.',
 	'lqt-no-threads' => 'Hyšći na toś tom boku žedne nitki njejsu.',
-	'lqt-delete-parent-warning' => 'To je głowna nitka z wótegronami.
+	'lqt-delete-parent-warning' => 'To jo głowna nitka z wótegronami.
 Jogo wótegrona budu se teke awtomatiski lašowaś.
 Aby se to wobinuło, wótźěl je wót toś teje nitki, nježli až ju lašujoš.',
 	'lqt-delete-parent-deleted' => 'Nadrědowana nitka wulašowana ($1)',
@@ -5233,7 +5234,7 @@ Aby se to wobinuło, wótźěl je wót toś teje nitki, nježli až ju lašujoš
 	'lqt-log-name' => 'Protokol nitkoweje diskusije',
 	'lqt-log-header' => 'Toś ten protokol nalicujo akcije, kótarež su se na diskusijnych nitkach pśewjadli.',
 	'lqt-log-action-move' => 'jo [[$1]] z [[$2]] do [[$3]] pśesunuł ($4)',
-	'lqt-log-action-split' => 'jo wótźělił [[$1]] wót [[$3]], nowa tema je "$2"',
+	'lqt-log-action-split' => 'jo wótźělił [[$1]] wót [[$3]], nowa tema jo "$2"',
 	'lqt-log-action-merge-across' => 'jo pśesunuł [[$1]] z [[$2]] do [[$3]]',
 	'lqt-log-action-merge-down' => 'jo zjadnośił [[$1]] do [[$3]]',
 	'lqt-log-action-subjectedit' => 'jo změnił [[$1]] wót "$2" do "$3"',
@@ -17378,8 +17379,10 @@ $messages['ru'] = array(
 	'lqt_from_talk' => 'Из $1',
 	'lqt-history-title' => 'История ветки',
 	'lqt_hist_comment_edited' => 'Текст комментария [$2 отредактирован]',
+	'lqt_hist_comment_edited_deleted' => 'Текст комментария отредактирован (с момента удаления)',
 	'lqt_hist_summary_changed' => 'Итог изменён',
 	'lqt_hist_reply_created' => 'Создан [[$1|новый ответ]]',
+	'lqt_hist_reply_created_deleted' => 'Создан новый ответ (с момента удаления)',
 	'lqt_hist_thread_created' => 'Создана новая ветка',
 	'lqt_hist_deleted' => 'Удалена',
 	'lqt_hist_undeleted' => 'Восстановлена',
