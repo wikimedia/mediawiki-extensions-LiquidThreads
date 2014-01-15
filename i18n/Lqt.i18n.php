@@ -6632,6 +6632,7 @@ $messages['fa'] = array(
 	'lqt-log-action-merge-down' => '[[$1]] به تحت [[$3]] ادغام شد',
 	'lqt-log-action-subjectedit' => 'عنوان [[$1]] از «$2» به «$3» تغییر یافت',
 	'lqt-log-action-resort' => 'ترتیب مرتب‌سازی [[$1]] تغییر کرد. کلید مرتب‌سازی از $2 به $3 تغییر یافت.',
+	'lqt-log-action-signatureedit' => 'امضای [[$1]] از "$2" به "$3" تغییر یافت',
 	'lqt-preference-notify-talk' => 'پاسخ مبحث‌هایی که من پی‌گیری می‌کنم به پست الکترونیکی من فرستاده شود',
 	'lqt-preference-watch-threads' => 'عنوان‌هایی که من می‌سازم یا پاسخ می‌دهم پی‌گیری شوند',
 	'prefs-lqt' => 'بحث مبحث‌بندی‌شده',
