@@ -14560,6 +14560,7 @@ $messages['nds-nl'] = array(
 /** Nepali (नेपाली)
  * @author Bhawani Gautam
  * @author Bhawani Gautam Rhk
+ * @author Krish Dulal
  * @author RajeshPandey
  * @author सरोज कुमार ढकाल
  */
@@ -14629,7 +14630,7 @@ $messages['ne'] = array(
 	'lqt-marked-read' => "धागो(thread) '''$1''' पढिएको भनी चिनो लगाइयो ।",
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|सन्देश|सन्देशहरु}}लाई पढिएकोमा चिह्नित गर्ने',
 	'lqt-email-undo' => 'रद्द गर्ने',
-	'lqt-no-new-messages' => 'तपाईंलाई नयाँ सन्देशहरु छैनन्।',
+	'lqt-no-new-messages' => 'तपाईंलाई नयाँ सन्देशहरू छैनन्।',
 	'lqt-new-messages' => 'तपाईकोनिम्ति नयाँ सन्देशहरु छन्।',
 	'lqt-newmessages-context' => 'पूरा धागो(thread)',
 	'lqt-thread-created' => 'सिर्जना गरियो',
