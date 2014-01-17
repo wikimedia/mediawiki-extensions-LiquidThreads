@@ -14631,7 +14631,7 @@ $messages['ne'] = array(
 	'lqt-count-marked-read' => '$1 {{PLURAL:$1|सन्देश|सन्देशहरु}}लाई पढिएकोमा चिह्नित गर्ने',
 	'lqt-email-undo' => 'रद्द गर्ने',
 	'lqt-no-new-messages' => 'तपाईंलाई नयाँ सन्देशहरू छैनन्।',
-	'lqt-new-messages' => 'तपाईकोनिम्ति नयाँ सन्देशहरु छन्।',
+	'lqt-new-messages' => 'तपाईंका लागि नयाँ सन्देशहरू छन्।',
 	'lqt-newmessages-context' => 'पूरा धागो(thread)',
 	'lqt-thread-created' => 'सिर्जना गरियो',
 	'lqt-history-time' => 'समय',
@@ -14706,8 +14706,8 @@ $7",
 	'lqt-edit-signature' => '(हस्ताक्षर सम्पादन गर्ने)',
 	'lqt-preview-signature' => '(पूर्व रुप)',
 	'lqt-feed-title-all' => '{{SITENAME}} — नयाँ पोस्ट',
-	'lqt-newmessages-n' => 'नयाँ सन्देशहरु ($1)', # Fuzzy
-	'lqt_newmessages' => 'मेरा नयाँ सन्देशहरु (छैनन्)', # Fuzzy
+	'lqt-newmessages-n' => 'नयाँ सन्देशहरू ($1)',
+	'lqt_newmessages' => 'नयाँ सन्देशहरू (छैनन्)',
 	'lqt_newmessages-title' => 'नयाँ सन्देशहरू',
 );
 
@@ -19553,6 +19553,7 @@ $messages['su'] = array(
  * @author GameOn
  * @author Jon Harald Søby
  * @author Lejonel
+ * @author Lokal Profil
  * @author M.M.S.
  * @author MagnusA
  * @author Najami
@@ -19589,8 +19590,10 @@ Det kan bero på att:
 	'lqt_from_talk' => 'Från $1',
 	'lqt-history-title' => 'Trådhistorik',
 	'lqt_hist_comment_edited' => 'Kommentartext [$2 redigerad]',
+	'lqt_hist_comment_edited_deleted' => 'Kommentartext redigerad (sedermera raderad)',
 	'lqt_hist_summary_changed' => 'Sammanfattning ändrad',
 	'lqt_hist_reply_created' => '[[$1|Nytt svar]] skapat',
+	'lqt_hist_reply_created_deleted' => 'Nytt svar skapat (sedermera raderad)',
 	'lqt_hist_thread_created' => 'Ny diskussionssida skapad',
 	'lqt_hist_deleted' => 'Raderad',
 	'lqt_hist_undeleted' => 'Återupprättad',
