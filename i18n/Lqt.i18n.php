@@ -1296,7 +1296,7 @@ $messages['ar'] = array(
 	'lqt-history-thread' => 'خيط',
 	'lqt-thread-edited-author' => 'عدّلها المؤلف.<br />
 كان آخر تعديل في: $1',
-	'lqt-thread-edited-others' => 'عدّلها {{PLURAL:$2||مستخدم آخر|مستخدمان آخران|$2 مستخدمين آخرين|$2 مستخدمًا آخرًا|$2 مستخدم آخر}}.<br />
+	'lqt-thread-edited-others' => 'عدّلها {{PLURAL:$2||مستخدم آخر|مستخدمان آخران|$2 مستخدمين آخرين|$2 مستخدمًا آخر|$2 مستخدم آخر}}.<br />
 كان آخر تعديل في: $1',
 	'lqt-header-actions' => 'الإجراءات',
 	'lqt_summarize_link' => 'الملخص',
@@ -7706,8 +7706,10 @@ Pode deberse a algún dos seguintes motivos:
 	'lqt_from_talk' => 'De "$1"',
 	'lqt-history-title' => 'Historial do fío',
 	'lqt_hist_comment_edited' => '[$2 Editouse] o texto do comentario',
+	'lqt_hist_comment_edited_deleted' => 'Editouse o texto do comentario (desde o seu borrado)',
 	'lqt_hist_summary_changed' => 'Modificouse o resumo',
 	'lqt_hist_reply_created' => 'Creouse unha [[$1|nova resposta]]',
+	'lqt_hist_reply_created_deleted' => 'Creouse unha nova resposta (desde o seu borrado)',
 	'lqt_hist_thread_created' => 'Creouse un novo fío',
 	'lqt_hist_deleted' => 'Borrado',
 	'lqt_hist_undeleted' => 'Recuperado',
