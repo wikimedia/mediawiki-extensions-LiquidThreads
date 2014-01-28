@@ -821,7 +821,7 @@ window.liquidThreads = {
 		e.preventDefault();
 		var thread = $( this ).closest( '.lqt_thread' );
 		var linkTitle = thread.find( '.lqt-thread-title-metadata' ).val();
-		var linkURL = mw.config.get( 'wgArticlePath' ).replace( '$1', linkTitle.replace(/ /g, '_' ) );
+		var linkURL = mw.util.getUrl( linkTitle );
 		linkURL = mw.config.get( 'wgServer' ) + linkURL;
 		if ( linkURL.substr( 0, 2 ) === '//' ) {
 			linkURL = window.location.protocol + linkURL;

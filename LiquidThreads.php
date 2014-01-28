@@ -87,6 +87,7 @@ $wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
 		'mediawiki.api.watch',
 		'user.tokens',
 		'mediawiki.api',
+		'mediawiki.util',
 	),
 	'messages' => $lqtMessages
 );
