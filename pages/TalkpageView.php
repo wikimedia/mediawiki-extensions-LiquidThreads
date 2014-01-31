@@ -309,7 +309,7 @@ class TalkpageView extends LqtView {
 		}
 
 		global $wgSearchTypeAlternatives;
-		if ( in_array( "LuceneSearch", $wgSearchTypeAlternatives ?: array() ) ) {
+		if ( $wgSearchType == "LuceneSearch" || in_array( "LuceneSearch", $wgSearchTypeAlternatives ?: array() ) ) {
 			$talkpageHeader .= $this->getSearchBox();
 		}
 		$talkpageHeader .= $this->showTalkpageViewOptions( $article );
