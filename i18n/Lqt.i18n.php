@@ -16808,6 +16808,7 @@ $messages['qu'] = array(
 	'lqt-newmessages-context' => "Tukuy q'aytu",
 	'lqt-preference-notify-talk' => "E-chaskita kutichispa watiqasqay q'aytuman kachamuway",
 	'lqt-ajax-updated' => "Q'aytupi musuq willaykunam kachkan.",
+	'lqt-drag-save' => 'Takyachiy',
 	'lqt-feed-title-all' => '{{SITENAME}} — Musuq willaykuna',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — $1-manta musuq willaykuna',
 	'tooltip-pt-newmessages' => "Watiqasqayki q'aytukunapi rimanakuy p'anqakunapipas musuq willaykunatam rikuchisunki",
