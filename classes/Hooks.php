@@ -74,7 +74,7 @@ class LqtHooks {
 	}
 
 	static function setNewtalkHTML( $skintemplate, $tpl ) {
-		global $wgUser, $wgTitle, $wgOut;
+		global $wgUser, $wgOut;
 
 		// If the user isn't using LQT on their talk page, bail out
 		if ( ! LqtDispatch::isLqtPage( $wgUser->getTalkPage() ) ) {
@@ -87,13 +87,14 @@ class LqtHooks {
 			return true;
 		}
 
+		$pageTitle = $skintemplate->getTitle();
 		$newmsg_t = SpecialPage::getTitleFor( 'NewMessages' );
 		$watchlist_t = SpecialPage::getTitleFor( 'Watchlist' );
 		$usertalk_t = $wgUser->getTalkPage();
 		if ( $wgUser->getNewtalk()
-				&& ! $newmsg_t->equals( $wgTitle )
-				&& ! $watchlist_t->equals( $wgTitle )
-				&& ! $usertalk_t->equals( $wgTitle )
+				&& ! $newmsg_t->equals( $pageTitle )
+				&& ! $watchlist_t->equals( $pageTitle )
+				&& ! $usertalk_t->equals( $pageTitle )
 				) {
 			$s = wfMessage( 'lqt_youhavenewmessages', $newmsg_t->getPrefixedText() )->parse();
 			$tpl->set( "newtalk", $s );

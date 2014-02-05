@@ -39,9 +39,7 @@ class TalkpageHeaderView extends LqtView {
 	}
 
 	function show() {
-		global $wgOut, $wgTitle, $wgRequest;
-
-		if ( $wgRequest->getVal( 'action' ) === 'edit' ) {
+		if ( $this->request->getVal( 'action' ) === 'edit' ) {
 			$html = '';
 
 			$warn_bold = Xml::tags(
@@ -51,7 +49,7 @@ class TalkpageHeaderView extends LqtView {
 			);
 
 			$warn_link = $this->talkpageLink(
-				$wgTitle,
+				$this->title,
 				wfMessage( 'lqt_header_warning_new_discussion' )->parse(),
 				'talkpage_new_thread'
 			);
@@ -69,7 +67,7 @@ class TalkpageHeaderView extends LqtView {
 
 			$html = Xml::tags( 'p', array( 'class' => 'lqt_header_warning' ), $html );
 
-			$wgOut->addHTML( $html );
+			$this->output->addHTML( $html );
 		}
 
 		return true;
