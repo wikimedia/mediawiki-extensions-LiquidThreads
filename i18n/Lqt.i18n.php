@@ -6730,6 +6730,7 @@ $1',
 	'nstab-summary' => 'خلاصه',
 	'echo-pref-email-lqt-new-topic' => 'ایجاد بحث جدید',
 	'echo-pref-email-lqt-reply' => 'پاسخ ها به بحث',
+	'pageinfo-usinglqt' => 'موضوع بحث شده فعال شده',
 	'pageinfo-usinglqt-yes' => 'بله',
 );
 
