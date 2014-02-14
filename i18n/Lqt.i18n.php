@@ -4987,7 +4987,7 @@ eke şıma qayili tera xo bıkeri (qayil niyê), cewaban verê esterıtışê g�
 	'prefs-lqt' => 'Ratnayışıno vatenın',
 	'lqt-preference-display-depth' => 'Gösterilecek azami cevap derinliği:',
 	'lqt-preference-display-count' => 'amarê cewabi yo azami ramociyeno:',
-	'lqt-preference-custom-signatures' => 'imzayê karberani yê xusûsiyan ramocın',
+	'lqt-preference-custom-signatures' => 'İmzayanê karberanê xısusiyan bımocne',
 	'lqt-enotif-subject-reply' => '{{SITENAME}} ra vatene - Cevab: $1',
 	'lqt-enotif-subject-newthread' => '{{SITENAME}} ra vatene  -mesaco newe: $1',
 	'lqt-enotif-newthread' => "Merheba $1,
@@ -22501,6 +22501,7 @@ $messages['yi'] = array(
 );
 
 /** Cantonese (粵語)
+ * @author Antonytse
  * @author Shinjiman
  */
 $messages['yue'] = array(
@@ -22533,7 +22534,7 @@ $messages['yue'] = array(
 	'lqt_change_new_thread' => '呢個係個討論串嘅最初修訂。',
 	'lqt_change_reply_created' => '嘜咗嘅評論響呢次修訂度開過。', # Fuzzy
 	'lqt_change_edited_root' => '嘜咗嘅評論響呢次修訂度改過。', # Fuzzy
-	'lqt_youhavenewmessages' => '你有$1。', # Fuzzy
+	'lqt_youhavenewmessages' => '你有[[$1|新訊息]]。',
 	'lqt_protectedfromreply' => '呢個要回覆嘅討論串己經$1。',
 	'lqt_protectedfromreply_link' => '保護咗',
 	'lqt_subject' => '主旨:',
