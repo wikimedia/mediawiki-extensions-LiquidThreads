@@ -3639,8 +3639,11 @@ $messages['ce'] = array(
 	'lqt_delete' => 'ДӀаяккха',
 	'lqt_undelete' => 'МеттахӀоттае',
 	'lqt_permalink' => 'Хьажораг кхузе',
+	'lqt-history-title' => 'Ган истори',
 	'lqt_hist_summary_changed' => 'Жамl хийцна',
 	'lqt_hist_reply_created' => '[[$1|Керла жоп]] кхоьлина',
+	'lqt_hist_moved_talkpage' => 'Кхечухьа яьккхина',
+	'lqt_hist_listing_subtitle' => 'Истори хьажар',
 	'lqt_hist_edited_subject_corrupt' => 'Тема хийцина',
 	'lqt_hist_adjusted_sortkey' => 'Билгало йолу меттиг хийцина',
 	'lqt_youhavenewmessages' => 'Хьуна кхаьчна [[$1|керла хаамаш]].',
@@ -3675,6 +3678,8 @@ $messages['ce'] = array(
 	'lqt-menu-trigger' => 'Кхин',
 	'lqt-newmessages-from' => 'АгӀона чура $1',
 	'lqt-changesortorder' => 'Къестош хьажар',
+	'lqt-log-name' => 'Генийн дийцарийн тептар',
+	'lqt-log-action-move' => 'кхечухьа яьккхина [[$1]] чура [[$2]] кху [[$3]] ($4) чу.',
 	'lqt-log-action-subjectedit' => 'Хийцина тема [[$1]] «$2» → «$3»',
 	'lqt-log-action-resort' => 'хийцина къастам [[$1]]. Къастаман догӀа хийцар $2 → $3',
 	'lqt-log-action-signatureedit' => 'Хийца куьгтаӀор [[$1]] тӀера «$2» оцу «$3»',
@@ -3751,9 +3756,11 @@ $messages['ckb'] = array(
 );
 
 /** Corsican (corsu)
+ * @author Paulu
  */
 $messages['co'] = array(
 	'lqt_subject' => 'Sughjettu:',
+	'lqt_newmessages' => 'novi missaghji (nissunu)',
 );
 
 /** Czech (čeština)
