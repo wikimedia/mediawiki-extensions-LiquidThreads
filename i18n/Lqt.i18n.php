@@ -20041,6 +20041,7 @@ $messages['ta'] = array(
 );
 
 /** Telugu (తెలుగు)
+ * @author Chaduvari
  * @author Kiranmayee
  * @author Veeven
  */
@@ -20176,7 +20177,7 @@ $messages['te'] = array(
 సంతకాన్ని స్వయంచాలకంగా చూపిస్తాం.',
 	'lqt-change-subject' => 'విషయాన్ని మార్చు',
 	'lqt-save-subject' => 'భద్రపరచు',
-	'lqt-save-subject-failed' => 'ఈ చర్చాహారం యొక్క విషయాన్ని మార్చడంలో ఈ పొరపాటు జరిగింది: $1',
+	'lqt-save-subject-failed' => 'ఈ తీగ యొక్క విషయాన్ని మార్చడంలో కింది లోపం జరిగింది: $1',
 	'lqt-ajax-invalid-subject' => 'మీరు ఇచ్చిన విషయం చెల్లదు, బహుశా అది బాగా పొడవుగా ఉండటంవల్ల కావచ్చు.',
 	'lqt-ajax-no-subject' => 'మీరు తప్పనిసరిగా విషయాన్ని ఇవ్వాలి.', # Fuzzy
 	'lqt-cancel-subject-edit' => 'రద్దుచేయి',
