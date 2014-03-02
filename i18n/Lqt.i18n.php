@@ -11908,10 +11908,11 @@ $messages['krc'] = array(
 
 /** Krio (Krio)
  * @author Jose77
+ * @author Protostar
  */
 $messages['kri'] = array(
-	'lqt_delete' => 'Dilit',
-	'lqt_discussion_link' => 'diskohshohn',
+	'lqt_delete' => 'Delet',
+	'lqt_discussion_link' => 'diskùssiòn',
 );
 
 /** Kinaray-a (Kinaray-a)
@@ -20194,8 +20195,8 @@ $messages['te'] = array(
 	'lqt-feed-title-new-threads-from' => '{{SITENAME}} — $1 నుండి కొత్త చర్చాహారాలు',
 	'lqt-feed-title-replies' => '{{SITENAME}} — స్పందనలు',
 	'lqt-feed-title-replies-from' => '{{SITENAME}} — $1 నుండి స్పందనలు',
-	'lqt-newmessages-n' => 'కొత్త సందేశాలు ($1)', # Fuzzy
-	'lqt_newmessages' => 'నా కొత్త సందేశాలు (ఏమీలేవు)', # Fuzzy
+	'lqt-newmessages-n' => 'కొత్త సందేశాలు ($1)',
+	'lqt_newmessages' => 'కొత్త సందేశాలు (ఏమీలేవు)',
 	'lqt_newmessages-title' => 'కొత్త సందేశాలు',
 	'lqt-newpost-summary' => 'కొత్త చర్చాహారం: $1',
 	'lqt-reply-summary' => '[[$2|$1]]కి స్పందన',
