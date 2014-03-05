@@ -8836,6 +8836,7 @@ $messages['hil'] = array(
  * @author Dalibor Bosits
  * @author Ex13
  * @author Herr Mlinka
+ * @author MaGa
  * @author Roberta F.
  * @author SpeedyGonsales
  */
@@ -8847,7 +8848,7 @@ $messages['hr'] = array(
 	'lqt_toc_thread_title' => 'Naslov rasprave',
 	'lqt_toc_thread_author' => 'Započeto od',
 	'lqt_toc_thread_replycount' => 'Odgovori',
-	'lqt_toc_thread_modified' => 'Zadnje izmjenjeno',
+	'lqt_toc_thread_modified' => 'Posljednje izmijenjeno',
 	'lqt_add_header' => 'Dodaj zaglavlje',
 	'lqt_new_thread' => 'Započnite novu raspravu',
 	'lqt_invalid_subject' => 'Naziv teme koji ste unijeli nije ispravan.
@@ -8935,7 +8936,7 @@ Možda želite $2.',
 	'lqt_header_warning_bold' => 'zaglavlje stranice za razgovor',
 	'lqt_header_warning_new_discussion' => 'započnite novu temu',
 	'lqt_sorting_order' => 'Sortiranje:',
-	'lqt_sort_newest_changes' => 'prvo zadnja izmjena',
+	'lqt_sort_newest_changes' => 'prvo posljednja izmjena',
 	'lqt_sort_newest_threads' => 'najnovije teme prvo',
 	'lqt_sort_oldest_threads' => 'najstarije teme prvo',
 	'lqt-title' => 'Naslov',
