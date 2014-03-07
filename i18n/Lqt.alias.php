@@ -472,6 +472,7 @@ $specialPageAliases['sv'] = array(
 	'MoveThread' => array( 'Flytta_tråd' ),
 	'NewMessages' => array( 'Nya_meddelanden' ),
 	'SplitThread' => array( 'Dela_tråd' ),
+	'MergeThread' => array( 'Slå_ihop_tråd' ),
 );
 
 /** Swahili (Kiswahili) */
