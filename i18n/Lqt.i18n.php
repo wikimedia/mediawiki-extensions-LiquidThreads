@@ -16265,6 +16265,7 @@ $messages['ps'] = array(
  * @author Giro720
  * @author Hamilton Abreu
  * @author Helder.wiki
+ * @author Imperadeiro98
  * @author Lijealso
  * @author Luckas
  * @author Malafaya
@@ -16360,7 +16361,7 @@ Se está terminada, talvez queira $1.',
 	'lqt_move_thread_bad_destination' => 'A página de destino não é uma página de discussão.',
 	'lqt_move_samedestination' => 'Esse tópico já existe nesta página!',
 	'lqt_move_noreason' => 'Não foi especificado um motivo.',
-	'lqt_move_success' => 'O tópico foi movido para $1.', # Fuzzy
+	'lqt_move_success' => 'O tópico foi movido para $1: $2.',
 	'lqt_talkpage_autocreate_summary' => 'Página de discussão criada automaticamente quando o primeiro tópico foi criado.',
 	'lqt_header_warning_big' => 'Está a editar um $1.',
 	'lqt_header_warning_after_big' => 'Os cabeçalhos são para anúncios e prefácios.
@@ -16435,7 +16436,7 @@ Para evitá-lo, separe-as antes de apagar o tópico.',
 	'lqt-merge-success' => 'Juntou o tópico $1 ao tópico $2 com sucesso.',
 	'lqt-log-name' => 'Registo de discussões em tópicos',
 	'lqt-log-header' => 'Este registro detalha as ações tomadas nos tópicos de discussão.',
-	'lqt-log-action-move' => 'movido [[$1]] de [[$2]] para [[$3]].', # Fuzzy
+	'lqt-log-action-move' => 'moveu [[$1]] de [[$2]] para [[$3]] ($4)',
 	'lqt-log-action-split' => 'separou [[$1]] do tópico [[$3]], e deu-lhe o novo assunto "$2"',
 	'lqt-log-action-merge-across' => 'moveu [[$1]] do tópico [[$2]] para o tópico [[$3]]',
 	'lqt-log-action-merge-down' => 'moveu [[$1]] para o tópico [[$3]]',
@@ -16510,8 +16511,8 @@ A assinatura é apresentada automaticamente.',
 	'lqt-feed-new-thread-intro' => 'Novo tópico em $1 colocado por {{GENDER:$4|$2}}',
 	'lqt-feed-reply-intro' => 'Resposta a $3 (em $1) colocada por {{GENDER:$4|$2}}',
 	'tooltip-pt-newmessages' => 'Mostra as mensagens novas nos tópicos, ou nas páginas de discussão por tópicos, que está a vigiar',
-	'lqt-newmessages-n' => 'Mensagens novas ($1)', # Fuzzy
-	'lqt_newmessages' => 'Mensagens (Nenhuma)', # Fuzzy
+	'lqt-newmessages-n' => 'Mensagens novas ($1)',
+	'lqt_newmessages' => 'Mensagens novas (nenhuma)',
 	'lqt_newmessages-title' => 'Mensagens',
 	'lqt-newpost-summary' => 'Tópico novo: $1',
 	'lqt-reply-summary' => 'Resposta a [[$2|$1]]',
