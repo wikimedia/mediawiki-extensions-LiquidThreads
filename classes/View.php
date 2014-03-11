@@ -1927,7 +1927,7 @@ class LqtView {
 					// We've shown too many threads.
 					$link = $this->getShowMore( $thread, $st, $i );
 
-					$this->output->addHTML( $div . $link );
+					$this->output->addHTML( $div . $link . '</div>' );
 					$showThreads = false;
 					continue;
 				}
