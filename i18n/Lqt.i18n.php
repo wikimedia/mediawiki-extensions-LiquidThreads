@@ -3712,7 +3712,7 @@ $7',
 	'lqt-thread-show-more' => 'Гайта шорта жоьпаш',
 	'lqt-thread-link-url' => 'Хьажораг URL тӀе:',
 	'lqt-change-subject' => 'Нисбе коьрта могlа',
-	'lqt-save-subject' => 'lалашдан',
+	'lqt-save-subject' => 'Ӏалашдан',
 	'lqt-cancel-subject-edit' => 'Цаоьшу',
 	'lqt-drag-activate' => 'Дехьа йаккха',
 	'lqt-drag-drop-zone' => 'Дехьа яккха кхузе',
@@ -8336,13 +8336,14 @@ $messages['hak'] = array(
 
 /** Hawaiian (Hawai`i)
  * @author Kalani
+ * @author Kolonahe
  * @author Singularity
  */
 $messages['haw'] = array(
-	'lqt_contents_title' => 'Papa kuhikuhi', # Fuzzy
+	'lqt_contents_title' => 'Nā Mealoko',
 	'lqt_discussion_link' => 'kūkākūkā',
 	'lqt-summary' => 'Hōʻuluʻulu manaʻo',
-	'lqt-email-undo' => 'Hoʻihoʻi mai',
+	'lqt-email-undo' => 'Hoʻihoʻi',
 );
 
 /** Hebrew (עברית)
