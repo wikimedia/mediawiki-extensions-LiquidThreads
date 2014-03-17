@@ -3720,8 +3720,9 @@ $7',
 	'lqt-edit-signature' => '(нийсде куьг)',
 	'lqt-preview-signature' => '(хьалха муха ю хьажар)',
 	'lqt-feed-title-all-from' => '{{SITENAME}} — Керла хаамаш $1',
+	'tooltip-pt-newmessages' => 'Хьа тергамехь долу генийн тӀера керла хаамаш гойту',
 	'lqt-newmessages-n' => 'Керла хаамаш ($1)', # Fuzzy
-	'lqt_newmessages' => 'Керла хаамаш', # Fuzzy
+	'lqt_newmessages' => 'Керла хаамаш (бац)',
 	'lqt_newmessages-title' => 'Керла хаамаш',
 	'lqt-talkpage-history-title' => 'Дийцарийн агӀона истори',
 	'lqt-talkpage-history-subtitle' => 'Цунна $1',
@@ -4883,7 +4884,7 @@ Sebebê ey:
 	'lqt_youhavenewmessages' => 'Şıma rê [[$1|Mesaco newe]] esto.',
 	'lqt_protectedfromreply' => 'no gıre, cewabdayiş nêwazeno $1.',
 	'lqt_protectedfromreply_link' => 'pawıteyo',
-	'lqt_subject' => 'Mersel:',
+	'lqt_subject' => 'Mewzu:',
 	'lqt_noreason' => 'sebeb nêvaciyayo',
 	'lqt_move_placeholder' => 'Bu düğüm, bir düğümün, $1, bu sayfadan başka bir tartışma sayfasına çıkarıldığını belirten bir yertutucudur.
 Bu taşıma $3 $4 tarihinde $2 tarafından yapılmıştır. Düğüm şu anda $5 adresinde bulunuyor.',
@@ -13267,9 +13268,9 @@ $messages['mk'] = array(
 	'lqt-history-action' => 'Активност',
 	'lqt-history-comment' => 'Коментар',
 	'lqt-history-thread' => 'Нишка',
-	'lqt-thread-edited-author' => 'Уредено од авторот<br />
+	'lqt-thread-edited-author' => 'Уредено од авторот.<br />
 Последно уредување: $1',
-	'lqt-thread-edited-others' => 'Уредено од $2 корисници<br />
+	'lqt-thread-edited-others' => 'Уредено од ${{PLURAL:$2|друг корисник|$2 корисници}}<br />
 Последно уредување: $1',
 	'lqt-header-actions' => 'Дејства',
 	'lqt_summarize_link' => 'Краток опис',
