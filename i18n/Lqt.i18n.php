@@ -10505,7 +10505,7 @@ Potrebbe:
 	'lqt_reply' => 'Rispondi',
 	'lqt-parent' => 'Padre',
 	'lqt_delete' => 'Cancella',
-	'lqt_undelete' => 'Recupera',
+	'lqt_undelete' => 'Ripristina',
 	'lqt_permalink' => 'Link permanente',
 	'lqt_fragment' => 'Frammento di una $1 da $2',
 	'lqt_discussion_link' => 'discussione',
