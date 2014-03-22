@@ -152,7 +152,7 @@ body.rtl #wikieditor-toolbar-reference-dialog label {
 }
 .wikiEditor-template-dialog-fields .wikiEditor-template-dialog-field-wrapper {
 	padding: 0.75em 0.33em;
-	border-bottom: dashed 1px silver;
+	border-bottom: 1px dashed silver;
 	clear: both;
 }
 .wikiEditor-template-dialog-fields .wikiEditor-template-dialog-field-wrapper:first-child {
