@@ -6749,6 +6749,7 @@ $1',
  * @author Nedergard
  * @author Nike
  * @author Olli
+ * @author Pxos
  * @author Samoasambia
  * @author Silvonen
  * @author Str4nd
@@ -6772,7 +6773,7 @@ Syy voi olla:
 	'lqt-empty-text' => 'Tyhjää viestiä ei voi jättää',
 	'lqt_empty_subject' => 'Sinun täytyy antaa aihe.',
 	'lqt_reply' => 'Vastaa',
-	'lqt-parent' => 'Vastine',
+	'lqt-parent' => 'Ylempi viesti',
 	'lqt_delete' => 'Poista',
 	'lqt_undelete' => 'Palauta',
 	'lqt_permalink' => 'Linkki tähän viestiin',
@@ -12289,7 +12290,7 @@ Et ass méiglech, datt:
 	'lqt-history-title' => 'Historique vun der Rubrik',
 	'lqt_hist_comment_edited' => 'Text vun der Bemierkung [$2 geännert]',
 	'lqt_hist_comment_edited_deleted' => 'Text vun der Bemierkung geännert (zanter geläscht)',
-	'lqt_hist_summary_changed' => 'Résumé geännert',
+	'lqt_hist_summary_changed' => 'Resumé geännert',
 	'lqt_hist_reply_created' => '[[$1|Nei Äntwert]] ginn',
 	'lqt_hist_thread_created' => 'Nei Rubrik ugeluecht',
 	'lqt_hist_deleted' => 'Geläscht',
@@ -14778,8 +14779,10 @@ $messages['nl'] = array(
 	'lqt_from_talk' => 'Van $1',
 	'lqt-history-title' => 'Geschiedenis onderwerp',
 	'lqt_hist_comment_edited' => 'Opmerking [$2 bewerkt]',
+	'lqt_hist_comment_edited_deleted' => 'Reactie gewijzigd (inmiddels verwijderd)',
 	'lqt_hist_summary_changed' => 'Samenvatting aangepast',
 	'lqt_hist_reply_created' => '[[$1|Nieuw antwoord]] gegeven',
+	'lqt_hist_reply_created_deleted' => 'Nieuwe reactie (inmiddels verwijderd)',
 	'lqt_hist_thread_created' => 'Nieuw onderwerp gemaakt',
 	'lqt_hist_deleted' => 'Verwijderd',
 	'lqt_hist_undeleted' => 'Teruggeplaatst',
