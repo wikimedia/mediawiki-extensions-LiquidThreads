@@ -2173,9 +2173,11 @@ $messages['bcc'] = array(
 );
 
 /** Belarusian (беларуская)
+ * @author Дзяніс Тутэйшы
  * @author Тест
  */
 $messages['be'] = array(
+	'lqt-new-messages' => 'Для вас ёсць новыя паведамленні',
 	'lqt-drag-save' => 'Пацвердзіць',
 	'lqt-drag-reason' => 'Прычына:',
 );
