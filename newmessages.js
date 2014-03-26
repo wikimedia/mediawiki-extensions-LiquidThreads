@@ -6,7 +6,7 @@
 
 $.extend( liquidThreads, {
 	markReadDone: {
-		'one' : function ( reply,button,operand ) {
+		'one' : function ( reply, button, operand ) {
 			var row = $( button ).closest( 'tr' );
 			var right_col = row.find( 'td.lqt-newmessages-right' );
 			$( button ).closest( 'td' ).empty();

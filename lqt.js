@@ -6,7 +6,7 @@
  *
  * FIXME: This module uses deprecated jQuery.browser.
  */
-/*global liquidThreads, alert */
+/*global liquidThreads, alert, wgWikiEditorPreferences, mwSetupToolbar */
 ( function ( mw, $ ) {
 
 window.wgWikiEditorIconVersion = 0;
@@ -217,9 +217,9 @@ window.liquidThreads = {
 				$( '#wpTextbox1' ).focus();
 			} else {
 				// Add old toolbar
-				mwSetupToolbar();
+				mwSetupToolbar(); // Fix it. Can't locate this.
 			}
-			currentFocused = $( container ).find( '#wpTextbox1' );
+			var currentFocused = $( container ).find( '#wpTextbox1' );
 			mw.hook( 'ext.lqt.textareaCreated' ).fire( currentFocused );
 			$( container ).find( '#wpTextbox1,#wpSummary' ).focus( function () {
 				currentFocused = this;
@@ -620,7 +620,7 @@ window.liquidThreads = {
 		var prefixLength = 'lqt_thread_id_'.length;
 		// Add the interruption class if it needs it
 		// FIXME: misses a lot of cases
-		$parentWrapper = $( threadContainer )
+		var $parentWrapper = $( threadContainer )
 			.closest( '.lqt-thread-wrapper' ).parent().closest( '.lqt-thread-wrapper' );
 		if ( $parentWrapper.next( '.lqt-thread-wrapper' ).length > 0 ) {
 			$parentWrapper
@@ -778,8 +778,8 @@ window.liquidThreads = {
 			tlcOffset = 'lqt-threadlevel-commands-'.length,
 			oldButton = button.clone();
 			// Find the title of the thread
-			threadLevelCommands = button.closest( '.lqt_threadlevel_commands' ),
-			title = $( '#lqt-thread-title-' + threadLevelCommands.attr( 'id' ).substring( tlcOffset ) ).val();
+			var threadLevelCommands = button.closest( '.lqt_threadlevel_commands' );
+			var title = $( '#lqt-thread-title-' + threadLevelCommands.attr( 'id' ).substring( tlcOffset ) ).val();
 
 		// Check if we're watching or unwatching.
 		var action = '';
@@ -904,9 +904,9 @@ window.liquidThreads = {
 		editform.prepend( spinner );
 
 		var replyCallback = function ( data ) {
-			$parent = $( '#lqt_thread_id_' + data.threadaction.thread['parent-id'] );
-			$html = $( data.threadaction.thread.html );
-			$newThread = $html.find( '#lqt_thread_id_' + data.threadaction.thread['thread-id'] );
+			var $parent = $( '#lqt_thread_id_' + data.threadaction.thread['parent-id'] );
+			var $html = $( data.threadaction.thread.html );
+			var $newThread = $html.find( '#lqt_thread_id_' + data.threadaction.thread['thread-id'] );
 			$parent.find( '.lqt-thread-replies:first' ).append( $newThread );
 			$parent.closest( '.lqt-thread-topmost' )
 				.find( 'input.lqt-thread-modified' )
@@ -941,7 +941,7 @@ window.liquidThreads = {
 			form.append( saveHidden );
 			form.parent().data( 'non-ajax-submit', true ); // To avoid edit form open warning
 			form.submit();
-		}
+		};
 
 		var doneCallback = function ( data ) {
 			var result;
@@ -1457,7 +1457,7 @@ window.liquidThreads = {
 			thread.find( '.lqt-post-wrapper' ).data( 'thread-id', threadId );
 
 			if ( typeof payload['new-sortkey'] !== 'undefined' ) {
-				newSortKey = payload['new-sortkey'];
+				var newSortKey = payload['new-sortkey'];
 				thread.find( '.lqt-thread-modified' ).val( newSortKey );
 				thread.find( 'input[name=lqt-thread-sortkey]' ).val( newSortKey );
 			} else {

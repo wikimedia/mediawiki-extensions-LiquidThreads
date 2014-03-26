@@ -1,18 +1,16 @@
 /**
  * jQuery plugin for collapsing LiquidThreads elements.
  */
-
 ( function ( $ ) {
 	'use strict';
 
-	$.fn.thread_collapse = function( $$options ) {
+	$.fn.thread_collapse = function() {
 		// return if the function is called on an empty jquery object
 		if( !this.length ) {
 			return this;
 		}
 
 		//merge options into the defaults
-		var $settings = $.extend( {}, $.thread_collapse.defaults, $$options );
 		// run the initialization on each jquery object
 		this.each( function() {
 			var $thread = $( this );
