@@ -1906,6 +1906,10 @@ liquidThreads.toolbar = {
 						match = s.match( regex );
 					}
 
+					var start;
+					var end;
+					var newEnd;
+
 					if ( !match ) {
 						$( '#wikieditor-toolbar-replace-nomatch' ).show();
 					} else if ( mode === 'replaceAll' ) {
@@ -1922,9 +1926,9 @@ liquidThreads.toolbar = {
 							}
 							s = s.substr( index + match[i].length );
 
-							var start = index + offset;
-							var end = start + match[i].length;
-							var newEnd = start + replaceStr.length;
+							start = index + offset;
+							end = start + match[i].length;
+							newEnd = start + replaceStr.length;
 							$textarea
 								.textSelection( 'setSelection', { 'start': start, 'end': end } )
 								.textSelection( 'encapsulateSelection', {
@@ -1938,9 +1942,9 @@ liquidThreads.toolbar = {
 							.show();
 						$( this ).data( 'offset', 0 );
 					} else {
-						var start = match.index + offset;
-						var end = start + match[0].length;
-						var newEnd = start + replaceStr.length;
+						start = match.index + offset;
+						end = start + match[0].length;
+						newEnd = start + replaceStr.length;
 						var context = $( this ).data( 'context' );
 						$textarea.textSelection( 'setSelection', { 'start': start,
 							'end': end } );
