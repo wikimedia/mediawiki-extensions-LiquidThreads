@@ -58,7 +58,7 @@
     "lqt-history-action": "Faollik",
     "lqt-history-comment": "Izoh",
     "lqt-history-thread": "Tarmoq",
-    "lqt-thread-edited-others": "{{PLURAL:$2|Bitta boshqa foydalanuvchi|$2 ta boshqa foydalanuvchi}} tomonidan oʻzgartirilgan.<br />\nOxirgi tahrir: $1",
+    "lqt-thread-edited-others": "{{PLURAL:$2|Bitta boshqa foydalanuvchi|$2 ta boshqa foydalanuvchi}} tomonidan oʻzgartirilgan.\u003Cbr /\u003E\nOxirgi tahrir: $1",
     "lqt-header-actions": "Amallar",
     "lqt_summarize_link": "Xulosa chiqarish",
     "lqt-thread-split": "Yangi tarmoqqa ajratish",
