@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Dimension10",
+            "Nayvik"
+        ]
+    },
+    "lqt_delete": "ಅಳಿಸು",
+    "lqt-title": "ಶೀರ್ಷಿಕೆ",
+    "lqt-summary": "ಸಾರಾಂಶ",
+    "lqt-history-comment": "ಟಿಪ್ಪಣಿ",
+    "lqt-search-button": "ಹುಡುಕು",
+    "lqt-cancel-subject-edit": "ರದ್ದು ಮಾಡು",
+    "lqt-drag-reason": "ಕಾರಣ:",
+    "lqt-preview-signature": "(ಮುನ್ನೋಟ)"
+}

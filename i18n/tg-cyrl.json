@@ -1,0 +1,38 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ibrahim"
+        ]
+    },
+    "lqt-desc": "Илова кардани баҳси торкашӣ ба саҳифаҳои баҳс",
+    "lqt_movethread": "Кӯчонидани тор ба дигар саҳифа",
+    "lqt_deletethread": "Ҳазф ё барқарор кардани тор",
+    "lqt_contents_title": "Мундариҷа",
+    "lqt_new_thread": "Оғози мубоҳисаи ҷадид",
+    "lqt_reply": "Посух додан",
+    "lqt_delete": "Ҳафз",
+    "lqt_discussion_link": "баҳс",
+    "lqt_from_talk": "аз $1",
+    "lqt_hist_deleted": "Ҳазфшуда",
+    "lqt_protectedfromreply_link": "ҳифзшуда",
+    "lqt_subject": "Мавзӯъ:",
+    "lqt_noreason": "Далеле мушаххас нашудааст.",
+    "lqt_summary_notice_link": "навиштани хулоса",
+    "lqt_summary_label": "Ин тор ба таври зерин хулоса шудааст:",
+    "lqt_summary_subtitle": "хулоса аз $1.",
+    "lqt_nosuchrevision": "Чунин нусхае аз ин тор нест.",
+    "lqt_nosuchthread": "Чунин тор нест.",
+    "lqt_threadrequired": "Шумо бояд тореро дар нишонаи интернетии URL мушаххас кунед.",
+    "lqt_move_movingthread": "Дар ҳоли кӯчонидани $1. Ин тор қисме аз $2 мебошад.",
+    "lqt_move_torename": "Барои тағйири номи ин тор, $1 ва ноҳияи 'Мавзӯъ'-ро тағйир диҳед.",
+    "lqt_move_torename_edit": "инро вироиш кунед",
+    "lqt_move_move": "Кӯчонидан",
+    "lqt_move_nodestination": "Шумо бояд мақсадро мушаххас кунед.",
+    "lqt_move_noreason": "Далеле мушаххас нашудааст",
+    "lqt_move_success": "Тор ба $1 кӯчонида шуд.",
+    "lqt_header_warning_big": "Шумо дар ҳоли вироиши $1 ҳастед.",
+    "lqt_header_warning_new_discussion": "оғози мубоҳисаи ҷадид",
+    "lqt_sort_newest_threads": "торҳои навтарин аввал",
+    "lqt_sort_oldest_threads": "торҳои кӯҳнатарин аввал",
+    "lqt_newmessages": "Пайёмҳои нав"
+}

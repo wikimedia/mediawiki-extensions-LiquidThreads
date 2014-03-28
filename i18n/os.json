@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Amikeco",
+            "Bouron"
+        ]
+    },
+    "lqt_delete": "Схафын",
+    "lqt_hist_deleted": "Аппæрст",
+    "lqt_youhavenewmessages": "Æрцыд дæм [[$1|ног фыстæджы]].",
+    "lqt_protectedfromreply_link": "æхгæд",
+    "lqt-title": "Сæр",
+    "lqt-newmessages-n": "Ног фыстæджытæ ($1)",
+    "lqt_newmessages": "Ног фыстæджытæ (нæй)",
+    "lqt_newmessages-title": "Ног фыстæджытæ"
+}

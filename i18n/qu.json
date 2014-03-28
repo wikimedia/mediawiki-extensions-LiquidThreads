@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "AlimanRuna"
+        ]
+    },
+    "lqt_hist_view_whole_thread": "Tukuy q'aytup wiñay kawsayninta qhaway",
+    "lqt-read-message": "Ñawirisqa nispa unanchay",
+    "lqt-read-all": "Tukuykunata ñawirisqa nispa unanchay",
+    "lqt-no-new-messages": "Qampaq musuq willaykuna manam kachkanchu.",
+    "lqt-new-messages": "Qampaq musuq willaykunam kachkan.",
+    "lqt-newmessages-context": "Tukuy q'aytu",
+    "lqt-preference-notify-talk": "E-chaskita kutichispa watiqasqay q'aytuman kachamuway",
+    "lqt-ajax-updated": "Q'aytupi musuq willaykunam kachkan.",
+    "lqt-drag-save": "Takyachiy",
+    "lqt-feed-title-all": "{{SITENAME}} — Musuq willaykuna",
+    "lqt-feed-title-all-from": "{{SITENAME}} — $1-manta musuq willaykuna",
+    "tooltip-pt-newmessages": "Watiqasqayki q'aytukunapi rimanakuy p'anqakunapipas musuq willaykunatam rikuchisunki",
+    "lqt-newmessages-n": "Musuq willaykuna ($1)",
+    "lqt_newmessages-title": "Musuq willaykuna"
+}

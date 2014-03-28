@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "Joachim Mos"
+        ]
+    },
+    "lqt-parent": "Öllern",
+    "lqt_delete": "Wegdoon",
+    "lqt_undelete": "Wedderhalen",
+    "lqt_discussion_link": "Diskuschoon",
+    "lqt_hist_deleted": "Wegdaan",
+    "lqt_hist_undeleted": "Wedderhalen",
+    "lqt_hist_moved_talkpage": "Schuven",
+    "lqt-thread-created": "Opstellt",
+    "lqt-history-time": "Tied",
+    "lqt-history-user": "Bruker",
+    "lqt-history-comment": "Kommentar",
+    "lqt-header-actions": "Akschonen",
+    "lqt-movethread": "Schuven",
+    "searchprofile-threads": "Diskuschoon",
+    "lqt-save-subject": "Spiekern",
+    "lqt-cancel-subject-edit": "Afbreken",
+    "pageinfo-usinglqt-yes": "Jo"
+}

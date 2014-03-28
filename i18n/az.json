@@ -1,0 +1,35 @@
+{
+    "@metadata": {
+        "authors": [
+            "AZISS",
+            "Cekli829",
+            "PPerviz"
+        ]
+    },
+    "lqt_reply": "Geri göndər",
+    "lqt_delete": "Sil",
+    "lqt_hist_deleted": "Silinib",
+    "lqt_subject": "Mövzu:",
+    "lqt_move_move": "Adını dəyişdir",
+    "lqt-title": "Başlıq",
+    "lqt-summary": "Xülasə",
+    "lqt-history-time": "Zaman",
+    "lqt-history-user": "İstifadəçi",
+    "lqt-history-comment": "Şərh",
+    "lqt-movethread": "Adını dəyişdir",
+    "lqt-newmessages-from": "$1-dən",
+    "lqt-search-button": "Axtar",
+    "lqt-ajax-update-link": "Yenilə",
+    "lqt-thread-link-url": "URL linki:",
+    "lqt-save-subject": "Qeyd et",
+    "lqt-cancel-subject-edit": "\nİmtina",
+    "lqt-drag-save": "Təsdiq et",
+    "lqt-drag-reason": "Səbəb:",
+    "lqt-feed-title-all": "{{SITENAME}} — Yeni ismarıclar",
+    "lqt-newmessages-n": "Yeni mesajlarım ($1)",
+    "lqt_newmessages": "Yeni mesajlarım (Yoxdur)",
+    "lqt_newmessages-title": "Yeni mesajlar",
+    "lqt-talkpage-history-subtitle": "$1 üçün",
+    "lqt-reply-subpage": "yenidən",
+    "nstab-summary": "Xülasə"
+}

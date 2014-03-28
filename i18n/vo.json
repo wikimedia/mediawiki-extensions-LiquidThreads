@@ -1,0 +1,39 @@
+{
+    "@metadata": {
+        "authors": [
+            "Malafaya"
+        ]
+    },
+    "lqt_contents_title": "Ninäd",
+    "lqt_reply": "Gepenön",
+    "lqt-parent": "Pal",
+    "lqt_delete": "Moükön",
+    "lqt_undelete": "Sämoükön",
+    "lqt_discussion_link": "bespik",
+    "lqt_hist_deleted": "Pemoüköl",
+    "lqt_hist_undeleted": "Pesämoüköl",
+    "lqt_hist_moved_talkpage": "Petopätüköl",
+    "lqt_youhavenewmessages": "Labol [[$1|nunis nulik]].",
+    "lqt_subject": "Yegäd:",
+    "lqt_noreason": "Kod nonik pegivon.",
+    "lqt_move_move": "Topätükön",
+    "lqt_header_warning_big": "Redakol $1.",
+    "lqt-title": "Tiäd",
+    "lqt-email-undo": "Sädunön",
+    "lqt-no-new-messages": "No dabinons nuns nulik pro ol.",
+    "lqt-new-messages": "Dabinons nuns nulik pro ol.",
+    "lqt-history-time": "Tim",
+    "lqt-history-user": "Geban",
+    "lqt-history-comment": "Küpet",
+    "lqt-movethread": "Topätükön",
+    "lqt-search-button": "Sukön",
+    "searchprofile-threads": "Bespiks",
+    "lqt-change-subject": "Votükön yegädi",
+    "lqt-save-subject": "Dakipön",
+    "lqt-cancel-subject-edit": "Stöpädön",
+    "lqt-drag-reason": "Kod:",
+    "lqt-newmessages-n": "Nuns nulik ($1)",
+    "lqt_newmessages": "Nuns nulik (nonik)",
+    "lqt_newmessages-title": "Nuns nulik",
+    "lqt-talkpage-history-subtitle": "Pro $1"
+}

@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Reedy"
+        ]
+    },
+    "lqt_summarize_link": "Summarise",
+    "lqt-summarize-intro": "Please summarise the below thread in the editing box.\nYou may use any wikitext in your summary.\nWhen you finish, click \"{{int:savearticle}}\"."
+}

@@ -1,0 +1,25 @@
+{
+    "@metadata": {
+        "authors": [
+            "Abshirdheere",
+            "Maax"
+        ]
+    },
+    "lqt_new_thread": "Biloow wadahadal cusub",
+    "lqt_reply": "Jawaab",
+    "lqt_youhavenewmessages": "Waxaa kuu taal [[$1|Farriin cusub]].",
+    "lqt_sorting_order": "Kala horaysiin:",
+    "lqt_sort_newest_changes": "Bedelkii ugu dambeeyey ee hore",
+    "lqt_sort_newest_threads": "Wadahadaladii ugu cusub ugu horayn",
+    "lqt_sort_oldest_threads": "Wadahadaladii ugu horeeyey koowaad",
+    "lqt-read-message-tooltip": "Ka saar wadahadalkaan farriima cusub.\nwaxay ka soo muuqan doontaa bogga wadahadlkeedii asalka ahaa.",
+    "lqt-read-all-tooltip": "Ka saar dhamaan urur farriimeedka ee farriimaha cusub.\nWaxaana laga karaa wadahadalka boggii asalka.\nHowshaan dib loogama noqon karo.",
+    "lqt-no-new-messages": "Maleh wax cusub oo farriin ah.",
+    "lqt-new-messages": "waxaa kuu taala fariin cusub.",
+    "lqt-no-threads": "Ilaa iyo hadda wax qoraal ah kuma jiraan boggaan.",
+    "lqt-search-label": "Habka raadinta:",
+    "lqt-search-button": "Raadi",
+    "lqt-newmessages-n": "Farriimaha cusub ($1)",
+    "lqt_newmessages": "Farriin cusub (Maleh)",
+    "lqt_newmessages-title": "Farriimo cusub"
+}

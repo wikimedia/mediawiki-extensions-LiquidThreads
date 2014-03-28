@@ -1,0 +1,26 @@
+{
+    "@metadata": {
+        "authors": [
+            "Siebrand"
+        ]
+    },
+    "lqt_invalid_subject": "Het onderwerp dat je hebt opgegeven is ongeldig. Het kan:\n* te lang zijn, of\n* conflicteren met interwikivoorvoegsels of naamruimtenamen.",
+    "lqt_empty_subject": "Je moet een onderwerp opgeven.",
+    "lqt_hist_past_last_page_error": "Je hebt een hoger paginanummer gekozen dan bestaat in de geschiedenis.",
+    "lqt_hist_tooltip_newer_disabled": "Deze koppeling is niet actief omdat je op de eerste pagina bent.",
+    "lqt_hist_tooltip_older_disabled": "Deze koppeling is niet actief omdat je op de laatste pagina bent.",
+    "lqt_youhavenewmessages": "Je hebt [[$1|nieuwe berichten]].",
+    "lqt_summary_notice": "Er zijn geen wijzigingen geweest in de afgelopen {{PLURAL:$2|dag|$2 dagen}}.\nAls het overleg is afgerond, wordt je aangemoedigd om $1.",
+    "lqt_threadrequired": "Je moet een onderwerppagina opgeven in de URL.",
+    "lqt_move_nodestination": "Je moet een bestemming opgeven.",
+    "lqt_header_warning_big": "Je bent een $1 aan het bewerken.",
+    "lqt_header_warning_after_big": "Koppen zijn voor aankondigingen en inleidingen.\nWellicht kan je beter gebruik maken van $2.",
+    "lqt-no-new-messages": "Je hebt geen nieuwe berichten.",
+    "lqt-new-messages": "Je hebt nieuwe berichten.",
+    "lqt-email-info-undo": "Terug naar het onderwerp dat je zojuist hebt verlaten.",
+    "lqt-date-info": "Deze koppeling is niet actief omdat je onderwerpen van alle datums bekijkt.",
+    "lqt-protected-reply-thread": "Je kunt niet deelnemen aan dit onderwerp omdat het gesloten is.",
+    "lqt-protected-reply-talkpage": "Je kunt niet deelnemen aan dit onderwerp omdat de onderwerpen op deze pagina gesloten zijn.",
+    "lqt-protected-newthread": "Je kunt geen nieuwe onderwerpen aanmaken op deze overlegpagina omdat deze pagina gesloten is voor nieuwe onderwerpen.",
+    "lqt-historicalrevision-error": "De door jou geselecteerde versie is beschadigd en kan niet bekeken worden."
+}

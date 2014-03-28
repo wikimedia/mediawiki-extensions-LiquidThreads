@@ -1,0 +1,39 @@
+{
+    "@metadata": {
+        "authors": [
+            "Игорь Бродский"
+        ]
+    },
+    "lqt_contents_title": "Südäiolend",
+    "lqt_toc_thread_replycount": "Vastused",
+    "lqt_add_header": "Ližata pälkirjutez",
+    "lqt_new_thread": "Avaita uz' lodu",
+    "lqt_reply": "Antta vastust",
+    "lqt_delete": "Čuta poiš",
+    "lqt_undelete": "Endištada",
+    "lqt_permalink": "Kosketuz tänna",
+    "lqt_discussion_link": "lodu",
+    "lqt_hist_deleted": "Čutud poiš",
+    "lqt_hist_moved_talkpage": "Udesnimitadud",
+    "lqt_protectedfromreply_link": "kaitud",
+    "lqt_noreason": "Süd ei anttihe.",
+    "lqt_move_torename_edit": "redaktiruigat se",
+    "lqt_move_move": "Sirta",
+    "lqt-title": "Pälkirjutez",
+    "lqt-summary": "Ümbrikirjutand",
+    "lqt-searching": "Barboiden ecmine",
+    "lqt-read-message": "Znamoita kut lugetud",
+    "lqt-thread-created": "Sätud",
+    "lqt-history-time": "Aig",
+    "lqt-history-user": "Kävutai",
+    "lqt-history-action": "Aktivižuz",
+    "lqt-history-comment": "Kommentarii",
+    "lqt-thread-edited-author": "Redaktirui avtor",
+    "lqt-header-actions": "Tegendad",
+    "lqt-split-submit": "Jagada",
+    "lqt-merge-submit": "Ühtenzoitta",
+    "lqt-search-button": "Ectä",
+    "searchprofile-threads": "Lodu",
+    "lqt-ajax-update-link": "Udištada",
+    "lqt_newmessages": "Uded tedotused (ei ole)"
+}

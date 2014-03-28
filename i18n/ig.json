@@ -1,0 +1,37 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ukabia"
+        ]
+    },
+    "lqt_contents_title": "Ihe dị ime",
+    "lqt_delete": "Kàcha",
+    "lqt_undelete": "Á gbàkashikwà",
+    "lqt_permalink": "Jikodo na",
+    "lqt_hist_deleted": "Kàchàrà",
+    "lqt_hist_undeleted": "Ọ gbákashikwà",
+    "lqt_hist_moved_talkpage": "Páfụrụ",
+    "lqt_youhavenewmessages": "I nwere [[$1|ozi ohúrù]].",
+    "lqt_subject": "Gbàsịrị:",
+    "lqt_move_torename_edit": "rüo ya",
+    "lqt_move_move": "Páfụ",
+    "lqt-read-message-tooltip": "Wéfu ahiri nka na ozi ohúrù.\nMadu nwere I ki hü ya na ihü akíkó nke sinambu.",
+    "lqt-history-user": "Ọ'bànifé",
+    "lqt-split-submit": "Wa",
+    "lqt-movethread": "Páfụ",
+    "lqt-menu-trigger": "Ọzȯ kwa",
+    "lqt-search-button": "Chọwa",
+    "searchprofile-threads": "Akíkó",
+    "lqt-ajax-update-link": "Dịnwanye mmā",
+    "lqt-thread-link-url": "Jikodo URL:",
+    "lqt-save-subject": "Domá",
+    "lqt-cancel-subject-edit": "Kàchá",
+    "lqt-drag-drop-zone": "Dòsé nga",
+    "lqt-drag-save": "Kwèré",
+    "lqt-drag-reason": "Mgbághapụtà:",
+    "lqt-preview-signature": "(lètú)",
+    "lqt-newmessages-n": "Ozi ohúrù ($1)",
+    "lqt_newmessages": "Ozi ohúrù",
+    "lqt_newmessages-title": "Ozi ohúrù",
+    "lqt-talkpage-history-subtitle": "Màkà $1"
+}

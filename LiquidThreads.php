@@ -5,7 +5,7 @@ if ( !defined( 'MEDIAWIKI' ) )
 $wgExtensionCredits['other'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Liquid Threads',
-	'version'        => '2.1-alpha',
+	'version'        => '2.2-alpha',
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:LiquidThreads',
 	'author'         => array( 'David McCabe', 'Andrew Garrett' ),
 	'descriptionmsg' => 'lqt-desc',
@@ -23,6 +23,7 @@ define( 'LQT_OLDEST_THREADS', 'ot' );
 
 // Localisation
 $dir = __DIR__;
+$wgMessagesDirs['LiquidThreads'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['LiquidThreads'] = $dir . '/i18n/Lqt.i18n.php';
 $wgExtensionMessagesFiles['LiquidThreadsMagic'] = $dir . '/i18n/LiquidThreads.magic.php';
 $wgExtensionMessagesFiles['LiquidThreadsNamespaces'] = $dir . '/i18n/Lqt.namespaces.php';

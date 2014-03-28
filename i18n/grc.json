@@ -1,0 +1,27 @@
+{
+    "@metadata": {
+        "authors": [
+            "Crazymadlover",
+            "Omnipaedista"
+        ]
+    },
+    "lqt_contents_title": "Περιεχόμενα",
+    "lqt_delete": "Σβεννύναι",
+    "lqt_discussion_link": "διάλεξις",
+    "lqt_hist_deleted": "Διεγραμμένη",
+    "lqt_subject": "Χρῆμα:",
+    "lqt_move_move": "Κινεῖν",
+    "lqt-title": "Ἐπιγραφή",
+    "lqt-summary": "Σύνοψις",
+    "lqt-thread-created": "Ποιηθέν",
+    "lqt-history-time": "Χρόνος",
+    "lqt-history-user": "Χρώμενος",
+    "lqt-history-comment": "Σχόλιον",
+    "lqt-header-actions": "Δράσεις",
+    "lqt-thread-split-thread": "Νῆμα διαλέξεως:",
+    "lqt-search-button": "Ζητεῖν",
+    "lqt-ajax-update-link": "Ἐνημεροῦν",
+    "lqt-cancel-subject-edit": "Ἀκυροῦν",
+    "lqt-newmessages-n": "Τα νέα μηνύματά μου ($1)",
+    "lqt_newmessages": "Τα νέα μηνύματά μου (οὐδέν)"
+}
