@@ -115,3 +115,8 @@ $magicWords['uk'] = array(
 	'useliquidthreads' => array( 0, 'ВикористатиLiquidThreads' ),
 	'lqtpagelimit' => array( 0, 'обмеження_сторінок_lqt' ),
 );
+
+/** Simplified Chinese (中文（简体）‎) */
+$magicWords['zh-hans'] = array(
+	'useliquidthreads' => array( 0, '使用LiquidThreads' ),
+);
