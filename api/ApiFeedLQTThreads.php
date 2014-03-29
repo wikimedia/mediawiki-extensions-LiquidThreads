@@ -168,6 +168,9 @@ class ApiFeedLQTThreads extends ApiBase {
 		$talkpages = (array)$params['talkpage'];
 		foreach ( $talkpages as $page ) {
 			$title = Title::newFromText( $page );
+			if ( !$title ) {
+				$this->dieUsageMsg( array( 'invalidtitle', $page ) );
+			}
 			$pageCond = array(
 				'thread_article_namespace' => $title->getNamespace(),
 				'thread_article_title' => $title->getDBkey()
