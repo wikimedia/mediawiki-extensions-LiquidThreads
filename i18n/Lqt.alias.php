@@ -263,7 +263,7 @@ $specialPageAliases['it'] = array(
 	'MoveThread' => array( 'SpostaDiscussione' ),
 	'NewMessages' => array( 'NuoviMessaggi' ),
 	'SplitThread' => array( 'DividiDiscussione' ),
-	'MergeThread' => array( 'UnisciThread' ),
+	'MergeThread' => array( 'UnisciDiscussioni' ),
 );
 
 /** Japanese (日本語) */
