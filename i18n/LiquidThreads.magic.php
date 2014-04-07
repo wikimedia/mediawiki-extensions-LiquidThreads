@@ -119,4 +119,5 @@ $magicWords['uk'] = array(
 /** Simplified Chinese (中文（简体）‎) */
 $magicWords['zh-hans'] = array(
 	'useliquidthreads' => array( 0, '使用LiquidThreads' ),
+	'lqtpagelimit' => array( 0, 'lqt页面限制' ),
 );
