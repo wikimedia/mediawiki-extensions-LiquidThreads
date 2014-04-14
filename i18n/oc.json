@@ -113,7 +113,7 @@
     "lqt-history-comment": "Comentari",
     "lqt-history-thread": "Fial de discussion",
     "lqt-thread-edited-author": "Modificat per l’autor<br />\nDarrièra modificacion : $1",
-    "lqt-thread-edited-others": "Modificat $2 utilizaires<br />\nDarrièra modificacion : $1",
+    "lqt-thread-edited-others": "Modificat per {{PLURAL:$2|un autre utilizaire|$2 utilizaires}}<br />\nDarrièra modificacion : $1",
     "lqt-header-actions": "Accions",
     "lqt_summarize_link": "Resumit",
     "lqt-summarize-intro": "Resumir lo subjècte çaisús dins la bóstia d’edicion\nPodètz utilizar un tèxte wiki quin que siá dins vòstre resumit. Quand avètz acabat, clicatz sus « {{int: Savearticle}}» .",
