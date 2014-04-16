@@ -1,27 +1,27 @@
 {
-    "@metadata": {
-        "authors": [
-            "GreenZeb",
-            "Papuass"
-        ]
-    },
-    "lqt_contents_title": "Saturs",
-    "lqt_toc_thread_title": "Tēmas nosaukums",
-    "lqt_toc_thread_replycount": "Atbildes",
-    "lqt_subject": "Temats:",
-    "lqt-search-button": "Meklēt",
-    "lqt-save-subject": "Saglabāt",
-    "lqt-cancel-subject-edit": "Atcelt",
-    "lqt-feed-title-all": "{{SITENAME}} — Jaunie ieraksti",
-    "lqt-feed-title-all-from": "{{SITENAME}} — Jaunie ieraksti no $1",
-    "lqt-feed-title-new-threads": "{{SITENAME}} — Jaunie pavedieni",
-    "lqt-feed-title-new-threads-from": "{{SITENAME}} — Jaunie pavedieni no $1",
-    "lqt-feed-title-replies": "{{SITENAME}} — Atbildes",
-    "lqt-feed-title-replies-from": "{{SITENAME}} — Atbildes no $1",
-    "lqt-newmessages-n": "Jauni ziņojumi ($1)",
-    "lqt_newmessages": "Jauni ziņojumi (nav)",
-    "lqt_newmessages-title": "Jauni ziņojumi",
-    "lqt-newpost-summary": "Jauns pavediens: $1",
-    "lqt-reply-summary": "Rakstīt atbildi [[$2|$1]]",
-    "lqt-talkpage-history-title": "Diskusiju lapas vēsture"
+	"@metadata": {
+		"authors": [
+			"GreenZeb",
+			"Papuass"
+		]
+	},
+	"lqt_contents_title": "Saturs",
+	"lqt_toc_thread_title": "Tēmas nosaukums",
+	"lqt_toc_thread_replycount": "Atbildes",
+	"lqt_subject": "Temats:",
+	"lqt-search-button": "Meklēt",
+	"lqt-save-subject": "Saglabāt",
+	"lqt-cancel-subject-edit": "Atcelt",
+	"lqt-feed-title-all": "{{SITENAME}} — Jaunie ieraksti",
+	"lqt-feed-title-all-from": "{{SITENAME}} — Jaunie ieraksti no $1",
+	"lqt-feed-title-new-threads": "{{SITENAME}} — Jaunie pavedieni",
+	"lqt-feed-title-new-threads-from": "{{SITENAME}} — Jaunie pavedieni no $1",
+	"lqt-feed-title-replies": "{{SITENAME}} — Atbildes",
+	"lqt-feed-title-replies-from": "{{SITENAME}} — Atbildes no $1",
+	"lqt-newmessages-n": "Jauni ziņojumi ($1)",
+	"lqt_newmessages": "Jauni ziņojumi (nav)",
+	"lqt_newmessages-title": "Jauni ziņojumi",
+	"lqt-newpost-summary": "Jauns pavediens: $1",
+	"lqt-reply-summary": "Rakstīt atbildi [[$2|$1]]",
+	"lqt-talkpage-history-title": "Diskusiju lapas vēsture"
 }

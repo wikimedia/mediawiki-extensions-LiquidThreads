@@ -1,35 +1,35 @@
 {
-    "@metadata": {
-        "authors": [
-            "Liangent"
-        ]
-    },
-    "lqt-desc": "Ilova kardani bahsi torkaşī ba sahifahoi bahs",
-    "lqt_movethread": "Kūconidani tor ba digar sahifa",
-    "lqt_deletethread": "Hazf jo barqaror kardani tor",
-    "lqt_contents_title": "Mundariça",
-    "lqt_new_thread": "Oƣozi mubohisai çadid",
-    "lqt_reply": "Posux dodan",
-    "lqt_delete": "Hafz",
-    "lqt_discussion_link": "bahs",
-    "lqt_hist_deleted": "Hazfşuda",
-    "lqt_protectedfromreply_link": "hifzşuda",
-    "lqt_subject": "Mavzū':",
-    "lqt_noreason": "Dalele muşaxxas naşudaast.",
-    "lqt_summary_notice_link": "naviştani xulosa",
-    "lqt_summary_label": "In tor ba tavri zerin xulosa şudaast:",
-    "lqt_nosuchrevision": "Cunin nusxae az in tor nest.",
-    "lqt_threadrequired": "Şumo bojad torero dar nişonai internetiji URL muşaxxas kuned.",
-    "lqt_move_movingthread": "Dar holi kūconidani $1. In tor qisme az $2 meboşad.",
-    "lqt_move_torename": "Baroi taƣjiri nomi in tor, $1 va nohijai 'Mavzū''-ro taƣjir dihed.",
-    "lqt_move_torename_edit": "inro viroiş kuned",
-    "lqt_move_move": "Kūconidan",
-    "lqt_move_nodestination": "Şumo bojad maqsadro muşaxxas kuned.",
-    "lqt_move_noreason": "Dalele muşaxxas naşudaast",
-    "lqt_move_success": "Tor ba $1 kūconida şud.",
-    "lqt_header_warning_big": "Şumo dar holi viroişi $1 hasted.",
-    "lqt_header_warning_new_discussion": "oƣozi mubohisai çadid",
-    "lqt_sort_newest_threads": "torhoi navtarin avval",
-    "lqt_sort_oldest_threads": "torhoi kūhnatarin avval",
-    "lqt_newmessages": "Pajjomhoi nav"
+	"@metadata": {
+		"authors": [
+			"Liangent"
+		]
+	},
+	"lqt-desc": "Ilova kardani bahsi torkaşī ba sahifahoi bahs",
+	"lqt_movethread": "Kūconidani tor ba digar sahifa",
+	"lqt_deletethread": "Hazf jo barqaror kardani tor",
+	"lqt_contents_title": "Mundariça",
+	"lqt_new_thread": "Oƣozi mubohisai çadid",
+	"lqt_reply": "Posux dodan",
+	"lqt_delete": "Hafz",
+	"lqt_discussion_link": "bahs",
+	"lqt_hist_deleted": "Hazfşuda",
+	"lqt_protectedfromreply_link": "hifzşuda",
+	"lqt_subject": "Mavzū':",
+	"lqt_noreason": "Dalele muşaxxas naşudaast.",
+	"lqt_summary_notice_link": "naviştani xulosa",
+	"lqt_summary_label": "In tor ba tavri zerin xulosa şudaast:",
+	"lqt_nosuchrevision": "Cunin nusxae az in tor nest.",
+	"lqt_threadrequired": "Şumo bojad torero dar nişonai internetiji URL muşaxxas kuned.",
+	"lqt_move_movingthread": "Dar holi kūconidani $1. In tor qisme az $2 meboşad.",
+	"lqt_move_torename": "Baroi taƣjiri nomi in tor, $1 va nohijai 'Mavzū''-ro taƣjir dihed.",
+	"lqt_move_torename_edit": "inro viroiş kuned",
+	"lqt_move_move": "Kūconidan",
+	"lqt_move_nodestination": "Şumo bojad maqsadro muşaxxas kuned.",
+	"lqt_move_noreason": "Dalele muşaxxas naşudaast",
+	"lqt_move_success": "Tor ba $1 kūconida şud.",
+	"lqt_header_warning_big": "Şumo dar holi viroişi $1 hasted.",
+	"lqt_header_warning_new_discussion": "oƣozi mubohisai çadid",
+	"lqt_sort_newest_threads": "torhoi navtarin avval",
+	"lqt_sort_oldest_threads": "torhoi kūhnatarin avval",
+	"lqt_newmessages": "Pajjomhoi nav"
 }

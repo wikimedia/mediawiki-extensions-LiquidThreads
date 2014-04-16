@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": [
-            "Aushulz",
-            "Gmelfi",
-            "Melos"
-        ]
-    },
-    "lqt_discussion_link": "discussioni",
-    "lqt_hist_deleted": "Cancillatu",
-    "lqt_hist_undeleted": "Ripristinatu",
-    "lqt_hist_moved_talkpage": "Spustatu",
-    "lqt-title": "Tìtulu",
-    "lqt-history-user": "Utenti",
-    "lqt-merge-submit": "Junci",
-    "lqt-search-button": "Va' cerca",
-    "searchprofile-threads": "Discussioni",
-    "lqt-save-subject": "Sarva",
-    "lqt-drag-reason": "Mutivu:",
-    "lqt_newmessages": "Missaggi novi (mancu unu)"
+	"@metadata": {
+		"authors": [
+			"Aushulz",
+			"Gmelfi",
+			"Melos"
+		]
+	},
+	"lqt_discussion_link": "discussioni",
+	"lqt_hist_deleted": "Cancillatu",
+	"lqt_hist_undeleted": "Ripristinatu",
+	"lqt_hist_moved_talkpage": "Spustatu",
+	"lqt-title": "Tìtulu",
+	"lqt-history-user": "Utenti",
+	"lqt-merge-submit": "Junci",
+	"lqt-search-button": "Va' cerca",
+	"searchprofile-threads": "Discussioni",
+	"lqt-save-subject": "Sarva",
+	"lqt-drag-reason": "Mutivu:",
+	"lqt_newmessages": "Missaggi novi (mancu unu)"
 }

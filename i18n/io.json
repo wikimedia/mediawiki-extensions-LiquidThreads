@@ -1,27 +1,27 @@
 {
-    "@metadata": {
-        "authors": [
-            "Malafaya"
-        ]
-    },
-    "lqt_undelete": "Rekuperar",
-    "lqt_from_talk": "De $1",
-    "lqt_youhavenewmessages": "Vu havas [[$1|nova messaji]].",
-    "lqt_move_move": "Movar",
-    "lqt-title": "Titulo",
-    "lqt-summary": "Rezumo",
-    "lqt-email-undo": "Desfacar",
-    "lqt-no-new-messages": "Ne existas nova messaji por vu.",
-    "lqt-new-messages": "Existas nova mesaji por vu",
-    "lqt-history-time": "Tempo",
-    "lqt-history-user": "Uzanto",
-    "lqt-history-comment": "Komento",
-    "lqt-newmessages-from": "De $1",
-    "lqt-save-subject": "Registragar",
-    "lqt-drag-save": "Konfirmar",
-    "lqt-drag-reason": "Motivo:",
-    "lqt-newmessages-n": "Nova mesaji ($1)",
-    "lqt_newmessages": "Nova mesaji",
-    "lqt_newmessages-title": "Nova mesaji",
-    "lqt-talkpage-history-subtitle": "Por $1"
+	"@metadata": {
+		"authors": [
+			"Malafaya"
+		]
+	},
+	"lqt_undelete": "Rekuperar",
+	"lqt_from_talk": "De $1",
+	"lqt_youhavenewmessages": "Vu havas [[$1|nova messaji]].",
+	"lqt_move_move": "Movar",
+	"lqt-title": "Titulo",
+	"lqt-summary": "Rezumo",
+	"lqt-email-undo": "Desfacar",
+	"lqt-no-new-messages": "Ne existas nova messaji por vu.",
+	"lqt-new-messages": "Existas nova mesaji por vu",
+	"lqt-history-time": "Tempo",
+	"lqt-history-user": "Uzanto",
+	"lqt-history-comment": "Komento",
+	"lqt-newmessages-from": "De $1",
+	"lqt-save-subject": "Registragar",
+	"lqt-drag-save": "Konfirmar",
+	"lqt-drag-reason": "Motivo:",
+	"lqt-newmessages-n": "Nova mesaji ($1)",
+	"lqt_newmessages": "Nova mesaji",
+	"lqt_newmessages-title": "Nova mesaji",
+	"lqt-talkpage-history-subtitle": "Por $1"
 }

@@ -1,13 +1,11 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "lqt_delete": "Soke",
-    "lqt_move_move": "Gusarwa",
-    "lqt-summary": "Taƙaici",
-    "lqt-movethread": "Gusarwa",
-    "lqt-search-button": "Nema",
-    "lqt-save-subject": "Nema",
-    "lqt-cancel-subject-edit": "Soke",
-    "lqt-drag-reason": "Dalili:"
+	"@metadata": [],
+	"lqt_delete": "Soke",
+	"lqt_move_move": "Gusarwa",
+	"lqt-summary": "Taƙaici",
+	"lqt-movethread": "Gusarwa",
+	"lqt-search-button": "Nema",
+	"lqt-save-subject": "Nema",
+	"lqt-cancel-subject-edit": "Soke",
+	"lqt-drag-reason": "Dalili:"
 }

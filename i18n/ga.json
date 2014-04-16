@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": [
-            "පසිඳු කාවින්ද"
-        ]
-    },
-    "lqt_delete": "Scrios",
-    "lqt_discussion_link": "Plé",
-    "lqt-title": "Teideal",
-    "lqt-summary": "Achoimriú",
-    "lqt-history-user": "Úsáideoir",
-    "lqt-history-comment": "Nóta tráchta",
-    "lqt-menu-trigger": "Níos mó",
-    "lqt-search-button": "Cuardaigh",
-    "searchprofile-threads": "Plé",
-    "lqt-save-subject": "Sábháil",
-    "lqt-cancel-subject-edit": "Cealaigh",
-    "lqt-drag-save": "Deimhnigh",
-    "lqt-drag-reason": "Fáth:",
-    "nstab-summary": "Achoimriú"
+	"@metadata": {
+		"authors": [
+			"පසිඳු කාවින්ද"
+		]
+	},
+	"lqt_delete": "Scrios",
+	"lqt_discussion_link": "Plé",
+	"lqt-title": "Teideal",
+	"lqt-summary": "Achoimriú",
+	"lqt-history-user": "Úsáideoir",
+	"lqt-history-comment": "Nóta tráchta",
+	"lqt-menu-trigger": "Níos mó",
+	"lqt-search-button": "Cuardaigh",
+	"searchprofile-threads": "Plé",
+	"lqt-save-subject": "Sábháil",
+	"lqt-cancel-subject-edit": "Cealaigh",
+	"lqt-drag-save": "Deimhnigh",
+	"lqt-drag-reason": "Fáth:",
+	"nstab-summary": "Achoimriú"
 }

@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Jagwar"
-        ]
-    },
-    "lqt_youhavenewmessages": "Manana [[$1|hafatra vaovao]]",
-    "lqt_move_move": "Hanolo anarana",
-    "lqt-no-new-messages": "Tsy misy hafatra vaovao ho anao.",
-    "lqt-new-messages": "Manana hafatra vaovao",
-    "lqt-movethread": "Hanolo anarana",
-    "right-lqt-split": "Mizara ny resaka",
-    "lqt_newmessages": "Hafatra vaovao (tsy misy)"
+	"@metadata": {
+		"authors": [
+			"Jagwar"
+		]
+	},
+	"lqt_youhavenewmessages": "Manana [[$1|hafatra vaovao]]",
+	"lqt_move_move": "Hanolo anarana",
+	"lqt-no-new-messages": "Tsy misy hafatra vaovao ho anao.",
+	"lqt-new-messages": "Manana hafatra vaovao",
+	"lqt-movethread": "Hanolo anarana",
+	"right-lqt-split": "Mizara ny resaka",
+	"lqt_newmessages": "Hafatra vaovao (tsy misy)"
 }

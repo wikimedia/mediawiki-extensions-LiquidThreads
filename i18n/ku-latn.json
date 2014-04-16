@@ -1,31 +1,31 @@
 {
-    "@metadata": {
-        "authors": [
-            "George Animal"
-        ]
-    },
-    "lqt_contents_title": "Naverok",
-    "lqt_delete": "Jê bibe",
-    "lqt_discussion_link": "gotûbêj",
-    "lqt_hist_deleted": "Hate jêbirin",
-    "lqt_protectedfromreply_link": "hate parastin",
-    "lqt-title": "Sernav",
-    "lqt-summary": "Kurte",
-    "lqt-no-new-messages": "Peyamên te yên nû tune ne.",
-    "lqt-new-messages": "Peyamên nû ji bo te hene.",
-    "lqt-thread-created": "Hate afirandin",
-    "lqt-history-time": "Dem",
-    "lqt-history-user": "Bikarhêner",
-    "lqt-history-comment": "Şîrove",
-    "lqt-newmessages-from": "Ji $1",
-    "searchprofile-threads": "Gotûbêj",
-    "lqt-save-subject": "Tomar bike",
-    "lqt-cancel-subject-edit": "Betal bike",
-    "lqt-drag-reason": "Sedem:",
-    "lqt-feed-title-replies": "{{SITENAME}} - Bersiv",
-    "lqt-newmessages-n": "Peyamên nû ($1)",
-    "lqt_newmessages": "Peyamên nû (tune)",
-    "lqt_newmessages-title": "Peyamên nû",
-    "lqt-talkpage-history-subtitle": "Bo $1",
-    "nstab-summary": "Kurte"
+	"@metadata": {
+		"authors": [
+			"George Animal"
+		]
+	},
+	"lqt_contents_title": "Naverok",
+	"lqt_delete": "Jê bibe",
+	"lqt_discussion_link": "gotûbêj",
+	"lqt_hist_deleted": "Hate jêbirin",
+	"lqt_protectedfromreply_link": "hate parastin",
+	"lqt-title": "Sernav",
+	"lqt-summary": "Kurte",
+	"lqt-no-new-messages": "Peyamên te yên nû tune ne.",
+	"lqt-new-messages": "Peyamên nû ji bo te hene.",
+	"lqt-thread-created": "Hate afirandin",
+	"lqt-history-time": "Dem",
+	"lqt-history-user": "Bikarhêner",
+	"lqt-history-comment": "Şîrove",
+	"lqt-newmessages-from": "Ji $1",
+	"searchprofile-threads": "Gotûbêj",
+	"lqt-save-subject": "Tomar bike",
+	"lqt-cancel-subject-edit": "Betal bike",
+	"lqt-drag-reason": "Sedem:",
+	"lqt-feed-title-replies": "{{SITENAME}} - Bersiv",
+	"lqt-newmessages-n": "Peyamên nû ($1)",
+	"lqt_newmessages": "Peyamên nû (tune)",
+	"lqt_newmessages-title": "Peyamên nû",
+	"lqt-talkpage-history-subtitle": "Bo $1",
+	"nstab-summary": "Kurte"
 }

@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Irwangatot",
-            "Kandar"
-        ]
-    },
-    "lqt_contents_title": "Eusi",
-    "lqt_reply": "Balesan",
-    "lqt_delete": "Hapus",
-    "lqt_hist_deleted": "Hapus",
-    "lqt_hist_moved_talkpage": "Pindah",
-    "lqt_move_move": "Pindah",
-    "lqt_move_noreason": "Henteu di béré alesan.",
-    "lqt_header_warning_big": "Anjeun keur ngédit $1",
-    "lqt_newmessages": "Talatah anyar (teu aya)"
+	"@metadata": {
+		"authors": [
+			"Irwangatot",
+			"Kandar"
+		]
+	},
+	"lqt_contents_title": "Eusi",
+	"lqt_reply": "Balesan",
+	"lqt_delete": "Hapus",
+	"lqt_hist_deleted": "Hapus",
+	"lqt_hist_moved_talkpage": "Pindah",
+	"lqt_move_move": "Pindah",
+	"lqt_move_noreason": "Henteu di béré alesan.",
+	"lqt_header_warning_big": "Anjeun keur ngédit $1",
+	"lqt_newmessages": "Talatah anyar (teu aya)"
 }

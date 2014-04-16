@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Juanpabl"
-        ]
-    },
-    "lqt_delete": "Borrar",
-    "lqt_discussion_link": "discusión",
-    "lqt_move_torename_edit": "editar-lo",
-    "lqt-email-undo": "Desfer",
-    "lqt-header-actions": "Accions",
-    "searchprofile-threads": "Discusions",
-    "lqt-cancel-subject-edit": "Cancelar"
+	"@metadata": {
+		"authors": [
+			"Juanpabl"
+		]
+	},
+	"lqt_delete": "Borrar",
+	"lqt_discussion_link": "discusión",
+	"lqt_move_torename_edit": "editar-lo",
+	"lqt-email-undo": "Desfer",
+	"lqt-header-actions": "Accions",
+	"searchprofile-threads": "Discusions",
+	"lqt-cancel-subject-edit": "Cancelar"
 }

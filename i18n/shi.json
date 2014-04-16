@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Zanatos"
-        ]
-    },
-    "lqt_reply": "jawb",
-    "lqt_delete": "msḥ",
-    "lqt_hist_deleted": "ityumsaḥ",
-    "lqt_hist_undeleted": "ur-ityumsaḥ"
+	"@metadata": {
+		"authors": [
+			"Zanatos"
+		]
+	},
+	"lqt_reply": "jawb",
+	"lqt_delete": "msḥ",
+	"lqt_hist_deleted": "ityumsaḥ",
+	"lqt_hist_undeleted": "ur-ityumsaḥ"
 }

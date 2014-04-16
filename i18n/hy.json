@@ -1,18 +1,18 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chaojoker",
-            "Vadgt",
-            "Xelgen"
-        ]
-    },
-    "lqt_hist_moved_talkpage": "Տեղափոխված է",
-    "lqt_move_move": "Տեղափոխել",
-    "lqt-history-thread": "Դերձան",
-    "lqt-thread-split-thread": "Դերձան՝",
-    "lqt-movethread": "Տեղափոխել",
-    "lqt-newmessages-n": "Նոր հաղորդագրություններ ($1)",
-    "lqt_newmessages": "Նոր հաղորդագրություններ (չկան)",
-    "lqt_newmessages-title": "Նոր հաղորդագրություններ",
-    "nstab-thread": "Դերձան"
+	"@metadata": {
+		"authors": [
+			"Chaojoker",
+			"Vadgt",
+			"Xelgen"
+		]
+	},
+	"lqt_hist_moved_talkpage": "Տեղափոխված է",
+	"lqt_move_move": "Տեղափոխել",
+	"lqt-history-thread": "Դերձան",
+	"lqt-thread-split-thread": "Դերձան՝",
+	"lqt-movethread": "Տեղափոխել",
+	"lqt-newmessages-n": "Նոր հաղորդագրություններ ($1)",
+	"lqt_newmessages": "Նոր հաղորդագրություններ (չկան)",
+	"lqt_newmessages-title": "Նոր հաղորդագրություններ",
+	"nstab-thread": "Դերձան"
 }

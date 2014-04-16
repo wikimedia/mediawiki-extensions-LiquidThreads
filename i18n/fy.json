@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kening Aldgilles",
-            "Snakesteuben"
-        ]
-    },
-    "lqt_delete": "Wiskje",
-    "lqt_move_move": "Werneam",
-    "lqt-cancel-subject-edit": "Ofbrekke"
+	"@metadata": {
+		"authors": [
+			"Kening Aldgilles",
+			"Snakesteuben"
+		]
+	},
+	"lqt_delete": "Wiskje",
+	"lqt_move_move": "Werneam",
+	"lqt-cancel-subject-edit": "Ofbrekke"
 }

@@ -1,18 +1,18 @@
 {
-    "@metadata": {
-        "authors": [
-            "Calak"
-        ]
-    },
-    "lqt_delete": "سڕینەوە",
-    "lqt_undelete": "گەڕاندنەوەی سڕین",
-    "lqt_youhavenewmessages": "[[$1|پەیامی نوێ]]ت ھەیە.",
-    "lqt_move_move": "گواستنەوە",
-    "lqt-summary": "کورتە",
-    "lqt-history-user": "بەکارهێنەر",
-    "lqt-movethread": "گواستنەوە",
-    "lqt-search-button": "گەڕان",
-    "lqt-save-subject": "پاشەکەوت",
-    "lqt-drag-save": "پشتدار بکەرەوە",
-    "lqt-drag-reason": "هۆکار:"
+	"@metadata": {
+		"authors": [
+			"Calak"
+		]
+	},
+	"lqt_delete": "سڕینەوە",
+	"lqt_undelete": "گەڕاندنەوەی سڕین",
+	"lqt_youhavenewmessages": "[[$1|پەیامی نوێ]]ت ھەیە.",
+	"lqt_move_move": "گواستنەوە",
+	"lqt-summary": "کورتە",
+	"lqt-history-user": "بەکارهێنەر",
+	"lqt-movethread": "گواستنەوە",
+	"lqt-search-button": "گەڕان",
+	"lqt-save-subject": "پاشەکەوت",
+	"lqt-drag-save": "پشتدار بکەرەوە",
+	"lqt-drag-reason": "هۆکار:"
 }

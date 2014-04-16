@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "(vinny)",
-            "Gleki"
-        ]
-    },
-    "lqt_delete": "daspo",
-    "lqt_move_move": "stika lo cmene",
-    "lqt-no-new-messages": "0 da cnino xatra do",
-    "lqt-new-messages": "0 da cnino xatra do",
-    "lqt_newmessages": "0 lo cnino notci",
-    "lqt_newmessages-title": "loi cnino notci"
+	"@metadata": {
+		"authors": [
+			"(vinny)",
+			"Gleki"
+		]
+	},
+	"lqt_delete": "daspo",
+	"lqt_move_move": "stika lo cmene",
+	"lqt-no-new-messages": "0 da cnino xatra do",
+	"lqt-new-messages": "0 da cnino xatra do",
+	"lqt_newmessages": "0 lo cnino notci",
+	"lqt_newmessages-title": "loi cnino notci"
 }

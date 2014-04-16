@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Fluence",
-            "Ricardo gs",
-            "Teòtlalili"
-        ]
-    },
-    "lqt_delete": "Mìxpôpolòs",
-    "lqt_hist_deleted": "Òmìxpôpolo",
-    "lqt_hist_moved_talkpage": "Ōmozacac",
-    "lqt_protectedfromreply_link": "ōmoquīxti",
-    "lqt_noreason": "Ahmo cah īxtlamatiliztli.",
-    "lqt_move_torename_edit": "xicpatla",
-    "lqt_move_move": "Ticzacāz",
-    "lqt_move_noreason": "Ahmo cah īxtlamatiliztli.",
-    "lqt-title": "Tōcāitl",
-    "lqt-read-message": "Quimachiyōtīz iuh tāmapōuh",
-    "lqt_newmessages": "Yancuīc notētītlaniliz (ahtlein)"
+	"@metadata": {
+		"authors": [
+			"Fluence",
+			"Ricardo gs",
+			"Teòtlalili"
+		]
+	},
+	"lqt_delete": "Mìxpôpolòs",
+	"lqt_hist_deleted": "Òmìxpôpolo",
+	"lqt_hist_moved_talkpage": "Ōmozacac",
+	"lqt_protectedfromreply_link": "ōmoquīxti",
+	"lqt_noreason": "Ahmo cah īxtlamatiliztli.",
+	"lqt_move_torename_edit": "xicpatla",
+	"lqt_move_move": "Ticzacāz",
+	"lqt_move_noreason": "Ahmo cah īxtlamatiliztli.",
+	"lqt-title": "Tōcāitl",
+	"lqt-read-message": "Quimachiyōtīz iuh tāmapōuh",
+	"lqt_newmessages": "Yancuīc notētītlaniliz (ahtlein)"
 }

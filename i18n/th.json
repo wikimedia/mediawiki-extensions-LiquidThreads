@@ -1,15 +1,15 @@
 {
-    "@metadata": {
-        "authors": [
-            "Octahedron80",
-            "Woraponboonkerd"
-        ]
-    },
-    "lqt_delete": "ลบ",
-    "lqt-thread-link-copy": "คัดลอกไปยังคลิปบอร์ด",
-    "lqt-cancel-subject-edit": "ยกเลิก",
-    "lqt-drag-activate": "ลากไปยังที่อื่น",
-    "lqt-drag-drop-zone": "วางที่นี่",
-    "lqt-drag-save": "ยืนยัน",
-    "lqt-edit-signature": "(แก้ไขลายเซ็นต์)"
+	"@metadata": {
+		"authors": [
+			"Octahedron80",
+			"Woraponboonkerd"
+		]
+	},
+	"lqt_delete": "ลบ",
+	"lqt-thread-link-copy": "คัดลอกไปยังคลิปบอร์ด",
+	"lqt-cancel-subject-edit": "ยกเลิก",
+	"lqt-drag-activate": "ลากไปยังที่อื่น",
+	"lqt-drag-drop-zone": "วางที่นี่",
+	"lqt-drag-save": "ยืนยัน",
+	"lqt-edit-signature": "(แก้ไขลายเซ็นต์)"
 }

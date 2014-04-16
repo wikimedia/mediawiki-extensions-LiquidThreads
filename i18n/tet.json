@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "MF-Warburg"
-        ]
-    },
-    "lqt_contents_title": "Konteúdu",
-    "lqt_delete": "Halakon",
-    "lqt_protectedfromreply_link": "proteje tiha",
-    "lqt_noreason": "Laiha motivu.",
-    "lqt_move_torename_edit": "edita nia",
-    "lqt_move_move": "Book",
-    "lqt_move_noreason": "Laiha motivu.",
-    "lqt-title": "Títulu",
-    "lqt-summary": "Rezumu",
-    "nstab-summary": "Rezumu"
+	"@metadata": {
+		"authors": [
+			"MF-Warburg"
+		]
+	},
+	"lqt_contents_title": "Konteúdu",
+	"lqt_delete": "Halakon",
+	"lqt_protectedfromreply_link": "proteje tiha",
+	"lqt_noreason": "Laiha motivu.",
+	"lqt_move_torename_edit": "edita nia",
+	"lqt_move_move": "Book",
+	"lqt_move_noreason": "Laiha motivu.",
+	"lqt-title": "Títulu",
+	"lqt-summary": "Rezumu",
+	"nstab-summary": "Rezumu"
 }

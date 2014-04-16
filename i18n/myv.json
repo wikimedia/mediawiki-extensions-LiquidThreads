@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Botuzhaleny-sodamo"
-        ]
-    },
-    "lqt_reply": "Пандомс",
-    "lqt_delete": "Нардамс",
-    "lqt-history-title": "Суренть молемазо",
-    "lqt_hist_deleted": "Нардазь",
-    "lqt_hist_moved_talkpage": "Печтевтезь",
-    "lqt_move_move": "Печтевтемс",
-    "lqt-title": "Конякс",
-    "lqt-thread-split-thread": "Суресь:",
-    "lqt-split-submit": "Кавонзамс",
-    "lqt-movethread": "Печтевтемс",
-    "lqt-merge-submit": "Пельдямс",
-    "lqt-drag-save": "Кемекстамс",
-    "lqt-drag-reason": "Тувталось:"
+	"@metadata": {
+		"authors": [
+			"Botuzhaleny-sodamo"
+		]
+	},
+	"lqt_reply": "Пандомс",
+	"lqt_delete": "Нардамс",
+	"lqt-history-title": "Суренть молемазо",
+	"lqt_hist_deleted": "Нардазь",
+	"lqt_hist_moved_talkpage": "Печтевтезь",
+	"lqt_move_move": "Печтевтемс",
+	"lqt-title": "Конякс",
+	"lqt-thread-split-thread": "Суресь:",
+	"lqt-split-submit": "Кавонзамс",
+	"lqt-movethread": "Печтевтемс",
+	"lqt-merge-submit": "Пельдямс",
+	"lqt-drag-save": "Кемекстамс",
+	"lqt-drag-reason": "Тувталось:"
 }

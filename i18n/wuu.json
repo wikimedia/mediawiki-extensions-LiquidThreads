@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "十弌"
-        ]
-    },
-    "lqt-log-action-move": "從[[$2]]畀[[$1]]移到[[$3]]($4)",
-    "lqt-cancel-subject-edit": "取消",
-    "lqt-drag-reason": "理由："
+	"@metadata": {
+		"authors": [
+			"十弌"
+		]
+	},
+	"lqt-log-action-move": "從[[$2]]畀[[$1]]移到[[$3]]($4)",
+	"lqt-cancel-subject-edit": "取消",
+	"lqt-drag-reason": "理由："
 }
