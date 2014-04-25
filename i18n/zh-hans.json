@@ -78,7 +78,7 @@
 	"lqt_change_root_blanked": "[$1 一条评论]的文字已被删除。",
 	"lqt_youhavenewmessages": "你有[[$1|新信息]]。",
 	"lqt_protectedfromreply": "此话题已被$1，不能回复。",
-	"lqt_protectedfromreply_link": "保护",
+	"lqt_protectedfromreply_link": "已保护",
 	"lqt_subject": "主题：",
 	"lqt_noreason": "未给出原因。",
 	"lqt_move_placeholder": "此帖子为占位标志，以表明话题$1已被$2在$3 $4时移动到讨论页$5。",
