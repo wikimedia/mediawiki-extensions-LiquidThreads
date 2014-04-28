@@ -11,7 +11,8 @@
 			"Oapbtommy",
 			"Shinjiman",
 			"Simon Shek",
-			"Waihorace"
+			"Waihorace",
+			"Cwlin0416"
 		]
 	},
 	"lqt-desc": "在討論頁中新增話題討論功能",
@@ -172,9 +173,9 @@
 	"lqt-log-action-subjectedit": "已將 [[$1]] 的主題由 '''$2''' 改為 '''$3'''。",
 	"lqt-log-action-resort": "已將 [[$1]] 的次序調轉。從 $2 到 $3。",
 	"lqt-log-action-signatureedit": "[[$1]]簽名已從「$2」更改為「$3」",
-	"lqt-preference-notify-talk": "當監視話題有新回覆時發送電子郵件通知我",
+	"lqt-preference-notify-talk": "當監視主題有新的回覆時，發送電子郵件通知我",
 	"lqt-preference-watch-threads": "監視我發起或回覆的話題",
-	"prefs-lqt": "話題討論",
+	"prefs-lqt": "主題討論",
 	"lqt-preference-display-depth": "顯示回覆深度：",
 	"lqt-preference-display-count": "顯示回覆數量：",
 	"lqt-preference-custom-signatures": "顯示用戶自訂簽名",
