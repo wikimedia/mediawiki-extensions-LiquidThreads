@@ -30,6 +30,7 @@
 	"lqt_from_talk": "Diwar $1",
 	"lqt-history-title": "Istor ar gaoz",
 	"lqt_hist_comment_edited": "Testenn evezhiadennoù [$2 kemmet]",
+	"lqt_hist_comment_edited_deleted": "Testenn an eveziadenn bet kemmet (bet diverket abaoe)",
 	"lqt_hist_summary_changed": "Diverrañ kemmet",
 	"lqt_hist_reply_created": "[[$1|Respont nevez]] krouet",
 	"lqt_hist_thread_created": "Krouet ar gaoz nevez",

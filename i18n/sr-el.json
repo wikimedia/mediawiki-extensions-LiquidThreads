@@ -71,7 +71,7 @@
 	"lqt_protectedfromreply_link": "zaštićeno",
 	"lqt_subject": "Naslov:",
 	"lqt_noreason": "Nije dat razlog.",
-	"lqt_move_placeholder": "Tema „$1“ je premeštena odavde u $5.\nPremeštanje {{GENDER:$2|je izvršio|je izvršila|izvrši}} $2, $3 u $4.",
+	"lqt_move_placeholder": "Tema „$1“ je premeštena odavde u $5.\nPremeštanje je izvršio $2, $3 u $4.",
 	"lqt_thread_deleted_for_sysops": "Ova tema je '''obrisana''' i vidljiva je samo administratorima.",
 	"lqt_thread_deleted": "Ova tema je obrisana.",
 	"lqt_summary_notice": "Na ovom razgovoru nije bilo izmena bar $2 {{PLURAL:$2|dan|dana|dana}}.\nAko je završen, možete $1.",
