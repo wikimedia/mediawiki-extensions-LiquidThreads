@@ -52,7 +52,7 @@
 	"lqt_hist_comment_edited_deleted": "Kommentartext bearbeitet (seit gelöscht)",
 	"lqt_hist_summary_changed": "Zusammenfassung geändert",
 	"lqt_hist_reply_created": "[[$1|Neue Antwort]] gegeben",
-	"lqt_hist_reply_created_deleted": "Neue Antwort gegeben (seit gelöscht)",
+	"lqt_hist_reply_created_deleted": "Neue Antwort gegeben (inzwischen gelöscht)",
 	"lqt_hist_thread_created": "Neues Thema gestartet",
 	"lqt_hist_deleted": "Gelöscht",
 	"lqt_hist_undeleted": "Wiederhergestellt",
