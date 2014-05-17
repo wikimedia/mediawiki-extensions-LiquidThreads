@@ -181,7 +181,7 @@
 	"searchprofile-threads-tooltip": "Düğümlü tartışmaları ve tartışma sayfalarını ara",
 	"lqt-ajax-updated": "no gıre re postayê neweyi esti",
 	"lqt-ajax-update-link": "Noroc resn",
-	"lqt-thread-show-replies": "$1 cevab ramocın",
+	"lqt-thread-show-replies": "$1 {{PLURAL:$1|cewab|cewaban}} bımocne",
 	"lqt-thread-show-more": "hema zaf cewaban ramocın",
 	"lqt-thread-link-url": "Greyê URL'i:",
 	"lqt-thread-link-title": "gıreyê wikimetn",
