@@ -412,7 +412,12 @@ class LqtView {
 	 * @param $request FauxRequest object to have session data injected into.
 	 */
 	static function fixFauxRequestSession( $request ) {
-		foreach ( (array)$_SESSION as $k => $v ) {
+		// This is sometimes called before session_start (bug 28826).
+		if ( !isset( $_SESSION ) ) {
+			return;
+		}
+
+		foreach ( $_SESSION as $k => $v ) {
 			$request->setSessionData( $k, $v );
 		}
 	}
