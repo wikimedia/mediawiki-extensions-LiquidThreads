@@ -219,6 +219,8 @@ $specialPageAliases['hsb'] = array(
 	'DeleteThread' => array( 'Nitku_wušmórnyć' ),
 	'MoveThread' => array( 'Nitku_přesunyć' ),
 	'NewMessages' => array( 'Nowe_powěsće' ),
+	'SplitThread' => array( 'Temu_rozdźělić' ),
+	'MergeThread' => array( 'Temy_zjednoćić' ),
 );
 
 /** Haitian (Kreyòl ayisyen) */
