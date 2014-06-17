@@ -1593,27 +1593,27 @@ $( document ).ready( function () {
 	} );
 
 	// Live bind for unwatch/watch stuff.
-	$( '.lqt-command-watch' ).live( 'click', liquidThreads.asyncWatch );
-	$( '.lqt-command-unwatch' ).live( 'click', liquidThreads.asyncWatch );
+	$( document ).on( 'click', '.lqt-command-watch', liquidThreads.asyncWatch );
+	$( document ).on( 'click', '.lqt-command-unwatch', liquidThreads.asyncWatch );
 
 	// Live bind for link window
-	$( '.lqt-command-link' ).live( 'click', liquidThreads.showThreadLinkWindow );
+	$( document ).on( 'click', '.lqt-command-link', liquidThreads.showThreadLinkWindow );
 
 	// Live bind for summary links
-	$( '.lqt-summary-link' ).live( 'click', liquidThreads.showSummaryLinkWindow );
+	$( document ).on( 'click', '.lqt-summary-link', liquidThreads.showSummaryLinkWindow );
 
 	// For "show replies"
-	$( 'a.lqt-show-replies' ).live( 'click', liquidThreads.showReplies );
+	$( document ).on( 'click', 'a.lqt-show-replies', liquidThreads.showReplies );
 
 	// "Show more posts" link
-	$( 'a.lqt-show-more-posts' ).live( 'click', liquidThreads.showMore );
+	$( document ).on( 'click', 'a.lqt-show-more-posts', liquidThreads.showMore );
 
 	// Edit link handler
-	$( '.lqt-command-edit > a' ).live( 'click', liquidThreads.handleEditLink );
+	$( document ).on( 'click', '.lqt-command-edit > a', liquidThreads.handleEditLink );
 
 	// Save handlers
-	$( '#wpSave' ).live( 'click', liquidThreads.handleAJAXSave );
-	$( '#wpTextbox1' ).live( 'keyup', liquidThreads.onTextboxKeyUp );
+	$( document ).on( 'click', '#wpSave', liquidThreads.handleAJAXSave );
+	$( document ).on( 'keyup', '#wpTextbox1', liquidThreads.onTextboxKeyUp );
 
 	// Hide menus when a click happens outside them
 	$( document ).click( liquidThreads.handleDocumentClick );
