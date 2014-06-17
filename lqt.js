@@ -6,7 +6,7 @@
  *
  * FIXME: This module uses deprecated jQuery.browser.
  */
-/*global liquidThreads, alert, wgWikiEditorPreferences, mwSetupToolbar */
+/*global liquidThreads, alert */
 ( function ( mw, $ ) {
 
 window.wgWikiEditorIconVersion = 0;
@@ -197,28 +197,24 @@ window.liquidThreads = {
 			$( container ).find( '#wpDiff' ).hide();
 
 			if ( $.fn.wikiEditor && $.wikiEditor.isSupported( $.wikiEditor.modules.toolbar ) ) {
-				var useDialogs;
-
-				if ( typeof wgWikiEditorPreferences !== 'undefined' ) {
-					useDialogs = wgWikiEditorPreferences.toolbar.dialogs;
-				} else {
-					useDialogs = mw.user.options.get( 'usebetatoolbar-cgd' );
-				}
-
-				if ( useDialogs && $.wikiEditor.isSupported( $.wikiEditor.modules.dialogs ) ) {
-					$( '#wpTextbox1' ).addClass( 'toolbar-dialogs' );
-				}
-
 				// Add wikiEditor toolbar
-				$( '#wpTextbox1' ).wikiEditor( 'addModule', { 'toolbar': liquidThreads.toolbar.config, 'dialogs': liquidThreads.toolbar.dialogs } );
+				$( '#wpTextbox1' ).wikiEditor( 'addModule', $.wikiEditor.modules.toolbar.config.getDefaultConfig() );
 
+				// Add wikiEditor dialogs
+				if ( mw.user.options.get( 'usebetatoolbar-cgd' ) && $.wikiEditor.isSupported( $.wikiEditor.modules.dialogs ) ) {
+					$( '#wpTextbox1' ).addClass( 'toolbar-dialogs' );
+					$.wikiEditor.modules.dialogs.config.replaceIcons( $( '#wpTextbox1' ) );
+					$( '#wpTextbox1' ).wikiEditor( 'addModule', $.wikiEditor.modules.dialogs.config.getDefaultConfig() );
+				}
 
 				// cleanup unnecessary things from the old toolbar
 				$( '#editpage-specialchars' ).remove();
+				$( '#wpTextbox1' ).wikiEditor( 'removeFromToolbar', {
+					'section': 'main',
+					'group': 'insert',
+					'tool': 'signature'
+				} );
 				$( '#wpTextbox1' ).focus();
-			} else {
-				// Add old toolbar
-				mwSetupToolbar(); // Fix it. Can't locate this.
 			}
 			var currentFocused = $( container ).find( '#wpTextbox1' );
 			mw.hook( 'ext.lqt.textareaCreated' ).fire( currentFocused );
@@ -233,12 +229,13 @@ window.liquidThreads = {
 					$( container ).empty().show();
 				}
 				liquidThreads.loadInlineEditForm( params, container, function () {
-					mw.loader.using(
-						[ 'ext.wikiEditor', 'user.options',
-							'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.dialogs',
-							'jquery.async', 'jquery.cookie' ],
-						finishSetup
-					);
+					var dependencies = [ 'ext.wikiEditor', 'user.options',
+						'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.toolbar.config',
+						'jquery.async', 'jquery.cookie' ];
+					if ( mw.user.options.get( 'usebetatoolbar-cgd' ) ) {
+						dependencies.push( 'jquery.wikiEditor.dialogs', 'jquery.wikiEditor.dialogs.config' );
+					}
+					mw.loader.using( dependencies, finishSetup );
 				} );
 			} );
 
