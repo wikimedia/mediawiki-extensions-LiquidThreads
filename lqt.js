@@ -140,7 +140,8 @@ window.liquidThreads = {
 
 		liquidThreads.cancelEdit( container );
 
-		var isIE7 = $.browser.msie && $.browser.version.substr( 0, 1 ) === '7';
+		var isIE7 = $.client.test( { 'msie': [['>=', 7], ['<', 8]] },
+			$.client.profile(), true );
 
 		var loadSpinner = $( '<div class="mw-ajax-loader lqt-loader"/>' );
 		$( container ).before( loadSpinner );

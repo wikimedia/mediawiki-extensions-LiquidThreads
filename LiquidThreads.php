@@ -87,6 +87,7 @@ $wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
 		'mediawiki.action.edit.preview',
 		'mediawiki.api.watch',
 		'user.tokens',
+		'jquery.client',
 		'mediawiki.api',
 		'mediawiki.util',
 	),
