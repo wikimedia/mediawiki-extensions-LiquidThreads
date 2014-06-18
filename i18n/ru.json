@@ -32,7 +32,7 @@
 	"lqt-empty-text": "Вы не можете отправить пустое сообщение",
 	"lqt_empty_subject": "Вы должны указать тему.",
 	"lqt_reply": "Ответить",
-	"lqt-parent": "Родитель",
+	"lqt-parent": "К предыдущему",
 	"lqt_delete": "Удалить",
 	"lqt_undelete": "Восстановить",
 	"lqt_permalink": "Ссылка сюда",
