@@ -230,7 +230,7 @@
 	"lqt-reply-summary": "[[$2|$1]]에 대한 답변",
 	"lqt-talkpage-history-title": "토론 문서 역사",
 	"lqt-talkpage-history-subtitle": "$1에서의 토론 기록",
-	"lqt-talkpage-history-tab": "머리말",
+	"lqt-talkpage-history-tab": "머리글",
 	"restriction-reply": "답변하기",
 	"restriction-newthread": "새 토론 시작하기",
 	"lqt-protected-reply-thread": "이 스레드가 새 게시물을 올릴 수 없도록 보호되어 있기 때문에 이 스레드에 글을 남길 수 없습니다.",

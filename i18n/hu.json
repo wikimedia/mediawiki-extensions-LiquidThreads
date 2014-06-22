@@ -8,7 +8,8 @@
 			"Glanthor Reviol",
 			"Hunyadym",
 			"Misibacsi",
-			"Tgr"
+			"Tgr",
+			"Tacsipacsi"
 		]
 	},
 	"lqt-desc": "Beszélgetésfolyam alapú megbeszélések a vitalapokon",
@@ -145,6 +146,7 @@
 	"lqt-newmessages-from": "Helye: $1",
 	"lqt-hot-topics": "Aktuális témák",
 	"lqt-add-reply": "Válasz írása",
+	"lqt-changesortorder": "Rendezés",
 	"lqt_rc_new_discussion": "új témát indított „$1” címmel",
 	"lqt_rc_new_reply": "Válasz erre: „$1”",
 	"right-lqt-split": "témák szétválasztása",
@@ -159,7 +161,7 @@
 	"lqt-merge-success": "Sikeresen beolvasztottad a(z) $1 témát a(z) $2 alá",
 	"lqt-log-name": "Témanapló",
 	"lqt-log-header": "Ez a napló a témákon elvégzett műveleteket listázza.",
-	"lqt-log-action-move": "áthelyezte a(z) [[$1]] témátt a(z) [[$2]] lapról a(z) [[$3]] lapra.",
+	"lqt-log-action-move": "áthelyezte a(z) [[$1]] témát a(z) [[$2]] lapról a(z) [[$3]] lapra ($4)",
 	"lqt-log-action-split": "[[$1]] leválasztása [[$3]] alól. Új tárgy: „$2“",
 	"lqt-log-action-merge-across": "[[$1]] mozgatása [[$2]] alól [[$3]] alá",
 	"lqt-log-action-merge-down": "[[$1]] összevonva [[$3]] alá",
@@ -215,8 +217,8 @@
 	"lqt-feed-title-new-threads-from": "{{SITENAME}} – új témák a következő {{PLURAL:$2|lapról|lapokról}}: $1",
 	"lqt-feed-title-replies": "{{SITENAME}} – válaszok",
 	"lqt-feed-title-replies-from": "{{SITENAME}} – válaszok a(z) $1 {{PLURAL:$2|lapról|lapokról}}",
-	"lqt-feed-new-thread-intro": "$2 új témát indított a(z) $1 lapon",
-	"lqt-feed-reply-intro": "$2 új hozzászólást írt a(z) $3 témához a(z) $1 lapon",
+	"lqt-feed-new-thread-intro": "{{GENDER:$4|$2}} új témát indított a(z) $1 lapon",
+	"lqt-feed-reply-intro": "{{GENDER:$4|$2}} új hozzászólást írt a(z) $3 témához a(z) $1 lapon",
 	"lqt-newmessages-n": "Új üzenetek ($1)",
 	"lqt_newmessages": "Nincs új üzenet",
 	"lqt_newmessages-title": "Új üzenetek",
@@ -235,5 +237,6 @@
 	"lqt-historicalrevision-error": "A kiválasztott változat hibás, nem lehet megnézni.",
 	"lqt-reply-subpage": "válasz",
 	"nstab-thread": "Téma",
-	"nstab-summary": "Összefoglaló"
+	"nstab-summary": "Összefoglaló",
+	"pageinfo-usinglqt-yes": "Igen"
 }
