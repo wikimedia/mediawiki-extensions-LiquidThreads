@@ -265,13 +265,36 @@ class LqtHooks {
 		return true;
 	}
 
-	static function onUserRename( $renameUserSQL ) {
+	/**
+	 * For integration with the Renameuser extension.
+	 *
+	 * @param RenameuserSQL $renameUserSQL
+	 * @return bool
+	 */
+	public static function onUserRename( $renameUserSQL ) {
 		// Always use the job queue, talk page edits will take forever
-		$renameUserSQL->tablesJob['thread'] =
-				array( 'thread_author_name', 'thread_author_id', 'thread_modified' );
-		$renameUserSQL->tablesJob['thread_history'] =
-				array( 'th_user_text', 'th_user', 'th_timestamp' );
+		foreach( self::$userTables as $table => $fields ) {
+			$renameUserSQL->tablesJob[$table] = $fields;
+		}
+		return true;
+	}
 
+	private static $userTables = array(
+		'thread' => array( 'thread_author_name', 'thread_author_id', 'thread_modified' ),
+		'thread_history' => array( 'th_user_text', 'th_user', 'th_timestamp' )
+	);
+
+	/**
+	 * For integration with the UserMerge extension.
+	 *
+	 * @param array $updateFields
+	 * @return bool
+	 */
+	public static function onUserMergeAccountFields( &$updateFields ) {
+		// array( tableName, idField, textField )
+		foreach( self::$userTables as $table => $fields ) {
+			$updateFields[] = array( $table, $fields[1], $fields[0] );
+		}
 		return true;
 	}
 

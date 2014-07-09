@@ -157,6 +157,9 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'LqtHooks::onLoadExtensionSchemaUpdat
 // Rename
 $wgHooks['RenameUserSQL'][] = 'LqtHooks::onUserRename';
 
+// UserMerge
+$wgHooks['UserMergeAccountFields'][] = 'LqtHooks::onUserMergeAccountFields';
+
 // Edit-related
 $wgHooks['EditPageBeforeEditChecks'][] = 'LqtHooks::editCheckBoxes';
 $wgHooks['ArticleSaveComplete'][] = 'LqtHooks::onArticleSaveComplete';
