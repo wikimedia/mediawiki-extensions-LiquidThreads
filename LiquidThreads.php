@@ -77,7 +77,6 @@ $wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
 	),
 	'scripts' => array(
 		'lqt.js',
-		'js/lqt.toolbar.js',
 		'jquery/jquery.thread_collapse.js',
 		'jquery/jquery.autogrow.js',
 	),
@@ -88,6 +87,7 @@ $wgResourceModules['ext.liquidThreads'] = $lqtResourceTemplate + array(
 		'mediawiki.api.watch',
 		'user.tokens',
 		'jquery.client',
+		'user.options',
 		'mediawiki.api',
 		'mediawiki.util',
 	),
