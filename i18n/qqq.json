@@ -33,7 +33,8 @@
 			"The Evil IP address",
 			"Theklan",
 			"Umherirrender",
-			"Wikinaut"
+			"Wikinaut",
+			"Liuxinyu970226"
 		]
 	},
 	"lqt-desc": "{{desc|name=Liquid Threads|url=http://www.mediawiki.org/wiki/Extension:LiquidThreads}}",
@@ -135,7 +136,7 @@
 	"lqt-thread-edited-author": "This is a note which appears alongside an edited post - see [[Thread:Support/Payflowpro gateway-month/reply (4)|example]].\n\nParameters:\n* $1 - date/time of the last edit\n* $2 - Unused (Number of users who edited the thread but not useful in this context. Used by [[MediaWiki:Lqt-thread-edited-others]])\n* $3 - time of the last edit (optional, instead of using $1)\n* $4 - date of the last edit (optional, instead of using $1)",
 	"lqt-thread-edited-others": "This is a note which appears alongside an edited post - see [[Thread:Translating talk:Wikia/Typo in MediaWiki:Feed-title-leaderboard|example]].\n\nParameters:\n* $1 - date/time of the last edit\n* $2 - number of users who edited the thread message, including the original poster\n* $3 - time of the last edit (optional, instead of using $1)\n* $4 - date of the last edit (optional, instead of using $1)",
 	"lqt-header-actions": "{{Identical|Action}}",
-	"lqt_summarize_link": "Used as link title.",
+	"lqt_summarize_link": "Used as link title.\n{{Identical|Summarize}}",
 	"lqt-summarize-intro": "Used as introduction text in summarize page.\n\nRefers to {{msg-mw|Savearticle}}.",
 	"lqt-thread-split": "{{doc-actionlink}}\n\nThe opposite of {{msg-mw|lqt-thread-merge}}: \"split\" is imperative, not a participle.",
 	"lqt-split-success": "Used as success message. Parameters:\n* $1 - thread title with link",
