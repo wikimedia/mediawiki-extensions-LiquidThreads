@@ -94,7 +94,7 @@
 	"lqt_move_thread_bad_destination": "A céllap nem vitalap.",
 	"lqt_move_samedestination": "A téma már ezen a lapon van!",
 	"lqt_move_noreason": "Nincs ok megadva.",
-	"lqt_move_success": "A téma át lett helyezve a(z) $1 című lapra.",
+	"lqt_move_success": "A téma át lett helyezve a(z) $1 című lapra$2.",
 	"lqt_talkpage_autocreate_summary": "A vitalap automatikusan létrejött az első téma elküldésekor",
 	"lqt_header_warning_big": "Te most egy $1 szerkesztesz.",
 	"lqt_header_warning_after_big": "A fejlécek bejelentések és előszavak számára vannak. Nem $2 akarsz indítani?",
