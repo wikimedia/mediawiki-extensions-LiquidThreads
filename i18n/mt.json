@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Chrisportelli",
-			"Roderick Mallia"
+			"Roderick Mallia",
+			"Leli Forte"
 		]
 	},
 	"lqt-desc": "Iżżid diskussjoni fi stil ta' ''thread'' fil-paġni ta' diskussjoni",
@@ -154,7 +155,7 @@
 	"lqt-search-button": "Fittex",
 	"searchprofile-threads": "Diskussjonijiet",
 	"lqt-ajax-update-link": "Aġġorna",
-	"lqt-thread-show-more": "Uri iktar risposti",
+	"lqt-thread-show-more": "Uri aktar risposti",
 	"lqt-change-subject": "Biddel is-suġġett",
 	"lqt-save-subject": "Salva",
 	"lqt-cancel-subject-edit": "Annulla",
