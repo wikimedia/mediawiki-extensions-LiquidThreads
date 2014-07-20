@@ -30,7 +30,7 @@
 	"lqt_move_movingthread": "Færi þráðinn „$1“ sem er núna á spjallborðinu „$2“.",
 	"lqt_move_move": "Færa",
 	"lqt_move_noreason": "Engin ástæða gefin.",
-	"lqt_move_success": "Þráðurinn var færður á $1.",
+	"lqt_move_success": "Þráðurinn var færður á $1: $2.",
 	"lqt_header_warning_big": "Þú ert að breyta $1.",
 	"lqt_header_warning_after_big": "Spjallsíðuhausar eru fyrir tilkynningar og kynningar. Kannski viltu frekar $2.",
 	"lqt_header_warning_bold": "spjallsíðuhaus",
