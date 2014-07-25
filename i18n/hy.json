@@ -3,7 +3,8 @@
 		"authors": [
 			"Chaojoker",
 			"Vadgt",
-			"Xelgen"
+			"Xelgen",
+			"Arman musikyan"
 		]
 	},
 	"lqt_hist_moved_talkpage": "Տեղափոխված է",
@@ -11,6 +12,7 @@
 	"lqt-history-thread": "Դերձան",
 	"lqt-thread-split-thread": "Դերձան՝",
 	"lqt-movethread": "Տեղափոխել",
+	"lqt-menu-trigger": "Ավելին",
 	"lqt-newmessages-n": "Նոր հաղորդագրություններ ($1)",
 	"lqt_newmessages": "Նոր հաղորդագրություններ (չկան)",
 	"lqt_newmessages-title": "Նոր հաղորդագրություններ",
