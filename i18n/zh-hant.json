@@ -12,7 +12,8 @@
 			"Shinjiman",
 			"Simon Shek",
 			"Waihorace",
-			"Cwlin0416"
+			"Cwlin0416",
+			"LNDDYL"
 		]
 	},
 	"lqt-desc": "在對話頁面中增加主題討論功能",
@@ -173,7 +174,7 @@
 	"lqt-log-action-subjectedit": "已變更 [[$1]] 的主題由 \"$2\" 至 \"$3\"",
 	"lqt-log-action-resort": "已修改 [[$1]] 的排序。 變更排序次序由 $2 至 $3。",
 	"lqt-log-action-signatureedit": "已變更 [[$1]] 簽名由 \"$2\" 至 \"$3\"",
-	"lqt-preference-notify-talk": "當監視的討論串有回覆時，發送電子郵件通知我",
+	"lqt-preference-notify-talk": "當監視的討論串有回覆時，傳送電子郵件通知我",
 	"lqt-preference-watch-threads": "監視我發起或回覆的討論串",
 	"prefs-lqt": "討論串",
 	"lqt-preference-display-depth": "回覆深度顯示上限：",
