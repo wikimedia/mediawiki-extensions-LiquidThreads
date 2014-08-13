@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Anakmalaysia",
-			"Aurora"
+			"Aurora",
+			"Pizza1016"
 		]
 	},
 	"lqt-desc": "Tambahkan tred perbincangan kepada laman perbincangan",
@@ -68,7 +69,7 @@
 	"lqt_subject": "Subjek:",
 	"lqt_noreason": "Tiada sebab diberikan.",
 	"lqt_move_placeholder": "Tred $1 telah dipindahkan dari sini ke $5.\nPemindahan ini dilakukan oleh $2 pada $3, $4.",
-	"lqt_thread_deleted_for_sysops": "Tred ini telah '''dihapuskan''' dan hanya boleh dilihat oleh pentadbir.",
+	"lqt_thread_deleted_for_sysops": "Tred ini telah '''dihapuskan''' dan hanya boleh dilihat oleh penyelia.",
 	"lqt_thread_deleted": "Tred ini telah dihapuskan.",
 	"lqt_summary_notice": "Tiada perubahan pada perbincangan ini selama $2 hari lebih.\nJika sudah berakhir, rasanya anda ingin $1.",
 	"lqt_summary_notice_link": "menulis ringkasan",

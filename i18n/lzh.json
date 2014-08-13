@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"LNDDYL"
+			"LNDDYL",
+			"Jason924tw"
 		]
 	},
-	"lqt-search-button": "尋"
+	"lqt-search-button": "尋",
+	"searchprofile-threads": "議",
+	"searchprofile-threads-tooltip": "尋議"
 }
