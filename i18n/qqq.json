@@ -174,7 +174,7 @@
 	"lqt-enotif-subject-newthread": "This is the subject header of an e-mail notification. Parameters are:\n* $1 is a thread name or title",
 	"lqt-enotif-newthread": "This is the text of an e-mail notification. Parameters are:\n* $1 - the watching user's (= enotif recipient's) user name\n* $2 - a thread name or title\n* $3 - a date\n* $4 - a time\n* $5 - the title of a talk page with the thread $2\n* $6 - a permalink URL\n* $7 - a reply text\n* $8 - the reply author's user name",
 	"lqt-enotif-reply": "This is the text of an e-mail notification. Parameters are:\n* $1 - the watching user's (= enotif recipient's) user name\n* $2 - a thread name or title\n* $3 - a date\n* $4 - a time\n* $5 - the title of a talk page with the thread $2\n* $6 - a permalink URL\n* $7 - a reply text\n* $8 - the reply author's user name",
-	"lqt-search-label": "Used as label for input field.",
+	"lqt-search-label": "Used as label for input field.\n{{Identical|Search term}}",
 	"lqt-search-button": "{{Identical|Search}}",
 	"searchprofile-threads": "{{Identical|Discussion}}",
 	"lqt-ajax-updated": "Used as notification, when new posts are detected.",
