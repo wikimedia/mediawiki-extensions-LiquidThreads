@@ -70,7 +70,7 @@ $specialPageAliases['bs'] = array(
 
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
 $specialPageAliases['cdo'] = array(
-	'DeleteThread' => array( '刪掉話題' ),
+	'DeleteThread' => array( '刪囇話題' ),
 	'MoveThread' => array( '移動話題' ),
 	'NewMessages' => array( '新其話題' ),
 	'SplitThread' => array( '分開話題' ),

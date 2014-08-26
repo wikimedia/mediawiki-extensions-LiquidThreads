@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bishnu Saikia"
+			"Bishnu Saikia",
+			"Gitartha.bordoloi"
 		]
 	},
 	"lqt-title": "শিৰোনামা",
@@ -15,5 +16,7 @@
 	"lqt-save-subject": "সাঁচি থওক",
 	"lqt-cancel-subject-edit": "বাতিল কৰক",
 	"lqt-drag-reason": "কাৰণ:",
+	"lqt-newmessages-n": "নতুন বাৰ্তা ($1)",
+	"lqt_newmessages": "নতুন বাৰ্তা (নাই)",
 	"lqt-talkpage-history-tab": "শীৰ্ষক"
 }
