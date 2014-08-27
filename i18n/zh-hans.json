@@ -15,7 +15,8 @@
 			"Wmr89502270",
 			"Xiaomingyan",
 			"Yfdyh000",
-			"Duolaimi"
+			"Duolaimi",
+			"Jason924tw"
 		]
 	},
 	"lqt-desc": "在讨论页增加话题讨论功能",
@@ -95,7 +96,7 @@
 	"lqt_threadrequired": "您必须在URL中指明帖子。",
 	"lqt_move_movingthread": "正在移动$1。该帖子是$2的一部分。",
 	"lqt_move_torename": "要重命名本帖子，$1并修改'主题'区域的内容。",
-	"lqt_move_torename_edit": "编辑",
+	"lqt_move_torename_edit": "编辑它",
 	"lqt_move_destinationtitle": "目标讨论页的标题：",
 	"lqt_move_move": "移动",
 	"lqt_move_nodestination": "您必须指明移动目标。",
