@@ -868,33 +868,6 @@ class ApiThreadAction extends ApiEditPage {
 		);
 	}
 
-	public function getPossibleErrors() {
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'missingparam', 'action' ),
-			array( 'missingparam', 'talkpage' ),
-			array( 'missingparam', 'subject' ),
-			array( 'code' => 'too-many-threads', 'info' => 'You may only split one thread at a time' ),
-			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to split' ),
-			array( 'code' => 'already-top-level', 'info' => 'This thread is already a top-level thread.' ),
-			array( 'code' => 'no-valid-subject', 'info' => 'No subject, or an invalid subject, was specified' ),
-			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to merge' ),
-			array( 'code' => 'no-parent-thread', 'info' => 'You must specify a new parent thread to merge beneath' ),
-			array( 'code' => 'invalid-parent-thread', 'info' => 'The parent thread you specified was neither the title of a thread, nor a thread ID.' ),
-			array( 'code' => 'invalid-talkpage', 'info' => 'The talkpage you specified is invalid, or does not have discussion threading enabled.' ),
-			array( 'code' => 'talkpage-protected', 'info' => 'You cannot post to the specified talkpage, because it is protected from new posts' ),
-			array( 'code' => 'invalid-subject', 'info' => 'The subject you specified is not valid' ),
-			array( 'code' => 'no-text', 'info' => 'You must include text in your post' ),
-			array( 'code' => 'too-many-threads', 'info' => 'You may only edit one thread at a time' ),
-			array( 'code' => 'invalid-subject', 'info' => 'You must specify a thread to edit' ),
-			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to reply to' ),
-			array( 'code' => 'perm_result-protected', 'info' => 'You cannot reply to this thread, because the perm_result is protected from replies.' ),
-			array( 'code' => 'too-many-threads', 'info' => 'You may only change the subject of one thread at a time' ),
-			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to change the subject of' ),
-			array( 'code' => 'no-specified-threads', 'info' => 'You must specify a thread to set the sortkey of' ),
-			array( 'code' => 'invalid-sortkey', 'info' => 'You must specify a valid timestamp for the sortkey parameter. It should be in the form YYYYMMddhhmmss, a unix timestamp or "now".' ),
-		) );
-	}
-
 	public function getExamples() {
 		return array(
 		);
