@@ -1394,7 +1394,7 @@ class LqtView {
 		// Remove title, so that it stays set correctly.
 		$parserOutput->setTitleText( '' );
 
-		$wgOut->addParserOutputNoText( $parserOutput );
+		$wgOut->addParserOutputMetadata( $parserOutput );
 
 		return $parserOutput->getText();
 	}
