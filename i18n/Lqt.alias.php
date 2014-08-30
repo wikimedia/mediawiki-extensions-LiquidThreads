@@ -560,9 +560,9 @@ $specialPageAliases['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
-	'DeleteThread' => array( '刪除話題' ),
-	'MoveThread' => array( '移動話題' ),
-	'NewMessages' => array( '新消息' ),
-	'SplitThread' => array( '分割話題' ),
-	'MergeThread' => array( '合併話題' ),
+	'DeleteThread' => array( '刪除討論串' ),
+	'MoveThread' => array( '移動討論串' ),
+	'NewMessages' => array( '新訊息' ),
+	'SplitThread' => array( '分割討論串' ),
+	'MergeThread' => array( '合併討論串' ),
 );

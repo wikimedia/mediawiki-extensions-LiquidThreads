@@ -11,7 +11,8 @@
 			"Reza1615",
 			"Sahim",
 			"Wayiran",
-			"ZxxZxxZ"
+			"ZxxZxxZ",
+			"Alirezaaa"
 		]
 	},
 	"lqt-desc": "افزودن بحث‌های مبحث‌بندی‌شده به صفحه‌های بحث",
@@ -23,7 +24,7 @@
 	"lqt_toc_thread_replycount": "پاسخ‌ها",
 	"lqt_toc_thread_modified": "آخرین تغییر",
 	"lqt_add_header": "افزودن سرآیند",
-	"lqt_new_thread": "آغاز یک بحث جدید",
+	"lqt_new_thread": "آغاز یک بحث تازه",
 	"lqt_invalid_subject": "عنوانی که وارد کردید نامعتبر است.\nممکن است:\n*خیلی طولانی باشد، یا\n*با پیشوندهای میان‌ویکی یا نام‌های فضای نام تعارض داشته باشد.",
 	"lqt-empty-text": "شما نمی‌توانید پیامی خالی بفرستید",
 	"lqt_empty_subject": "باید یک عنوان وارد کنید.",
@@ -218,7 +219,7 @@
 	"lqt-preview-signature": "(پیش‌نمایش)",
 	"lqt-feed-title-all": "{{SITENAME}} — پست‌های جدید",
 	"lqt-feed-title-all-from": "{{SITENAME}} — پست‌های جدید از $1",
-	"lqt-feed-title-new-threads": "{{SITENAME}} — مبحث‌های جدید",
+	"lqt-feed-title-new-threads": "{{SITENAME}} — مبحث‌های تازه",
 	"lqt-feed-title-new-threads-from": "{{SITENAME}} — مبحث‌های جدید از $1",
 	"lqt-feed-title-replies": "{{SITENAME}} — پاسخ‌ها",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — پاسخ‌ها از $1",
@@ -226,9 +227,9 @@
 	"lqt-feed-reply-intro": "پاسخ به $3 (در $1) فرستاده شده توسط {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "نمایش ارسالی‌های جدید به موضوع‌ها و یا صفحه‌های بحث موضوع‌هایی که شما آن‌ها را پی‌گیری می‌کنید",
 	"lqt-newmessages-n": "پیام‌های جدید ($1)",
-	"lqt_newmessages": "پیام‌های جدید (هیچ)",
+	"lqt_newmessages": "پیام‌های تازه (هیچ)",
 	"lqt_newmessages-title": "پیام‌های جدید",
-	"lqt-newpost-summary": "مبحث جدید: $1",
+	"lqt-newpost-summary": "مبحث تازه: $1",
 	"lqt-reply-summary": "پاسخ به [[$2|$1]]",
 	"lqt-talkpage-history-title": "تاریخچهٔ صفحهٔ بحث",
 	"lqt-talkpage-history-subtitle": "برای $1",
@@ -245,7 +246,7 @@
 	"lqt-pagechange-editformopen": "متن شما در این صفحه ذخیره نشده است. درصورتی که این صفحهٔ را ترک کنید ممکن است متن نوشته شده ازدست برود.",
 	"nstab-thread": "موضوع",
 	"nstab-summary": "خلاصه",
-	"echo-pref-email-lqt-new-topic": "ایجاد بحث جدید",
+	"echo-pref-email-lqt-new-topic": "ایجاد بحث تازه",
 	"echo-pref-email-lqt-reply": "پاسخ ها به بحث",
 	"pageinfo-usinglqt": "موضوع بحث شده فعال شده",
 	"pageinfo-usinglqt-yes": "بله"
