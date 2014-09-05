@@ -549,9 +549,9 @@ class LqtDiscussionPager extends IndexPager {
 				!$this->isNavigationBarShown() ) {
 			return '';
 		}
-		global $wgStylePath, $wgLang;
+		global $wgExtensionAssetsPath, $wgLang;
 
-		$path = "$wgStylePath/common/images";
+		$path = "$wgExtensionAssetsPath/LiquidThreads/images";
 		$labels = array(
 			'first' => 'table_pager_first',
 			'prev' => 'table_pager_prev',
