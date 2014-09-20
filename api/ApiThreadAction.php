@@ -33,6 +33,13 @@ class ApiThreadAction extends ApiEditPage {
 			}
 		}
 
+		// HACK: Somewhere $wgOut->parse() is called, which breaks
+		// if a Title isn't set. So set one. See bug 71081.
+		global $wgTitle;
+		if ( !$wgTitle instanceof Title ) {
+			$wgTitle = Title::newFromText( 'LiquidThreads has a bug' );
+		}
+
 		// Find the appropriate module
 		$actions = $this->getActions();
 
