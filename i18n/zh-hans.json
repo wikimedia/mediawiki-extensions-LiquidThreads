@@ -64,7 +64,7 @@
 	"lqt_hist_split_from": "拆分建立新帖子",
 	"lqt_hist_root_blanked": "已删除的评论文字",
 	"lqt_hist_adjusted_sortkey": "已调整帖子的位置",
-	"lqt_revision_as_of": "截至$2 $3的修订。",
+	"lqt_revision_as_of": "$2 $3的版本。",
 	"lqt_change_new_thread": "这是帖子最初的修订版本。",
 	"lqt_change_reply_created": "本次修订发表的评论[$1 以高亮显示]。",
 	"lqt_change_edited_root": "本次修订编辑的评论[$1 以高亮显示]。",
