@@ -517,7 +517,7 @@ $specialPageAliases['uk'] = array(
 	'MergeThread' => array( 'Об\'єднати_гілки_повідомлень' ),
 );
 
-/** vèneto (vèneto) */
+/** Venetian (vèneto) */
 $specialPageAliases['vec'] = array(
 	'DeleteThread' => array( 'ScancelaArgomento' ),
 	'MoveThread' => array( 'SpostaArgomento' ),
