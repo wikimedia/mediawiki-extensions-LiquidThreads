@@ -84,21 +84,26 @@ class ApiFeedLQTThreads extends ApiBase {
 		$timestamp = $thread->created();
 		$user = $thread->author()->getName();
 
-		// Grab the title for the superthread, if one exists.
-		$stTitle = null;
-		if ( $thread->hasSuperThread() ) {
-			$stTitle = clone $thread->topmostThread()->title();
-			$stTitle->setFragment( '#' . $thread->superthread()->getAnchorName() );
-		}
 
 		// Prefix content with a quick description
 		$userLink = Linker::userLink( $thread->author()->getId(), $user );
 		$talkpageLink = Linker::link( $thread->getTitle() );
-		$superthreadLink = Linker::link( $stTitle );
-		$user = $thread->author()->getName();
-		$message = $thread->hasSuperThread() ? 'lqt-feed-reply-intro' : 'lqt-feed-new-thread-intro';
-		$rawParams = array( $talkpageLink, $userLink, $superthreadLink );
-		$description = wfMessage( $message )->rawParams( $rawParams )->params( $user )->parseAsBlock();
+		if ( $thread->hasSuperThread() ) {
+			$stTitle = clone $thread->topmostThread()->title();
+			$stTitle->setFragment( '#' . $thread->superthread()->getAnchorName() );
+			$superthreadLink = Linker::link( $stTitle );
+			$description = wfMessage( 'lqt-feed-reply-intro' )
+				->rawParams( $talkpageLink, $userLink, $superthreadLink )
+				->params( $user )
+				->parseAsBlock();
+		} else {
+			// Third param is unused
+			$description = wfMessage( 'lqt-feed-new-thread-intro' )
+				->rawParams( $talkpageLink, $userLink, '' )
+				->params( $user )
+				->parseAsBlock();
+		}
+
 		$completeText = $description . $completeText;
 
 		return new FeedItem( $titleStr, $completeText, $titleUrl, $timestamp, $user );
