@@ -1118,8 +1118,7 @@ class LqtView {
 	 */
 	function simplePageMove( $old_title, $new_subject, $reason ) {
 		if ( $this->user->pingLimiter( 'move' ) ) {
-			$this->out->rateLimited();
-			return false;
+			throw new ThrottledError;
 		}
 
 		# Variables beginning with 'o' for old article 'n' for new article
@@ -1136,8 +1135,6 @@ class LqtView {
 		# Move the talk page if relevant, if it exists, and if we've been told to
 		 // TODO we need to implement correct moving of talk pages everywhere later.
 		// Snipped.
-
-		return true;
 	}
 
 	/**
