@@ -14,6 +14,8 @@
  * - summary article ID
  * - "root" page ID
  * - type
+ * - replies
+ * - reactions
  */
 
 class ApiQueryLQTThreads extends ApiQueryBase {
@@ -36,8 +38,12 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		'summaryid' => 'thread_summary_page',
 		'rootid' => 'thread_root',
 		'type' => 'thread_type',
-		'reactions' => null,
+		'reactions' => null, // Handled elsewhere
+		'replies' => null, // Handled elsewhere
 	);
+
+	/** @var array **/
+	protected $threadIds;
 
 	public function __construct( $query, $moduleName ) {
 		parent :: __construct( $query, $moduleName, 'th' );
@@ -127,25 +133,72 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			}
 		}
 
+		$this->threadIds = $ids;
+
 		if ( isset( $prop['reactions'] ) ) {
-			$dbr = wfGetDB( DB_SLAVE );
-			$res = $dbr->select( 'thread_reaction', '*', array( 'tr_thread' => $ids ),
-						__METHOD__ );
+			$this->addSubItems(
+				'thread_reaction',
+				'*',
+				'tr_thread',
+				'reactions',
+				function( $row ) {
+					return array( "{$row->tr_user}_{$row->tr_type}" => array(
+						'type' => $row->tr_type,
+						'user-id' => $row->tr_user,
+						'user-name' => $row->tr_user_text,
+						'value' => $row->tr_value,
+					) );
+				},
+				'reaction'
+			);
+		}
 
-			foreach ( $res as $row ) {
-				$info = array(
-				     'type' => $row->tr_type,
-				     'user-id' => $row->tr_user,
-				     'user-name' => $row->tr_user_text,
-				     'value' => $row->tr_value,
-				);
-
-				$result->addValue( array( 'query', $this->getModuleName(), $row->tr_thread, 'reactions' ),
-							null, $info );
-			}
+		if ( isset( $prop['replies'] ) ) {
+			$this->addSubItems(
+				'thread',
+				'thread_id',
+				'thread_parent',
+				'replies',
+				function($row) { return array( $row->thread_id => array( 'id' => $row->thread_id ) ); },
+				'reply'
+			);
 		}
 
 		$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'thread' );
+	}
+
+	protected function addSubItems( $tableName, $fields, $joinField, $subitemName, /*callable*/ $handleRow, $tagName ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$result = $this->getResult();
+
+		$fields = array_merge( (array)$fields, (array)$joinField );
+
+		$res = $dbr->select(
+			$tableName,
+			$fields,
+			array(
+				$joinField => $this->threadIds
+			),
+			__METHOD__
+		);
+
+		foreach( $res as $row ) {
+			$output = $handleRow( $row );
+
+			$path = array(
+				'query',
+				$this->getModuleName(),
+				$row->$joinField,
+			);
+
+			$result->addValue(
+				$path,
+				$subitemName,
+				$output
+			);
+
+			$result->setIndexedTagName_internal( array_merge( $path, array( $subitemName ) ), $tagName );
+		}
 	}
 
 	protected function renderThread( $row, $params, &$entry ) {
@@ -379,10 +432,10 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	}
 
 	public function getExamples() {
- 		return array(
- 			'api.php?action=query&list=threads&thpage=Talk:Main_Page',
- 			'api.php?action=query&list=threads&thid=1|2|3|4&thprop=id|subject|modified'
- 		);
+		return array(
+			'api.php?action=query&list=threads&thpage=Talk:Main_Page',
+			'api.php?action=query&list=threads&thid=1|2|3|4&thprop=id|subject|modified'
+		);
 	}
 
 	public function getVersion() {
