@@ -146,6 +146,7 @@ $wgHooks['ArticleDelete'][] = 'LqtDeletionController::onArticleDelete';
 // Moving
 $wgHooks['SpecialMovepageAfterMove'][] = 'LqtHooks::onArticleMoveComplete';
 $wgHooks['AbortMove'][] = 'LqtHooks::onArticleMove';
+$wgHooks['MovePageIsValidMove'][] = 'LqtHooks::onMovePageIsValidMove';
 
 // Search
 $wgHooks['ShowSearchHitTitle'][] = 'LqtHooks::customiseSearchResultTitle';
