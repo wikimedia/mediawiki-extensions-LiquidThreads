@@ -430,12 +430,16 @@ class LqtHooks {
 		return true;
 	}
 
-	static function onArticleMove( $ot, $nt, $user, &$err, $reason ) {
+	static function onMovePageIsValidMove( Title $oldTitle ) {
 		// Synchronise article data so that moving the article doesn't break any
 		//  article association.
-		Threads::synchroniseArticleData( new Article( $ot, 0 ) );
+		Threads::synchroniseArticleData( new Article( $oldTitle, 0 ) );
 
 		return true;
+	}
+
+	static function onArticleMove( $ot, $nt, $user, &$err, $reason ) {
+		return self::onMovePageIsValidMove( $ot );
 	}
 
 	/**
