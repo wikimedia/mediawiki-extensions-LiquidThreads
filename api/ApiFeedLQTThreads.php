@@ -242,6 +242,9 @@ class ApiFeedLQTThreads extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array (
 			'feedformat' => 'The format of the feed',
@@ -252,10 +255,16 @@ class ApiFeedLQTThreads extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'This module returns a feed of discussion threads';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return array (
 			'api.php?action=feedthreads',
@@ -264,7 +273,17 @@ class ApiFeedLQTThreads extends ApiBase {
 		);
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=feedthreads'
+				=> 'apihelp-feedthreads-example-1',
+			'action=feedthreads&type=replies&thread=Thread:Foo'
+				=> 'apihelp-feedthreads-example-2',
+			'action=feedthreads&type=newthreads&talkpage=Talk:Main_Page'
+				=> 'apihelp-feedthreads-example-3',
+		);
 	}
 }
