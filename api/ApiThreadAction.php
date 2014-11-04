@@ -825,6 +825,9 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Allows actions to be taken on threads and posts in threaded discussions.';
 	}
@@ -846,6 +849,9 @@ class ApiThreadAction extends ApiEditPage {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array(
 			'thread' => 'A list (pipe-separated) of thread IDs or titles to act on',
@@ -875,7 +881,18 @@ class ApiThreadAction extends ApiEditPage {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
+		return array(
+		);
+	}
+
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
 		return array(
 		);
 	}
@@ -919,9 +936,5 @@ class ApiThreadAction extends ApiEditPage {
 
 	public function isWriteMode() {
 		return true;
-	}
-
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
 	}
 }

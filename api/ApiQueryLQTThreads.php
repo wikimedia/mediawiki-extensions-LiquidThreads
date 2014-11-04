@@ -347,7 +347,9 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 					'newer',
 					'older'
 				),
-				ApiBase :: PARAM_DFLT => 'newer'
+				ApiBase :: PARAM_DFLT => 'newer',
+				/** @todo Once support for MediaWiki < 1.25 is dropped, just use ApiBase::PARAM_HELP_MSG directly */
+				constant( 'ApiBase::PARAM_HELP_MSG' ) ?: '' => 'api-help-param-direction',
 			),
 			'showdeleted' => false,
 			'limit' => array(
@@ -400,6 +402,9 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return array (
 			'startid' => 'The thread id to start enumerating from',
@@ -427,10 +432,16 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Show details of LiquidThreads threads.';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return array(
 			'api.php?action=query&list=threads&thpage=Talk:Main_Page',
@@ -438,7 +449,15 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		);
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=query&list=threads&thpage=Talk:Main_Page'
+				=> 'apihelp-query+threads-example-1',
+			'action=query&list=threads&thid=1|2|3|4&thprop=id|subject|modified'
+				=> 'apihelp-query+threads-example-2',
+		);
 	}
 }
