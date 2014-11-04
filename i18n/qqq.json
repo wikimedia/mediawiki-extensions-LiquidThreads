@@ -260,7 +260,7 @@
 	"apihelp-threadaction-param-type": "{{doc-apihelp-param|threadaction|type}}",
 	"apihelp-threadaction-param-value": "{{doc-apihelp-param|threadaction|value}}",
 	"apihelp-threadaction-param-method": "{{doc-apihelp-param|threadaction|method}}",
-	"apihelp-threadaction-param-operand": "{{doc-apihelp-param|threadaction|operand}}",
+	"apihelp-threadaction-param-operand": "{{notranslate}}\n{{doc-apihelp-param|threadaction|operand}}",
 	"apihelp-threadaction-param-captchaword": "{{doc-apihelp-param|threadaction|captchaword}}",
 	"apihelp-threadaction-param-captchaid": "{{doc-apihelp-param|threadaction|captchaid}}"
 }

@@ -3,7 +3,8 @@
 		"authors": [
 			"Minh Nguyen",
 			"Trần Nguyễn Minh Huy",
-			"Vinhtantran"
+			"Vinhtantran",
+			"Max20091"
 		]
 	},
 	"lqt-desc": "Thêm những thảo luận có cấu trúc vào trang thảo luận",
@@ -240,5 +241,9 @@
 	"echo-pref-email-lqt-new-topic": "Bắt đầu luồng thảo luận mới",
 	"echo-pref-email-lqt-reply": "Trả lời trong luồng thảo luận",
 	"pageinfo-usinglqt": "Thảo luận theo luồng được kích hoạt",
-	"pageinfo-usinglqt-yes": "Có"
+	"pageinfo-usinglqt-yes": "Có",
+	"apihelp-query+threads-param-id": "Nhận theard với các ID nhất định.",
+	"apihelp-threadaction-param-threadaction": "Hành động cần thực hiện.",
+	"apihelp-threadaction-param-text": "Các text của bài viết để tạo ra.",
+	"apihelp-threadaction-param-captchaword": "Trả lời CAPTCHA."
 }

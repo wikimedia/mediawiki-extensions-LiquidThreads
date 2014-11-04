@@ -90,6 +90,8 @@
 	"lqt-merge-success": "איר האט דערפאלגרייך צונויפגעגאסן דעם פאדעם $1 מיט $2.",
 	"lqt-log-name": "פעדעם לאגבוך",
 	"lqt-log-action-merge-across": "האט באוועגט [[$1]] פון [[$2]] צו [[$3]]",
+	"lqt-enotif-subject-reply": "{{SITENAME}} דיסקוסיע - אָנרוף: $1",
+	"lqt-enotif-subject-newthread": "{{SITENAME}} דיסקוסיע - נײַ קייטל: $1",
 	"lqt-search-button": "זוכן",
 	"searchprofile-threads": "דיסקוסיעס",
 	"lqt-ajax-update-link": "דערהײַנטיקן",

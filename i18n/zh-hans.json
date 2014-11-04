@@ -254,5 +254,9 @@
 	"echo-pref-email-lqt-new-topic": "创建新的讨论主题",
 	"echo-pref-email-lqt-reply": "回复讨论主题",
 	"pageinfo-usinglqt": "主题讨论已启用",
-	"pageinfo-usinglqt-yes": "是"
+	"pageinfo-usinglqt-yes": "是",
+	"apihelp-query+threads-param-prop": "要获取的属性。",
+	"apihelp-query+threads-example-1": "列出[[Talk:Main Page]]上的帖子",
+	"apihelp-query+threads-example-2": "列出帖子带ID1、2、3和4",
+	"apihelp-threadaction-param-captchaword": "回答验证码。"
 }
