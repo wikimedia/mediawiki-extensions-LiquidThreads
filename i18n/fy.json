@@ -2,10 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Kening Aldgilles",
-			"Snakesteuben"
+			"Snakesteuben",
+			"Robin0van0der0vliet"
 		]
 	},
 	"lqt_delete": "Wiskje",
+	"lqt_discussion_link": "oerlis",
+	"lqt_subject": "Ûnderwerp:",
 	"lqt_move_move": "Werneam",
-	"lqt-cancel-subject-edit": "Ofbrekke"
+	"lqt-search-button": "Sykje",
+	"lqt-cancel-subject-edit": "Annulearje",
+	"pageinfo-usinglqt-yes": "Ja"
 }

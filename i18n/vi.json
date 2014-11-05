@@ -242,8 +242,8 @@
 	"echo-pref-email-lqt-reply": "Trả lời trong luồng thảo luận",
 	"pageinfo-usinglqt": "Thảo luận theo luồng được kích hoạt",
 	"pageinfo-usinglqt-yes": "Có",
-	"apihelp-query+threads-param-id": "Nhận theard với các ID nhất định.",
-	"apihelp-threadaction-param-threadaction": "Hành động cần thực hiện.",
-	"apihelp-threadaction-param-text": "Các text của bài viết để tạo ra.",
-	"apihelp-threadaction-param-captchaword": "Trả lời CAPTCHA."
+	"apihelp-query+threads-param-id": "Lấy các luồng theo ID.",
+	"apihelp-threadaction-param-threadaction": "Tác vụ để thực hiện.",
+	"apihelp-threadaction-param-text": "Nội dung của bài đăng để tạo ra.",
+	"apihelp-threadaction-param-captchaword": "Lời giải đúng của CAPTCHA."
 }
