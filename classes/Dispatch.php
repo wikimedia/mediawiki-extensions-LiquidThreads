@@ -142,6 +142,8 @@ class LqtDispatch {
 
 		$isTalkPage = $isTalkPage && !$title->isRedirect();
 
+		wfRunHooks( 'LiquidThreadsIsLqtPage', array( $title, &$isTalkPage ) );
+
 		return $isTalkPage;
 	}
 
