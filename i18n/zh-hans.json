@@ -261,6 +261,7 @@
 	"apihelp-query+threads-param-prop": "要获取的属性。",
 	"apihelp-query+threads-example-1": "列出[[Talk:Main Page]]上的帖子",
 	"apihelp-query+threads-example-2": "列出帖子带ID1、2、3和4",
+	"apihelp-threadaction-param-threadaction": "要进行的操作。",
 	"apihelp-threadaction-param-text": "要创建的帖子正文。",
 	"apihelp-threadaction-param-captchaword": "回答验证码。",
 	"apihelp-threadaction-param-captchaid": "之前请求的验证码ID。"

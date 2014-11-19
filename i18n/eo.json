@@ -86,7 +86,7 @@
 	"lqt_move_torename": "Por renomigi ĉi tiun fadenon, $1 kaj ŝanĝu la kampon 'Temo'.",
 	"lqt_move_torename_edit": "redakti ĝin",
 	"lqt_move_destinationtitle": "Titolo de destina diskuto-paĝo:",
-	"lqt_move_move": "Alinomigi",
+	"lqt_move_move": "Alinomi",
 	"lqt_move_nodestination": "Vi nepre specifu destinon.",
 	"lqt_move_thread_bad_destination": "La celo-paĝo ne estas diskuto paĝo.",
 	"lqt_move_samedestination": "La fadeno estas jam en ĉi tiu paĝo!",
