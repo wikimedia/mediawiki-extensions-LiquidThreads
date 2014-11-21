@@ -2380,10 +2380,6 @@ class LqtView {
 		return $sig;
 	}
 
-	function customizeTabs( $skin, &$links ) {
-		// No-op
-	}
-
 	function customizeNavigation( $skin, &$links ) {
 		// No-op
 	}

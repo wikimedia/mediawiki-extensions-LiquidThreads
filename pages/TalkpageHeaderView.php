@@ -3,21 +3,6 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 
 // Pass-through wrapper with an extra note at the top
 class TalkpageHeaderView extends LqtView {
-	function customizeTabs( $skintemplate, &$content_actions ) {
-		unset( $content_actions['edit'] );
-		unset( $content_actions['addsection'] );
-		unset( $content_actions['history'] );
-		unset( $content_actions['watch'] );
-		unset( $content_actions['move'] );
-
-		$content_actions['talk']['class'] = false;
-		$content_actions['header'] = array(
-			'class' => 'selected',
-			'text' => wfMessage( 'lqt-talkpage-history-tab' )->text(),
-			'href' => '',
-		);
-	}
-
 	function customizeNavigation( $skin, &$links ) {
 		$remove = array(
 			'actions/edit',

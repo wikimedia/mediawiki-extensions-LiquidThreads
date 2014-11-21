@@ -29,11 +29,6 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 		return false;
 	}
 
-	function customizeTabs( $skin, &$links ) {
-		parent::customizeTabs( $skin, $links );
-		$links['history']['class'] = 'selected';
-	}
-
 	function customizeNavigation( $skin, &$links ) {
 		parent::customizeNavigation( $skin, $links );
 		$links['views']['history']['class'] = 'selected';

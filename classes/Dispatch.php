@@ -235,14 +235,6 @@ class LqtDispatch {
 		return true;
 	}
 
-	static function onSkinTemplateTabs( $skinTemplate, &$links ) {
-		if ( !self::$primaryView ) return true;
-
-		self::$primaryView->customizeTabs( $skinTemplate, $links );
-
-		return true;
-	}
-
 	/**
 	 * Most stuff is in the user language.
 	 * @param $title Title

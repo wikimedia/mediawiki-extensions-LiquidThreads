@@ -3,53 +3,8 @@
 class ThreadPermalinkView extends LqtView {
 	protected $thread;
 
-	function customizeTabs( $skin, &$links ) {
-		self::customizeThreadTabs( $skin, $links, $this );
-	}
-
 	function customizeNavigation( $skin, &$links ) {
 		self::customizeThreadNavigation( $skin, $links, $this );
-	}
-
-	static function customizeThreadTabs( $skintemplate, &$content_actions, $view ) {
-		if ( !$view->thread ) {
-			return true;
-		}
-
-		// Insert 'article' and 'discussion' tabs before the thread tab.
-
-		$tabs = self::getCustomTabs( $view );
-		$content_actions = $tabs + $content_actions;
-
-		unset( $content_actions['edit'] );
-		unset( $content_actions['viewsource'] );
-		unset( $content_actions['talk'] );
-
-		if ( ! $view->thread->title() ) {
-			throw new MWException( "Thread " . $view->thread->id() . " has null title" );
-		}
-
-		$subpage = $view->thread->title()->getPrefixedText();
-
-		// Repoint move/delete/history tabs
-		if ( array_key_exists( 'move', $content_actions ) && $view->thread ) {
-			$content_actions['move']['href'] =
-				SpecialPage::getTitleFor( 'MoveThread', $subpage )->getLocalURL();
-		}
-
-		if ( array_key_exists( 'delete', $content_actions ) && $view->thread ) {
-			$content_actions['delete']['href'] =
-				$view->thread->title()->getLocalURL( 'action=delete' );
-		}
-
-		if ( array_key_exists( 'history', $content_actions ) ) {
-			$content_actions['history']['href'] = self::permalinkUrl( $view->thread, 'thread_history' );
-			if ( $view->methodApplies( 'thread_history' ) ) {
-				$content_actions['history']['class'] = 'selected';
-			}
-		}
-
-		return true;
 	}
 
 	static function customizeThreadNavigation( $skin, &$links, $view ) {
@@ -102,8 +57,8 @@ class ThreadPermalinkView extends LqtView {
 		}
 	}
 
-	// Pre-generates the tabs to be included, for customizeTabs and customizeNavigation
-	//  to insert in the appropriate place
+	// Pre-generates the tabs to be included, for customizeNavigation
+	// to insert in the appropriate place
 	static function getCustomTabs( $view ) {
 		$tabs = array();
 

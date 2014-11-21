@@ -14,21 +14,6 @@ class TalkpageView extends LqtView {
 		$this->talkpage = $tp;
 	}
 
-	/* Added to SkinTemplateTabs hook in TalkpageView::show(). */
-	static function customizeTalkpageTabs( $skintemplate, &$content_actions, $view ) {
-		// The arguments are passed in by reference.
-		unset( $content_actions['edit'] );
-		unset( $content_actions['viewsource'] );
-		unset( $content_actions['delete'] );
-
-		# Protection against non-SkinTemplate skins
-		if ( isset( $content_actions['history'] ) ) {
-			$thisTitle = $view->article->getTitle();
-			$history_url = $thisTitle->getLocalURL( 'lqt_method=talkpage_history' );
-			$content_actions['history']['href'] = $history_url;
-		}
-	}
-
 	static function customizeTalkpageNavigation( $skin, &$links, $view ) {
 		$remove = array( 'views/edit', 'views/viewsource', 'actions/delete' );
 
@@ -42,10 +27,6 @@ class TalkpageView extends LqtView {
 			$history_url = $title->getLocalURL( 'lqt_method=talkpage_history' );
 			$links['views']['history']['href'] = $history_url;
 		}
-	}
-
-	function customizeTabs( $skintemplate, &$links ) {
-		self::customizeTalkpageTabs( $skintemplate, $links, $this );
 	}
 
 	function customizeNavigation( $skintemplate, &$links ) {

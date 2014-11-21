@@ -20,12 +20,6 @@ class TalkpageHistoryView extends TalkpageView {
 		return false;
 	}
 
-	function customizeTabs( $skin, &$links ) {
-		TalkpageView::customizeTalkpageTabs( $skin, $links, $this );
-
-		$links['history']['class'] = 'selected';
-	}
-
 	function customizeNavigation( $skin, &$links ) {
 		TalkpageView::customizeTalkpageNavigation( $skin, $links, $this );
 		$links['views']['history']['class'] = 'selected';

@@ -3,15 +3,6 @@ if ( !defined( 'MEDIAWIKI' ) ) die;
 
 // Pass-through wrapper
 class ThreadProtectionFormView extends LqtView {
-	function customizeTabs( $skintemplate, &$content_actions ) {
-		ThreadPermalinkView::customizeThreadTabs( $skintemplate, $content_actions, $this );
-
-		if ( array_key_exists( 'protect', $content_actions ) )
-		$content_actions['protect']['class'] = 'selected';
-		elseif ( array_key_exists( 'unprotect', $content_actions ) )
-		$content_actions['unprotect']['class'] = 'selected';
-	}
-
 	function customizeNavigation( $skintemplate, &$links ) {
 		ThreadPermalinkView::customizeThreadNavigation( $skintemplate, $links, $this );
 

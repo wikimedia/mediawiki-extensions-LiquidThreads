@@ -109,7 +109,6 @@ $wgHooks['CanonicalNamespaces'][] = 'LqtHooks::onCanonicalNamespaces';
 
 // Main dispatch hook
 $wgHooks['MediaWikiPerformAction'][] = 'LqtDispatch::tryPage';
-$wgHooks['SkinTemplateTabs'][] = 'LqtDispatch::onSkinTemplateTabs';
 $wgHooks['SkinTemplateNavigation'][] = 'LqtDispatch::onSkinTemplateNavigation';
 $wgHooks['PageContentLanguage'][] = 'LqtDispatch::onPageContentLanguage';
 
