@@ -1,4 +1,5 @@
 <?php
+
 abstract class ThreadActionPage extends UnlistedSpecialPage {
 	protected $user, $output, $request, $title, $mThread;
 

@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class HistoricalThread extends Thread {
 	/* Information about what changed in this revision. */

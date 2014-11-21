@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class ThreadWatchView extends LqtView {
 	function show() {

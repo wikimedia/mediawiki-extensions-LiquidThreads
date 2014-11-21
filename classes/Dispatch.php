@@ -1,4 +1,5 @@
 <?php
+
 class LqtDispatch {
 	/** static cache of per-page LiquidThreads activation setting */
 	static $userLqtOverride = array();

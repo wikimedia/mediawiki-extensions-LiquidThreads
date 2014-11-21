@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	public $mDisplayRevision = null;

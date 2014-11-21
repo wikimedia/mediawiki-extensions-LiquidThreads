@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 // Pass-through wrapper
 class ThreadProtectionFormView extends LqtView {

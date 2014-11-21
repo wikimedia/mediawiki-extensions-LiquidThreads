@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class SummaryPageView extends LqtView {
 	function show() {

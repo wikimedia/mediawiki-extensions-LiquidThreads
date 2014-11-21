@@ -1,5 +1,4 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) die;
 
 class ThreadDiffView extends LqtView {
 	function customizeNavigation( $skin, &$links ) {
