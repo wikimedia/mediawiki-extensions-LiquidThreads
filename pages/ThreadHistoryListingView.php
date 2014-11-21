@@ -31,7 +31,10 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 
 	function customizeNavigation( $skin, &$links ) {
 		parent::customizeNavigation( $skin, $links );
-		$links['views']['history']['class'] = 'selected';
-		$links['views']['view']['class'] = '';
+		// Not present if thread does not exist
+		if ( isset( $links['views']['history'] ) ) {
+			$links['views']['history']['class'] = 'selected';
+			$links['views']['view']['class'] = '';
+		}
 	}
 }
