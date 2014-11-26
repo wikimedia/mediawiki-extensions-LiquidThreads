@@ -879,7 +879,7 @@ class LqtHooks {
 
 		$talkpage = $thread->article();
 
-		$canRead = $talkpage->getTitle()->quickUserCan( 'read' );
+		$canRead = $talkpage->getTitle()->quickUserCan( 'read', $user );
 
 		if ( $canRead ) {
 			return true;
