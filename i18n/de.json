@@ -260,5 +260,6 @@
 	"echo-pref-email-lqt-new-topic": "ein neues Thema erstellt",
 	"echo-pref-email-lqt-reply": "auf ein Thema antwortet",
 	"pageinfo-usinglqt": "Themen aktiviert",
-	"pageinfo-usinglqt-yes": "Ja"
+	"pageinfo-usinglqt-yes": "Ja",
+	"apihelp-feedthreads-param-feedformat": "Das Format des Feeds."
 }
