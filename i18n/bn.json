@@ -5,7 +5,8 @@
 			"Bellayet",
 			"Ehsanulhb",
 			"Wikitanvir",
-			"Zaheen"
+			"Zaheen",
+			"Aftabuzzaman"
 		]
 	},
 	"lqt-desc": "আলাপের পাতায় থ্রেডিং আলোচনা ব্যবস্থা যোগ হবে।",
@@ -18,6 +19,7 @@
 	"lqt_toc_thread_modified": "সর্বশেষ পরিবর্তন",
 	"lqt_add_header": "শীর্ষচরণ যোগ",
 	"lqt_new_thread": "একটি নতুন আলোচনা শুরু করো",
+	"lqt-empty-text": "আপনি একটি খালি বার্তা পোস্ট করতে পারবেন না",
 	"lqt_empty_subject": "আপনাকে অবশ্যই একটি বিষয় লিখতে হবে।",
 	"lqt_reply": "উত্তর",
 	"lqt_delete": "অপসারণ",
@@ -41,7 +43,7 @@
 	"lqt_hist_merged_to": "[[$1|উত্তরটি]] অন্য থ্রেড হতে এখানে স্থানান্তর করো",
 	"lqt_hist_split_from": "নতুন থ্রেডে পৃথক করো",
 	"lqt_hist_root_blanked": "মন্তব্যের লেখা অপসারিত হয়েছে",
-	"lqt_youhavenewmessages": "আপনার [[$1|নতুন বার্তা]] রয়েছে।",
+	"lqt_youhavenewmessages": "আপনার [[$1|নতুন বার্তা]] এসেছে।",
 	"lqt_protectedfromreply_link": "সুরক্ষিত",
 	"lqt_subject": "বিষয়:",
 	"lqt_noreason": "কোনো কারণ দেওয়া হয়নি।",
@@ -141,5 +143,6 @@
 	"restriction-newthread": "নতুন থ্রেড পোষ্ট করুন",
 	"lqt-reply-subpage": "উত্তর",
 	"nstab-thread": "থ্রেড",
-	"nstab-summary": "সারাংশ"
+	"nstab-summary": "সারাংশ",
+	"pageinfo-usinglqt-yes": "হ্যাঁ"
 }

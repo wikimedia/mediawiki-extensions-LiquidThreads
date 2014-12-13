@@ -544,7 +544,7 @@ $specialPageAliases['yi'] = array(
 $specialPageAliases['zh'] = array(
 	'DeleteThread' => array( '删除话题', '刪除話題' ),
 	'MoveThread' => array( '移动话题', '移動話題' ),
-	'NewMessages' => array( '新消息', '新訊息', '新讯息' ),
+	'NewMessages' => array( '新消息', '新訊息' ),
 	'SplitThread' => array( '分割话题', '分割話題' ),
 	'MergeThread' => array( '合并话题', '合併話題' ),
 );
