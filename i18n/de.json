@@ -261,5 +261,6 @@
 	"echo-pref-email-lqt-reply": "auf ein Thema antwortet",
 	"pageinfo-usinglqt": "Themen aktiviert",
 	"pageinfo-usinglqt-yes": "Ja",
-	"apihelp-feedthreads-param-feedformat": "Das Format des Feeds."
+	"apihelp-feedthreads-param-feedformat": "Das Format des Feeds.",
+	"apihelp-feedthreads-param-type": "Anzuzeigende Beitragstypen."
 }
