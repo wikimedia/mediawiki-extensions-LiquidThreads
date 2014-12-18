@@ -18,7 +18,8 @@
 			"Rotsee",
 			"Sertion",
 			"Skalman",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Jopparn"
 		]
 	},
 	"lqt-desc": "Lägger till trådade diskussioner till diskussionssidor",
@@ -255,5 +256,15 @@
 	"echo-pref-email-lqt-new-topic": "Skapar en ny trådad diskussion",
 	"echo-pref-email-lqt-reply": "Svarar till en trådad diskussion",
 	"pageinfo-usinglqt": "Trådad diskussion aktiverat",
-	"pageinfo-usinglqt-yes": "Ja"
+	"pageinfo-usinglqt-yes": "Ja",
+	"apihelp-feedthreads-description": "Returnera ett flöde av diskussionstrådar.",
+	"apihelp-feedthreads-param-feedformat": "Formatet på flödet.",
+	"apihelp-feedthreads-param-days": "Antal dagar med trådar att visa.",
+	"apihelp-feedthreads-param-type": "Typer av inlägg att visa.",
+	"apihelp-feedthreads-param-talkpage": "Begränsa resultaten till trådar på dessa diskussionssidor.",
+	"apihelp-feedthreads-param-thread": "Begränsa resultaten till dessa trådar och deras ättlingar.",
+	"apihelp-feedthreads-example-1": "Visa ett flöde av alla nya trådar",
+	"apihelp-feedthreads-example-2": "Visa ett flöde av svar på [[Thread:Foo]]",
+	"apihelp-feedthreads-example-3": "Visa ett flöde av nya trådar på [[Talk:Main Page]]",
+	"apihelp-query+threads-description": "Visa detaljer för LiquidThreads-trådar."
 }
