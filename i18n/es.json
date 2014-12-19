@@ -128,7 +128,7 @@
 	"lqt-marked-read": "Hilo '''$1''' marcado como leído.",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|mensaje|mensajes}} marcados como leídos.",
 	"lqt-email-undo": "Deshacer",
-	"lqt-no-new-messages": "No hay nuevos mensajes para ti.",
+	"lqt-no-new-messages": "No tienes mensajes nuevos.",
 	"lqt-new-messages": "Hay nuevos mensajes para ti.",
 	"lqt-email-info-undo": "Restablece el hilo que acaba de descartar.",
 	"lqt-date-info": "Este enlace está deshabilitado porque estás viendo hilos de todas las fechas.",
