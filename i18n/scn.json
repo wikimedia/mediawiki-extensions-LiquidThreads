@@ -6,12 +6,17 @@
 			"Melos"
 		]
 	},
+	"lqt_new_thread": "Accuminza na discussioni nova",
 	"lqt_discussion_link": "discussioni",
 	"lqt_hist_deleted": "Cancillatu",
 	"lqt_hist_undeleted": "Ripristinatu",
 	"lqt_hist_moved_talkpage": "Spustatu",
+	"lqt_sorting_order": "Criteriu di urdinamentu:",
+	"lqt_sort_newest_threads": "prima li discussioni cchiù ricenti",
+	"lqt_sort_oldest_threads": "prima li discussioni cchiù viecchi",
 	"lqt-title": "Tìtulu",
 	"lqt-history-user": "Utenti",
+	"lqt-no-threads": "Nun ci sunnu discussioni nti sta pâggina appirora.",
 	"lqt-merge-submit": "Junci",
 	"lqt-search-button": "Va' cerca",
 	"searchprofile-threads": "Discussioni",
