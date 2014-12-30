@@ -309,7 +309,11 @@ class ApiThreadAction extends ApiEditPage {
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
 
-		$editResult = $internalApi->getResultData();
+		if ( defined( 'ApiResult::META_CONTENT' ) ) {
+			$editResult = $internalApi->getResult()->getResultData();
+		} else {
+			$editResult = $internalApi->getResultData();
+		}
 
 		if ( $editResult['edit']['result'] != 'Success' ) {
 			$result = array( 'result' => 'EditFailure', 'details' => $editResult );
@@ -426,7 +430,11 @@ class ApiThreadAction extends ApiEditPage {
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
 
-		$editResult = $internalApi->getResultData();
+		if ( defined( 'ApiResult::META_CONTENT' ) ) {
+			$editResult = $internalApi->getResult()->getResultData();
+		} else {
+			$editResult = $internalApi->getResultData();
+		}
 
 		if ( $editResult['edit']['result'] != 'Success' ) {
 			$result = array( 'result' => 'EditFailure', 'details' => $editResult );
@@ -540,7 +548,11 @@ class ApiThreadAction extends ApiEditPage {
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
 
-		$editResult = $internalApi->getResultData();
+		if ( defined( 'ApiResult::META_CONTENT' ) ) {
+			$editResult = $internalApi->getResult()->getResultData();
+		} else {
+			$editResult = $internalApi->getResultData();
+		}
 
 		if ( $editResult['edit']['result'] != 'Success' ) {
 			$result = array( 'result' => 'EditFailure', 'details' => $editResult );

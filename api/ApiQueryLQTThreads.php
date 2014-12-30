@@ -164,7 +164,11 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			);
 		}
 
-		$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'thread' );
+		if ( defined( 'ApiResult::META_CONTENT' ) ) {
+			$result->defineIndexedTagName( array( 'query', $this->getModuleName() ), 'thread' );
+		} else {
+			$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'thread' );
+		}
 	}
 
 	protected function addSubItems( $tableName, $fields, $joinField, $subitemName, /*callable*/ $handleRow, $tagName ) {
@@ -197,7 +201,11 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				$output
 			);
 
-			$result->setIndexedTagName_internal( array_merge( $path, array( $subitemName ) ), $tagName );
+			if ( defined( 'ApiResult::META_CONTENT' ) ) {
+				$result->defineIndexedTagName( array_merge( $path, array( $subitemName ) ), $tagName );
+			} else {
+				$result->setIndexedTagName_internal( array_merge( $path, array( $subitemName ) ), $tagName );
+			}
 		}
 	}
 
