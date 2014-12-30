@@ -229,6 +229,8 @@ $wgAutoloadClasses['NewUserMessagesView'] = $dir . '/pages/NewUserMessagesView.p
 
 // Pagers
 $wgAutoloadClasses['LqtDiscussionPager'] = $dir . '/pages/TalkpageView.php';
+$wgAutoloadClasses['LqtNewMessagesPager'] = $dir . '/pages/NewUserMessagesView.php';
+$wgAutoloadClasses['TalkpageHistoryPager'] = $dir . '/pages/TalkpageHistoryView.php';
 
 // Special pages
 $wgAutoloadClasses['ThreadActionPage'] = $dir . '/pages/ThreadActionPage.php';
