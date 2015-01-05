@@ -1110,8 +1110,14 @@ window.liquidThreads = {
 			}
 
 			// Show the warning
-			var elem = $( '<div>' ).attr( { 'id': 'lqt-sign-warning', 'class': 'error' } ).text( mw.msg( 'lqt-sign-not-necessary' ) ),
-				$weTop = $( this ).closest( '.lqt-edit-form' ).find( '.wikiEditor-ui-top' );
+			var $weLqtSummaryTop = $( this ).closest( '.lqt-summarize-form' ), elem, msg, $weTop;
+			if ( $weLqtSummaryTop.length ) {
+				msg = mw.msg( 'lqt-summary-sign-not-necessary' );
+			} else {
+				msg = mw.msg( 'lqt-sign-not-necessary' );
+			}
+			elem = $( '<div>' ).attr( { 'id': 'lqt-sign-warning', 'class': 'error' } ).text( msg );
+			$weTop = $( this ).closest( '.lqt-edit-form' ).find( '.wikiEditor-ui-top' );
 
 			if ( $weTop.length ) {
 				$weTop.before( elem );
