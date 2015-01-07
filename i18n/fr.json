@@ -16,7 +16,8 @@
 			"Urhixidur",
 			"Verdy p",
 			"Wyz",
-			"Zetud"
+			"Zetud",
+			"0x010C"
 		]
 	},
 	"lqt-desc": "Ajoute des fils de discussion dans les pages de discussion",
@@ -253,5 +254,9 @@
 	"echo-pref-email-lqt-new-topic": "Crée une nouvelle discussion thématique",
 	"echo-pref-email-lqt-reply": "Répond à une discussion thématique",
 	"pageinfo-usinglqt": "Discussion par fils activée",
-	"pageinfo-usinglqt-yes": "Oui"
+	"pageinfo-usinglqt-yes": "Oui",
+	"apihelp-feedthreads-description": "Retourne un flux de fils de discussion.",
+	"apihelp-feedthreads-param-feedformat": "Le format du flux.",
+	"apihelp-query+threads-param-prop": "Quelles propriétés obtenir.",
+	"apihelp-threadaction-param-captchaword": "Réponse au CAPTCHA."
 }
