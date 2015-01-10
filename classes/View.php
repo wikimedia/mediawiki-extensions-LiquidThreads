@@ -88,7 +88,7 @@ class LqtView {
 	 * @param $thread Thread
 	 * @param $method null
 	 * @param $operand null
-	 * @throws MWException
+	 * @throws Exception
 	 * @return array
 	 */
 	static function permalinkData( $thread, $method = null, $operand = null ) {
@@ -102,7 +102,7 @@ class LqtView {
 		}
 
 		if ( ! $thread ) {
-			throw new MWException( "Empty thread passed to " . __METHOD__ );
+			throw new Exception( "Empty thread passed to " . __METHOD__ );
 		}
 
 		return array( $thread->root()->getTitle(), $query );
@@ -132,14 +132,14 @@ class LqtView {
 	/**
 	 * @param $thread Thread
 	 * @param $contextType string
-	 * @throws MWException
+	 * @throws Exception
 	 * @return array
 	 */
 	static function linkInContextData( $thread, $contextType = 'page' ) {
 		$query = array();
 
 		if ( ! $thread ) {
-			throw new MWException( "Null thread passed to linkInContextData" );
+			throw new Exception( "Null thread passed to linkInContextData" );
 		}
 
 		if ( $contextType == 'page' ) {
@@ -397,7 +397,7 @@ class LqtView {
 		} elseif ( $method == 'edit' ) {
 			$this->showPostEditingForm( $thread );
 		} else {
-			throw new MWException( "Invalid thread method $method" );
+			throw new Exception( "Invalid thread method $method" );
 		}
 
 		$wgOut = $oldOut;
@@ -427,7 +427,7 @@ class LqtView {
 	 * @param $method
 	 * @param $operand
 	 * @return String
-	 * @throws MWException
+	 * @throws Exception
 	 */
 	static function getInlineEditForm( $talkpage, $method, $operand ) {
 		$req = new RequestContext;
@@ -448,7 +448,7 @@ class LqtView {
 				$talkpage = $thread->article();
 				$title = $talkpage->getTitle();
 			} else {
-				throw new MWException( "Cannot get title" );
+				throw new Exception( "Cannot get title" );
 			}
 		}
 
@@ -489,7 +489,7 @@ class LqtView {
 		if ( ! $subjectOk ) {
 			try {
 				$t = $this->newThreadTitle( $subject );
-			} catch ( MWException $excep ) {
+			} catch ( Exception $excep ) {
 				$t = $this->scratchTitle();
 			}
 		}
@@ -610,7 +610,7 @@ class LqtView {
 
 		try {
 			$t = $this->newReplyTitle( null, $thread );
-		} catch ( MWException $excep ) {
+		} catch ( Exception $excep ) {
 			$t = $this->scratchTitle();
 		}
 
@@ -949,7 +949,7 @@ class LqtView {
 
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
-				throw new MWException( "Missing required field $f" );
+				throw new Exception( "Missing required field $f" );
 			}
 		}
 
@@ -984,7 +984,7 @@ class LqtView {
 
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
-				throw new MWException( "Missing required field $f" );
+				throw new Exception( "Missing required field $f" );
 			}
 		}
 
@@ -1006,7 +1006,7 @@ class LqtView {
 
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
-				throw new MWException( "Missing required field $f" );
+				throw new Exception( "Missing required field $f" );
 			}
 		}
 
@@ -1045,7 +1045,7 @@ class LqtView {
 
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
-				throw new MWException( "Missing required field $f" );
+				throw new Exception( "Missing required field $f" );
 			}
 		}
 
@@ -1129,7 +1129,7 @@ class LqtView {
 
 		$error = $ot->moveTo( $nt, true, "Changed thread subject: $reason" );
 		if ( $error !== true ) {
-			throw new MWException( "Got error $error trying to move pages." );
+			throw new Exception( "Got error $error trying to move pages." );
 		}
 
 		# Move the talk page if relevant, if it exists, and if we've been told to
@@ -1710,7 +1710,7 @@ class LqtView {
 	 * Display a moved thread
 	 *
 	 * @param $thread Thread
-	 * @throws MWException
+	 * @throws Exception
 	 */
 	function showMovedThread( $thread ) {
 		global $wgLang;
@@ -1724,7 +1724,7 @@ class LqtView {
 		$target = Title::newFromRedirect( $article->getContent() );
 
 		if ( !$target ) {
-			throw new MWException( "Thread " . $thread->id() . ' purports to be moved, ' .
+			throw new Exception( "Thread " . $thread->id() . ' purports to be moved, ' .
 				'but no redirect found in text (' . $article->getContent() . ') of ' .
 				$thread->root()->getTitle()->getPrefixedText() . '. Dying.' );
 		}
@@ -1978,7 +1978,7 @@ class LqtView {
 	 * @param $levelNum int
 	 * @param $totalInLevel int
 	 * @param $options array
-	 * @throws MWException
+	 * @throws Exception
 	 */
 	function showThread( $thread, $levelNum = 1, $totalInLevel = 1,
 			$options = array() ) {
@@ -2113,7 +2113,7 @@ class LqtView {
 		}
 
 		if ( ! $thread->title() ) {
-			throw new MWException( "Thread " . $thread->id() . " has null title" );
+			throw new Exception( "Thread " . $thread->id() . " has null title" );
 		}
 
 		// Add the thread's title

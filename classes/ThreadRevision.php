@@ -169,7 +169,7 @@ class ThreadRevision {
 			$this->mThreadObj = unserialize( $this->mObjSer );
 		} elseif ( is_null( $this->mThreadObj ) && is_null( $this->mObjSer ) ) {
 			var_dump( $this );
-			throw new MWException( "Missing mObjSer" );
+			throw new Exception( "Missing mObjSer" );
 		}
 
 		if ( !( $this->mThreadObj instanceof Thread ) ) {

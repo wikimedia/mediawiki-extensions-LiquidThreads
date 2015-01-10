@@ -72,7 +72,7 @@ class HistoricalThread extends Thread {
 		if ( in_array( $t, Threads::$VALID_CHANGE_TYPES ) ) {
 			$this->changeType = $t;
 		} else {
-			throw new MWException( __METHOD__ . ": invalid changeType $t." );
+			throw new Exception( __METHOD__ . ": invalid changeType $t." );
 		}
 	}
 

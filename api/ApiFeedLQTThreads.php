@@ -141,7 +141,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		} elseif ( in_array( 'newthreads', $types ) ) {
 			$msg = 'lqt-feed-title-new-threads';
 		} else {
-			throw new MWException( "Unable to determine appropriate display type" );
+			throw new Exception( "Unable to determine appropriate display type" );
 		}
 
 		if ( $fromCount ) {

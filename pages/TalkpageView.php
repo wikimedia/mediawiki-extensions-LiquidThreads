@@ -505,7 +505,7 @@ class LqtDiscussionPager extends IndexPager {
 			case LQT_NEWEST_THREADS:
 				return 'thread_created';
 			default:
-				throw new MWException( "Unknown sort order " . $this->orderType );
+				throw new Exception( "Unknown sort order " . $this->orderType );
 		}
 	}
 
@@ -517,7 +517,7 @@ class LqtDiscussionPager extends IndexPager {
 			case LQT_OLDEST_THREADS:
 				return false; // Ascending
 			default:
-				throw new MWException( "Unknown sort order " . $this->orderType );
+				throw new Exception( "Unknown sort order " . $this->orderType );
 		}
 	}
 

@@ -64,7 +64,7 @@ function createPost( $info, $subject, $super = null ) {
 	$user = User::newFromName( $userName, /* no validation */ false );
 
 	if ( !$user ) {
-		throw new MWException( "Username " . $info['user'] . " is invalid." );
+		throw new Exception( "Username " . $info['user'] . " is invalid." );
 	}
 
 	global $article;

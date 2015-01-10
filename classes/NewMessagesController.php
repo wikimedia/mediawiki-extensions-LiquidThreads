@@ -11,7 +11,7 @@ class NewMessages {
 		} elseif ( is_integer( $thread ) ) {
 			$thread_id = $thread;
 		} else {
-			throw new MWException( __METHOD__ . " expected Thread or integer but got $thread" );
+			throw new Exception( __METHOD__ . " expected Thread or integer but got $thread" );
 		}
 
 		if ( is_object( $user ) ) {
@@ -19,7 +19,7 @@ class NewMessages {
 		} elseif ( is_integer( $user ) ) {
 			$user_id = $user;
 		} else {
-			throw new MWException( __METHOD__ . " expected User or integer but got $user" );
+			throw new Exception( __METHOD__ . " expected User or integer but got $user" );
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
@@ -39,7 +39,7 @@ class NewMessages {
 		} elseif ( is_integer( $user ) ) {
 			$user_id = $user;
 		} else {
-			throw new MWException( __METHOD__ . " expected User or integer but got $user" );
+			throw new Exception( __METHOD__ . " expected User or integer but got $user" );
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
@@ -59,7 +59,7 @@ class NewMessages {
 		} elseif ( is_integer( $thread ) ) {
 			$thread_id = $thread;
 		} else {
-			throw new MWException( "writeUserMessageState expected Thread or integer but got $thread" );
+			throw new Exception( "writeUserMessageState expected Thread or integer but got $thread" );
 		}
 
 		if ( is_object( $user ) ) {
@@ -67,7 +67,7 @@ class NewMessages {
 		} elseif ( is_integer( $user ) ) {
 			$user_id = $user;
 		} else {
-			throw new MWException( "writeUserMessageState expected User or integer but got $user" );
+			throw new Exception( "writeUserMessageState expected User or integer but got $user" );
 		}
 
 		$conversation = Threads::withId( $thread_id )->topmostThread()->id();

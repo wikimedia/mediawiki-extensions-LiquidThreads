@@ -111,7 +111,7 @@ class Threads {
 
 	private static function databaseError( $msg ) {
 		// @todo Tie into MW's error reporting facilities.
-		throw new MWException( "Corrupt LiquidThreads database: $msg" );
+		throw new Exception( "Corrupt LiquidThreads database: $msg" );
 	}
 
 	private static function assertSingularity( $threads, $attribute, $value ) {
@@ -286,7 +286,7 @@ class Threads {
 		) {
 
 			if ( !$t ) {
-				throw new MWException( "Error in creating title for basename $basename" );
+				throw new Exception( "Error in creating title for basename $basename" );
 			}
 
 			$n = $wgContLang->formatNum( $i );
@@ -310,7 +310,7 @@ class Threads {
 	//  will then be added with the same limit, to finish the remainder of the update.
 	static function synchroniseArticleData( $article, $limit = false, $queueMore = false ) {
 		if ( !$article ) {
-			throw new MWException( "synchroniseArticleData called on null article" );
+			throw new Exception( "synchroniseArticleData called on null article" );
 		}
 
 		wfProfileIn( __METHOD__ );

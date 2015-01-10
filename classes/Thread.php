@@ -66,7 +66,7 @@ class Thread {
 		$thread = new Thread( null );
 
 		if ( !in_array( $type, self::$VALID_TYPES ) ) {
-			throw new MWException( __METHOD__ . ": invalid change type $type." );
+			throw new Exception( __METHOD__ . ": invalid change type $type." );
 		}
 
 		if ( $superthread ) {
@@ -121,7 +121,7 @@ class Thread {
 		$this->dieIfHistorical();
 
 		if ( $this->id() ) {
-			throw new MWException( "Attempt to insert a thread that already exists." );
+			throw new Exception( "Attempt to insert a thread that already exists." );
 		}
 
 		$dbw = wfGetDB( DB_MASTER );
@@ -149,7 +149,7 @@ class Thread {
 		$this->root = $article;
 
 		if ( $article->getTitle()->getNamespace() != NS_LQT_THREAD ) {
-			throw new MWException( "Attempt to set thread root to a non-Thread page" );
+			throw new Exception( "Attempt to set thread root to a non-Thread page" );
 		}
 	}
 
@@ -293,7 +293,7 @@ class Thread {
 
 		// If there's no root, bail out with an error message
 		if ( ! $this->rootId && ! ( $this->type & Threads::TYPE_DELETED ) ) {
-			throw new MWException( "Non-deleted thread saved with empty root ID" );
+			throw new Exception( "Non-deleted thread saved with empty root ID" );
 		}
 
 		if ( $this->replyCount < -1 ) {
@@ -380,7 +380,7 @@ class Thread {
 		global $wgUser;
 
 		if ( !$this->isTopmostThread() )
-			throw new MWException( "Attempt to move non-toplevel thread to another page" );
+			throw new Exception( "Attempt to move non-toplevel thread to another page" );
 
 		$this->dieIfHistorical();
 
@@ -977,13 +977,13 @@ class Thread {
 		if ( $this->isHistorical() ) { return; }
 		foreach ( $replies as $reply ) {
 			if ( ! $reply->hasSuperthread() ) {
-				throw new MWException( "Post " . $this->id() .
+				throw new Exception( "Post " . $this->id() .
 				" has contaminated reply " . $reply->id() .
 				". Found no superthread." );
 			}
 
 			if ( $reply->superthread()->id() != $this->id() ) {
-				throw new MWException( "Post " . $this->id() .
+				throw new Exception( "Post " . $this->id() .
 				" has contaminated reply " . $reply->id() .
 				". Expected " . $this->id() . ", got " .
 				$reply->superthread()->id() );
@@ -1244,7 +1244,7 @@ class Thread {
 	static function splitIncrementFromSubject( $subject_string ) {
 		preg_match( '/^(.*) \((\d+)\)$/', $subject_string, $matches );
 		if ( count( $matches ) != 3 )
-			throw new MWException( __METHOD__ . ": thread subject has no increment: " . $subject_string );
+			throw new Exception( __METHOD__ . ": thread subject has no increment: " . $subject_string );
 		else
 			return $matches;
 	}
@@ -1378,7 +1378,7 @@ class Thread {
 	//  thread (even for reading, because the data will be out of date).
 	function dieIfHistorical() {
 		if ( $this->isHistorical() ) {
-			throw new MWException( "Attempted write or DB operation on historical thread" );
+			throw new Exception( "Attempted write or DB operation on historical thread" );
 		}
 	}
 
