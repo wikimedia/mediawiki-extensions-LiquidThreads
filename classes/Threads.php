@@ -235,7 +235,9 @@ class Threads {
 
 		static $rxTc;
 
-		if ( is_callable( array( 'Title', 'getTitleInvalidRegex' ) ) ) {
+		if ( is_callable( 'MediaWikiTitleCodec::getTitleInvalidRegex' ) ) {
+			$rxTc = MediaWikiTitleCodec::getTitleInvalidRegex();
+		} elseif ( is_callable( array( 'Title', 'getTitleInvalidRegex' ) ) ) { // Pre-1.25 compat
 			$rxTc = Title::getTitleInvalidRegex();
 		} elseif ( !$rxTc ) { // Back-compat
 			$rxTc = '/' .
