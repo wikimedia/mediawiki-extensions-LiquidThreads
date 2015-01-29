@@ -4,7 +4,8 @@
 			"An13sa",
 			"Joxemai",
 			"Kobazulo",
-			"Xabier Armendaritz"
+			"Xabier Armendaritz",
+			"Subi"
 		]
 	},
 	"lqt_movethread": "Mintzagaia beste orrialde batera mugitu",
@@ -94,5 +95,6 @@
 	"lqt-newpost-summary": "Mintzagai berria: $1",
 	"lqt-talkpage-history-tab": "Goiburua",
 	"lqt-reply-subpage": "erantzun",
-	"nstab-summary": "Laburpena"
+	"nstab-summary": "Laburpena",
+	"pageinfo-usinglqt-yes": "Bai"
 }
