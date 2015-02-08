@@ -17,7 +17,8 @@
 			"Verdy p",
 			"Wyz",
 			"Zetud",
-			"0x010C"
+			"0x010C",
+			"Nnemo"
 		]
 	},
 	"lqt-desc": "Ajoute des fils de discussion dans les pages de discussion",
@@ -178,7 +179,7 @@
 	"lqt-log-action-subjectedit": "a modifié le sujet de [[$1]] de « $2 » à « $3 »",
 	"lqt-log-action-resort": "a modifié l'ordre de tri de [[$1]]. La clé de tri a été changée de « $2 » à « $3 ».",
 	"lqt-log-action-signatureedit": "a modifié la signature de [[$1]] de \"$2\" en \"$3\"",
-	"lqt-preference-notify-talk": "M’avertir par couriel lors d'une réponse sur un sujet que je suis",
+	"lqt-preference-notify-talk": "M’avertir par courriel lors d’une réponse sur un sujet que je suis",
 	"lqt-preference-watch-threads": "Suivre les fils de discussion que je crée ou auxquels je participe",
 	"prefs-lqt": "Discussions en fil",
 	"lqt-preference-display-depth": "Profondeur maximale des réponses à afficher :",
