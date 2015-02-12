@@ -2390,17 +2390,12 @@ class LqtView {
 
 	// Copy-and-modify of Linker::formatComment
 	static function formatSubject( $s ) {
-		wfProfileIn( __METHOD__ );
-
 		# Sanitize text a bit:
 		$s = str_replace( "\n", " ", $s );
 		# Allow HTML entities
 		$s = Sanitizer::escapeHtmlAllowEntities( $s );
 
 		# Render links:
-		$s = Linker::formatLinksInComment( $s, null, false );
-
-		wfProfileOut( __METHOD__ );
-		return $s;
+		return Linker::formatLinksInComment( $s, null, false );
 	}
 }

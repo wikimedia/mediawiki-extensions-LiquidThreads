@@ -315,8 +315,6 @@ class Threads {
 			throw new Exception( "synchroniseArticleData called on null article" );
 		}
 
-		wfProfileIn( __METHOD__ );
-
 		$dbr = wfGetDB( DB_SLAVE );
 		$dbw = wfGetDB( DB_MASTER );
 
@@ -350,19 +348,15 @@ class Threads {
 			// Fix wrong title.
 			$fixTitleCount = $dbr->selectField( 'thread', 'COUNT(*)', $fixTitleCond, __METHOD__ );
 			if ( intval( $fixTitleCount ) ) {
-				wfProfileIn( __METHOD__ . '-update' );
 				$dbw->update( 'thread', $titleCond, $fixTitleCond, __METHOD__, $options );
 				$roundRowsAffected += $dbw->affectedRows();
-				wfProfileOut( __METHOD__ . '-update' );
 			}
 
 			// Fix wrong ID
 			$fixIdCount = $dbr->selectField( 'thread', 'COUNT(*)', $fixIdCond, __METHOD__ );
 			if ( intval( $fixIdCount ) ) {
-				wfProfileIn( __METHOD__ . '-update' );
 				$dbw->update( 'thread', $idCond, $fixIdCond, __METHOD__, $options );
 				$roundRowsAffected += $dbw->affectedRows();
-				wfProfileOut( __METHOD__ . '-update' );
 			}
 
 			$rowsAffected += $roundRowsAffected;
@@ -374,7 +368,6 @@ class Threads {
 			$job->insert();
 		}
 
-		wfProfileOut( __METHOD__ );
 		return $limit ? ( $rowsAffected < $limit ) : true;
 	}
 }

@@ -154,8 +154,6 @@ class NewMessages {
 			return;
 		}
 
-		wfProfileIn( __METHOD__ );
-
 		$usersByCategory = self::getNotifyUsers( $t, $changeUser );
 		$userIds = $usersByCategory['notify'];
 		$notifyUsers = $usersByCategory['email'];
@@ -183,7 +181,6 @@ class NewMessages {
 		if ( count( $notifyUsers ) && $wgLqtEnotif ) {
 			self::notifyUsersByMail( $t, $notifyUsers, wfTimestampNow(), $type );
 		}
-		wfProfileOut( __METHOD__ );
 	}
 
 	static function getNotifyUsers( $t, $changeUser ) {
