@@ -18,7 +18,8 @@
 			"Wyz",
 			"Zetud",
 			"0x010C",
-			"Nnemo"
+			"Nnemo",
+			"Ricordisamoa"
 		]
 	},
 	"lqt-desc": "Ajoute des fils de discussion dans les pages de discussion",
@@ -196,7 +197,7 @@
 	"searchprofile-threads-tooltip": "Rechercher dans les fils de discussion et les pages de discussion",
 	"lqt-ajax-updated": "Ce fil a de nouveaux messages.",
 	"lqt-ajax-update-link": "Mettre à jour",
-	"lqt-thread-show-replies": "Montrer $1 réponses",
+	"lqt-thread-show-replies": "Montrer $1 {{PLURAL:$1|réponse|réponses}}",
 	"lqt-thread-show-more": "Montrer plus de réponses",
 	"lqt-thread-link-url": "URL du lien :",
 	"lqt-thread-link-title": "Lien wikitexte :",
