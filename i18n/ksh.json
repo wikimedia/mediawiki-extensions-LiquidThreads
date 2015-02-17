@@ -67,7 +67,7 @@
 	"lqt_protectedfromreply_link": "jeschöz",
 	"lqt_subject": "Övver:",
 	"lqt_noreason": "Keine Aanlass aanjejovve.",
-	"lqt_move_placeholder": "Dat hee es ene Plazhallder. Hä shteiht för dä {{int:lqt-history-thread}} „$1“, dä {{GENDER:$2|dä|dat|dä Metmaacher|dat|de}} $2 aam $3 öm $4 Uhr op di Klaafsigg „$5“ ömjetrocke hät.",
+	"lqt_move_placeholder": "Dat heh es ene Plazhallder. Hä shteiht för dä {{int:lqt-history-thread}} „$1“, dä {{GENDER:$2|dä|dat|dä Metmaacher|dat|de}} $2 aam $3 öm $4 Uhr op di Klaafsigg „$5“ ömjetrocke hät.",
 	"lqt_thread_deleted_for_sysops": "Dä {{int:lqt-history-thread}} es '''fottjeschmeße''', un kann bloß noch vun de Wiki-Köbeße aanjesinn wääde.",
 	"lqt_thread_deleted": "Dä {{int:lqt-history-thread}} es fottjeschmeße.",
 	"lqt_summary_notice": "Aan däm {{int:lqt-history-thread}} hee es zick winnischßdens {{PLURAL:$2|einem Daach|$2 Dääsch|unger einem Daach}} nix mieh jeändert woode. Wann dä afjeschloße es, wells De velleijsch $1.",
