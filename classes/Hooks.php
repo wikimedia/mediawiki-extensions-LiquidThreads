@@ -929,12 +929,19 @@ class LqtHooks {
 	public static function onAPIQueryAfterExecute( &$module ) {
 		if ( $module instanceof ApiQueryInfo ) {
 			$result = $module->getResult();
-			$data = $result->getData();
 
-			if ( !isset( $data['query']['pages'] ) ) {
-				return true;
+			if ( defined( 'ApiResult::META_CONTENT' ) ) {
+				$data = ApiResult::removeMetadataNonRecursive(
+					(array)$result->getResultData( array( 'query', 'pages' ) )
+				);
+			} else {
+				$data = $result->getData();
+				if ( !isset( $data['query']['pages'] ) ) {
+					return true;
+				}
+				$data = $data['query']['pages'];
 			}
-			foreach ( $data['query']['pages'] as $pageid => $page ) {
+			foreach ( $data as $pageid => $page ) {
 				if ( $page == 'page' ) continue;
 
 				if ( LqtDispatch::isLqtPage( Title::newFromText( $page['title'] ) ) ) {
