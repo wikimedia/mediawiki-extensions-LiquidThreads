@@ -236,5 +236,15 @@
 	"echo-pref-email-lqt-new-topic": "Wann ene neue Klaaf met Jeschprääschsfäddemme aanjefange woode es",
 	"echo-pref-email-lqt-reply": "Wann ene neue Antwoot en enem Klaaf met Jeschprääschsfäddemme jejovve woode es",
 	"pageinfo-usinglqt": "Klaafe met Jeschprääschsfäddemme es ennjescahlldt.",
-	"pageinfo-usinglqt-yes": "Joh"
+	"pageinfo-usinglqt-yes": "Joh",
+	"apihelp-feedthreads-param-talkpage": "Bejränz, wadd eruß küdd, op heh di Klaafsigge.",
+	"apihelp-feedthreads-param-thread": "Bejränz, wadd eruß küdd, op heh di Jeschprähschfäddemme un wat vun dänne her kütt.",
+	"apihelp-feedthreads-example-1": "Zeij_enne Kannahl met alle neue Jeschprähschfäddemme",
+	"apihelp-feedthreads-example-2": "Zeij_enne Kannahl met Antwoote op [[Thread:Beischpell|Beischpell]]",
+	"apihelp-query+threads-param-showdeleted": "Fottjeschmeße Jeschprähschfäddemme annzeije udder nit.",
+	"apihelp-query+threads-param-limit": "De hühßde Aanzahl Jeschprähschfäddemme zum opleste.",
+	"apihelp-query+threads-param-prop": "Wat för en Eijeschaffte zom Holle.",
+	"apihelp-query+threads-param-author": "Bejränz, wadd eruß küdd, op de Jeschprähschfäddemme vun beschtemmpte Schriever.",
+	"apihelp-query+threads-param-root": "Bejränz, wadd eruß küdd, op de Jeschprähschfäddemme met de aanjejovve Aanfäng.",
+	"apihelp-query+threads-param-summary": "Bejränz, wadd eruß küdd, op de Jeschprähschfäddemme met dä Aanjejovve Zersammefaßonge."
 }
