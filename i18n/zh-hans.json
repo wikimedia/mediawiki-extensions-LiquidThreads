@@ -262,7 +262,7 @@
 	"apihelp-feedthreads-param-talkpage": "限制结果为在这些讨论页上的话题。",
 	"apihelp-feedthreads-param-thread": "限制结果为这些话题及其后代。",
 	"apihelp-feedthreads-example-1": "显示所有新话题为一个feed",
-	"apihelp-feedthreads-example-2": "显示[[Thread:Foo]]上的回复为一个feed",
+	"apihelp-feedthreads-example-2": "显示在[[Thread:Foo]]上的一个回复的订阅",
 	"apihelp-feedthreads-example-3": "显示[[Talk:Main Page]]上的回复为一个feed",
 	"apihelp-query+threads-description": "显示LiquidThreads话题的详细信息。",
 	"apihelp-query+threads-param-startid": "枚举的起始话题ID。",
