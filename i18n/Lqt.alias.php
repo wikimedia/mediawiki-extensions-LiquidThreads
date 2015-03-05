@@ -461,11 +461,11 @@ $specialPageAliases['sk'] = array(
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎) */
 $specialPageAliases['sr-ec'] = array(
-	'DeleteThread' => array( 'Обриши_тему' ),
-	'MoveThread' => array( 'Премести_тему' ),
-	'NewMessages' => array( 'Нове_поруке' ),
-	'SplitThread' => array( 'Раздвоји_тему' ),
-	'MergeThread' => array( 'Споји_тему' ),
+	'DeleteThread' => array( 'ОбришиТему', 'Обриши_тему' ),
+	'MoveThread' => array( 'ПреместиТему', 'Премести_тему' ),
+	'NewMessages' => array( 'НовеПоруке', 'Нове_поруке' ),
+	'SplitThread' => array( 'РаздвојиТему', 'Раздвоји_тему' ),
+	'MergeThread' => array( 'СпојиТему', 'Споји_тему' ),
 );
 
 /** Swedish (svenska) */
