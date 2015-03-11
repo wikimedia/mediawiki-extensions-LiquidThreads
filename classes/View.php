@@ -2069,7 +2069,7 @@ class LqtView {
 			$class .= ' lqt-thread-no-subthreads';
 		}
 
-		if ( ! $thread->title()->userCan( 'edit' ) ) {
+		if ( ! $thread->title()->quickUserCan( 'edit' ) ) {
 			$class .= ' lqt-thread-uneditable';
 		}
 
