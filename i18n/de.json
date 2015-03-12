@@ -263,5 +263,9 @@
 	"pageinfo-usinglqt-yes": "Ja",
 	"apihelp-feedthreads-param-feedformat": "Das Format des Feeds.",
 	"apihelp-feedthreads-param-type": "Anzuzeigende Beitragstypen.",
-	"apihelp-feedthreads-example-1": "Zeigt einen Feed aller neuen Threads an"
+	"apihelp-feedthreads-example-1": "Zeigt einen Feed aller neuen Threads an",
+	"apihelp-query+threads-param-id": "Threads mit den angegebenen Kennungen abrufen.",
+	"apihelp-threadaction-param-text": "Der Text des zu erstellenden Beitrags.",
+	"apihelp-threadaction-param-captchaword": "Antwort an das CAPTCHA.",
+	"apihelp-threadaction-param-captchaid": "Kennung des CAPTCHAs der vorherigen Anfrage."
 }
