@@ -23,7 +23,8 @@
 			"Tbleher",
 			"The Evil IP address",
 			"Umherirrender",
-			"Wikinaut"
+			"Wikinaut",
+			"Inkowik"
 		]
 	},
 	"lqt-desc": "Ermöglicht Themen auf Diskussionsseiten",
@@ -266,7 +267,7 @@
 	"apihelp-feedthreads-example-1": "Zeigt einen Feed aller neuen Threads an",
 	"apihelp-query+threads-param-startid": "Die Threadkennung, bei der die Aufzählung begonnen werden soll.",
 	"apihelp-query+threads-param-endid": "Die Threadkennung, bei der die Aufzählung beendet werden soll.",
-	"apihelp-query+threads-param-showdeleted": "Ob gelöschte Threads angezeigt werden sollen oder nicht.",
+	"apihelp-query+threads-param-showdeleted": "Gelöschte Threads anzeigen oder nicht.",
 	"apihelp-query+threads-param-limit": "Die maximale Anzahl der aufzulistenden Threads.",
 	"apihelp-query+threads-param-id": "Threads mit den angegebenen Kennungen abrufen.",
 	"apihelp-threadaction-param-text": "Der Text des zu erstellenden Beitrags.",
