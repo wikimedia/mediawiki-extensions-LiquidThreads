@@ -3,7 +3,8 @@
 		"authors": [
 			"Alma",
 			"Toliño",
-			"Xosé"
+			"Xosé",
+			"Banjo"
 		]
 	},
 	"lqt-desc": "Engadir fíos de discusión a páxinas de conversa",
@@ -240,5 +241,9 @@
 	"echo-pref-email-lqt-new-topic": "Crea unha nova conversa en forma de fío",
 	"echo-pref-email-lqt-reply": "Responde a unha conversa en forma de fío",
 	"pageinfo-usinglqt": "Conversa en fío activada",
-	"pageinfo-usinglqt-yes": "Si"
+	"pageinfo-usinglqt-yes": "Si",
+	"apihelp-query+threads-param-showdeleted": "Amosar/agochar fíos borrados.",
+	"apihelp-query+threads-param-limit": "Número máximo de fíos a listar.",
+	"apihelp-query+threads-param-prop": "Que propiedades obter.",
+	"apihelp-query+threads-example-1": "Listar os fíos de [[Talk:Main Page]]"
 }
