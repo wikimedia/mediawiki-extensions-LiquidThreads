@@ -37,7 +37,7 @@
 			"Liuxinyu970226"
 		]
 	},
-	"lqt-desc": "{{desc|name=Liquid Threads|url=http://www.mediawiki.org/wiki/Extension:LiquidThreads}}",
+	"lqt-desc": "{{desc|name=Liquid Threads|url=https://www.mediawiki.org/wiki/Extension:LiquidThreads}}",
 	"lqt_movethread": "{{doc-special|MoveThread|unlisted=1}}",
 	"lqt_contents_title": "The title of a list of threads at the top of the page.\n{{Identical|Content}}",
 	"lqt_toc_thread_title": "Column header on the list of threaded discussions at the top of a discussion page; [[Support|example]].",
