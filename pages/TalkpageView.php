@@ -567,7 +567,7 @@ class LqtDiscussionPager extends IndexPager {
 		$links = $this->getPagingLinks( $linkTexts, $disabledTexts );
 
 		$navClass = htmlspecialchars( $this->getNavClass() );
-		$s = "<table class=\"$navClass\" align=\"center\" cellpadding=\"3\"><tr>\n";
+		$s = "<table class=\"$navClass\"><tr>\n";
 		$cellAttrs = 'width: ' . 100 / count( $links ) . '%';
 		foreach ( $labels as $type => $label ) {
 			$s .= "<td style='$cellAttrs'>{$links[$type]}</td>\n";
