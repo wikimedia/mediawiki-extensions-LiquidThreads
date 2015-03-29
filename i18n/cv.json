@@ -4,5 +4,8 @@
 			"Chuvash2014"
 		]
 	},
-	"searchprofile-threads": "Сӳтсе явнисем"
+	"searchprofile-threads": "Сӳтсе явнисем",
+	"lqt-newmessages-n": "Çĕнĕ хыпарсем ($1)",
+	"lqt_newmessages": "Çĕнĕ хыпарсем (çук)",
+	"lqt_newmessages-title": "Çĕнĕ хыпарсем"
 }
