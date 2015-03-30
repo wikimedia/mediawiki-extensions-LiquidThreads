@@ -485,6 +485,7 @@ table.lqt-new-messages {
 .TalkpagePager_nav td{
 	vertical-align: top;
 	text-align: center;
+	padding: 3px;
 }
 
 .lqt-drag-confirm label {
