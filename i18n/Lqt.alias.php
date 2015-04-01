@@ -97,11 +97,11 @@ $specialPageAliases['de'] = array(
 
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
-	'DeleteThread' => array( 'SernameBesterne' ),
-	'MoveThread' => array( 'SernameAhulne' ),
-	'NewMessages' => array( 'MesacéNewey' ),
-	'SplitThread' => array( 'SernameLetekerdış' ),
-	'MergeThread' => array( 'SernameZewkerdış' ),
+	'DeleteThread' => array( 'SernameBestere' ),
+	'MoveThread' => array( 'SernameBere' ),
+	'NewMessages' => array( 'MesacêNeweyi' ),
+	'SplitThread' => array( 'SernameLeteyKe' ),
+	'MergeThread' => array( 'SernameYewKe' ),
 );
 
 /** Lower Sorbian (dolnoserbski) */
