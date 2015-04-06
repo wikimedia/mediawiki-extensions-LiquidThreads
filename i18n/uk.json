@@ -11,7 +11,8 @@
 			"Olvin",
 			"Prima klasy4na",
 			"Ата",
-			"Тест"
+			"Тест",
+			"Ahonc"
 		]
 	},
 	"lqt-desc": "Додає на сторінки обговорень теми обговорень",
@@ -153,9 +154,9 @@
 	"lqt-changesortorder": "Сортувати",
 	"lqt_rc_new_discussion": "написав нову тему, \"$1\"",
 	"lqt_rc_new_reply": "написав відповідь на «$1»",
-	"right-lqt-split": "Розділити теми",
-	"right-lqt-merge": "об'єднання тем",
-	"right-lqt-react": "Відповідати у темах",
+	"right-lqt-split": "розділення тем обговорень",
+	"right-lqt-merge": "об'єднування тем обговорень",
+	"right-lqt-react": "відповіді у темах обговорень",
 	"lqt-thread-merge": "Приєднати до іншої теми",
 	"lqt-thread-merge-to": "Приєднати до цієї гілки",
 	"lqt_merge_thread": "Приєднання гілок",
