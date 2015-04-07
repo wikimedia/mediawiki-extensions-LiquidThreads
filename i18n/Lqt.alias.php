@@ -41,6 +41,15 @@ $specialPageAliases['as'] = array(
 	'NewMessages' => array( 'নতুন_সংবাদসমূহ' ),
 );
 
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'DeleteThread' => array( 'رشته_ئی_پاک_کورتین' ),
+	'MoveThread' => array( 'رشته_ئی_انتقال_داتین' ),
+	'NewMessages' => array( 'نۆکین_پیامان' ),
+	'SplitThread' => array( 'رشته_ئی_سیستین' ),
+	'MergeThread' => array( 'رشته_ئی_ادغام_کورتین' ),
+);
+
 /** Banjar (Bahasa Banjar) */
 $specialPageAliases['bjn'] = array(
 	'DeleteThread' => array( 'Hapus_tupik' ),
