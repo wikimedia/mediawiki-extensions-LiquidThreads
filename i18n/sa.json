@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ansumang"
+			"Ansumang",
+			"NehalDaveND"
 		]
 	},
 	"lqt_delete": "विलुप्यताम्",
@@ -11,5 +12,6 @@
 	"lqt-history-time": "समय",
 	"lqt-history-user": "योजकः",
 	"lqt-search-button": "अन्वेषणम्",
-	"lqt-cancel-subject-edit": "निवर्तयते"
+	"lqt-cancel-subject-edit": "निवर्तयते",
+	"lqt_newmessages": "नूतनसन्देशाः (न सन्ति)"
 }

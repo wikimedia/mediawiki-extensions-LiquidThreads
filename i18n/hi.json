@@ -7,7 +7,8 @@
 			"Kaustubh",
 			"Kiranmayee",
 			"Knightsofdawn",
-			"Siddhartha Ghai"
+			"Siddhartha Ghai",
+			"NehalDaveND"
 		]
 	},
 	"lqt-desc": "वार्ता पृष्ठ पर वार्ता के थ्रेड्स बढायें",
@@ -183,7 +184,7 @@
 	"lqt-feed-new-thread-intro": "$1 पे नया सूत्र $2 द्वारा",
 	"lqt-feed-reply-intro": "जवाब $3 को ($1 पे) $2 द्वारा",
 	"lqt-newmessages-n": "मेरे नये सन्देश ($1)",
-	"lqt_newmessages": "मेरे नये संदेश (कोई नहीं)",
+	"lqt_newmessages": "नूतन सन्देश (नहीं हैं)",
 	"lqt_newmessages-title": "नए संदेश",
 	"lqt-newpost-summary": "नया सूत्र: $1",
 	"lqt-reply-summary": "जवाब दें [[$2|$1]]",
