@@ -156,6 +156,7 @@
 	"right-lqt-merge": "{{doc-right|lqt-merge}}\n{{Identical|Merge thread}}",
 	"right-lqt-react": "{{doc-right|lqt-react}}",
 	"lqt_merge_thread": "{{doc-special|MergeThread|unlisted=1}}\n{{Identical|Merge thread}}",
+	"lqt-merge-submit": "{{Identical|Merge}}",
 	"lqt-merge-success": "Used as success message. Parameters:\n* $1 - the source thread title, with link\n* $2 - the destination thread title, with link",
 	"lqt-log-name": "{{doc-logpage}}",
 	"lqt-log-action-move": "Used as log entry. Parameters:\n* $1 - the link text to the topic\n* $2 - the link text to the source page the topic was moved from\n* $3 - the link text to the target page the topic was moved to\n* $4 is the revert link, including {{msg-mw|revertmove}}\n{{Related|Lqt-log-action}}",
