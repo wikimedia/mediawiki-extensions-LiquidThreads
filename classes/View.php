@@ -597,7 +597,7 @@ class LqtView {
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
 		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
 
-		$perm_result = $thread->canUserReply( $this->user );
+		$perm_result = $thread->canUserReply( $this->user, 'quick' );
 		if ( $perm_result !== true ) {
 			$this->showReplyProtectedNotice( $thread );
 			return;
@@ -1270,7 +1270,7 @@ class LqtView {
 			);
 		}
 
-		if ( $thread->canUserReply( $this->user ) === true ) {
+		if ( $thread->canUserReply( $this->user, 'quick' ) === true ) {
 			$commands['reply'] = array(
 				'label' => wfMessage( 'lqt_reply' )->parse(),
 				 'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
@@ -2227,7 +2227,7 @@ class LqtView {
 		if ( $this->methodAppliesToThread( 'reply', $thread ) ) {
 			$this->showReplyForm( $thread );
 			return;
-		} elseif ( !$thread->canUserReply( $this->user ) ) {
+		} elseif ( !$thread->canUserReply( $this->user, 'quick' ) ) {
 			return;
 		}
 

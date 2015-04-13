@@ -1537,7 +1537,7 @@ class Thread {
 
 	/* N.B. Returns true, or a string with either thread or talkpage, noting which is
 	   protected */
-	public function canUserReply( $user ) {
+	public function canUserReply( User $user, $rigor = 'secure' ) {
 		$threadRestrictions = $this->topmostThread()->title()->getRestrictions( 'reply' );
 		$talkpageRestrictions = $this->getTitle()->getRestrictions( 'reply' );
 
@@ -1553,7 +1553,7 @@ class Thread {
 			}
 		}
 
-		return self::canUserCreateThreads( $user );
+		return self::canUserCreateThreads( $user, $rigor );
 	}
 
 	public static function canUserPost( $user, $talkpage ) {
@@ -1569,13 +1569,14 @@ class Thread {
 	}
 
 	// Generally, not some specific page
-	public static function canUserCreateThreads( $user ) {
+	public static function canUserCreateThreads( $user, $rigor = 'secure' ) {
 		$userText = $user->getName();
 
 		static $canCreateNew = array();
 		if ( !isset( $canCreateNew[$userText] ) ) {
 			$title = Title::makeTitleSafe( NS_LQT_THREAD, 'Test title for LQT thread creation check' );
-			$canCreateNew[$userText] = $title->userCan( 'create' ) && $title->userCan( 'edit' );
+			$canCreateNew[$userText] = $title->userCan( 'create', $user, $rigor )
+				&& $title->userCan( 'edit', $user, $rigor );
 		}
 
 		return $canCreateNew[$userText];
