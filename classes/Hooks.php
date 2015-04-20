@@ -931,9 +931,9 @@ class LqtHooks {
 			$result = $module->getResult();
 
 			if ( defined( 'ApiResult::META_CONTENT' ) ) {
-				$data = ApiResult::removeMetadataNonRecursive(
-					(array)$result->getResultData( array( 'query', 'pages' ) )
-				);
+				$data = (array)$result->getResultData( array( 'query', 'pages' ), array(
+					'Strip' => 'base'
+				) );
 			} else {
 				$data = $result->getData();
 				if ( !isset( $data['query']['pages'] ) ) {

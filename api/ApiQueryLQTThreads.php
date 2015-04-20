@@ -165,7 +165,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 
 		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$result->defineIndexedTagName( array( 'query', $this->getModuleName() ), 'thread' );
+			$result->addIndexedTagName( array( 'query', $this->getModuleName() ), 'thread' );
 		} else {
 			$result->setIndexedTagName_internal( array( 'query', $this->getModuleName() ), 'thread' );
 		}
@@ -202,7 +202,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			);
 
 			if ( defined( 'ApiResult::META_CONTENT' ) ) {
-				$result->defineIndexedTagName( array_merge( $path, array( $subitemName ) ), $tagName );
+				$result->addIndexedTagName( array_merge( $path, array( $subitemName ) ), $tagName );
 			} else {
 				$result->setIndexedTagName_internal( array_merge( $path, array( $subitemName ) ), $tagName );
 			}
