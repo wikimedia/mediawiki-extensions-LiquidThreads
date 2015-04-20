@@ -143,7 +143,7 @@ $wgHooks['ArticleConfirmDelete'][] = 'LqtDeletionController::onArticleConfirmDel
 $wgHooks['ArticleDelete'][] = 'LqtDeletionController::onArticleDelete';
 
 // Moving
-$wgHooks['SpecialMovepageAfterMove'][] = 'LqtHooks::onArticleMoveComplete';
+$wgHooks['TitleMoveComplete'][] = 'LqtHooks::onTitleMoveComplete';
 $wgHooks['AbortMove'][] = 'LqtHooks::onArticleMove';
 $wgHooks['MovePageIsValidMove'][] = 'LqtHooks::onMovePageIsValidMove';
 

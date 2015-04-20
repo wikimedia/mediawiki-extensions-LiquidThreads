@@ -417,7 +417,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function onArticleMoveComplete( &$form, &$ot, &$nt ) {
+	static function onTitleMoveComplete( Title $ot, Title $nt, User $user, $oldid, $newid, $reason = null ) {
 		// Check if it's a talk page.
 		if ( !LqtDispatch::isLqtPage( $ot ) && !LqtDispatch::isLqtPage( $nt ) ) {
 			return true;
