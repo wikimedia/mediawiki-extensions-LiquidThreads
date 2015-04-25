@@ -4,7 +4,8 @@
 			"Alma",
 			"Toliño",
 			"Xosé",
-			"Banjo"
+			"Banjo",
+			"Elisardojm"
 		]
 	},
 	"lqt-desc": "Engadir fíos de discusión a páxinas de conversa",
@@ -242,8 +243,26 @@
 	"echo-pref-email-lqt-reply": "Responde a unha conversa en forma de fío",
 	"pageinfo-usinglqt": "Conversa en fío activada",
 	"pageinfo-usinglqt-yes": "Si",
+	"apihelp-feedthreads-description": "Devolve un fluxo de fíos de conversa.",
+	"apihelp-feedthreads-param-feedformat": "Formato do fluxo.",
+	"apihelp-feedthreads-param-days": "Número de días de fíos a amosar.",
+	"apihelp-feedthreads-param-type": "Tipos de mensaxes a amosar.",
+	"apihelp-feedthreads-param-talkpage": "Limita os resultados a fíos nestas páxinas de conversa.",
+	"apihelp-feedthreads-param-thread": "Limita os resultados a estos fíos e as súas contestacións.",
+	"apihelp-feedthreads-example-1": "Mostrar un fluxo con todos os novos fíos",
+	"apihelp-query+threads-description": "Mostrar detalles dos fíos de LiquidThreads.",
+	"apihelp-query+threads-param-startid": "Identificador de fío no que comezar a enumeración.",
+	"apihelp-query+threads-param-endid": "Identificador de fío no que rematar a enumeración.",
 	"apihelp-query+threads-param-showdeleted": "Amosar/agochar fíos borrados.",
 	"apihelp-query+threads-param-limit": "Número máximo de fíos a listar.",
 	"apihelp-query+threads-param-prop": "Que propiedades obter.",
-	"apihelp-query+threads-example-1": "Listar os fíos de [[Talk:Main Page]]"
+	"apihelp-query+threads-param-page": "Limita os resultados a fíos nestas páxinas.",
+	"apihelp-query+threads-param-author": "Limita os resultados a fíos de autores particulares.",
+	"apihelp-query+threads-param-root": "Limita os resultados a fíos coa raíz indicada.",
+	"apihelp-query+threads-param-summary": "Limita os resultados a fíos correspondentes ós resumos de páxina indicados.",
+	"apihelp-query+threads-example-1": "Listar os fíos de [[Talk:Main Page]]",
+	"apihelp-query+threads-example-2": "Listar fíos con identificadores 1, 2, 3  e 4.",
+	"apihelp-threadaction-param-threadaction": "Acción a realizar.",
+	"apihelp-threadaction-param-captchaword": "Resposta ó CAPTCHA.",
+	"apihelp-threadaction-param-captchaid": "Identificador de CAPTCHA da consulta anterior."
 }
