@@ -5,11 +5,15 @@
 		]
 	},
 	"lqt_contents_title": "Naverok",
+	"lqt_toc_thread_replycount": "Bersiv",
 	"lqt_new_thread": "Gotûbêjeke nû bide destpêkirin",
 	"lqt_delete": "Jê bibe",
 	"lqt_discussion_link": "gotûbêj",
+	"lqt_from_talk": "Ji $1",
 	"lqt_hist_deleted": "Hate jêbirin",
 	"lqt_protectedfromreply_link": "hate parastin",
+	"lqt_subject": "Mijar:",
+	"lqt_noreason": "Ti sedem nehatiye nivîsîn.",
 	"lqt_header_warning_new_discussion": "gotûbêjeke nû bide destpêkirin",
 	"lqt-title": "Sernav",
 	"lqt-summary": "Kurte",
@@ -18,8 +22,10 @@
 	"lqt-thread-created": "Hate afirandin",
 	"lqt-history-time": "Dem",
 	"lqt-history-user": "Bikarhêner",
+	"lqt-history-action": "Çalakî",
 	"lqt-history-comment": "Şîrove",
 	"lqt-newmessages-from": "Ji $1",
+	"lqt-add-reply": "Bersivekê lê zêde bike",
 	"searchprofile-threads": "Gotûbêj",
 	"lqt-save-subject": "Tomar bike",
 	"lqt-cancel-subject-edit": "Betal bike",
@@ -28,6 +34,9 @@
 	"lqt-newmessages-n": "Peyamên nû ($1)",
 	"lqt_newmessages": "Peyamên nû (tune)",
 	"lqt_newmessages-title": "Peyamên nû",
+	"lqt-talkpage-history-title": "Dîroka rûpela gotûbêjê",
 	"lqt-talkpage-history-subtitle": "Bo $1",
-	"nstab-summary": "Kurte"
+	"lqt-reply-subpage": "bersiv bide",
+	"nstab-summary": "Kurte",
+	"pageinfo-usinglqt-yes": "Erê"
 }
