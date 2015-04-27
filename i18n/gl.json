@@ -260,9 +260,18 @@
 	"apihelp-query+threads-param-author": "Limita os resultados a fíos de autores particulares.",
 	"apihelp-query+threads-param-root": "Limita os resultados a fíos coa raíz indicada.",
 	"apihelp-query+threads-param-summary": "Limita os resultados a fíos correspondentes ós resumos de páxina indicados.",
+	"apihelp-query+threads-param-id": "Devolver fíos cos identificadores indicados.",
 	"apihelp-query+threads-example-1": "Listar os fíos de [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Listar fíos con identificadores 1, 2, 3  e 4.",
+	"apihelp-threadaction-param-thread": "Identificadores de fío ou títulos nos que actuar.",
+	"apihelp-threadaction-param-talkpage": "Páxina de conversa na que actuar (se aplicable).",
 	"apihelp-threadaction-param-threadaction": "Acción a realizar.",
+	"apihelp-threadaction-param-reason": "Se aplicable, a razón/resumo para a acción.",
+	"apihelp-threadaction-param-newparent": "Se está a mesturar un fío, o identificador ou título para o seu novo pai.",
+	"apihelp-threadaction-param-text": "Texto da mensaxe a crear.",
+	"apihelp-threadaction-param-signature": "Especifica a sinatura a usar para esta mensaxse, no canto da usada por defecto.",
+	"apihelp-threadaction-param-type": "Especifica o tipo de reacción a engadir.",
+	"apihelp-threadaction-param-value": "Especifica o valor asociado ca reacción a engadir.",
 	"apihelp-threadaction-param-captchaword": "Resposta ó CAPTCHA.",
 	"apihelp-threadaction-param-captchaid": "Identificador de CAPTCHA da consulta anterior."
 }
