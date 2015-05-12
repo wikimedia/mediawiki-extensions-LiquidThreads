@@ -17,7 +17,7 @@ $magicWords['ar'] = array(
 	'lqtpagelimit' => array( 0, 'حد_صفحة_خس' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $magicWords['arz'] = array(
 	'useliquidthreads' => array( 0, 'استخدم_الخيوط_السائلة' ),
 	'lqtpagelimit' => array( 0, 'حد_صفحة_خس' ),

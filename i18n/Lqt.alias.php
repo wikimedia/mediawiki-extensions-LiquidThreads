@@ -27,7 +27,7 @@ $specialPageAliases['ar'] = array(
 	'MergeThread' => array( 'دمج_الخيط' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'DeleteThread' => array( 'مسح_جروپ_الرسايل' ),
 	'MoveThread' => array( 'نقل_جروپ_الرسايل' ),
@@ -184,7 +184,7 @@ $specialPageAliases['fr'] = array(
 	'NewMessages' => array( 'NouveauxMessages', 'Nouveaux_Messages' ),
 );
 
-/** Franco-Provençal (arpetan) */
+/** Arpitan (arpetan) */
 $specialPageAliases['frp'] = array(
 	'DeleteThread' => array( 'Èfaciér_lo_fil', 'ÈfaciérLoFil' ),
 	'MoveThread' => array( 'Dèplaciér_lo_fil', 'DèplaciérLoFil' ),
