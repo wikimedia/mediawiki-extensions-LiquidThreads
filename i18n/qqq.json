@@ -224,7 +224,7 @@
 	"apihelp-feedthreads-param-talkpage": "{{doc-apihelp-param|feedthreads|talkpage}}",
 	"apihelp-feedthreads-param-thread": "{{doc-apihelp-param|feedthreads|thread}}",
 	"apihelp-feedthreads-example-1": "{{doc-apihelp-example|feedthreads}}",
-	"apihelp-feedthreads-example-2": "{{doc-apihelp-example|feedthreads}}",
+	"apihelp-feedthreads-example-2": "Replace \"Foo\" with any example/filler word suitable in your language.\n----\n{{doc-apihelp-example|feedthreads}}",
 	"apihelp-feedthreads-example-3": "{{doc-apihelp-example|feedthreads}}",
 	"apihelp-query+threads-description": "{{doc-apihelp-description|query+threads}}",
 	"apihelp-query+threads-param-startid": "{{doc-apihelp-param|query+threads|startid}}",
