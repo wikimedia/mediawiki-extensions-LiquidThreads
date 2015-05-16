@@ -38,4 +38,8 @@ class SpecialNewMessages extends SpecialPage {
 
 		$view->show();
 	}
+
+	protected function getGroupName() {
+		return 'wiki';
+	}
 }

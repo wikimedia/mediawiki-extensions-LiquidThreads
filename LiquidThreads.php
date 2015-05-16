@@ -188,7 +188,6 @@ $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
 $wgSpecialPages['SplitThread'] = 'SpecialSplitThread';
 $wgSpecialPages['MergeThread'] = 'SpecialMergeThread';
-$wgSpecialPageGroups['NewMessages'] = 'wiki';
 
 // Embedding
 $wgHooks['OutputPageParserOutput'][] = 'LqtParserFunctions::onAddParserOutput';
