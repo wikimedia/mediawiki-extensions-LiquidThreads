@@ -9,9 +9,12 @@
 	"lqt_delete": "Wiskje",
 	"lqt_discussion_link": "oerlis",
 	"lqt_subject": "Ûnderwerp:",
-	"lqt_move_move": "Werneam",
+	"lqt_move_move": "Omneame",
+	"lqt-history-time": "Tiid",
 	"lqt-menu-trigger": "Mear",
 	"lqt-search-button": "Sykje",
+	"lqt-save-subject": "Bewarje",
 	"lqt-cancel-subject-edit": "Annulearje",
+	"lqt-drag-reason": "Reden:",
 	"pageinfo-usinglqt-yes": "Ja"
 }
