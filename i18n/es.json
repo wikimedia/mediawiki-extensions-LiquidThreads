@@ -21,7 +21,8 @@
 			"Savh",
 			"Toliño",
 			"Translationista",
-			"Vivaelcelta"
+			"Vivaelcelta",
+			"Ryo567"
 		]
 	},
 	"lqt-desc": "Agregar discusiones en hilos a páginas de discusión",
@@ -257,5 +258,10 @@
 	"echo-pref-email-lqt-new-topic": "Crea un nuevo hilo de discusión",
 	"echo-pref-email-lqt-reply": "Responde a un hilo de discusión",
 	"pageinfo-usinglqt": "Hilos de discusión activados",
-	"pageinfo-usinglqt-yes": "Sí"
+	"pageinfo-usinglqt-yes": "Sí",
+	"apihelp-feedthreads-param-feedformat": "El formato del canal.",
+	"apihelp-query+threads-param-prop": "Qué propiedades obtener",
+	"apihelp-query+threads-example-1": "Listar hilos en [[Talk:Main Page]]",
+	"apihelp-query+threads-example-2": "Listar hilos con las ID 1, 2, 3 y 4",
+	"apihelp-threadaction-param-captchaword": "Respuesta al CAPTCHA."
 }
