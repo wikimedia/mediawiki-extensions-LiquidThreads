@@ -266,5 +266,11 @@
 	"apihelp-feedthreads-example-1": "Visa ett flöde av alla nya trådar",
 	"apihelp-feedthreads-example-2": "Visa ett flöde av svar på [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Visa ett flöde av nya trådar på [[Talk:Main Page]]",
-	"apihelp-query+threads-description": "Visa detaljer för LiquidThreads-trådar."
+	"apihelp-query+threads-description": "Visa detaljer för LiquidThreads-trådar.",
+	"apihelp-query+threads-param-prop": "Vilka egenskaper att hämta.",
+	"apihelp-query+threads-param-page": "Begränsa resultaten till trådar på dessa sidor.",
+	"apihelp-query+threads-example-1": "Lista trådar på [[Talk:Main Page]]",
+	"apihelp-query+threads-example-2": "Lista trådar med ID:n 1, 2, 3 och 4",
+	"apihelp-threadaction-param-captchaword": "Svar till CAPTCHA.",
+	"apihelp-threadaction-param-captchaid": "CAPTCHA-ID från föregående begäran."
 }

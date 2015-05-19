@@ -252,5 +252,6 @@
 	"echo-pref-email-lqt-new-topic": "Создаёт новую ветку обсуждения",
 	"echo-pref-email-lqt-reply": "Отвечает в ветке обсуждения",
 	"pageinfo-usinglqt": "Дискуссия по веткам включена",
-	"pageinfo-usinglqt-yes": "Да"
+	"pageinfo-usinglqt-yes": "Да",
+	"apihelp-feedthreads-param-type": "Типы сообщений для показа."
 }
