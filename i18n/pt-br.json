@@ -10,7 +10,8 @@
 			"Luckas Blade",
 			"MetalBrasil",
 			"555",
-			"He7d3r"
+			"He7d3r",
+			"Araceletorres"
 		]
 	},
 	"lqt-desc": "Adiciona discussões em tópicos a páginas de discussão",
@@ -245,5 +246,6 @@
 	"echo-pref-email-lqt-new-topic": "Cria uma nova discussão em tópicos",
 	"echo-pref-email-lqt-reply": "Responde a uma discussão em tópicos",
 	"pageinfo-usinglqt": "Discussão em tópicos ativada",
-	"pageinfo-usinglqt-yes": "Sim"
+	"pageinfo-usinglqt-yes": "Sim",
+	"apihelp-feedthreads-param-feedformat": "O formato do feed."
 }
