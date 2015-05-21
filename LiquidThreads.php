@@ -23,7 +23,6 @@ define( 'LQT_OLDEST_THREADS', 'ot' );
 
 // Localisation
 $wgMessagesDirs['LiquidThreads'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['LiquidThreads'] = __DIR__ . '/i18n/Lqt.i18n.php';
 $wgExtensionMessagesFiles['LiquidThreadsMagic'] = __DIR__ . '/i18n/LiquidThreads.magic.php';
 $wgExtensionMessagesFiles['LiquidThreadsNamespaces'] = __DIR__ . '/i18n/Lqt.namespaces.php';
 $wgExtensionMessagesFiles['LiquidThreadsAlias'] = __DIR__ . '/i18n/Lqt.alias.php';
