@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"CERminator"
+			"CERminator",
+			"KWiki"
 		]
 	},
 	"lqt-desc": "Dodaj nizane diskusije stranicama za razgovor",
@@ -53,7 +54,7 @@
 	"lqt_change_edited_summary": "Sažetak niza je uređivan",
 	"lqt_change_deleted": "[$1 Ovaj niz] ili odgovor na njega je obrisan",
 	"lqt_change_undeleted": "[$1 Označeni post] je vraćen",
-	"lqt_change_moved": "[$1 Ovaj niz] je premješten na drugu stranicu za razgovor",
+	"lqt_change_moved": "[$1 Ovaj niz] premješten je na drugu stranicu za razgovor.",
 	"lqt_change_split": "[$1 Ovaj niz] je podijeljeni dio iz drugog niza",
 	"lqt_change_edited_subject": "Tema ovog niza je promijenjena sa \"$2\" na \"$3\"",
 	"lqt_change_merged_from": "[$1 Odgovor] na ovaj niz je premješten u drugi niz",
