@@ -24,17 +24,7 @@ INSTALLATION:
 4. Add this line to the end of your LocalSettings.php:
    require_once( "$IP/extensions/LiquidThreads/LiquidThreads.php" );
 
-Liquid Threads uses namespace numbers 90, 91, 92, and 93. If you are using
-another extension which uses any of these numbers, you should have Liquid
-Threads use different numbers by adding something like the following to your
-LocalSettings.php, *before* including LiquidThreads.php:
-
-$egLqtNamespaceNumbers = array(
-    'Thread' => 100,
-    'Thread_talk' => 101,
-    'Summary' => 102,
-    'Summary_talk' => 103
-);
+Liquid Threads uses namespace numbers 90, 91, 92, and 93.
 
 CONTACT:
 =======

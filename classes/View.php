@@ -36,7 +36,7 @@ class LqtView {
 
 	public $threadNestingLevel = 0;
 
-	protected $sort_order = LQT_NEWEST_CHANGES;
+	protected $sort_order = TalkpageView::LQT_NEWEST_CHANGES;
 
 	static $stylesAndScriptsDone = false;
 

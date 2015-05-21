@@ -1,6 +1,10 @@
 <?php
 
 class TalkpageView extends LqtView {
+	const LQT_NEWEST_CHANGES = 'nc';
+	const LQT_NEWEST_THREADS = 'nt';
+	const LQT_OLDEST_THREADS = 'ot';
+
 	protected $mShowItems = array( 'toc', 'options', 'header' );
 	protected $talkpage;
 
@@ -173,15 +177,15 @@ class TalkpageView extends LqtView {
 		$sortOrderSelect->setAttribute( 'class', 'lqt_sort_select' );
 		$sortOrderSelect->addOption(
 			wfMessage( 'lqt_sort_newest_changes' )->text(),
-			LQT_NEWEST_CHANGES
+			self::LQT_NEWEST_CHANGES
 		);
 		$sortOrderSelect->addOption(
 			wfMessage( 'lqt_sort_newest_threads' )->text(),
-			LQT_NEWEST_THREADS
+			self::LQT_NEWEST_THREADS
 		);
 		$sortOrderSelect->addOption(
 			wfMessage( 'lqt_sort_oldest_threads' )->text(),
-			LQT_OLDEST_THREADS
+			self::LQT_OLDEST_THREADS
 		);
 		$html .= $sortOrderSelect->getHTML();
 
@@ -386,16 +390,16 @@ class TalkpageView extends LqtView {
 			$lqt_order = $this->request->getVal( 'lqt_order' );
 			switch( $lqt_order ) {
 				case 'nc':
-					return LQT_NEWEST_CHANGES;
+					return self::LQT_NEWEST_CHANGES;
 				case 'nt':
-					return LQT_NEWEST_THREADS;
+					return self::LQT_NEWEST_THREADS;
 				case 'ot':
-					return LQT_OLDEST_THREADS;
+					return self::LQT_OLDEST_THREADS;
 			}
 		}
 
 		// Default
-		return LQT_NEWEST_CHANGES;
+		return self::LQT_NEWEST_CHANGES;
 	}
 
 	// Hide a number of items from the view
@@ -500,10 +504,10 @@ class LqtDiscussionPager extends IndexPager {
 
 	function getIndexField() {
 		switch( $this->orderType ) {
-			case LQT_NEWEST_CHANGES:
+			case TalkpageView::LQT_NEWEST_CHANGES:
 				return 'thread_sortkey';
-			case LQT_OLDEST_THREADS:
-			case LQT_NEWEST_THREADS:
+			case TalkpageView::LQT_OLDEST_THREADS:
+			case TalkpageView::LQT_NEWEST_THREADS:
 				return 'thread_created';
 			default:
 				throw new Exception( "Unknown sort order " . $this->orderType );
@@ -512,10 +516,10 @@ class LqtDiscussionPager extends IndexPager {
 
 	function getDefaultDirections() {
 		switch( $this->orderType ) {
-			case LQT_NEWEST_CHANGES:
-			case LQT_NEWEST_THREADS:
+			case TalkpageView::LQT_NEWEST_CHANGES:
+			case TalkpageView::LQT_NEWEST_THREADS:
 				return true; // Descending
-			case LQT_OLDEST_THREADS:
+			case TalkpageView::LQT_OLDEST_THREADS:
 				return false; // Ascending
 			default:
 				throw new Exception( "Unknown sort order " . $this->orderType );

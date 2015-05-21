@@ -1,0 +1,382 @@
+{
+	"name": "Liquid Threads",
+	"version": "2.3-alpha",
+	"author": [
+		"David McCabe",
+		"Andrew Garrett"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:LiquidThreads",
+	"descriptionmsg": "lqt-desc",
+	"type": "other",
+	"license-name": "GPL-2.0+",
+	"namespaces": [
+		{
+			"id": 90,
+			"constant": "NS_LQT_THREAD",
+			"name": "Thread"
+		},
+		{
+			"id": 91,
+			"constant": "NS_LQT_THREAD_TALK",
+			"name": "Thread_talk"
+		},
+		{
+			"id": 92,
+			"constant": "NS_LQT_SUMMARY",
+			"name": "Summary"
+		},
+		{
+			"id": 93,
+			"constant": "NS_LQT_SUMMARY_TALK",
+			"name": "Summary_talk"
+		}
+	],
+	"GroupPermissions": {
+		"user": {
+			"lqt-split": true,
+			"lqt-merge": true,
+			"lqt-react": true
+		}
+	},
+	"DefaultUserOptions": {
+		"lqtnotifytalk": false,
+		"lqtdisplaydepth": 5,
+		"lqtdisplaycount": 25,
+		"lqtcustomsignatures": true,
+		"lqt-watch-threads": true
+	},
+	"AvailableRights": [
+		"lqt-split",
+		"lqt-merge",
+		"lqt-react"
+	],
+	"SpecialPages": {
+		"MoveThread": "SpecialMoveThread",
+		"NewMessages": "SpecialNewMessages",
+		"SplitThread": "SpecialSplitThread",
+		"MergeThread": "SpecialMergeThread"
+	},
+	"JobClasses": {
+		"synchroniseThreadArticleData": "SynchroniseThreadArticleDataJob"
+	},
+	"LogTypes": [
+		"liquidthreads"
+	],
+	"LogNames": {
+		"liquidthreads": "lqt-log-name"
+	},
+	"LogHeaders": {
+		"liquidthreads": "lqt-log-header"
+	},
+	"LogActionsHandlers": {
+		"liquidthreads/move": "LqtLogFormatter::formatLogEntry",
+		"liquidthreads/split": "LqtLogFormatter::formatLogEntry",
+		"liquidthreads/merge": "LqtLogFormatter::formatLogEntry",
+		"liquidthreads/subjectedit": "LqtLogFormatter::formatLogEntry",
+		"liquidthreads/resort": "LqtLogFormatter::formatLogEntry",
+		"liquidthreads/signatureedit": "LqtLogFormatter::formatLogEntry"
+	},
+	"APIModules": {
+		"feedthreads": "ApiFeedLQTThreads",
+		"threadaction": "ApiThreadAction"
+	},
+	"APIListModules": {
+		"threads": "ApiQueryLQTThreads"
+	},
+	"MessagesDirs": {
+		"LiquidThreads": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"LiquidThreadsMagic": "i18n/LiquidThreads.magic.php",
+		"LiquidThreadsNamespaces": "i18n/Lqt.namespaces.php",
+		"LiquidThreadsAlias": "i18n/Lqt.alias.php"
+	},
+	"AutoloadClasses": {
+		"LqtDispatch": "classes/Dispatch.php",
+		"LqtView": "classes/View.php",
+		"HistoricalThread": "classes/HistoricalThread.php",
+		"Thread": "classes/Thread.php",
+		"Threads": "classes/Threads.php",
+		"NewMessages": "classes/NewMessagesController.php",
+		"LqtParserFunctions": "classes/ParserFunctions.php",
+		"LqtDeletionController": "classes/DeletionController.php",
+		"LqtHooks": "classes/Hooks.php",
+		"ThreadRevision": "classes/ThreadRevision.php",
+		"SynchroniseThreadArticleDataJob": "classes/SynchroniseThreadArticleDataJob.php",
+		"ThreadHistoryPager": "classes/ThreadHistoryPager.php",
+		"TalkpageHistoryView": "pages/TalkpageHistoryView.php",
+		"LqtLogFormatter": "classes/LogFormatter.php",
+		"TalkpageView": "pages/TalkpageView.php",
+		"ThreadPermalinkView": "pages/ThreadPermalinkView.php",
+		"TalkpageHeaderView": "pages/TalkpageHeaderView.php",
+		"IndividualThreadHistoryView": "pages/IndividualThreadHistoryView.php",
+		"ThreadDiffView": "pages/ThreadDiffView.php",
+		"ThreadWatchView": "pages/ThreadWatchView.php",
+		"ThreadProtectionFormView": "pages/ThreadProtectionFormView.php",
+		"ThreadHistoryListingView": "pages/ThreadHistoryListingView.php",
+		"ThreadHistoricalRevisionView": "pages/ThreadHistoricalRevisionView.php",
+		"SummaryPageView": "pages/SummaryPageView.php",
+		"NewUserMessagesView": "pages/NewUserMessagesView.php",
+		"LqtDiscussionPager": "pages/TalkpageView.php",
+		"LqtNewMessagesPager": "pages/NewUserMessagesView.php",
+		"TalkpageHistoryPager": "pages/TalkpageHistoryView.php",
+		"ThreadActionPage": "pages/ThreadActionPage.php",
+		"SpecialMoveThread": "pages/SpecialMoveThread.php",
+		"SpecialNewMessages": "pages/SpecialNewMessages.php",
+		"SpecialSplitThread": "pages/SpecialSplitThread.php",
+		"SpecialMergeThread": "pages/SpecialMergeThread.php",
+		"ApiQueryLQTThreads": "api/ApiQueryLQTThreads.php",
+		"ApiFeedLQTThreads": "api/ApiFeedLQTThreads.php",
+		"ApiThreadAction": "api/ApiThreadAction.php"
+	},
+	"ResourceModules": {
+		"ext.liquidThreads": {
+			"styles": [
+				"lqt.css",
+				"jquery/jquery.thread_collapse.css",
+				"lqt.dialogs.css"
+			],
+			"scripts": [
+				"lqt.js",
+				"jquery/jquery.thread_collapse.js",
+				"jquery/jquery.autogrow.js"
+			],
+			"dependencies": [
+				"jquery.ui.dialog",
+				"jquery.ui.droppable",
+				"mediawiki.action.edit.preview",
+				"mediawiki.api.watch",
+				"user.tokens",
+				"jquery.client",
+				"user.options",
+				"mediawiki.api",
+				"mediawiki.util"
+			],
+			"messages": [
+				"lqt-ajax-updated",
+				"lqt-ajax-update-link",
+				"watch",
+				"unwatch",
+				"lqt-thread-link-url",
+				"lqt-thread-link-title",
+				"lqt-thread-link-copy",
+				"lqt-sign-not-necessary",
+				"lqt-summary-sign-not-necessary",
+				"lqt-marked-as-read-placeholder",
+				"lqt-email-undo",
+				"lqt-change-subject",
+				"lqt-save-subject",
+				"lqt-ajax-no-subject",
+				"lqt-ajax-invalid-subject",
+				"lqt-save-subject-error-unknown",
+				"lqt-cancel-subject-edit",
+				"lqt-drag-activate",
+				"lqt-drag-drop-zone",
+				"lqt-drag-confirm",
+				"lqt-drag-reparent",
+				"lqt-drag-split",
+				"lqt-drag-setsortkey",
+				"lqt-drag-bump",
+				"lqt-drag-save",
+				"lqt-drag-reason",
+				"lqt-drag-subject",
+				"lqt-edit-signature",
+				"lqt-preview-signature",
+				"lqt_contents_title",
+				"lqt-empty-text",
+				"lqt-pagechange-editformopen"
+			]
+		},
+		"ext.liquidThreads.newMessages": {
+			"scripts": [
+				"newmessages.js"
+			],
+			"dependencies": [
+				"ext.liquidThreads"
+			],
+			"position": "top"
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "LiquidThreads"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"LqtHooks::onParserFirstCallInit"
+		],
+		"CanonicalNamespaces": [
+			"LqtHooks::onCanonicalNamespaces"
+		],
+		"MediaWikiPerformAction": [
+			"LqtDispatch::tryPage"
+		],
+		"SkinTemplateNavigation": [
+			"LqtDispatch::onSkinTemplateNavigation"
+		],
+		"PageContentLanguage": [
+			"LqtDispatch::onPageContentLanguage"
+		],
+		"OldChangesListRecentChangesLine": [
+			"LqtHooks::customizeOldChangesList"
+		],
+		"SkinTemplateOutputPageBeforeExec": [
+			"LqtHooks::setNewtalkHTML"
+		],
+		"ChangesListSpecialPageQuery": [
+			"LqtHooks::beforeWatchlist"
+		],
+		"ArticleEditUpdateNewTalk": [
+			"LqtHooks::updateNewtalkOnEdit"
+		],
+		"PersonalUrls": [
+			"LqtHooks::onPersonalUrls"
+		],
+		"GetPreferences": [
+			"LqtHooks::getPreferences"
+		],
+		"XmlDumpWriterOpenPage": [
+			"LqtHooks::dumpThreadData"
+		],
+		"ModifyExportQuery": [
+			"LqtHooks::modifyExportQuery"
+		],
+		"OAIFetchRowsQuery": [
+			"LqtHooks::modifyOAIQuery"
+		],
+		"OAIFetchRecordQuery": [
+			"LqtHooks::modifyOAIQuery"
+		],
+		"ImportHandlePageXMLTag": [
+			"LqtHooks::handlePageXMLTag"
+		],
+		"AfterImportPage": [
+			"LqtHooks::afterImportPage"
+		],
+		"ArticleDeleteComplete": [
+			"LqtDeletionController::onArticleDeleteComplete"
+		],
+		"ArticleRevisionUndeleted": [
+			"LqtDeletionController::onArticleRevisionUndeleted"
+		],
+		"ArticleUndelete": [
+			"LqtDeletionController::onArticleUndelete"
+		],
+		"ArticleConfirmDelete": [
+			"LqtDeletionController::onArticleConfirmDelete"
+		],
+		"ArticleDelete": [
+			"LqtDeletionController::onArticleDelete"
+		],
+		"TitleMoveComplete": [
+			"LqtHooks::onTitleMoveComplete"
+		],
+		"AbortMove": [
+			"LqtHooks::onArticleMove"
+		],
+		"MovePageIsValidMove": [
+			"LqtHooks::onMovePageIsValidMove"
+		],
+		"ShowSearchHitTitle": [
+			"LqtHooks::customiseSearchResultTitle"
+		],
+		"SpecialSearchProfiles": [
+			"LqtHooks::customiseSearchProfiles"
+		],
+		"LoadExtensionSchemaUpdates": [
+			"LqtHooks::onLoadExtensionSchemaUpdates"
+		],
+		"RenameUserSQL": [
+			"LqtHooks::onUserRename"
+		],
+		"UserMergeAccountFields": [
+			"LqtHooks::onUserMergeAccountFields"
+		],
+		"EditPageBeforeEditChecks": [
+			"LqtHooks::editCheckBoxes"
+		],
+		"ArticleSaveComplete": [
+			"LqtHooks::onArticleSaveComplete"
+		],
+		"UserIsBlockedFrom": [
+			"LqtHooks::userIsBlockedFrom"
+		],
+		"TitleGetRestrictionTypes": [
+			"LqtHooks::getProtectionTypes"
+		],
+		"SetupNewUserMessageSubject": [
+			"LqtHooks::setupNewUserMessageSubject"
+		],
+		"SetupNewUserMessageBody": [
+			"LqtHooks::setupNewUserMessageBody"
+		],
+		"MakeGlobalVariablesScript": [
+			"LqtHooks::onMakeGlobalVariablesScript"
+		],
+		"APIQueryAfterExecute": [
+			"LqtHooks::onAPIQueryAfterExecute"
+		],
+		"InfoAction": [
+			"LqtHooks::onInfoAction"
+		],
+		"SpecialPage_initList": [
+			"LqtHooks::onSpecialPage_initList"
+		],
+		"OutputPageParserOutput": [
+			"LqtParserFunctions::onAddParserOutput"
+		],
+		"OutputPageBeforeHTML": [
+			"LqtParserFunctions::onAddHTML"
+		],
+		"userCan": [
+			"LqtHooks::onGetUserPermissionsErrors"
+		]
+	},
+	"config": {
+		"LqtPages": {
+			"value": []
+		},
+		"LqtTalkPages": {
+			"value": true
+		},
+		"LqtEnotif": {
+			"value": true
+		},
+		"ThreadActionsNoBump": {
+			"value": [
+				3,
+				10,
+				12,
+				2,
+				14
+			]
+		},
+		"LiquidThreadsMigrate": {
+			"value": false
+		},
+		"LiquidThreadsDefaultPageLimit": {
+			"value": 20
+		},
+		"LiquidThreadsAllowUserControl": {
+			"value": true
+		},
+		"LiquidThreadsAllowUserControlNamespaces": {
+			"value": null
+		},
+		"LiquidThreadsAllowEmbedding": {
+			"value": true
+		},
+		"LqtNamespaces": {
+			"value": []
+		},
+		"LiquidThreadsShowBumpCheckbox": {
+			"value": false
+		},
+		"LiquidThreadsEnableNewMessages": {
+			"value": true
+		}
+	},
+	"manifest_version": 2
+}
