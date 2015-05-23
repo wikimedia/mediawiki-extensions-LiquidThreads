@@ -275,7 +275,14 @@
 	"apihelp-query+threads-example-1": "Listar hilos en [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Listar hilos con las ID 1, 2, 3 y 4",
 	"apihelp-threadaction-param-thread": "Identificadores o títulos de hilos sobre los cuales actuar.",
+	"apihelp-threadaction-param-talkpage": "La página de discusión sobre la que actuar (si es pertinente).",
 	"apihelp-threadaction-param-threadaction": "La acción que tomar.",
+	"apihelp-threadaction-param-subject": "El asunto para el hilo nuevo o separado.",
+	"apihelp-threadaction-param-reason": "Si es pertinente, la razón de la acción.",
+	"apihelp-threadaction-param-newparent": "Si se fusiona un hilo, el identificador o título de su nuevo padre.",
 	"apihelp-threadaction-param-text": "El texto de la publicación que crear.",
+	"apihelp-threadaction-param-signature": "Especifica la firma para esa publicación, en lugar de la predeterminada.",
+	"apihelp-threadaction-param-type": "Especifica el tipo de reacción que agregar.",
+	"apihelp-threadaction-param-value": "Especifica el valor asociado con la reacción que agregar.",
 	"apihelp-threadaction-param-captchaword": "Respuesta al CAPTCHA."
 }
