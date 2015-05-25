@@ -5,7 +5,8 @@
 			"Bhawani Gautam Rhk",
 			"Krish Dulal",
 			"RajeshPandey",
-			"सरोज कुमार ढकाल"
+			"सरोज कुमार ढकाल",
+			"NehalDaveND"
 		]
 	},
 	"lqt_toc_thread_author": "आरम्भ कर्ता",
@@ -132,5 +133,8 @@
 	"lqt-feed-title-all": "{{SITENAME}} — नयाँ पोस्ट",
 	"lqt-newmessages-n": "नयाँ सन्देशहरू ($1)",
 	"lqt_newmessages": "नयाँ सन्देशहरू (छैनन्)",
-	"lqt_newmessages-title": "नयाँ सन्देशहरू"
+	"lqt_newmessages-title": "नयाँ सन्देशहरू",
+	"lqt-reply-subpage": "जवाफ",
+	"nstab-thread": "धागो(thread)",
+	"pageinfo-usinglqt-yes": "छ"
 }
