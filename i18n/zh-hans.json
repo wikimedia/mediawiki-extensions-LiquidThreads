@@ -287,6 +287,7 @@
 	"apihelp-threadaction-param-newparent": "如果合并一个话题，其新的父节点的ID或标题。",
 	"apihelp-threadaction-param-text": "要创建的帖子正文。",
 	"apihelp-threadaction-param-bump": "是否覆盖默认的行为。",
+	"apihelp-threadaction-param-type": "指定要加入的反应类型。",
 	"apihelp-threadaction-param-captchaword": "回答验证码。",
 	"apihelp-threadaction-param-captchaid": "之前请求的验证码ID。"
 }
