@@ -278,6 +278,7 @@
 	"apihelp-threadaction-param-newparent": "Se está a mesturar un fío, o identificador ou título para o seu novo pai.",
 	"apihelp-threadaction-param-text": "Texto da mensaxe a crear.",
 	"apihelp-threadaction-param-render": "Nos métodos publicar e responder, o fío no nivel superior despois do cambio será representado e devolto no resultado.",
+	"apihelp-threadaction-param-sortkey": "Especifica o selo de tempo ó que fixar a clave de ordenación do fío. Pode ser \"now\" (agora).",
 	"apihelp-threadaction-param-signature": "Especifica a sinatura a usar para esta mensaxse, no canto da usada por defecto.",
 	"apihelp-threadaction-param-type": "Especifica o tipo de reacción a engadir.",
 	"apihelp-threadaction-param-value": "Especifica o valor asociado ca reacción a engadir.",
