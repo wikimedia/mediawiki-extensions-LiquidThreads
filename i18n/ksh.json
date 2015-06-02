@@ -124,7 +124,7 @@
 	"lqt-thread-edited-others": "Vun {{PLURAL:$2|enem|$2|keinem}} ander Metmaacher jeändert,<br />\net läz aam $4 öm $3",
 	"lqt-header-actions": "Akßjuhne",
 	"lqt_summarize_link": "Zosammefaße",
-	"lqt-summarize-intro": "Donn dä {{int:lqt-history-thread}} heh dronge zosammefaße, un don dat en dat Vält för et Änndere erenn schriive. Dobei kanns De jeede Wikkitäx bruche. Wann De domet fäädesch beß, donn op dä Knopp „{{int:savearticle}}“ klecke.",
+	"lqt-summarize-intro": "Donn dä {{int:lqt-history-thread}} heh dronger zosammefaße, un don dat en dat Vält för et Änndere erenn schrihve. Dobei kanns De jehde Wikkitäx bruche. Wann De domet fähdesch beß, donn op dä Knopp „{{int:savearticle}}“ kleke.",
 	"lqt-thread-split": "Afdeijle en ene neue {{int:lqt-history-thread}}",
 	"lqt-split-success": "Do häs jäz dä {{int:lqt-history-thread}} „$1“ afjedeilt.",
 	"lqt_split_thread": "Ene {{int:lqt-history-thread}} opdeijle",
