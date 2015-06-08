@@ -250,6 +250,8 @@
 	"apihelp-feedthreads-param-talkpage": "Limita os resultados a fíos nestas páxinas de conversa.",
 	"apihelp-feedthreads-param-thread": "Limita os resultados a estos fíos e as súas contestacións.",
 	"apihelp-feedthreads-example-1": "Mostrar un fluxo con todos os novos fíos",
+	"apihelp-feedthreads-example-2": "Mostrar un fluxo de respostas en [[Thread:Foo]]",
+	"apihelp-feedthreads-example-3": "Mostrar un fluxo de novos fíos en [[Talk:Main Page]]",
 	"apihelp-query+threads-description": "Mostrar detalles dos fíos de LiquidThreads.",
 	"apihelp-query+threads-param-startid": "Identificador de fío no que comezar a enumeración.",
 	"apihelp-query+threads-param-endid": "Identificador de fío no que rematar a enumeración.",
@@ -279,10 +281,12 @@
 	"apihelp-threadaction-param-newparent": "Se está a mesturar un fío, o identificador ou título para o seu novo pai.",
 	"apihelp-threadaction-param-text": "Texto da mensaxe a crear.",
 	"apihelp-threadaction-param-render": "Nos métodos publicar e responder, o fío no nivel superior despois do cambio será representado e devolto no resultado.",
+	"apihelp-threadaction-param-bump": "Ignora o funcionamento por defecto para determinar se debe ou non.",
 	"apihelp-threadaction-param-sortkey": "Especifica o selo de tempo ó que fixar a clave de ordenación do fío. Pode ser \"now\" (agora).",
 	"apihelp-threadaction-param-signature": "Especifica a sinatura a usar para esta mensaxse, no canto da usada por defecto.",
 	"apihelp-threadaction-param-type": "Especifica o tipo de reacción a engadir.",
 	"apihelp-threadaction-param-value": "Especifica o valor asociado ca reacción a engadir.",
+	"apihelp-threadaction-param-method": "Para obter formularios de edición en liña, o método para obter o formulario.",
 	"apihelp-threadaction-param-captchaword": "Resposta ó CAPTCHA.",
 	"apihelp-threadaction-param-captchaid": "Identificador de CAPTCHA da consulta anterior."
 }
