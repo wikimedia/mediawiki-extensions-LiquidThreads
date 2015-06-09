@@ -6,7 +6,8 @@
 			"Krish Dulal",
 			"RajeshPandey",
 			"सरोज कुमार ढकाल",
-			"NehalDaveND"
+			"NehalDaveND",
+			"राम प्रसाद जोशी"
 		]
 	},
 	"lqt_toc_thread_author": "आरम्भ कर्ता",
@@ -65,7 +66,7 @@
 	"lqt_sort_oldest_threads": "सबै भन्दा पहिले सम्पादित प्रथम",
 	"lqt-title": "शीर्षक",
 	"lqt-summary": "सारांश",
-	"lqt-searching": "धागो(thread)हरु खोज्दै \\",
+	"lqt-searching": "धागो(thread)हरू खोज्दै \\",
 	"lqt-read-message": "पढेकोमा चिह्नित गर्ने",
 	"lqt-read-all": "सबै पढिएको भनि चिनो लगाउने",
 	"lqt-marked-read": "धागो(thread) '''$1''' पढिएको भनी चिनो लगाइयो ।",
@@ -101,8 +102,8 @@
 	"lqt-add-reply": "जवाब जोड़ने",
 	"lqt_rc_new_discussion": "नयाँ धागो(thread) \"$1\" प्रविष्ट गरिएको छ",
 	"lqt_rc_new_reply": "\"$1\"लाई जवाब पठाइयो",
-	"right-lqt-split": "धागो(thread) हरु टुक्राउने",
-	"right-lqt-merge": "धागो(thread)हरु जोड्ने",
+	"right-lqt-split": "धागो (thread)हरू टुक्राउने",
+	"right-lqt-merge": "धागो(thread)हरू जोड्ने",
 	"right-lqt-react": "धागो(thread) को जवाफ लेख्ने",
 	"lqt-thread-merge": "अर्को धागो(thread)मा लगेर जोड्ने",
 	"lqt-thread-merge-to": "यस धागो(thread) मा ल्याएर जोड्ने",
