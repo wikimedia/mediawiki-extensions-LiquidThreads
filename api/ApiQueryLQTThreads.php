@@ -38,6 +38,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		'summaryid' => 'thread_summary_page',
 		'rootid' => 'thread_root',
 		'type' => 'thread_type',
+		'signature' => 'thread_signature',
 		'reactions' => null, // Handled elsewhere
 		'replies' => null, // Handled elsewhere
 	);
