@@ -145,7 +145,7 @@
 	"lqt-thread-edited-others": "Editado por {{PLURAL:$2|otro usuario|$2 usuarios}}.<br />\nÚltima edición: $1",
 	"lqt-header-actions": "Acciones",
 	"lqt_summarize_link": "Resumir",
-	"lqt-summarize-intro": "Por favor haga un resumen del hilo en el cuadro de edición que aparece debajo.\nPuede utilizar cualquier texto wiki en su resumen.\nCuando finalice, haga clic en ''{{int:savearticle}}''.",
+	"lqt-summarize-intro": "Resume el hilo en el cuadro de edición que aparece debajo.\nPuedes utilizar cualquier wikitexto en tu resumen.\nCuando finalices, haz clic en \"{{int:savearticle}}\".",
 	"lqt-thread-split": "Separar a un nuevo hilo",
 	"lqt-split-success": "Has dividido el hilo $1 exitosamente.",
 	"lqt_split_thread": "Dividir un hilo",
