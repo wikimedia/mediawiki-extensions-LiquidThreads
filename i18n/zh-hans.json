@@ -276,6 +276,7 @@
 	"apihelp-query+threads-param-summary": "限制结果为与指定摘要页面相连的话题。",
 	"apihelp-query+threads-param-id": "获取指定ID的帖子。",
 	"apihelp-query+threads-param-render": "结果中是否包含已渲染帖子。",
+	"apihelp-query+threads-param-renderlevel": "当渲染时，开始的那一等级（用于深度限制的目的等）。",
 	"apihelp-query+threads-param-renderthreadcount": "当渲染时，在那个等级组中的帖子数量。",
 	"apihelp-query+threads-example-1": "列出[[Talk:Main Page]]上的帖子",
 	"apihelp-query+threads-example-2": "列出帖子带ID1、2、3和4",
