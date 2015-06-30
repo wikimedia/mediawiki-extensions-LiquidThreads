@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Crazymadlover",
-			"Omnipaedista"
+			"Omnipaedista",
+			"Protnet"
 		]
 	},
 	"lqt_contents_title": "Περιεχόμενα",
 	"lqt_delete": "Σβεννύναι",
 	"lqt_discussion_link": "διάλεξις",
-	"lqt_hist_deleted": "Διεγραμμένη",
+	"lqt_hist_deleted": "Διαγεγραμμένη",
 	"lqt_subject": "Χρῆμα:",
 	"lqt_move_move": "Κινεῖν",
 	"lqt-title": "Ἐπιγραφή",

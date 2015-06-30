@@ -198,7 +198,8 @@
 	"lqt-thread-link-url": "Ссылка на URL:",
 	"lqt-thread-link-title": "Вики-ссылка:",
 	"lqt-thread-link-copy": "Копировать в буфер обмена",
-	"lqt-sign-not-necessary": "Нет необходимости подписывать своё сообщение четыремя тильдами.\nПодпись показывается автоматически.",
+	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nПодпись показывается автоматически.",
+	"lqt-summary-sign-not-necessary": "Нет необходимости подписывать своё сообщение четыремя тильдами.",
 	"lqt-marked-as-read-placeholder": "Ветка $1 была отмечена как прочитанная.",
 	"lqt-change-subject": "Изменить заголовок",
 	"lqt-save-subject": "Сохранить",
@@ -253,5 +254,7 @@
 	"echo-pref-email-lqt-reply": "Отвечает в ветке обсуждения",
 	"pageinfo-usinglqt": "Дискуссия по веткам включена",
 	"pageinfo-usinglqt-yes": "Да",
-	"apihelp-feedthreads-param-type": "Типы сообщений для показа."
+	"apihelp-feedthreads-param-type": "Типы сообщений для показа.",
+	"apihelp-threadaction-param-captchaword": "Ответ на капчу.",
+	"apihelp-threadaction-param-captchaid": "ID капчи из предыдущего запроса."
 }
