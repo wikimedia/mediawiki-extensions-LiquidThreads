@@ -184,7 +184,7 @@
 	"lqt-thread-link-url": "URL d'u collegamende:",
 	"lqt-thread-link-title": "Collegamende a Uicchiteste:",
 	"lqt-thread-link-copy": "Copie jndr'à l'appunde",
-	"lqt-sign-not-necessary": "Non g'è necessarie firmà 'u messagge tune cu quattre tilde.<br />\n'A firme se vede automaticamende.",
+	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}<br />\n'A firme se vede automaticamende.",
 	"lqt-marked-as-read-placeholder": "L'argomende $1 ha state signate cumme lette.",
 	"lqt-change-subject": "Cange suggette",
 	"lqt-save-subject": "Reggistre",
