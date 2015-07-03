@@ -10,7 +10,8 @@
 			"Shirayuki",
 			"Whym",
 			"青子守歌",
-			"Rxy"
+			"Rxy",
+			"Sujiniku"
 		]
 	},
 	"lqt-desc": "トークページにスレッド形式の議論を追加する",
@@ -193,7 +194,7 @@
 	"lqt-thread-link-url": "リンクの URL:",
 	"lqt-thread-link-title": "ウィキテキストのリンク:",
 	"lqt-thread-link-copy": "クリップボードにコピー",
-	"lqt-sign-not-necessary": "投稿に4つのチルダを付けて署名する必要はありません。署名は自動的に表示されます。",
+	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\n署名は自動的に表示されます。",
 	"lqt-marked-as-read-placeholder": "スレッド $1 を既読にしました。",
 	"lqt-change-subject": "表題を変更",
 	"lqt-save-subject": "保存",
