@@ -284,6 +284,6 @@
 	"apihelp-threadaction-param-type": "Го укажува типот на реакција што ќе се додаде.",
 	"apihelp-threadaction-param-value": "Ја укажува вредноста поврзана со реакцијата што ќе се додаде.",
 	"apihelp-threadaction-param-method": "За кој начин на уредување да е добијат обрасци наменети за уредување во редовите на текстот.",
-	"apihelp-threadaction-param-captchaword": "Одговор на CAPTCHA-та.",
-	"apihelp-threadaction-param-captchaid": "Назнака на CAPTCHA-та од претходното барање."
+	"apihelp-threadaction-param-captchaword": "Одговор на сликата.",
+	"apihelp-threadaction-param-captchaid": "Назнака на сликичката за проверка од претходното барање."
 }
