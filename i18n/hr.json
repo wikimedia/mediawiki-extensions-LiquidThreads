@@ -6,7 +6,8 @@
 			"Herr Mlinka",
 			"MaGa",
 			"Roberta F.",
-			"SpeedyGonsales"
+			"SpeedyGonsales",
+			"Bugoslav"
 		]
 	},
 	"lqt-desc": "Dodaj rasprave na stranice za razgovor",
@@ -20,6 +21,7 @@
 	"lqt_add_header": "Dodaj zaglavlje",
 	"lqt_new_thread": "Započnite novu raspravu",
 	"lqt_invalid_subject": "Naziv teme koji ste unijeli nije ispravan.\nMože biti:\n* predug je, ili\n* naziv je isti kao međuwiki prefiks ili ime imenskog prostora.",
+	"lqt-empty-text": "Ne možete poslati ''praznu'' poruku.",
 	"lqt_empty_subject": "Morate upisati temu/sažetak.",
 	"lqt_reply": "Odgovori",
 	"lqt-parent": "\"Roditelj\"",

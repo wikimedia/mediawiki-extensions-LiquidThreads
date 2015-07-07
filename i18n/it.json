@@ -14,7 +14,8 @@
 			"PaoloRomano",
 			"Una giornata uggiosa '94",
 			"VittGam",
-			"Gmelfi"
+			"Gmelfi",
+			"Alexmar983"
 		]
 	},
 	"lqt-desc": "Aggiunge discussioni in stile thread alle pagine di discussione",
@@ -198,6 +199,7 @@
 	"lqt-thread-link-title": "Wikilink del thread:",
 	"lqt-thread-link-copy": "Copia negli appunti",
 	"lqt-sign-not-necessary": "Non è necessario firmare il vostro messaggio con quattro tilde.\nLa firma è mostrata automaticamente.",
+	"lqt-summary-sign-not-necessary": "Non è necessario firmare i tuoi post con quattro tilde.",
 	"lqt-marked-as-read-placeholder": "Il thread $1 è stato contrassegnato come già letto.",
 	"lqt-change-subject": "Cambia l'oggetto",
 	"lqt-save-subject": "Salva",
