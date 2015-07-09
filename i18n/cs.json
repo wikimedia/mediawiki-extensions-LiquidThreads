@@ -5,7 +5,8 @@
 			"Matěj Grabovský",
 			"Mormegil",
 			"Reaperman",
-			"Tchoř"
+			"Tchoř",
+			"Matěj Suchánek"
 		]
 	},
 	"lqt-desc": "Umožňuje uspořádávat diskusní stránky do vláken",
@@ -188,7 +189,7 @@
 	"lqt-thread-link-url": "URL odkazu:",
 	"lqt-thread-link-title": "Odkaz ve wikitextu:",
 	"lqt-thread-link-copy": "Kopírovat do schránky",
-	"lqt-sign-not-necessary": "Svůj příspěvek nemusíte podepisovat čtyřmi vlnovkami.\nPodpis se zobrazuje automaticky.",
+	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nPodpis se zobrazuje automaticky.",
 	"lqt-marked-as-read-placeholder": "Vlákno „$1“ bylo označeno jako přečtené.",
 	"lqt-change-subject": "Změnit předmět",
 	"lqt-save-subject": "Uložit",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"CERminator",
-			"KWiki"
+			"KWiki",
+			"Srdjan m"
 		]
 	},
 	"lqt-desc": "Dodaj nizane diskusije stranicama za razgovor",
@@ -211,7 +212,7 @@
 	"lqt-feed-reply-intro": "Odgovor na $3 (na $1) poslan od strane $2",
 	"tooltip-pt-newmessages": "Pokaži nove vijesti na niz ili na nizane stranice za razgovor koje vi pratite",
 	"lqt-newmessages-n": "Nove poruke ($1)",
-	"lqt_newmessages": "Moje nove poruke (nema)",
+	"lqt_newmessages": "Nove poruke (nema)",
 	"lqt_newmessages-title": "Nove poruke",
 	"lqt-newpost-summary": "Novi niz: $1",
 	"lqt-reply-summary": "Odgovor na [[$2|$1]]",
