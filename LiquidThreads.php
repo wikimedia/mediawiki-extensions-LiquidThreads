@@ -322,7 +322,7 @@ $wgAvailableRights[] = 'lqt-split';
 $wgAvailableRights[] = 'lqt-merge';
 $wgAvailableRights[] = 'lqt-react';
 
-$wgPageProps['use-liquid-threads'] = 'Whether or not the page is using LiquidThreads';
+$wgPageProps['use-liquid-threads'] = 'Whether or not the page enabled or disabled LiquidThreads through a parser function';
 
 /* Allows activation of LiquidThreads on individual pages */
 $wgLqtPages = array();
