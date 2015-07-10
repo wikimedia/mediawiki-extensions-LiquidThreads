@@ -190,6 +190,7 @@
 	"lqt-thread-link-title": "Odkaz ve wikitextu:",
 	"lqt-thread-link-copy": "Kopírovat do schránky",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nPodpis se zobrazuje automaticky.",
+	"lqt-summary-sign-not-necessary": "Svůj příspěvek nemusíte podepisovat čtyřmi vlnovkami.",
 	"lqt-marked-as-read-placeholder": "Vlákno „$1“ bylo označeno jako přečtené.",
 	"lqt-change-subject": "Změnit předmět",
 	"lqt-save-subject": "Uložit",
