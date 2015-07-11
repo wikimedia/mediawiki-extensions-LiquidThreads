@@ -3,7 +3,8 @@
 		"authors": [
 			"CERminator",
 			"KWiki",
-			"Srdjan m"
+			"Srdjan m",
+			"Semso98"
 		]
 	},
 	"lqt-desc": "Dodaj nizane diskusije stranicama za razgovor",
@@ -180,7 +181,7 @@
 	"lqt-thread-link-url": "URL linka:",
 	"lqt-thread-link-title": "Link wikiteksta:",
 	"lqt-thread-link-copy": "Kopiraj u međuspremnik",
-	"lqt-sign-not-necessary": "Nije neophodno da potpisujete Vaš post sa četiri tilde.\nPotpis će se prikazati automatski.",
+	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nPotpis će se prikazati automatski.",
 	"lqt-marked-as-read-placeholder": "Niz $1 je označen kao pročitan.",
 	"lqt-change-subject": "Promijeni temu",
 	"lqt-save-subject": "Sačuvaj",
