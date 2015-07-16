@@ -19,7 +19,8 @@
 			"Zetud",
 			"0x010C",
 			"Nnemo",
-			"Ricordisamoa"
+			"Ricordisamoa",
+			"Wladek92"
 		]
 	},
 	"lqt-desc": "Ajoute des fils de discussion dans les pages de discussion",
@@ -202,7 +203,8 @@
 	"lqt-thread-link-url": "URL du lien :",
 	"lqt-thread-link-title": "Lien wikitexte :",
 	"lqt-thread-link-copy": "Copier dans le presse-papiers",
-	"lqt-sign-not-necessary": "Il n’est pas nécessaire de signer votre article avec quatre tildes.\nLa signature est affichée automatiquement.",
+	"lqt-sign-not-necessary": "{{int:lqt-résumé-signe-non-nécessaire}}\nLa signature est automatiquement affichée.",
+	"lqt-summary-sign-not-necessary": "Il n'est pas nécessaire de signer votre message avec quatre tildes.",
 	"lqt-marked-as-read-placeholder": "Le fil $1 a été marqué comme lu.",
 	"lqt-change-subject": "Changer le sujet",
 	"lqt-save-subject": "Sauvegarder",
