@@ -3,7 +3,8 @@
 		"authors": [
 			"Arnobarnard",
 			"Naudefj",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Oesjaar"
 		]
 	},
 	"lqt-desc": "Voeg besprekings in onderwerpe op besprekingsblaaie by",
@@ -166,6 +167,7 @@
 	"lqt-thread-link-url": "URL-skakel:",
 	"lqt-thread-link-title": "Wikiteks-skakel:",
 	"lqt-thread-link-copy": "Kopieer na klipbord",
+	"lqt-summary-sign-not-necessary": "Dit is nie nodig om jou boodskap met vier tildes te teken nie",
 	"lqt-marked-as-read-placeholder": "Onderwerp $1 is as gelees gemerk.",
 	"lqt-change-subject": "Wysig onderwerp",
 	"lqt-save-subject": "Stoor",
