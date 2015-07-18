@@ -262,5 +262,11 @@
 	"apihelp-feedthreads-description": "Retourne un flux de fils de discussion.",
 	"apihelp-feedthreads-param-feedformat": "Le format du flux.",
 	"apihelp-query+threads-param-prop": "Quelles propriétés obtenir.",
-	"apihelp-threadaction-param-captchaword": "Réponse au CAPTCHA."
+	"apihelp-threadaction-param-threadaction": "L'action à prendre.",
+	"apihelp-threadaction-param-subject": "L'objet à définir pour le nouveau fil ou le fil scindé.",
+	"apihelp-threadaction-param-newparent": "Si on fusionne un thread, l'ID ou le titre de son nouveau parent.",
+	"apihelp-threadaction-param-type": "Spécifie le type de réaction à ajouter.",
+	"apihelp-threadaction-param-value": "Spécifie la valeur associée à la réaction à ajouter.",
+	"apihelp-threadaction-param-captchaword": "Réponse au CAPTCHA.",
+	"apihelp-threadaction-param-captchaid": "Identificateur CAPTCHA de la précédente demande."
 }
