@@ -218,7 +218,7 @@
 	"lqt-cancel-subject-edit": "Cancelar",
 	"lqt-drag-activate": "Arrastrar a nueva ubicación",
 	"lqt-drag-drop-zone": "Soltar aquí",
-	"lqt-drag-confirm": "Para completar las siguientes acciones, introduce un motivo y haz clic en «Confirmar».",
+	"lqt-drag-confirm": "Para completar las siguientes acciones, escribe un motivo y haz clic en «Confirmar».",
 	"lqt-drag-reparent": "Colocar el mensaje bajo una nueva raíz.",
 	"lqt-drag-split": "Trasladar este mensaje a su propio hilo",
 	"lqt-drag-setsortkey": "Ajustar la posición del mensaje en la página",
