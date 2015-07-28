@@ -62,7 +62,7 @@
 	"lqt_hist_thread_created": "Summary for \"activity\" in thread history, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example].\n{{Related|Lqt hist}}",
 	"lqt_hist_deleted": "{{Related|Lqt hist}}\n{{Identical|Deleted}}",
 	"lqt_hist_undeleted": "{{Related|Lqt hist}}",
-	"lqt_hist_moved_talkpage": "{{Related|Lqt hist}}\n{{Identical|Move}}",
+	"lqt_hist_moved_talkpage": "{{Related|Lqt hist}}\n{{Identical|Moved}}",
 	"lqt_hist_listing_subtitle": "Subtitle for 'thread history' page, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount|lqt_method=thread_history}} example]",
 	"lqt_hist_view_whole_thread": "Link to history page for an entire thread, see [{{canonicalurl:Thread:Support/Payflowpro_gateway-select-dollar-amount/reply|action=history}} example]",
 	"lqt_hist_split": "Summary for \"activity\" in thread history.\n\nThis means \"Split up the reply into a new thread\".\n{{Related|Lqt hist}}",

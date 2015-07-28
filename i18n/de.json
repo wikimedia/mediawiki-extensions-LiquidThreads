@@ -251,7 +251,7 @@
 	"restriction-newthread": "Neues Thema beginnen",
 	"lqt-protected-reply-thread": "Da dieses Thema geschützt ist, kannst du hierauf nicht antworten.",
 	"lqt-protected-reply-talkpage": "Diese Diskussionsseite wurde geschützt, sodass du zu den enthaltenen Themen nicht antworten kannst.",
-	"lqt-protected-newthread": "Diese Diskussionsseite wurde geschützt, sodass du keine neuen Themen erstellen kannst.",
+	"lqt-protected-newthread": "Diese Diskussionsseite wurde geschützt, sodass du keine neuen Themen erstellen kannst oder du hast derzeit keine Berechtigung zum Bearbeiten.",
 	"lqt-edit-bump": "Auf dieses Thema aufmerksam machen",
 	"lqt-edit-bump-tooltip": "Dieses Thema an den Seitenanfang verschieben",
 	"lqt-historicalrevision-error": "Die ausgewählte Version ist beschädigt und kann nicht angezeigt werden.",

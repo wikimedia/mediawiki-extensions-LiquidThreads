@@ -241,7 +241,7 @@
 	"restriction-newthread": "Tworzenie nowych wątków",
 	"lqt-protected-reply-thread": "Nie możesz pisać w tym wątku, ponieważ został on zabezpieczony przed tworzeniem nowych wiadomości.",
 	"lqt-protected-reply-talkpage": "Nie możesz pisać w tym wątku, ponieważ ta strona dyskusji została zabezpieczona przed odpowiadaniem w znajdujących się na niej wątkach.",
-	"lqt-protected-newthread": "Nie możesz tworzyć nowych wątków na tej stronie dyskusji, ponieważ została ona zabezpieczona przed tworzeniem nowych wątków.",
+	"lqt-protected-newthread": "Nie możesz tworzyć nowych wątków na tej stronie dyskusji, ponieważ została ona zabezpieczona przed tworzeniem nowych wątków albo obecnie nie posiadasz uprawnień do edycji.",
 	"lqt-edit-bump": "Przesuń wątek w górę",
 	"lqt-edit-bump-tooltip": "Przesuń wątek na początek strony dyskusji",
 	"lqt-historicalrevision-error": "Wybrana wersja jest uszkodzona i nie można jej wyświetlić.",
