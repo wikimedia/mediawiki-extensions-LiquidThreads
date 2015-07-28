@@ -105,16 +105,19 @@ window.liquidThreads = {
 	},
 
 	'handleNewLink' : function ( e ) {
-		e.preventDefault();
-
 		var talkpage = $( this ).attr( 'lqt_talkpage' );
-		var params = { 'talkpage' : talkpage, 'method' : 'talkpage_new_thread' };
 
-		var container = $( '.lqt-new-thread' );
-		container.data( 'lqt-talkpage', talkpage );
+		if ( talkpage !== undefined ) {
+			e.preventDefault();
 
-		liquidThreads.injectEditForm( params, container );
-		liquidThreads.currentReplyThread = 0;
+			var params = { 'talkpage' : talkpage, 'method' : 'talkpage_new_thread' };
+
+			var container = $( '.lqt-new-thread' );
+			container.data( 'lqt-talkpage', talkpage );
+
+			liquidThreads.injectEditForm( params, container );
+			liquidThreads.currentReplyThread = 0;
+		}
 	},
 
 	'handleEditLink' : function ( e ) {
