@@ -247,7 +247,7 @@
 	"restriction-newthread": "Poster des nouveaux fils de discussion",
 	"lqt-protected-reply-thread": "Vous ne pouvez pas poster dans ce fil de discussion car il a été protégé contre les nouveaux messages.",
 	"lqt-protected-reply-talkpage": "Vous ne pouvez pas poster dans ce fil car cette page de discussion a été protégée contre les réponses à ses fils.",
-	"lqt-protected-newthread": "Vous ne pouvez pas poster de nouveaux fils dans cette page de discussion car elle a été protégée contre les nouveaux fils.",
+	"lqt-protected-newthread": "Vous ne pouvez pas poster de nouveaux fils dans cette page de discussion parce qu’elle a été protégée contre les nouveaux fils ou parce que vous n’avez pas actuellement la permission d’éditer.",
 	"lqt-edit-bump": "Réactiver ce fil",
 	"lqt-edit-bump-tooltip": "Déplacer ce fil en haut de la page de discussion.",
 	"lqt-historicalrevision-error": "La révision que vous avez sélectionné est corrompue et ne peut pas être affichée.",

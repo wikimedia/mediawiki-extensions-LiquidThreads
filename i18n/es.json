@@ -250,7 +250,7 @@
 	"restriction-newthread": "Añadir nuevos hilos",
 	"lqt-protected-reply-thread": "No puedes publicar en este hilo porque está protegido contra nuevos mensajes.",
 	"lqt-protected-reply-talkpage": "No puedes publicar en este hilo poruqe la página de discusión ha sido protegida de respuestas a sus hilos.",
-	"lqt-protected-newthread": "No puedes publicar nuevos hilos en esta página de discusión porque ha sido protegida de nuevos hilos.",
+	"lqt-protected-newthread": "No puedes publicar nuevos hilos en esta página de discusión porque ha sido protegida de nuevos hilos, o porque actualmente no tienes permiso para editar.",
 	"lqt-edit-bump": "Obviar este hilo",
 	"lqt-edit-bump-tooltip": "Trasladar este hilo a la parte superior de su página de discusión",
 	"lqt-historicalrevision-error": "La revisión seleccionada está dañada, y no puede visualizarse.",
