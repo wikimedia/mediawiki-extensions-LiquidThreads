@@ -244,7 +244,7 @@
 	"restriction-newthread": "发起新话题",
 	"lqt-protected-reply-thread": "您无法在此话题中发言，因为此话题已禁止新的发言。",
 	"lqt-protected-reply-talkpage": "您无法在此话题中发言，因为此讨论页已禁止回复话题。",
-	"lqt-protected-newthread": "您无法在此讨论页中发起新的话题，因为此页已禁止新话题。",
+	"lqt-protected-newthread": "您无法在此讨论页发布新贴子，因为此页被保护以阻止新贴子，或者您目前没有权限编辑。",
 	"lqt-edit-bump": "置顶此话题",
 	"lqt-edit-bump-tooltip": "将此话题移动到讨论页顶部",
 	"lqt-historicalrevision-error": "您选择的修订已损坏，故无法查看。",

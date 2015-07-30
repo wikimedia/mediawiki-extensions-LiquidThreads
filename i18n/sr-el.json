@@ -163,6 +163,7 @@
 	"lqt-log-action-merge-down": "spojena [[$1]] sa [[$3]]",
 	"lqt-log-action-subjectedit": "je promenio naslov iz „$2“ u „$3“ u temi [[$1]]",
 	"lqt-log-action-resort": "promenjen je redosled sortiranja od [[$1]]. Ključ sortiranja promenjen sa $2 na $3",
+	"lqt-log-action-signatureedit": "je promenio potpis iz „$2“ u „$3“ u temi [[$1]]",
 	"lqt-preference-notify-talk": "Pošalji mi e-poruku kada se promeni tema koju nadgledam",
 	"lqt-preference-watch-threads": "Dodaj teme koje izmenim u spisak nadgledanja",
 	"prefs-lqt": "Razgovori na temama",
@@ -234,5 +235,6 @@
 	"lqt-historicalrevision-error": "Revizija koju ste izabrali je korumpirana, i ne može biti prikazana.",
 	"lqt-reply-subpage": "odgovori",
 	"nstab-thread": "Tema",
-	"nstab-summary": "Opis"
+	"nstab-summary": "Opis",
+	"pageinfo-usinglqt-yes": "Da"
 }
