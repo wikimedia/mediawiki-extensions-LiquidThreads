@@ -229,7 +229,7 @@
 	"restriction-newthread": "Neu {{int:lqt-history-thread}}e bejenne",
 	"lqt-protected-reply-thread": "Do kanns nit en dämm {{int:lqt-history-thread}} schriive. Dä es jäje Veränderunge jeschöz.",
 	"lqt-protected-reply-talkpage": "Do kanns nit en dämm {{int:lqt-history-thread}} schriive. Heh di Klaafsigg es jäje Antwoote en {{int:lqt-history-thread}}e jeschöz.",
-	"lqt-protected-newthread": "Do kanns heh keine neue {{int:lqt-history-thread}} opmaache. Heh di Klaafsigg es jäje neu {{int:lqt-history-thread}}e jeschöz.",
+	"lqt-protected-newthread": "Do kanns heh keine neue {{int:lqt-history-thread}} opmaache. Heh di Klaafsigg es jähje neu {{int:lqt-history-thread}}e jeschöz, udder Do häs em Momng nit dat Rääsch, jät ze veränndere.",
 	"lqt-edit-bump": "Jeschprääschßfäddem noh bovve",
 	"lqt-edit-bump-tooltip": "Donn heh dä Jeschprääschßfäddem op singe Klaafsigg noh janz bovve.",
 	"lqt-historicalrevision-error": "Do häss_en kapodde Version ußjesöhk, di mer nit aankike kann.",
