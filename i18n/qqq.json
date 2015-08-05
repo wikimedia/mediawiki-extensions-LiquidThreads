@@ -214,8 +214,6 @@
 	"lqt-pagechange-editformopen": "Shown as a JavaScript confirmation dialog to the user when they try to leave the page while an LQT editing form is open.",
 	"nstab-thread": "Used as tab title of the Thread namespace.\n{{Identical|Thread}}",
 	"nstab-summary": "Used as tab title for the Summary namespace.\n{{Identical|Summary}}",
-	"echo-pref-email-lqt-new-topic": "Used by the Echo extension in the Preferences -> Notifications tab as a label to enable email notification for the lqt-new-topic event.",
-	"echo-pref-email-lqt-reply": "Used by the Echo extension in the Preferences -> Notifications tab as a label to enable email notification for the lqt-reply event.",
 	"pageinfo-usinglqt": "Entry for whether the page uses LiquidThreads or not",
 	"pageinfo-usinglqt-yes": "Yes, this page uses LiquidThreads.\n{{Identical|Yes}}",
 	"apihelp-feedthreads-description": "{{doc-apihelp-description|feedthreads}}",

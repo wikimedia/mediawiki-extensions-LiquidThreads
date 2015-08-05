@@ -119,7 +119,6 @@ $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtHooks::setNewtalkHTML';
 $wgHooks['SpecialWatchlistQuery'][] = 'LqtHooks::beforeWatchlist';
 $wgHooks['ArticleEditUpdateNewTalk'][] = 'LqtHooks::updateNewtalkOnEdit';
 $wgHooks['PersonalUrls'][] = 'LqtHooks::onPersonalUrls';
-$wgHooks['EchoGetDefaultNotifiedUsers'][] = 'NewMessages::getDefaultNotifiedUsers';
 
 // Preferences
 $wgHooks['GetPreferences'][] = 'LqtHooks::getPreferences';
@@ -205,7 +204,6 @@ $wgAutoloadClasses['HistoricalThread'] = __DIR__ . '/classes/HistoricalThread.ph
 $wgAutoloadClasses['Thread'] = __DIR__ . '/classes/Thread.php';
 $wgAutoloadClasses['Threads'] = __DIR__ . '/classes/Threads.php';
 $wgAutoloadClasses['NewMessages'] = __DIR__ . '/classes/NewMessagesController.php';
-$wgAutoloadClasses['EchoLiquidThreadsFormatter'] = __DIR__. "/classes/EchoLiquidThreadsFormatter.php";
 $wgAutoloadClasses['LqtParserFunctions'] = __DIR__ . '/classes/ParserFunctions.php';
 $wgAutoloadClasses['LqtDeletionController'] = __DIR__ . '/classes/DeletionController.php';
 $wgAutoloadClasses['LqtHooks'] = __DIR__ . '/classes/Hooks.php';
@@ -265,50 +263,6 @@ $wgAutoloadClasses['ApiFeedLQTThreads'] = __DIR__ . '/api/ApiFeedLQTThreads.php'
 $wgAPIModules['feedthreads'] = 'ApiFeedLQTThreads';
 $wgAutoloadClasses['ApiThreadAction'] = __DIR__ . '/api/ApiThreadAction.php';
 $wgAPIModules['threadaction'] = 'ApiThreadAction';
-
-// Whether or not to use the standard LiquidThreads notifications
-$wgLiquidThreadsNotificationTypes = array( 'standard' );
-
-// Echo
-$wgExtensionFunctions[] = 'wfLiquidThreadsSetupEcho';
-
-function wfLiquidThreadsSetupEcho() {
-	// LiquidThreads echo notifications have not been fully tested,
-	// turn it off temporarily till expected behaviors are verified
-	/*
-	global $wgLiquidThreadsNotificationTypes;
-	global $wgEchoNotificationFormatters;
-	global $wgEchoEnabledEvents;
-
-	if ( isset( $wgEchoNotificationFormatters ) ) {
-		$wgLiquidThreadsNotificationTypes = array( 'echo' );
-
-		$wgEchoNotificationFormatters += array(
-			'lqt-new-topic' => array(
-				'class' => 'EchoLiquidThreadsFormatter',
-				'title-message' => 'notification-add-talkpage-topic',
-				'title-params' => array( 'agent', 'subject', 'title', 'content-page' ),
-				'content-message' => 'notification-talkpage-content',
-				'content-params' => array( 'commentText' ),
-				'icon' => 'chat',
-			),
-			'lqt-reply' => array(
-				'class' => 'EchoLiquidThreadsFormatter',
-				'title-message' => 'notification-add-comment',
-				'title-params' => array( 'agent', 'subject', 'title', 'content-page' ),
-				'content-message' => 'notification-talkpage-content',
-				'content-params' => array( 'commentText' ),
-				'icon' => 'chat',
-			),
-		);
-
-		$wgEchoEnabledEvents = array_merge( $wgEchoEnabledEvents, array(
-			'lqt-new-topic',
-			'lqt-reply',
-		) );
-	}
-	*/
-}
 
 // Path to the LQT directory
 $wgLiquidThreadsExtensionPath = "{$wgScriptPath}/extensions/LiquidThreads";

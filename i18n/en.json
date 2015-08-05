@@ -237,8 +237,6 @@
 	"lqt-pagechange-editformopen": "You have unsaved text open on this page. You may lose it if you go away from this page.",
 	"nstab-thread": "Thread",
 	"nstab-summary": "Summary",
-	"echo-pref-email-lqt-new-topic": "Creates a new threaded discussion",
-	"echo-pref-email-lqt-reply": "Replies to a threaded discussion",
 	"pageinfo-usinglqt": "Threaded discussion enabled",
 	"pageinfo-usinglqt-yes": "Yes",
 	"apihelp-feedthreads-description": "Return a feed of discussion threads.",

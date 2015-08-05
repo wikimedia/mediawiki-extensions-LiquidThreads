@@ -142,18 +142,6 @@ class NewMessages {
 	static function writeMessageStateForUpdatedThread( $t, $type, $changeUser ) {
 		wfDebugLog( 'LiquidThreads', 'Doing notifications' );
 
-		global $wgLiquidThreadsNotificationTypes;
-
-		if ( 	class_exists( 'EchoEvent' ) &&
-			in_array( 'echo', $wgLiquidThreadsNotificationTypes )
-		) {
-			self::doEchoNotifications( $t, $type, $changeUser );
-		}
-
-		if ( ! in_array( 'standard', $wgLiquidThreadsNotificationTypes ) ) {
-			return;
-		}
-
 		$usersByCategory = self::getNotifyUsers( $t, $changeUser );
 		$userIds = $usersByCategory['notify'];
 		$notifyUsers = $usersByCategory['email'];
@@ -231,64 +219,6 @@ class NewMessages {
 			'notify' => $userIds,
 			'email' => $notifyUsers,
 		);
-	}
-
-	/**
-	 * Distribute Echo notifications for a change
-	 *
-	 * @param $thread The Thread object in question.
-	 * @param $type The change_type (see constants in Threads)
-	 * @param $changeUser the User who made the change
-	 * @return null
-	 */
-	static function doEchoNotifications( $thread, $type, $changeUser ) {
-		$events = array(
-			Threads::CHANGE_REPLY_CREATED => 'lqt-reply',
-			Threads::CHANGE_NEW_THREAD => 'lqt-new-topic',
-		);
-
-		foreach ( $events as $change_type => $event_type ) {
-			if ( $type == $change_type ) {
-				EchoEvent::create( array(
-					'type' => $event_type,
-					'title' => $thread->article()->getTitle(),
-					'agent' => $changeUser,
-					'extra' => array(
-						'thread' => $thread->id(),
-						'subject' => $thread->subject(),
-						'root' => $thread->root()->getTitle()->getPrefixedText(),
-					),
-				) );
-			}
-		}
-	}
-
-	public static function getDefaultNotifiedUsers( $event, &$users ) {
-		$type = $event->getType();
-		$lqtEvents = array( 'lqt-reply', 'lqt-new-topic' );
-
-		if ( ! in_array( $type, $lqtEvents ) ) {
-			return true;
-		}
-
-		$extra = $event->getExtra();
-		if ( !$extra || !$extra['thread'] ) {
-			return true;
-		}
-
-		$thread = Threads::withId( $extra['thread'] );
-
-		if ( ! $thread ) {
-			return true;
-		}
-
-		$targets = self::getNotifyUsers( $thread, $event->getAgent() );
-
-		foreach ( $targets['notify'] as $uid ) {
-			$users[$uid] = User::newFromId( $uid );
-		}
-
-		return true;
 	}
 
 	// Would refactor User::decodeOptions, but the whole point is that this is
