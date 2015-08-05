@@ -182,6 +182,9 @@ $wgHooks['APIQueryAfterExecute'][] = 'LqtHooks::onAPIQueryAfterExecute';
 // Info
 $wgHooks['InfoAction'][] = 'LqtHooks::onInfoAction';
 
+// Special pages registration
+$wgHooks['SpecialPage_initList'][] = 'LqtHooks::onSpecialPage_initList';
+
 // Special pages
 $wgSpecialPages['MoveThread'] = 'SpecialMoveThread';
 $wgSpecialPages['NewMessages'] = 'SpecialNewMessages';
@@ -367,3 +370,6 @@ $wgLqtNamespaces = array();
 
 /** Enable/disable the bump checkbox. **/
 $wgLiquidThreadsShowBumpCheckbox = false;
+
+/** Enable/Disable 'New messages' link and special page (Special:NewMessages) */
+$wgLiquidThreadsEnableNewMessages = true;

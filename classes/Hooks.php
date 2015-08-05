@@ -515,23 +515,27 @@ class LqtHooks {
 			return true;
 		}
 
-		$newMessagesCount = NewMessages::newMessageCount( $wgUser );
+		global $wgLiquidThreadsEnableNewMessages;
 
-		// Add new messages link.
-		$url = SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL();
-		$msg = $newMessagesCount ? 'lqt-newmessages-n' : 'lqt_newmessages';
-		$newMessagesLink = array(
-			'href' => $url,
-			'text' => wfMessage( $msg )->numParams( $newMessagesCount )->text(),
-			'active' => $newMessagesCount > 0,
-		);
+		if ( $wgLiquidThreadsEnableNewMessages ) {
+			$newMessagesCount = NewMessages::newMessageCount( $wgUser );
 
-		$insertUrls = array( 'newmessages' => $newMessagesLink );
+			// Add new messages link.
+			$url = SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL();
+			$msg = $newMessagesCount ? 'lqt-newmessages-n' : 'lqt_newmessages';
+			$newMessagesLink = array(
+				'href' => $url,
+				'text' => wfMessage( $msg )->numParams( $newMessagesCount )->text(),
+				'active' => $newMessagesCount > 0,
+			);
 
-		if ( in_array( 'watchlist', array_keys( $personal_urls ) ) ) { // User has viewmywatchlist permission
-			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'watchlist' );
-		} else {
-			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'preferences' );
+			$insertUrls = array( 'newmessages' => $newMessagesLink );
+
+			if ( in_array( 'watchlist', array_keys( $personal_urls ) ) ) { // User has viewmywatchlist permission
+				$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'watchlist' );
+			} else {
+				$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'preferences' );
+			}
 		}
 
 		return true;
@@ -960,6 +964,17 @@ class LqtHooks {
 			);
 		}
 
+		return true;
+	}
+
+	public static function onSpecialPage_initList( &$aSpecialPages ) {
+		global $wgLiquidThreadsEnableNewMessages;
+
+		if ( !$wgLiquidThreadsEnableNewMessages ) {
+			if ( isset( $aSpecialPages['NewMessages'] ) ) {
+				unset( $aSpecialPages['NewMessages'] );
+			}
+		}
 		return true;
 	}
 }
