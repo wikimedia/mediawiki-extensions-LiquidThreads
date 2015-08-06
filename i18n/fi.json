@@ -10,7 +10,8 @@
 			"Samoasambia",
 			"Silvonen",
 			"Str4nd",
-			"ZeiP"
+			"ZeiP",
+			"Pitke"
 		]
 	},
 	"lqt-desc": "Lisää keskustelusivuille viestiketjut.",
@@ -233,7 +234,7 @@
 	"restriction-newthread": "Aloita uusia ketjuja",
 	"lqt-protected-reply-thread": "Et voi vastata tähän ketjuun, koska se on suojattu uusilta vastauksilta.",
 	"lqt-protected-reply-talkpage": "Et voi vastata tähän ketjuun, koska tämä keskustelusivu on suojattu vastauksilta sen ketjuihin.",
-	"lqt-protected-newthread": "Et voi luoda uusia ketjuja tälle keskustelusivulle, koska se on suojattu uusilta ketjuilta.",
+	"lqt-protected-newthread": "Et voi luoda uusia viestiketjuja tälle keskustelusivulle, koska se on suojattu uusilta viestiketjuilta tai sinulla ei ole muokkausoikeutta.",
 	"lqt-edit-bump": "Tökkää tätä ketjua",
 	"lqt-edit-bump-tooltip": "Siirrä tämä ketju keskustelusivun ylimmäksi",
 	"lqt-historicalrevision-error": "Valitsemasi versio on korruptoitunut – eikä sitä voida näyttää.",
