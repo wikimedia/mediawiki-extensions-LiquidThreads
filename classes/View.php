@@ -381,7 +381,7 @@ class LqtView {
 		$wgRequest = $this->request;
 		$wgTitle = $this->title;
 
-		$hookResult = wfRunHooks( 'LiquidThreadsDoInlineEditForm',
+		$hookResult = Hooks::run( 'LiquidThreadsDoInlineEditForm',
 					array(
 						$thread,
 						$this->request,
@@ -507,7 +507,7 @@ class LqtView {
 		LqtHooks::$editAppliesTo = null;
 
 		$e = new EditPage( $article );
-		wfRunHooks( 'LiquidThreadsShowNewThreadForm', array( &$e, $talkpage ) );
+		Hooks::run( 'LiquidThreadsShowNewThreadForm', array( &$e, $talkpage ) );
 
 		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
@@ -548,7 +548,7 @@ class LqtView {
 
 		$e->editFormTextBeforeContent .= $this->getSubjectEditor( '', $subject );
 
-		wfRunHooks( 'LiquidThreadsAfterShowNewThreadForm', array( &$e, $talkpage ) );
+		Hooks::run( 'LiquidThreadsAfterShowNewThreadForm', array( &$e, $talkpage ) );
 
 		$e->edit();
 
@@ -565,7 +565,7 @@ class LqtView {
 					'subject' => $subject,
 				);
 
-			wfRunHooks( 'LiquidThreadsSaveNewThread',
+			Hooks::run( 'LiquidThreadsSaveNewThread',
 					array( &$info, &$e, &$talkpage ) );
 
 			$thread = LqtView::newPostMetadataUpdates( $info );
@@ -659,7 +659,7 @@ class LqtView {
 
 		$wgRequest->setVal( 'wpWatchThis', false );
 
-		wfRunHooks( 'LiquidThreadsShowReplyForm', array( &$e, $thread ) );
+		Hooks::run( 'LiquidThreadsShowReplyForm', array( &$e, $thread ) );
 
 		$e->edit();
 
@@ -677,7 +677,7 @@ class LqtView {
 					'root' => $article,
 				);
 
-			wfRunHooks( 'LiquidThreadsSaveReply',
+			Hooks::run( 'LiquidThreadsSaveReply',
 					array( &$info, &$e, &$thread ) );
 
 			$newThread = LqtView::replyMetadataUpdates( $info );
@@ -728,7 +728,7 @@ class LqtView {
 		$article = $thread->root();
 		$talkpage = $thread->article();
 
-		wfRunHooks( 'LiquidThreadsEditFormContent', array( $thread, &$article, $talkpage ) );
+		Hooks::run( 'LiquidThreadsEditFormContent', array( $thread, &$article, $talkpage ) );
 
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
@@ -974,7 +974,7 @@ class LqtView {
 			$summary, $bump, $signature
 		);
 
-		wfRunHooks( 'LiquidThreadsAfterReplyMetadataUpdates', array( &$thread ) );
+		Hooks::run( 'LiquidThreadsAfterReplyMetadataUpdates', array( &$thread ) );
 
 		return $thread;
 	}
@@ -1068,7 +1068,7 @@ class LqtView {
 			$summary, null, $signature
 		);
 
-		wfRunHooks( 'LiquidThreadsAfterNewPostMetadataUpdates', array( &$thread ) );
+		Hooks::run( 'LiquidThreadsAfterNewPostMetadataUpdates', array( &$thread ) );
 
 		return $thread;
 	}
@@ -1228,7 +1228,7 @@ class LqtView {
 			'tooltip' => wfMessage( 'lqt_permalink' )->parse()
 		);
 
-		wfRunHooks( 'LiquidThreadsThreadCommands', array( $thread, &$commands ) );
+		Hooks::run( 'LiquidThreadsThreadCommands', array( $thread, &$commands ) );
 
 		return $commands;
 	}
@@ -1295,7 +1295,7 @@ class LqtView {
 			);
 		}
 
-		wfRunHooks( 'LiquidThreadsThreadMajorCommands',
+		Hooks::run( 'LiquidThreadsThreadMajorCommands',
 				array( $thread, &$commands ) );
 
 		return $commands;
@@ -1366,7 +1366,7 @@ class LqtView {
 			'enabled' => true,
 		);
 
-		wfRunHooks( 'LiquidThreadsTopLevelCommands', array( $thread, &$commands ) );
+		Hooks::run( 'LiquidThreadsTopLevelCommands', array( $thread, &$commands ) );
 
 		return $commands;
 	}
@@ -1526,7 +1526,7 @@ class LqtView {
 		}
 
 		// If we're editing the thread, show the editing form.
-		$showAnything = wfRunHooks( 'LiquidThreadsShowThreadBody',
+		$showAnything = Hooks::run( 'LiquidThreadsShowThreadBody',
 					array( $thread ) );
 		if ( $this->methodAppliesToThread( 'edit', $thread ) && $showAnything ) {
 			$html = Xml::openElement( 'div', array( 'class' => $divClass ) );
@@ -1540,13 +1540,13 @@ class LqtView {
 		} elseif ( $showAnything ) {
 			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
 
-			$show = wfRunHooks( 'LiquidThreadsShowPostContent',
+			$show = Hooks::run( 'LiquidThreadsShowPostContent',
 						array( $thread, &$post ) );
 			if ( $show ) {
 				$html .= $this->showPostBody( $post, $oldid );
 			}
 			$html .= Xml::closeElement( 'div' );
-			wfRunHooks( 'LiquidThreadsShowPostThreadBody',
+			Hooks::run( 'LiquidThreadsShowPostThreadBody',
 				array( $thread, $this->request, &$html ) );
 
 
@@ -1579,7 +1579,7 @@ class LqtView {
 					array( 'class' => 'lqt-thread-toolbar-timestamp' ),
 					$timestamp );
 
-		wfRunHooks( 'LiquidThreadsThreadSignature', array( $thread, &$signature ) );
+		Hooks::run( 'LiquidThreadsThreadSignature', array( $thread, &$signature ) );
 
 		$signature = Xml::tags( 'div', array( 'class' => 'lqt-thread-signature' ),
 					$signature );
@@ -1633,7 +1633,7 @@ class LqtView {
 						$editedNotice );
 		}
 
-		wfRunHooks( 'LiquidThreadsThreadInfoPanel', array( $thread, &$infoElements ) );
+		Hooks::run( 'LiquidThreadsThreadInfoPanel', array( $thread, &$infoElements ) );
 
 		if ( ! count( $infoElements ) ) {
 			return '';
@@ -1667,7 +1667,7 @@ class LqtView {
 
 			$html = $thread->formattedSubject();
 
-			$show = wfRunHooks( 'LiquidThreadsShowThreadHeading',
+			$show = Hooks::run( 'LiquidThreadsShowThreadHeading',
 					array( $thread, &$html ) );
 
 			if ( $show ) {
@@ -2054,7 +2054,7 @@ class LqtView {
 		$this->output->addModules( 'ext.liquidThreads' );
 
 		$html = '';
-		wfRunHooks( 'EditPageBeforeEditToolbar', array( &$html ) );
+		Hooks::run( 'EditPageBeforeEditToolbar', array( &$html ) );
 
 		$class = $this->threadDivClass( $thread );
 		if ( $levelNum == 1 ) {
