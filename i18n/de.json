@@ -263,6 +263,7 @@
 	"echo-pref-email-lqt-reply": "auf ein Thema antwortet",
 	"pageinfo-usinglqt": "Themen aktiviert",
 	"pageinfo-usinglqt-yes": "Ja",
+	"apihelp-feedthreads-description": "Gibt einen Feed mit Diskussionsthreads zurück.",
 	"apihelp-feedthreads-param-feedformat": "Das Format des Feeds.",
 	"apihelp-feedthreads-param-type": "Anzuzeigende Beitragstypen.",
 	"apihelp-feedthreads-example-1": "Zeigt einen Feed aller neuen Threads an",
