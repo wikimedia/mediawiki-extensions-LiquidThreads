@@ -326,14 +326,15 @@ window.liquidThreads = {
 		replyLink.data( 'thread-id', threadID );
 		replyLink.click( liquidThreads.handleReplyLink );
 
-		// Add "Drag to new location" to menu
-		var dragLI = $( '<li class="lqt-command-drag lqt-command" />' );
-		var dragLink = $( '<a/>' ).text( mw.msg( 'lqt-drag-activate' ) );
-		dragLink.attr( 'href', '#' );
-		dragLI.append( dragLink );
-		dragLink.click( liquidThreads.activateDragDrop );
-
-		menu.append( dragLI );
+		if ( ! menu.closest( '.lqt_thread' ).is( '.lqt-thread-uneditable' ) ) {
+			// Add "Drag to new location" to menu
+			var dragLI = $( '<li class="lqt-command-drag lqt-command" />' );
+			var dragLink = $( '<a/>' ).text( mw.msg( 'lqt-drag-activate' ) );
+			dragLink.attr( 'href', '#' );
+			dragLI.append( dragLink );
+			dragLink.click( liquidThreads.activateDragDrop );
+			menu.append( dragLI );
+		}
 
 		// Remove split and merge
 		menu.contents().filter( '.lqt-command-split,.lqt-command-merge' ).remove();

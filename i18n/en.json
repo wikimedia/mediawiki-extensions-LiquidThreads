@@ -235,6 +235,7 @@
 	"lqt-historicalrevision-error": "The revision you have selected is corrupt, and cannot be viewed.",
 	"lqt-reply-subpage": "reply",
 	"lqt-pagechange-editformopen": "You have unsaved text open on this page. You may lose it if you go away from this page.",
+	"lqt-not-a-liquidthreads-page": "$1 is not a LiquidThreads page",
 	"nstab-thread": "Thread",
 	"nstab-summary": "Summary",
 	"pageinfo-usinglqt": "Threaded discussion enabled",

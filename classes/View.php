@@ -1158,6 +1158,7 @@ class LqtView {
 	 */
 	function threadCommands( $thread ) {
 		$commands = array();
+		$isLqtPage = LqtDispatch::isLqtPage( $thread->getTitle() );
 
 		$history_url = self::permalinkUrlWithQuery( $thread, array( 'action' => 'history' ) );
 		$commands['history'] = array(
@@ -1172,16 +1173,18 @@ class LqtView {
 		$user_can_edit = $thread->root()->getTitle()->quickUserCan( 'edit' );
 		$editMsg = $user_can_edit ? 'edit' : 'viewsource';
 
-		$commands['edit'] = array(
-			'label' => wfMessage( $editMsg )->parse(),
-			'href' => $this->talkpageUrl(
-				$this->title,
-				'edit', $thread,
-				true, /* include fragment */
-				$this->request
-			),
-			'enabled' => true
-		);
+		if ( $isLqtPage ) {
+			$commands['edit'] = array(
+				'label' => wfMessage( $editMsg )->parse(),
+				'href' => $this->talkpageUrl(
+					$this->title,
+					'edit', $thread,
+					true, /* include fragment */
+					$this->request
+				),
+				'enabled' => true
+			);
+		}
 
 		if ( $this->user->isAllowed( 'delete' ) ) {
 			$delete_url = $thread->title()->getLocalURL( 'action=delete' );
@@ -1194,30 +1197,32 @@ class LqtView {
 				);
 		}
 
-		if ( !$thread->isTopmostThread() && $this->user->isAllowed( 'lqt-split' ) ) {
-			$splitUrl = SpecialPage::getTitleFor( 'SplitThread',
+		if ( $isLqtPage ) {
+			if ( !$thread->isTopmostThread() && $this->user->isAllowed( 'lqt-split' ) ) {
+				$splitUrl = SpecialPage::getTitleFor( 'SplitThread',
 					$thread->title()->getPrefixedText() )->getLocalURL();
-			$commands['split'] = array(
-				'label' => wfMessage( 'lqt-thread-split' )->parse(),
-				'href' => $splitUrl,
-				'enabled' => true
-			);
-		}
+				$commands['split'] = array(
+					'label' => wfMessage( 'lqt-thread-split' )->parse(),
+					'href' => $splitUrl,
+					'enabled' => true
+				);
+			}
 
-		if ( $this->user->isAllowed( 'lqt-merge' ) ) {
-			$mergeParams = $_GET;
-			$mergeParams['lqt_merge_from'] = $thread->id();
+			if ( $this->user->isAllowed( 'lqt-merge' ) ) {
+				$mergeParams = $_GET;
+				$mergeParams['lqt_merge_from'] = $thread->id();
 
-			unset( $mergeParams['title'] );
+				unset( $mergeParams['title'] );
 
-			$mergeUrl = $this->title->getLocalURL( wfArrayToCgi( $mergeParams ) );
-			$label = wfMessage( 'lqt-thread-merge' )->parse();
+				$mergeUrl = $this->title->getLocalURL( wfArrayToCgi( $mergeParams ) );
+				$label = wfMessage( 'lqt-thread-merge' )->parse();
 
-			$commands['merge'] = array(
-				'label' => $label,
-				'href' => $mergeUrl,
-				'enabled' => true
-			);
+				$commands['merge'] = array(
+					'label' => $label,
+					'href' => $mergeUrl,
+					'enabled' => true
+				);
+			}
 		}
 
 		$commands['link'] = array(
@@ -1238,6 +1243,8 @@ class LqtView {
 	 * @param $thread Thread
 	 */
 	function threadMajorCommands( $thread ) {
+		$isLqtPage = LqtDispatch::isLqtPage( $thread->getTitle() );
+
 		if ( $thread->isHistorical() ) {
 			// No links for historical threads.
 			$history_url = self::permalinkUrlWithQuery( $thread,
@@ -1254,32 +1261,35 @@ class LqtView {
 
 		$commands = array();
 
-		if ( $this->user->isAllowed( 'lqt-merge' ) &&
-				$this->request->getCheck( 'lqt_merge_from' ) ) {
-			$srcThread = Threads::withId( $this->request->getVal( 'lqt_merge_from' ) );
-			$par = $srcThread->title()->getPrefixedText();
-			$mergeTitle = SpecialPage::getTitleFor( 'MergeThread', $par );
-			$mergeUrl = $mergeTitle->getLocalURL( 'dest=' . $thread->id() );
-			$label = wfMessage( 'lqt-thread-merge-to' )->parse();
+		if ( $isLqtPage ) {
+			if ( $this->user->isAllowed( 'lqt-merge' ) &&
+				$this->request->getCheck( 'lqt_merge_from' )
+			) {
+				$srcThread = Threads::withId( $this->request->getVal( 'lqt_merge_from' ) );
+				$par = $srcThread->title()->getPrefixedText();
+				$mergeTitle = SpecialPage::getTitleFor( 'MergeThread', $par );
+				$mergeUrl = $mergeTitle->getLocalURL( 'dest=' . $thread->id() );
+				$label = wfMessage( 'lqt-thread-merge-to' )->parse();
 
-			$commands['merge-to'] = array(
-				'label' => $label,
-				'href' => $mergeUrl,
-				'enabled' => true,
-				'tooltip' => $label
-			);
-		}
+				$commands['merge-to'] = array(
+					'label' => $label,
+					'href' => $mergeUrl,
+					'enabled' => true,
+					'tooltip' => $label
+				);
+			}
 
-		if ( $thread->canUserReply( $this->user, 'quick' ) === true ) {
-			$commands['reply'] = array(
-				'label' => wfMessage( 'lqt_reply' )->parse(),
-				 'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
-					true /* include fragment */, $this->request ),
-				 'enabled' => true,
-				 'showlabel' => 1,
-				 'tooltip' => wfMessage( 'lqt_reply' )->parse(),
-				 'icon' => 'reply.png',
-			);
+			if ( $thread->canUserReply( $this->user, 'quick' ) === true ) {
+				$commands['reply'] = array(
+					'label' => wfMessage( 'lqt_reply' )->parse(),
+					'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
+						true /* include fragment */, $this->request ),
+					'enabled' => true,
+					'showlabel' => 1,
+					'tooltip' => wfMessage( 'lqt_reply' )->parse(),
+					'icon' => 'reply.png',
+				);
+			}
 		}
 
 		// Parent post link
@@ -1359,12 +1369,14 @@ class LqtView {
 			);
 		}
 
-		$summarizeUrl = self::permalinkUrl( $thread, 'summarize', $thread->id() );
-		$commands['summarize'] = array(
-			'label' => wfMessage( 'lqt_summarize_link' )->parse(),
-			'href' => $summarizeUrl,
-			'enabled' => true,
-		);
+		if ( LqtDispatch::isLqtPage( $thread->getTitle() ) ) {
+			$summarizeUrl = self::permalinkUrl( $thread, 'summarize', $thread->id() );
+			$commands['summarize'] = array(
+				'label' => wfMessage( 'lqt_summarize_link' )->parse(),
+				'href' => $summarizeUrl,
+				'enabled' => true,
+			);
+		}
 
 		Hooks::run( 'LiquidThreadsTopLevelCommands', array( $thread, &$commands ) );
 
@@ -2069,7 +2081,7 @@ class LqtView {
 			$class .= ' lqt-thread-no-subthreads';
 		}
 
-		if ( ! $thread->title()->quickUserCan( 'edit' ) ) {
+		if ( ! $thread->title()->quickUserCan( 'edit' ) || ! LqtDispatch::isLqtPage( $thread->getTitle() ) ) {
 			$class .= ' lqt-thread-uneditable';
 		}
 

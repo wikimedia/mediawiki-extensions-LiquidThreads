@@ -9,6 +9,7 @@ class ApiThreadAction extends ApiEditPage {
 		}
 
 		$allowedAllActions = array( 'markread' );
+		$actionsAllowedOnNonLqtPage = array( 'markread', 'markunread' );
 		$action = $params['threadaction'];
 
 		// Pull the threads from the parameters
@@ -29,6 +30,12 @@ class ApiThreadAction extends ApiEditPage {
 
 				if ( $threadObj instanceof Thread ) {
 					$threads[] = $threadObj;
+
+					if ( !in_array( $action, $actionsAllowedOnNonLqtPage ) && !LqtDispatch::isLqtPage( $threadObj->getTitle() ) ) {
+						$articleTitleDBKey = $threadObj->getTitle()->getDBkey();
+						$message = wfMessage( 'lqt-not-a-liquidthreads-page', $articleTitleDBKey )->text();
+						$this->dieUsageMsg( $message );
+					}
 				}
 			}
 		}
