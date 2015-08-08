@@ -211,7 +211,7 @@
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Odgovori iz $1",
 	"lqt-feed-new-thread-intro": "Novi niz na $1 poslano od strane $2",
 	"lqt-feed-reply-intro": "Odgovor na $3 (na $1) poslan od strane $2",
-	"tooltip-pt-newmessages": "Pokaži nove vijesti na niz ili na nizane stranice za razgovor koje vi pratite",
+	"tooltip-pt-newmessages": "Prikazuje nove poruke na temama ili na stranicama za razgovor koje pratite",
 	"lqt-newmessages-n": "Nove poruke ($1)",
 	"lqt_newmessages": "Nove poruke (nema)",
 	"lqt_newmessages-title": "Nove poruke",

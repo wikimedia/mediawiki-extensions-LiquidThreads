@@ -247,8 +247,6 @@
 	"lqt-pagechange-editformopen": "У вас є не незбережений текст, відкритий на цій сторінці. Ви можете втратити його, якщо ви залишите сторінку.",
 	"nstab-thread": "Тема",
 	"nstab-summary": "Резюме",
-	"echo-pref-email-lqt-new-topic": "Створює нове гілчасте обговорення",
-	"echo-pref-email-lqt-reply": "Відповідає на гілчасті обговорення",
 	"pageinfo-usinglqt": "Увімкнено деревовидні теми обговорень",
 	"pageinfo-usinglqt-yes": "Так",
 	"apihelp-feedthreads-description": "Видає стрічку ланцюжків обговорень.",
