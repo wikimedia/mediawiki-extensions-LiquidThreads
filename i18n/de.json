@@ -257,6 +257,7 @@
 	"lqt-historicalrevision-error": "Die ausgewählte Version ist beschädigt und kann nicht angezeigt werden.",
 	"lqt-reply-subpage": "Antwort",
 	"lqt-pagechange-editformopen": "Auf dieser Seite befindet sich ungespeicherter Text. Dieser geht verloren, wenn du diese Seite verlässt.",
+	"lqt-not-a-liquidthreads-page": "$1 ist keine LiquidThreads-Seite",
 	"nstab-thread": "Thema",
 	"nstab-summary": "Themenzusammenfassung",
 	"pageinfo-usinglqt": "Themen aktiviert",

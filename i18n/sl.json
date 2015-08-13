@@ -228,7 +228,7 @@
 	"restriction-newthread": "Objavi nove razprave",
 	"lqt-protected-reply-thread": "V tej razpravi ne morete objavljati, ker je zaščitena pred novimi objavami.",
 	"lqt-protected-reply-talkpage": "V tej razpravi ne morete objavljati, ker je pogovorna stran zaščitena pred odgovori na njene razprave.",
-	"lqt-protected-newthread": "Na tej pogovorni strani ne morete objavljati novih raprav, kjer je zaščitena pred novimi razpravami.",
+	"lqt-protected-newthread": "Na tej pogovorni strani ne morete objavljati novih razprav, ker je zaščitena pred novimi razpravami ali ker trenutno nimate pravic za urejanje.",
 	"lqt-edit-bump": "Izpostavi razpravo",
 	"lqt-edit-bump-tooltip": "Prestavi razpravo na vrh pogovorne strani",
 	"lqt-historicalrevision-error": "Izbrana redakcije je poškodovana in si je ni mogoče ogledati.",
@@ -236,8 +236,6 @@
 	"lqt-pagechange-editformopen": "Na strani imate odprto neshranjeno besedila. Če greste s te strani vstran, ga boste morda izgubili.",
 	"nstab-thread": "Razprava",
 	"nstab-summary": "Povzetek",
-	"echo-pref-email-lqt-new-topic": "Ustvari novo nitno razpravo",
-	"echo-pref-email-lqt-reply": "Odgovori na nitno razpravo",
 	"pageinfo-usinglqt": "Nitna razprava je omogočena",
 	"pageinfo-usinglqt-yes": "Da"
 }
