@@ -266,6 +266,7 @@
 	"apihelp-feedthreads-param-feedformat": "Das Format des Feeds.",
 	"apihelp-feedthreads-param-type": "Anzuzeigende Beitragstypen.",
 	"apihelp-feedthreads-example-1": "Zeigt einen Feed aller neuen Threads an",
+	"apihelp-query+threads-description": "Zeigt Einzelheiten zu LiquidThreads an.",
 	"apihelp-query+threads-param-startid": "Die Threadkennung, bei der die Aufzählung begonnen werden soll.",
 	"apihelp-query+threads-param-endid": "Die Threadkennung, bei der die Aufzählung beendet werden soll.",
 	"apihelp-query+threads-param-showdeleted": "Gelöschte Threads anzeigen oder nicht.",

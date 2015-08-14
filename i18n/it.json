@@ -15,7 +15,8 @@
 			"Una giornata uggiosa '94",
 			"VittGam",
 			"Gmelfi",
-			"Alexmar983"
+			"Alexmar983",
+			"Statix64"
 		]
 	},
 	"lqt-desc": "Aggiunge discussioni in stile thread alle pagine di discussione",
@@ -248,10 +249,9 @@
 	"lqt-historicalrevision-error": "La versione che hai selezionato è corrotta, e non può essere visualizzata.",
 	"lqt-reply-subpage": "rispondi",
 	"lqt-pagechange-editformopen": "C'è del testo non salvato su questa pagina. Se esci potresti perderlo.",
+	"lqt-not-a-liquidthreads-page": "$1 non è una pagina LiquidThreads",
 	"nstab-thread": "Thread",
 	"nstab-summary": "Sommario",
-	"echo-pref-email-lqt-new-topic": "Creazione di una nuova discussione con thread",
-	"echo-pref-email-lqt-reply": "Risposta ad una discussione con thread",
 	"pageinfo-usinglqt": "Discussioni in stile thread attivate",
 	"pageinfo-usinglqt-yes": "Sì"
 }
