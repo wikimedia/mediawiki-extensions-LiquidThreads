@@ -218,7 +218,7 @@
 	"restriction-newthread": "Postare de subiecte noi",
 	"lqt-protected-reply-thread": "Nu puteți posta în acest thread deoarece a fost protejat împotriva postărilor noi.",
 	"lqt-protected-reply-talkpage": "Nu puteți posta în acest thread deoarece această pagină de discuție a fost protejată împotriva răspunsurilor la threadurile sale.",
-	"lqt-protected-newthread": "Nu puteți posta noi threaduri la această pagină de discuție deoarece a fost protejată împotriva threadurilor noi.",
+	"lqt-protected-newthread": "Nu puteți publica noi subiecte în această pagină de discuție, deoarece a fost protejată împotriva subiectelor noi sau nu aveți în acest moment permisiunea de a modifica.",
 	"lqt-edit-bump": "Reactivează subiectul",
 	"lqt-edit-bump-tooltip": "Mutare subiect în partea de sus a paginii de discuție",
 	"lqt-historicalrevision-error": "Versiunea pe care ați selectat-o este coruptă și nu poate fi vizualizată.",
