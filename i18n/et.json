@@ -210,7 +210,7 @@
 	"restriction-reply": "Postita vastused",
 	"lqt-protected-reply-thread": "Sellesse lõime ei saa postitada, sest see on uute postituste eest kaitstud.",
 	"lqt-protected-reply-talkpage": "Sellesse lõime ei saa postitada, sest selle arutelulehekülje lõimed on vastuste eest kaitstud.",
-	"lqt-protected-newthread": "Sellele aruteluleheküljele ei saa uusi lõimi postitada, sest see on uute lõimede eest kaitstud.",
+	"lqt-protected-newthread": "Sellele aruteluleheküljele ei saa uusi lõimi postitada, sest see on uute lõimede eest kaitstud, või sul puudub praegu redigeerimisõigus.",
 	"lqt-edit-bump": "Too lõim ette",
 	"lqt-edit-bump-tooltip": "Liiguta see lõim arutelulehekülje algusesse",
 	"lqt-historicalrevision-error": "Sinu valitud redaktsioon on rikutud ja seda ei saa vaadata.",

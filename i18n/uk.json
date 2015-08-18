@@ -245,6 +245,7 @@
 	"lqt-historicalrevision-error": "Версія, що ви обрали, пошкоджена і не може бути відображена.",
 	"lqt-reply-subpage": "відповідь",
 	"lqt-pagechange-editformopen": "У вас є не незбережений текст, відкритий на цій сторінці. Ви можете втратити його, якщо ви залишите сторінку.",
+	"lqt-not-a-liquidthreads-page": "$1 не є LiquidThreads-сторінкою",
 	"nstab-thread": "Тема",
 	"nstab-summary": "Резюме",
 	"pageinfo-usinglqt": "Увімкнено деревовидні теми обговорень",

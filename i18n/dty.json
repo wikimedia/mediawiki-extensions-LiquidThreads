@@ -5,6 +5,8 @@
 		]
 	},
 	"lqt_hist_no_revisions_error": "यै थ्रेडका कोइ पन इतिहास संस्करणहरू नाइथिन्",
+	"lqt_nosuchthread": "तमीले खुलायाको धागो(thread) मान्य छैन ।",
+	"lqt_threadrequired": "तमीले धागो(thread)को URL खुलाउनु पडन्छ ।",
 	"lqt-no-new-messages": "तमलाई नौला रैबारहरू नाइथिन्",
 	"lqt-new-messages": "तमरा लागि कोइ नौला रैबार नाइथिन्",
 	"lqt-newmessages-n": "नयाँ रैबारहरू($1)",
