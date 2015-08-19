@@ -101,7 +101,11 @@ class LqtHooks {
 	}
 
 	static function beforeWatchlist( &$conds, &$tables, &$join_conds, &$fields ) {
-		global $wgOut, $wgUser;
+		global $wgLiquidThreadsEnableNewMessages, $wgOut, $wgUser;
+
+		if ( !$wgLiquidThreadsEnableNewMessages ) {
+			return true;
+		}
 
 		$db = wfGetDB( DB_SLAVE );
 
