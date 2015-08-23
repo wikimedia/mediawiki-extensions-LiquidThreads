@@ -141,7 +141,7 @@
 	"lqt-hot-topics": "Vruće teme",
 	"lqt-add-reply": "Dodaj odgovor",
 	"lqt_rc_new_discussion": "poslan novi niz,  \"$1\"",
-	"lqt_rc_new_reply": "poslan odgovor na \"$1\"",
+	"lqt_rc_new_reply": "je {{GENDER:|postavio|postavila}} odgovor na \"$1\"",
 	"right-lqt-split": "Dijeljenje niza",
 	"right-lqt-merge": "Spajanje niza",
 	"lqt-thread-merge": "Spoji na drugi niz",
