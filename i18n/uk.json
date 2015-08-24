@@ -276,7 +276,7 @@
 	"apihelp-query+threads-param-renderthreadcount": "При виведенні, кількість ланцюжків у тій групі рівня.",
 	"apihelp-query+threads-param-rendermaxthreadcount": "При виведенні, максимальна кількість відповідей для відображення перед додаванням посилання «{{int:lqt-thread-show-more}}».",
 	"apihelp-query+threads-param-rendermaxdepth": "При виведенні, максимальна глибина відповідей для відображення перед показом посилання «Показати X відповідей» замість відповідей.",
-	"apihelp-query+threads-param-renderstartrepliesat": "При виведенні, точка, на якій почати показувати відповіді використовується внутрішньо для завантаження додаткових відповідей).",
+	"apihelp-query+threads-param-renderstartrepliesat": "При виведенні, точка, на якій почати показувати відповіді (використовується внутрішньо для завантаження додаткових відповідей).",
 	"apihelp-query+threads-example-1": "Перелічити ланцюжки на [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Перелічити ланцюжки з ID 1, 2, 3 і 4",
 	"apihelp-threadaction-description": "Дозволяє робити дії з ланцюжками і дописами в ланцюжках обговорень.",
