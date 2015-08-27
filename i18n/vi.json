@@ -237,6 +237,7 @@
 	"lqt-historicalrevision-error": "Không thể hiển thị phiên bản đã chọn vì nó bị hỏng.",
 	"lqt-reply-subpage": "trả lời",
 	"lqt-pagechange-editformopen": "Văn bản mà bạn đã nhập vào trang này chưa được lưu. Có thể mất văn bản này nếu bạn rời khỏi trang này.",
+	"lqt-not-a-liquidthreads-page": "$1 không phải là trang LiquidThreads",
 	"nstab-thread": "Luồng",
 	"nstab-summary": "Tóm lược",
 	"pageinfo-usinglqt": "Thảo luận theo luồng được kích hoạt",
