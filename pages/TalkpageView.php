@@ -48,9 +48,10 @@ class TalkpageView extends LqtView {
 			$article->view();
 
 			$actionLinks = array();
+			$msgKey =  $article->getTitle()->quickUserCan( 'edit' ) ? 'edit' : 'viewsource';
 			$actionLinks[] = Linker::link(
 				$article->getTitle(),
-				wfMessage( $article->getTitle()->userCan( 'edit' ) ? 'edit' : 'viewsource' )->parse() . "↑",
+				wfMessage( $msgKey )->parse() . "↑",
 				array(),
 				array( 'action' => 'edit' )
 			);
@@ -81,7 +82,7 @@ class TalkpageView extends LqtView {
 			$html = Xml::tags( 'div', array( 'class' => 'lqt_header_content' ), $html );
 
 			$this->output->addHTML( $html );
-		} elseif ( $article->getTitle()->userCan( 'edit' ) ) {
+		} elseif ( $article->getTitle()->quickUserCan( 'edit' ) ) {
 
 			$editLink = Linker::link(
 				$this->talkpage->getTitle(),
