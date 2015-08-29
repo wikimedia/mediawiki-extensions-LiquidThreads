@@ -237,7 +237,7 @@
 	"restriction-newthread": "新規スレッドの投稿",
 	"lqt-protected-reply-thread": "このスレッドは新規投稿から保護されているため、投稿できません。",
 	"lqt-protected-reply-talkpage": "この議論ページはスレッドへの返信から保護されているため、このスレッドには投稿できません。",
-	"lqt-protected-newthread": "この議論ページは新規スレッド作成から保護されているため、新規スレッドの投稿はできません。",
+	"lqt-protected-newthread": "あなたは、新規スレッドを投稿できません。理由は、この議論ページが新規スレッドから保護されているためか、あるいは、あなたには現在、編集の許可が無いためか、です。",
 	"lqt-edit-bump": "このスレッドをページ先頭に移動",
 	"lqt-edit-bump-tooltip": "このスレッドを議論ページの先頭に移動する",
 	"lqt-historicalrevision-error": "選択した版は壊れているため表示できません。",
@@ -245,8 +245,6 @@
 	"lqt-pagechange-editformopen": "このページには未保存のテキストがあります。このページから離れると、未保存のテキストが失われてしまうおそれがあります。",
 	"nstab-thread": "スレッド",
 	"nstab-summary": "要約",
-	"echo-pref-email-lqt-new-topic": "スレッド形式の新しい議論が作成されたとき",
-	"echo-pref-email-lqt-reply": "スレッド形式の議論に返信されたとき",
 	"pageinfo-usinglqt": "スレッド形式議論が有効",
 	"pageinfo-usinglqt-yes": "はい"
 }

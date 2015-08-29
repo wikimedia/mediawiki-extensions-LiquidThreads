@@ -35,7 +35,7 @@
 	"lqt_from_talk": "$1에서의 토론",
 	"lqt-history-title": "스레드 역사",
 	"lqt_hist_comment_edited": "의견 글을 [$2 편집함]",
-	"lqt_hist_comment_edited_deleted": "댓글 텍스트 편집됨(삭제 이후)",
+	"lqt_hist_comment_edited_deleted": "댓글 텍스트 편집됨 (삭제 이후)",
 	"lqt_hist_summary_changed": "요약을 바꿈",
 	"lqt_hist_reply_created": "[[$1|답글]]을 남김",
 	"lqt_hist_reply_created_deleted": "새 답글 만들어짐(삭제 이후)",
@@ -243,8 +243,6 @@
 	"lqt-pagechange-editformopen": "이 문서에 열려 있는 텍스트가 저장되지 않았습니다. 이 문서에서 떠나면 사라질 수 있습니다.",
 	"nstab-thread": "스레드",
 	"nstab-summary": "요약",
-	"echo-pref-email-lqt-new-topic": "새 스레드 토론을 만듭니다",
-	"echo-pref-email-lqt-reply": "스레드 토론에 대해 답변합니다",
 	"pageinfo-usinglqt": "스레드식 토론을 활성화",
 	"pageinfo-usinglqt-yes": "예"
 }
