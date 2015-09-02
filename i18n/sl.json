@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dbc334"
+			"Dbc334",
+			"Janezdrilc"
 		]
 	},
 	"lqt-desc": "Doda možnost razprav na pogovorne strani",
@@ -83,7 +84,7 @@
 	"lqt_move_torename": "Če želite preimenovati to razpravo, $1 in spremenite polje 'Zadeva'.",
 	"lqt_move_torename_edit": "jo uredite",
 	"lqt_move_destinationtitle": "Naslov ciljne pogovorne strani:",
-	"lqt_move_move": "Prestavi",
+	"lqt_move_move": "Preimenuj",
 	"lqt_move_nodestination": "Navesti morate cilj.",
 	"lqt_move_thread_bad_destination": "Ciljna stran ni stran z razpravo.",
 	"lqt_move_samedestination": "Razprava je že na tej strani!",
@@ -135,7 +136,7 @@
 	"lqt-delete-parent-warning": "To je vrhnja razprava z odgovori.\nVsi njeni odgovori bodo samodejno pobrisani.\nDa se temu izognete, jih pred brisanjem odcepite od razprave.",
 	"lqt-delete-parent-deleted": "Starševska razprava je izbrisana ($1)",
 	"lqt-delete-replies-done": "Vsi odgovori na to temo so tudi izbrisani.",
-	"lqt-movethread": "Prestavi",
+	"lqt-movethread": "Preimenuj",
 	"lqt-menu-trigger": "Več",
 	"lqt-newmessages-from": "Od $1",
 	"lqt-hot-topics": "Vroče teme",
