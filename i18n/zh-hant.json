@@ -196,7 +196,7 @@
 	"lqt-thread-link-url": "URL 連結：",
 	"lqt-thread-link-title": "Wiki 標記語言連結：",
 	"lqt-thread-link-copy": "複製到剪貼簿",
-	"lqt-sign-not-necessary": "無需使用四個波狀符號來為您的留言簽名。\n在此會自動顯示簽名。",
+	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\n在此會自動顯示簽名。",
 	"lqt-marked-as-read-placeholder": "已標記討論串 $1 為已讀。",
 	"lqt-change-subject": "變更主題",
 	"lqt-save-subject": "儲存",
@@ -239,7 +239,7 @@
 	"restriction-newthread": "發表新討論串",
 	"lqt-protected-reply-thread": "此討論已禁止新的發言，您無法在此討論串中發言。",
 	"lqt-protected-reply-talkpage": "此討論頁面已禁止回覆討論串，您無法在此討論串中發言。",
-	"lqt-protected-newthread": "此討論頁面已禁止發起討論串，您無法在此討論串中發言。",
+	"lqt-protected-newthread": "此討論頁面已禁止發起討論串或者您目前沒有權限編輯，您無法在此討論串中發言。",
 	"lqt-edit-bump": "置頂",
 	"lqt-edit-bump-tooltip": "移動此討論串至討論頁面最上方",
 	"lqt-historicalrevision-error": "您選擇的修訂已損壞，無法檢視。",
@@ -247,8 +247,6 @@
 	"lqt-pagechange-editformopen": "您於此頁有尚未儲存的內容，若您離開此頁將會放棄這些內容。",
 	"nstab-thread": "討論串",
 	"nstab-summary": "摘要",
-	"echo-pref-email-lqt-new-topic": "建立新討論串",
-	"echo-pref-email-lqt-reply": "回覆討論串",
 	"pageinfo-usinglqt": "已開啟討論串",
 	"pageinfo-usinglqt-yes": "是"
 }
