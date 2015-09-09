@@ -11,6 +11,7 @@
 	"lqt-new-messages": "तमरा लागि कोइ नौला रैबार नाइथिन्",
 	"lqt-split-success": "तमीले सफलतापूर्वक धागो(thread) $1लाई टुक्राएका छौ।",
 	"lqt-merge-success": "तमीले धागो(thread) $1लाई $2मी लगीबर सफलतापूर्वक जोड्याका छौ।",
+	"searchprofile-threads": "कुरडीहरू",
 	"lqt-newmessages-n": "नयाँ रैबारहरू($1)",
 	"lqt_newmessages": "नयाँ रैबारहरू (नाइथिन्)"
 }
