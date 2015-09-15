@@ -167,7 +167,7 @@
 	"lqt-feed-title-replies": "{{SITENAME}} — Απαντήσεις",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Απαντήσεις από $1",
 	"lqt-newmessages-n": "Νέα μηνύματα ($1)",
-	"lqt_newmessages": "Νέα Μηνύματα μου (Κανένα)",
+	"lqt_newmessages": "Νέα μηνύματα (κανένα)",
 	"lqt_newmessages-title": "Νέα μηνύματα",
 	"lqt-newpost-summary": "Νέο θέμα: $1",
 	"lqt-reply-summary": "Απάντηση σε [[$2|$1]]",
