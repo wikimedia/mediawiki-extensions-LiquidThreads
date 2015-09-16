@@ -107,7 +107,7 @@
 	"lqt-read-all-tooltip": "Ukloni sve nizove iz novih poruka.\nOni će još biti vidljivi na svojim originalnim stranicama za razgovor.\nOva operacija se ne može vratiti.",
 	"lqt-marked-read": "Niz '''$1''' je označen kao pročitan.",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|poruka|poruke|poruka}} je označeno kao pročitano.",
-	"lqt-email-undo": "Vrati",
+	"lqt-email-undo": "Poništi",
 	"lqt-no-new-messages": "Nemate novih poruka.",
 	"lqt-new-messages": "Imate nove poruke.",
 	"lqt-email-info-undo": "Vrati natrag niz koji ste upravo propustili.",
