@@ -235,8 +235,7 @@
 	"lqt-pagechange-editformopen": "Tu è teste non reggistrate aprite sus a sta pàgene. Tu puè perdere ce isse fore da sta pàgene.",
 	"nstab-thread": "Argomende",
 	"nstab-summary": "Riepileghe",
-	"echo-pref-email-lqt-new-topic": "Ccreje 'nu 'ngazzamende nuève argomendate",
-	"echo-pref-email-lqt-reply": "Respunne a 'u 'ngazzamende argomendate",
 	"pageinfo-usinglqt": "'Ngazzaminde argomendate abbilitate",
-	"pageinfo-usinglqt-yes": "Sìne"
+	"pageinfo-usinglqt-yes": "Sìne",
+	"apihelp-threadaction-param-captchaid": "ID CAPTCHA da 'a richieste d'apprime."
 }
