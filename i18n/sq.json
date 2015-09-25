@@ -1,10 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ammartivari"
+			"Ammartivari",
+			"Kosovastar"
 		]
 	},
+	"lqt_youhavenewmessages": "Ti ke [[$1|mesazhe të reja]].",
 	"lqt_noreason": "Nuk është dhënë arsyeja.",
 	"lqt_move_noreason": "Nuk është dhënë arsyeja.",
-	"lqt-drag-reason": "Arsyeja:"
+	"lqt-no-new-messages": "Nuk ke mesazhe të reja.",
+	"lqt-drag-reason": "Arsyeja:",
+	"lqt-newmessages-n": "($1) mesazhe të reja",
+	"lqt_newmessages": "Mesazhe (nuk ka)",
+	"lqt_newmessages-title": "Mesazhe të reja"
 }
