@@ -203,7 +203,7 @@
 	"lqt-ajax-update-link": "Actualizar",
 	"lqt-thread-show-replies": "Mostrar $1 {{PLURAL:$1|respuesta|respuestas}}",
 	"lqt-thread-show-more": "Mostrar más respuestas",
-	"lqt-thread-link-url": "Enlazar URL:",
+	"lqt-thread-link-url": "URL del enlace:",
 	"lqt-thread-link-title": "Enlace Wikitexto:",
 	"lqt-thread-link-copy": "Copiar al portapapeles",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nLa firma se muestra automáticamente.",
