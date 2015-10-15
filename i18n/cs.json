@@ -241,8 +241,6 @@
 	"lqt-pagechange-editformopen": "Na této stránce máte otevřen neuložený text. Pokud ze stránky odejdete, můžete o něj přijít.",
 	"nstab-thread": "Vlákno",
 	"nstab-summary": "Shrnutí",
-	"echo-pref-email-lqt-new-topic": "…založí novou diskusi ve vláknech",
-	"echo-pref-email-lqt-reply": "…odpoví na diskusi ve vláknech",
 	"pageinfo-usinglqt": "Aktivována diskuse ve vláknech",
 	"pageinfo-usinglqt-yes": "Ano"
 }

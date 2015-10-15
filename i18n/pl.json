@@ -249,8 +249,6 @@
 	"lqt-pagechange-editformopen": "Masz nie zapisany tekst na tej stronie. Utracisz go, jeżeli opuścisz tę stronę.",
 	"nstab-thread": "Wątek",
 	"nstab-summary": "Podsumowanie",
-	"echo-pref-email-lqt-new-topic": "Tworzy nowy wątek",
-	"echo-pref-email-lqt-reply": "Odpowiada w wątku",
 	"pageinfo-usinglqt": "Włączona dyskusja w formie wątków",
 	"pageinfo-usinglqt-yes": "Tak"
 }

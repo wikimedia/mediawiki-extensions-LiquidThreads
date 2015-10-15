@@ -245,8 +245,6 @@
 	"lqt-pagechange-editformopen": "Você tem texto que ainda não foi salvo aberto nesta página. Você poderá perdê-lo se sair desta página.",
 	"nstab-thread": "Tópico",
 	"nstab-summary": "Sumário",
-	"echo-pref-email-lqt-new-topic": "Cria uma nova discussão em tópicos",
-	"echo-pref-email-lqt-reply": "Responde a uma discussão em tópicos",
 	"pageinfo-usinglqt": "Discussão em tópicos ativada",
 	"pageinfo-usinglqt-yes": "Sim",
 	"apihelp-feedthreads-description": "Retorne um feed de tópicos de discussão.",
