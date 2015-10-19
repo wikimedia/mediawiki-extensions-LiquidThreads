@@ -240,5 +240,6 @@
 	"nstab-thread": "Onderwerp",
 	"nstab-summary": "Samenvatting",
 	"pageinfo-usinglqt": "Getrapt overleg ingeschakeld",
-	"pageinfo-usinglqt-yes": "Ja"
+	"pageinfo-usinglqt-yes": "Ja",
+	"apihelp-query+threads-param-renderlevel": "Bij het renderen, het niveau waarop te starten (omwille van dieptelimieten, enzovoort)."
 }

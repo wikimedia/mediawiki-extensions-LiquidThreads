@@ -35,7 +35,8 @@
 			"Umherirrender",
 			"Wikinaut",
 			"Liuxinyu970226",
-			"Aursani"
+			"Aursani",
+			"Macofe"
 		]
 	},
 	"lqt-desc": "{{desc|name=Liquid Threads|url=https://www.mediawiki.org/wiki/Extension:LiquidThreads}}",
@@ -118,7 +119,7 @@
 	"lqt_sort_oldest_threads": "Option in drop-down box, at the top of a page using liquid threads, for example [[Support]].\n\nThe legend for the drop-down box is {{msg-mw|Lqt sorting order}}.",
 	"lqt-title": "{{Identical|Title}}",
 	"lqt-summary": "{{Identical|Summary}}",
-	"lqt-read-message": "بطور \"پڙهيل\" ظاهريو",
+	"lqt-read-message": "\"Read\" is past tense.",
 	"lqt-read-message-tooltip": "Used as tooltip for {{msg-mw|Lqt-read-message}} button.",
 	"lqt-read-all": "Used as button text.\n{{Identical|Mark all as read}}",
 	"lqt-read-all-tooltip": "Used as tooltip for {{msg-mw|Lqt-read-all}} button in [[Special:NewMessages]].",
