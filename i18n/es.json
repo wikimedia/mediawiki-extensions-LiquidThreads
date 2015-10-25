@@ -205,7 +205,7 @@
 	"lqt-thread-show-more": "Mostrar más respuestas",
 	"lqt-thread-link-url": "URL del enlace:",
 	"lqt-thread-link-title": "Enlace Wikitexto:",
-	"lqt-thread-link-copy": "Copiar al portapapeles",
+	"lqt-thread-link-copy": "Copiar en el portapapeles",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nLa firma se muestra automáticamente.",
 	"lqt-summary-sign-not-necessary": "No es necesario firmar tu publicación con cuatro virgulillas (tildes).",
 	"lqt-marked-as-read-placeholder": "El hilo $1 se ha marcado como leído.",
