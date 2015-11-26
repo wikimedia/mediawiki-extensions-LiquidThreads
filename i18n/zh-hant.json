@@ -40,7 +40,7 @@
 	"lqt-history-title": "討論串歷史",
 	"lqt_hist_comment_edited": "[$2 已編輯]評論內容",
 	"lqt_hist_comment_edited_deleted": "已編輯評論內容 (自刪除之後)",
-	"lqt_hist_summary_changed": "已更改摘要",
+	"lqt_hist_summary_changed": "摘要已變更",
 	"lqt_hist_reply_created": "已發表[[$1|新的回覆]]",
 	"lqt_hist_reply_created_deleted": "已發表新的回覆 (自刪除之後)",
 	"lqt_hist_thread_created": "已發起新的討論串",
