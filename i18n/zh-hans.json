@@ -291,6 +291,7 @@
 	"apihelp-threadaction-param-bump": "是否覆盖默认的行为。",
 	"apihelp-threadaction-param-signature": "指定签名以用于那个帖子，而不是默认的。",
 	"apihelp-threadaction-param-type": "指定要加入的反应类型。",
+	"apihelp-threadaction-param-value": "指定要添加的与反应有关系的值。",
 	"apihelp-threadaction-param-captchaword": "回答验证码。",
 	"apihelp-threadaction-param-captchaid": "之前请求的验证码ID。"
 }
