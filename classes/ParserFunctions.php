@@ -24,7 +24,7 @@ class LqtParserFunctions {
 	  * We leave a placeholder comment in the HTML, which we expand out in a hook. This way,
 	  * most of the page can be cached, but the LiquidThreads dynamism still works.
 	  * Thanks to Tim for the idea. */
-	static function lqtTalkPage( $parser, $args, $parser, $frame ) {
+	static function lqtTalkPage( $content, $args, $parser, $frame ) {
 		$pout = $parser->getOutput();
 
 		// Prepare information.
@@ -59,7 +59,7 @@ class LqtParserFunctions {
 		return $text;
 	}
 
-	static function lqtThread( $parser, $args, $parser, $frame ) {
+	static function lqtThread( $content, $args, $parser, $frame ) {
 		$pout = $parser->getOutput();
 
 		// Prepare information.
