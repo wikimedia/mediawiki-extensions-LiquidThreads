@@ -4,29 +4,29 @@
 ( function ( $ ) {
 	'use strict';
 
-	$.fn.thread_collapse = function() {
+	$.fn.thread_collapse = function () {
 		// return if the function is called on an empty jquery object
-		if( !this.length ) {
+		if ( !this.length ) {
 			return this;
 		}
 
-		//merge options into the defaults
+		// merge options into the defaults
 		// run the initialization on each jquery object
-		this.each( function() {
+		this.each( function () {
 			var $thread = $( this );
 			// add collapse controls to this thread
 			$.thread_collapse.fn.init( $thread );
 			// add collapse controls recursivly to the child threads
-			$thread.find( '.lqt_thread' ).each( function() {
+			$thread.find( '.lqt_thread' ).each( function () {
 				$.thread_collapse.fn.init( this );
 			} );
 		} );
 		return this;
 	};
-	
+
 	$.thread_collapse = {
-		'fn' : {
-			'init': function( thread ) {
+		fn: {
+			init: function ( thread ) {
 				return $( thread )
 					.bind( 'collapse.thread_collapse', $.thread_collapse.fn.toggleCollapse )
 					.children( '.lqt-post-wrapper' )
@@ -35,21 +35,21 @@
 						.bind( 'click.thread_collapse', $.thread_collapse.fn.toggleCollapse )
 						.end() );
 			},
-			'getPreview': function( thread, depth ) {
+			getPreview: function ( thread, depth ) {
 				var $out = $( '<ul />' )
 					.addClass( 'thread-collapse-preview' )
 					.addClass( 'thread-collapse-preview-depth-' + depth )
 					.append( $( '<li />' )
 						.append( thread.find( '> .lqt-post-wrapper > .lqt-thread-signature' ).clone() )
 					);
-				thread.find( '> .lqt-thread-replies > .lqt_thread' ).each( function() {
+				thread.find( '> .lqt-thread-replies > .lqt_thread' ).each( function () {
 					$out.append( $.thread_collapse.fn.getPreview( $( this ), depth + 1 ) );
 				} );
 				return $out;
 			},
-			'toggleCollapse': function() {
+			toggleCollapse: function () {
 				var $thread = $( this ).closest( '.lqt_thread' );
-				if( $thread.is( '.collapsed_thread' ) ) {
+				if ( $thread.is( '.collapsed_thread' ) ) {
 					// expand!
 					$thread
 						.removeClass( 'collapsed_thread' )
@@ -98,16 +98,16 @@
 			}
 		},
 		templates: {
-			'collapseControl': '<span class="thread-collapse-control"> \
+			collapseControl: '<span class="thread-collapse-control"> \
 				<a href="#">Collapse</a> \
 			</span>'
 		},
 		defaults: {
-			
+
 		}
 	};
 	// FIXME - this should be moved out of here
 	$( document ).ready( function () {
 		$( '.lqt-thread-topmost' ).thread_collapse();
-	} ); //document ready
-} )( jQuery );
+	} ); // document ready
+}( jQuery ) );

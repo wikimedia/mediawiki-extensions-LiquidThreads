@@ -6,7 +6,7 @@
 
 $.extend( liquidThreads, {
 	markReadDone: {
-		'one' : function ( reply, button, operand ) {
+		one: function ( reply, button, operand ) {
 			var row = $( button ).closest( 'tr' );
 			var right_col = row.find( 'td.lqt-newmessages-right' );
 			$( button ).closest( 'td' ).empty();
@@ -44,11 +44,11 @@ $.extend( liquidThreads, {
 
 			// Add the "undo" link.
 			var undoURL = mw.config.get( 'wgArticlePath' ).replace( '$1', mw.config.get( 'wgPageName' ) );
-			var query = 'lqt_method=mark_as_unread&lqt_operand='+operand;
+			var query = 'lqt_method=mark_as_unread&lqt_operand=' + operand;
 			if ( undoURL.indexOf( '?' ) === -1 ) {
-				query = '?'+query;
+				query = '?' + query;
 			} else {
-				query = '&'+query;
+				query = '&' + query;
 			}
 			undoURL += query;
 
@@ -66,7 +66,7 @@ $.extend( liquidThreads, {
 		}
 	},
 
-	'doMarkRead' : function ( e ) {
+	doMarkRead: function ( e ) {
 		e.preventDefault();
 
 		var button = $( this );
@@ -82,7 +82,7 @@ $.extend( liquidThreads, {
 		}
 	},
 
-	'doMarkOneRead' : function ( form ) {
+	doMarkOneRead: function ( form ) {
 		var operand = form.find( 'input[name=lqt_operand]' ).val();
 		var threads = operand.replace( /\,/g, '|' );
 
@@ -101,7 +101,7 @@ $.extend( liquidThreads, {
 		} );
 	},
 
-	'doMarkAllRead' : function ( form ) {
+	doMarkAllRead: function ( form ) {
 		var spinner = $( '<div class="mw-ajax-loader"/>' );
 		$( form ).prepend( spinner );
 
@@ -112,7 +112,7 @@ $.extend( liquidThreads, {
 			token: mw.user.tokens.get( 'editToken' )
 		} ).done( function ( res ) {
 			liquidThreads.markReadDone.all( res );
-			$( 'li#pt-newmessages' ).html( $( '<a>', res.threadactions[0].unreadlink ) );
+			$( 'li#pt-newmessages' ).html( $( '<a>', res.threadactions[ 0 ].unreadlink ) );
 			spinner.remove();
 		} );
 	}
@@ -123,4 +123,5 @@ $.extend( liquidThreads, {
 $( function () {
 	$( '.lqt-read-button' ).click( liquidThreads.doMarkRead );
 } );
+
 }( mediaWiki, jQuery ) );
