@@ -37,6 +37,7 @@
 	"lqt-add-reply": "يو ځواب ورگډول",
 	"lqt-merge-submit": "اخږل",
 	"lqt-log-action-move": "[[$1]] له [[$2]] څخه [[$3]] ته ولېږدول شو ($4)",
+	"lqt-preference-notify-talk": "د هغو بحثونو په ځوابولو سره دې برېښليک ترلاسه کړم چې زه يې څارم",
 	"lqt-enotif-subject-reply": "د {{SITENAME}} خبرې اترې - ځوابول: $1",
 	"lqt-search-button": "پلټل",
 	"searchprofile-threads": "خبرې اترې",
