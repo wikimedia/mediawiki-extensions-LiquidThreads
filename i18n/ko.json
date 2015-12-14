@@ -205,7 +205,7 @@
 	"lqt-drag-activate": "다른 위치로 이동",
 	"lqt-drag-drop-zone": "이곳으로 드래그하세요.",
 	"lqt-drag-confirm": "다음 동작을 수행하려면 이유를 작성한 후 \"확인\"을 클릭하십시오.",
-	"lqt-drag-reparent": "글을 다른 스레드 안으로 옮기기",
+	"lqt-drag-reparent": "글을 다른 스레드 안으로 이동",
 	"lqt-drag-split": "글을 새 스레드로 분할하기",
 	"lqt-drag-setsortkey": "이 문서에서 글의 위치를 조정하기",
 	"lqt-drag-bump": "토론 문서의 맨 위로 끌어올리기",
