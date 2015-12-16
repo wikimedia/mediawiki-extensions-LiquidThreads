@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"George Animal",
-			"Bikarhêner"
+			"Bikarhêner",
+			"Ghybu"
 		]
 	},
 	"lqt_contents_title": "Naverok",
 	"lqt_toc_thread_replycount": "Bersiv",
 	"lqt_new_thread": "Gotûbêjeke nû bide destpêkirin",
+	"lqt_reply": "Bersiv",
 	"lqt_delete": "Jê bibe",
 	"lqt_discussion_link": "gotûbêj",
 	"lqt_from_talk": "Ji $1",
