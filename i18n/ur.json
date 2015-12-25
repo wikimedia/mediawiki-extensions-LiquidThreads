@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Muhammad Shuaib",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"محبوب عالم"
 		]
 	},
 	"lqt-desc": "اضافہ دھاگہ بند پیغامات در تبادلۂ خیال صفحات",
@@ -80,7 +81,7 @@
 	"lqt-search-legend": "اس صفحے پر تلاش کی بحث",
 	"lqt-search-label": "تلاش کی اصطلاحات:",
 	"lqt-search-button": "تلاش",
-	"searchprofile-threads": "ڈسکشن فورم",
+	"searchprofile-threads": "مباحثات",
 	"lqt-ajax-updated": "اس دھاگے کے نئے خطوط نہیں ہے.",
 	"lqt-ajax-update-link": "اپ ڈیٹ",
 	"lqt-thread-show-more": "مزید جوابات دکھائیں",
