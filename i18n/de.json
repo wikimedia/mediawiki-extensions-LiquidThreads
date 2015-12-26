@@ -281,6 +281,7 @@
 	"apihelp-query+threads-example-2": "Listet Threads mit den Kennungen 1, 2, 3 und 4 auf",
 	"apihelp-threadaction-param-threadaction": "Die auszuführende Aktion.",
 	"apihelp-threadaction-param-subject": "Der Betreff, der für den neuen oder aufgeteilten Thread festgelegt werden soll.",
+	"apihelp-threadaction-param-reason": "Falls zutreffend, der Grund/die Zusammenfassung für die Aktion.",
 	"apihelp-threadaction-param-text": "Der Text des zu erstellenden Beitrags.",
 	"apihelp-threadaction-param-type": "Gibt den Typ der hinzuzufügenden Reaktion an.",
 	"apihelp-threadaction-param-captchaword": "Antwort an das CAPTCHA.",
