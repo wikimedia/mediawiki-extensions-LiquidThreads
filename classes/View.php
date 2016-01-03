@@ -1349,7 +1349,7 @@ class LqtView {
 			);
 		}
 
-		if ( !$this->user->isAnon() && !$thread->title()->userIsWatching() ) {
+		if ( !$this->user->isAnon() && !$this->user->isWatched( $thread->title() ) ) {
 			$commands['watch'] = array(
 				'label' => wfMessage( 'watch' )->parse(),
 				'href' => self::permalinkUrlWithQuery(
