@@ -288,7 +288,7 @@
 	"apihelp-threadaction-param-thread": "要操作的话题ID或标题。",
 	"apihelp-threadaction-param-talkpage": "要操作的讨论页（如适用）。",
 	"apihelp-threadaction-param-threadaction": "要进行的操作。",
-	"apihelp-threadaction-param-subject": "为新建或分割话题设置的主题。",
+	"apihelp-threadaction-param-subject": "要为新的或被拆分的帖子设置的主题。",
 	"apihelp-threadaction-param-reason": "如果适用，该操作的原因/摘要。",
 	"apihelp-threadaction-param-newparent": "如果合并一个话题，其新的父节点的ID或标题。",
 	"apihelp-threadaction-param-text": "要创建的帖子正文。",
