@@ -189,6 +189,7 @@
 	"lqt-thread-link-title": "Вікі-спасылка:",
 	"lqt-thread-link-copy": "Капіяваць у буфэр абмену",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nПодпіс паказваецца аўтаматычна.",
+	"lqt-summary-sign-not-necessary": "Няма патрэбы падпісваць Ваш запіс чатырма тыльдамі.",
 	"lqt-marked-as-read-placeholder": "Галіна $1 была пазначаная як прачытаная.",
 	"lqt-change-subject": "Зьмяніць тэму",
 	"lqt-save-subject": "Захаваць",
