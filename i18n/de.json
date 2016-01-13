@@ -24,7 +24,8 @@
 			"The Evil IP address",
 			"Umherirrender",
 			"Wikinaut",
-			"Inkowik"
+			"Inkowik",
+			"Predatorix"
 		]
 	},
 	"lqt-desc": "Ermöglicht Themen auf Diskussionsseiten",
@@ -276,6 +277,11 @@
 	"apihelp-query+threads-param-endid": "Die Threadkennung, bei der die Aufzählung beendet werden soll.",
 	"apihelp-query+threads-param-showdeleted": "Gelöschte Threads anzeigen oder nicht.",
 	"apihelp-query+threads-param-limit": "Die maximale Anzahl der aufzulistenden Threads.",
+	"apihelp-query+threads-param-prop": "Welche Eigenschaften abgerufen werden sollen.",
+	"apihelp-query+threads-param-page": "Begrenze die Ergebnisse für Themen auf diesen Seiten.",
+	"apihelp-query+threads-param-author": "Begrenze die Ergebnisse für Themen nach bestimmten Verfassern.",
+	"apihelp-query+threads-param-root": "Begrenze die Ergebnisse für Themen durch die angegebenen Ursprünge.",
+	"apihelp-query+threads-param-summary": "Begrenze die Ergebnisse für Themen auf diese, welche sich auf die angegebenen Zusammenfassungsseiten beziehen.",
 	"apihelp-query+threads-param-id": "Threads mit den angegebenen Kennungen abrufen.",
 	"apihelp-query+threads-example-1": "Listet Threads auf [[Talk:Main Page]] auf",
 	"apihelp-query+threads-example-2": "Listet Threads mit den Kennungen 1, 2, 3 und 4 auf",
