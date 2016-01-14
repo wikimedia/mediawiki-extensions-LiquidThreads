@@ -221,7 +221,7 @@
 	"lqt-talkpage-history-subtitle": "Za $1",
 	"lqt-talkpage-history-tab": "Zaglavlje",
 	"restriction-reply": "Slanje odgovora",
-	"restriction-newthread": "Slanje novih nizova",
+	"restriction-newthread": "postavljanje novih tema",
 	"lqt-protected-reply-thread": "Ne možete slati poruke na ovaj niz jer je on zaštićen za nove poruke.",
 	"lqt-protected-reply-talkpage": "Ne možete poslati poruki na ovaj niz jer je ova stranica za razgovor zaštićena za odgovore na ove nizove.",
 	"lqt-protected-newthread": "Ne možete poslati poruku na novi niz na ovoj stranici za razgovor jer je zaštićena za pravljenje novih nizova.",
