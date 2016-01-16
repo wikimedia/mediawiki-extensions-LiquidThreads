@@ -121,7 +121,7 @@
 	"lqt-marked-read": "Wątek '''$1''' jest oznaczony jako przeczytany.",
 	"lqt-count-marked-read": "Oznaczono jako {{PLURAL:$1|przeczytaną|przeczytane}} $1 {{PLURAL:$1|wiadomość|wiadomości}}.",
 	"lqt-email-undo": "Cofnij",
-	"lqt-no-new-messages": "Nie ma do Ciebie nowych wiadomości.",
+	"lqt-no-new-messages": "Nie ma do ciebie nowych wiadomości.",
 	"lqt-new-messages": "Masz nowe wiadomości.",
 	"lqt-email-info-undo": "Przywróć wątek, który właśnie kazałem odrzucić.",
 	"lqt-date-info": "Ten link jest wyłączony, ponieważ przeglądasz wątki ze wszystkich terminów.",

@@ -6,6 +6,7 @@
 		]
 	},
 	"lqt_subject": "Тема:",
+	"lqt-read-all": "Барсын да укылган итеп билгеләү",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|хат укылган итеп билгеләнде}}.",
 	"lqt-email-undo": "Кире кагу",
 	"lqt-no-new-messages": "Сезнең өчен яңа хатлар юк.",
