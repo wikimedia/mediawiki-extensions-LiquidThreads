@@ -9,6 +9,7 @@ $wgExtensionCredits['other'][] = array(
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:LiquidThreads',
 	'author'         => array( 'David McCabe', 'Andrew Garrett' ),
 	'descriptionmsg' => 'lqt-desc',
+	'license-name' => 'GPL-2.0+',
 );
 
 require( 'LqtFunctions.php' );
