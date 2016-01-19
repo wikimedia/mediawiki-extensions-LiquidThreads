@@ -6,6 +6,10 @@ class SpecialNewMessages extends SpecialPage {
 		$this->mIncludable = true;
 	}
 
+	public function doesWrites() {
+		return true;
+	}
+
 	/**
 	 * @see SpecialPage::getDescription
 	 */
