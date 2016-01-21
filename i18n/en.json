@@ -120,7 +120,7 @@
 	"lqt-history-action": "Activity",
 	"lqt-history-comment": "Comment",
 	"lqt-history-thread": "Thread",
-	"lqt-thread-edited-author": "Edited by author.<br />\nLast edit: $1",
+	"lqt-thread-edited-author": "Edited by {{GENDER:$5|author}}.<br />\nLast edit: $1",
 	"lqt-thread-edited-others": "Edited by {{PLURAL:$2|another user|$2 users}}.<br />\nLast edit: $1",
 	"lqt-header-actions": "Actions",
 	"lqt_summarize_link": "Summarize",
