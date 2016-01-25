@@ -123,7 +123,7 @@
 	"lqt-history-action": "Actividade",
 	"lqt-history-comment": "Comentario",
 	"lqt-history-thread": "Fío",
-	"lqt-thread-edited-author": "Editado polo autor.<br />\nÚltima edición: $4 ás $3",
+	"lqt-thread-edited-author": "Editado {{GENDER:$5|polo autor|pola autora}}.<br />\nÚltima edición: $4 ás $3",
 	"lqt-thread-edited-others": "Editado por {{PLURAL:$2|outro usuario|$2 usuarios}}.<br />\nÚltima edición: $4 ás $3",
 	"lqt-header-actions": "Accións",
 	"lqt_summarize_link": "Resumir",

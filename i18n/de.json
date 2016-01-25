@@ -143,7 +143,7 @@
 	"lqt-history-action": "Aktivität",
 	"lqt-history-comment": "Kommentar",
 	"lqt-history-thread": "Thema",
-	"lqt-thread-edited-author": "Vom Autor bearbeitet.<br />\nLetzte Bearbeitung: $4, $3 Uhr",
+	"lqt-thread-edited-author": "{{GENDER:$5|Vom Autor|Von der Autorin}} bearbeitet.<br />\nLetzte Bearbeitung: $4, $3 Uhr",
 	"lqt-thread-edited-others": "Von {{PLURAL:$2|einem anderen Benutzer|$2 Benutzern}} geändert.<br />\nLetzte Bearbeitung: $4, $3 Uhr",
 	"lqt-header-actions": "Aktionen",
 	"lqt_summarize_link": "zusammenfassen",

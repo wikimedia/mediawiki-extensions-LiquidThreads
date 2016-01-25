@@ -123,7 +123,7 @@
 	"lqt-history-action": "פעילות",
 	"lqt-history-comment": "הערה",
 	"lqt-history-thread": "שרשור",
-	"lqt-thread-edited-author": "נערך על־ידי המחבר.<br />\nעריכה אחרונה: $1",
+	"lqt-thread-edited-author": "נערך על־ידי {{GENDER:$5|המחבר|המחברת}}.<br />\nעריכה אחרונה: $1",
 	"lqt-thread-edited-others": "נערך על־ידי {{PLURAL:$2|משתמש אחד|$2 משתמשים}}.<br />\nעריכה אחרונה: $1",
 	"lqt-header-actions": "פעולות",
 	"lqt_summarize_link": "סיכום",

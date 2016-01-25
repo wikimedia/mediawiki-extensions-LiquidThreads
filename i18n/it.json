@@ -134,7 +134,7 @@
 	"lqt-history-action": "Attività",
 	"lqt-history-comment": "Commento",
 	"lqt-history-thread": "Thread",
-	"lqt-thread-edited-author": "Modificato dall'autore.<br />\nUltima modifica: $1",
+	"lqt-thread-edited-author": "Modificato {{GENDER:$5|dall'autore|dall'autrice}}.<br />\nUltima modifica: $1",
 	"lqt-thread-edited-others": "Modificato da {{PLURAL:$2|un altro utente|$2 utenti}}.<br />\nUltima modifica: $1",
 	"lqt-header-actions": "Azioni",
 	"lqt_summarize_link": "Riassumi",

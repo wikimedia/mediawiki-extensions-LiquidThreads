@@ -5,7 +5,8 @@
 			"HanV",
 			"McDutchie",
 			"SPQRobin",
-			"Siebrand"
+			"Siebrand",
+			"Sjoerddebruin"
 		]
 	},
 	"lqt-desc": "Voegt overleg in onderwerpen op overlegpagina's toe",
@@ -123,7 +124,7 @@
 	"lqt-history-action": "Activiteit",
 	"lqt-history-comment": "Opmerking",
 	"lqt-history-thread": "Onderwerp",
-	"lqt-thread-edited-author": "Bewerkt door auteur<br />\nLaatste bewerking: $1",
+	"lqt-thread-edited-author": "Bewerkt door {{GENDER:$5|auteur}}.<br />\nLaatste bewerking: $1",
 	"lqt-thread-edited-others": "Bewerkt door {{PLURAL:$2|een andere gebruiker|$2 andere gebruikers}}.<br />\nLaatste bewerking: $1",
 	"lqt-header-actions": "Handelingen",
 	"lqt_summarize_link": "Samenvatten",
