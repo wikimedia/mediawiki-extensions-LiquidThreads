@@ -141,7 +141,7 @@
 	"lqt-history-action": "Actividad",
 	"lqt-history-comment": "Comentario",
 	"lqt-history-thread": "Hilo",
-	"lqt-thread-edited-author": "Editado por el autor.<br />\nÚltima edición: $1",
+	"lqt-thread-edited-author": "Editado por {{GENDER:$5|el autor|la autora}}.<br />\nÚltima edición: $1",
 	"lqt-thread-edited-others": "Editado por {{PLURAL:$2|otro usuario|$2 usuarios}}.<br />\nÚltima edición: $1",
 	"lqt-header-actions": "Acciones",
 	"lqt_summarize_link": "Resumir",

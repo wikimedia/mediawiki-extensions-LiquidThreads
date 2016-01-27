@@ -132,7 +132,7 @@
 	"lqt-history-action": "Działanie",
 	"lqt-history-comment": "Komentarz",
 	"lqt-history-thread": "Wątek",
-	"lqt-thread-edited-author": "Edytowane przez autora.<br />\nOstatnia zmiana: $1",
+	"lqt-thread-edited-author": "Edytowane przez {{GENDER:$5|autora|autorkę}}.<br />\nOstatnia zmiana: $1",
 	"lqt-thread-edited-others": "Edytowany przez {{PLURAL:$2|innego użytkownika|innych użytkowników}}.<br />\nOstatnia zmiana $1",
 	"lqt-header-actions": "Działania",
 	"lqt_summarize_link": "Podsumuj",

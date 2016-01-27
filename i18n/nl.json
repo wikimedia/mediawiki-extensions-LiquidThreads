@@ -238,6 +238,7 @@
 	"lqt-historicalrevision-error": "De door u geselecteerde versie is beschadigd en kan niet bekeken worden.",
 	"lqt-reply-subpage": "antwoord",
 	"lqt-pagechange-editformopen": "U hebt nog niet opgeslagen wijzigingen op deze pagina. Als u deze pagina verlaat, gaan die verloren.",
+	"lqt-not-a-liquidthreads-page": "$1 is geen LiquidThreads-pagina",
 	"nstab-thread": "Onderwerp",
 	"nstab-summary": "Samenvatting",
 	"pageinfo-usinglqt": "Getrapt overleg ingeschakeld",
