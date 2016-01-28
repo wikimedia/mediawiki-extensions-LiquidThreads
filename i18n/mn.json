@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chinneeb"
+			"Chinneeb",
+			"Munkhzaya.E"
 		]
 	},
 	"lqt-summary": "Товч агуулга",
 	"lqt-email-undo": "Цуцлах",
 	"lqt-history-comment": "Тайлбар",
+	"lqt-thread-edited-author": "{{GENDER:$5|Зохиогчоос}} засварласан.<br />\nСүүлчийн засвар: $1 цагт",
 	"lqt-search-button": "Хайх",
 	"lqt-cancel-subject-edit": "Цуцлах",
 	"lqt-drag-reason": "Шалтгаан:"
