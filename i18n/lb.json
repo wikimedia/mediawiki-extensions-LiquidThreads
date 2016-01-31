@@ -120,7 +120,7 @@
 	"lqt-history-action": "Aktivitéit",
 	"lqt-history-comment": "Bemierkung",
 	"lqt-history-thread": "Rubrik",
-	"lqt-thread-edited-author": "Geännert vum Auteur<br />\nLescht Ännerung: $1",
+	"lqt-thread-edited-author": "Geännert vum {{GENDER:$5|Auteur}}.<br />\nLescht Ännerung: $1",
 	"lqt-thread-edited-others": "Vum Benotzer $2 geännert<br />\nLescht Ännerung: $1",
 	"lqt-header-actions": "Aktiounen",
 	"lqt_summarize_link": "Resuméieren",
