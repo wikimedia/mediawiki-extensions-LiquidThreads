@@ -541,7 +541,7 @@ class Thread {
 		if ( isset( $line->page_namespace ) && isset( $line->page_title ) ) {
 			$root_title = Title::makeTitle( $line->page_namespace, $line->page_title );
 			$this->root = new Article( $root_title, 0 );
-			$this->root->loadPageData( $line );
+			$this->root->getPage()->loadPageData( $line );
 		} else {
 			if ( isset( self::$titleCacheById[$this->rootId] ) ) {
 				$root_title = self::$titleCacheById[$this->rootId];
@@ -684,7 +684,7 @@ class Thread {
 				}
 
 				$article = new Article( $t, 0 );
-				$article->loadPageData( $row );
+				$article->getPage()->loadPageData( $row );
 
 				self::$titleCacheById[$t->getArticleID()] = $t;
 				$articlesById[$article->getId()] = $article;
