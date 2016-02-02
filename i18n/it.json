@@ -253,5 +253,7 @@
 	"nstab-thread": "Thread",
 	"nstab-summary": "Sommario",
 	"pageinfo-usinglqt": "Discussioni in stile thread attivate",
-	"pageinfo-usinglqt-yes": "Sì"
+	"pageinfo-usinglqt-yes": "Sì",
+	"apihelp-threadaction-param-captchaword": "Risposta al CAPTCHA.",
+	"apihelp-threadaction-param-captchaid": "ID CAPTCHA dalla precedente richiesta."
 }
