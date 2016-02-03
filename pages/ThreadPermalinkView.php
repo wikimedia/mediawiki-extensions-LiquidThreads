@@ -76,8 +76,7 @@ class ThreadPermalinkView extends LqtView {
 		if ( wfMessage( $articleTitle->getNamespaceKey() )->exists() ) {
 			$articleNamespaceText = wfMessage( $articleTitle->getNamespaceKey() )->text();
 		} else {
-			global $wgExtraNamespaces;
-			$articleNamespaceText = $wgExtraNamespaces[$articleTitle->getNamespace()];
+			$articleNamespaceText = $articleTitle->getNsText();
 		}
 
 		$tabs['article'] =
