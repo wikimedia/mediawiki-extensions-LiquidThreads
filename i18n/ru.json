@@ -133,7 +133,7 @@
 	"lqt-history-action": "Действия",
 	"lqt-history-comment": "Комментарий",
 	"lqt-history-thread": "Ветка",
-	"lqt-thread-edited-author": "Исправлено автором.<br />\nПоследняя правка: $1",
+	"lqt-thread-edited-author": "Исправлено {{GENDER:$5|автором}}.<br />\nПоследняя правка: $1",
 	"lqt-thread-edited-others": "Исправлено {{PLURAL:$2|$2 другим участником|$2 другими участниками|1=другим участником}}.<br />\nПоследняя правка: $1",
 	"lqt-header-actions": "Действия",
 	"lqt_summarize_link": "Подвести итог",
