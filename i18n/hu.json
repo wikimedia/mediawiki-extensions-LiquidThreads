@@ -9,7 +9,8 @@
 			"Hunyadym",
 			"Misibacsi",
 			"Tgr",
-			"Tacsipacsi"
+			"Tacsipacsi",
+			"Máté"
 		]
 	},
 	"lqt-desc": "Beszélgetésfolyam alapú megbeszélések a vitalapokon",
@@ -151,7 +152,7 @@
 	"lqt_rc_new_reply": "Válasz erre: „$1”",
 	"right-lqt-split": "témák szétválasztása",
 	"right-lqt-merge": "témák összevonása",
-	"right-lqt-react": "Válasz a témára",
+	"right-lqt-react": "válaszadás témákra",
 	"lqt-thread-merge": "Összevonás egy másik témával",
 	"lqt-thread-merge-to": "Összevonás ezzel a témával",
 	"lqt_merge_thread": "Témák összevonása",
