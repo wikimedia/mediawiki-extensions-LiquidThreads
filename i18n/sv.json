@@ -137,7 +137,7 @@
 	"lqt-history-action": "Aktivitet",
 	"lqt-history-comment": "Kommentar",
 	"lqt-history-thread": "Tråd",
-	"lqt-thread-edited-author": "Redigerad av författaren.<br />\nSenast redigerad: $1",
+	"lqt-thread-edited-author": "Redigerad av {{GENDER:$5|författaren}}.<br />\nSenast redigerad: $1",
 	"lqt-thread-edited-others": "Redigerad av {{PLURAL:$2|annan användare|$2 användare}}.<br />\nSenaste redigerad: $1",
 	"lqt-header-actions": "Åtgärder",
 	"lqt_summarize_link": "Sammanfatta",
