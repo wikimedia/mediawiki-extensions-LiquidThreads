@@ -1556,7 +1556,7 @@ class Thread {
 		return self::canUserCreateThreads( $user, $rigor );
 	}
 
-	public static function canUserPost( $user, $talkpage ) {
+	public static function canUserPost( $user, $talkpage, $rigor = 'secure' ) {
 		$restrictions = $talkpage->getTitle()->getRestrictions( 'newthread' );
 
 		foreach ( $restrictions as $right ) {
@@ -1565,7 +1565,7 @@ class Thread {
 			}
 		}
 
-		return self::canUserCreateThreads( $user );
+		return self::canUserCreateThreads( $user, $rigor );
 	}
 
 	// Generally, not some specific page
