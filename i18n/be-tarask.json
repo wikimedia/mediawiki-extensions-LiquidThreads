@@ -123,7 +123,7 @@
 	"lqt-history-action": "Актыўнасьць",
 	"lqt-history-comment": "Камэнтар",
 	"lqt-history-thread": "Галіна",
-	"lqt-thread-edited-author": "Рэдагаваная аўтарам.<br />\nАпошняе рэдагаваньне: $1",
+	"lqt-thread-edited-author": "Рэдагаваная {{GENDER:$5|аўтарам|аўтаркай}}.<br />\nАпошняе рэдагаваньне: $1",
 	"lqt-thread-edited-others": "Рэдагаваная $2  {{PLURAL:$2|іншым удзельнікам|іншымі ўдзельнікамі|іншымі ўдзельнікамі}}.<br />\nАпошняе рэдагаваньне: $1",
 	"lqt-header-actions": "Дзеяньні",
 	"lqt_summarize_link": "Падвесьці вынік",
