@@ -271,7 +271,7 @@ class TalkpageView extends LqtView {
 
 		$talkpageHeader = '';
 
-		if ( Thread::canUserPost( $this->user, $this->talkpage ) ) {
+		if ( Thread::canUserPost( $this->user, $this->talkpage, 'quick' ) ) {
 			$newThreadText = wfMessage( 'lqt_new_thread' )->parse();
 			$newThreadLink = Linker::link(
 				$this->title, $newThreadText,
