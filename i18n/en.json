@@ -278,7 +278,7 @@
 	"apihelp-threadaction-param-newparent": "If merging a thread, the ID or title for its new parent.",
 	"apihelp-threadaction-param-text": "The text of the post to create.",
 	"apihelp-threadaction-param-render": "On post and reply methods, the top-level thread after the change will be rendered and returned in the result.",
-	"apihelp-threadaction-param-bump": "Overrides default behaviour as to whether or not to.",
+	"apihelp-threadaction-param-bump": "Overrides default behavior as to whether or not to.",
 	"apihelp-threadaction-param-sortkey": "Specifies the timestamp to which to set a thread's sort key. May be \"now\".",
 	"apihelp-threadaction-param-signature": "Specifies the signature to use for that post, instead of the default.",
 	"apihelp-threadaction-param-type": "Specifies the type of reaction to add.",
