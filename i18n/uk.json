@@ -12,7 +12,8 @@
 			"Prima klasy4na",
 			"Ата",
 			"Тест",
-			"Ahonc"
+			"Ahonc",
+			"Piramidion"
 		]
 	},
 	"lqt-desc": "Додає на сторінки обговорень теми обговорень",
@@ -130,7 +131,7 @@
 	"lqt-history-action": "Дії",
 	"lqt-history-comment": "Коментар",
 	"lqt-history-thread": "Тема",
-	"lqt-thread-edited-author": "Редаговано автором.<br />\nОстаннє редагування: $1",
+	"lqt-thread-edited-author": "Редаговано {{GENDER:$5|автором|авторкою}}.<br />\nОстаннє редагування: $1",
 	"lqt-thread-edited-others": "Редаговано $2 {{PLURAL:$2|іншим користувачем|іншими користувачами|іншими користувачами}}.<br />\nОстаннє редагування: $1",
 	"lqt-header-actions": "Дії",
 	"lqt_summarize_link": "Резюмувати",
