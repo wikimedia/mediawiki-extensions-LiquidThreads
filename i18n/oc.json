@@ -168,6 +168,7 @@
 	"lqt-thread-link-url": "URL del ligam :",
 	"lqt-thread-link-title": "Ligam wikitèxte :",
 	"lqt-thread-link-copy": "Copiar dins lo quichapapièrs",
+	"lqt-drag-activate": "Desplaçar cap a la novèla posicion",
 	"lqt-feed-title-all": "{{SITENAME}} - Messatges novèls",
 	"lqt-feed-title-all-from": "{{SITENAME}} - Messatges novèls de $1",
 	"lqt-feed-title-new-threads": "{{SITENAME}} - Fials de discussion novèls",
