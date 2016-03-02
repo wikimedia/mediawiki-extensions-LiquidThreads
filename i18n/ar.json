@@ -7,7 +7,8 @@
 			"OsamaK",
 			"Ouda",
 			"زكريا",
-			"محمد الجداوي"
+			"محمد الجداوي",
+			"Maroen1990"
 		]
 	},
 	"lqt-desc": "يضيف نقاشات في مجموعات إلى صفحات النقاش",
@@ -92,7 +93,7 @@
 	"lqt_move_thread_bad_destination": "الصفحة الهدف ليست صفحة نقاش.",
 	"lqt_move_samedestination": "الموضوع أصلًا على هذه الصفحة!",
 	"lqt_move_noreason": "لا سبب معطى.",
-	"lqt_move_success": "تم نقل النقاش إلى $1.",
+	"lqt_move_success": "1تم نقل النقاش إلى $1: $2.",
 	"lqt_talkpage_autocreate_summary": "صفحة النقاش تم إنشاؤها تلقائيا عندما تم إرسال أول نقاش.",
 	"lqt_header_warning_big": "أنت تعدل $1.",
 	"lqt_header_warning_after_big": "العناوين للإعلانات والمقدمات.\nربما ترغب كبديل في $2.",
@@ -217,8 +218,8 @@
 	"lqt-feed-new-thread-intro": "موضوع جديد في $1 من إرسال $2",
 	"lqt-feed-reply-intro": "الرد على $3 (في $1) من إرسال $2",
 	"tooltip-pt-newmessages": "يظهر جديد ما نشر في المواضيع أو صفحات النقاش التي تراقبها",
-	"lqt-newmessages-n": "رسائلي الجديدة ($1)",
-	"lqt_newmessages": "رسائلي الجديدة (لا يوجد)",
+	"lqt-newmessages-n": "رسائل جديدة ($1)",
+	"lqt_newmessages": "رسائل جديدة (لا يوجد)",
 	"lqt_newmessages-title": "رسائل جديدة",
 	"lqt-newpost-summary": "نقاش جديد: $1",
 	"lqt-reply-summary": "رد على [[$2|$1]]",
