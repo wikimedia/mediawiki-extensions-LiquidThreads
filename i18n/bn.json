@@ -79,7 +79,7 @@
 	"lqt-history-action": "কর্মকান্ড",
 	"lqt-history-comment": "মন্তব্য",
 	"lqt-history-thread": "থ্রেড",
-	"lqt-thread-edited-author": "লেখক দ্বারা সম্পাদিত<br />\nশেষ সম্পাদনা: $1",
+	"lqt-thread-edited-author": "{{GENDER:$5|লেখক}} দ্বারা সম্পাদিত।<br />\nশেষ সম্পাদনা: $1",
 	"lqt-thread-edited-others": "{{PLURAL:$2|অন্য ব্যবহারকারী|$2 জন ব্যবহারকারী}} দ্বারা সম্পাদিত।<br />\nসর্বশেষ সম্পাদনা: $1",
 	"lqt-header-actions": "কার্য",
 	"lqt_summarize_link": "সারসংক্ষেপ",
