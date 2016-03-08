@@ -10,7 +10,8 @@
 			"Misibacsi",
 			"Tgr",
 			"Tacsipacsi",
-			"Máté"
+			"Máté",
+			"R-Joe"
 		]
 	},
 	"lqt-desc": "Beszélgetésfolyam alapú megbeszélések a vitalapokon",
@@ -161,7 +162,7 @@
 	"lqt-thread-merge-source": "Forrás téma:",
 	"lqt-thread-merge-dest": "Cél téma:",
 	"lqt-merge-submit": "Összevonás",
-	"lqt-merge-success": "Sikeresen beolvasztottad a(z) $1 témát a(z) $2 alá",
+	"lqt-merge-success": "Egyesítetted a(z) $1 témát a(z) $2 alá",
 	"lqt-log-name": "Témanapló",
 	"lqt-log-header": "Ez a napló a témákon elvégzett műveleteket listázza.",
 	"lqt-log-action-move": "áthelyezte a(z) [[$1]] témát a(z) [[$2]] lapról a(z) [[$3]] lapra ($4)",
