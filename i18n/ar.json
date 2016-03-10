@@ -130,7 +130,7 @@
 	"lqt_summarize_link": "الملخص",
 	"lqt-summarize-intro": "من فضلك لخّص الموضوع أدناه في صندوق التحرير.\nتستطيع استخدام أي نص ويكي في ملخّصك. انقر \"{{int:savearticle}}\" عندما تنتهي.",
 	"lqt-thread-split": "افصل إلى موضوع جديد",
-	"lqt-split-success": "لقد فصلت بنجاح الموضوع $1.",
+	"lqt-split-success": "لقد فصلت  الموضوع $1.",
 	"lqt_split_thread": "فصل موضوع",
 	"lqt-thread-split-subject": "عنوان الموضوع الجديد:",
 	"lqt-thread-split-thread": "الموضوع:",
