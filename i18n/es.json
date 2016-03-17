@@ -23,7 +23,8 @@
 			"Translationista",
 			"Vivaelcelta",
 			"Ryo567",
-			"Macofe"
+			"Macofe",
+			"Matiia"
 		]
 	},
 	"lqt-desc": "Agregar discusiones en hilos a páginas de discusión",
@@ -147,7 +148,7 @@
 	"lqt_summarize_link": "Resumir",
 	"lqt-summarize-intro": "Resume el hilo en el cuadro de edición que aparece debajo.\nPuedes utilizar cualquier wikitexto en tu resumen.\nCuando finalices, haz clic en \"{{int:savearticle}}\".",
 	"lqt-thread-split": "Separar a un nuevo hilo",
-	"lqt-split-success": "Has dividido el hilo $1 exitosamente.",
+	"lqt-split-success": "Has dividido el hilo $1.",
 	"lqt_split_thread": "Dividir un hilo",
 	"lqt-thread-split-subject": "Nuevo tema en hilo:",
 	"lqt-thread-split-thread": "Hilo:",
@@ -174,7 +175,7 @@
 	"lqt-thread-merge-source": "Hilo de origen:",
 	"lqt-thread-merge-dest": "Hilo de destino:",
 	"lqt-merge-submit": "Fusionar",
-	"lqt-merge-success": "Usted ha incluido el hilo $1 en el hilo inferior $2 exitosamente.",
+	"lqt-merge-success": "Usted ha incluido el hilo $1 en el hilo inferior $2.",
 	"lqt-log-name": "Registro de discusión en hilo",
 	"lqt-log-header": "Este registro detalla acciones tomadas en hilos de discusión",
 	"lqt-log-action-move": "trasladó [[$1]] de [[$2]] a [[$3]] ($4)",
