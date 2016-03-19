@@ -175,7 +175,7 @@
 	"lqt-thread-merge-source": "Hilo de origen:",
 	"lqt-thread-merge-dest": "Hilo de destino:",
 	"lqt-merge-submit": "Fusionar",
-	"lqt-merge-success": "Usted ha incluido el hilo $1 en el hilo inferior $2.",
+	"lqt-merge-success": "Has fusionado el hilo $1 en el hilo inferior $2.",
 	"lqt-log-name": "Registro de discusión en hilo",
 	"lqt-log-header": "Este registro detalla acciones tomadas en hilos de discusión",
 	"lqt-log-action-move": "trasladó [[$1]] de [[$2]] a [[$3]] ($4)",
