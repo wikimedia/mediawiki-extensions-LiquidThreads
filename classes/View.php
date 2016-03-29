@@ -88,7 +88,7 @@ class LqtView {
 	 * @param $thread Thread
 	 * @param $method null
 	 * @param $operand null
-	 * @throws Exception
+	 * @throws MWException
 	 * @return array
 	 */
 	static function permalinkData( $thread, $method = null, $operand = null ) {
@@ -101,11 +101,16 @@ class LqtView {
 			$query['lqt_operand'] = $operand;
 		}
 
-		if ( ! $thread ) {
-			throw new Exception( "Empty thread passed to " . __METHOD__ );
+		if ( !$thread ) {
+			throw new MWException( "Empty thread passed to " . __METHOD__ );
 		}
 
-		return array( $thread->root()->getTitle(), $query );
+		$root = $thread->root();
+		if ( !$root ) {
+			throw new MWException( "No root in " . __METHOD__ );
+		}
+
+		return array( $root->getTitle(), $query );
 	}
 
 	/*
