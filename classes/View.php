@@ -1735,7 +1735,11 @@ class LqtView {
 		}
 
 		$article = new Article( $thread->title(), 0 );
-		$target = Title::newFromRedirect( $article->getContent() );
+		$target = ContentHandler::makeContent(
+			$article->getContent(),
+			null,
+			CONTENT_MODEL_WIKITEXT
+		)->getRedirectTarget();
 
 		if ( !$target ) {
 			throw new Exception( "Thread " . $thread->id() . ' purports to be moved, ' .

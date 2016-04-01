@@ -1302,7 +1302,11 @@ class Thread {
 
 	function redirectThread() {
 		$rev = Revision::newFromId( $this->root()->getLatest() );
-		$rtitle = Title::newFromRedirect( $rev->getContent( Revision::RAW )->getNativeData() );
+		$rtitle = ContentHandler::makeContent(
+			$rev->getContent( Revision::RAW )->getNativeData(),
+			null,
+			CONTENT_MODEL_WIKITEXT
+		)->getRedirectTarget();
 		if ( !$rtitle ) return null;
 
 		$this->dieIfHistorical();
