@@ -144,6 +144,7 @@
 	"lqt-newmessages-from": "Од $1",
 	"lqt-hot-topics": "Вруће теме",
 	"lqt-add-reply": "Додај одговор",
+	"lqt-changesortorder": "Сврстај",
 	"lqt_rc_new_discussion": "{{GENDER:|је поставио|је поставила|постави}} нову тему, „$1“",
 	"lqt_rc_new_reply": "{{GENDER:|је поставио|је поставила|постави}} одговор на „$1“",
 	"right-lqt-split": "раздвајање тема",
