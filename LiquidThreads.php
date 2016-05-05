@@ -117,7 +117,7 @@ $wgHooks['OldChangesListRecentChangesLine'][] = 'LqtHooks::customizeOldChangesLi
 
 // Notification (watchlist, newtalk)
 $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'LqtHooks::setNewtalkHTML';
-$wgHooks['SpecialWatchlistQuery'][] = 'LqtHooks::beforeWatchlist';
+$wgHooks['ChangesListSpecialPageQuery'][] = 'LqtHooks::beforeWatchlist';
 $wgHooks['ArticleEditUpdateNewTalk'][] = 'LqtHooks::updateNewtalkOnEdit';
 $wgHooks['PersonalUrls'][] = 'LqtHooks::onPersonalUrls';
 

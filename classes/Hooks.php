@@ -100,10 +100,16 @@ class LqtHooks {
 		return true;
 	}
 
-	static function beforeWatchlist( &$conds, &$tables, &$join_conds, &$fields ) {
+	static function beforeWatchlist(
+		$name, &$tables, &$fields, &$conds, &$query_options, &$join_conds, $opts
+	) {
 		global $wgLiquidThreadsEnableNewMessages, $wgOut, $wgUser;
 
 		if ( !$wgLiquidThreadsEnableNewMessages ) {
+			return true;
+		}
+
+		if ( $name !== 'Watchlist' ) {
 			return true;
 		}
 
@@ -130,7 +136,7 @@ class LqtHooks {
 		$new_messages = wfMessage( 'lqt-new-messages' )->parse();
 
 		$link = Linker::link( $messages_title, $new_messages,
-					array( 'class' => 'lqt_watchlist_messages_notice' ) );
+			array( 'class' => 'lqt_watchlist_messages_notice' ) );
 		$wgOut->addHTML( $link );
 
 		return true;
