@@ -114,7 +114,7 @@ class LqtHooks {
 			// Yes, this is the correct field to join to. Weird naming.
 			$join_conds['page'] = array( 'LEFT JOIN', 'rc_cur_id=page_id' );
 		}
-		$conds[] = "page_namespace IS NULL OR page_namespace != " . $db->addQuotes( NS_LQT_THREAD );
+		$conds[] = "page_namespace != " . $db->addQuotes( NS_LQT_THREAD );
 
 		$talkpage_messages = NewMessages::newUserMessages( $wgUser );
 		$tn = count( $talkpage_messages );
