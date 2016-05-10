@@ -28,7 +28,9 @@ class SpecialNewMessages extends SpecialPage {
 		$title = $this->getPageTitle();
 
 		// Clear newtalk
-		$user->setNewtalk( false );
+		DeferredUpdates::addCallableUpdate( function () use ( $user ) {
+			$user->setNewtalk( false );
+		} );
 
 		$view = new NewUserMessagesView( $output, $article,
 			$title, $user, $request );
