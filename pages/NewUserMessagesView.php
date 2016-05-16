@@ -76,7 +76,10 @@ class NewUserMessagesView extends LqtView {
 	function showOnce() {
 		NewMessages::recacheMessageCount( $this->user->getId() );
 
-		$this->user->setNewtalk( false );
+		$user = $this->user;
+		DeferredUpdates::addCallableUpdate( function () use ( $user ) {
+			$user->setNewtalk( false );
+		} );
 
 		if ( $this->methodApplies( 'mark_as_unread' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand', '' ) );
