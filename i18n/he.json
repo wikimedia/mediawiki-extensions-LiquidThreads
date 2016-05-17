@@ -167,7 +167,7 @@
 	"lqt-log-action-resort": "שינה את סדר המיון של [[$1]]. מפתח המיון שונה מ־$2 ל־$3",
 	"lqt-log-action-signatureedit": "החתימה של [[$1]] שונתה שונתה מ\"$2\" ל\"$3\"",
 	"lqt-preference-notify-talk": "לשלוח אליי דוא\"ל כאשר מתקבלות תגובות בשרשור שאני {{GENDER:|עוקב|עוקבת}} אחריו",
-	"lqt-preference-watch-threads": "מעקב אחרי שרשורים שיצרתי או הגבתי להם",
+	"lqt-preference-watch-threads": "הוספת שרשורים שיצרתי או הגבתי בהם לרשימת המעקב",
 	"prefs-lqt": "שיחות בשרשורים",
 	"lqt-preference-display-depth": "עומק התגובות המרבי להצגה:",
 	"lqt-preference-display-count": "מספר התגובות המרבי להצגה:",
