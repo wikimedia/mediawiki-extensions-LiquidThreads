@@ -10,7 +10,8 @@
 			"Priviet",
 			"Ryuch",
 			"아라",
-			"Revi"
+			"Revi",
+			"Ykhwong"
 		]
 	},
 	"lqt-desc": "토론 문서의 스레드 토론을 추가합니다",
@@ -223,7 +224,7 @@
 	"lqt-feed-title-replies-from": "{{SITENAME}} — $1에서의 답글",
 	"lqt-feed-new-thread-intro": "$1에서 {{GENDER:$4|$2}} 사용자가 작성한 새 스레드",
 	"lqt-feed-reply-intro": "$1 문서의 $3 스레드에 대한 {{GENDER:$4|$2}} 사용자의 답글",
-	"tooltip-pt-newmessages": "스레드나 주시하고 있는 스레드식 토론 문서의 새 글 보기",
+	"tooltip-pt-newmessages": "주시하고 있는 스레드나 스레드 토론 문서의 새 글 보기",
 	"lqt-newmessages-n": "새 메시지 ($1)",
 	"lqt_newmessages": "새 메시지 (없음)",
 	"lqt_newmessages-title": "새 메시지",
