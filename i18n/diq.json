@@ -6,7 +6,8 @@
 			"Gorizon",
 			"Marmase",
 			"Mirzali",
-			"Xoser"
+			"Xoser",
+			"Kumkumuk"
 		]
 	},
 	"lqt-desc": "werêameyişê ke gırediyayê pelê mesajan, têarê keno",
@@ -52,7 +53,7 @@
 	"lqt_hist_split_from": "qey newe yew gıre re ciya ker",
 	"lqt_hist_root_blanked": "metnê mışoreyi wedariya/weradiya",
 	"lqt_hist_adjusted_sortkey": "Pozisyonê mewzuy eyar biyo",
-	"lqt_revision_as_of": "revizyonê ke $2 $3 ra pê biyê.",
+	"lqt_revision_as_of": "Revizyonê ke $2 de $3 ra pê biyê.",
 	"lqt_change_new_thread": "revizyonê gıreyi yo ewwil",
 	"lqt_change_reply_created": "[$1 mışoreyo servınderte] no revizyon de vıraziye.",
 	"lqt_change_edited_root": "[$1 mışoreyo servınderte] no revizyon de vuriya",
