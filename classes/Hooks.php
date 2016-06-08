@@ -946,7 +946,9 @@ class LqtHooks {
 			foreach ( $data as $pageid => $page ) {
 				if ( $page == 'page' ) continue;
 
-				if ( LqtDispatch::isLqtPage( Title::newFromText( $page['title'] ) ) ) {
+				if ( isset( $page['title'] )
+					&& LqtDispatch::isLqtPage( Title::newFromText( $page['title'] ) )
+				) {
 					$result->addValue( array( 'query', 'pages' ), $pageid, array( 'islqttalkpage' => '' ) );
 				}
 			}
