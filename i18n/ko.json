@@ -81,7 +81,7 @@
 	"lqt_move_placeholder": "이 스레드는 $1 스레드가 이 문서에서 옮겨졌음을 알리는 스레드입니다.\n스레드는 $3 $4에 $2에 의해 옮겨졌습니다.\n해당 스레드는 지금은 $5에 위치하고 있습니다.",
 	"lqt_thread_deleted_for_sysops": "이 스레드는 '''삭제'''되어 관리자만이 볼 수 있습니다.",
 	"lqt_thread_deleted": "이 스레드는 삭제되었습니다.",
-	"lqt_summary_notice": "이 토론에 최소 $2{{PLURAL:$2|일간}} 아무런 변화가 없었습니다.\n결론이 내려지면 $1할 수 있습니다.",
+	"lqt_summary_notice": "이 토론에 최소 $2{{PLURAL:$2|일 간}} 아무런 변화가 없었습니다.\n결론이 내려지면 $1할 수 있습니다.",
 	"lqt_summary_notice_link": "요약문을 작성",
 	"lqt_summary_label": "스레드 요약:",
 	"lqt_summary_subtitle": "\"$1\" 요약",
