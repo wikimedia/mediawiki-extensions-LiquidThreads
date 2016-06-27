@@ -187,7 +187,7 @@
 	"lqt-log-action-resort": "veränderte den Sortierschlüssel von [[$1]]. Sortierschlüssel geändert von $2 nach $3",
 	"lqt-log-action-signatureedit": "änderte die Signatur von [[$1]] von „$2“ in „$3“",
 	"lqt-preference-notify-talk": "Bei Antworten zu beobachteten Themen E-Mails senden",
-	"lqt-preference-watch-threads": "Selbst erstellte oder von mir bearbeitete Themen beobachten",
+	"lqt-preference-watch-threads": "Selbst erstellte oder von mir bearbeitete Diskussionsthemen automatisch beobachten",
 	"prefs-lqt": "Thema",
 	"lqt-preference-display-depth": "Maximale Antworttiefe:",
 	"lqt-preference-display-count": "Maximale Anzahl anzuzeigender Antworten:",
