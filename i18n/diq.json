@@ -7,7 +7,8 @@
 			"Marmase",
 			"Mirzali",
 			"Xoser",
-			"Kumkumuk"
+			"Kumkumuk",
+			"Gırd"
 		]
 	},
 	"lqt-desc": "werêameyişê ke gırediyayê pelê mesajan, têarê keno",
@@ -29,7 +30,7 @@
 	"lqt_undelete": "tepiya bıger",
 	"lqt_permalink": "Gıre bıde",
 	"lqt_fragment": "pelê $2i ra yew parçeyê $1i",
-	"lqt_discussion_link": "Mışewre",
+	"lqt_discussion_link": "Vacenayış",
 	"lqt_from_talk": "pelê $1i ra",
 	"lqt-history-title": "hal-verinê gıreyi",
 	"lqt_hist_comment_edited": "Metnê mışewrey [$2 vuriya]",
@@ -87,7 +88,7 @@
 	"lqt_move_torename": "qey newe ra namedayişê no gıreyi, $1 u mıntıqayê 'muhtewayi' bıvurnê.",
 	"lqt_move_torename_edit": "Bıvurnê",
 	"lqt_move_destinationtitle": "sernameyê pelê werêameyişi yo hedefi:",
-	"lqt_move_move": "Bere",
+	"lqt_move_move": "Bıkırış",
 	"lqt_move_nodestination": "şıma gani yew hedef nişan bıkeri.",
 	"lqt_move_thread_bad_destination": "pelê hedefi pelê yew werêameyiş niyo.",
 	"lqt_move_samedestination": "gıre ca ra no pel de yo",
@@ -139,7 +140,7 @@
 	"lqt-delete-parent-warning": "yew gıreyo seviya-berzo ke wayirê no cewab o.\ncewabi zi bı otomatik esteriyeni.\neke şıma qayili tera xo bıkeri (qayil niyê), cewaban verê esterıtışê gıreyan ra gıre ra ciya ker.",
 	"lqt-delete-parent-deleted": "gıreyo bıngeyın esteriya ($1)",
 	"lqt-delete-replies-done": "cewabê ke no gıre re ameyi, esteriyê",
-	"lqt-movethread": "Wegi",
+	"lqt-movethread": "Bıkırış",
 	"lqt-menu-trigger": "Zêde",
 	"lqt-newmessages-from": "Rışten $1",
 	"lqt-hot-topics": "sernameyê neweyi",
