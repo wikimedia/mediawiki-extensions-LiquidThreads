@@ -87,7 +87,7 @@
 	"lqt-thread-merge-source": "קוואל פֿאדעם:",
 	"lqt-thread-merge-dest": "ציל פֿאדעם:",
 	"lqt-merge-submit": "צונויפֿגיסן",
-	"lqt-merge-success": "איר האט דערפאלגרייך צונויפגעגאסן דעם פאדעם $1 מיט $2.",
+	"lqt-merge-success": "איר האט צונויפגעגאסן דעם פאדעם $1 מיט $2.",
 	"lqt-log-name": "פעדעם לאגבוך",
 	"lqt-log-action-merge-across": "האט באוועגט [[$1]] פון [[$2]] צו [[$3]]",
 	"lqt-enotif-subject-reply": "{{SITENAME}} דיסקוסיע - אָנרוף: $1",
