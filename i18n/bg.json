@@ -4,7 +4,8 @@
 			"DCLXVI",
 			"Rancher",
 			"Spiritia",
-			"Turin"
+			"Turin",
+			"StanProg"
 		]
 	},
 	"lqt-desc": "Добавяне към беседите на разклонени дискусии",
@@ -133,6 +134,7 @@
 	"lqt_rc_new_reply": "публикува отговор на \"$1\"",
 	"right-lqt-split": "Разделяне на нишки",
 	"right-lqt-merge": "Сливане на нишки",
+	"right-lqt-react": "Отговаряне на нишки",
 	"lqt-thread-merge": "Сливане с друга нишка",
 	"lqt-thread-merge-to": "Сливане с тази нишка",
 	"lqt_merge_thread": "Сливане на нишка",
