@@ -220,7 +220,7 @@
 	"lqt-feed-reply-intro": "Cewabê $3  ($1 sera) rışiya {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Mesacanê şıma newan yana pelanê kısande şıma mocnêno.",
 	"lqt-newmessages-n": "Mesacê neweyi ($1)",
-	"lqt_newmessages": "Mesacê neweyi (çıniyê)",
+	"lqt_newmessages": "Mesacê neweyi (0)",
 	"lqt_newmessages-title": "Mesacê neweyi",
 	"lqt-newpost-summary": "gıreyo newe: $1",
 	"lqt-reply-summary": "Cıwabê  [[$2|$1]]'i",
