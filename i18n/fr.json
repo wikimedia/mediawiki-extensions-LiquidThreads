@@ -207,7 +207,7 @@
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nLa signature est automatiquement affichée.",
 	"lqt-summary-sign-not-necessary": "Il n'est pas nécessaire de signer votre message avec quatre tildes.",
 	"lqt-marked-as-read-placeholder": "Le fil $1 a été marqué comme lu.",
-	"lqt-change-subject": "Changer le sujet",
+	"lqt-change-subject": "Changer le titre",
 	"lqt-save-subject": "Sauvegarder",
 	"lqt-save-subject-failed": "L’erreur suivant s’est produite lors de la tentative de changement de sujet de ce fil : $1",
 	"lqt-ajax-invalid-subject": "Le sujet que vous avez indiqué est invalide, probablement car trop long.",
