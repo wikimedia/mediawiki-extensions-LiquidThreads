@@ -45,7 +45,10 @@ class ThreadRevision {
 	}
 
 	static function create( $thread, $change_type, $change_object = null, $comment = '',
-				$user = null, $timestamp = null ) {
+		$user = null, $timestamp = null
+	) {
+		global $wgContLang;
+
 		if ( is_null( $user ) ) {
 			global $wgUser;
 			$user = $wgUser;
@@ -80,7 +83,8 @@ class ThreadRevision {
 			$rev->mChangeObjectId = $change_object;
 		}
 
-		$rev->mChangeComment = $comment;
+		// This field is TINYTEXT so it can only fit 255 bytes.
+		$rev->mChangeComment = $wgContLang->truncate( $comment, 255 );
 
 		$rev->mThreadObj = $thread->topmostThread();
 		$rev->mObjSer = serialize( $rev->mThreadObj );
