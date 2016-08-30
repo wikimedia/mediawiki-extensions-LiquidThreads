@@ -7,11 +7,12 @@
 */
 
 class LqtView {
-	/*
+	/**
 	 * @var WikiPage
 	 */
 	public $article;
-	/*
+
+	/**
 	 * @var OutputPage
 	 */
 	public $output;
