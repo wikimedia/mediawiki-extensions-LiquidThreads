@@ -382,6 +382,14 @@ class LqtView {
 		$oldOut = $wgOut;
 		$oldRequest = $wgRequest;
 		$oldTitle = $wgTitle;
+		// And override the main context too... (T143889)
+		$context = RequestContext::getMain();
+		$oldCOut = $context->getOutput();
+		$oldCRequest = $context->getRequest();
+		$oldCTitle = $context->getTitle();
+		$context->setOutput( $this->output );
+		$context->setRequest( $this->request );
+		$context->setTitle( $this->title );
 		$wgOut = $this->output;
 		$wgRequest = $this->request;
 		$wgTitle = $this->title;
@@ -408,6 +416,9 @@ class LqtView {
 		$wgOut = $oldOut;
 		$wgRequest = $oldRequest;
 		$wgTitle = $oldTitle;
+		$context->setOutput( $oldCOut );
+		$context->setRequest( $oldCRequest );
+		$context->setTitle( $oldCTitle );
 
 		$this->output->setArticleBodyOnly( true );
 	}
