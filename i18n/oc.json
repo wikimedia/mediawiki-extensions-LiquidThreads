@@ -188,5 +188,6 @@
 	"restriction-newthread": "Postar de fials de discussion novèls",
 	"lqt-protected-reply-thread": "Podètz pas postar dins aqueste fial de discussion perque es estat protegit contra los messatges novèls.",
 	"lqt-protected-reply-talkpage": "Podètz pas postar dins aqueste fial perque aquesta pagina de discussion es estada protegida contra las responsas a sos fials.",
-	"lqt-protected-newthread": "Podètz pas postar de fials novèls dins aquesta pagina de discussion perque es estada protegida contra los fials novèls."
+	"lqt-protected-newthread": "Podètz pas postar de fials novèls dins aquesta pagina de discussion perque es estada protegida contra los fials novèls.",
+	"lqt-not-a-liquidthreads-page": "$1 es pas una pagina LiquidThreads"
 }
