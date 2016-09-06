@@ -124,7 +124,7 @@
 	"lqt-history-action": "Fealiyet",
 	"lqt-history-comment": "Mışewre",
 	"lqt-history-thread": "Mewzu",
-	"lqt-thread-edited-author": "Hetê {{GENDER:$5|nuştoxi}} ra vuriya.<br />\nVurnayisa peyine: $1",
+	"lqt-thread-edited-author": "Hetê {{GENDER:$5|nuştoği}} ra vurriya.<br />\nVurriyayışo peyên: $1",
 	"lqt-thread-edited-others": "Hetê {{PLURAL:$2|karberanê binan|$2 karberan}} ra vuriya.<br />\nVurnayisa peyine: $1",
 	"lqt-header-actions": "Kerdışi",
 	"lqt_summarize_link": "Xulasa ke",
