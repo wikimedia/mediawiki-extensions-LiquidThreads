@@ -125,7 +125,7 @@
 	"lqt-marked-read": "话题'''$1'''已被标记为已读。",
 	"lqt-count-marked-read": "$1条消息被标记为已读。",
 	"lqt-email-undo": "撤销",
-	"lqt-no-new-messages": "你没有新信息。",
+	"lqt-no-new-messages": "没有您的新消息。",
 	"lqt-new-messages": "您有新消息。",
 	"lqt-email-info-undo": "恢复之前您取消的话题。",
 	"lqt-date-info": "此链接已被停用，因为您正在浏览所有日期的话题。",
