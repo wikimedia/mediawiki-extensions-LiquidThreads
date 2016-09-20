@@ -932,17 +932,9 @@ class LqtHooks {
 		if ( $module instanceof ApiQueryInfo ) {
 			$result = $module->getResult();
 
-			if ( defined( 'ApiResult::META_CONTENT' ) ) {
-				$data = (array)$result->getResultData( array( 'query', 'pages' ), array(
-					'Strip' => 'base'
-				) );
-			} else {
-				$data = $result->getData();
-				if ( !isset( $data['query']['pages'] ) ) {
-					return true;
-				}
-				$data = $data['query']['pages'];
-			}
+			$data = (array)$result->getResultData( array( 'query', 'pages' ), array(
+				'Strip' => 'base'
+			) );
 			foreach ( $data as $pageid => $page ) {
 				if ( $page == 'page' ) continue;
 

@@ -316,11 +316,7 @@ class ApiThreadAction extends ApiEditPage {
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
 
-		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$editResult = $internalApi->getResult()->getResultData();
-		} else {
-			$editResult = $internalApi->getResultData();
-		}
+		$editResult = $internalApi->getResult()->getResultData();
 
 		if ( $editResult['edit']['result'] != 'Success' ) {
 			$result = array( 'result' => 'EditFailure', 'details' => $editResult );
@@ -437,11 +433,7 @@ class ApiThreadAction extends ApiEditPage {
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
 
-		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$editResult = $internalApi->getResult()->getResultData();
-		} else {
-			$editResult = $internalApi->getResultData();
-		}
+		$editResult = $internalApi->getResult()->getResultData();
 
 		if ( $editResult['edit']['result'] != 'Success' ) {
 			$result = array( 'result' => 'EditFailure', 'details' => $editResult );
@@ -555,11 +547,7 @@ class ApiThreadAction extends ApiEditPage {
 		$internalApi = new ApiMain( $editReq, true );
 		$internalApi->execute();
 
-		if ( defined( 'ApiResult::META_CONTENT' ) ) {
-			$editResult = $internalApi->getResult()->getResultData();
-		} else {
-			$editResult = $internalApi->getResultData();
-		}
+		$editResult = $internalApi->getResult()->getResultData();
 
 		if ( $editResult['edit']['result'] != 'Success' ) {
 			$result = array( 'result' => 'EditFailure', 'details' => $editResult );
@@ -844,13 +832,6 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
 
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Allows actions to be taken on threads and posts in threaded discussions.';
-	}
-
 	public function getActions() {
 		return array(
 			'markread' => 'actionMarkRead',
@@ -869,46 +850,6 @@ class ApiThreadAction extends ApiEditPage {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return array(
-			'thread' => 'A list (pipe-separated) of thread IDs or titles to act on',
-			'threadaction' => 'The action to take',
-			'token' => 'An edit token (from ?action=query&prop=info&intoken=edit)',
-			'talkpage' => 'The talkpage to act on (if applicable)',
-			'subject' => 'The subject to set for the new or split thread',
-			'reason' => 'If applicable, the reason/summary for the action',
-			'newparent' => 'If merging a thread, the ID or title for its new parent',
-			'text' => 'The text of the post to create',
-			'render' => 'If set, on post/reply methods, the top-level thread ' .
-				'after the change will be rendered and returned in the result.',
-			'bump' => 'If set, overrides default behaviour as to whether or not to ',
-				"increase the thread's sort key. If true, sets it to current " .
-				"timestamp. If false, does not set it. Default depends on " .
-				"the action being taken. Presently only works for newthread " .
-				"and reply actions.",
-			'sortkey' => "Specifies the timestamp to which to set a thread's " .
-					"sort key. Must be in the form YYYYMMddhhmmss, " .
-					"a unix timestamp or 'now'.",
-			'signature' => 'Specifies the signature to use for that post. Can be ' .
-					'NULL to specify the default signature',
-			'type' => 'Specifies the type of reaction to add',
-			'value' => 'Specifies the value associated with the reaction to add',
-			'method' => 'For getting inline edit forms, the method to get a form for',
-			'operand' => '',
-		);
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return array(
-		);
-	}
-
-	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
@@ -918,10 +859,6 @@ class ApiThreadAction extends ApiEditPage {
 
 	public function needsToken() {
 		return 'csrf';
-	}
-
-	public function getTokenSalt() {
-		return '';
 	}
 
 	public function getAllowedParams() {

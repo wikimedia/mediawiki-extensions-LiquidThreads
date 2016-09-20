@@ -243,37 +243,6 @@ class ApiFeedLQTThreads extends ApiBase {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return array (
-			'feedformat' => 'The format of the feed',
-			'days'      => 'Number of days of threads to show',
-			'type'      => 'Types of posts to show',
-			'talkpage' => 'Limit results to threads on these talk pages',
-			'thread' => 'Limit results to these threads and their descendants',
-		);
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'This module returns a feed of discussion threads';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return array (
-			'api.php?action=feedthreads',
-			'api.php?action=feedthreads&type=replies&thread=Thread:Foo',
-			'api.php?action=feedthreads&type=newthreads&talkpage=Talk:Main_Page',
-		);
-	}
-
-	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
