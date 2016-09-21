@@ -78,10 +78,24 @@ function createPost( $info, $subject, $super = null ) {
 	print "Creating thread $title as a subthread of " . ( $super ? $super->title() : 'none' ) . "\n";
 
 	$root = new Article( $title, 0 );
-	$root->doEdit( $info['content'], 'Imported from JSON', EDIT_NEW, false, $user );
 
-	$t = LqtView::postEditUpdates( $super ? 'reply' : 'new', $super, $root, $article,
-									$subject, 'Imported from JSON', null );
+	$root->doEdit(
+		ContentHandler::makeContent( $info['content'], $title ),
+		'Imported from JSON',
+		EDIT_NEW,
+		false,
+		$user
+	);
+
+	$t = LqtView::postEditUpdates(
+		$super ? 'reply' : 'new',
+		$super,
+		$root,
+		$article,
+		$subject,
+		'Imported from JSON',
+		null
+	);
 
 	$t = Threads::withId( $t->id() ); // Some weirdness.
 

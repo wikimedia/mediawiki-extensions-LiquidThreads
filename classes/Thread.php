@@ -439,7 +439,12 @@ class Thread {
 		// Make the article edit.
 		$traceTitle = Threads::newThreadTitle( $this->subject(), new Article( $oldTitle, 0 ) );
 		$redirectArticle = new Article( $traceTitle, 0 );
-		$redirectArticle->doEdit( $redirectText, $reason, EDIT_NEW | EDIT_SUPPRESS_RC );
+
+		$redirectArticle->doEditContent(
+			ContentHandler::makeContent( $redirectText, $traceTitle ),
+			$reason,
+			EDIT_NEW | EDIT_SUPPRESS_RC
+		);
 
 		// Add the trace thread to the tracking table.
 		$thread = Thread::create( $redirectArticle, new Article( $oldTitle, 0 ), null,
