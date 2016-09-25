@@ -166,7 +166,7 @@
 	"lqt-log-action-subjectedit": "cambiou o asunto de \"[[$1]]\" de \"$2\" a \"$3\"",
 	"lqt-log-action-resort": "modificou o tipo de orde de \"[[$1]]\". Cambiou o tipo de clave de \"$2\" a \"$3\"",
 	"lqt-log-action-signatureedit": "cambiou a sinatura de \"[[$1]]\" de \"$2\" a \"$3\"",
-	"lqt-preference-notify-talk": "Enviádeme un correo electrónico cando haxa respostas nunha conversa que estea vixiando",
+	"lqt-preference-notify-talk": "Recibir un correo electrónico cando haxa respostas nunha conversa que estea vixiando",
 	"lqt-preference-watch-threads": "Vixiar os fíos que creei ou aqueloutros nos que participei",
 	"prefs-lqt": "Fíos de conversa",
 	"lqt-preference-display-depth": "Profundidade máxima de respostas a mostrar:",
