@@ -297,8 +297,8 @@
 		"EditPageBeforeEditChecks": [
 			"LqtHooks::editCheckBoxes"
 		],
-		"ArticleSaveComplete": [
-			"LqtHooks::onArticleSaveComplete"
+		"PageContentSaveComplete": [
+			"LqtHooks::onPageContentSaveComplete"
 		],
 		"UserIsBlockedFrom": [
 			"LqtHooks::userIsBlockedFrom"

@@ -542,7 +542,7 @@ class LqtHooks {
 	/**
 	 * @param $article Article
 	 * @param $user User
-	 * @param $text
+	 * @param $content Content
 	 * @param $summary
 	 * @param $minoredit
 	 * @param $watchthis
@@ -553,7 +553,7 @@ class LqtHooks {
 	 * @param $baseRevId
 	 * @return bool
 	 */
-	static function onArticleSaveComplete( &$article, &$user, $text, $summary,
+	static function onPageContentSaveComplete( &$article, &$user, $content, $summary,
 			$minoredit, $watchthis, $sectionanchor, &$flags, $revision,
 			&$status, $baseRevId ) {
  		if ( !$status->isGood() ) {
@@ -584,7 +584,7 @@ class LqtHooks {
 			'root' => $article,
 			'thread' => $thread,
 			'summary' => $summary,
-			'text' => $text,
+			'text' => ContentHandler::getContentText( $content ),
 		) );
 
  		return true;
