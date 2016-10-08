@@ -61,7 +61,7 @@ class LqtHooks {
 			$s .= $wgLang->getDirMark();
 
 			// add the truncated post content
-			$quote = $thread->root()->getContent();
+			$quote = ContentHandler::getContentText( $thread->root()->getPage()->getContent() );
 			$quote = $wgLang->truncate( $quote, 200 );
 			$s .= ' ' . Linker::commentBlock( $quote );
 

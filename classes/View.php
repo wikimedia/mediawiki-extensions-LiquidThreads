@@ -1747,16 +1747,14 @@ class LqtView {
 		}
 
 		$article = new Article( $thread->title(), 0 );
-		$target = ContentHandler::makeContent(
-			$article->getContent(),
-			null,
-			CONTENT_MODEL_WIKITEXT
-		)->getRedirectTarget();
+		$target = $article->getPage()->getRedirectTarget();
 
 		if ( !$target ) {
 			throw new Exception( "Thread " . $thread->id() . ' purports to be moved, ' .
-				'but no redirect found in text (' . $article->getContent() . ') of ' .
-				$thread->root()->getTitle()->getPrefixedText() . '. Dying.' );
+				'but no redirect found in text (' .
+				ContentHandler::getContentText( $article->getPage()->getContent() ) . ') of ' .
+				$thread->root()->getTitle()->getPrefixedText() . '. Dying.'
+			);
 		}
 
 		$t_thread = Threads::withRoot( new Article( $target, 0 ) );
@@ -2034,7 +2032,9 @@ class LqtView {
 
 		// Don't show blank posts unless we have to
 		$content = '';
-		if ( $thread->root() ) $content = $thread->root()->getContent();
+		if ( $thread->root() ) {
+			$content = ContentHandler::getContentText( $thread->root()->getPage->getContent() );
+		}
 
 		if (
 			trim( $content ) == '' &&
@@ -2291,7 +2291,7 @@ class LqtView {
 		if ( !$t->summary() ) {
 			return '';
 		}
-		if ( !$t->summary()->getContent() ) {
+		if ( !ContentHandler::getContentText( $t->summary()->getPage()->getContent() ) ) {
 			return ''; // Blank summary
 		}
 
