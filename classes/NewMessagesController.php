@@ -331,7 +331,7 @@ class NewMessages {
 			// Get message in user's own language, bug 20645
 			$msg = wfMessage( $msgName, $params )->inLanguage( $langCode )->text();
 
-			$to = new MailAddress( $u );
+			$to = MailAddress::newFromUser( $u );
 			$subject = wfMessage( $subjectMsg, $threadSubject )->inLanguage( $langCode )->text();
 
 			UserMailer::send( $to, $from, $subject, $msg );
