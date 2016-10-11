@@ -2033,7 +2033,7 @@ class LqtView {
 		// Don't show blank posts unless we have to
 		$content = '';
 		if ( $thread->root() ) {
-			$content = ContentHandler::getContentText( $thread->root()->getPage->getContent() );
+			$content = ContentHandler::getContentText( $thread->root()->getPage()->getContent() );
 		}
 
 		if (
