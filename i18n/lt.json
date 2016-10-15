@@ -6,7 +6,8 @@
 			"Pėstininkas",
 			"Tomasdd",
 			"Vpovilaitis",
-			"Zygimantus"
+			"Zygimantus",
+			"Homo"
 		]
 	},
 	"lqt-desc": "Pridėti diskusijų temas į aptarimų puslapius",
@@ -83,7 +84,7 @@
 	"lqt_move_samedestination": "Žinutė jau yra nurodytame puslapyje!",
 	"lqt_move_noreason": "Priežastis nenurodyta",
 	"lqt_move_success": "Tema buvo perkelta į $1 .",
-	"lqt_talkpage_autocreate_summary": "Aptarimų puslapis automatiškai sukuriamas kai yra išsaugoma pirma žinutė",
+	"lqt_talkpage_autocreate_summary": "Aptarimų puslapis automatiškai sukuriamas, kai yra išsaugoma pirma žinutė",
 	"lqt_header_warning_big": "Jūs redaguojate $1 .",
 	"lqt_header_warning_bold": "aptarimų puslapio antraštė",
 	"lqt_header_warning_new_discussion": "Pradėti naują diskusiją",
