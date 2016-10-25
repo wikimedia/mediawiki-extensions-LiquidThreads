@@ -1903,7 +1903,9 @@ class LqtView {
 
 		foreach ( $replies as $reply ) {
 			$content = '';
-			if ( $reply->root() ) $content = $reply->root()->getContent();
+			if ( $reply->root() ) {
+				$content = ContentHandler::getContentText( $reply->root()->getPage()->getContent() );
+			}
 
 			if ( trim( $content ) != '' ) {
 				return true;

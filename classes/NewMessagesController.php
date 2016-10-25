@@ -322,11 +322,16 @@ class NewMessages {
 			$date = $lang->date( $adjustedTimestamp );
 			$time = $lang->time( $adjustedTimestamp );
 
-			$params = array( $u->getName(), $t->subjectWithoutIncrement(),
-						$date, $time, $talkPage,
-						$permalink,
-						$t->root()->getContent(),
-						$t->author()->getName() );
+			$params = array(
+				$u->getName(),
+				$t->subjectWithoutIncrement(),
+				$date,
+				$time,
+				$talkPage,
+				$permalink,
+				ContentHandler::getContentText( $t->root()->getPage()->getContent() ),
+				$t->author()->getName()
+			);
 
 			// Get message in user's own language, bug 20645
 			$msg = wfMessage( $msgName, $params )->inLanguage( $langCode )->text();
