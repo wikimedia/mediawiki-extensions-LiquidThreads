@@ -87,7 +87,7 @@
 	"lqt_nosuchrevision": "Essa revisão deste tópico não existe.",
 	"lqt_nosuchthread": "O tópico que especificou não existe.",
 	"lqt_nosuchthread_title": "Esse tópico não existe",
-	"lqt_threadrequired": "Deve especificar um tópico na URL.",
+	"lqt_threadrequired": "Deve especificar um tópico no URL.",
 	"lqt_move_movingthread": "A mover $1. \nEste tópico é parte de $2.",
 	"lqt_move_torename": "Para alterar o nome deste tópico, $1 e altere o campo 'Assunto'.",
 	"lqt_move_torename_edit": "edite-o",
