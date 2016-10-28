@@ -76,7 +76,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		$thread = Thread::newFromRow( $row );
 
 		$titleStr = $thread->subject();
-		$completeText = $thread->root()->getContent();
+		$completeText = ContentHandler::getContentText( $thread->root()->getPage()->getContent() );
 		$completeText = $this->getOutput()->parse( $completeText );
 		$threadTitle = clone $thread->topmostThread()->title();
 		$threadTitle->setFragment( '#' . $thread->getAnchorName() );

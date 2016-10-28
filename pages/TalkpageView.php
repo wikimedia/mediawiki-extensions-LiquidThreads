@@ -121,7 +121,7 @@ class TalkpageView extends LqtView {
 		// Table body
 		$rows = array();
 		foreach ( $threads as $thread ) {
-			if ( $thread->root() && !$thread->root()->getContent() &&
+			if ( $thread->root() && !$thread->root()->getPage()->getContent() &&
 				    !LqtView::threadContainsRepliesWithContent( $thread ) ) {
 				continue;
 			}
