@@ -25,7 +25,7 @@
 	"lqt_toc_thread_modified": "Última alteração",
 	"lqt_add_header": "Adicionar cabeçalho",
 	"lqt_new_thread": "Iniciar uma discussão nova",
-	"lqt_invalid_subject": "O assunto do tópico é inválido.\nPode:\n* Ser demasiado longo, ou\n* Entrar em conflito com os prefixos das ligações interlínguas ou com os nomes dos domínios.",
+	"lqt_invalid_subject": "O assunto do tópico é inválido.\nPode:\n* Ser demasiado longo, ou\n* Entrar em conflito com os prefixos dos links interwikis ou com os nomes dos espaços nominais.",
 	"lqt-empty-text": "Não pode publicar uma mensagem em branco",
 	"lqt_empty_subject": "Deve inserir um assunto.",
 	"lqt_reply": "Responder",
