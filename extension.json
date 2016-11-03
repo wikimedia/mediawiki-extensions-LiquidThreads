@@ -335,48 +335,24 @@
 		]
 	},
 	"config": {
-		"LqtPages": {
-			"value": []
-		},
-		"LqtTalkPages": {
-			"value": true
-		},
-		"LqtEnotif": {
-			"value": true
-		},
-		"ThreadActionsNoBump": {
-			"value": [
-				3,
-				10,
-				12,
-				2,
-				14
-			]
-		},
-		"LiquidThreadsMigrate": {
-			"value": false
-		},
-		"LiquidThreadsDefaultPageLimit": {
-			"value": 20
-		},
-		"LiquidThreadsAllowUserControl": {
-			"value": true
-		},
-		"LiquidThreadsAllowUserControlNamespaces": {
-			"value": null
-		},
-		"LiquidThreadsAllowEmbedding": {
-			"value": true
-		},
-		"LqtNamespaces": {
-			"value": []
-		},
-		"LiquidThreadsShowBumpCheckbox": {
-			"value": false
-		},
-		"LiquidThreadsEnableNewMessages": {
-			"value": true
-		}
+		"LqtPages": [],
+		"LqtTalkPages": true,
+		"LqtEnotif": true,
+		"ThreadActionsNoBump": [
+			3,
+			10,
+			12,
+			2,
+			14
+		],
+		"LiquidThreadsMigrate": false,
+		"LiquidThreadsDefaultPageLimit": 20,
+		"LiquidThreadsAllowUserControl": true,
+		"LiquidThreadsAllowUserControlNamespaces": null,
+		"LiquidThreadsAllowEmbedding": true,
+		"LqtNamespaces": [],
+		"LiquidThreadsShowBumpCheckbox": false,
+		"LiquidThreadsEnableNewMessages": true
 	},
-	"manifest_version": 2
+	"manifest_version": 1
 }
