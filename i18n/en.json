@@ -147,6 +147,7 @@
 	"right-lqt-split": "Split threads",
 	"right-lqt-merge": "Merge threads",
 	"right-lqt-react": "Reply to threads",
+	"action-lqt-react": "reply to threads",
 	"lqt-thread-merge": "Merge into another thread",
 	"lqt-thread-merge-to": "Merge into this thread",
 	"lqt_merge_thread": "Merge thread",
@@ -286,5 +287,19 @@
 	"apihelp-threadaction-param-method": "For getting inline edit forms, the method to get a form for.",
 	"apihelp-threadaction-param-operand": "",
 	"apihelp-threadaction-param-captchaword": "Answer to the CAPTCHA.",
-	"apihelp-threadaction-param-captchaid": "CAPTCHA ID from previous request."
+	"apihelp-threadaction-param-captchaid": "CAPTCHA ID from previous request.",
+	"apierror-liquidthreads-alreadytop": "This thread is already a top-level thread.",
+	"apierror-liquidthreads-badparent": "The parent thread you specified was neither the title of a thread, nor a thread ID.",
+	"apierror-liquidthreads-badreaction": "You must specify both a type and a value for the reaction.",
+	"apierror-liquidthreads-badsortkey": "You must specify a valid timestamp for the <var>sortkey</var> parameter. It should be in the form YYYYMMddhhmmss, a unix timestamp or <kbd>now</kbd>.",
+	"apierror-liquidthreads-badsubject": "The subject you specified is not valid.",
+	"apierror-liquidthreads-invalidtalkpage": "The talkpage you specified is invalid, or does not have discussion threading enabled.",
+	"apierror-liquidthreads-noparent": "You must specify a new parent thread to merge beneath.",
+	"apierror-liquidthreads-noreplies-talkpage": "You cannot reply to this thread, because the talkpage is protected from replies.",
+	"apierror-liquidthreads-noreplies-thread": "You cannot reply to this thread, because the thread is protected from replies.",
+	"apierror-liquidthreads-nosubject": "No subject, or an invalid subject, was specified.",
+	"apierror-liquidthreads-notext": "You must include text in your post.",
+	"apierror-liquidthreads-onlyone": "You may only operate on one thread at a time.",
+	"apierror-liquidthreads-talkpageprotected": "You cannot post to the specified talkpage, because it is protected from new posts.",
+	"apierror-liquidthreads-threadneeded": "You must specify a thread to operate on."
 }

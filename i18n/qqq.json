@@ -157,6 +157,7 @@
 	"right-lqt-split": "{{doc-right|lqt-split}}",
 	"right-lqt-merge": "{{doc-right|lqt-merge}}\n{{Identical|Merge thread}}",
 	"right-lqt-react": "{{doc-right|lqt-react}}",
+	"action-lqt-react": "{{doc-action|lqt-react}}",
 	"lqt_merge_thread": "{{doc-special|MergeThread|unlisted=1}}\n{{Identical|Merge thread}}",
 	"lqt-merge-submit": "{{Identical|Merge}}",
 	"lqt-merge-success": "Used as success message. Parameters:\n* $1 - the source thread title, with link\n* $2 - the destination thread title, with link",
@@ -265,5 +266,19 @@
 	"apihelp-threadaction-param-method": "{{doc-apihelp-param|threadaction|method}}",
 	"apihelp-threadaction-param-operand": "{{notranslate}}\n{{doc-apihelp-param|threadaction|operand}}",
 	"apihelp-threadaction-param-captchaword": "{{doc-apihelp-param|threadaction|captchaword}}",
-	"apihelp-threadaction-param-captchaid": "{{doc-apihelp-param|threadaction|captchaid}}"
+	"apihelp-threadaction-param-captchaid": "{{doc-apihelp-param|threadaction|captchaid}}",
+	"apierror-liquidthreads-alreadytop": "{{doc-apierror}}",
+	"apierror-liquidthreads-badparent": "{{doc-apierror}}",
+	"apierror-liquidthreads-badreaction": "{{doc-apierror}}",
+	"apierror-liquidthreads-badsortkey": "{{doc-apierror}}",
+	"apierror-liquidthreads-badsubject": "{{doc-apierror}}",
+	"apierror-liquidthreads-invalidtalkpage": "{{doc-apierror}}",
+	"apierror-liquidthreads-noparent": "{{doc-apierror}}",
+	"apierror-liquidthreads-noreplies-talkpage": "{{doc-apierror}}",
+	"apierror-liquidthreads-noreplies-thread": "{{doc-apierror}}",
+	"apierror-liquidthreads-nosubject": "{{doc-apierror}}",
+	"apierror-liquidthreads-notext": "{{doc-apierror}}",
+	"apierror-liquidthreads-onlyone": "{{doc-apierror}}",
+	"apierror-liquidthreads-talkpageprotected": "{{doc-apierror}}",
+	"apierror-liquidthreads-threadneeded": "{{doc-apierror}}"
 }
