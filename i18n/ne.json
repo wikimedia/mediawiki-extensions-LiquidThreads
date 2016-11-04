@@ -87,7 +87,7 @@
 	"lqt-header-actions": "कार्यहरु",
 	"lqt_summarize_link": "सारांश बनाउने",
 	"lqt-thread-split": "नयाँ धागो(thread) मा टुक्राउने",
-	"lqt-split-success": "तपाईँले सफलतापूर्वक थ्रेड(thread) $1लाई टुक्राउनु भएको छ ।",
+	"lqt-split-success": "तपाईंले सफलतापूर्वक धागो (thread) $1लाई टुक्राउनु भएको छ ।",
 	"lqt_split_thread": "एक धागो(thread) टुक्राउने",
 	"lqt-thread-split-subject": "नयाँ धागो(thread) विषय",
 	"lqt-thread-split-thread": "धागो(thread) :",
