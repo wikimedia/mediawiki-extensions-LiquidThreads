@@ -365,8 +365,12 @@ class Threads {
 
 		if ( $limit && ( $rowsAffected >= $limit ) && $queueMore ) {
 			$jobParams = array( 'limit' => $limit, 'cascade' => true );
-			$job = new SynchroniseThreadArticleDataJob( $article->getTitle(), $jobParams );
-			$job->insert();
+			JobQueueGroup::singleton()->push(
+				new SynchroniseThreadArticleDataJob(
+					$article->getTitle(),
+					$jobParams
+				)
+			);
 		}
 
 		return $limit ? ( $rowsAffected < $limit ) : true;
