@@ -70,7 +70,7 @@ class ThreadHistoryPager extends TablePager {
 				$formatted = $wgLang->timeanddate( $value, true );
 				return Linker::link(
 					$wgTitle,
-					$formatted,
+					htmlspecialchars( $formatted ),
 					array(),
 					array( 'lqt_oldid' => $row->th_id )
 				);
