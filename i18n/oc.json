@@ -112,7 +112,7 @@
 	"lqt-history-action": "Activitat",
 	"lqt-history-comment": "Comentari",
 	"lqt-history-thread": "Fial de discussion",
-	"lqt-thread-edited-author": "Modificat per l’autor<br />\nDarrièra modificacion : $1",
+	"lqt-thread-edited-author": "Modificat per {{GENDER:$5|l’autor}}<br />\nDarrièra modificacion : $1",
 	"lqt-thread-edited-others": "Modificat per {{PLURAL:$2|un autre utilizaire|$2 utilizaires}}<br />\nDarrièra modificacion : $1",
 	"lqt-header-actions": "Accions",
 	"lqt_summarize_link": "Resumit",
