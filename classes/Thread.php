@@ -567,7 +567,7 @@ class Thread {
 		}
 
 		try {
-			$this->doLazyUpdates( $line );
+			$this->doLazyUpdates();
 		} catch ( Exception $excep ) {
 			trigger_error( "Exception doing lazy updates: " . $excep->__toString() );
 		}
@@ -799,8 +799,9 @@ class Thread {
 	// Lazy updates done whenever a thread is loaded.
 	//  Much easier than running a long-running maintenance script.
 	function doLazyUpdates( ) {
-		if ( $this->isHistorical() )
+		if ( $this->isHistorical() ) {
 			return; // Don't do lazy updates on stored historical threads.
+		}
 
 		// This is an invocation guard to avoid infinite recursion when fixing a
 		//  missing ancestor.
