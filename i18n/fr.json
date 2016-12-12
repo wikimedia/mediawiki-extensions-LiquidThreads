@@ -21,7 +21,8 @@
 			"Nnemo",
 			"Ricordisamoa",
 			"Wladek92",
-			"Pols12"
+			"Pols12",
+			"Derugon"
 		]
 	},
 	"lqt-desc": "Ajoute des fils de discussion dans les pages de discussion",
@@ -304,5 +305,8 @@
 	"apihelp-threadaction-param-value": "Spécifie la valeur associée à la réaction à ajouter.",
 	"apihelp-threadaction-param-method": "Pour obtenir les formulaires d'édition en ligne, c'est la  méthode pour obtenir un formulaire.",
 	"apihelp-threadaction-param-captchaword": "Réponse au CAPTCHA.",
-	"apihelp-threadaction-param-captchaid": "Identificateur CAPTCHA de la précédente demande."
+	"apihelp-threadaction-param-captchaid": "Identificateur CAPTCHA de la précédente demande.",
+	"apierror-liquidthreads-badsubject": "Le sujet que vous avez spécifié n'est pas valide.",
+	"apierror-liquidthreads-invalidtalkpage": "La page de discussion spécifiée est invalide ou ne possède pas de discussion activée.",
+	"apierror-liquidthreads-nosubject": "Aucun sujet, ou un sujet invalide, a été spécifié."
 }

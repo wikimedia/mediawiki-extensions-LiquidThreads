@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dbc334",
-			"Janezdrilc"
+			"Janezdrilc",
+			"NegativeTwelveDollars"
 		]
 	},
 	"lqt-desc": "Doda možnost razprav na pogovorne strani",
@@ -238,5 +239,7 @@
 	"nstab-thread": "Razprava",
 	"nstab-summary": "Povzetek",
 	"pageinfo-usinglqt": "Nitna razprava je omogočena",
-	"pageinfo-usinglqt-yes": "Da"
+	"pageinfo-usinglqt-yes": "Da",
+	"apierror-liquidthreads-badsubject": "Tema, ki ste jo določili, ni veljavna.",
+	"apierror-liquidthreads-noreplies-thread": "Ne moreš odgovoriti na to temo, ker je zaščitena pred odgovori."
 }

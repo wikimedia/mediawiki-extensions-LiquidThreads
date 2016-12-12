@@ -286,5 +286,6 @@
 	"apihelp-threadaction-param-signature": "Especifica la firma para esa publicación, en lugar de la predeterminada.",
 	"apihelp-threadaction-param-type": "Especifica el tipo de reacción que agregar.",
 	"apihelp-threadaction-param-value": "Especifica el valor asociado con la reacción que agregar.",
-	"apihelp-threadaction-param-captchaword": "Respuesta al CAPTCHA."
+	"apihelp-threadaction-param-captchaword": "Respuesta al CAPTCHA.",
+	"apierror-liquidthreads-badsubject": "El asunto que especificaste no es válido."
 }

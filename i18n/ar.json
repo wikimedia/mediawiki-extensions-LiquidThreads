@@ -8,7 +8,8 @@
 			"Ouda",
 			"زكريا",
 			"محمد الجداوي",
-			"Maroen1990"
+			"Maroen1990",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"lqt-desc": "يضيف نقاشات في مجموعات إلى صفحات النقاش",
@@ -150,6 +151,7 @@
 	"right-lqt-split": "فصل مواضيع",
 	"right-lqt-merge": "دمج مواضيع",
 	"right-lqt-react": "الرد على المواضيع",
+	"action-lqt-react": "الرد على المواضيع",
 	"lqt-thread-merge": "ادمج مع نقاش آخر",
 	"lqt-thread-merge-to": "ادمج مع هذا النقاش",
 	"lqt_merge_thread": "ادمج الموضوع",

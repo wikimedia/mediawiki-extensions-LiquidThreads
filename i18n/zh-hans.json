@@ -163,6 +163,7 @@
 	"right-lqt-split": "分割话题",
 	"right-lqt-merge": "合并话题",
 	"right-lqt-react": "回复话题",
+	"action-lqt-react": "回复话题",
 	"lqt-thread-merge": "合并到其他话题",
 	"lqt-thread-merge-to": "合并到此话题",
 	"lqt_merge_thread": "合并话题",
@@ -301,5 +302,19 @@
 	"apihelp-threadaction-param-value": "指定要添加的与反应有关系的值。",
 	"apihelp-threadaction-param-method": "用于获取行内编辑表单，获取表单的方法。",
 	"apihelp-threadaction-param-captchaword": "回答验证码。",
-	"apihelp-threadaction-param-captchaid": "之前请求的验证码ID。"
+	"apihelp-threadaction-param-captchaid": "之前请求的验证码ID。",
+	"apierror-liquidthreads-alreadytop": "此话题已为顶级话题。",
+	"apierror-liquidthreads-badparent": "您指定的父话题既不是话题标题，也不是话题ID。",
+	"apierror-liquidthreads-badreaction": "您必须为反应指定类型和值。",
+	"apierror-liquidthreads-badsortkey": "您必须为<var>sortkey</var>参数指定有效的时间戳。它应为YYYYMMddhhmmss格式，unix时间戳或<kbd>now</kbd>。",
+	"apierror-liquidthreads-badsubject": "您指定的对象无效。",
+	"apierror-liquidthreads-invalidtalkpage": "您指定的讨论页无效，或并未启用讨论话题。",
+	"apierror-liquidthreads-noparent": "您必须指定新的父话题以在下方合并。",
+	"apierror-liquidthreads-noreplies-talkpage": "您不能回复此话题，因为讨论页已被保护，不能回复。",
+	"apierror-liquidthreads-noreplies-thread": "您不能回复此话题，因为话题已被保护，不能回复。",
+	"apierror-liquidthreads-nosubject": "未指定对象，或指定了无效的对象。",
+	"apierror-liquidthreads-notext": "您必须在您的帖子中包含文本。",
+	"apierror-liquidthreads-onlyone": "您只可以同时操作一个话题。",
+	"apierror-liquidthreads-talkpageprotected": "您不能发表至指定的讨论页，因为它已被保护，不能回复。",
+	"apierror-liquidthreads-threadneeded": "您必须指定话题以操作。"
 }

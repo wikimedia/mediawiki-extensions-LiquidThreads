@@ -146,6 +146,7 @@
 	"right-lqt-split": "Раздели нишки",
 	"right-lqt-merge": "Спојување нишки",
 	"right-lqt-react": "Одговарање на нишки",
+	"action-lqt-react": "одговарање на нишки",
 	"lqt-thread-merge": "Спој со друга нишка",
 	"lqt-thread-merge-to": "Спои во оваа нишка",
 	"lqt_merge_thread": "Спои ја нишката",
@@ -284,5 +285,19 @@
 	"apihelp-threadaction-param-value": "Ја укажува вредноста поврзана со реакцијата што ќе се додаде.",
 	"apihelp-threadaction-param-method": "За кој начин на уредување да е добијат обрасци наменети за уредување во редовите на текстот.",
 	"apihelp-threadaction-param-captchaword": "Одговор на сликата.",
-	"apihelp-threadaction-param-captchaid": "Назнака на сликичката за проверка од претходното барање."
+	"apihelp-threadaction-param-captchaid": "Назнака на сликичката за проверка од претходното барање.",
+	"apierror-liquidthreads-alreadytop": "Нишкава веќе е врховна.",
+	"apierror-liquidthreads-badparent": "Матичната нишка што ја укажавте не е ниту наслов, ниту назнака на нишка.",
+	"apierror-liquidthreads-badreaction": "Мора да укажете и тип и вредност за реакцијата.",
+	"apierror-liquidthreads-badsortkey": "Мора да укажете важечки датум и време за параметарот <var>sortkey</var>. Треба да биде во обликот ГГГГММддччммсс, според Unix или да гласи <kbd>now</kbd>.",
+	"apierror-liquidthreads-badsubject": "Укажаниот наслов е неважечки.",
+	"apierror-liquidthreads-invalidtalkpage": "Укажаната страниц за разговор е неважечка или нема овозможено нижење на разговорот.",
+	"apierror-liquidthreads-noparent": "Мора да укажете нова матична нишка под која ќе се направи спојувањето.",
+	"apierror-liquidthreads-noreplies-talkpage": "Не можете да одговорите на нишкава бидејќи страницата за разговор е заштитена од одговори.",
+	"apierror-liquidthreads-noreplies-thread": "Не можете да одговорите на нишкава бидејќи истата е заштитена од одговори.",
+	"apierror-liquidthreads-nosubject": "Нема наслов или укажаниот наслов е неважечки.",
+	"apierror-liquidthreads-notext": "Објавата мора да има текст.",
+	"apierror-liquidthreads-onlyone": "Можете да работите само со по една нишка.",
+	"apierror-liquidthreads-talkpageprotected": "Не можете да објавувате на укажаната страница за разговор бидејќи истата е заштитена од нови објави.",
+	"apierror-liquidthreads-threadneeded": "Мора да укажете нишка со која ќе работите."
 }
