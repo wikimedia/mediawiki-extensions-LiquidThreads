@@ -167,6 +167,7 @@
 	"right-lqt-split": "Scinder les fils de discussion",
 	"right-lqt-merge": "Fusionner les fils de discussion",
 	"right-lqt-react": "Répondre aux messages",
+	"action-lqt-react": "répondre aux threads",
 	"lqt-thread-merge": "Fusionner dans un autre fil",
 	"lqt-thread-merge-to": "Fusionner dans ce fil",
 	"lqt_merge_thread": "Fusionner le fil",
@@ -306,7 +307,12 @@
 	"apihelp-threadaction-param-method": "Pour obtenir les formulaires d'édition en ligne, c'est la  méthode pour obtenir un formulaire.",
 	"apihelp-threadaction-param-captchaword": "Réponse au CAPTCHA.",
 	"apihelp-threadaction-param-captchaid": "Identificateur CAPTCHA de la précédente demande.",
+	"apierror-liquidthreads-alreadytop": "Ce thread est déja un thread de niveau supérieur.",
+	"apierror-liquidthreads-badreaction": "Vous devez spécifier à la fois un type et une valeur pour la réaction.",
 	"apierror-liquidthreads-badsubject": "Le sujet que vous avez spécifié n'est pas valide.",
 	"apierror-liquidthreads-invalidtalkpage": "La page de discussion spécifiée est invalide ou ne possède pas de discussion activée.",
-	"apierror-liquidthreads-nosubject": "Aucun sujet, ou un sujet invalide, a été spécifié."
+	"apierror-liquidthreads-nosubject": "Aucun sujet, ou un sujet invalide, a été spécifié.",
+	"apierror-liquidthreads-notext": "Vous devez inclure du texte dans votre message.",
+	"apierror-liquidthreads-onlyone": "Vous ne pouvez agir que sur un seul thread à la fois.",
+	"apierror-liquidthreads-threadneeded": "Vous devez spécifier un thread avec lequel travailler."
 }

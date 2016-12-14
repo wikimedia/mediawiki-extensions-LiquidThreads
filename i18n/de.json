@@ -294,5 +294,18 @@
 	"apihelp-threadaction-param-type": "Gibt den Typ der hinzuzufügenden Reaktion an.",
 	"apihelp-threadaction-param-captchaword": "Antwort an das CAPTCHA.",
 	"apihelp-threadaction-param-captchaid": "Kennung des CAPTCHAs der vorherigen Anfrage.",
-	"apierror-liquidthreads-badsubject": "Das angegebene Thema ist nicht gültig."
+	"apierror-liquidthreads-alreadytop": "Dieser Thread ist bereits ein Obere-Ebene-Thread.",
+	"apierror-liquidthreads-badparent": "Der angegebene übergeordnete Thread war weder der Titel eines Threads noch eine Threadkennung.",
+	"apierror-liquidthreads-badreaction": "Du musst sowohl einen Typ und einen Wert für die Reaktion angeben.",
+	"apierror-liquidthreads-badsortkey": "Du musst einen gültigen Zeitstempel für den Parameter <var>sortkey</var> angeben. Er sollte im Format JJJJMMtthhmmss, ein Unix-Zeitstempel oder <kbd>now</kbd> sein.",
+	"apierror-liquidthreads-badsubject": "Das angegebene Thema ist nicht gültig.",
+	"apierror-liquidthreads-invalidtalkpage": "Die angegebene Diskussionsseite ist ungültig oder hat keine aktivierten Diskussionsthreads.",
+	"apierror-liquidthreads-noparent": "Du musst einen neuen übergeordneten Thread angeben, um darunter zusammenzuführen.",
+	"apierror-liquidthreads-noreplies-talkpage": "Du kannst nicht auf diesen Thread antworten, da die Diskussionsseite für Antworten geschützt wurde.",
+	"apierror-liquidthreads-noreplies-thread": "Du kannst nicht auf diesen Thread antworten, da er für Antworten geschützt ist.",
+	"apierror-liquidthreads-nosubject": "Es wurde kein oder ein ungültiges Thema angegeben.",
+	"apierror-liquidthreads-notext": "Du musst Text in deinen Beitrag eingeben.",
+	"apierror-liquidthreads-onlyone": "Du kannst nur an einem Thread gleichzeitig arbeiten.",
+	"apierror-liquidthreads-talkpageprotected": "Du kannst keine Beiträge auf der angegebenen Diskussionsseite erstellen, da sie für neue Beiträge geschützt ist.",
+	"apierror-liquidthreads-threadneeded": "Du musst einen Thread angeben, an dem gearbeitet werden soll."
 }
