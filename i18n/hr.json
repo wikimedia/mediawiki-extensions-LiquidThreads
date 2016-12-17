@@ -187,7 +187,7 @@
 	"lqt-thread-link-copy": "Kopiraj u međuspremnik",
 	"lqt-sign-not-necessary": "Nije nužno potpisivati se s četiri tilde.\nPotpis se prikazuje automatski.",
 	"lqt-marked-as-read-placeholder": "Tema $1 označena je pročitanom.",
-	"lqt-change-subject": "Promjeni naziv teme",
+	"lqt-change-subject": "Promijeni naziv teme",
 	"lqt-save-subject": "Snimi",
 	"lqt-save-subject-failed": "Sljedeća pogrješka dogodila se prilikom pokušaja promjene naziva ove teme: $1",
 	"lqt-ajax-invalid-subject": "Naslov koji ste naveli nije valjan, vjerojatno zato što je predugačak.",
