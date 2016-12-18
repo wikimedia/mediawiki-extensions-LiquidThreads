@@ -104,7 +104,7 @@
 	"lqt_subject": "{{Identical|Subject}}",
 	"lqt_noreason": "{{Identical|No reason given}}",
 	"lqt_move_placeholder": "Thread contents when a thread was moved. Parameters:\n* $1 is a thread name\n* $2 is a username\n* $3 is a date\n* $4 is a time\n* $5 is the destination page.",
-	"lqt_thread_deleted_for_sysops": "",
+	"lqt_thread_deleted_for_sysops": "Message shown on thread page",
 	"lqt_thread_deleted": "Used as hint when looking at deleted threads",
 	"lqt_summary_notice": "Parameters:\n* $1 - a link with {{msg-mw|Lqt summary notice link}} as display text\n* $2 - a number of days",
 	"lqt_summary_notice_link": "This fragment is situated in the following context: [[MediaWiki:Lqt summary notice]]",
