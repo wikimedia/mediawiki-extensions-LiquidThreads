@@ -158,6 +158,7 @@
 	"right-lqt-split": "розділення тем обговорень",
 	"right-lqt-merge": "об'єднування тем обговорень",
 	"right-lqt-react": "відповіді у темах обговорень",
+	"action-lqt-react": "відповідь у гілках",
 	"lqt-thread-merge": "Приєднати до іншої теми",
 	"lqt-thread-merge-to": "Приєднати до цієї гілки",
 	"lqt_merge_thread": "Приєднання гілок",
@@ -296,5 +297,19 @@
 	"apihelp-threadaction-param-value": "Вказує значення, асоційоване з реакцією для додавання.",
 	"apihelp-threadaction-param-method": "Для отримання форм редагування у рядку, метод, для якого отримати форму.",
 	"apihelp-threadaction-param-captchaword": "Відповідь на CAPTCHA.",
-	"apihelp-threadaction-param-captchaid": "Ідентифікатор CAPTCHA з попереднього запиту."
+	"apihelp-threadaction-param-captchaid": "Ідентифікатор CAPTCHA з попереднього запиту.",
+	"apierror-liquidthreads-alreadytop": "Ця гілка вже є гілкою найвищого рівня.",
+	"apierror-liquidthreads-badparent": "Вказана Вами батьківська гілка не була ані назвою гілки, ані її ідентифікатором.",
+	"apierror-liquidthreads-badreaction": "Вам треба вказати як тип, так і значення для реакції.",
+	"apierror-liquidthreads-badsortkey": "Вам треба вказати дійсну мітку часу для параметра <var>sortkey</var>. Вона має бути подана у формі РРРРММДДггххсс, мітка часу у форматі Unix, або <kbd>now</kbd>.",
+	"apierror-liquidthreads-badsubject": "Вказана Вами тема недійсна.",
+	"apierror-liquidthreads-invalidtalkpage": "Вказана Вами сторінка обговорення недійсна, або на ній не увімкнений розподіл обговорення на гілки.",
+	"apierror-liquidthreads-noparent": "Вам треба вказати нову батьківську гілку, під яку треба зробити об'єднання.",
+	"apierror-liquidthreads-noreplies-talkpage": "Ви не можете відповідати на цій гілці, оскільки ця сторінка обговорення захищена від відповідей.",
+	"apierror-liquidthreads-noreplies-thread": "Ви не можете відповідати на цій гілці, оскільки вона захищена від відповідей.",
+	"apierror-liquidthreads-nosubject": "Не вказано жодної теми, або ж вказана недійсна тема.",
+	"apierror-liquidthreads-notext": "Вам треба додати текст до свого повідомлення.",
+	"apierror-liquidthreads-onlyone": "Ви можете здійснювати якісь дії лише на одній гілці водночас.",
+	"apierror-liquidthreads-talkpageprotected": "Ви не можете залишати повідомлення на вказаній сторінці обговорення, оскільки вона захищена від нових повідомлень.",
+	"apierror-liquidthreads-threadneeded": "Вам треба вказати гілку, на якій Ви хочете виконати якісь дії."
 }
