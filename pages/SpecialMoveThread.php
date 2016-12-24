@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class SpecialMoveThread extends ThreadActionPage {
 	/**
 	 * @see SpecialPage::getDescription
@@ -45,8 +47,8 @@ class SpecialMoveThread extends ThreadActionPage {
 
 		$page = $this->mThread->getTitle()->getPrefixedText();
 
-		$edit_text = $this->msg( 'lqt_move_torename_edit' )->parse();
-		$edit_link = Linker::link(
+		$edit_text = new HtmlArmor( $this->msg( 'lqt_move_torename_edit' )->parse() );
+		$edit_link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
 			$this->mThread->title(),
 			$edit_text,
 			array(),
@@ -107,10 +109,11 @@ class SpecialMoveThread extends ThreadActionPage {
 
 		// @todo No status code from this method.
 		$this->mThread->moveToPage( $newtitle, $reason, true );
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
 		$this->getOutput()->addHTML( $this->msg( 'lqt_move_success' )->rawParams(
-			Linker::link( $newtitle ),
-			Linker::link(
+			$linkRenderer->makeLink( $newtitle ),
+			$linkRenderer->makeLink(
 				SpecialPage::getTitleFor( 'MoveThread', $this->mThread->root()->getTitle() ),
 				wfMessage( 'revertmove' )->text(),
 				array(),

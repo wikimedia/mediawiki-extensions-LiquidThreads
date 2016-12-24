@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class ThreadHistoryPager extends TablePager {
 	static $change_names;
 
@@ -68,9 +70,9 @@ class ThreadHistoryPager extends TablePager {
 		switch( $name ) {
 			case 'th_timestamp':
 				$formatted = $wgLang->timeanddate( $value, true );
-				return Linker::link(
+				return MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
 					$wgTitle,
-					htmlspecialchars( $formatted ),
+					$formatted,
 					array(),
 					array( 'lqt_oldid' => $row->th_id )
 				);

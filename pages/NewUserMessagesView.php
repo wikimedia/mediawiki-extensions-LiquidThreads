@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class NewUserMessagesView extends LqtView {
 	protected $highlightedThreads;
 	protected $messagesInfo;
@@ -161,16 +163,16 @@ class NewUserMessagesView extends LqtView {
 		$dbr = wfGetDB( DB_SLAVE );
 		$offset = wfTimestamp( TS_UNIX, $topmostThread->modified() ) + 1;
 		$offset = $dbr->timestamp( $offset );
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
-		$contextLink = Linker::link(
+		$contextLink = $linkRenderer->makeKnownLink(
 			$title,
-			wfMessage( 'lqt-newmessages-context' )->parse(),
+			new HtmlArmor( wfMessage( 'lqt-newmessages-context' )->parse() ),
 			array(),
-			array( 'offset' => $offset ),
-			array( 'known' )
+			array( 'offset' => $offset )
 		);
 
-		$talkpageLink = Linker::link( $topmostThread->getTitle() );
+		$talkpageLink = $linkRenderer->makeLink( $topmostThread->getTitle() );
 		$talkpageInfo = wfMessage( 'lqt-newmessages-from' )
 			->rawParams( $talkpageLink )->parseAsBlock();
 

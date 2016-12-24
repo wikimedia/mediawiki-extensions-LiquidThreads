@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 // Contains formatter functions for all log entry types.
 class LqtLogFormatter {
 	static function formatLogEntry( $type, $action, $title, $sk, $parameters ) {
@@ -21,7 +23,8 @@ class LqtLogFormatter {
 				);
 
 				if ( $rightsCheck === true ) {
-					$parameters[] = Message::rawParam( Linker::link(
+					$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+					$parameters[] = Message::rawParam( $linkRenderer->makeLink(
 						SpecialPage::getTitleFor( 'MoveThread', $title ),
 						wfMessage( 'revertmove' )->text(),
 						array(),

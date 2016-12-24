@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class ThreadPermalinkView extends LqtView {
 	protected $thread;
 
@@ -111,18 +113,19 @@ class ThreadPermalinkView extends LqtView {
 	}
 
 	function getSubtitle() {
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$fragment = '#' . $this->anchorName( $this->thread );
 
 		$talkpage = $this->thread->getTitle();
 		$talkpage->setFragment( $fragment );
-		$talkpage_link = Linker::link( $talkpage );
+		$talkpage_link = $linkRenderer->makeLink( $talkpage );
 
 		if ( $this->thread->hasSuperthread() ) {
 			$topmostTitle = $this->thread->topmostThread()->title();
 			$topmostTitle->setFragment( $fragment );
 
-			$linkText = wfMessage( 'lqt_discussion_link' )->parse();
-			$permalink = Linker::link( $topmostTitle, $linkText );
+			$linkText = new HtmlArmor( wfMessage( 'lqt_discussion_link' )->parse() );
+			$permalink = $linkRenderer->makeLink( $topmostTitle, $linkText );
 
 			return wfMessage( 'lqt_fragment' )->rawParams( $permalink, $talkpage_link )->parse();
 		} else {

@@ -6,6 +6,8 @@
 * @licence GPL2
 */
 
+use MediaWiki\MediaWikiServices;
+
 class LqtView {
 	/**
 	 * @var WikiPage
@@ -132,7 +134,12 @@ class LqtView {
 
 		$query = array_merge( $query, $uquery );
 
-		return Linker::link( $title, $text, $attribs, $query );
+		return MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
+			$title,
+			$text,
+			$attribs,
+			$query
+		);
 	}
 
 	/**
@@ -180,7 +187,12 @@ class LqtView {
 			$text = Threads::stripHTML( $thread->formattedSubject() );
 		}
 
-		return Linker::link( $title, $text, array(), $query );
+		return MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
+			$title,
+			$text,
+			array(),
+			$query
+		);
 	}
 
 	static function linkInContextURL( $thread, $contextType = 'page' ) {
@@ -246,7 +258,10 @@ class LqtView {
 			$perpetuateOffset
 		);
 
-		return Linker::link( $title, $text, $attribs, $query, $options );
+		$linkRenderer = MediaWikiServices::getInstance()
+			->getLinkRendererFactory()
+			->createFromLegacyOptions( $options );
+		return $linkRenderer->makeLink( $title, $text, $attribs, $query );
 	}
 
 	/**
@@ -1765,10 +1780,11 @@ class LqtView {
 			Linker::userToolLinks( $author->getID(), $author->getName() );
 		$newTalkpage = is_object( $t_thread ) ? $t_thread->getTitle() : '';
 
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$html = wfMessage( 'lqt_move_placeholder' )
-			->rawParams( Linker::link( $target ), $sig )
+			->rawParams( $linkRenderer->makeLink( $target ), $sig )
 			->params( $wgLang->date( $thread->modified() ), $wgLang->time( $thread->modified() ) )
-			->rawParams( Linker::link( $newTalkpage ) )->parse();
+			->rawParams( $linkRenderer->makeLink( $newTalkpage ) )->parse();
 
 		$this->output->addHTML( $html );
 	}
@@ -1861,12 +1877,17 @@ class LqtView {
 	 * @return string
 	 */
 	function getShowMore( $thread, $st, $i ) {
-		$linkText = wfMessage( 'lqt-thread-show-more' )->parse();
+		$linkText = new HtmlArmor( wfMessage( 'lqt-thread-show-more' )->parse() );
 		$linkTitle = clone $thread->topmostThread()->title();
 		$linkTitle->setFragment( '#' . $st->getAnchorName() );
 
-		$link = Linker::link( $linkTitle, $linkText,
-				array( 'class' => 'lqt-show-more-posts' ) );
+		$link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
+			$linkTitle,
+			$linkText,
+			array(
+				'class' => 'lqt-show-more-posts',
+			)
+		);
 		$link .= Html::hidden( 'lqt-thread-start-at', $i,
 				array( 'class' => 'lqt-thread-start-at' ) );
 
@@ -1881,14 +1902,19 @@ class LqtView {
 	 * @return string Html
 	 */
 	function getShowReplies( Thread $thread ) {
-		$linkText = wfMessage( 'lqt-thread-show-replies' )
+		$linkText = new HtmlArmor( wfMessage( 'lqt-thread-show-replies' )
 			->numParams( $thread->replyCount() )
-			->parse();
+			->parse() );
 		$linkTitle = clone $thread->topmostThread()->title();
 		$linkTitle->setFragment( '#' . $thread->getAnchorName() );
 
-		$link = Linker::link( $linkTitle, $linkText,
-			array( 'class' => 'lqt-show-replies' ) );
+		$link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
+			$linkTitle,
+			$linkText,
+			array(
+				'class' => 'lqt-show-replies',
+			)
+		);
 		$link = Xml::tags( 'div', array( 'class' => 'lqt-thread-replies' ), $link );
 
 		return $link;
@@ -2299,7 +2325,7 @@ class LqtView {
 
 		$label = wfMessage( 'lqt_summary_label' )->parse();
 		$edit_text = wfMessage( 'edit' )->parse();
-		$link_text = wfMessage( 'lqt_permalink' )->parse();
+		$link_text = new HtmlArmor( wfMessage( 'lqt_permalink' )->parse() );
 
 		$html = '';
 
@@ -2309,8 +2335,14 @@ class LqtView {
 			$label
 		);
 
-		$link = Linker::link( $t->summary()->getTitle(), $link_text,
-				array( 'class' => 'lqt-summary-link' ) );
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+		$link = $linkRenderer->makeLink(
+			$t->summary()->getTitle(),
+			$link_text,
+			array(
+				'class' => 'lqt-summary-link',
+			)
+		);
 		$link .= Html::hidden( 'summary-title', $t->summary()->getTitle()->getPrefixedText() );
 		$edit_link = self::permalink( $t, $edit_text, 'summarize', $t->id() );
 		$links = "[$link]\n[$edit_link]";

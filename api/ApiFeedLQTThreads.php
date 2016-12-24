@@ -21,6 +21,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	require_once ( "ApiBase.php" );
 }
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * This action returns LiquidThreads threads/posts in RSS/Atom formats.
  *
@@ -83,15 +85,16 @@ class ApiFeedLQTThreads extends ApiBase {
 		$titleUrl = $threadTitle->getFullURL();
 		$timestamp = $thread->created();
 		$user = $thread->author()->getName();
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
 
 		// Prefix content with a quick description
 		$userLink = Linker::userLink( $thread->author()->getId(), $user );
-		$talkpageLink = Linker::link( $thread->getTitle() );
+		$talkpageLink = $linkRenderer->makeLink( $thread->getTitle() );
 		if ( $thread->hasSuperThread() ) {
 			$stTitle = clone $thread->topmostThread()->title();
 			$stTitle->setFragment( '#' . $thread->superthread()->getAnchorName() );
-			$superthreadLink = Linker::link( $stTitle );
+			$superthreadLink = $linkRenderer->makeLink( $stTitle );
 			$description = wfMessage( 'lqt-feed-reply-intro' )
 				->rawParams( $talkpageLink, $userLink, $superthreadLink )
 				->params( $user )

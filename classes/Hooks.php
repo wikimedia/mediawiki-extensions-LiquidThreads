@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class LqtHooks {
 	// Used to inform hooks about edits that are taking place.
 	public static $editType = null;
@@ -47,8 +49,7 @@ class LqtHooks {
 		// Custom display for new posts.
 		if ( $rc->mAttribs['rc_new'] ) {
 			// Article link, timestamp, user
-			$s = '';
-			$s .= Linker::link( $thread->getTitle() );
+			$s = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink( $thread->getTitle() );
 			$changeslist->insertTimestamp( $s, $rc );
 			$changeslist->insertUserRelatedLinks( $s, $rc );
 
@@ -135,7 +136,9 @@ class LqtHooks {
 		$messages_title = SpecialPage::getTitleFor( 'NewMessages' );
 		$new_messages = wfMessage( 'lqt-new-messages' )->parse();
 
-		$link = Linker::link( $messages_title, $new_messages,
+		$link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
+			$messages_title,
+			new HtmlArmor( $new_messages ),
 			array( 'class' => 'lqt_watchlist_messages_notice' ) );
 		$wgOut->addHTML( $link );
 

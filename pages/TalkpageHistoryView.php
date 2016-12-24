@@ -3,7 +3,7 @@
 class TalkpageHistoryView extends TalkpageView {
 	function show() {
 		$talkpageTitle = $this->article->getTitle();
-		$talkpageLink = Linker::link( $talkpageTitle );
+		$talkpageLink = $this->linkRenderer->makeLink( $talkpageTitle );
 
 		$this->output->setPageTitle( wfMessage( 'lqt-talkpage-history-title' ) );
 		$this->output->setSubtitle( wfMessage( 'lqt-talkpage-history-subtitle' )
@@ -83,12 +83,11 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 					$title
 				);
 
-				$link = Linker::link(
+				$link = $this->linkRenderer->makeKnownLink(
 					$title,
-					htmlspecialchars( $value ),
+					$value,
 					array(),
-					array(),
-					array( 'known' )
+					array()
 				);
 
 				return Html::rawElement( 'div', array( 'dir' => $wgContLang->getDir() ), $link );
@@ -99,7 +98,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 					$title
 				);
 
-				return Linker::link(
+				return $this->linkRenderer->makeLink(
 					$title,
 					$formatted,
 					array(),

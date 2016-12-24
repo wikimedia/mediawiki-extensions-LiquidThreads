@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class TalkpageView extends LqtView {
 	const LQT_NEWEST_CHANGES = 'nc';
 	const LQT_NEWEST_THREADS = 'nt';
@@ -8,10 +10,16 @@ class TalkpageView extends LqtView {
 	protected $mShowItems = array( 'toc', 'options', 'header' );
 	protected $talkpage;
 
+	/**
+	 * @var \MediaWiki\Linker\LinkRenderer
+	 */
+	protected $linkRenderer;
+
 	function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		parent::__construct( $output, $article, $title, $user, $request );
 
 		$this->talkpage = $article;
+		$this->linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 	}
 
 	function setTalkPage( $tp ) {
@@ -53,24 +61,24 @@ class TalkpageView extends LqtView {
 
 			$actionLinks = array();
 			$msgKey =  $article->getTitle()->quickUserCan( 'edit' ) ? 'edit' : 'viewsource';
-			$actionLinks[] = Linker::link(
+			$actionLinks[] = $this->linkRenderer->makeLink(
 				$article->getTitle(),
-				wfMessage( $msgKey )->parse() . "↑",
+				new HtmlArmor( wfMessage( $msgKey )->parse() . "↑" ),
 				array(),
 				array( 'action' => 'edit' )
 			);
 
-			$actionLinks[] = Linker::link(
+			$actionLinks[] = $this->linkRenderer->makeLink(
 				$this->title,
-				wfMessage( 'history_short' )->parse() . "↑",
+				new HtmlArmor( wfMessage( 'history_short' )->parse() . "↑" ),
 				array(),
 				array( 'action' => 'history' )
 			);
 
 			if ( $wgUser->isAllowed( 'delete' ) ) {
-				$actionLinks[] = Linker::link(
+				$actionLinks[] = $this->linkRenderer->makeLink(
 					$article->getTitle(),
-					wfMessage( 'delete' )->parse() . '↑',
+					new HtmlArmor( wfMessage( 'delete' )->parse() . '↑' ),
 					array(),
 					array( 'action' => 'delete' )
 				);
@@ -88,9 +96,9 @@ class TalkpageView extends LqtView {
 			$this->output->addHTML( $html );
 		} elseif ( $article->getTitle()->quickUserCan( 'edit' ) ) {
 
-			$editLink = Linker::link(
+			$editLink = $this->linkRenderer->makeLink(
 				$this->talkpage->getTitle(),
-				wfMessage( 'lqt_add_header' )->parse(),
+				new HtmlArmor( wfMessage( 'lqt_add_header' )->parse() ),
 				array(),
 				array( 'action' => 'edit' )
 			);
@@ -276,12 +284,11 @@ class TalkpageView extends LqtView {
 		$talkpageHeader = '';
 
 		if ( Thread::canUserPost( $this->user, $this->talkpage, 'quick' ) ) {
-			$newThreadText = wfMessage( 'lqt_new_thread' )->parse();
-			$newThreadLink = Linker::link(
+			$newThreadText = new HtmlArmor( wfMessage( 'lqt_new_thread' )->parse() );
+			$newThreadLink = $this->linkRenderer->makeKnownLink(
 				$this->title, $newThreadText,
 				array( 'lqt_talkpage' => $this->talkpage->getTitle()->getPrefixedText() ),
-				array( 'lqt_method' => 'talkpage_new_thread' ),
-				array( 'known' )
+				array( 'lqt_method' => 'talkpage_new_thread' )
 			);
 
 			$newThreadLink = Xml::tags(
