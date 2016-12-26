@@ -289,5 +289,19 @@
 	"apihelp-threadaction-param-value": "מגדיר את הערך שמשויך לתגובה שתתווסף.",
 	"apihelp-threadaction-param-method": "לקבלת טופסי עריכה פנימיים, באיזו שיטה לקבל את הטופס.",
 	"apihelp-threadaction-param-captchaword": "התגובה ל־CAPTCHA.",
-	"apihelp-threadaction-param-captchaid": "מזהה CAPTCHA מבקשה קודמת."
+	"apihelp-threadaction-param-captchaid": "מזהה CAPTCHA מבקשה קודמת.",
+	"apierror-liquidthreads-alreadytop": "השרשור הזה הוא כבר שרשור ברמה עליונה.",
+	"apierror-liquidthreads-badparent": "השרשור ההורה שציינת הוא לא כותרת השרשור ולא מזהה שרשור.",
+	"apierror-liquidthreads-badreaction": "חובה לציין סוג וערך לתגובה.",
+	"apierror-liquidthreads-badsortkey": "חובה לציין חותם זמן תקין לפרמטר <var>sortkey</var>. הוא חייב להיות בתסדיר YYYYMMddhhmmss, תסדיר יוניקס או <kbd>now</kbd>.",
+	"apierror-liquidthreads-badsubject": "הנושא שנתת אינו תקין.",
+	"apierror-liquidthreads-invalidtalkpage": "דך השיחה שנתת אינו תקין, או שלא מופעלים בו שרשורים.",
+	"apierror-liquidthreads-noparent": "חובה לתת הורה חדש למיזוג.",
+	"apierror-liquidthreads-noreplies-talkpage": "לא ניתן להשיב לשרשור הזה, כי דף השיחה מוגן מפני תגובות.",
+	"apierror-liquidthreads-noreplies-thread": "לא ניתן להשיב לשרשור הזה, כי השרשור מוגן מפני תגובות.",
+	"apierror-liquidthreads-nosubject": "לא ניתן נושא, או שניתן נושא בלתי־תקין.",
+	"apierror-liquidthreads-notext": "חובה לכלול טקסט ברשומה שלך.",
+	"apierror-liquidthreads-onlyone": "אפשר לפעול רק על שרשור אחד בכל זמן.",
+	"apierror-liquidthreads-talkpageprotected": "לא ניתן לשלוח לדף השיחה שצוין, כי הוא מוגן מפני רשומות חדשות.",
+	"apierror-liquidthreads-threadneeded": "חובה לתת שרשור שעליו זה יעבוד."
 }
