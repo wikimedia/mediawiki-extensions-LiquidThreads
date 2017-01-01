@@ -10,7 +10,8 @@
 			"Kumkumuk",
 			"Gırd",
 			"Asmen",
-			"1917 Ekim Devrimi"
+			"1917 Ekim Devrimi",
+			"Dılmıc"
 		]
 	},
 	"lqt-desc": "werêameyişê ke gırediyayê pelê mesajan, têarê keno",
@@ -80,7 +81,7 @@
 	"lqt_thread_deleted": "no gıre hewna biyo",
 	"lqt_summary_notice": "no werêameyiş de tewr tay $2 {{PLURAL:$2|roc o|roc o}} çıyek o newe nêbı.\neke safi biyo, şıma eşkêni $1 bıwazi.",
 	"lqt_summary_notice_link": "yew xulasa nuştış",
-	"lqt_summary_label": "Xulasay mewzuyer:",
+	"lqt_summary_label": "Xulasay mewzuy:",
 	"lqt_summary_subtitle": "qey \"$1\"i xulasa",
 	"lqt_nosuchrevision": "wina yew revizyonê gıreyi çino.",
 	"lqt_nosuchthread": "gıreyo ke şıma nişan kerdo çino",
@@ -226,7 +227,7 @@
 	"lqt_newmessages-title": "Mesacê newey",
 	"lqt-newpost-summary": "gıreyo newe: $1",
 	"lqt-reply-summary": "Cıwabê  [[$2|$1]]'i",
-	"lqt-talkpage-history-title": "Vêrdeyê pela werênayışi",
+	"lqt-talkpage-history-title": "Ravêrdey perra werênayışi",
 	"lqt-talkpage-history-subtitle": "seba $1",
 	"lqt-talkpage-history-tab": "Seror",
 	"restriction-reply": "Cewab bırışe",
