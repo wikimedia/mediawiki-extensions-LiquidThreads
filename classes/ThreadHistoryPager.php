@@ -10,6 +10,7 @@ class ThreadHistoryPager extends TablePager {
 
 		$this->thread = $thread;
 		$this->view = $view;
+		$this->linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
 		self::$change_names =
 		array(
@@ -70,7 +71,7 @@ class ThreadHistoryPager extends TablePager {
 		switch( $name ) {
 			case 'th_timestamp':
 				$formatted = $wgLang->timeanddate( $value, true );
-				return MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
+				return $this->linkRenderer->makeLink(
 					$wgTitle,
 					$formatted,
 					array(),
