@@ -25,7 +25,8 @@
 			"Ryo567",
 			"Macofe",
 			"Matiia",
-			"Indiralena"
+			"Indiralena",
+			"Dgstranz"
 		]
 	},
 	"lqt-desc": "Agregar discusiones en hilos a páginas de discusión",
@@ -287,5 +288,12 @@
 	"apihelp-threadaction-param-type": "Especifica el tipo de reacción que agregar.",
 	"apihelp-threadaction-param-value": "Especifica el valor asociado con la reacción que agregar.",
 	"apihelp-threadaction-param-captchaword": "Respuesta al CAPTCHA.",
-	"apierror-liquidthreads-badsubject": "El asunto que especificaste no es válido."
+	"apierror-liquidthreads-alreadytop": "Este hilo ya es de nivel superior.",
+	"apierror-liquidthreads-badparent": "El hilo padre que has especificado no es ni el título ni el identificador de un hilo.",
+	"apierror-liquidthreads-badreaction": "Debes especificar tanto un tipo como un valor para la reacción.",
+	"apierror-liquidthreads-badsubject": "El asunto que especificaste no es válido.",
+	"apierror-liquidthreads-noreplies-talkpage": "No puedes responder a este hilo, ya que la página de discusión está protegido contra respuestas.",
+	"apierror-liquidthreads-nosubject": "No se especificó ningún asunto, o bien se especificó un asunto no válido.",
+	"apierror-liquidthreads-onlyone": "Solo puedes operar en un hilo cada vez.",
+	"apierror-liquidthreads-threadneeded": "Debes especificar un hilo en el que operar."
 }
