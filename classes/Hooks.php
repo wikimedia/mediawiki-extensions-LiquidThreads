@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use UtfNormal\Validator;
 
 class LqtHooks {
 	// Used to inform hooks about edits that are taking place.
@@ -229,7 +230,7 @@ class LqtHooks {
 			$threadInfo .= "\t" . Xml::element( $key, null, $value ) . "\n";
 		}
 
-		$out .= UtfNormal::cleanUp( Xml::tags( 'DiscussionThreading', null, $threadInfo ) . "\n" );
+		$out .= Validator::cleanUp( Xml::tags( 'DiscussionThreading', null, $threadInfo ) . "\n" );
 
 		return true;
 	}
