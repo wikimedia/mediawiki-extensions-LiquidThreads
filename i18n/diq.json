@@ -11,7 +11,8 @@
 			"Gırd",
 			"Asmen",
 			"1917 Ekim Devrimi",
-			"Dılmıc"
+			"Dılmıc",
+			"Gambollar"
 		]
 	},
 	"lqt-desc": "werêameyişê ke gırediyayê pelê mesajan, têarê keno",
@@ -192,7 +193,7 @@
 	"lqt-thread-link-title": "gıreyê wikimetn",
 	"lqt-thread-link-copy": "pano re kopya ker",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nİnzay şıma otomatikmen asena.",
-	"lqt-marked-as-read-placeholder": "Ratena mesacanê $1'i waniyaye nışan biya biya.",
+	"lqt-marked-as-read-placeholder": "Ratena mesacanê $1'i waniyaye nışan biya.",
 	"lqt-change-subject": "Mewzuyi bıvurne",
 	"lqt-save-subject": "Qeyd ke",
 	"lqt-save-subject-failed": "Eno ğelet teşebbusê vurnayışê destêkia mewzuy de ame meydan: $1",
