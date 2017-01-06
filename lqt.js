@@ -1580,7 +1580,7 @@ window.liquidThreads = {
 	}
 };
 
-$( document ).ready( function () {
+$( function () {
 	// One-time setup for the full page
 
 	// Update the new thread link

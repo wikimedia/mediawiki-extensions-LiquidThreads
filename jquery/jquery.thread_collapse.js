@@ -107,7 +107,7 @@
 		}
 	};
 	// FIXME - this should be moved out of here
-	$( document ).ready( function () {
+	$( function () {
 		$( '.lqt-thread-topmost' ).thread_collapse();
 	} ); // document ready
 }( jQuery ) );
