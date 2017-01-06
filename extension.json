@@ -9,6 +9,9 @@
 	"descriptionmsg": "lqt-desc",
 	"type": "other",
 	"license-name": "GPL-2.0+",
+	"requires": {
+		"MediaWiki": ">= 1.25.0"
+	},
 	"namespaces": [
 		{
 			"id": 90,
