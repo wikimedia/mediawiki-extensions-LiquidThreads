@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Malafaya"
+			"Malafaya",
+			"Robin van der Vliet"
 		]
 	},
 	"lqt_undelete": "Rekuperar",
@@ -14,7 +15,7 @@
 	"lqt-no-new-messages": "Ne existas nova messaji por vu.",
 	"lqt-new-messages": "Existas nova mesaji por vu",
 	"lqt-history-time": "Tempo",
-	"lqt-history-user": "Uzanto",
+	"lqt-history-user": "Uzero",
 	"lqt-history-comment": "Komento",
 	"lqt-newmessages-from": "De $1",
 	"lqt-save-subject": "Registragar",
