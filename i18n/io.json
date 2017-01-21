@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Malafaya",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Lakaoso"
 		]
 	},
 	"lqt_undelete": "Rekuperar",
@@ -22,7 +23,7 @@
 	"lqt-drag-save": "Konfirmar",
 	"lqt-drag-reason": "Motivo:",
 	"lqt-newmessages-n": "Nova mesaji ($1)",
-	"lqt_newmessages": "Nova mesaji",
+	"lqt_newmessages": "Nova mesaji (nula)",
 	"lqt_newmessages-title": "Nova mesaji",
 	"lqt-talkpage-history-subtitle": "Por $1"
 }
