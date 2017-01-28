@@ -63,7 +63,7 @@ class Threads {
 		if ( !$talkpage->exists() ) {
 			try {
 
-				$talkpage->doEditContent(
+				$talkpage->getPage()->doEditContent(
 					ContentHandler::makeContent( "", $talkpage->getTitle() ),
 					wfMessage( 'lqt_talkpage_autocreate_summary' )->inContentLanguage()->text(),
 					EDIT_NEW | EDIT_SUPPRESS_RC

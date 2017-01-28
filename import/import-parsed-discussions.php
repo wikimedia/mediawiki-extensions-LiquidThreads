@@ -79,7 +79,7 @@ function createPost( $info, $subject, $super = null ) {
 
 	$root = new Article( $title, 0 );
 
-	$root->doEditContent(
+	$root->getPage()->doEditContent(
 		ContentHandler::makeContent( $info['content'], $title ),
 		'Imported from JSON',
 		EDIT_NEW,
