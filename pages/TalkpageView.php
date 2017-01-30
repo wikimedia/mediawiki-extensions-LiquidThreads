@@ -439,7 +439,7 @@ class LqtDiscussionPager extends IndexPager {
 
 		parent::__construct();
 
-		$this->mLimit = $this->getPageLimit();
+		$this->setLimit( $this->getPageLimit() );
 	}
 
 	function getPageLimit() {
