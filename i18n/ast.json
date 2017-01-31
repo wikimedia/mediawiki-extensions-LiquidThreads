@@ -285,5 +285,8 @@
 	"apihelp-threadaction-param-value": "Especifica'l valor asociáu cola reacción a amestar.",
 	"apihelp-threadaction-param-method": "P'algamar formularios d'edición en llinia, el métodu pa llograr el formulariu.",
 	"apihelp-threadaction-param-captchaword": "Respuesta al CAPTCHA.",
-	"apihelp-threadaction-param-captchaid": "ID del CAPTCHA de la consulta anterior."
+	"apihelp-threadaction-param-captchaid": "ID del CAPTCHA de la consulta anterior.",
+	"apierror-liquidthreads-alreadytop": "Esti filu yá ye de nivel cimeru.",
+	"apierror-liquidthreads-badparent": "El filo padre qu'especificasti nun ye nin el títulu nin l'identificador d'un filu.",
+	"apierror-liquidthreads-badreaction": "Tienes d'especificar tanto un tipu como un valor pa la reacción."
 }
