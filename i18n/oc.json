@@ -74,7 +74,7 @@
 	"lqt_nosuchthread_title": "Lo fial es introbable",
 	"lqt_threadrequired": "Vos cal indicar un fial dins l'URL.",
 	"lqt_move_movingthread": "$1 en deplaçament. Aqueste fial fa partida de $2.",
-	"lqt_move_torename": "Per tornar nomenar aqueste fial, $1 e modificar lo camp ''Subjècte''.",
+	"lqt_move_torename": "Per renomenar aqueste fial, $1 e modificar lo camp ''Subjècte''.",
 	"lqt_move_torename_edit": "lo modificar",
 	"lqt_move_destinationtitle": "Títol de la pagina de discussion finala :",
 	"lqt_move_move": "Desplaçar",
