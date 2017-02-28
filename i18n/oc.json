@@ -170,6 +170,7 @@
 	"lqt-thread-link-url": "URL del ligam :",
 	"lqt-thread-link-title": "Ligam wikitèxte :",
 	"lqt-thread-link-copy": "Copiar dins lo quichapapièrs",
+	"lqt-marked-as-read-placeholder": "Lo fial $1 es estat marcat coma legit.",
 	"lqt-drag-activate": "Desplaçar cap a la novèla posicion",
 	"lqt-feed-title-all": "{{SITENAME}} - Messatges novèls",
 	"lqt-feed-title-all-from": "{{SITENAME}} - Messatges novèls de $1",
