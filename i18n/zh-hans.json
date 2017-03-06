@@ -18,7 +18,8 @@
 			"Duolaimi",
 			"Jason924tw",
 			"LNDDYL",
-			"Chiefwei"
+			"Chiefwei",
+			"Wmr"
 		]
 	},
 	"lqt-desc": "在讨论页增加话题讨论功能",
@@ -138,7 +139,7 @@
 	"lqt-history-thread": "话题",
 	"lqt-thread-edited-author": "已由{{GENDER:$5|作者}}于$1编辑。",
 	"lqt-thread-edited-others": "由{{PLURAL:$2|一|$2}}名其他用户于$1编辑",
-	"lqt-header-actions": "动作",
+	"lqt-header-actions": "操作",
 	"lqt_summarize_link": "摘要",
 	"lqt-summarize-intro": "请在此编辑框中摘要概述下列话题。您可以在您的摘要中使用wiki文本。完成后，请点击“{{int:savearticle}}”。",
 	"lqt-thread-split": "分割为新话题",
