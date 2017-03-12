@@ -215,7 +215,7 @@
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Odgovori suradnika $1",
 	"lqt-feed-new-thread-intro": "Suradnik $2 započeo je nova tema o $1",
 	"lqt-feed-reply-intro": "Odgovor $3 (na $1) napisao je suradnik $2",
-	"tooltip-pt-newmessages": "Pokazuje nove postove na teme ili na stranicama za razgovor koje pratite",
+	"tooltip-pt-newmessages": "Pokazuje nove poruke u temama ili na stranicama za razgovor koje pratite",
 	"lqt-newmessages-n": "Nove poruke ($1)",
 	"lqt_newmessages": "Moje nove poruke (nema)",
 	"lqt_newmessages-title": "Nove poruke",
