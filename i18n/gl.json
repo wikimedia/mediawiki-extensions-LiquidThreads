@@ -150,6 +150,7 @@
 	"right-lqt-split": "Separar fíos",
 	"right-lqt-merge": "Fusionar fíos",
 	"right-lqt-react": "Responder aos fíos",
+	"action-lqt-react": "responder ós fíos",
 	"lqt-thread-merge": "Fusionar noutro fío",
 	"lqt-thread-merge-to": "Fusionar neste fío",
 	"lqt_merge_thread": "Fusionar o fío",
@@ -288,5 +289,18 @@
 	"apihelp-threadaction-param-value": "Especifica o valor asociado ca reacción a engadir.",
 	"apihelp-threadaction-param-method": "Para obter formularios de edición en liña, o método para obter o formulario.",
 	"apihelp-threadaction-param-captchaword": "Resposta ó CAPTCHA.",
-	"apihelp-threadaction-param-captchaid": "Identificador de CAPTCHA da consulta anterior."
+	"apihelp-threadaction-param-captchaid": "Identificador de CAPTCHA da consulta anterior.",
+	"apierror-liquidthreads-alreadytop": "Este fío xa é de nivel superior.",
+	"apierror-liquidthreads-badparent": "O fío pai que especificou non é nin o título nin o identificador dun fío.",
+	"apierror-liquidthreads-badreaction": "Debe especificar tanto un tipo como un valor para a reacción.",
+	"apierror-liquidthreads-badsortkey": "Debe especificar un selo de tempo válido para o parámetro <var>sortkey</var>. Debe estar na forma YYYYMMddhhmmss, un selo de tempo Unix ou <kbd>now</kbd>.",
+	"apierror-liquidthreads-badsubject": "O asunto que especificou non é válido.",
+	"apierror-liquidthreads-invalidtalkpage": "A páxina de conversa que especificou non é válida, ou non ten as conversas activadas.",
+	"apierror-liquidthreads-noreplies-talkpage": "Non pode responder a este fío, xa que a páxina de conversa está protexida contra respostas.",
+	"apierror-liquidthreads-noreplies-thread": "Non pode responder a este fío, porque o fío está protexido contra respostas.",
+	"apierror-liquidthreads-nosubject": "Non se indicou ningún asunto, ou ben especificouse un asunto non válido.",
+	"apierror-liquidthreads-notext": "Debe incluír algún texto na súa mensaxe.",
+	"apierror-liquidthreads-onlyone": "Só pode operar nun fío cada vez.",
+	"apierror-liquidthreads-talkpageprotected": "Non pode enviar mensaxes á páxina de conversa especificada, porque está protexida contra novas mensaxes.",
+	"apierror-liquidthreads-threadneeded": "Debe especificar un fío no que operar."
 }
