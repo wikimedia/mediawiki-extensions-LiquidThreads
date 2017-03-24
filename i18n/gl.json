@@ -296,6 +296,7 @@
 	"apierror-liquidthreads-badsortkey": "Debe especificar un selo de tempo válido para o parámetro <var>sortkey</var>. Debe estar na forma YYYYMMddhhmmss, un selo de tempo Unix ou <kbd>now</kbd>.",
 	"apierror-liquidthreads-badsubject": "O asunto que especificou non é válido.",
 	"apierror-liquidthreads-invalidtalkpage": "A páxina de conversa que especificou non é válida, ou non ten as conversas activadas.",
+	"apierror-liquidthreads-noparent": "Debe especificar un novo fío pai co que facer a fusión.",
 	"apierror-liquidthreads-noreplies-talkpage": "Non pode responder a este fío, xa que a páxina de conversa está protexida contra respostas.",
 	"apierror-liquidthreads-noreplies-thread": "Non pode responder a este fío, porque o fío está protexido contra respostas.",
 	"apierror-liquidthreads-nosubject": "Non se indicou ningún asunto, ou ben especificouse un asunto non válido.",
