@@ -482,13 +482,13 @@ window.liquidThreads = {
 					description = reply.error.info;
 
 					if ( code === 'invalid-subject' ) {
-						alert( mediaWiki.msg( 'lqt-ajax-invalid-subject' ) );
+						alert( mw.msg( 'lqt-ajax-invalid-subject' ) );
 					}
 
 					subjectForm.show();
 					spinner.remove();
 				} catch ( err ) {
-					alert( mediaWiki.msg( 'lqt-save-subject-error-unknown' ) );
+					alert( mw.msg( 'lqt-save-subject-error-unknown' ) );
 					subjectForm.remove();
 					spinner.remove();
 					header.contents().filter( '.mw-headline' ).show();
