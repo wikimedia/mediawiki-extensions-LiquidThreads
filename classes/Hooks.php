@@ -307,9 +307,10 @@ class LqtHooks {
 	}
 
 	/**
+	 * Handle EditPageGetCheckboxesDefinition hook
+	 *
 	 * @param $editPage EditPage
 	 * @param $checkboxes
-	 * @param $tabIndex
 	 * @return bool
 	 */
 	static function editCheckboxes( $editPage, &$checkboxes, &$tabIndex ) {
@@ -326,21 +327,13 @@ class LqtHooks {
 		if ( $title->getNamespace() == NS_LQT_THREAD && self::$editType != 'new' &&
 			$wgLiquidThreadsShowBumpCheckbox )
 		{
-			$label = wfMessage( 'lqt-edit-bump' )->parse();
-			$tooltip = wfMessage( 'lqt-edit-bump-tooltip' )->text();
-
-			$checked = ! $wgRequest->wasPosted() ||
-					$wgRequest->getBool( 'wpBumpThread' );
-
-			$html =
-				Xml::check( 'wpBumpThread', $checked, array(
-						'title' => $tooltip, 'id' => 'wpBumpThread'
-					) );
-
-			$html .= Xml::tags( 'label', array( 'for' => 'wpBumpThread',
-					'title' => $tooltip ), $label );
-
-			$checkboxes['bump'] = $html;
+			$checkboxes['wpBumpThread'] = [
+				'id' => 'wpBumpThread',
+				'label-message' => 'lqt-edit-bump',
+				'title-message' => 'lqt-edit-bump-tooltip',
+				'legacy-name' => 'bump',
+				'default' => !$wgRequest->wasPosted() || $wgRequest->getBool( 'wpBumpThread' ),
+			];
 		}
 
 		return true;

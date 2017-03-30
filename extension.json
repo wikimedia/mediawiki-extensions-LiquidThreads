@@ -297,7 +297,7 @@
 		"UserMergeAccountFields": [
 			"LqtHooks::onUserMergeAccountFields"
 		],
-		"EditPageBeforeEditChecks": [
+		"EditPageGetCheckboxesDefinition": [
 			"LqtHooks::editCheckBoxes"
 		],
 		"PageContentSaveComplete": [
