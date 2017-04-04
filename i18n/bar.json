@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mucalexx"
+			"Mucalexx",
+			"Joe Watzmo"
 		]
 	},
 	"lqt-desc": "Daméglicht Thémen auf Dischkrierseiten",
@@ -62,7 +63,7 @@
 	"lqt_sort_oldest_threads": "öderste Thémen zerst",
 	"lqt-title": "Titel",
 	"lqt-summary": "Inhoidsågob",
-	"lqt-searching": "Suach noch Thémen",
+	"lqt-searching": "Suach noch Thema",
 	"lqt-read-message": "Ois gleesen markirn",
 	"lqt-read-message-tooltip": "Entfern dés Théma aus d' neichen Noochrichten.\n's werd weiderhih auf da ursprynglichen Dischkrirseiten z' seeng seih.",
 	"lqt-read-all": "Olle ois gleesen markirn",
