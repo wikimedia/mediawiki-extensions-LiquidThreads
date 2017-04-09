@@ -83,7 +83,7 @@
 	"lqt_threadrequired": "URLde bir ileti dizisi belirtmelisiniz.",
 	"lqt_move_movingthread": "$1 taşınıyor.\nBu ileti dizisi $2'nin parçası.",
 	"lqt_move_torename": "Bu ileti dizisini yeniden adlandırmak için, 'Konu' alanını düzenleyerek sayfayı $1.",
-	"lqt_move_torename_edit": "değiştirin",
+	"lqt_move_torename_edit": "düzenleyin",
 	"lqt_move_destinationtitle": "Hedef tartışma sayfası başlığı:",
 	"lqt_move_move": "Taşı",
 	"lqt_move_nodestination": "Bir hedef belirtmelisiniz.",
