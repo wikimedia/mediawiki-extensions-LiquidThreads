@@ -97,7 +97,7 @@
 	"lqt-enotif-subject-reply": "{{SITENAME}} pagtungtungan - Sungbat: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} pagtungtungan - Baro nga sungbat: $1",
 	"lqt-search-legend": "Birokem ti pagtutungtongan ditoy nga panid",
-	"lqt-search-button": "Biroken",
+	"lqt-search-button": "Agbiruk",
 	"searchprofile-threads": "Pagtutungtongan",
 	"searchprofile-threads-tooltip": "Birokem dagiti napanaitan nga patungtungan ken dagiti kapatangan nga panid",
 	"lqt-ajax-update-link": "Pabaro",
