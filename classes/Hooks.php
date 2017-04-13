@@ -313,7 +313,7 @@ class LqtHooks {
 	 * @param $checkboxes
 	 * @return bool
 	 */
-	static function editCheckboxes( $editPage, &$checkboxes, &$tabIndex ) {
+	public static function editCheckboxes( $editPage, &$checkboxes ) {
 		global $wgRequest, $wgLiquidThreadsShowBumpCheckbox;
 
 		$article = $editPage->getArticle();
