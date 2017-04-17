@@ -94,7 +94,7 @@ body.rtl .wikiEditor-toolbar-dialog .ui-dialog-titlebar-close {
 	right: auto;
 }
 body.rtl .wikiEditor-toolbar-dialog .ui-dialog-title {
-	float:right;
+	float: right;
 }
 body.rtl #wikieditor-toolbar-link-int-target-status {
 	float: left;
@@ -133,14 +133,14 @@ body.rtl #wikieditor-toolbar-reference-dialog label {
 }
 .wikiEditor-template-dialog-fields .wikiEditor-template-dialog-field-wrapper {
 	padding: 0.75em 0.33em;
-	border-bottom: 1px dashed silver;
+	border-bottom: 1px dashed #c0c0c0;
 	clear: both;
 }
 .wikiEditor-template-dialog-fields .wikiEditor-template-dialog-field-wrapper:first-child {
 	padding-top: 0;
 }
 .wikiEditor-template-dialog-fields .wikiEditor-template-dialog-field-wrapper:last-child {
-	border-bottom: none;
+	border-bottom: 0;
 }
 /* Self Clearing Floats */
 .wikieditor-toolbar-table-dimension-fields:after,
@@ -148,7 +148,7 @@ body.rtl #wikieditor-toolbar-reference-dialog label {
 	visibility: hidden;
 	display: block;
 	font-size: 0;
-	content: " ";
+	content: ' ';
 	clear: both;
 	height: 0;
 }
@@ -167,7 +167,7 @@ body.rtl #wikieditor-toolbar-reference-dialog label {
 }
 /* End hide from IE-mac */
 .wikiEditor-toolbar-dialog .ui-dialog-buttonpane {
-	border-top: 1px solid #cccccc !important;
+	border-top: 1px solid #ccc !important;
 }
 .wikiEditor-toolbar-dialog .ui-dialog-content {
 	padding-bottom: 1em !important;
