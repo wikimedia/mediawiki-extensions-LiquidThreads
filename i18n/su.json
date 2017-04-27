@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Irwangatot",
-			"Kandar"
+			"Kandar",
+			"Uchup19"
 		]
 	},
 	"lqt_contents_title": "Eusi",
@@ -13,5 +14,6 @@
 	"lqt_move_move": "Pindah",
 	"lqt_move_noreason": "Henteu di béré alesan.",
 	"lqt_header_warning_big": "Anjeun keur ngédit $1",
+	"lqt-cancel-subject-edit": "Bolay",
 	"lqt_newmessages": "Talatah anyar (teu aya)"
 }
