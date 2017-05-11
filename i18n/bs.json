@@ -189,7 +189,7 @@
 	"lqt-ajax-invalid-subject": "Tema koju ste unijeli je nevaljana, možda zato što je predugačka.",
 	"lqt-ajax-no-subject": "Morate navesti temu za novi niz.",
 	"lqt-save-subject-error-unknown": "Desila se nepoznata greška pri pokušaja postavljanja teme ovog niza. Molimo pokušajte ovo učiniti klikanjem na ''uredi'' na vrhu poruke.",
-	"lqt-cancel-subject-edit": "Odustani",
+	"lqt-cancel-subject-edit": "Otkaži",
 	"lqt-drag-activate": "Prenesi na novo mjesto",
 	"lqt-drag-drop-zone": "Ubaci ovdje",
 	"lqt-drag-confirm": "Da biste dovršili slijedeće akcije, molimo popunite razlog i kliknite \"Potvrdi\".",
