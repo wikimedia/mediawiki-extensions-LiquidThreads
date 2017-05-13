@@ -131,7 +131,7 @@
 	"lqt_summarize_link": "Samenvatten",
 	"lqt-summarize-intro": "Vat het onderwerp hieronder samen.\nU mag wikitekst gebruiken in uw samenvatting.\nKlik op \"{{int:savearticle}}\" als u klaar bent.",
 	"lqt-thread-split": "Naar nieuw onderwerp afsplitsen",
-	"lqt-split-success": "U hebt het nieuwe onderwerp $1 aangemaakt.",
+	"lqt-split-success": "U hebt het onderwerp $1 opgesplitst.",
 	"lqt_split_thread": "Onderwerp opsplitsen",
 	"lqt-thread-split-subject": "Kop nieuwe onderwerp:",
 	"lqt-thread-split-thread": "Overleg:",
