@@ -10,7 +10,6 @@ module.exports = function ( grunt ) {
 		eslint: {
 			all: [
 				'**/*.js',
-				'!jquery/jquery.autogrow.js',
 				'!node_modules/**'
 			]
 		},

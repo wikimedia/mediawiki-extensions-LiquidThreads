@@ -3,8 +3,6 @@
  *
  * Exposes global object `liquidThreads`.
  * Exposes static method `jQuery.getCSS`.
- *
- * FIXME: This module uses deprecated jQuery.browser.
  */
 
 /* global liquidThreads */
@@ -170,7 +168,7 @@
 
 				$( 'html, body' ).animate( { scrollTop: scrollOffset }, 'slow' );
 				// Auto-focus and set to auto-grow as well
-				$container.find( '#wpTextbox1' ).focus();// .autogrow();
+				$container.find( '#wpTextbox1' ).focus();
 				// Focus the subject field if there is one. Overrides previous line.
 				$container.find( '#lqt_subject_field' ).focus();
 

@@ -143,8 +143,7 @@
 			],
 			"scripts": [
 				"lqt.js",
-				"jquery/jquery.thread_collapse.js",
-				"jquery/jquery.autogrow.js"
+				"jquery/jquery.thread_collapse.js"
 			],
 			"dependencies": [
 				"jquery.ui.dialog",
