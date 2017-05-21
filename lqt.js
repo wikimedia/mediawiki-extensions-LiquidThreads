@@ -199,17 +199,7 @@ window.liquidThreads = {
 			$( container ).find( '#wpTextbox1' ).attr( 'rows', 12 );
 			$( container ).find( '#wpDiff' ).hide();
 
-			if ( $.fn.wikiEditor && $.wikiEditor.isSupported( $.wikiEditor.modules.toolbar ) ) {
-				// Add wikiEditor toolbar
-				$( '#wpTextbox1' ).wikiEditor( 'addModule', $.wikiEditor.modules.toolbar.config.getDefaultConfig() );
-
-				// Add wikiEditor dialogs
-				if ( mw.user.options.get( 'usebetatoolbar-cgd' ) && $.wikiEditor.isSupported( $.wikiEditor.modules.dialogs ) ) {
-					$( '#wpTextbox1' ).addClass( 'toolbar-dialogs' );
-					$.wikiEditor.modules.dialogs.config.replaceIcons( $( '#wpTextbox1' ) );
-					$( '#wpTextbox1' ).wikiEditor( 'addModule', $.wikiEditor.modules.dialogs.config.getDefaultConfig() );
-				}
-
+			if ( $.fn.wikiEditor ) {
 				// cleanup unnecessary things from the old toolbar
 				$( '#editpage-specialchars' ).remove();
 				$( '#wpTextbox1' ).wikiEditor( 'removeFromToolbar', {
