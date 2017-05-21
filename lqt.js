@@ -206,7 +206,13 @@
 				$container.find( '#wpTextbox1' ).attr( 'rows', 12 );
 				$container.find( '#wpDiff' ).hide();
 
-				if ( $.fn.wikiEditor ) {
+				if ( $.fn.wikiEditor && $.wikiEditor.isSupported( $.wikiEditor.modules.toolbar ) ) {
+					if ( !$( '#wpTextbox1' ).data( 'wikiEditor-context' ) ) {
+						// Add wikiEditor toolbar
+						$( '#wpTextbox1' ).wikiEditor( 'addModule', $.wikiEditor.modules.toolbar.config.getDefaultConfig() );
+						$( '#wpTextbox1' ).wikiEditor( 'addModule', $.wikiEditor.modules.dialogs.config.getDefaultConfig() );
+					}
+
 					// cleanup unnecessary things from the old toolbar
 					$( '#editpage-specialchars' ).remove();
 					$( '#wpTextbox1' ).wikiEditor( 'removeFromToolbar', {
