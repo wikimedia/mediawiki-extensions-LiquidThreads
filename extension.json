@@ -151,7 +151,6 @@
 				"mediawiki.action.edit.preview",
 				"mediawiki.api.watch",
 				"user.tokens",
-				"jquery.client",
 				"user.options",
 				"mediawiki.api",
 				"mediawiki.util"

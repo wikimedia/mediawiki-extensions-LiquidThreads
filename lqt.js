@@ -138,7 +138,7 @@
 		},
 
 		injectEditForm: function ( params, $container, preload ) {
-			var isIE7, $loadSpinner,
+			var $loadSpinner,
 				page = $container.closest( '.lqt-thread-topmost' )
 					.find( '.lqt-thread-talkpage-metadata' ).val();
 			if ( !page ) {
@@ -146,9 +146,6 @@
 			}
 
 			liquidThreads.cancelEdit( $container );
-
-			isIE7 = $.client.test( { msie: [ [ '>=', 7 ], [ '<', 8 ] ] },
-				$.client.profile(), true );
 
 			$loadSpinner = $( '<div>' ).addClass( 'mw-ajax-loader lqt-loader' );
 			$container.before( $loadSpinner );
@@ -194,11 +191,7 @@
 					$container.find( 'textarea' )[ 0 ].value = preload;
 				}
 
-				if ( isIE7 ) {
-					setTimeout( finishShow, 500 );
-				} else {
-					$container.slideDown( 'slow', finishShow );
-				}
+				$container.slideDown( 'slow', finishShow );
 
 				$cancelButton = $container.find( '#mw-editform-cancel' );
 				$cancelButton.click( liquidThreads.cancelEdit );
@@ -231,9 +224,6 @@
 
 			mw.loader.using( [ 'mediawiki.action.edit' ],
 				function () {
-					if ( isIE7 ) {
-						$container.empty().show();
-					}
 					liquidThreads.loadInlineEditForm( params, $container, function () {
 						var dependencies = [ 'ext.wikiEditor', 'user.options',
 							'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.toolbar.config',
@@ -259,16 +249,9 @@
 			} );
 		},
 
-		// From http://clipmarks.com/clipmark/CEFC94CB-94D6-4495-A7AA-791B7355E284/
 		insertAtCursor: function ( myField, myValue ) {
-			var sel, startPos, endPos;
-			if ( document.selection ) {
-				// IE support
-				myField.focus();
-				sel = document.selection.createRange();
-				sel.text = myValue;
-			} else if ( myField.selectionStart || myField.selectionStart === '0' ) {
-				// MOZILLA/NETSCAPE support
+			var startPos, endPos;
+			if ( myField.selectionStart || myField.selectionStart === '0' ) {
 				startPos = myField.selectionStart;
 				endPos = myField.selectionEnd;
 				myField.value = myField.value.substring( 0, startPos ) + myValue + myField.value.substring( endPos, myField.value.length );
