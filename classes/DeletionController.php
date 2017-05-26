@@ -1,8 +1,8 @@
 <?php
 class LqtDeletionController {
-	static $pageids_to_revive;
+	public static $pageids_to_revive;
 
-	static function onArticleDeleteComplete( &$article, &$user, $reason, $id ) {
+	public static function onArticleDeleteComplete( &$article, &$user, $reason, $id ) {
 		$title = $article->getTitle();
 
 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
@@ -41,7 +41,7 @@ class LqtDeletionController {
 		return true;
 	}
 
-	static function recursivelyDeleteReplies( $thread, $reason ) {
+	public static function recursivelyDeleteReplies( $thread, $reason ) {
 		foreach ( $thread->replies() as $reply ) {
 			$reply->root()->doDeleteArticle( $reason, false, $reply->root()->getId() );
 			$reply->delete( $reason );
@@ -49,7 +49,7 @@ class LqtDeletionController {
 		}
 	}
 
-	static function onArticleRevisionUndeleted( &$title, $revision, $page_id ) {
+	public static function onArticleRevisionUndeleted( &$title, $revision, $page_id ) {
 		if ( $title->getNamespace() == NS_LQT_THREAD ) {
 			self::$pageids_to_revive[$page_id] = $title;
 		}
@@ -57,7 +57,7 @@ class LqtDeletionController {
 		return true;
 	}
 
-	static function onArticleUndelete( &$udTitle, $created, $comment = '' ) {
+	public static function onArticleUndelete( &$udTitle, $created, $comment = '' ) {
 		if ( empty( self::$pageids_to_revive ) ) {
 			return true;
 		}
@@ -100,7 +100,7 @@ class LqtDeletionController {
 	 * @param $reason string
 	 * @return bool
 	 */
-	static function onArticleConfirmDelete( $article, $out, &$reason ) {
+	public static function onArticleConfirmDelete( $article, $out, &$reason ) {
 		if ( $article->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			return true;
 		}
@@ -121,7 +121,7 @@ class LqtDeletionController {
 		return true;
 	}
 
-	static function onArticleDelete( $article ) {
+	public static function onArticleDelete( $article ) {
 		// Synchronise article data so that moving the article doesn't break any
 		//  article association.
 		Threads::synchroniseArticleData( $article );

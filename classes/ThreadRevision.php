@@ -1,7 +1,7 @@
 <?php
 
 class ThreadRevision {
-	static $load =
+	public static $load =
 		array(
 			'th_id'             => 'mId',
 			'th_thread'         => 'mThreadId',
@@ -20,7 +20,7 @@ class ThreadRevision {
 	protected $mId, $mThreadId, $mTimestamp, $mUserId, $mUserText, $mChangeType,
 				$mChangeObjectId, $mChangeObject, $mChangeComment, $mObjSer, $mThreadObj;
 
-	static function loadFromId( $id ) {
+	public static function loadFromId( $id ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$row = $dbr->selectRow( 'thread_history', '*', array( 'th_id' => $id ), __METHOD__ );
 
@@ -29,7 +29,7 @@ class ThreadRevision {
 		return self::loadFromRow( $row );
 	}
 
-	static function loadFromRow( $row ) {
+	public static function loadFromRow( $row ) {
 		if ( !$row ) return null;
 
 		$rev = new ThreadRevision;
@@ -44,7 +44,7 @@ class ThreadRevision {
 		return $rev;
 	}
 
-	static function create( $thread, $change_type, $change_object = null, $comment = '',
+	public static function create( $thread, $change_type, $change_object = null, $comment = '',
 		$user = null, $timestamp = null
 	) {
 		global $wgContLang;
@@ -94,7 +94,7 @@ class ThreadRevision {
 		return $rev;
 	}
 
-	function insert() {
+	public function insert() {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$row = $this->getRow();
@@ -105,7 +105,7 @@ class ThreadRevision {
 		$this->mId = $dbw->insertId();
 	}
 
-	function save() {
+	public function save() {
 		$row = $this->getRow();
 
 		$dbw = wfGetDB( DB_MASTER );
@@ -113,7 +113,7 @@ class ThreadRevision {
 		$dbw->replace( 'thread_history', array( 'th_thread' ), $row, __METHOD__ );
 	}
 
-	function getRow() {
+	public function getRow() {
 		$row = array();
 
 		// First, prep the data for insertion
@@ -127,11 +127,11 @@ class ThreadRevision {
 		return $row;
 	}
 
-	function getTimestamp() {
+	public function getTimestamp() {
 		return wfTimestamp( TS_MW, $this->mTimestamp );
 	}
 
-	function getUser() {
+	public function getUser() {
 		if ( $this->mUserId ) {
 			return User::newFromId( $this->mUserId );
 		}
@@ -139,11 +139,11 @@ class ThreadRevision {
 		return User::newFromText( $this->mUserText, /* No validation */ false );
 	}
 
-	function getChangeType() {
+	public function getChangeType() {
 		return $this->mChangeType;
 	}
 
-	function getChangeObject() {
+	public function getChangeObject() {
 		if ( is_null( $this->mChangeObject ) && $this->mChangeObjectId ) {
 			$threadObj = $this->getThreadObj();
 
@@ -160,15 +160,15 @@ class ThreadRevision {
 		return $this->mChangeObject;
 	}
 
-	function getChangeComment() {
+	public function getChangeComment() {
 		return $this->mChangeComment;
 	}
 
-	function getId() {
+	public function getId() {
 		return $this->mId;
 	}
 
-	function getThreadObj() {
+	public function getThreadObj() {
 		if ( is_null( $this->mThreadObj ) && !is_null( $this->mObjSer ) ) {
 			$this->mThreadObj = unserialize( $this->mObjSer );
 		} elseif ( is_null( $this->mThreadObj ) && is_null( $this->mObjSer ) ) {
@@ -186,7 +186,7 @@ class ThreadRevision {
 		return $this->mThreadObj;
 	}
 
-	function prev() {
+	public function prev() {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$cond = 'th_id<' . $dbr->addQuotes( intval( $this->getId() ) );
@@ -197,7 +197,7 @@ class ThreadRevision {
 		return self::loadFromRow( $row );
 	}
 
-	function next() {
+	public function next() {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$cond = 'th_id>' . $dbr->addQuotes( intval( $this->getId() ) );

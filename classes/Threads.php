@@ -24,7 +24,7 @@ class Threads {
 	const CHANGE_ADJUSTED_SORTKEY = 14;
 	const CHANGE_EDITED_SIGNATURE = 15;
 
-	static $VALID_CHANGE_TYPES = array(
+	public static $VALID_CHANGE_TYPES = array(
 		self::CHANGE_EDITED_SUMMARY,
 		self::CHANGE_EDITED_ROOT,
 		self::CHANGE_REPLY_CREATED,
@@ -49,9 +49,9 @@ class Threads {
 	const EDITED_BY_AUTHOR = 2;
 	const EDITED_BY_OTHERS = 3;
 
-	static $cache_by_root = array();
-	static $cache_by_id = array();
-	static $occupied_titles = array();
+	public static $cache_by_root = array();
+	public static $cache_by_id = array();
+	public static $occupied_titles = array();
 
 	/**
 	 * Create the talkpage if it doesn't exist so that links to it
@@ -75,7 +75,7 @@ class Threads {
 		}
 	}
 
-	static function loadFromResult( $res, $db, $bulkLoad = false ) {
+	public static function loadFromResult( $res, $db, $bulkLoad = false ) {
 		$rows = array();
 		$threads = array();
 
@@ -94,7 +94,7 @@ class Threads {
 		return Thread::bulkLoad( $rows );
 	}
 
-	static function where( $where, $options = array(), $bulkLoad = true ) {
+	public static function where( $where, $options = array(), $bulkLoad = true ) {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$res = $dbr->select( 'thread', '*', $where, __METHOD__, $options );
@@ -136,7 +136,7 @@ class Threads {
 	 * @param $bulkLoad bool
 	 * @return Thread
 	 */
-	static function withRoot( $post, $bulkLoad = true ) {
+	public static function withRoot( $post, $bulkLoad = true ) {
 		if ( $post->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			// No articles outside the thread namespace have threads associated with them;
 			return null;
@@ -161,7 +161,7 @@ class Threads {
 	 * @param $bulkLoad bool
 	 * @return Thread
 	 */
-	static function withId( $id, $bulkLoad = true ) {
+	public static function withId( $id, $bulkLoad = true ) {
 		if ( array_key_exists( $id, self::$cache_by_id ) ) {
 			return self::$cache_by_id[$id];
 		}
@@ -176,13 +176,13 @@ class Threads {
 	 * @param $bulkLoad bool
 	 * @return Thread
 	 */
-	static function withSummary( $article, $bulkLoad = true ) {
+	public static function withSummary( $article, $bulkLoad = true ) {
 		$ts = Threads::where( array( 'thread_summary_page' => $article->getId() ),
 			array(), $bulkLoad );
 		return self::assertSingularity( $ts, 'thread_summary_page', $article->getId() );
 	}
 
-	static function articleClause( $article ) {
+	public static function articleClause( $article ) {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$titleCond = array( 'thread_article_title' => $article->getTitle()->getDBKey(),
@@ -199,7 +199,7 @@ class Threads {
 		return $dbr->makeList( $conds, LIST_OR );
 	}
 
-	static function topLevelClause() {
+	public static function topLevelClause() {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$arr = array( 'thread_ancestor=thread_id', 'thread_parent' => null );
@@ -207,17 +207,17 @@ class Threads {
 		return $dbr->makeList( $arr, LIST_OR );
 	}
 
-	static function newThreadTitle( $subject, $article ) {
+	public static function newThreadTitle( $subject, $article ) {
 		$base = $article->getTitle()->getPrefixedText() . "/$subject";
 
 		return self::incrementedTitle( $base, NS_LQT_THREAD );
 	}
 
-	static function newSummaryTitle( $t ) {
+	public static function newSummaryTitle( $t ) {
 		return self::incrementedTitle( $t->title()->getText(), NS_LQT_SUMMARY );
 	}
 
-	static function newReplyTitle( $thread, $user ) {
+	public static function newReplyTitle( $thread, $user ) {
 		$topThread = $thread->topmostThread();
 
 		$base = $topThread->title()->getText() . '/'
@@ -311,7 +311,7 @@ class Threads {
 	//  conversion, this function will return false. Otherwise, true will be returned.
 	// If the queueMore parameter is set and rows are left to update, a job queue item
 	//  will then be added with the same limit, to finish the remainder of the update.
-	static function synchroniseArticleData( $article, $limit = false, $queueMore = false ) {
+	public static function synchroniseArticleData( $article, $limit = false, $queueMore = false ) {
 		if ( !$article ) {
 			throw new Exception( "synchroniseArticleData called on null article" );
 		}

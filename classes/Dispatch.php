@@ -2,8 +2,8 @@
 
 class LqtDispatch {
 	/** static cache of per-page LiquidThreads activation setting */
-	static $userLqtOverride = array();
-	static $primaryView = null;
+	public static $userLqtOverride = array();
+	public static $primaryView = null;
 
 	/**
 	 * @param $output OutputPage
@@ -13,7 +13,7 @@ class LqtDispatch {
 	 * @param $request WebRequest
 	 * @return bool
 	 */
-	static function talkpageMain( &$output, &$article, &$title, &$user, &$request ) {
+	public static function talkpageMain( &$output, &$article, &$title, &$user, &$request ) {
 		// We are given a talkpage article and title. Fire up a TalkpageView
 
 		if ( $title->getNamespace() == NS_LQT_THREAD + 1 /* talk page */ ) {
@@ -72,7 +72,7 @@ class LqtDispatch {
 	 * @param $request WebRequest
 	 * @return bool
 	 */
-	static function threadPermalinkMain( &$output, &$article, &$title, &$user, &$request ) {
+	public static function threadPermalinkMain( &$output, &$article, &$title, &$user, &$request ) {
 		$action =  $request->getVal( 'action' );
 		$lqt_method = $request->getVal( 'lqt_method' );
 
@@ -101,7 +101,7 @@ class LqtDispatch {
 		return $view->show();
 	}
 
-	static function threadSummaryMain( &$output, &$article, &$title, &$user, &$request ) {
+	public static function threadSummaryMain( &$output, &$article, &$title, &$user, &$request ) {
 		$viewname = 'SummaryPageView';
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		self::$primaryView = $view;
@@ -112,7 +112,7 @@ class LqtDispatch {
 	 * @param $title Title
 	 * @return bool|null
 	 */
-	static function isLqtPage( $title ) {
+	public static function isLqtPage( $title ) {
 		if ( !$title ) {
 			return false;
 		}
@@ -152,7 +152,7 @@ class LqtDispatch {
 	 * @param $title Title
 	 * @return null|int
 	 */
-	static function getUserLqtOverride( $title ) {
+	public static function getUserLqtOverride( $title ) {
 		if ( ! is_object( $title ) ) {
 			return null;
 		}
@@ -214,7 +214,7 @@ class LqtDispatch {
 	 * @param $request WebRequest
 	 * @return bool
 	 */
-	static function tryPage( $output, $article, $title, $user, $request ) {
+	public static function tryPage( $output, $article, $title, $user, $request ) {
 		if ( LqtDispatch::isLqtPage( $title ) ) {
 			// LiquidThreads pages, Talk:X etc
 			return self::talkpageMain( $output, $article, $title, $user, $request );
@@ -228,7 +228,7 @@ class LqtDispatch {
 		return true;
 	}
 
-	static function onSkinTemplateNavigation( $skinTemplate, &$links ) {
+	public static function onSkinTemplateNavigation( $skinTemplate, &$links ) {
 		if ( !self::$primaryView ) return true;
 
 		self::$primaryView->customizeNavigation( $skinTemplate, $links );
@@ -243,7 +243,7 @@ class LqtDispatch {
 	 * @param $wgLang
 	 * @return bool
 	 */
-	static function onPageContentLanguage( $title, &$pageLang, $wgLang ) {
+	public static function onPageContentLanguage( $title, &$pageLang, $wgLang ) {
 		global $wgRequest;
 		$method = $wgRequest->getVal( 'lqt_method' );
 		$oldid = $wgRequest->getVal( 'lqt_oldid' );

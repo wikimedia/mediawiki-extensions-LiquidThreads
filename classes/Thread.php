@@ -48,18 +48,18 @@ class Thread {
 
 	public $dbVersion; // A copy of the thread as it exists in the database.
 
-	static $titleCacheById = array();
-	static $replyCacheById = array();
-	static $articleCacheById = array();
-	static $reactionCacheById = array();
+	public static $titleCacheById = array();
+	public static $replyCacheById = array();
+	public static $articleCacheById = array();
+	public static $reactionCacheById = array();
 
-	static $VALID_TYPES = array( Threads::TYPE_NORMAL, Threads::TYPE_MOVED, Threads::TYPE_DELETED );
+	public static $VALID_TYPES = array( Threads::TYPE_NORMAL, Threads::TYPE_MOVED, Threads::TYPE_DELETED );
 
-	function isHistorical() {
+	public function isHistorical() {
 		return $this->isHistorical;
 	}
 
-	static function create( $root, $article, $superthread = null,
+	public static function create( $root, $article, $superthread = null,
 				$type = Threads::TYPE_NORMAL, $subject = '',
 				$summary = '', $bump = null, $signature = null ) {
 
@@ -117,7 +117,7 @@ class Thread {
 		return $thread;
 	}
 
-	function insert() {
+	public function insert() {
 		$this->dieIfHistorical();
 
 		if ( $this->id() ) {
@@ -144,7 +144,7 @@ class Thread {
 		unset( $this->dbVersion->dbVersion );
 	}
 
-	function setRoot( $article ) {
+	public function setRoot( $article ) {
 		$this->rootId = $article->getId();
 		$this->root = $article;
 
@@ -153,12 +153,12 @@ class Thread {
 		}
 	}
 
-	function setRootId( $article ) {
+	public function setRootId( $article ) {
 		$this->rootId = $article;
 		$this->root = null;
 	}
 
-	function commitRevision( $change_type, $change_object = null, $reason = "",
+	public function commitRevision( $change_type, $change_object = null, $reason = "",
 					$bump = null ) {
 		$this->dieIfHistorical();
 		global $wgUser;
@@ -193,7 +193,7 @@ class Thread {
 		}
 	}
 
-	function logChange( $change_type, $original, $change_object = null, $reason = '' ) {
+	public function logChange( $change_type, $original, $change_object = null, $reason = '' ) {
 		$log = new LogPage( 'liquidthreads' );
 
 		if ( is_null( $reason ) ) {
@@ -235,7 +235,7 @@ class Thread {
 		}
 	}
 
-	function updateEditedness( $change_type ) {
+	public function updateEditedness( $change_type ) {
 		global $wgUser;
 
 		if ( $change_type == Threads::CHANGE_REPLY_CREATED
@@ -254,7 +254,7 @@ class Thread {
 	}
 
 	/** Unless you know what you're doing, you want commitRevision */
-	function save( $fname = null ) {
+	public function save( $fname = null ) {
 		$this->dieIfHistorical();
 
 		$dbr = wfGetDB( DB_MASTER );
@@ -282,7 +282,7 @@ class Thread {
 		unset( $this->dbVersion->dbVersion );
 	}
 
-	function getRow() {
+	public function getRow() {
 		$id = $this->id();
 
 		$dbw = wfGetDB( DB_MASTER );
@@ -325,7 +325,7 @@ class Thread {
 		);
 	}
 
-	function author() {
+	public function author() {
 		if ( $this->authorId ) {
 			return User::newFromId( $this->authorId );
 		} else {
@@ -334,7 +334,7 @@ class Thread {
 		}
 	}
 
-	function delete( $reason, $commit = true ) {
+	public function delete( $reason, $commit = true ) {
 		if ( $this->type == Threads::TYPE_DELETED ) {
 			return;
 		}
@@ -364,7 +364,7 @@ class Thread {
 		}
 	}
 
-	function undelete( $reason ) {
+	public function undelete( $reason ) {
 		$this->type = Threads::TYPE_NORMAL;
 		$this->commitRevision( Threads::CHANGE_UNDELETED, $this, $reason );
 
@@ -376,7 +376,7 @@ class Thread {
 		}
 	}
 
-	function moveToPage( $title, $reason, $leave_trace ) {
+	public function moveToPage( $title, $reason, $leave_trace ) {
 		global $wgUser;
 
 		if ( !$this->isTopmostThread() )
@@ -428,7 +428,7 @@ class Thread {
 
 	// Drop a note at the source location of a move, noting that a thread was moved from
 	//  there.
-	function leaveTrace( $reason, $oldTitle, $newTitle ) {
+	public function leaveTrace( $reason, $oldTitle, $newTitle ) {
 		$this->dieIfHistorical();
 
 		// Create redirect text
@@ -455,7 +455,7 @@ class Thread {
 	}
 
 	// Lists total reply count, including replies to replies and such
-	function replyCount() {
+	public function replyCount() {
 		// Populate reply count
 		if ( $this->replyCount == - 1 ) {
 			if ( $this->isTopmostThread() ) {
@@ -474,7 +474,7 @@ class Thread {
 		return $this->replyCount;
 	}
 
-	function incrementReplyCount( $val = 1 ) {
+	public function incrementReplyCount( $val = 1 ) {
 		$this->replyCount += $val;
 
 		wfDebug( "Incremented reply count for thread " . $this->id() . " to " . $this->replyCount . "\n" );
@@ -489,11 +489,11 @@ class Thread {
 		}
 	}
 
-	function decrementReplyCount( $val = 1 ) {
+	public function decrementReplyCount( $val = 1 ) {
 		$this->incrementReplyCount( - $val );
 	}
 
-	static function newFromRow( $row ) {
+	public static function newFromRow( $row ) {
 		$id = $row->thread_id;
 
 		if ( isset( Threads::$cache_by_id[$id] ) ) {
@@ -577,7 +577,7 @@ class Thread {
 	}
 
 	// Load a list of threads in bulk, including all subthreads.
-	static function bulkLoad( $rows ) {
+	public static function bulkLoad( $rows ) {
 		// Preload subthreads
 		$top_thread_ids = array();
 		$all_thread_rows = $rows;
@@ -756,7 +756,7 @@ class Thread {
 	* Return the User object representing the author of the first revision
 	* (or null, if the database is screwed up).
 	*/
-	function loadOriginalAuthorFromRevision( ) {
+	public function loadOriginalAuthorFromRevision( ) {
 		$this->dieIfHistorical();
 
 		$dbr = wfGetDB( DB_SLAVE );
@@ -779,7 +779,7 @@ class Thread {
 			return null;
 	}
 
-	static function recursiveGetReplyCount( $thread, $level = 1 ) {
+	public static function recursiveGetReplyCount( $thread, $level = 1 ) {
 		if ( $level > 80 ) {
 			return 1;
 		}
@@ -798,7 +798,7 @@ class Thread {
 
 	// Lazy updates done whenever a thread is loaded.
 	//  Much easier than running a long-running maintenance script.
-	function doLazyUpdates( ) {
+	public function doLazyUpdates( ) {
 		if ( $this->isHistorical() ) {
 			return; // Don't do lazy updates on stored historical threads.
 		}
@@ -949,7 +949,7 @@ class Thread {
 		$doingUpdates = false;
 	}
 
-	function addReply( $thread ) {
+	public function addReply( $thread ) {
 		$thread->setSuperThread( $this );
 
 		if ( is_array( $this->replies ) ) {
@@ -963,7 +963,7 @@ class Thread {
 		$this->incrementReplyCount( $thread->replyCount() + 1 );
 	}
 
-	function removeReply( $thread ) {
+	public function removeReply( $thread ) {
 		if ( is_object( $thread ) ) {
 			$thread = $thread->id();
 		}
@@ -977,7 +977,7 @@ class Thread {
 		$this->decrementReplyCount( 1 + $threadObj->replyCount() );
 	}
 
-	function checkReplies( $replies ) {
+	public function checkReplies( $replies ) {
 		// Fixes a bug where some history pages were not working, before
 		//  superthread was properly instance-cached.
 		if ( $this->isHistorical() ) { return; }
@@ -997,7 +997,7 @@ class Thread {
 		}
 	}
 
-	function replies() {
+	public function replies() {
 		if ( !$this->id() ) {
 			return array();
 		}
@@ -1035,7 +1035,7 @@ class Thread {
 		return $this->replies;
 	}
 
-	function setSuperthread( $thread ) {
+	public function setSuperthread( $thread ) {
 		if ( $thread == null ) {
 			$this->parentId = null;
 			$this->ancestorId = 0;
@@ -1054,7 +1054,7 @@ class Thread {
 		}
 	}
 
-	function superthread() {
+	public function superthread() {
 		if ( !$this->hasSuperthread() ) {
 			return null;
 		} elseif ( $this->superthread ) {
@@ -1066,11 +1066,11 @@ class Thread {
 		}
 	}
 
-	function hasSuperthread() {
+	public function hasSuperthread() {
 		return !$this->isTopmostThread();
 	}
 
-	function topmostThread() {
+	public function topmostThread() {
 		if ( $this->isTopmostThread() ) {
 			return $this->ancestor = $this;
 		} elseif ( $this->ancestor ) {
@@ -1090,7 +1090,7 @@ class Thread {
 		}
 	}
 
-	function setAncestor( $newAncestor ) {
+	public function setAncestor( $newAncestor ) {
 		if ( is_object( $newAncestor ) ) {
 			$this->ancestorId = $newAncestor->id();
 		} else {
@@ -1100,7 +1100,7 @@ class Thread {
 
 	// Due to a bug in earlier versions, the topmost thread sometimes isn't there.
 	// Fix the corruption by repeatedly grabbing the parent until we hit the topmost thread.
-	function fixMissingAncestor() {
+	public function fixMissingAncestor() {
 		$thread = $this;
 
 		$this->dieIfHistorical();
@@ -1118,23 +1118,23 @@ class Thread {
 		return $thread;
 	}
 
-	function isTopmostThread() {
+	public function isTopmostThread() {
 		return $this->ancestorId == $this->id ||
 				$this->parentId == 0;
 	}
 
-	function setArticle( $a ) {
+	public function setArticle( $a ) {
 		$this->articleId = $a->getID();
 		$this->articleNamespace = $a->getTitle()->getNamespace();
 		$this->articleTitle = $a->getTitle()->getDBkey();
 		$this->touch();
 	}
 
-	function touch() {
+	public function touch() {
 		// Nothing here yet
 	}
 
-	function article() {
+	public function article() {
 		if ( $this->article ) return $this->article;
 
 		if ( !is_null( $this->articleId ) ) {
@@ -1163,16 +1163,16 @@ class Thread {
 		}
 	}
 
-	function id() {
+	public function id() {
 		return $this->id;
 	}
 
-	function ancestorId() {
+	public function ancestorId() {
 		return $this->ancestorId;
 	}
 
 	// The 'root' is the page in the Thread namespace corresponding to this thread.
-	function root( ) {
+	public function root( ) {
 		if ( !$this->rootId ) return null;
 		if ( !$this->root ) {
 			if ( isset( self::$articleCacheById[$this->rootId] ) ) {
@@ -1203,11 +1203,11 @@ class Thread {
 		return $this->root;
 	}
 
-	function editedness() {
+	public function editedness() {
 		return $this->editedness;
 	}
 
-	function summary() {
+	public function summary() {
 		if ( !$this->summaryId )
 			return null;
 
@@ -1227,18 +1227,18 @@ class Thread {
 		return $this->summary;
 	}
 
-	function hasSummary() {
+	public function hasSummary() {
 		return $this->summaryId != null;
 	}
 
-	function setSummary( $post ) {
+	public function setSummary( $post ) {
 		// Weird -- this was setting $this->summary to NULL before I changed it.
 		// If there was some reason why, please tell me! -- Andrew
 		$this->summary = $post;
 		$this->summaryId = $post->getID();
 	}
 
-	function title() {
+	public function title() {
 		if ( is_object( $this->root() ) ) {
 			return $this->root()->getTitle();
 		} else {
@@ -1247,7 +1247,7 @@ class Thread {
 		}
 	}
 
-	static function splitIncrementFromSubject( $subject_string ) {
+	public static function splitIncrementFromSubject( $subject_string ) {
 		preg_match( '/^(.*) \((\d+)\)$/', $subject_string, $matches );
 		if ( count( $matches ) != 3 )
 			throw new Exception( __METHOD__ . ": thread subject has no increment: " . $subject_string );
@@ -1255,15 +1255,15 @@ class Thread {
 			return $matches;
 	}
 
-	function subject() {
+	public function subject() {
 		return $this->subject;
 	}
 
-	function formattedSubject() {
+	public function formattedSubject() {
 		return LqtView::formatSubject( $this->subject() );
 	}
 
-	function setSubject( $subject ) {
+	public function setSubject( $subject ) {
 		$this->subject = $subject;
 
 		foreach ( $this->replies() as $reply ) {
@@ -1272,41 +1272,41 @@ class Thread {
 	}
 
 	// Deprecated, use subject().
-	function subjectWithoutIncrement() {
+	public function subjectWithoutIncrement() {
 		return $this->subject();
 	}
 
 	// Currently equivalent to isTopmostThread.
-	function hasDistinctSubject() {
+	public function hasDistinctSubject() {
 		return $this->isTopmostThread();
 	}
 
-	function hasSubthreads() {
+	public function hasSubthreads() {
 		return count( $this->replies() ) != 0;
 	}
 
 	// Synonym for replies()
-	function subthreads() {
+	public function subthreads() {
 		return $this->replies();
 	}
 
-	function modified() {
+	public function modified() {
 		return $this->modified;
 	}
 
-	function created() {
+	public function created() {
 		return $this->created;
 	}
 
-	function type() {
+	public function type() {
 		return $this->type;
 	}
 
-	function setType( $t ) {
+	public function setType( $t ) {
 		$this->type = $t;
 	}
 
-	function redirectThread() {
+	public function redirectThread() {
 		$rev = Revision::newFromId( $this->root()->getLatest() );
 		$rtitle = ContentHandler::makeContent(
 			$rev->getContent( Revision::RAW )->getNativeData(),
@@ -1323,7 +1323,7 @@ class Thread {
 	// This only makes sense when called from the hook, because it uses the hook's
 	// default behavior to check whether this thread itself is protected, so you'll
 	// get false negatives if you use it from some other context.
-	function getRestrictions( $action, &$result ) {
+	public function getRestrictions( $action, &$result ) {
 		if ( $this->hasSuperthread() ) {
 			$parent_restrictions = $this->superthread()->root()->getTitle()->getRestrictions( $action );
 		} else {
@@ -1341,21 +1341,21 @@ class Thread {
 
 	}
 
-	function getAnchorName() {
+	public function getAnchorName() {
 		$wantedId = $this->subject() . "_{$this->id()}";
 		return Sanitizer::escapeId( $wantedId );
 	}
 
-	function updateHistory() {
+	public function updateHistory() {
 	}
 
-	function setAuthor( $user ) {
+	public function setAuthor( $user ) {
 		$this->authorId = $user->getId();
 		$this->authorName = $user->getName();
 	}
 
 	// Load all lazy-loaded data in prep for (e.g.) serialization.
-	function loadAllData() {
+	public function loadAllData() {
 		// Make sure superthread and topmost thread are loaded.
 		$this->superthread();
 		$this->topmostThread();
@@ -1367,7 +1367,7 @@ class Thread {
 	}
 
 	// On serialization, load all data because it will be different in the DB when we wake up.
-	function __sleep() {
+	public function __sleep() {
 		$this->loadAllData();
 
 		$fields = array_keys( get_object_vars( $this ) );
@@ -1379,20 +1379,20 @@ class Thread {
 		return $fields;
 	}
 
-	function __wakeup() {
+	public function __wakeup() {
 		// Mark as historical.
 		$this->isHistorical = true;
 	}
 
 	// This is a safety valve that makes sure that the DB is NEVER touched by a historical
 	//  thread (even for reading, because the data will be out of date).
-	function dieIfHistorical() {
+	public function dieIfHistorical() {
 		if ( $this->isHistorical() ) {
 			throw new Exception( "Attempted write or DB operation on historical thread" );
 		}
 	}
 
-	function rootRevision() {
+	public function rootRevision() {
 		if ( !$this->isHistorical() ||
 			!isset( $this->topmostThread()->threadRevision ) ||
 			! $this->root() ) {
@@ -1418,11 +1418,11 @@ class Thread {
 		return $row->rev_id;
 	}
 
-	function sortkey() {
+	public function sortkey() {
 		return $this->sortkey;
 	}
 
-	function setSortKey( $k = null ) {
+	public function setSortKey( $k = null ) {
 		if ( is_null( $k ) ) {
 			$k = wfTimestamp( TS_MW );
 		}
@@ -1430,7 +1430,7 @@ class Thread {
 		$this->sortkey = $k;
 	}
 
-	function replyWithId( $id ) {
+	public function replyWithId( $id ) {
 		if ( $this->id() == $id ) {
 			return $this;
 		}
@@ -1444,7 +1444,7 @@ class Thread {
 		return null;
 	}
 
-	static function createdSortCallback( $a, $b ) {
+	public static function createdSortCallback( $a, $b ) {
 		$a = $a->created();
 		$b = $b->created();
 
@@ -1503,7 +1503,7 @@ class Thread {
 		$newParent->commitRevision( Threads::CHANGE_MERGED_TO, $this, $reason );
 	}
 
-	static function recursiveSet( $thread, $subject, $ancestor, $superthread = false ) {
+	public static function recursiveSet( $thread, $subject, $ancestor, $superthread = false ) {
 		$thread->setSubject( $subject );
 		$thread->setAncestor( $ancestor->id() );
 
@@ -1518,7 +1518,7 @@ class Thread {
 		}
 	}
 
-	static function validateSubject( $subject, &$title, $replyTo, $article ) {
+	public static function validateSubject( $subject, &$title, $replyTo, $article ) {
 		$t = null;
 		$ok = true;
 

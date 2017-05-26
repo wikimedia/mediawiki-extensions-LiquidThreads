@@ -20,7 +20,7 @@
 
 class ApiQueryLQTThreads extends ApiQueryBase {
 	// Property definitions
-	static $propRelations = array(
+	public static $propRelations = array(
 		'id' => 'thread_id',
 		'subject' => 'thread_subject',
 		'page' => array(

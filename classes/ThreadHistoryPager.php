@@ -3,9 +3,9 @@
 use MediaWiki\MediaWikiServices;
 
 class ThreadHistoryPager extends TablePager {
-	static $change_names;
+	public static $change_names;
 
-	function __construct( $view, $thread ) {
+	public function __construct( $view, $thread ) {
 		parent::__construct();
 
 		$this->thread = $thread;
@@ -31,7 +31,7 @@ class ThreadHistoryPager extends TablePager {
 		);
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		$queryInfo = array(
 			'tables' => array( 'thread_history' ),
 			'fields' => '*',
@@ -42,7 +42,7 @@ class ThreadHistoryPager extends TablePager {
 		return $queryInfo;
 	}
 
-	function getFieldMessages() {
+	public function getFieldMessages() {
 		$headers = array(
 			'th_timestamp' => $this->msg( 'lqt-history-time' )->text(),
 			'th_user_text' => $this->msg( 'lqt-history-user' )->text(),
@@ -53,7 +53,7 @@ class ThreadHistoryPager extends TablePager {
 		return $headers;
 	}
 
-	function getFieldNames() {
+	public function getFieldNames() {
 		static $headers = null;
 
 		if ( !empty( $headers ) ) {
@@ -63,7 +63,7 @@ class ThreadHistoryPager extends TablePager {
 		return $this->getFieldMessages();
 	}
 
-	function formatValue( $name, $value ) {
+	public function formatValue( $name, $value ) {
 		global $wgLang, $wgTitle;
 
 		$row = $this->mCurrentRow;
@@ -93,7 +93,7 @@ class ThreadHistoryPager extends TablePager {
 		}
 	}
 
-	function getActionDescription( $type ) {
+	public function getActionDescription( $type ) {
 		global $wgOut;
 
 		$args = array();
@@ -146,18 +146,18 @@ class ThreadHistoryPager extends TablePager {
 		return Html::rawElement( 'span', array( 'class' => 'plainlinks' ), $wgOut->parseInline( $content ) );
 	}
 
-	function getIndexField() {
+	public function getIndexField() {
 		return 'th_timestamp';
 	}
 
-	function getDefaultSort() {
+	public function getDefaultSort() {
 		return 'th_timestamp';
 	}
 
-	function isFieldSortable( $name ) {
+	public function isFieldSortable( $name ) {
 		$sortable_fields = array( 'th_timestamp', 'th_user_text', 'th_change_type' );
 		return in_array( $name, $sortable_fields );
 	}
 
-	function getDefaultDirections() { return true; /* descending */ }
+	public function getDefaultDirections() { return true; /* descending */ }
 }

@@ -41,7 +41,7 @@ class LqtView {
 
 	protected $sort_order = TalkpageView::LQT_NEWEST_CHANGES;
 
-	static $stylesAndScriptsDone = false;
+	public static $stylesAndScriptsDone = false;
 
 	function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		$this->article = $article;
