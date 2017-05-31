@@ -439,14 +439,14 @@ class LqtDiscussionPager extends IndexPager {
 
 		parent::__construct();
 
-		$this->setLimit( $this->getPageLimit() );
+		$this->setLimit( min( 50, $this->getPageLimit() ) );
 	}
 
 	function getPageLimit() {
 		$article = $this->article;
 
 		global $wgRequest;
-		$requestedLimit = $wgRequest->getVal( 'limit', null );
+		$requestedLimit = $wgRequest->getInt( 'limit', null );
 		if ( $requestedLimit ) {
 			return $requestedLimit;
 		}
