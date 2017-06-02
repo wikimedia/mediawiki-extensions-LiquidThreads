@@ -27,14 +27,18 @@ class ApiThreadAction extends ApiEditPage {
 				if ( $threadObj instanceof Thread ) {
 					$threads[] = $threadObj;
 
-					if ( !in_array( $action, $actionsAllowedOnNonLqtPage ) && !LqtDispatch::isLqtPage( $threadObj->getTitle() ) ) {
+					if ( !in_array( $action, $actionsAllowedOnNonLqtPage )
+						&& !LqtDispatch::isLqtPage( $threadObj->getTitle() )
+					) {
 						$articleTitleDBKey = $threadObj->getTitle()->getDBkey();
 						if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-							$this->dieWithError(
-								[ 'lqt-not-a-liquidthreads-page', wfEscapeWikiText( $articleTitleDBKey ) ]
-							);
+							$this->dieWithError( [
+								'lqt-not-a-liquidthreads-page',
+								wfEscapeWikiText( $articleTitleDBKey )
+							] );
 						} else {
-							$message = wfMessage( 'lqt-not-a-liquidthreads-page', $articleTitleDBKey )->text();
+							$message = wfMessage(
+								'lqt-not-a-liquidthreads-page', $articleTitleDBKey )->text();
 							$this->dieUsageMsg( $message );
 						}
 					}
@@ -85,9 +89,11 @@ class ApiThreadAction extends ApiEditPage {
 				);
 			}
 			$newMessagesCount = NewMessages::newMessageCount( $user, DB_MASTER );
-			$result[count( $result ) - 1]['unreadlink'] = array( // Only bother to put this on the last threadaction
+			$msgNewMessages = $newMessagesCount ? 'lqt-newmessages-n' : 'lqt_newmessages';
+			// Only bother to put this on the last threadaction
+			$result[count( $result ) - 1]['unreadlink'] = array(
 				'href' => SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL(),
-				'text' => wfMessage( $newMessagesCount ? 'lqt-newmessages-n' : 'lqt_newmessages' )->numParams( $newMessagesCount )->text(),
+				'text' => wfMessage( $msgNewMessages )->numParams( $newMessagesCount )->text(),
 				'active' => $newMessagesCount > 0,
 			);
 		}
@@ -126,7 +132,8 @@ class ApiThreadAction extends ApiEditPage {
 			}
 		} elseif ( count( $threads ) < 1 ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
+				$this->dieWithError(
+					'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
 			} else {
 				$this->dieUsage( 'You must specify a thread to split',
 					'no-specified-threads' );
@@ -299,7 +306,8 @@ class ApiThreadAction extends ApiEditPage {
 		$user = $this->getUser();
 		if ( Thread::canUserPost( $user, $talkpage ) !== true ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-talkpageprotected', 'talkpage-protected' );
+				$this->dieWithError(
+					'apierror-liquidthreads-talkpageprotected', 'talkpage-protected' );
 			} else {
 				$this->dieUsage( 'You cannot post to the specified talkpage, ' .
 					'because it is protected from new posts', 'talkpage-protected' );
@@ -427,7 +435,8 @@ class ApiThreadAction extends ApiEditPage {
 			}
 		} elseif ( count( $threads ) < 1 ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
+				$this->dieWithError(
+					'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
 			} else {
 				$this->dieUsage( 'You must specify a thread to edit',
 					'no-specified-threads' );
@@ -556,7 +565,8 @@ class ApiThreadAction extends ApiEditPage {
 			}
 		} elseif ( count( $threads ) < 1 ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
+				$this->dieWithError(
+					'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
 			} else {
 				$this->dieUsage( 'You must specify a thread to reply to',
 					'no-specified-threads' );
@@ -726,7 +736,8 @@ class ApiThreadAction extends ApiEditPage {
 			}
 		} elseif ( count( $threads ) < 1 ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
+				$this->dieWithError(
+					'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
 			} else {
 				$this->dieUsage( 'You must specify a thread to change the subject of',
 					'no-specified-threads' );

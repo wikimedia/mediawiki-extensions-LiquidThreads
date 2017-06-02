@@ -53,7 +53,8 @@ class Thread {
 	public static $articleCacheById = array();
 	public static $reactionCacheById = array();
 
-	public static $VALID_TYPES = array( Threads::TYPE_NORMAL, Threads::TYPE_MOVED, Threads::TYPE_DELETED );
+	public static $VALID_TYPES = array(
+		Threads::TYPE_NORMAL, Threads::TYPE_MOVED, Threads::TYPE_DELETED );
 
 	public function isHistorical() {
 		return $this->isHistorical;
@@ -297,7 +298,10 @@ class Thread {
 		}
 
 		if ( $this->replyCount < -1 ) {
-			wfWarn( "Saving thread $id with negative reply count {$this->replyCount} " . wfGetAllCallers() );
+			wfWarn(
+				"Saving thread $id with negative reply count {$this->replyCount} " .
+					wfGetAllCallers()
+			);
 			$this->replyCount = -1;
 		}
 
@@ -477,7 +481,8 @@ class Thread {
 	public function incrementReplyCount( $val = 1 ) {
 		$this->replyCount += $val;
 
-		wfDebug( "Incremented reply count for thread " . $this->id() . " to " . $this->replyCount . "\n" );
+		wfDebug( "Incremented reply count for thread " . $this->id() . " to " .
+			$this->replyCount . "\n" );
 
 		$thread = $this->superthread();
 
@@ -912,13 +917,17 @@ class Thread {
 			$this->article = new Article( $dbTitle, 0 );
 
 			$set['thread_article_id'] = $this->articleId;
-			wfDebug( "Unfilled or non-existent thread_article_id, refilling to {$this->articleId}\n" );
+			wfDebug(
+				"Unfilled or non-existent thread_article_id, refilling to {$this->articleId}\n"
+			);
 
 			// There are probably problems on the rest of the article, trigger a small update
 			Threads::synchroniseArticleData( $this->article, 100, 'cascade' );
 		} elseif ( $articleTitle && !$articleTitle->equals( $dbTitle ) ) {
 			// The page was probably moved and this was probably not updated.
-			wfDebug( "Article ID/Title discrepancy, resetting NS/Title to article provided by ID\n" );
+			wfDebug(
+				"Article ID/Title discrepancy, resetting NS/Title to article provided by ID\n"
+			);
 			$this->articleNamespace = $articleTitle->getNamespace();
 			$this->articleTitle = $articleTitle->getDBkey();
 
@@ -1250,7 +1259,9 @@ class Thread {
 	public static function splitIncrementFromSubject( $subject_string ) {
 		preg_match( '/^(.*) \((\d+)\)$/', $subject_string, $matches );
 		if ( count( $matches ) != 3 )
-			throw new Exception( __METHOD__ . ": thread subject has no increment: " . $subject_string );
+			throw new Exception(
+				__METHOD__ . ": thread subject has no increment: " . $subject_string
+			);
 		else
 			return $matches;
 	}
@@ -1325,7 +1336,8 @@ class Thread {
 	// get false negatives if you use it from some other context.
 	public function getRestrictions( $action, &$result ) {
 		if ( $this->hasSuperthread() ) {
-			$parent_restrictions = $this->superthread()->root()->getTitle()->getRestrictions( $action );
+			$parent_restrictions = $this->superthread()->root()->getTitle()
+				->getRestrictions( $action );
 		} else {
 			$parent_restrictions = $this->getTitle()->getRestrictions( $action );
 		}
@@ -1584,7 +1596,8 @@ class Thread {
 
 		static $canCreateNew = array();
 		if ( !isset( $canCreateNew[$userText] ) ) {
-			$title = Title::makeTitleSafe( NS_LQT_THREAD, 'Test title for LQT thread creation check' );
+			$title = Title::makeTitleSafe(
+				NS_LQT_THREAD, 'Test title for LQT thread creation check' );
 			$canCreateNew[$userText] = $title->userCan( 'create', $user, $rigor )
 				&& $title->userCan( 'edit', $user, $rigor );
 		}

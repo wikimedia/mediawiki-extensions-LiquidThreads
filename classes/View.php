@@ -382,7 +382,8 @@ class LqtView {
 	function showReplyProtectedNotice( $thread ) {
 		$log_url = SpecialPage::getTitleFor( 'Log' )->getLocalURL(
 			"type=protect&user=&page={$thread->title()->getPrefixedURL()}" );
-		$link = '<a href="' . $log_url . '">' . wfMessage( 'lqt_protectedfromreply_link' )->escaped() . '</a>';
+		$link = '<a href="' . $log_url . '">' .
+			wfMessage( 'lqt_protectedfromreply_link' )->escaped() . '</a>';
 		$this->output->addHTML( '<p>' . wfMessage( 'lqt_protectedfromreply' )
 			->rawParams( $link )->escaped() );
 	}
@@ -1356,7 +1357,8 @@ class LqtView {
 		);
 
 		if ( $this->user->isAllowed( 'move' ) ) {
-			$move_href = SpecialPage::getTitleFor( 'MoveThread', $thread->title()->getPrefixedText() )->getLocalURL();
+			$move_href = SpecialPage::getTitleFor(
+				'MoveThread', $thread->title()->getPrefixedText() )->getLocalURL();
 			$commands['move'] = array(
 				'label' => wfMessage( 'lqt-movethread' )->parse(),
 				'href' => $move_href,
@@ -1386,7 +1388,11 @@ class LqtView {
 				'label' => wfMessage( 'watch' )->parse(),
 				'href' => self::permalinkUrlWithQuery(
 					$thread,
-					array( 'action' => 'watch', 'token' => WatchAction::getWatchToken( $thread->title(), $this->user, 'watch' ) )
+					array(
+						'action' => 'watch',
+						'token' => WatchAction::getWatchToken(
+							$thread->title(), $this->user, 'watch' )
+					)
 				),
 				'enabled' => true
 			);
@@ -1395,7 +1401,11 @@ class LqtView {
 				'label' => wfMessage( 'unwatch' )->parse(),
 				'href' => self::permalinkUrlWithQuery(
 					$thread,
-					array( 'action' => 'unwatch', 'token' => WatchAction::getWatchToken( $thread->title(), $this->user, 'unwatch' ) )
+					array(
+						'action' => 'unwatch',
+						'token' => WatchAction::getWatchToken(
+							$thread->title(), $this->user, 'unwatch' )
+					)
 				),
 				'enabled' => true
 			);
@@ -1930,7 +1940,8 @@ class LqtView {
 		foreach ( $replies as $reply ) {
 			$content = '';
 			if ( $reply->root() ) {
-				$content = ContentHandler::getContentText( $reply->root()->getPage()->getContent() );
+				$content = ContentHandler::getContentText(
+					$reply->root()->getPage()->getContent() );
 			}
 
 			if ( trim( $content ) != '' ) {
@@ -2127,7 +2138,9 @@ class LqtView {
 			$class .= ' lqt-thread-no-subthreads';
 		}
 
-		if ( ! $thread->title()->quickUserCan( 'edit' ) || ! LqtDispatch::isLqtPage( $thread->getTitle() ) ) {
+		if ( !$thread->title()->quickUserCan( 'edit' )
+			|| !LqtDispatch::isLqtPage( $thread->getTitle() )
+		) {
 			$class .= ' lqt-thread-uneditable';
 		}
 
