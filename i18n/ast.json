@@ -288,5 +288,16 @@
 	"apihelp-threadaction-param-captchaid": "ID del CAPTCHA de la consulta anterior.",
 	"apierror-liquidthreads-alreadytop": "Esti filu yá ye de nivel cimeru.",
 	"apierror-liquidthreads-badparent": "El filo padre qu'especificasti nun ye nin el títulu nin l'identificador d'un filu.",
-	"apierror-liquidthreads-badreaction": "Tienes d'especificar tanto un tipu como un valor pa la reacción."
+	"apierror-liquidthreads-badreaction": "Tienes d'especificar tanto un tipu como un valor pa la reacción.",
+	"apierror-liquidthreads-badsortkey": "Tienes d'especificar una marca de tiempu válida pal parámetru <var>sortkey</var>. Tien de tar na forma YYYYMMddhhmmss, una marca de tiempu Unix o <kbd>now</kbd>.",
+	"apierror-liquidthreads-badsubject": "L'asuntu qu'especificasti nun ye válidu.",
+	"apierror-liquidthreads-invalidtalkpage": "La páxina d'alderique qu'especificasti nun ye válida, o nun tien activaos los filos d'alderique.",
+	"apierror-liquidthreads-noparent": "Tienes d'especificar un nuevu filu padre col que facer la fusión.",
+	"apierror-liquidthreads-noreplies-talkpage": "Nun puedes responder a esti filu, porque la páxina d'alderique ta protexida contra respuestes.",
+	"apierror-liquidthreads-noreplies-thread": "Nun puedes responder a este filu, porque'l filu ta protexíu contra respuestes.",
+	"apierror-liquidthreads-nosubject": "Nun s'especificó nengún asuntu, o bien s'especificó un asuntu inválidu.",
+	"apierror-liquidthreads-notext": "Tienes d'incluir testu nel mensaxe.",
+	"apierror-liquidthreads-onlyone": "Solo puedes operar nun filu de cada vez.",
+	"apierror-liquidthreads-talkpageprotected": "Nun puedes espublizar na páxina d'alderique especificada, porque ta protexida escontra mensaxes nuevos.",
+	"apierror-liquidthreads-threadneeded": "Tienes d'especificar un filu nel qu'operar."
 }
