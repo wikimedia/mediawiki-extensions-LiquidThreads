@@ -143,7 +143,9 @@ class ThreadHistoryPager extends TablePager {
 		}
 
 		$content = wfMsgReplaceArgs( $msg, $args );
-		return Html::rawElement( 'span', array( 'class' => 'plainlinks' ), $wgOut->parseInline( $content ) );
+		return Html::rawElement(
+			'span', array( 'class' => 'plainlinks' ), $wgOut->parseInline( $content )
+		);
 	}
 
 	public function getIndexField() {

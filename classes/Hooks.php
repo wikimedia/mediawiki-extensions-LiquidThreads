@@ -50,7 +50,9 @@ class LqtHooks {
 		// Custom display for new posts.
 		if ( $rc->mAttribs['rc_new'] ) {
 			// Article link, timestamp, user
-			$s = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink( $thread->getTitle() );
+			$s = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
+				$thread->getTitle()
+			);
 			$changeslist->insertTimestamp( $s, $rc );
 			$changeslist->insertUserRelatedLinks( $s, $rc );
 
@@ -385,40 +387,66 @@ class LqtHooks {
 
 		if ( $updater instanceof PostgresUpdater ) {
 			$updater->addExtensionTable( 'thread', "$dir/lqt.pg.sql" );
-			$updater->addExtensionTable( 'thread_history', "$dir/schema-changes/thread_history_table.pg.sql"  );
-			$updater->addExtensionTable( 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.pg.sql" );
-			$updater->addExtensionTable( 'thread_reaction', "$dir/schema-changes/thread_reactions.pg.sql" );
-			$updater->addExtensionField( 'user_message_state', 'ums_conversation',"$dir/schema-changes/ums_conversation.pg.sql" );
+			$updater->addExtensionTable( 'thread_history',
+				"$dir/schema-changes/thread_history_table.pg.sql"  );
+			$updater->addExtensionTable( 'thread_pending_relationship',
+				"$dir/schema-changes/thread_pending_relationship.pg.sql" );
+			$updater->addExtensionTable( 'thread_reaction',
+				"$dir/schema-changes/thread_reactions.pg.sql" );
+			$updater->addExtensionField( 'user_message_state', 'ums_conversation',
+				"$dir/schema-changes/ums_conversation.pg.sql" );
 		} else {
 			$updater->addExtensionTable( 'thread', "$dir/lqt.sql" );
-			$updater->addExtensionTable( 'thread_history', "$dir/schema-changes/thread_history_table.sql" );
-			$updater->addExtensionTable( 'thread_pending_relationship', "$dir/schema-changes/thread_pending_relationship.sql" );
-			$updater->addExtensionTable( 'thread_reaction', "$dir/schema-changes/thread_reactions.sql" );
-			$updater->addExtensionField( 'user_message_state', 'ums_conversation', "$dir/schema-changes/ums_conversation.sql" );
+			$updater->addExtensionTable( 'thread_history',
+				"$dir/schema-changes/thread_history_table.sql" );
+			$updater->addExtensionTable( 'thread_pending_relationship',
+				"$dir/schema-changes/thread_pending_relationship.sql" );
+			$updater->addExtensionTable( 'thread_reaction',
+				"$dir/schema-changes/thread_reactions.sql" );
+			$updater->addExtensionField( 'user_message_state', 'ums_conversation',
+				"$dir/schema-changes/ums_conversation.sql" );
 		}
 
-		$updater->addExtensionField( 'thread', "thread_article_namespace", "$dir/schema-changes/split-thread_article.sql" );
-		$updater->addExtensionField( 'thread', "thread_article_title", "$dir/schema-changes/split-thread_article.sql" );
-		$updater->addExtensionField( 'thread', "thread_ancestor", "$dir/schema-changes/normalise-ancestry.sql" );
-		$updater->addExtensionField( 'thread', "thread_parent", "$dir/schema-changes/normalise-ancestry.sql" );
-		$updater->addExtensionField( 'thread', "thread_modified", "$dir/schema-changes/split-timestamps.sql" );
-		$updater->addExtensionField( 'thread', "thread_created", "$dir/schema-changes/split-timestamps.sql" );
-		$updater->addExtensionField( 'thread', "thread_editedness", "$dir/schema-changes/store-editedness.sql" );
-		$updater->addExtensionField( 'thread', "thread_subject", "$dir/schema-changes/store_subject-author.sql" );
-		$updater->addExtensionField( 'thread', "thread_author_id", "$dir/schema-changes/store_subject-author.sql" );
-		$updater->addExtensionField( 'thread', "thread_author_name", "$dir/schema-changes/store_subject-author.sql" );
-		$updater->addExtensionField( 'thread', "thread_sortkey", "$dir/schema-changes/new-sortkey.sql" );
-		$updater->addExtensionField( 'thread', 'thread_replies', "$dir/schema-changes/store_reply_count.sql" );
-		$updater->addExtensionField( 'thread', 'thread_article_id', "$dir/schema-changes/store_article_id.sql" );
-		$updater->addExtensionField( 'thread', 'thread_signature', "$dir/schema-changes/thread_signature.sql" );
+		$updater->addExtensionField( 'thread', "thread_article_namespace",
+			"$dir/schema-changes/split-thread_article.sql" );
+		$updater->addExtensionField( 'thread', "thread_article_title",
+			"$dir/schema-changes/split-thread_article.sql" );
+		$updater->addExtensionField( 'thread', "thread_ancestor",
+			"$dir/schema-changes/normalise-ancestry.sql" );
+		$updater->addExtensionField( 'thread', "thread_parent",
+			"$dir/schema-changes/normalise-ancestry.sql" );
+		$updater->addExtensionField( 'thread', "thread_modified",
+			"$dir/schema-changes/split-timestamps.sql" );
+		$updater->addExtensionField( 'thread', "thread_created",
+			"$dir/schema-changes/split-timestamps.sql" );
+		$updater->addExtensionField( 'thread', "thread_editedness",
+			"$dir/schema-changes/store-editedness.sql" );
+		$updater->addExtensionField( 'thread', "thread_subject",
+			"$dir/schema-changes/store_subject-author.sql" );
+		$updater->addExtensionField( 'thread', "thread_author_id",
+			"$dir/schema-changes/store_subject-author.sql" );
+		$updater->addExtensionField( 'thread', "thread_author_name",
+			"$dir/schema-changes/store_subject-author.sql" );
+		$updater->addExtensionField( 'thread', "thread_sortkey",
+			"$dir/schema-changes/new-sortkey.sql" );
+		$updater->addExtensionField( 'thread', 'thread_replies',
+			"$dir/schema-changes/store_reply_count.sql" );
+		$updater->addExtensionField( 'thread', 'thread_article_id',
+			"$dir/schema-changes/store_article_id.sql" );
+		$updater->addExtensionField( 'thread', 'thread_signature',
+			"$dir/schema-changes/thread_signature.sql" );
 
-		$updater->addExtensionIndex( 'thread', 'thread_summary_page', "$dir/schema-changes/index-summary_page.sql" );
-		$updater->addExtensionIndex( 'thread', 'thread_parent', "$dir/schema-changes/index-thread_parent.sql"  );
+		$updater->addExtensionIndex( 'thread', 'thread_summary_page',
+			"$dir/schema-changes/index-summary_page.sql" );
+		$updater->addExtensionIndex( 'thread', 'thread_parent',
+			"$dir/schema-changes/index-thread_parent.sql" );
 
 		return true;
 	}
 
-	static function onTitleMoveComplete( Title $ot, Title $nt, User $user, $oldid, $newid, $reason = null ) {
+	static function onTitleMoveComplete(
+		Title $ot, Title $nt, User $user, $oldid, $newid, $reason = null
+	) {
 		// Check if it's a talk page.
 		if ( !LqtDispatch::isLqtPage( $ot ) && !LqtDispatch::isLqtPage( $nt ) ) {
 			return true;
@@ -485,7 +513,8 @@ class LqtHooks {
 			$isOnTalkPage = $isOnTalkPage || ( self::$editAppliesTo &&
 				self::$editAppliesTo->getTitle()->equals( $talkPage ) );
 
-			# FIXME: self::$editArticle is sometimes not set; is that ok and if not why is it happening?
+			# FIXME: self::$editArticle is sometimes not set;
+			# is that ok and if not why is it happening?
 			if ( self::$editArticle instanceof Article ) {
 				$isOnTalkPage = $isOnTalkPage ||
 					( self::$editArticle->getTitle()->equals( $talkPage ) );
@@ -526,7 +555,8 @@ class LqtHooks {
 
 			$insertUrls = array( 'newmessages' => $newMessagesLink );
 
-			if ( in_array( 'watchlist', array_keys( $personal_urls ) ) ) { // User has viewmywatchlist permission
+			// User has viewmywatchlist permission
+			if ( in_array( 'watchlist', array_keys( $personal_urls ) ) ) {
 				$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'watchlist' );
 			} else {
 				$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'preferences' );
@@ -834,7 +864,9 @@ class LqtHooks {
 		return $arr;
 	}
 
-	public static function addPendingRelationship( $thread, $relationship, $title, $type, &$array ) {
+	public static function addPendingRelationship(
+		$thread, $relationship, $title, $type, &$array
+	) {
 		$entry = array(
 			'thread' => $thread,
 			'relationship' => $relationship,
@@ -938,7 +970,11 @@ class LqtHooks {
 				if ( isset( $page['title'] )
 					&& LqtDispatch::isLqtPage( Title::newFromText( $page['title'] ) )
 				) {
-					$result->addValue( array( 'query', 'pages' ), $pageid, array( 'islqttalkpage' => '' ) );
+					$result->addValue(
+						array( 'query', 'pages' ),
+						$pageid,
+						array( 'islqttalkpage' => '' )
+					);
 				}
 			}
 		}

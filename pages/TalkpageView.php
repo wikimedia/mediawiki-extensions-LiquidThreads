@@ -197,7 +197,10 @@ class TalkpageView extends LqtView {
 		);
 		$html .= $sortOrderSelect->getHTML();
 
-		$html .= Xml::submitButton( wfMessage( 'lqt-changesortorder' )->text(), array( 'class' => 'lqt_go_sort' ) );
+		$html .= Xml::submitButton(
+			wfMessage( 'lqt-changesortorder' )->text(),
+			array( 'class' => 'lqt_go_sort' )
+		);
 		$html .= Html::hidden( 'title', $this->title->getPrefixedText() );
 
 
@@ -273,8 +276,11 @@ class TalkpageView extends LqtView {
 
 		// This closes the div of mw-content-ltr/rtl containing lang and dir attributes
 		$this->output->addHTML(
-			Html::closeElement( 'div' ) . Html::openElement( 'div',
-			array( 'class' => 'lqt-talkpage', 'lang' => $wgLang->getCode(), 'dir' => $wgLang->getDir() )
+			Html::closeElement( 'div' ) . Html::openElement( 'div', array(
+				'class' => 'lqt-talkpage',
+				'lang' => $wgLang->getCode(),
+				'dir' => $wgLang->getDir()
+			)
 		) );
 
 		$html = '';
@@ -301,7 +307,9 @@ class TalkpageView extends LqtView {
 		}
 
 		global $wgSearchTypeAlternatives, $wgSearchType;
-		if ( $wgSearchType == "LuceneSearch" || in_array( "LuceneSearch", $wgSearchTypeAlternatives ?: array() ) ) {
+		if ( $wgSearchType == "LuceneSearch"
+			|| in_array( "LuceneSearch", $wgSearchTypeAlternatives ?: array() )
+		) {
 			$talkpageHeader .= $this->getSearchBox();
 		}
 		$talkpageHeader .= $this->showTalkpageViewOptions( $article );
@@ -573,8 +581,10 @@ class LqtDiscussionPager extends IndexPager {
 		$disabledTexts = array();
 		foreach ( $labels as $type => $label ) {
 			$msgLabel = wfMessage( $label )->escaped();
-			$linkTexts[$type] = "<img src=\"$path/{$images[$type]}\" alt=\"$msgLabel\"/><br />$msgLabel";
-			$disabledTexts[$type] = "<img src=\"$path/{$disabledImages[$type]}\" alt=\"$msgLabel\"/><br />$msgLabel";
+			$linkTexts[$type] = "<img src=\"$path/{$images[$type]}\" " .
+				"alt=\"$msgLabel\"/><br />$msgLabel";
+			$disabledTexts[$type] = "<img src=\"$path/{$disabledImages[$type]}\" " .
+				"alt=\"$msgLabel\"/><br />$msgLabel";
 		}
 		$links = $this->getPagingLinks( $linkTexts, $disabledTexts );
 

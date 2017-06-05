@@ -160,7 +160,9 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				'thread_id',
 				'thread_parent',
 				'replies',
-				function($row) { return array( $row->thread_id => array( 'id' => $row->thread_id ) ); },
+				function ( $row ) {
+					return array( $row->thread_id => array( 'id' => $row->thread_id ) );
+				},
 				'reply'
 			);
 		}
@@ -168,7 +170,9 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$result->addIndexedTagName( array( 'query', $this->getModuleName() ), 'thread' );
 	}
 
-	protected function addSubItems( $tableName, $fields, $joinField, $subitemName, /*callable*/ $handleRow, $tagName ) {
+	protected function addSubItems(
+		$tableName, $fields, $joinField, $subitemName, /*callable*/ $handleRow, $tagName
+	) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$result = $this->getResult();
 
