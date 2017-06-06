@@ -5,7 +5,7 @@
 
 require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . "/maintenance/commandLine.inc"
-	: dirname( __FILE__ ) . '/../../maintenance/commandLine.inc' );
+	: __DIR__ . '/../../maintenance/commandLine.inc' );
 
 $db = wfGetDB( DB_MASTER );
 
@@ -34,19 +34,19 @@ $newTableUpdates = array( 'thread_history' => 'thread_history_table.sql' );
 
 foreach ( $threadFieldUpdates as $field => $patch ) {
 	if ( !$db->fieldExists( 'thread', $field, 'lqt-update-script' ) ) {
-		$db->sourceFile( dirname( __FILE__ ) . '/schema-changes/' . $patch );
+		$db->sourceFile( __DIR__ . '/schema-changes/' . $patch );
 	}
 }
 
 foreach ( $threadIndexUpdates as $index => $patch ) {
 	if ( !$db->indexExists( 'thread', $index, 'lqt-update-script' ) ) {
-		$db->sourceFile( dirname( __FILE__ ) . '/schema-changes/' . $patch );
+		$db->sourceFile( __DIR__ . '/schema-changes/' . $patch );
 	}
 }
 
 foreach ( $newTableUpdates as $table => $patch ) {
 	if ( !$db->tableExists( $table, 'lqt-update-script' ) ) {
-		$db->sourceFile( dirname( __FILE__ ) . '/schema-changes/' . $patch );
+		$db->sourceFile( __DIR__ . '/schema-changes/' . $patch );
 	}
 }
 

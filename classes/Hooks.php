@@ -383,7 +383,7 @@ class LqtHooks {
 	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( $updater = null ) {
-		$dir = realpath( dirname( __FILE__ ) . '/..' );
+		$dir = realpath( __DIR__ . '/..' );
 
 		if ( $updater instanceof PostgresUpdater ) {
 			$updater->addExtensionTable( 'thread', "$dir/lqt.pg.sql" );

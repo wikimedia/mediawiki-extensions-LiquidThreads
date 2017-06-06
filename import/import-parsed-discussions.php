@@ -1,7 +1,7 @@
 <?php
 require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . "/maintenance/commandLine.inc"
-	: dirname( __FILE__ ) . '/../../maintenance/commandLine.inc' );
+	: __DIR__ . '/../../maintenance/commandLine.inc' );
 
 # # Imports JSON-encoded discussions from parse-wikitext-discussions.pl
 
