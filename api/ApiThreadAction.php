@@ -827,7 +827,9 @@ class ApiThreadAction extends ApiEditPage {
 
 		$ts = $params['sortkey'];
 
-		if ( $ts == 'now' ) $ts = wfTimestampNow();
+		if ( $ts == 'now' ) {
+			$ts = wfTimestampNow();
+		}
 
 		$ts = wfTimestamp( TS_MW, $ts );
 

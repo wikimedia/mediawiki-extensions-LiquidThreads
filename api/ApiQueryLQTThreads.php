@@ -232,12 +232,15 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$rendercount = $params['renderthreadcount'];
 
 		$options = array();
-		if ( isset( $params['rendermaxthreadcount'] ) )
+		if ( isset( $params['rendermaxthreadcount'] ) ) {
 			$options['maxCount'] = $params['rendermaxthreadcount'];
-		if ( isset( $params['rendermaxdepth'] ) )
+		}
+		if ( isset( $params['rendermaxdepth'] ) ) {
 			$options['maxDepth'] = $params['rendermaxdepth'];
-		if ( isset( $params['renderstartrepliesat'] ) )
+		}
+		if ( isset( $params['renderstartrepliesat'] ) ) {
 			$options['startAt' ] = $params['renderstartrepliesat'];
+		}
 
 		$view->showThread( $thread, $renderpos, $rendercount, $options );
 

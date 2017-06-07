@@ -49,10 +49,11 @@ class HistoricalThread extends Thread {
 				'hthread_revision' => $rev
 			),
 			__METHOD__ );
-		if ( $line )
+		if ( $line ) {
 			return HistoricalThread::fromTextRepresentation( $line->hthread_contents );
-		else
+		} else {
 			return null;
+		}
 	}
 
 	function isHistorical() {

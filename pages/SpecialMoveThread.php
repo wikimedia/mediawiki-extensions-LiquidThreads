@@ -104,8 +104,9 @@ class SpecialMoveThread extends ThreadActionPage {
 
 		$rightsResult = $this->checkUserRights( $this->mThread->title(), $newtitle );
 
-		if ( $rightsResult !== true )
+		if ( $rightsResult !== true ) {
 			return $rightsResult;
+		}
 
 		// @todo No status code from this method.
 		$this->mThread->moveToPage( $newtitle, $reason, true );

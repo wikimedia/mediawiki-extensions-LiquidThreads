@@ -229,7 +229,9 @@ class LqtDispatch {
 	}
 
 	public static function onSkinTemplateNavigation( $skinTemplate, &$links ) {
-		if ( !self::$primaryView ) return true;
+		if ( !self::$primaryView ) {
+			return true;
+		}
 
 		self::$primaryView->customizeNavigation( $skinTemplate, $links );
 
