@@ -167,13 +167,13 @@ class TalkpageView extends LqtView {
 		return $html;
 	}
 
-	function getArchiveWidget( ) {
+	function getArchiveWidget() {
 		$html = '';
 		$html = Xml::tags( 'div', array( 'class' => 'lqt_archive_teaser' ), $html );
 		return $html;
 	}
 
-	function showTalkpageViewOptions( ) {
+	function showTalkpageViewOptions() {
 		$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
 		$html = '';
 
@@ -202,7 +202,6 @@ class TalkpageView extends LqtView {
 			array( 'class' => 'lqt_go_sort' )
 		);
 		$html .= Html::hidden( 'title', $this->title->getPrefixedText() );
-
 
 		$html = Xml::tags(
 			'form',
@@ -319,11 +318,11 @@ class TalkpageView extends LqtView {
 			$talkpageHeader
 		);
 
- 		if ( $this->shouldShow( 'options' ) ) {
- 			$this->output->addHTML( $talkpageHeader );
- 		} elseif ( $this->shouldShow( 'simplenew' ) ) {
- 			$this->output->addHTML( $newThreadLink );
- 		}
+		if ( $this->shouldShow( 'options' ) ) {
+			$this->output->addHTML( $talkpageHeader );
+		} elseif ( $this->shouldShow( 'simplenew' ) ) {
+			$this->output->addHTML( $newThreadLink );
+		}
 
 		if ( $this->methodApplies( 'talkpage_new_thread' ) ) {
 			$this->showNewThreadForm( $this->talkpage );
@@ -403,7 +402,7 @@ class TalkpageView extends LqtView {
 		if ( $this->request->getCheck( 'lqt_order' ) ) {
 			// Sort order is explicitly specified through UI
 			$lqt_order = $this->request->getVal( 'lqt_order' );
-			switch( $lqt_order ) {
+			switch ( $lqt_order ) {
 				case 'nc':
 					return self::LQT_NEWEST_CHANGES;
 				case 'nt':
@@ -520,7 +519,7 @@ class LqtDiscussionPager extends IndexPager {
 	}
 
 	function getIndexField() {
-		switch( $this->orderType ) {
+		switch ( $this->orderType ) {
 			case TalkpageView::LQT_NEWEST_CHANGES:
 				return 'thread_sortkey';
 			case TalkpageView::LQT_OLDEST_THREADS:
@@ -532,7 +531,7 @@ class LqtDiscussionPager extends IndexPager {
 	}
 
 	function getDefaultDirections() {
-		switch( $this->orderType ) {
+		switch ( $this->orderType ) {
 			case TalkpageView::LQT_NEWEST_CHANGES:
 			case TalkpageView::LQT_NEWEST_THREADS:
 				return true; // Descending

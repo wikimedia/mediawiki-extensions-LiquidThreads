@@ -187,7 +187,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			__METHOD__
 		);
 
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$output = $handleRow( $row );
 
 			$path = array(
@@ -223,7 +223,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$title = $article->getTitle();
 		$user = $this->getUser();
 		$request = $this->getRequest();
-		$view = new LqtView( $out, $article, $title, $user , $request );
+		$view = new LqtView( $out, $article, $title, $user, $request );
 
 		// Parameters
 		$view->threadNestingLevel = $params['renderlevel'];
@@ -343,7 +343,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	}
 
 	public function getAllowedParams() {
-		return array (
+		return array(
 			'startid' => array(
 				ApiBase :: PARAM_TYPE => 'integer'
 			),

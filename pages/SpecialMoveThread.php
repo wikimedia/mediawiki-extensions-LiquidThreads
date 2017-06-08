@@ -33,7 +33,9 @@ class SpecialMoveThread extends ThreadActionPage {
 		);
 	}
 
-	function getPageName() { return 'MoveThread'; }
+	function getPageName() {
+		return 'MoveThread';
+	}
 
 	function getSubmitText() {
 		return $this->msg( 'lqt_move_move' )->text();

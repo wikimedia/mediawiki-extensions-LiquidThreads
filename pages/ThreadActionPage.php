@@ -17,7 +17,9 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 
 	abstract function getFormFields();
 
-	protected function getRightRequirement() { return ''; }
+	protected function getRightRequirement() {
+		return '';
+	}
 
 	function execute( $par ) {
 		global $wgOut, $wgUser;

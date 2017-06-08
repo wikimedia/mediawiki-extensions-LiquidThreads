@@ -24,7 +24,7 @@ class NewUserMessagesView extends LqtView {
 		return $html;
 	}
 
-	function getReadAllButton( ) {
+	function getReadAllButton() {
 		return $this->htmlForReadButton(
 			wfMessage( 'lqt-read-all' )->text(),
 			wfMessage( 'lqt-read-all-tooltip' )->text(),
@@ -40,7 +40,7 @@ class NewUserMessagesView extends LqtView {
 			if ( !$t ) {
 				return; // empty or just bogus operand.
 			}
-			$msg = wfMessage( 'lqt-marked-read', LqtView::formatSubject( $t->subject() )  )->parse();
+			$msg = wfMessage( 'lqt-marked-read', LqtView::formatSubject( $t->subject() ) )->parse();
 		} else {
 			$msg = wfMessage( 'lqt-count-marked-read' )->numParams( count( $ids ) )->parse();
 		}
@@ -163,7 +163,7 @@ class NewUserMessagesView extends LqtView {
 		$title->setFragment( '#' . $t->getAnchorName() );
 
 		// Make sure it points to the right page. The Pager seems to use the DB
-		//	representation of a timestamp for its offset field, odd.
+		// representation of a timestamp for its offset field, odd.
 		$dbr = wfGetDB( DB_SLAVE );
 		$offset = wfTimestamp( TS_UNIX, $topmostThread->modified() ) + 1;
 		$offset = $dbr->timestamp( $offset );

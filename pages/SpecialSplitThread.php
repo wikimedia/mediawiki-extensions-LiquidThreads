@@ -29,7 +29,9 @@ class SpecialSplitThread extends ThreadActionPage {
 		return $this->msg( 'lqt_split_thread' )->text();
 	}
 
-	protected function getRightRequirement() { return 'lqt-split'; }
+	protected function getRightRequirement() {
+		return 'lqt-split';
+	}
 
 	function trySubmit( $data ) {
 		// Load data

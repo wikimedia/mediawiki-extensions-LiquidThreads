@@ -61,7 +61,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$this->output->addHTML( $html );
 	}
 
-	function getChangeDescription( ) {
+	function getChangeDescription() {
 		$args = array();
 
 		$revision = $this->mDisplayRevision;
@@ -72,7 +72,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 
 		$msg = $this->getMessageForChangeType( $change_type );
 
-		switch( $change_type ) {
+		switch ( $change_type ) {
 			case Threads::CHANGE_EDITED_SUBJECT:
 				$args[] = $revision->prev()->getChangeObject()->subject();
 				$args[] = $revision->getChangeObject()->subject();

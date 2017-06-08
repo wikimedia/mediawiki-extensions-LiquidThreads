@@ -76,7 +76,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 			$title = $row->thread_article_title;
 		}
 
-		switch( $name ) {
+		switch ( $name ) {
 			case 'thread_subject':
 				$title = Title::makeTitleSafe(
 					$ns,

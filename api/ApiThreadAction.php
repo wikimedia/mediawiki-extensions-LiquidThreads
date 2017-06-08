@@ -117,7 +117,6 @@ class ApiThreadAction extends ApiEditPage {
 			);
 		}
 
-
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
@@ -714,7 +713,7 @@ class ApiThreadAction extends ApiEditPage {
 		$title = $article->getTitle();
 		$user = $this->getUser();
 		$request = $this->getRequest();
-		$view = new LqtView( $out, $article, $title, $user , $request );
+		$view = new LqtView( $out, $article, $title, $user, $request );
 
 		$view->showThread( $thread );
 

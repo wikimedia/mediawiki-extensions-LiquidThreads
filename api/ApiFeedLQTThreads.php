@@ -87,7 +87,6 @@ class ApiFeedLQTThreads extends ApiBase {
 		$user = $thread->author()->getName();
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
-
 		// Prefix content with a quick description
 		$userLink = Linker::userLink( $thread->author()->getId(), $user );
 		$talkpageLink = $linkRenderer->makeLink( $thread->getTitle() );
@@ -224,26 +223,26 @@ class ApiFeedLQTThreads extends ApiBase {
 	public function getAllowedParams() {
 		global $wgFeedClasses;
 		$feedFormatNames = array_keys( $wgFeedClasses );
-		return array (
-			'feedformat' => array (
+		return array(
+			'feedformat' => array(
 				ApiBase :: PARAM_DFLT => 'rss',
 				ApiBase :: PARAM_TYPE => $feedFormatNames
 			),
-			'days' => array (
+			'days' => array(
 				ApiBase :: PARAM_DFLT => 7,
 				ApiBase :: PARAM_TYPE => 'integer',
 				ApiBase :: PARAM_MIN => 1,
 				ApiBase :: PARAM_MAX => 30,
 			),
-			'type' => array (
+			'type' => array(
 				ApiBase :: PARAM_DFLT => 'newthreads',
 				ApiBase :: PARAM_TYPE => array( 'replies', 'newthreads' ),
 				ApiBase :: PARAM_ISMULTI => true,
 			),
-			'talkpage' => array (
+			'talkpage' => array(
 				ApiBase :: PARAM_ISMULTI => true,
 			),
-			'thread' => array (
+			'thread' => array(
 				ApiBase :: PARAM_ISMULTI => true,
 			),
 		);

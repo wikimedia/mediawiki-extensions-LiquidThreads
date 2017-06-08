@@ -25,7 +25,9 @@ class SpecialMergeThread extends ThreadActionPage {
 		return $splitForm;
 	}
 
-	protected function getRightRequirement() { return 'lqt-merge'; }
+	protected function getRightRequirement() {
+		return 'lqt-merge';
+	}
 
 	public function checkParameters( $par ) {
 		if ( !parent::checkParameters( $par ) ) {
