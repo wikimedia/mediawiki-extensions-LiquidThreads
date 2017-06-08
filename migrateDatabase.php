@@ -12,7 +12,7 @@ $db = wfGetDB( DB_MASTER );
 $wgTitle = SpecialPage::getTitleFor( 'LiquidThreads' );
 
 // Do database updates
-$threadFieldUpdates = array(
+$threadFieldUpdates = [
 	'thread_article_namespace' => 'split-thread_article.sql',
 	'thread_article_title' => 'split-thread_article.sql',
 	'thread_ancestor' => 'normalise-ancestry.sql',
@@ -26,11 +26,11 @@ $threadFieldUpdates = array(
 	'thread_sortkey' => 'new-sortkey.sql',
 	'thread_replies' => 'store_reply_count.sql',
 	'thread_article_id' => 'store_article_id.sql',
-);
+];
 
-$threadIndexUpdates = array( 'thread_summary_page' => 'index-summary_page.sql' );
+$threadIndexUpdates = [ 'thread_summary_page' => 'index-summary_page.sql' ];
 
-$newTableUpdates = array( 'thread_history' => 'thread_history_table.sql' );
+$newTableUpdates = [ 'thread_history' => 'thread_history_table.sql' ];
 
 foreach ( $threadFieldUpdates as $field => $patch ) {
 	if ( !$db->fieldExists( 'thread', $field, 'lqt-update-script' ) ) {
@@ -60,9 +60,9 @@ do {
 
 	// Read 500 rows
 	$res = $db->select(
-		'thread', '*', array( 'thread_id>' . $db->addQuotes( $upTo ) ),
+		'thread', '*', [ 'thread_id>' . $db->addQuotes( $upTo ) ],
 		'lqt-update-script',
-		array( 'LIMIT' => 500, 'FOR UPDATE', 'ORDER BY' => 'thread_id asc' )
+		[ 'LIMIT' => 500, 'FOR UPDATE', 'ORDER BY' => 'thread_id asc' ]
 	);
 
 	$threads = Threads::loadFromResult( $res, $db );

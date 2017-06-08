@@ -20,28 +20,28 @@
 
 class ApiQueryLQTThreads extends ApiQueryBase {
 	// Property definitions
-	public static $propRelations = array(
+	public static $propRelations = [
 		'id' => 'thread_id',
 		'subject' => 'thread_subject',
-		'page' => array(
+		'page' => [
 			'namespace' => 'thread_article_namespace',
 			'title' => 'thread_article_title'
-		),
+		],
 		'parent' => 'thread_parent',
 		'ancestor' => 'thread_ancestor',
 		'created' => 'thread_created',
 		'modified' => 'thread_modified',
-		'author' => array(
+		'author' => [
 			'id' => 'thread_author_id',
 			'name' => 'thread_author_name'
-		),
+		],
 		'summaryid' => 'thread_summary_page',
 		'rootid' => 'thread_root',
 		'type' => 'thread_type',
 		'signature' => 'thread_signature',
 		'reactions' => null, // Handled elsewhere
 		'replies' => null, // Handled elsewhere
-	);
+	];
 
 	/** @var array **/
 	protected $threadIds;
@@ -65,7 +65,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 
 		// Check for conditions
-		$conditionFields = array( 'page', 'root', 'summary', 'author', 'id' );
+		$conditionFields = [ 'page', 'root', 'summary', 'author', 'id' ];
 		foreach ( $conditionFields as $field ) {
 			if ( isset( $params[$field] ) ) {
 				$this->handleCondition( $field, $params[$field] );
@@ -83,20 +83,20 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 
 		if ( $params['render'] ) {
 			// All fields
-			$allFields = array(
+			$allFields = [
 				'thread_id', 'thread_root', 'thread_article_namespace',
 				'thread_article_title', 'thread_summary_page', 'thread_ancestor',
 				'thread_parent', 'thread_modified', 'thread_created', 'thread_type',
 				'thread_editedness', 'thread_subject', 'thread_author_id',
 				'thread_author_name', 'thread_signature'
-			);
+			];
 
 			$this->addFields( $allFields );
 		}
 
 		$res = $this->select( __METHOD__ );
 
-		$ids = array();
+		$ids = [];
 		$count = 0;
 		foreach ( $res as $row )
 		{
@@ -106,7 +106,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				break;
 			}
 
-			$entry = array();
+			$entry = [];
 			foreach ( $prop as $name => $nothing ) {
 				$fields = self::$propRelations[$name];
 				self::formatProperty( $name, $fields, $row, $entry );
@@ -124,8 +124,8 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			$ids[$row->thread_id] = $row->thread_id;
 
 			if ( $entry ) {
-				$fit = $result->addValue( array( 'query',
-						$this->getModuleName() ),
+				$fit = $result->addValue( [ 'query',
+						$this->getModuleName() ],
 					$row->thread_id, $entry );
 				if ( !$fit ) {
 					$this->setContinueEnumParameter( 'startid', $row->thread_id );
@@ -143,12 +143,12 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				'tr_thread',
 				'reactions',
 				function( $row ) {
-					return array( "{$row->tr_user}_{$row->tr_type}" => array(
+					return [ "{$row->tr_user}_{$row->tr_type}" => [
 						'type' => $row->tr_type,
 						'user-id' => $row->tr_user,
 						'user-name' => $row->tr_user_text,
 						'value' => $row->tr_value,
-					) );
+					] ];
 				},
 				'reaction'
 			);
@@ -161,13 +161,13 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				'thread_parent',
 				'replies',
 				function ( $row ) {
-					return array( $row->thread_id => array( 'id' => $row->thread_id ) );
+					return [ $row->thread_id => [ 'id' => $row->thread_id ] ];
 				},
 				'reply'
 			);
 		}
 
-		$result->addIndexedTagName( array( 'query', $this->getModuleName() ), 'thread' );
+		$result->addIndexedTagName( [ 'query', $this->getModuleName() ], 'thread' );
 	}
 
 	protected function addSubItems(
@@ -181,20 +181,20 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$res = $dbr->select(
 			$tableName,
 			$fields,
-			array(
+			[
 				$joinField => $this->threadIds
-			),
+			],
 			__METHOD__
 		);
 
 		foreach ( $res as $row ) {
 			$output = $handleRow( $row );
 
-			$path = array(
+			$path = [
 				'query',
 				$this->getModuleName(),
 				$row->$joinField,
-			);
+			];
 
 			$result->addValue(
 				$path,
@@ -202,7 +202,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				$output
 			);
 
-			$result->addIndexedTagName( array_merge( $path, array( $subitemName ) ), $tagName );
+			$result->addIndexedTagName( array_merge( $path, [ $subitemName ] ), $tagName );
 		}
 	}
 
@@ -231,7 +231,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$renderpos = $params['renderthreadpos'];
 		$rendercount = $params['renderthreadcount'];
 
-		$options = array();
+		$options = [];
 		if ( isset( $params['rendermaxthreadcount'] ) ) {
 			$options['maxCount'] = $params['rendermaxthreadcount'];
 		}
@@ -253,7 +253,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 
 	static function formatProperty( $name, $fields, $row, &$entry ) {
 		if ( is_null( $fields ) ) {
-			$entry[$name] = array();
+			$entry[$name] = [];
 		} elseif ( !is_array( $fields ) ) {
 			// Common case.
 			$entry[$name] = $row->$fields;
@@ -276,7 +276,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			$cond = $this->getPageCond( $prop, $value[0] );
 			$this->addWhere( $cond );
 		} else {
-			$conds = array();
+			$conds = [];
 			foreach ( $value as $page ) {
 				$cond = $this->getPageCond( $prop, $page );
 				$conds[] = $this->getDB()->makeList( $cond, LIST_AND );
@@ -288,18 +288,18 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	}
 
 	function getPageCond( $prop, $value ) {
-		$fieldMappings = array(
-			'page' => array(
+		$fieldMappings = [
+			'page' => [
 				'namespace' => 'thread_article_namespace',
 				'title' => 'thread_article_title',
-			),
-			'root' => array( 'id' => 'thread_root' ),
-			'summary' => array( 'id' => 'thread_summary_id' ),
-		);
+			],
+			'root' => [ 'id' => 'thread_root' ],
+			'summary' => [ 'id' => 'thread_summary_id' ],
+		];
 
 		// Split.
 		$t = Title::newFromText( $value );
-		$cond = array();
+		$cond = [];
 		foreach ( $fieldMappings[$prop] as $type => $field ) {
 			switch ( $type ) {
 				case 'namespace':
@@ -319,7 +319,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	}
 
 	function handleCondition( $prop, $value ) {
-		$titleParams = array( 'page', 'root', 'summary' );
+		$titleParams = [ 'page', 'root', 'summary' ];
 		$fields = self::$propRelations[$prop];
 
 		if ( in_array( $prop, $titleParams ) ) {
@@ -343,81 +343,81 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'startid' => array(
+		return [
+			'startid' => [
 				ApiBase :: PARAM_TYPE => 'integer'
-			),
-			'endid' => array(
+			],
+			'endid' => [
 				ApiBase :: PARAM_TYPE => 'integer'
-			),
-			'dir' => array(
-				ApiBase :: PARAM_TYPE => array(
+			],
+			'dir' => [
+				ApiBase :: PARAM_TYPE => [
 					'newer',
 					'older'
-				),
+				],
 				ApiBase :: PARAM_DFLT => 'newer',
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-direction',
-			),
+			],
 			'showdeleted' => false,
-			'limit' => array(
+			'limit' => [
 				ApiBase :: PARAM_DFLT => 10,
 				ApiBase :: PARAM_TYPE => 'limit',
 				ApiBase :: PARAM_MIN => 1,
 				ApiBase :: PARAM_MAX => ApiBase :: LIMIT_BIG1,
 				ApiBase :: PARAM_MAX2 => ApiBase :: LIMIT_BIG2
-			),
-			'prop' => array(
+			],
+			'prop' => [
 				ApiBase :: PARAM_DFLT => 'id|subject|page|parent|author',
 				ApiBase :: PARAM_TYPE => array_keys( self::$propRelations ),
 				ApiBase :: PARAM_ISMULTI => true
-			),
+			],
 
-			'page' => array(
+			'page' => [
 				ApiBase :: PARAM_ISMULTI => true
-			),
-			'author' => array(
+			],
+			'author' => [
 				ApiBase :: PARAM_ISMULTI => true
-			),
-			'root' => array(
+			],
+			'root' => [
 				ApiBase :: PARAM_ISMULTI => true
-			),
-			'summary' => array(
+			],
+			'summary' => [
 				ApiBase :: PARAM_ISMULTI => true
-			),
-			'id' => array(
+			],
+			'id' => [
 				ApiBase :: PARAM_ISMULTI => true
-			),
+			],
 			'render' => false,
-			'renderlevel' => array(
+			'renderlevel' => [
 				ApiBase :: PARAM_DFLT => 0,
-			),
-			'renderthreadpos' => array(
+			],
+			'renderthreadpos' => [
 				ApiBase :: PARAM_DFLT => 1,
-			),
-			'renderthreadcount' => array(
+			],
+			'renderthreadcount' => [
 				ApiBase :: PARAM_DFLT => 1,
-			),
-			'rendermaxthreadcount' => array(
+			],
+			'rendermaxthreadcount' => [
 				ApiBase :: PARAM_DFLT => null,
-			),
-			'rendermaxdepth' => array(
+			],
+			'rendermaxdepth' => [
 				ApiBase :: PARAM_DFLT => null,
-			),
-			'renderstartrepliesat' => array(
+			],
+			'renderstartrepliesat' => [
 				ApiBase :: PARAM_DFLT => null,
-			),
-		);
+			],
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&list=threads&thpage=Talk:Main_Page'
 				=> 'apihelp-query+threads-example-1',
 			'action=query&list=threads&thid=1|2|3|4&thprop=id|subject|modified'
 				=> 'apihelp-query+threads-example-2',
-		);
+		];
 	}
 }

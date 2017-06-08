@@ -4,12 +4,12 @@ class ApiThreadAction extends ApiEditPage {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
-		$allowedAllActions = array( 'markread' );
-		$actionsAllowedOnNonLqtPage = array( 'markread', 'markunread' );
+		$allowedAllActions = [ 'markread' ];
+		$actionsAllowedOnNonLqtPage = [ 'markread', 'markunread' ];
 		$action = $params['threadaction'];
 
 		// Pull the threads from the parameters
-		$threads = array();
+		$threads = [];
 		if ( !empty( $params['thread'] ) ) {
 			foreach ( $params['thread'] as $thread ) {
 				$threadObj = null;
@@ -17,7 +17,7 @@ class ApiThreadAction extends ApiEditPage {
 					$threadObj = Threads::withId( $thread );
 				} elseif ( $thread == 'all' &&
 						in_array( $action, $allowedAllActions ) ) {
-					$threads = array( 'all' );
+					$threads = [ 'all' ];
 				} else {
 					$title = Title::newFromText( $thread );
 					$article = new Article( $title, 0 );
@@ -58,44 +58,44 @@ class ApiThreadAction extends ApiEditPage {
 
 		$method = $actions[$action];
 
-		call_user_func_array( array( $this, $method ), array( $threads, $params ) );
+		call_user_func_array( [ $this, $method ], [ $threads, $params ] );
 	}
 
 	public function actionMarkRead( $threads, $params ) {
 		$user = $this->getUser();
 
-		$result = array();
+		$result = [];
 
 		if ( in_array( 'all', $threads ) ) {
 			NewMessages::markAllReadByUser( $user );
-			$result[] = array(
+			$result[] = [
 				'result' => 'Success',
 				'action' => 'markread',
 				'threads' => 'all',
-				'unreadlink' => array(
+				'unreadlink' => [
 					'href' => SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL(),
 					'text' => wfMessage( 'lqt_newmessages' )->text(),
 					'active' => false,
-				)
-			);
+				]
+			];
 		} else {
 			foreach ( $threads as $t ) {
 				NewMessages::markThreadAsReadByUser( $t, $user );
-				$result[] = array(
+				$result[] = [
 					'result' => 'Success',
 					'action' => 'markread',
 					'id' => $t->id(),
 					'title' => $t->title()->getPrefixedText()
-				);
+				];
 			}
 			$newMessagesCount = NewMessages::newMessageCount( $user, DB_MASTER );
 			$msgNewMessages = $newMessagesCount ? 'lqt-newmessages-n' : 'lqt_newmessages';
 			// Only bother to put this on the last threadaction
-			$result[count( $result ) - 1]['unreadlink'] = array(
+			$result[count( $result ) - 1]['unreadlink'] = [
 				'href' => SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL(),
 				'text' => wfMessage( $msgNewMessages )->numParams( $newMessagesCount )->text(),
 				'active' => $newMessagesCount > 0,
-			);
+			];
 		}
 
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
@@ -103,18 +103,18 @@ class ApiThreadAction extends ApiEditPage {
 	}
 
 	public function actionMarkUnread( $threads, $params ) {
-		$result = array();
+		$result = [];
 
 		$user = $this->getUser();
 		foreach ( $threads as $t ) {
 			NewMessages::markThreadAsUnreadByUser( $t, $user );
 
-			$result[] = array(
+			$result[] = [
 				'result' => 'Success',
 				'action' => 'markunread',
 				'id' => $t->id(),
 				'title' => $t->title()->getPrefixedText()
-			);
+			];
 		}
 
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
@@ -193,14 +193,14 @@ class ApiThreadAction extends ApiEditPage {
 		// Do the split
 		$thread->split( $subject, $reason, $sortkey );
 
-		$result = array();
-		$result[] = array(
+		$result = [];
+		$result[] = [
 			'result' => 'Success',
 			'action' => 'split',
 			'id' => $thread->id(),
 			'title' => $thread->title()->getPrefixedText(),
 			'newsubject' => $subject,
-		);
+		];
 
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
 		$this->getResult()->addValue( null, 'threadaction', $result );
@@ -259,11 +259,11 @@ class ApiThreadAction extends ApiEditPage {
 			$reason = $params['reason'];
 		}
 
-		$result = array();
+		$result = [];
 
 		foreach ( $threads as $thread ) {
 			$thread->moveToParent( $newParent, $reason );
-			$result[] = array(
+			$result[] = [
 				'result' => 'Success',
 				'action' => 'merge',
 				'id' => $thread->id(),
@@ -272,7 +272,7 @@ class ApiThreadAction extends ApiEditPage {
 				'new-parent-title' => $newParent->title()->getPrefixedText(),
 				'new-ancestor-id' => $newParent->topmostThread()->id(),
 				'new-ancestor-title' => $newParent->topmostThread()->title()->getPrefixedText(),
-			);
+			];
 		}
 
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
@@ -283,9 +283,9 @@ class ApiThreadAction extends ApiEditPage {
 		// Validate talkpage parameters
 		if ( !count( $params['talkpage'] ) ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( array( 'apierror-missingparam', 'talkpage' ) );
+				$this->dieWithError( [ 'apierror-missingparam', 'talkpage' ] );
 			} else {
-				$this->dieUsageMsg( array( 'missingparam', 'talkpage' ) );
+				$this->dieUsageMsg( [ 'missingparam', 'talkpage' ] );
 			}
 		}
 
@@ -316,9 +316,9 @@ class ApiThreadAction extends ApiEditPage {
 		// Validate subject, generate a title
 		if ( empty( $params['subject'] ) ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( array( 'apierror-missingparam', 'subject' ) );
+				$this->dieWithError( [ 'apierror-missingparam', 'subject' ] );
 			} else {
-				$this->dieUsageMsg( array( 'missingparam', 'subject' ) );
+				$this->dieUsageMsg( [ 'missingparam', 'subject' ] );
 			}
 		}
 
@@ -367,7 +367,7 @@ class ApiThreadAction extends ApiEditPage {
 		$token = $params['token'];
 
 		// All seems in order. Construct an API edit request
-		$requestData = array(
+		$requestData = [
 			'action' => 'edit',
 			'title' => $title->getPrefixedText(),
 			'text' => $text,
@@ -376,7 +376,7 @@ class ApiThreadAction extends ApiEditPage {
 			'basetimestamp' => wfTimestampNow(),
 			'minor' => 0,
 			'format' => 'json',
-		);
+		];
 
 		if ( $user->isAllowed( 'bot' ) ) {
 			$requestData['bot'] = true;
@@ -388,7 +388,7 @@ class ApiThreadAction extends ApiEditPage {
 		$editResult = $internalApi->getResult()->getResultData();
 
 		if ( $editResult['edit']['result'] != 'Success' ) {
-			$result = array( 'result' => 'EditFailure', 'details' => $editResult );
+			$result = [ 'result' => 'EditFailure', 'details' => $editResult ];
 			$this->getResult()->addValue( null, $this->getModuleName(), $result );
 			return;
 		}
@@ -399,27 +399,27 @@ class ApiThreadAction extends ApiEditPage {
 		$title->resetArticleID( $articleId );
 
 		$thread = LqtView::newPostMetadataUpdates(
-			array(
+			[
 				'root' => $article,
 				'talkpage' => $talkpage,
 				'subject' => $subject,
 				'signature' => $signature,
 				'summary' => $summary,
 				'text' => $text,
-			) );
+			] );
 
-		$result = array(
+		$result = [
 			'result' => 'Success',
 			'thread-id' => $thread->id(),
 			'thread-title' => $title->getPrefixedText(),
 			'modified' => $thread->modified(),
-		);
+		];
 
 		if ( !empty( $params['render'] ) ) {
 			$result['html'] = $this->renderThreadPostAction( $thread );
 		}
 
-		$result = array( 'thread' => $result );
+		$result = [ 'thread' => $result ];
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
@@ -499,7 +499,7 @@ class ApiThreadAction extends ApiEditPage {
 		$token = $params['token'];
 
 		// All seems in order. Construct an API edit request
-		$requestData = array(
+		$requestData = [
 			'action' => 'edit',
 			'title' => $title->getPrefixedText(),
 			'text' => $text,
@@ -508,7 +508,7 @@ class ApiThreadAction extends ApiEditPage {
 			'minor' => 0,
 			'basetimestamp' => wfTimestampNow(),
 			'format' => 'json',
-		);
+		];
 
 		if ( $this->getUser()->isAllowed( 'bot' ) ) {
 			$requestData['bot'] = true;
@@ -521,13 +521,13 @@ class ApiThreadAction extends ApiEditPage {
 		$editResult = $internalApi->getResult()->getResultData();
 
 		if ( $editResult['edit']['result'] != 'Success' ) {
-			$result = array( 'result' => 'EditFailure', 'details' => $editResult );
+			$result = [ 'result' => 'EditFailure', 'details' => $editResult ];
 			$this->getResult()->addValue( null, $this->getModuleName(), $result );
 			return;
 		}
 
 		$thread = LqtView::editMetadataUpdates(
-			array(
+			[
 				'root' => $article,
 				'thread' => $thread,
 				'subject' => $subject,
@@ -535,20 +535,20 @@ class ApiThreadAction extends ApiEditPage {
 				'summary' => $summary,
 				'text' => $text,
 				'bump' => $bump,
-			) );
+			] );
 
-		$result = array(
+		$result = [
 			'result' => 'Success',
 			'thread-id' => $thread->id(),
 			'thread-title' => $title->getPrefixedText(),
 			'modified' => $thread->modified(),
-		);
+		];
 
 		if ( !empty( $params['render'] ) ) {
 			$result['html'] = $this->renderThreadPostAction( $thread );
 		}
 
-		$result = array( 'thread' => $result );
+		$result = [ 'thread' => $result ];
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
@@ -634,7 +634,7 @@ class ApiThreadAction extends ApiEditPage {
 		$token = $params['token'];
 
 		// All seems in order. Construct an API edit request
-		$requestData = array(
+		$requestData = [
 			'action' => 'edit',
 			'title' => $title->getPrefixedText(),
 			'text' => $text,
@@ -643,7 +643,7 @@ class ApiThreadAction extends ApiEditPage {
 			'basetimestamp' => wfTimestampNow(),
 			'minor' => 0,
 			'format' => 'json',
-		);
+		];
 
 		if ( $user->isAllowed( 'bot' ) ) {
 			$requestData['bot'] = true;
@@ -656,7 +656,7 @@ class ApiThreadAction extends ApiEditPage {
 		$editResult = $internalApi->getResult()->getResultData();
 
 		if ( $editResult['edit']['result'] != 'Success' ) {
-			$result = array( 'result' => 'EditFailure', 'details' => $editResult );
+			$result = [ 'result' => 'EditFailure', 'details' => $editResult ];
 			$this->getResult()->addValue( null, $this->getModuleName(), $result );
 			return;
 		}
@@ -666,16 +666,16 @@ class ApiThreadAction extends ApiEditPage {
 		$title->resetArticleID( $articleId );
 
 		$thread = LqtView::replyMetadataUpdates(
-			array(
+			[
 				'root' => $article,
 				'replyTo' => $replyTo,
 				'signature' => $signature,
 				'summary' => $summary,
 				'text' => $text,
 				'bump' => $bump,
-			) );
+			] );
 
-		$result = array(
+		$result = [
 			'action' => 'reply',
 			'result' => 'Success',
 			'thread-id' => $thread->id(),
@@ -685,13 +685,13 @@ class ApiThreadAction extends ApiEditPage {
 			'ancestor-id' => $replyTo->topmostThread()->id(),
 			'ancestor-title' => $replyTo->topmostThread()->title()->getPrefixedText(),
 			'modified' => $thread->modified(),
-		);
+		];
 
 		if ( !empty( $params['render'] ) ) {
 			$result['html'] = $this->renderThreadPostAction( $thread );
 		}
 
-		$result = array( 'thread' => $result );
+		$result = [ 'thread' => $result ];
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
@@ -757,9 +757,9 @@ class ApiThreadAction extends ApiEditPage {
 		// Validate subject
 		if ( empty( $params['subject'] ) ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( array( 'apierror-missingparam', 'subject' ) );
+				$this->dieWithError( [ 'apierror-missingparam', 'subject' ] );
 			} else {
-				$this->dieUsageMsg( array( 'missingparam', 'subject' ) );
+				$this->dieUsageMsg( [ 'missingparam', 'subject' ] );
 			}
 		}
 
@@ -789,15 +789,15 @@ class ApiThreadAction extends ApiEditPage {
 			$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT, $thread, $reason );
 		}
 
-		$result = array(
+		$result = [
 			'action' => 'setsubject',
 			'result' => 'success',
 			'thread-id' => $thread->id(),
 			'thread-title' => $thread->title()->getPrefixedText(),
 			'new-subject' => $subject,
-		);
+		];
 
-		$result = array( 'thread' => $result );
+		$result = [ 'thread' => $result ];
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
@@ -863,15 +863,15 @@ class ApiThreadAction extends ApiEditPage {
 		$thread->setSortkey( $ts );
 		$thread->commitRevision( Threads::CHANGE_ADJUSTED_SORTKEY, null, $reason );
 
-		$result = array(
+		$result = [
 			'action' => 'setsortkey',
 			'result' => 'success',
 			'thread-id' => $thread->id(),
 			'thread-title' => $thread->title()->getPrefixedText(),
 			'new-sortkey' => $ts,
-		);
+		];
 
-		$result = array( 'thread' => $result );
+		$result = [ 'thread' => $result ];
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
@@ -894,7 +894,7 @@ class ApiThreadAction extends ApiEditPage {
 			}
 		}
 
-		$required = array( 'type', 'value' );
+		$required = [ 'type', 'value' ];
 
 		if ( count( array_diff( $required, array_keys( $params ) ) ) ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
@@ -905,16 +905,16 @@ class ApiThreadAction extends ApiEditPage {
 			}
 		}
 
-		$result = array();
+		$result = [];
 
 		foreach ( $threads as $thread ) {
 			$thread->addReaction( $this->getUser(), $params['type'], $params['value'] );
 
-			$result[] = array(
+			$result[] = [
 				'result' => 'Success',
 				'action' => 'addreaction',
 				'id' => $thread->id(),
-			);
+			];
 		}
 
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
@@ -940,7 +940,7 @@ class ApiThreadAction extends ApiEditPage {
 			}
 		}
 
-		$required = array( 'type', 'value' );
+		$required = [ 'type', 'value' ];
 
 		if ( count( array_diff( $required, array_keys( $params ) ) ) ) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
@@ -951,16 +951,16 @@ class ApiThreadAction extends ApiEditPage {
 			}
 		}
 
-		$result = array();
+		$result = [];
 
 		foreach ( $threads as $thread ) {
 			$thread->deleteReaction( $user, $params['type'] );
 
-			$result[] = array(
+			$result[] = [
 				'result' => 'Success',
 				'action' => 'deletereaction',
 				'id' => $thread->id(),
-			);
+			];
 		}
 
 		$this->getResult()->setIndexedTagName( $result, 'thread' );
@@ -991,7 +991,7 @@ class ApiThreadAction extends ApiEditPage {
 
 		$output = LqtView::getInlineEditForm( $talkpage, $method, $operand );
 
-		$result = array( 'inlineeditform' => array( 'html' => $output ) );
+		$result = [ 'inlineeditform' => [ 'html' => $output ] ];
 
 		/* FIXME
 		$result['resources'] = LqtView::getJSandCSS();
@@ -1002,7 +1002,7 @@ class ApiThreadAction extends ApiEditPage {
 	}
 
 	public function getActions() {
-		return array(
+		return [
 			'markread' => 'actionMarkRead',
 			'markunread' => 'actionMarkUnread',
 			'split' => 'actionSplit',
@@ -1015,15 +1015,15 @@ class ApiThreadAction extends ApiEditPage {
 			'addreaction' => 'actionAddReaction',
 			'deletereaction' => 'actionDeleteReaction',
 			'inlineeditform' => 'actionInlineEditForm',
-		);
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
-		);
+		return [
+		];
 	}
 
 	public function needsToken() {
@@ -1031,15 +1031,15 @@ class ApiThreadAction extends ApiEditPage {
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'thread' => array(
+		return [
+			'thread' => [
 				ApiBase::PARAM_ISMULTI => true,
-			),
+			],
 			'talkpage' => null,
-			'threadaction' => array(
+			'threadaction' => [
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_TYPE => array_keys( $this->getActions() ),
-			),
+			],
 			'token' => null,
 			'subject' => null,
 			'reason' => null,
@@ -1053,7 +1053,7 @@ class ApiThreadAction extends ApiEditPage {
 			'value' => null,
 			'method' => null,
 			'operand' => null,
-		);
+		];
 	}
 
 	public function mustBePosted() {

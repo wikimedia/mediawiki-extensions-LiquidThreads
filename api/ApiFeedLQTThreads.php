@@ -54,14 +54,14 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		$feedTitle = $this->createFeedTitle( $params );
 		$feedClass = $wgFeedClasses[$params['feedformat']];
-		$feedItems = array();
+		$feedItems = [];
 
 		$feedUrl = Title::newMainPage()->getFullURL();
 
-		$tables = array( 'thread' );
-		$fields = array( $db->tableName( 'thread' ) . ".*" );
+		$tables = [ 'thread' ];
+		$fields = [ $db->tableName( 'thread' ) . ".*" ];
 		$conds = $this->getConditions( $params, $db );
-		$options = array( 'LIMIT' => 200, 'ORDER BY' => 'thread_created DESC' );
+		$options = [ 'LIMIT' => 200, 'ORDER BY' => 'thread_created DESC' ];
 
 		$res = $db->select( $tables, $fields, $conds, __METHOD__, $options );
 
@@ -112,7 +112,7 @@ class ApiFeedLQTThreads extends ApiBase {
 	}
 
 	public function createFeedTitle( $params ) {
-		$fromPlaces = array();
+		$fromPlaces = [];
 
 		foreach ( (array)$params['thread'] as $thread ) {
 			$t = Title::newFromText( $thread );
@@ -136,7 +136,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		// What's included?
 		$types = (array)$params['type'];
 
-		if ( !count( array_diff( array( 'replies', 'newthreads' ), $types ) ) ) {
+		if ( !count( array_diff( [ 'replies', 'newthreads' ], $types ) ) ) {
 			$msg = 'lqt-feed-title-all';
 		} elseif ( in_array( 'replies', $types ) ) {
 			$msg = 'lqt-feed-title-replies';
@@ -159,7 +159,7 @@ class ApiFeedLQTThreads extends ApiBase {
 	 * @return array
 	 */
 	function getConditions( $params, $db ) {
-		$conds = array();
+		$conds = [];
 
 		// Types
 		$conds['thread_type'] = Threads::TYPE_NORMAL;
@@ -170,22 +170,22 @@ class ApiFeedLQTThreads extends ApiBase {
 		$conds[] = 'thread_created > ' . $db->addQuotes( $cutoff );
 
 		// Talkpage conditions
-		$pageConds = array();
+		$pageConds = [];
 
 		$talkpages = (array)$params['talkpage'];
 		foreach ( $talkpages as $page ) {
 			$title = Title::newFromText( $page );
 			if ( !$title ) {
 				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( array( 'apierror-invalidtitle', wfEscapeWikiText( $page ) ) );
+					$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $page ) ] );
 				} else {
-					$this->dieUsageMsg( array( 'invalidtitle', $page ) );
+					$this->dieUsageMsg( [ 'invalidtitle', $page ] );
 				}
 			}
-			$pageCond = array(
+			$pageCond = [
 				'thread_article_namespace' => $title->getNamespace(),
 				'thread_article_title' => $title->getDBkey()
-			);
+			];
 			$pageConds[] = $db->makeList( $pageCond, LIST_AND );
 		}
 
@@ -199,10 +199,10 @@ class ApiFeedLQTThreads extends ApiBase {
 				continue;
 			}
 
-			$threadCond = array(
+			$threadCond = [
 				'thread_ancestor' => $thread->id(),
 				'thread_id' => $thread->id()
-			);
+			];
 			$pageConds[] = $db->makeList( $threadCond, LIST_OR );
 		}
 		if ( count( $pageConds ) ) {
@@ -223,42 +223,42 @@ class ApiFeedLQTThreads extends ApiBase {
 	public function getAllowedParams() {
 		global $wgFeedClasses;
 		$feedFormatNames = array_keys( $wgFeedClasses );
-		return array(
-			'feedformat' => array(
+		return [
+			'feedformat' => [
 				ApiBase :: PARAM_DFLT => 'rss',
 				ApiBase :: PARAM_TYPE => $feedFormatNames
-			),
-			'days' => array(
+			],
+			'days' => [
 				ApiBase :: PARAM_DFLT => 7,
 				ApiBase :: PARAM_TYPE => 'integer',
 				ApiBase :: PARAM_MIN => 1,
 				ApiBase :: PARAM_MAX => 30,
-			),
-			'type' => array(
+			],
+			'type' => [
 				ApiBase :: PARAM_DFLT => 'newthreads',
-				ApiBase :: PARAM_TYPE => array( 'replies', 'newthreads' ),
+				ApiBase :: PARAM_TYPE => [ 'replies', 'newthreads' ],
 				ApiBase :: PARAM_ISMULTI => true,
-			),
-			'talkpage' => array(
+			],
+			'talkpage' => [
 				ApiBase :: PARAM_ISMULTI => true,
-			),
-			'thread' => array(
+			],
+			'thread' => [
 				ApiBase :: PARAM_ISMULTI => true,
-			),
-		);
+			],
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=feedthreads'
 				=> 'apihelp-feedthreads-example-1',
 			'action=feedthreads&type=replies&thread=Thread:Foo'
 				=> 'apihelp-feedthreads-example-2',
 			'action=feedthreads&type=newthreads&talkpage=Talk:Main_Page'
 				=> 'apihelp-feedthreads-example-3',
-		);
+		];
 	}
 }
