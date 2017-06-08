@@ -11,8 +11,8 @@ class SpecialMoveThread extends ThreadActionPage {
 	}
 
 	function getFormFields() {
-		$destAdditions = array();
-		$reasonAdditions = array();
+		$destAdditions = [];
+		$reasonAdditions = [];
 		if ( $this->getRequest()->getCheck( 'dest' ) ) {
 			$destAdditions['default'] = $this->getRequest()->getText( 'dest' );
 			$reasonAdditions['autofocus'] = true;
@@ -20,17 +20,17 @@ class SpecialMoveThread extends ThreadActionPage {
 			$destAdditions['autofocus'] = true;
 		}
 
-		return array(
-			'dest-title' => array(
+		return [
+			'dest-title' => [
 				'label-message' => 'lqt_move_destinationtitle',
 				'type' => 'text',
-				'validation-callback' => array( $this, 'validateTarget' ),
-			) + $destAdditions,
-			'reason' => array(
+				'validation-callback' => [ $this, 'validateTarget' ],
+			] + $destAdditions,
+			'reason' => [
 				'label-message' => 'movereason',
 				'type' => 'text',
-			) + $reasonAdditions,
-		);
+			] + $reasonAdditions,
+		];
 	}
 
 	function getPageName() {
@@ -53,16 +53,16 @@ class SpecialMoveThread extends ThreadActionPage {
 		$edit_link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
 			$this->mThread->title(),
 			$edit_text,
-			array(),
-			array(
+			[],
+			[
 				'lqt_method' => 'edit',
 				'lqt_operand' => $this->mThread->id()
-			)
+			]
 		);
 
 		$intro .= $this->msg(
 			'lqt_move_movingthread',
-			array( '[[' . $this->mTarget . ']]', '[[' . $page . ']]' )
+			[ '[[' . $this->mTarget . ']]', '[[' . $page . ']]' ]
 		)->parseAsBlock();
 		$intro .= $this->msg( 'lqt_move_torename' )->rawParams( $edit_link )->parseAsBlock();
 
@@ -78,7 +78,7 @@ class SpecialMoveThread extends ThreadActionPage {
 
 		// Custom merge/unique function because we don't have the second parameter to
 		// array_unique on Wikimedia.
-		$mergedErrors = array();
+		$mergedErrors = [];
 		foreach ( array_merge( $oldErrors, $newErrors ) as $key => $value ) {
 			if ( !is_numeric( $key ) ) {
 				$mergedErrors[$key] = $value;
@@ -119,8 +119,8 @@ class SpecialMoveThread extends ThreadActionPage {
 			$linkRenderer->makeLink(
 				SpecialPage::getTitleFor( 'MoveThread', $this->mThread->root()->getTitle() ),
 				wfMessage( 'revertmove' )->text(),
-				array(),
-				array( 'dest' => $oldtitle )
+				[],
+				[ 'dest' => $oldtitle ]
 			)
 		)->parseAsBlock() );
 

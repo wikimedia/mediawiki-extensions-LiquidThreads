@@ -35,28 +35,28 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 	}
 
 	function getFieldMessages() {
-		$headers = array(
+		$headers = [
 			'th_timestamp' => $this->msg( 'lqt-history-time' )->text(),
 			'thread_subject' => $this->msg( 'lqt-history-thread' )->text(),
 			'th_user_text' => $this->msg( 'lqt-history-user' )->text(),
 			'th_change_type' => $this->msg( 'lqt-history-action' )->text(),
 			'th_change_comment' => $this->msg( 'lqt-history-comment' )->text(),
-			);
+			];
 
 		return $headers;
 	}
 
 	function getQueryInfo() {
-		$queryInfo = array(
-			'tables' => array( 'thread_history', 'thread', 'page' ),
+		$queryInfo = [
+			'tables' => [ 'thread_history', 'thread', 'page' ],
 			'fields' => '*',
-			'conds' => array( Threads::articleClause( $this->talkpage ) ),
-			'options' => array( 'order by' => 'th_timestamp desc' ),
-			'join_conds' => array(
-				'thread' => array( 'LEFT JOIN', 'thread_id=th_thread' ),
-				'page' => array( 'LEFT JOIN', 'thread_root=page_id' ),
-			),
-		);
+			'conds' => [ Threads::articleClause( $this->talkpage ) ],
+			'options' => [ 'order by' => 'th_timestamp desc' ],
+			'join_conds' => [
+				'thread' => [ 'LEFT JOIN', 'thread_id=th_thread' ],
+				'page' => [ 'LEFT JOIN', 'thread_root=page_id' ],
+			],
+		];
 
 		return $queryInfo;
 	}
@@ -86,11 +86,11 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 				$link = $this->linkRenderer->makeKnownLink(
 					$title,
 					$value,
-					array(),
-					array()
+					[],
+					[]
 				);
 
-				return Html::rawElement( 'div', array( 'dir' => $wgContLang->getDir() ), $link );
+				return Html::rawElement( 'div', [ 'dir' => $wgContLang->getDir() ], $link );
 			case 'th_timestamp':
 				$formatted = $wgLang->timeanddate( $value );
 				$title = Title::makeTitleSafe(
@@ -101,8 +101,8 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 				return $this->linkRenderer->makeLink(
 					$title,
 					$formatted,
-					array(),
-					array( 'lqt_oldid' => $row->th_id )
+					[],
+					[ 'lqt_oldid' => $row->th_id ]
 				);
 			default:
 				return parent::formatValue( $name, $value );

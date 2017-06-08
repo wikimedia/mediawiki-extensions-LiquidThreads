@@ -20,7 +20,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	}
 
 	function getMessageForChangeType( $ct ) {
-		static $messages = array(
+		static $messages = [
 			Threads::CHANGE_NEW_THREAD => 'lqt_change_new_thread',
 			Threads::CHANGE_REPLY_CREATED => 'lqt_change_reply_created',
 			Threads::CHANGE_DELETED => 'lqt_change_deleted',
@@ -34,7 +34,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 			Threads::CHANGE_EDITED_SUMMARY => 'lqt_change_edited_summary',
 			Threads::CHANGE_ROOT_BLANKED => 'lqt_change_root_blanked',
 			Threads::CHANGE_EDITED_ROOT => 'lqt_change_edited_root',
-		);
+		];
 
 		if ( isset( $messages[$ct] ) ) {
 			return $messages[$ct];
@@ -56,13 +56,13 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$html .= '<br />';
 		$html .=  $this->getChangeDescription();
 
-		$html = Xml::tags( 'div', array( 'class' => 'lqt_history_info' ), $html );
+		$html = Xml::tags( 'div', [ 'class' => 'lqt_history_info' ], $html );
 
 		$this->output->addHTML( $html );
 	}
 
 	function getChangeDescription() {
-		$args = array();
+		$args = [];
 
 		$revision = $this->mDisplayRevision;
 		$change_type = $revision->getChangeType();
@@ -132,11 +132,11 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 			$this->thread,
 			1,
 			1,
-			array(
+			[
 				'maxDepth' => - 1,
 				'maxCount' => - 1,
-				'mustShowThreads' => array( $changedObject->id() )
-			)
+				'mustShowThreads' => [ $changedObject->id() ]
+			]
 		);
 
 		$this->output->setPageTitle( $this->thread->subject() );

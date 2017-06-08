@@ -3,23 +3,23 @@
 // Pass-through wrapper with an extra note at the top
 class TalkpageHeaderView extends LqtView {
 	function customizeNavigation( $skin, &$links ) {
-		$remove = array(
+		$remove = [
 			'actions/edit',
 			'actions/addsection',
 			'views/history',
 			'actions/watch', 'actions/move'
-		);
+		];
 
 		foreach ( $remove as $rem ) {
 			list( $section, $item ) = explode( '/', $rem, 2 );
 			unset( $links[$section][$item] );
 		}
 
-		$links['views']['header'] = array(
+		$links['views']['header'] = [
 			'class' => 'selected',
 			'text' => wfMessage( 'lqt-talkpage-history-tab' )->text(),
 			'href' => '',
-		);
+		];
 	}
 
 	function show() {
@@ -49,7 +49,7 @@ class TalkpageHeaderView extends LqtView {
 			$html .= wfMessage( 'lqt_header_warning_after_big' )
 				->rawParams( $warn_bold, $warn_link )->parse();
 
-			$html = Xml::tags( 'p', array( 'class' => 'lqt_header_warning' ), $html );
+			$html = Xml::tags( 'p', [ 'class' => 'lqt_header_warning' ], $html );
 
 			$this->output->addHTML( $html );
 		}

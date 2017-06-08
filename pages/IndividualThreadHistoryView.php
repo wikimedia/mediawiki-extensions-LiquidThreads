@@ -41,7 +41,7 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 			return false;
 		}
 
-		$wgHooks['PageHistoryBeforeList'][] = array( $this, 'customizeSubtitle' );
+		$wgHooks['PageHistoryBeforeList'][] = [ $this, 'customizeSubtitle' ];
 
 		return true;
 	}

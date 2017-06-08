@@ -2,22 +2,22 @@
 // TODO access control
 class SpecialSplitThread extends ThreadActionPage {
 	function getFormFields() {
-		$splitForm = array(
-			'src' => array(
+		$splitForm = [
+			'src' => [
 				'type' => 'info',
 				'label-message' => 'lqt-thread-split-thread',
 				'default' => LqtView::permalink( $this->mThread ),
 				'raw' => 1,
-			),
-			'subject' => array(
+			],
+			'subject' => [
 				'type' => 'text',
 				'label-message' => 'lqt-thread-split-subject',
-			),
-			'reason' => array(
+			],
+			'reason' => [
 				'label-message' => 'movereason',
 				'type' => 'text',
-			),
-		);
+			],
+		];
 
 		return $splitForm;
 	}

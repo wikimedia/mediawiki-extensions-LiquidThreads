@@ -13,13 +13,13 @@ class NewUserMessagesView extends LqtView {
 		$html .= Html::hidden( 'lqt_operand', $ids_s );
 		$html .= Xml::submitButton(
 			$label,
-			array(
+			[
 				'name' => 'lqt_read_button',
 				'title' => $title,
 				'class' => 'lqt-read-button'
-			)
+			]
 		);
-		$html = Xml::tags( 'form', array( 'method' => 'post', 'class' => $class ), $html );
+		$html = Xml::tags( 'form', [ 'method' => 'post', 'class' => $class ], $html );
 
 		return $html;
 	}
@@ -29,7 +29,7 @@ class NewUserMessagesView extends LqtView {
 			wfMessage( 'lqt-read-all' )->text(),
 			wfMessage( 'lqt-read-all-tooltip' )->text(),
 			'lqt_newmessages_read_all_button',
-			array( 'all' )
+			[ 'all' ]
 		);
 	}
 
@@ -52,15 +52,15 @@ class NewUserMessagesView extends LqtView {
 		$html .= Html::hidden( 'lqt_operand', $operand );
 		$html .= ' ' . Xml::submitButton(
 			wfMessage( 'lqt-email-undo' )->text(),
-			array(
+			[
 				'name' => 'lqt_read_button',
 				'title' => wfMessage( 'lqt-email-info-undo' )->text()
-			)
+			]
 		);
 
 		$html = Xml::tags(
 			'form',
-			array( 'method' => 'post', 'class' => 'lqt_undo_mark_as_read' ),
+			[ 'method' => 'post', 'class' => 'lqt_undo_mark_as_read' ],
 			$html
 		);
 
@@ -172,8 +172,8 @@ class NewUserMessagesView extends LqtView {
 		$contextLink = $linkRenderer->makeKnownLink(
 			$title,
 			new HtmlArmor( wfMessage( 'lqt-newmessages-context' )->parse() ),
-			array(),
-			array( 'offset' => $offset )
+			[],
+			[ 'offset' => $offset ]
 		);
 
 		$talkpageLink = $linkRenderer->makeLink( $topmostThread->getTitle() );
@@ -183,14 +183,14 @@ class NewUserMessagesView extends LqtView {
 		$leftColumn = Xml::tags( 'p', null, $read_button ) .
 						Xml::tags( 'p', null, $contextLink ) .
 						$talkpageInfo;
-		$leftColumn = Xml::tags( 'td', array( 'class' => 'lqt-newmessages-left' ),
+		$leftColumn = Xml::tags( 'td', [ 'class' => 'lqt-newmessages-left' ],
 									$leftColumn );
 		$html = "<tr>$leftColumn<td class='lqt-newmessages-right'>";
 		$this->output->addHTML( $html );
 
 		$mustShowThreads = $this->highlightThreads;
 
-		$this->showThread( $t, 1, 1, array( 'mustShowThreads' => $mustShowThreads ) );
+		$this->showThread( $t, 1, 1, [ 'mustShowThreads' => $mustShowThreads ] );
 		$this->output->addModules( 'ext.liquidThreads.newMessages' );
 		$this->output->addHTML( "</td></tr>" );
 	}
@@ -219,20 +219,20 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 
 		$threads = Thread::bulkLoad( $rows );
 		$thread_ids = array_keys( $threads );
-		$output = array();
+		$output = [];
 
 		foreach ( $threads as $id => $thread ) {
-			$output[$id] = array( 'top' => $thread, 'posts' => array() );
+			$output[$id] = [ 'top' => $thread, 'posts' => [] ];
 		}
 
 		$dbr = wfGetDB( DB_SLAVE );
 
-		$res = $dbr->select( array( 'user_message_state' ),
-					array( 'ums_thread', 'ums_conversation' ),
-					array(
+		$res = $dbr->select( [ 'user_message_state' ],
+					[ 'ums_thread', 'ums_conversation' ],
+					[
 						'ums_user' => $this->user->getId(),
 						'ums_conversation' => $thread_ids
-					),
+					],
 					__METHOD__
 					);
 
@@ -248,20 +248,20 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 	function getQueryInfo() {
 		$dbr = wfGetDB( DB_SLAVE );
 
-		$queryInfo = array(
-			'tables' => array( 'thread', 'user_message_state' ),
-			'fields' => array( $dbr->tableName( 'thread' ) . '.*', 'ums_conversation' ),
-			'conds' => array(
+		$queryInfo = [
+			'tables' => [ 'thread', 'user_message_state' ],
+			'fields' => [ $dbr->tableName( 'thread' ) . '.*', 'ums_conversation' ],
+			'conds' => [
 				'ums_user' => $this->user->getId(),
 				'thread_type != ' . $this->mDb->addQuotes( Threads::TYPE_DELETED ),
-			),
-			'join_conds' => array(
-				'thread' => array( 'join', 'ums_conversation=thread_id' )
-			),
-			'options' => array(
+			],
+			'join_conds' => [
+				'thread' => [ 'join', 'ums_conversation=thread_id' ]
+			],
+			'options' => [
 				'group by' => 'ums_conversation'
-			)
-		);
+			]
+		];
 
 		return $queryInfo;
 	}
@@ -275,6 +275,6 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 	}
 
 	function getIndexField() {
-		return array( 'ums_conversation' );
+		return [ 'ums_conversation' ];
 	}
 }

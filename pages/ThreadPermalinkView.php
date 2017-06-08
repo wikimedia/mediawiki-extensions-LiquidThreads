@@ -17,7 +17,7 @@ class ThreadPermalinkView extends LqtView {
 			unset( $links['views']['edit'] );
 			unset( $links['views']['history'] );
 
-			$links['actions'] = array();
+			$links['actions'] = [];
 
 			unset( $links['namespaces'][$talkKey] );
 			return;
@@ -62,12 +62,12 @@ class ThreadPermalinkView extends LqtView {
 	// Pre-generates the tabs to be included, for customizeNavigation
 	// to insert in the appropriate place
 	static function getCustomTabs( $view ) {
-		$tabs = array();
+		$tabs = [];
 
 		$articleTitle = $view->thread->getTitle()->getSubjectPage();
 		$talkTitle = $view->thread->getTitle()->getTalkPage();
 
-		$articleClasses = array();
+		$articleClasses = [];
 		if ( !$articleTitle->exists() ) {
 			$articleClasses[] = 'new';
 		}
@@ -75,7 +75,7 @@ class ThreadPermalinkView extends LqtView {
 			$articleClasses[] = 'selected';
 		}
 
-		$talkClasses = array();
+		$talkClasses = [];
 		if ( !$talkTitle->exists() ) {
 			$talkClasses[] = 'new';
 		}
@@ -87,19 +87,19 @@ class ThreadPermalinkView extends LqtView {
 		}
 
 		$tabs['article'] =
-			array(
+			[
 				'text' => $articleNamespaceText,
 				'href' => $articleTitle->getLocalURL(),
 				'class' => implode( ' ', $articleClasses ),
-			);
+			];
 
 		$tabs['lqt_talk'] =
-			array(
+			[
 				// talkpage certainly exists since this thread is from it.
 				'text' => wfMessage( 'talk' )->text(),
 				'href' => $talkTitle->getLocalURL(),
 				'class' => implode( ' ', $talkClasses ),
-			);
+			];
 
 		return $tabs;
 	}
@@ -177,14 +177,14 @@ class ThreadPermalinkView extends LqtView {
 			// Expose feed links.
 			global $wgFeedClasses;
 			$thread = $topmostThreadTitle->getPrefixedText();
-			$apiParams = array(
+			$apiParams = [
 				'action' => 'feedthreads',
 				'type' => 'replies|newthreads',
 				'thread' => $thread
-			);
+			];
 			$urlPrefix = wfScript( 'api' ) . '?';
 			foreach ( $wgFeedClasses as $format => $class ) {
-				$theseParams = $apiParams + array( 'feedformat' => $format );
+				$theseParams = $apiParams + [ 'feedformat' => $format ];
 				$url = $urlPrefix . wfArrayToCgi( $theseParams );
 				$this->output->addFeedLink( $format, $url );
 			}
@@ -198,7 +198,7 @@ class ThreadPermalinkView extends LqtView {
 			$this->showSplitForm( $this->thread );
 		}
 
-		$this->showThread( $this->thread, 1, 1, array( 'maxDepth' => - 1, 'maxCount' => - 1 ) );
+		$this->showThread( $this->thread, 1, 1, [ 'maxDepth' => - 1, 'maxCount' => - 1 ] );
 
 		$this->output->setPageTitle( $this->thread->subject() );
 		return false;

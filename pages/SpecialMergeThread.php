@@ -3,24 +3,24 @@
 // @todo FIXME: access control
 class SpecialMergeThread extends ThreadActionPage {
 	function getFormFields() {
-		$splitForm = array(
-			'src' => array(
+		$splitForm = [
+			'src' => [
 				'type' => 'info',
 				'label-message' => 'lqt-thread-merge-source',
 				'default' => $this->formatThreadField( 'src', $this->mThread->id() ),
 				'raw' => 1
-			),
-			'dest' => array(
+			],
+			'dest' => [
 				'type' => 'info',
 				'label-message' => 'lqt-thread-merge-dest',
 				'default' => $this->formatThreadField( 'dest', $this->request->getVal( 'dest' ) ),
 				'raw' => 1
-			),
-			'reason' => array(
+			],
+			'reason' => [
 				'label-message' => 'movereason',
 				'type' => 'text'
-			)
-		);
+			]
+		];
 
 		return $splitForm;
 	}
