@@ -27,8 +27,8 @@ class LqtLogFormatter {
 					$parameters[] = Message::rawParam( $linkRenderer->makeLink(
 						SpecialPage::getTitleFor( 'MoveThread', $title ),
 						wfMessage( 'revertmove' )->text(),
-						array(),
-						array( 'dest' => $parameters[0] )
+						[],
+						[ 'dest' => $parameters[0] ]
 					) );
 				} else {
 					$parameters[] = '';

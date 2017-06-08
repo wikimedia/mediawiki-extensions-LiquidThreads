@@ -14,19 +14,19 @@ class LqtHooks {
 	 */
 	public static $editArticle = null;
 	public static $editTalkpage = null;
-	public static $scriptVariables = array();
+	public static $scriptVariables = [];
 
-	public static $editedStati = array(
+	public static $editedStati = [
 		Threads::EDITED_NEVER => 'never',
 		Threads::EDITED_HAS_REPLY => 'has-reply',
 		Threads::EDITED_BY_AUTHOR => 'by-author',
 		Threads::EDITED_BY_OTHERS => 'by-others'
-	);
-	public static $threadTypes = array(
+	];
+	public static $threadTypes = [
 		Threads::TYPE_NORMAL => 'normal',
 		Threads::TYPE_MOVED => 'moved',
 		Threads::TYPE_DELETED => 'deleted'
-	);
+	];
 
 	/**
 	 * @param $changeslist ChangesList
@@ -69,7 +69,7 @@ class LqtHooks {
 			$quote = $wgLang->truncate( $quote, 200 );
 			$s .= ' ' . Linker::commentBlock( $quote );
 
-			$classes = array();
+			$classes = [];
 			$changeslist->insertTags( $s, $rc, $classes );
 			$changeslist->insertExtra( $s, $rc, $classes );
 		}
@@ -122,7 +122,7 @@ class LqtHooks {
 		if ( !in_array( 'page', $tables ) ) {
 			$tables[] = 'page';
 			// Yes, this is the correct field to join to. Weird naming.
-			$join_conds['page'] = array( 'LEFT JOIN', 'rc_cur_id=page_id' );
+			$join_conds['page'] = [ 'LEFT JOIN', 'rc_cur_id=page_id' ];
 		}
 		$conds[] = "page_namespace != " . $db->addQuotes( NS_LQT_THREAD );
 
@@ -143,7 +143,7 @@ class LqtHooks {
 		$link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
 			$messages_title,
 			new HtmlArmor( $new_messages ),
-			array( 'class' => 'lqt_watchlist_messages_notice' ) );
+			[ 'class' => 'lqt_watchlist_messages_notice' ] );
 		$wgOut->addHTML( $link );
 
 		return true;
@@ -154,33 +154,33 @@ class LqtHooks {
 
 		if ( $wgEnableEmail ) {
 			$preferences['lqtnotifytalk'] =
-				array(
+				[
 					'type' => 'toggle',
 					'label-message' => 'lqt-preference-notify-talk',
 					'section' => 'personal/email'
-				);
+				];
 		}
 
-		$preferences['lqt-watch-threads'] = array(
+		$preferences['lqt-watch-threads'] = [
 			'type' => 'toggle',
 			'label-message' => 'lqt-preference-watch-threads',
 			'section' => 'watchlist/advancedwatchlist',
-		);
+		];
 
 		// Display depth and count
-		$preferences['lqtdisplaydepth'] = array(
+		$preferences['lqtdisplaydepth'] = [
 			'type' => 'int',
 			'label-message' => 'lqt-preference-display-depth',
 			'section' => 'lqt',
 			'min' => 1,
-		);
+		];
 
-		$preferences['lqtdisplaycount'] = array(
+		$preferences['lqtdisplaycount'] = [
 			'type' => 'int',
 			'label-message' => 'lqt-preference-display-count',
 			'section' => 'lqt',
 			'min' => 1,
-		);
+		];
 
 		return true;
 	}
@@ -204,7 +204,7 @@ class LqtHooks {
 
 		$thread = Thread::newFromRow( $row );
 		$threadInfo = "\n";
-		$attribs = array();
+		$attribs = [];
 		$attribs['ThreadSubject'] = $thread->subject();
 
 		if ( $thread->hasSuperThread() ) {
@@ -241,7 +241,7 @@ class LqtHooks {
 	static function modifyExportQuery( $db, &$tables, &$cond, &$opts, &$join ) {
 		$tables[] = 'thread';
 
-		$join['thread'] = array( 'left join', array( 'thread_root=page_id' ) );
+		$join['thread'] = [ 'left join', [ 'thread_root=page_id' ] ];
 
 		return true;
 	}
@@ -251,7 +251,7 @@ class LqtHooks {
 	) {
 		$tables[] = 'thread';
 
-		$join_conds['thread'] = array( 'left join', array( 'thread_root=page_id' ) );
+		$join_conds['thread'] = [ 'left join', [ 'thread_root=page_id' ] ];
 
 		$db = wfGetDB( DB_SLAVE );
 		$fields[] = $db->tableName( 'thread' ) . '.*';
@@ -290,10 +290,10 @@ class LqtHooks {
 		return true;
 	}
 
-	private static $userTables = array(
-		'thread' => array( 'thread_author_name', 'thread_author_id', 'thread_modified' ),
-		'thread_history' => array( 'th_user_text', 'th_user', 'th_timestamp' )
-	);
+	private static $userTables = [
+		'thread' => [ 'thread_author_name', 'thread_author_id', 'thread_modified' ],
+		'thread_history' => [ 'th_user_text', 'th_user', 'th_timestamp' ]
+	];
 
 	/**
 	 * For integration with the UserMerge extension.
@@ -304,7 +304,7 @@ class LqtHooks {
 	public static function onUserMergeAccountFields( &$updateFields ) {
 		// array( tableName, idField, textField )
 		foreach ( self::$userTables as $table => $fields ) {
-			$updateFields[] = array( $table, $fields[1], $fields[0] );
+			$updateFields[] = [ $table, $fields[1], $fields[0] ];
 		}
 		return true;
 	}
@@ -343,7 +343,7 @@ class LqtHooks {
 	}
 
 	static function customiseSearchProfiles( &$profiles ) {
-		$namespaces = array( NS_LQT_THREAD, NS_LQT_SUMMARY );
+		$namespaces = [ NS_LQT_THREAD, NS_LQT_SUMMARY ];
 
 		// Add odd namespaces
 		foreach ( SearchEngine::searchableNamespaces() as $ns => $nsName ) {
@@ -352,14 +352,14 @@ class LqtHooks {
 			}
 		}
 
-		$insert = array(
-			'threads' => array(
+		$insert = [
+			'threads' => [
 				'message' => 'searchprofile-threads',
 				'tooltip' => 'searchprofile-threads-tooltip',
 				'namespaces' => $namespaces,
 				'namespace-messages' => SearchEngine::namespacesAsText( $namespaces ),
-			),
-		);
+			],
+		];
 
 		// Insert translations before 'all'
 		$index = array_search( 'all', array_keys( $profiles ) );
@@ -548,13 +548,13 @@ class LqtHooks {
 			// Add new messages link.
 			$url = SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL();
 			$msg = $newMessagesCount ? 'lqt-newmessages-n' : 'lqt_newmessages';
-			$newMessagesLink = array(
+			$newMessagesLink = [
 				'href' => $url,
 				'text' => wfMessage( $msg )->numParams( $newMessagesCount )->text(),
 				'active' => $newMessagesCount > 0,
-			);
+			];
 
-			$insertUrls = array( 'newmessages' => $newMessagesLink );
+			$insertUrls = [ 'newmessages' => $newMessagesLink ];
 
 			// User has viewmywatchlist permission
 			if ( in_array( 'watchlist', array_keys( $personal_urls ) ) ) {
@@ -609,12 +609,12 @@ class LqtHooks {
 		}
 
 		LqtView::editMetadataUpdates(
-			array(
+			[
 			'root' => $article,
 			'thread' => $thread,
 			'summary' => $summary,
 			'text' => ContentHandler::getContentText( $content ),
-		) );
+		] );
 
 		return true;
 	}
@@ -689,8 +689,8 @@ class LqtHooks {
 			return true;
 		}
 
-		$pageInfo['DiscussionThreading'] = array();
-		$fields = array(
+		$pageInfo['DiscussionThreading'] = [];
+		$fields = [
 			'ThreadSubject',
 			'ThreadParent',
 			'ThreadAncestor',
@@ -701,7 +701,7 @@ class LqtHooks {
 			'ThreadEditStatus',
 			'ThreadType',
 			'ThreadSignature',
-		);
+		];
 
 		$skip = false;
 
@@ -740,7 +740,7 @@ class LqtHooks {
 			$pendingRelationships = self::loadPendingRelationships();
 		}
 
-		$titlePendingRelationships = array();
+		$titlePendingRelationships = [];
 		if ( isset( $pendingRelationships[$title->getPrefixedText()] ) ) {
 			$titlePendingRelationships = $pendingRelationships[$title->getPrefixedText()];
 
@@ -831,12 +831,12 @@ class LqtHooks {
 
 		$dbw = wfGetDB( DB_MASTER );
 
-		$dbw->update( 'thread', array( $pendingRelationship['relationship'] => $articleID ),
-			array( 'thread_id' => $pendingRelationship['thread'] ),
+		$dbw->update( 'thread', [ $pendingRelationship['relationship'] => $articleID ],
+			[ 'thread_id' => $pendingRelationship['thread'] ],
 			__METHOD__ );
 
 		$dbw->delete( 'thread_pending_relationship',
-			array( 'tpr_title' => $pendingRelationship['title'] ), __METHOD__ );
+			[ 'tpr_title' => $pendingRelationship['title'] ], __METHOD__ );
 	}
 
 	/**
@@ -844,21 +844,21 @@ class LqtHooks {
 	 */
 	public static function loadPendingRelationships() {
 		$dbr = wfGetDB( DB_MASTER );
-		$arr = array();
+		$arr = [];
 
-		$res = $dbr->select( 'thread_pending_relationship', '*', array( 1 ), __METHOD__ );
+		$res = $dbr->select( 'thread_pending_relationship', '*', [ 1 ], __METHOD__ );
 
 		foreach ( $res as $row ) {
 			$title = $row->tpr_title;
-			$entry = array(
+			$entry = [
 				'thread' => $row->tpr_thread,
 				'relationship' => $row->tpr_relationship,
 				'title' => $title,
 				'type' => $row->tpr_type,
-			);
+			];
 
 			if ( !isset( $arr[$title] ) ) {
-				$arr[$title] = array();
+				$arr[$title] = [];
 			}
 
 			$arr[$title][] = $entry;
@@ -870,14 +870,14 @@ class LqtHooks {
 	public static function addPendingRelationship(
 		$thread, $relationship, $title, $type, &$array
 	) {
-		$entry = array(
+		$entry = [
 			'thread' => $thread,
 			'relationship' => $relationship,
 			'title' => $title,
 			'type' => $type,
-		);
+		];
 
-		$row = array();
+		$row = [];
 		foreach ( $entry as $k => $v ) {
 			$row['tpr_' . $k] = $v;
 		}
@@ -886,7 +886,7 @@ class LqtHooks {
 		$dbw->insert( 'thread_pending_relationship', $row, __METHOD__ );
 
 		if ( !isset( $array[$title] ) ) {
-			$array[$title] = array();
+			$array[$title] = [];
 		}
 
 		$array[$title][] = $entry;
@@ -931,19 +931,19 @@ class LqtHooks {
 	public static function onParserFirstCallInit( $parser ) {
 		$parser->setFunctionHook(
 			'useliquidthreads',
-			array( 'LqtParserFunctions', 'useLiquidThreads' )
+			[ 'LqtParserFunctions', 'useLiquidThreads' ]
 		);
 
 		$parser->setFunctionHook(
 			'lqtpagelimit',
-			array( 'LqtParserFunctions', 'lqtPageLimit' )
+			[ 'LqtParserFunctions', 'lqtPageLimit' ]
 		);
 
 		global $wgLiquidThreadsAllowEmbedding;
 
 		if ( $wgLiquidThreadsAllowEmbedding ) {
-			$parser->setHook( 'talkpage', array( 'LqtParserFunctions', 'lqtTalkPage' ) );
-			$parser->setHook( 'thread', array( 'LqtParserFunctions', 'lqtThread' ) );
+			$parser->setHook( 'talkpage', [ 'LqtParserFunctions', 'lqtTalkPage' ] );
+			$parser->setHook( 'thread', [ 'LqtParserFunctions', 'lqtThread' ] );
 		}
 
 		return true;
@@ -965,9 +965,9 @@ class LqtHooks {
 		if ( $module instanceof ApiQueryInfo ) {
 			$result = $module->getResult();
 
-			$data = (array)$result->getResultData( array( 'query', 'pages' ), array(
+			$data = (array)$result->getResultData( [ 'query', 'pages' ], [
 				'Strip' => 'base'
-			) );
+			] );
 			foreach ( $data as $pageid => $page ) {
 				if ( $page == 'page' ) {
 					continue;
@@ -977,9 +977,9 @@ class LqtHooks {
 					&& LqtDispatch::isLqtPage( Title::newFromText( $page['title'] ) )
 				) {
 					$result->addValue(
-						array( 'query', 'pages' ),
+						[ 'query', 'pages' ],
 						$pageid,
-						array( 'islqttalkpage' => '' )
+						[ 'islqttalkpage' => '' ]
 					);
 				}
 			}
@@ -990,9 +990,9 @@ class LqtHooks {
 
 	public static function onInfoAction( $context, $pageInfo ) {
 		if ( LqtDispatch::isLqtPage( $context->getTitle() ) ) {
-			$pageInfo['header-basic'][] = array(
+			$pageInfo['header-basic'][] = [
 				wfMessage( 'pageinfo-usinglqt' ), wfMessage( 'pageinfo-usinglqt-yes' )
-			);
+			];
 		}
 
 		return true;

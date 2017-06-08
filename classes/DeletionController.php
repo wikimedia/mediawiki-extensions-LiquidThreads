@@ -9,7 +9,7 @@ class LqtDeletionController {
 			return true;
 		}
 
-		$threads = Threads::where( array( 'thread_root' => $id ) );
+		$threads = Threads::where( [ 'thread_root' => $id ] );
 
 		if ( !count( $threads ) ) {
 			wfDebugLog( 'LiquidThreads', __METHOD__ . ": no threads with root $id, ignoring...\n" );
@@ -75,7 +75,7 @@ class LqtDeletionController {
 
 			// TX has not been committed yet, so we must select from the master
 			$dbw = wfGetDB( DB_MASTER );
-			$res = $dbw->select( 'thread', '*', array( 'thread_root' => $pageid ), __METHOD__ );
+			$res = $dbw->select( 'thread', '*', [ 'thread_root' => $pageid ], __METHOD__ );
 			$threads = Threads::loadFromResult( $res, $dbw );
 
 			if ( count( $threads ) ) {

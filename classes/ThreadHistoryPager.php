@@ -13,7 +13,7 @@ class ThreadHistoryPager extends TablePager {
 		$this->linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
 		self::$change_names =
-		array(
+		[
 			Threads::CHANGE_EDITED_ROOT => wfMessage( 'lqt_hist_comment_edited' )->plain(),
 			Threads::CHANGE_EDITED_SUMMARY => wfMessage( 'lqt_hist_summary_changed' )->plain(),
 			Threads::CHANGE_REPLY_CREATED => wfMessage( 'lqt_hist_reply_created' )->plain(),
@@ -28,27 +28,27 @@ class ThreadHistoryPager extends TablePager {
 			Threads::CHANGE_SPLIT_FROM => wfMessage( 'lqt_hist_split_from' )->plain(),
 			Threads::CHANGE_ROOT_BLANKED => wfMessage( 'lqt_hist_root_blanked' )->plain(),
 			Threads::CHANGE_ADJUSTED_SORTKEY => wfMessage( 'lqt_hist_adjusted_sortkey' )->plain()
-		);
+		];
 	}
 
 	public function getQueryInfo() {
-		$queryInfo = array(
-			'tables' => array( 'thread_history' ),
+		$queryInfo = [
+			'tables' => [ 'thread_history' ],
 			'fields' => '*',
-			'conds' => array( 'th_thread' => $this->thread->id() ),
-			'options' => array( 'order by' => 'th_timestamp desc' ),
-		);
+			'conds' => [ 'th_thread' => $this->thread->id() ],
+			'options' => [ 'order by' => 'th_timestamp desc' ],
+		];
 
 		return $queryInfo;
 	}
 
 	public function getFieldMessages() {
-		$headers = array(
+		$headers = [
 			'th_timestamp' => $this->msg( 'lqt-history-time' )->text(),
 			'th_user_text' => $this->msg( 'lqt-history-user' )->text(),
 			'th_change_type' => $this->msg( 'lqt-history-action' )->text(),
 			'th_change_comment' => $this->msg( 'lqt-history-comment' )->text(),
-		);
+		];
 
 		return $headers;
 	}
@@ -74,8 +74,8 @@ class ThreadHistoryPager extends TablePager {
 				return $this->linkRenderer->makeLink(
 					$wgTitle,
 					$formatted,
-					array(),
-					array( 'lqt_oldid' => $row->th_id )
+					[],
+					[ 'lqt_oldid' => $row->th_id ]
 				);
 			case 'th_user_text':
 				return Linker::userLink(
@@ -96,7 +96,7 @@ class ThreadHistoryPager extends TablePager {
 	public function getActionDescription( $type ) {
 		global $wgOut;
 
-		$args = array();
+		$args = [];
 		$revision = ThreadRevision::loadFromRow( $this->mCurrentRow );
 		$changeObject = $revision->getChangeObject();
 
@@ -144,7 +144,7 @@ class ThreadHistoryPager extends TablePager {
 
 		$content = wfMsgReplaceArgs( $msg, $args );
 		return Html::rawElement(
-			'span', array( 'class' => 'plainlinks' ), $wgOut->parseInline( $content )
+			'span', [ 'class' => 'plainlinks' ], $wgOut->parseInline( $content )
 		);
 	}
 
@@ -157,7 +157,7 @@ class ThreadHistoryPager extends TablePager {
 	}
 
 	public function isFieldSortable( $name ) {
-		$sortable_fields = array( 'th_timestamp', 'th_user_text', 'th_change_type' );
+		$sortable_fields = [ 'th_timestamp', 'th_user_text', 'th_change_type' ];
 		return in_array( $name, $sortable_fields );
 	}
 

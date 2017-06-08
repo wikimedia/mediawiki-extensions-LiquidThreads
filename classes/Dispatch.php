@@ -2,7 +2,7 @@
 
 class LqtDispatch {
 	/** static cache of per-page LiquidThreads activation setting */
-	public static $userLqtOverride = array();
+	public static $userLqtOverride = [];
 	public static $primaryView = null;
 
 	/**
@@ -33,7 +33,7 @@ class LqtDispatch {
 		$action = $request->getVal( 'action', 'view' );
 
 		// Actions handled by LQT.
-		$lqt_actions = array( 'view', 'protect', 'unprotect' );
+		$lqt_actions = [ 'view', 'protect', 'unprotect' ];
 
 		$lqt_action = $request->getVal( 'lqt_method' );
 		if ( $action == 'edit' && $request->getVal( 'section' ) == 'new' ) {
@@ -144,7 +144,7 @@ class LqtDispatch {
 
 		$isTalkPage = $isTalkPage && !$title->isRedirect();
 
-		Hooks::run( 'LiquidThreadsIsLqtPage', array( $title, &$isTalkPage ) );
+		Hooks::run( 'LiquidThreadsIsLqtPage', [ $title, &$isTalkPage ] );
 
 		return $isTalkPage;
 	}
@@ -186,10 +186,10 @@ class LqtDispatch {
 		$row = $dbr->selectRow(
 			'page_props',
 			'pp_value',
-			array(
+			[
 				'pp_propname' => 'use-liquid-threads',
 				'pp_page' => $articleid
-			),
+			],
 			__METHOD__
 		);
 

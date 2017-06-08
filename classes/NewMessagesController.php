@@ -26,7 +26,7 @@ class NewMessages {
 
 		$dbw->delete(
 			'user_message_state',
-			array( 'ums_user' => $user_id, 'ums_thread' => $thread_id ),
+			[ 'ums_user' => $user_id, 'ums_thread' => $thread_id ],
 			__METHOD__
 		);
 
@@ -46,7 +46,7 @@ class NewMessages {
 
 		$dbw->delete(
 			'user_message_state',
-			array( 'ums_user' => $user_id ),
+			[ 'ums_user' => $user_id ],
 			__METHOD__
 		);
 
@@ -74,9 +74,9 @@ class NewMessages {
 
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->replace(
-			'user_message_state', array( array( 'ums_user', 'ums_thread' ) ),
-			array( 'ums_user' => $user_id, 'ums_thread' => $thread_id,
-			'ums_read_timestamp' => $timestamp, 'ums_conversation' => $conversation ),
+			'user_message_state', [ [ 'ums_user', 'ums_thread' ] ],
+			[ 'ums_user' => $user_id, 'ums_thread' => $thread_id,
+			'ums_read_timestamp' => $timestamp, 'ums_conversation' => $conversation ],
 			__METHOD__
 		);
 
@@ -94,45 +94,45 @@ class NewMessages {
 		$rootThread = $t->topmostThread()->root()->getTitle();
 
 		// Select any applicable watchlist entries for the thread.
-		$talkpageWhere = array(
+		$talkpageWhere = [
 			'wl_namespace' => $tpTitle->getNamespace(),
 			'wl_title' => $tpTitle->getDBkey()
-		);
-		$rootWhere = array(
+		];
+		$rootWhere = [
 			'wl_namespace' => $rootThread->getNamespace(),
 			'wl_title' => $rootThread->getDBkey()
-		);
+		];
 
 		$talkpageWhere = $dbw->makeList( $talkpageWhere, LIST_AND );
 		$rootWhere = $dbw->makeList( $rootWhere, LIST_AND );
 
-		return $dbw->makeList( array( $talkpageWhere, $rootWhere ), LIST_OR );
+		return $dbw->makeList( [ $talkpageWhere, $rootWhere ], LIST_OR );
 	}
 
 	private static function getRowsObject( $t ) {
-		$tables = array( 'watchlist', 'user_message_state', 'user_properties' );
-		$joins = array(
+		$tables = [ 'watchlist', 'user_message_state', 'user_properties' ];
+		$joins = [
 			'user_message_state' =>
-			array(
+			[
 				'LEFT JOIN',
-				array(
+				[
 					'ums_user=wl_user',
 					'ums_thread' => $t->id()
-				)
-			),
+				]
+			],
 			'user_properties' =>
-			array(
+			[
 				'LEFT JOIN',
-				array(
+				[
 					'up_user=wl_user',
 					'up_property' => 'lqtnotifytalk',
-				)
-			)
-		);
-		$fields = array( 'wl_user', 'ums_user', 'ums_read_timestamp', 'up_value' );
+				]
+			]
+		];
+		$fields = [ 'wl_user', 'ums_user', 'ums_read_timestamp', 'up_value' ];
 
 		$dbr = wfGetDB( DB_SLAVE );
-		return $dbr->select( $tables, $fields, self::getWhereClause( $t ), __METHOD__, array(), $joins );
+		return $dbr->select( $tables, $fields, self::getWhereClause( $t ), __METHOD__, [], $joins );
 	}
 
 	/**
@@ -149,18 +149,18 @@ class NewMessages {
 		// Do the actual updates
 		if ( count( $userIds ) ) {
 			foreach ( $userIds as $u ) {
-				$insertRows[] = array(
+				$insertRows[] = [
 					'ums_user' => $u,
 					'ums_thread' => $t->id(),
 					'ums_read_timestamp' => null,
 					'ums_conversation' => $t->topmostThread()->id(),
-				);
+				];
 			}
 
 			$dbw = wfGetDB( DB_MASTER );
 			$dbw->replace(
 				'user_message_state',
-				array( array( 'ums_user', 'ums_thread' ) ),
+				[ [ 'ums_user', 'ums_thread' ] ],
 				$insertRows, __METHOD__
 			);
 		}
@@ -175,8 +175,8 @@ class NewMessages {
 		// Pull users to update the message state for, including whether or not a
 		//  user_message_state row exists for them, and whether or not to send an email
 		//  notification.
-		$userIds = array();
-		$notifyUsers = array();
+		$userIds = [];
+		$notifyUsers = [];
 		$res = self::getRowsObject( $t );
 		foreach ( $res as $row ) {
 			// Don't notify yourself
@@ -216,19 +216,19 @@ class NewMessages {
 			}
 		}
 
-		return array(
+		return [
 			'notify' => $userIds,
 			'email' => $notifyUsers,
-		);
+		];
 	}
 
 	// Would refactor User::decodeOptions, but the whole point is that this is
 	//  compatible with old code :)
 	static function decodeUserOptions( $str ) {
-		$opts = array();
+		$opts = [];
 		$a = explode( "\n", $str );
 		foreach ( $a as $s ) {
-			$m = array();
+			$m = [];
 			if ( preg_match( "/^(.[^=]*)=(.*)$/", $s, $m ) ) {
 				$opts[$m[1]] = $m[2];
 			}
@@ -238,14 +238,14 @@ class NewMessages {
 	}
 
 	static function notifyUsersByMail( $t, $watching_users, $timestamp, $type ) {
-		$messages = array(
+		$messages = [
 			Threads::CHANGE_REPLY_CREATED => 'lqt-enotif-reply',
 			Threads::CHANGE_NEW_THREAD => 'lqt-enotif-newthread',
-		);
-		$subjects = array(
+		];
+		$subjects = [
 			Threads::CHANGE_REPLY_CREATED => 'lqt-enotif-subject-reply',
 			Threads::CHANGE_NEW_THREAD => 'lqt-enotif-subject-newthread',
-		);
+		];
 
 		if ( !isset( $messages[$type] ) || !isset( $subjects[$type] ) ) {
 			wfDebugLog( 'LiquidThreads', "Email notification failed: type $type unrecognised" );
@@ -258,39 +258,39 @@ class NewMessages {
 		// Send email notification, fetching all the data in one go
 		$dbr = wfGetDB( DB_SLAVE );
 
-		$tables = array(
+		$tables = [
 			'user',
 			'tc_prop' => 'user_properties',
 			'l_prop' => 'user_properties'
-		);
+		];
 
-		$fields = array(
+		$fields = [
 			$dbr->tableName( 'user' ) . '.*',
 			'tc_prop.up_value AS timecorrection',
 			'l_prop.up_value as language'
-		);
+		];
 
-		$join_conds = array(
-			'tc_prop' => array(
+		$join_conds = [
+			'tc_prop' => [
 				'LEFT JOIN',
-				array(
+				[
 					'tc_prop.up_user=user_id',
 					'tc_prop.up_property' => 'timecorrection',
-				)
-			),
-			'l_prop' => array(
+				]
+			],
+			'l_prop' => [
 				'LEFT JOIN',
-				array(
+				[
 					'l_prop.up_user=user_id',
 					'l_prop.up_property' => 'language',
-				)
-			)
-		);
+				]
+			]
+		];
 
 		$res = $dbr->select(
 			$tables, $fields,
-			array( 'user_id' => $watching_users ), __METHOD__,
-			array(), $join_conds
+			[ 'user_id' => $watching_users ], __METHOD__,
+			[], $join_conds
 		);
 
 		// Set up one-time data.
@@ -323,7 +323,7 @@ class NewMessages {
 			$date = $lang->date( $adjustedTimestamp );
 			$time = $lang->time( $adjustedTimestamp );
 
-			$params = array(
+			$params = [
 				$u->getName(),
 				$t->subjectWithoutIncrement(),
 				$date,
@@ -332,7 +332,7 @@ class NewMessages {
 				$permalink,
 				ContentHandler::getContentText( $t->root()->getPage()->getContent() ),
 				$t->author()->getName()
-			);
+			];
 
 			// Get message in user's own language, bug 20645
 			$msg = wfMessage( $msgName, $params )->inLanguage( $langCode )->text();
@@ -349,29 +349,29 @@ class NewMessages {
 
 		$dbr = wfGetDB( DB_SLAVE );
 
-		$joinConds = array( 'ums_user' => null );
+		$joinConds = [ 'ums_user' => null ];
 		$joinConds[] = $dbr->makeList(
-			array(
+			[
 				'ums_user' => $user->getId(),
 				'ums_thread=thread_id'
-			),
+			],
 			LIST_AND
 		);
 		$joinClause = $dbr->makeList( $joinConds, LIST_OR );
 
 		$res = $dbr->select(
-			array( 'thread', 'user_message_state' ),
+			[ 'thread', 'user_message_state' ],
 			'*',
-			array(
+			[
 				'ums_read_timestamp' => null,
 				Threads::articleClause( $talkPage )
-			),
+			],
 			__METHOD__,
-			array(),
-			array(
+			[],
+			[
 				'thread' =>
-				array( 'LEFT JOIN', $joinClause )
-			)
+				[ 'LEFT JOIN', $joinClause ]
+			]
 		);
 
 		return Threads::loadFromResult( $res, $dbr );
@@ -388,8 +388,8 @@ class NewMessages {
 
 		$dbr = wfGetDB( $db );
 
-		$cond = array( 'ums_user' => $user->getId(), 'ums_read_timestamp' => null );
-		$options = array( 'LIMIT' => 500 );
+		$cond = [ 'ums_user' => $user->getId(), 'ums_read_timestamp' => null ];
+		$options = [ 'LIMIT' => 500 ];
 
 		$res = $dbr->select( 'user_message_state', '1', $cond, __METHOD__, $options );
 
@@ -422,19 +422,19 @@ class NewMessages {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$res = $dbr->select(
-			array( 'thread', 'user_message_state' ),
+			[ 'thread', 'user_message_state' ],
 			'*',
-			array(
+			[
 				'ums_read_timestamp' => null,
 				'ums_user' => $user->getId(),
 				'not (' . Threads::articleClause( $talkPage ) . ')',
-			),
+			],
 			__METHOD__,
-			array(),
-			array(
+			[],
+			[
 				'user_message_state' =>
-				array( 'INNER JOIN', 'ums_thread=thread_id' ),
-			)
+				[ 'INNER JOIN', 'ums_thread=thread_id' ],
+			]
 		);
 
 		return Threads::loadFromResult( $res, $dbr );

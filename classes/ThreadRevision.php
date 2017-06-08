@@ -2,7 +2,7 @@
 
 class ThreadRevision {
 	public static $load =
-		array(
+		[
 			'th_id'             => 'mId',
 			'th_thread'         => 'mThreadId',
 
@@ -15,14 +15,14 @@ class ThreadRevision {
 			'th_change_object'  => 'mChangeObjectId',
 			'th_change_comment' => 'mChangeComment',
 			'th_content'        => 'mObjSer',
-		);
+		];
 
 	protected $mId, $mThreadId, $mTimestamp, $mUserId, $mUserText, $mChangeType,
 				$mChangeObjectId, $mChangeObject, $mChangeComment, $mObjSer, $mThreadObj;
 
 	public static function loadFromId( $id ) {
 		$dbr = wfGetDB( DB_SLAVE );
-		$row = $dbr->selectRow( 'thread_history', '*', array( 'th_id' => $id ), __METHOD__ );
+		$row = $dbr->selectRow( 'thread_history', '*', [ 'th_id' => $id ], __METHOD__ );
 
 		if ( !$row ) {
 			return null;
@@ -114,11 +114,11 @@ class ThreadRevision {
 
 		$dbw = wfGetDB( DB_MASTER );
 
-		$dbw->replace( 'thread_history', array( 'th_thread' ), $row, __METHOD__ );
+		$dbw->replace( 'thread_history', [ 'th_thread' ], $row, __METHOD__ );
 	}
 
 	public function getRow() {
-		$row = array();
+		$row = [];
 
 		// First, prep the data for insertion
 		$dbw = wfGetDB( DB_MASTER );
@@ -195,7 +195,7 @@ class ThreadRevision {
 
 		$cond = 'th_id<' . $dbr->addQuotes( intval( $this->getId() ) );
 		$row = $dbr->selectRow( 'thread_history', '*',
-				array( $cond, 'th_thread' => $this->mThreadId ),
+				[ $cond, 'th_thread' => $this->mThreadId ],
 				__METHOD__ );
 
 		return self::loadFromRow( $row );
@@ -206,7 +206,7 @@ class ThreadRevision {
 
 		$cond = 'th_id>' . $dbr->addQuotes( intval( $this->getId() ) );
 		$row = $dbr->selectRow( 'thread_history', '*',
-				array( $cond, 'th_thread' => $this->mThreadId ),
+				[ $cond, 'th_thread' => $this->mThreadId ],
 				__METHOD__ );
 
 		return self::loadFromRow( $row );

@@ -49,7 +49,7 @@ class LqtView {
 		$this->user = $user;
 		$this->title = $title;
 		$this->request = $request;
-		$this->user_colors = array();
+		$this->user_colors = [];
 		$this->user_color_index = 1;
 	}
 
@@ -72,7 +72,7 @@ class LqtView {
 	}
 
 	static function permalinkUrl( $thread, $method = null, $operand = null,
-									$uquery = array(), $relative = true ) {
+									$uquery = [], $relative = true ) {
 		list ( $title, $query ) = self::permalinkData( $thread, $method, $operand );
 
 		$query = array_merge( $query, $uquery );
@@ -95,7 +95,7 @@ class LqtView {
 	 * @return array
 	 */
 	static function permalinkData( $thread, $method = null, $operand = null ) {
-		$query = array();
+		$query = [];
 
 		if ( $method ) {
 			$query['lqt_method'] = $method;
@@ -113,7 +113,7 @@ class LqtView {
 			throw new MWException( "No root in " . __METHOD__ );
 		}
 
-		return array( $root->getTitle(), $query );
+		return [ $root->getTitle(), $query ];
 	}
 
 	/*
@@ -129,7 +129,7 @@ class LqtView {
 	}
 
 	static function permalink( $thread, $text = null, $method = null, $operand = null,
-					$linker = null, $attribs = array(), $uquery = array() ) {
+					$linker = null, $attribs = [], $uquery = [] ) {
 		list( $title, $query ) = self::permalinkData( $thread, $method, $operand );
 
 		$query = array_merge( $query, $uquery );
@@ -149,7 +149,7 @@ class LqtView {
 	 * @return array
 	 */
 	static function linkInContextData( $thread, $contextType = 'page' ) {
-		$query = array();
+		$query = [];
 
 		if ( ! $thread ) {
 			throw new Exception( "Null thread passed to linkInContextData" );
@@ -171,7 +171,7 @@ class LqtView {
 
 		$title->setFragment( '#' . $thread->getAnchorName() );
 
-		return array( $title, $query );
+		return [ $title, $query ];
 	}
 
 	/**
@@ -190,7 +190,7 @@ class LqtView {
 		return MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
 			$title,
 			$text,
-			array(),
+			[],
 			$query
 		);
 	}
@@ -229,11 +229,11 @@ class LqtView {
 			$oldid = $prev_rev ? $prev_rev->getId() : '';
 		}
 
-		$query = array(
+		$query = [
 			'lqt_method' => 'diff',
 			'diff' => $curr_rev_id,
 			'oldid' => $oldid
-		);
+		];
 
 		return $query;
 	}
@@ -245,12 +245,12 @@ class LqtView {
 
 	static function diffPermalink( $thread, $text, $revision ) {
 		$query = self::diffQuery( $thread, $revision );
-		return self::permalink( $thread, $text, null, null, null, array(), $query );
+		return self::permalink( $thread, $text, null, null, null, [], $query );
 	}
 
 	static function talkpageLink( $title, $text = null , $method = null, $operand = null,
-		$includeFragment = true, $attribs = array(),
-		$options = array(), $perpetuateOffset = true
+		$includeFragment = true, $attribs = [],
+		$options = [], $perpetuateOffset = true
 	) {
 		list( $title, $query ) = self::talkpageLinkData(
 			$title, $method, $operand,
@@ -276,7 +276,7 @@ class LqtView {
 		$includeFragment = true, $perpetuateOffset = true
 	) {
 		global $wgRequest;
-		$query = array();
+		$query = [];
 
 		if ( $method ) {
 			$query['lqt_method'] = $method;
@@ -312,7 +312,7 @@ class LqtView {
 			$title->mFragment = $operand->getAnchorName();
 		}
 
-		return array( $title, $query );
+		return [ $title, $query ];
 	}
 
 	/**
@@ -411,11 +411,11 @@ class LqtView {
 		$wgTitle = $this->title;
 
 		$hookResult = Hooks::run( 'LiquidThreadsDoInlineEditForm',
-					array(
+					[
 						$thread,
 						$this->request,
 						&$this->output
-					) );
+					] );
 
 		if ( !$hookResult ) {
 			// Handled by a hook.
@@ -464,7 +464,7 @@ class LqtView {
 	static function getInlineEditForm( $talkpage, $method, $operand ) {
 		$req = new RequestContext;
 		$output = $req->getOutput();
-		$request = new FauxRequest( array() );
+		$request = new FauxRequest( [] );
 
 		// Workaround for loss of session data when using FauxRequest
 		global $wgRequest;
@@ -529,7 +529,7 @@ class LqtView {
 		}
 
 		$html = Xml::openElement( 'div',
-			array( 'class' => 'lqt-edit-form lqt-new-thread' ) );
+			[ 'class' => 'lqt-edit-form lqt-new-thread' ] );
 		$this->output->addHTML( $html );
 
 		$article = new Article( $t, 0 );
@@ -541,7 +541,7 @@ class LqtView {
 		LqtHooks::$editAppliesTo = null;
 
 		$e = new EditPage( $article );
-		Hooks::run( 'LiquidThreadsShowNewThreadForm', array( &$e, $talkpage ) );
+		Hooks::run( 'LiquidThreadsShowNewThreadForm', [ &$e, $talkpage ] );
 
 		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
@@ -557,7 +557,7 @@ class LqtView {
 				}
 
 				$e->editFormPageTop .=
-					Xml::tags( 'div', array( 'class' => 'error' ),
+					Xml::tags( 'div', [ 'class' => 'error' ],
 						wfMessage( $msg )->parseAsBlock() );
 			}
 		}
@@ -582,7 +582,7 @@ class LqtView {
 
 		$e->editFormTextBeforeContent .= $this->getSubjectEditor( '', $subject );
 
-		Hooks::run( 'LiquidThreadsAfterShowNewThreadForm', array( &$e, $talkpage ) );
+		Hooks::run( 'LiquidThreadsAfterShowNewThreadForm', [ &$e, $talkpage ] );
 
 		$e->edit();
 
@@ -590,17 +590,17 @@ class LqtView {
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
 
 			$info =
-				array(
+				[
 					'talkpage' => $talkpage,
 					'text' => $e->textbox1,
 					'summary' => $e->summary,
 					'signature' => $signature,
 					'root' => $article,
 					'subject' => $subject,
-				);
+				];
 
 			Hooks::run( 'LiquidThreadsSaveNewThread',
-					array( &$info, &$e, &$talkpage ) );
+					[ &$info, &$e, &$talkpage ] );
 
 			$thread = LqtView::newPostMetadataUpdates( $info );
 
@@ -640,7 +640,7 @@ class LqtView {
 		}
 
 		$html = Xml::openElement( 'div',
-					array( 'class' => 'lqt-reply-form lqt-edit-form' ) );
+					[ 'class' => 'lqt-reply-form lqt-edit-form' ] );
 		$this->output->addHTML( $html );
 
 		try {
@@ -694,7 +694,7 @@ class LqtView {
 
 		$wgRequest->setVal( 'wpWatchThis', false );
 
-		Hooks::run( 'LiquidThreadsShowReplyForm', array( &$e, $thread ) );
+		Hooks::run( 'LiquidThreadsShowReplyForm', [ &$e, $thread ] );
 
 		$e->edit();
 
@@ -703,17 +703,17 @@ class LqtView {
 				$this->request->getBool( 'wpBumpThread' );
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
 
-			$info = array(
+			$info = [
 					'replyTo' => $thread,
 					'text' => $e->textbox1,
 					'summary' => $e->summary,
 					'bump' => $bump,
 					'signature' => $signature,
 					'root' => $article,
-				);
+				];
 
 			Hooks::run( 'LiquidThreadsSaveReply',
-					array( &$info, &$e, &$thread ) );
+					[ &$info, &$e, &$thread ] );
 
 			$newThread = LqtView::replyMetadataUpdates( $info );
 
@@ -746,7 +746,7 @@ class LqtView {
 		}
 
 		$html = Xml::openElement( 'div',
-			array( 'class' => 'lqt-edit-form' ) );
+			[ 'class' => 'lqt-edit-form' ] );
 		$this->output->addHTML( $html );
 
 		$subject = $this->request->getVal( 'lqt_subject_field', '' );
@@ -765,7 +765,7 @@ class LqtView {
 		$article = $thread->root();
 		$talkpage = $thread->article();
 
-		Hooks::run( 'LiquidThreadsEditFormContent', array( $thread, &$article, $talkpage ) );
+		Hooks::run( 'LiquidThreadsEditFormContent', [ $thread, &$article, $talkpage ] );
 
 		LqtHooks::$editTalkpage = $talkpage;
 		LqtHooks::$editArticle = $article;
@@ -783,7 +783,7 @@ class LqtView {
 
 			if ( $this->request->wasPosted() ) {
 				$e->editFormPageTop .=
-					Xml::tags( 'div', array( 'class' => 'error' ),
+					Xml::tags( 'div', [ 'class' => 'error' ],
 						wfMessage( 'lqt_invalid_subject' )->parse() );
 			}
 		}
@@ -821,7 +821,7 @@ class LqtView {
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
 
 			LqtView::editMetadataUpdates(
-				array(
+				[
 					'thread' => $thread,
 					'text' => $e->textbox1,
 					'summary' => $e->summary,
@@ -829,7 +829,7 @@ class LqtView {
 					'subject' => $subject,
 					'signature' => $signature,
 					'root' => $article,
-				)
+				]
 			);
 
 			if ( $submitted_nonce && $nonce_key ) {
@@ -865,7 +865,7 @@ class LqtView {
 		}
 
 		$html = Xml::openElement( 'div',
-			array( 'class' => 'lqt-edit-form lqt-summarize-form' ) );
+			[ 'class' => 'lqt-edit-form lqt-summarize-form' ] );
 		$this->output->addHTML( $html );
 
 		$this->output->addWikiMsg( 'lqt-summarize-intro' );
@@ -900,12 +900,12 @@ class LqtView {
 				$this->request->getBool( 'wpBumpThread' );
 
 			LqtView::summarizeMetadataUpdates(
-				array(
+				[
 					'thread' => $thread,
 					'article' => $article,
 					'summary' => $e->summary,
 					'bump' => $bump,
-				)
+				]
 			);
 
 			if ( $submitted_nonce && $nonce_key ) {
@@ -946,7 +946,7 @@ class LqtView {
 
 		$subject_label = wfMessage( 'lqt_subject' )->text();
 
-		$attr = array( 'tabindex' => 1 );
+		$attr = [ 'tabindex' => 1 ];
 
 		return Xml::inputLabel( $subject_label, 'lqt_subject_field',
 				'lqt_subject_field', 60, $subject, $attr ) .
@@ -969,24 +969,24 @@ class LqtView {
 		// Signature edit box
 		$signaturePreview = Xml::tags(
 			'span',
-			array(
+			[
 				'class' => 'lqt-signature-preview',
 				'style' => 'display: none;'
-			),
+			],
 			$signatureHTML
 		);
 		$signatureEditBox = Xml::input(
 			'wpLqtSignature', 45, $signatureText,
-			array( 'class' => 'lqt-signature-edit' )
+			[ 'class' => 'lqt-signature-edit' ]
 		);
 
 		$signatureEditor = $signaturePreview . $signatureEditBox;
 
-		return array( $signatureEditor, $signatureHTML );
+		return [ $signatureEditor, $signatureHTML ];
 	}
 
-	static function replyMetadataUpdates( $data = array() ) {
-		$requiredFields = array( 'replyTo', 'root', 'text' );
+	static function replyMetadataUpdates( $data = [] ) {
+		$requiredFields = [ 'replyTo', 'root', 'text' ];
 
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
@@ -1015,13 +1015,13 @@ class LqtView {
 			$summary, $bump, $signature
 		);
 
-		Hooks::run( 'LiquidThreadsAfterReplyMetadataUpdates', array( &$thread ) );
+		Hooks::run( 'LiquidThreadsAfterReplyMetadataUpdates', [ &$thread ] );
 
 		return $thread;
 	}
 
-	static function summarizeMetadataUpdates( $data = array() ) {
-		$requiredFields = array( 'thread', 'article', 'summary' );
+	static function summarizeMetadataUpdates( $data = [] ) {
+		$requiredFields = [ 'thread', 'article', 'summary' ];
 
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
@@ -1042,8 +1042,8 @@ class LqtView {
 		return $thread;
 	}
 
-	static function editMetadataUpdates( $data = array() ) {
-		$requiredFields = array( 'thread', 'text', 'summary' );
+	static function editMetadataUpdates( $data = [] ) {
+		$requiredFields = [ 'thread', 'text', 'summary' ];
 
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
@@ -1082,7 +1082,7 @@ class LqtView {
 	}
 
 	static function newPostMetadataUpdates( $data ) {
-		$requiredFields = array( 'talkpage', 'root', 'text', 'subject' );
+		$requiredFields = [ 'talkpage', 'root', 'text', 'subject' ];
 
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
@@ -1109,7 +1109,7 @@ class LqtView {
 			$summary, null, $signature
 		);
 
-		Hooks::run( 'LiquidThreadsAfterNewPostMetadataUpdates', array( &$thread ) );
+		Hooks::run( 'LiquidThreadsAfterNewPostMetadataUpdates', [ &$thread ] );
 
 		return $thread;
 	}
@@ -1198,24 +1198,24 @@ class LqtView {
 	 *	)
 	 */
 	function threadCommands( $thread ) {
-		$commands = array();
+		$commands = [];
 		$isLqtPage = LqtDispatch::isLqtPage( $thread->getTitle() );
 
-		$history_url = self::permalinkUrlWithQuery( $thread, array( 'action' => 'history' ) );
-		$commands['history'] = array(
+		$history_url = self::permalinkUrlWithQuery( $thread, [ 'action' => 'history' ] );
+		$commands['history'] = [
 			'label' => wfMessage( 'history_short' )->parse(),
 			'href' => $history_url,
 			'enabled' => true
-		);
+		];
 
 		if ( $thread->isHistorical() ) {
-			return array();
+			return [];
 		}
 		$user_can_edit = $thread->root()->getTitle()->quickUserCan( 'edit' );
 		$editMsg = $user_can_edit ? 'edit' : 'viewsource';
 
 		if ( $isLqtPage ) {
-			$commands['edit'] = array(
+			$commands['edit'] = [
 				'label' => wfMessage( $editMsg )->parse(),
 				'href' => $this->talkpageUrl(
 					$this->title,
@@ -1224,29 +1224,29 @@ class LqtView {
 					$this->request
 				),
 				'enabled' => true
-			);
+			];
 		}
 
 		if ( $this->user->isAllowed( 'delete' ) ) {
 			$delete_url = $thread->title()->getLocalURL( 'action=delete' );
 			$deleteMsg = $thread->type() == Threads::TYPE_DELETED ? 'lqt_undelete' : 'delete';
 
-			$commands['delete'] = array(
+			$commands['delete'] = [
 				'label' => wfMessage( $deleteMsg )->parse(),
 				 'href' => $delete_url,
 				 'enabled' => true
-				);
+				];
 		}
 
 		if ( $isLqtPage ) {
 			if ( !$thread->isTopmostThread() && $this->user->isAllowed( 'lqt-split' ) ) {
 				$splitUrl = SpecialPage::getTitleFor( 'SplitThread',
 					$thread->title()->getPrefixedText() )->getLocalURL();
-				$commands['split'] = array(
+				$commands['split'] = [
 					'label' => wfMessage( 'lqt-thread-split' )->parse(),
 					'href' => $splitUrl,
 					'enabled' => true
-				);
+				];
 			}
 
 			if ( $this->user->isAllowed( 'lqt-merge' ) ) {
@@ -1258,23 +1258,23 @@ class LqtView {
 				$mergeUrl = $this->title->getLocalURL( wfArrayToCgi( $mergeParams ) );
 				$label = wfMessage( 'lqt-thread-merge' )->parse();
 
-				$commands['merge'] = array(
+				$commands['merge'] = [
 					'label' => $label,
 					'href' => $mergeUrl,
 					'enabled' => true
-				);
+				];
 			}
 		}
 
-		$commands['link'] = array(
+		$commands['link'] = [
 			'label' => wfMessage( 'lqt_permalink' )->parse(),
 			'href' => $thread->title()->getLocalURL(),
 			'enabled' => true,
 			'showlabel' => true,
 			'tooltip' => wfMessage( 'lqt_permalink' )->parse()
-		);
+		];
 
-		Hooks::run( 'LiquidThreadsThreadCommands', array( $thread, &$commands ) );
+		Hooks::run( 'LiquidThreadsThreadCommands', [ $thread, &$commands ] );
 
 		return $commands;
 	}
@@ -1289,18 +1289,18 @@ class LqtView {
 		if ( $thread->isHistorical() ) {
 			// No links for historical threads.
 			$history_url = self::permalinkUrlWithQuery( $thread,
-					array( 'action' => 'history' ) );
-			$commands = array();
+					[ 'action' => 'history' ] );
+			$commands = [];
 
-			$commands['history'] = array(
+			$commands['history'] = [
 				'label' => wfMessage( 'history_short' )->parse(),
 				 'href' => $history_url,
-				 'enabled' => true );
+				 'enabled' => true ];
 
 			return $commands;
 		}
 
-		$commands = array();
+		$commands = [];
 
 		if ( $isLqtPage ) {
 			if ( $this->user->isAllowed( 'lqt-merge' ) &&
@@ -1312,16 +1312,16 @@ class LqtView {
 				$mergeUrl = $mergeTitle->getLocalURL( 'dest=' . $thread->id() );
 				$label = wfMessage( 'lqt-thread-merge-to' )->parse();
 
-				$commands['merge-to'] = array(
+				$commands['merge-to'] = [
 					'label' => $label,
 					'href' => $mergeUrl,
 					'enabled' => true,
 					'tooltip' => $label
-				);
+				];
 			}
 
 			if ( $thread->canUserReply( $this->user, 'quick' ) === true ) {
-				$commands['reply'] = array(
+				$commands['reply'] = [
 					'label' => wfMessage( 'lqt_reply' )->parse(),
 					'href' => $this->talkpageUrl( $this->title, 'reply', $thread,
 						true /* include fragment */, $this->request ),
@@ -1329,7 +1329,7 @@ class LqtView {
 					'showlabel' => 1,
 					'tooltip' => wfMessage( 'lqt_reply' )->parse(),
 					'icon' => 'reply.png',
-				);
+				];
 			}
 		}
 
@@ -1338,16 +1338,16 @@ class LqtView {
 			$parent = $thread->superthread();
 			$anchor = $parent->getAnchorName();
 
-			$commands['parent'] = array(
+			$commands['parent'] = [
 				'label' => wfMessage( 'lqt-parent' )->parse(),
 				'href' => '#' . $anchor,
 				'enabled' => true,
 				'showlabel' => 1,
-			);
+			];
 		}
 
 		Hooks::run( 'LiquidThreadsThreadMajorCommands',
-				array( $thread, &$commands ) );
+				[ $thread, &$commands ] );
 
 		return $commands;
 	}
@@ -1356,22 +1356,22 @@ class LqtView {
 	 * @param $thread Thread
 	 */
 	function topLevelThreadCommands( $thread ) {
-		$commands = array();
+		$commands = [];
 
-		$commands['history'] = array(
+		$commands['history'] = [
 			'label' => wfMessage( 'history_short' )->parse(),
 			'href' => self::permalinkUrl( $thread, 'thread_history' ),
 			'enabled' => true
-		);
+		];
 
 		if ( $this->user->isAllowed( 'move' ) ) {
 			$move_href = SpecialPage::getTitleFor(
 				'MoveThread', $thread->title()->getPrefixedText() )->getLocalURL();
-			$commands['move'] = array(
+			$commands['move'] = [
 				'label' => wfMessage( 'lqt-movethread' )->parse(),
 				'href' => $move_href,
 				'enabled' => true
-			);
+			];
 		}
 
 		if ( $this->user->isAllowed( 'protect' ) ) {
@@ -1384,51 +1384,51 @@ class LqtView {
 				$label = wfMessage( 'unprotect' )->parse();
 			}
 
-			$commands['protect'] = array(
+			$commands['protect'] = [
 				'label' => $label,
 				'href' => $protect_href,
 				'enabled' => true
-			);
+			];
 		}
 
 		if ( !$this->user->isAnon() && !$this->user->isWatched( $thread->title() ) ) {
-			$commands['watch'] = array(
+			$commands['watch'] = [
 				'label' => wfMessage( 'watch' )->parse(),
 				'href' => self::permalinkUrlWithQuery(
 					$thread,
-					array(
+					[
 						'action' => 'watch',
 						'token' => WatchAction::getWatchToken(
 							$thread->title(), $this->user, 'watch' )
-					)
+					]
 				),
 				'enabled' => true
-			);
+			];
 		} elseif ( !$this->user->isAnon() ) {
-			$commands['unwatch'] = array(
+			$commands['unwatch'] = [
 				'label' => wfMessage( 'unwatch' )->parse(),
 				'href' => self::permalinkUrlWithQuery(
 					$thread,
-					array(
+					[
 						'action' => 'unwatch',
 						'token' => WatchAction::getWatchToken(
 							$thread->title(), $this->user, 'unwatch' )
-					)
+					]
 				),
 				'enabled' => true
-			);
+			];
 		}
 
 		if ( LqtDispatch::isLqtPage( $thread->getTitle() ) ) {
 			$summarizeUrl = self::permalinkUrl( $thread, 'summarize', $thread->id() );
-			$commands['summarize'] = array(
+			$commands['summarize'] = [
 				'label' => wfMessage( 'lqt_summarize_link' )->parse(),
 				'href' => $summarizeUrl,
 				'enabled' => true,
-			);
+			];
 		}
 
-		Hooks::run( 'LiquidThreadsTopLevelCommands', array( $thread, &$commands ) );
+		Hooks::run( 'LiquidThreadsTopLevelCommands', [ $thread, &$commands ] );
 
 		return $commands;
 	}
@@ -1465,54 +1465,54 @@ class LqtView {
 	function showThreadToolbar( $thread ) {
 		$html = '';
 
-		$headerParts = array();
+		$headerParts = [];
 
 		foreach ( $this->threadMajorCommands( $thread ) as $key => $cmd ) {
 			$content = $this->contentForCommand( $cmd, false /* No icon divs */ );
 			$headerParts[] = Xml::tags( 'li',
-						array( 'class' => "lqt-command lqt-command-$key" ),
+						[ 'class' => "lqt-command lqt-command-$key" ],
 						$content );
 		}
 
 		// Drop-down menu
 		$commands = $this->threadCommands( $thread );
-		$menuHTML = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-command-list' ),
+		$menuHTML = Xml::tags( 'ul', [ 'class' => 'lqt-thread-toolbar-command-list' ],
 					$this->listItemsForCommands( $commands ) );
 
-		$triggerText = Xml::tags( 'a', array(
+		$triggerText = Xml::tags( 'a', [
 				'class' => 'lqt-thread-actions-icon',
 				'href' => '#'
-			),
+			],
 			wfMessage( 'lqt-menu-trigger' )->escaped() );
 		$dropDownTrigger = Xml::tags( 'div',
-				array( 'class' => 'lqt-thread-actions-trigger ' .
-					'lqt-command-icon', 'style' => 'display: none;' ),
+				[ 'class' => 'lqt-thread-actions-trigger ' .
+					'lqt-command-icon', 'style' => 'display: none;' ],
 				$triggerText );
 
 		if ( count( $commands ) ) {
 			$headerParts[] = Xml::tags( 'li',
-						array( 'class' => 'lqt-thread-toolbar-menu' ),
+						[ 'class' => 'lqt-thread-toolbar-menu' ],
 						$dropDownTrigger );
 		}
 
 		$html .= implode( ' ', $headerParts );
 
-		$html = Xml::tags( 'ul', array( 'class' => 'lqt-thread-toolbar-commands' ), $html );
+		$html = Xml::tags( 'ul', [ 'class' => 'lqt-thread-toolbar-commands' ], $html );
 
-		$html = Xml::tags( 'div', array( 'class' => 'lqt-thread-toolbar' ), $html ) .
+		$html = Xml::tags( 'div', [ 'class' => 'lqt-thread-toolbar' ], $html ) .
 				$menuHTML;
 
 		return $html;
 	}
 
 	function listItemsForCommands( $commands ) {
-		$result = array();
+		$result = [];
 		foreach ( $commands as $key => $command ) {
 			$thisCommand = $this->contentForCommand( $command );
 
 			$thisCommand = Xml::tags(
 				'li',
-				array( 'class' => 'lqt-command lqt-command-' . $key ),
+				[ 'class' => 'lqt-command lqt-command-' . $key ],
 				$thisCommand
 			);
 
@@ -1528,8 +1528,8 @@ class LqtView {
 		$tooltip = isset( $command['tooltip'] ) ? $command['tooltip'] : '';
 
 		if ( isset( $command['icon'] ) ) {
-			$icon = Xml::tags( 'div', array( 'title' => $label,
-					'class' => 'lqt-command-icon' ), '&#160;' );
+			$icon = Xml::tags( 'div', [ 'title' => $label,
+					'class' => 'lqt-command-icon' ], '&#160;' );
 			if ( $icon_divs ) {
 				if ( !empty( $command['showlabel'] ) ) {
 					$label = $icon . '&#160;' . $label;
@@ -1544,11 +1544,11 @@ class LqtView {
 		}
 
 		if ( $enabled ) {
-			$thisCommand = Xml::tags( 'a', array( 'href' => $href, 'title' => $tooltip ),
+			$thisCommand = Xml::tags( 'a', [ 'href' => $href, 'title' => $tooltip ],
 					$label );
 		} else {
-			$thisCommand = Xml::tags( 'span', array( 'class' => 'lqt_command_disabled',
-						'title' => $tooltip ), $label );
+			$thisCommand = Xml::tags( 'span', [ 'class' => 'lqt_command_disabled',
+						'title' => $tooltip ], $label );
 		}
 
 		return $thisCommand;
@@ -1584,9 +1584,9 @@ class LqtView {
 
 		// If we're editing the thread, show the editing form.
 		$showAnything = Hooks::run( 'LiquidThreadsShowThreadBody',
-					array( $thread ) );
+					[ $thread ] );
 		if ( $this->methodAppliesToThread( 'edit', $thread ) && $showAnything ) {
-			$html = Xml::openElement( 'div', array( 'class' => $divClass ) );
+			$html = Xml::openElement( 'div', [ 'class' => $divClass ] );
 			$this->output->addHTML( $html );
 			$html = '';
 
@@ -1595,16 +1595,16 @@ class LqtView {
 			$this->showPostEditingForm( $thread );
 			$html .= Xml::closeElement( 'div' );
 		} elseif ( $showAnything ) {
-			$html .= Xml::openElement( 'div', array( 'class' => $divClass ) );
+			$html .= Xml::openElement( 'div', [ 'class' => $divClass ] );
 
 			$show = Hooks::run( 'LiquidThreadsShowPostContent',
-						array( $thread, &$post ) );
+						[ $thread, &$post ] );
 			if ( $show ) {
 				$html .= $this->showPostBody( $post, $oldid );
 			}
 			$html .= Xml::closeElement( 'div' );
 			Hooks::run( 'LiquidThreadsShowPostThreadBody',
-				array( $thread, $this->request, &$html ) );
+				[ $thread, $this->request, &$html ] );
 
 			$html .= $this->showThreadToolbar( $thread );
 			$html .= $this->threadSignature( $thread );
@@ -1625,19 +1625,19 @@ class LqtView {
 		$signature = $thread->signature();
 		$signature = LqtView::parseSignature( $signature );
 
-		$signature = Xml::tags( 'span', array( 'class' => 'lqt-thread-user-signature' ),
+		$signature = Xml::tags( 'span', [ 'class' => 'lqt-thread-user-signature' ],
 					$signature );
 
 		$signature .= $wgLang->getDirMark();
 
 		$timestamp = $wgLang->timeanddate( $thread->created(), true );
 		$signature .= Xml::element( 'span',
-					array( 'class' => 'lqt-thread-toolbar-timestamp' ),
+					[ 'class' => 'lqt-thread-toolbar-timestamp' ],
 					$timestamp );
 
-		Hooks::run( 'LiquidThreadsThreadSignature', array( $thread, &$signature ) );
+		Hooks::run( 'LiquidThreadsThreadSignature', [ $thread, &$signature ] );
 
-		$signature = Xml::tags( 'div', array( 'class' => 'lqt-thread-signature' ),
+		$signature = Xml::tags( 'div', [ 'class' => 'lqt-thread-signature' ],
 					$signature );
 
 		return $signature;
@@ -1649,12 +1649,12 @@ class LqtView {
 	function threadInfoPanel( $thread ) {
 		global $wgLang;
 
-		$infoElements = array();
+		$infoElements = [];
 
 		// Check for edited flag.
 		$editedFlag = $thread->editedness();
-		$ebLookup = array( Threads::EDITED_BY_AUTHOR => 'author',
-					Threads::EDITED_BY_OTHERS => 'others' );
+		$ebLookup = [ Threads::EDITED_BY_AUTHOR => 'author',
+					Threads::EDITED_BY_OTHERS => 'others' ];
 		$lastEdit = $thread->root()->getTimestamp();
 		$lastEditTime = $wgLang->time( $lastEdit, false, true, true );
 		$lastEditDate = $wgLang->date( $lastEdit, false, true, true );
@@ -1665,7 +1665,7 @@ class LqtView {
 		if ( $editedFlag > Threads::EDITED_BY_AUTHOR ) {
 			$editors = $thread->editors();
 			$editorCount = count( $editors );
-			$formattedEditors = array();
+			$formattedEditors = [];
 
 			foreach ( $editors as $ed ) {
 				$id = IP::isIPAddress( $ed ) ? 0 : 1;
@@ -1686,18 +1686,18 @@ class LqtView {
 				->params( $lastEditTime, $lastEditDate )
 				->params( $user->getName() )->parse();
 			$editedNotice = str_replace( '$3', $editors, $editedNotice );
-			$infoElements[] = Xml::tags( 'div', array( 'class' =>
-						"lqt-thread-toolbar-edited-$editedBy" ),
+			$infoElements[] = Xml::tags( 'div', [ 'class' =>
+						"lqt-thread-toolbar-edited-$editedBy" ],
 						$editedNotice );
 		}
 
-		Hooks::run( 'LiquidThreadsThreadInfoPanel', array( $thread, &$infoElements ) );
+		Hooks::run( 'LiquidThreadsThreadInfoPanel', [ $thread, &$infoElements ] );
 
 		if ( ! count( $infoElements ) ) {
 			return '';
 		}
 
-		return Xml::tags( 'div', array( 'class' => 'lqt-thread-info-panel' ),
+		return Xml::tags( 'div', [ 'class' => 'lqt-thread-info-panel' ],
 							implode( "\n", $infoElements ) );
 	}
 
@@ -1716,8 +1716,8 @@ class LqtView {
 				$lis = $this->listItemsForCommands( $commands );
 				$id = 'lqt-threadlevel-commands-' . $thread->id();
 				$commands_html = Xml::tags( 'ul',
-						array( 'class' => 'lqt_threadlevel_commands',
-							'id' => $id ),
+						[ 'class' => 'lqt_threadlevel_commands',
+							'id' => $id ],
 						$lis );
 			}
 
@@ -1726,19 +1726,19 @@ class LqtView {
 			$html = $thread->formattedSubject();
 
 			$show = Hooks::run( 'LiquidThreadsShowThreadHeading',
-					array( $thread, &$html ) );
+					[ $thread, &$html ] );
 
 			if ( $show ) {
-				$html = Xml::tags( 'span', array( 'class' => 'mw-headline' ), $html );
+				$html = Xml::tags( 'span', [ 'class' => 'mw-headline' ], $html );
 				$html .= Html::hidden( 'raw-header', $thread->subject() );
 				$html = Xml::tags( 'h' . $this->headerLevel,
-						array( 'class' => 'lqt_header', 'id' => $id, 'dir' => $wgContLang->getDir() ),
+						[ 'class' => 'lqt_header', 'id' => $id, 'dir' => $wgContLang->getDir() ],
 						$html ) . $commands_html;
 			}
 
 			// wrap it all in a container
 			$html = Xml::tags( 'div',
-					array( 'class' => 'lqt_thread_heading' ),
+					[ 'class' => 'lqt_thread_heading' ],
 					$html );
 			return $html;
 		}
@@ -1856,7 +1856,7 @@ class LqtView {
 		$this->showThreadBody( $thread );
 	}
 
-	function getMustShowThreads( $threads = array() ) {
+	function getMustShowThreads( $threads = [] ) {
 		if ( $this->request->getCheck( 'lqt_operand' ) ) {
 			$operands = explode( ',', $this->request->getVal( 'lqt_operand' ) );
 			$threads = array_merge( $threads, $operands );
@@ -1902,12 +1902,12 @@ class LqtView {
 		$link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
 			$linkTitle,
 			$linkText,
-			array(
+			[
 				'class' => 'lqt-show-more-posts',
-			)
+			]
 		);
 		$link .= Html::hidden( 'lqt-thread-start-at', $i,
-				array( 'class' => 'lqt-thread-start-at' ) );
+				[ 'class' => 'lqt-thread-start-at' ] );
 
 		return $link;
 	}
@@ -1929,11 +1929,11 @@ class LqtView {
 		$link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
 			$linkTitle,
 			$linkText,
-			array(
+			[
 				'class' => 'lqt-show-replies',
-			)
+			]
 		);
-		$link = Xml::tags( 'div', array( 'class' => 'lqt-thread-replies' ), $link );
+		$link = Xml::tags( 'div', [ 'class' => 'lqt-thread-replies' ], $link );
 
 		return $link;
 	}
@@ -1985,7 +1985,7 @@ class LqtView {
 			$repliesClass .= ' lqt-thread-replies-interruption';
 		}
 
-		$div = Xml::openElement( 'div', array( 'class' => $repliesClass ) );
+		$div = Xml::openElement( 'div', [ 'class' => $repliesClass ] );
 
 		$subthreadCount = count( $thread->subthreads() );
 		$i = 0;
@@ -1995,7 +1995,7 @@ class LqtView {
 		$mustShowThreads = $cascadeOptions['mustShowThreads'];
 
 		$replies = $thread->subthreads();
-		usort( $replies, array( 'Thread', 'createdSortCallback' ) );
+		usort( $replies, [ 'Thread', 'createdSortCallback' ] );
 
 		foreach ( $replies as $st ) {
 			++$i;
@@ -2041,7 +2041,7 @@ class LqtView {
 		$finishDiv = '';
 		$finishDiv .= Xml::tags(
 			'div',
-			array( 'class' => 'lqt-replies-finish' ),
+			[ 'class' => 'lqt-replies-finish' ],
 			'&#160;'
 		);
 
@@ -2056,7 +2056,7 @@ class LqtView {
 	 * @throws Exception
 	 */
 	function showThread( $thread, $levelNum = 1, $totalInLevel = 1,
-		$options = array()
+		$options = []
 	) {
 		// Safeguard
 		if ( $thread->type() & Threads::TYPE_DELETED ||
@@ -2068,7 +2068,7 @@ class LqtView {
 
 		// Figure out which threads *need* to be shown because they're involved in an
 		// operation
-		$mustShowOption = array();
+		$mustShowOption = [];
 		if ( isset( $options['mustShowThreads'] ) ) {
 			$mustShowOption = $options['mustShowThreads' ];
 		}
@@ -2131,7 +2131,7 @@ class LqtView {
 		$this->output->addModules( 'ext.liquidThreads' );
 
 		$html = '';
-		Hooks::run( 'EditPageBeforeEditToolbar', array( &$html ) );
+		Hooks::run( 'EditPageBeforeEditToolbar', [ &$html ] );
 
 		$class = $this->threadDivClass( $thread );
 		if ( $levelNum == 1 ) {
@@ -2156,13 +2156,13 @@ class LqtView {
 
 		$html .= Xml::openElement(
 			'div',
-			array(
+			[
 				'class' => $class,
 				'id' => 'lqt_thread_id_' . $thread->id()
-			)
+			]
 		);
 
-		$html .= Xml::element( 'a', array( 'name' => $this->anchorName( $thread ) ), ' ' );
+		$html .= Xml::element( 'a', [ 'name' => $this->anchorName( $thread ) ], ' ' );
 		$html .= $this->showThreadHeading( $thread );
 
 		// Metadata stuck in the top of the lqt_thread div.
@@ -2171,23 +2171,23 @@ class LqtView {
 			$html .= Html::hidden(
 				'lqt-thread-modified-' . $thread->id(),
 				wfTimestamp( TS_MW, $thread->modified() ),
-				array(
+				[
 					'id' => 'lqt-thread-modified-' . $thread->id(),
 					'class' => 'lqt-thread-modified'
-				)
+				]
 			);
 			$html .= Html::hidden(
 				'lqt-thread-sortkey',
 				$thread->sortkey(),
-				array( 'id' => 'lqt-thread-sortkey-' . $thread->id() )
+				[ 'id' => 'lqt-thread-sortkey-' . $thread->id() ]
 			);
 
 			$html .= Html::hidden(
 				'lqt-thread-talkpage-' . $thread->id(),
 				$thread->article()->getTitle()->getPrefixedText(),
-				array(
+				[
 					'class' => 'lqt-thread-talkpage-metadata',
-				)
+				]
 			);
 		}
 
@@ -2199,16 +2199,16 @@ class LqtView {
 		$html .= Html::hidden(
 			'lqt-thread-title-' . $thread->id(),
 			$thread->title()->getPrefixedText(),
-			array(
+			[
 				'id' => 'lqt-thread-title-' . $thread->id(),
 				'class' => 'lqt-thread-title-metadata'
-			)
+			]
 		);
 
 		// Flush output to display thread
 		$this->output->addHTML( $html );
 		$this->output->addHTML( Xml::openElement( 'div',
-					array( 'class' => 'lqt-post-wrapper' ) ) );
+					[ 'class' => 'lqt-post-wrapper' ] ) );
 		$this->showSingleThread( $thread );
 		$this->output->addHTML( Xml::closeElement( 'div' ) );
 
@@ -2235,24 +2235,24 @@ class LqtView {
 
 			if ( $levelNum < $totalInLevel ) {
 				$this->output->addHTML(
-					Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&#160;' ) );
+					Xml::tags( 'div', [ 'class' => 'lqt-post-sep' ], '&#160;' ) );
 			}
 		} elseif ( $levelNum < $totalInLevel ) {
 			// If we have no replies, and we're not at the end of this level, add the post separator
 			// and a reply box if necessary.
 			$this->output->addHTML(
-				Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&#160;' ) );
+				Xml::tags( 'div', [ 'class' => 'lqt-post-sep' ], '&#160;' ) );
 
 			if ( $replyTo ) {
 				$class = 'lqt-thread-replies lqt-thread-replies-' .
 						$this->threadNestingLevel;
-				$html = Xml::openElement( 'div', array( 'class' => $class ) );
+				$html = Xml::openElement( 'div', [ 'class' => $class ] );
 				$this->output->addHTML( $html );
 
 				$this->showReplyForm( $thread );
 
 				$finishDiv = Xml::tags( 'div',
-						array( 'class' => 'lqt-replies-finish' ),
+						[ 'class' => 'lqt-replies-finish' ],
 						'&#160;' );
 				// Layout plus close div.lqt-thread-replies
 
@@ -2266,17 +2266,17 @@ class LqtView {
 			// show the reply box.
 			$class = 'lqt-thread-replies lqt-thread-replies-' .
 					$this->threadNestingLevel;
-			$html = Xml::openElement( 'div', array( 'class' => $class ) );
+			$html = Xml::openElement( 'div', [ 'class' => $class ] );
 			$this->output->addHTML( $html );
 
 			$this->showReplyForm( $thread );
 
 			$html = Xml::tags( 'div',
-					array( 'class' => 'lqt-replies-finish' ),
+					[ 'class' => 'lqt-replies-finish' ],
 					Xml::tags( 'div',
-						array( 'class' =>
+						[ 'class' =>
 							'lqt-replies-finish-corner'
-						), '&#160;' ) );
+						], '&#160;' ) );
 			$html .= Xml::closeElement( 'div' );
 			$this->output->addHTML( $html );
 		}
@@ -2311,8 +2311,8 @@ class LqtView {
 
 		$html = '';
 		$html .= Xml::tags( 'div',
-			array( 'class' => 'lqt-reply-form lqt-edit-form',
-				'style' => 'display: none;' ),
+			[ 'class' => 'lqt-reply-form lqt-edit-form',
+				'style' => 'display: none;' ],
 			''
 		);
 
@@ -2352,7 +2352,7 @@ class LqtView {
 
 		$html .= Xml::tags(
 			'span',
-			array( 'class' => 'lqt_thread_permalink_summary_title' ),
+			[ 'class' => 'lqt_thread_permalink_summary_title' ],
 			$label
 		);
 
@@ -2360,29 +2360,29 @@ class LqtView {
 		$link = $linkRenderer->makeLink(
 			$t->summary()->getTitle(),
 			$link_text,
-			array(
+			[
 				'class' => 'lqt-summary-link',
-			)
+			]
 		);
 		$link .= Html::hidden( 'summary-title', $t->summary()->getTitle()->getPrefixedText() );
 		$edit_link = self::permalink( $t, $edit_text, 'summarize', $t->id() );
 		$links = "[$link]\n[$edit_link]";
 		$html .= Xml::tags(
 			'span',
-			array( 'class' => 'lqt_thread_permalink_summary_actions' ),
+			[ 'class' => 'lqt_thread_permalink_summary_actions' ],
 			$links
 		);
 
 		$summary_body = $this->showPostBody( $t->summary() );
 		$html .= Xml::tags(
 			'div',
-			array( 'class' => 'lqt_thread_permalink_summary_body' ),
+			[ 'class' => 'lqt_thread_permalink_summary_body' ],
 			$summary_body
 		);
 
 		$html = Xml::tags(
 			'div',
-			array( 'class' => 'lqt_thread_permalink_summary' ),
+			[ 'class' => 'lqt_thread_permalink_summary' ],
 			$html
 		);
 
@@ -2430,7 +2430,7 @@ class LqtView {
 	static function parseSignature( $sig ) {
 		global $wgOut;
 
-		static $parseCache = array();
+		static $parseCache = [];
 		$sigKey = md5( $sig );
 
 		if ( isset( $parseCache[$sigKey] ) ) {

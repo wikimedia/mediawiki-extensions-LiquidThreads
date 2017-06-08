@@ -1,7 +1,7 @@
 <?php
 class LqtParserFunctions {
 	static function useLiquidThreads( &$parser, $param = '1' ) {
-		$offParams = array( 'no', 'off', 'disable' );
+		$offParams = [ 'no', 'off', 'disable' ];
 		// Figure out if they want to turn it off or on.
 		$param = trim( strtolower( $param ) );
 
@@ -39,16 +39,16 @@ class LqtParserFunctions {
 		$talkpage = new Article( $title, 0 );
 		$article = new Article( $parser->getTitle(), 0 );
 
-		$data = array(
+		$data = [
 			'type' => 'talkpage',
 			'args' => $args,
 			'article' => $article,
 			'title' => $article->getTitle(),
 			'talkpage' => $talkpage,
-		);
+		];
 
 		if ( !isset( $pout->mLqtReplacements ) ) {
-			$pout->mLqtReplacements = array();
+			$pout->mLqtReplacements = [];
 		}
 
 		// Generate a token
@@ -78,15 +78,15 @@ class LqtParserFunctions {
 			return '';
 		}
 
-		$data = array(
+		$data = [
 			'type' => 'thread',
 			'args' => $args,
 			'thread' => $thread->id(),
 			'title' => $thread->title(),
-		);
+		];
 
 		if ( !isset( $pout->mLqtReplacements ) ) {
-			$pout->mLqtReplacements = array();
+			$pout->mLqtReplacements = [];
 		}
 
 		// Generate a token
@@ -155,7 +155,7 @@ class LqtParserFunctions {
 		}
 
 		if ( !isset( $out->mLqtReplacements ) ) {
-			$out->mLqtReplacements = array();
+			$out->mLqtReplacements = [];
 		}
 
 		foreach ( $pout->mLqtReplacements as $text => $details ) {

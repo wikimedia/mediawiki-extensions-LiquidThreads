@@ -24,7 +24,7 @@ class Threads {
 	const CHANGE_ADJUSTED_SORTKEY = 14;
 	const CHANGE_EDITED_SIGNATURE = 15;
 
-	public static $VALID_CHANGE_TYPES = array(
+	public static $VALID_CHANGE_TYPES = [
 		self::CHANGE_EDITED_SUMMARY,
 		self::CHANGE_EDITED_ROOT,
 		self::CHANGE_REPLY_CREATED,
@@ -41,7 +41,7 @@ class Threads {
 		self::CHANGE_ROOT_BLANKED,
 		self::CHANGE_ADJUSTED_SORTKEY,
 		self::CHANGE_EDITED_SIGNATURE,
-	);
+	];
 
 	// Possible values of Thread->editedness.
 	const EDITED_NEVER = 0;
@@ -49,9 +49,9 @@ class Threads {
 	const EDITED_BY_AUTHOR = 2;
 	const EDITED_BY_OTHERS = 3;
 
-	public static $cache_by_root = array();
-	public static $cache_by_id = array();
-	public static $occupied_titles = array();
+	public static $cache_by_root = [];
+	public static $cache_by_id = [];
+	public static $occupied_titles = [];
 
 	/**
 	 * Create the talkpage if it doesn't exist so that links to it
@@ -76,8 +76,8 @@ class Threads {
 	}
 
 	public static function loadFromResult( $res, $db, $bulkLoad = false ) {
-		$rows = array();
-		$threads = array();
+		$rows = [];
+		$threads = [];
 
 		foreach ( $res as $row ) {
 			$rows[] = $row;
@@ -94,7 +94,7 @@ class Threads {
 		return Thread::bulkLoad( $rows );
 	}
 
-	public static function where( $where, $options = array(), $bulkLoad = true ) {
+	public static function where( $where, $options = [], $bulkLoad = true ) {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$res = $dbr->select( 'thread', '*', $where, __METHOD__, $options );
@@ -151,7 +151,7 @@ class Threads {
 			return self::$cache_by_root[$post->getId()];
 		}
 
-		$ts = Threads::where( array( 'thread_root' => $post->getId() ), array(), $bulkLoad );
+		$ts = Threads::where( [ 'thread_root' => $post->getId() ], [], $bulkLoad );
 
 		return self::assertSingularity( $ts, 'thread_root', $post->getId() );
 	}
@@ -166,7 +166,7 @@ class Threads {
 			return self::$cache_by_id[$id];
 		}
 
-		$ts = Threads::where( array( 'thread_id' => $id ), array(), $bulkLoad );
+		$ts = Threads::where( [ 'thread_id' => $id ], [], $bulkLoad );
 
 		return self::assertSingularity( $ts, 'thread_id', $id );
 	}
@@ -177,22 +177,22 @@ class Threads {
 	 * @return Thread
 	 */
 	public static function withSummary( $article, $bulkLoad = true ) {
-		$ts = Threads::where( array( 'thread_summary_page' => $article->getId() ),
-			array(), $bulkLoad );
+		$ts = Threads::where( [ 'thread_summary_page' => $article->getId() ],
+			[], $bulkLoad );
 		return self::assertSingularity( $ts, 'thread_summary_page', $article->getId() );
 	}
 
 	public static function articleClause( $article ) {
 		$dbr = wfGetDB( DB_SLAVE );
 
-		$titleCond = array( 'thread_article_title' => $article->getTitle()->getDBKey(),
-			'thread_article_namespace' => $article->getTitle()->getNamespace() );
+		$titleCond = [ 'thread_article_title' => $article->getTitle()->getDBKey(),
+			'thread_article_namespace' => $article->getTitle()->getNamespace() ];
 		$titleCond = $dbr->makeList( $titleCond, LIST_AND );
 
-		$conds = array( $titleCond );
+		$conds = [ $titleCond ];
 
 		if ( $article->getId() ) {
-			$idCond = array( 'thread_article_id' => $article->getId() );
+			$idCond = [ 'thread_article_id' => $article->getId() ];
 			$conds[] = $dbr->makeList( $idCond, LIST_AND );
 		}
 
@@ -202,7 +202,7 @@ class Threads {
 	public static function topLevelClause() {
 		$dbr = wfGetDB( DB_SLAVE );
 
-		$arr = array( 'thread_ancestor=thread_id', 'thread_parent' => null );
+		$arr = [ 'thread_ancestor=thread_id', 'thread_parent' => null ];
 
 		return $dbr->makeList( $arr, LIST_OR );
 	}
@@ -238,7 +238,7 @@ class Threads {
 
 		if ( is_callable( 'MediaWikiTitleCodec::getTitleInvalidRegex' ) ) {
 			$rxTc = MediaWikiTitleCodec::getTitleInvalidRegex();
-		} elseif ( is_callable( array( 'Title', 'getTitleInvalidRegex' ) ) ) { // Pre-1.25 compat
+		} elseif ( is_callable( [ 'Title', 'getTitleInvalidRegex' ] ) ) { // Pre-1.25 compat
 			$rxTc = Title::getTitleInvalidRegex();
 		} elseif ( !$rxTc ) { // Back-compat
 			$rxTc = '/' .
@@ -322,18 +322,18 @@ class Threads {
 		$title = $article->getTitle();
 		$id = $article->getId();
 
-		$titleCond = array( 'thread_article_namespace' => $title->getNamespace(),
-			'thread_article_title' => $title->getDBkey() );
+		$titleCond = [ 'thread_article_namespace' => $title->getNamespace(),
+			'thread_article_title' => $title->getDBkey() ];
 		$titleCondText = $dbr->makeList( $titleCond, LIST_AND );
 
-		$idCond = array( 'thread_article_id' => $id );
+		$idCond = [ 'thread_article_id' => $id ];
 		$idCondText = $dbr->makeList( $idCond, LIST_AND );
 
-		$fixTitleCond = array( $idCondText, "NOT ($titleCondText)" );
-		$fixIdCond = array( $titleCondText, "NOT ($idCondText)" );
+		$fixTitleCond = [ $idCondText, "NOT ($titleCondText)" ];
+		$fixIdCond = [ $titleCondText, "NOT ($idCondText)" ];
 
 		// Try to hit the most recent threads first.
-		$options = array( 'LIMIT' => 500, 'ORDER BY' => 'thread_id DESC' );
+		$options = [ 'LIMIT' => 500, 'ORDER BY' => 'thread_id DESC' ];
 
 		// Batch in 500s
 		if ( $limit ) {
@@ -364,7 +364,7 @@ class Threads {
 		}
 
 		if ( $limit && ( $rowsAffected >= $limit ) && $queueMore ) {
-			$jobParams = array( 'limit' => $limit, 'cascade' => true );
+			$jobParams = [ 'limit' => $limit, 'cascade' => true ];
 			JobQueueGroup::singleton()->push(
 				new SynchroniseThreadArticleDataJob(
 					$article->getTitle(),

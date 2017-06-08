@@ -24,7 +24,7 @@ class HistoricalThread extends Thread {
 		$this->revisionNumber = $t->revisionNumber;
 		$this->editedness = $t->editedness;
 
-		$this->replies = array();
+		$this->replies = [];
 		foreach ( $t->replies() as $r ) {
 			$this->replies[] = new HistoricalThread( $r );
 		}
@@ -44,10 +44,10 @@ class HistoricalThread extends Thread {
 		$line = $dbr->selectRow(
 			'historical_thread',
 			'hthread_contents',
-			array(
+			[
 				'hthread_id' => $id,
 				'hthread_revision' => $rev
-			),
+			],
 			__METHOD__ );
 		if ( $line ) {
 			return HistoricalThread::fromTextRepresentation( $line->hthread_contents );
