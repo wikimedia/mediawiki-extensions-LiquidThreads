@@ -37,8 +37,9 @@ class NewUserMessagesView extends LqtView {
 
 		if ( count( $ids ) == 1 ) {
 			$t = Threads::withId( $ids[0] );
-			if ( !$t )
+			if ( !$t ) {
 				return; // empty or just bogus operand.
+			}
 			$msg = wfMessage( 'lqt-marked-read', LqtView::formatSubject( $t->subject() )  )->parse();
 		} else {
 			$msg = wfMessage( 'lqt-count-marked-read' )->numParams( count( $ids ) )->parse();
@@ -69,8 +70,9 @@ class NewUserMessagesView extends LqtView {
 	function postDivClass( $thread ) {
 		$origClass = parent::postDivClass( $thread );
 
-		if ( in_array( $thread->id(), $this->highlightThreads ) )
+		if ( in_array( $thread->id(), $this->highlightThreads ) ) {
 			return "$origClass lqt_post_new_message";
+		}
 
 		return $origClass;
 	}
@@ -89,8 +91,9 @@ class NewUserMessagesView extends LqtView {
 			if ( $ids !== false ) {
 				foreach ( $ids as $id ) {
 					$tmp_thread = Threads::withId( $id );
-					if ( $tmp_thread )
+					if ( $tmp_thread ) {
 						NewMessages::markThreadAsUnReadByUser( $tmp_thread, $this->user );
+					}
 				}
 				$this->output->redirect( $this->title->getLocalURL() );
 			}
@@ -102,8 +105,9 @@ class NewUserMessagesView extends LqtView {
 						NewMessages::markAllReadByUser( $this->user );
 					} else {
 						$tmp_thread = Threads::withId( $id );
-						if ( $tmp_thread )
+						if ( $tmp_thread ) {
 							NewMessages::markThreadAsReadByUser( $tmp_thread, $this->user );
+						}
 					}
 				}
 				$query = 'lqt_method=undo_mark_as_read&lqt_operand=' . implode( ',', $ids );

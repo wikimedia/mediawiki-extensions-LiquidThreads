@@ -132,8 +132,9 @@ class LqtHooks {
 		$watch_messages = NewMessages::watchedThreadsForUser( $wgUser );
 		$wn = count( $watch_messages );
 
-		if ( $tn == 0 && $wn == 0 )
+		if ( $tn == 0 && $wn == 0 ) {
 			return true;
+		}
 
 		$wgOut->addModules( 'ext.liquidThreads' );
 		$messages_title = SpecialPage::getTitleFor( 'NewMessages' );
@@ -899,8 +900,9 @@ class LqtHooks {
 	 * @return bool
 	 */
 	public static function onGetUserPermissionsErrors( $title, $user, $action, &$result ) {
-		if ( $title->getNamespace() != NS_LQT_THREAD || $action != 'read' )
+		if ( $title->getNamespace() != NS_LQT_THREAD || $action != 'read' ) {
 			return true;
+		}
 
 		$thread = Threads::withRoot( new Article( $title, 0 ) );
 
@@ -965,7 +967,9 @@ class LqtHooks {
 				'Strip' => 'base'
 			) );
 			foreach ( $data as $pageid => $page ) {
-				if ( $page == 'page' ) continue;
+				if ( $page == 'page' ) {
+					continue;
+				}
 
 				if ( isset( $page['title'] )
 					&& LqtDispatch::isLqtPage( Title::newFromText( $page['title'] ) )

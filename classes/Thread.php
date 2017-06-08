@@ -183,7 +183,9 @@ class Thread {
 
 		$topmost = $this->topmostThread();
 		$topmost->modified = wfTimestampNow();
-		if ( $bump ) $topmost->setSortkey( wfTimestamp( TS_MW ) );
+		if ( $bump ) {
+			$topmost->setSortkey( wfTimestamp( TS_MW ) );
+		}
 		$topmost->save();
 
 		ThreadRevision::create( $this, $change_type, $change_object, $reason );
@@ -383,8 +385,9 @@ class Thread {
 	public function moveToPage( $title, $reason, $leave_trace ) {
 		global $wgUser;
 
-		if ( !$this->isTopmostThread() )
+		if ( !$this->isTopmostThread() ) {
 			throw new Exception( "Attempt to move non-toplevel thread to another page" );
+		}
 
 		$this->dieIfHistorical();
 
@@ -566,8 +569,9 @@ class Thread {
 
 		Threads::$cache_by_id[$line->thread_id] = $this;
 		if ( $line->thread_parent ) {
-			if ( !isset( self::$replyCacheById[$line->thread_parent] ) )
+			if ( !isset( self::$replyCacheById[$line->thread_parent] ) ) {
 				self::$replyCacheById[$line->thread_parent] = array();
+			}
 			self::$replyCacheById[$line->thread_parent][$line->thread_id] = $this;
 		}
 
@@ -607,11 +611,12 @@ class Thread {
 			}
 
 			// Grab page data while we're here.
-			if ( $row->thread_root )
+			if ( $row->thread_root ) {
 				$pageIds[] = $row->thread_root;
-			if ( $row->thread_summary_page )
+			}
+			if ( $row->thread_summary_page ) {
 				$pageIds[] = $row->thread_summary_page;
-
+			}
 			if ( !isset( self::$replyCacheById[$row->thread_id] ) ) {
 				self::$replyCacheById[$row->thread_id] = array();
 			}
@@ -711,8 +716,9 @@ class Thread {
 		foreach ( $all_thread_rows as $row ) {
 			$thread = Thread::newFromRow( $row, null );
 
-			if ( isset( $articlesById[$thread->rootId] ) )
+			if ( isset( $articlesById[$thread->rootId] ) ) {
 				$thread->root = $articlesById[$thread->rootId];
+			}
 
 			// User cache data
 			$t = Title::makeTitleSafe( NS_USER, $row->thread_author_name );
@@ -778,10 +784,11 @@ class Thread {
 				'LIMIT'   => '1'
 			)
 		);
-		if ( $line )
+		if ( $line ) {
 			return User::newFromName( $line->rev_user_text, false );
-		else
+		} else {
 			return null;
+		}
 	}
 
 	public static function recursiveGetReplyCount( $thread, $level = 1 ) {
@@ -1144,7 +1151,9 @@ class Thread {
 	}
 
 	public function article() {
-		if ( $this->article ) return $this->article;
+		if ( $this->article ) {
+			return $this->article;
+		}
 
 		if ( !is_null( $this->articleId ) ) {
 			if ( isset( self::$articleCacheById[$this->articleId] ) ) {
@@ -1182,7 +1191,9 @@ class Thread {
 
 	// The 'root' is the page in the Thread namespace corresponding to this thread.
 	public function root( ) {
-		if ( !$this->rootId ) return null;
+		if ( !$this->rootId ) {
+			return null;
+		}
 		if ( !$this->root ) {
 			if ( isset( self::$articleCacheById[$this->rootId] ) ) {
 				$this->root = self::$articleCacheById[$this->rootId];
@@ -1217,8 +1228,9 @@ class Thread {
 	}
 
 	public function summary() {
-		if ( !$this->summaryId )
+		if ( !$this->summaryId ) {
 			return null;
+		}
 
 		if ( !$this->summary ) {
 			$title = Title::newFromID( $this->summaryId );
@@ -1258,12 +1270,13 @@ class Thread {
 
 	public static function splitIncrementFromSubject( $subject_string ) {
 		preg_match( '/^(.*) \((\d+)\)$/', $subject_string, $matches );
-		if ( count( $matches ) != 3 )
+		if ( count( $matches ) != 3 ) {
 			throw new Exception(
 				__METHOD__ . ": thread subject has no increment: " . $subject_string
 			);
-		else
+		} else {
 			return $matches;
+		}
 	}
 
 	public function subject() {
@@ -1324,7 +1337,9 @@ class Thread {
 			null,
 			CONTENT_MODEL_WIKITEXT
 		)->getRedirectTarget();
-		if ( !$rtitle ) return null;
+		if ( !$rtitle ) {
+			return null;
+		}
 
 		$this->dieIfHistorical();
 		$rthread = Threads::withRoot( new Article( $rtitle, 0 ) );
@@ -1544,8 +1559,9 @@ class Thread {
 					$t = Threads::newReplyTitle( $replyTo, $wgUser );
 				}
 
-				if ( $t )
+				if ( $t ) {
 					break;
+				}
 			} catch ( Exception $e ) { }
 
 			$subject = md5( mt_rand() ); // Just a random title
@@ -1569,7 +1585,9 @@ class Thread {
 		$restrictions = array_merge( $threadRestrictions, $talkpageRestrictions );
 
 		foreach ( $restrictions as $right => $source ) {
-			if ( $right == 'sysop' ) $right = 'protect';
+			if ( $right == 'sysop' ) {
+				$right = 'protect';
+			}
 			if ( !$user->isAllowed( $right ) ) {
 				return $source;
 			}

@@ -507,7 +507,9 @@ class LqtView {
 	function showNewThreadForm( $talkpage ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
+		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) {
+			return;
+		}
 
 		if ( Thread::canUserPost( $this->user, $this->article ) !== true ) {
 			$this->output->addWikiMsg( 'lqt-protected-newthread' );
@@ -628,7 +630,9 @@ class LqtView {
 
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
+		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) {
+			return;
+		}
 
 		$perm_result = $thread->canUserReply( $this->user, 'quick' );
 		if ( $perm_result !== true ) {
@@ -739,7 +743,9 @@ class LqtView {
 	function showPostEditingForm( $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
+		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) {
+			return;
+		}
 
 		$html = Xml::openElement( 'div',
 			array( 'class' => 'lqt-edit-form' ) );
@@ -849,7 +855,9 @@ class LqtView {
 	function showSummarizeForm( $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) return;
+		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) {
+			return;
+		}
 
 		if ( $thread->summary() ) {
 			$article = $thread->summary();
@@ -934,7 +942,9 @@ class LqtView {
 	}
 
 	public function getSubjectEditor( $db_subject, $subject ) {
-		if ( $subject === false ) $subject = $db_subject;
+		if ( $subject === false ) {
+			$subject = $db_subject;
+		}
 
 		$subject_label = wfMessage( 'lqt_subject' )->text();
 
@@ -1831,7 +1841,9 @@ class LqtView {
 		} elseif ( $thread->type() == Threads::TYPE_DELETED ) {
 			$res = $this->showDeletedThread( $thread );
 
-			if ( !$res ) return;
+			if ( !$res ) {
+				return;
+			}
 		}
 
 		$this->output->addHTML( $this->threadInfoPanel( $thread ) );

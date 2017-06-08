@@ -180,8 +180,9 @@ class NewMessages {
 		$res = self::getRowsObject( $t );
 		foreach ( $res as $row ) {
 			// Don't notify yourself
-			if ( $changeUser->getId() == $row->wl_user )
+			if ( $changeUser->getId() == $row->wl_user ) {
 				continue;
+			}
 
 			if ( !$row->ums_user || $row->ums_read_timestamp ) {
 				$userIds[] = $row->wl_user;

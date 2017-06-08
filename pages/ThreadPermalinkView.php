@@ -68,12 +68,17 @@ class ThreadPermalinkView extends LqtView {
 		$talkTitle = $view->thread->getTitle()->getTalkPage();
 
 		$articleClasses = array();
-		if ( !$articleTitle->exists() ) $articleClasses[] = 'new';
-		if ( $articleTitle->equals( $view->thread->getTitle() ) )
+		if ( !$articleTitle->exists() ) {
+			$articleClasses[] = 'new';
+		}
+		if ( $articleTitle->equals( $view->thread->getTitle() ) ) {
 			$articleClasses[] = 'selected';
+		}
 
 		$talkClasses = array();
-		if ( !$talkTitle->exists() ) $talkClasses[] = 'new';
+		if ( !$talkTitle->exists() ) {
+			$talkClasses[] = 'new';
+		}
 
 		if ( wfMessage( $articleTitle->getNamespaceKey() )->exists() ) {
 			$articleNamespaceText = wfMessage( $articleTitle->getNamespaceKey() )->text();
@@ -187,10 +192,11 @@ class ThreadPermalinkView extends LqtView {
 
 		$this->output->setSubtitle( $this->getSubtitle() );
 
-		if ( $this->methodApplies( 'summarize' ) )
+		if ( $this->methodApplies( 'summarize' ) ) {
 			$this->showSummarizeForm( $this->thread );
-		elseif ( $this->methodApplies( 'split' ) )
+		} elseif ( $this->methodApplies( 'split' ) ) {
 			$this->showSplitForm( $this->thread );
+		}
 
 		$this->showThread( $this->thread, 1, 1, array( 'maxDepth' => - 1, 'maxCount' => - 1 ) );
 

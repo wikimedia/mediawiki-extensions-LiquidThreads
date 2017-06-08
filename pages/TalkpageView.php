@@ -462,7 +462,9 @@ class LqtDiscussionPager extends IndexPager {
 		if ( $article->exists() ) {
 			$pout = $article->getParserOutput();
 			$setLimit = $pout->getProperty( 'lqt-page-limit' );
-			if ( $setLimit ) return $setLimit;
+			if ( $setLimit ) {
+				return $setLimit;
+			}
 		}
 
 		global $wgLiquidThreadsDefaultPageLimit;

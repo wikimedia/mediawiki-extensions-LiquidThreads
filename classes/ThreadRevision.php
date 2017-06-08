@@ -24,13 +24,17 @@ class ThreadRevision {
 		$dbr = wfGetDB( DB_SLAVE );
 		$row = $dbr->selectRow( 'thread_history', '*', array( 'th_id' => $id ), __METHOD__ );
 
-		if ( !$row ) return null;
+		if ( !$row ) {
+			return null;
+		}
 
 		return self::loadFromRow( $row );
 	}
 
 	public static function loadFromRow( $row ) {
-		if ( !$row ) return null;
+		if ( !$row ) {
+			return null;
+		}
 
 		$rev = new ThreadRevision;
 
