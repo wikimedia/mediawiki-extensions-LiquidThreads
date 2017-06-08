@@ -60,7 +60,6 @@ class HistoricalThread extends Thread {
 		return true;
 	}
 
-
 	function changeType() {
 		return $this->changeType;
 	}

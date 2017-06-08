@@ -249,9 +249,9 @@ class LqtView {
 	}
 
 	static function talkpageLink( $title, $text = null , $method = null, $operand = null,
-					$includeFragment = true, $attribs = array(),
-					$options = array(), $perpetuateOffset = true )
-	{
+		$includeFragment = true, $attribs = array(),
+		$options = array(), $perpetuateOffset = true
+	) {
 		list( $title, $query ) = self::talkpageLinkData(
 			$title, $method, $operand,
 			$includeFragment,
@@ -273,8 +273,8 @@ class LqtView {
 	 * @return array
 	 */
 	static function talkpageLinkData( $title, $method = null, $operand = null,
-		$includeFragment = true, $perpetuateOffset = true )
-	{
+		$includeFragment = true, $perpetuateOffset = true
+	) {
 		global $wgRequest;
 		$query = array();
 
@@ -326,15 +326,14 @@ class LqtView {
 	 * @return
 	 */
 	static function talkpageUrl( $title, $method = null, $operand = null,
-		$includeFragment = true, $perpetuateOffset = true )
-	{
+		$includeFragment = true, $perpetuateOffset = true
+	) {
 		list( $title, $query ) =
 			self::talkpageLinkData( $title, $method, $operand, $includeFragment,
 						$perpetuateOffset );
 
 		return $title->getLinkUrl( $query );
 	}
-
 
 	/**
 	 * Return a URL for the current page, including Title and query vars,
@@ -644,7 +643,6 @@ class LqtView {
 					array( 'class' => 'lqt-reply-form lqt-edit-form' ) );
 		$this->output->addHTML( $html );
 
-
 		try {
 			$t = $this->newReplyTitle( null, $thread );
 		} catch ( Exception $excep ) {
@@ -927,8 +925,8 @@ class LqtView {
 
 	public function handleNonce( $submitted_nonce, $nonce_key ) {
 		// Add a one-time random string to a hidden field. Store the random string
-		//	in memcached on submit and don't allow the edit to go ahead if it's already
-		//	been added.
+		// in memcached on submit and don't allow the edit to go ahead if it's already
+		// been added.
 		if ( $submitted_nonce ) {
 			global $wgMemc;
 
@@ -1593,7 +1591,7 @@ class LqtView {
 			$html = '';
 
 			// No way am I refactoring EditForm to return its output as HTML.
-			//	so I'm just flushing the HTML and displaying it as-is.
+			// so I'm just flushing the HTML and displaying it as-is.
 			$this->showPostEditingForm( $thread );
 			$html .= Xml::closeElement( 'div' );
 		} elseif ( $showAnything ) {
@@ -1607,7 +1605,6 @@ class LqtView {
 			$html .= Xml::closeElement( 'div' );
 			Hooks::run( 'LiquidThreadsShowPostThreadBody',
 				array( $thread, $this->request, &$html ) );
-
 
 			$html .= $this->showThreadToolbar( $thread );
 			$html .= $this->threadSignature( $thread );
@@ -1765,7 +1762,6 @@ class LqtView {
 	static function anchorName( $thread ) {
 		return $thread->getAnchorName();
 	}
-
 
 	/**
 	 * Display a moved thread
@@ -2021,7 +2017,7 @@ class LqtView {
 				++$showCount;
 				if ( $showCount == 1 ) {
 					// There's a post sep before each reply group to
-					//	separate from the parent thread.
+					// separate from the parent thread.
 					$this->output->addHTML( $div );
 				}
 
@@ -2031,7 +2027,7 @@ class LqtView {
 
 			// Handle must-show threads.
 			// FIXME this thread will be duplicated if somebody clicks the
-			//	"show more" link (probably needs fixing in the JS)
+			// "show more" link (probably needs fixing in the JS)
 			if ( $st->type() != Threads::TYPE_DELETED && !$shown &&
 					array_key_exists( $st->id(), $mustShowThreads ) ) {
 
@@ -2060,8 +2056,8 @@ class LqtView {
 	 * @throws Exception
 	 */
 	function showThread( $thread, $levelNum = 1, $totalInLevel = 1,
-			$options = array() ) {
-
+		$options = array()
+	) {
 		// Safeguard
 		if ( $thread->type() & Threads::TYPE_DELETED ||
 				!$thread->root() ) {
@@ -2071,7 +2067,7 @@ class LqtView {
 		$this->threadNestingLevel++;
 
 		// Figure out which threads *need* to be shown because they're involved in an
-		//	operation
+		// operation
 		$mustShowOption = array();
 		if ( isset( $options['mustShowThreads'] ) ) {
 			$mustShowOption = $options['mustShowThreads' ];
@@ -2227,7 +2223,7 @@ class LqtView {
 				$cascadeOptions, $replyInterruption );
 		} elseif ( $hasSubthreads && !$showThreads ) {
 			// If the thread has subthreads, but we don't want to show them, then
-			//	show the reply form if necessary, and add the "Show X replies" link.
+			// show the reply form if necessary, and add the "Show X replies" link.
 			if ( $replyTo ) {
 				$this->showReplyForm( $thread );
 			}
@@ -2243,7 +2239,7 @@ class LqtView {
 			}
 		} elseif ( $levelNum < $totalInLevel ) {
 			// If we have no replies, and we're not at the end of this level, add the post separator
-			//	and a reply box if necessary.
+			// and a reply box if necessary.
 			$this->output->addHTML(
 				Xml::tags( 'div', array( 'class' => 'lqt-post-sep' ), '&#160;' ) );
 
@@ -2267,7 +2263,7 @@ class LqtView {
 			}
 		} elseif ( !$hasSubthreads && $replyTo ) {
 			// If we have no replies, we're at the end of this level, and we want to reply,
-			//	show the reply box.
+			// show the reply box.
 			$class = 'lqt-thread-replies lqt-thread-replies-' .
 					$this->threadNestingLevel;
 			$html = Xml::openElement( 'div', array( 'class' => $class ) );
@@ -2286,16 +2282,15 @@ class LqtView {
 		}
 
 		// I don't remember why this is here, commenting out.
-//		if ( $this->threadNestingLevel == 1 ) {
-//			if ( !( $hasSubthreads && $showThreads && !$replyTo ) ) {
-//				$this->showReplyBox( $thread );
-//				$finishDiv = '';
-//				$finishDiv .= Xml::tags( 'div', array( 'class' => 'lqt-replies-finish' ),
-//					Xml::tags( 'div', array( 'class' => 'lqt-replies-finish-corner' ), '&#160;' ) );
-//
-//				$this->output->addHTML( $finishDiv );
-//			}
-//		}
+		// if ( $this->threadNestingLevel == 1 ) {
+		// 	if ( !( $hasSubthreads && $showThreads && !$replyTo ) ) {
+		// 		$this->showReplyBox( $thread );
+		// 		$finishDiv = '';
+		// 		$finishDiv .= Xml::tags( 'div', [ 'class' => 'lqt-replies-finish' ],
+		// 			Xml::tags( 'div', [ 'class' => 'lqt-replies-finish-corner' ], '&#160;' ) );
+		// 		$this->output->addHTML( $finishDiv );
+		// 	}
+		// }
 
 		$this->output->addHTML( Xml::closeElement( 'div' ) );
 
@@ -2316,9 +2311,10 @@ class LqtView {
 
 		$html = '';
 		$html .= Xml::tags( 'div',
-				array( 'class' => 'lqt-reply-form lqt-edit-form',
-					'style' => 'display: none;'	 ),
-				'' );
+			array( 'class' => 'lqt-reply-form lqt-edit-form',
+				'style' => 'display: none;' ),
+			''
+		);
 
 		$this->output->addHTML( $html );
 	}

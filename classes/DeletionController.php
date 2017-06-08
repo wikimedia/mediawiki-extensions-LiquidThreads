@@ -30,7 +30,7 @@ class LqtDeletionController {
 		} elseif ( $thread->replies() ) {
 			foreach ( $thread->replies() as $reply ) {
 				$reply->setSuperthread( $thread->superthread() );
-				$reply->save( );
+				$reply->save();
 			}
 		}
 

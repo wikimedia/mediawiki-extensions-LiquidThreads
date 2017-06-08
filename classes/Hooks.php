@@ -247,8 +247,8 @@ class LqtHooks {
 	}
 
 	static function modifyOAIQuery( &$tables, &$fields, &$conds,
-					&$options, &$join_conds ) {
-
+		&$options, &$join_conds
+	) {
 		$tables[] = 'thread';
 
 		$join_conds['thread'] = array( 'left join', array( 'thread_root=page_id' ) );
@@ -284,7 +284,7 @@ class LqtHooks {
 	 */
 	public static function onUserRename( $renameUserSQL ) {
 		// Always use the job queue, talk page edits will take forever
-		foreach( self::$userTables as $table => $fields ) {
+		foreach ( self::$userTables as $table => $fields ) {
 			$renameUserSQL->tablesJob[$table] = $fields;
 		}
 		return true;
@@ -303,7 +303,7 @@ class LqtHooks {
 	 */
 	public static function onUserMergeAccountFields( &$updateFields ) {
 		// array( tableName, idField, textField )
-		foreach( self::$userTables as $table => $fields ) {
+		foreach ( self::$userTables as $table => $fields ) {
 			$updateFields[] = array( $table, $fields[1], $fields[0] );
 		}
 		return true;
@@ -389,7 +389,7 @@ class LqtHooks {
 		if ( $updater instanceof PostgresUpdater ) {
 			$updater->addExtensionTable( 'thread', "$dir/lqt.pg.sql" );
 			$updater->addExtensionTable( 'thread_history',
-				"$dir/schema-changes/thread_history_table.pg.sql"  );
+				"$dir/schema-changes/thread_history_table.pg.sql" );
 			$updater->addExtensionTable( 'thread_pending_relationship',
 				"$dir/schema-changes/thread_pending_relationship.pg.sql" );
 			$updater->addExtensionTable( 'thread_reaction',
@@ -582,30 +582,31 @@ class LqtHooks {
 	 * @return bool
 	 */
 	static function onPageContentSaveComplete( &$article, &$user, $content, $summary,
-			$minoredit, $watchthis, $sectionanchor, &$flags, $revision,
-			&$status, $baseRevId ) {
- 		if ( !$status->isGood() ) {
- 			// Failed
- 			return true;
- 		}
+		$minoredit, $watchthis, $sectionanchor, &$flags, $revision,
+		&$status, $baseRevId
+	) {
+		if ( !$status->isGood() ) {
+			// Failed
+			return true;
+		}
 
- 		$title = $article->getTitle();
- 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
- 			// Not a thread
- 			return true;
- 		}
+		$title = $article->getTitle();
+		if ( $title->getNamespace() != NS_LQT_THREAD ) {
+			// Not a thread
+			return true;
+		}
 
- 		if ( !$baseRevId ) {
- 			// New page
- 			return true;
- 		}
+		if ( !$baseRevId ) {
+			// New page
+			return true;
+		}
 
- 		$thread = Threads::withRoot( $article );
+		$thread = Threads::withRoot( $article );
 
- 		if ( !$thread ) {
- 			// No matching thread.
- 			return true;
- 		}
+		if ( !$thread ) {
+			// No matching thread.
+			return true;
+		}
 
 		LqtView::editMetadataUpdates(
 			array(
@@ -615,33 +616,33 @@ class LqtHooks {
 			'text' => ContentHandler::getContentText( $content ),
 		) );
 
- 		return true;
- 	}
+		return true;
+	}
 
 	/**
 	 * @param $title Title
 	 * @param $types
 	 * @return bool
 	 */
- 	static function getProtectionTypes( $title, &$types ) {
- 		$isLqtPage = LqtDispatch::isLqtPage( $title );
- 		$isThread = $title->getNamespace() == NS_LQT_THREAD;
+	static function getProtectionTypes( $title, &$types ) {
+		$isLqtPage = LqtDispatch::isLqtPage( $title );
+		$isThread = $title->getNamespace() == NS_LQT_THREAD;
 
- 		if ( !$isLqtPage && !$isThread ) {
- 			return true;
- 		}
+		if ( !$isLqtPage && !$isThread ) {
+			return true;
+		}
 
- 		if ( $isLqtPage ) {
- 			$types[] = 'newthread';
- 			$types[] = 'reply';
- 		}
+		if ( $isLqtPage ) {
+			$types[] = 'newthread';
+			$types[] = 'reply';
+		}
 
- 		if ( $isThread ) {
- 			$types[] = 'reply';
- 		}
+		if ( $isThread ) {
+			$types[] = 'reply';
+		}
 
- 		return true;
- 	}
+		return true;
+	}
 
 	/**
 	 * @param $vars sttsu
@@ -690,23 +691,24 @@ class LqtHooks {
 
 		$pageInfo['DiscussionThreading'] = array();
 		$fields = array(
-				'ThreadSubject',
-				'ThreadParent',
-				'ThreadAncestor',
-				'ThreadPage',
-				'ThreadID',
-				'ThreadSummaryPage',
-				'ThreadAuthor',
-				'ThreadEditStatus',
-				'ThreadType',
-				'ThreadSignature',
-			);
+			'ThreadSubject',
+			'ThreadParent',
+			'ThreadAncestor',
+			'ThreadPage',
+			'ThreadID',
+			'ThreadSummaryPage',
+			'ThreadAuthor',
+			'ThreadEditStatus',
+			'ThreadType',
+			'ThreadSignature',
+		);
 
 		$skip = false;
 
 		while ( $skip ? $reader->next() : $reader->read() ) {
 			if ( $reader->nodeType == XmlReader::END_ELEMENT &&
-					$reader->name == 'DiscussionThreading' ) {
+				$reader->name == 'DiscussionThreading'
+			) {
 				break;
 			}
 
@@ -750,12 +752,12 @@ class LqtHooks {
 			}
 		}
 
- 		if ( ! isset( $pageInfo['DiscussionThreading'] ) ) {
- 			return true;
- 		}
+		if ( ! isset( $pageInfo['DiscussionThreading'] ) ) {
+			return true;
+		}
 
- 		$statusValues = array_flip( self::$editedStati );
- 		$typeValues = array_flip( self::$threadTypes );
+		$statusValues = array_flip( self::$editedStati );
+		$typeValues = array_flip( self::$threadTypes );
 
 		$info = $pageInfo['DiscussionThreading'];
 
@@ -771,7 +773,7 @@ class LqtHooks {
 		}
 
 		$thread = Thread::create( $root, $article, null, $type,
-						$subject, $summary, null, $signature );
+			$subject, $summary, null, $signature );
 
 		if ( isset( $info['ThreadSummaryPage'] ) ) {
 			$summaryPageName = $info['ThreadSummaryPage'];
@@ -781,7 +783,7 @@ class LqtHooks {
 				$thread->setSummaryPage( $summaryPage );
 			} else {
 				self::addPendingRelationship( $thread->id(), 'thread_summary_page',
-						$summaryPageName, 'article', $pendingRelationships );
+					$summaryPageName, 'article', $pendingRelationships );
 			}
 		}
 
@@ -794,7 +796,7 @@ class LqtHooks {
 				$thread->setSuperthread( $superthread );
 			} else {
 				self::addPendingRelationship( $thread->id(), 'thread_parent',
-								$threadPageName, 'thread', $pendingRelationships );
+					$threadPageName, 'thread', $pendingRelationships );
 			}
 		}
 
@@ -830,11 +832,11 @@ class LqtHooks {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$dbw->update( 'thread', array( $pendingRelationship['relationship'] => $articleID ),
-				array( 'thread_id' => $pendingRelationship['thread'] ),
-				__METHOD__ );
+			array( 'thread_id' => $pendingRelationship['thread'] ),
+			__METHOD__ );
 
 		$dbw->delete( 'thread_pending_relationship',
-				array( 'tpr_title' => $pendingRelationship['title'] ), __METHOD__ );
+			array( 'tpr_title' => $pendingRelationship['title'] ), __METHOD__ );
 	}
 
 	/**
@@ -906,7 +908,7 @@ class LqtHooks {
 
 		$thread = Threads::withRoot( new Article( $title, 0 ) );
 
-		if ( ! $thread ) {
+		if ( !$thread ) {
 			return true;
 		}
 

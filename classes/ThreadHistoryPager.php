@@ -68,7 +68,7 @@ class ThreadHistoryPager extends TablePager {
 
 		$row = $this->mCurrentRow;
 
-		switch( $name ) {
+		switch ( $name ) {
 			case 'th_timestamp':
 				$formatted = $wgLang->timeanddate( $value, true );
 				return $this->linkRenderer->makeLink(
@@ -112,7 +112,7 @@ class ThreadHistoryPager extends TablePager {
 
 		$msg = self::$change_names[$type];
 
-		switch( $type ) {
+		switch ( $type ) {
 			case Threads::CHANGE_EDITED_SUBJECT:
 				if ( $changeObject && $lastChangeObject ) {
 					$args[] = $lastChangeObject->subject();
@@ -161,5 +161,7 @@ class ThreadHistoryPager extends TablePager {
 		return in_array( $name, $sortable_fields );
 	}
 
-	public function getDefaultDirections() { return true; /* descending */ }
+	public function getDefaultDirections() {
+		return true; /* descending */
+	}
 }

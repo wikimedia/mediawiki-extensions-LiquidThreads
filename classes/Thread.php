@@ -203,7 +203,7 @@ class Thread {
 			$reason = '';
 		}
 
-		switch( $change_type ) {
+		switch ( $change_type ) {
 			case Threads::CHANGE_MOVED_TALKPAGE:
 				$log->addEntry( 'move', $this->title(), $reason,
 					array( $original->getTitle(),
@@ -223,7 +223,6 @@ class Thread {
 				$oldParent = $change_object->dbVersion->isTopmostThread()
 						? ''
 						: $change_object->dbVersion->superthread()->title();
-
 
 				$log->addEntry( 'merge', $this->title(), $reason,
 					array( $oldParent, $change_object->superthread()->title() ) );
@@ -358,8 +357,8 @@ class Thread {
 
 		$dbw = wfGetDB( DB_MASTER );
 
- 		$dbw->delete( 'user_message_state', array( 'ums_thread' => $this->id() ),
- 						__METHOD__ );
+		$dbw->delete( 'user_message_state', array( 'ums_thread' => $this->id() ),
+			__METHOD__ );
 
 		// Fix reply count.
 		$t = $this->superthread();
@@ -767,7 +766,7 @@ class Thread {
 	* Return the User object representing the author of the first revision
 	* (or null, if the database is screwed up).
 	*/
-	public function loadOriginalAuthorFromRevision( ) {
+	public function loadOriginalAuthorFromRevision() {
 		$this->dieIfHistorical();
 
 		$dbr = wfGetDB( DB_SLAVE );
@@ -810,7 +809,7 @@ class Thread {
 
 	// Lazy updates done whenever a thread is loaded.
 	//  Much easier than running a long-running maintenance script.
-	public function doLazyUpdates( ) {
+	public function doLazyUpdates() {
 		if ( $this->isHistorical() ) {
 			return; // Don't do lazy updates on stored historical threads.
 		}
@@ -996,7 +995,9 @@ class Thread {
 	public function checkReplies( $replies ) {
 		// Fixes a bug where some history pages were not working, before
 		//  superthread was properly instance-cached.
-		if ( $this->isHistorical() ) { return; }
+		if ( $this->isHistorical() ) {
+			return;
+		}
 		foreach ( $replies as $reply ) {
 			if ( ! $reply->hasSuperthread() ) {
 				throw new Exception( "Post " . $this->id() .
@@ -1190,7 +1191,7 @@ class Thread {
 	}
 
 	// The 'root' is the page in the Thread namespace corresponding to this thread.
-	public function root( ) {
+	public function root() {
 		if ( !$this->rootId ) {
 			return null;
 		}
@@ -1401,7 +1402,7 @@ class Thread {
 
 		// Filter out article objects, there be dragons (or unserialization problems)
 		$fields = array_diff( $fields, array( 'root', 'article', 'summary', 'sleeping',
-							'dbVersion' ) );
+			'dbVersion' ) );
 
 		return $fields;
 	}
@@ -1422,7 +1423,8 @@ class Thread {
 	public function rootRevision() {
 		if ( !$this->isHistorical() ||
 			!isset( $this->topmostThread()->threadRevision ) ||
-			! $this->root() ) {
+			! $this->root()
+		) {
 			return null;
 		}
 
@@ -1440,7 +1442,7 @@ class Thread {
 		$join_conds = array( 'page' => array( 'JOIN', 'rev_page=page_id' ) );
 
 		$row = $dbr->selectRow( array( 'revision', 'page' ), '*', $conds, __METHOD__,
-				array( 'ORDER BY' => 'rev_timestamp DESC' ), $join_conds );
+			array( 'ORDER BY' => 'rev_timestamp DESC' ), $join_conds );
 
 		return $row->rev_id;
 	}
@@ -1463,7 +1465,8 @@ class Thread {
 		}
 
 		foreach ( $this->replies() as $reply ) {
-			if ( $obj = $reply->replyWithId( $id ) ) {
+			$obj = $reply->replyWithId( $id );
+			if ( $obj ) {
 				return $obj;
 			}
 		}
@@ -1562,7 +1565,8 @@ class Thread {
 				if ( $t ) {
 					break;
 				}
-			} catch ( Exception $e ) { }
+			} catch ( Exception $e ) {
+			}
 
 			$subject = md5( mt_rand() ); // Just a random title
 			$ok = false;
