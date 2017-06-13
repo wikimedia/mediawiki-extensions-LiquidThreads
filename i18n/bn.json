@@ -6,7 +6,8 @@
 			"Ehsanulhb",
 			"Wikitanvir",
 			"Zaheen",
-			"Aftabuzzaman"
+			"Aftabuzzaman",
+			"Mohammed Galib Hasan"
 		]
 	},
 	"lqt-desc": "আলাপের পাতায় থ্রেডিং আলোচনা ব্যবস্থা যোগ হবে।",
@@ -126,7 +127,7 @@
 	"lqt-drag-activate": "টেনে নতুন অবস্থানে নিন",
 	"lqt-drag-save": "নিশ্চিত করুন",
 	"lqt-drag-reason": "কারণ:",
-	"lqt-drag-subject": "নতুন থ্রেডের জন্য বিষয়:",
+	"lqt-drag-subject": "নতুন থ্রেডের জন্য বিষয়(আবশ্যিক):",
 	"lqt-edit-signature": "(স্বাক্ষর সম্পাদনা)",
 	"lqt-preview-signature": "(প্রাকদর্শন)",
 	"lqt-feed-title-all": "{{SITENAME}} — নতুন পোষ্ট",
