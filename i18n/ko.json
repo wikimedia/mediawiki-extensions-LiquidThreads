@@ -247,6 +247,7 @@
 	"nstab-summary": "요약",
 	"pageinfo-usinglqt": "스레드식 토론을 활성화",
 	"pageinfo-usinglqt-yes": "예",
+	"apihelp-query+threads-summary": "LiquidThreads 스레드의 세부 내용을 표시합니다.",
 	"apihelp-query+threads-param-rendermaxthreadcount": "렌더링할 때, \"{{int:lqt-thread-show-more}}\" 링크를 추가하기 전 보여줄 최대 답글 수.",
 	"apierror-liquidthreads-alreadytop": "이 스레드는 최상위 스레드에 이미 있습니다.",
 	"apierror-liquidthreads-noreplies-talkpage": "토론 문서에 대한 답변이 금지되어 있기 때문에 이 스레드에 답변할 수 없습니다.",
