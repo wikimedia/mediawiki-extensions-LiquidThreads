@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kiranpoojary"
+			"Kiranpoojary",
+			"BHARATHESHA ALASANDEMAJALU"
 		]
 	},
 	"lqt-no-new-messages": "ಇರೆಗ್ ಒವ್ಲಾ ಪೊಸ ಸಂದೇಶೊ ಇಜ್ಜಿ.",
 	"lqt-preference-notify-talk": "ಯಾನ್ ವೀಕ್ಷಣೆ ಮಲ್ಪುನ ಚರ್ಚಾಮಾಲೆಗ್ (thread) ಸ್ಪಂದನೆ ಬನ್ನಗ ಎಂಕ್ ಈ-ಮೈಲ್ ಕಡಪುಡುಲೆ",
-	"lqt_newmessages": "ಪೊಸ ಸಂದೇಶೊಲು (none)",
+	"lqt-newmessages-n": "ಪೊಸ ಸಂದೇಸೋಲು ($1)",
+	"lqt_newmessages": "ಪೊಸ ಸಂದೇಸೋಲು (ಇಜ್ಜಿ)",
 	"lqt_newmessages-title": "ಪೊಸ ಸಂದೇಶೊಲು"
 }
