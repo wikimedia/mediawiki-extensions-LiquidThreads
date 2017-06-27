@@ -22,7 +22,8 @@
 			"Ricordisamoa",
 			"Wladek92",
 			"Pols12",
-			"Derugon"
+			"Derugon",
+			"Thibaut120094"
 		]
 	},
 	"lqt-desc": "Ajoute des fils de discussion dans les pages de discussion",
@@ -262,6 +263,7 @@
 	"pageinfo-usinglqt": "Discussion par fils activée",
 	"pageinfo-usinglqt-yes": "Oui",
 	"apihelp-feedthreads-description": "Retourne un flux de fils de discussion.",
+	"apihelp-feedthreads-summary": "Retourne un flux de fils de discussion.",
 	"apihelp-feedthreads-param-feedformat": "Le format du flux.",
 	"apihelp-feedthreads-param-days": "Nombre de jours de discussion à afficher.",
 	"apihelp-feedthreads-param-type": "Types de notes à afficher.",
@@ -271,6 +273,7 @@
 	"apihelp-feedthreads-example-2": "Afficher un fil des réponses sur [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Afficher un fil des nouvelles discussions sur [[Talk:Main Page]]",
 	"apihelp-query+threads-description": "Afficher les détails des discussions LiquidThreads.",
+	"apihelp-query+threads-summary": "Afficher les détails des discussions LiquidThreads.",
 	"apihelp-query+threads-param-startid": "L’ID de discussion auquel démarrer l’énumération.",
 	"apihelp-query+threads-param-endid": "L'ID du thread pour arrêter l'énumération.",
 	"apihelp-query+threads-param-showdeleted": "S’il faut ou non afficher les discussions supprimées.",
@@ -291,6 +294,7 @@
 	"apihelp-query+threads-example-1": "Lister les discussions sur [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Lister les discussions avec les IDs 1, 2, 3 et 4",
 	"apihelp-threadaction-description": "Autorise les actions à effectuer sur les discussions et les notes présentes dans les fils de discussion.",
+	"apihelp-threadaction-summary": "Autorise les actions à effectuer sur les discussions et les notes présentes dans les fils de discussion.",
 	"apihelp-threadaction-param-thread": "IDs de discussion ou titres sur lesquels agir.",
 	"apihelp-threadaction-param-talkpage": "La page de discussion sur laquelle agir (le cas échéant).",
 	"apihelp-threadaction-param-threadaction": "L'action à prendre.",
