@@ -95,7 +95,6 @@ class TalkpageView extends LqtView {
 
 			$this->output->addHTML( $html );
 		} elseif ( $article->getTitle()->quickUserCan( 'edit' ) ) {
-
 			$editLink = $this->linkRenderer->makeLink(
 				$this->talkpage->getTitle(),
 				new HtmlArmor( wfMessage( 'lqt_add_header' )->parse() ),
@@ -130,7 +129,8 @@ class TalkpageView extends LqtView {
 		$rows = [];
 		foreach ( $threads as $thread ) {
 			if ( $thread->root() && !$thread->root()->getPage()->getContent() &&
-				    !LqtView::threadContainsRepliesWithContent( $thread ) ) {
+				!LqtView::threadContainsRepliesWithContent( $thread )
+			) {
 				continue;
 			}
 
@@ -386,7 +386,6 @@ class TalkpageView extends LqtView {
 	}
 
 	function getPager() {
-
 		$sortType = $this->getSortType();
 		return new LqtDiscussionPager( $this->talkpage, $sortType );
 	}

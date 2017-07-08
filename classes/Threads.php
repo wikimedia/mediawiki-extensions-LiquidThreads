@@ -227,9 +227,9 @@ class Threads {
 	}
 
 	// This will attempt to replace invalid characters and sequences in a title with
-	//  a safe replacement (_, currently). Before doing this, it will parse any wikitext
-	//  and strip the HTML, before converting HTML entities back into their corresponding
-	//  characters.
+	// a safe replacement (_, currently). Before doing this, it will parse any wikitext
+	// and strip the HTML, before converting HTML entities back into their corresponding
+	// characters.
 	public static function makeTitleValid( $text ) {
 		$text = self::stripWikitext( $text );
 		$text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
@@ -287,7 +287,6 @@ class Threads {
 			$t->exists() ||
 			$t->isDeletedQuick()
 		) {
-
 			if ( !$t ) {
 				throw new Exception( "Error in creating title for basename $basename" );
 			}
@@ -300,17 +299,17 @@ class Threads {
 	}
 
 	// Called just before any function that might cause a loss of article association.
-	//  by breaking either a NS-title reference (by moving the article), or a page-id
-	//  reference (by deleting the article).
+	// by breaking either a NS-title reference (by moving the article), or a page-id
+	// reference (by deleting the article).
 	// Basically ensures that all subthreads have the two stores of article association
-	//  synchronised.
+	// synchronised.
 	// Can also be called with a "limit" parameter to slowly convert old threads. This
-	//  is intended to be used by jobs created by move and create operations to slowly
-	//  propagate the change through the data set without rushing the whole conversion
-	//  when a second breaking change is made. If a limit is set and more rows require
-	//  conversion, this function will return false. Otherwise, true will be returned.
+	// is intended to be used by jobs created by move and create operations to slowly
+	// propagate the change through the data set without rushing the whole conversion
+	// when a second breaking change is made. If a limit is set and more rows require
+	// conversion, this function will return false. Otherwise, true will be returned.
 	// If the queueMore parameter is set and rows are left to update, a job queue item
-	//  will then be added with the same limit, to finish the remainder of the update.
+	// will then be added with the same limit, to finish the remainder of the update.
 	public static function synchroniseArticleData( $article, $limit = false, $queueMore = false ) {
 		if ( !$article ) {
 			throw new Exception( "synchroniseArticleData called on null article" );

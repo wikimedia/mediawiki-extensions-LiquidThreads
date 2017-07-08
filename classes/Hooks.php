@@ -328,8 +328,8 @@ class LqtHooks {
 		}
 
 		if ( $title->getNamespace() == NS_LQT_THREAD && self::$editType != 'new' &&
-			$wgLiquidThreadsShowBumpCheckbox )
-		{
+			$wgLiquidThreadsShowBumpCheckbox
+		) {
 			$checkboxes['wpBumpThread'] = [
 				'id' => 'wpBumpThread',
 				'label-message' => 'lqt-edit-bump',
@@ -462,7 +462,7 @@ class LqtHooks {
 
 	static function onMovePageIsValidMove( Title $oldTitle ) {
 		// Synchronise article data so that moving the article doesn't break any
-		//  article association.
+		// article association.
 		Threads::synchroniseArticleData( new Article( $oldTitle, 0 ) );
 
 		return true;
@@ -486,7 +486,7 @@ class LqtHooks {
 		}
 
 		// Now we're dealing with blocked users with user talk editing allowed editing pages
-		//  in the thread namespace.
+		// in the thread namespace.
 
 		if ( $title->exists() ) {
 			// If the page actually exists, allow the user to edit posts on their own talk page.
@@ -505,7 +505,7 @@ class LqtHooks {
 			}
 		} else {
 			// Otherwise, it's a bit trickier. Allow creation of thread titles prefixed by the
-			//  user's talk page.
+			// user's talk page.
 
 			// Figure out if it's on the talk page
 			$talkPage = $user->getTalkPage();
@@ -523,8 +523,8 @@ class LqtHooks {
 
 			if ( self::$editArticle instanceof Article
 				&& self::$editArticle->getTitle()->equals( $title )
-				&& $isOnTalkPage )
-			{
+				&& $isOnTalkPage
+			) {
 				$isBlocked = false;
 				return true;
 			}

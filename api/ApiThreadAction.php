@@ -163,8 +163,8 @@ class ApiThreadAction extends ApiEditPage {
 		$title = null;
 		$article = $thread->article();
 		if ( empty( $params['subject'] ) ||
-			! Thread::validateSubject( $params['subject'], $title, null, $article ) ) {
-
+			!Thread::validateSubject( $params['subject'], $title, null, $article )
+		) {
 			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError( 'apierror-liquidthreads-nosubject', 'no-valid-subject' );
 			} else {

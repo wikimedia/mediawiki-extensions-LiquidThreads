@@ -123,7 +123,7 @@ class LqtDeletionController {
 
 	public static function onArticleDelete( $article ) {
 		// Synchronise article data so that moving the article doesn't break any
-		//  article association.
+		// article association.
 		Threads::synchroniseArticleData( $article );
 
 		return true;

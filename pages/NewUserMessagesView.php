@@ -34,7 +34,6 @@ class NewUserMessagesView extends LqtView {
 	}
 
 	function getUndoButton( $ids ) {
-
 		if ( count( $ids ) == 1 ) {
 			$t = Threads::withId( $ids[0] );
 			if ( !$t ) {

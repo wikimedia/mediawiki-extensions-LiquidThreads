@@ -611,11 +611,11 @@ class LqtView {
 		}
 
 		if ( $this->output->getRedirect() != '' ) {
-			   $redirectTitle = clone $talkpage->getTitle();
-			   if ( !empty( $thread ) ) {
-				   $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
-			   }
-			   $this->output->redirect( $this->title->getLocalURL() );
+			$redirectTitle = clone $talkpage->getTitle();
+			if ( !empty( $thread ) ) {
+				$redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
+			}
+			$this->output->redirect( $this->title->getLocalURL() );
 		}
 
 		$this->output->addHTML( '</div>' );
@@ -724,12 +724,11 @@ class LqtView {
 		}
 
 		if ( $this->output->getRedirect() != '' ) {
-			   $redirectTitle = clone $talkpage->getTitle();
-			   if ( !empty( $newThread ) ) {
-				   $redirectTitle->setFragment( '#' .
-					$this->anchorName( $newThread ) );
-			   }
-			   $this->output->redirect( $this->title->getLocalURL() );
+			$redirectTitle = clone $talkpage->getTitle();
+			if ( !empty( $newThread ) ) {
+				$redirectTitle->setFragment( '#' . $this->anchorName( $newThread ) );
+			}
+			$this->output->redirect( $this->title->getLocalURL() );
 		}
 
 		$this->output->addHTML( '</div>' );
@@ -839,9 +838,9 @@ class LqtView {
 		}
 
 		if ( $this->output->getRedirect() != '' ) {
-			   $redirectTitle = clone $talkpage->getTitle();
-			   $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
-			   $this->output->redirect( $this->title->getLocalURL() );
+			$redirectTitle = clone $talkpage->getTitle();
+			$redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
+			$this->output->redirect( $this->title->getLocalURL() );
 		}
 
 		$this->output->addHTML( '</div>' );
@@ -915,9 +914,9 @@ class LqtView {
 		}
 
 		if ( $this->output->getRedirect() != '' ) {
-			   $redirectTitle = clone $talkpage->getTitle();
-			   $redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
-			   $this->output->redirect( $this->title->getLocalURL() );
+			$redirectTitle = clone $talkpage->getTitle();
+			$redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
+			$this->output->redirect( $this->title->getLocalURL() );
 		}
 
 		$this->output->addHTML( '</div>' );
@@ -1174,7 +1173,7 @@ class LqtView {
 		}
 
 		# Move the talk page if relevant, if it exists, and if we've been told to
-		 // TODO we need to implement correct moving of talk pages everywhere later.
+		// TODO we need to implement correct moving of talk pages everywhere later.
 		// Snipped.
 	}
 
@@ -1233,9 +1232,9 @@ class LqtView {
 
 			$commands['delete'] = [
 				'label' => wfMessage( $deleteMsg )->parse(),
-				 'href' => $delete_url,
-				 'enabled' => true
-				];
+				'href' => $delete_url,
+				'enabled' => true
+			];
 		}
 
 		if ( $isLqtPage ) {
@@ -1294,8 +1293,9 @@ class LqtView {
 
 			$commands['history'] = [
 				'label' => wfMessage( 'history_short' )->parse(),
-				 'href' => $history_url,
-				 'enabled' => true ];
+				'href' => $history_url,
+				'enabled' => true
+			];
 
 			return $commands;
 		}
@@ -1559,7 +1559,6 @@ class LqtView {
 	 * @param $thread Thread
 	 */
 	function showThreadBody( $thread ) {
-
 		// Remove 'editsection', it won't work.
 		$popts = $this->output->parserOptions();
 		$previous_editsection = $popts->getEditSection();
@@ -2030,7 +2029,6 @@ class LqtView {
 			// "show more" link (probably needs fixing in the JS)
 			if ( $st->type() != Threads::TYPE_DELETED && !$shown &&
 					array_key_exists( $st->id(), $mustShowThreads ) ) {
-
 				$this->showThread( $st, $i, $subthreadCount, $cascadeOptions );
 			}
 		}
@@ -2283,13 +2281,13 @@ class LqtView {
 
 		// I don't remember why this is here, commenting out.
 		// if ( $this->threadNestingLevel == 1 ) {
-		// 	if ( !( $hasSubthreads && $showThreads && !$replyTo ) ) {
-		// 		$this->showReplyBox( $thread );
-		// 		$finishDiv = '';
-		// 		$finishDiv .= Xml::tags( 'div', [ 'class' => 'lqt-replies-finish' ],
-		// 			Xml::tags( 'div', [ 'class' => 'lqt-replies-finish-corner' ], '&#160;' ) );
-		// 		$this->output->addHTML( $finishDiv );
-		// 	}
+		// if ( !( $hasSubthreads && $showThreads && !$replyTo ) ) {
+		// $this->showReplyBox( $thread );
+		// $finishDiv = '';
+		// $finishDiv .= Xml::tags( 'div', [ 'class' => 'lqt-replies-finish' ],
+		// Xml::tags( 'div', [ 'class' => 'lqt-replies-finish-corner' ], '&#160;' ) );
+		// $this->output->addHTML( $finishDiv );
+		// }
 		// }
 
 		$this->output->addHTML( Xml::closeElement( 'div' ) );

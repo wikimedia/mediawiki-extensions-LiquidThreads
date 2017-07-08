@@ -61,9 +61,9 @@ class Thread {
 	}
 
 	public static function create( $root, $article, $superthread = null,
-				$type = Threads::TYPE_NORMAL, $subject = '',
-				$summary = '', $bump = null, $signature = null ) {
-
+		$type = Threads::TYPE_NORMAL, $subject = '',
+		$summary = '', $bump = null, $signature = null
+	) {
 		$thread = new Thread( null );
 
 		if ( !in_array( $type, self::$VALID_TYPES ) ) {
@@ -268,9 +268,9 @@ class Thread {
 		}
 
 		$dbr->update( 'thread',
-		     /* SET */ $this->getRow(),
-		     /* WHERE */ [ 'thread_id' => $this->id, ],
-		     $fname );
+			/* SET */ $this->getRow(),
+			/* WHERE */ [ 'thread_id' => $this->id, ],
+			$fname );
 
 		// Touch the root
 		if ( $this->root() ) {
@@ -433,7 +433,7 @@ class Thread {
 	}
 
 	// Drop a note at the source location of a move, noting that a thread was moved from
-	//  there.
+	// there.
 	public function leaveTrace( $reason, $oldTitle, $newTitle ) {
 		$this->dieIfHistorical();
 
@@ -454,10 +454,10 @@ class Thread {
 
 		// Add the trace thread to the tracking table.
 		$thread = Thread::create( $redirectArticle, new Article( $oldTitle, 0 ), null,
-		 	Threads::TYPE_MOVED, $this->subject() );
+			Threads::TYPE_MOVED, $this->subject() );
 
-		 $thread->setSortkey( $this->sortkey() );
-		 $thread->save();
+		$thread->setSortkey( $this->sortkey() );
+		$thread->save();
 	}
 
 	// Lists total reply count, including replies to replies and such
@@ -601,7 +601,7 @@ class Thread {
 		}
 
 		// Build a list of threads for which to pull replies, and page IDs to pull data for.
-		//  Also, pre-initialise the reply cache.
+		// Also, pre-initialise the reply cache.
 		foreach ( $rows as $row ) {
 			if ( $row->thread_ancestor ) {
 				$top_thread_ids[] = $row->thread_ancestor;
@@ -624,12 +624,12 @@ class Thread {
 		$all_thread_ids = $top_thread_ids;
 
 		// Pull replies to the threads provided, and as above, pull page IDs to pull data for,
-		//  pre-initialise the reply cache, and stash the row object for later use.
+		// pre-initialise the reply cache, and stash the row object for later use.
 		if ( count( $top_thread_ids ) ) {
 			$res = $dbr->select( 'thread', '*',
-						[ 'thread_ancestor' => $top_thread_ids,
-							'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ],
-						__METHOD__ );
+				[ 'thread_ancestor' => $top_thread_ids,
+					'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ],
+				__METHOD__ );
 
 			foreach ( $res as $row ) {
 				// Grab page data while we're here.
@@ -675,11 +675,11 @@ class Thread {
 		}
 
 		// Preload page data (restrictions, and preload Article object with everything from
-		//  the page table. Also, precache the title and article objects for pulling later.
+		// the page table. Also, precache the title and article objects for pulling later.
 		$articlesById = [];
 		if ( count( $pageIds ) ) {
 			// Pull restriction info. Needs to come first because otherwise it's done per
-			//  page by loadPageData.
+			// page by loadPageData.
 			$restrictionRows = array_fill_keys( $pageIds, [] );
 			$res = $dbr->select( 'page_restrictions', '*', [ 'pr_page' => $pageIds ],
 									__METHOD__ );
@@ -710,8 +710,8 @@ class Thread {
 		}
 
 		// For every thread we have a row object for, load a Thread object, add the user and
-		//  user talk pages to a link batch, cache the relevant user id/name pair, and
-		//  populate the reply cache.
+		// user talk pages to a link batch, cache the relevant user id/name pair, and
+		// populate the reply cache.
 		foreach ( $all_thread_rows as $row ) {
 			$thread = Thread::newFromRow( $row, null );
 
@@ -808,14 +808,14 @@ class Thread {
 	}
 
 	// Lazy updates done whenever a thread is loaded.
-	//  Much easier than running a long-running maintenance script.
+	// Much easier than running a long-running maintenance script.
 	public function doLazyUpdates() {
 		if ( $this->isHistorical() ) {
 			return; // Don't do lazy updates on stored historical threads.
 		}
 
 		// This is an invocation guard to avoid infinite recursion when fixing a
-		//  missing ancestor.
+		// missing ancestor.
 		static $doingUpdates = false;
 		if ( $doingUpdates ) {
 			return;
@@ -869,14 +869,15 @@ class Thread {
 		// to be on the corresponding talk page, but only if the talk-page is a LQT page.
 		// (Previous versions stored the subject page, for some totally bizarre reason)
 		// Old versions also sometimes store the thread page for trace threads as the
-		//  article, not as the root.
-		//  Trying not to exacerbate this by moving it to be the 'Thread talk' page.
+		// article, not as the root.
+		// Trying not to exacerbate this by moving it to be the 'Thread talk' page.
 		$articleTitle = $this->getTitle();
 		global $wgLiquidThreadsMigrate;
 		if ( !LqtDispatch::isLqtPage( $articleTitle ) && !$articleTitle->isTalkPage() &&
-				LqtDispatch::isLqtPage( $articleTitle->getTalkPage() ) &&
-				$articleTitle->getNamespace() != NS_LQT_THREAD &&
-				$wgLiquidThreadsMigrate ) {
+			LqtDispatch::isLqtPage( $articleTitle->getTalkPage() ) &&
+			$articleTitle->getNamespace() != NS_LQT_THREAD &&
+			$wgLiquidThreadsMigrate
+		) {
 			$newTitle = $articleTitle->getTalkPage();
 			$newArticle = new Article( $newTitle, 0 );
 
@@ -916,7 +917,7 @@ class Thread {
 		}
 
 		// If still unfilled, the article ID referred to is no longer valid. Re-fill it
-		//  from the namespace/title pair if an article ID is provided
+		// from the namespace/title pair if an article ID is provided
 		if ( !$articleTitle && ( $this->articleId != 0 || $dbTitle->getArticleID() != 0 ) ) {
 			$articleTitle = $dbTitle;
 			$this->articleId = $articleTitle->getArticleID();
@@ -945,7 +946,7 @@ class Thread {
 		}
 
 		// Check for unfilled signature field. This field hasn't existed until
-		//  recently.
+		// recently.
 		if ( is_null( $this->signature ) ) {
 			// Grab our signature.
 			$sig = LqtView::getUserSignature( $this->author() );
@@ -994,7 +995,7 @@ class Thread {
 
 	public function checkReplies( $replies ) {
 		// Fixes a bug where some history pages were not working, before
-		//  superthread was properly instance-cached.
+		// superthread was properly instance-cached.
 		if ( $this->isHistorical() ) {
 			return;
 		}
@@ -1366,7 +1367,6 @@ class Thread {
 			$result = $parent_restrictions;
 			return false;
 		}
-
 	}
 
 	public function getAnchorName() {
@@ -1413,7 +1413,7 @@ class Thread {
 	}
 
 	// This is a safety valve that makes sure that the DB is NEVER touched by a historical
-	//  thread (even for reading, because the data will be out of date).
+	// thread (even for reading, because the data will be out of date).
 	public function dieIfHistorical() {
 		if ( $this->isHistorical() ) {
 			throw new Exception( "Attempted write or DB operation on historical thread" );
@@ -1712,7 +1712,7 @@ class Thread {
 			}
 		}
 
-		if ( is_null( $requestedType ) )  {
+		if ( is_null( $requestedType ) ) {
 			return $this->reactions;
 		} else {
 			return $this->reactions[$requestedType];

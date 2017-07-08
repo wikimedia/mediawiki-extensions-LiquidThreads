@@ -1,11 +1,11 @@
 <?php
 
 // Utility script to update your LiquidThreads installation by batch-running lazy updates
-//  normally done on-demand when a thread is loaded. Also runs any necessary database updates.
+// normally done on-demand when a thread is loaded. Also runs any necessary database updates.
 
-require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
+require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . "/maintenance/commandLine.inc"
-	: __DIR__ . '/../../maintenance/commandLine.inc' );
+	: __DIR__ . '/../../maintenance/commandLine.inc';
 
 $db = wfGetDB( DB_MASTER );
 

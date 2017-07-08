@@ -98,8 +98,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 
 		$ids = [];
 		$count = 0;
-		foreach ( $res as $row )
-		{
+		foreach ( $res as $row ) {
 			if ( ++$count > $params['limit'] ) {
 				// We've had enough
 				$this->setContinueEnumParameter( 'startid', $row->thread_id );
@@ -142,7 +141,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				'*',
 				'tr_thread',
 				'reactions',
-				function( $row ) {
+				function ( $row ) {
 					return [ "{$row->tr_user}_{$row->tr_type}" => [
 						'type' => $row->tr_type,
 						'user-id' => $row->tr_user,

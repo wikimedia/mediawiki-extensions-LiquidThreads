@@ -173,8 +173,8 @@ class NewMessages {
 
 	static function getNotifyUsers( $t, $changeUser ) {
 		// Pull users to update the message state for, including whether or not a
-		//  user_message_state row exists for them, and whether or not to send an email
-		//  notification.
+		// user_message_state row exists for them, and whether or not to send an email
+		// notification.
 		$userIds = [];
 		$notifyUsers = [];
 		$res = self::getRowsObject( $t );
@@ -191,7 +191,7 @@ class NewMessages {
 
 			global $wgHiddenPrefs;
 			if ( !in_array( 'lqtnotifytalk', $wgHiddenPrefs ) && isset( $row->up_value ) ) {
-				$wantsTalkNotification = (bool) $row->wl_user;
+				$wantsTalkNotification = (bool)$row->wl_user;
 			} else {
 				$wantsTalkNotification = User::getDefaultOption( 'lqtnotifytalk' );
 			}
@@ -223,7 +223,7 @@ class NewMessages {
 	}
 
 	// Would refactor User::decodeOptions, but the whole point is that this is
-	//  compatible with old code :)
+	// compatible with old code :)
 	static function decodeUserOptions( $str ) {
 		$opts = [];
 		$a = explode( "\n", $str );

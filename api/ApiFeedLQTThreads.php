@@ -18,7 +18,7 @@
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	// Eclipse helper - will be ignored in production
-	require_once ( "ApiBase.php" );
+	require_once "ApiBase.php";
 }
 
 use MediaWiki\MediaWikiServices;
