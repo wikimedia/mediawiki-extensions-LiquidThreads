@@ -7,7 +7,8 @@
 			"Rancher",
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
-			"Сербијана"
+			"Сербијана",
+			"Obsuser"
 		]
 	},
 	"lqt-desc": "Додаје могућност отварања тема на страницама за разговор",
@@ -141,7 +142,7 @@
 	"lqt-delete-replies-done": "Сви одговори на овој теми су обрисани.",
 	"lqt-movethread": "Премести",
 	"lqt-menu-trigger": "Више",
-	"lqt-newmessages-from": "Од $1",
+	"lqt-newmessages-from": "Са странице $1",
 	"lqt-hot-topics": "Вруће теме",
 	"lqt-add-reply": "Додај одговор",
 	"lqt-changesortorder": "Сврстај",
