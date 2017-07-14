@@ -12,7 +12,8 @@
 			"555",
 			"He7d3r",
 			"Araceletorres",
-			"!Silent"
+			"!Silent",
+			"Felipe L. Ewald"
 		]
 	},
 	"lqt-desc": "Adiciona discussões em tópicos a páginas de discussão",
@@ -251,6 +252,7 @@
 	"pageinfo-usinglqt": "Discussão em tópicos ativada",
 	"pageinfo-usinglqt-yes": "Sim",
 	"apihelp-feedthreads-description": "Retorne um feed de tópicos de discussão.",
+	"apihelp-feedthreads-summary": "Retorne um feed de tópicos de discussão.",
 	"apihelp-feedthreads-param-feedformat": "O formato do feed.",
 	"apihelp-feedthreads-param-days": "Número de dias de tópicos para mostrar.",
 	"apihelp-feedthreads-param-type": "Tipos de publicações para mostrar.",
@@ -260,6 +262,7 @@
 	"apihelp-feedthreads-example-2": "Mostrar um feed de respostas em [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Mostrar um feed de novos tópicos em [[Talk:Main Page]]",
 	"apihelp-query+threads-description": "Mostrar detalhes dos tópicos LiquidThreads.",
+	"apihelp-query+threads-summary": "Mostrar detalhes dos tópicos LiquidThreads.",
 	"apihelp-query+threads-param-startid": "O ID do tópico para começar a enumerar.",
 	"apihelp-query+threads-param-endid": "O ID do tópico para parar de enumerar.",
 	"apihelp-query+threads-param-showdeleted": "Mostrar ou não tópicos excluídos.",
@@ -280,6 +283,7 @@
 	"apihelp-query+threads-example-1": "Listar tópicos em [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Listar tópicos com IDs 1,2,3 e 4",
 	"apihelp-threadaction-description": "Permite ações a serem tomadas em tópicos e mensagens em discussões encadeadas.",
+	"apihelp-threadaction-summary": "Permite que ações seja realizadas em tópicos e mensagens em discussões encadeadas.",
 	"apihelp-threadaction-param-thread": "IDs do tópico ou títulos nos quais agir.",
 	"apihelp-threadaction-param-talkpage": "A página de discussão para agir (se aplicável).",
 	"apihelp-threadaction-param-threadaction": "A ação a tomar.",
