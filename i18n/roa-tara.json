@@ -240,5 +240,10 @@
 	"nstab-summary": "Riepileghe",
 	"pageinfo-usinglqt": "'Ngazzaminde argomendate abbilitate",
 	"pageinfo-usinglqt-yes": "Sìne",
+	"apihelp-feedthreads-description": "Tuèrne 'nu feed de le argominde discusse.",
+	"apihelp-feedthreads-summary": "Tuèrne 'nu feed de le argominde discusse.",
+	"apihelp-feedthreads-param-feedformat": "'U formate d'u feed.",
+	"apihelp-feedthreads-param-days": "Numere de sciurne de le argominde da fà 'ndrucà.",
+	"apihelp-feedthreads-param-type": "Tipe de messàgge da fà 'ndrucà.",
 	"apihelp-threadaction-param-captchaid": "ID CAPTCHA da 'a richieste d'apprime."
 }
