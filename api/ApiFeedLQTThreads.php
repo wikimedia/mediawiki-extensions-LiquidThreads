@@ -25,7 +25,7 @@ use MediaWiki\MediaWikiServices;
  */
 class ApiFeedLQTThreads extends ApiBase {
 	public function __construct( $main, $action ) {
-		parent :: __construct( $main, $action );
+		parent::__construct( $main, $action );
 	}
 
 	/**
@@ -66,7 +66,7 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		$feed = new $feedClass( $feedTitle, '', $feedUrl );
 
-		ApiFormatFeedWrapper :: setResult( $this->getResult(), $feed, $feedItems );
+		ApiFormatFeedWrapper::setResult( $this->getResult(), $feed, $feedItems );
 	}
 
 	private function createFeedItem( $row ) {
@@ -220,25 +220,25 @@ class ApiFeedLQTThreads extends ApiBase {
 		$feedFormatNames = array_keys( $wgFeedClasses );
 		return [
 			'feedformat' => [
-				ApiBase :: PARAM_DFLT => 'rss',
-				ApiBase :: PARAM_TYPE => $feedFormatNames
+				ApiBase::PARAM_DFLT => 'rss',
+				ApiBase::PARAM_TYPE => $feedFormatNames
 			],
 			'days' => [
-				ApiBase :: PARAM_DFLT => 7,
-				ApiBase :: PARAM_TYPE => 'integer',
-				ApiBase :: PARAM_MIN => 1,
-				ApiBase :: PARAM_MAX => 30,
+				ApiBase::PARAM_DFLT => 7,
+				ApiBase::PARAM_TYPE => 'integer',
+				ApiBase::PARAM_MIN => 1,
+				ApiBase::PARAM_MAX => 30,
 			],
 			'type' => [
-				ApiBase :: PARAM_DFLT => 'newthreads',
-				ApiBase :: PARAM_TYPE => [ 'replies', 'newthreads' ],
-				ApiBase :: PARAM_ISMULTI => true,
+				ApiBase::PARAM_DFLT => 'newthreads',
+				ApiBase::PARAM_TYPE => [ 'replies', 'newthreads' ],
+				ApiBase::PARAM_ISMULTI => true,
 			],
 			'talkpage' => [
-				ApiBase :: PARAM_ISMULTI => true,
+				ApiBase::PARAM_ISMULTI => true,
 			],
 			'thread' => [
-				ApiBase :: PARAM_ISMULTI => true,
+				ApiBase::PARAM_ISMULTI => true,
 			],
 		];
 	}

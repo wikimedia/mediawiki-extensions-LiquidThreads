@@ -186,7 +186,7 @@ class NewMessages {
 
 			if ( !$row->ums_user || $row->ums_read_timestamp ) {
 				$userIds[] = $row->wl_user;
-				NewMessages::recacheMessageCount( $row->wl_user );
+				self::recacheMessageCount( $row->wl_user );
 			}
 
 			global $wgHiddenPrefs;

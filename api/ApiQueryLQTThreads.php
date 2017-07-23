@@ -47,7 +47,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	protected $threadIds;
 
 	public function __construct( $query, $moduleName ) {
-		parent :: __construct( $query, $moduleName, 'th' );
+		parent::__construct( $query, $moduleName, 'th' );
 	}
 
 	public function execute() {
@@ -344,66 +344,66 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	public function getAllowedParams() {
 		return [
 			'startid' => [
-				ApiBase :: PARAM_TYPE => 'integer'
+				ApiBase::PARAM_TYPE => 'integer'
 			],
 			'endid' => [
-				ApiBase :: PARAM_TYPE => 'integer'
+				ApiBase::PARAM_TYPE => 'integer'
 			],
 			'dir' => [
-				ApiBase :: PARAM_TYPE => [
+				ApiBase::PARAM_TYPE => [
 					'newer',
 					'older'
 				],
-				ApiBase :: PARAM_DFLT => 'newer',
+				ApiBase::PARAM_DFLT => 'newer',
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-direction',
 			],
 			'showdeleted' => false,
 			'limit' => [
-				ApiBase :: PARAM_DFLT => 10,
-				ApiBase :: PARAM_TYPE => 'limit',
-				ApiBase :: PARAM_MIN => 1,
-				ApiBase :: PARAM_MAX => ApiBase :: LIMIT_BIG1,
-				ApiBase :: PARAM_MAX2 => ApiBase :: LIMIT_BIG2
+				ApiBase::PARAM_DFLT => 10,
+				ApiBase::PARAM_TYPE => 'limit',
+				ApiBase::PARAM_MIN => 1,
+				ApiBase::PARAM_MAX => ApiBase::LIMIT_BIG1,
+				ApiBase::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			],
 			'prop' => [
-				ApiBase :: PARAM_DFLT => 'id|subject|page|parent|author',
-				ApiBase :: PARAM_TYPE => array_keys( self::$propRelations ),
-				ApiBase :: PARAM_ISMULTI => true
+				ApiBase::PARAM_DFLT => 'id|subject|page|parent|author',
+				ApiBase::PARAM_TYPE => array_keys( self::$propRelations ),
+				ApiBase::PARAM_ISMULTI => true
 			],
 
 			'page' => [
-				ApiBase :: PARAM_ISMULTI => true
+				ApiBase::PARAM_ISMULTI => true
 			],
 			'author' => [
-				ApiBase :: PARAM_ISMULTI => true
+				ApiBase::PARAM_ISMULTI => true
 			],
 			'root' => [
-				ApiBase :: PARAM_ISMULTI => true
+				ApiBase::PARAM_ISMULTI => true
 			],
 			'summary' => [
-				ApiBase :: PARAM_ISMULTI => true
+				ApiBase::PARAM_ISMULTI => true
 			],
 			'id' => [
-				ApiBase :: PARAM_ISMULTI => true
+				ApiBase::PARAM_ISMULTI => true
 			],
 			'render' => false,
 			'renderlevel' => [
-				ApiBase :: PARAM_DFLT => 0,
+				ApiBase::PARAM_DFLT => 0,
 			],
 			'renderthreadpos' => [
-				ApiBase :: PARAM_DFLT => 1,
+				ApiBase::PARAM_DFLT => 1,
 			],
 			'renderthreadcount' => [
-				ApiBase :: PARAM_DFLT => 1,
+				ApiBase::PARAM_DFLT => 1,
 			],
 			'rendermaxthreadcount' => [
-				ApiBase :: PARAM_DFLT => null,
+				ApiBase::PARAM_DFLT => null,
 			],
 			'rendermaxdepth' => [
-				ApiBase :: PARAM_DFLT => null,
+				ApiBase::PARAM_DFLT => null,
 			],
 			'renderstartrepliesat' => [
-				ApiBase :: PARAM_DFLT => null,
+				ApiBase::PARAM_DFLT => null,
 			],
 		];
 	}

@@ -98,7 +98,7 @@ class Threads {
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$res = $dbr->select( 'thread', '*', $where, __METHOD__, $options );
-		$threads = Threads::loadFromResult( $res, $dbr, $bulkLoad );
+		$threads = self::loadFromResult( $res, $dbr, $bulkLoad );
 
 		foreach ( $threads as $thread ) {
 			if ( $thread->root() ) {
@@ -125,7 +125,7 @@ class Threads {
 		}
 
 		if ( count( $threads ) > 1 ) {
-			Threads::databaseError( "More than one thread with $attribute = $value." );
+			self::databaseError( "More than one thread with $attribute = $value." );
 		}
 
 		return null;
@@ -151,7 +151,7 @@ class Threads {
 			return self::$cache_by_root[$post->getId()];
 		}
 
-		$ts = Threads::where( [ 'thread_root' => $post->getId() ], [], $bulkLoad );
+		$ts = self::where( [ 'thread_root' => $post->getId() ], [], $bulkLoad );
 
 		return self::assertSingularity( $ts, 'thread_root', $post->getId() );
 	}
@@ -166,7 +166,7 @@ class Threads {
 			return self::$cache_by_id[$id];
 		}
 
-		$ts = Threads::where( [ 'thread_id' => $id ], [], $bulkLoad );
+		$ts = self::where( [ 'thread_id' => $id ], [], $bulkLoad );
 
 		return self::assertSingularity( $ts, 'thread_id', $id );
 	}
@@ -177,7 +177,7 @@ class Threads {
 	 * @return Thread
 	 */
 	public static function withSummary( $article, $bulkLoad = true ) {
-		$ts = Threads::where( [ 'thread_summary_page' => $article->getId() ],
+		$ts = self::where( [ 'thread_summary_page' => $article->getId() ],
 			[], $bulkLoad );
 		return self::assertSingularity( $ts, 'thread_summary_page', $article->getId() );
 	}
@@ -279,7 +279,7 @@ class Threads {
 		$i = 2;
 
 		// Try to make the title valid.
-		$basename = Threads::makeTitleValid( $basename );
+		$basename = self::makeTitleValid( $basename );
 
 		$t = Title::makeTitleSafe( $namespace, $basename );
 		while ( !$t ||

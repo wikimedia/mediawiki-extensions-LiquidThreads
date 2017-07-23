@@ -602,7 +602,7 @@ class LqtView {
 			Hooks::run( 'LiquidThreadsSaveNewThread',
 					[ &$info, &$e, &$talkpage ] );
 
-			$thread = LqtView::newPostMetadataUpdates( $info );
+			$thread = self::newPostMetadataUpdates( $info );
 
 			if ( $submitted_nonce && $nonce_key ) {
 				global $wgMemc;
@@ -715,7 +715,7 @@ class LqtView {
 			Hooks::run( 'LiquidThreadsSaveReply',
 					[ &$info, &$e, &$thread ] );
 
-			$newThread = LqtView::replyMetadataUpdates( $info );
+			$newThread = self::replyMetadataUpdates( $info );
 
 			if ( $submitted_nonce && $nonce_key ) {
 				global $wgMemc;
@@ -819,7 +819,7 @@ class LqtView {
 				$this->request->getBool( 'wpBumpThread' );
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
 
-			LqtView::editMetadataUpdates(
+			self::editMetadataUpdates(
 				[
 					'thread' => $thread,
 					'text' => $e->textbox1,
@@ -898,7 +898,7 @@ class LqtView {
 			$bump = !$this->request->getCheck( 'wpBumpThread' ) ||
 				$this->request->getBool( 'wpBumpThread' );
 
-			LqtView::summarizeMetadataUpdates(
+			self::summarizeMetadataUpdates(
 				[
 					'thread' => $thread,
 					'article' => $article,
@@ -957,13 +957,13 @@ class LqtView {
 
 		if ( is_null( $signatureText ) ) {
 			if ( $from instanceof User ) {
-				$signatureText = LqtView::getUserSignature( $from );
+				$signatureText = self::getUserSignature( $from );
 			} elseif ( $from instanceof Thread ) {
 				$signatureText = $from->signature();
 			}
 		}
 
-		$signatureHTML = LqtView::parseSignature( $signatureText );
+		$signatureHTML = self::parseSignature( $signatureText );
 
 		// Signature edit box
 		$signaturePreview = Xml::tags(
@@ -997,7 +997,7 @@ class LqtView {
 			$signature = $data['signature'];
 		} else {
 			global $wgUser;
-			$signature = LqtView::getUserSignature( $wgUser );
+			$signature = self::getUserSignature( $wgUser );
 		}
 
 		$summary = isset( $data['summary'] ) ? $data['summary'] : '';
@@ -1093,7 +1093,7 @@ class LqtView {
 			$signature = $data['signature'];
 		} else {
 			global $wgUser;
-			$signature = LqtView::getUserSignature( $wgUser );
+			$signature = self::getUserSignature( $wgUser );
 		}
 
 		$summary = isset( $data['summary'] ) ? $data['summary'] : '';
@@ -1622,7 +1622,7 @@ class LqtView {
 		global $wgLang;
 
 		$signature = $thread->signature();
-		$signature = LqtView::parseSignature( $signature );
+		$signature = self::parseSignature( $signature );
 
 		$signature = Xml::tags( 'span', [ 'class' => 'lqt-thread-user-signature' ],
 					$signature );

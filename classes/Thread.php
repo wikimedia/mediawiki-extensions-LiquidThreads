@@ -453,7 +453,7 @@ class Thread {
 		);
 
 		// Add the trace thread to the tracking table.
-		$thread = Thread::create( $redirectArticle, new Article( $oldTitle, 0 ), null,
+		$thread = self::create( $redirectArticle, new Article( $oldTitle, 0 ), null,
 			Threads::TYPE_MOVED, $this->subject() );
 
 		$thread->setSortkey( $this->sortkey() );
@@ -713,7 +713,7 @@ class Thread {
 		// user talk pages to a link batch, cache the relevant user id/name pair, and
 		// populate the reply cache.
 		foreach ( $all_thread_rows as $row ) {
-			$thread = Thread::newFromRow( $row, null );
+			$thread = self::newFromRow( $row, null );
 
 			if ( isset( $articlesById[$thread->rootId] ) ) {
 				$thread->root = $articlesById[$thread->rootId];
@@ -1046,7 +1046,7 @@ class Thread {
 			$rows[] = $row;
 		}
 
-		$this->replies = Thread::bulkLoad( $rows );
+		$this->replies = self::bulkLoad( $rows );
 
 		$this->checkReplies( $this->replies );
 
@@ -1519,7 +1519,7 @@ class Thread {
 		$oldParent = $this->superthread();
 		$newTopThread = $newParent->topmostThread();
 
-		Thread::recursiveSet( $this, $newSubject, $newTopThread, $newParent );
+		self::recursiveSet( $this, $newSubject, $newTopThread, $newParent );
 
 		$newParent->addReply( $this );
 

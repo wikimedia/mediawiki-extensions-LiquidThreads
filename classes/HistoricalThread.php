@@ -50,7 +50,7 @@ class HistoricalThread extends Thread {
 			],
 			__METHOD__ );
 		if ( $line ) {
-			return HistoricalThread::fromTextRepresentation( $line->hthread_contents );
+			return self::fromTextRepresentation( $line->hthread_contents );
 		} else {
 			return null;
 		}

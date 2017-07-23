@@ -216,7 +216,7 @@ class LqtDispatch {
 	 * @return bool
 	 */
 	public static function tryPage( $output, $article, $title, $user, $request ) {
-		if ( LqtDispatch::isLqtPage( $title ) ) {
+		if ( self::isLqtPage( $title ) ) {
 			// LiquidThreads pages, Talk:X etc
 			return self::talkpageMain( $output, $article, $title, $user, $request );
 		} elseif ( $title->getNamespace() == NS_LQT_THREAD ) {
