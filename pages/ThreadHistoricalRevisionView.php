@@ -7,7 +7,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 
 	function postDivClass( $thread ) {
 		$changedObject = $this->mDisplayRevision->getChangeObject();
-		$is_changed_thread =  $changedObject &&
+		$is_changed_thread = $changedObject &&
 					( $changedObject->id() == $thread->id() );
 
 		$class = parent::postDivClass( $thread );
@@ -54,7 +54,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		)->parse();
 
 		$html .= '<br />';
-		$html .=  $this->getChangeDescription();
+		$html .= $this->getChangeDescription();
 
 		$html = Xml::tags( 'div', [ 'class' => 'lqt_history_info' ], $html );
 

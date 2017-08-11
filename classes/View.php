@@ -73,7 +73,7 @@ class LqtView {
 
 	static function permalinkUrl( $thread, $method = null, $operand = null,
 									$uquery = [], $relative = true ) {
-		list ( $title, $query ) = self::permalinkData( $thread, $method, $operand );
+		list( $title, $query ) = self::permalinkData( $thread, $method, $operand );
 
 		$query = array_merge( $query, $uquery );
 

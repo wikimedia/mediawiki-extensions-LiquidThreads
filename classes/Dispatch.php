@@ -74,7 +74,7 @@ class LqtDispatch {
 	 * @return bool
 	 */
 	public static function threadPermalinkMain( &$output, &$article, &$title, &$user, &$request ) {
-		$action =  $request->getVal( 'action' );
+		$action = $request->getVal( 'action' );
 		$lqt_method = $request->getVal( 'lqt_method' );
 
 		if ( $lqt_method == 'thread_history' ) {

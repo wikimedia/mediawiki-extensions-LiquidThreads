@@ -60,7 +60,7 @@ class TalkpageView extends LqtView {
 			$article->view();
 
 			$actionLinks = [];
-			$msgKey =  $article->getTitle()->quickUserCan( 'edit' ) ? 'edit' : 'viewsource';
+			$msgKey = $article->getTitle()->quickUserCan( 'edit' ) ? 'edit' : 'viewsource';
 			$actionLinks[] = $this->linkRenderer->makeLink(
 				$article->getTitle(),
 				new HtmlArmor( wfMessage( $msgKey )->parse() . "↑" ),
