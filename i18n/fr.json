@@ -85,7 +85,7 @@
 	"lqt_change_merged_to": "La [$1 réponse mise en surbrillance] a été déplacée depuis un autre fil de discussion",
 	"lqt_change_split_from": "Une [$1 sous-branche] de ce fil de discussion a été séparée dans son propre fil de discussion",
 	"lqt_change_root_blanked": "Le texte d'[$1 un commentaire] a été supprimé.",
-	"lqt_youhavenewmessages": "Vous avez [[$1|nouveaux messages]].",
+	"lqt_youhavenewmessages": "Vous avez de [[$1|nouveaux messages]].",
 	"lqt_protectedfromreply": "Ce fil a été $1. Vous ne pouvez y répondre.",
 	"lqt_protectedfromreply_link": "protégé",
 	"lqt_subject": "Sujet :",
