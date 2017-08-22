@@ -32,7 +32,7 @@
 	"lqt_discussion_link": "rasprava",
 	"lqt_from_talk": "Iz $1",
 	"lqt-history-title": "Povijest teme",
-	"lqt_hist_comment_edited": "Komentiraj uređivanje [autor - $2]",
+	"lqt_hist_comment_edited": "Komentirani tekst [vidi uređivanje: $2]",
 	"lqt_hist_summary_changed": "Sažetak promjena",
 	"lqt_hist_reply_created": "Dodan [[$1|novi odgovor]]",
 	"lqt_hist_thread_created": "Započeta nova rasprava",
