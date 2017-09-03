@@ -264,7 +264,7 @@
 	"nstab-summary": "Resumen",
 	"pageinfo-usinglqt": "Hilos de discusión activados",
 	"pageinfo-usinglqt-yes": "Sí",
-	"apihelp-feedthreads-param-feedformat": "El formato del canal.",
+	"apihelp-feedthreads-param-feedformat": "El formato del suministro.",
 	"apihelp-feedthreads-param-type": "Tipos de publicaciones que mostrar.",
 	"apihelp-feedthreads-param-talkpage": "Limitar los resultados a hilos en estas páginas de discusión.",
 	"apihelp-feedthreads-param-thread": "Limitar los resultados a estos hilos y sus descendientes.",
