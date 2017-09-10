@@ -5,6 +5,10 @@
 			"Bunukwiki"
 		]
 	},
+	"lqt_from_talk": "namakay $1",
+	"lqt_subject": "taazihan tu kawaw:",
+	"lqt-newmessages-from": "namakay $1",
+	"lqt-merge-submit": "mikabu",
 	"lqt-search-button": "kilim",
 	"pageinfo-usinglqt-yes": "hang"
 }
