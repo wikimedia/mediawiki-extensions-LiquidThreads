@@ -465,7 +465,7 @@ class Thread {
 		// Populate reply count
 		if ( $this->replyCount == - 1 ) {
 			if ( $this->isTopmostThread() ) {
-				$dbr = wfGetDB( DB_SLAVE );
+				$dbr = wfGetDB( DB_REPLICA );
 
 				$count = $dbr->selectField( 'thread', 'count(*)',
 					[ 'thread_ancestor' => $this->id() ], __METHOD__ );
@@ -514,7 +514,7 @@ class Thread {
 		/* SCHEMA changes must be reflected here. */
 
 		if ( is_null( $line ) ) { // For Thread::create().
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			$this->modified = $dbr->timestamp( wfTimestampNow() );
 			$this->created = $dbr->timestamp( wfTimestampNow() );
 			$this->sortkey = wfTimestamp( TS_MW );
@@ -594,7 +594,7 @@ class Thread {
 		$userIds = [];
 		$loadEditorsFor = [];
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		if ( !is_array( self::$replyCacheById ) ) {
 			self::$replyCacheById = [];
@@ -769,7 +769,7 @@ class Thread {
 	public function loadOriginalAuthorFromRevision() {
 		$this->dieIfHistorical();
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$article = $this->root();
 
@@ -1034,7 +1034,7 @@ class Thread {
 
 		$this->replies = [];
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$res = $dbr->select( 'thread', '*',
 					[ 'thread_parent' => $this->id(),
@@ -1428,7 +1428,7 @@ class Thread {
 			return null;
 		}
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$revision = $this->topmostThread()->threadRevision;
 		$timestamp = $dbr->timestamp( $revision->getTimestamp() );
@@ -1647,7 +1647,7 @@ class Thread {
 			// Load editors
 			$this->editors = [];
 
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			$res = $dbr->select( 'revision', 'rev_user_text',
 				[ 'rev_page' => $this->root()->getId(),
 				'rev_parent_id != ' . $dbr->addQuotes( 0 ) ], __METHOD__ );
@@ -1685,7 +1685,7 @@ class Thread {
 			} else {
 				$reactions = [];
 
-				$dbr = wfGetDB( DB_SLAVE );
+				$dbr = wfGetDB( DB_REPLICA );
 
 				$res = $dbr->select( 'thread_reaction',
 						[ 'tr_thread' => $this->id() ],

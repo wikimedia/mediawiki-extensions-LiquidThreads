@@ -117,7 +117,7 @@ class LqtHooks {
 			return true;
 		}
 
-		$db = wfGetDB( DB_SLAVE );
+		$db = wfGetDB( DB_REPLICA );
 
 		if ( !in_array( 'page', $tables ) ) {
 			$tables[] = 'page';
@@ -253,7 +253,7 @@ class LqtHooks {
 
 		$join_conds['thread'] = [ 'left join', [ 'thread_root=page_id' ] ];
 
-		$db = wfGetDB( DB_SLAVE );
+		$db = wfGetDB( DB_REPLICA );
 		$fields[] = $db->tableName( 'thread' ) . '.*';
 
 		return true;

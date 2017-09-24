@@ -163,7 +163,7 @@ class NewUserMessagesView extends LqtView {
 
 		// Make sure it points to the right page. The Pager seems to use the DB
 		// representation of a timestamp for its offset field, odd.
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$offset = wfTimestamp( TS_UNIX, $topmostThread->modified() ) + 1;
 		$offset = $dbr->timestamp( $offset );
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
@@ -224,7 +224,7 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 			$output[$id] = [ 'top' => $thread, 'posts' => [] ];
 		}
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$res = $dbr->select( [ 'user_message_state' ],
 					[ 'ums_thread', 'ums_conversation' ],
@@ -245,7 +245,7 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 	}
 
 	function getQueryInfo() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$queryInfo = [
 			'tables' => [ 'thread', 'user_message_state' ],

@@ -172,7 +172,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	protected function addSubItems(
 		$tableName, $fields, $joinField, $subitemName, /*callable*/ $handleRow, $tagName
 	) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$result = $this->getResult();
 
 		$fields = array_merge( (array)$fields, (array)$joinField );

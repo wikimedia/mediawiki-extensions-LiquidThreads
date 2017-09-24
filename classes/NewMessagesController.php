@@ -131,7 +131,7 @@ class NewMessages {
 		];
 		$fields = [ 'wl_user', 'ums_user', 'ums_read_timestamp', 'up_value' ];
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		return $dbr->select( $tables, $fields, self::getWhereClause( $t ), __METHOD__, [], $joins );
 	}
 
@@ -256,7 +256,7 @@ class NewMessages {
 		}
 
 		// Send email notification, fetching all the data in one go
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$tables = [
 			'user',
@@ -347,7 +347,7 @@ class NewMessages {
 	static function newUserMessages( $user ) {
 		$talkPage = new Article( $user->getUserPage()->getTalkPage(), 0 );
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$joinConds = [ 'ums_user' => null ];
 		$joinConds[] = $dbr->makeList(
@@ -377,7 +377,7 @@ class NewMessages {
 		return Threads::loadFromResult( $res, $dbr );
 	}
 
-	static function newMessageCount( $user, $db = DB_SLAVE ) {
+	static function newMessageCount( $user, $db = DB_REPLICA ) {
 		global $wgMemc;
 
 		$cval = $wgMemc->get( wfMemcKey( 'lqt-new-messages-count', $user->getId() ) );
@@ -419,7 +419,7 @@ class NewMessages {
 	static function watchedThreadsForUser( $user ) {
 		$talkPage = new Article( $user->getUserPage()->getTalkPage(), 0 );
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$res = $dbr->select(
 			[ 'thread', 'user_message_state' ],

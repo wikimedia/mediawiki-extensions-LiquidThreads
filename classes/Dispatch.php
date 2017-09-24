@@ -181,7 +181,7 @@ class LqtDispatch {
 		}
 
 		// Load from the database.
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$row = $dbr->selectRow(
 			'page_props',

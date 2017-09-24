@@ -21,7 +21,7 @@ class ThreadRevision {
 				$mChangeObjectId, $mChangeObject, $mChangeComment, $mObjSer, $mThreadObj;
 
 	public static function loadFromId( $id ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$row = $dbr->selectRow( 'thread_history', '*', [ 'th_id' => $id ], __METHOD__ );
 
 		if ( !$row ) {
@@ -191,7 +191,7 @@ class ThreadRevision {
 	}
 
 	public function prev() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$cond = 'th_id<' . $dbr->addQuotes( intval( $this->getId() ) );
 		$row = $dbr->selectRow( 'thread_history', '*',
@@ -202,7 +202,7 @@ class ThreadRevision {
 	}
 
 	public function next() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$cond = 'th_id>' . $dbr->addQuotes( intval( $this->getId() ) );
 		$row = $dbr->selectRow( 'thread_history', '*',

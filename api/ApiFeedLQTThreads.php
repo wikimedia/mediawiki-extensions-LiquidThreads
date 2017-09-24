@@ -45,7 +45,7 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		$params = $this->extractRequestParams();
 
-		$db = wfGetDB( DB_SLAVE );
+		$db = wfGetDB( DB_REPLICA );
 
 		$feedTitle = $this->createFeedTitle( $params );
 		$feedClass = $wgFeedClasses[$params['feedformat']];
