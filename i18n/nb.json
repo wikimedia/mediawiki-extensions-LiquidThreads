@@ -5,7 +5,8 @@
 			"Harald Khan",
 			"Laaknor",
 			"Nghtwlkr",
-			"Njardarlogar"
+			"Njardarlogar",
+			"Jon Harald Søby"
 		]
 	},
 	"lqt-desc": "Legger til trådede diskusjoner til diskusjonssider",
@@ -141,6 +142,7 @@
 	"lqt-newmessages-from": "Fra $1",
 	"lqt-hot-topics": "Populære emner",
 	"lqt-add-reply": "Legg til svar",
+	"lqt-changesortorder": "Sorter",
 	"lqt_rc_new_discussion": "postet en ny tråd, «$1»",
 	"lqt_rc_new_reply": "postet et svar til «$1»",
 	"right-lqt-split": "Del tråder",
@@ -232,5 +234,25 @@
 	"lqt-historicalrevision-error": "Revisjonen du har valgt er korrupt, og kan ikke vises.",
 	"lqt-reply-subpage": "svar",
 	"nstab-thread": "Tråd",
-	"nstab-summary": "Sammendrag"
+	"nstab-summary": "Sammendrag",
+	"pageinfo-usinglqt-yes": "Ja",
+	"apihelp-feedthreads-param-feedformat": "Matingens format.",
+	"apihelp-feedthreads-param-days": "Antall dager med tråder som skal vises.",
+	"apihelp-feedthreads-param-type": "Typer poster som skal vises.",
+	"apihelp-feedthreads-param-talkpage": "Begrens resultatene til tråder på disse diskusjonssidene.",
+	"apihelp-feedthreads-param-thread": "Begrens resultatene til disse trådene og deres undertråder.",
+	"apihelp-feedthreads-example-1": "Vis en mating med alle nye tråder",
+	"apihelp-feedthreads-example-2": "Vis en mating med svar på [[Thread:Foo]]",
+	"apihelp-feedthreads-example-3": "Vis en mating over nye tråder på [[Talk:Main Page]]",
+	"apihelp-query+threads-description": "Vis detaljer om LiquidThreads-tråder.",
+	"apihelp-query+threads-summary": "Vis detaljer om LiquidThreads-tråder.",
+	"apihelp-query+threads-param-prop": "Hvilke egenskaper som skal hentes.",
+	"apihelp-query+threads-param-page": "Begrens resultatene til tråder på disse sidene.",
+	"apihelp-query+threads-param-author": "Begrens resultatene til tråder av visse skribenter.",
+	"apihelp-query+threads-param-root": "Begrens resultatene til tråder med de gitte røttene.",
+	"apihelp-query+threads-param-summary": "Begrens resultatene til tråder som samsvarer med de gitte sammendragssidene.",
+	"apihelp-query+threads-param-id": "Hent tråder med de gitte ID-ene.",
+	"apihelp-threadaction-param-captchaword": "Svar på CAPTCHA-en.",
+	"apihelp-threadaction-param-captchaid": "CAPTCHA-ID fra forrige forespørsel.",
+	"apierror-liquidthreads-alreadytop": "Denne tråden er allerede en toppnivåtråd."
 }
