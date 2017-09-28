@@ -171,7 +171,7 @@
 	"lqt-log-action-signatureedit": "izmjena potpisa iz „$2” u „$3” u temi [[$1]]",
 	"lqt-preference-notify-talk": "Pošalji mi e-poruku prilikom odgovora na raspravi koju pratim",
 	"lqt-preference-watch-threads": "Prati teme koje sam stvorio ili na koje sam odgovorio",
-	"prefs-lqt": "Stranice za razgovor",
+	"prefs-lqt": "Tematske rasprave",
 	"lqt-preference-display-depth": "Najveća dubina odgovora koja će biti prikazana:",
 	"lqt-preference-display-count": "Najveći broj odgovora koji će biti prikazani:",
 	"lqt-preference-custom-signatures": "Prikaži modificirane potpise suradnika",
