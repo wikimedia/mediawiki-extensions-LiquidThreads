@@ -3,7 +3,8 @@
 		"authors": [
 			"AZISS",
 			"Cekli829",
-			"PPerviz"
+			"PPerviz",
+			"Wertuose"
 		]
 	},
 	"lqt_reply": "Geri göndər",
@@ -19,6 +20,7 @@
 	"lqt-movethread": "Adını dəyişdir",
 	"lqt-newmessages-from": "$1-dən",
 	"lqt-search-button": "Axtar",
+	"searchprofile-threads-tooltip": "Mövzulara ayrılmış müzakirələrdə və müzakirə səhifələrində axtarış",
 	"lqt-ajax-update-link": "Yenilə",
 	"lqt-thread-link-url": "URL linki:",
 	"lqt-save-subject": "Qeyd et",
