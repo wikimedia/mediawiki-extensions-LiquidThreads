@@ -11,7 +11,6 @@ $structure = json_decode( file_get_contents( $argv[0] ), true );
 
 $article = new Article( Title::newFromText( $argv[1] ), 0 );
 
-$wgOut->_unstub();
 $wgOut->setTitle( $article->getTitle() );
 
 $subject = '';
