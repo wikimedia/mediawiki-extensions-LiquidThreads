@@ -31,11 +31,11 @@
 		fn: {
 			init: function ( thread ) {
 				return $( thread )
-					.bind( 'collapse.threadCollapse', $.threadCollapse.fn.toggleCollapse )
+					.on( 'collapse.threadCollapse', $.threadCollapse.fn.toggleCollapse )
 					.children( '.lqt-post-wrapper' )
 					.prepend( $( $.threadCollapse.templates.collapseControl )
 						.find( 'a' )
-						.bind( 'click.threadCollapse', $.threadCollapse.fn.toggleCollapse )
+						.on( 'click.threadCollapse', $.threadCollapse.fn.toggleCollapse )
 						.end() );
 			},
 			getPreview: function ( thread, depth ) {
@@ -83,7 +83,7 @@
 								.find( 'a' )
 								.text( 'Expand' )
 								.addClass( 'thread-control-collapsed' )
-								.bind( 'click.threadCollapse', $.threadCollapse.fn.toggleCollapse )
+								.on( 'click.threadCollapse', $.threadCollapse.fn.toggleCollapse )
 								.end() )
 							.append( $( '<span />' )
 								.addClass( 'thread-collapsed-num-replies' )

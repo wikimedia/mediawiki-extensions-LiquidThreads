@@ -1634,7 +1634,7 @@
 		// Set up periodic update checking
 		setInterval( liquidThreads.checkForUpdates, 60000 );
 
-		$( window ).bind( 'beforeunload', function () {
+		$( window ).on( 'beforeunload', function () {
 			var confirmExitPage = false;
 			$( '.lqt-edit-form:not(.lqt-summarize-form)' ).each( function ( index, element ) {
 				var $textArea = $( element ).children( 'form' ).find( 'textarea' );
