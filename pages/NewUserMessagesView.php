@@ -208,6 +208,7 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 	 * Returns an array of structures. Each structure has the keys 'top' and 'posts'.
 	 * 'top' contains the top-level thread to display.
 	 * 'posts' contains an array of integer post IDs which should be highlighted.
+	 * @return false|array
 	 */
 	function getThreads() {
 		$rows = $this->getRows();

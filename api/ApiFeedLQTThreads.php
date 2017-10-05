@@ -149,8 +149,8 @@ class ApiFeedLQTThreads extends ApiBase {
 	}
 
 	/**
-	 * @param $params array
-	 * @param $db DatabaseBase
+	 * @param array $params
+	 * @param DatabaseBase $db
 	 * @return array
 	 */
 	function getConditions( $params, $db ) {
@@ -245,6 +245,7 @@ class ApiFeedLQTThreads extends ApiBase {
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
+	 * @return array
 	 */
 	protected function getExamplesMessages() {
 		return [

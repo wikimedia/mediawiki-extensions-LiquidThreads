@@ -57,7 +57,7 @@ class Threads {
 	 * Create the talkpage if it doesn't exist so that links to it
 	 * will show up blue instead of red. For use upon new thread creation.
 	 *
-	 * @param $talkpage Article
+	 * @param Article $talkpage
 	 */
 	public static function createTalkpageIfNeeded( $talkpage ) {
 		if ( !$talkpage->exists() ) {
@@ -132,8 +132,8 @@ class Threads {
 	}
 
 	/**
-	 * @param $post Article
-	 * @param $bulkLoad bool
+	 * @param Article $post
+	 * @param bool $bulkLoad
 	 * @return Thread
 	 */
 	public static function withRoot( $post, $bulkLoad = true ) {
@@ -157,8 +157,8 @@ class Threads {
 	}
 
 	/**
-	 * @param $id
-	 * @param $bulkLoad bool
+	 * @param string $id
+	 * @param bool $bulkLoad
 	 * @return Thread
 	 */
 	public static function withId( $id, $bulkLoad = true ) {
@@ -172,8 +172,8 @@ class Threads {
 	}
 
 	/**
-	 * @param $article
-	 * @param $bulkLoad bool
+	 * @param Article $article
+	 * @param bool $bulkLoad
 	 * @return Thread
 	 */
 	public static function withSummary( $article, $bulkLoad = true ) {
@@ -273,7 +273,12 @@ class Threads {
 		return StringUtils::delimiterReplace( '<', '>', '', $text );
 	}
 
-	/** Keep trying titles starting with $basename until one is unoccupied. */
+	/**
+	 * Keep trying titles starting with $basename until one is unoccupied.
+	 * @param string $basename
+	 * @param int $namespace
+	 * @return Title
+	 */
 	public static function incrementedTitle( $basename, $namespace ) {
 		global $wgContLang;
 		$i = 2;

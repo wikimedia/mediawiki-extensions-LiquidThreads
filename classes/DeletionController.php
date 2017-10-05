@@ -95,9 +95,9 @@ class LqtDeletionController {
 	}
 
 	/**
-	 * @param $article Article
-	 * @param $out OutputPage
-	 * @param $reason string
+	 * @param Article $article
+	 * @param OutputPage $out
+	 * @param string &$reason
 	 * @return bool
 	 */
 	public static function onArticleConfirmDelete( $article, $out, &$reason ) {

@@ -138,6 +138,9 @@ class NewMessages {
 	/**
 	 * Write a user_message_state for each user who is watching the thread.
 	 * If the thread is on a user's talkpage, set that user's newtalk.
+	 * @param Thread $t
+	 * @param string $type
+	 * @param User $changeUser
 	 */
 	static function writeMessageStateForUpdatedThread( $t, $type, $changeUser ) {
 		wfDebugLog( 'LiquidThreads', 'Doing notifications' );

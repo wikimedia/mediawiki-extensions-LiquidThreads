@@ -12,6 +12,7 @@ class SpecialNewMessages extends SpecialPage {
 
 	/**
 	 * @see SpecialPage::getDescription
+	 * @return string
 	 */
 	function getDescription() {
 		return $this->msg( 'lqt_newmessages-title' )->text();

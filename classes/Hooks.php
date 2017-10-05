@@ -29,9 +29,10 @@ class LqtHooks {
 	];
 
 	/**
-	 * @param $changeslist ChangesList
-	 * @param $s string
-	 * @param $rc RecentChange
+	 * @param ChangesList &$changeslist
+	 * @param string &$s
+	 * @param RecentChange $rc
+	 * @param array &$classes
 	 * @return bool
 	 */
 	static function customizeOldChangesList( &$changeslist, &$s, $rc, &$classes ) {
@@ -186,7 +187,7 @@ class LqtHooks {
 	}
 
 	/**
-	 * @param $article Article
+	 * @param Article $article
 	 * @return bool
 	 */
 	static function updateNewtalkOnEdit( $article ) {
@@ -298,7 +299,7 @@ class LqtHooks {
 	/**
 	 * For integration with the UserMerge extension.
 	 *
-	 * @param array $updateFields
+	 * @param array &$updateFields
 	 * @return bool
 	 */
 	public static function onUserMergeAccountFields( &$updateFields ) {
@@ -312,8 +313,8 @@ class LqtHooks {
 	/**
 	 * Handle EditPageGetCheckboxesDefinition hook
 	 *
-	 * @param $editPage EditPage
-	 * @param $checkboxes
+	 * @param EditPage $editPage
+	 * @param array &$checkboxes
 	 * @return bool
 	 */
 	public static function editCheckboxes( $editPage, &$checkboxes ) {
@@ -380,7 +381,7 @@ class LqtHooks {
 	}
 
 	/**
-	 * @param $updater DatabaseUpdater
+	 * @param DatabaseUpdater|null $updater
 	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( $updater = null ) {
@@ -473,10 +474,10 @@ class LqtHooks {
 	}
 
 	/**
-	 * @param $user User
-	 * @param $title Title
-	 * @param $isBlocked bool
-	 * @param $allowUserTalk bool
+	 * @param User $user
+	 * @param Title $title
+	 * @param bool &$isBlocked
+	 * @param bool &$allowUserTalk
 	 * @return bool
 	 */
 	static function userIsBlockedFrom( $user, $title, &$isBlocked, &$allowUserTalk ) {
@@ -568,17 +569,17 @@ class LqtHooks {
 	}
 
 	/**
-	 * @param $article Article
-	 * @param $user User
-	 * @param $content Content
-	 * @param $summary
-	 * @param $minoredit
-	 * @param $watchthis
-	 * @param $sectionanchor
-	 * @param $flags
-	 * @param $revision
-	 * @param $status Status
-	 * @param $baseRevId
+	 * @param Article &$article
+	 * @param User &$user
+	 * @param Content $content
+	 * @param string $summary
+	 * @param bool $minoredit
+	 * @param bool $watchthis
+	 * @param string $sectionanchor
+	 * @param int &$flags
+	 * @param Revision $revision
+	 * @param Status &$status
+	 * @param int $baseRevId
 	 * @return bool
 	 */
 	static function onPageContentSaveComplete( &$article, &$user, $content, $summary,
@@ -620,8 +621,8 @@ class LqtHooks {
 	}
 
 	/**
-	 * @param $title Title
-	 * @param $types
+	 * @param Title $title
+	 * @param array &$types
 	 * @return bool
 	 */
 	static function getProtectionTypes( $title, &$types ) {
@@ -645,7 +646,7 @@ class LqtHooks {
 	}
 
 	/**
-	 * @param $vars sttsu
+	 * @param array &$vars
 	 * @return bool
 	 */
 	public static function onMakeGlobalVariablesScript( &$vars ) {
@@ -657,7 +658,7 @@ class LqtHooks {
 	/**
 	 * Returns the text contents of a template page set in given key contents
 	 * Returns empty string if no text could be retrieved.
-	 * @param $key String: message key that should contain a template page name
+	 * @param string $key message key that should contain a template page name
 	 * @return String
 	 */
 	private static function getTextForPageInKey( $key ) {
@@ -682,6 +683,9 @@ class LqtHooks {
 
 	/**
 	 * Handles tags in Page sections of XML dumps
+	 * @param XMLReader $reader
+	 * @param array &$pageInfo
+	 * @return bool
 	 */
 	public static function handlePageXMLTag( $reader, &$pageInfo ) {
 		if ( !isset( $reader->nodeType ) || !( $reader->nodeType == XmlReader::ELEMENT &&
@@ -725,11 +729,11 @@ class LqtHooks {
 	/**
 	 * Processes discussion threading data in XML dumps (extracted in handlePageXMLTag).
 	 *
-	 * @param $title Title
-	 * @param $origTitle Title
-	 * @param $revCount
-	 * @param $sRevCount
-	 * @param $pageInfo
+	 * @param Title $title
+	 * @param Title $origTitle
+	 * @param int $revCount
+	 * @param int $sRevCount
+	 * @param array $pageInfo
 	 * @return bool
 	 */
 	public static function afterImportPage( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
@@ -823,8 +827,8 @@ class LqtHooks {
 	}
 
 	/**
-	 * @param $pendingRelationship
-	 * @param $title Title
+	 * @param array $pendingRelationship
+	 * @param Title $title
 	 */
 	public static function applyPendingArticleRelationship( $pendingRelationship, $title ) {
 		$articleID = $title->getArticleID();
@@ -895,10 +899,10 @@ class LqtHooks {
 	/**
 	 * Do not allow users to read threads on talkpages that they cannot read.
 	 *
-	 * @param $title Title
-	 * @param $user
-	 * @param $action
-	 * @param $result
+	 * @param Title $title
+	 * @param User $user
+	 * @param string $action
+	 * @param bool &$result
 	 * @return bool
 	 */
 	public static function onGetUserPermissionsErrors( $title, $user, $action, &$result ) {
@@ -925,7 +929,7 @@ class LqtHooks {
 	}
 
 	/**
-	 * @param $parser Parser
+	 * @param Parser $parser
 	 * @return bool
 	 */
 	public static function onParserFirstCallInit( $parser ) {
@@ -950,7 +954,7 @@ class LqtHooks {
 	}
 
 	/**
-	 * @param $list array
+	 * @param array &$list
 	 * @return bool
 	 */
 	public static function onCanonicalNamespaces( &$list ) {

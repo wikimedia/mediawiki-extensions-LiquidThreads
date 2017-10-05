@@ -21,9 +21,15 @@ class LqtParserFunctions {
 	}
 
 	/** To bypass the parser cache just for the LiquidThreads part, we have a cute trick.
-	  * We leave a placeholder comment in the HTML, which we expand out in a hook. This way,
-	  * most of the page can be cached, but the LiquidThreads dynamism still works.
-	  * Thanks to Tim for the idea. */
+	 * We leave a placeholder comment in the HTML, which we expand out in a hook. This way,
+	 * most of the page can be cached, but the LiquidThreads dynamism still works.
+	 * Thanks to Tim for the idea.
+	 * @param string $content
+	 * @param array $args
+	 * @param Parser $parser
+	 * @param Frame $frame
+	 * @return string
+	 */
 	static function lqtTalkPage( $content, $args, $parser, $frame ) {
 		$pout = $parser->getOutput();
 

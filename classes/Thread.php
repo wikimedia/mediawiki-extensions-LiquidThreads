@@ -255,7 +255,10 @@ class Thread {
 		}
 	}
 
-	/** Unless you know what you're doing, you want commitRevision */
+	/**
+	 * Unless you know what you're doing, you want commitRevision
+	 * @param string|null $fname
+	 */
 	public function save( $fname = null ) {
 		$this->dieIfHistorical();
 
@@ -763,9 +766,9 @@ class Thread {
 	}
 
 	/**
-	* Return the User object representing the author of the first revision
-	* (or null, if the database is screwed up).
-	*/
+	 * @return User|null the User object representing the author of the first revision
+	 * (or null, if the database is screwed up).
+	 */
 	public function loadOriginalAuthorFromRevision() {
 		$this->dieIfHistorical();
 
@@ -1672,7 +1675,7 @@ class Thread {
 	}
 
 	/**
-	 * Return the Title object for the article this thread is attached to.
+	 * @return Title the Title object for the article this thread is attached to.
 	 */
 	public function getTitle() {
 		return $this->article()->getTitle();

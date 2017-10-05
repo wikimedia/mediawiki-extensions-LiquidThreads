@@ -6,11 +6,11 @@ class LqtDispatch {
 	public static $primaryView = null;
 
 	/**
-	 * @param $output OutputPage
-	 * @param $article Article
-	 * @param $title Title
-	 * @param $user User
-	 * @param $request WebRequest
+	 * @param OutputPage &$output
+	 * @param Article &$article
+	 * @param Title &$title
+	 * @param User &$user
+	 * @param WebRequest &$request
 	 * @return bool
 	 */
 	public static function talkpageMain( &$output, &$article, &$title, &$user, &$request ) {
@@ -66,11 +66,11 @@ class LqtDispatch {
 	}
 
 	/**
-	 * @param $output OutputPage
-	 * @param $article Article
-	 * @param $title Title
-	 * @param $user User
-	 * @param $request WebRequest
+	 * @param OutputPage &$output
+	 * @param Article &$article
+	 * @param Title &$title
+	 * @param User &$user
+	 * @param WebRequest &$request
 	 * @return bool
 	 */
 	public static function threadPermalinkMain( &$output, &$article, &$title, &$user, &$request ) {
@@ -110,7 +110,7 @@ class LqtDispatch {
 	}
 
 	/**
-	 * @param $title Title
+	 * @param Title $title
 	 * @return bool|null
 	 */
 	public static function isLqtPage( $title ) {
@@ -150,7 +150,7 @@ class LqtDispatch {
 	}
 
 	/**
-	 * @param $title Title
+	 * @param Title $title
 	 * @return null|int
 	 */
 	public static function getUserLqtOverride( $title ) {
@@ -208,11 +208,11 @@ class LqtDispatch {
 	/**
 	 * If the page we recieve is a LiquidThreads page of any kind, process it
 	 * as needed and return True. If it's a normal, non-liquid page, return false.
-	 * @param $output OutputPage
-	 * @param $article Article
-	 * @param $title Title
-	 * @param $user User
-	 * @param $request WebRequest
+	 * @param OutputPage $output
+	 * @param Article $article
+	 * @param Title $title
+	 * @param User $user
+	 * @param WebRequest $request
 	 * @return bool
 	 */
 	public static function tryPage( $output, $article, $title, $user, $request ) {
@@ -241,9 +241,9 @@ class LqtDispatch {
 
 	/**
 	 * Most stuff is in the user language.
-	 * @param $title Title
-	 * @param $pageLang
-	 * @param $wgLang
+	 * @param Title $title
+	 * @param Language|string &$pageLang
+	 * @param Language $wgLang
 	 * @return bool
 	 */
 	public static function onPageContentLanguage( $title, &$pageLang, $wgLang ) {

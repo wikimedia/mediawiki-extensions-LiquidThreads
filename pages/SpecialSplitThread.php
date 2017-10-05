@@ -23,8 +23,9 @@ class SpecialSplitThread extends ThreadActionPage {
 	}
 
 	/**
-	* @see SpecialPage::getDescription
-	*/
+	 * @see SpecialPage::getDescription
+	 * @return string
+	 */
 	function getDescription() {
 		return $this->msg( 'lqt_split_thread' )->text();
 	}

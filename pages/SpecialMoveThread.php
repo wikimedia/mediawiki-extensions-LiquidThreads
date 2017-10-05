@@ -5,6 +5,7 @@ use MediaWiki\MediaWikiServices;
 class SpecialMoveThread extends ThreadActionPage {
 	/**
 	 * @see SpecialPage::getDescription
+	 * @return string
 	 */
 	function getDescription() {
 		return $this->msg( 'lqt_movethread' )->text();

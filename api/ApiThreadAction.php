@@ -697,8 +697,8 @@ class ApiThreadAction extends ApiEditPage {
 	}
 
 	/**
-	 * @param $thread Thread
-	 * @return String
+	 * @param Thread $thread
+	 * @return string
 	 */
 	protected function renderThreadPostAction( $thread ) {
 		$thread = $thread->topmostThread();
@@ -1020,6 +1020,7 @@ class ApiThreadAction extends ApiEditPage {
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
+	 * @return array
 	 */
 	protected function getExamplesMessages() {
 		return [
