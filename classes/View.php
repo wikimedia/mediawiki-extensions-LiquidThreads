@@ -157,12 +157,8 @@ class LqtView {
 	 * @throws Exception
 	 * @return array
 	 */
-	static function linkInContextData( $thread, $contextType = 'page' ) {
+	static function linkInContextData( Thread $thread, $contextType = 'page' ) {
 		$query = [];
-
-		if ( ! $thread ) {
-			throw new Exception( "Null thread passed to linkInContextData" );
-		}
 
 		if ( $contextType == 'page' ) {
 			$title = clone $thread->getTitle();
@@ -189,7 +185,7 @@ class LqtView {
 	 * @param string $text
 	 * @return mixed
 	 */
-	static function linkInContext( $thread, $contextType = 'page', $text = null ) {
+	static function linkInContext( Thread $thread, $contextType = 'page', $text = null ) {
 		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
 
 		if ( is_null( $text ) ) {
@@ -204,19 +200,19 @@ class LqtView {
 		);
 	}
 
-	static function linkInContextURL( $thread, $contextType = 'page' ) {
+	static function linkInContextURL( Thread $thread, $contextType = 'page' ) {
 		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
 
 		return $title->getLocalURL( $query );
 	}
 
-	static function linkInContextFullURL( $thread, $contextType = 'page' ) {
+	static function linkInContextFullURL( Thread $thread, $contextType = 'page' ) {
 		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
 
 		return $title->getFullURL( $query );
 	}
 
-	static function linkInContextCanonicalURL( $thread, $contextType = 'page' ) {
+	static function linkInContextCanonicalURL( Thread $thread, $contextType = 'page' ) {
 		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
 
 		return $title->getCanonicalURL( $query );
@@ -224,10 +220,10 @@ class LqtView {
 
 	/**
 	 * @param Thread $thread
-	 * @param Revision $revision
+	 * @param ThreadRevision $revision
 	 * @return array
 	 */
-	static function diffQuery( $thread, $revision ) {
+	static function diffQuery( Thread $thread, ThreadRevision $revision ) {
 		$changed_thread = $revision->getChangeObject();
 		$curr_rev_id = $changed_thread->rootRevision();
 		$curr_rev = Revision::newFromId( $curr_rev_id );
@@ -247,12 +243,12 @@ class LqtView {
 		return $query;
 	}
 
-	static function diffPermalinkURL( $thread, $revision ) {
+	static function diffPermalinkURL( Thread $thread, ThreadRevision $revision ) {
 		$query = self::diffQuery( $thread, $revision );
 		return wfExpandUrl( self::permalinkUrl( $thread, null, null, $query ), PROTO_RELATIVE );
 	}
 
-	static function diffPermalink( $thread, $text, $revision ) {
+	static function diffPermalink( Thread $thread, $text, ThreadRevision $revision ) {
 		$query = self::diffQuery( $thread, $revision );
 		return self::permalink( $thread, $text, null, null, null, [], $query );
 	}
