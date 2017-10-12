@@ -9,8 +9,6 @@
 
 ( function ( mw, $ ) {
 
-	window.wgWikiEditorIconVersion = 0;
-
 	$.getCSS = function ( url, media ) {
 		$( '<link>' ).attr( {
 			href: url,
