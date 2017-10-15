@@ -29,7 +29,7 @@
 			"Dgstranz"
 		]
 	},
-	"lqt-desc": "Agregar discusiones en hilos a páginas de discusión",
+	"lqt-desc": "Añade discusiones en hilos a las páginas de discusión",
 	"lqt_movethread": "Trasladar el hilo a otra página",
 	"lqt_deletethread": "Borrar o reestablecer hilo",
 	"lqt_contents_title": "Contenidos",
@@ -187,7 +187,7 @@
 	"lqt-log-action-subjectedit": "cambió el asunto de [[$1]] de «$2» a «$3»",
 	"lqt-log-action-resort": "modificó el orden de [[$1]]. La clave de ordenamiento cambió de $2 a $3",
 	"lqt-log-action-signatureedit": "cambió la firma de [[$1]] de «$2» a «$3»",
-	"lqt-preference-notify-talk": "Enviarme un correo electrónico cuando haya respuestas a un hilo que estoy vigilando",
+	"lqt-preference-notify-talk": "Enviarme un mensaje de correo cuando haya respuestas a un hilo que esté vigilando",
 	"lqt-preference-watch-threads": "Vigilar hilos que he creado o respondido",
 	"prefs-lqt": "Discusión en hilo",
 	"lqt-preference-display-depth": "Profundidad de respuesta máxima que mostrar:",
