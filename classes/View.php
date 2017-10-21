@@ -1202,14 +1202,14 @@ class LqtView {
 	/**
 	 * @param Thread $thread
 	 * @return array Example return value:
-	 *	array (
-	 *		edit => array( 'label'	 => 'Edit',
-	 *					'href'	  => 'http...',
-	 *					'enabled' => false ),
-	 *		reply => array( 'label'	  => 'Reply',
-	 *					'href'	  => 'http...',
-	 *					'enabled' => true )
-	 *	)
+	 * 	array (
+	 * 		edit => array( 'label'	 => 'Edit',
+	 * 					'href'	  => 'http...',
+	 * 					'enabled' => false ),
+	 * 		reply => array( 'label'	  => 'Reply',
+	 * 					'href'	  => 'http...',
+	 * 					'enabled' => true )
+	 * 	)
 	 */
 	function threadCommands( $thread ) {
 		$commands = [];
