@@ -8,6 +8,7 @@
 	"lqt_move_move": "Arrastrar",
 	"lqt-movethread": "Arrastrar",
 	"lqt-log-action-move": "arrastrou [[$1]] de [[$2]] pa [[$3]] ($4)",
+	"lqt-newmessages-n": "Mensaiges nuobas ($1)",
 	"lqt_newmessages": "Mensaiges nuobas (ningua)",
 	"lqt-talkpage-history-tab": "Cabeçalho",
 	"nstab-thread": "Tópico",
