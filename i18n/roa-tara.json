@@ -248,5 +248,6 @@
 	"apihelp-feedthreads-param-talkpage": "Limite le resultate a le arguminde de ste pàggene de 'ngazzaminde.",
 	"apihelp-feedthreads-param-thread": "Limite le resultate a ste arguminde e a le figghie lore.",
 	"apihelp-feedthreads-example-1": "Fà 'ndrucà 'nu feed de tutte le arguminde nuéve",
+	"apihelp-threadaction-param-captchaword": "Resposta a 'u CAPTCHA",
 	"apihelp-threadaction-param-captchaid": "ID CAPTCHA da 'a richieste d'apprime."
 }
