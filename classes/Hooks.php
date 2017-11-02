@@ -97,7 +97,7 @@ class LqtHooks {
 				) {
 			$s = wfMessage( 'lqt_youhavenewmessages', $newmsg_t->getPrefixedText() )->parse();
 			$tpl->set( "newtalk", $s );
-			$wgOut->setSquidMaxage( 0 );
+			$wgOut->setCdnMaxage( 0 );
 		} else {
 			$tpl->set( "newtalk", '' );
 		}
