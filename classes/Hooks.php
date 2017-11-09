@@ -444,6 +444,12 @@ class LqtHooks {
 		$updater->addExtensionIndex( 'thread', 'thread_parent',
 			"$dir/schema-changes/index-thread_parent.sql" );
 
+		$updater->dropExtensionIndex(
+			'thread',
+			'thread_root_2',
+			"$dir/schema-changes/thread-drop-thread_root_2.sql"
+		);
+
 		return true;
 	}
 
