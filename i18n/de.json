@@ -265,6 +265,7 @@
 	"pageinfo-usinglqt": "Themen aktiviert",
 	"pageinfo-usinglqt-yes": "Ja",
 	"apihelp-feedthreads-description": "Gibt einen Feed mit Diskussionsthreads zurück.",
+	"apihelp-feedthreads-summary": "Gibt einen Feed der Diskussionsstränge zurück.",
 	"apihelp-feedthreads-param-feedformat": "Das Format des Feeds.",
 	"apihelp-feedthreads-param-days": "Anzahl der Tage der anzuzeigenden Threads.",
 	"apihelp-feedthreads-param-type": "Anzuzeigende Beitragstypen.",
