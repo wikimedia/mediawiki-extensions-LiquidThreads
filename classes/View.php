@@ -1576,12 +1576,6 @@ class LqtView {
 	 * @param Thread $thread
 	 */
 	function showThreadBody( $thread ) {
-		// Remove 'editsection', it won't work.
-		$popts = $this->output->parserOptions();
-		$previous_editsection = $popts->getEditSection();
-		$popts->setEditSection( false );
-		$this->output->parserOptions( $popts );
-
 		$post = $thread->root();
 
 		$divClass = $this->postDivClass( $thread );
@@ -1627,9 +1621,6 @@ class LqtView {
 		}
 
 		$this->output->addHTML( $html );
-
-		$popts->setEditSection( $previous_editsection );
-		$this->output->parserOptions( $popts );
 	}
 
 	/**
