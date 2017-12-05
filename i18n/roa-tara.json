@@ -248,6 +248,10 @@
 	"apihelp-feedthreads-param-talkpage": "Limite le resultate a le arguminde de ste pàggene de 'ngazzaminde.",
 	"apihelp-feedthreads-param-thread": "Limite le resultate a ste arguminde e a le figghie lore.",
 	"apihelp-feedthreads-example-1": "Fà 'ndrucà 'nu feed de tutte le arguminde nuéve",
+	"apihelp-feedthreads-example-2": "Fà 'ndrucà 'nu feed de resposte sus a [[Thread:Foo]]",
+	"apihelp-feedthreads-example-3": "Fà 'ndrucà 'nu feed de argominde nuève sus a [[Talk:Main Page]]",
+	"apihelp-query+threads-description": "Fà 'ndrucà le argominde de LiquidThreads.",
+	"apihelp-query+threads-summary": "Fà 'ndrucà le argominde de LiquidThreads.",
 	"apihelp-threadaction-param-captchaword": "Resposta a 'u CAPTCHA",
 	"apihelp-threadaction-param-captchaid": "ID CAPTCHA da 'a richieste d'apprime."
 }
