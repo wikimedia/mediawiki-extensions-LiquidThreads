@@ -569,7 +569,7 @@ class LqtHooks {
 	}
 
 	/**
-	 * @param Article &$article
+	 * @param WikiPage &$wikiPage
 	 * @param User &$user
 	 * @param Content $content
 	 * @param string $summary
@@ -580,9 +580,11 @@ class LqtHooks {
 	 * @param Revision $revision
 	 * @param Status &$status
 	 * @param int $baseRevId
+	 *
 	 * @return bool
 	 */
-	static function onPageContentSaveComplete( &$article, &$user, $content, $summary,
+	static function onPageContentSaveComplete(
+		WikiPage &$wikiPage, &$user, $content, $summary,
 		$minoredit, $watchthis, $sectionanchor, &$flags, $revision,
 		&$status, $baseRevId
 	) {
@@ -591,7 +593,7 @@ class LqtHooks {
 			return true;
 		}
 
-		$title = $article->getTitle();
+		$title = $wikiPage->getTitle();
 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
 			// Not a thread
 			return true;
@@ -602,7 +604,7 @@ class LqtHooks {
 			return true;
 		}
 
-		$thread = Threads::withRoot( $article );
+		$thread = Threads::withRoot( $wikiPage );
 
 		if ( !$thread ) {
 			// No matching thread.
@@ -611,7 +613,7 @@ class LqtHooks {
 
 		LqtView::editMetadataUpdates(
 			[
-			'root' => $article,
+			'root' => $wikiPage,
 			'thread' => $thread,
 			'summary' => $summary,
 			'text' => ContentHandler::getContentText( $content ),
