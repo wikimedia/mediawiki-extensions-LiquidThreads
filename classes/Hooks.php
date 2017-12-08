@@ -187,11 +187,12 @@ class LqtHooks {
 	}
 
 	/**
-	 * @param Article $article
+	 * @param WikiPage $wikiPage
+	 *
 	 * @return bool
 	 */
-	static function updateNewtalkOnEdit( $article ) {
-		$title = $article->getTitle();
+	static function updateNewtalkOnEdit( WikiPage $wikiPage ) {
+		$title = $wikiPage->getTitle();
 
 		// They're only editing the header, don't update newtalk.
 		return !LqtDispatch::isLqtPage( $title );
