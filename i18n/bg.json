@@ -131,6 +131,7 @@
 	"lqt-newmessages-from": "От $1",
 	"lqt-hot-topics": "Горещи теми",
 	"lqt-add-reply": "Добавяне на отговор",
+	"lqt-changesortorder": "Сортиране",
 	"lqt_rc_new_discussion": "публикува нова нишка, \"$1\"",
 	"lqt_rc_new_reply": "публикува отговор на \"$1\"",
 	"right-lqt-split": "Разделяне на нишки",

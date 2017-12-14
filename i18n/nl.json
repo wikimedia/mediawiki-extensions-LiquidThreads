@@ -7,7 +7,8 @@
 			"SPQRobin",
 			"Siebrand",
 			"Sjoerddebruin",
-			"Mainframe98"
+			"Mainframe98",
+			"Mar(c)"
 		]
 	},
 	"lqt-desc": "Voegt overleg in onderwerpen op overlegpagina's toe",
@@ -170,7 +171,7 @@
 	"lqt-log-action-resort": "heeft de sorteervolgorde voor [[$1]] gewijzigd van $2 naar $3",
 	"lqt-log-action-signatureedit": "heeft de ondertekening voor [[$1]] gewijzigd van \"$2\" naar \"$3\"",
 	"lqt-preference-notify-talk": "Mij e-mailen bij antwoorden op een onderwerp dat ik volg",
-	"lqt-preference-watch-threads": "Onderwerpen volgen die ik aanmaak of waar ik op antwoord",
+	"lqt-preference-watch-threads": "Discussies die ik start of waarop ik reageer aan mijn volglijst toevoegen",
 	"prefs-lqt": "Gestructureerd overleg",
 	"lqt-preference-display-depth": "Maximaal weer te geven diepte:",
 	"lqt-preference-display-count": "Maximaal aantal weer te geven reacties:",
