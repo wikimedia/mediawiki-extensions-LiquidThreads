@@ -131,14 +131,13 @@ class ApiFeedLQTThreads extends ApiBase {
 		// What's included?
 		$types = (array)$params['type'];
 
+		$msg = 'lqt-feed-title-all';
 		if ( !count( array_diff( [ 'replies', 'newthreads' ], $types ) ) ) {
 			$msg = 'lqt-feed-title-all';
 		} elseif ( in_array( 'replies', $types ) ) {
 			$msg = 'lqt-feed-title-replies';
 		} elseif ( in_array( 'newthreads', $types ) ) {
 			$msg = 'lqt-feed-title-new-threads';
-		} else {
-			throw new Exception( "Unable to determine appropriate display type" );
 		}
 
 		if ( $fromCount ) {
