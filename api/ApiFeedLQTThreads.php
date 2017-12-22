@@ -149,7 +149,7 @@ class ApiFeedLQTThreads extends ApiBase {
 
 	/**
 	 * @param array $params
-	 * @param DatabaseBase $db
+	 * @param \Wikimedia\Rdbms\IDatabase $db
 	 * @return array
 	 */
 	function getConditions( $params, $db ) {
