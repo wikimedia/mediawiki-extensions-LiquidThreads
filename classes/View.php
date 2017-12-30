@@ -2409,7 +2409,7 @@ class LqtView {
 		if ( is_object( $user ) ) {
 			$uid = $user->getId();
 			$name = $user->getName();
-		} elseif ( is_integer( $user ) ) {
+		} elseif ( is_int( $user ) ) {
 			$uid = $user;
 			$user = User::newFromId( $uid );
 			$name = $user->getName();
