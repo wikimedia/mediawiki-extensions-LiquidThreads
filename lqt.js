@@ -223,12 +223,7 @@
 			mw.loader.using( [ 'mediawiki.action.edit' ],
 				function () {
 					liquidThreads.loadInlineEditForm( params, $container, function () {
-						var dependencies = [ 'ext.wikiEditor', 'user.options',
-							'jquery.wikiEditor.toolbar', 'jquery.wikiEditor.toolbar.config',
-							'jquery.async', 'jquery.cookie' ];
-						if ( mw.user.options.get( 'usebetatoolbar-cgd' ) ) {
-							dependencies.push( 'jquery.wikiEditor.dialogs', 'jquery.wikiEditor.dialogs.config' );
-						}
+						var dependencies = [ 'ext.wikiEditor', 'user.options', 'jquery.async', 'jquery.cookie' ];
 						mw.loader.using( dependencies, finishSetup );
 					} );
 				} );
