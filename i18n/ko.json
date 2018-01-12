@@ -11,7 +11,8 @@
 			"Ryuch",
 			"아라",
 			"Revi",
-			"Ykhwong"
+			"Ykhwong",
+			"Bluemersen"
 		]
 	},
 	"lqt-desc": "토론 문서의 스레드 토론을 추가합니다",
@@ -142,7 +143,7 @@
 	"lqt-split-submit": "분할",
 	"lqt_split_badsubject": "입력한 제목이 잘못되었습니다.",
 	"lqt-no-threads": "이 문서에는 스레드가 없습니다.",
-	"lqt-delete-parent-warning": "이 스레드는 답글이 있는 최상위 스레드입니다.\n답글 역시 자동적으로 삭제될 것입니다.\n이런 불상사를 피하려면, 이 스레드를 삭제하기 전에 답글을 이 스레드에서 분할하십시오.",
+	"lqt-delete-parent-warning": "이 스레드는 답글이 있는 최상위 스레드입니다.\n답글 역시 자동으로 삭제될 것입니다.\n이런 불상사를 피하려면, 이 스레드를 삭제하기 전에 답글을 이 스레드에서 분할하십시오.",
 	"lqt-delete-parent-deleted": "상위 스레드를 삭제했습니다 ($1)",
 	"lqt-delete-replies-done": "이 스레드에 달린 모든 답글도 함께 삭제되었습니다.",
 	"lqt-movethread": "이동",
