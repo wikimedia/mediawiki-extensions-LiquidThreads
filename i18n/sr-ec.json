@@ -8,7 +8,8 @@
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
 			"Сербијана",
-			"Obsuser"
+			"Obsuser",
+			"Acamicamacaraca"
 		]
 	},
 	"lqt-desc": "Додаје могућност отварања тема на страницама за разговор",
@@ -42,7 +43,7 @@
 	"lqt_hist_moved_talkpage": "Премештено.",
 	"lqt_hist_listing_subtitle": "Прегледање историје",
 	"lqt_hist_view_whole_thread": "Прикажи историју целе теме",
-	"lqt_hist_no_revisions_error": "Ова тема нема ревизија у историји.",
+	"lqt_hist_no_revisions_error": "Ова тема нема измена у историји.",
 	"lqt_hist_past_last_page_error": "Прекорачили сте број страница које има постојећа историја.",
 	"lqt_hist_tooltip_newer_disabled": "Ова веза је онемогућена јер сте на првој страници.",
 	"lqt_hist_tooltip_older_disabled": "Ова веза је онемогућена јер сте на последњој страници.",
