@@ -4,7 +4,8 @@
 			"S.Örvarr.S",
 			"Snævar",
 			"Spacebirdy",
-			"Ævar Arnfjörð Bjarmason"
+			"Ævar Arnfjörð Bjarmason",
+			"Sveinn í Felli"
 		]
 	},
 	"lqt_movethread": "Færði þráð á aðra síðu",
@@ -74,6 +75,7 @@
 	"lqt-drag-drop-zone": "Færðu innleggið hingað",
 	"lqt-edit-signature": "(breyta undirskrift)",
 	"lqt-preview-signature": "(forskoða)",
+	"tooltip-pt-newmessages": "Birtir ný skilaboð á samskiptaþráðum eða spjallsíðum sem þú fylgist með",
 	"lqt-newmessages-n": "Ný skilaboð ($1)",
 	"lqt_newmessages": "Ný skilaboð (engin)",
 	"lqt_newmessages-title": "Ný skilaboð",
