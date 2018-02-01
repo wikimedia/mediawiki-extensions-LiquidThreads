@@ -2,7 +2,7 @@
 	"name": "mediawiki/liquid-threads",
 	"description": "LiquidThreads extension implements a structured discussion system for MediaWiki.",
 	"type": "mediawiki-extension",
-	"license": "GPL-2.0+",
+	"license": "GPL-2.0-or-later",
 	"require": {
 		"composer/installers": "~1.0"
 	},
