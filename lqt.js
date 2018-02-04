@@ -973,7 +973,7 @@
 
 			if ( type === 'reply' ) {
 				liquidThreads.doReply( replyThread, text, summary,
-						doneCallback, bump, signature, errorCallback );
+					doneCallback, bump, signature, errorCallback );
 
 				e.preventDefault();
 			} else if ( type === 'talkpage_new_thread' ) {
@@ -982,12 +982,12 @@
 					page = $( $( '[lqt_talkpage]' )[ 0 ] ).attr( 'lqt_talkpage' ); // A couple of elements have this attribute, it doesn't matter which
 				}
 				liquidThreads.doNewThread( page, subject, text, summary,
-						doneCallback, bump, signature, errorCallback );
+					doneCallback, bump, signature, errorCallback );
 
 				e.preventDefault();
 			} else if ( type === 'edit' ) {
 				liquidThreads.doEditThread( replyThread, subject, text, summary,
-						doneCallback, bump, signature, errorCallback );
+					doneCallback, bump, signature, errorCallback );
 				e.preventDefault();
 			}
 		},

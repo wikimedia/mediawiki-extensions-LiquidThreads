@@ -94,7 +94,7 @@
 
 		doMarkOneRead: function ( $form ) {
 			var operand = $form.find( 'input[name=lqt_operand]' ).val(),
-				threads = operand.replace( /\,/g, '|' ),
+				threads = operand.replace( /,/g, '|' ),
 				$spinner = $( '<div class="mw-ajax-loader">' );
 
 			$form.prepend( $spinner );
