@@ -1032,7 +1032,8 @@ class Thread {
 
 		// Check cache
 		if ( isset( self::$replyCacheById[$this->id()] ) ) {
-			return $this->replies = self::$replyCacheById[$this->id()];
+			$this->replies = self::$replyCacheById[$this->id()];
+			return $this->replies;
 		}
 
 		$this->replies = [];
@@ -1093,7 +1094,8 @@ class Thread {
 
 	public function topmostThread() {
 		if ( $this->isTopmostThread() ) {
-			return $this->ancestor = $this;
+			$this->ancestor = $this;
+			return $this->ancestor;
 		} elseif ( $this->ancestor ) {
 			return $this->ancestor;
 		} else {
