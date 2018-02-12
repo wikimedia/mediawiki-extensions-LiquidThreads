@@ -196,8 +196,7 @@
 			],
 			"dependencies": [
 				"ext.liquidThreads"
-			],
-			"position": "top"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
