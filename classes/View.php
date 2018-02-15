@@ -1535,7 +1535,7 @@ class LqtView {
 
 			$result[] = $thisCommand;
 		}
-		return join( ' ', $result );
+		return implode( ' ', $result );
 	}
 
 	function contentForCommand( $command, $icon_divs = true ) {
