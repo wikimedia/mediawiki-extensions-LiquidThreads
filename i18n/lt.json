@@ -195,7 +195,7 @@
 	"lqt-feed-title-replies": "{{SITENAME}} - Atsakymai",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Nauji atsakymai nuo $1",
 	"lqt-feed-new-thread-intro": "Nauja tema pasbelbta $1  $2",
-	"lqt-feed-reply-intro": "Atsakymą į $3 (puslapyje $1) parašė $2",
+	"lqt-feed-reply-intro": "Atsakymą į $3 (puslapyje $1) parašė {{GENDER:$4|$2}}",
 	"lqt-newmessages-n": "Naujos žinutės ($1)",
 	"lqt_newmessages": "Naujos žinutės (nėra)",
 	"lqt_newmessages-title": "Nauji pranešimai",
