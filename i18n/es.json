@@ -46,7 +46,7 @@
 	"lqt-parent": "Padre",
 	"lqt_delete": "Borrar",
 	"lqt_undelete": "Restaurar",
-	"lqt_permalink": "Vínculo a",
+	"lqt_permalink": "Enlace permanente",
 	"lqt_fragment": "Fragmento de una $1 de $2",
 	"lqt_discussion_link": "discusión",
 	"lqt_from_talk": "De $1",
@@ -171,6 +171,7 @@
 	"right-lqt-split": "Separar hilos",
 	"right-lqt-merge": "Fusionar hilos",
 	"right-lqt-react": "Responder a hilos",
+	"action-lqt-react": "responder a hilos",
 	"lqt-thread-merge": "Fusionar dentro de otro hilo",
 	"lqt-thread-merge-to": "Fusionar dentro de este hilo",
 	"lqt_merge_thread": "Fusionar hilo",
@@ -295,6 +296,7 @@
 	"apierror-liquidthreads-badsubject": "El asunto que especificaste no es válido.",
 	"apierror-liquidthreads-noreplies-talkpage": "No puedes responder a este hilo, ya que la página de discusión está protegido contra respuestas.",
 	"apierror-liquidthreads-nosubject": "No se especificó ningún asunto, o bien se especificó un asunto no válido.",
+	"apierror-liquidthreads-notext": "Tienes que incluir texto en tu mensaje.",
 	"apierror-liquidthreads-onlyone": "Solo puedes operar en un hilo cada vez.",
 	"apierror-liquidthreads-threadneeded": "Debes especificar un hilo en el que operar."
 }
