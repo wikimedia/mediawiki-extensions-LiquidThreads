@@ -3,7 +3,8 @@
 		"authors": [
 			"Malafaya",
 			"Robin van der Vliet",
-			"Lakaoso"
+			"Lakaoso",
+			"Joao Xavier"
 		]
 	},
 	"lqt_undelete": "Rekuperar",
@@ -19,6 +20,7 @@
 	"lqt-history-user": "Uzero",
 	"lqt-history-comment": "Komento",
 	"lqt-newmessages-from": "De $1",
+	"lqt-preference-notify-talk": "Sendez e-posto a me kande temo quan me surveyas chanjesos",
 	"lqt-save-subject": "Registragar",
 	"lqt-drag-save": "Konfirmar",
 	"lqt-drag-reason": "Motivo:",
