@@ -6,7 +6,8 @@
 			"Blahma",
 			"KuboF",
 			"Michawiki",
-			"Yekrats"
+			"Yekrats",
+			"Joao Xavier"
 		]
 	},
 	"lqt-desc": "Aldonas fadenajn diskutojn al diskuto-paĝoj",
@@ -155,7 +156,7 @@
 	"lqt-thread-merge-dest": "Cela fadeno:",
 	"lqt-merge-submit": "Kunigi",
 	"lqt-merge-success": "Vi sukcese kunigis la fadeno $1 al sub $2.",
-	"lqt-log-name": "Fadeneca diskuto-protokolo",
+	"lqt-log-name": "'Log' di la diskuto ligita",
 	"lqt-log-header": "Ĉi tiu protoko detalas agojn faritajn en diskuto-fadenoj.",
 	"lqt-log-action-move": "movis [[$1]] de [[$2]] al [[$3]].",
 	"lqt-log-action-split": "apartigi [[$1]] de sub [[$3]], kun la nova temo \"$2\"",
