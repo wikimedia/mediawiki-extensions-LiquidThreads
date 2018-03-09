@@ -234,25 +234,7 @@ class Threads {
 		$text = self::stripWikitext( $text );
 		$text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
 
-		static $rxTc;
-
-		if ( is_callable( 'MediaWikiTitleCodec::getTitleInvalidRegex' ) ) {
-			$rxTc = MediaWikiTitleCodec::getTitleInvalidRegex();
-		} elseif ( is_callable( [ 'Title', 'getTitleInvalidRegex' ] ) ) { // Pre-1.25 compat
-			$rxTc = Title::getTitleInvalidRegex();
-		} elseif ( !$rxTc ) { // Back-compat
-			$rxTc = '/' .
-				# Any character not allowed is forbidden...
-				'[^' . Title::legalChars() . ']' .
-				# URL percent encoding sequences interfere with the ability
-				# to round-trip titles -- you can't link to them consistently.
-				'|%[0-9A-Fa-f]{2}' .
-				# XML/HTML character references produce similar issues.
-				'|&[A-Za-z0-9\x80-\xff]+;' .
-				'|&#[0-9]+;' .
-				'|&#x[0-9A-Fa-f]+;' .
-				'/S';
-		}
+		$rxTc = MediaWikiTitleCodec::getTitleInvalidRegex();
 
 		$text = preg_replace( $rxTc, '_', $text );
 
