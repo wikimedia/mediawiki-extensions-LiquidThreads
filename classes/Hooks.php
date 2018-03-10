@@ -555,7 +555,7 @@ class LqtHooks {
 
 			// Add new messages link.
 			$url = SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL();
-			$msg = $newMessagesCount ? 'lqt-newmessages-n' : 'lqt_newmessages';
+			$msg = 'lqt-newmessages-n';
 			$newMessagesLink = [
 				'href' => $url,
 				'text' => wfMessage( $msg )->numParams( $newMessagesCount )->text(),
