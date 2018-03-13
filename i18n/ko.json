@@ -196,6 +196,7 @@
 	"lqt-thread-link-title": "위키문법 링크:",
 	"lqt-thread-link-copy": "클립보드에 복사하기",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\n서명은 자동으로 보입니다.",
+	"lqt-summary-sign-not-necessary": "4개의 물결 표시로 게시글에 서명할 필요가 없습니다.",
 	"lqt-marked-as-read-placeholder": "$1 스레드를 읽은 것으로 표시했습니다.",
 	"lqt-change-subject": "제목 바꾸기",
 	"lqt-save-subject": "저장",
