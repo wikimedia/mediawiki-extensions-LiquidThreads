@@ -739,10 +739,18 @@ class Thread {
 
 		// Pull list of users who have edited
 		if ( count( $loadEditorsFor ) ) {
-			$res = $dbr->select( 'revision', [ 'rev_user_text', 'rev_page' ],
-				[ 'rev_page' => array_keys( $loadEditorsFor ),
-					'rev_parent_id != ' . $dbr->addQuotes( 0 ) ],
-					__METHOD__ );
+			$revQuery = self::getRevisionQueryInfo();
+			$res = $dbr->select(
+				$revQuery['tables'],
+				[ 'rev_user_text' => $revQuery['fields']['rev_user_text'], 'rev_page' ],
+				[
+					'rev_page' => array_keys( $loadEditorsFor ),
+					'rev_parent_id != ' . $dbr->addQuotes( 0 )
+				],
+				__METHOD__,
+				[],
+				$revQuery['joins']
+			);
 			foreach ( $res as $row ) {
 				$pageid = $row->rev_page;
 				$editor = $row->rev_user_text;
@@ -776,15 +784,17 @@ class Thread {
 
 		$article = $this->root();
 
+		$revQuery = self::getRevisionQueryInfo();
 		$line = $dbr->selectRow(
-			'revision',
-			'rev_user_text',
+			$revQuery['tables'],
+			[ 'rev_user_text' => $revQuery['fields']['rev_user_text'] ],
 			[ 'rev_page' => $article->getID() ],
 			__METHOD__,
 			[
 				'ORDER BY' => 'rev_timestamp',
 				'LIMIT'   => '1'
-			]
+			],
+			$revQuery['joins']
 		);
 		if ( $line ) {
 			return User::newFromName( $line->rev_user_text, false );
@@ -1653,9 +1663,18 @@ class Thread {
 			$this->editors = [];
 
 			$dbr = wfGetDB( DB_REPLICA );
-			$res = $dbr->select( 'revision', 'rev_user_text',
-				[ 'rev_page' => $this->root()->getId(),
-				'rev_parent_id != ' . $dbr->addQuotes( 0 ) ], __METHOD__ );
+			$revQuery = self::getRevisionQueryInfo();
+			$res = $dbr->select(
+				$revQuery['tables'],
+				[ 'rev_user_text' => $revQuery['fields']['rev_user_text'] ],
+				[
+					'rev_page' => $this->root()->getId(),
+					'rev_parent_id != ' . $dbr->addQuotes( 0 )
+				],
+				__METHOD__,
+				[],
+				$revQuery['joins']
+			);
 
 			foreach ( $res as $row ) {
 				$this->editors[$row->rev_user_text] = 1;
@@ -1763,5 +1782,26 @@ class Thread {
 					'tr_user' => $user->getId(),
 					'tr_type' => $type ],
 				__METHOD__ );
+	}
+
+	/**
+	 * @todo For back-compat, remove when support for MW < 1.31 is dropped.
+	 * @return array
+	 */
+	private static function getRevisionQueryInfo() {
+		if ( is_callable( 'Revision', 'getQueryInfo' ) ) {
+			$info = Revision::getQueryInfo();
+			if ( !isset( $info['fields']['rev_user_text'] ) ) {
+				$info['fields']['rev_user_text'] = 'rev_user_text';
+			}
+		} else {
+			$info = [
+				'tables' => [ 'revision' ],
+				'fields' => [ 'rev_user_text' => 'rev_user_text' ],
+				'joins' => []
+			];
+		}
+
+		return $info;
 	}
 }
