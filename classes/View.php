@@ -3,7 +3,7 @@
 * @file
 * @ingroup LiquidThreads
 * @author David McCabe <davemccabe@gmail.com>
-* @licence GPL2
+* @license GPL2
 */
 
 use MediaWiki\MediaWikiServices;
