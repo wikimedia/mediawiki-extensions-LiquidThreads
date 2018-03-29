@@ -7,8 +7,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 
 	function postDivClass( $thread ) {
 		$changedObject = $this->mDisplayRevision->getChangeObject();
-		$is_changed_thread = $changedObject &&
-					( $changedObject->id() == $thread->id() );
+		$is_changed_thread = $changedObject && ( $changedObject->id() == $thread->id() );
 
 		$class = parent::postDivClass( $thread );
 
@@ -68,7 +67,12 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$change_type = $revision->getChangeType();
 
 		$post = $revision->getChangeObject();
-		$args[] = LqtView::linkInContextFullURL( $post );
+		if ( $post ) {
+			$args[] = LqtView::linkInContextFullURL( $post );
+		} else {
+			return '';
+			wfDebug( '[LQT] Unable to find a moved reply - change description is broken' );
+		}
 
 		$msg = $this->getMessageForChangeType( $change_type );
 
@@ -135,7 +139,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 			[
 				'maxDepth' => - 1,
 				'maxCount' => - 1,
-				'mustShowThreads' => [ $changedObject->id() ]
+				'mustShowThreads' => $changedObject ? [ $changedObject->id() ] : []
 			]
 		);
 
