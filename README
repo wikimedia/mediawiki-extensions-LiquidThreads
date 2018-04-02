@@ -16,7 +16,7 @@ INSTALLATION:
    (On Unix, if the current directory is the MediaWiki root directory, you can
    say "php maintenance/sql.php extensions/LiquidThreads/lqt.sql".)
    If you haven't created the AdminSettings.php file, you will have to do that
-   first; see http://www.mediawiki.org/wiki/Manual:AdminSettings.php
+   first; see https://www.mediawiki.org/wiki/Manual:AdminSettings.php
    Alternatively, you can run lqt.sql manually (you can use the command
    "mysql -u $USER -p -e 'source lqt.sql'" on Unix), but you might have to
    edit it first, and replace the /*$wgDBprefix*/ and /*$wgDBTableOptions*/
@@ -41,4 +41,3 @@ Summer of Code, with lots of help from Erik Möller, Brion Vibber, and the kind
 folks on #mediawiki.
 
 Now maintained by Andrew Garrett from the Wikimedia Foundation
-
