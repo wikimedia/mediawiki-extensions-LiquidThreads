@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\Rdbms\DBQueryError;
+
 /** Module of factory methods. */
 class Threads {
 	const TYPE_NORMAL = 0;
