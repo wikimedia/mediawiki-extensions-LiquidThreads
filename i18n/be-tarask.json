@@ -7,7 +7,8 @@
 			"Renessaince",
 			"Wizardist",
 			"Александр Сигачёв",
-			"Red Winged Duck"
+			"Red Winged Duck",
+			"Artsiom91"
 		]
 	},
 	"lqt-desc": "Дадае галіны абмеркаваньняў у старонкі абмеркаваньняў",
@@ -150,12 +151,12 @@
 	"right-lqt-split": "падзел галінаў",
 	"right-lqt-merge": "аб'яднаньне галінаў",
 	"right-lqt-react": "адказ у галінах",
-	"lqt-thread-merge": "Аб'яднаць у іншую галіну",
-	"lqt-thread-merge-to": "Аб'яднаць у гэту галіну",
-	"lqt_merge_thread": "Аб'яднаць галіну",
+	"lqt-thread-merge": "Аб’яднаць у іншую галіну",
+	"lqt-thread-merge-to": "Аб’яднаць у гэту галіну",
+	"lqt_merge_thread": "Аб’яднаць галіну",
 	"lqt-thread-merge-source": "Крынічная галіна:",
 	"lqt-thread-merge-dest": "Мэтавая галіна:",
-	"lqt-merge-submit": "Аб'яднаць",
+	"lqt-merge-submit": "Аб’яднаць",
 	"lqt-merge-success": "Вы аб’ядналі галіну $1 з $2.",
 	"lqt-log-name": "Журнал галінаў абмеркаваньняў",
 	"lqt-log-header": "Гэты журнал утрымлівае дэталі дзеяньняў, якія адбываюцца ў галінах абмеркаваньняў.",
