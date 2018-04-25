@@ -275,6 +275,7 @@
 	"apihelp-query+threads-example-1": "רשימת שרשורים ב־[[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "רשימת שרשורים עם המזהים 1, 2, 3 ו־4",
 	"apihelp-threadaction-description": "מאפשר לעשות פעולות על שרשורים ורשומות בדיונים משורשרים.",
+	"apihelp-threadaction-summary": "מתן אפשרות לביצוע פעולות על שרשורים ועל רשומות בדיונים משורשרים.",
 	"apihelp-threadaction-param-thread": "מזהי שרשורים או שמות דפים שזה יופעל עליהם.",
 	"apihelp-threadaction-param-talkpage": "על איזה דף שיחה לפעול (אם זה מתאים).",
 	"apihelp-threadaction-param-threadaction": "איזו פעולה לעשות.",
