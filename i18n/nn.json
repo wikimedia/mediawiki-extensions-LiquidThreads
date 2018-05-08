@@ -206,7 +206,6 @@
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Svar frå $1",
 	"lqt-feed-new-thread-intro": "Ny tråd på $1 oppretta av $2",
 	"lqt-newmessages-n": "Nye meldingar ($1)",
-	"lqt_newmessages": "Nye meldingar (ingen)",
 	"lqt_newmessages-title": "Nye meldingar",
 	"lqt-newpost-summary": "Ny tråd: $1",
 	"lqt-reply-summary": "Svar på [[$2|$1]]",

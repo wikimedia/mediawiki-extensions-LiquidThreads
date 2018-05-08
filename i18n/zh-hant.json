@@ -229,7 +229,6 @@
 	"lqt-feed-reply-intro": "回覆 $3 (於 $1) 由 {{GENDER:$4|$2}} 所發佈",
 	"tooltip-pt-newmessages": "顯示您所監視的討論串或對話頁面上的新留言",
 	"lqt-newmessages-n": "新訊息 ($1)",
-	"lqt_newmessages": "新訊息 (無)",
 	"lqt_newmessages-title": "新訊息",
 	"lqt-newpost-summary": "新討論串：$1",
 	"lqt-reply-summary": "回覆至 [[$2|$1]]",

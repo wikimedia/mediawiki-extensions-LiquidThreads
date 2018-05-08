@@ -221,7 +221,6 @@
 	"lqt-feed-reply-intro": "תגובה לשרשור $3 (ב$1) {{GENDER:$4|ששלח|ששלחה}} $2",
 	"tooltip-pt-newmessages": "הצגת הודעות חדשות בשרשורים ובדפי שיחה הנמצאים ברשימת המעקב שלך",
 	"lqt-newmessages-n": "הודעות חדשות ($1)",
-	"lqt_newmessages": "ההודעות החדשות שלי (אין)",
 	"lqt_newmessages-title": "הודעות חדשות",
 	"lqt-newpost-summary": "שרשור חדש: $1",
 	"lqt-reply-summary": "תגובה אל [[$2|$1]]",

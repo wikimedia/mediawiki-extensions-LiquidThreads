@@ -230,7 +230,6 @@
 	"lqt-feed-reply-intro": "Resposta a $3 (em $1) enviada por {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Mostra, nas páginas que estiver vigiando, mensagens novas nos tópicos ou páginas de discussão por tópicos",
 	"lqt-newmessages-n": "Novas mensagens ($1)",
-	"lqt_newmessages": "Mensagens novas (0)",
 	"lqt_newmessages-title": "Novas mensagens",
 	"lqt-newpost-summary": "Tópico novo: $1",
 	"lqt-reply-summary": "Resposta a [[$2|$1]]",

@@ -218,7 +218,6 @@
 	"lqt-feed-reply-intro": "Respondo al $3 (en $1) afiŝita de {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Montras novajn afiŝojn al fadenoj aŭ en fadenaj diskuto-paĝoj kiujn vi atentas",
 	"lqt-newmessages-n": "Novaj mesaĝoj ($1)",
-	"lqt_newmessages": "Novaj mesaĝoj (neniu)",
 	"lqt_newmessages-title": "Novaj mesaĝoj",
 	"lqt-newpost-summary": "Nova fadeno: $1",
 	"lqt-reply-summary": "Respondi al [[$2|$1]]",

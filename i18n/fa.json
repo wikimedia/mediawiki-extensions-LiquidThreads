@@ -231,7 +231,6 @@
 	"lqt-feed-reply-intro": "پاسخ به $3 (در $1) فرستاده شده توسط {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "نمایش ارسالی‌های تازه به موضوع‌ها و یا صفحه‌های بحث موضوع‌هایی که شما آن‌ها را پی‌گیری می‌کنید",
 	"lqt-newmessages-n": "پیام‌های تازه ($1)",
-	"lqt_newmessages": "پیام‌های تازه (هیچ)",
 	"lqt_newmessages-title": "پیام‌های جدید",
 	"lqt-newpost-summary": "مبحث تازه: $1",
 	"lqt-reply-summary": "پاسخ به [[$2|$1]]",

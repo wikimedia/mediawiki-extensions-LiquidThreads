@@ -223,7 +223,6 @@
 	"lqt-feed-reply-intro": "Одговор на $3 (за $1), који је {{GENDER:$4|поставио|поставила|поставио}} $2",
 	"tooltip-pt-newmessages": "Приказује нове поруке на темама или на страницама за разговор које пратите",
 	"lqt-newmessages-n": "Нове поруке ($1)",
-	"lqt_newmessages": "Нове поруке (нема)",
 	"lqt_newmessages-title": "Поруке",
 	"lqt-newpost-summary": "Нова тема: $1",
 	"lqt-reply-summary": "Одговор на [[$2|$1]]",

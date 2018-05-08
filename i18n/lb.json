@@ -218,7 +218,6 @@
 	"lqt-feed-reply-intro": "Äntwert vum {{GENDER:$4|$2}} op $3 (op $1)",
 	"tooltip-pt-newmessages": "Weist nei Noriichten a Rubriken oder op Diskussiounssäiten déi Dir iwwerwaacht",
 	"lqt-newmessages-n": "Nei Messagen ($1)",
-	"lqt_newmessages": "Nei Messagen (keen)",
 	"lqt_newmessages-title": "Nei Messagen",
 	"lqt-newpost-summary": "Nei Rubrik: $1",
 	"lqt-reply-summary": "Äntwert op [[$2|$1]]",

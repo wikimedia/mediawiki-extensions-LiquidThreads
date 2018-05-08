@@ -203,7 +203,6 @@
 	"lqt-feed-reply-intro": "Walesan kanggo $3 (nèng $1) dikirim déning {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Tuduhaké kiriman anyar topik utawa kaca guneman sing dadi topik saka sng Sampéyan awasi",
 	"lqt-newmessages-n": "Layang anyar ($1)",
-	"lqt_newmessages": "Layang anyar (ora ana)",
 	"lqt_newmessages-title": "Layang anyar",
 	"lqt-newpost-summary": "Topik anyar: $1",
 	"lqt-reply-summary": "Ngawales [[$2|$1]]",

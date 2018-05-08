@@ -224,7 +224,6 @@
 	"lqt-feed-reply-intro": "Reactie op $3 (op $1) door {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Nieuwe berichten weergeven in onderwerpen en pagina's die u volgt",
 	"lqt-newmessages-n": "Berichten ($1)",
-	"lqt_newmessages": "Geen berichten",
 	"lqt_newmessages-title": "Nieuwe berichten",
 	"lqt-newpost-summary": "Nieuw onderwerp: $1",
 	"lqt-reply-summary": "Reactie op [[$2|$1]]",

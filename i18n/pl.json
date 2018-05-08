@@ -231,7 +231,6 @@
 	"lqt-feed-reply-intro": "Odpowiedź w wątku $3 (na stronie $1) napisana przez {{GENDER:$4|użytkownika|użytkowniczkę}} $2",
 	"tooltip-pt-newmessages": "Pokazuje nowe wiadomości w obserwowanych wątkach lub na ich stronach dyskusji",
 	"lqt-newmessages-n": "Nowe wiadomości ($1)",
-	"lqt_newmessages": "Nowe wiadomości (brak)",
 	"lqt_newmessages-title": "Nowe wiadomości",
 	"lqt-newpost-summary": "Nowy wątek – $1",
 	"lqt-reply-summary": "Odpowiedz na [[$2|$1]]",

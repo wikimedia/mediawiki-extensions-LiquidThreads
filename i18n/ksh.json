@@ -218,7 +218,6 @@
 	"lqt-feed-reply-intro": "Antwoot op $3 en dä Sigg $1 {{GENDER:$4|vum|vum|vumm Metmaacher|vun dä|vum}} $2",
 	"tooltip-pt-newmessages": "Donn de neue Nohreeschte aanzeije, di en {{int:lqt-history-thread}}e enjedraare woodte, wo De draan bedeilesch bes udder drop aam oppaßße bes.",
 	"lqt-newmessages-n": "Nohreeschte ({{PLURAL:$1|1 neue|$1 neu|kei neue}})",
-	"lqt_newmessages": "Nohreeschte (kei neue)",
 	"lqt_newmessages-title": "Neu Nohreeschte",
 	"lqt-newpost-summary": "Ene neue {{int:lqt-history-thread}}:$1",
 	"lqt-reply-summary": "Antwoot op [[$2|$1]]",

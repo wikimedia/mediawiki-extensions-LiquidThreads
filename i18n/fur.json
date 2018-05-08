@@ -63,7 +63,6 @@
 	"lqt-feed-title-replies": "{{SITENAME}} — Rispuestis",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Rispuestis di $1",
 	"lqt-newmessages-n": "Gnûfs messaçs ($1)",
-	"lqt_newmessages": "I miei messaçs gnûfs",
 	"lqt_newmessages-title": "Gnûfs messaçs",
 	"lqt-reply-summary": "Rispueste a [[$2|$1]]",
 	"lqt-talkpage-history-subtitle": "PAr $1",

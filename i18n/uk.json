@@ -230,7 +230,6 @@
 	"lqt-feed-reply-intro": "Відповідь на $3 (у $1), {{GENDER:$4|розмістив|розмістила}} $2",
 	"tooltip-pt-newmessages": "Показує нові повідомлення в темах обговорень, за якими ви слідкуєте",
 	"lqt-newmessages-n": "Нові повідомлення ($1)",
-	"lqt_newmessages": "Нові повідомлення (немає)",
 	"lqt_newmessages-title": "Нові повідомлення",
 	"lqt-newpost-summary": "Нова тема: $1",
 	"lqt-reply-summary": "Відповідь на [[$2|$1]]",

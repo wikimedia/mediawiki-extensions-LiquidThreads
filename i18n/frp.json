@@ -213,7 +213,6 @@
 	"lqt-feed-reply-intro": "Rèponsa a $3 (dessus $1) mandâ per {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Montre los mèssâjos novéls sur los sujèts ou ben sur les pâges de discussions que vos siude",
 	"lqt-newmessages-n": "Mèssâjos novéls ($1)",
-	"lqt_newmessages": "Mèssâjos novéls (nion)",
 	"lqt_newmessages-title": "Mèssâjos novéls",
 	"lqt-newpost-summary": "Fil de discussion novél : $1",
 	"lqt-reply-summary": "Rèpondre a [[$2|$1]]",

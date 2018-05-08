@@ -240,7 +240,6 @@
 	"lqt-feed-reply-intro": "Réponse à $3 (sur $1) publiée par {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Montre les nouveaux messages sur les sujets ou sur les pages de discussions que vous suivez",
 	"lqt-newmessages-n": "Nouveaux messages ($1)",
-	"lqt_newmessages": "Nouveaux messages (aucun)",
 	"lqt_newmessages-title": "Nouveaux messages",
 	"lqt-newpost-summary": "Nouveau fil : $1",
 	"lqt-reply-summary": "Répondre à [[$2|$1]]",

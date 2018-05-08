@@ -207,7 +207,6 @@
 	"lqt-feed-reply-intro": "Răspunde la $3 (la $1) postat de {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Afișează comentarii noi la discuții existente sau comentarii pe paginile de discuții urmărite",
 	"lqt-newmessages-n": "Mesaje noi ($1)",
-	"lqt_newmessages": "Mesaje noi (niciunul)",
 	"lqt_newmessages-title": "Mesaje noi",
 	"lqt-newpost-summary": "Discuție nouă: $1",
 	"lqt-reply-summary": "Răspunde la [[$2|$1]]",

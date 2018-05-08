@@ -220,7 +220,6 @@
 	"lqt-feed-reply-intro": "{{GENDER:$4}}Trả lời $3 (về $1) do $2 đăng",
 	"tooltip-pt-newmessages": "Các bài mới trong luồng hoặc trang thảo luận có luồng mà bạn đang theo dõi",
 	"lqt-newmessages-n": "Tin nhắn mới ($1)",
-	"lqt_newmessages": "Tin nhắn mới (không có)",
 	"lqt_newmessages-title": "Tin nhắn mới",
 	"lqt-newpost-summary": "Luồng mới: $1",
 	"lqt-reply-summary": "Trả lời [[$2|$1]]",

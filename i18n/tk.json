@@ -210,7 +210,6 @@
 	"lqt-feed-new-thread-intro": "$1 sahypasynda täze tred $2 tarapyndan iberildi",
 	"lqt-feed-reply-intro": "$3 tredine jogap ($1 sahypasynda) $2 tarapyndan iberildi",
 	"lqt-newmessages-n": "Täze habarlaşyklar ($1)",
-	"lqt_newmessages": "Täze habarlarym (ýok)",
 	"lqt_newmessages-title": "Täze habarlaşyklar",
 	"lqt-newpost-summary": "Täze tred: $1",
 	"lqt-reply-summary": "[[$2|$1]] tredine jogap ber",

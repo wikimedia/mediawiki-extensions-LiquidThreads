@@ -210,7 +210,6 @@
 	"lqt-feed-reply-intro": "$3 сурукка хоруй ($1) манна баар $2",
 	"tooltip-pt-newmessages": "Эн кэтиир салааларгар уонна ырытыыларгар саҥа суруктары көрдөрөр",
 	"lqt-newmessages-n": "Саҥа этиилэр ($1)",
-	"lqt_newmessages": "Саҥа этиилэрим (Суох)",
 	"lqt_newmessages-title": "Саҥа этиилэр",
 	"lqt-newpost-summary": "Саҥа салаа: $1",
 	"lqt-reply-summary": "Манна [[$2|$1]] хоруй",

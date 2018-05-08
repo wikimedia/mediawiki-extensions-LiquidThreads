@@ -218,7 +218,6 @@
 	"lqt-feed-reply-intro": "Resposte a $3 (sus a $1) lassate da {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Fa vedè le messagge nuève a le argomende o sus a le pàggene de le 'ngazzaminde argomendate ca tu stè uarde",
 	"lqt-newmessages-n": "Messàgge nuève ($1)",
-	"lqt_newmessages": "Le messagge nuève (ninde)",
 	"lqt_newmessages-title": "Messagge nuève",
 	"lqt-newpost-summary": "Argomende nuève: $1",
 	"lqt-reply-summary": "Respunne a [[$2|$1]]",

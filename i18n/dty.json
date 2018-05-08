@@ -13,6 +13,5 @@
 	"lqt-split-success": "तमले $1 धगा (thread)लाई टुकुणेयाऽ।",
 	"lqt-merge-success": "तमले $1 धगा (thread) लाई $2का तल्तिर जेणेयाऽ।",
 	"searchprofile-threads": "कुरडीहरू",
-	"lqt-newmessages-n": "नयाँ रैबारहरू($1)",
-	"lqt_newmessages": "नयाँ रैबारहरू (नाइथिन्)"
+	"lqt-newmessages-n": "नयाँ रैबारहरू($1)"
 }

@@ -216,7 +216,6 @@
 	"lqt-feed-reply-intro": "Wotmołwa na $3 (na $1) wot {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Pokazuje nowe powěsće k nitkam abo na diskusijnych stronach nitkow, kotrež wobkedźbuješ",
 	"lqt-newmessages-n": "Nowe powěsće ($1)",
-	"lqt_newmessages": "Nowe powěsće (žane)",
 	"lqt_newmessages-title": "Nowe powěsće",
 	"lqt-newpost-summary": "Nowa nitka: $1",
 	"lqt-reply-summary": "Wotmołwa na [[$2|$1]]",

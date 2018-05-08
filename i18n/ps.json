@@ -57,7 +57,6 @@
 	"lqt-feed-title-replies": "{{SITENAME}} — ځوابونه",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — د $1 لخوا ځوابونه",
 	"lqt-newmessages-n": "نوي پيغامونه ($1)",
-	"lqt_newmessages": "نوي پيغامونه (هېڅ)",
 	"lqt_newmessages-title": "نوي پيغامونه",
 	"lqt-reply-summary": "[[$2|$1]] ته ځواب وييل",
 	"lqt-talkpage-history-title": "د خبرو اترو د مخ پېښليک",

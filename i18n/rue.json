@@ -211,7 +211,6 @@
 	"lqt-feed-reply-intro": "Одповідь про $3 (на $1), публікована $2",
 	"tooltip-pt-newmessages": "Указує новы повідомлїня у волокнах або на діскузных сторінках, котры слїдуєте",
 	"lqt-newmessages-n": "Новы повідомлїня $1",
-	"lqt_newmessages": "Новы повідомлїня (жадны)",
 	"lqt_newmessages-title": "Новы повідомлїня",
 	"lqt-newpost-summary": "Нова волокно: $1",
 	"lqt-reply-summary": "Одповідь на [[$2|$1]]",

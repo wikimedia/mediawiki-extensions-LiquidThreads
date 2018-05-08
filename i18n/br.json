@@ -218,7 +218,6 @@
 	"lqt-feed-reply-intro": "Respontoù da $3 (war $1) postet gant {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Diskouez a ra ar c'hemennadennoù nevez diwar-benn an danvezioù pa ar pajennoù kaozeal evezhiet ganeoc'h",
 	"lqt-newmessages-n": "Kemennadennoù nevez ($1)",
-	"lqt_newmessages": "Kemennadennoù nevez (hini ebet)",
 	"lqt_newmessages-title": "Kemennadennoù nevez",
 	"lqt-newpost-summary": "Neudennad nevez : $1",
 	"lqt-reply-summary": "Respont da [[$2|$1]]",

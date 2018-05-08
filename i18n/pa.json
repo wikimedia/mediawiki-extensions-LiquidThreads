@@ -13,6 +13,5 @@
 	"lqt-thread-show-replies": "$1 {{PLURAL:$1|ਜੁਆਬ|ਜੁਆਬ}} ਵਿਖਾਉ",
 	"lqt-thread-show-more": "ਹੋਰ ਜੁਆਬ ਵਿਖਾਉ",
 	"lqt-newmessages-n": "ਨਵੇਂ ਸੁਨੇਹੇ ($1)",
-	"lqt_newmessages": "ਨਵੇਂ ਸੁਨੇਹੇ (ਕੋਈ ਨਹੀਂ)",
 	"lqt_newmessages-title": "ਨਵੇਂ ਸੁਨੇਹੇ"
 }

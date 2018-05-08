@@ -224,7 +224,6 @@
 	"lqt-feed-reply-intro": "Odgovor na $3 (na $1) koji je {{GENDER:$4|poslao suradnik $2|poslala suradnica $2}}",
 	"tooltip-pt-newmessages": "Pokazuje nove poruke u temama ili na stranicama za razgovor koje pratite",
 	"lqt-newmessages-n": "Nove poruke ($1)",
-	"lqt_newmessages": "Nove poruke (nema)",
 	"lqt_newmessages-title": "Nove poruke",
 	"lqt-newpost-summary": "Nova dretva: $1",
 	"lqt-reply-summary": "Odgovor na [[$2|$1]]",

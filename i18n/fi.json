@@ -224,7 +224,6 @@
 	"lqt-feed-reply-intro": "Vastaa ketjuun $3 (sivulla $1), jonka on lähettänyt {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Näyttää uudet viestit ketjuihin tai ketjutetut keskustelusivut, joita tarkkailet",
 	"lqt-newmessages-n": "Uudet viestit ($1)",
-	"lqt_newmessages": "Ei uusia viestejä",
 	"lqt_newmessages-title": "Uudet viestit",
 	"lqt-newpost-summary": "Uusi ketju: $1",
 	"lqt-reply-summary": "Vastaa [[$2|$1]]",

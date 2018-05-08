@@ -201,7 +201,6 @@
 	"lqt-feed-title-replies": "{{SITENAME}} — ردود",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — ردود من $1",
 	"lqt-newmessages-n": "الرسائل الجديده ($1)",
-	"lqt_newmessages": "رسائل جديدة",
 	"lqt_newmessages-title": "رسائل جديدة",
 	"lqt-newpost-summary": "نقاش جديد: $1",
 	"lqt-reply-summary": "رد على [[$2|$1]]",

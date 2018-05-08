@@ -196,7 +196,6 @@
 	"lqt-feed-new-thread-intro": "Nuwe onderwerp deur $2 op $1",
 	"lqt-feed-reply-intro": "Antwoord op $3 (op $1) deur $2",
 	"lqt-newmessages-n": "Nuwe boodskappe ($1)",
-	"lqt_newmessages": "Nuwe boodskappe (geen)",
 	"lqt_newmessages-title": "Nuwe boodskappe",
 	"lqt-newpost-summary": "Nuwe onderwerp: $1",
 	"lqt-reply-summary": "Reaksie op [[$2|$1]]",

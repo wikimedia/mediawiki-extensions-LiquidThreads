@@ -213,7 +213,6 @@
 	"lqt-feed-reply-intro": "Rispòsta a $3 (su $1) mandà da {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "A mostra ij mëssagi neuv për soget o su pàgine ëd discussion an sël soget ch'a ten sot-euj",
 	"lqt-newmessages-n": "Mëssagi neuv ($1)",
-	"lqt_newmessages": "Mëssagi neuv (gnun)",
 	"lqt_newmessages-title": "Mëssagi neuv",
 	"lqt-newpost-summary": "Discussion neuva: $1",
 	"lqt-reply-summary": "Arspòsta a [[$2|$1]]",

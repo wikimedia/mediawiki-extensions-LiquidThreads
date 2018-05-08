@@ -136,7 +136,6 @@
 	"lqt-feed-title-replies": "{{SITENAME}} — উত্তর",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — $1 হতে উত্তর",
 	"lqt-newmessages-n": "নতুন বার্তা ($1)",
-	"lqt_newmessages": "নতুন বার্তা (নাই)",
 	"lqt_newmessages-title": "নতুন বার্তা",
 	"lqt-newpost-summary": "নতুন থ্রেড: $1",
 	"lqt-reply-summary": "[[$2|$1]] এর উত্তর",

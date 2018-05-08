@@ -217,7 +217,6 @@
 	"lqt-feed-reply-intro": "Balasan kepada $3 (di $1) dikirim oleh {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Menunjukkan kiriman baru pada tred atau laman perbincangan bertred yang anda pantau",
 	"lqt-newmessages-n": "Pesanan baru ($1)",
-	"lqt_newmessages": "Pesanan baru (tiada)",
 	"lqt_newmessages-title": "Pesanan baru",
 	"lqt-newpost-summary": "Tred baru: $1",
 	"lqt-reply-summary": "Balas [[$2|$1]]",

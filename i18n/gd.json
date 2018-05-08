@@ -216,7 +216,6 @@
 	"lqt-feed-reply-intro": "Freagairt do $3 (air $1) air a phostadh le {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Seall postaichean ùra do shnàithean no air duilleagan snàith na deasbaireachd a tha thu a' cumail sùil orra",
 	"lqt-newmessages-n": "Teachdaireachdan ùra ($1)",
-	"lqt_newmessages": "Teachdaireachdan ùra (chan eil gin)",
 	"lqt_newmessages-title": "Teachdaireachdan ùra",
 	"lqt-newpost-summary": "Snàth ùr: $1",
 	"lqt-reply-summary": "Freagair do [[$2|$1]]",

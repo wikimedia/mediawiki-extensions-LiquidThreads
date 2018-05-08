@@ -20,6 +20,7 @@
 	"lqt-history-time": "Tempo",
 	"lqt-history-user": "Uzero",
 	"lqt-history-comment": "Komento",
+	"lqt-no-threads": "Ne existas fili en ica pagino.",
 	"lqt-newmessages-from": "De $1",
 	"lqt-preference-notify-talk": "Sendez e-posto a me kande temo quan me surveyas chanjesos",
 	"prefs-lqt": "Diskuto ligita",
@@ -30,7 +31,6 @@
 	"lqt-drag-save": "Konfirmar",
 	"lqt-drag-reason": "Motivo:",
 	"lqt-newmessages-n": "($1) Nova mesaji",
-	"lqt_newmessages": "Nova mesaji (nula)",
 	"lqt_newmessages-title": "Nova mesaji",
 	"lqt-talkpage-history-subtitle": "Por $1"
 }

@@ -219,7 +219,6 @@
 	"lqt-feed-reply-intro": "Svar til $3 (på $1) skrevet af {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Viser nye indlæg i tråde eller på trådbaserede diskussionssider, du overvåger",
 	"lqt-newmessages-n": "Nye beskeder ($1)",
-	"lqt_newmessages": "Nye beskeder (ingen)",
 	"lqt_newmessages-title": "Nye beskeder",
 	"lqt-newpost-summary": "Ny tråd: $1",
 	"lqt-reply-summary": "Svar på [[$2|$1]]",

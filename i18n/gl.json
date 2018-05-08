@@ -222,7 +222,6 @@
 	"lqt-feed-reply-intro": "Resposta a \"$3\" (en \"$1\") publicada por {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Mostra as mensaxes novas nos fíos ou nas páxinas de conversa que está a vixiar",
 	"lqt-newmessages-n": "Mensaxes novas ($1)",
-	"lqt_newmessages": "Mensaxes novas (ningunha)",
 	"lqt_newmessages-title": "Mensaxes novas",
 	"lqt-newpost-summary": "Novo fío: $1",
 	"lqt-reply-summary": "Responder a [[$2|$1]]",

@@ -70,6 +70,5 @@
 	"lqt-log-action-move": "häd [[$1]] fon [[$2]] ätter [[$3]] ferskäuwen",
 	"lqt-log-action-split": "trände [[$1]] fon [[$3]] ou, näien Beträf is \"$2\"",
 	"lqt-log-action-subjectedit": "annerde dän Beträf fon [[$1]] fon \"$2\" ap \"$3\"",
-	"lqt-log-action-resort": "ferannerde dän Sortierkoai fon [[$1]]. Sortierkoai annerd fon $2 ätter $3",
-	"lqt_newmessages": "Näie Ättergjuchte"
+	"lqt-log-action-resort": "ferannerde dän Sortierkoai fon [[$1]]. Sortierkoai annerd fon $2 ätter $3"
 }

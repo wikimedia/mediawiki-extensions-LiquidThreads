@@ -217,7 +217,6 @@
 	"lqt-feed-reply-intro": "Balasan untuk $3 (pada $1) dikirim oleh $2",
 	"tooltip-pt-newmessages": "Menunjukkan kiriman baru pada utas atau halaman pembicaraan berutas yang Anda pantau",
 	"lqt-newmessages-n": "Pesan baru ($1)",
-	"lqt_newmessages": "Pesan baru saya (tidak ada)",
 	"lqt_newmessages-title": "Pesan baru",
 	"lqt-newpost-summary": "Utas baru: $1",
 	"lqt-reply-summary": "Balas ke [[$2|$1]]",

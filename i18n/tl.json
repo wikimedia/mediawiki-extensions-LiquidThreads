@@ -213,7 +213,6 @@
 	"lqt-feed-reply-intro": "Tugon sa $3 (na nasa $1) na ipinaskil ni {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Nagpapakita ng bagong mga pagpapaskil sa mga sinulid o sa ibabaw ng sinulidang mga pahina ng usapan na binabantayan mo",
 	"lqt-newmessages-n": "Bagong mga mensahe ($1)",
-	"lqt_newmessages": "Mga bagong mensahe ko (wala)",
 	"lqt_newmessages-title": "Bagong mga mensahe",
 	"lqt-newpost-summary": "Bagong sinulid: $1",
 	"lqt-reply-summary": "Tumugon sa [[$2|$1]]",

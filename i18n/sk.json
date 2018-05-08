@@ -215,7 +215,6 @@
 	"lqt-feed-reply-intro": "Odpoveď na $3 (na tému $1), ktorú poslal $2",
 	"tooltip-pt-newmessages": "Zobrazuje nové príspevky vo vláknach alebo na diskusných stránkach s vláknami, ktoré sledujete",
 	"lqt-newmessages-n": "{{PLURAL:$1|Nová správa|Nové správy}} ($1)",
-	"lqt_newmessages": "Moje nové správy (žiadne)",
 	"lqt_newmessages-title": "Nové správy",
 	"lqt-newpost-summary": "Nové vlákno: $1",
 	"lqt-reply-summary": "Odpoveď na [[$2|$1]]",

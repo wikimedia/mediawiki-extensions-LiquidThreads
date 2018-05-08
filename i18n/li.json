@@ -210,7 +210,6 @@
 	"lqt-feed-new-thread-intro": "Nuuj ongerwerp op $1 door $2",
 	"lqt-feed-reply-intro": "Reactie op $3 (op $1) door $2",
 	"lqt-newmessages-n": "Nuuj berichter ($1)",
-	"lqt_newmessages": "Mien nuuj berichte (gein)",
 	"lqt_newmessages-title": "nuuj berichte",
 	"lqt-newpost-summary": "Nuuj ongerwerp: $1",
 	"lqt-reply-summary": "Reactie op [[$2|$1]]",

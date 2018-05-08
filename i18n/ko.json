@@ -228,7 +228,6 @@
 	"lqt-feed-reply-intro": "$1 문서의 $3 스레드에 대한 {{GENDER:$4|$2}}님이 게시한 답글",
 	"tooltip-pt-newmessages": "주시하고 있는 스레드나 스레드 토론 문서의 새 글 보기",
 	"lqt-newmessages-n": "새 메시지 ($1)",
-	"lqt_newmessages": "새 메시지 (없음)",
 	"lqt_newmessages-title": "새 메시지",
 	"lqt-newpost-summary": "새 스레드: $1",
 	"lqt-reply-summary": "[[$2|$1]]에 대한 답변",

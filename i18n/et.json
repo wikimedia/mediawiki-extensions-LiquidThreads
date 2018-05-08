@@ -200,7 +200,6 @@
 	"lqt-feed-reply-intro": "Vastus, mille {{GENDER:$4|$2}} postitas lõimele $3 leheküljel $1",
 	"tooltip-pt-newmessages": "Näitab uusi sõnumeid lõimedes või lõimi sisaldaval aruteluleheküljel, mida jälgid",
 	"lqt-newmessages-n": "Uued sõnumid ($1)",
-	"lqt_newmessages": "Uued sõnumid (0)",
 	"lqt_newmessages-title": "Uued sõnumid",
 	"lqt-newpost-summary": "Uus lõim: $1",
 	"lqt-reply-summary": "Vastus lõimele [[$2|$1]]",

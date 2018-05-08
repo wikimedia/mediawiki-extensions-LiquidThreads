@@ -225,7 +225,6 @@
 	"lqt-feed-reply-intro": "Resposta a $3 (de $1) publicada per {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Mostra els nous missatges dels fils o pàgines de discussió que esteu vigilant",
 	"lqt-newmessages-n": "Missatges nous ($1)",
-	"lqt_newmessages": "Missatges nous (cap)",
 	"lqt_newmessages-title": "Missatges nous",
 	"lqt-newpost-summary": "Nou fil: $1",
 	"lqt-reply-summary": "Respon a [[$2|$1]]",

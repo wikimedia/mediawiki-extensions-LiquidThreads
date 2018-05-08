@@ -20,7 +20,6 @@
 	"lqt-feed-title-replies": "{{SITENAME}} — Atbildes",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Atbildes no $1",
 	"lqt-newmessages-n": "Jauni ziņojumi ($1)",
-	"lqt_newmessages": "Jauni ziņojumi (nav)",
 	"lqt_newmessages-title": "Jauni ziņojumi",
 	"lqt-newpost-summary": "Jauns pavediens: $1",
 	"lqt-reply-summary": "Rakstīt atbildi [[$2|$1]]",

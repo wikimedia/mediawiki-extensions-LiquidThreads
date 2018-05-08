@@ -217,7 +217,6 @@
 	"lqt-feed-reply-intro": "Wótegrono na $3 (na $1) wót {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Pokazujo nowe powěsći k nitkam abo na diskusijnych bokach nitkow, kótarež wobglědujoš",
 	"lqt-newmessages-n": "Nowe powěsći ($1)",
-	"lqt_newmessages": "Nowe powěsći (žedne)",
 	"lqt_newmessages-title": "Nowe powěsći",
 	"lqt-newpost-summary": "Nowa nitka: $1",
 	"lqt-reply-summary": "Wótegrono na [[$2|$1]]",
