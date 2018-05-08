@@ -74,7 +74,7 @@ class ApiThreadAction extends ApiEditPage {
 				'threads' => 'all',
 				'unreadlink' => [
 					'href' => SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL(),
-					'text' => wfMessage( 'lqt_newmessages' )->text(),
+					'text' => wfMessage( 'lqt-newmessages-n' )->numParams( 0 )->text(),
 					'active' => false,
 				]
 			];
@@ -89,7 +89,7 @@ class ApiThreadAction extends ApiEditPage {
 				];
 			}
 			$newMessagesCount = NewMessages::newMessageCount( $user, DB_MASTER );
-			$msgNewMessages = $newMessagesCount ? 'lqt-newmessages-n' : 'lqt_newmessages';
+			$msgNewMessages = 'lqt-newmessages-n';
 			// Only bother to put this on the last threadaction
 			$result[count( $result ) - 1]['unreadlink'] = [
 				'href' => SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL(),

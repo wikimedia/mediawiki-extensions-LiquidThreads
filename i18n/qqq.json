@@ -254,7 +254,6 @@
 	"lqt-feed-reply-intro": "Parameters:\n* $1 - a link to the talk page with the thread\n* $2 - a link to the user posting in the thread\n* $3 - a link to the super thread\n* $4 - the posting user in plain text, used for GENDER\nSee also:\n* {{msg-mw|Lqt-feed-new-thread-intro}} - if the thread does not have superthread",
 	"tooltip-pt-newmessages": "Tooltip shown when hovering the mouse over the link to your own new messages in the upper-side personal toolbox.",
 	"lqt-newmessages-n": "Link at the top of the page for logged-in users. Parameters:\n* $1 - the number of new messages\n{{Identical|New messages}}",
-	"lqt_newmessages": "{{Identical|New messages}}",
 	"lqt_newmessages-title": "{{doc-special|NewMessages}}\n{{Identical|New messages}}",
 	"lqt-newpost-summary": "Used as the edit summary, if the specified reason is empty.\n\nParameters:\n* $1 - thread subject",
 	"lqt-reply-summary": "Used on history page of message and thread. Parameters:\n* $1 - the title of the thread\n* $2 - the message to which this message is a reply",
