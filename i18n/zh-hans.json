@@ -235,7 +235,7 @@
 	"lqt-feed-new-thread-intro": "{{GENDER:$4|$2}}在$1上发起的新话题",
 	"lqt-feed-reply-intro": "{{GENDER:$4|$2}}在$1上对$3的回复",
 	"tooltip-pt-newmessages": "显示话题或您正在监视的话题讨论页中的新发言",
-	"lqt-newmessages-n": "新消息（$1）",
+	"lqt-newmessages-n": "新{{PLURAL:$1|消息}}（$1）",
 	"lqt_newmessages-title": "新信息",
 	"lqt-newpost-summary": "新话题：$1",
 	"lqt-reply-summary": "回复到[[$2|$1]]",

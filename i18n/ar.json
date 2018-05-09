@@ -227,7 +227,7 @@
 	"lqt-feed-new-thread-intro": "موضوع جديد في $1 من إرسال {{GENDER:$4|$2}}",
 	"lqt-feed-reply-intro": "الرد على $3 (في $1) من إرسال {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "يظهر جديد ما نشر في المواضيع أو صفحات النقاش التي تراقبها",
-	"lqt-newmessages-n": "رسائل جديدة ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|رسائل}} جديدة ($1)",
 	"lqt_newmessages-title": "رسائل جديدة",
 	"lqt-newpost-summary": "نقاش جديد: $1",
 	"lqt-reply-summary": "رد على [[$2|$1]]",
