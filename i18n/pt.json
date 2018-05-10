@@ -12,7 +12,8 @@
 			"SandroHc",
 			"555",
 			"Vitorvicentevalente",
-			"He7d3r"
+			"He7d3r",
+			"Athena in Wonderland"
 		]
 	},
 	"lqt-desc": "Adiciona discussões em formato de tópicos às páginas de discussão",
@@ -228,7 +229,7 @@
 	"lqt-feed-new-thread-intro": "Novo tópico em $1 colocado por {{GENDER:$4|$2}}",
 	"lqt-feed-reply-intro": "Resposta a $3 (em $1) colocada por {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Mostra as mensagens novas nos tópicos, ou nas páginas de discussão por tópicos, que está a vigiar",
-	"lqt-newmessages-n": "Mensagens novas ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Mensagem nova|Mensagens novas}} ($1)",
 	"lqt_newmessages-title": "Novas mensagens",
 	"lqt-newpost-summary": "Tópico novo: $1",
 	"lqt-reply-summary": "Resposta a [[$2|$1]]",
