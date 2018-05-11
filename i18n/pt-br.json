@@ -13,7 +13,8 @@
 			"He7d3r",
 			"Araceletorres",
 			"!Silent",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"lqt-desc": "Adiciona discussões em tópicos a páginas de discussão",
@@ -229,7 +230,7 @@
 	"lqt-feed-new-thread-intro": "Novo tópico em $1 postado por {{GENDER:$4|$2}}",
 	"lqt-feed-reply-intro": "Resposta a $3 (em $1) enviada por {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Mostra, nas páginas que estiver vigiando, mensagens novas nos tópicos ou páginas de discussão por tópicos",
-	"lqt-newmessages-n": "Novas mensagens ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Mensagem nova|Mensagens novas}} ($1)",
 	"lqt_newmessages-title": "Novas mensagens",
 	"lqt-newpost-summary": "Tópico novo: $1",
 	"lqt-reply-summary": "Resposta a [[$2|$1]]",

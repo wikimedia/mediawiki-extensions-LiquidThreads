@@ -6,7 +6,8 @@
 			"Mach",
 			"Rapsar",
 			"Srhat",
-			"Vito Genovese"
+			"Vito Genovese",
+			"Hedda"
 		]
 	},
 	"lqt-desc": "Tartışma sayfalarına diziler halinde tartışmalar ekler",
@@ -212,7 +213,7 @@
 	"lqt-feed-title-replies-from": "{{SITENAME}} — $1 sayfaları için cevaplar",
 	"lqt-feed-new-thread-intro": "$1 sayfasına $2 tarafından yeni bir ileti dizisi gönderildi",
 	"lqt-feed-reply-intro": "$3 ileti dizisine cevap ($1 sayfasında) $2 tarafından gönderildi",
-	"lqt-newmessages-n": "Yeni mesaj ($1)",
+	"lqt-newmessages-n": "Yeni {{PLURAL:$1|mesaj|mesaj}} ($1)",
 	"lqt_newmessages-title": "Yeni mesaj",
 	"lqt-newpost-summary": "Yeni ileti dizisi: $1",
 	"lqt-reply-summary": "[[$2|$1]] ileti dizisine cevap ver",
