@@ -12,7 +12,8 @@
 			"Solde",
 			"Ssola",
 			"Toniher",
-			"Vriullop"
+			"Vriullop",
+			"Fitoschido"
 		]
 	},
 	"lqt-desc": "Afegeix fils de discussió a les pàgines de discussió",
@@ -224,7 +225,7 @@
 	"lqt-feed-new-thread-intro": "Nou fil a $1 publicat per {{GENDER:$4|$2}}",
 	"lqt-feed-reply-intro": "Resposta a $3 (de $1) publicada per {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Mostra els nous missatges dels fils o pàgines de discussió que esteu vigilant",
-	"lqt-newmessages-n": "Missatges nous ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Missatge nou|Missatges nous}} ($1)",
 	"lqt_newmessages-title": "Missatges nous",
 	"lqt-newpost-summary": "Nou fil: $1",
 	"lqt-reply-summary": "Respon a [[$2|$1]]",
