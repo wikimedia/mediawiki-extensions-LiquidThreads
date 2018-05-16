@@ -235,7 +235,7 @@
 	"lqt-feed-new-thread-intro": "Ny tråd på $1 skapades av {{GENDER:$4|$2}}",
 	"lqt-feed-reply-intro": "Svar till $3 (på $1) skrivet av {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Visar nya inlägg i trådar eller trådade diskussionssidor du bevakar",
-	"lqt-newmessages-n": "Nya meddelanden ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Nytt meddelande|Nya meddelanden}} ($1)",
 	"lqt_newmessages-title": "Nya meddelanden",
 	"lqt-newpost-summary": "Ny tråd: $1",
 	"lqt-reply-summary": "Svar på [[$2|$1]]",
