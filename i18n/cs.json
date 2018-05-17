@@ -6,7 +6,8 @@
 			"Mormegil",
 			"Reaperman",
 			"Tchoř",
-			"Matěj Suchánek"
+			"Matěj Suchánek",
+			"Dvorapa"
 		]
 	},
 	"lqt-desc": "Umožňuje uspořádávat diskusní stránky do vláken",
@@ -221,7 +222,7 @@
 	"lqt-feed-new-thread-intro": "$2 {{GENDER:$4|přidal|přidala|přidal}} do $1 nové vlákno",
 	"lqt-feed-reply-intro": "$2 {{GENDER:$4|reagoval|reagovala|reagoval}} na $3 (v $1)",
 	"tooltip-pt-newmessages": "Zobrazí nové zprávy ve vláknech nebo na diskusních stránkách, které sledujete",
-	"lqt-newmessages-n": "Nové zprávy ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Nová zpráva|Nové zprávy}} ($1)",
 	"lqt_newmessages-title": "Nové zprávy",
 	"lqt-newpost-summary": "Nové vlákno: $1",
 	"lqt-reply-summary": "Odpověď na [[$2|$1]]",
