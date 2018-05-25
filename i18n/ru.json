@@ -16,7 +16,8 @@
 			"VasilievVV",
 			"Александр Сигачёв",
 			"NBS",
-			"Smigles"
+			"Smigles",
+			"Ole Yves"
 		]
 	},
 	"lqt-desc": "Добавляет на страницы обсуждения ветки (потоки) обсуждений",
@@ -231,7 +232,7 @@
 	"lqt-feed-new-thread-intro": "Новая ветка в $1, {{GENDER:$4|написал|написала}} $2",
 	"lqt-feed-reply-intro": "Ответ на $3 (в $1), {{GENDER:$4|написал|написала}} $2",
 	"tooltip-pt-newmessages": "Показывает новые сообщения на ветках и нитях обсуждений, за которыми вы наблюдаете",
-	"lqt-newmessages-n": "Новые сообщения ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Новое сообщение|Новые сообщения}} ($1)",
 	"lqt_newmessages-title": "Новые сообщения",
 	"lqt-newpost-summary": "Новая ветка: $1",
 	"lqt-reply-summary": "Ответ на [[$2|$1]]",
