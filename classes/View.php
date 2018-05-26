@@ -98,8 +98,8 @@ class LqtView {
 	/**
 	 * Gets an array of (title, query-parameters) for a permalink
 	 * @param Thread $thread
-	 * @param string $method
-	 * @param string $operand
+	 * @param string|null $method
+	 * @param string|null $operand
 	 * @throws MWException
 	 * @return array
 	 */
@@ -182,7 +182,7 @@ class LqtView {
 	/**
 	 * @param thread $thread
 	 * @param string $contextType
-	 * @param string $text
+	 * @param string|null $text
 	 * @return mixed
 	 */
 	static function linkInContext( Thread $thread, $contextType = 'page', $text = null ) {
@@ -271,8 +271,8 @@ class LqtView {
 
 	/**
 	 * @param Title $title
-	 * @param string $method
-	 * @param string $operand
+	 * @param string|null $method
+	 * @param string|null $operand
 	 * @param bool $includeFragment
 	 * @param bool $perpetuateOffset
 	 * @return array
@@ -324,8 +324,8 @@ class LqtView {
 	 * If you want $perpetuateOffset to perpetuate from a specific request,
 	 * pass that instead of true
 	 * @param Title $title
-	 * @param string $method
-	 * @param string $operand
+	 * @param string|null $method
+	 * @param string|null $operand
 	 * @param bool $includeFragment
 	 * @param bool $perpetuateOffset
 	 * @return string
@@ -1448,7 +1448,7 @@ class LqtView {
 
 	/**
 	 * @param mixed $post
-	 * @param int $oldid
+	 * @param int|null $oldid
 	 * @return bool false if the article and revision do not exist. The HTML of the page to
 	 * display if it exists. Note that this impacts the state out OutputPage by adding
 	 * all the other relevant parts of the parser output. If you don't want this, call
