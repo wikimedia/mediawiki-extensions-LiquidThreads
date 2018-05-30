@@ -13,7 +13,8 @@
 			"Ата",
 			"Тест",
 			"Ahonc",
-			"Piramidion"
+			"Piramidion",
+			"Movses"
 		]
 	},
 	"lqt-desc": "Додає на сторінки обговорень теми обговорень",
@@ -229,7 +230,7 @@
 	"lqt-feed-new-thread-intro": "$2 {{GENDER:$4|розпочав|розпочала}} нову тему на $1",
 	"lqt-feed-reply-intro": "Відповідь на $3 (у $1), {{GENDER:$4|розмістив|розмістила}} $2",
 	"tooltip-pt-newmessages": "Показує нові повідомлення в темах обговорень, за якими ви слідкуєте",
-	"lqt-newmessages-n": "Нові повідомлення ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Нове повідомлення|Нові повідомлення ($1)}}",
 	"lqt_newmessages-title": "Нові повідомлення",
 	"lqt-newpost-summary": "Нова тема: $1",
 	"lqt-reply-summary": "Відповідь на [[$2|$1]]",
