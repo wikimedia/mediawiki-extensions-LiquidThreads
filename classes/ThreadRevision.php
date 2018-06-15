@@ -88,7 +88,7 @@ class ThreadRevision {
 		}
 
 		// This field is TINYTEXT so it can only fit 255 bytes.
-		$rev->mChangeComment = $wgContLang->truncate( $comment, 255 );
+		$rev->mChangeComment = $wgContLang->truncateForDatabase( $comment, 255 );
 
 		$rev->mThreadObj = $thread->topmostThread();
 		$rev->mObjSer = serialize( $rev->mThreadObj );

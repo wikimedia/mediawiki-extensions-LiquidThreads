@@ -67,7 +67,7 @@ class LqtHooks {
 
 			// add the truncated post content
 			$quote = ContentHandler::getContentText( $thread->root()->getPage()->getContent() );
-			$quote = $wgLang->truncate( $quote, 200 );
+			$quote = $wgLang->truncateForVisual( $quote, 200 );
 			$s .= ' ' . Linker::commentBlock( $quote );
 
 			$classes = [];
