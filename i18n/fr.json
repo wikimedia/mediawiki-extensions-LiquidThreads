@@ -23,7 +23,8 @@
 			"Wladek92",
 			"Pols12",
 			"Derugon",
-			"Thibaut120094"
+			"Thibaut120094",
+			"Niridya"
 		]
 	},
 	"lqt-desc": "Ajoute des fils de discussion dans les pages de discussion",
@@ -239,7 +240,7 @@
 	"lqt-feed-new-thread-intro": "Nouveau fil de discussion sur $1 publié par {{GENDER:$4|$2}}",
 	"lqt-feed-reply-intro": "Réponse à $3 (sur $1) publiée par {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Montre les nouveaux messages sur les sujets ou sur les pages de discussions que vous suivez",
-	"lqt-newmessages-n": "Nouveau{{PLURAL:$1| message|x messages}} ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Nouveau message|Nouveaux messages}} ($1)",
 	"lqt_newmessages-title": "Nouveaux messages",
 	"lqt-newpost-summary": "Nouveau fil : $1",
 	"lqt-reply-summary": "Répondre à [[$2|$1]]",
