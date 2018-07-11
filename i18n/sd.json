@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mehtab ahmed"
+			"Mehtab ahmed",
+			"BukhariSaeed"
 		]
 	},
 	"lqt_youhavenewmessages": "توھان لاءِ [[$1|نوان نياپا]] آھن.",
@@ -10,5 +11,6 @@
 	"lqt-save-subject": "سانڍيو",
 	"lqt-drag-save": "پڪ ڪريو",
 	"lqt-newmessages-n": "($1) نوان پيغام",
-	"lqt_newmessages-title": "نوان پيغام"
+	"lqt_newmessages-title": "نوان پيغام",
+	"nstab-summary": "خلاصو"
 }
