@@ -249,7 +249,7 @@
 	"apihelp-query+threads-param-startid": "ID začetne teme številčenja.",
 	"apihelp-query+threads-param-endid": "ID končne teme številčenja.",
 	"apihelp-query+threads-param-showdeleted": "Prikazati ali neprikazati izbrisane teme.",
-	"apihelp-query+threads-param-limit": "Največje število razprav na seznamu.",
+	"apihelp-query+threads-param-limit": "Največje število tem na seznamu.",
 	"apihelp-query+threads-param-prop": "Katere lastnosti naj se izpišejo.",
 	"apihelp-query+threads-param-page": "Prikaži samo teme teh strani.",
 	"apihelp-query+threads-param-author": "Prikaži samo teme določenih avtorjev.",
