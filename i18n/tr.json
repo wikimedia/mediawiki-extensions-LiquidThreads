@@ -71,7 +71,7 @@
 	"lqt_protectedfromreply_link": "koruma altında",
 	"lqt_subject": "Konu:",
 	"lqt_noreason": "Sebep belirtilmemiş.",
-	"lqt_move_placeholder": "Bu ileti dizisi, bir ileti dizisinin, $1, bu sayfadan başka bir tartışma sayfasına çıkarıldığını belirten bir yertutucudur.\nBu taşıma $3 $4 tarihinde $2 tarafından yapılmıştır. İleti dizisi şu anda $5 adresinde bulunuyor.",
+	"lqt_move_placeholder": "Bu mesaj dizisi, bir mesaj dizisinin, $1, bu sayfadan başka bir tartışma sayfasına çıkarıldığını belirten bir yer tutucudur.\nBu taşıma $3 $4 tarihinde $2 tarafından yapılmıştır. Mesaj dizisi şu anda $5 adresinde bulunuyor.",
 	"lqt_thread_deleted_for_sysops": "Bu ileti dizisi '''silinmiş''' ve sadece yöneticiler tarafından görülebilir.",
 	"lqt_thread_deleted": "Bu ileti dizisi silinmiş.",
 	"lqt_summary_notice": "Bu tartışmada en az $2 {{PLURAL:$2|gündür|gündür}} hiçbir değişiklik yok.\nEğer sonlandıysa, $1 isteyebilirsiniz.",
