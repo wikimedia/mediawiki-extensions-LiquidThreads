@@ -107,6 +107,7 @@ class LqtDiscussionPager extends IndexPager {
 	 * A navigation bar with images
 	 * Stolen from TablePager because it's pretty.
 	 * @return string
+	 * @suppress SecurityCheck-XSS See T201811 for more information
 	 */
 	function getNavigationBar() {
 		if ( method_exists( $this, 'isNavigationBarShown' ) &&

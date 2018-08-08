@@ -217,6 +217,10 @@ class TalkpageView extends LqtView {
 		return $html;
 	}
 
+	/**
+	 * @return bool
+	 * @suppress SecurityCheck-XSS See T201811 for more information
+	 */
 	function show() {
 		$this->output->addModules( 'ext.liquidThreads' );
 

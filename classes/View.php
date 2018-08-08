@@ -1474,6 +1474,7 @@ class LqtView {
 	/**
 	 * @param Thread $thread
 	 * @return string
+	 * @suppress SecurityCheck-DoubleEscaped
 	 */
 	function showThreadToolbar( $thread ) {
 		$html = '';
@@ -1835,6 +1836,7 @@ class LqtView {
 	 * Shows a single thread, rather than a thread tree.
 	 *
 	 * @param Thread $thread
+	 * @suppress SecurityCheck-XSS
 	 */
 	function showSingleThread( $thread ) {
 		$html = '';
