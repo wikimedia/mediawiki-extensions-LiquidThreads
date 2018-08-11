@@ -130,7 +130,7 @@
 	"lqt-history-action": "활동",
 	"lqt-history-comment": "요약",
 	"lqt-history-thread": "스레드",
-	"lqt-thread-edited-author": "저자가 편집했습니다.<br />\n마지막 편집: $1",
+	"lqt-thread-edited-author": "{{GENDER:$5|저자}}가 편집했습니다.<br />\n마지막 편집: $1",
 	"lqt-thread-edited-others": "{{PLURAL:$2|다른 사용자가|사용자 $2명이}} 편집했습니다.<br />\n마지막 편집: $1",
 	"lqt-header-actions": "동작",
 	"lqt_summarize_link": "요약",
