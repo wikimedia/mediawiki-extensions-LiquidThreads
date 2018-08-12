@@ -45,7 +45,7 @@ class TalkpageHeaderView extends LqtView {
 				null,
 				wfMessage( 'lqt_header_warning_big' )->rawParams( $warn_bold, $warn_link )->parse()
 			);
-			$html .= wfMessage( 'word-separator' )->text();
+			$html .= wfMessage( 'word-separator' )->escaped();
 			$html .= wfMessage( 'lqt_header_warning_after_big' )
 				->rawParams( $warn_bold, $warn_link )->parse();
 
