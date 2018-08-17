@@ -285,6 +285,7 @@
 	"apihelp-query+threads-param-root": "Begrenze die Ergebnisse für Themen durch die angegebenen Ursprünge.",
 	"apihelp-query+threads-param-summary": "Begrenze die Ergebnisse für Themen auf diese, welche sich auf die angegebenen Zusammenfassungsseiten beziehen.",
 	"apihelp-query+threads-param-id": "Threads mit den angegebenen Kennungen abrufen.",
+	"apihelp-query+threads-param-render": "Ob der gerenderte Thread in den Ergebnissen eingeschlossen werden soll.",
 	"apihelp-query+threads-example-1": "Listet Threads auf [[Talk:Main Page]] auf",
 	"apihelp-query+threads-example-2": "Listet Threads mit den Kennungen 1, 2, 3 und 4 auf",
 	"apihelp-threadaction-param-threadaction": "Die auszuführende Aktion.",
