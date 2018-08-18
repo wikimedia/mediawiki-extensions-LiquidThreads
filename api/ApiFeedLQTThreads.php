@@ -170,11 +170,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		foreach ( $talkpages as $page ) {
 			$title = Title::newFromText( $page );
 			if ( !$title ) {
-				if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-					$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $page ) ] );
-				} else {
-					$this->dieUsageMsg( [ 'invalidtitle', $page ] );
-				}
+				$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $page ) ] );
 			}
 			$pageCond = [
 				'thread_article_namespace' => $title->getNamespace(),

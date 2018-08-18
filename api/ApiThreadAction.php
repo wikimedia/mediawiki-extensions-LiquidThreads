@@ -31,16 +31,10 @@ class ApiThreadAction extends ApiEditPage {
 						&& !LqtDispatch::isLqtPage( $threadObj->getTitle() )
 					) {
 						$articleTitleDBKey = $threadObj->getTitle()->getDBkey();
-						if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-							$this->dieWithError( [
-								'lqt-not-a-liquidthreads-page',
-								wfEscapeWikiText( $articleTitleDBKey )
-							] );
-						} else {
-							$message = wfMessage(
-								'lqt-not-a-liquidthreads-page', $articleTitleDBKey )->text();
-							$this->dieUsageMsg( $message );
-						}
+						$this->dieWithError( [
+							'lqt-not-a-liquidthreads-page',
+							wfEscapeWikiText( $articleTitleDBKey )
+						] );
 					}
 				}
 			}
@@ -123,41 +117,21 @@ class ApiThreadAction extends ApiEditPage {
 
 	public function actionSplit( $threads, $params ) {
 		if ( count( $threads ) > 1 ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-onlyone', 'too-many-threads' );
-			} else {
-				$this->dieUsage( 'You may only split one thread at a time',
-					'too-many-threads' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-onlyone', 'too-many-threads' );
 		} elseif ( count( $threads ) < 1 ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError(
-					'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
-			} else {
-				$this->dieUsage( 'You must specify a thread to split',
-					'no-specified-threads' );
-			}
+			$this->dieWithError(
+				'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
 		}
 
 		$thread = array_pop( $threads );
 
 		$errors = $thread->title()->getUserPermissionsErrors( 'lqt-split', $this->getUser() );
 		if ( $errors ) {
-			if ( is_callable( [ $this, 'errorArrayToStatus' ] ) ) {
-				$this->dieStatus( $this->errorArrayToStatus( $errors ) );
-			} else {
-				// We don't care about multiple errors, just report one of them
-				$this->dieUsageMsg( reset( $errors ) );
-			}
+			$this->dieStatus( $this->errorArrayToStatus( $errors ) );
 		}
 
 		if ( $thread->isTopmostThread() ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-alreadytop', 'already-top-level' );
-			} else {
-				$this->dieUsage( 'This thread is already a top-level thread.',
-					'already-top-level' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-alreadytop', 'already-top-level' );
 		}
 
 		$title = null;
@@ -165,12 +139,7 @@ class ApiThreadAction extends ApiEditPage {
 		if ( empty( $params['subject'] ) ||
 			!Thread::validateSubject( $params['subject'], $title, null, $article )
 		) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-nosubject', 'no-valid-subject' );
-			} else {
-				$this->dieUsage( 'No subject, or an invalid subject, was specified',
-					'no-valid-subject' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-nosubject', 'no-valid-subject' );
 		}
 
 		$subject = $params['subject'];
@@ -208,21 +177,11 @@ class ApiThreadAction extends ApiEditPage {
 
 	public function actionMerge( $threads, $params ) {
 		if ( count( $threads ) < 1 ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
-			} else {
-				$this->dieUsage( 'You must specify a thread to merge',
-					'no-specified-threads' );
-			}
+			$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
 		}
 
 		if ( empty( $params['newparent'] ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieUsage( 'apierror-liquidthreads-noparent', 'no-parent-thread' );
-			} else {
-				$this->dieUsage( 'You must specify a new parent thread to merge beneath',
-					'no-parent-thread' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-noparent', 'no-parent-thread' );
 		}
 
 		$newParent = $params['newparent'];
@@ -236,21 +195,11 @@ class ApiThreadAction extends ApiEditPage {
 
 		$errors = $newParent->title()->getUserPermissionsErrors( 'lqt-merge', $this->getUser() );
 		if ( $errors ) {
-			if ( is_callable( [ $this, 'errorArrayToStatus' ] ) ) {
-				$this->dieStatus( $this->errorArrayToStatus( $errors ) );
-			} else {
-				// We don't care about multiple errors, just report one of them
-				$this->dieUsageMsg( reset( $errors ) );
-			}
+			$this->dieStatus( $this->errorArrayToStatus( $errors ) );
 		}
 
 		if ( !$newParent ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-badparent', 'invalid-parent-thread' );
-			} else {
-				$this->dieUsage( 'The parent thread you specified was neither the title ' .
-					'of a thread, nor a thread ID.', 'invalid-parent-thread' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-badparent', 'invalid-parent-thread' );
 		}
 
 		// Pull a reason, if applicable.
@@ -282,44 +231,26 @@ class ApiThreadAction extends ApiEditPage {
 	public function actionNewThread( $threads, $params ) {
 		// Validate talkpage parameters
 		if ( !count( $params['talkpage'] ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( [ 'apierror-missingparam', 'talkpage' ] );
-			} else {
-				$this->dieUsageMsg( [ 'missingparam', 'talkpage' ] );
-			}
+			$this->dieWithError( [ 'apierror-missingparam', 'talkpage' ] );
 		}
 
 		$talkpageTitle = Title::newFromText( $params['talkpage'] );
 
 		if ( !$talkpageTitle || !LqtDispatch::isLqtPage( $talkpageTitle ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-invalidtalkpage', 'invalid-talkpage' );
-			} else {
-				$this->dieUsage( 'The talkpage you specified is invalid, or does not ' .
-					'have discussion threading enabled.', 'invalid-talkpage' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-invalidtalkpage', 'invalid-talkpage' );
 		}
 		$talkpage = new Article( $talkpageTitle, 0 );
 
 		// Check if we can post.
 		$user = $this->getUser();
 		if ( Thread::canUserPost( $user, $talkpage ) !== true ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError(
-					'apierror-liquidthreads-talkpageprotected', 'talkpage-protected' );
-			} else {
-				$this->dieUsage( 'You cannot post to the specified talkpage, ' .
-					'because it is protected from new posts', 'talkpage-protected' );
-			}
+			$this->dieWithError(
+				'apierror-liquidthreads-talkpageprotected', 'talkpage-protected' );
 		}
 
 		// Validate subject, generate a title
 		if ( empty( $params['subject'] ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( [ 'apierror-missingparam', 'subject' ] );
-			} else {
-				$this->dieUsageMsg( [ 'missingparam', 'subject' ] );
-			}
+			$this->dieWithError( [ 'apierror-missingparam', 'subject' ] );
 		}
 
 		$subject = $params['subject'];
@@ -327,22 +258,13 @@ class ApiThreadAction extends ApiEditPage {
 		$subjectOk = Thread::validateSubject( $subject, $title, null, $talkpage );
 
 		if ( !$subjectOk ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-badsubject', 'invalid-subject' );
-			} else {
-				$this->dieUsage( 'The subject you specified is not valid',
-					'invalid-subject' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-badsubject', 'invalid-subject' );
 		}
 		$article = new Article( $title, 0 );
 
 		// Check for text
 		if ( empty( $params['text'] ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-notext', 'no-text' );
-			} else {
-				$this->dieUsage( 'You must include text in your post', 'no-text' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-notext', 'no-text' );
 		}
 		$text = $params['text'];
 
@@ -426,20 +348,10 @@ class ApiThreadAction extends ApiEditPage {
 
 	public function actionEdit( $threads, $params ) {
 		if ( count( $threads ) > 1 ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-onlyone', 'too-many-threads' );
-			} else {
-				$this->dieUsage( 'You may only edit one thread at a time',
-					'too-many-threads' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-onlyone', 'too-many-threads' );
 		} elseif ( count( $threads ) < 1 ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError(
-					'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
-			} else {
-				$this->dieUsage( 'You must specify a thread to edit',
-					'no-specified-threads' );
-			}
+			$this->dieWithError(
+				'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
 		}
 
 		$thread = array_pop( $threads );
@@ -459,20 +371,12 @@ class ApiThreadAction extends ApiEditPage {
 		}
 
 		if ( !$subjectOk ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-badsubject', 'invalid-subject' );
-			} else {
-				$this->dieUsage( 'The subject you specified is not valid', 'invalid-subject' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-badsubject', 'invalid-subject' );
 		}
 
 		// Check for text
 		if ( empty( $params['text'] ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-notext', 'no-text' );
-			} else {
-				$this->dieUsage( 'You must include text in your post', 'no-text' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-notext', 'no-text' );
 		}
 		$text = $params['text'];
 
@@ -556,20 +460,10 @@ class ApiThreadAction extends ApiEditPage {
 	public function actionReply( $threads, $params ) {
 		// Validate thread parameter
 		if ( count( $threads ) > 1 ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-onlyone', 'too-many-threads' );
-			} else {
-				$this->dieUsage( 'You may only reply to one thread at a time',
-					'too-many-threads' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-onlyone', 'too-many-threads' );
 		} elseif ( count( $threads ) < 1 ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError(
-					'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
-			} else {
-				$this->dieUsage( 'You must specify a thread to reply to',
-					'no-specified-threads' );
-			}
+			$this->dieWithError(
+				'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
 		}
 		$replyTo = array_pop( $threads );
 
@@ -577,26 +471,16 @@ class ApiThreadAction extends ApiEditPage {
 		$user = $this->getUser();
 		$perm_result = $replyTo->canUserReply( $user );
 		if ( $perm_result !== true ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				// Messages: apierror-liquidthreads-noreplies-talkpage,
-				// apierror-liquidthreads-noreplies-thread
-				$this->dieWithError(
-					"apierror-liquidthreads-noreplies-{$perm_result}", "{$perm_result}-protected"
-				);
-			} else {
-				$this->dieUsage( "You cannot reply to this thread, because the " .
-					$perm_result . " is protected from replies.",
-					$perm_result . '-protected' );
-			}
+			// Messages: apierror-liquidthreads-noreplies-talkpage,
+			// apierror-liquidthreads-noreplies-thread
+			$this->dieWithError(
+				"apierror-liquidthreads-noreplies-{$perm_result}", "{$perm_result}-protected"
+			);
 		}
 
 		// Validate text parameter
 		if ( empty( $params['text'] ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-notext', 'no-text' );
-			} else {
-				$this->dieUsage( 'You must include text in your post', 'no-text' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-notext', 'no-text' );
 		}
 
 		$text = $params['text'];
@@ -727,40 +611,21 @@ class ApiThreadAction extends ApiEditPage {
 	public function actionSetSubject( $threads, $params ) {
 		// Validate thread parameter
 		if ( count( $threads ) > 1 ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-onlyone', 'too-many-threads' );
-			} else {
-				$this->dieUsage( 'You may only change the subject of one thread at a time',
-					'too-many-threads' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-onlyone', 'too-many-threads' );
 		} elseif ( count( $threads ) < 1 ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError(
-					'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
-			} else {
-				$this->dieUsage( 'You must specify a thread to change the subject of',
-					'no-specified-threads' );
-			}
+			$this->dieWithError(
+				'apierror-liquidthreads-threadneeded', 'no-specified-threads' );
 		}
 		$thread = array_pop( $threads );
 
 		$errors = $thread->title()->getUserPermissionsErrors( 'edit', $this->getUser() );
 		if ( $errors ) {
-			if ( is_callable( [ $this, 'errorArrayToStatus' ] ) ) {
-				$this->dieStatus( $this->errorArrayToStatus( $errors ) );
-			} else {
-				// We don't care about multiple errors, just report one of them
-				$this->dieUsageMsg( reset( $errors ) );
-			}
+			$this->dieStatus( $this->errorArrayToStatus( $errors ) );
 		}
 
 		// Validate subject
 		if ( empty( $params['subject'] ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( [ 'apierror-missingparam', 'subject' ] );
-			} else {
-				$this->dieUsageMsg( [ 'missingparam', 'subject' ] );
-			}
+			$this->dieWithError( [ 'apierror-missingparam', 'subject' ] );
 		}
 
 		$talkpage = $thread->article();
@@ -770,12 +635,7 @@ class ApiThreadAction extends ApiEditPage {
 		$subjectOk = Thread::validateSubject( $subject, $title, null, $talkpage );
 
 		if ( !$subjectOk ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-badsubject', 'invalid-subject' );
-			} else {
-				$this->dieUsage( 'The subject you specified is not valid',
-					'invalid-subject' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-badsubject', 'invalid-subject' );
 		}
 
 		$reason = null;
@@ -805,23 +665,12 @@ class ApiThreadAction extends ApiEditPage {
 	public function actionSetSortkey( $threads, $params ) {
 		// First check for threads
 		if ( !count( $threads ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
-			} else {
-				$this->dieUsage( 'You must specify a thread to set the sortkey of',
-					'no-specified-threads' );
-			}
+			$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
 		}
 
 		// Validate timestamp
 		if ( empty( $params['sortkey'] ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-badsortkey', 'invalid-sortkey' );
-			} else {
-				$this->dieUsage( 'You must specify a valid timestamp for the sortkey ' .
-					'parameter. It should be in the form YYYYMMddhhmmss, a ' .
-					'unix timestamp or "now".', 'invalid-sortkey' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-badsortkey', 'invalid-sortkey' );
 		}
 
 		$ts = $params['sortkey'];
@@ -833,13 +682,7 @@ class ApiThreadAction extends ApiEditPage {
 		$ts = wfTimestamp( TS_MW, $ts );
 
 		if ( !$ts ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-badsortkey', 'invalid-sortkey' );
-			} else {
-				$this->dieUsage( 'You must specify a valid timestamp for the sortkey' .
-					'parameter. It should be in the form YYYYMMddhhmmss, a ' .
-					'unix timestamp or "now".', 'invalid-sortkey' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-badsortkey', 'invalid-sortkey' );
 		}
 
 		$reason = null;
@@ -852,12 +695,7 @@ class ApiThreadAction extends ApiEditPage {
 
 		$errors = $thread->title()->getUserPermissionsErrors( 'edit', $this->getUser() );
 		if ( $errors ) {
-			if ( is_callable( [ $this, 'errorArrayToStatus' ] ) ) {
-				$this->dieStatus( $this->errorArrayToStatus( $errors ) );
-			} else {
-				// We don't care about multiple errors, just report one of them
-				$this->dieUsageMsg( reset( $errors ) );
-			}
+			$this->dieStatus( $this->errorArrayToStatus( $errors ) );
 		}
 
 		$thread->setSortkey( $ts );
@@ -878,31 +716,15 @@ class ApiThreadAction extends ApiEditPage {
 
 	public function actionAddReaction( $threads, $params ) {
 		if ( !count( $threads ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
-			} else {
-				$this->dieUsage( 'You must specify a thread to add a reaction for',
-					'no-specified-threads' );
-			}
+			$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
 		}
 
-		if ( is_callable( [ $this, 'checkUserRightsAny' ] ) ) {
-			$this->checkUserRightsAny( 'lqt-react' );
-		} else {
-			if ( ! $this->getUser()->isAllowed( 'lqt-react' ) ) {
-				$this->dieUsage( 'You are not allowed to react to threads.', 'permission-denied' );
-			}
-		}
+		$this->checkUserRightsAny( 'lqt-react' );
 
 		$required = [ 'type', 'value' ];
 
 		if ( count( array_diff( $required, array_keys( $params ) ) ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-badreaction', 'missing-parameter' );
-			} else {
-				$this->dieUsage( 'You must specify both a type and a value for the reaction',
-					'missing-parameter' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-badreaction', 'missing-parameter' );
 		}
 
 		$result = [];
@@ -923,32 +745,16 @@ class ApiThreadAction extends ApiEditPage {
 
 	public function actionDeleteReaction( $threads, $params ) {
 		if ( !count( $threads ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
-			} else {
-				$this->dieUsage( 'You must specify a thread to delete a reaction for',
-					'no-specified-threads' );
-			}
+			$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
 		}
 
 		$user = $this->getUser();
-		if ( is_callable( [ $this, 'checkUserRightsAny' ] ) ) {
-			$this->checkUserRightsAny( 'lqt-react' );
-		} else {
-			if ( ! $user->isAllowed( 'lqt-react' ) ) {
-				$this->dieUsage( 'You are not allowed to react to threads.', 'permission-denied' );
-			}
-		}
+		$this->checkUserRightsAny( 'lqt-react' );
 
 		$required = [ 'type', 'value' ];
 
 		if ( count( array_diff( $required, array_keys( $params ) ) ) ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( 'apierror-liquidthreads-badreaction', 'missing-parameter' );
-			} else {
-				$this->dieUsage( 'You must specify both a type and a value for the reaction',
-					'missing-parameter' );
-			}
+			$this->dieWithError( 'apierror-liquidthreads-badreaction', 'missing-parameter' );
 		}
 
 		$result = [];
