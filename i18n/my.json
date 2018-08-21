@@ -1,10 +1,35 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"Dr Lotus Black"
 		]
 	},
+	"lqt_toc_thread_modified": "နောက်ဆုံး ပြုပြင်မှု",
+	"lqt_discussion_link": "ဆွေးနွေးချက်",
+	"lqt_from_talk": "$1 မှ",
+	"lqt_move_move": "ရွှေ့ရန်",
+	"lqt-title": "ခေါင်းစဉ်",
 	"lqt-summary": "အကျဉ်းချုပ်",
+	"lqt-thread-created": "ဖန်တီးခဲ့သည်",
+	"lqt-history-time": "အချိန်",
+	"lqt-history-user": "အသုံးပြုသူ",
+	"lqt-history-comment": "မှတ်ချက်",
+	"lqt-movethread": "ရွှေ့ရန်",
+	"lqt-menu-trigger": "ပို၍",
+	"lqt-newmessages-from": "$1 မှ",
+	"lqt-merge-submit": "ပေါင်းစပ်ရန်",
+	"lqt-preference-notify-talk": "ကျွန်ုပ်စောင့်ကြည့်နေသော ဆောင်းပါးတစ်ခုတွင် ပြန်စာများရောက်ပါက အီးမေးလ်ပို့ရန်",
 	"lqt-search-button": "ရှာဖွေရန်",
+	"searchprofile-threads": "ဆွေးနွေးချက်များ",
+	"lqt-ajax-update-link": "မွမ်းမံ",
+	"lqt-save-subject": "သိမ်းရန်",
+	"lqt-cancel-subject-edit": "မလုပ်တော့ပါ",
+	"lqt-drag-save": "အတည်ပြု",
+	"lqt-drag-reason": "အ​ကြောင်း​ပြ​ချက်:",
+	"lqt-edit-signature": "(လက်မှတ် တည်းဖြတ်)",
+	"lqt-preview-signature": "(အကြိုအစမ်းကြည့်)",
+	"lqt_newmessages-title": "မက်ဆေ့ အသစ်များ",
+	"lqt-talkpage-history-subtitle": "$1 အတွက်",
 	"nstab-summary": "အကျဉ်းချုပ်"
 }
