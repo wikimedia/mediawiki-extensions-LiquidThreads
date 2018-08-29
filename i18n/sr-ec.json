@@ -44,7 +44,7 @@
 	"lqt_hist_moved_talkpage": "Премештено",
 	"lqt_hist_listing_subtitle": "Прегледање излиставања историје",
 	"lqt_hist_view_whole_thread": "Историја целог низа",
-	"lqt_hist_no_revisions_error": "Овај низ нема ни једну ревизију у историји.",
+	"lqt_hist_no_revisions_error": "Овај низ нема ни једну измену у историји.",
 	"lqt_hist_past_last_page_error": "Ви сте изнад броја страница историје које постоје.",
 	"lqt_hist_tooltip_newer_disabled": "Овај линк је онемогућен јер сте на првој страници.",
 	"lqt_hist_tooltip_older_disabled": "Овај линк је онемогућен јер сте на последњој страници.",
