@@ -253,7 +253,7 @@ class LqtView {
 		return self::permalink( $thread, $text, null, null, null, [], $query );
 	}
 
-	static function talkpageLink( $title, $text = null , $method = null, $operand = null,
+	static function talkpageLink( $title, $text = null, $method = null, $operand = null,
 		$includeFragment = true, $attribs = [],
 		$options = [], $perpetuateOffset = true
 	) {
