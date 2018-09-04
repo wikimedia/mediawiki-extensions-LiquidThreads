@@ -14,6 +14,8 @@
 	"lqt_move_move": "Movar",
 	"lqt-title": "Titulo",
 	"lqt-summary": "Rezumo",
+	"lqt-read-message": "Indikez \"lektita\"",
+	"lqt-read-all": "Indikez omna quale \"lektita mesaji\"",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|mesajo|mesaji}} indikita quale \"lektita\".",
 	"lqt-email-undo": "Desfacar",
 	"lqt-no-new-messages": "Ne existas nova messaji por vu.",
