@@ -89,7 +89,6 @@ class ThreadHistoryPager extends TablePager {
 				return Linker::commentBlock( $value );
 			default:
 				return "Unable to format $name";
-				break;
 		}
 	}
 

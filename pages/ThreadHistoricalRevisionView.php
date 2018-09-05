@@ -70,8 +70,8 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		if ( $post ) {
 			$args[] = LqtView::linkInContextFullURL( $post );
 		} else {
-			return '';
 			wfDebug( '[LQT] Unable to find a moved reply - change description is broken' );
+			return '';
 		}
 
 		$msg = $this->getMessageForChangeType( $change_type );
