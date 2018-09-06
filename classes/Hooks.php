@@ -151,7 +151,7 @@ class LqtHooks {
 	}
 
 	static function getPreferences( $user, &$preferences ) {
-		global $wgEnableEmail;
+		global $wgEnableEmail, $wgLqtTalkPages, $wgLiquidThreadsEnableNewMessages, $wgHiddenPrefs;
 
 		if ( $wgEnableEmail ) {
 			$preferences['lqtnotifytalk'] =
@@ -182,6 +182,14 @@ class LqtHooks {
 			'section' => 'lqt',
 			'min' => 1,
 		];
+
+		// Don't show any preferences if the wiki's LQT status is frozen
+		if ( !( $wgLqtTalkPages || $wgLiquidThreadsEnableNewMessages ) ) {
+			$wgHiddenPrefs[] = 'lqtnotifytalk';
+			$wgHiddenPrefs[] = 'lqt-watch-threads';
+			$wgHiddenPrefs[] = 'lqtdisplaydepth';
+			$wgHiddenPrefs[] = 'lqtdisplaycount';
+		}
 
 		return true;
 	}
