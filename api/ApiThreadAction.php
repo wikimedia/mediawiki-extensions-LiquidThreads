@@ -581,6 +581,7 @@ class ApiThreadAction extends ApiEditPage {
 	}
 
 	/**
+	 * @suppress SecurityCheck-XSS Due to $oldOutputText
 	 * @param Thread $thread
 	 * @return string
 	 */

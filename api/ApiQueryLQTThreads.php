@@ -205,6 +205,12 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 	}
 
+	/**
+	 * @suppress SecurityCheck-XSS Due to $oldOutputText
+	 * @param array $row
+	 * @param array $params
+	 * @param array &$entry
+	 */
 	protected function renderThread( $row, $params, &$entry ) {
 		// Set up OutputPage
 		$out = $this->getOutput();
