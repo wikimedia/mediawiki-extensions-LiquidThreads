@@ -250,7 +250,7 @@
 	"apihelp-feedthreads-param-days": "Número de días de fíos a amosar.",
 	"apihelp-feedthreads-param-type": "Tipos de mensaxes a amosar.",
 	"apihelp-feedthreads-param-talkpage": "Limita os resultados a fíos nestas páxinas de conversa.",
-	"apihelp-feedthreads-param-thread": "Limita os resultados a estos fíos e as súas contestacións.",
+	"apihelp-feedthreads-param-thread": "Limita os resultados a estes fíos e as súas contestacións.",
 	"apihelp-feedthreads-example-1": "Amosar un fluxo con todos os novos fíos",
 	"apihelp-feedthreads-example-2": "Amosar un fluxo de respostas en [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Amosar un fluxo de novos fíos en [[Talk:Main Page]]",
