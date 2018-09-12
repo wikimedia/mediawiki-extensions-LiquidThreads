@@ -190,7 +190,7 @@
 	"lqt-thread-show-more": "Прикажи више одговора",
 	"lqt-thread-link-url": "Адреса везе:",
 	"lqt-thread-link-title": "Веза викитекста:",
-	"lqt-thread-link-copy": "Копирај",
+	"lqt-thread-link-copy": "Копирај у оставу",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nПотпис је приказан аутоматски.",
 	"lqt-summary-sign-not-necessary": "Није неопходно да потписујете своју објаве с четири тилде.",
 	"lqt-marked-as-read-placeholder": "Тема „$1“ је означена као прочитана.",
