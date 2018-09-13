@@ -188,7 +188,7 @@
 	"lqt-feed-title-replies": "{{SITENAME}} — Отговори",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Отговори от $1",
 	"lqt-feed-new-thread-intro": "Нова нишка в $1, публикувана от $2",
-	"lqt-newmessages-n": "Нови съобщения ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Ново съобщение|Нови съобщения}} ($1)",
 	"lqt_newmessages-title": "Нови съобщения",
 	"lqt-newpost-summary": "Нова нишка: $1",
 	"lqt-reply-summary": "Отговор на [[$2|$1]]",
