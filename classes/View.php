@@ -867,16 +867,18 @@ class LqtView {
 
 		if ( $thread->summary() ) {
 			$article = $thread->summary();
+			$summarizeMsg = 'lqt-update-summary-intro';
 		} else {
 			$t = $this->newSummaryTitle( $thread );
 			$article = new Article( $t, 0 );
+			$summarizeMsg = 'lqt-summarize-intro';
 		}
 
 		$html = Xml::openElement( 'div',
 			[ 'class' => 'lqt-edit-form lqt-summarize-form' ] );
 		$this->output->addHTML( $html );
 
-		$this->output->addWikiMsg( 'lqt-summarize-intro' );
+		$this->output->addWikiMsg( $summarizeMsg );
 
 		$talkpage = $thread->article();
 
