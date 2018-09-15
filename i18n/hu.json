@@ -133,7 +133,7 @@
 	"lqt-thread-edited-others": "{{PLURAL:$2|Egy|$2}} szerkesztő módosította a hozzászólást.<br />\nUtolsó szerkesztés: $1",
 	"lqt-header-actions": "Műveletek",
 	"lqt_summarize_link": "Összefoglalás",
-	"lqt-summarize-intro": "Összegezd az alábbi témát.\nA szövegben használhatod a wiki jelölőnyelvét.\nHa befejezted, kattints a „{{int:savearticle}}” gombra.",
+	"lqt-summarize-intro": "Összegezd az alábbi témát.\nA szövegben használhatod a wiki jelölőnyelvét.\nHa befejezted, kattints a „{{int:publishpage}}” gombra.",
 	"lqt-thread-split": "Átalakítás önálló témává",
 	"lqt-split-success": "Sikeresen szétválasztottad a(z) $1 témát.",
 	"lqt_split_thread": "Téma szétválasztása",

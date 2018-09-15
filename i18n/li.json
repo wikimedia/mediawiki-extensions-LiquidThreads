@@ -121,7 +121,7 @@
 	"lqt-thread-edited-others": "Bewerk door {{PLURAL:$2|'nen angere gebroeker|$2 anger gebroekers}}.<br />\nLetste bewerking: $1",
 	"lqt-header-actions": "Henjeling",
 	"lqt_summarize_link": "Vat same",
-	"lqt-summarize-intro": "Vat 't óngerwerp hieónger same.\nDe maags wikiteks gebroeken in dien samevatting.\nKlik óp \"{{int:savearticle}}\" wen se klaor bös.",
+	"lqt-summarize-intro": "Vat 't óngerwerp hieónger same.\nDe maags wikiteks gebroeken in dien samevatting.\nKlik óp \"{{int:publishpage}}\" wen se klaor bös.",
 	"lqt-thread-split": "Splits nao e nuuj ongerwerp aaf",
 	"lqt-split-success": "Doe haes 't nuu óngerwèrp $1 aangemaak.",
 	"lqt_split_thread": "Splits ongerwerpe",

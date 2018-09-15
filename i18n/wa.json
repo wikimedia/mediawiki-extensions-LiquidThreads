@@ -55,7 +55,7 @@
 	"lqt-newmessages-context": "Fyi en etir",
 	"lqt-header-actions": "Accions",
 	"lqt_summarize_link": "Rascourti",
-	"lqt-summarize-intro": "Fijhoz on rascourti do sudjet dins l' boesse chal pa dzo.\nVos ploz bén eployî les côdes wiki ki vos vloz.\nCwand vos avoz fini, clitchîz so «{{int:savearticle}}».",
+	"lqt-summarize-intro": "Fijhoz on rascourti do sudjet dins l' boesse chal pa dzo.\nVos ploz bén eployî les côdes wiki ki vos vloz.\nCwand vos avoz fini, clitchîz so «{{int:publishpage}}».",
 	"lqt-thread-split": "Dispårti viè on novea fyi",
 	"lqt-movethread": "Displaecî",
 	"lqt-menu-trigger": "Ôtes",

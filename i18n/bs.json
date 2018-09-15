@@ -123,7 +123,7 @@
 	"lqt-thread-edited-others": "Uređeno od strane {{PLURAL:$2|drugog korisnika|ostalih $2 korisnika}}.<br />\nPosljednja izmjena: $1",
 	"lqt-header-actions": "Akcije",
 	"lqt_summarize_link": "Napravi sažetak",
-	"lqt-summarize-intro": "Molimo napravite sažetak ispod niza u kutiju za uređivanje.\nMožete koristiti i wikitekst u Vašem sažetku.\nKada završite, kliknite \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Molimo napravite sažetak ispod niza u kutiju za uređivanje.\nMožete koristiti i wikitekst u Vašem sažetku.\nKada završite, kliknite \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Podijeli na novi niz",
 	"lqt-split-success": "Podijelili ste niz $1.",
 	"lqt_split_thread": "Podijeli niz",

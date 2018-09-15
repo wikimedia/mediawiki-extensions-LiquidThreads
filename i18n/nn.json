@@ -126,7 +126,7 @@
 	"lqt-thread-edited-others": "Endra av {{PLURAL:$2|ein annan brukar|$2 andre brukarar}}.<br />\nSiste endringa: $1",
 	"lqt-header-actions": "Handlingar",
 	"lqt_summarize_link": "Lag samandrag",
-	"lqt-summarize-intro": "Du kan laga eit samandrag av tråden med wikitekst i redigeringsboksen under. Trykk på  «{{int:savearticle}}» når du er ferdig.",
+	"lqt-summarize-intro": "Du kan laga eit samandrag av tråden med wikitekst i redigeringsboksen under. Trykk på  «{{int:publishpage}}» når du er ferdig.",
 	"lqt-thread-split": "Kløyv til ein ny tråd",
 	"lqt-split-success": "Du har kløyvd av tråden $1.",
 	"lqt_split_thread": "Kløyv ein tråd",

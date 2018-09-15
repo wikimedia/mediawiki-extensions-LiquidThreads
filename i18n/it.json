@@ -138,7 +138,7 @@
 	"lqt-thread-edited-others": "Modificato da {{PLURAL:$2|un altro utente|$2 utenti}}.<br />\nUltima modifica: $1",
 	"lqt-header-actions": "Azioni",
 	"lqt_summarize_link": "Riassumi",
-	"lqt-summarize-intro": "Si prega di riassumere il thread nella casella di modifica. Può essere usato qualsiasi wikitesto. Terminata l'operazione, fare clic su \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Si prega di riassumere il thread nella casella di modifica. Può essere usato qualsiasi wikitesto. Terminata l'operazione, fare clic su \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Suddiviso in un nuovo thread",
 	"lqt-split-success": "Hai diviso la discussione $1.",
 	"lqt_split_thread": "Dividi un thread",

@@ -137,7 +137,7 @@
 	"lqt-thread-edited-others": "Edytowany przez {{PLURAL:$2|innego użytkownika|innych użytkowników}}.<br />\nOstatnia zmiana $1",
 	"lqt-header-actions": "Działania",
 	"lqt_summarize_link": "Podsumuj",
-	"lqt-summarize-intro": "Podsumuj poniższy wątek w okienku edycji.\nMożesz korzystać w podsumowaniu ze składni wiki. Gdy skończysz, kliknij przycisk „{{int:savearticle}}”.",
+	"lqt-summarize-intro": "Podsumuj poniższy wątek w okienku edycji.\nMożesz korzystać w podsumowaniu ze składni wiki. Gdy skończysz, kliknij przycisk „{{int:publishpage}}”.",
 	"lqt-thread-split": "Utwórz odgałęzienie – nowy wątek",
 	"lqt-split-success": "Rozgałęziono wątek $1.",
 	"lqt_split_thread": "Rozgałęź wątek",

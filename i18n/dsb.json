@@ -124,7 +124,7 @@
 	"lqt-thread-edited-others": "Wót {{PLURAL:$2|drugego wužywarja|$2 wužywarjowu|$2 wužywarjow|$2 wužywarjow}} wobźěłany.<br />\nSlědna změna: $1",
 	"lqt-header-actions": "Akcije",
 	"lqt_summarize_link": "Zespominaś",
-	"lqt-summarize-intro": "Pšosym zespominaj slědujucu nitku we wobźěłowańskem kašćiku.\nMóžoš wikitekst w swójom zespominanju wužywaś. Gaž kóńcyš, klikni na \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Pšosym zespominaj slědujucu nitku we wobźěłowańskem kašćiku.\nMóžoš wikitekst w swójom zespominanju wužywaś. Gaž kóńcyš, klikni na \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Do noweje nitki rozšćěpiś",
 	"lqt-split-success": "Sy nitku $1 wuspěšnje wótšćěpił.",
 	"lqt_split_thread": "Nitku rozšćěpiś",

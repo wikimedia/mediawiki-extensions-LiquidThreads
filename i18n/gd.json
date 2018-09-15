@@ -123,7 +123,7 @@
 	"lqt-thread-edited-others": "Air a dheasachadh le $2 {{PLURAL:$2|chleachdaiche|chleachdaiche|cleachdaichean|cleachdaiche}} eile.<br />\nAn deasachadh mu dheireadh: $1",
 	"lqt-header-actions": "Gnìomhan",
 	"lqt_summarize_link": "Dèan gearr-chunntas",
-	"lqt-summarize-intro": "Cuir gearr-chunntas dhen t-snàth gu h-ìosal sa bhogsa deasachaidh.\nFaodaidh tu wikitext sam bith a chleachdadh sa ghearr-chunntas.\nNuair a bhios tu deiseil, briog air \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Cuir gearr-chunntas dhen t-snàth gu h-ìosal sa bhogsa deasachaidh.\nFaodaidh tu wikitext sam bith a chleachdadh sa ghearr-chunntas.\nNuair a bhios tu deiseil, briog air \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Roinn gu snàth ùr",
 	"lqt-split-success": "Tha thu air an snàth $1 a roinneadh.",
 	"lqt_split_thread": "Roinn snàth",

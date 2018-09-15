@@ -116,7 +116,7 @@
 	"lqt-thread-edited-others": "Radaguota {{PLURAL:$2|kito dalyvio|$2 dalyvių}}.<br />\nPaskutinis pakeitimas: $1",
 	"lqt-header-actions": "Veiksmai",
 	"lqt_summarize_link": "Apibendrinimas",
-	"lqt-summarize-intro": "Prašau apibendrinti sekančias žinutes redagavimo lauke.\nSavo apibendrinime galite naudoti viki tekstą.\nKai baigsite paspauskite \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Prašau apibendrinti sekančias žinutes redagavimo lauke.\nSavo apibendrinime galite naudoti viki tekstą.\nKai baigsite paspauskite \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Išskirti į atskirą žinutę",
 	"lqt-split-success": "Jūs sėkmingai išskyrėte žinutę $1.",
 	"lqt_split_thread": "Išskirti žinutę",

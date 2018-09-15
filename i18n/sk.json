@@ -124,7 +124,7 @@
 	"lqt-thread-edited-others": "Upravené {{PLURAL:$2|iným používateľom|$2 inými používateľmi}}.<br />\nPosledná úprava: $1",
 	"lqt-header-actions": "Operácie",
 	"lqt_summarize_link": "Zhrnúť",
-	"lqt-summarize-intro": "Zhrňte prosím dolu uvedené vlákno do poľa na úpravy.\nV zhrnutí môžete použiť wikitext. Keď skončíte, kliknite na „{{int:savearticle}}“.",
+	"lqt-summarize-intro": "Zhrňte prosím dolu uvedené vlákno do poľa na úpravy.\nV zhrnutí môžete použiť wikitext. Keď skončíte, kliknite na „{{int:publishpage}}“.",
 	"lqt-thread-split": "Oddeliť do nového vlákna",
 	"lqt-split-success": "Úspešne ste oddelili vlákno $1.",
 	"lqt_split_thread": "Oddeliť vlákno",

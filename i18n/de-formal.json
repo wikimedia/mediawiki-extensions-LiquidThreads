@@ -21,7 +21,7 @@
 	"lqt-new-messages": "→ Sie haben neue Nachrichten.",
 	"lqt-email-info-undo": "Holen Sie das Thema zurück, das Sie gerade weggeklickt haben.",
 	"lqt-date-info": "Dieser Link ist nicht aktiv, da Sie Themen von allen Daten ansehen.",
-	"lqt-summarize-intro": "Bitte fassen Sie das untenstehende Thema im Bearbeitungsfenster zusammen.\nSie können Wikitext in Ihrer Zusammenfassung verwenden. Sobald Sie fertig sind, klicken Sie auf „{{int:savearticle}}“.",
+	"lqt-summarize-intro": "Bitte fassen Sie das untenstehende Thema im Bearbeitungsfenster zusammen.\nSie können Wikitext in Ihrer Zusammenfassung verwenden. Sobald Sie fertig sind, klicken Sie auf „{{int:publishpage}}“.",
 	"lqt-split-success": "Sie haben den Diskussionsstrang $1 erfolgreich abgetrennt.",
 	"lqt-delete-parent-warning": "Dies ist ein Thema auf höchster Ebene mit Antworten.\nAuch seine Antworten werden automatisch gelöscht.\nUm dies zu vermeiden, teilen Sie sie von diesem Thema ab, bevor Sie es löschen.",
 	"lqt-enotif-newthread": "Hallo $1,\n\ndies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ das neue Thema „$2“ begonnen.\n\nSie können es unter diesem Link einsehen: <$6>\n\nDie Nachricht lautet:\n$7",

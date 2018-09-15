@@ -123,7 +123,7 @@
 	"lqt-thread-edited-others": "Bearbeitet dur $2 Benutzer<br />\nLetschti Bearbeitig : $1",
 	"lqt-header-actions": "Aktione",
 	"lqt_summarize_link": "Zämmefasse",
-	"lqt-summarize-intro": "Bitte fass dr Diskussionsstrang unte im Bearbeitigs-Chaschte zämme.\ndu chasch irged e Wikitekscht fir Dyy Zämmefassig bruche. Wänn Du fertig bisch, druck \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Bitte fass dr Diskussionsstrang unte im Bearbeitigs-Chaschte zämme.\ndu chasch irged e Wikitekscht fir Dyy Zämmefassig bruche. Wänn Du fertig bisch, druck \"{{int:publishpage}}\".",
 	"lqt-thread-split": "In e neje Diskussionstrang ufteile",
 	"lqt-split-success": "Du hesch dr Diskussionstrang $1 erfolgrych ufteilt.",
 	"lqt_split_thread": "E Diskussionstrang ufteile",

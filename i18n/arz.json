@@ -120,7 +120,7 @@
 	"lqt-thread-edited-others": "حرّرها مستخدمون آخرون",
 	"lqt-header-actions": "الإجراءات",
 	"lqt_summarize_link": "الملخص",
-	"lqt-summarize-intro": "من فضلك لخّص الموضوع أدناه فى صندوق التحرير.\nتستطيع استخدام أى نص ويكى فى ملخّصك. انقر \"{{int:savearticle}}\" عندما تنتهى.",
+	"lqt-summarize-intro": "من فضلك لخّص الموضوع أدناه فى صندوق التحرير.\nتستطيع استخدام أى نص ويكى فى ملخّصك. انقر \"{{int:publishpage}}\" عندما تنتهى.",
 	"lqt-thread-split": "افصل إلى موضوع جديد",
 	"lqt-split-success": "لقد فصلت بنجاح الموضوع $1.",
 	"lqt_split_thread": "فصل موضوع",

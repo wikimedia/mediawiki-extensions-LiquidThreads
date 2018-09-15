@@ -124,7 +124,7 @@
 	"lqt-thread-edited-others": "Disunting oleh {{PLURAL:$2|seorang lagi pengguna|$2 orang pengguna}}.<br />\nSuntingan terakhir: $1",
 	"lqt-header-actions": "Tindakan",
 	"lqt_summarize_link": "Buat ringkasan",
-	"lqt-summarize-intro": "Sila buat ringkasan tred di bawah dalam ruangan penyuntingan.\nAnda boleh menggunakan mana-mana teks wiki dalam ringkasan anda.\nSelepas siap, klik \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Sila buat ringkasan tred di bawah dalam ruangan penyuntingan.\nAnda boleh menggunakan mana-mana teks wiki dalam ringkasan anda.\nSelepas siap, klik \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Pecahkan ke tred baru",
 	"lqt-split-success": "Anda berjaya memecahkan tred $1.",
 	"lqt_split_thread": "Pecahkan tred",

@@ -125,7 +125,7 @@
 	"lqt-thread-edited-others": "Kemmet gant $2 implijer {{PLURAL:$2||}} all.<br />\nKemm diwezhañ : $1",
 	"lqt-header-actions": "Obererezhioù",
 	"lqt_summarize_link": "Diverrañ",
-	"lqt-summarize-intro": "Savit un tamm diverrañ a-us er prenestr skridaozañ.\nGallout a rit ober gant ne vern pe testenn wiki en ho tiverrrañ. Ur wech echu klikit war  \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Savit un tamm diverrañ a-us er prenestr skridaozañ.\nGallout a rit ober gant ne vern pe testenn wiki en ho tiverrrañ. Ur wech echu klikit war  \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Rannañ war-du ur gaoz nevez",
 	"lqt-split-success": "Deuet oc'h a-benn da rannañ an neudennad $1.",
 	"lqt_split_thread": "Rannañ ur gaoz",

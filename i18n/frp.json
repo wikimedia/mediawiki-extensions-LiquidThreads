@@ -122,7 +122,7 @@
 	"lqt-thread-edited-others": "Changiê per {{PLURAL:$2|un ôtro usanciér|$2 usanciérs}}.<br />\nDèrriér changement : $1",
 	"lqt-header-actions": "Accions",
 	"lqt_summarize_link": "Rèsumar",
-	"lqt-summarize-intro": "Rèsumar lo sujèt ce-dessus dens la bouèta d’èdicion.\nVos pouede utilisar un vouiquitèxto quint que seye dens voutron rèsumâ.\nQuand vos éd chavonâ, clicâd dessus « {{int:savearticle}} ».",
+	"lqt-summarize-intro": "Rèsumar lo sujèt ce-dessus dens la bouèta d’èdicion.\nVos pouede utilisar un vouiquitèxto quint que seye dens voutron rèsumâ.\nQuand vos éd chavonâ, clicâd dessus « {{int:publishpage}} ».",
 	"lqt-thread-split": "Dèpondre vers un fil novél",
 	"lqt-split-success": "Vos éd dèpondu avouéc reusséta lo fil $1.",
 	"lqt_split_thread": "Dèpondre un fil",

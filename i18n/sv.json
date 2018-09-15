@@ -141,7 +141,7 @@
 	"lqt-thread-edited-others": "Redigerad av {{PLURAL:$2|annan användare|$2 användare}}.<br />\nSenaste redigerad: $1",
 	"lqt-header-actions": "Åtgärder",
 	"lqt_summarize_link": "Sammanfatta",
-	"lqt-summarize-intro": "Sammanfatta tråden nedan i redigeringsfönstret.\nDu kan använda wikitext i sammanfattningen. Klicka på \"{{int:savearticle}}\" när du är färdig.",
+	"lqt-summarize-intro": "Sammanfatta tråden nedan i redigeringsfönstret.\nDu kan använda wikitext i sammanfattningen. Klicka på \"{{int:publishpage}}\" när du är färdig.",
 	"lqt-thread-split": "Dela upp till en ny tråd",
 	"lqt-split-success": "Du har nu knoppat av tråden $1.",
 	"lqt_split_thread": "Dela tråden i två",

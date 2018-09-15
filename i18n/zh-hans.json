@@ -141,7 +141,7 @@
 	"lqt-thread-edited-others": "由{{PLURAL:$2|一|$2}}名其他用户于$1编辑",
 	"lqt-header-actions": "操作",
 	"lqt_summarize_link": "摘要",
-	"lqt-summarize-intro": "请在此编辑框中摘要概述下列话题。您可以在您的摘要中使用wiki文本。完成后，请点击“{{int:savearticle}}”。",
+	"lqt-summarize-intro": "请在此编辑框中摘要概述下列话题。您可以在您的摘要中使用wiki文本。完成后，请点击“{{int:publishpage}}”。",
 	"lqt-thread-split": "分割为新话题",
 	"lqt-split-success": "您已分离帖子$1。",
 	"lqt_split_thread": "分割话题",

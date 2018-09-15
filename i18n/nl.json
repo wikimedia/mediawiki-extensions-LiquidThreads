@@ -130,7 +130,7 @@
 	"lqt-thread-edited-others": "Bewerkt door {{PLURAL:$2|een andere gebruiker|$2 andere gebruikers}}.<br />\nLaatste bewerking: $1",
 	"lqt-header-actions": "Handelingen",
 	"lqt_summarize_link": "Samenvatten",
-	"lqt-summarize-intro": "Vat het onderwerp hieronder samen.\nU mag wikitekst gebruiken in uw samenvatting.\nKlik op \"{{int:savearticle}}\" als u klaar bent.",
+	"lqt-summarize-intro": "Vat het onderwerp hieronder samen.\nU mag wikitekst gebruiken in uw samenvatting.\nKlik op \"{{int:publishpage}}\" als u klaar bent.",
 	"lqt-thread-split": "Naar nieuw onderwerp afsplitsen",
 	"lqt-split-success": "U hebt het onderwerp $1 opgesplitst.",
 	"lqt_split_thread": "Onderwerp opsplitsen",

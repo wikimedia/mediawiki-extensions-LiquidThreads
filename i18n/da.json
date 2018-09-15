@@ -126,7 +126,7 @@
 	"lqt-thread-edited-others": "Redigeret af {{PLURAL:$2|en anden bruger|$2 andre brugere}}.<br />\nSeneste redigering: $1",
 	"lqt-header-actions": "Handlinger",
 	"lqt_summarize_link": "Sammenfat",
-	"lqt-summarize-intro": "Venligst opsummer tråden nedenfor i redigeringsfeltet.\nDu kan bruge wikitekst i din opsummering.\nNår du er færdig, klik på \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Venligst opsummer tråden nedenfor i redigeringsfeltet.\nDu kan bruge wikitekst i din opsummering.\nNår du er færdig, klik på \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Opdel til ny tråd",
 	"lqt-split-success": "Du har med held adskilt tråden $1.",
 	"lqt_split_thread": "Opdel en tråd",

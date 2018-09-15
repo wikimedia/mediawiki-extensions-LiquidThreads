@@ -127,7 +127,7 @@
 	"lqt-thread-edited-others": "Disunting oleh {{PLURAL:$2|pengguna lain|$2 pengguna}}.<br />\nSuntingan terakhir: $1",
 	"lqt-header-actions": "Tindakan",
 	"lqt_summarize_link": "Ringkasan",
-	"lqt-summarize-intro": "Silakan meringkas utas di bawah ini pada kotak suntingan.\nAnda dapat menggunakan semua teks wiki dalam ringkasan Anda. Setelah selesai, klik \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Silakan meringkas utas di bawah ini pada kotak suntingan.\nAnda dapat menggunakan semua teks wiki dalam ringkasan Anda. Setelah selesai, klik \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Pisahkan menjadi dua topik",
 	"lqt-split-success": "Anda telah berhasil memisahkan topik $1.",
 	"lqt_split_thread": "Pisahkan topik",

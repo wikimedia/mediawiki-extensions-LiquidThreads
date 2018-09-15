@@ -129,7 +129,7 @@
 	"lqt-thread-edited-others": "Izmenjeno od strane {{PLURAL:$2|drugog korisnika|$2 korisnika|$2 korisnika}}.<br />\nPoslednja izmena: $1",
 	"lqt-header-actions": "Radnje",
 	"lqt_summarize_link": "Sažmi",
-	"lqt-summarize-intro": "Sažmite temu putem okvira za uređivanje.\nMožete koristiti bilo koji vikitekst u sažetku.\nKada završite, kliknite na „{{int:savearticle}}“.",
+	"lqt-summarize-intro": "Sažmite temu putem okvira za uređivanje.\nMožete koristiti bilo koji vikitekst u sažetku.\nKada završite, kliknite na „{{int:publishpage}}“.",
 	"lqt-thread-split": "Razdvoji u novu temu",
 	"lqt-split-success": "Uspešno ste podelili temu $1.",
 	"lqt_split_thread": "Podeli temu",

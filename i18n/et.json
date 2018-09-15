@@ -116,7 +116,7 @@
 	"lqt-thread-edited-others": "{{PLURAL:$2|Teise|$2 teise}} kasutaja muudetud.<br />\nViimane muudatus: $1",
 	"lqt-header-actions": "Toimingud",
 	"lqt_summarize_link": "Võta kokku",
-	"lqt-summarize-intro": "Palun võta allpool toodud lõim toimetamiskastis kokku.\nVõid oma kokkuvõttes vikiteksti kasutada. Kui oled lõpetanud, klõpsa nuppu \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Palun võta allpool toodud lõim toimetamiskastis kokku.\nVõid oma kokkuvõttes vikiteksti kasutada. Kui oled lõpetanud, klõpsa nuppu \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Lahuta uueks lõimeks",
 	"lqt-split-success": "Oled lahutanud lõime $1.",
 	"lqt_split_thread": "Lõime jagamine",

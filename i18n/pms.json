@@ -122,7 +122,7 @@
 	"lqt-thread-edited-others": "Modificà da {{PLURAL:$2|n'àutr utent|$2 utent}}.<br />\nÙltima modìfica: $1",
 	"lqt-header-actions": "Assion",
 	"lqt_summarize_link": "Fé un resumé",
-	"lqt-summarize-intro": "Për piasì ch'a fasa un resumé dla discussion sota ant la casela ëd modìfica.\nA peul dovré qualsëssìa test wiki an sò resumé.\nQuand ch'a finisse, ch'a sgnaca \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Për piasì ch'a fasa un resumé dla discussion sota ant la casela ëd modìfica.\nA peul dovré qualsëssìa test wiki an sò resumé.\nQuand ch'a finisse, ch'a sgnaca \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Dividé an na discussion neuva",
 	"lqt-split-success": "It l'has dividù da bin la discussion $1.",
 	"lqt_split_thread": "Divid na discussion",

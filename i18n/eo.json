@@ -127,7 +127,7 @@
 	"lqt-thread-edited-others": "Redaktita de {{PLURAL:$2|alia uzanto|$2 aliaj uzantoj}}.<br />\nLasta redakto: $1",
 	"lqt-header-actions": "Agoj",
 	"lqt_summarize_link": "Resumigi",
-	"lqt-summarize-intro": "Bonvolu resumi la jenan fadenon en la redaktujo.\nVi povas utiligi iun vikitekston en via resumo.\nKiam vi finiĝas, klaku \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Bonvolu resumi la jenan fadenon en la redaktujo.\nVi povas utiligi iun vikitekston en via resumo.\nKiam vi finiĝas, klaku \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Dividigi al nova fadeno",
 	"lqt-split-success": "Vi sukcese dividis la fadenon $1.",
 	"lqt_split_thread": "Dividi fadenon",

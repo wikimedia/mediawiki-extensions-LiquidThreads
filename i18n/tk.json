@@ -121,7 +121,7 @@
 	"lqt-thread-edited-others": "Başga ulanyjylar tarapyndan redaktirlenen",
 	"lqt-header-actions": "Hereketler",
 	"lqt_summarize_link": "Jemläp ýaz",
-	"lqt-summarize-intro": "Aşakdaky tredi redaktirleme gutusynda jemläp ýazyň.\nJemlemede islendik wikiteksti ulanyp bilersiňiz.\nGutaranyňyzdan soň, tyklaň: \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Aşakdaky tredi redaktirleme gutusynda jemläp ýazyň.\nJemlemede islendik wikiteksti ulanyp bilersiňiz.\nGutaranyňyzdan soň, tyklaň: \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Täze trede böl",
 	"lqt-split-success": "$1 tredini şowly böldüňiz.",
 	"lqt_split_thread": "Tred böl",

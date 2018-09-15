@@ -122,7 +122,7 @@
 	"lqt-thread-edited-others": "Binago ng {{PLURAL:$2|ibang tagagamit|$2 mga tagagamit}}.<br />\nHuling nabago: $1",
 	"lqt-header-actions": "Mga galaw",
 	"lqt_summarize_link": "Ibuod",
-	"lqt-summarize-intro": "Mangyaring pakibuod ang nasa ibabang sinulid na nasa loob ng kahong pamatnugot.\nMaaari kang gumamit ng anumang wikiteksto sa loob ng buod mo.\nPagkatapos mo, pindutin ang \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Mangyaring pakibuod ang nasa ibabang sinulid na nasa loob ng kahong pamatnugot.\nMaaari kang gumamit ng anumang wikiteksto sa loob ng buod mo.\nPagkatapos mo, pindutin ang \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Hatiin sa bagong sinulid",
 	"lqt-split-success": "Matagumpay mong nahating patanggal ang sinulid na $1.",
 	"lqt_split_thread": "Hatiin ang isang sinulid",

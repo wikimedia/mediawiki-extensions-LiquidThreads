@@ -113,7 +113,7 @@
 	"lqt-thread-edited-others": "Modifikata minn {{PLURAL:$2|utent ieħor|$2 utenti}}.<br />\nL-aħħar modifika: $1",
 	"lqt-header-actions": "Azzjonijiet",
 	"lqt_summarize_link": "Qassar",
-	"lqt-summarize-intro": "Jekk jogħġbok qassar id-diskussjoni fil-kaxxa tal-immodifikar. Jista' jiġi wżat kwalunkwe test tal-wiki. Meta tispiċċa, agħfas fuq \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Jekk jogħġbok qassar id-diskussjoni fil-kaxxa tal-immodifikar. Jista' jiġi wżat kwalunkwe test tal-wiki. Meta tispiċċa, agħfas fuq \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Maqsum f'diskussjoni ġdida",
 	"lqt-split-success": "Irnexxielek taqsam b'suċċess id-diskussjoni $1.",
 	"lqt_split_thread": "Aqsam diskussjoni",

@@ -129,7 +129,7 @@
 	"lqt-thread-edited-others": "Upraveno {{PLURAL:$2|jiným uživatelem|jinými uživateli}}.<br />\nPoslední editace: $1",
 	"lqt-header-actions": "Akce",
 	"lqt_summarize_link": "Shrnout",
-	"lqt-summarize-intro": "Napište shrnutí níže zobrazeného vlákna do editačního okna.\nVe shrnutí můžete používat libovolný wikitext. Až budete {{GENDER:|hotov|hotova|hotovi}}, klikněte na „{{int:savearticle}}“.",
+	"lqt-summarize-intro": "Napište shrnutí níže zobrazeného vlákna do editačního okna.\nVe shrnutí můžete používat libovolný wikitext. Až budete {{GENDER:|hotov|hotova|hotovi}}, klikněte na „{{int:publishpage}}“.",
 	"lqt-thread-split": "Oddělit do nového vlákna",
 	"lqt-split-success": "Úspěšně jste {{GENDER:|oddělil|oddělila|oddělili}} vlákno $1.",
 	"lqt_split_thread": "Oddělit vlákno",

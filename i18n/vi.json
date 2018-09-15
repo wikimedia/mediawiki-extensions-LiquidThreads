@@ -126,7 +126,7 @@
 	"lqt-thread-edited-others": "{{PLURAL:$2|Người dùng khác|$2 người dùng khác}} đã sửa đổi.<br />\nSửa đổi lần cuối lúc $1.",
 	"lqt-header-actions": "Tác vụ",
 	"lqt_summarize_link": "Tóm tắt",
-	"lqt-summarize-intro": "Xin hãy tóm tắt luồng sau trong hộp sửa đổi.\nBạn có thể sử dụng cú pháp wiki trong tóm tắt. Khi nào xong, hãy nhấn chuột vào “{{int:savearticle}}”.",
+	"lqt-summarize-intro": "Xin hãy tóm tắt luồng sau trong hộp sửa đổi.\nBạn có thể sử dụng cú pháp wiki trong tóm tắt. Khi nào xong, hãy nhấn chuột vào “{{int:publishpage}}”.",
 	"lqt-thread-split": "Chia thành luồng mới",
 	"lqt-split-success": "Bạn đã chia luồng $1 thành công.",
 	"lqt_split_thread": "Chia luồng",

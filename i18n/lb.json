@@ -124,7 +124,7 @@
 	"lqt-thread-edited-others": "Vum Benotzer $2 geännert<br />\nLescht Ännerung: $1",
 	"lqt-header-actions": "Aktiounen",
 	"lqt_summarize_link": "Resuméieren",
-	"lqt-summarize-intro": "Resuméiert d'Rubrik ënnendrënner an der Ännerungskëscht.\nDir kënnt jidfer Wikitext an Ärem Resumé benotzen. Wann Dir fäerdeg sidd, klickt \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Resuméiert d'Rubrik ënnendrënner an der Ännerungskëscht.\nDir kënnt jidfer Wikitext an Ärem Resumé benotzen. Wann Dir fäerdeg sidd, klickt \"{{int:publishpage}}\".",
 	"lqt-thread-split": "An eng nei Rubrik opdeelen",
 	"lqt-split-success": "Dir hutt d'Rubrik $1 opgedeelt.",
 	"lqt_split_thread": "Eng Rubrik opdeelen",

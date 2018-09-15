@@ -123,7 +123,7 @@
 	"lqt-thread-edited-others": "Wot {{PLURAL:$2|druheho wužiwarja|druheju wužiwarjow|druhich wužiwarjow|druhich wužiwarjow}} wobdźěłany.<br />\nPoslednja změna: $1",
 	"lqt-header-actions": "Akcije",
 	"lqt_summarize_link": "zjeć",
-	"lqt-summarize-intro": "Prošu zhorń slědowacu nitku we wobdźěłanskim kašćiku.\nMóžeš někajki wikitekst w swojim zjeću wužiwać. Hdyž skónčiš, klikń na \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Prošu zhorń slědowacu nitku we wobdźěłanskim kašćiku.\nMóžeš někajki wikitekst w swojim zjeću wužiwać. Hdyž skónčiš, klikń na \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Do noweje nitki rozšćěpić",
 	"lqt-split-success": "Sy wuspěšnje nitku $1 wotšćěpił.",
 	"lqt_split_thread": "Nitku šćěpić",

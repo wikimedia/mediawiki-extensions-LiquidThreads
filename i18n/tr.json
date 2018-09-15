@@ -126,7 +126,7 @@
 	"lqt-thread-edited-others": "{{PLURAL:$2|Başka bir kullanıcı|Başka $2 kullanıcı}} tarafından değiştirildi.<br />\nSon değişiklik: $1",
 	"lqt-header-actions": "Eylemler",
 	"lqt_summarize_link": "Özetle",
-	"lqt-summarize-intro": "Lütfen aşağıdaki ileti dizisini, değiştirme kutusunda özetleyin.\nÖzetinizde herhangi bir vikimetnini kullanabilirsiniz.\nBitirdiğinizde \"{{int:savearticle}}\"e tıklayın.",
+	"lqt-summarize-intro": "Lütfen aşağıdaki ileti dizisini, değiştirme kutusunda özetleyin.\nÖzetinizde herhangi bir vikimetnini kullanabilirsiniz.\nBitirdiğinizde \"{{int:publishpage}}\"e tıklayın.",
 	"lqt-thread-split": "Yeni ileti dizisine ayır",
 	"lqt-split-success": "$1 ileti dizisini başarıyla ayırdınız.",
 	"lqt_split_thread": "Bir ileti dizisini ayır",

@@ -136,7 +136,7 @@
 	"lqt-thread-edited-others": "Editado por {{PLURAL:$2|outro usuário|$2 outros usuários}}.<br />\nÚltima edição: $1",
 	"lqt-header-actions": "Ações",
 	"lqt_summarize_link": "Resumir",
-	"lqt-summarize-intro": "Por favor, resuma o tópico abaixo na caixa de edição.\nVocê pode usar qualquer wikitexto em seu resumo. Quando terminar, clique em \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Por favor, resuma o tópico abaixo na caixa de edição.\nVocê pode usar qualquer wikitexto em seu resumo. Quando terminar, clique em \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Separar em um novo tópico",
 	"lqt-split-success": "Você separou o tópico $1 com sucesso.",
 	"lqt_split_thread": "Separar um tópico",

@@ -123,7 +123,7 @@
 	"lqt-thread-edited-others": "Cangiate da $2 utinde<br />\nUrteme cangiamende: $1",
 	"lqt-header-actions": "Aziune",
 	"lqt_summarize_link": "Riepileghe",
-	"lqt-summarize-intro": "Pe piacere riepileghe l'argomende d'aqquà sotte jndr'à sckatele de le cangiaminde.<br />\nTu puè ausà qualungue uicchiteste jndr'à 'u riepileghe tune.<br />\nQuanne è spicciate, cazze \"{{int:savearticle}}\".",
+	"lqt-summarize-intro": "Pe piacere riepileghe l'argomende d'aqquà sotte jndr'à sckatele de le cangiaminde.<br />\nTu puè ausà qualungue uicchiteste jndr'à 'u riepileghe tune.<br />\nQuanne è spicciate, cazze \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Divide jndr'à doje argumende",
 	"lqt-split-success": "E' riuscite a dividere jndr'à doje argumende, l'argomende $1.",
 	"lqt_split_thread": "Divide 'n'argomende",

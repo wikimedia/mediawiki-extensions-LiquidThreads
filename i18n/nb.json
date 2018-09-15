@@ -125,7 +125,7 @@
 	"lqt-thread-edited-others": "Redigert av {{PLURAL:$2|en annen bruker|$2 andre brukere}}.<br />\nSiste endring: $1",
 	"lqt-header-actions": "Handlinger",
 	"lqt_summarize_link": "Lag sammendrag",
-	"lqt-summarize-intro": "Du kan oppsummere denne tråden i redigeringsboksen.\nDu kan bruke all wikitekst i oppsummeringen din.\nNår du er ferdig, trykk «{{int:savearticle}}».",
+	"lqt-summarize-intro": "Du kan oppsummere denne tråden i redigeringsboksen.\nDu kan bruke all wikitekst i oppsummeringen din.\nNår du er ferdig, trykk «{{int:publishpage}}».",
 	"lqt-thread-split": "Del opp til en ny tråd",
 	"lqt-split-success": "Du har delt opp tråden $1.",
 	"lqt_split_thread": "Del en tråd i to",
