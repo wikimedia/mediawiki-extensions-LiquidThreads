@@ -135,6 +135,7 @@
 	"lqt-header-actions": "동작",
 	"lqt_summarize_link": "요약",
 	"lqt-summarize-intro": "편집 상자에 아래 스레드의 내용을 요약해주세요.\n요약할 때 위키 문법을 사용할 수 있습니다.\n마치셨다면 \"{{int:publishpage}}\" 버튼을 클릭해주세요.",
+	"lqt-update-summary-intro": "편집 상자에 아래 스레드의 내용을 요약해 주십시오.\n요약에 위키텍스트를 사용할 수 있습니다.\n마치셨다면 \"{{int:publishchanges}}\"를 클릭하십시오.",
 	"lqt-thread-split": "새 스레드로 분할",
 	"lqt-split-success": "$1 스레드를 분할하였습니다.",
 	"lqt_split_thread": "스레드 분할하기",

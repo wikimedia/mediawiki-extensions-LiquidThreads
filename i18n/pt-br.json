@@ -137,6 +137,7 @@
 	"lqt-header-actions": "Ações",
 	"lqt_summarize_link": "Resumir",
 	"lqt-summarize-intro": "Por favor, resuma o tópico abaixo na caixa de edição.\nVocê pode usar qualquer wikitexto em seu resumo. Quando terminar, clique em \"{{int:publishpage}}\".",
+	"lqt-update-summary-intro": "Por favor, resuma o tópico abaixo na caixa de edição.\nVocê pode usar qualquer wikitexto no seu resumo.\nQuando terminar, clique \"{{int:publishchanges}}\".",
 	"lqt-thread-split": "Separar em um novo tópico",
 	"lqt-split-success": "Você separou o tópico $1 com sucesso.",
 	"lqt_split_thread": "Separar um tópico",

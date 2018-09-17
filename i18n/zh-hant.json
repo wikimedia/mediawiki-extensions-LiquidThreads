@@ -138,6 +138,7 @@
 	"lqt-header-actions": "動作",
 	"lqt_summarize_link": "摘要",
 	"lqt-summarize-intro": "請填寫以下討論串的摘要於編輯框中。\n您可以在摘要中使用任何 Wiki 標記語言。\n完成後，請點選 \"{{int:publishpage}}\"。",
+	"lqt-update-summary-intro": "請填寫以下討論串的摘要於編輯框中。\n您可以在摘要中使用任何 Wiki 標記語言。\n完成後，請點選 \"{{int:publishchanges}}\"。",
 	"lqt-thread-split": "分割至新討論串",
 	"lqt-split-success": "您已經分割討論串 $1。",
 	"lqt_split_thread": "分割討論串",
