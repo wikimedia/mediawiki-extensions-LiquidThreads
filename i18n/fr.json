@@ -146,7 +146,7 @@
 	"lqt-thread-edited-others": "Modifié $2 utilisateurs<br />\nDernière modification : $1",
 	"lqt-header-actions": "Actions",
 	"lqt_summarize_link": "Résumer",
-	"lqt-summarize-intro": "Résumez le fil ci-dessous dans la boite de modification.\nVous pouvez utiliser du wikicode dans votre résumé. Lorsque vous avez terminé, cliquez sur « {{int: Savearticle}} ».",
+	"lqt-summarize-intro": "Résumez le fil ci-dessous dans la boîte de modification.\nVous pouvez utiliser du wikicode dans votre résumé. Lorsque vous avez terminé, cliquez sur « {{int:publishpage}} ».",
 	"lqt-update-summary-intro": "Merci de bien vouloir résumer le thread ci-dessous dans la boîte de saisie. Vous pouvez utiliser n'importe quel texte wiki pour votre résumé. \nLorsque vous avez terminé, cliquez sur « {{int:publishchanges}} ».",
 	"lqt-thread-split": "Scinder vers un nouveau fil",
 	"lqt-split-success": "Vous avez scindé le fil $1.",
