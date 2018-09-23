@@ -146,7 +146,7 @@
 	"lqt-newmessages-from": "Sa stranice $1",
 	"lqt-hot-topics": "Vruće teme",
 	"lqt-add-reply": "Dodaj odgovor",
-	"lqt_rc_new_discussion": "postavljena nova tema, \"$1\"",
+	"lqt_rc_new_discussion": "{{GENDER:|je postavio|je postavila|postavio}} novu temu, „$1“",
 	"lqt_rc_new_reply": "{{GENDER:|je postavio|je postavila|je postavio}} odgovor na „$1“",
 	"right-lqt-split": "Razdvoji teme",
 	"right-lqt-merge": "Spoji teme",
