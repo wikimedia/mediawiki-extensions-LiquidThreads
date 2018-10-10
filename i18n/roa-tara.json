@@ -124,6 +124,7 @@
 	"lqt-header-actions": "Aziune",
 	"lqt_summarize_link": "Riepileghe",
 	"lqt-summarize-intro": "Pe piacere riepileghe l'argomende d'aqquà sotte jndr'à sckatele de le cangiaminde.<br />\nTu puè ausà qualungue uicchiteste jndr'à 'u riepileghe tune.<br />\nQuanne è spicciate, cazze \"{{int:publishpage}}\".",
+	"lqt-update-summary-intro": "Pe piacere riepileghe l'argomende d'aqquà sotte jndr'à sckatele de le cangiaminde.\nTu puè ausà qualungue uicchiteste jndr'à 'u riepileghe tune.\nQuanne è spicciate, cazze \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Divide jndr'à doje argumende",
 	"lqt-split-success": "E' riuscite a dividere jndr'à doje argumende, l'argomende $1.",
 	"lqt_split_thread": "Divide 'n'argomende",
@@ -251,6 +252,9 @@
 	"apihelp-feedthreads-example-3": "Fà 'ndrucà 'nu feed de argominde nuève sus a [[Talk:Main Page]]",
 	"apihelp-query+threads-description": "Fà 'ndrucà le argominde de LiquidThreads.",
 	"apihelp-query+threads-summary": "Fà 'ndrucà le argominde de LiquidThreads.",
+	"apihelp-query+threads-param-startid": "L'ID de l'argomende da addò accumenze l'enumerazione.",
+	"apihelp-query+threads-param-endid": "L'ID de l'argomende ca stoppe l'enumerazione.",
 	"apihelp-threadaction-param-captchaword": "Resposta a 'u CAPTCHA",
-	"apihelp-threadaction-param-captchaid": "ID CAPTCHA da 'a richieste d'apprime."
+	"apihelp-threadaction-param-captchaid": "ID CAPTCHA da 'a richieste d'apprime.",
+	"apierror-liquidthreads-notext": "A 'ngludere 'u teste jndr'à 'u messàgge tune."
 }
