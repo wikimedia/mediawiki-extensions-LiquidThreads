@@ -230,7 +230,8 @@ class ApiThreadAction extends ApiEditPage {
 
 	public function actionNewThread( $threads, $params ) {
 		// Validate talkpage parameters
-		if ( !count( $params['talkpage'] ) ) {
+		$talkpage_params = is_array( $params['talkpage'] ) ? !count( $params['talkpage'] ) : 0;
+		if ( $talkpage_params ) {
 			$this->dieWithError( [ 'apierror-missingparam', 'talkpage' ] );
 		}
 
