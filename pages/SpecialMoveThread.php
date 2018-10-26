@@ -90,7 +90,7 @@ class SpecialMoveThread extends ThreadActionPage {
 
 		if ( count( $mergedErrors ) > 0 ) {
 			$out = $this->getOutput();
-			return $out->parse(
+			return $out->parseAsInterface(
 				$out->formatPermissionsErrorMessage( $mergedErrors, 'move' )
 			);
 		}

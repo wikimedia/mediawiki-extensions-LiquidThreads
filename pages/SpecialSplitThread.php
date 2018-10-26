@@ -43,7 +43,7 @@ class SpecialSplitThread extends ThreadActionPage {
 
 		$link = LqtView::linkInContext( $this->mThread );
 
-		$this->getOutput()->addHTML( $this->msg( 'lqt-split-success' )->rawParams( $link )->parse() );
+		$this->getOutput()->addWikiMsg( 'lqt-split-success', Message::rawParam( $link ) );
 
 		return true;
 	}

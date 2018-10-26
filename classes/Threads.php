@@ -246,7 +246,10 @@ class Threads {
 	// This will strip wikitext of its formatting.
 	public static function stripWikitext( $text ) {
 		global $wgOut;
-		$text = $wgOut->parseInline( $text );
+		# The $text may not actually be in the interface language, but we
+		# don't want to subject it to language conversion, so
+		# parseAsInterface() is better than parseAsContent()
+		$text = $wgOut->parseInlineAsInterface( $text );
 
 		$text = StringUtils::delimiterReplace( '<', '>', '', $text );
 

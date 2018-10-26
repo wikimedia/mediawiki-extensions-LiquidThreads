@@ -2449,7 +2449,9 @@ class LqtView {
 			return $parseCache[$sigKey];
 		}
 
-		$sig = $wgOut->parseInline( $sig );
+		$sig = Parser::stripOuterParagraph(
+			$wgOut->parseAsContent( $sig )
+		);
 
 		$parseCache[$sigKey] = $sig;
 

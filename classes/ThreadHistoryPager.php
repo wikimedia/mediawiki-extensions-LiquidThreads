@@ -143,7 +143,7 @@ class ThreadHistoryPager extends TablePager {
 
 		$content = wfMsgReplaceArgs( $msg, $args );
 		return Html::rawElement(
-			'span', [ 'class' => 'plainlinks' ], $wgOut->parseInline( $content )
+			'span', [ 'class' => 'plainlinks' ], $wgOut->parseInlineAsInterface( $content )
 		);
 	}
 
