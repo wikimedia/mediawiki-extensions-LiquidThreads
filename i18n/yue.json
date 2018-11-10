@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Antonytse",
-			"Shinjiman"
+			"Shinjiman",
+			"Hello903hello"
 		]
 	},
 	"lqt_movethread": "搬討論串去另一版",
@@ -61,5 +62,6 @@
 	"lqt_header_warning_big": "你而家編輯緊$1。",
 	"lqt_header_warning_after_big": "用來做公告同埋導言嘅版頭。你可能想去$2。",
 	"lqt_header_warning_bold": "討論頁版頭",
-	"lqt_header_warning_new_discussion": "開始一個新討論"
+	"lqt_header_warning_new_discussion": "開始一個新討論",
+	"lqt-newmessages-n": "新{{PLURAL:$1|訊息}}（$1）"
 }
