@@ -236,7 +236,9 @@
 			params.token = mw.user.tokens.get( 'editToken' );
 
 			( new mw.Api() ).post( params ).done( function ( result ) {
-				$container.empty().append( $( result.threadaction.inlineeditform.html ).contents() );
+				$container.empty().append(
+					$( result.threadaction.inlineeditform.html ).contents()
+				);
 
 				callback();
 			} );
@@ -247,7 +249,9 @@
 			if ( myField.selectionStart || myField.selectionStart === '0' ) {
 				startPos = myField.selectionStart;
 				endPos = myField.selectionEnd;
-				myField.value = myField.value.substring( 0, startPos ) + myValue + myField.value.substring( endPos, myField.value.length );
+				myField.value = myField.value.substring( 0, startPos ) +
+					myValue +
+					myField.value.substring( endPos, myField.value.length );
 			} else {
 				myField.value += myValue;
 			}
@@ -642,8 +646,8 @@
 
 			// Update thread-level menu, if appropriate
 			if ( $threadWrapper.hasClass( 'lqt-thread-topmost' ) ) {
-				// To perform better, check the 3 elements before the top-level thread container before
-				//  scanning the whole document
+				// To perform better, check the 3 elements before the top-level thread
+				// container before scanning the whole document
 				threadLevelCommandSelector = '#lqt-threadlevel-commands-' + threadId;
 				$traverseElement = $threadWrapper;
 
@@ -1013,7 +1017,9 @@
 			} );
 		},
 
-		doNewThread: function ( talkpage, subject, text, summary, doneCallback, bump, signature, errorCallback ) {
+		doNewThread: function (
+			talkpage, subject, text, summary, doneCallback, bump, signature, errorCallback
+		) {
 			var newTopicParams = {
 				action: 'threadaction',
 				threadaction: 'newthread',
