@@ -4,7 +4,7 @@
 
 /* global liquidThreads */
 
-( function ( mw, $ ) {
+( function () {
 
 	$.extend( liquidThreads, {
 		markReadDone: {
@@ -135,4 +135,4 @@
 		$( '.lqt-read-button' ).click( liquidThreads.doMarkRead );
 	} );
 
-}( mediaWiki, jQuery ) );
+}() );

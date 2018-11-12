@@ -1,7 +1,7 @@
 /**
  * jQuery plugin for collapsing LiquidThreads elements.
  */
-( function ( $ ) {
+( function () {
 	'use strict';
 
 	$.fn.threadCollapse = function () {
@@ -114,4 +114,4 @@
 	$( function () {
 		$( '.lqt-thread-topmost' ).threadCollapse();
 	} ); // document ready
-}( jQuery ) );
+}() );

@@ -7,7 +7,7 @@
 
 /* global liquidThreads */
 
-( function ( mw, $ ) {
+( function () {
 
 	$.getCSS = function ( url, media ) {
 		$( '<link>' ).attr( {
@@ -1641,4 +1641,4 @@
 		} );
 	} );
 
-}( mediaWiki, jQuery ) );
+}() );
