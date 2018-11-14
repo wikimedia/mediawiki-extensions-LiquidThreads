@@ -197,7 +197,7 @@
 				$container.find( '#wpTextbox1' ).attr( 'rows', 12 );
 				$container.find( '#wpDiff' ).hide();
 
-				if ( $.fn.wikiEditor && $.wikiEditor.isSupported( $.wikiEditor.modules.toolbar ) ) {
+				if ( $.fn.wikiEditor ) {
 					if ( !$( '#wpTextbox1' ).data( 'wikiEditor-context' ) ) {
 						// Add wikiEditor toolbar
 						$( '#wpTextbox1' ).wikiEditor( 'addModule', $.wikiEditor.modules.toolbar.config.getDefaultConfig() );
