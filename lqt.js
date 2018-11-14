@@ -342,7 +342,7 @@
 					$menu.toggle( 'fast' );
 
 					windowHeight = $( window ).height();
-					toolbarOffset = toolbar.offset().top;
+					toolbarOffset = $toolbar.offset().top;
 					scrollPos = $( window ).scrollTop();
 
 					menuBottom = ( toolbarOffset + 150 - scrollPos );
