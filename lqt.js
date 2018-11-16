@@ -223,7 +223,7 @@
 			mw.loader.using( [ 'mediawiki.action.edit' ],
 				function () {
 					liquidThreads.loadInlineEditForm( params, $container, function () {
-						var dependencies = [ 'ext.wikiEditor', 'user.options', 'jquery.async', 'jquery.cookie' ];
+						var dependencies = [ 'ext.wikiEditor', 'user.options', 'jquery.cookie' ];
 						mw.loader.using( dependencies, finishSetup );
 					} );
 				} );
