@@ -37,7 +37,7 @@
 	"lqt-drag-drop-zone": "အ်ုလင်ႋထင်းယိုဝ် ကြုဂ်လင်",
 	"lqt-drag-save": "ဆ်ုမာၮါင်း",
 	"lqt-feed-title-replies": "{{SITENAME}} — လိက်ကျးက္ဍာ",
-	"lqt-newmessages-n": "လိက်ၜၠာ် {{PLURAL:$1|အ်ုသင့်|အ်ုသင့်လ်ုဖး}} ($1)",
+	"lqt-newmessages-n": "လိက်သုံ့ {{PLURAL:$1|အ်ုသင့်|အ်ုသင့်လ်ုဖး}} ($1)",
 	"lqt_newmessages-title": "လိက်ၜၠာ်သင့်လ်ုဖး",
 	"lqt-talkpage-history-subtitle": "$1 အ်ုၯင်း",
 	"lqt-talkpage-history-tab": "ခေါဟ်တင်ႋ",
