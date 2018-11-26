@@ -167,7 +167,7 @@
 	"searchprofile-threads": "نقاشات",
 	"searchprofile-threads-tooltip": "ابحث فى النقاشات وصفحات النقاش ذات الخيوط",
 	"lqt-ajax-updated": "يحوى هذا النقاش مرسلات جديده.",
-	"lqt-ajax-update-link": "حدّث",
+	"lqt-ajax-update-link": "تحديث",
 	"lqt-thread-show-replies": "أظهر {{PLURAL:$1||ردًا واحدًا|ردّين|$1 ردود|$1 ردًا|$1 رد}}",
 	"lqt-thread-show-more": "أظهر مزيدًا من الردود",
 	"lqt-thread-link-url": "مسار الوصلة:",
