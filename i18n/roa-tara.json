@@ -254,6 +254,13 @@
 	"apihelp-query+threads-summary": "Fà 'ndrucà le argominde de LiquidThreads.",
 	"apihelp-query+threads-param-startid": "L'ID de l'argomende da addò accumenze l'enumerazione.",
 	"apihelp-query+threads-param-endid": "L'ID de l'argomende ca stoppe l'enumerazione.",
+	"apihelp-query+threads-param-showdeleted": "Fà 'ndrucà o none le argominde scangellate.",
+	"apihelp-query+threads-param-limit": "'U massime numere de argominde da elengà.",
+	"apihelp-query+threads-param-prop": "Ce probbietà a pigghià.",
+	"apihelp-query+threads-param-page": "Limite le resultate a le arguminde de ste pàggene.",
+	"apihelp-query+threads-param-author": "Limite le resultate a le arguminde a 'nu particolare autore.",
+	"apihelp-query+threads-param-root": "Limite le resultate a le arguminde a le radice date.",
+	"apihelp-query+threads-param-summary": "Limite le resultate a le arguminde de ste pàggene de riepiloghe.",
 	"apihelp-threadaction-param-captchaword": "Resposta a 'u CAPTCHA",
 	"apihelp-threadaction-param-captchaid": "ID CAPTCHA da 'a richieste d'apprime.",
 	"apierror-liquidthreads-notext": "A 'ngludere 'u teste jndr'à 'u messàgge tune."

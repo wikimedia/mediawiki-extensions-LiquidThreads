@@ -11,7 +11,8 @@
 			"Silvonen",
 			"Str4nd",
 			"ZeiP",
-			"Pitke"
+			"Pitke",
+			"Valtlait"
 		]
 	},
 	"lqt-desc": "Lisää keskustelusivuille viestiketjut.",
@@ -203,7 +204,7 @@
 	"lqt-cancel-subject-edit": "Peruuta",
 	"lqt-drag-activate": "Raahaa uuteen sijaintiin",
 	"lqt-drag-drop-zone": "Pudota tähän",
-	"lqt-drag-confirm": "Saattaaksesi seuraavat toiminnot valmiiksi, kirjoita syy ja napsauta ”Vahvista.”",
+	"lqt-drag-confirm": "Saattaaksesi seuraavat toiminnot valmiiksi, kirjoita syy ja napsauta ”Vahvista”.",
 	"lqt-drag-reparent": "Siirrä viesti uuden vanhemman alle.",
 	"lqt-drag-split": "Siirrä viesti omaksi ketjukseen",
 	"lqt-drag-setsortkey": "Säädä viestin sijaintia sivulla",
