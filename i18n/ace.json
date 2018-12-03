@@ -4,5 +4,8 @@
 			"Si Gam Acèh"
 		]
 	},
-	"lqt-search-button": "Mita"
+	"lqt_youhavenewmessages": "Droeneuh na [[$1|peusan barô]]",
+	"lqt-no-new-messages": "Hana peusan barô keu droeneuh",
+	"lqt-search-button": "Mita",
+	"lqt_newmessages-title": "Peusan barô"
 }
