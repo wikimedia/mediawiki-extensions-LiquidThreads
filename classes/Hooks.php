@@ -49,7 +49,7 @@ class LqtHooks {
 		$wgOut->addModules( 'ext.liquidThreads' );
 
 		// Custom display for new posts.
-		if ( $rc->mAttribs['rc_new'] ) {
+		if ( $rc->getAttribute( 'rc_new' ) ) {
 			// Article link, timestamp, user
 			$s = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
 				$thread->getTitle()
