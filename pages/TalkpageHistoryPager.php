@@ -1,13 +1,13 @@
 <?php
 
 class TalkpageHistoryPager extends ThreadHistoryPager {
-	function __construct( $view, $talkpage ) {
+	public function __construct( $view, $talkpage ) {
 		$this->talkpage = $talkpage;
 
 		parent::__construct( $view, null );
 	}
 
-	function getFieldMessages() {
+	public function getFieldMessages() {
 		$headers = [
 			'th_timestamp' => $this->msg( 'lqt-history-time' )->text(),
 			'thread_subject' => $this->msg( 'lqt-history-thread' )->text(),
@@ -19,7 +19,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 		return $headers;
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		$queryInfo = [
 			'tables' => [ 'thread_history', 'thread', 'page' ],
 			'fields' => '*',
@@ -34,7 +34,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 		return $queryInfo;
 	}
 
-	function formatValue( $name, $value ) {
+	public function formatValue( $name, $value ) {
 		global $wgLang, $wgContLang, $wgOut;
 
 		$wgOut->setRobotPolicy( 'noindex, nofollow' );

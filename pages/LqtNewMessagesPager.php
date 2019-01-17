@@ -3,7 +3,7 @@
 class LqtNewMessagesPager extends LqtDiscussionPager {
 	private $user;
 
-	function __construct( $user ) {
+	public function __construct( $user ) {
 		$this->user = $user;
 
 		parent::__construct( false, false );
@@ -15,7 +15,7 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 	 * 'posts' contains an array of integer post IDs which should be highlighted.
 	 * @return false|array
 	 */
-	function getThreads() {
+	public function getThreads() {
 		$rows = $this->getRows();
 
 		if ( !count( $rows ) ) {
@@ -50,7 +50,7 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 		return $output;
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		$dbr = wfGetDB( DB_REPLICA );
 
 		$queryInfo = [
@@ -71,15 +71,15 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 		return $queryInfo;
 	}
 
-	function getPageLimit() {
+	public function getPageLimit() {
 		return 25;
 	}
 
-	function getDefaultDirections() {
+	public function getDefaultDirections() {
 		return true; // Descending
 	}
 
-	function getIndexField() {
+	public function getIndexField() {
 		return [ 'ums_conversation' ];
 	}
 }

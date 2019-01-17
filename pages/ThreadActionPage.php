@@ -3,7 +3,7 @@
 abstract class ThreadActionPage extends UnlistedSpecialPage {
 	protected $user, $output, $request, $title, $mThread;
 
-	function __construct() {
+	public function __construct() {
 		parent::__construct( $this->getPageName(), $this->getRightRequirement() );
 		$this->mIncludable = false;
 
@@ -13,15 +13,15 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 		$this->request = $wgRequest;
 	}
 
-	abstract function getPageName();
+	abstract public function getPageName();
 
-	abstract function getFormFields();
+	abstract public function getFormFields();
 
 	protected function getRightRequirement() {
 		return '';
 	}
 
-	function execute( $par ) {
+	public function execute( $par ) {
 		global $wgOut, $wgUser;
 
 		if ( !$this->userCanExecute( $wgUser ) ) {
@@ -41,7 +41,7 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 	}
 
 	// Loads stuff like the thread and so on
-	function checkParameters( $par ) {
+	public function checkParameters( $par ) {
 		// Handle parameter
 		$this->mTarget = $par;
 		if ( $par === null || $par === "" ) {
@@ -60,9 +60,9 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 		return true;
 	}
 
-	abstract function getSubmitText();
+	abstract public function getSubmitText();
 
-	function buildForm() {
+	public function buildForm() {
 		$form = new HTMLForm(
 			$this->getFormFields(),
 			$this->getContext(),
@@ -77,5 +77,5 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 		return $form;
 	}
 
-	abstract function trySubmit( $data );
+	abstract public function trySubmit( $data );
 }

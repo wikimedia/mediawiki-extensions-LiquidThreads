@@ -1,7 +1,7 @@
 <?php
 
 class SpecialNewMessages extends SpecialPage {
-	function __construct() {
+	public function __construct() {
 		parent::__construct( 'NewMessages' );
 		$this->mIncludable = true;
 	}
@@ -14,11 +14,11 @@ class SpecialNewMessages extends SpecialPage {
 	 * @see SpecialPage::getDescription
 	 * @return string
 	 */
-	function getDescription() {
+	public function getDescription() {
 		return $this->msg( 'lqt_newmessages-title' )->text();
 	}
 
-	function execute( $par ) {
+	public function execute( $par ) {
 		$user = $this->getUser();
 		$output = $this->getOutput();
 		$request = $this->getRequest();

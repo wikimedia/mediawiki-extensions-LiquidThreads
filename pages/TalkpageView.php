@@ -15,18 +15,18 @@ class TalkpageView extends LqtView {
 	 */
 	protected $linkRenderer;
 
-	function __construct( &$output, &$article, &$title, &$user, &$request ) {
+	public function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		parent::__construct( $output, $article, $title, $user, $request );
 
 		$this->talkpage = $article;
 		$this->linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 	}
 
-	function setTalkPage( $tp ) {
+	public function setTalkPage( $tp ) {
 		$this->talkpage = $tp;
 	}
 
-	static function customizeTalkpageNavigation( $skin, &$links, $view ) {
+	public static function customizeTalkpageNavigation( $skin, &$links, $view ) {
 		$remove = [ 'views/edit', 'views/viewsource', 'actions/delete' ];
 
 		foreach ( $remove as $rem ) {
@@ -41,11 +41,11 @@ class TalkpageView extends LqtView {
 		}
 	}
 
-	function customizeNavigation( $skintemplate, &$links ) {
+	public function customizeNavigation( $skintemplate, &$links ) {
 		self::customizeTalkpageNavigation( $skintemplate, $links, $this );
 	}
 
-	function showHeader() {
+	public function showHeader() {
 		/* Show the contents of the actual talkpage article if it exists. */
 
 		global $wgUser;
@@ -108,7 +108,7 @@ class TalkpageView extends LqtView {
 		}
 	}
 
-	function getTOC( $threads ) {
+	public function getTOC( $threads ) {
 		global $wgLang, $wgContLang;
 
 		$html = '';
@@ -157,7 +157,7 @@ class TalkpageView extends LqtView {
 		return $html;
 	}
 
-	function getList( $kind, $class, $id, $contents ) {
+	public function getList( $kind, $class, $id, $contents ) {
 		$html = '';
 		foreach ( $contents as $li ) {
 			$html .= Xml::tags( 'li', null, $li );
@@ -167,13 +167,13 @@ class TalkpageView extends LqtView {
 		return $html;
 	}
 
-	function getArchiveWidget() {
+	public function getArchiveWidget() {
 		$html = '';
 		$html = Xml::tags( 'div', [ 'class' => 'lqt_archive_teaser' ], $html );
 		return $html;
 	}
 
-	function showTalkpageViewOptions() {
+	public function showTalkpageViewOptions() {
 		$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
 		$html = '';
 
@@ -221,7 +221,7 @@ class TalkpageView extends LqtView {
 	 * @return bool
 	 * @suppress SecurityCheck-XSS See T201811 for more information
 	 */
-	function show() {
+	public function show() {
 		$this->output->addModules( 'ext.liquidThreads' );
 
 		$article = $this->talkpage;
@@ -364,7 +364,7 @@ class TalkpageView extends LqtView {
 		return false;
 	}
 
-	function getSearchBox() {
+	private function getSearchBox() {
 		$html = '';
 		$html .= Xml::inputLabel(
 			wfMessage( 'lqt-search-label' )->text(),
@@ -389,18 +389,18 @@ class TalkpageView extends LqtView {
 		return $html;
 	}
 
-	function getPager() {
+	private function getPager() {
 		$sortType = $this->getSortType();
 		return new LqtDiscussionPager( $this->talkpage, $sortType );
 	}
 
-	function getPageThreads( $pager ) {
+	private function getPageThreads( $pager ) {
 		$rows = $pager->getRows();
 
 		return Thread::bulkLoad( $rows );
 	}
 
-	function getSortType() {
+	private function getSortType() {
 		// Determine sort order
 		if ( $this->request->getCheck( 'lqt_order' ) ) {
 			// Sort order is explicitly specified through UI
@@ -421,23 +421,23 @@ class TalkpageView extends LqtView {
 
 	// Hide a number of items from the view
 	// Valid values: toc, options, header
-	function hideItems( $items ) {
+	public function hideItems( $items ) {
 		$this->mShowItems = array_diff( $this->mShowItems, (array)$items );
 	}
 
 	// Show a number of items in the view
 	// Valid values: toc, options, header
-	function showItems( $items ) {
+	public function showItems( $items ) {
 		$this->mShowItems = array_merge( $this->mShowItems, (array)$items );
 	}
 
 	// Whether or not to show an item
-	function shouldShow( $item ) {
+	public function shouldShow( $item ) {
 		return in_array( $item, $this->mShowItems );
 	}
 
 	// Set the items shown
-	function setShownItems( $items ) {
+	public function setShownItems( $items ) {
 		$this->mShowItems = $items;
 	}
 }

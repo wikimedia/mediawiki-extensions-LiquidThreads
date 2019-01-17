@@ -2,7 +2,7 @@
 
 // Pass-through wrapper with an extra note at the top
 class TalkpageHeaderView extends LqtView {
-	function customizeNavigation( $skin, &$links ) {
+	public function customizeNavigation( $skin, &$links ) {
 		$remove = [
 			'actions/edit',
 			'actions/addsection',
@@ -22,7 +22,7 @@ class TalkpageHeaderView extends LqtView {
 		];
 	}
 
-	function show() {
+	public function show() {
 		if ( $this->request->getVal( 'action' ) === 'edit' ) {
 			$html = '';
 

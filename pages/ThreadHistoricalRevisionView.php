@@ -5,7 +5,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 
 	/* TOOD: customize tabs so that History is highlighted. */
 
-	function postDivClass( $thread ) {
+	public function postDivClass( $thread ) {
 		$changedObject = $this->mDisplayRevision->getChangeObject();
 		$is_changed_thread = $changedObject && ( $changedObject->id() == $thread->id() );
 
@@ -18,7 +18,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		}
 	}
 
-	function getMessageForChangeType( $ct ) {
+	public function getMessageForChangeType( $ct ) {
 		static $messages = [
 			Threads::CHANGE_NEW_THREAD => 'lqt_change_new_thread',
 			Threads::CHANGE_REPLY_CREATED => 'lqt_change_reply_created',
@@ -42,7 +42,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		return '';
 	}
 
-	function showHistoryInfo() {
+	private function showHistoryInfo() {
 		global $wgLang;
 
 		$html = wfMessage(
@@ -60,7 +60,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$this->output->addHTML( $html );
 	}
 
-	function getChangeDescription() {
+	private function getChangeDescription() {
 		$args = [];
 
 		$revision = $this->mDisplayRevision;
@@ -106,7 +106,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		return $html;
 	}
 
-	function show() {
+	public function show() {
 		if ( !$this->thread ) {
 			$this->showMissingThreadPage();
 			return false;

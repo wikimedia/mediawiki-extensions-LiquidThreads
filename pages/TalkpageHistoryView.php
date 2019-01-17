@@ -1,7 +1,7 @@
 <?php
 
 class TalkpageHistoryView extends TalkpageView {
-	function show() {
+	public function show() {
 		$talkpageTitle = $this->article->getTitle();
 		$talkpageLink = $this->linkRenderer->makeLink( $talkpageTitle );
 
@@ -20,7 +20,7 @@ class TalkpageHistoryView extends TalkpageView {
 		return false;
 	}
 
-	function customizeNavigation( $skin, &$links ) {
+	public function customizeNavigation( $skin, &$links ) {
 		TalkpageView::customizeTalkpageNavigation( $skin, $links, $this );
 		$links['views']['history']['class'] = 'selected';
 		$links['views']['view']['class'] = '';

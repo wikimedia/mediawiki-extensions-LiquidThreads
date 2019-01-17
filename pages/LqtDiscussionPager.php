@@ -1,7 +1,7 @@
 <?php
 
 class LqtDiscussionPager extends IndexPager {
-	function __construct( $article, $orderType ) {
+	public function __construct( $article, $orderType ) {
 		$this->article = $article;
 		$this->orderType = $orderType;
 
@@ -10,7 +10,7 @@ class LqtDiscussionPager extends IndexPager {
 		$this->setLimit( min( 50, $this->getPageLimit() ) );
 	}
 
-	function getPageLimit() {
+	public function getPageLimit() {
 		$article = $this->article;
 
 		global $wgRequest;
@@ -31,7 +31,7 @@ class LqtDiscussionPager extends IndexPager {
 		return $wgLiquidThreadsDefaultPageLimit;
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		$queryInfo = [
 			'tables' => [ 'thread' ],
 			'fields' => '*',
@@ -46,7 +46,7 @@ class LqtDiscussionPager extends IndexPager {
 	}
 
 	// Adapted from getBody().
-	function getRows() {
+	public function getRows() {
 		if ( !$this->mQueryDone ) {
 			$this->doQuery();
 		}
@@ -75,11 +75,11 @@ class LqtDiscussionPager extends IndexPager {
 		return $rows;
 	}
 
-	function formatRow( $row ) {
+	public function formatRow( $row ) {
 		// No-op, we get the list of rows from getRows()
 	}
 
-	function getIndexField() {
+	public function getIndexField() {
 		switch ( $this->orderType ) {
 			case TalkpageView::LQT_NEWEST_CHANGES:
 				return 'thread_sortkey';
@@ -91,7 +91,7 @@ class LqtDiscussionPager extends IndexPager {
 		}
 	}
 
-	function getDefaultDirections() {
+	public function getDefaultDirections() {
 		switch ( $this->orderType ) {
 			case TalkpageView::LQT_NEWEST_CHANGES:
 			case TalkpageView::LQT_NEWEST_THREADS:
@@ -109,7 +109,7 @@ class LqtDiscussionPager extends IndexPager {
 	 * @return string
 	 * @suppress SecurityCheck-XSS See T201811 for more information
 	 */
-	function getNavigationBar() {
+	public function getNavigationBar() {
 		if ( method_exists( $this, 'isNavigationBarShown' ) &&
 				!$this->isNavigationBarShown() ) {
 			return '';
@@ -162,7 +162,7 @@ class LqtDiscussionPager extends IndexPager {
 		return $s;
 	}
 
-	function getNavClass() {
+	public function getNavClass() {
 		return 'TalkpagePager_nav';
 	}
 }

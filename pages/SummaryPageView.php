@@ -3,7 +3,7 @@
 use MediaWiki\MediaWikiServices;
 
 class SummaryPageView extends LqtView {
-	function show() {
+	public function show() {
 		$thread = Threads::withSummary( $this->article );
 		if ( $thread && $thread->root() ) {
 			$t = $thread->root()->getTitle();

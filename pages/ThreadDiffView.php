@@ -1,7 +1,7 @@
 <?php
 
 class ThreadDiffView extends LqtView {
-	function customizeNavigation( $skin, &$links ) {
+	public function customizeNavigation( $skin, &$links ) {
 		$remove = [ 'views/edit', 'views/viewsource' ];
 
 		foreach ( $remove as $rem ) {

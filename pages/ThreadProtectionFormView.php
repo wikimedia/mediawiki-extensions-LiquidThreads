@@ -2,7 +2,7 @@
 
 // Pass-through wrapper
 class ThreadProtectionFormView extends LqtView {
-	function customizeNavigation( $skintemplate, &$links ) {
+	public function customizeNavigation( $skintemplate, &$links ) {
 		ThreadPermalinkView::customizeThreadNavigation( $skintemplate, $links, $this );
 
 		if ( isset( $links['actions']['protect'] ) ) {
@@ -14,7 +14,7 @@ class ThreadProtectionFormView extends LqtView {
 		}
 	}
 
-	function __construct( &$output, &$article, &$title, &$user, &$request ) {
+	public function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		parent::__construct( $output, $article, $title, $user, $request );
 
 		$t = Threads::withRoot( $this->article );

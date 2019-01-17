@@ -1,7 +1,7 @@
 <?php
 // TODO access control
 class SpecialSplitThread extends ThreadActionPage {
-	function getFormFields() {
+	public function getFormFields() {
 		$splitForm = [
 			'src' => [
 				'type' => 'info',
@@ -26,7 +26,7 @@ class SpecialSplitThread extends ThreadActionPage {
 	 * @see SpecialPage::getDescription
 	 * @return string
 	 */
-	function getDescription() {
+	public function getDescription() {
 		return $this->msg( 'lqt_split_thread' )->text();
 	}
 
@@ -34,7 +34,7 @@ class SpecialSplitThread extends ThreadActionPage {
 		return 'lqt-split';
 	}
 
-	function trySubmit( $data ) {
+	public function trySubmit( $data ) {
 		// Load data
 		$newSubject = $data['subject'];
 		$reason = $data['reason'];
@@ -48,7 +48,7 @@ class SpecialSplitThread extends ThreadActionPage {
 		return true;
 	}
 
-	function validateSubject( $target ) {
+	public function validateSubject( $target ) {
 		if ( !$target ) {
 			return $this->msg( 'lqt_split_nosubject' )->parse();
 		}
@@ -65,11 +65,11 @@ class SpecialSplitThread extends ThreadActionPage {
 		return true;
 	}
 
-	function getPageName() {
+	public function getPageName() {
 		return 'SplitThread';
 	}
 
-	function getSubmitText() {
+	public function getSubmitText() {
 		return $this->msg( 'lqt-split-submit' )->text();
 	}
 }

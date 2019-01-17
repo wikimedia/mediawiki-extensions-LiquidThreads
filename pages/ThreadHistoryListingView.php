@@ -1,7 +1,7 @@
 <?php
 
 class ThreadHistoryListingView extends ThreadPermalinkView {
-	function show() {
+	public function show() {
 		if ( !$this->thread ) {
 			$this->showMissingThreadPage();
 			return false;
@@ -29,7 +29,7 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 		return false;
 	}
 
-	function customizeNavigation( $skin, &$links ) {
+	public function customizeNavigation( $skin, &$links ) {
 		parent::customizeNavigation( $skin, $links );
 		// Not present if thread does not exist
 		if ( isset( $links['views']['history'] ) ) {

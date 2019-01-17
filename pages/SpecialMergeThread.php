@@ -2,7 +2,7 @@
 
 // @todo FIXME: access control
 class SpecialMergeThread extends ThreadActionPage {
-	function getFormFields() {
+	public function getFormFields() {
 		$splitForm = [
 			'src' => [
 				'type' => 'info',
@@ -53,7 +53,7 @@ class SpecialMergeThread extends ThreadActionPage {
 		return true;
 	}
 
-	function formatThreadField( $field, $threadid ) {
+	public function formatThreadField( $field, $threadid ) {
 		if ( !is_object( $threadid ) ) {
 			$t = Threads::withId( $threadid );
 		} else {
@@ -71,11 +71,11 @@ class SpecialMergeThread extends ThreadActionPage {
 	 * @see SpecialPage::getDescription
 	 * @return string
 	 */
-	function getDescription() {
+	public function getDescription() {
 		return $this->msg( 'lqt_merge_thread' )->text();
 	}
 
-	function trySubmit( $data ) {
+	public function trySubmit( $data ) {
 		// Load data
 		$srcThread = $this->mThread;
 		$dstThread = $this->mDestThread;
@@ -92,11 +92,11 @@ class SpecialMergeThread extends ThreadActionPage {
 		return true;
 	}
 
-	function getPageName() {
+	public function getPageName() {
 		return 'MergeThread';
 	}
 
-	function getSubmitText() {
+	public function getSubmitText() {
 		return $this->msg( 'lqt-merge-submit' )->text();
 	}
 }

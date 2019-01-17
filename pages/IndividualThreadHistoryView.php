@@ -3,7 +3,7 @@
 class IndividualThreadHistoryView extends ThreadPermalinkView {
 	protected $oldid;
 
-	function customizeNavigation( $skin, &$links ) {
+	public function customizeNavigation( $skin, &$links ) {
 		$links['views']['history']['class'] = 'selected';
 		parent::customizeNavigation( $skin, $links );
 		return true;
@@ -11,7 +11,7 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 
 	/* This customizes the subtitle of a history *listing* from the hook,
 	and of an old revision from getSubtitle() below. */
-	function customizeSubtitle() {
+	public function customizeSubtitle() {
 		$msg = wfMessage( 'lqt_hist_view_whole_thread' )->parse();
 		$threadhist = $this->permalink(
 			$this->thread->topmostThread(),
@@ -27,13 +27,13 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 	}
 
 	/* */
-	function getSubtitle() {
+	public function getSubtitle() {
 		$this->article->setOldSubtitle( $this->oldid );
 		$this->customizeSubtitle();
 		return $this->output->getSubtitle();
 	}
 
-	function show() {
+	public function show() {
 		global $wgHooks;
 
 		if ( !$this->thread ) {
