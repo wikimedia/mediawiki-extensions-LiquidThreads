@@ -256,7 +256,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$entry['content'] = $result;
 	}
 
-	static function formatProperty( $name, $fields, $row, &$entry ) {
+	private static function formatProperty( $name, $fields, $row, &$entry ) {
 		if ( is_null( $fields ) ) {
 			$entry[$name] = [];
 		} elseif ( !is_array( $fields ) ) {
@@ -276,7 +276,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 	}
 
-	function addPageCond( $prop, $value ) {
+	private function addPageCond( $prop, $value ) {
 		if ( count( $value ) === 1 ) {
 			$cond = $this->getPageCond( $prop, $value[0] );
 			$this->addWhere( $cond );
@@ -292,7 +292,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 	}
 
-	function getPageCond( $prop, $value ) {
+	private function getPageCond( $prop, $value ) {
 		$fieldMappings = [
 			'page' => [
 				'namespace' => 'thread_article_namespace',
@@ -323,7 +323,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		return $cond;
 	}
 
-	function handleCondition( $prop, $value ) {
+	private function handleCondition( $prop, $value ) {
 		$titleParams = [ 'page', 'root', 'summary' ];
 		$fields = self::$propRelations[$prop];
 

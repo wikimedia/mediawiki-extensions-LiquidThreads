@@ -1,11 +1,11 @@
 <?php
 
 class NewMessages {
-	static function markThreadAsUnreadByUser( $thread, $user ) {
+	public static function markThreadAsUnreadByUser( $thread, $user ) {
 		self::writeUserMessageState( $thread, $user, null );
 	}
 
-	static function markThreadAsReadByUser( $thread, $user ) {
+	public static function markThreadAsReadByUser( $thread, $user ) {
 		if ( is_object( $thread ) ) {
 			$thread_id = $thread->id();
 		} elseif ( is_int( $thread ) ) {
@@ -33,7 +33,7 @@ class NewMessages {
 		self::recacheMessageCount( $user_id );
 	}
 
-	static function markAllReadByUser( $user ) {
+	public static function markAllReadByUser( $user ) {
 		if ( is_object( $user ) ) {
 			$user_id = $user->getID();
 		} elseif ( is_int( $user ) ) {
@@ -142,7 +142,7 @@ class NewMessages {
 	 * @param string $type
 	 * @param User $changeUser
 	 */
-	static function writeMessageStateForUpdatedThread( $t, $type, $changeUser ) {
+	public static function writeMessageStateForUpdatedThread( $t, $type, $changeUser ) {
 		wfDebugLog( 'LiquidThreads', 'Doing notifications' );
 
 		$usersByCategory = self::getNotifyUsers( $t, $changeUser );
@@ -174,7 +174,7 @@ class NewMessages {
 		}
 	}
 
-	static function getNotifyUsers( $t, $changeUser ) {
+	public static function getNotifyUsers( $t, $changeUser ) {
 		// Pull users to update the message state for, including whether or not a
 		// user_message_state row exists for them, and whether or not to send an email
 		// notification.
@@ -227,7 +227,7 @@ class NewMessages {
 
 	// Would refactor User::decodeOptions, but the whole point is that this is
 	// compatible with old code :)
-	static function decodeUserOptions( $str ) {
+	public static function decodeUserOptions( $str ) {
 		$opts = [];
 		$a = explode( "\n", $str );
 		foreach ( $a as $s ) {
@@ -240,7 +240,7 @@ class NewMessages {
 		return $opts;
 	}
 
-	static function notifyUsersByMail( $t, $watching_users, $timestamp, $type ) {
+	public static function notifyUsersByMail( $t, $watching_users, $timestamp, $type ) {
 		$messages = [
 			Threads::CHANGE_REPLY_CREATED => 'lqt-enotif-reply',
 			Threads::CHANGE_NEW_THREAD => 'lqt-enotif-newthread',
@@ -347,7 +347,7 @@ class NewMessages {
 		}
 	}
 
-	static function newUserMessages( $user ) {
+	public static function newUserMessages( $user ) {
 		$talkPage = new Article( $user->getUserPage()->getTalkPage(), 0 );
 
 		$dbr = wfGetDB( DB_REPLICA );
@@ -380,7 +380,7 @@ class NewMessages {
 		return Threads::loadFromResult( $res, $dbr );
 	}
 
-	static function newMessageCount( $user, $db = DB_REPLICA ) {
+	public static function newMessageCount( $user, $db = DB_REPLICA ) {
 		global $wgMemc;
 
 		$cval = $wgMemc->get( wfMemcKey( 'lqt-new-messages-count', $user->getId() ) );
@@ -412,14 +412,14 @@ class NewMessages {
 		return 0;
 	}
 
-	static function recacheMessageCount( $uid ) {
+	public static function recacheMessageCount( $uid ) {
 		global $wgMemc;
 
 		$wgMemc->delete( wfMemcKey( 'lqt-new-messages-count', $uid ) );
 		User::newFromId( $uid )->clearSharedCache( 'refresh' );
 	}
 
-	static function watchedThreadsForUser( $user ) {
+	public static function watchedThreadsForUser( $user ) {
 		$talkPage = new Article( $user->getUserPage()->getTalkPage(), 0 );
 
 		$dbr = wfGetDB( DB_REPLICA );

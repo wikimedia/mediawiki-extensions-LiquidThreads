@@ -4,7 +4,7 @@ use MediaWiki\MediaWikiServices;
 
 // Contains formatter functions for all log entry types.
 class LqtLogFormatter {
-	static function formatLogEntry( $type, $action, $title, $sk, $parameters ) {
+	public static function formatLogEntry( $type, $action, $title, $sk, $parameters ) {
 		$msg = "lqt-log-action-$action";
 
 		switch ( $action ) {

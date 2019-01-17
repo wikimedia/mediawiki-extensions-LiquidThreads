@@ -1,6 +1,6 @@
 <?php
 class LqtParserFunctions {
-	static function useLiquidThreads( &$parser, $param = '1' ) {
+	public static function useLiquidThreads( &$parser, $param = '1' ) {
 		$offParams = [ 'no', 'off', 'disable' ];
 		// Figure out if they want to turn it off or on.
 		$param = trim( strtolower( $param ) );
@@ -14,7 +14,7 @@ class LqtParserFunctions {
 		$parser->mOutput->setProperty( 'use-liquid-threads', $param );
 	}
 
-	static function lqtPageLimit( &$parser, $param = null ) {
+	public static function lqtPageLimit( &$parser, $param = null ) {
 		if ( $param && $param > 0 ) {
 			$parser->mOutput->setProperty( 'lqt-page-limit', $param );
 		}
@@ -30,7 +30,7 @@ class LqtParserFunctions {
 	 * @param Frame $frame
 	 * @return string
 	 */
-	static function lqtTalkPage( $content, $args, $parser, $frame ) {
+	public static function lqtTalkPage( $content, $args, $parser, $frame ) {
 		$pout = $parser->getOutput();
 
 		// Prepare information.
@@ -65,7 +65,7 @@ class LqtParserFunctions {
 		return $text;
 	}
 
-	static function lqtThread( $content, $args, $parser, $frame ) {
+	public static function lqtThread( $content, $args, $parser, $frame ) {
 		$pout = $parser->getOutput();
 
 		// Prepare information.
@@ -103,7 +103,7 @@ class LqtParserFunctions {
 		return $text;
 	}
 
-	static function runLqtTalkPage( $details ) {
+	public static function runLqtTalkPage( $details ) {
 		$title = $details["title"];
 		$article = $details["article"];
 		$talkpage = $details["talkpage"];
@@ -133,7 +133,7 @@ class LqtParserFunctions {
 		return $html;
 	}
 
-	static function showLqtThread( $details ) {
+	public static function showLqtThread( $details ) {
 		$title = $details["title"];
 		$article = $details["article"];
 
@@ -155,7 +155,7 @@ class LqtParserFunctions {
 		return $html;
 	}
 
-	static function onAddParserOutput( &$out, $pout ) {
+	public static function onAddParserOutput( &$out, $pout ) {
 		if ( !isset( $pout->mLqtReplacements ) ) {
 			return true;
 		}
@@ -184,7 +184,7 @@ class LqtParserFunctions {
 		return true;
 	}
 
-	static function onAddHTML( &$out, &$text ) {
+	public static function onAddHTML( &$out, &$text ) {
 		if ( !isset( $out->mLqtReplacements ) || !count( $out->mLqtReplacements ) ) {
 			return true;
 		}

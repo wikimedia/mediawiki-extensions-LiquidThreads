@@ -8,7 +8,7 @@ class HistoricalThread extends Thread {
 	protected $changeUser;
 	protected $changeUserText;
 
-	function __construct( $t ) {
+	public function __construct( $t ) {
 		/* SCHEMA changes must be reflected here. */
 		$this->rootId = $t->rootId;
 		$this->rootRevision = $t->rootRevision;
@@ -30,16 +30,16 @@ class HistoricalThread extends Thread {
 		}
 	}
 
-	static function textRepresentation( $t ) {
+	public static function textRepresentation( $t ) {
 		$ht = new HistoricalThread( $t );
 		return serialize( $ht );
 	}
 
-	static function fromTextRepresentation( $r ) {
+	public static function fromTextRepresentation( $r ) {
 		return unserialize( $r );
 	}
 
-	static function withIdAtRevision( $id, $rev ) {
+	public static function withIdAtRevision( $id, $rev ) {
 		$dbr = wfGetDB( DB_REPLICA );
 		$line = $dbr->selectRow(
 			'historical_thread',
@@ -56,19 +56,19 @@ class HistoricalThread extends Thread {
 		}
 	}
 
-	function isHistorical() {
+	public function isHistorical() {
 		return true;
 	}
 
-	function changeType() {
+	public function changeType() {
 		return $this->changeType;
 	}
 
-	function changeObject() {
+	public function changeObject() {
 		return $this->replyWithId( $this->changeObject );
 	}
 
-	function setChangeType( $t ) {
+	public function setChangeType( $t ) {
 		if ( in_array( $t, Threads::$VALID_CHANGE_TYPES ) ) {
 			$this->changeType = $t;
 		} else {
@@ -76,7 +76,7 @@ class HistoricalThread extends Thread {
 		}
 	}
 
-	function setChangeObject( $o ) {
+	public function setChangeObject( $o ) {
 		# we assume $o to be a Thread.
 		if ( $o === null ) {
 			$this->changeObject = null;
@@ -85,7 +85,7 @@ class HistoricalThread extends Thread {
 		}
 	}
 
-	function changeUser() {
+	public function changeUser() {
 		if ( $this->changeUser == 0 ) {
 			return User::newFromName( $this->changeUserText, false /* No validation */ );
 		} else {
@@ -93,11 +93,11 @@ class HistoricalThread extends Thread {
 		}
 	}
 
-	function changeComment() {
+	public function changeComment() {
 		return $this->changeComment;
 	}
 
-	function setChangeUser( $user ) {
+	public function setChangeUser( $user ) {
 		$this->changeUser = $user->getId();
 		$this->changeUserText = $user->getName();
 	}

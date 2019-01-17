@@ -35,7 +35,7 @@ class LqtHooks {
 	 * @param array &$classes
 	 * @return bool
 	 */
-	static function customizeOldChangesList( &$changeslist, &$s, $rc, &$classes ) {
+	public static function customizeOldChangesList( &$changeslist, &$s, $rc, &$classes ) {
 		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			return true;
 		}
@@ -78,7 +78,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function setNewtalkHTML( $skintemplate, $tpl ) {
+	public static function setNewtalkHTML( $skintemplate, $tpl ) {
 		global $wgUser, $wgOut;
 
 		// If the user isn't using LQT on their talk page, bail out
@@ -105,7 +105,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function beforeWatchlist(
+	public static function beforeWatchlist(
 		$name, &$tables, &$fields, &$conds, &$query_options, &$join_conds, $opts
 	) {
 		global $wgLiquidThreadsEnableNewMessages, $wgOut, $wgUser;
@@ -150,7 +150,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function getPreferences( $user, &$preferences ) {
+	public static function getPreferences( $user, &$preferences ) {
 		global $wgEnableEmail, $wgLqtTalkPages, $wgLiquidThreadsEnableNewMessages, $wgHiddenPrefs;
 
 		if ( $wgEnableEmail ) {
@@ -199,14 +199,14 @@ class LqtHooks {
 	 *
 	 * @return bool
 	 */
-	static function updateNewtalkOnEdit( WikiPage $wikiPage ) {
+	public static function updateNewtalkOnEdit( WikiPage $wikiPage ) {
 		$title = $wikiPage->getTitle();
 
 		// They're only editing the header, don't update newtalk.
 		return !LqtDispatch::isLqtPage( $title );
 	}
 
-	static function dumpThreadData( $writer, &$out, $row, $title ) {
+	public static function dumpThreadData( $writer, &$out, $row, $title ) {
 		// Is it a thread
 		if ( empty( $row->thread_id ) || $row->thread_type >= 2 ) {
 			return true;
@@ -248,7 +248,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function modifyExportQuery( $db, &$tables, &$cond, &$opts, &$join ) {
+	public static function modifyExportQuery( $db, &$tables, &$cond, &$opts, &$join ) {
 		$tables[] = 'thread';
 
 		$join['thread'] = [ 'left join', [ 'thread_root=page_id' ] ];
@@ -256,7 +256,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function modifyOAIQuery( &$tables, &$fields, &$conds,
+	public static function modifyOAIQuery( &$tables, &$fields, &$conds,
 		&$options, &$join_conds
 	) {
 		$tables[] = 'thread';
@@ -269,7 +269,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function customiseSearchResultTitle( &$title, &$text, $result, $terms, $page ) {
+	public static function customiseSearchResultTitle( &$title, &$text, $result, $terms, $page ) {
 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
 			return true;
 		}
@@ -352,7 +352,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function customiseSearchProfiles( &$profiles ) {
+	public static function customiseSearchProfiles( &$profiles ) {
 		$namespaces = [ NS_LQT_THREAD, NS_LQT_SUMMARY ];
 
 		// Add odd namespaces
@@ -462,7 +462,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function onTitleMoveComplete(
+	public static function onTitleMoveComplete(
 		Title $ot, Title $nt, User $user, $oldid, $newid, $reason = null
 	) {
 		// Check if it's a talk page.
@@ -477,7 +477,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function onMovePageIsValidMove( Title $oldTitle ) {
+	public static function onMovePageIsValidMove( Title $oldTitle ) {
 		// Synchronise article data so that moving the article doesn't break any
 		// article association.
 		Threads::synchroniseArticleData( new Article( $oldTitle, 0 ) );
@@ -485,7 +485,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function onArticleMove( $ot, $nt, $user, &$err, $reason ) {
+	public static function onArticleMove( $ot, $nt, $user, &$err, $reason ) {
 		return self::onMovePageIsValidMove( $ot );
 	}
 
@@ -496,7 +496,7 @@ class LqtHooks {
 	 * @param bool &$allowUserTalk
 	 * @return bool
 	 */
-	static function userIsBlockedFrom( $user, $title, &$isBlocked, &$allowUserTalk ) {
+	public static function userIsBlockedFrom( $user, $title, &$isBlocked, &$allowUserTalk ) {
 		// Limit applicability
 		if ( !( $isBlocked && $allowUserTalk && $title->getNamespace() == NS_LQT_THREAD ) ) {
 			return true;
@@ -550,7 +550,7 @@ class LqtHooks {
 		return true;
 	}
 
-	static function onPersonalUrls( &$personal_urls, &$title ) {
+	public static function onPersonalUrls( &$personal_urls, &$title ) {
 		global $wgUser;
 
 		if ( $wgUser->isAnon() ) {
@@ -599,7 +599,7 @@ class LqtHooks {
 	 *
 	 * @return bool
 	 */
-	static function onPageContentSaveComplete(
+	public static function onPageContentSaveComplete(
 		WikiPage &$wikiPage, &$user, $content, $summary,
 		$minoredit, $watchthis, $sectionanchor, &$flags, $revision,
 		&$status, $baseRevId
@@ -643,7 +643,7 @@ class LqtHooks {
 	 * @param array &$types
 	 * @return bool
 	 */
-	static function getProtectionTypes( $title, &$types ) {
+	public static function getProtectionTypes( $title, &$types ) {
 		$isLqtPage = LqtDispatch::isLqtPage( $title );
 		$isThread = $title->getNamespace() == NS_LQT_THREAD;
 
