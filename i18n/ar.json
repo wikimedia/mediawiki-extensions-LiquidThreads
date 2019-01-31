@@ -200,7 +200,7 @@
 	"lqt-summary-sign-not-necessary": "ليس من الضروري التوقيع على مشاركتك بأربع تلدات.",
 	"lqt-marked-as-read-placeholder": "عُلّم النقاش $1 مقروءًا.",
 	"lqt-change-subject": "غير الموضوع",
-	"lqt-save-subject": "احفظ",
+	"lqt-save-subject": "حفظ",
 	"lqt-save-subject-failed": "الخطأ التالي حدث أثناء محاولة تغيير موضوع هذا الخيط: $1",
 	"lqt-ajax-invalid-subject": "الموضوع الذي حددته كان غير صحيح، على الأرجح لأنه كان طويلا جدا.",
 	"lqt-ajax-no-subject": "يجب أن تحدد موضوعا للخيط الجديد.",

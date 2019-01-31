@@ -176,7 +176,7 @@
 	"lqt-sign-not-necessary": "من غير الضرورى التوقيع على تعليقك باستخدام أربع مدات.\nالتوقيع يتم عرضه أوتوماتيكيا.",
 	"lqt-marked-as-read-placeholder": "الخيط $1 تم التعليم عليه كمقروء.",
 	"lqt-change-subject": "غير الموضوع",
-	"lqt-save-subject": "احفظ",
+	"lqt-save-subject": "سييف",
 	"lqt-save-subject-failed": "الخطأ التالى حدث أثناء محاوله تغيير موضوع هذا الخيط: $1",
 	"lqt-ajax-invalid-subject": "الموضوع الذى حددته كان غير صحيح، على الأرجح لأنه كان طويلا جدا.",
 	"lqt-ajax-no-subject": "يجب أن تحدد موضوعا.",
