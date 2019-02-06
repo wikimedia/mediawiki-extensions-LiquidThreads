@@ -82,7 +82,7 @@ class LqtHooks {
 		global $wgUser, $wgOut;
 
 		// If the user isn't using LQT on their talk page, bail out
-		if ( ! LqtDispatch::isLqtPage( $wgUser->getTalkPage() ) ) {
+		if ( !LqtDispatch::isLqtPage( $wgUser->getTalkPage() ) ) {
 			return true;
 		}
 
@@ -91,9 +91,9 @@ class LqtHooks {
 		$watchlist_t = SpecialPage::getTitleFor( 'Watchlist' );
 		$usertalk_t = $wgUser->getTalkPage();
 		if ( $wgUser->getNewtalk()
-				&& ! $newmsg_t->equals( $pageTitle )
-				&& ! $watchlist_t->equals( $pageTitle )
-				&& ! $usertalk_t->equals( $pageTitle )
+				&& !$newmsg_t->equals( $pageTitle )
+				&& !$watchlist_t->equals( $pageTitle )
+				&& !$usertalk_t->equals( $pageTitle )
 				) {
 			$s = wfMessage( 'lqt_youhavenewmessages', $newmsg_t->getPrefixedText() )->parse();
 			$tpl->set( "newtalk", $s );
@@ -773,7 +773,7 @@ class LqtHooks {
 			}
 		}
 
-		if ( ! isset( $pageInfo['DiscussionThreading'] ) ) {
+		if ( !isset( $pageInfo['DiscussionThreading'] ) ) {
 			return true;
 		}
 

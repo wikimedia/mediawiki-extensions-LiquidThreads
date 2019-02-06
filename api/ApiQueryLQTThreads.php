@@ -221,7 +221,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$thread = Thread::newFromRow( $row );
 		$article = $thread->root();
 
-		if ( ! $article ) {
+		if ( !$article ) {
 			return;
 		}
 

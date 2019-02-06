@@ -185,7 +185,7 @@ class ApiFeedLQTThreads extends ApiBase {
 			$root = new Article( Title::newFromText( $thread ), 0 );
 			$thread = Threads::withRoot( $root );
 
-			if ( ! $thread ) {
+			if ( !$thread ) {
 				continue;
 			}
 

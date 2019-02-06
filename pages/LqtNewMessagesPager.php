@@ -18,7 +18,7 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 	function getThreads() {
 		$rows = $this->getRows();
 
-		if ( ! count( $rows ) ) {
+		if ( !count( $rows ) ) {
 			return false;
 		}
 

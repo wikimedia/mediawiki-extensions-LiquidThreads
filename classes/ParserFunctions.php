@@ -167,7 +167,7 @@ class LqtParserFunctions {
 		foreach ( $pout->mLqtReplacements as $text => $details ) {
 			$result = '';
 
-			if ( ! is_array( $details ) ) {
+			if ( !is_array( $details ) ) {
 				continue;
 			}
 

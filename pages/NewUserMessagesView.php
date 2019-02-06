@@ -126,7 +126,7 @@ class NewUserMessagesView extends LqtView {
 		$pager = new LqtNewMessagesPager( $this->user );
 		$this->messagesInfo = $pager->getThreads();
 
-		if ( ! $this->messagesInfo ) {
+		if ( !$this->messagesInfo ) {
 			$this->output->addWikiMsg( 'lqt-no-new-messages' );
 			return false;
 		}

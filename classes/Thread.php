@@ -297,7 +297,7 @@ class Thread {
 		}
 
 		// If there's no root, bail out with an error message
-		if ( ! $this->rootId && ! ( $this->type & Threads::TYPE_DELETED ) ) {
+		if ( !$this->rootId && !( $this->type & Threads::TYPE_DELETED ) ) {
 			throw new Exception( "Non-deleted thread saved with empty root ID" );
 		}
 
@@ -665,11 +665,11 @@ class Thread {
 				$type = $info['type'];
 				$user = $info['user-name'];
 
-				if ( ! isset( self::$reactionCacheById[$thread_id] ) ) {
+				if ( !isset( self::$reactionCacheById[$thread_id] ) ) {
 					self::$reactionCacheById[$thread_id] = [];
 				}
 
-				if ( ! isset( self::$reactionCacheById[$thread_id][$type] ) ) {
+				if ( !isset( self::$reactionCacheById[$thread_id][$type] ) ) {
 					self::$reactionCacheById[$thread_id][$type] = [];
 				}
 
@@ -906,7 +906,7 @@ class Thread {
 
 		// Check for article corruption from incomplete thread moves.
 		// (thread moves only updated this on immediate replies, not replies to replies etc)
-		if ( ! $ancestor->getTitle()->equals( $this->getTitle() ) ) {
+		if ( !$ancestor->getTitle()->equals( $this->getTitle() ) ) {
 			$title = $ancestor->getTitle();
 			$set['thread_article_namespace'] = $title->getNamespace();
 			$set['thread_article_title'] = $title->getDbKey();
@@ -1013,7 +1013,7 @@ class Thread {
 			return;
 		}
 		foreach ( $replies as $reply ) {
-			if ( ! $reply->hasSuperthread() ) {
+			if ( !$reply->hasSuperthread() ) {
 				throw new Exception( "Post " . $this->id() .
 				" has contaminated reply " . $reply->id() .
 				". Found no superthread." );
@@ -1224,7 +1224,7 @@ class Thread {
 			}
 
 			if ( !$title && $this->type() != Threads::TYPE_DELETED ) {
-				if ( ! $this->isHistorical() ) {
+				if ( !$this->isHistorical() ) {
 					$this->delete( '', false /* !commit */ );
 				} else {
 					$this->type = Threads::TYPE_DELETED;
@@ -1438,7 +1438,7 @@ class Thread {
 	public function rootRevision() {
 		if ( !$this->isHistorical() ||
 			!isset( $this->topmostThread()->threadRevision ) ||
-			! $this->root()
+			!$this->root()
 		) {
 			return null;
 		}
@@ -1725,7 +1725,7 @@ class Thread {
 						'value' => $row->tr_value,
 					];
 
-					if ( ! isset( $reactions[$type] ) ) {
+					if ( !isset( $reactions[$type] ) ) {
 						$reactions[$type] = [];
 					}
 
@@ -1751,7 +1751,7 @@ class Thread {
 			'value' => $value,
 		];
 
-		if ( ! isset( $this->reactions[$type] ) ) {
+		if ( !isset( $this->reactions[$type] ) ) {
 			$this->reactions[$type] = [];
 		}
 

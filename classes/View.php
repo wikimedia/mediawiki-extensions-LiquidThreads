@@ -515,7 +515,7 @@ class LqtView {
 	function showNewThreadForm( $talkpage ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) {
+		if ( !$this->handleNonce( $submitted_nonce, $nonce_key ) ) {
 			return;
 		}
 
@@ -529,7 +529,7 @@ class LqtView {
 
 		$subjectOk = Thread::validateSubject( $subject, $t,
 					null, $this->article );
-		if ( ! $subjectOk ) {
+		if ( !$subjectOk ) {
 			try {
 				$t = $this->newThreadTitle( $subject );
 			} catch ( Exception $excep ) {
@@ -638,7 +638,7 @@ class LqtView {
 
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) {
+		if ( !$this->handleNonce( $submitted_nonce, $nonce_key ) ) {
 			return;
 		}
 
@@ -749,7 +749,7 @@ class LqtView {
 	function showPostEditingForm( $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) {
+		if ( !$this->handleNonce( $submitted_nonce, $nonce_key ) ) {
 			return;
 		}
 
@@ -766,7 +766,7 @@ class LqtView {
 		$t = null;
 		$subjectOk = Thread::validateSubject( $subject, $t,
 					$thread->superthread(), $this->article );
-		if ( ! $subjectOk ) {
+		if ( !$subjectOk ) {
 			$subject = false;
 		}
 
@@ -861,7 +861,7 @@ class LqtView {
 	function showSummarizeForm( $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-		if ( ! $this->handleNonce( $submitted_nonce, $nonce_key ) ) {
+		if ( !$this->handleNonce( $submitted_nonce, $nonce_key ) ) {
 			return;
 		}
 
@@ -1701,7 +1701,7 @@ class LqtView {
 
 		Hooks::run( 'LiquidThreadsThreadInfoPanel', [ $thread, &$infoElements ] );
 
-		if ( ! count( $infoElements ) ) {
+		if ( !count( $infoElements ) ) {
 			return '';
 		}
 
@@ -2098,8 +2098,8 @@ class LqtView {
 		if (
 			trim( $content ) == '' &&
 			$thread->type() != Threads::TYPE_MOVED &&
-			! self::threadContainsRepliesWithContent( $thread ) &&
-			! array_key_exists( $thread->id(), $mustShowThreads )
+			!self::threadContainsRepliesWithContent( $thread ) &&
+			!array_key_exists( $thread->id(), $mustShowThreads )
 		) {
 			$this->threadNestingLevel--;
 			return;
@@ -2203,7 +2203,7 @@ class LqtView {
 			);
 		}
 
-		if ( ! $thread->title() ) {
+		if ( !$thread->title() ) {
 			throw new Exception( "Thread " . $thread->id() . " has null title" );
 		}
 

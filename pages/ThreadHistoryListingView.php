@@ -2,7 +2,7 @@
 
 class ThreadHistoryListingView extends ThreadPermalinkView {
 	function show() {
-		if ( ! $this->thread ) {
+		if ( !$this->thread ) {
 			$this->showMissingThreadPage();
 			return false;
 		}
