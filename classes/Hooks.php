@@ -367,7 +367,8 @@ class LqtHooks {
 				'message' => 'searchprofile-threads',
 				'tooltip' => 'searchprofile-threads-tooltip',
 				'namespaces' => $namespaces,
-				'namespace-messages' => SearchEngine::namespacesAsText( $namespaces ),
+				'namespace-messages' => MediaWikiServices::getInstance()->getSearchEngineConfig()
+					->namespacesAsText( $namespaces ),
 			],
 		];
 
