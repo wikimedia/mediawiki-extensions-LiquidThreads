@@ -23,7 +23,7 @@
 				// We have to split the message to the part before the
 				// $1 and the part after the $1
 				placeholderIndex = msg.indexOf( '$1' );
-				$elem = $( '<span class="lqt-read-placeholder"/>' );
+				$elem = $( '<span>' ).addClass( 'lqt-read-placeholder' );
 
 				if ( placeholderIndex >= 0 ) {
 					beforeMsg = msg.substr( 0, placeholderIndex );
@@ -95,7 +95,7 @@
 		doMarkOneRead: function ( $form ) {
 			var operand = $form.find( 'input[name=lqt_operand]' ).val(),
 				threads = operand.replace( /,/g, '|' ),
-				$spinner = $( '<div class="mw-ajax-loader">' );
+				$spinner = $( '<div>' ).addClass( 'mw-ajax-loader' );
 
 			$form.prepend( $spinner );
 
@@ -112,7 +112,7 @@
 		},
 
 		doMarkAllRead: function ( $form ) {
-			var $spinner = $( '<div class="mw-ajax-loader">' );
+			var $spinner = $( '<div>' ).addClass( 'mw-ajax-loader' );
 
 			$form.prepend( $spinner );
 
@@ -132,7 +132,7 @@
 
 	// Setup
 	$( function () {
-		$( '.lqt-read-button' ).click( liquidThreads.doMarkRead );
+		$( '.lqt-read-button' ).on( 'click', liquidThreads.doMarkRead );
 	} );
 
 }() );

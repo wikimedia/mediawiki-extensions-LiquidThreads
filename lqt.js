@@ -50,7 +50,7 @@
 			$replyDiv = $replyDiv.add( $container.contents().filter( '.lqt-reply-form' ) );
 			if ( !$replyDiv.length ) {
 				// Create a div for it
-				$replyDiv = $( '<div class="lqt-reply-form lqt-edit-form"/>' );
+				$replyDiv = $( '<div>' ).addClass( 'lqt-reply-form lqt-edit-form' );
 
 				// Try to find a place for it
 				if ( !$repliesElement.length ) {
@@ -70,10 +70,10 @@
 				$repliesElement = $thread.contents().filter( '.lqt-thread-replies' );
 
 			if ( !$repliesElement.length ) {
-				$repliesElement = $( '<div class="lqt-thread-replies"/>' );
+				$repliesElement = $( '<div>' ).addClass( 'lqt-thread-replies' );
 
-				$finishDiv = $( '<div class="lqt-replies-finish"/>' );
-				$finishDiv.append( $( '<div class="lqt-replies-finish-corner"/>' ) );
+				$finishDiv = $( '<div>' ).addClass( 'lqt-replies-finish' );
+				$finishDiv.append( $( '<div>' ).addClass( 'lqt-replies-finish-corner' ) );
 				$finishDiv.contents().html( '&nbsp;' );
 				$repliesElement.append( $finishDiv );
 
@@ -128,6 +128,8 @@
 			$parent = $( this ).closest( '.lqt-post-wrapper' );
 
 			$container = $( '<div>' ).addClass( 'lqt-edit-form' );
+			// FIXME: Use CSS transition
+			// eslint-disable-next-line jquery/no-fade
 			$parent.contents().fadeOut();
 			$parent.append( $container );
 			params = { method: 'edit', thread: $parent.data( 'thread-id' ) };
@@ -161,19 +163,20 @@
 					scrollOffset = targetOffset - windowHeight + editBoxHeight;
 				}
 
+				// eslint-disable-next-line jquery/no-animate
 				$( 'html, body' ).animate( { scrollTop: scrollOffset }, 'slow' );
 				// Auto-focus and set to auto-grow as well
-				$container.find( '#wpTextbox1' ).focus();
+				$container.find( '#wpTextbox1' ).trigger( 'focus' );
 				// Focus the subject field if there is one. Overrides previous line.
-				$container.find( '#lqt_subject_field' ).focus();
+				$container.find( '#lqt_subject_field' ).trigger( 'focus' );
 
 				// Update signature editor
 				$container.find( 'input[name=wpLqtSignature]' ).hide();
 				$container.find( '.lqt-signature-preview' ).show();
 
-				$editLink = $( '<a class="lqt-signature-edit-button"/>' );
+				$editLink = $( '<a>' ).addClass( 'lqt-signature-edit-button' );
 				$editLink.text( mw.msg( 'lqt-edit-signature' ) );
-				$editLink.click( liquidThreads.handleEditSignature );
+				$editLink.on( 'click', liquidThreads.handleEditSignature );
 				$editLink.attr( 'href', '#' );
 				$container.find( '.lqt-signature-preview' ).after( $editLink );
 				$editLink.before( ' ' );
@@ -189,10 +192,12 @@
 					$container.find( 'textarea' )[ 0 ].value = preload;
 				}
 
+				// FIXME: Use CSS transition
+				// eslint-disable-next-line jquery/no-slide
 				$container.slideDown( 'slow', finishShow );
 
 				$cancelButton = $container.find( '#mw-editform-cancel' );
-				$cancelButton.click( liquidThreads.cancelEdit );
+				$cancelButton.on( 'click', liquidThreads.cancelEdit );
 
 				$container.find( '#wpTextbox1' ).attr( 'rows', 12 );
 				$container.find( '#wpDiff' ).hide();
@@ -211,11 +216,11 @@
 						group: 'insert',
 						tool: 'signature'
 					} );
-					$( '#wpTextbox1' ).focus();
+					$( '#wpTextbox1' ).trigger( 'focus' );
 				}
 				$currentFocused = $container.find( '#wpTextbox1' );
 				mw.hook( 'ext.lqt.textareaCreated' ).fire( $currentFocused );
-				$container.find( '#wpTextbox1, #wpSummary' ).focus( function () {
+				$container.find( '#wpTextbox1, #wpSummary' ).on( 'focus', function () {
 					$currentFocused = $( this );
 				} );
 			}
@@ -278,11 +283,15 @@
 			$( '.lqt-edit-form' ).not( e ).each(
 				function () {
 					var repliesElement = $( this ).closest( '.lqt-thread-replies' );
+					// FIXME: Use CSS transition
+					// eslint-disable-next-line jquery/no-fade
 					$( this ).fadeOut( 'slow',
 						function () {
 							$( this ).empty();
 
 							if ( $( this ).parent().is( '.lqt-post-wrapper' ) ) {
+								// FIXME: Use CSS transition
+								// eslint-disable-next-line jquery/no-fade
 								$( this ).parent().contents().fadeIn();
 								$( this ).remove();
 							}
@@ -308,15 +317,15 @@
 			// Add handler for reply link
 			$replyLink = $toolbar.find( '.lqt-command-reply > a' );
 			$replyLink.data( 'thread-id', threadID );
-			$replyLink.click( liquidThreads.handleReplyLink );
+			$replyLink.on( 'click', liquidThreads.handleReplyLink );
 
 			if ( !$menu.closest( '.lqt_thread' ).is( '.lqt-thread-uneditable' ) ) {
 				// Add "Drag to new location" to menu
-				$dragLI = $( '<li class="lqt-command-drag lqt-command" />' );
+				$dragLI = $( '<li>' ).addClass( 'lqt-command-drag lqt-command' );
 				$dragLink = $( '<a/>' ).text( mw.msg( 'lqt-drag-activate' ) );
 				$dragLink.attr( 'href', '#' );
 				$dragLI.append( $dragLink );
-				$dragLink.click( liquidThreads.activateDragDrop );
+				$dragLink.on( 'click', liquidThreads.activateDragDrop );
 				$menu.append( $dragLI );
 			}
 
@@ -329,7 +338,7 @@
 			$menu.hide();
 
 			// FIXME: After a drag-and-drop, this stops working on the thread and its replies
-			$trigger.click(
+			$trigger.on( 'click',
 				function ( e ) {
 					var windowHeight, toolbarOffset, scrollPos, menuBottom;
 
@@ -337,8 +346,10 @@
 					e.preventDefault();
 
 					// Hide the other menus
+					// FIXME: Use CSS transition
+					// eslint-disable-next-line jquery/no-animate-toggle
 					$( '.lqt-thread-toolbar-command-list' ).not( $menu ).hide( 'fast' );
-
+					// eslint-disable-next-line jquery/no-animate-toggle
 					$menu.toggle( 'fast' );
 
 					windowHeight = $( window ).height();
@@ -366,10 +377,10 @@
 			}
 
 			$editSubjectField = $( '<li/>' );
-			$editSubjectLink = $( '<a href="#"/>' );
+			$editSubjectLink = $( '<a>' ).attr( 'href', '#' );
 			$editSubjectLink.text( mw.msg( 'lqt-change-subject' ) );
 			$editSubjectField.append( $editSubjectLink );
-			$editSubjectField.click( liquidThreads.handleChangeSubject );
+			$editSubjectField.on( 'click', liquidThreads.handleChangeSubject );
 			$editSubjectField.data( 'thread-id', id );
 
 			$editSubjectField.addClass( 'lqt-command-edit-subject' );
@@ -391,20 +402,23 @@
 			$header = $( '#lqt-header-' + threadId );
 			headerText = $header.find( 'input[name=raw-header]' ).val();
 
-			$textbox = $( '<input type="textbox">' )
+			$textbox = $( '<input>' )
+				.attr( 'type', 'textbox' )
 				.val( headerText )
 				.attr( 'id', 'lqt-subject-input-' + threadId )
 				.attr( 'size', '75' )
 				.val( headerText );
 
 			saveText = mw.msg( 'lqt-save-subject' );
-			$saveButton = $( '<input type="button">' )
+			$saveButton = $( '<input>' )
+				.attr( 'type', 'button' )
 				.val( saveText )
-				.click( liquidThreads.handleSubjectSave );
+				.on( 'click', liquidThreads.handleSubjectSave );
 
-			$cancelButton = $( '<input type="button">' )
+			$cancelButton = $( '<input>' )
+				.attr( 'type', 'textbox' )
 				.val( mw.msg( 'lqt-cancel-subject-edit' ) )
-				.click( function () {
+				.on( 'click', function () {
 					var $form = $( this ).closest( '.mw-subject-editor' ),
 						$header = $form.closest( '.lqt_header' );
 					$header.contents().filter( '.mw-headline' ).show();
@@ -415,7 +429,7 @@
 
 			$header.contents().filter( 'span.mw-headline' ).hide();
 
-			$subjectForm = $( '<span class="mw-subject-editor">' ).append(
+			$subjectForm = $( '<span>' ).addClass( 'mw-subject-editor' ).append(
 				$textbox, '&nbsp;', $saveButton, '&nbsp;', $cancelButton
 			);
 			$subjectForm.data( 'thread-id', threadId );
@@ -430,7 +444,7 @@
 				$header = $subjectForm.closest( '.lqt_header' ),
 				threadId = $subjectForm.data( 'thread-id' ),
 				$textbox = $( '#lqt-subject-input-' + threadId ),
-				newSubject = $.trim( $textbox.val() );
+				newSubject = $textbox.val().trim();
 
 			if ( !newSubject ) {
 				// eslint-disable-next-line no-alert
@@ -446,7 +460,7 @@
 			request = {
 				action: 'threadaction',
 				threadaction: 'setsubject',
-				subject: $.trim( newSubject ),
+				subject: newSubject,
 				thread: threadId,
 				token: mw.user.tokens.get( 'editToken' )
 			};
@@ -491,6 +505,8 @@
 
 		handleDocumentClick: function () {
 			// Collapse all menus
+			// FIXME: Use CSS transition
+			// eslint-disable-next-line jquery/no-animate-toggle
 			$( '.lqt-thread-toolbar-command-list' ).hide( 'fast' );
 		},
 
@@ -523,6 +539,7 @@
 			} ).done( function ( data ) {
 				var threads = data.query.threads;
 
+				// eslint-disable-next-line jquery/no-each-util
 				$.each( threads, function ( i, thread ) {
 					var threadId = thread.id,
 						threadModified = thread.modified;
@@ -547,10 +564,10 @@
 				.text( mw.msg( 'lqt-ajax-updated' ) + ' ' )
 				.addClass( 'lqt-updated-notification' );
 
-			$updateButton = $( '<a href="#">' )
+			$updateButton = $( '<a>' ).attr( 'href', '#' )
 				.text( mw.msg( 'lqt-ajax-update-link' ) )
 				.addClass( 'lqt-update-link' )
-				.click( liquidThreads.updateThread );
+				.on( 'click', liquidThreads.updateThread );
 
 			$notifier.append( $updateButton );
 
@@ -565,7 +582,7 @@
 
 		doReloadThread: function ( $thread /* The .lqt_thread */ ) {
 			var threadId = $thread.data( 'thread-id' ),
-				$loader = $( '<div class="mw-ajax-loader" >' ),
+				$loader = $( '<div>' ).addClass( 'mw-ajax-loader' ),
 				$header = $( '#lqt-header-' + threadId );
 
 			$thread.prepend( $loader );
@@ -597,11 +614,15 @@
 					liquidThreads.setupThread( $( this ) );
 				} );
 
+				// FIXME: Use CSS transition
+				// eslint-disable-next-line jquery/no-fade
 				$header.fadeIn();
+				// eslint-disable-next-line jquery/no-fade
 				$thread.fadeIn();
 
 				// Scroll to the updated thread.
 				targetOffset = $thread.offset().top;
+				// eslint-disable-next-line jquery/no-animate
 				$( 'html, body' ).animate( { scrollTop: targetOffset }, 'slow' );
 			} );
 		},
@@ -628,7 +649,7 @@
 
 			// Set up reply link
 			$threadWrapper.find( '.lqt-add-reply' )
-				.click( liquidThreads.handleReplyLink )
+				.on( 'click', liquidThreads.handleReplyLink )
 				.data( 'thread-id', threadId );
 
 			// Hide edit forms
@@ -675,8 +696,8 @@
 			$thread = $( this ).closest( '.lqt_thread' ).find( 'div.lqt-post-wrapper' );
 			threadId = $thread.data( 'thread-id' );
 			$replies = $thread.parent().find( '.lqt-thread-replies' );
-			$loader = $( '<div class="mw-ajax-loader">' );
-			$sep = $( '<div class="lqt-post-sep">' ).html( '&nbsp;' );
+			$loader = $( '<div>' ).addClass( 'mw-ajax-loader' );
+			$sep = $( '<div>' ).addClass( 'lqt-post-sep' ).html( '&nbsp;' );
 
 			$replies.empty().hide().before( $loader );
 
@@ -710,6 +731,8 @@
 
 					// Show
 					$loader.remove();
+					// FIXME: Use CSS transition
+					// eslint-disable-next-line jquery/no-fade
 					$replies.fadeIn( 'slow' );
 				}
 			} );
@@ -721,7 +744,7 @@
 			e.preventDefault();
 
 			// Add spinner
-			$loader = $( '<div class="mw-ajax-loader">' );
+			$loader = $( '<div>' ).addClass( 'mw-ajax-loader' );
 			$( this ).after( $loader );
 
 			// Grab the appropriate thread
@@ -756,6 +779,8 @@
 					liquidThreads.setupThread( $( this ) );
 				} );
 
+				// FIXME: Use CSS transition
+				// eslint-disable-next-line jquery/no-fade
 				$content.fadeIn();
 				$loader.remove();
 			} );
@@ -850,7 +875,7 @@
 			$titleField.text( linkTitle );
 			$titleRow = $( '<tr>' ).append( $titleLabel ).append( $titleField );
 
-			$table = $( '<table><tbody></tbody></table>' );
+			$table = $( '<table>' ).append( $( '<tbdoy>' ) );
 			$table.find( 'tbody' ).append( $urlRow ).append( $titleRow );
 
 			$dialog = $( '<div>' ).append( $table );
@@ -874,7 +899,7 @@
 				text = wikiEditorContext.$textarea.textSelection( 'getContents' );
 			}
 
-			if ( $.trim( text ).length === 0 ) {
+			if ( ( text || '' ).trim().length === 0 ) {
 				// eslint-disable-next-line no-alert
 				alert( mw.msg( 'lqt-empty-text' ) );
 				return;
@@ -898,7 +923,7 @@
 			$bumpBox = $editform.find( '#wpBumpThread' );
 			bump = $bumpBox.length === 0 || $bumpBox.is( ':checked' );
 
-			$spinner = $( '<div class="mw-ajax-loader"/>' );
+			$spinner = $( '<div>' ).addClass( 'mw-ajax-loader' );
 			$editform.prepend( $spinner );
 
 			function replyCallback( data ) {
@@ -911,6 +936,7 @@
 					.find( 'input.lqt-thread-modified' )
 					.val( data.threadaction.thread.modified );
 				liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
+				// eslint-disable-next-line jquery/no-animate
 				$( 'html, body' ).animate( { scrollTop: $newThread.offset().top }, 'slow' );
 			}
 
@@ -920,6 +946,7 @@
 				// remove the no threads message if it's on the page
 				$( '.lqt-no-threads' ).remove();
 				liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
+				// eslint-disable-next-line jquery/no-animate
 				$( 'html,body' ).animate( { scrollTop: $newThread.offset().top }, 'slow' );
 			}
 
@@ -939,7 +966,7 @@
 					$form = $editform.find( '#editform' ).append( $saveHidden );
 
 				$form.parent().data( 'non-ajax-submit', true ); // To avoid edit form open warning
-				$form.submit();
+				$form.trigger( 'submit' );
 			}
 
 			function doneCallback( data ) {
@@ -1009,7 +1036,7 @@
 				$toc.before( $contentsHeading );
 			}
 
-			$loadTOCSpinner = $( '<div class="mw-ajax-loader">' )
+			$loadTOCSpinner = $( '<div>' ).addClass( 'mw-ajax-loader' )
 				.css( 'height', $toc.height() );
 			$toc.empty().append( $loadTOCSpinner );
 			$toc.load( window.location.href + ' .lqt_toc > *', function () {
@@ -1104,7 +1131,7 @@
 		onTextboxKeyUp: function () {
 			// Check if a user has signed their post, and if so, tell them they don't have to.
 			var $weLqtSummaryTop, $elem, msg, $weTop,
-				text = $.trim( $( this ).val() ),
+				text = $( this ).val().trim(),
 				$prevWarning = $( '#lqt-sign-warning' );
 			if ( text.match( /~~~~$/ ) ) {
 				if ( $prevWarning.length ) {
@@ -1118,7 +1145,7 @@
 				} else {
 					msg = mw.msg( 'lqt-sign-not-necessary' );
 				}
-				$elem = $( '<div>' ).attr( { id: 'lqt-sign-warning', 'class': 'error' } ).text( msg );
+				$elem = $( '<div>' ).attr( { id: 'lqt-sign-warning', class: 'error' } ).text( msg );
 				$weTop = $( this ).closest( '.lqt-edit-form' ).find( '.wikiEditor-ui-top' );
 
 				if ( $weTop.length ) {
@@ -1153,7 +1180,9 @@
 				$header = $( '#lqt-header-' + threadId );
 				$headline = $header.contents().filter( '.mw-headline' ).clone();
 				$helper = $( '<h2 />' ).append( $headline );
-				helperFunc = function () { return $helper; };
+				helperFunc = function () {
+					return $helper;
+				};
 			} else {
 				helperFunc =
 					function () {
@@ -1178,7 +1207,7 @@
 			// Set up some dropping targets. Add one before the first thread, after every
 			//  other thread, and as a subthread of every post.
 			function createDropZone( sortKey, parent ) {
-				return $( '<div class="lqt-drop-zone" />' )
+				return $( '<div>' ).addClass( 'lqt-drop-zone' )
 					.text( mw.msg( 'lqt-drag-drop-zone' ) )
 					.data( 'sortkey', sortKey )
 					.data( 'parent', parent );
@@ -1270,7 +1299,9 @@
 			// Kill the helper.
 			ui.helper.remove();
 
-			setTimeout( function () { $thread.draggable( 'destroy' ); }, 1 );
+			setTimeout( function () {
+				$thread.draggable( 'destroy' );
+			}, 1 );
 
 			// Remove drop points and schedule removal of empty replies elements.
 			emptyChecks = [];
@@ -1295,7 +1326,7 @@
 			var $intro, $actionSummary, topLevel, wasTopLevel, buttons, $spinner,
 				$summaryWrapper, $summaryPrompt, $summaryField,
 				$subjectPrompt, $subjectField,
-				$confirmDialog = $( '<div class="lqt-drag-confirm">' );
+				$confirmDialog = $( '<div>' ).addClass( 'lqt-drag-confirm' );
 
 			// Add an intro
 			$intro = $( '<p>' ).text( mw.msg( 'lqt-drag-confirm' ) );
@@ -1329,14 +1360,16 @@
 
 			// Summary prompt
 			$summaryWrapper = $( '<p>' );
-			$summaryPrompt = $( '<label for="reason">' ).text( mw.msg( 'lqt-drag-reason' ) );
-			$summaryField = $( '<input type="text" size="45">' );
+			$summaryPrompt = $( '<label>' ).attr( 'for', 'reason' ).text( mw.msg( 'lqt-drag-reason' ) );
+			$summaryField = $( '<input>' )
+				.attr( 'type', 'text' )
+				.attr( 'size', '45' );
 			$summaryField.addClass( 'lqt-drag-confirm-reason' )
 				.attr( 'name', 'reason' )
 				.attr( 'id', 'reason' )
-				.keyup( function ( event ) {
+				.on( 'keyup', function ( event ) {
 					if ( event.keyCode === 13 ) {
-						$( '#lqt-drag-save-button' ).click();
+						$( '#lqt-drag-save-button' ).trigger( 'click' );
 					}
 				} );
 			$summaryWrapper.append( $summaryPrompt, $summaryField );
@@ -1349,7 +1382,9 @@
 			// New subject prompt, if appropriate
 			if ( !wasTopLevel && topLevel ) {
 				$subjectPrompt = $( '<p>' ).text( mw.msg( 'lqt-drag-subject' ) );
-				$subjectField = $( '<input type="text" size="45">' )
+				$subjectField = $( '<input>' )
+					.attr( 'type', 'text' )
+					.attr( 'size', '45' )
 					.addClass( 'lqt-drag-confirm-subject' )
 					.attr( 'name', 'subject' );
 				$subjectPrompt.append( $subjectField );
@@ -1374,11 +1409,11 @@
 					params.reason = $( this ).find( 'input[name=reason]' ).val();
 
 					if ( !wasTopLevel && topLevel ) {
-						params.subject = $.trim( $( this ).find( 'input[name=subject]' ).val() );
+						params.subject = ( $( this ).find( 'input[name=subject]' ).val() || '' ).trim();
 					}
 
 					// Add spinners
-					$spinner = $( '<div id="lqt-drag-spinner" class="mw-ajax-loader" />' );
+					$spinner = $( '<div>' ).attr( 'id', 'lqt-drag-spinner' ).addClass( 'mw-ajax-loader' );
 					$thread.before( $spinner );
 
 					if ( params.$insertAfter !== undefined ) {
@@ -1409,6 +1444,7 @@
 				};
 
 			function doEmptyChecks() {
+				// eslint-disable-next-line jquery/no-each-util
 				$.each( params.emptyChecks, function ( k, element ) {
 					liquidThreads.checkEmptyReplies( $( element ) );
 				} );
@@ -1540,9 +1576,9 @@
 			$( this ).hide();
 
 			// Add a save button
-			$saveButton = $( '<a href="#">' )
+			$saveButton = $( '<a>' ).attr( 'href', '#' )
 				.text( mw.msg( 'lqt-preview-signature' ) )
-				.click( liquidThreads.handlePreviewSignature );
+				.on( 'click', liquidThreads.handlePreviewSignature );
 
 			$container.find( 'input[name=wpLqtSignature]' ).after( $saveButton );
 		},
@@ -1554,7 +1590,7 @@
 
 			$container = $( this ).parent();
 
-			$spinner = $( '<span class="mw-small-spinner">' );
+			$spinner = $( '<span>' ).addClass( 'mw-small-spinner' );
 			$( this ).replaceWith( $spinner );
 
 			$textbox = $container.find( 'input[name=wpLqtSignature]' );
@@ -1568,7 +1604,7 @@
 				pst: '1',
 				prop: 'text'
 			} ).done( function ( data ) {
-				var html = $( $.trim( data.parse.text[ '*' ] ) );
+				var html = $( ( data.parse.text[ '*' ] || '' ).trim() );
 
 				if ( html.length === 2 ) { // Not 1, because of the NewPP report
 					html = html.contents();
@@ -1593,7 +1629,7 @@
 		newThreadLink = newThreadLink.add( $( 'li#ca-addsection a' ) );
 
 		if ( newThreadLink ) {
-			newThreadLink.click( liquidThreads.handleNewLink );
+			newThreadLink.on( 'click', liquidThreads.handleNewLink );
 		}
 
 		// Find all threads, and do the appropriate setup for each of them
@@ -1628,7 +1664,7 @@
 		$( document ).on( 'keyup', '#wpTextbox1', liquidThreads.onTextboxKeyUp );
 
 		// Hide menus when a click happens outside them
-		$( document ).click( liquidThreads.handleDocumentClick );
+		$( document ).on( 'click', liquidThreads.handleDocumentClick );
 
 		// Set up periodic update checking
 		setInterval( liquidThreads.checkForUpdates, 60000 );

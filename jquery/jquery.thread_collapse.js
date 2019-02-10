@@ -77,8 +77,8 @@
 						// counter for the number of replies
 						numReplies = $thread.find( '.lqt_thread' ).length + 1;
 						// create the thread preview we'll use in the collapsed state
-						$preview = $( '<div class="thread-collapsed-preview"></div>' )
-							.addClass( 'lqt-post-wrapper' )
+						$preview = $( '<div>' )
+							.addClass( 'thread-collapsed-preview lqt-post-wrapper' )
 							.append( $( $.threadCollapse.templates.collapseControl )
 								.find( 'a' )
 								.text( 'Expand' )
