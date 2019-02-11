@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kumkumuk"
+			"Kumkumuk",
+			"Mirzali"
 		]
 	},
-	"searchprofile-threads": "Werênayışi"
+	"searchprofile-threads": "Werênayışi",
+	"lqt-cancel-subject-edit": "Bıtexelne"
 }
