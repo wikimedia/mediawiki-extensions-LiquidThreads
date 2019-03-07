@@ -4,7 +4,8 @@
 			"Kening Aldgilles",
 			"Snakesteuben",
 			"Robin0van0der0vliet",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"PiefPafPier"
 		]
 	},
 	"lqt_delete": "Fuortsmite",
@@ -18,5 +19,6 @@
 	"lqt-save-subject": "Bewarje",
 	"lqt-cancel-subject-edit": "Annulearje",
 	"lqt-drag-reason": "Reden:",
+	"lqt-newmessages-n": "Nij{{PLURAL:$1|&nbsp;berjocht|e&nbsp;berjochten}} ($1)",
 	"pageinfo-usinglqt-yes": "Ja"
 }
