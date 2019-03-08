@@ -19,6 +19,6 @@
 	"lqt-save-subject": "Bewarje",
 	"lqt-cancel-subject-edit": "Annulearje",
 	"lqt-drag-reason": "Reden:",
-	"lqt-newmessages-n": "Nij{{PLURAL:$1|&nbsp;berjocht|e&nbsp;berjochten}} ($1)",
+	"lqt-newmessages-n": "Nij{{PLURAL:$1|&#32;berjocht|e berjochten}} ($1)",
 	"pageinfo-usinglqt-yes": "Ja"
 }
