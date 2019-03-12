@@ -357,7 +357,7 @@ class ApiThreadAction extends ApiEditPage {
 		$thread = array_pop( $threads );
 		$talkpage = $thread->article();
 
-		$bump = isset( $params['bump'] ) ? $params['bump'] : null;
+		$bump = $params['bump'] ?? null;
 
 		// Validate subject
 		$subjectOk = true;
@@ -485,7 +485,7 @@ class ApiThreadAction extends ApiEditPage {
 
 		$text = $params['text'];
 
-		$bump = isset( $params['bump'] ) ? $params['bump'] : null;
+		$bump = $params['bump'] ?? null;
 
 		// Generate/pull summary
 		$summary = wfMessage( 'lqt-reply-summary', $replyTo->subject(),
