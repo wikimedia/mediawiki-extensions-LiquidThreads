@@ -996,6 +996,8 @@ class LqtView {
 	}
 
 	public static function replyMetadataUpdates( $data = [] ) {
+		global $wgUser;
+
 		$requiredFields = [ 'replyTo', 'root', 'text' ];
 
 		foreach ( $requiredFields as $f ) {
@@ -1004,14 +1006,9 @@ class LqtView {
 			}
 		}
 
-		if ( isset( $data['signature'] ) ) {
-			$signature = $data['signature'];
-		} else {
-			global $wgUser;
-			$signature = self::getUserSignature( $wgUser );
-		}
+		$signature = $data['signature'] ?? self::getUserSignature( $wgUser );
 
-		$summary = isset( $data['summary'] ) ? $data['summary'] : '';
+		$summary = $data['summary'] ?? '';
 
 		$replyTo = $data['replyTo'];
 		$root = $data['root'];
@@ -1043,7 +1040,7 @@ class LqtView {
 		$article = $data["article"];
 		$summary = $data["summary"];
 
-		$bump = isset( $bump ) ? $bump : null;
+		$bump = $data["bump"] ?? null;
 
 		$thread->setSummary( $article );
 		$thread->commitRevision(
@@ -1092,6 +1089,8 @@ class LqtView {
 	}
 
 	public static function newPostMetadataUpdates( $data ) {
+		global $wgUser;
+
 		$requiredFields = [ 'talkpage', 'root', 'text', 'subject' ];
 
 		foreach ( $requiredFields as $f ) {
@@ -1100,14 +1099,9 @@ class LqtView {
 			}
 		}
 
-		if ( isset( $data['signature'] ) ) {
-			$signature = $data['signature'];
-		} else {
-			global $wgUser;
-			$signature = self::getUserSignature( $wgUser );
-		}
+		$signature = $data['signature'] ?? self::getUserSignature( $wgUser );
 
-		$summary = isset( $data['summary'] ) ? $data['summary'] : '';
+		$summary = $data['summary'] ?? '';
 
 		$talkpage = $data['talkpage'];
 		$root = $data['root'];
@@ -1541,7 +1535,7 @@ class LqtView {
 		$label = $command['label'];
 		$href = $command['href'];
 		$enabled = $command['enabled'];
-		$tooltip = isset( $command['tooltip'] ) ? $command['tooltip'] : '';
+		$tooltip = $command['tooltip'] ?? '';
 
 		if ( isset( $command['icon'] ) ) {
 			$icon = Xml::tags( 'div', [ 'title' => $label,
@@ -2080,10 +2074,7 @@ class LqtView {
 
 		// Figure out which threads *need* to be shown because they're involved in an
 		// operation
-		$mustShowOption = [];
-		if ( isset( $options['mustShowThreads'] ) ) {
-			$mustShowOption = $options['mustShowThreads' ];
-		}
+		$mustShowOption = $options['mustShowThreads'] ?? [];
 		$mustShowThreads = $this->getMustShowThreads( $mustShowOption );
 
 		// For cascading.
@@ -2106,23 +2097,10 @@ class LqtView {
 		}
 
 		// Grab options
-		if ( isset( $options['maxDepth'] ) ) {
-			$maxDepth = $options['maxDepth'];
-		} else {
-			$maxDepth = $this->user->getOption( 'lqtdisplaydepth' );
-		}
+		$maxDepth = $options['maxDepth'] ?? $this->user->getOption( 'lqtdisplaydepth' );
+		$maxCount = $options['maxCount'] ?? $this->user->getOption( 'lqtdisplaycount' );
 
-		if ( isset( $options['maxCount'] ) ) {
-			$maxCount = $options['maxCount'];
-		} else {
-			$maxCount = $this->user->getOption( 'lqtdisplaycount' );
-		}
-
-		if ( isset( $options['startAt'] ) ) {
-			$startAt = $options['startAt'];
-		} else {
-			$startAt = 0;
-		}
+		$startAt = $options['startAt'] ?? 0;
 
 		// Figure out if we have replies to show or not.
 		$showThreads = ( $maxDepth == - 1 ) ||
@@ -2466,7 +2444,7 @@ class LqtView {
 	public static function signaturePST( $sig, $user ) {
 		global $wgParser, $wgTitle;
 
-		$title = $wgTitle ? $wgTitle : $user->getUserPage();
+		$title = $wgTitle ?: $user->getUserPage();
 
 		$sig = $wgParser->preSaveTransform(
 			$sig,
