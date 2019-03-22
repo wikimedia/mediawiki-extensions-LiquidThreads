@@ -24,7 +24,7 @@ class NewUserMessagesView extends LqtView {
 		return $html;
 	}
 
-	function getReadAllButton() {
+	public function getReadAllButton() {
 		return $this->htmlForReadButton(
 			wfMessage( 'lqt-read-all' )->text(),
 			wfMessage( 'lqt-read-all-tooltip' )->text(),
@@ -33,7 +33,7 @@ class NewUserMessagesView extends LqtView {
 		);
 	}
 
-	function getUndoButton( $ids ) {
+	public function getUndoButton( $ids ) {
 		if ( count( $ids ) == 1 ) {
 			$t = Threads::withId( $ids[0] );
 			if ( !$t ) {
@@ -66,7 +66,7 @@ class NewUserMessagesView extends LqtView {
 		return $html;
 	}
 
-	function postDivClass( $thread ) {
+	public function postDivClass( $thread ) {
 		$origClass = parent::postDivClass( $thread );
 
 		if ( in_array( $thread->id(), $this->highlightThreads ) ) {
@@ -76,7 +76,7 @@ class NewUserMessagesView extends LqtView {
 		return $origClass;
 	}
 
-	function showOnce() {
+	public function showOnce() {
 		NewMessages::recacheMessageCount( $this->user->getId() );
 
 		$user = $this->user;
@@ -122,7 +122,7 @@ class NewUserMessagesView extends LqtView {
 	 * @return bool
 	 * @suppress SecurityCheck-XSS See T201811 for more information
 	 */
-	function show() {
+	public function show() {
 		$pager = new LqtNewMessagesPager( $this->user );
 		$this->messagesInfo = $pager->getThreads();
 
@@ -153,7 +153,7 @@ class NewUserMessagesView extends LqtView {
 		return false;
 	}
 
-	function showWrappedThread( $t ) {
+	public function showWrappedThread( $t ) {
 		$read_button = $this->htmlForReadButton(
 			wfMessage( 'lqt-read-message' )->text(),
 			wfMessage( 'lqt-read-message-tooltip' )->text(),

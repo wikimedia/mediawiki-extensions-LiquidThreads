@@ -5,11 +5,11 @@ use MediaWiki\MediaWikiServices;
 class ThreadPermalinkView extends LqtView {
 	protected $thread;
 
-	function customizeNavigation( $skin, &$links ) {
+	public function customizeNavigation( $skin, &$links ) {
 		self::customizeThreadNavigation( $skin, $links, $this );
 	}
 
-	static function customizeThreadNavigation( $skin, &$links, $view ) {
+	public static function customizeThreadNavigation( $skin, &$links, $view ) {
 		$tempTitle = Title::makeTitle( NS_LQT_THREAD, 'A' );
 		$talkKey = $tempTitle->getNamespaceKey( '' ) . '_talk';
 
@@ -61,7 +61,7 @@ class ThreadPermalinkView extends LqtView {
 
 	// Pre-generates the tabs to be included, for customizeNavigation
 	// to insert in the appropriate place
-	static function getCustomTabs( $view ) {
+	private static function getCustomTabs( $view ) {
 		$tabs = [];
 
 		$articleTitle = $view->thread->getTitle()->getSubjectPage();
@@ -104,20 +104,20 @@ class ThreadPermalinkView extends LqtView {
 		return $tabs;
 	}
 
-	function showThreadHeading( $thread ) {
+	public function showThreadHeading( $thread ) {
 		parent::showThreadHeading( $thread );
 	}
 
-	function noSuchRevision() {
+	public function noSuchRevision() {
 		$this->output->addWikiMsg( 'lqt_nosuchrevision' );
 	}
 
-	function showMissingThreadPage() {
+	public function showMissingThreadPage() {
 		$this->output->setPageTitle( wfMessage( 'lqt_nosuchthread_title' ) );
 		$this->output->addWikiMsg( 'lqt_nosuchthread' );
 	}
 
-	function getSubtitle() {
+	public function getSubtitle() {
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$fragment = '#' . $this->anchorName( $this->thread );
 
@@ -138,7 +138,7 @@ class ThreadPermalinkView extends LqtView {
 		}
 	}
 
-	function __construct( &$output, &$article, &$title, &$user, &$request ) {
+	public function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		parent::__construct( $output, $article, $title, $user, $request );
 
 		$t = Threads::withRoot( $this->article );
@@ -153,7 +153,7 @@ class ThreadPermalinkView extends LqtView {
 		$this->article = $t->article(); # for creating reply threads.
 	}
 
-	function show() {
+	public function show() {
 		if ( !$this->thread ) {
 			$this->showMissingThreadPage();
 			return false;

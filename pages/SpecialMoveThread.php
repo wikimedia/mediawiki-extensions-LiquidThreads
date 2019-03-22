@@ -7,11 +7,11 @@ class SpecialMoveThread extends ThreadActionPage {
 	 * @see SpecialPage::getDescription
 	 * @return string
 	 */
-	function getDescription() {
+	public function getDescription() {
 		return $this->msg( 'lqt_movethread' )->text();
 	}
 
-	function getFormFields() {
+	public function getFormFields() {
 		$destAdditions = [];
 		$reasonAdditions = [];
 		if ( $this->getRequest()->getCheck( 'dest' ) ) {
@@ -34,15 +34,15 @@ class SpecialMoveThread extends ThreadActionPage {
 		];
 	}
 
-	function getPageName() {
+	public function getPageName() {
 		return 'MoveThread';
 	}
 
-	function getSubmitText() {
+	public function getSubmitText() {
 		return $this->msg( 'lqt_move_move' )->text();
 	}
 
-	function buildForm() {
+	public function buildForm() {
 		$form = parent::buildForm();
 
 		// Generate introduction
@@ -72,7 +72,7 @@ class SpecialMoveThread extends ThreadActionPage {
 		return $form;
 	}
 
-	function checkUserRights( $oldTitle, $newTitle ) {
+	public function checkUserRights( $oldTitle, $newTitle ) {
 		$user = $this->getUser();
 		$oldErrors = $oldTitle->getUserPermissionsErrors( 'move', $user );
 		$newErrors = $newTitle->getUserPermissionsErrors( 'move', $user );
@@ -98,7 +98,7 @@ class SpecialMoveThread extends ThreadActionPage {
 		return true;
 	}
 
-	function trySubmit( $data ) {
+	public function trySubmit( $data ) {
 		// Load data
 		$tmp = $data['dest-title'];
 		$oldtitle = $this->mThread->getTitle();
@@ -128,7 +128,7 @@ class SpecialMoveThread extends ThreadActionPage {
 		return true;
 	}
 
-	function validateTarget( $target ) {
+	public function validateTarget( $target ) {
 		if ( !$target ) {
 			return $this->msg( 'lqt_move_nodestination' )->parse();
 		}
