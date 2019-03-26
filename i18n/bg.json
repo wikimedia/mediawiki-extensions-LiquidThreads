@@ -113,7 +113,7 @@
 	"lqt-history-comment": "Коментар",
 	"lqt-history-thread": "Нишка",
 	"lqt-thread-edited-author": "Редактирано от {{GENDER:$5|автора}}.<br />\nПоследна редакция: $1",
-	"lqt-thread-edited-others": "редактирано от {{PLURAL:$2|друг потребител|други $2 потребители}}.<br />\nПоследна редакция: $1",
+	"lqt-thread-edited-others": "Редактирано от {{PLURAL:$2|друг потребител|други $2 потребители}}.<br />\nПоследна редакция: $1",
 	"lqt-header-actions": "Действия",
 	"lqt_summarize_link": "Обобщение",
 	"lqt-thread-split": "Обособяване в нова тема",

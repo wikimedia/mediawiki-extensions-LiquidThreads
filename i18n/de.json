@@ -295,6 +295,7 @@
 	"apihelp-threadaction-param-reason": "Falls zutreffend, der Grund/die Zusammenfassung für die Aktion.",
 	"apihelp-threadaction-param-text": "Der Text des zu erstellenden Beitrags.",
 	"apihelp-threadaction-param-bump": "Überschreibt das Standardverhalten oder nicht.",
+	"apihelp-threadaction-param-signature": "Gibt die für diesen Beitrag zu verwendende Signatur anstelle der Standardsignatur an.",
 	"apihelp-threadaction-param-type": "Gibt den Typ der hinzuzufügenden Reaktion an.",
 	"apihelp-threadaction-param-captchaword": "Antwort an das CAPTCHA.",
 	"apihelp-threadaction-param-captchaid": "Kennung des CAPTCHAs der vorherigen Anfrage.",
