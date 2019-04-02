@@ -875,7 +875,7 @@
 			$titleField.text( linkTitle );
 			$titleRow = $( '<tr>' ).append( $titleLabel ).append( $titleField );
 
-			$table = $( '<table>' ).append( $( '<tbdoy>' ) );
+			$table = $( '<table>' ).append( $( '<tbody>' ) );
 			$table.find( 'tbody' ).append( $urlRow ).append( $titleRow );
 
 			$dialog = $( '<div>' ).append( $table );
