@@ -129,7 +129,7 @@
 
 			$container = $( '<div>' ).addClass( 'lqt-edit-form' );
 			// FIXME: Use CSS transition
-			// eslint-disable-next-line jquery/no-fade
+			// eslint-disable-next-line no-jquery/no-fade
 			$parent.contents().fadeOut();
 			$parent.append( $container );
 			params = { method: 'edit', thread: $parent.data( 'thread-id' ) };
@@ -163,7 +163,6 @@
 					scrollOffset = targetOffset - windowHeight + editBoxHeight;
 				}
 
-				// eslint-disable-next-line jquery/no-animate
 				$( 'html, body' ).animate( { scrollTop: scrollOffset }, 'slow' );
 				// Auto-focus and set to auto-grow as well
 				$container.find( '#wpTextbox1' ).trigger( 'focus' );
@@ -193,7 +192,7 @@
 				}
 
 				// FIXME: Use CSS transition
-				// eslint-disable-next-line jquery/no-slide
+				// eslint-disable-next-line no-jquery/no-slide
 				$container.slideDown( 'slow', finishShow );
 
 				$cancelButton = $container.find( '#mw-editform-cancel' );
@@ -284,14 +283,14 @@
 				function () {
 					var repliesElement = $( this ).closest( '.lqt-thread-replies' );
 					// FIXME: Use CSS transition
-					// eslint-disable-next-line jquery/no-fade
+					// eslint-disable-next-line no-jquery/no-fade
 					$( this ).fadeOut( 'slow',
 						function () {
 							$( this ).empty();
 
 							if ( $( this ).parent().is( '.lqt-post-wrapper' ) ) {
 								// FIXME: Use CSS transition
-								// eslint-disable-next-line jquery/no-fade
+								// eslint-disable-next-line no-jquery/no-fade
 								$( this ).parent().contents().fadeIn();
 								$( this ).remove();
 							}
@@ -347,9 +346,9 @@
 
 					// Hide the other menus
 					// FIXME: Use CSS transition
-					// eslint-disable-next-line jquery/no-animate-toggle
+					// eslint-disable-next-line no-jquery/no-animate-toggle
 					$( '.lqt-thread-toolbar-command-list' ).not( $menu ).hide( 'fast' );
-					// eslint-disable-next-line jquery/no-animate-toggle
+					// eslint-disable-next-line no-jquery/no-animate-toggle
 					$menu.toggle( 'fast' );
 
 					windowHeight = $( window ).height();
@@ -506,7 +505,7 @@
 		handleDocumentClick: function () {
 			// Collapse all menus
 			// FIXME: Use CSS transition
-			// eslint-disable-next-line jquery/no-animate-toggle
+			// eslint-disable-next-line no-jquery/no-animate-toggle
 			$( '.lqt-thread-toolbar-command-list' ).hide( 'fast' );
 		},
 
@@ -539,7 +538,7 @@
 			} ).done( function ( data ) {
 				var threads = data.query.threads;
 
-				// eslint-disable-next-line jquery/no-each-util
+				// eslint-disable-next-line no-jquery/no-each-util
 				$.each( threads, function ( i, thread ) {
 					var threadId = thread.id,
 						threadModified = thread.modified;
@@ -615,14 +614,13 @@
 				} );
 
 				// FIXME: Use CSS transition
-				// eslint-disable-next-line jquery/no-fade
+				// eslint-disable-next-line no-jquery/no-fade
 				$header.fadeIn();
-				// eslint-disable-next-line jquery/no-fade
+				// eslint-disable-next-line no-jquery/no-fade
 				$thread.fadeIn();
 
 				// Scroll to the updated thread.
 				targetOffset = $thread.offset().top;
-				// eslint-disable-next-line jquery/no-animate
 				$( 'html, body' ).animate( { scrollTop: targetOffset }, 'slow' );
 			} );
 		},
@@ -732,7 +730,7 @@
 					// Show
 					$loader.remove();
 					// FIXME: Use CSS transition
-					// eslint-disable-next-line jquery/no-fade
+					// eslint-disable-next-line no-jquery/no-fade
 					$replies.fadeIn( 'slow' );
 				}
 			} );
@@ -780,7 +778,7 @@
 				} );
 
 				// FIXME: Use CSS transition
-				// eslint-disable-next-line jquery/no-fade
+				// eslint-disable-next-line no-jquery/no-fade
 				$content.fadeIn();
 				$loader.remove();
 			} );
@@ -936,7 +934,6 @@
 					.find( 'input.lqt-thread-modified' )
 					.val( data.threadaction.thread.modified );
 				liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
-				// eslint-disable-next-line jquery/no-animate
 				$( 'html, body' ).animate( { scrollTop: $newThread.offset().top }, 'slow' );
 			}
 
@@ -946,7 +943,6 @@
 				// remove the no threads message if it's on the page
 				$( '.lqt-no-threads' ).remove();
 				liquidThreads.setupThread( $newThread.find( '.lqt-post-wrapper' ) );
-				// eslint-disable-next-line jquery/no-animate
 				$( 'html,body' ).animate( { scrollTop: $newThread.offset().top }, 'slow' );
 			}
 
@@ -1444,7 +1440,7 @@
 				};
 
 			function doEmptyChecks() {
-				// eslint-disable-next-line jquery/no-each-util
+				// eslint-disable-next-line no-jquery/no-each-util
 				$.each( params.emptyChecks, function ( k, element ) {
 					liquidThreads.checkEmptyReplies( $( element ) );
 				} );
