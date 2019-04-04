@@ -12,13 +12,18 @@
 	"lqt_discussion_link": "oerlis",
 	"lqt_subject": "Ûnderwerp:",
 	"lqt_move_move": "Omneame",
+	"lqt-no-new-messages": "Jo hawwe gjin nije berjochten.",
+	"lqt-new-messages": "Jo hawwe nije berjochten.",
 	"lqt-history-time": "Tiid",
 	"lqt-history-user": "Meidogger",
+	"lqt_summarize_link": "Gearfetsje",
 	"lqt-menu-trigger": "Mear",
 	"lqt-search-button": "Sykje",
+	"lqt-change-subject": "Underwerp wizigje",
 	"lqt-save-subject": "Bewarje",
 	"lqt-cancel-subject-edit": "Annulearje",
 	"lqt-drag-reason": "Reden:",
 	"lqt-newmessages-n": "Nij{{PLURAL:$1|&#32;berjocht|e berjochten}} ($1)",
+	"lqt_newmessages-title": "Nije berjochten",
 	"pageinfo-usinglqt-yes": "Ja"
 }
