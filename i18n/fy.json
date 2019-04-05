@@ -8,7 +8,9 @@
 			"PiefPafPier"
 		]
 	},
+	"lqt_reply": "Antwurdzje",
 	"lqt_delete": "Fuortsmite",
+	"lqt_permalink": "Nei ferwize",
 	"lqt_discussion_link": "oerlis",
 	"lqt_subject": "Ûnderwerp:",
 	"lqt_move_move": "Omneame",
@@ -22,6 +24,7 @@
 	"lqt-change-subject": "Underwerp wizigje",
 	"lqt-save-subject": "Bewarje",
 	"lqt-cancel-subject-edit": "Annulearje",
+	"lqt-drag-activate": "Nei oar plak ferslepe",
 	"lqt-drag-reason": "Reden:",
 	"lqt-newmessages-n": "Nij{{PLURAL:$1|&#32;berjocht|e berjochten}} ($1)",
 	"lqt_newmessages-title": "Nije berjochten",
