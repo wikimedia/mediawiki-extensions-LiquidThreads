@@ -180,7 +180,7 @@
 	"lqt-preference-custom-signatures": "Näytä käyttäjien mukautetut allekirjoitukset",
 	"lqt-enotif-subject-reply": "{{SITENAME}} – Vastaus keskusteluun $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} – Uusi viestiketju: $1",
-	"lqt-enotif-newthread": "Hei $1,\n\nTämä on ilmoitus sivustolta {{SITENAME}}, että sivulle $5 on luotu uusi ketju, ”$2”,\n$3 $4 käyttäjältä $8.\n\nNäet sen osoitteessa <$6>.\n\nTeksti on:\n$7",
+	"lqt-enotif-newthread": "Hei $1,\n\nTämä on ilmoitus {{GRAMMAR:elative|{{SITENAME}}}}, että sivulle $5 on luotu uusi ketju, ”$2”,\n$3 $4 käyttäjältä $8.\n\nNäet sen osoitteessa <$6>.\n\nTeksti on:\n$7",
 	"lqt-enotif-reply": "Hei $1,\nTämä on ilmoitus {{GRAMMAR:elative|{{SITENAME}}}}, että sivun $5 ketjuun ”$2” on tullut uusi vastaus $3 kello $4 käyttäjältä $8.\n\nNäet sen osoitteessa <$6>.\n\nVastauksen teksti on:\n$7",
 	"lqt-search-legend": "Hae keskusteluja tältä sivulta",
 	"lqt-search-label": "Hae keskusteluista",
