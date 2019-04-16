@@ -14,7 +14,6 @@ class LqtHooks {
 	 */
 	public static $editArticle = null;
 	public static $editTalkpage = null;
-	public static $scriptVariables = [];
 
 	public static $editedStati = [
 		Threads::EDITED_NEVER => 'never',
@@ -659,16 +658,6 @@ class LqtHooks {
 		if ( $isThread ) {
 			$types[] = 'reply';
 		}
-
-		return true;
-	}
-
-	/**
-	 * @param array &$vars
-	 * @return bool
-	 */
-	public static function onMakeGlobalVariablesScript( &$vars ) {
-		$vars += self::$scriptVariables;
 
 		return true;
 	}

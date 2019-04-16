@@ -312,9 +312,6 @@
 		"SetupNewUserMessageBody": [
 			"LqtHooks::setupNewUserMessageBody"
 		],
-		"MakeGlobalVariablesScript": [
-			"LqtHooks::onMakeGlobalVariablesScript"
-		],
 		"APIQueryAfterExecute": [
 			"LqtHooks::onAPIQueryAfterExecute"
 		],
