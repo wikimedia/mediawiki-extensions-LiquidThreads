@@ -154,6 +154,7 @@
 	"lqt_rc_new_discussion": "publicat un nou fil, \"$1\"",
 	"lqt_rc_new_reply": "publicada una resposta a \"$1\"",
 	"right-lqt-split": "Separar fils",
+	"action-lqt-split": "dividir fils",
 	"right-lqt-merge": "Fusionar fils",
 	"right-lqt-react": "Respondre els fils de discussió",
 	"lqt-thread-merge": "Fusiona-ho amb un altre fil",
