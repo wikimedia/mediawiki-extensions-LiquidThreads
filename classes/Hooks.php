@@ -355,7 +355,9 @@ class LqtHooks {
 		$namespaces = [ NS_LQT_THREAD, NS_LQT_SUMMARY ];
 
 		// Add odd namespaces
-		foreach ( SearchEngine::searchableNamespaces() as $ns => $nsName ) {
+		$searchableNS = MediaWikiServices::getInstance()->getSearchEngineConfig()
+			->searchableNamespaces();
+		foreach ( $searchableNS as $ns => $nsName ) {
 			if ( $ns % 2 == 1 ) {
 				$namespaces[] = $ns;
 			}
