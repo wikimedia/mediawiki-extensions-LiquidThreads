@@ -12,7 +12,9 @@
 	"lqt-parent": "Boppelizzend",
 	"lqt_delete": "Fuortsmite",
 	"lqt_permalink": "Nei ferwize",
-	"lqt_discussion_link": "oerlis",
+	"lqt_fragment": "Part fan in $1 op $2",
+	"lqt_discussion_link": "diskusje",
+	"lqt_from_talk": "Fan $1",
 	"lqt_subject": "Underwerp:",
 	"lqt_move_move": "Omneame",
 	"lqt-read-message": "As lêzen markearje",
@@ -24,6 +26,7 @@
 	"lqt-newmessages-context": "Hiele tried",
 	"lqt-history-time": "Tiid",
 	"lqt-history-user": "Meidogger",
+	"lqt-history-thread": "Tried",
 	"lqt_summarize_link": "Gearfetsje",
 	"lqt-menu-trigger": "Mear",
 	"lqt-newmessages-from": "Fan $1",
@@ -36,5 +39,6 @@
 	"lqt-drag-reason": "Reden:",
 	"lqt-newmessages-n": "{{PLURAL:$1|Nij berjocht|Nije berjochten}} ($1)",
 	"lqt_newmessages-title": "Nije berjochten",
+	"nstab-thread": "Tried",
 	"pageinfo-usinglqt-yes": "Ja"
 }
