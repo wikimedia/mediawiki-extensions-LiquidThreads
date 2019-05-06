@@ -4,7 +4,8 @@
 			"Christian List",
 			"Jon Harald Søby",
 			"Kaare",
-			"Peter Alberti"
+			"Peter Alberti",
+			"Saederup92"
 		]
 	},
 	"lqt-desc": "Tilføjer trådbaserede diskussioner til diskussionssider",
@@ -148,6 +149,7 @@
 	"lqt_rc_new_reply": "skrev et svar til \"$1\"",
 	"right-lqt-split": "Adskille tråde",
 	"right-lqt-merge": "Sammenflette tråde",
+	"action-lqt-merge": "sammenflet tråde",
 	"right-lqt-react": "Besvare tråde",
 	"lqt-thread-merge": "Sammenflet med en anden tråd",
 	"lqt-thread-merge-to": "Sammenflet med denne tråd",
