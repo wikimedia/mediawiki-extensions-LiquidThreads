@@ -38,5 +38,5 @@
 	"lqt_move_torename_edit": "ફેરફાર કરો",
 	"lqt_move_move": "ખસેડો",
 	"lqt_move_noreason": "કોઇ કારણ દર્શાવવામાં આવ્યું નથી",
-	"lqt-newmessages-n": "નવા સંદેશા ($1)"
+	"lqt-newmessages-n": "નવા {{PLURAL:$1|સંદેશ|સંદેશા}} ($1)"
 }

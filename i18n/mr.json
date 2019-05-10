@@ -7,7 +7,8 @@
 			"Mahitgar",
 			"V.narsikar",
 			"संतोष दहिवळ",
-			"Tiven2240"
+			"Tiven2240",
+			"KartikMistry"
 		]
 	},
 	"lqt-desc": "चर्चा पानावर चर्चेचे मुद्दे वाढवा",
@@ -89,7 +90,7 @@
 	"prefs-lqt": "सूत्रबद्ध चर्चा",
 	"searchprofile-threads": "चर्चा",
 	"lqt-change-subject": "विषय बदला",
-	"lqt-newmessages-n": "माझे नवीन संदेश ($1)",
+	"lqt-newmessages-n": "नवीन {{PLURAL:$1|संदेश|संदेशे}} ($1)",
 	"lqt_newmessages-title": "नवीन संदेश",
 	"lqt-pagechange-editformopen": "या पानावर अद्याप आपण जतन न केलेला मजकूर आहे. या पानावरुन बाहेर निघण्याने  तो अदृश्य होईल."
 }
