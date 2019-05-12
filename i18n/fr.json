@@ -24,7 +24,8 @@
 			"Pols12",
 			"Derugon",
 			"Thibaut120094",
-			"Niridya"
+			"Niridya",
+			"Orlodrim"
 		]
 	},
 	"lqt-desc": "Ajoute des fils de discussion dans les pages de discussion",
@@ -266,7 +267,7 @@
 	"pageinfo-usinglqt": "Discussion par fils activée",
 	"pageinfo-usinglqt-yes": "Oui",
 	"apihelp-feedthreads-description": "Retourne un flux de fils de discussion.",
-	"apihelp-feedthreads-summary": "Retourne un flux de fils de discussion.",
+	"apihelp-feedthreads-summary": "Renvoie un flux de fils de discussion.",
 	"apihelp-feedthreads-param-feedformat": "Le format du flux.",
 	"apihelp-feedthreads-param-days": "Nombre de jours de discussion à afficher.",
 	"apihelp-feedthreads-param-type": "Types de notes à afficher.",
