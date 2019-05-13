@@ -298,7 +298,7 @@
 	"apihelp-query+threads-example-1": "Lister les discussions sur [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Lister les discussions avec les IDs 1, 2, 3 et 4",
 	"apihelp-threadaction-description": "Autorise les actions à effectuer sur les discussions et les notes présentes dans les fils de discussion.",
-	"apihelp-threadaction-summary": "Autorise les actions à effectuer sur les discussions et les notes présentes dans les fils de discussion.",
+	"apihelp-threadaction-summary": "Permet de réaliser des actions sur les discussions et les notes présentes dans les fils de discussion.",
 	"apihelp-threadaction-param-thread": "IDs de discussion ou titres sur lesquels agir.",
 	"apihelp-threadaction-param-talkpage": "La page de discussion sur laquelle agir (le cas échéant).",
 	"apihelp-threadaction-param-threadaction": "L'action à prendre.",
