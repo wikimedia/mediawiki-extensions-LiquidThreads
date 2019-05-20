@@ -395,7 +395,7 @@ class LqtHooks {
 	 * @param DatabaseUpdater|null $updater
 	 * @return bool
 	 */
-	public static function onLoadExtensionSchemaUpdates( $updater = null ) {
+	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater = null ) {
 		$dir = realpath( __DIR__ . '/..' );
 
 		if ( $updater instanceof PostgresUpdater ) {
