@@ -11,7 +11,8 @@
 			"Whym",
 			"青子守歌",
 			"Rxy",
-			"Sujiniku"
+			"Sujiniku",
+			"Suchichi02"
 		]
 	},
 	"lqt-desc": "トークページにスレッド形式の議論を追加する",
@@ -225,7 +226,7 @@
 	"lqt-feed-new-thread-intro": "{{GENDER:$4|$2}}が$1に投稿した新規スレッド",
 	"lqt-feed-reply-intro": "{{GENDER:$4|$2}}が$1に投稿した$3への返信",
 	"tooltip-pt-newmessages": "ご覧のスレッドもしくはスレッドのトークページにおける新たな投稿を表示",
-	"lqt-newmessages-n": "新しいメッセージ ($1)",
+	"lqt-newmessages-n": "新しい{{PLURAL:$1|メッセージ|メッセージ}} ($1)",
 	"lqt_newmessages-title": "新しいメッセージ",
 	"lqt-newpost-summary": "新規スレッド: $1",
 	"lqt-reply-summary": "[[$2|$1]] への返信",
