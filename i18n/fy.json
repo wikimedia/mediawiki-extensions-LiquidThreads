@@ -41,6 +41,7 @@
 	"lqt-drag-reason": "Reden:",
 	"lqt-newmessages-n": "{{PLURAL:$1|Nij berjocht|Nije berjochten}} ($1)",
 	"lqt_newmessages-title": "Nije berjochten",
+	"lqt-reply-summary": "Antwurd yn [[$2|$1]]",
 	"nstab-thread": "Tried",
 	"pageinfo-usinglqt-yes": "Ja"
 }
