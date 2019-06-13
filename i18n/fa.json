@@ -14,7 +14,8 @@
 			"ZxxZxxZ",
 			"Alirezaaa",
 			"Hosseinblue",
-			"Alifakoor"
+			"Alifakoor",
+			"FarsiNevis"
 		]
 	},
 	"lqt-desc": "افزودن بحث‌های مبحث‌بندی‌شده به صفحه‌های بحث",
@@ -192,7 +193,7 @@
 	"searchprofile-threads": "بحث‌ها",
 	"searchprofile-threads-tooltip": "جستجوی بحث‌های مبحث‌بندی‌شده و صفحه‌های بحث",
 	"lqt-ajax-updated": "این مبحث پست‌های جدیدی دارد.",
-	"lqt-ajax-update-link": "به‌روزرسانی",
+	"lqt-ajax-update-link": "روزامدسازی",
 	"lqt-thread-show-replies": "نمایش $1 پاسخ",
 	"lqt-thread-show-more": "نمایش پاسخ‌های بیشتر",
 	"lqt-thread-link-url": "نشانی اینترنتی پیوند:",
