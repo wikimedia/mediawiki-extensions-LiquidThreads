@@ -19,7 +19,8 @@
 			"Jason924tw",
 			"LNDDYL",
 			"Chiefwei",
-			"Wmr"
+			"Wmr",
+			"神樂坂秀吉"
 		]
 	},
 	"lqt-desc": "在讨论页增加话题讨论功能",
@@ -88,7 +89,7 @@
 	"lqt_noreason": "未给出原因。",
 	"lqt_move_placeholder": "此帖子为占位标志，以表明话题$1已被$2在$3 $4时移动到讨论页$5。",
 	"lqt_thread_deleted_for_sysops": "此帖子已被'''删除'''并只对管理员可见。",
-	"lqt_thread_deleted": "此帖子已被删除。",
+	"lqt_thread_deleted": "此帖子已删除。",
 	"lqt_summary_notice": "此讨论已在至少$2{{PLURAL:$2|日|日}}内没有任何修改。\n如果它已经结束了，您可以为它$1。",
 	"lqt_summary_notice_link": "撰写摘要",
 	"lqt_summary_label": "帖子摘要:",
