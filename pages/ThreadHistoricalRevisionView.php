@@ -92,7 +92,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 			try {
 				$diff_link = $this->diffPermalink(
 					$post,
-					wfMessage( 'diff' )->parse(),
+					wfMessage( 'diff' )->text(),
 					$this->mDisplayRevision
 				);
 

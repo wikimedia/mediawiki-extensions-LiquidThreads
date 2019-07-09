@@ -103,6 +103,7 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		$completeText = $description . $completeText;
 
+		// @phan-suppress-next-line SecurityCheck-DoubleEscaped False positive
 		return new FeedItem( $titleStr, $completeText, $titleUrl, $timestamp, $user );
 	}
 

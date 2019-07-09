@@ -12,7 +12,7 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 	/* This customizes the subtitle of a history *listing* from the hook,
 	and of an old revision from getSubtitle() below. */
 	public function customizeSubtitle() {
-		$msg = wfMessage( 'lqt_hist_view_whole_thread' )->parse();
+		$msg = wfMessage( 'lqt_hist_view_whole_thread' )->text();
 		$threadhist = $this->permalink(
 			$this->thread->topmostThread(),
 			$msg,

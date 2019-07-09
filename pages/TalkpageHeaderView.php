@@ -34,7 +34,7 @@ class TalkpageHeaderView extends LqtView {
 
 			$warn_link = $this->talkpageLink(
 				$this->title,
-				wfMessage( 'lqt_header_warning_new_discussion' )->parse(),
+				wfMessage( 'lqt_header_warning_new_discussion' )->text(),
 				'talkpage_new_thread'
 			);
 

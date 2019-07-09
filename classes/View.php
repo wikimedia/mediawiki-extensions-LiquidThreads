@@ -1542,23 +1542,25 @@ class LqtView {
 					'class' => 'lqt-command-icon' ], '&#160;' );
 			if ( $icon_divs ) {
 				if ( !empty( $command['showlabel'] ) ) {
-					$label = $icon . '&#160;' . $label;
+					$fullLabel = $icon . '&#160;' . $label;
 				} else {
-					$label = $icon;
+					$fullLabel = $icon;
 				}
+			} elseif ( empty( $command['showlabel'] ) ) {
+				$fullLabel = '';
 			} else {
-				if ( empty( $command['showlabel'] ) ) {
-					$label = '';
-				}
+				$fullLabel = $label;
 			}
+		} else {
+			$fullLabel = $label;
 		}
 
 		if ( $enabled ) {
 			$thisCommand = Xml::tags( 'a', [ 'href' => $href, 'title' => $tooltip ],
-					$label );
+					$fullLabel );
 		} else {
 			$thisCommand = Xml::tags( 'span', [ 'class' => 'lqt_command_disabled',
-						'title' => $tooltip ], $label );
+						'title' => $tooltip ], $fullLabel );
 		}
 
 		return $thisCommand;
@@ -2335,7 +2337,7 @@ class LqtView {
 		}
 
 		$label = wfMessage( 'lqt_summary_label' )->parse();
-		$edit_text = wfMessage( 'edit' )->parse();
+		$edit_text = wfMessage( 'edit' )->text();
 		$link_text = new HtmlArmor( wfMessage( 'lqt_permalink' )->parse() );
 
 		$html = '';
