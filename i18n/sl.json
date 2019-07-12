@@ -169,7 +169,7 @@
 	"lqt-preference-watch-threads": "Nadzoruj teme, ki sem jih ustvaril ali nanje odgovoril",
 	"prefs-lqt": "Tematiziran pogovor",
 	"lqt-preference-display-depth": "Največja prikazana globina odgovorov:",
-	"lqt-preference-display-count": "Največje število prikazanih odgovor:",
+	"lqt-preference-display-count": "Največje število prikazanih odgovorov:",
 	"lqt-preference-custom-signatures": "Prikaži uporabniške podpise po meri",
 	"lqt-enotif-subject-reply": "Razprava {{SITENAME}} – Odgovor: $1",
 	"lqt-enotif-subject-newthread": "Razprava {{SITENAME}} – Nova tema: $1",
