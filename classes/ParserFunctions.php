@@ -27,8 +27,9 @@ class LqtParserFunctions {
 	 * @param string $content
 	 * @param array $args
 	 * @param Parser $parser
-	 * @param Frame $frame
+	 * @param PPFrame $frame
 	 * @return string
+	 * @suppress PhanUndeclaredProperty ParserOutput::mLqtReplacements
 	 */
 	public static function lqtTalkPage( $content, $args, $parser, $frame ) {
 		$pout = $parser->getOutput();

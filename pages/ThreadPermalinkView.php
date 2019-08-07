@@ -104,10 +104,6 @@ class ThreadPermalinkView extends LqtView {
 		return $tabs;
 	}
 
-	public function showThreadHeading( $thread ) {
-		parent::showThreadHeading( $thread );
-	}
-
 	public function noSuchRevision() {
 		$this->output->addWikiMsg( 'lqt_nosuchrevision' );
 	}
@@ -195,6 +191,8 @@ class ThreadPermalinkView extends LqtView {
 		if ( $this->methodApplies( 'summarize' ) ) {
 			$this->showSummarizeForm( $this->thread );
 		} elseif ( $this->methodApplies( 'split' ) ) {
+			// @FIXME Method does not exists
+			// @phan-suppress-next-line PhanUndeclaredMethod
 			$this->showSplitForm( $this->thread );
 		}
 

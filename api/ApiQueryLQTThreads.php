@@ -207,7 +207,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 
 	/**
 	 * @suppress SecurityCheck-XSS Due to $oldOutputText
-	 * @param array $row
+	 * @param stdClass $row
 	 * @param array $params
 	 * @param array &$entry
 	 */

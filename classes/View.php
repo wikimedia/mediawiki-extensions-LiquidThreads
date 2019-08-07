@@ -10,7 +10,7 @@ use MediaWiki\MediaWikiServices;
 
 class LqtView {
 	/**
-	 * @var WikiPage
+	 * @var Article
 	 */
 	public $article;
 
@@ -36,6 +36,8 @@ class LqtView {
 
 	protected $headerLevel = 2; /* h1, h2, h3, etc. */
 	protected $lastUnindentedSuperthread;
+	protected $user_colors;
+	protected $user_color_index;
 
 	public $threadNestingLevel = 0;
 
@@ -272,9 +274,9 @@ class LqtView {
 	/**
 	 * @param Title $title
 	 * @param string|null $method
-	 * @param string|null $operand
+	 * @param Thread|null $operand
 	 * @param bool $includeFragment
-	 * @param bool $perpetuateOffset
+	 * @param bool|WebRequest $perpetuateOffset
 	 * @return array
 	 */
 	public static function talkpageLinkData( $title, $method = null, $operand = null,
@@ -325,9 +327,9 @@ class LqtView {
 	 * pass that instead of true
 	 * @param Title $title
 	 * @param string|null $method
-	 * @param string|null $operand
+	 * @param Thread|null $operand
 	 * @param bool $includeFragment
-	 * @param bool $perpetuateOffset
+	 * @param bool|WebRequest $perpetuateOffset
 	 * @return string
 	 */
 	public static function talkpageUrl( $title, $method = null, $operand = null,
@@ -464,7 +466,7 @@ class LqtView {
 	}
 
 	/**
-	 * @param Thread $talkpage
+	 * @param Article $talkpage
 	 * @param string $method
 	 * @param string $operand
 	 * @return String
@@ -510,7 +512,7 @@ class LqtView {
 	}
 
 	/**
-	 * @param Thread $talkpage
+	 * @param Article $talkpage
 	 */
 	public function showNewThreadForm( $talkpage ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
@@ -1170,9 +1172,9 @@ class LqtView {
 
 		# Variables beginning with 'o' for old article 'n' for new article
 		$ot = $old_title;
-		$nt = $this->incrementedTitle( $new_subject, $old_title->getNamespace() );
+		$nt = Threads::incrementedTitle( $new_subject, $old_title->getNamespace() );
 
-		self::$occupied_titles[] = $nt->getPrefixedDBkey();
+		Threads::$occupied_titles[] = $nt->getPrefixedDBkey();
 
 		$error = $ot->moveTo( $nt, true, "Changed thread subject: $reason" );
 		if ( $error !== true ) {
@@ -1899,7 +1901,7 @@ class LqtView {
 
 	/**
 	 * @param Thread $thread
-	 * @param string $st
+	 * @param Thread $st
 	 * @param string $i
 	 * @return string
 	 */
@@ -2076,6 +2078,7 @@ class LqtView {
 
 		// Figure out which threads *need* to be shown because they're involved in an
 		// operation
+		// @phan-suppress-next-line PhanTypeInvalidDimOffset
 		$mustShowOption = $options['mustShowThreads'] ?? [];
 		$mustShowThreads = $this->getMustShowThreads( $mustShowOption );
 
@@ -2099,9 +2102,11 @@ class LqtView {
 		}
 
 		// Grab options
+		// @phan-suppress-next-line PhanTypeInvalidDimOffset
 		$maxDepth = $options['maxDepth'] ?? $this->user->getOption( 'lqtdisplaydepth' );
+		// @phan-suppress-next-line PhanTypeInvalidDimOffset
 		$maxCount = $options['maxCount'] ?? $this->user->getOption( 'lqtdisplaycount' );
-
+		// @phan-suppress-next-line PhanTypeInvalidDimOffset
 		$startAt = $options['startAt'] ?? 0;
 
 		// Figure out if we have replies to show or not.
@@ -2400,9 +2405,11 @@ class LqtView {
 		}
 
 		if ( $this->user->getOption( 'lqtcustomsignatures' ) ) {
-			return $this->getUserSignature( $user, $uid, $name );
+			return $this->getUserSignature( $user, $uid );
 		} else {
-			return $this->getBoringSignature( $user, $uid, $name ); // FIXME: Method not found
+			// @FIXME Method not found
+			// @phan-suppress-next-line PhanUndeclaredMethod
+			return $this->getBoringSignature( $user, $uid, $name );
 		}
 	}
 

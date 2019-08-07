@@ -3,7 +3,17 @@
 use MediaWiki\MediaWikiServices;
 
 class ThreadHistoryPager extends TablePager {
+	/** @var string[] */
 	public static $change_names;
+
+	/** @var Thread */
+	protected $thread;
+
+	/** @var LqtView */
+	protected $view;
+
+	/** @var \MediaWiki\Linker\LinkRenderer */
+	protected $linkRenderer;
 
 	public function __construct( $view, $thread ) {
 		parent::__construct();

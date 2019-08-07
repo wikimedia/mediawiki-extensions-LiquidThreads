@@ -1,6 +1,10 @@
 <?php
 
 class TalkpageHistoryPager extends ThreadHistoryPager {
+
+	/** @var Article */
+	protected $talkpage;
+
 	public function __construct( $view, $talkpage ) {
 		$this->talkpage = $talkpage;
 
@@ -14,7 +18,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 			'th_user_text' => $this->msg( 'lqt-history-user' )->text(),
 			'th_change_type' => $this->msg( 'lqt-history-action' )->text(),
 			'th_change_comment' => $this->msg( 'lqt-history-comment' )->text(),
-			];
+		];
 
 		return $headers;
 	}

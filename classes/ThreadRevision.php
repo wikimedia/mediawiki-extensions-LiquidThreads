@@ -17,7 +17,7 @@ class ThreadRevision {
 			'th_content'        => 'mObjSer',
 		];
 
-	protected $mId, $mThreadId, $mTimestamp, $mUserId, $mUserText, $mChangeType,
+	protected $mId, $mThreadId, $mTimestamp, $mUser, $mUserId, $mUserText, $mChangeType,
 				$mChangeObjectId, $mChangeObject, $mChangeComment, $mObjSer, $mThreadObj;
 
 	public static function loadFromId( $id ) {
@@ -140,7 +140,7 @@ class ThreadRevision {
 			return User::newFromId( $this->mUserId );
 		}
 
-		return User::newFromText( $this->mUserText, /* No validation */ false );
+		return User::newFromName( $this->mUserText, /* No validation */ false );
 	}
 
 	public function getChangeType() {

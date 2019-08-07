@@ -3,7 +3,7 @@
 use MediaWiki\MediaWikiServices;
 
 class NewUserMessagesView extends LqtView {
-	protected $highlightedThreads;
+	protected $highlightThreads;
 	protected $messagesInfo;
 
 	protected function htmlForReadButton( $label, $title, $class, $ids ) {
@@ -87,31 +87,27 @@ class NewUserMessagesView extends LqtView {
 		if ( $this->methodApplies( 'mark_as_unread' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand', '' ) );
 
-			if ( $ids !== false ) {
-				foreach ( $ids as $id ) {
-					$tmp_thread = Threads::withId( $id );
-					if ( $tmp_thread ) {
-						NewMessages::markThreadAsUnReadByUser( $tmp_thread, $this->user );
-					}
+			foreach ( $ids as $id ) {
+				$tmp_thread = Threads::withId( $id );
+				if ( $tmp_thread ) {
+					NewMessages::markThreadAsUnReadByUser( $tmp_thread, $this->user );
 				}
-				$this->output->redirect( $this->title->getLocalURL() );
 			}
+			$this->output->redirect( $this->title->getLocalURL() );
 		} elseif ( $this->methodApplies( 'mark_as_read' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand' ) );
-			if ( $ids !== false ) {
-				foreach ( $ids as $id ) {
-					if ( $id == 'all' ) {
-						NewMessages::markAllReadByUser( $this->user );
-					} else {
-						$tmp_thread = Threads::withId( $id );
-						if ( $tmp_thread ) {
-							NewMessages::markThreadAsReadByUser( $tmp_thread, $this->user );
-						}
+			foreach ( $ids as $id ) {
+				if ( $id == 'all' ) {
+					NewMessages::markAllReadByUser( $this->user );
+				} else {
+					$tmp_thread = Threads::withId( $id );
+					if ( $tmp_thread ) {
+						NewMessages::markThreadAsReadByUser( $tmp_thread, $this->user );
 					}
 				}
-				$query = 'lqt_method=undo_mark_as_read&lqt_operand=' . implode( ',', $ids );
-				$this->output->redirect( $this->title->getLocalURL( $query ) );
 			}
+			$query = 'lqt_method=undo_mark_as_read&lqt_operand=' . implode( ',', $ids );
+			$this->output->redirect( $this->title->getLocalURL( $query ) );
 		} elseif ( $this->methodApplies( 'undo_mark_as_read' ) ) {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand', '' ) );
 			$this->output->addHTML( $this->getUndoButton( $ids ) );

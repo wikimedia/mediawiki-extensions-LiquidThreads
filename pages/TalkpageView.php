@@ -8,6 +8,7 @@ class TalkpageView extends LqtView {
 	const LQT_OLDEST_THREADS = 'ot';
 
 	protected $mShowItems = [ 'toc', 'options', 'header' ];
+	/** @var Article */
 	protected $talkpage;
 
 	/**
@@ -315,7 +316,7 @@ class TalkpageView extends LqtView {
 		) {
 			$talkpageHeader .= $this->getSearchBox();
 		}
-		$talkpageHeader .= $this->showTalkpageViewOptions( $article );
+		$talkpageHeader .= $this->showTalkpageViewOptions();
 		$talkpageHeader = Xml::tags(
 			'div',
 			[ 'class' => 'lqt-talkpage-header' ],
