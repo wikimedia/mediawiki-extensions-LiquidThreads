@@ -728,6 +728,8 @@ class LqtHooks {
 			$tag = $reader->name;
 
 			if ( in_array( $tag, $fields ) ) {
+				// @FIXME nodeContents does not exists here, only as BaseDump::nodeContents
+				// @phan-suppress-next-line PhanUndeclaredMethod
 				$pageInfo['DiscussionThreading'][$tag] = $reader->nodeContents();
 			}
 		}
@@ -793,7 +795,7 @@ class LqtHooks {
 			$summaryPage = new Article( Title::newFromText( $summaryPageName ), 0 );
 
 			if ( $summaryPage->exists() ) {
-				$thread->setSummaryPage( $summaryPage );
+				$thread->setSummary( $summaryPage );
 			} else {
 				self::addPendingRelationship( $thread->id(), 'thread_summary_page',
 					$summaryPageName, 'article', $pendingRelationships );

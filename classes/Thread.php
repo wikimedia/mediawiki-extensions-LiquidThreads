@@ -32,6 +32,7 @@ class Thread {
 	protected $authorId;
 	protected $authorName;
 	protected $signature;
+	protected $replyCount;
 
 	protected $allDataLoaded;
 
@@ -47,6 +48,7 @@ class Thread {
 	protected $reactions;
 
 	public $dbVersion; // A copy of the thread as it exists in the database.
+	public $threadRevision;
 
 	public static $titleCacheById = [];
 	public static $replyCacheById = [];
@@ -128,7 +130,6 @@ class Thread {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$row = $this->getRow();
-		$row['thread_id'] = $dbw->nextSequenceValue( 'thread_thread_id' );
 
 		$dbw->insert( 'thread', $row, __METHOD__ );
 		$this->id = $dbw->insertId();
@@ -142,7 +143,7 @@ class Thread {
 		$this->getTitle()->invalidateCache();
 
 		$this->dbVersion = clone $this;
-		unset( $this->dbVersion->dbVersion );
+		$this->dbVersion->dbVersion = null;
 	}
 
 	public function setRoot( $article ) {
@@ -284,7 +285,7 @@ class Thread {
 		$this->getTitle()->invalidateCache();
 
 		$this->dbVersion = clone $this;
-		unset( $this->dbVersion->dbVersion );
+		$this->dbVersion->dbVersion = null;
 	}
 
 	public function getRow() {
@@ -303,6 +304,7 @@ class Thread {
 
 		if ( $this->replyCount < -1 ) {
 			wfWarn(
+				/** @phan-suppress-next-line PhanTypeSuspiciousStringExpression */
 				"Saving thread $id with negative reply count {$this->replyCount} " .
 					wfGetAllCallers()
 			);
@@ -503,6 +505,10 @@ class Thread {
 		$this->incrementReplyCount( - $val );
 	}
 
+	/**
+	 * @param stdClass $row
+	 * @return Thread
+	 */
 	public static function newFromRow( $row ) {
 		$id = $row->thread_id;
 
@@ -513,6 +519,10 @@ class Thread {
 		return new Thread( $row );
 	}
 
+	/**
+	 * @param stdClass|null $line
+	 * @param null $unused
+	 */
 	protected function __construct( $line, $unused = null ) {
 		/* SCHEMA changes must be reflected here. */
 
@@ -584,7 +594,7 @@ class Thread {
 		}
 
 		$this->dbVersion = clone $this;
-		unset( $this->dbVersion->dbVersion );
+		$this->dbVersion->dbVersion = null;
 	}
 
 	// Load a list of threads in bulk, including all subthreads.
@@ -716,7 +726,7 @@ class Thread {
 		// user talk pages to a link batch, cache the relevant user id/name pair, and
 		// populate the reply cache.
 		foreach ( $all_thread_rows as $row ) {
-			$thread = self::newFromRow( $row, null );
+			$thread = self::newFromRow( $row );
 
 			if ( isset( $articlesById[$thread->rootId] ) ) {
 				$thread->root = $articlesById[$thread->rootId];

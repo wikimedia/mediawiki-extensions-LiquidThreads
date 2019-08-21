@@ -1,7 +1,15 @@
 <?php
 
 class LqtDiscussionPager extends IndexPager {
+
+	/** @var Article */
+	protected $article;
+
+	/** @var string */
+	protected $orderType;
+
 	public function __construct( $article, $orderType ) {
+		/** @phan-suppress-next-line PhanTypeMismatchProperty */
 		$this->article = $article;
 		$this->orderType = $orderType;
 
@@ -77,6 +85,8 @@ class LqtDiscussionPager extends IndexPager {
 
 	public function formatRow( $row ) {
 		// No-op, we get the list of rows from getRows()
+		// Return a string to make the function signature happy
+		return '';
 	}
 
 	public function getIndexField() {

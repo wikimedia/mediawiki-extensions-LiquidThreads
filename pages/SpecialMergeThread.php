@@ -2,6 +2,10 @@
 
 // @todo FIXME: access control
 class SpecialMergeThread extends ThreadActionPage {
+
+	/** @var Thread */
+	protected $mDestThread;
+
 	public function getFormFields() {
 		$splitForm = [
 			'src' => [

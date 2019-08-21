@@ -7,6 +7,7 @@ class HistoricalThread extends Thread {
 	protected $changeComment;
 	protected $changeUser;
 	protected $changeUserText;
+	protected $revisionNumber;
 
 	public function __construct( $t ) {
 		/* SCHEMA changes must be reflected here. */

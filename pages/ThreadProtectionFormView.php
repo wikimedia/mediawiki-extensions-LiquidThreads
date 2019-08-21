@@ -2,6 +2,10 @@
 
 // Pass-through wrapper
 class ThreadProtectionFormView extends LqtView {
+
+	/** @var Thread */
+	public $thread;
+
 	public function customizeNavigation( $skintemplate, &$links ) {
 		ThreadPermalinkView::customizeThreadNavigation( $skintemplate, $links, $this );
 

@@ -11,6 +11,7 @@ $structure = json_decode( file_get_contents( $argv[0] ), true );
 
 $article = new Article( Title::newFromText( $argv[1] ), 0 );
 
+// @phan-suppress-next-line PhanUndeclaredVariable
 $wgOut->setTitle( $article->getTitle() );
 
 $subject = '';
@@ -24,7 +25,7 @@ function recursiveParseArray( $array ) {
 	$recurseLevel++;
 
 	if ( $recurseLevel > 90 ) {
-		print var_dump( $array );
+		var_dump( $array );
 		die( wfBacktrace() );
 	}
 
@@ -86,6 +87,8 @@ function createPost( $info, $subject, $super = null ) {
 		$user
 	);
 
+	// @FIXME function does not exists T146316
+	// @phan-suppress-next-line PhanUndeclaredStaticMethod
 	$t = LqtView::postEditUpdates(
 		$super ? 'reply' : 'new',
 		$super,

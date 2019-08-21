@@ -151,6 +151,7 @@ class NewMessages {
 
 		// Do the actual updates
 		if ( count( $userIds ) ) {
+			$insertRows = [];
 			foreach ( $userIds as $u ) {
 				$insertRows[] = [
 					'ums_user' => $u,

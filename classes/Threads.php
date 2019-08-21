@@ -134,7 +134,7 @@ class Threads {
 	}
 
 	/**
-	 * @param Article $post
+	 * @param Article|WikiPage $post
 	 * @param bool $bulkLoad
 	 * @return Thread
 	 */

@@ -1,7 +1,7 @@
 <?php
 
 abstract class ThreadActionPage extends UnlistedSpecialPage {
-	protected $user, $output, $request, $title, $mThread;
+	protected $user, $output, $request, $title, $mThread, $mTarget;
 
 	public function __construct() {
 		parent::__construct( $this->getPageName(), $this->getRightRequirement() );
