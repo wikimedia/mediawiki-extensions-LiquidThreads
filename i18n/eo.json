@@ -7,7 +7,8 @@
 			"KuboF",
 			"Michawiki",
 			"Yekrats",
-			"Joao Xavier"
+			"Joao Xavier",
+			"Robin van der Vliet"
 		]
 	},
 	"lqt-desc": "Aldonas fadenajn diskutojn al diskuto-paĝoj",
@@ -169,7 +170,7 @@
 	"prefs-lqt": "Fadeneca diskuto",
 	"lqt-preference-display-depth": "Maksimuma respondan profundecon por montri:",
 	"lqt-preference-display-count": "Maksimuma nombro de respondoj por montri:",
-	"lqt-preference-custom-signatures": "Montri proprajn uzulajn subskribojn",
+	"lqt-preference-custom-signatures": "Montri proprajn uzanto-subskribojn",
 	"lqt-enotif-subject-reply": "{{SITENAME}}-diskuto - Respondo: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}}-fadeno - Nova fadeno: $1",
 	"lqt-enotif-newthread": "Saluton $1,\nJen sciigo de {{SITENAME}} ke nova fadeno en $5, '$2',\nestis kreita je $3, $4 de $8.\n\nVi povas vidi ĝin ĉe <$6>\n\nLa teksto estas:\n$7",
