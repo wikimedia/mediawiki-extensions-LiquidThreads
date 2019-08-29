@@ -113,11 +113,15 @@ class ThreadPermalinkView extends LqtView {
 		$this->output->addWikiMsg( 'lqt_nosuchthread' );
 	}
 
+	/** @return string|null HTML or null */
 	public function getSubtitle() {
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$fragment = '#' . $this->anchorName( $this->thread );
 
 		$talkpage = $this->thread->getTitle();
+		if ( !$talkpage ) {
+			return null;
+		}
 		$talkpage->setFragment( $fragment );
 		$talkpage_link = $linkRenderer->makeLink( $talkpage );
 
@@ -186,7 +190,10 @@ class ThreadPermalinkView extends LqtView {
 			}
 		}
 
-		$this->output->setSubtitle( $this->getSubtitle() );
+		$subtitle = $this->getSubtitle();
+		if ( $subtitle !== null ) {
+			$this->output->setSubtitle( $subtitle );
+		}
 
 		if ( $this->methodApplies( 'summarize' ) ) {
 			$this->showSummarizeForm( $this->thread );
