@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\DBQueryError;
 
 /** Module of factory methods. */
@@ -267,13 +268,13 @@ class Threads {
 	 * @return Title
 	 */
 	public static function incrementedTitle( $basename, $namespace ) {
-		global $wgContLang;
 		$i = 2;
 
 		// Try to make the title valid.
 		$basename = self::makeTitleValid( $basename );
 
 		$t = Title::makeTitleSafe( $namespace, $basename );
+		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 		while ( !$t ||
 			in_array( $t->getPrefixedDBkey(), self::$occupied_titles ) ||
 			$t->exists() ||
@@ -283,7 +284,7 @@ class Threads {
 				throw new Exception( "Error in creating title for basename $basename" );
 			}
 
-			$n = $wgContLang->formatNum( $i );
+			$n = $contLang->formatNum( $i );
 			$t = Title::makeTitleSafe( $namespace, $basename . ' (' . $n . ')' );
 			$i++;
 		}

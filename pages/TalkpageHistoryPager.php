@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class TalkpageHistoryPager extends ThreadHistoryPager {
 
 	/** @var Article */
@@ -39,7 +41,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 	}
 
 	public function formatValue( $name, $value ) {
-		global $wgLang, $wgContLang, $wgOut;
+		global $wgLang, $wgOut;
 
 		$wgOut->setRobotPolicy( 'noindex, nofollow' );
 
@@ -67,7 +69,9 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 					[]
 				);
 
-				return Html::rawElement( 'div', [ 'dir' => $wgContLang->getDir() ], $link );
+				$contLang = MediaWikiServices::getInstance()->getContentLanguage();
+
+				return Html::rawElement( 'div', [ 'dir' => $contLang->getDir() ], $link );
 			case 'th_timestamp':
 				$formatted = $wgLang->timeanddate( $value );
 				$title = Title::makeTitleSafe(

@@ -110,7 +110,7 @@ class TalkpageView extends LqtView {
 	}
 
 	public function getTOC( $threads ) {
-		global $wgLang, $wgContLang;
+		global $wgLang;
 
 		$html = '';
 
@@ -128,6 +128,7 @@ class TalkpageView extends LqtView {
 
 		// Table body
 		$rows = [];
+		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 		foreach ( $threads as $thread ) {
 			if ( $thread->root() && !$thread->root()->getPage()->getContent() &&
 				!LqtView::threadContainsRepliesWithContent( $thread )
@@ -139,7 +140,7 @@ class TalkpageView extends LqtView {
 			$anchor = '#' . $this->anchorName( $thread );
 			$subject = Xml::tags( 'a', [ 'href' => $anchor ],
 					Threads::stripHTML( $thread->formattedSubject() ) );
-			$row .= Xml::tags( 'td', [ 'dir' => $wgContLang->getDir() ], $subject );
+			$row .= Xml::tags( 'td', [ 'dir' => $contLang->getDir() ], $subject );
 
 			$row .= Xml::element( 'td', null, $wgLang->formatNum( $thread->replyCount() ) );
 

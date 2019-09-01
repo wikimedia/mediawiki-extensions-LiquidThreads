@@ -1714,7 +1714,6 @@ class LqtView {
 	 * @return string
 	 */
 	public function showThreadHeading( $thread ) {
-		global $wgContLang;
 		if ( $thread->hasDistinctSubject() ) {
 			if ( $thread->hasSuperthread() ) {
 				$commands_html = "";
@@ -1736,10 +1735,11 @@ class LqtView {
 					[ $thread, &$html ] );
 
 			if ( $show ) {
+				$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 				$html = Xml::tags( 'span', [ 'class' => 'mw-headline' ], $html );
 				$html .= Html::hidden( 'raw-header', $thread->subject() );
 				$html = Xml::tags( 'h' . $this->headerLevel,
-						[ 'class' => 'lqt_header', 'id' => $id, 'dir' => $wgContLang->getDir() ],
+						[ 'class' => 'lqt_header', 'id' => $id, 'dir' => $contLang->getDir() ],
 						$html ) . $commands_html;
 			}
 
@@ -1754,11 +1754,10 @@ class LqtView {
 	}
 
 	public function postDivClass( $thread ) {
-		global $wgContLang;
 		$levelClass = 'lqt-thread-nest-' . $this->threadNestingLevel;
 		$alternatingType = ( $this->threadNestingLevel % 2 ) ? 'odd' : 'even';
 		$alternatingClass = "lqt-thread-$alternatingType";
-		$dir = $wgContLang->getDir();
+		$dir = MediaWikiServices::getInstance()->getContentLanguage()->getDir();
 
 		return "lqt_post $levelClass $alternatingClass mw-content-$dir";
 	}

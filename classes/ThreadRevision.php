@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class ThreadRevision {
 	public static $load =
 		[
@@ -51,8 +53,6 @@ class ThreadRevision {
 	public static function create( $thread, $change_type, $change_object = null, $comment = '',
 		$user = null, $timestamp = null
 	) {
-		global $wgContLang;
-
 		if ( is_null( $user ) ) {
 			global $wgUser;
 			$user = $wgUser;
@@ -88,7 +88,8 @@ class ThreadRevision {
 		}
 
 		// This field is TINYTEXT so it can only fit 255 bytes.
-		$rev->mChangeComment = $wgContLang->truncateForDatabase( $comment, 255 );
+		$rev->mChangeComment = MediaWikiServices::getInstance()->getContentLanguage()
+			->truncateForDatabase( $comment, 255 );
 
 		$rev->mThreadObj = $thread->topmostThread();
 		$rev->mObjSer = serialize( $rev->mThreadObj );
