@@ -124,18 +124,19 @@ class ThreadPermalinkView extends LqtView {
 		}
 		$talkpage->setFragment( $fragment );
 		$talkpage_link = $linkRenderer->makeLink( $talkpage );
-
-		if ( $this->thread->hasSuperthread() ) {
-			$topmostTitle = $this->thread->topmostThread()->title();
+		$topmostTitle = $this->thread->topmostThread()->title();
+		if ( $this->thread->hasSuperthread() && $topmostTitle ) {
 			$topmostTitle->setFragment( $fragment );
 
 			$linkText = new HtmlArmor( wfMessage( 'lqt_discussion_link' )->parse() );
 			$permalink = $linkRenderer->makeLink( $topmostTitle, $linkText );
-
-			return wfMessage( 'lqt_fragment' )->rawParams( $permalink, $talkpage_link )->parse();
+			$message = wfMessage( 'lqt_fragment' )
+				->rawParams( $permalink, $talkpage_link )
+				->parse();
 		} else {
-			return wfMessage( 'lqt_from_talk' )->rawParams( $talkpage_link )->parse();
+			$message = wfMessage( 'lqt_from_talk' )->rawParams( $talkpage_link )->parse();
 		}
+		return $message;
 	}
 
 	public function __construct( &$output, &$article, &$title, &$user, &$request ) {
