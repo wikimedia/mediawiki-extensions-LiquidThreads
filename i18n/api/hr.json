@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bugoslav"
+		]
+	},
+	"apihelp-feedthreads-description": "Vrati se na dovod rasprava po temama.",
+	"apierror-liquidthreads-noreplies-thread": "Ne možete odgovoriti na ovu temu, jer je odgovaranje na temu onemogućeno."
+}

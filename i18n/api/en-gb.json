@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Shirayuki"
+		]
+	},
+	"apihelp-threadaction-param-bump": "Overrides default behaviour as to whether or not to."
+}

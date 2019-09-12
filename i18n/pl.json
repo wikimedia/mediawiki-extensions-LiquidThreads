@@ -250,7 +250,5 @@
 	"nstab-thread": "Wątek",
 	"nstab-summary": "Podsumowanie",
 	"pageinfo-usinglqt": "Włączona dyskusja w formie wątków",
-	"pageinfo-usinglqt-yes": "Tak",
-	"apihelp-threadaction-param-text": "Tekst wpisu do utworzenia.",
-	"apierror-liquidthreads-notext": "Musisz umieścić tekst w swoim wpisie."
+	"pageinfo-usinglqt-yes": "Tak"
 }

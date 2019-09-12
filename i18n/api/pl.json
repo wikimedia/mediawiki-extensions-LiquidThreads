@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chrumps"
+		]
+	},
+	"apihelp-threadaction-param-text": "Tekst wpisu do utworzenia.",
+	"apierror-liquidthreads-notext": "Musisz umieścić tekst w swoim wpisie."
+}

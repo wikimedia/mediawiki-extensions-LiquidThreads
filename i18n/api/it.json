@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"apihelp-threadaction-param-bump": "Sostituisci il comportamento predefinito, oppure no.",
+	"apihelp-threadaction-param-captchaword": "Risposta al CAPTCHA.",
+	"apihelp-threadaction-param-captchaid": "ID CAPTCHA dalla precedente richiesta."
+}

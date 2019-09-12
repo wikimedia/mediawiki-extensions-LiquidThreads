@@ -240,9 +240,5 @@
 	"nstab-thread": "Luồng",
 	"nstab-summary": "Tóm lược",
 	"pageinfo-usinglqt": "Thảo luận theo luồng được kích hoạt",
-	"pageinfo-usinglqt-yes": "Có",
-	"apihelp-query+threads-param-id": "Lấy các luồng theo ID.",
-	"apihelp-threadaction-param-threadaction": "Tác vụ để thực hiện.",
-	"apihelp-threadaction-param-text": "Nội dung của bài đăng để tạo ra.",
-	"apihelp-threadaction-param-captchaword": "Lời giải đúng của CAPTCHA."
+	"pageinfo-usinglqt-yes": "Có"
 }

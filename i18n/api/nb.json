@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"apihelp-feedthreads-description": "Returner en mating av diskusjonstråder.",
+	"apihelp-feedthreads-summary": "Returner en mating av diskusjonstråder.",
+	"apihelp-feedthreads-param-feedformat": "Matingens format.",
+	"apihelp-feedthreads-param-days": "Antall dager med tråder som skal vises.",
+	"apihelp-feedthreads-param-type": "Typer poster som skal vises.",
+	"apihelp-feedthreads-param-talkpage": "Begrens resultatene til tråder på disse diskusjonssidene.",
+	"apihelp-feedthreads-param-thread": "Begrens resultatene til disse trådene og deres undertråder.",
+	"apihelp-feedthreads-example-1": "Vis en mating med alle nye tråder",
+	"apihelp-feedthreads-example-2": "Vis en mating med svar på [[Thread:Foo]]",
+	"apihelp-feedthreads-example-3": "Vis en mating over nye tråder på [[Talk:Main Page]]",
+	"apihelp-query+threads-description": "Vis detaljer om LiquidThreads-tråder.",
+	"apihelp-query+threads-summary": "Vis detaljer om LiquidThreads-tråder.",
+	"apihelp-query+threads-param-prop": "Hvilke egenskaper som skal hentes.",
+	"apihelp-query+threads-param-page": "Begrens resultatene til tråder på disse sidene.",
+	"apihelp-query+threads-param-author": "Begrens resultatene til tråder av visse skribenter.",
+	"apihelp-query+threads-param-root": "Begrens resultatene til tråder med de gitte røttene.",
+	"apihelp-query+threads-param-summary": "Begrens resultatene til tråder som samsvarer med de gitte sammendragssidene.",
+	"apihelp-query+threads-param-id": "Hent tråder med de gitte ID-ene.",
+	"apihelp-query+threads-example-1": "List opp tråder på [[Talk:Main Page]]",
+	"apihelp-query+threads-example-2": "List opp tråder med ID-ene 1, 2, 3 og 4",
+	"apihelp-threadaction-param-threadaction": "Handlingen som skal tas.",
+	"apihelp-threadaction-param-captchaword": "Svar på CAPTCHA-en.",
+	"apihelp-threadaction-param-captchaid": "CAPTCHA-ID fra forrige forespørsel.",
+	"apierror-liquidthreads-alreadytop": "Denne tråden er allerede en toppnivåtråd."
+}

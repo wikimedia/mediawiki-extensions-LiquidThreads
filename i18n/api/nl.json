@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mainframe98",
+			"Siebrand"
+		]
+	},
+	"apihelp-query+threads-param-renderlevel": "Bij het renderen, het niveau waarop te starten (omwille van dieptelimieten, enzovoort).",
+	"apierror-liquidthreads-nosubject": "Geen onderwerp, of een ongeldige onderwerp, werd opgegeven."
+}

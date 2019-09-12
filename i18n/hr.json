@@ -244,7 +244,5 @@
 	"nstab-thread": "Tema",
 	"nstab-summary": "Sažetak",
 	"pageinfo-usinglqt": "Rasprava po temama omogućena je u sustavu LiquidThreads",
-	"pageinfo-usinglqt-yes": "Da",
-	"apihelp-feedthreads-description": "Vrati se na dovod rasprava po temama.",
-	"apierror-liquidthreads-noreplies-thread": "Ne možete odgovoriti na ovu temu, jer je odgovaranje na temu onemogućeno."
+	"pageinfo-usinglqt-yes": "Da"
 }

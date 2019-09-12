@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Alifakoor",
+			"Ladsgroup"
+		]
+	},
+	"apihelp-feedthreads-description": "بازگرداندن یک خوراک خبری از مبحث‌ها.",
+	"apihelp-feedthreads-summary": "بازگرداندن یک خوراک خبری از مبحث‌ها.",
+	"apihelp-feedthreads-param-feedformat": "قالب خوراک.",
+	"apihelp-threadaction-param-captchaword": "پاسخ کپچا را بدهید",
+	"apihelp-threadaction-param-captchaid": "شناسهٔ کپچا از درخواست قبلی",
+	"apierror-liquidthreads-notext": "شما در پستتان باید متن قرار دهید."
+}

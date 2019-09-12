@@ -6,6 +6,5 @@
 		]
 	},
 	"lqt_summarize_link": "Summarise",
-	"lqt-summarize-intro": "Please summarise the below thread in the editing box.\nYou may use any wikitext in your summary.\nWhen you finish, click \"{{int:publishpage}}\".",
-	"apihelp-threadaction-param-bump": "Overrides default behaviour as to whether or not to."
+	"lqt-summarize-intro": "Please summarise the below thread in the editing box.\nYou may use any wikitext in your summary.\nWhen you finish, click \"{{int:publishpage}}\"."
 }

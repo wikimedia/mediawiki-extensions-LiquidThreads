@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jopparn",
+			"WikiPhoenix"
+		]
+	},
+	"apihelp-feedthreads-description": "Returnera ett flöde av diskussionstrådar.",
+	"apihelp-feedthreads-summary": "Returnera ett flöde av diskussionstrådar.",
+	"apihelp-feedthreads-param-feedformat": "Formatet på flödet.",
+	"apihelp-feedthreads-param-days": "Antal dagar med trådar att visa.",
+	"apihelp-feedthreads-param-type": "Typer av inlägg att visa.",
+	"apihelp-feedthreads-param-talkpage": "Begränsa resultaten till trådar på dessa diskussionssidor.",
+	"apihelp-feedthreads-param-thread": "Begränsa resultaten till dessa trådar och deras ättlingar.",
+	"apihelp-feedthreads-example-1": "Visa ett flöde av alla nya trådar",
+	"apihelp-feedthreads-example-2": "Visa ett flöde av svar på [[Thread:Foo]]",
+	"apihelp-feedthreads-example-3": "Visa ett flöde av nya trådar på [[Talk:Main Page]]",
+	"apihelp-query+threads-description": "Visa detaljer för LiquidThreads-trådar.",
+	"apihelp-query+threads-summary": "Visa detaljer för LiquidThreads-trådar.",
+	"apihelp-query+threads-param-startid": "Trådens ID att börja räkna från.",
+	"apihelp-query+threads-param-endid": "Trådens ID att sluta räkna vid.",
+	"apihelp-query+threads-param-showdeleted": "Om raderade trådar ska visas eller inte.",
+	"apihelp-query+threads-param-limit": "Maximala antalet trådar att lista.",
+	"apihelp-query+threads-param-prop": "Vilka egenskaper att hämta.",
+	"apihelp-query+threads-param-page": "Begränsa resultaten till trådar på dessa sidor.",
+	"apihelp-query+threads-param-id": "Hämta trådar med angivna ID:n.",
+	"apihelp-query+threads-example-1": "Lista trådar på [[Talk:Main Page]]",
+	"apihelp-query+threads-example-2": "Lista trådar med ID:n 1, 2, 3 och 4",
+	"apihelp-threadaction-param-threadaction": "Åtgärden att vidta.",
+	"apihelp-threadaction-param-text": "Texten till inlägget att skapa.",
+	"apihelp-threadaction-param-captchaword": "Svar till CAPTCHA.",
+	"apihelp-threadaction-param-captchaid": "CAPTCHA-ID från föregående begäran."
+}

@@ -163,7 +163,9 @@
 	"lqt_rc_new_discussion": "создал новую ветку, «$1»",
 	"lqt_rc_new_reply": "написал ответ на «$1»",
 	"right-lqt-split": "Разделение ветвей",
+	"action-lqt-split": "разделение ветвей",
 	"right-lqt-merge": "Объединение ветвей",
+	"action-lqt-merge": "объединение ветвей",
 	"right-lqt-react": "Ответы в ветках обсуждений",
 	"action-lqt-react": "отвечать в ветках обсуждений",
 	"lqt-thread-merge": "Присоединить к другой ветке",
@@ -257,11 +259,5 @@
 	"nstab-thread": "Ветка",
 	"nstab-summary": "Описание",
 	"pageinfo-usinglqt": "Дискуссия по веткам включена",
-	"pageinfo-usinglqt-yes": "Да",
-	"apihelp-feedthreads-description": "Дать ленту с ветками обсуждений.",
-	"apihelp-feedthreads-summary": "Дать ленту с ветками обсуждений.",
-	"apihelp-feedthreads-param-feedformat": "Формат ленты.",
-	"apihelp-feedthreads-param-type": "Типы сообщений для показа.",
-	"apihelp-threadaction-param-captchaword": "Ответ на капчу.",
-	"apihelp-threadaction-param-captchaid": "ID капчи из предыдущего запроса."
+	"pageinfo-usinglqt-yes": "Да"
 }

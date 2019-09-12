@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eitvys200"
+		]
+	},
+	"apierror-liquidthreads-badreaction": "Turite nurodyti abu: pavadinimą ir reakcijos reikšmę.",
+	"apierror-liquidthreads-badsubject": "Jūsų nurodytas tema negalima.",
+	"apierror-liquidthreads-noreplies-talkpage": "Negalite atsakyti į šią temą, nes aptarimo puslapis yra apsaugotas nuo atsakymų.",
+	"apierror-liquidthreads-noreplies-thread": "Negalite atsakyti į šią temą, nes tema yra apsaugota nuo atsakymų.",
+	"apierror-liquidthreads-nosubject": "Nėra temos arba buvo nurodyta negalima tema.",
+	"apierror-liquidthreads-notext": "Turite įtraukti tekstą į savo įrašą."
+}
