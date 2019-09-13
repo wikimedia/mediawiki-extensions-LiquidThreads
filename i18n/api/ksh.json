@@ -37,6 +37,6 @@
 	"apihelp-threadaction-param-text": "Dä Täx för dä beijdraach zom Aanlähje.",
 	"apihelp-threadaction-param-bump": "Övverschrihv et schtandattmähßeje Verhallde, ov udder of nit.",
 	"apihelp-threadaction-param-signature": "Jitt de „Ongerschreff“ för dä Beijdrahch aa, anschtatt vum Schtandatt.",
-	"apihelp-threadaction-param-captchaword": "Antwood obb et <span style=\"text-transform:uppercase\" title=\"Jät zom Ennjävve, öm ze zeije, dadd ene Minsch vör em Kompjuhter sez\">Kaptscha</span>.",
-	"apihelp-threadaction-param-captchaid": "Däm <span style=\"text-transform:uppercase\" title=\"Jät zom Ennjävve, öm ze zeije, dadd ene Minsch vör em Kompjuhter sez\">Kaptscha</span> uß de vöhrijje Aanfrohch sing Kännong."
+	"apihelp-threadaction-param-captchaword": "Antwood obb et Kaptscha.",
+	"apihelp-threadaction-param-captchaid": "Däm Kaptscha uß de vöhrijje Aanfrohch sing Kännong."
 }
