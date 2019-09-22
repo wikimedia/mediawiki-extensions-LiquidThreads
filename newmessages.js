@@ -103,7 +103,7 @@
 				action: 'threadaction',
 				threadaction: 'markread',
 				thread: threads,
-				token: mw.user.tokens.get( 'editToken' )
+				token: mw.user.tokens.get( 'csrfToken' )
 			} ).done( function ( e ) {
 				liquidThreads.markReadDone.one( e, $form.find( 'input[type=submit]' ), operand );
 				$( 'li#pt-newmessages' ).html( $( '<a>', $( e.threadactions ).last().prop( 'unreadlink' ) ) ); // Unreadlink will be on the last threadaction
@@ -120,7 +120,7 @@
 				action: 'threadaction',
 				threadaction: 'markread',
 				thread: 'all',
-				token: mw.user.tokens.get( 'editToken' )
+				token: mw.user.tokens.get( 'csrfToken' )
 			} ).done( function ( res ) {
 				liquidThreads.markReadDone.all( res );
 				$( 'li#pt-newmessages' ).html( $( '<a>', res.threadactions[ 0 ].unreadlink ) );

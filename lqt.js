@@ -237,7 +237,7 @@
 		loadInlineEditForm: function ( params, $container, callback ) {
 			params.action = 'threadaction';
 			params.threadaction = 'inlineeditform';
-			params.token = mw.user.tokens.get( 'editToken' );
+			params.token = mw.user.tokens.get( 'csrfToken' );
 
 			( new mw.Api() ).post( params ).done( function ( result ) {
 				$container.empty().append(
@@ -461,7 +461,7 @@
 				threadaction: 'setsubject',
 				subject: newSubject,
 				thread: threadId,
-				token: mw.user.tokens.get( 'editToken' )
+				token: mw.user.tokens.get( 'csrfToken' )
 			};
 
 			// Set new subject through API.
@@ -1049,7 +1049,7 @@
 				talkpage: talkpage,
 				subject: subject,
 				text: text,
-				token: mw.user.tokens.get( 'editToken' ),
+				token: mw.user.tokens.get( 'csrfToken' ),
 				render: '1',
 				reason: summary,
 				bump: bump
@@ -1075,7 +1075,7 @@
 				threadaction: 'reply',
 				thread: thread,
 				text: text,
-				token: mw.user.tokens.get( 'editToken' ),
+				token: mw.user.tokens.get( 'csrfToken' ),
 				render: '1',
 				reason: summary,
 				bump: bump
@@ -1106,7 +1106,7 @@
 				reason: summary,
 				bump: bump,
 				subject: subject,
-				token: mw.user.tokens.get( 'editToken' )
+				token: mw.user.tokens.get( 'csrfToken' )
 			};
 
 			if ( $( '#wpCaptchaWord' ) ) {
@@ -1436,7 +1436,7 @@
 					action: 'threadaction',
 					thread: threadId,
 					reason: params.reason,
-					token: mw.user.tokens.get( 'editToken' )
+					token: mw.user.tokens.get( 'csrfToken' )
 				};
 
 			function doEmptyChecks() {
