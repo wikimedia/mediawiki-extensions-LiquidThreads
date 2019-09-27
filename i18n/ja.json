@@ -12,7 +12,8 @@
 			"青子守歌",
 			"Rxy",
 			"Sujiniku",
-			"Suchichi02"
+			"Suchichi02",
+			"Omotecho"
 		]
 	},
 	"lqt-desc": "トークページにスレッド形式の議論を追加する",
@@ -134,7 +135,7 @@
 	"lqt-thread-edited-others": "{{PLURAL:$2|他の利用者|$2 人の利用者}}が編集しました。<br />\n最終編集: $1",
 	"lqt-header-actions": "操作",
 	"lqt_summarize_link": "要約",
-	"lqt-summarize-intro": "下記のスレッドを編集ボックス内に要約してください。\n要約ではウィキテキストを使用できます。\n完了したら「{{int:publishpage}}」をクリックします。",
+	"lqt-summarize-intro": "下記のスレッドを編集ボックス内に要約してください。\n要約ではどんなウィキテキストも使用できます。\n完了したら「{{int:publishpage}}」をクリックします。",
 	"lqt-thread-split": "新規スレッドに分割",
 	"lqt-split-success": "スレッド「$1」を分割しました。",
 	"lqt_split_thread": "スレッドを分割",
