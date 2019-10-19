@@ -10,7 +10,7 @@
 	"type": "other",
 	"license-name": "GPL-2.0-or-later",
 	"requires": {
-		"MediaWiki": ">= 1.33.0"
+		"MediaWiki": ">= 1.34.0"
 	},
 	"namespaces": [
 		{
@@ -147,8 +147,7 @@
 				"jquery/jquery.thread_collapse.js"
 			],
 			"dependencies": [
-				"jquery.ui.dialog",
-				"jquery.ui.droppable",
+				"jquery.ui",
 				"mediawiki.action.edit.preview",
 				"mediawiki.api",
 				"user.tokens",
