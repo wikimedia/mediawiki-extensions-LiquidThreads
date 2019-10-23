@@ -16,7 +16,7 @@
 	"lqt-preference-display-depth": "* Күрсәтү өчен максималь зурлык:",
 	"lqt-preference-display-count": "*Күрсәтү өчен максималь җаваплар саны:",
 	"lqt-ajax-update-link": "Яңарту",
-	"lqt-cancel-subject-edit": "Баш тарту",
+	"lqt-cancel-subject-edit": "Кире алу",
 	"lqt-feed-title-all-from": "{{SITENAME}} — Яңа хатлар $1",
 	"lqt-feed-title-new-threads": "{{SITENAME}} — Яңа тармак",
 	"lqt-feed-title-new-threads-from": "{{SITENAME}} — Яңа тармаклар $1",
@@ -28,7 +28,7 @@
 	"lqt-reply-summary": "[[$2|$1]]гә җавап",
 	"lqt-talkpage-history-title": "Аралашу битенең тарихы",
 	"lqt-talkpage-history-subtitle": "$1 өчен",
-	"lqt-talkpage-history-tab": "Баш өлеш",
+	"lqt-talkpage-history-tab": "Баш исем",
 	"restriction-reply": "җавап бирергә",
 	"restriction-newthread": "яңа элемтәләр ясау"
 }
