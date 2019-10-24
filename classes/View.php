@@ -504,7 +504,7 @@ class LqtView {
 
 		$view->doInlineEditForm();
 
-		foreach ( $request->getSessionArray() as $k => $v ) {
+		foreach ( $request->getSessionArray() ?? [] as $k => $v ) {
 			$wgRequest->setSessionData( $k, $v );
 		}
 
