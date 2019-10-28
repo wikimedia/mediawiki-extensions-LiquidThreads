@@ -23,7 +23,7 @@
 	"lqt-feed-title-replies": "{{SITENAME}} — Җаваплар",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Җаваплар $1",
 	"lqt-newmessages-n": "Яңа {{PLURAL:$1|хәбәр|хәбәрләр}} ($1)",
-	"lqt_newmessages-title": "Яңа хатлар",
+	"lqt_newmessages-title": "Яңа хәбәрләр",
 	"lqt-newpost-summary": "Яңа элемтә: $1",
 	"lqt-reply-summary": "[[$2|$1]]гә җавап",
 	"lqt-talkpage-history-title": "Аралашу битенең тарихы",

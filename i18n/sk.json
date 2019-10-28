@@ -4,7 +4,8 @@
 			"Helix84",
 			"Jkjk",
 			"Mormegil",
-			"Teslaton"
+			"Teslaton",
+			"Luky001"
 		]
 	},
 	"lqt-desc": "Pridáva organizáciu správ na diskusných stránkach do vlákien",
@@ -192,7 +193,7 @@
 	"lqt-ajax-no-subject": "Pri novom vlákne musíte uviesť predmet.",
 	"lqt-save-subject-error-unknown": "Počas zmeny predmetu tohto vlákna sa vyskytla neznáma chyba. Prosím, skúste to kliknutím na „upraviť“ v hornom príspevku.",
 	"lqt-cancel-subject-edit": "Zrušiť",
-	"lqt-drag-activate": "Pretiahnuť na novú pozíciu",
+	"lqt-drag-activate": "Presunúť na novú pozíciu",
 	"lqt-drag-drop-zone": "Pustiť tu",
 	"lqt-drag-confirm": "Nasledovné operácie ukončíte napísaním dôvodu a kliknutím na „Potvrdiť“.",
 	"lqt-drag-reparent": "Presunúť príspevok pod nový nadradený príspevok.",
