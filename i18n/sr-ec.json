@@ -10,7 +10,8 @@
 			"Сербијана",
 			"Obsuser",
 			"Acamicamacaraca",
-			"BadDog"
+			"BadDog",
+			"Zoranzoki21"
 		]
 	},
 	"lqt-desc": "Додаје низане дискусије на страницама за разговор",
@@ -36,8 +37,10 @@
 	"lqt_from_talk": "Са странице „$1”",
 	"lqt-history-title": "Историја низа",
 	"lqt_hist_comment_edited": "[$2 Уређен] текст коментара",
+	"lqt_hist_comment_edited_deleted": "Текст коментара уређен (од брисања)",
 	"lqt_hist_summary_changed": "Промењен резиме",
 	"lqt_hist_reply_created": "Направљен [[$1|нови одговор]]",
+	"lqt_hist_reply_created_deleted": "Нови одговор је направљен (од брисања)",
 	"lqt_hist_thread_created": "Направљен нови низ",
 	"lqt_hist_deleted": "Избрисано",
 	"lqt_hist_undeleted": "Враћено",
@@ -152,8 +155,11 @@
 	"lqt_rc_new_discussion": "је {{GENDER:|поставио|поставила}} нову тему, „$1”",
 	"lqt_rc_new_reply": "је {{GENDER:|поставио|поставила}} одговор на „$1“",
 	"right-lqt-split": "раздвајање тема",
+	"action-lqt-split": "раздвајање тема",
 	"right-lqt-merge": "спајање тема",
+	"action-lqt-merge": "спајање тема",
 	"right-lqt-react": "одговарање на теме",
+	"action-lqt-react": "одговарање на теме",
 	"lqt-thread-merge": "Обједини у другу нит",
 	"lqt-thread-merge-to": "Обједни у ову нит",
 	"lqt_merge_thread": "Спајање теме",
@@ -240,7 +246,10 @@
 	"lqt-edit-bump-tooltip": "Премести ову тему на врх странице за разговор",
 	"lqt-historicalrevision-error": "Измена коју сте изабрали је оштећена и не може бити приказана.",
 	"lqt-reply-subpage": "одговор",
+	"lqt-pagechange-editformopen": "На овој страници имате отворен неспремљен текст. Можете га изгубити ако одете са ове странице.",
+	"lqt-not-a-liquidthreads-page": "$1 није LiquidThreads страница",
 	"nstab-thread": "Тема",
 	"nstab-summary": "Опис",
+	"pageinfo-usinglqt": "Низане дискусије су омогућене",
 	"pageinfo-usinglqt-yes": "Да"
 }
