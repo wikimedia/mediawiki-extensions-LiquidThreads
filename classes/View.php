@@ -2413,14 +2413,15 @@ class LqtView {
 	}
 
 	public static function getUserSignature( $user, $uid = null ) {
-		global $wgParser;
+		$parser = MediaWikiServices::getInstance()->getParser();
+
 		if ( !$user ) {
 			$user = User::newFromId( $uid );
 		}
 
-		$wgParser->Options( new ParserOptions );
+		$parser->Options( new ParserOptions );
 
-		$sig = $wgParser->getUserSig( $user );
+		$sig = $parser->getUserSig( $user );
 
 		return $sig;
 	}
@@ -2450,11 +2451,11 @@ class LqtView {
 	 * @return string
 	 */
 	public static function signaturePST( $sig, $user ) {
-		global $wgParser, $wgTitle;
+		global $wgTitle;
 
 		$title = $wgTitle ?: $user->getUserPage();
 
-		$sig = $wgParser->preSaveTransform(
+		$sig = MediaWikiServices::getInstance()->getParser()->preSaveTransform(
 			$sig,
 			$title,
 			$user,
