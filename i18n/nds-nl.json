@@ -5,6 +5,7 @@
 		]
 	},
 	"lqt_move_move": "Herneum",
+	"lqt-menu-trigger": "Meyr",
 	"lqt-newmessages-n": "Nye {{PLURAL:$1|bericht|berichten}} ($1)",
 	"lqt_newmessages-title": "Nye berichten"
 }
