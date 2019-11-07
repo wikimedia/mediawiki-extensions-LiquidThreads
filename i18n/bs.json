@@ -4,7 +4,8 @@
 			"CERminator",
 			"KWiki",
 			"Srdjan m",
-			"Semso98"
+			"Semso98",
+			"Obsuser"
 		]
 	},
 	"lqt-desc": "Dodaj nizane diskusije stranicama za razgovor",
@@ -186,14 +187,14 @@
 	"lqt-marked-as-read-placeholder": "Niz $1 je označen kao pročitan.",
 	"lqt-change-subject": "Promijeni temu",
 	"lqt-save-subject": "Sačuvaj",
-	"lqt-save-subject-failed": "Slijedeća greška se desila pri pokušaju promjene teme ovog niza: $1",
+	"lqt-save-subject-failed": "Sljedeća greška se desila pri pokušaju promjene teme ovog niza: $1",
 	"lqt-ajax-invalid-subject": "Tema koju ste unijeli je nevaljana, možda zato što je predugačka.",
 	"lqt-ajax-no-subject": "Morate navesti temu za novi niz.",
 	"lqt-save-subject-error-unknown": "Desila se nepoznata greška pri pokušaja postavljanja teme ovog niza. Molimo pokušajte ovo učiniti klikanjem na ''uredi'' na vrhu poruke.",
 	"lqt-cancel-subject-edit": "Otkaži",
 	"lqt-drag-activate": "Prenesi na novo mjesto",
 	"lqt-drag-drop-zone": "Ubaci ovdje",
-	"lqt-drag-confirm": "Da biste dovršili slijedeće akcije, molimo popunite razlog i kliknite \"Potvrdi\".",
+	"lqt-drag-confirm": "Da biste dovršili sljedeće akcije, molimo popunite razlog i kliknite \"Potvrdi\".",
 	"lqt-drag-reparent": "Premjesti poruku ispod nove nadređene teme.",
 	"lqt-drag-split": "Premjestite poruku na vlastiti niz",
 	"lqt-drag-setsortkey": "Podesi mjesto poruke na stranici",
