@@ -39,9 +39,9 @@ class ThreadRevision {
 	protected $mChangeObject;
 	/** @var string */
 	protected $mChangeComment;
-	/** @var string */
+	/** @var string|null */
 	protected $mObjSer;
-	/** @var Thread|false */
+	/** @var Thread|false|null */
 	protected $mThreadObj;
 
 	public static function loadFromId( $id ) {
@@ -196,11 +196,13 @@ class ThreadRevision {
 	}
 
 	public function getThreadObj() {
-		if ( is_null( $this->mThreadObj ) && !is_null( $this->mObjSer ) ) {
-			$this->mThreadObj = unserialize( $this->mObjSer );
-		} elseif ( is_null( $this->mThreadObj ) && is_null( $this->mObjSer ) ) {
-			var_dump( $this );
-			throw new Exception( "Missing mObjSer" );
+		if ( is_null( $this->mThreadObj ) ) {
+			if ( !is_null( $this->mObjSer ) ) {
+				$this->mThreadObj = unserialize( $this->mObjSer );
+			} else {
+				var_dump( $this );
+				throw new Exception( "Missing mObjSer" );
+			}
 		}
 
 		if ( !( $this->mThreadObj instanceof Thread ) ) {

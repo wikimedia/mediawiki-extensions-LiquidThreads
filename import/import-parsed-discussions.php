@@ -11,7 +11,7 @@ $structure = json_decode( file_get_contents( $argv[0] ), true );
 
 $article = new Article( Title::newFromText( $argv[1] ), 0 );
 
-// @phan-suppress-next-line PhanUndeclaredVariable
+// @phan-suppress-next-line PhanUndeclaredGlobalVariable
 $wgOut->setTitle( $article->getTitle() );
 
 $subject = '';
@@ -39,6 +39,7 @@ function recursiveParseArray( $array ) {
 		// We have a post.
 		$t = createPost( $array, $subject, $rootPost );
 
+		// @phan-suppress-next-line PhanRedundantCondition
 		if ( !$rootPost ) {
 			$rootPost = $t;
 		}

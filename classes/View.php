@@ -1290,7 +1290,7 @@ class LqtView {
 	/**
 	 * Commands for the bottom.
 	 * @param Thread $thread
-	 * @return array
+	 * @return array[]
 	 */
 	public function threadMajorCommands( $thread ) {
 		$isLqtPage = LqtDispatch::isLqtPage( $thread->getTitle() );
@@ -1533,6 +1533,11 @@ class LqtView {
 		return implode( ' ', $result );
 	}
 
+	/**
+	 * @param array $command
+	 * @param bool $icon_divs
+	 * @return string HTML
+	 */
 	public function contentForCommand( $command, $icon_divs = true ) {
 		$label = $command['label'];
 		$href = $command['href'];
@@ -2077,7 +2082,6 @@ class LqtView {
 
 		// Figure out which threads *need* to be shown because they're involved in an
 		// operation
-		// @phan-suppress-next-line PhanTypeInvalidDimOffset
 		$mustShowOption = $options['mustShowThreads'] ?? [];
 		$mustShowThreads = $this->getMustShowThreads( $mustShowOption );
 
@@ -2101,11 +2105,8 @@ class LqtView {
 		}
 
 		// Grab options
-		// @phan-suppress-next-line PhanTypeInvalidDimOffset
 		$maxDepth = $options['maxDepth'] ?? $this->user->getOption( 'lqtdisplaydepth' );
-		// @phan-suppress-next-line PhanTypeInvalidDimOffset
 		$maxCount = $options['maxCount'] ?? $this->user->getOption( 'lqtdisplaycount' );
-		// @phan-suppress-next-line PhanTypeInvalidDimOffset
 		$startAt = $options['startAt'] ?? 0;
 
 		// Figure out if we have replies to show or not.

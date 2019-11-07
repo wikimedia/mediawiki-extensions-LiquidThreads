@@ -14,9 +14,7 @@ class SynchroniseThreadArticleDataJob extends Job {
 		$limit = $this->params['limit'];
 		$cascade = $this->params['cascade'];
 
-		if ( $article ) {
-			Threads::synchroniseArticleData( $article, $limit, $cascade );
-		}
+		Threads::synchroniseArticleData( $article, $limit, $cascade );
 
 		return true;
 	}
