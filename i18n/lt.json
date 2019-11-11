@@ -112,7 +112,7 @@
 	"lqt-history-action": "Veikla",
 	"lqt-history-comment": "Komentaras",
 	"lqt-history-thread": "Tema",
-	"lqt-thread-edited-author": "Redagavo autorius.<br />\nPaskutinis pakeitimas: $1",
+	"lqt-thread-edited-author": "Redagavo {{GENDER:$5|autorius}}.<br />\nPaskutinis pakeitimas: $1",
 	"lqt-thread-edited-others": "Radaguota {{PLURAL:$2|kito dalyvio|$2 dalyvių}}.<br />\nPaskutinis pakeitimas: $1",
 	"lqt-header-actions": "Veiksmai",
 	"lqt_summarize_link": "Apibendrinimas",
