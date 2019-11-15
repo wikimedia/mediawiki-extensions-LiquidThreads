@@ -28,13 +28,13 @@ class LqtHooks {
 	];
 
 	/**
-	 * @param ChangesList &$changeslist
+	 * @param ChangesList $changeslist
 	 * @param string &$s
 	 * @param RecentChange $rc
 	 * @param array &$classes
 	 * @return bool
 	 */
-	public static function customizeOldChangesList( &$changeslist, &$s, $rc, &$classes ) {
+	public static function customizeOldChangesList( ChangesList $changeslist, &$s, $rc, &$classes ) {
 		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			return true;
 		}
@@ -586,8 +586,8 @@ class LqtHooks {
 	}
 
 	/**
-	 * @param WikiPage &$wikiPage
-	 * @param User &$user
+	 * @param WikiPage $wikiPage
+	 * @param User $user
 	 * @param Content $content
 	 * @param string $summary
 	 * @param bool $minoredit
@@ -595,15 +595,15 @@ class LqtHooks {
 	 * @param string $sectionanchor
 	 * @param int &$flags
 	 * @param Revision $revision
-	 * @param Status &$status
+	 * @param Status $status
 	 * @param int $baseRevId
 	 *
 	 * @return bool
 	 */
 	public static function onPageContentSaveComplete(
-		WikiPage &$wikiPage, &$user, $content, $summary,
+		WikiPage $wikiPage, $user, $content, $summary,
 		$minoredit, $watchthis, $sectionanchor, &$flags, $revision,
-		&$status, $baseRevId
+		$status, $baseRevId
 	) {
 		if ( !$status->isGood() ) {
 			// Failed
@@ -976,7 +976,7 @@ class LqtHooks {
 		return true;
 	}
 
-	public static function onAPIQueryAfterExecute( &$module ) {
+	public static function onAPIQueryAfterExecute( $module ) {
 		if ( $module instanceof ApiQueryInfo ) {
 			$result = $module->getResult();
 

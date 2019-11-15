@@ -1,6 +1,8 @@
 <?php
+
+/* @phan-file-suppress PhanUndeclaredProperty */
 class LqtParserFunctions {
-	public static function useLiquidThreads( &$parser, $param = '1' ) {
+	public static function useLiquidThreads( Parser $parser, $param = '1' ) {
 		$offParams = [ 'no', 'off', 'disable' ];
 		// Figure out if they want to turn it off or on.
 		$param = trim( strtolower( $param ) );
@@ -11,12 +13,12 @@ class LqtParserFunctions {
 			$param = 1;
 		}
 
-		$parser->mOutput->setProperty( 'use-liquid-threads', $param );
+		$parser->getOutput()->setProperty( 'use-liquid-threads', $param );
 	}
 
-	public static function lqtPageLimit( &$parser, $param = null ) {
+	public static function lqtPageLimit( Parser $parser, $param = null ) {
 		if ( $param && $param > 0 ) {
-			$parser->mOutput->setProperty( 'lqt-page-limit', $param );
+			$parser->getOutput()->setProperty( 'lqt-page-limit', $param );
 		}
 	}
 
@@ -156,7 +158,7 @@ class LqtParserFunctions {
 		return $html;
 	}
 
-	public static function onAddParserOutput( &$out, $pout ) {
+	public static function onAddParserOutput( OutputPage $out, ParserOutput $pout ) {
 		if ( !isset( $pout->mLqtReplacements ) ) {
 			return true;
 		}
@@ -185,7 +187,7 @@ class LqtParserFunctions {
 		return true;
 	}
 
-	public static function onAddHTML( &$out, &$text ) {
+	public static function onAddHTML( OutputPage $out, &$text ) {
 		if ( !isset( $out->mLqtReplacements ) || !count( $out->mLqtReplacements ) ) {
 			return true;
 		}
