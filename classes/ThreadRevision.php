@@ -19,8 +19,30 @@ class ThreadRevision {
 			'th_content'        => 'mObjSer',
 		];
 
-	protected $mId, $mThreadId, $mTimestamp, $mUser, $mUserId, $mUserText, $mChangeType,
-				$mChangeObjectId, $mChangeObject, $mChangeComment, $mObjSer, $mThreadObj;
+	/** @var int */
+	protected $mId;
+	/** @var int */
+	protected $mThreadId;
+	/** @var string */
+	protected $mTimestamp;
+	/** @var User */
+	protected $mUser;
+	/** @var int */
+	protected $mUserId;
+	/** @var string */
+	protected $mUserText;
+	/** @var string */
+	protected $mChangeType;
+	/** @var int */
+	protected $mChangeObjectId;
+	/** @var Thread|null */
+	protected $mChangeObject;
+	/** @var string */
+	protected $mChangeComment;
+	/** @var string */
+	protected $mObjSer;
+	/** @var Thread|false */
+	protected $mThreadObj;
 
 	public static function loadFromId( $id ) {
 		$dbr = wfGetDB( DB_REPLICA );
