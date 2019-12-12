@@ -1795,21 +1795,12 @@ class Thread {
 	}
 
 	/**
-	 * @todo For back-compat, remove when support for MW < 1.31 is dropped.
 	 * @return array
 	 */
 	private static function getRevisionQueryInfo() {
-		if ( is_callable( 'Revision', 'getQueryInfo' ) ) {
-			$info = Revision::getQueryInfo();
-			if ( !isset( $info['fields']['rev_user_text'] ) ) {
-				$info['fields']['rev_user_text'] = 'rev_user_text';
-			}
-		} else {
-			$info = [
-				'tables' => [ 'revision' ],
-				'fields' => [ 'rev_user_text' => 'rev_user_text' ],
-				'joins' => []
-			];
+		$info = Revision::getQueryInfo();
+		if ( !isset( $info['fields']['rev_user_text'] ) ) {
+			$info['fields']['rev_user_text'] = 'rev_user_text';
 		}
 
 		return $info;
