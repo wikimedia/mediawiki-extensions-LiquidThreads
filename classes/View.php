@@ -525,7 +525,7 @@ class LqtView {
 			$this->output->addWikiMsg( 'lqt-protected-newthread' );
 			return;
 		}
-		$subject = $this->request->getVal( 'lqt_subject_field', false );
+		$subject = $this->request->getVal( 'lqt_subject_field' );
 
 		$t = null;
 
