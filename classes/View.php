@@ -35,15 +35,10 @@ class LqtView {
 	public $request;
 
 	protected $headerLevel = 2; /* h1, h2, h3, etc. */
-	protected $lastUnindentedSuperthread;
 	protected $user_colors;
 	protected $user_color_index;
 
 	public $threadNestingLevel = 0;
-
-	protected $sort_order = TalkpageView::LQT_NEWEST_CHANGES;
-
-	public static $stylesAndScriptsDone = false;
 
 	public function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		$this->article = $article;
@@ -53,10 +48,6 @@ class LqtView {
 		$this->request = $request;
 		$this->user_colors = [];
 		$this->user_color_index = 1;
-	}
-
-	public function setHeaderLevel( $int ) {
-		$this->headerLevel = $int;
 	}
 
 	/*************************
@@ -202,12 +193,6 @@ class LqtView {
 		);
 	}
 
-	public static function linkInContextURL( Thread $thread, $contextType = 'page' ) {
-		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
-
-		return $title->getLocalURL( $query );
-	}
-
 	public static function linkInContextFullURL( Thread $thread, $contextType = 'page' ) {
 		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
 
@@ -340,28 +325,6 @@ class LqtView {
 						$perpetuateOffset );
 
 		return $title->getLinkUrl( $query );
-	}
-
-	/**
-	 * Return a URL for the current page, including Title and query vars,
-	 * with the given replacements made.
-	 * @param array $repls array( 'name'=>new_value, ... )
-	 * @return string
-	 */
-	public function queryReplaceLink( $repls ) {
-		$query = $this->getReplacedQuery( $repls );
-
-		return $this->title->getLocalURL( wfArrayToCgi( $query ) );
-	}
-
-	public function getReplacedQuery( $replacements ) {
-		$values = $this->request->getValues();
-
-		foreach ( $replacements as $k => $v ) {
-			$values[$k] = $v;
-		}
-
-		return $values;
 	}
 
 	/*************************************************************
@@ -1082,9 +1045,6 @@ class LqtView {
 			$thread->setSubject( $data['subject'] );
 			$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT,
 						$thread, $data['summary'] );
-
-			// Disabled page-moving for now.
-			// $this->renameThread( $thread, $subject, $e->summary );
 		}
 
 		return $thread;
@@ -1121,20 +1081,6 @@ class LqtView {
 	}
 
 	/**
-	 * @param Thread $t
-	 * @param string $s
-	 * @param string $reason
-	 */
-	public function renameThread( $t, $s, $reason ) {
-		$this->simplePageMove( $t->root()->getTitle(), $s, $reason );
-		// TODO here create a redirect from old page to new.
-
-		foreach ( $t->subthreads() as $st ) {
-			$this->renameThread( $st, $s, $reason );
-		}
-	}
-
-	/**
 	 * @param string $subject
 	 * @return Title
 	 */
@@ -1157,33 +1103,6 @@ class LqtView {
 	 */
 	public function newReplyTitle( $unused, $thread ) {
 		return Threads::newReplyTitle( $thread, $this->user );
-	}
-
-	/*
-	 * Adapted from MovePageForm::doSubmit in SpecialMovepage.php.
-	 * @param Title $old_title
-	 * @param string $new_subject
-	 * @param string $reason
-	 */
-	public function simplePageMove( $old_title, $new_subject, $reason ) {
-		if ( $this->user->pingLimiter( 'move' ) ) {
-			throw new ThrottledError;
-		}
-
-		# Variables beginning with 'o' for old article 'n' for new article
-		$ot = $old_title;
-		$nt = Threads::incrementedTitle( $new_subject, $old_title->getNamespace() );
-
-		Threads::$occupied_titles[] = $nt->getPrefixedDBkey();
-
-		$error = $ot->moveTo( $nt, true, "Changed thread subject: $reason" );
-		if ( $error !== true ) {
-			throw new Exception( "Got error $error trying to move pages." );
-		}
-
-		# Move the talk page if relevant, if it exists, and if we've been told to
-		// TODO we need to implement correct moving of talk pages everywhere later.
-		// Snipped.
 	}
 
 	/**
@@ -2278,17 +2197,6 @@ class LqtView {
 			$this->output->addHTML( $html );
 		}
 
-		// I don't remember why this is here, commenting out.
-		// if ( $this->threadNestingLevel == 1 ) {
-		// if ( !( $hasSubthreads && $showThreads && !$replyTo ) ) {
-		// $this->showReplyBox( $thread );
-		// $finishDiv = '';
-		// $finishDiv .= Xml::tags( 'div', [ 'class' => 'lqt-replies-finish' ],
-		// Xml::tags( 'div', [ 'class' => 'lqt-replies-finish-corner' ], '&#160;' ) );
-		// $this->output->addHTML( $finishDiv );
-		// }
-		// }
-
 		$this->output->addHTML( Xml::closeElement( 'div' ) );
 
 		$this->threadNestingLevel--;
@@ -2384,10 +2292,6 @@ class LqtView {
 		);
 
 		return $html;
-	}
-
-	public function showSummary( $t ) {
-		$this->output->addHTML( $this->getSummary( $t ) );
 	}
 
 	public function getSignature( $user ) {
