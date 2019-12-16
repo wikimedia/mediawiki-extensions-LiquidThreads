@@ -665,32 +665,6 @@ class LqtHooks {
 	}
 
 	/**
-	 * Returns the text contents of a template page set in given key contents
-	 * Returns empty string if no text could be retrieved.
-	 * @param string $key message key that should contain a template page name
-	 * @return String
-	 */
-	private static function getTextForPageInKey( $key ) {
-		$templateTitleText = wfMessage( $key )->inContentLanguage()->text();
-		$templateTitle = Title::newFromText( $templateTitleText );
-
-		// Do not continue if there is no valid subject title
-		if ( !$templateTitle ) {
-			wfDebug( __METHOD__ . ": invalid title in " . $key . "\n" );
-			return '';
-		}
-
-		// Get the subject text from the page
-		if ( $templateTitle->getNamespace() == NS_TEMPLATE ) {
-			return $templateTitle->getText();
-		} else {
-			// There is no subject text
-			wfDebug( __METHOD__ . ": " . $templateTitleText . " must be in NS_TEMPLATE\n" );
-			return '';
-		}
-	}
-
-	/**
 	 * Handles tags in Page sections of XML dumps
 	 * @param XMLReader $reader
 	 * @param array &$pageInfo
