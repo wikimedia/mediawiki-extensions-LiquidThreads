@@ -138,12 +138,7 @@
 		},
 
 		injectEditForm: function ( params, $container, preload ) {
-			var $loadSpinner,
-				page = $container.closest( '.lqt-thread-topmost' )
-					.find( '.lqt-thread-talkpage-metadata' ).val();
-			if ( !page ) {
-				page = $container.data( 'lqt-talkpage' );
-			}
+			var $loadSpinner;
 
 			liquidThreads.cancelEdit( $container );
 
@@ -246,19 +241,6 @@
 
 				callback();
 			} );
-		},
-
-		insertAtCursor: function ( myField, myValue ) {
-			var startPos, endPos;
-			if ( myField.selectionStart || myField.selectionStart === '0' ) {
-				startPos = myField.selectionStart;
-				endPos = myField.selectionEnd;
-				myField.value = myField.value.substring( 0, startPos ) +
-					myValue +
-					myField.value.substring( endPos, myField.value.length );
-			} else {
-				myField.value += myValue;
-			}
 		},
 
 		getSelection: function () {

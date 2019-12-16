@@ -79,8 +79,6 @@
 
 			e.preventDefault();
 
-			$button = $( this );
-
 			// Find the operand.
 			$form = $button.closest( 'form.lqt_newmessages_read_button' );
 
