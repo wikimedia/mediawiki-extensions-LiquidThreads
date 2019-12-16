@@ -117,7 +117,7 @@ class LqtParserFunctions {
 		$wgOut->clearHTML();
 
 		$view = new TalkpageView( $wgOut, $article, $title, $wgUser, $wgRequest );
-		$view->setTalkpage( $talkpage );
+		$view->setTalkPage( $talkpage );
 
 		// Handle show/hide preferences. Header gone by default.
 		$view->hideItems( 'header' );

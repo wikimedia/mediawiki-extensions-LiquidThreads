@@ -185,7 +185,7 @@ class Thread {
 		$topmost = $this->topmostThread();
 		$topmost->modified = wfTimestampNow();
 		if ( $bump ) {
-			$topmost->setSortkey( wfTimestamp( TS_MW ) );
+			$topmost->setSortKey( wfTimestamp( TS_MW ) );
 		}
 		$topmost->save();
 
@@ -461,7 +461,7 @@ class Thread {
 		$thread = self::create( $redirectArticle, new Article( $oldTitle, 0 ), null,
 			Threads::TYPE_MOVED, $this->subject() );
 
-		$thread->setSortkey( $this->sortkey() );
+		$thread->setSortKey( $this->sortkey() );
 		$thread->save();
 	}
 
@@ -798,7 +798,7 @@ class Thread {
 		$line = $dbr->selectRow(
 			$revQuery['tables'],
 			[ 'rev_user_text' => $revQuery['fields']['rev_user_text'] ],
-			[ 'rev_page' => $article->getID() ],
+			[ 'rev_page' => $article->getId() ],
 			__METHOD__,
 			[
 				'ORDER BY' => 'rev_timestamp',
@@ -905,10 +905,10 @@ class Thread {
 			$newArticle = new Article( $newTitle, 0 );
 
 			$set['thread_article_namespace'] = $newTitle->getNamespace();
-			$set['thread_article_title'] = $newTitle->getDbKey();
+			$set['thread_article_title'] = $newTitle->getDBkey();
 
 			$this->articleNamespace = $newTitle->getNamespace();
-			$this->articleTitle = $newTitle->getDbKey();
+			$this->articleTitle = $newTitle->getDBkey();
 			$this->articleId = $newTitle->getArticleID();
 
 			$this->article = $newArticle;
@@ -919,10 +919,10 @@ class Thread {
 		if ( !$ancestor->getTitle()->equals( $this->getTitle() ) ) {
 			$title = $ancestor->getTitle();
 			$set['thread_article_namespace'] = $title->getNamespace();
-			$set['thread_article_title'] = $title->getDbKey();
+			$set['thread_article_title'] = $title->getDBkey();
 
 			$this->articleNamespace = $title->getNamespace();
-			$this->articleTitle = $title->getDbKey();
+			$this->articleTitle = $title->getDBkey();
 			$this->articleId = $title->getArticleID();
 
 			$this->article = $ancestor->article();
@@ -1461,7 +1461,7 @@ class Thread {
 		$conds = [
 			'rev_timestamp<=' . $dbr->addQuotes( $timestamp ),
 			'page_namespace' => $this->root()->getTitle()->getNamespace(),
-			'page_title' => $this->root()->getTitle()->getDBKey(),
+			'page_title' => $this->root()->getTitle()->getDBkey(),
 		];
 
 		$join_conds = [ 'page' => [ 'JOIN', 'rev_page=page_id' ] ];
@@ -1524,7 +1524,7 @@ class Thread {
 
 		$bump = null;
 		if ( !is_null( $newSortkey ) ) {
-			$this->setSortkey( $newSortkey );
+			$this->setSortKey( $newSortkey );
 			$bump = false;
 		}
 

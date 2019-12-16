@@ -216,9 +216,9 @@ class LqtHooks {
 		$attribs = [];
 		$attribs['ThreadSubject'] = $thread->subject();
 
-		if ( $thread->hasSuperThread() ) {
-			if ( $thread->superThread()->title() ) {
-				$attribs['ThreadParent'] = $thread->superThread()->title()->getPrefixedText();
+		if ( $thread->hasSuperthread() ) {
+			if ( $thread->superthread()->title() ) {
+				$attribs['ThreadParent'] = $thread->superthread()->title()->getPrefixedText();
 			}
 
 			if ( $thread->topmostThread()->title() ) {
@@ -697,7 +697,7 @@ class LqtHooks {
 	 * @return bool
 	 */
 	public static function handlePageXMLTag( $reader, &$pageInfo ) {
-		if ( !isset( $reader->nodeType ) || !( $reader->nodeType == XmlReader::ELEMENT &&
+		if ( !isset( $reader->nodeType ) || !( $reader->nodeType == XMLReader::ELEMENT &&
 				$reader->name == 'DiscussionThreading' ) ) {
 			return true;
 		}
@@ -719,7 +719,7 @@ class LqtHooks {
 		$skip = false;
 
 		while ( $skip ? $reader->next() : $reader->read() ) {
-			if ( $reader->nodeType == XmlReader::END_ELEMENT &&
+			if ( $reader->nodeType == XMLReader::END_ELEMENT &&
 				$reader->name == 'DiscussionThreading'
 			) {
 				break;
@@ -829,7 +829,7 @@ class LqtHooks {
 
 	public static function applyPendingThreadRelationship( $pendingRelationship, $thread ) {
 		if ( $pendingRelationship['relationship'] == 'thread_parent' ) {
-			$childThread = Threads::withID( $pendingRelationship['thread'] );
+			$childThread = Threads::withId( $pendingRelationship['thread'] );
 
 			$childThread->setSuperthread( $thread );
 			$childThread->save();
