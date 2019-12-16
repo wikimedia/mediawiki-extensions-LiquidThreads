@@ -55,6 +55,10 @@ class ApiThreadAction extends ApiEditPage {
 		call_user_func_array( [ $this, $method ], [ $threads, $params ] );
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param array $params
+	 */
 	public function actionMarkRead( $threads, $params ) {
 		$user = $this->getUser();
 
@@ -96,6 +100,10 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, 'threadactions', $result );
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param array $params
+	 */
 	public function actionMarkUnread( $threads, $params ) {
 		$result = [];
 
@@ -115,6 +123,10 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param array $params
+	 */
 	public function actionSplit( $threads, $params ) {
 		if ( count( $threads ) > 1 ) {
 			$this->dieWithError( 'apierror-liquidthreads-onlyone', 'too-many-threads' );
@@ -175,6 +187,10 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param array $params
+	 */
 	public function actionMerge( $threads, $params ) {
 		if ( count( $threads ) < 1 ) {
 			$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
@@ -228,6 +244,10 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param array $params
+	 */
 	public function actionNewThread( $threads, $params ) {
 		// T206901: Validate talkpage parameter
 		if ( $params['talkpage'] === null ) {
@@ -346,6 +366,10 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param array $params
+	 */
 	public function actionEdit( $threads, $params ) {
 		if ( count( $threads ) > 1 ) {
 			$this->dieWithError( 'apierror-liquidthreads-onlyone', 'too-many-threads' );
@@ -457,6 +481,10 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param array $params
+	 */
 	public function actionReply( $threads, $params ) {
 		// Validate thread parameter
 		if ( count( $threads ) > 1 ) {
@@ -609,6 +637,10 @@ class ApiThreadAction extends ApiEditPage {
 		return $result;
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param array $params
+	 */
 	public function actionSetSubject( $threads, $params ) {
 		// Validate thread parameter
 		if ( count( $threads ) > 1 ) {
@@ -663,6 +695,10 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param array $params
+	 */
 	public function actionSetSortkey( $threads, $params ) {
 		// First check for threads
 		if ( !count( $threads ) ) {
@@ -715,6 +751,10 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param array $params
+	 */
 	public function actionAddReaction( $threads, $params ) {
 		if ( !count( $threads ) ) {
 			$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
@@ -744,6 +784,10 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param array $params
+	 */
 	public function actionDeleteReaction( $threads, $params ) {
 		if ( !count( $threads ) ) {
 			$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
@@ -774,6 +818,10 @@ class ApiThreadAction extends ApiEditPage {
 		$this->getResult()->addValue( null, 'threadaction', $result );
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param array $params
+	 */
 	public function actionInlineEditForm( $threads, $params ) {
 		$method = $talkpage = $operand = null;
 
