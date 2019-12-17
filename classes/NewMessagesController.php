@@ -1,10 +1,17 @@
 <?php
 
+use MediaWiki\User\UserIdentity;
+use Wikimedia\Rdbms\IResultWrapper;
+
 class NewMessages {
 	public static function markThreadAsUnreadByUser( $thread, $user ) {
 		self::writeUserMessageState( $thread, $user, null );
 	}
 
+	/**
+	 * @param Thread|int $thread
+	 * @param UserIdentity|int $user
+	 */
 	public static function markThreadAsReadByUser( $thread, $user ) {
 		if ( is_object( $thread ) ) {
 			$thread_id = $thread->id();
@@ -33,6 +40,9 @@ class NewMessages {
 		self::recacheMessageCount( $user_id );
 	}
 
+	/**
+	 * @param UserIdentity|int $user
+	 */
 	public static function markAllReadByUser( $user ) {
 		if ( is_object( $user ) ) {
 			$user_id = $user->getID();
@@ -86,6 +96,9 @@ class NewMessages {
 	/**
 	 * Get the where clause for an update
 	 * If the thread is on a user's talkpage, set that user's newtalk.
+	 *
+	 * @param Thread $t
+	 * @return string
 	 */
 	private static function getWhereClause( $t ) {
 		$dbw = wfGetDB( DB_MASTER );
@@ -109,6 +122,10 @@ class NewMessages {
 		return $dbw->makeList( [ $talkpageWhere, $rootWhere ], LIST_OR );
 	}
 
+	/**
+	 * @param Thread $t
+	 * @return IResultWrapper
+	 */
 	private static function getRowsObject( $t ) {
 		$tables = [ 'watchlist', 'user_message_state', 'user_properties' ];
 		$joins = [
@@ -140,7 +157,7 @@ class NewMessages {
 	 * If the thread is on a user's talkpage, set that user's newtalk.
 	 * @param Thread $t
 	 * @param string $type
-	 * @param User $changeUser
+	 * @param UserIdentity $changeUser
 	 */
 	public static function writeMessageStateForUpdatedThread( $t, $type, $changeUser ) {
 		wfDebugLog( 'LiquidThreads', 'Doing notifications' );
@@ -175,6 +192,11 @@ class NewMessages {
 		}
 	}
 
+	/**
+	 * @param Thread $t
+	 * @param UserIdentity $changeUser
+	 * @return array
+	 */
 	public static function getNotifyUsers( $t, $changeUser ) {
 		// Pull users to update the message state for, including whether or not a
 		// user_message_state row exists for them, and whether or not to send an email
