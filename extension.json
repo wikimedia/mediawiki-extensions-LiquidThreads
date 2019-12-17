@@ -204,132 +204,48 @@
 		"remoteExtPath": "LiquidThreads"
 	},
 	"Hooks": {
-		"ParserFirstCallInit": [
-			"LqtHooks::onParserFirstCallInit"
-		],
-		"CanonicalNamespaces": [
-			"LqtHooks::onCanonicalNamespaces"
-		],
-		"MediaWikiPerformAction": [
-			"LqtDispatch::tryPage"
-		],
-		"SkinTemplateNavigation": [
-			"LqtDispatch::onSkinTemplateNavigation"
-		],
-		"PageContentLanguage": [
-			"LqtDispatch::onPageContentLanguage"
-		],
-		"OldChangesListRecentChangesLine": [
-			"LqtHooks::customizeOldChangesList"
-		],
-		"SkinTemplateOutputPageBeforeExec": [
-			"LqtHooks::setNewtalkHTML"
-		],
-		"ChangesListSpecialPageQuery": [
-			"LqtHooks::beforeWatchlist"
-		],
-		"ArticleEditUpdateNewTalk": [
-			"LqtHooks::updateNewtalkOnEdit"
-		],
-		"PersonalUrls": [
-			"LqtHooks::onPersonalUrls"
-		],
-		"GetPreferences": [
-			"LqtHooks::getPreferences"
-		],
-		"XmlDumpWriterOpenPage": [
-			"LqtHooks::dumpThreadData"
-		],
-		"ModifyExportQuery": [
-			"LqtHooks::modifyExportQuery"
-		],
-		"OAIFetchRowsQuery": [
-			"LqtHooks::modifyOAIQuery"
-		],
-		"OAIFetchRecordQuery": [
-			"LqtHooks::modifyOAIQuery"
-		],
-		"ImportHandlePageXMLTag": [
-			"LqtHooks::handlePageXMLTag"
-		],
-		"AfterImportPage": [
-			"LqtHooks::afterImportPage"
-		],
-		"ArticleDeleteComplete": [
-			"LqtDeletionController::onArticleDeleteComplete"
-		],
-		"ArticleRevisionUndeleted": [
-			"LqtDeletionController::onArticleRevisionUndeleted"
-		],
-		"ArticleUndelete": [
-			"LqtDeletionController::onArticleUndelete"
-		],
-		"ArticleConfirmDelete": [
-			"LqtDeletionController::onArticleConfirmDelete"
-		],
-		"ArticleDelete": [
-			"LqtDeletionController::onArticleDelete"
-		],
-		"TitleMoveComplete": [
-			"LqtHooks::onTitleMoveComplete"
-		],
-		"AbortMove": [
-			"LqtHooks::onArticleMove"
-		],
-		"MovePageIsValidMove": [
-			"LqtHooks::onMovePageIsValidMove"
-		],
-		"ShowSearchHitTitle": [
-			"LqtHooks::customiseSearchResultTitle"
-		],
-		"SpecialSearchProfiles": [
-			"LqtHooks::customiseSearchProfiles"
-		],
-		"LoadExtensionSchemaUpdates": [
-			"LqtHooks::onLoadExtensionSchemaUpdates"
-		],
-		"RenameUserSQL": [
-			"LqtHooks::onUserRename"
-		],
-		"UserMergeAccountFields": [
-			"LqtHooks::onUserMergeAccountFields"
-		],
-		"EditPageGetCheckboxesDefinition": [
-			"LqtHooks::editCheckBoxes"
-		],
-		"PageContentSaveComplete": [
-			"LqtHooks::onPageContentSaveComplete"
-		],
-		"UserIsBlockedFrom": [
-			"LqtHooks::userIsBlockedFrom"
-		],
-		"TitleGetRestrictionTypes": [
-			"LqtHooks::getProtectionTypes"
-		],
-		"SetupNewUserMessageSubject": [
-			"LqtHooks::setupNewUserMessageSubject"
-		],
-		"SetupNewUserMessageBody": [
-			"LqtHooks::setupNewUserMessageBody"
-		],
-		"APIQueryAfterExecute": [
-			"LqtHooks::onAPIQueryAfterExecute"
-		],
-		"InfoAction": [
-			"LqtHooks::onInfoAction"
-		],
-		"SpecialPage_initList": [
-			"LqtHooks::onSpecialPage_initList"
-		],
-		"OutputPageParserOutput": [
-			"LqtParserFunctions::onAddParserOutput"
-		],
-		"OutputPageBeforeHTML": [
-			"LqtParserFunctions::onAddHTML"
-		],
-		"userCan": [
-			"LqtHooks::onGetUserPermissionsErrors"
-		]
+		"ParserFirstCallInit": "LqtHooks::onParserFirstCallInit",
+		"CanonicalNamespaces": "LqtHooks::onCanonicalNamespaces",
+		"MediaWikiPerformAction": "LqtDispatch::tryPage",
+		"SkinTemplateNavigation": "LqtDispatch::onSkinTemplateNavigation",
+		"PageContentLanguage": "LqtDispatch::onPageContentLanguage",
+		"OldChangesListRecentChangesLine": "LqtHooks::customizeOldChangesList",
+		"SkinTemplateOutputPageBeforeExec": "LqtHooks::setNewtalkHTML",
+		"ChangesListSpecialPageQuery": "LqtHooks::beforeWatchlist",
+		"ArticleEditUpdateNewTalk": "LqtHooks::updateNewtalkOnEdit",
+		"PersonalUrls": "LqtHooks::onPersonalUrls",
+		"GetPreferences": "LqtHooks::getPreferences",
+		"XmlDumpWriterOpenPage": "LqtHooks::dumpThreadData",
+		"ModifyExportQuery": "LqtHooks::modifyExportQuery",
+		"OAIFetchRowsQuery": "LqtHooks::modifyOAIQuery",
+		"OAIFetchRecordQuery": "LqtHooks::modifyOAIQuery",
+		"ImportHandlePageXMLTag": "LqtHooks::handlePageXMLTag",
+		"AfterImportPage": "LqtHooks::afterImportPage",
+		"ArticleDeleteComplete": "LqtDeletionController::onArticleDeleteComplete",
+		"ArticleRevisionUndeleted": "LqtDeletionController::onArticleRevisionUndeleted",
+		"ArticleUndelete": "LqtDeletionController::onArticleUndelete",
+		"ArticleConfirmDelete": "LqtDeletionController::onArticleConfirmDelete",
+		"ArticleDelete": "LqtDeletionController::onArticleDelete",
+		"TitleMoveComplete": "LqtHooks::onTitleMoveComplete",
+		"AbortMove": "LqtHooks::onArticleMove",
+		"MovePageIsValidMove": "LqtHooks::onMovePageIsValidMove",
+		"ShowSearchHitTitle": "LqtHooks::customiseSearchResultTitle",
+		"SpecialSearchProfiles": "LqtHooks::customiseSearchProfiles",
+		"LoadExtensionSchemaUpdates": "LqtHooks::onLoadExtensionSchemaUpdates",
+		"RenameUserSQL": "LqtHooks::onUserRename",
+		"UserMergeAccountFields": "LqtHooks::onUserMergeAccountFields",
+		"EditPageGetCheckboxesDefinition": "LqtHooks::editCheckBoxes",
+		"PageContentSaveComplete": "LqtHooks::onPageContentSaveComplete",
+		"UserIsBlockedFrom": "LqtHooks::userIsBlockedFrom",
+		"TitleGetRestrictionTypes": "LqtHooks::getProtectionTypes",
+		"SetupNewUserMessageSubject": "LqtHooks::setupNewUserMessageSubject",
+		"SetupNewUserMessageBody": "LqtHooks::setupNewUserMessageBody",
+		"APIQueryAfterExecute": "LqtHooks::onAPIQueryAfterExecute",
+		"InfoAction": "LqtHooks::onInfoAction",
+		"SpecialPage_initList": "LqtHooks::onSpecialPage_initList",
+		"OutputPageParserOutput": "LqtParserFunctions::onAddParserOutput",
+		"OutputPageBeforeHTML": "LqtParserFunctions::onAddHTML",
+		"userCan": "LqtHooks::onGetUserPermissionsErrors"
 	},
 	"config": {
 		"LqtPages": {
