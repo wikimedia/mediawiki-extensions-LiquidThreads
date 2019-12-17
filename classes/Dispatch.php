@@ -18,7 +18,7 @@ class LqtDispatch {
 
 		if ( $title->getNamespace() == NS_LQT_THREAD + 1 /* talk page */ ) {
 			// Threads don't have talk pages; redirect to the thread page.
-			$output->redirect( $title->getSubjectPage()->getLocalUrl() );
+			$output->redirect( $title->getSubjectPage()->getLocalURL() );
 			return false;
 		}
 

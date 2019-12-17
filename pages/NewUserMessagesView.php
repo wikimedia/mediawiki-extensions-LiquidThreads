@@ -90,7 +90,7 @@ class NewUserMessagesView extends LqtView {
 			foreach ( $ids as $id ) {
 				$tmp_thread = Threads::withId( $id );
 				if ( $tmp_thread ) {
-					NewMessages::markThreadAsUnReadByUser( $tmp_thread, $this->user );
+					NewMessages::markThreadAsUnreadByUser( $tmp_thread, $this->user );
 				}
 			}
 			$this->output->redirect( $this->title->getLocalURL() );

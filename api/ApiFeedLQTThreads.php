@@ -85,7 +85,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		// Prefix content with a quick description
 		$userLink = Linker::userLink( $thread->author()->getId(), $user );
 		$talkpageLink = $linkRenderer->makeLink( $thread->getTitle() );
-		if ( $thread->hasSuperThread() ) {
+		if ( $thread->hasSuperthread() ) {
 			$stTitle = clone $thread->topmostThread()->title();
 			$stTitle->setFragment( '#' . $thread->superthread()->getAnchorName() );
 			$superthreadLink = $linkRenderer->makeLink( $stTitle );

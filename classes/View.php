@@ -124,7 +124,7 @@ class LqtView {
 	*/
 	public static function permalinkUrlWithQuery( $thread, $query, $relative = true ) {
 		if ( !is_array( $query ) ) {
-			$query = wfCGIToArray( $query );
+			$query = wfCgiToArray( $query );
 		}
 
 		return self::permalinkUrl( $thread, null, null, $query, $relative );
@@ -1723,8 +1723,8 @@ class LqtView {
 
 		// Grab data about the new post.
 		$author = $thread->author();
-		$sig = Linker::userLink( $author->getID(), $author->getName() ) .
-			Linker::userToolLinks( $author->getID(), $author->getName() );
+		$sig = Linker::userLink( $author->getId(), $author->getName() ) .
+			Linker::userToolLinks( $author->getId(), $author->getName() );
 		$newTalkpage = is_object( $t_thread ) ? $t_thread->getTitle() : '';
 
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
@@ -1978,7 +1978,7 @@ class LqtView {
 			'&#160;'
 		);
 
-		$this->output->addHTML( $finishDiv . Xml::CloseElement( 'div' ) );
+		$this->output->addHTML( $finishDiv . Xml::closeElement( 'div' ) );
 	}
 
 	/**
