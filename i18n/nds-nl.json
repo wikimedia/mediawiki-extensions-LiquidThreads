@@ -11,5 +11,6 @@
 	"lqt-menu-trigger": "Meyr",
 	"searchprofile-threads": "Oaverleggen",
 	"lqt-newmessages-n": "Nye {{PLURAL:$1|bericht|berichten}} ($1)",
-	"lqt_newmessages-title": "Nye berichten"
+	"lqt_newmessages-title": "Nye berichten",
+	"lqt-talkpage-history-subtitle": "Vöär $1"
 }
