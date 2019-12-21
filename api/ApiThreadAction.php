@@ -259,6 +259,7 @@ class ApiThreadAction extends ApiEditPage {
 		if ( !$talkpageTitle || !LqtDispatch::isLqtPage( $talkpageTitle ) ) {
 			$this->dieWithError( 'apierror-liquidthreads-invalidtalkpage', 'invalid-talkpage' );
 		}
+		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
 		$talkpage = new Article( $talkpageTitle, 0 );
 
 		// Check if we can post.
@@ -280,12 +281,14 @@ class ApiThreadAction extends ApiEditPage {
 		if ( !$subjectOk ) {
 			$this->dieWithError( 'apierror-liquidthreads-badsubject', 'invalid-subject' );
 		}
+		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
 		$article = new Article( $title, 0 );
 
 		// Check for text
 		if ( empty( $params['text'] ) ) {
 			$this->dieWithError( 'apierror-liquidthreads-notext', 'no-text' );
 		}
+		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset T240141
 		$text = $params['text'];
 
 		// Generate or pull summary
@@ -402,6 +405,7 @@ class ApiThreadAction extends ApiEditPage {
 		if ( empty( $params['text'] ) ) {
 			$this->dieWithError( 'apierror-liquidthreads-notext', 'no-text' );
 		}
+		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset T240141
 		$text = $params['text'];
 
 		$summary = '';

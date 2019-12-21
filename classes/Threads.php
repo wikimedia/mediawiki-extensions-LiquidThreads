@@ -137,7 +137,7 @@ class Threads {
 	/**
 	 * @param Article|WikiPage $post
 	 * @param bool $bulkLoad
-	 * @return Thread
+	 * @return Thread|null
 	 */
 	public static function withRoot( $post, $bulkLoad = true ) {
 		if ( $post->getTitle()->getNamespace() != NS_LQT_THREAD ) {
@@ -160,7 +160,7 @@ class Threads {
 	}
 
 	/**
-	 * @param string $id
+	 * @param int $id
 	 * @param bool $bulkLoad
 	 * @return Thread
 	 */
@@ -288,6 +288,7 @@ class Threads {
 			$t = Title::makeTitleSafe( $namespace, $basename . ' (' . $n . ')' );
 			$i++;
 		}
+		// @phan-suppress-next-line PhanTypeMismatchReturnNullable
 		return $t;
 	}
 

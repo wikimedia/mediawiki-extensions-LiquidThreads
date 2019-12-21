@@ -35,7 +35,7 @@ class NewUserMessagesView extends LqtView {
 
 	public function getUndoButton( $ids ) {
 		if ( count( $ids ) == 1 ) {
-			$t = Threads::withId( $ids[0] );
+			$t = Threads::withId( (int)$ids[0] );
 			if ( !$t ) {
 				return; // empty or just bogus operand.
 			}
@@ -88,7 +88,7 @@ class NewUserMessagesView extends LqtView {
 			$ids = explode( ',', $this->request->getVal( 'lqt_operand', '' ) );
 
 			foreach ( $ids as $id ) {
-				$tmp_thread = Threads::withId( $id );
+				$tmp_thread = Threads::withId( (int)$id );
 				if ( $tmp_thread ) {
 					NewMessages::markThreadAsUnreadByUser( $tmp_thread, $this->user );
 				}
@@ -100,7 +100,7 @@ class NewUserMessagesView extends LqtView {
 				if ( $id == 'all' ) {
 					NewMessages::markAllReadByUser( $this->user );
 				} else {
-					$tmp_thread = Threads::withId( $id );
+					$tmp_thread = Threads::withId( (int)$id );
 					if ( $tmp_thread ) {
 						NewMessages::markThreadAsReadByUser( $tmp_thread, $this->user );
 					}
@@ -164,7 +164,7 @@ class NewUserMessagesView extends LqtView {
 		// Make sure it points to the right page. The Pager seems to use the DB
 		// representation of a timestamp for its offset field, odd.
 		$dbr = wfGetDB( DB_REPLICA );
-		$offset = wfTimestamp( TS_UNIX, $topmostThread->modified() ) + 1;
+		$offset = (int)wfTimestamp( TS_UNIX, $topmostThread->modified() ) + 1;
 		$offset = $dbr->timestamp( $offset );
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 

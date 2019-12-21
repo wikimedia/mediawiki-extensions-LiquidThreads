@@ -39,7 +39,6 @@ function recursiveParseArray( $array ) {
 		// We have a post.
 		$t = createPost( $array, $subject, $rootPost );
 
-		// @phan-suppress-next-line PhanRedundantCondition
 		if ( !$rootPost ) {
 			$rootPost = $t;
 		}

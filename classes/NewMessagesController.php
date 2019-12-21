@@ -156,7 +156,7 @@ class NewMessages {
 	 * Write a user_message_state for each user who is watching the thread.
 	 * If the thread is on a user's talkpage, set that user's newtalk.
 	 * @param Thread $t
-	 * @param string $type
+	 * @param int $type
 	 * @param UserIdentity $changeUser
 	 */
 	public static function writeMessageStateForUpdatedThread( $t, $type, $changeUser ) {
@@ -344,7 +344,7 @@ class NewMessages {
 
 			// Adjust with time correction
 			$timeCorrection = $row->timecorrection;
-			$adjustedTimestamp = $lang->userAdjust( $timestamp, $timeCorrection );
+			$adjustedTimestamp = (string)$lang->userAdjust( $timestamp, $timeCorrection );
 
 			$date = $lang->date( $adjustedTimestamp );
 			$time = $lang->time( $adjustedTimestamp );

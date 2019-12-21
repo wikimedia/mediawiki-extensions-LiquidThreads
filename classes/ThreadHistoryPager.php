@@ -6,7 +6,7 @@ class ThreadHistoryPager extends TablePager {
 	/** @var string[] */
 	public static $change_names;
 
-	/** @var Thread */
+	/** @var Thread|null */
 	protected $thread;
 
 	/** @var LqtView */
@@ -134,7 +134,7 @@ class ThreadHistoryPager extends TablePager {
 			case Threads::CHANGE_ROOT_BLANKED:
 				$view = $this->view;
 
-				if ( $changeObject && $changeObject->title() ) {
+				if ( $changeObject && $revision && $changeObject->title() ) {
 					$diffLink = $view->diffPermalinkURL( $changeObject, $revision );
 					$args[] = $diffLink;
 				} else {

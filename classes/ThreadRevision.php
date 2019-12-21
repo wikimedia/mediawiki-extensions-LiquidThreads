@@ -31,11 +31,11 @@ class ThreadRevision {
 	protected $mUserId;
 	/** @var string */
 	protected $mUserText;
-	/** @var string */
+	/** @var int */
 	protected $mChangeType;
 	/** @var int */
 	protected $mChangeObjectId;
-	/** @var Thread|null */
+	/** @var Thread|null|false */
 	protected $mChangeObject;
 	/** @var string */
 	protected $mChangeComment;
