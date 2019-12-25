@@ -476,6 +476,15 @@ $specialPageAliases['sr-ec'] = [
 	'MergeThread' => [ 'СпојиТему', 'Споји_тему' ],
 ];
 
+/** Serbian (Latin script) (srpski (latinica)‎) */
+$specialPageAliases['sr-el'] = [
+	'DeleteThread' => [ 'ObrišiTemu', 'Obriši_temu' ],
+	'MoveThread' => [ 'PremestiTemu', 'Premesti_temu' ],
+	'NewMessages' => [ 'NovePoruke', 'Nove_poruke' ],
+	'SplitThread' => [ 'RazdvojiTemu', 'Razdvoji_temu' ],
+	'MergeThread' => [ 'SpojiTemu', 'Spoji_temu' ],
+];
+
 /** Swedish (svenska) */
 $specialPageAliases['sv'] = [
 	'DeleteThread' => [ 'Radera_tråd' ],
