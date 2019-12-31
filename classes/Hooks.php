@@ -78,18 +78,19 @@ class LqtHooks {
 	}
 
 	public static function setNewtalkHTML( $skintemplate, $tpl ) {
-		global $wgUser, $wgOut;
+		global $wgOut;
+
+		$usertalk_t = $skintemplate->getUser()->getTalkPage();
 
 		// If the user isn't using LQT on their talk page, bail out
-		if ( !LqtDispatch::isLqtPage( $wgUser->getTalkPage() ) ) {
+		if ( !LqtDispatch::isLqtPage( $usertalk_t ) ) {
 			return true;
 		}
 
 		$pageTitle = $skintemplate->getTitle();
 		$newmsg_t = SpecialPage::getTitleFor( 'NewMessages' );
 		$watchlist_t = SpecialPage::getTitleFor( 'Watchlist' );
-		$usertalk_t = $wgUser->getTalkPage();
-		if ( $wgUser->getNewtalk()
+		if ( $skintemplate->getUser()->getNewtalk()
 				&& !$newmsg_t->equals( $pageTitle )
 				&& !$watchlist_t->equals( $pageTitle )
 				&& !$usertalk_t->equals( $pageTitle )
@@ -107,7 +108,7 @@ class LqtHooks {
 	public static function beforeWatchlist(
 		$name, &$tables, &$fields, &$conds, &$query_options, &$join_conds, $opts
 	) {
-		global $wgLiquidThreadsEnableNewMessages, $wgOut, $wgUser;
+		global $wgLiquidThreadsEnableNewMessages, $wgOut;
 
 		if ( !$wgLiquidThreadsEnableNewMessages ) {
 			return true;
@@ -118,6 +119,7 @@ class LqtHooks {
 		}
 
 		$db = wfGetDB( DB_REPLICA );
+		$user = RequestContext::getMain()->getUser();
 
 		if ( !in_array( 'page', $tables ) ) {
 			$tables[] = 'page';
@@ -126,10 +128,10 @@ class LqtHooks {
 		}
 		$conds[] = "page_namespace IS NULL OR page_namespace != " . $db->addQuotes( NS_LQT_THREAD );
 
-		$talkpage_messages = NewMessages::newUserMessages( $wgUser );
+		$talkpage_messages = NewMessages::newUserMessages( $user );
 		$tn = count( $talkpage_messages );
 
-		$watch_messages = NewMessages::watchedThreadsForUser( $wgUser );
+		$watch_messages = NewMessages::watchedThreadsForUser( $user );
 		$wn = count( $watch_messages );
 
 		if ( $tn == 0 && $wn == 0 ) {
@@ -551,17 +553,17 @@ class LqtHooks {
 		return true;
 	}
 
-	public static function onPersonalUrls( &$personal_urls, &$title ) {
-		global $wgUser;
+	public static function onPersonalUrls( &$personal_urls, &$title, $skinTemplate ) {
+		$user = $skinTemplate->getUser();
 
-		if ( $wgUser->isAnon() ) {
+		if ( $user->isAnon() ) {
 			return true;
 		}
 
 		global $wgLiquidThreadsEnableNewMessages;
 
 		if ( $wgLiquidThreadsEnableNewMessages ) {
-			$newMessagesCount = NewMessages::newMessageCount( $wgUser );
+			$newMessagesCount = NewMessages::newMessageCount( $user );
 
 			// Add new messages link.
 			$url = SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL();

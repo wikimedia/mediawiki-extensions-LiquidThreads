@@ -106,17 +106,18 @@ class LqtParserFunctions {
 		return $text;
 	}
 
-	public static function runLqtTalkPage( $details ) {
+	private static function runLqtTalkPage( $details, OutputPage $out ) {
 		$title = $details["title"];
 		$article = $details["article"];
 		$talkpage = $details["talkpage"];
 		$args = $details["args"];
 
-		global $wgUser, $wgRequest, $wgOut;
-		$oldOut = $wgOut->getHTML();
-		$wgOut->clearHTML();
+		global $wgRequest;
+		$oldOut = $out->getHTML();
+		$out->clearHTML();
 
-		$view = new TalkpageView( $wgOut, $article, $title, $wgUser, $wgRequest );
+		$user = $out->getUser();
+		$view = new TalkpageView( $out, $article, $title, $user, $wgRequest );
 		$view->setTalkPage( $talkpage );
 
 		// Handle show/hide preferences. Header gone by default.
@@ -129,31 +130,30 @@ class LqtParserFunctions {
 
 		$view->show();
 
-		$html = $wgOut->getHTML();
-		$wgOut->clearHTML();
-		$wgOut->getHTML( $oldOut );
+		$html = $out->getHTML();
+		$out->clearHTML();
 
 		return $html;
 	}
 
-	public static function showLqtThread( $details ) {
+	private static function showLqtThread( $details, OutputPage $out ) {
 		$title = $details["title"];
 		$article = $details["article"];
 
-		global $wgUser, $wgRequest, $wgOut;
-		$oldOut = $wgOut->getHTML();
-		$wgOut->clearHTML();
+		global $wgRequest;
+		$oldOut = $out->getHTML();
+		$out->clearHTML();
 
 		$root = new Article( $title, 0 );
 		$thread = Threads::withRoot( $root );
 
-		$view = new LqtView( $wgOut, $article, $title, $wgUser, $wgRequest );
+		$user = $out->getUser();
+		$view = new LqtView( $out, $article, $title, $user, $wgRequest );
 
 		$view->showThread( $thread );
 
-		$html = $wgOut->getHTML();
-		$wgOut->clearHTML();
-		$wgOut->getHTML( $oldOut );
+		$html = $out->getHTML();
+		$out->clearHTML();
 
 		return $html;
 	}
@@ -175,9 +175,9 @@ class LqtParserFunctions {
 			}
 
 			if ( $details['type'] == 'talkpage' ) {
-				$result = self::runLqtTalkPage( $details );
+				$result = self::runLqtTalkPage( $details, $out );
 			} elseif ( $details['type'] == 'thread' ) {
-				$result = self::showLqtThread( $details );
+				$result = self::showLqtThread( $details, $out );
 			}
 
 			$out->mLqtReplacements[$text] = $result;

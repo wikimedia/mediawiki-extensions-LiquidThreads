@@ -848,7 +848,7 @@ class ApiThreadAction extends ApiEditPage {
 			$operand = $operand->id();
 		}
 
-		$output = LqtView::getInlineEditForm( $talkpage, $method, $operand );
+		$output = LqtView::getInlineEditForm( $talkpage, $method, $operand, $this->getUser() );
 
 		$result = [ 'inlineeditform' => [ 'html' => $output ] ];
 

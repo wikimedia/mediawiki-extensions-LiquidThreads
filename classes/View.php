@@ -432,10 +432,11 @@ class LqtView {
 	 * @param Article|null $talkpage
 	 * @param string $method
 	 * @param int|null $operand
+	 * @param User $user
 	 * @return String
 	 * @throws Exception
 	 */
-	public static function getInlineEditForm( $talkpage, $method, $operand ) {
+	public static function getInlineEditForm( $talkpage, $method, $operand, User $user ) {
 		$req = new RequestContext;
 		$output = $req->getOutput();
 		$request = new FauxRequest( [] );
@@ -463,8 +464,7 @@ class LqtView {
 		$request->setVal( 'lqt_method', $method );
 		$request->setVal( 'lqt_operand', $operand );
 
-		global $wgUser;
-		$view = new LqtView( $output, $talkpage, $title, $wgUser, $request );
+		$view = new LqtView( $output, $talkpage, $title, $user, $request );
 
 		$view->doInlineEditForm();
 

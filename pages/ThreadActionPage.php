@@ -7,10 +7,9 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 		parent::__construct( $this->getPageName(), $this->getRightRequirement() );
 		$this->mIncludable = false;
 
-		global $wgOut, $wgUser, $wgRequest;
-		$this->output = $wgOut;
-		$this->user = $wgUser;
-		$this->request = $wgRequest;
+		$this->output = $this->getOutput();
+		$this->user = $this->getUser();
+		$this->request = $this->getRequest();
 	}
 
 	abstract public function getPageName();
@@ -22,15 +21,13 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 	}
 
 	public function execute( $par ) {
-		global $wgOut, $wgUser;
-
-		if ( !$this->userCanExecute( $wgUser ) ) {
+		if ( !$this->userCanExecute( $this->getUser() ) ) {
 			$this->displayRestrictionError();
 			return;
 		}
 
 		// Page title
-		$wgOut->setPageTitle( $this->getDescription() );
+		$this->getOutput()->setPageTitle( $this->getDescription() );
 
 		if ( !$this->checkParameters( $par ) ) {
 			return;

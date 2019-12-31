@@ -49,8 +49,6 @@ class TalkpageView extends LqtView {
 	public function showHeader() {
 		/* Show the contents of the actual talkpage article if it exists. */
 
-		global $wgUser;
-
 		$article = $this->talkpage;
 
 		// If $article_text == "", the talkpage was probably just created
@@ -76,7 +74,7 @@ class TalkpageView extends LqtView {
 				[ 'action' => 'history' ]
 			);
 
-			if ( $wgUser->isAllowed( 'delete' ) ) {
+			if ( $this->user->isAllowed( 'delete' ) ) {
 				$actionLinks[] = $this->linkRenderer->makeLink(
 					$article->getTitle(),
 					new HtmlArmor( wfMessage( 'delete' )->parse() . '↑' ),

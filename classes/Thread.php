@@ -181,7 +181,7 @@ class Thread {
 		}
 
 		$this->modified = wfTimestampNow();
-		$this->updateEditedness( $change_type );
+		$this->updateEditedness( $change_type, $wgUser );
 		$this->save( __METHOD__ . "/" . wfGetCaller() );
 
 		$topmost = $this->topmostThread();
@@ -240,17 +240,15 @@ class Thread {
 		}
 	}
 
-	public function updateEditedness( $change_type ) {
-		global $wgUser;
-
+	private function updateEditedness( $change_type, User $user ) {
 		if ( $change_type == Threads::CHANGE_REPLY_CREATED
 				&& $this->editedness == Threads::EDITED_NEVER ) {
 			$this->editedness = Threads::EDITED_HAS_REPLY;
 		} elseif ( $change_type == Threads::CHANGE_EDITED_ROOT ) {
 			$originalAuthor = $this->author();
 
-			if ( ( $wgUser->getId() == 0 && $originalAuthor->getName() != $wgUser->getName() )
-					|| $wgUser->getId() != $originalAuthor->getId() ) {
+			if ( ( $user->getId() == 0 && $originalAuthor->getName() != $user->getName() )
+					|| $user->getId() != $originalAuthor->getId() ) {
 				$this->editedness = Threads::EDITED_BY_OTHERS;
 			} elseif ( $this->editedness == Threads::EDITED_HAS_REPLY ) {
 				$this->editedness = Threads::EDITED_BY_AUTHOR;
@@ -387,9 +385,7 @@ class Thread {
 		}
 	}
 
-	public function moveToPage( $title, $reason, $leave_trace ) {
-		global $wgUser;
-
+	public function moveToPage( $title, $reason, $leave_trace, User $user ) {
 		if ( !$this->isTopmostThread() ) {
 			throw new Exception( "Attempt to move non-toplevel thread to another page" );
 		}
@@ -431,7 +427,7 @@ class Thread {
 		$this->commitRevision( Threads::CHANGE_MOVED_TALKPAGE, null, $reason );
 
 		// Notifications
-		NewMessages::writeMessageStateForUpdatedThread( $this, $this->type, $wgUser );
+		NewMessages::writeMessageStateForUpdatedThread( $this, $this->type, $user );
 
 		if ( $leave_trace ) {
 			$this->leaveTrace( $reason, $oldTitle, $newTitle );
