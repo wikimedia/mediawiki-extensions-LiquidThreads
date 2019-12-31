@@ -10,7 +10,7 @@ use MediaWiki\MediaWikiServices;
 
 class LqtView {
 	/**
-	 * @var Article
+	 * @var Article|null
 	 */
 	public $article;
 
@@ -25,7 +25,7 @@ class LqtView {
 	public $user;
 
 	/**
-	 * @var Title
+	 * @var Title|null
 	 */
 	public $title;
 
@@ -158,7 +158,7 @@ class LqtView {
 
 			$dbr = wfGetDB( DB_REPLICA );
 			$offset = $thread->topmostThread()->sortkey();
-			$offset = wfTimestamp( TS_UNIX, $offset ) + 1;
+			$offset = (int)wfTimestamp( TS_UNIX, $offset ) + 1;
 			$offset = $dbr->timestamp( $offset );
 			$query['offset'] = $offset;
 		} else {
@@ -429,9 +429,9 @@ class LqtView {
 	}
 
 	/**
-	 * @param Article $talkpage
+	 * @param Article|null $talkpage
 	 * @param string $method
-	 * @param string $operand
+	 * @param int|null $operand
 	 * @return String
 	 * @throws Exception
 	 */
@@ -458,6 +458,7 @@ class LqtView {
 			}
 		}
 
+		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 		$output->setTitle( $title );
 		$request->setVal( 'lqt_method', $method );
 		$request->setVal( 'lqt_operand', $operand );
@@ -506,6 +507,7 @@ class LqtView {
 			[ 'class' => 'lqt-edit-form lqt-new-thread' ] );
 		$this->output->addHTML( $html );
 
+		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 		$article = new Article( $t, 0 );
 
 		LqtHooks::$editTalkpage = $talkpage;
@@ -554,6 +556,7 @@ class LqtView {
 		$e->previewTextAfterContent .=
 			Xml::tags( 'p', null, $signatureHTML );
 
+		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 		$e->editFormTextBeforeContent .= $this->getSubjectEditor( '', $subject );
 
 		Hooks::run( 'LiquidThreadsAfterShowNewThreadForm', [ &$e, $talkpage ] );
@@ -848,11 +851,13 @@ class LqtView {
 		$talkpage = $thread->article();
 
 		LqtHooks::$editTalkpage = $talkpage;
+		// @phan-suppress-next-line PhanPossiblyNullTypeMismatchProperty
 		LqtHooks::$editArticle = $article;
 		LqtHooks::$editThread = $thread;
 		LqtHooks::$editType = 'summarize';
 		LqtHooks::$editAppliesTo = $thread;
 
+		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 		$e = new EditPage( $article );
 
 		// Add an offset so it works if it's on the wrong page.
@@ -914,6 +919,11 @@ class LqtView {
 		return true;
 	}
 
+	/**
+	 * @param string $db_subject
+	 * @param string|false $subject
+	 * @return string HTML
+	 */
 	public function getSubjectEditor( $db_subject, $subject ) {
 		if ( $subject === false ) {
 			$subject = $db_subject;
@@ -936,6 +946,8 @@ class LqtView {
 				$signatureText = self::getUserSignature( $from );
 			} elseif ( $from instanceof Thread ) {
 				$signatureText = $from->signature();
+			} else {
+				$signatureText = '';
 			}
 		}
 
@@ -1235,7 +1247,7 @@ class LqtView {
 			if ( $this->user->isAllowed( 'lqt-merge' ) &&
 				$this->request->getCheck( 'lqt_merge_from' )
 			) {
-				$srcThread = Threads::withId( $this->request->getVal( 'lqt_merge_from' ) );
+				$srcThread = Threads::withId( $this->request->getInt( 'lqt_merge_from' ) );
 				$par = $srcThread->title()->getPrefixedText();
 				$mergeTitle = SpecialPage::getTitleFor( 'MergeThread', $par );
 				$mergeUrl = $mergeTitle->getLocalURL( 'dest=' . $thread->id() );
@@ -1364,9 +1376,9 @@ class LqtView {
 	}
 
 	/**
-	 * @param mixed $post
+	 * @param Article $post
 	 * @param int|null $oldid
-	 * @return bool false if the article and revision do not exist. The HTML of the page to
+	 * @return string|false false if the article and revision do not exist. The HTML of the page to
 	 * display if it exists. Note that this impacts the state out OutputPage by adding
 	 * all the other relevant parts of the parser output. If you don't want this, call
 	 * $post->getParserOutput.
@@ -1825,7 +1837,7 @@ class LqtView {
 	/**
 	 * @param Thread $thread
 	 * @param Thread $st
-	 * @param string $i
+	 * @param int $i
 	 * @return string
 	 */
 	public function getShowMore( $thread, $st, $i ) {
@@ -1840,7 +1852,7 @@ class LqtView {
 				'class' => 'lqt-show-more-posts',
 			]
 		);
-		$link .= Html::hidden( 'lqt-thread-start-at', $i,
+		$link .= Html::hidden( 'lqt-thread-start-at', (string)$i,
 				[ 'class' => 'lqt-thread-start-at' ] );
 
 		return $link;
@@ -1886,7 +1898,7 @@ class LqtView {
 					$reply->root()->getPage()->getContent() );
 			}
 
-			if ( trim( $content ) != '' ) {
+			if ( $content !== null && trim( $content ) != '' ) {
 				return true;
 			}
 
@@ -2014,7 +2026,7 @@ class LqtView {
 		}
 
 		if (
-			trim( $content ) == '' &&
+			$content !== null && trim( $content ) == '' &&
 			$thread->type() != Threads::TYPE_MOVED &&
 			!self::threadContainsRepliesWithContent( $thread ) &&
 			!array_key_exists( $thread->id(), $mustShowThreads )
@@ -2331,6 +2343,10 @@ class LqtView {
 		return $sig;
 	}
 
+	/**
+	 * @param string $sig
+	 * @return string
+	 */
 	public static function parseSignature( $sig ) {
 		global $wgOut;
 

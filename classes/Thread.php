@@ -8,6 +8,7 @@ class Thread {
 	protected $articleId;
 	protected $summaryId;
 	protected $ancestorId;
+	/** @var int|null */
 	protected $parentId;
 
 	/* Actual objects loaded on demand from the above when accessors are called: */
@@ -26,6 +27,7 @@ class Thread {
 	protected $created;
 	protected $sortkey;
 
+	/** @var int */
 	protected $id;
 	protected $type;
 	protected $subject;
@@ -304,7 +306,6 @@ class Thread {
 
 		if ( $this->replyCount < -1 ) {
 			wfWarn(
-				/** @phan-suppress-next-line PhanTypeSuspiciousStringExpression */
 				"Saving thread $id with negative reply count {$this->replyCount} " .
 					wfGetAllCallers()
 			);
@@ -1208,6 +1209,9 @@ class Thread {
 		}
 	}
 
+	/**
+	 * @return int
+	 */
 	public function id() {
 		return $this->id;
 	}
@@ -1445,6 +1449,9 @@ class Thread {
 		}
 	}
 
+	/**
+	 * @return int|null
+	 */
 	public function rootRevision() {
 		if ( !$this->isHistorical() ||
 			!isset( $this->topmostThread()->threadRevision ) ||
@@ -1593,7 +1600,7 @@ class Thread {
 			} catch ( Exception $e ) {
 			}
 
-			$subject = md5( mt_rand() ); // Just a random title
+			$subject = md5( (string)mt_rand() ); // Just a random title
 			$ok = false;
 		}
 

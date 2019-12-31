@@ -5,7 +5,7 @@ class LqtDiscussionPager extends IndexPager {
 	/** @var Article */
 	protected $article;
 
-	/** @var string */
+	/** @var string|false */
 	protected $orderType;
 
 	public function __construct( $article, $orderType ) {
