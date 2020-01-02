@@ -517,6 +517,7 @@ class LqtView {
 		LqtHooks::$editAppliesTo = null;
 
 		$e = new EditPage( $article );
+		$e->setContextTitle( $article->getTitle() );
 		Hooks::run( 'LiquidThreadsShowNewThreadForm', [ &$e, $talkpage ] );
 
 		global $wgRequest;
@@ -636,6 +637,7 @@ class LqtView {
 		LqtHooks::$editAppliesTo = $thread;
 
 		$e = new EditPage( $article );
+		$e->setContextTitle( $article->getTitle() );
 
 		$e->mShowSummaryField = false;
 
@@ -750,6 +752,7 @@ class LqtView {
 		LqtHooks::$editAppliesTo = $thread;
 
 		$e = new EditPage( $article );
+		$e->setContextTitle( $article->getTitle() );
 
 		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
@@ -859,6 +862,7 @@ class LqtView {
 
 		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 		$e = new EditPage( $article );
+		$e->setContextTitle( $article->getTitle() );
 
 		// Add an offset so it works if it's on the wrong page.
 		$dbr = wfGetDB( DB_REPLICA );
