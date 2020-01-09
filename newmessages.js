@@ -66,9 +66,11 @@
 			},
 
 			all: function () {
-				var tables = $( 'table.lqt-new-messages' );
-				tables.fadeOut( 'slow', function () {
-					tables.remove();
+				var $tables = $( 'table.lqt-new-messages' );
+				// FIXME: Use CSS transition
+				// eslint-disable-next-line no-jquery/no-fade
+				$tables.fadeOut( 'slow', function () {
+					$tables.remove();
 				} );
 			}
 		},

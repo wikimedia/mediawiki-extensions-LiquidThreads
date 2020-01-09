@@ -263,7 +263,7 @@
 			// XXX: Should this be e.target instead of e?
 			$( '.lqt-edit-form' ).not( e ).each(
 				function () {
-					var repliesElement = $( this ).closest( '.lqt-thread-replies' );
+					var $repliesElement = $( this ).closest( '.lqt-thread-replies' );
 					// FIXME: Use CSS transition
 					// eslint-disable-next-line no-jquery/no-fade
 					$( this ).fadeOut( 'slow',
@@ -277,7 +277,7 @@
 								$( this ).remove();
 							}
 
-							liquidThreads.checkEmptyReplies( repliesElement );
+							liquidThreads.checkEmptyReplies( $repliesElement );
 						} );
 				} );
 
@@ -303,7 +303,7 @@
 			if ( !$menu.closest( '.lqt_thread' ).is( '.lqt-thread-uneditable' ) ) {
 				// Add "Drag to new location" to menu
 				$dragLI = $( '<li>' ).addClass( 'lqt-command-drag lqt-command' );
-				$dragLink = $( '<a/>' ).text( mw.msg( 'lqt-drag-activate' ) );
+				$dragLink = $( '<a>' ).text( mw.msg( 'lqt-drag-activate' ) );
 				$dragLink.attr( 'href', '#' );
 				$dragLI.append( $dragLink );
 				$dragLink.on( 'click', liquidThreads.activateDragDrop );
@@ -357,7 +357,7 @@
 				return;
 			}
 
-			$editSubjectField = $( '<li/>' );
+			$editSubjectField = $( '<li>' );
 			$editSubjectLink = $( '<a>' ).attr( 'href', '#' );
 			$editSubjectLink.text( mw.msg( 'lqt-change-subject' ) );
 			$editSubjectField.append( $editSubjectLink );
@@ -497,11 +497,11 @@
 				threads = [];
 
 			$( '.lqt-thread-topmost' ).each( function () {
-				var tsField = $( this ).find( '.lqt-thread-modified' );
-				if ( tsField.length ) {
-					oldTS = tsField.val();
+				var $tsField = $( this ).find( '.lqt-thread-modified' );
+				if ( $tsField.length ) {
+					oldTS = $tsField.val();
 					// Prefix is lqt-thread-modified-
-					threadId = tsField.attr( 'id' ).substr( 'lqt-thread-modified-'.length );
+					threadId = $tsField.attr( 'id' ).substr( 'lqt-thread-modified-'.length );
 					threadModifiedTS[ threadId ] = oldTS;
 					threads.push( threadId );
 				}
@@ -1009,7 +1009,7 @@
 				$toc = $( '<table>' ).addClass( 'lqt_toc' );
 				$( '.lqt-new-thread' ).after( $toc );
 
-				$contentsHeading = $( '<h2/>' )
+				$contentsHeading = $( '<h2>' )
 					.text( mw.msg( 'lqt_contents_title' ) );
 				$toc.before( $contentsHeading );
 			}
@@ -1157,7 +1157,7 @@
 			if ( $thread.hasClass( 'lqt-thread-topmost' ) ) {
 				$header = $( '#lqt-header-' + threadId );
 				$headline = $header.contents().filter( '.mw-headline' ).clone();
-				$helper = $( '<h2 />' ).append( $headline );
+				$helper = $( '<h2>' ).append( $headline );
 				helperFunc = function () {
 					return $helper;
 				};
@@ -1284,13 +1284,13 @@
 			// Remove drop points and schedule removal of empty replies elements.
 			emptyChecks = [];
 			$( '.lqt-drop-zone' ).each( function () {
-				var repliesHolder = $( this ).closest( '.lqt-thread-replies' );
+				var $repliesHolder = $( this ).closest( '.lqt-thread-replies' );
 
 				$( this ).remove();
 
-				if ( repliesHolder.length ) {
-					liquidThreads.checkEmptyReplies( repliesHolder, 'hide' );
-					emptyChecks = $.merge( emptyChecks, repliesHolder );
+				if ( $repliesHolder.length ) {
+					liquidThreads.checkEmptyReplies( $repliesHolder, 'hide' );
+					emptyChecks = $.merge( emptyChecks, $repliesHolder );
 				}
 			} );
 
@@ -1314,7 +1314,7 @@
 			$actionSummary = $( '<ul>' );
 
 			function addAction( msg ) {
-				var $li = $( '<li/>' )
+				var $li = $( '<li>' )
 					.text( mw.msg( msg ) );
 				$actionSummary.append( $li );
 			}
@@ -1430,7 +1430,7 @@
 
 			function doneCallback( data ) {
 				// TODO error handling
-				var payload, oldParent, threadId, $reloadThread, newSortKey, ancestorId,
+				var payload, $oldParent, threadId, $reloadThread, newSortKey, ancestorId,
 					result = 'success';
 
 				if ( typeof data === 'undefined' || !data || typeof data.threadaction === 'undefined' ) {
@@ -1456,7 +1456,7 @@
 				}
 
 				if ( !wasTopLevel ) {
-					oldParent = $thread.closest( '.lqt-thread-topmost' );
+					$oldParent = $thread.closest( '.lqt-thread-topmost' );
 				}
 
 				// Do the actual physical movement
@@ -1499,8 +1499,8 @@
 					$thread.find( 'h2.lqt_header' ).remove();
 				}
 
-				if ( !wasTopLevel && typeof oldParent !== 'undefined' ) {
-					liquidThreads.doReloadThread( oldParent );
+				if ( !wasTopLevel && typeof $oldParent !== 'undefined' ) {
+					liquidThreads.doReloadThread( $oldParent );
 				}
 
 				// Call callback
@@ -1582,13 +1582,13 @@
 				pst: '1',
 				prop: 'text'
 			} ).done( function ( data ) {
-				var html = $( ( data.parse.text[ '*' ] || '' ).trim() );
+				var $html = $( ( data.parse.text[ '*' ] || '' ).trim() );
 
-				if ( html.length === 2 ) { // Not 1, because of the NewPP report
-					html = html.contents();
+				if ( $html.length === 2 ) { // Not 1, because of the NewPP report
+					$html = $html.contents();
 				}
 
-				$preview.empty().append( html ).show();
+				$preview.empty().append( $html ).show();
 				$spinner.remove();
 				$container.find( '.lqt-signature-edit-button' ).show();
 			} );
@@ -1600,14 +1600,14 @@
 
 		// Update the new thread link
 		var $threadContainers,
-			newThreadLink = $( '.lqt_start_discussion a' );
+			$newThreadLink = $( '.lqt_start_discussion a' );
 
 		$( 'li#ca-addsection a' ).attr( 'lqt_talkpage', $( '.lqt_start_discussion a' ).attr( 'lqt_talkpage' ) );
 
-		newThreadLink = newThreadLink.add( $( 'li#ca-addsection a' ) );
+		$newThreadLink = $newThreadLink.add( $( 'li#ca-addsection a' ) );
 
-		if ( newThreadLink ) {
-			newThreadLink.on( 'click', liquidThreads.handleNewLink );
+		if ( $newThreadLink ) {
+			$newThreadLink.on( 'click', liquidThreads.handleNewLink );
 		}
 
 		// Find all threads, and do the appropriate setup for each of them

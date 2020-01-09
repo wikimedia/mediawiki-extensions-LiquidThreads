@@ -39,10 +39,10 @@
 						.end() );
 			},
 			getPreview: function ( thread, depth ) {
-				var $out = $( '<ul />' )
+				var $out = $( '<ul>' )
 					.addClass( 'thread-collapse-preview' )
 					.addClass( 'thread-collapse-preview-depth-' + depth )
-					.append( $( '<li />' )
+					.append( $( '<li>' )
 						.append( thread.find( '> .lqt-post-wrapper > .lqt-thread-signature' ).clone() )
 					);
 				thread.find( '> .lqt-thread-replies > .lqt_thread' ).each( function () {
@@ -85,7 +85,7 @@
 								.addClass( 'thread-control-collapsed' )
 								.on( 'click.threadCollapse', $.threadCollapse.fn.toggleCollapse )
 								.end() )
-							.append( $( '<span />' )
+							.append( $( '<span>' )
 								.addClass( 'thread-collapsed-num-replies' )
 								.text( 'Show ' + numReplies + ' more replies' ) )
 							.append( $.threadCollapse.fn.getPreview( $thread, 0 ) );
