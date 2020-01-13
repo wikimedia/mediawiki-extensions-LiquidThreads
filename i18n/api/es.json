@@ -5,7 +5,8 @@
 			"Fitoschido",
 			"Macofe",
 			"MarcoAurelio",
-			"Ryo567"
+			"Ryo567",
+			"DannyS712"
 		]
 	},
 	"apihelp-feedthreads-description": "Devolver un suministro de hilos de discusión.",
@@ -16,8 +17,8 @@
 	"apihelp-feedthreads-param-talkpage": "Limitar los resultados a hilos en estas páginas de discusión.",
 	"apihelp-feedthreads-param-thread": "Limitar los resultados a estos hilos y sus descendientes.",
 	"apihelp-feedthreads-example-1": "Mostrar un suministro de todos los hilos nuevos",
-	"apihelp-feedthreads-example-2": "Mostrar un suministro de respuestas a [[Hilo:Tal]]",
-	"apihelp-feedthreads-example-3": "Mostrar un suministro de hilos nuevos en [[Discusión:Página principal]]",
+	"apihelp-feedthreads-example-2": "Mostrar un suministro de respuestas a [[Thread:Foo]]",
+	"apihelp-feedthreads-example-3": "Mostrar un suministro de hilos nuevos en [[Talk:Main Page]]",
 	"apihelp-query+threads-description": "Mostrar detalles de hilos LiquidThreads.",
 	"apihelp-query+threads-summary": "Mostrar detalles de hilos de LiquidThreads.",
 	"apihelp-query+threads-param-startid": "El identificador de hilo a partir del cual comenzar a enumerar.",
