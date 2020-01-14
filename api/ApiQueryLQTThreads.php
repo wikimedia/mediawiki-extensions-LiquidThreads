@@ -43,7 +43,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		'replies' => null, // Handled elsewhere
 	];
 
-	/** @var array **/
+	/** @var array */
 	protected $threadIds;
 
 	public function __construct( $query, $moduleName ) {
@@ -257,7 +257,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	}
 
 	private static function formatProperty( $name, $fields, $row, &$entry ) {
-		if ( is_null( $fields ) ) {
+		if ( $fields === null ) {
 			$entry[$name] = [];
 		} elseif ( !is_array( $fields ) ) {
 			// Common case.

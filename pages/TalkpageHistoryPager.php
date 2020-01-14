@@ -50,7 +50,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 		$ns = $row->page_namespace;
 		$title = $row->page_title;
 
-		if ( is_null( $ns ) ) {
+		if ( $ns === null ) {
 			$ns = $row->thread_article_namespace;
 			$title = $row->thread_article_title;
 		}

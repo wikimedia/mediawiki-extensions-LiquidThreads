@@ -138,7 +138,7 @@ class LqtDispatch {
 		}
 
 		global $wgLiquidThreadsAllowUserControl;
-		if ( !is_null( $override ) && $wgLiquidThreadsAllowUserControl ) {
+		if ( $override !== null && $wgLiquidThreadsAllowUserControl ) {
 			$isTalkPage = $override;
 		}
 
@@ -169,7 +169,7 @@ class LqtDispatch {
 
 		$namespaces = $wgLiquidThreadsAllowUserControlNamespaces;
 
-		if ( !is_null( $namespaces ) && !in_array( $title->getNamespace(), $namespaces ) ) {
+		if ( $namespaces !== null && !in_array( $title->getNamespace(), $namespaces ) ) {
 			return null;
 		}
 

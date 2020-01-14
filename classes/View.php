@@ -1,10 +1,10 @@
 <?php
 /**
-* @file
-* @ingroup LiquidThreads
-* @author David McCabe <davemccabe@gmail.com>
-* @license GPL-2.0-or-later
-*/
+ * @file
+ * @ingroup LiquidThreads
+ * @author David McCabe <davemccabe@gmail.com>
+ * @license GPL-2.0-or-later
+ */
 
 use MediaWiki\MediaWikiServices;
 
@@ -53,7 +53,7 @@ class LqtView {
 	/*************************
 	 * (1) linking to liquidthreads pages and
 	 * (2) figuring out what page you're on and what you need to do.
-	*************************/
+	 */
 
 	/**
 	 * @param string $method
@@ -181,7 +181,7 @@ class LqtView {
 	public static function linkInContext( Thread $thread, $contextType = 'page', $text = null ) {
 		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
 
-		if ( is_null( $text ) ) {
+		if ( $text === null ) {
 			$text = Threads::stripHTML( $thread->formattedSubject() );
 		}
 
@@ -331,7 +331,7 @@ class LqtView {
 	 * Editing methods (here be dragons)						  *
 	 * Forget dragons: This section distorts the rest of the code *
 	 * like a star bending spacetime around itself.				  *
-	 *************************************************************/
+	 */
 
 	/**
 	 * Return an HTML form element whose value is gotten from the request.
@@ -945,7 +945,7 @@ class LqtView {
 	public function getSignatureEditor( $from ) {
 		$signatureText = $this->request->getVal( 'wpLqtSignature', null );
 
-		if ( is_null( $signatureText ) ) {
+		if ( $signatureText === null ) {
 			if ( $from instanceof User ) {
 				$signatureText = self::getUserSignature( $from );
 			} elseif ( $from instanceof Thread ) {

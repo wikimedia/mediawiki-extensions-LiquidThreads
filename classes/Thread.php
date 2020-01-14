@@ -95,7 +95,7 @@ class Thread {
 		$thread->setSubject( $subject );
 		$thread->setType( $type );
 
-		if ( !is_null( $signature ) ) {
+		if ( $signature !== null ) {
 			$thread->setSignature( $signature );
 		}
 
@@ -168,7 +168,7 @@ class Thread {
 		global $wgUser;
 
 		global $wgThreadActionsNoBump;
-		if ( is_null( $bump ) ) {
+		if ( $bump === null ) {
 			$bump = !in_array( $change_type, $wgThreadActionsNoBump );
 		}
 		if ( $bump ) {
@@ -202,7 +202,7 @@ class Thread {
 	public function logChange( $change_type, $original, $change_object = null, $reason = '' ) {
 		$log = new LogPage( 'liquidthreads' );
 
-		if ( is_null( $reason ) ) {
+		if ( $reason === null ) {
 			$reason = '';
 		}
 
@@ -527,7 +527,7 @@ class Thread {
 	protected function __construct( $line, $unused = null ) {
 		/* SCHEMA changes must be reflected here. */
 
-		if ( is_null( $line ) ) { // For Thread::create().
+		if ( $line === null ) { // For Thread::create().
 			$dbr = wfGetDB( DB_REPLICA );
 			$this->modified = $dbr->timestamp( wfTimestampNow() );
 			$this->created = $dbr->timestamp( wfTimestampNow() );
@@ -971,7 +971,7 @@ class Thread {
 
 		// Check for unfilled signature field. This field hasn't existed until
 		// recently.
-		if ( is_null( $this->signature ) ) {
+		if ( $this->signature === null ) {
 			// Grab our signature.
 			$sig = LqtView::getUserSignature( $this->author() );
 
@@ -1044,7 +1044,7 @@ class Thread {
 			return [];
 		}
 
-		if ( !is_null( $this->replies ) ) {
+		if ( $this->replies !== null ) {
 			$this->checkReplies( $this->replies );
 			return $this->replies;
 		}
@@ -1183,7 +1183,7 @@ class Thread {
 			return $this->article;
 		}
 
-		if ( !is_null( $this->articleId ) ) {
+		if ( $this->articleId !== null ) {
 			if ( isset( self::$articleCacheById[$this->articleId] ) ) {
 				return self::$articleCacheById[$this->articleId];
 			}
@@ -1484,7 +1484,7 @@ class Thread {
 	}
 
 	public function setSortKey( $k = null ) {
-		if ( is_null( $k ) ) {
+		if ( $k === null ) {
 			$k = wfTimestamp( TS_MW );
 		}
 
@@ -1530,7 +1530,7 @@ class Thread {
 		$oldParent->removeReply( $this );
 
 		$bump = null;
-		if ( !is_null( $newSortkey ) ) {
+		if ( $newSortkey !== null ) {
 			$this->setSortKey( $newSortkey );
 			$bump = false;
 		}
@@ -1669,7 +1669,7 @@ class Thread {
 	}
 
 	public function editors() {
-		if ( is_null( $this->editors ) ) {
+		if ( $this->editors === null ) {
 			if ( $this->editedness() < Threads::EDITED_BY_AUTHOR ) {
 				return [];
 			} elseif ( $this->editedness == Threads::EDITED_BY_AUTHOR ) {
@@ -1720,7 +1720,7 @@ class Thread {
 	}
 
 	public function getReactions( $requestedType = null ) {
-		if ( is_null( $this->reactions ) ) {
+		if ( $this->reactions === null ) {
 			if ( isset( self::$reactionCacheById[$this->id()] ) ) {
 				$this->reactions = self::$reactionCacheById[$this->id()];
 			} else {
@@ -1753,7 +1753,7 @@ class Thread {
 			}
 		}
 
-		if ( is_null( $requestedType ) ) {
+		if ( $requestedType === null ) {
 			return $this->reactions;
 		} else {
 			return $this->reactions[$requestedType];

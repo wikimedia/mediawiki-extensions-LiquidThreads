@@ -75,16 +75,16 @@ class ThreadRevision {
 	public static function create( $thread, $change_type, $change_object = null, $comment = '',
 		$user = null, $timestamp = null
 	) {
-		if ( is_null( $user ) ) {
+		if ( $user === null ) {
 			global $wgUser;
 			$user = $wgUser;
 		}
 
-		if ( is_null( $timestamp ) ) {
+		if ( $timestamp === null ) {
 			$timestamp = wfTimestampNow();
 		}
 
-		if ( is_null( $comment ) ) {
+		if ( $comment === null ) {
 			$comment = '';
 		}
 
@@ -102,7 +102,7 @@ class ThreadRevision {
 		if ( $change_object instanceof Thread ) {
 			$rev->mChangeObjectId = $change_object->id();
 			$rev->mChangeObject = $change_object;
-		} elseif ( is_null( $change_object ) ) {
+		} elseif ( $change_object === null ) {
 			$rev->mChangeObjectId = $thread->id();
 			$rev->mChangeObject = $thread;
 		} else {
@@ -171,7 +171,7 @@ class ThreadRevision {
 	}
 
 	public function getChangeObject() {
-		if ( is_null( $this->mChangeObject ) && $this->mChangeObjectId ) {
+		if ( $this->mChangeObject === null && $this->mChangeObjectId ) {
 			$threadObj = $this->getThreadObj();
 
 			if ( $threadObj instanceof Thread ) {
@@ -196,8 +196,8 @@ class ThreadRevision {
 	}
 
 	public function getThreadObj() {
-		if ( is_null( $this->mThreadObj ) ) {
-			if ( !is_null( $this->mObjSer ) ) {
+		if ( $this->mThreadObj === null ) {
+			if ( $this->mObjSer !== null ) {
 				$this->mThreadObj = unserialize( $this->mObjSer );
 			} else {
 				var_dump( $this );
