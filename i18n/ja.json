@@ -13,7 +13,8 @@
 			"Rxy",
 			"Sujiniku",
 			"Suchichi02",
-			"Omotecho"
+			"Omotecho",
+			"Kkairri"
 		]
 	},
 	"lqt-desc": "トークページにスレッド形式の議論を追加する",
@@ -197,6 +198,7 @@
 	"lqt-thread-link-title": "ウィキテキストのリンク:",
 	"lqt-thread-link-copy": "クリップボードにコピー",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\n署名は自動的に表示されます。",
+	"lqt-summary-sign-not-necessary": "4つのチルダ (~~~~) を使った署名は必要ありません。",
 	"lqt-marked-as-read-placeholder": "スレッド $1 を既読にしました。",
 	"lqt-change-subject": "表題を変更",
 	"lqt-save-subject": "保存",
