@@ -444,7 +444,7 @@ class Thread {
 		$this->dieIfHistorical();
 
 		// Create redirect text
-		$mwRedir = MagicWord::get( 'redirect' );
+		$mwRedir = \MediaWiki\MediaWikiServices::getInstance()->getMagicWordFactory()->get( 'redirect' );
 		$redirectText = $mwRedir->getSynonym( 0 ) .
 			' [[' . $this->title()->getPrefixedText() . "]]\n";
 
