@@ -8,7 +8,8 @@
 			"Siebrand",
 			"Sjoerddebruin",
 			"Mainframe98",
-			"Mar(c)"
+			"Mar(c)",
+			"PiefPafPier"
 		]
 	},
 	"lqt-desc": "Voegt overleg in onderwerpen op overlegpagina's toe",
@@ -78,8 +79,8 @@
 	"lqt_move_placeholder": "Dit is een markering die aangeeft dat een onderwerp $1 verplaatst is van deze pagina naar een andere overlegpagina ($5).\nDeze verplaatsing is uitgevoerd door $2 op $3 $4.",
 	"lqt_thread_deleted_for_sysops": "Dit onderwerp is '''verwijderd''' en is alleen zichtbaar voor beheerders.",
 	"lqt_thread_deleted": "Dit onderwerp is verwijderd.",
-	"lqt_summary_notice": "Er zijn geen wijzigingen geweest in de afgelopen {{PLURAL:$2|dag|$2 dagen}}.\nAls het overleg is afgerond, wordt u aangemoedigd om $1.",
-	"lqt_summary_notice_link": "een samenvatting te schrijven",
+	"lqt_summary_notice": "Aan dit overleg is al $2 {{PLURAL:$2|dag|dagen}} niets gewijzigd.\nAls het afgerond is, wilt u allicht $1.",
+	"lqt_summary_notice_link": "een samenvatting schrijven",
 	"lqt_summary_label": "Samenvatting onderwerp:",
 	"lqt_summary_subtitle": "Samenvatting van \"$1\"",
 	"lqt_nosuchrevision": "Deze versie van dit onderwerp bestaat niet.",
@@ -171,7 +172,7 @@
 	"lqt-log-action-resort": "heeft de sorteervolgorde voor [[$1]] gewijzigd van $2 naar $3",
 	"lqt-log-action-signatureedit": "heeft de ondertekening voor [[$1]] gewijzigd van \"$2\" naar \"$3\"",
 	"lqt-preference-notify-talk": "Mij e-mailen bij antwoorden op een onderwerp dat ik volg",
-	"lqt-preference-watch-threads": "Discussies die ik start of waarop ik reageer aan mijn volglijst toevoegen",
+	"lqt-preference-watch-threads": "Onderwerpen die ik start of waarop ik reageer aan mijn volglijst toevoegen",
 	"prefs-lqt": "Gestructureerd overleg",
 	"lqt-preference-display-depth": "Maximaal weer te geven diepte:",
 	"lqt-preference-display-count": "Maximaal aantal weer te geven reacties:",
