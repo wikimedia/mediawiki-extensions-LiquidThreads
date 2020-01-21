@@ -41,6 +41,7 @@
 	"lqt_hist_comment_edited": "Metnê mışewrey [$2 vuriya]",
 	"lqt_hist_summary_changed": "xulasa vuriya",
 	"lqt_hist_reply_created": "[[$1|Cewabo newe]] bi hazır",
+	"lqt_hist_reply_created_deleted": "Cewabo neweyên vıraziya (esterıtış ra nata)",
 	"lqt_hist_thread_created": "Mewzuyo newe bi hazır",
 	"lqt_hist_deleted": "Esteriya",
 	"lqt_hist_undeleted": "esterıtış tepiya geriya",
@@ -224,7 +225,7 @@
 	"lqt-feed-new-thread-intro": "Pelê $1'i de gıreyo newe hetê {{GENDER:$4|$2}} ra erşawiya",
 	"lqt-feed-reply-intro": "Cewabê $3  ($1 sera) rışiya {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Mesacanê şıma newan yana pelanê kısande şıma mocnêno.",
-	"lqt-newmessages-n": "Mesaco newe ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Mesaco newe |mesacê newey}} ($1)",
 	"lqt_newmessages-title": "Mesacê newey",
 	"lqt-newpost-summary": "gıreyo newe: $1",
 	"lqt-reply-summary": "Cıwabê  [[$2|$1]]'i",
@@ -240,7 +241,9 @@
 	"lqt-edit-bump-tooltip": "Ena deştêki bere be pela werênayışiê dae",
 	"lqt-historicalrevision-error": "Çımraviyarnayışo ke to çinıto we xırabeo, u nêşeno bıvêniyo.",
 	"lqt-reply-subpage": "cewab bıde",
+	"lqt-not-a-liquidthreads-page": "$1 yew pela LiquidThreads niya",
 	"nstab-thread": "Mewzu",
 	"nstab-summary": "Xulasa",
+	"pageinfo-usinglqt": "Werênayışê rışteki aktivo",
 	"pageinfo-usinglqt-yes": "Eya"
 }
