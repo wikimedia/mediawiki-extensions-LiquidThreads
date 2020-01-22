@@ -25,7 +25,8 @@
 			"Umherirrender",
 			"Wikinaut",
 			"Inkowik",
-			"Predatorix"
+			"Predatorix",
+			"PiefPafPier"
 		]
 	},
 	"lqt-desc": "Ermöglicht Themen auf Diskussionsseiten",
@@ -147,8 +148,8 @@
 	"lqt-thread-edited-others": "Von {{PLURAL:$2|einem anderen Benutzer|$2 Benutzern}} geändert.<br />\nLetzte Bearbeitung: $4, $3 Uhr",
 	"lqt-header-actions": "Aktionen",
 	"lqt_summarize_link": "zusammenfassen",
-	"lqt-summarize-intro": "Bitte fasse das unten stehende Thema im Bearbeitungsfenster zusammen.\nDu kannst in deiner Zusammenfassung Wikitext verwenden. Wenn du fertig bist, klicke auf „{{int:publishpage}}“.",
-	"lqt-update-summary-intro": "Bitte fasse das unten stehende Thema im Bearbeitungsfenster zusammen.\nDu kannst in deiner Zusammenfassung Wikitext verwenden.\nWenn du fertig bist, klicke auf „{{int:publishchanges}}“.",
+	"lqt-summarize-intro": "Bitte fasse das unten stehende Thema im Bearbeitungsfenster zusammen.\nDu kannst in deiner Zusammenfassung Wikitext verwenden. Wenn du fertig bist, klicke auf „{{int:savearticle}}“.",
+	"lqt-update-summary-intro": "Bitte fasse das unten stehende Thema im Bearbeitungsfenster zusammen.\nDu kannst in deiner Zusammenfassung Wikitext verwenden.\nWenn du fertig bist, klicke auf „{{int:savechanges}}“.",
 	"lqt-thread-split": "In neues Thema aufteilen",
 	"lqt-split-success": "Du hast das Thema $1 erfolgreich aufgeteilt.",
 	"lqt_split_thread": "Thema aufteilen",
