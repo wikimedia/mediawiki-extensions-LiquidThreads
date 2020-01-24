@@ -1400,7 +1400,7 @@ class Thread {
 
 	public function getAnchorName() {
 		$wantedId = $this->subject() . "_{$this->id()}";
-		return Sanitizer::escapeId( $wantedId );
+		return Sanitizer::escapeIdForLink( $wantedId );
 	}
 
 	public function updateHistory() {
