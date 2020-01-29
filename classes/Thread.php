@@ -64,7 +64,7 @@ class Thread {
 		return $this->isHistorical;
 	}
 
-	public static function create( $root, $article, $superthread = null,
+	public static function create( $root, Article $article, ?Thread $superthread,
 		$type = Threads::TYPE_NORMAL, $subject = '',
 		$summary = '', $bump = null, $signature = null
 	) {
@@ -1078,7 +1078,7 @@ class Thread {
 		return $this->replies;
 	}
 
-	public function setSuperthread( $thread ) {
+	public function setSuperthread( ?Thread $thread ) {
 		if ( $thread == null ) {
 			$this->parentId = null;
 			$this->ancestorId = 0;
@@ -1167,7 +1167,7 @@ class Thread {
 				$this->parentId == 0;
 	}
 
-	public function setArticle( $a ) {
+	public function setArticle( Article $a ) {
 		$this->articleId = $a->getID();
 		$this->articleNamespace = $a->getTitle()->getNamespace();
 		$this->articleTitle = $a->getTitle()->getDBkey();

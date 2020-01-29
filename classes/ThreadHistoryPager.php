@@ -111,6 +111,8 @@ class ThreadHistoryPager extends TablePager {
 
 		if ( $revision && $revision->prev() ) {
 			$lastChangeObject = $revision->prev()->getChangeObject();
+		} else {
+			$lastChangeObject = null;
 		}
 
 		if ( $changeObject && $changeObject->title() ) {

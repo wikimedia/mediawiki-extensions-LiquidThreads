@@ -1082,6 +1082,7 @@ class LqtView {
 		$summary = $data['summary'] ?? '';
 
 		$talkpage = $data['talkpage'];
+		'@phan-var Article $talkpage';
 		$root = $data['root'];
 		$subject = $data['subject'];
 

@@ -288,7 +288,6 @@ class ApiThreadAction extends ApiEditPage {
 		if ( empty( $params['text'] ) ) {
 			$this->dieWithError( 'apierror-liquidthreads-notext', 'no-text' );
 		}
-		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset T240141
 		$text = $params['text'];
 
 		// Generate or pull summary
@@ -405,7 +404,6 @@ class ApiThreadAction extends ApiEditPage {
 		if ( empty( $params['text'] ) ) {
 			$this->dieWithError( 'apierror-liquidthreads-notext', 'no-text' );
 		}
-		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset T240141
 		$text = $params['text'];
 
 		$summary = '';

@@ -18,9 +18,7 @@ class LqtLogFormatter {
 			case 'move':
 				$smt = new SpecialMoveThread;
 				$rightsCheck = $smt->checkUserRights(
-					// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 					$parameters[1] instanceof Title ? $parameters[1] : Title::newFromText( $parameters[1] ),
-					// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 					$parameters[0] instanceof Title ? $parameters[0] : Title::newFromText( $parameters[0] )
 				);
 
@@ -30,7 +28,6 @@ class LqtLogFormatter {
 						SpecialPage::getTitleFor( 'MoveThread', $title ),
 						wfMessage( 'revertmove' )->text(),
 						[],
-						// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 						[ 'dest' => $parameters[0] ]
 					) );
 				} else {
