@@ -100,7 +100,7 @@
 	"lqt_header_warning_big": "Bir $1 değiştiriyorsunuz.",
 	"lqt_header_warning_after_big": "Başlıklar duyurular ve önsözler içindir.\n$2 isteyebilirsiniz.",
 	"lqt_header_warning_bold": "tartışma sayfası başlığı",
-	"lqt_header_warning_new_discussion": "Yeni bir tartışma başlatmak",
+	"lqt_header_warning_new_discussion": "yeni bir tartışma başlat",
 	"lqt_sorting_order": "Sıralama düzeni:",
 	"lqt_sort_newest_changes": "önce son değiştirilen",
 	"lqt_sort_newest_threads": "önce en yeni ileti dizileri",
