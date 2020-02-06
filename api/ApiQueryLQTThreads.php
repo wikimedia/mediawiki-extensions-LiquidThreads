@@ -19,7 +19,9 @@
  */
 
 class ApiQueryLQTThreads extends ApiQueryBase {
-	// Property definitions
+	/**
+	 * @var (null|string|string[])[] Property definitions
+	 */
 	public static $propRelations = [
 		'id' => 'thread_id',
 		'subject' => 'thread_subject',
@@ -332,7 +334,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			$this->addPageCond( $prop, $value );
 		} elseif ( $prop == 'author' ) {
 			$this->addWhereFld( 'thread_author_name', $value );
-		} elseif ( !is_array( $fields ) ) {
+		} elseif ( is_string( $fields ) ) {
 			// Common case
 			$this->addWhereFld( $fields, $value );
 		}

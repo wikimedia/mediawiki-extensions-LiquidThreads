@@ -293,6 +293,7 @@ class TalkpageView extends LqtView {
 		// Set up a per-page header for new threads, search box, and sorting stuff.
 
 		$talkpageHeader = '';
+		$newThreadLink = '';
 
 		if ( Thread::canUserPost( $this->user, $this->talkpage, 'quick' ) ) {
 			$newThreadText = new HtmlArmor( wfMessage( 'lqt_new_thread' )->parse() );
