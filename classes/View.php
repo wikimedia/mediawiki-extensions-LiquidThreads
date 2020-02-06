@@ -61,7 +61,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @return bool
 	 */
-	public function methodAppliesToThread( $method, $thread ) {
+	public function methodAppliesToThread( $method, Thread $thread ) {
 		return $this->request->getVal( 'lqt_method' ) == $method &&
 			$this->request->getVal( 'lqt_operand' ) == $thread->id();
 	}
@@ -74,8 +74,13 @@ class LqtView {
 		return $this->request->getVal( 'lqt_method' ) == $method;
 	}
 
-	public static function permalinkUrl( $thread, $method = null, $operand = null,
-									$uquery = [], $relative = true ) {
+	public static function permalinkUrl(
+		Thread $thread,
+		$method = null,
+		$operand = null,
+		array $uquery = [],
+		$relative = true
+	) {
 		list( $title, $query ) = self::permalinkData( $thread, $method, $operand );
 
 		$query = array_merge( $query, $uquery );
@@ -97,7 +102,7 @@ class LqtView {
 	 * @throws MWException
 	 * @return array
 	 */
-	public static function permalinkData( $thread, $method = null, $operand = null ) {
+	public static function permalinkData( Thread $thread, $method = null, $operand = null ) {
 		$query = [];
 
 		if ( $method ) {
@@ -105,10 +110,6 @@ class LqtView {
 		}
 		if ( $operand ) {
 			$query['lqt_operand'] = $operand;
-		}
-
-		if ( !$thread ) {
-			throw new MWException( "Empty thread passed to " . __METHOD__ );
 		}
 
 		$root = $thread->root();
@@ -128,15 +129,11 @@ class LqtView {
 	 * @param bool $relative
 	 * @return string
 	 */
-	public static function permalinkUrlWithQuery( $thread, $query, $relative = true ) {
-		if ( !is_array( $query ) ) {
-			$query = wfCgiToArray( $query );
-		}
-
+	public static function permalinkUrlWithQuery( Thread $thread, array $query, $relative = true ) {
 		return self::permalinkUrl( $thread, null, null, $query, $relative );
 	}
 
-	public static function permalink( $thread, $text = null, $method = null, $operand = null,
+	public static function permalink( Thread $thread, $text = null, $method = null, $operand = null,
 					$linker = null, $attribs = [], $uquery = [] ) {
 		list( $title, $query ) = self::permalinkData( $thread, $method, $operand );
 
@@ -358,7 +355,7 @@ class LqtView {
 	/**
 	 * @param Thread $thread
 	 */
-	public function showReplyProtectedNotice( $thread ) {
+	public function showReplyProtectedNotice( Thread $thread ) {
 		$log_url = SpecialPage::getTitleFor( 'Log' )->getLocalURL(
 			"type=protect&user=&page={$thread->title()->getPrefixedURL()}" );
 		$link = '<a href="' . $log_url . '">' .
@@ -613,7 +610,7 @@ class LqtView {
 	/**
 	 * @param Thread $thread
 	 */
-	public function showReplyForm( $thread ) {
+	public function showReplyForm( Thread $thread ) {
 		global $wgRequest;
 
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
@@ -727,7 +724,7 @@ class LqtView {
 	/**
 	 * @param Thread $thread
 	 */
-	public function showPostEditingForm( $thread ) {
+	public function showPostEditingForm( Thread $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
 		if ( !$this->handleNonce( $submitted_nonce, $nonce_key ) ) {
@@ -845,7 +842,7 @@ class LqtView {
 	/**
 	 * @param Thread $thread
 	 */
-	public function showSummarizeForm( $thread ) {
+	public function showSummarizeForm( Thread $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
 		if ( !$this->handleNonce( $submitted_nonce, $nonce_key ) ) {
@@ -1123,7 +1120,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @return Title
 	 */
-	public function newSummaryTitle( $thread ) {
+	public function newSummaryTitle( Thread $thread ) {
 		return Threads::newSummaryTitle( $thread );
 	}
 
@@ -1132,7 +1129,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @return Title
 	 */
-	public function newReplyTitle( $unused, $thread ) {
+	public function newReplyTitle( $unused, Thread $thread ) {
 		return Threads::newReplyTitle( $thread, $this->user );
 	}
 
@@ -1155,7 +1152,7 @@ class LqtView {
 	 * 					'enabled' => true )
 	 * 	)
 	 */
-	public function threadCommands( $thread ) {
+	public function threadCommands( Thread $thread ) {
 		$commands = [];
 		$isLqtPage = LqtDispatch::isLqtPage( $thread->getTitle() );
 
@@ -1243,7 +1240,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @return array[]
 	 */
-	public function threadMajorCommands( $thread ) {
+	public function threadMajorCommands( Thread $thread ) {
 		$isLqtPage = LqtDispatch::isLqtPage( $thread->getTitle() );
 
 		if ( $thread->isHistorical() ) {
@@ -1317,7 +1314,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @return array
 	 */
-	public function topLevelThreadCommands( $thread ) {
+	public function topLevelThreadCommands( Thread $thread ) {
 		$commands = [];
 
 		$commands['history'] = [
@@ -1425,7 +1422,7 @@ class LqtView {
 	 * @return string
 	 * @suppress SecurityCheck-DoubleEscaped
 	 */
-	public function showThreadToolbar( $thread ) {
+	public function showThreadToolbar( Thread $thread ) {
 		$html = '';
 
 		$headerParts = [];
@@ -1528,7 +1525,7 @@ class LqtView {
 	 * Shows a normal (i.e. not deleted or moved) thread body
 	 * @param Thread $thread
 	 */
-	public function showThreadBody( $thread ) {
+	public function showThreadBody( Thread $thread ) {
 		$post = $thread->root();
 
 		$divClass = $this->postDivClass( $thread );
@@ -1580,7 +1577,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @return string
 	 */
-	public function threadSignature( $thread ) {
+	public function threadSignature( Thread $thread ) {
 		global $wgLang;
 
 		$signature = $thread->signature();
@@ -1608,7 +1605,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @return string
 	 */
-	private function threadInfoPanel( $thread ) {
+	private function threadInfoPanel( Thread $thread ) {
 		global $wgLang;
 
 		$infoElements = [];
@@ -1669,7 +1666,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @return string
 	 */
-	public function showThreadHeading( $thread ) {
+	public function showThreadHeading( Thread $thread ) {
 		if ( $thread->hasDistinctSubject() ) {
 			if ( $thread->hasSuperthread() ) {
 				$commands_html = "";
@@ -1709,7 +1706,7 @@ class LqtView {
 		return '';
 	}
 
-	public function postDivClass( $thread ) {
+	public function postDivClass( Thread $thread ) {
 		$levelClass = 'lqt-thread-nest-' . $this->threadNestingLevel;
 		$alternatingType = ( $this->threadNestingLevel % 2 ) ? 'odd' : 'even';
 		$alternatingClass = "lqt-thread-$alternatingType";
@@ -1722,7 +1719,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @return string
 	 */
-	public static function anchorName( $thread ) {
+	public static function anchorName( Thread $thread ) {
 		return $thread->getAnchorName();
 	}
 
@@ -1732,7 +1729,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @throws Exception
 	 */
-	public function showMovedThread( $thread ) {
+	public function showMovedThread( Thread $thread ) {
 		global $wgLang;
 
 		// Grab target thread
@@ -1793,7 +1790,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @suppress SecurityCheck-XSS
 	 */
-	public function showSingleThread( $thread ) {
+	public function showSingleThread( Thread $thread ) {
 		$html = '';
 
 		// If it's a 'moved' thread, show the placeholder
@@ -1822,7 +1819,11 @@ class LqtView {
 		$this->showThreadBody( $thread );
 	}
 
-	public function getMustShowThreads( $threads = [] ) {
+	/**
+	 * @param (Thread|int)[] $threads
+	 * @return Thread[]
+	 */
+	public function getMustShowThreads( array $threads = [] ) {
 		if ( $this->request->getCheck( 'lqt_operand' ) ) {
 			$operands = explode( ',', $this->request->getVal( 'lqt_operand' ) );
 			$threads = array_merge( $threads, $operands );
@@ -1860,7 +1861,7 @@ class LqtView {
 	 * @param int $i
 	 * @return string
 	 */
-	public function getShowMore( $thread, $st, $i ) {
+	public function getShowMore( Thread $thread, $st, $i ) {
 		$linkText = new HtmlArmor( wfMessage( 'lqt-thread-show-more' )->parse() );
 		$linkTitle = clone $thread->topmostThread()->title();
 		$linkTitle->setFragment( '#' . $st->getAnchorName() );
@@ -1908,7 +1909,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @return bool
 	 */
-	public static function threadContainsRepliesWithContent( $thread ) {
+	public static function threadContainsRepliesWithContent( Thread $thread ) {
 		$replies = $thread->replies();
 
 		foreach ( $replies as $reply ) {
@@ -1942,7 +1943,7 @@ class LqtView {
 	 * @param array $cascadeOptions
 	 * @param bool $interruption
 	 */
-	public function showThreadReplies( $thread, $startAt, $maxCount, $showThreads,
+	public function showThreadReplies( Thread $thread, $startAt, $maxCount, $showThreads,
 			$cascadeOptions, $interruption = false ) {
 		$repliesClass = 'lqt-thread-replies lqt-thread-replies-' .
 					$this->threadNestingLevel;
@@ -2020,7 +2021,7 @@ class LqtView {
 	 * @param array $options
 	 * @throws Exception
 	 */
-	public function showThread( $thread, $levelNum = 1, $totalInLevel = 1,
+	public function showThread( Thread $thread, $levelNum = 1, $totalInLevel = 1,
 		$options = []
 	) {
 		// Safeguard
@@ -2238,7 +2239,7 @@ class LqtView {
 	/**
 	 * @param Thread $thread
 	 */
-	public function showReplyBox( $thread ) {
+	public function showReplyBox( Thread $thread ) {
 		// Check if we're actually replying to this thread.
 		if ( $this->methodAppliesToThread( 'reply', $thread ) ) {
 			$this->showReplyForm( $thread );
@@ -2261,7 +2262,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @return string
 	 */
-	public function threadDivClass( $thread ) {
+	public function threadDivClass( Thread $thread ) {
 		$levelClass = 'lqt-thread-nest-' . $this->threadNestingLevel;
 		$alternatingType = ( $this->threadNestingLevel % 2 ) ? 'odd' : 'even';
 		$alternatingClass = "lqt-thread-$alternatingType";

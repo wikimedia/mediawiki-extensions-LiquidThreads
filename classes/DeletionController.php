@@ -2,7 +2,7 @@
 class LqtDeletionController {
 	public static $pageids_to_revive;
 
-	public static function onArticleDeleteComplete( &$article, &$user, $reason, $id ) {
+	public static function onArticleDeleteComplete( WikiPage &$article, User &$user, $reason, $id ) {
 		$title = $article->getTitle();
 
 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
@@ -41,7 +41,7 @@ class LqtDeletionController {
 		return true;
 	}
 
-	public static function recursivelyDeleteReplies( $thread, $reason, $user ) {
+	public static function recursivelyDeleteReplies( Thread $thread, $reason, User $user ) {
 		foreach ( $thread->replies() as $reply ) {
 			$reply->root()->getPage()->doDeleteArticleReal( $reason, $user );
 			$reply->delete( $reason );
@@ -49,7 +49,7 @@ class LqtDeletionController {
 		}
 	}
 
-	public static function onArticleRevisionUndeleted( &$title, $revision, $page_id ) {
+	public static function onArticleRevisionUndeleted( Title $title, $revision, $page_id ) {
 		if ( $title->getNamespace() == NS_LQT_THREAD ) {
 			self::$pageids_to_revive[$page_id] = $title;
 		}

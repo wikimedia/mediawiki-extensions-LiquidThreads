@@ -2,14 +2,13 @@
 
 class LqtDiscussionPager extends IndexPager {
 
-	/** @var Article */
+	/** @var Article|false */
 	protected $article;
 
 	/** @var string|false */
 	protected $orderType;
 
 	public function __construct( $article, $orderType ) {
-		/** @phan-suppress-next-line PhanTypeMismatchProperty */
 		$this->article = $article;
 		$this->orderType = $orderType;
 

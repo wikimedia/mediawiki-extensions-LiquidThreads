@@ -111,7 +111,7 @@ class LqtDispatch {
 	}
 
 	/**
-	 * @param Title $title
+	 * @param Title|null $title
 	 * @return bool|null
 	 */
 	public static function isLqtPage( $title ) {

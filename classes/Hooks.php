@@ -804,7 +804,7 @@ class LqtHooks {
 		return true;
 	}
 
-	public static function applyPendingThreadRelationship( $pendingRelationship, $thread ) {
+	public static function applyPendingThreadRelationship( $pendingRelationship, Thread $thread ) {
 		if ( $pendingRelationship['relationship'] == 'thread_parent' ) {
 			$childThread = Threads::withId( $pendingRelationship['thread'] );
 

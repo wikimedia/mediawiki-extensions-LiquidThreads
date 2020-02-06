@@ -73,7 +73,7 @@ class ThreadRevision {
 	}
 
 	public static function create(
-		$thread,
+		Thread $thread,
 		$change_type,
 		User $user,
 		$change_object = null,

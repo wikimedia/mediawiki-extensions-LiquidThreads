@@ -5,30 +5,17 @@ use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\IResultWrapper;
 
 class NewMessages {
-	public static function markThreadAsUnreadByUser( $thread, $user ) {
-		self::writeUserMessageState( $thread, $user, null );
+	public static function markThreadAsUnreadByUser( Thread $thread, UserIdentity $user ) {
+		self::writeUserMessageState( $thread, $user );
 	}
 
 	/**
-	 * @param Thread|int $thread
-	 * @param UserIdentity|int $user
+	 * @param Thread $thread
+	 * @param UserIdentity $user
 	 */
-	public static function markThreadAsReadByUser( $thread, $user ) {
-		if ( is_object( $thread ) ) {
-			$thread_id = $thread->id();
-		} elseif ( is_int( $thread ) ) {
-			$thread_id = $thread;
-		} else {
-			throw new Exception( __METHOD__ . " expected Thread or integer but got $thread" );
-		}
-
-		if ( is_object( $user ) ) {
-			$user_id = $user->getID();
-		} elseif ( is_int( $user ) ) {
-			$user_id = $user;
-		} else {
-			throw new Exception( __METHOD__ . " expected User or integer but got $user" );
-		}
+	public static function markThreadAsReadByUser( Thread $thread, UserIdentity $user ) {
+		$thread_id = $thread->id();
+		$user_id = $user->getID();
 
 		$dbw = wfGetDB( DB_MASTER );
 
@@ -64,22 +51,9 @@ class NewMessages {
 		self::recacheMessageCount( $user_id );
 	}
 
-	private static function writeUserMessageState( $thread, $user, $timestamp ) {
-		if ( is_object( $thread ) ) {
-			$thread_id = $thread->id();
-		} elseif ( is_int( $thread ) ) {
-			$thread_id = $thread;
-		} else {
-			throw new Exception( "writeUserMessageState expected Thread or integer but got $thread" );
-		}
-
-		if ( is_object( $user ) ) {
-			$user_id = $user->getID();
-		} elseif ( is_int( $user ) ) {
-			$user_id = $user;
-		} else {
-			throw new Exception( "writeUserMessageState expected User or integer but got $user" );
-		}
+	private static function writeUserMessageState( Thread $thread, UserIdentity $user ) {
+		$thread_id = $thread->id();
+		$user_id = $user->getID();
 
 		$conversation = Threads::withId( $thread_id )->topmostThread()->id();
 
@@ -87,7 +61,7 @@ class NewMessages {
 		$dbw->replace(
 			'user_message_state', [ [ 'ums_user', 'ums_thread' ] ],
 			[ 'ums_user' => $user_id, 'ums_thread' => $thread_id,
-			'ums_read_timestamp' => $timestamp, 'ums_conversation' => $conversation ],
+			'ums_read_timestamp' => null, 'ums_conversation' => $conversation ],
 			__METHOD__
 		);
 

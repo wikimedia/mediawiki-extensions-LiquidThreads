@@ -1,9 +1,10 @@
 <?php
 
 class ThreadHistoricalRevisionView extends ThreadPermalinkView {
+	/** @var ThreadRevision|null */
 	public $mDisplayRevision = null;
 
-	public function postDivClass( $thread ) {
+	public function postDivClass( Thread $thread ) {
 		$changedObject = $this->mDisplayRevision->getChangeObject();
 		$is_changed_thread = $changedObject && ( $changedObject->id() == $thread->id() );
 

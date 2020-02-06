@@ -7,7 +7,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 	/** @var Article */
 	protected $talkpage;
 
-	public function __construct( $view, $talkpage ) {
+	public function __construct( LqtView $view, $talkpage ) {
 		$this->talkpage = $talkpage;
 
 		parent::__construct( $view, null );

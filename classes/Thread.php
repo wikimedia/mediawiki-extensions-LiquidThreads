@@ -2,6 +2,7 @@
 
 use Mediawiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\User\UserIdentity;
 
 class Thread {
 	/* SCHEMA changes must be reflected here. */
@@ -883,7 +884,7 @@ class Thread {
 		}
 	}
 
-	public static function recursiveGetReplyCount( $thread, $level = 1 ) {
+	public static function recursiveGetReplyCount( Thread $thread, $level = 1 ) {
 		if ( $level > 80 ) {
 			return 1;
 		}
@@ -1060,7 +1061,7 @@ class Thread {
 		$doingUpdates = false;
 	}
 
-	public function addReply( $thread ) {
+	public function addReply( Thread $thread ) {
 		$thread->setSuperThread( $this );
 
 		if ( is_array( $this->replies ) ) {
@@ -1074,10 +1075,8 @@ class Thread {
 		$this->incrementReplyCount( $thread->replyCount() + 1 );
 	}
 
-	public function removeReply( $thread ) {
-		if ( is_object( $thread ) ) {
-			$thread = $thread->id();
-		}
+	private function removeReply( Thread $thread ) {
+		$thread = $thread->id();
 
 		$this->replies();
 
@@ -1088,7 +1087,7 @@ class Thread {
 		$this->decrementReplyCount( 1 + $threadObj->replyCount() );
 	}
 
-	public function checkReplies( $replies ) {
+	private function checkReplies( $replies ) {
 		// Fixes a bug where some history pages were not working, before
 		// superthread was properly instance-cached.
 		if ( $this->isHistorical() ) {
@@ -1488,7 +1487,7 @@ class Thread {
 	public function updateHistory() {
 	}
 
-	public function setAuthor( $user ) {
+	public function setAuthor( UserIdentity $user ) {
 		$this->authorId = $user->getId();
 		$this->authorName = $user->getName();
 	}
@@ -1598,7 +1597,7 @@ class Thread {
 		return null;
 	}
 
-	public static function createdSortCallback( $a, $b ) {
+	public static function createdSortCallback( Thread $a, Thread $b ) {
 		$a = $a->created();
 		$b = $b->created();
 
@@ -1635,7 +1634,7 @@ class Thread {
 		$oldTopThread->commitRevision( Threads::CHANGE_SPLIT_FROM, $user, $this, $reason );
 	}
 
-	public function moveToParent( $newParent, $reason = '' ) {
+	public function moveToParent( Thread $newParent, $reason = '' ) {
 		$newSubject = $newParent->subject();
 
 		$original = $this->dbVersion;
@@ -1659,7 +1658,18 @@ class Thread {
 		$newParent->commitRevision( Threads::CHANGE_MERGED_TO, $user, $this, $reason );
 	}
 
-	public static function recursiveSet( $thread, $subject, $ancestor, $superthread = false ) {
+	/**
+	 * @param Thread $thread
+	 * @param string $subject
+	 * @param Thread $ancestor
+	 * @param Thread|null|false $superthread
+	 */
+	public static function recursiveSet(
+		Thread $thread,
+		$subject,
+		Thread $ancestor,
+		$superthread = false
+	) {
 		$thread->setSubject( $subject );
 		$thread->setAncestor( $ancestor->id() );
 

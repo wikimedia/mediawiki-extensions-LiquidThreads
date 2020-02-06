@@ -15,7 +15,7 @@ class ThreadHistoryPager extends TablePager {
 	/** @var \MediaWiki\Linker\LinkRenderer */
 	protected $linkRenderer;
 
-	public function __construct( $view, $thread ) {
+	public function __construct( LqtView $view, ?Thread $thread ) {
 		parent::__construct();
 
 		$this->thread = $thread;

@@ -57,13 +57,13 @@ class SpecialMergeThread extends ThreadActionPage {
 		return true;
 	}
 
+	/**
+	 * @param string $field
+	 * @param int $threadid
+	 * @return string
+	 */
 	public function formatThreadField( $field, $threadid ) {
-		if ( !is_object( $threadid ) ) {
-			$t = Threads::withId( $threadid );
-		} else {
-			$t = $threadid;
-			$threadid = $t->id();
-		}
+		$t = Threads::withId( $threadid );
 
 		$out = Html::hidden( $field, $threadid );
 		$out .= LqtView::permalink( $t );

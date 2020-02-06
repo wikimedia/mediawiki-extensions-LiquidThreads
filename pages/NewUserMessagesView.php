@@ -66,7 +66,7 @@ class NewUserMessagesView extends LqtView {
 		return $html;
 	}
 
-	public function postDivClass( $thread ) {
+	public function postDivClass( Thread $thread ) {
 		$origClass = parent::postDivClass( $thread );
 
 		if ( in_array( $thread->id(), $this->highlightThreads ) ) {

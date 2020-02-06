@@ -97,6 +97,12 @@ class Threads {
 		return Thread::bulkLoad( $rows );
 	}
 
+	/**
+	 * @param array $where
+	 * @param array $options
+	 * @param bool $bulkLoad
+	 * @return Thread[]
+	 */
 	public static function where( $where, $options = [], $bulkLoad = true ) {
 		$dbr = wfGetDB( DB_REPLICA );
 
@@ -118,7 +124,7 @@ class Threads {
 		throw new Exception( "Corrupt LiquidThreads database: $msg" );
 	}
 
-	private static function assertSingularity( $threads, $attribute, $value ) {
+	private static function assertSingularity( array $threads, $attribute, $value ) {
 		if ( count( $threads ) == 0 ) {
 			return null;
 		}
@@ -216,11 +222,11 @@ class Threads {
 		return self::incrementedTitle( $base, NS_LQT_THREAD );
 	}
 
-	public static function newSummaryTitle( $t ) {
+	public static function newSummaryTitle( Thread $t ) {
 		return self::incrementedTitle( $t->title()->getText(), NS_LQT_SUMMARY );
 	}
 
-	public static function newReplyTitle( $thread, $user ) {
+	public static function newReplyTitle( Thread $thread, $user ) {
 		$topThread = $thread->topmostThread();
 
 		$base = $topThread->title()->getText() . '/'
@@ -315,7 +321,7 @@ class Threads {
 	 * If the queueMore parameter is set and rows are left to update, a job queue item
 	 * will then be added with the same limit, to finish the remainder of the update.
 	 *
-	 * @param Article $article
+	 * @param Article|WikiPage $article
 	 * @param int|false $limit
 	 * @param string|false $queueMore
 	 * @return bool

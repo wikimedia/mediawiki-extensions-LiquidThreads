@@ -109,7 +109,11 @@ class TalkpageView extends LqtView {
 		}
 	}
 
-	public function getTOC( $threads ) {
+	/**
+	 * @param Thread[] $threads
+	 * @return string
+	 */
+	public function getTOC( array $threads ) {
 		global $wgLang;
 
 		$html = '';
