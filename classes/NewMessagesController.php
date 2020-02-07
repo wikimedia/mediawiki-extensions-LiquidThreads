@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\IResultWrapper;
 
@@ -403,42 +404,38 @@ class NewMessages {
 		return Threads::loadFromResult( $res, $dbr );
 	}
 
-	public static function newMessageCount( $user, $db = DB_REPLICA ) {
-		global $wgMemc;
+	/**
+	 * @param User $user
+	 * @param int $dbIndex
+	 * @return int
+	 */
+	public static function newMessageCount( $user, $dbIndex = DB_REPLICA ) {
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$fname = __METHOD__;
 
-		$cval = $wgMemc->get( wfMemcKey( 'lqt-new-messages-count', $user->getId() ) );
+		return (int)$cache->getWithSetCallback(
+			$cache->makeKey( 'lqt-new-messages-count', $user->getId() ),
+			$cache::TTL_DAY,
+			function () use ( $user, $dbIndex, $fname ) {
+				$dbr = wfGetDB( $dbIndex );
 
-		if ( $cval ) {
-			return $cval;
-		}
+				$cond = [ 'ums_user' => $user->getId(), 'ums_read_timestamp' => null ];
+				$options = [ 'LIMIT' => 500 ];
 
-		$dbr = wfGetDB( $db );
+				$res = $dbr->select( 'user_message_state', '1', $cond, $fname, $options );
+				$count = $res->numRows();
+				if ( $count >= 500 ) {
+					$count = $dbr->estimateRowCount( 'user_message_state', '*', $cond, $fname );
+				}
 
-		$cond = [ 'ums_user' => $user->getId(), 'ums_read_timestamp' => null ];
-		$options = [ 'LIMIT' => 500 ];
-
-		$res = $dbr->select( 'user_message_state', '1', $cond, __METHOD__, $options );
-
-		if ( $res ) {
-			$count = $res->numRows();
-
-			if ( $count >= 500 ) {
-				$count = $dbr->estimateRowCount( 'user_message_state', '*', $cond,
-					__METHOD__ );
+				return $count;
 			}
-
-			$wgMemc->set( wfMemcKey( 'lqt-new-messages-count', $user->getId() ),
-				$count, 86400 );
-
-			return $count;
-		}
-		return 0;
+		);
 	}
 
 	public static function recacheMessageCount( $uid ) {
-		global $wgMemc;
-
-		$wgMemc->delete( wfMemcKey( 'lqt-new-messages-count', $uid ) );
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$cache->delete( $cache->makeKey( 'lqt-new-messages-count', $uid ) );
 		User::newFromId( $uid )->clearSharedCache( 'refresh' );
 	}
 
