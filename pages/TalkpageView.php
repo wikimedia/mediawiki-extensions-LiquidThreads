@@ -52,6 +52,8 @@ class TalkpageView extends LqtView {
 		global $wgUser;
 
 		$article = $this->talkpage;
+		$quickCanEdit = MediaWikiServices::getInstance()->getPermissionManager()
+			->quickUserCan( 'edit', $this->user, $article->getTitle() );
 
 		// If $article_text == "", the talkpage was probably just created
 		// when the first thread was posted to make the links blue.
@@ -61,7 +63,7 @@ class TalkpageView extends LqtView {
 			$article->view();
 
 			$actionLinks = [];
-			$msgKey = $article->getTitle()->quickUserCan( 'edit' ) ? 'edit' : 'viewsource';
+			$msgKey = $quickCanEdit ? 'edit' : 'viewsource';
 			$actionLinks[] = $this->linkRenderer->makeLink(
 				$article->getTitle(),
 				new HtmlArmor( wfMessage( $msgKey )->parse() . "↑" ),
@@ -95,7 +97,7 @@ class TalkpageView extends LqtView {
 			$html = Xml::tags( 'div', [ 'class' => 'lqt_header_content' ], $html );
 
 			$this->output->addHTML( $html );
-		} elseif ( $article->getTitle()->quickUserCan( 'edit' ) ) {
+		} elseif ( $quickCanEdit ) {
 			$editLink = $this->linkRenderer->makeLink(
 				$this->talkpage->getTitle(),
 				new HtmlArmor( wfMessage( 'lqt_add_header' )->parse() ),

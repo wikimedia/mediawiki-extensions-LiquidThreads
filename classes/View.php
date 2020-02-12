@@ -1155,7 +1155,8 @@ class LqtView {
 		if ( $thread->isHistorical() ) {
 			return [];
 		}
-		$user_can_edit = $thread->root()->getTitle()->quickUserCan( 'edit' );
+		$user_can_edit = MediaWikiServices::getInstance()->getPermissionManager()
+			->quickUserCan( 'edit', $this->user, $thread->root()->getTitle() );
 		$editMsg = $user_can_edit ? 'edit' : 'viewsource';
 
 		if ( $isLqtPage ) {
@@ -2079,7 +2080,8 @@ class LqtView {
 			$class .= ' lqt-thread-no-subthreads';
 		}
 
-		if ( !$thread->title()->quickUserCan( 'edit' )
+		if ( !MediaWikiServices::getInstance()->getPermissionManager()
+			->quickUserCan( 'edit', $this->user, $thread->title() )
 			|| !LqtDispatch::isLqtPage( $thread->getTitle() )
 		) {
 			$class .= ' lqt-thread-uneditable';

@@ -903,7 +903,8 @@ class LqtHooks {
 
 		$talkpage = $thread->article();
 
-		$canRead = $talkpage->getTitle()->quickUserCan( 'read', $user );
+		$canRead = MediaWikiServices::getInstance()->getPermissionManager()
+			->quickUserCan( 'read', $user, $talkpage->getTitle() );
 
 		if ( $canRead ) {
 			return true;
