@@ -74,8 +74,9 @@ class SpecialMoveThread extends ThreadActionPage {
 
 	public function checkUserRights( $oldTitle, $newTitle ) {
 		$user = $this->getUser();
-		$oldErrors = $oldTitle->getUserPermissionsErrors( 'move', $user );
-		$newErrors = $newTitle->getUserPermissionsErrors( 'move', $user );
+		$permManager = MediaWikiServices::getInstance()->getPermissionManager();
+		$oldErrors = $permManager->getPermissionErrors( 'move', $user, $oldTitle );
+		$newErrors = $permManager->getPermissionErrors( 'move', $user, $newTitle );
 
 		// Custom merge/unique function because we don't have the second parameter to
 		// array_unique on Wikimedia.

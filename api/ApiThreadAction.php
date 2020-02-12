@@ -137,7 +137,8 @@ class ApiThreadAction extends ApiEditPage {
 
 		$thread = array_pop( $threads );
 
-		$errors = $thread->title()->getUserPermissionsErrors( 'lqt-split', $this->getUser() );
+		$errors = $this->getPermissionManager()
+			->getPermissionErrors( 'lqt-split', $this->getUser(), $thread->title() );
 		if ( $errors ) {
 			$this->dieStatus( $this->errorArrayToStatus( $errors ) );
 		}
@@ -209,7 +210,8 @@ class ApiThreadAction extends ApiEditPage {
 			$newParent = Threads::withRoot( $article );
 		}
 
-		$errors = $newParent->title()->getUserPermissionsErrors( 'lqt-merge', $this->getUser() );
+		$errors = $this->getPermissionManager()
+			->getPermissionErrors( 'lqt-merge', $this->getUser(), $newParent->title() );
 		if ( $errors ) {
 			$this->dieStatus( $this->errorArrayToStatus( $errors ) );
 		}
@@ -653,7 +655,8 @@ class ApiThreadAction extends ApiEditPage {
 		}
 		$thread = array_pop( $threads );
 
-		$errors = $thread->title()->getUserPermissionsErrors( 'edit', $this->getUser() );
+		$errors = $this->getPermissionManager()
+			->getPermissionErrors( 'edit', $this->getUser(), $thread->title() );
 		if ( $errors ) {
 			$this->dieStatus( $this->errorArrayToStatus( $errors ) );
 		}
@@ -732,7 +735,8 @@ class ApiThreadAction extends ApiEditPage {
 
 		$thread = array_pop( $threads );
 
-		$errors = $thread->title()->getUserPermissionsErrors( 'edit', $this->getUser() );
+		$errors = $this->getPermissionManager()
+			->getPermissionErrors( 'edit', $this->getUser(), $thread->title() );
 		if ( $errors ) {
 			$this->dieStatus( $this->errorArrayToStatus( $errors ) );
 		}
