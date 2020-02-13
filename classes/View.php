@@ -7,6 +7,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use Wikimedia\IPUtils;
 
 class LqtView {
 	/**
@@ -1616,7 +1617,7 @@ class LqtView {
 			$formattedEditors = [];
 
 			foreach ( $editors as $ed ) {
-				$id = IP::isIPAddress( $ed ) ? 0 : 1;
+				$id = IPUtils::isIPAddress( $ed ) ? 0 : 1;
 				$fEditor = Linker::userLink( $id, $ed ) .
 					Linker::userToolLinks( $id, $ed );
 				$formattedEditors[] = $fEditor;
