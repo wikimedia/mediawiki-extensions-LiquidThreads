@@ -1,5 +1,8 @@
 <?php
 
+use Mediawiki\MediaWikiServices;
+use MediaWiki\Permissions\PermissionManager;
+
 class Thread {
 	/* SCHEMA changes must be reflected here. */
 
@@ -1611,7 +1614,7 @@ class Thread {
 
 	/* N.B. Returns true, or a string with either thread or talkpage, noting which is
 	   protected */
-	public function canUserReply( User $user, $rigor = 'secure' ) {
+	public function canUserReply( User $user, $rigor = PermissionManager::RIGOR_SECURE ) {
 		$threadRestrictions = $this->topmostThread()->title()->getRestrictions( 'reply' );
 		$talkpageRestrictions = $this->getTitle()->getRestrictions( 'reply' );
 
@@ -1632,7 +1635,7 @@ class Thread {
 		return self::canUserCreateThreads( $user, $rigor );
 	}
 
-	public static function canUserPost( $user, $talkpage, $rigor = 'secure' ) {
+	public static function canUserPost( $user, $talkpage, $rigor = PermissionManager::RIGOR_SECURE ) {
 		$restrictions = $talkpage->getTitle()->getRestrictions( 'newthread' );
 
 		foreach ( $restrictions as $right ) {
@@ -1645,15 +1648,16 @@ class Thread {
 	}
 
 	// Generally, not some specific page
-	public static function canUserCreateThreads( $user, $rigor = 'secure' ) {
+	public static function canUserCreateThreads( $user, $rigor = PermissionManager::RIGOR_SECURE ) {
 		$userText = $user->getName();
+		$pm = MediaWikiServices::getInstance()->getPermissionManager();
 
 		static $canCreateNew = [];
 		if ( !isset( $canCreateNew[$userText] ) ) {
 			$title = Title::makeTitleSafe(
 				NS_LQT_THREAD, 'Test title for LQT thread creation check' );
-			$canCreateNew[$userText] = $title->userCan( 'create', $user, $rigor )
-				&& $title->userCan( 'edit', $user, $rigor );
+			$canCreateNew[$userText] = $pm->userCan( 'create', $user, $title, $rigor )
+				&& $pm->userCan( 'edit', $user, $title, $rigor );
 		}
 
 		return $canCreateNew[$userText];
