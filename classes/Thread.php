@@ -180,7 +180,12 @@ class Thread {
 
 		$original = $this->dbVersion;
 		if ( $original->signature() != $this->signature() ) {
-			$this->logChange( Threads::CHANGE_EDITED_SIGNATURE, $original, null, $reason );
+			$this->logChange(
+				Threads::CHANGE_EDITED_SIGNATURE,
+				$original,
+				null,
+				$reason
+			);
 		}
 
 		$this->modified = wfTimestampNow();
@@ -202,8 +207,14 @@ class Thread {
 		}
 	}
 
-	public function logChange( $change_type, $original, $change_object = null, $reason = '' ) {
+	public function logChange(
+		$change_type,
+		$original,
+		$change_object = null,
+		$reason = ''
+	) {
 		$log = new LogPage( 'liquidthreads' );
+		$user = $this->author();
 
 		if ( $reason === null ) {
 			$reason = '';
@@ -211,34 +222,61 @@ class Thread {
 
 		switch ( $change_type ) {
 			case Threads::CHANGE_MOVED_TALKPAGE:
-				$log->addEntry( 'move', $this->title(), $reason,
-					[ $original->getTitle(),
-						$this->getTitle() ] );
+				$log->addEntry(
+					'move',
+					$this->title(),
+					$reason,
+					[ $original->getTitle(), $this->getTitle() ],
+					$user
+				);
 				break;
 			case Threads::CHANGE_SPLIT:
-				$log->addEntry( 'split', $this->title(), $reason,
-					[ $this->subject(),
-						$original->superthread()->title()
-					] );
+				$log->addEntry(
+					'split',
+					$this->title(),
+					$reason,
+					[ $this->subject(), $original->superthread()->title() ],
+					$user
+				);
 				break;
 			case Threads::CHANGE_EDITED_SUBJECT:
-				$log->addEntry( 'subjectedit', $this->title(), $reason,
-					[ $original->subject(), $this->subject() ] );
+				$log->addEntry(
+					'subjectedit',
+					$this->title(),
+					$reason,
+					[ $original->subject(), $this->subject() ],
+					$user
+				);
 				break;
 			case Threads::CHANGE_MERGED_TO:
 				$oldParent = $change_object->dbVersion->isTopmostThread()
 						? ''
 						: $change_object->dbVersion->superthread()->title();
 
-				$log->addEntry( 'merge', $this->title(), $reason,
-					[ $oldParent, $change_object->superthread()->title() ] );
+				$log->addEntry(
+					'merge',
+					$this->title(),
+					$reason,
+					[ $oldParent, $change_object->superthread()->title() ],
+					$user
+				);
 				break;
 			case Threads::CHANGE_ADJUSTED_SORTKEY:
-				$log->addEntry( 'resort', $this->title(), $reason,
-					[ $original->sortkey(), $this->sortkey() ] );
+				$log->addEntry(
+					'resort',
+					$this->title(),
+					$reason,
+					[ $original->sortkey(), $this->sortkey() ],
+					$user
+				);
 			case Threads::CHANGE_EDITED_SIGNATURE:
-				$log->addEntry( 'signatureedit', $this->title(), $reason,
-					[ $original->signature(), $this->signature() ] );
+				$log->addEntry(
+					'signatureedit',
+					$this->title(),
+					$reason,
+					[ $original->signature(), $this->signature() ],
+					$user
+				);
 				break;
 		}
 	}
