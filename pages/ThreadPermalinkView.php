@@ -9,6 +9,11 @@ class ThreadPermalinkView extends LqtView {
 		self::customizeThreadNavigation( $skin, $links, $this );
 	}
 
+	/**
+	 * @param Skin $skin
+	 * @param array[] &$links
+	 * @param ThreadPermalinkView|ThreadProtectionFormView $view
+	 */
 	public static function customizeThreadNavigation( $skin, &$links, $view ) {
 		$tempTitle = Title::makeTitle( NS_LQT_THREAD, 'A' );
 		$talkKey = $tempTitle->getNamespaceKey( '' ) . '_talk';
@@ -59,8 +64,13 @@ class ThreadPermalinkView extends LqtView {
 		}
 	}
 
-	// Pre-generates the tabs to be included, for customizeNavigation
-	// to insert in the appropriate place
+	/**
+	 * Pre-generates the tabs to be included, for customizeNavigation to insert in the appropriate
+	 * place
+	 *
+	 * @param ThreadPermalinkView|ThreadProtectionFormView $view
+	 * @return array[]
+	 */
 	private static function getCustomTabs( $view ) {
 		$tabs = [];
 

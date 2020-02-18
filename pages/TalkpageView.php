@@ -424,24 +424,39 @@ class TalkpageView extends LqtView {
 		return self::LQT_NEWEST_CHANGES;
 	}
 
-	// Hide a number of items from the view
-	// Valid values: toc, options, header
+	/**
+	 * Hide a number of items from the view
+	 * Valid values: toc, options, header
+	 *
+	 * @param string[]|string $items
+	 */
 	public function hideItems( $items ) {
 		$this->mShowItems = array_diff( $this->mShowItems, (array)$items );
 	}
 
-	// Show a number of items in the view
-	// Valid values: toc, options, header
+	/**
+	 * Show a number of items in the view
+	 * Valid values: toc, options, header
+	 *
+	 * @param string[]|string $items
+	 */
 	public function showItems( $items ) {
 		$this->mShowItems = array_merge( $this->mShowItems, (array)$items );
 	}
 
-	// Whether or not to show an item
+	/**
+	 * Whether or not to show an item
+	 *
+	 * @param string $item
+	 * @return bool
+	 */
 	public function shouldShow( $item ) {
 		return in_array( $item, $this->mShowItems );
 	}
 
-	// Set the items shown
+	/**
+	 * @param string[] $items
+	 */
 	public function setShownItems( $items ) {
 		$this->mShowItems = $items;
 	}

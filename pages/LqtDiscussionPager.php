@@ -53,7 +53,6 @@ class LqtDiscussionPager extends IndexPager {
 		return $queryInfo;
 	}
 
-	// Adapted from getBody().
 	public function getRows() {
 		if ( !$this->mQueryDone ) {
 			$this->doQuery();
