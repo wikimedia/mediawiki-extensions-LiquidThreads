@@ -2,8 +2,6 @@
 
 use Mediawiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
-use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\UserIdentity;
 
 class Thread {
@@ -1442,49 +1440,6 @@ class Thread {
 
 	public function setType( $t ) {
 		$this->type = $t;
-	}
-
-	public function redirectThread() {
-		$revContent = MediaWikiServices::getInstance()
-			->getRevisionLookup()
-			->getRevisionById( $this->root()->getLatest() )
-			->getContent(
-				SlotRecord::MAIN,
-				RevisionRecord::RAW
-			);
-		$rtitle = ContentHandler::makeContent(
-			$revContent->getNativeData(),
-			null,
-			CONTENT_MODEL_WIKITEXT
-		)->getRedirectTarget();
-		if ( !$rtitle ) {
-			return null;
-		}
-
-		$this->dieIfHistorical();
-		$rthread = Threads::withRoot( new Article( $rtitle, 0 ) );
-		return $rthread;
-	}
-
-	// This only makes sense when called from the hook, because it uses the hook's
-	// default behavior to check whether this thread itself is protected, so you'll
-	// get false negatives if you use it from some other context.
-	public function getRestrictions( $action, &$result ) {
-		if ( $this->hasSuperthread() ) {
-			$parent_restrictions = $this->superthread()->root()->getTitle()
-				->getRestrictions( $action );
-		} else {
-			$parent_restrictions = $this->getTitle()->getRestrictions( $action );
-		}
-
-		// TODO this may not be the same as asking "are the parent restrictions more restrictive than
-		// our own restrictions?", which is what we really want.
-		if ( count( $parent_restrictions ) == 0 ) {
-			return true; // go to normal protection check.
-		} else {
-			$result = $parent_restrictions;
-			return false;
-		}
 	}
 
 	public function getAnchorName() {
