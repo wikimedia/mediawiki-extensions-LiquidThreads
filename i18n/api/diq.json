@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"1917 Ekim Devrimi"
+		]
+	},
+	"apihelp-feedthreads-param-feedformat": "Formata weyikerdışi",
+	"apihelp-feedthreads-param-days": "Mocniyaye amarê roceka rêza werênayışan",
+	"apihelp-feedthreads-param-type": "Mocniyaye tewrê çapnayışi",
+	"apihelp-threadaction-param-threadaction": "Karo ke bıbo.",
+	"apihelp-threadaction-param-text": "Vıraziyaye metinê rıştey.",
+	"apihelp-threadaction-param-captchaword": "CAPTCHA'y rê cewab bıde.",
+	"apierror-liquidthreads-notext": "Rıştey ho rê metin cı kerê",
+	"apierror-liquidthreads-onlyone": "Yew qor de teyna yew werênayışi sero şıma şenê bıguriye",
+	"apierror-liquidthreads-threadneeded": "Seba gurenayışi yew werênayış nışan kerê"
+}
