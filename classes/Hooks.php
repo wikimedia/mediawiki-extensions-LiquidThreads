@@ -998,4 +998,13 @@ class LqtHooks {
 		}
 		return true;
 	}
+
+	public static function onRegistration() {
+		if ( !defined( 'NS_LQT_THREAD' ) ) {
+			define( 'NS_LQT_THREAD', 90 );
+			define( 'NS_LQT_THREAD_TALK', 91 );
+			define( 'NS_LQT_SUMMARY', 92 );
+			define( 'NS_LQT_SUMMARY_TALK', 93 );
+		}
+	}
 }

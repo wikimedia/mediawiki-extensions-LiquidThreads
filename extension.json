@@ -247,6 +247,7 @@
 		"OutputPageBeforeHTML": "LqtParserFunctions::onAddHTML",
 		"userCan": "LqtHooks::onGetUserPermissionsErrors"
 	},
+	"callback": "LqtHooks::onRegistration",
 	"config": {
 		"LqtPages": {
 			"value": []
