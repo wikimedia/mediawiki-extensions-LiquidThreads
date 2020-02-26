@@ -5,5 +5,13 @@
 		]
 	},
 	"lqt_delete": "ሰረዘ",
-	"lqt_move_move": "ኣንቀሳቐሰ"
+	"lqt_discussion_link": "ምይይጥ",
+	"lqt_move_move": "ኣንቀሳቐሰ",
+	"lqt-summary": "መጠቓለሊ",
+	"lqt-email-undo": "ፈትሐ",
+	"lqt-history-user": "ተጠቃሚ",
+	"lqt-movethread": "ኣንቀሳቐሰ",
+	"lqt-menu-trigger": "ተወሳኺ",
+	"lqt-search-button": "ምድላይ",
+	"lqt-ajax-update-link": "ኣሐዲስ"
 }
