@@ -1662,18 +1662,18 @@ class Thread {
 	 * @param Thread $thread
 	 * @param string $subject
 	 * @param Thread $ancestor
-	 * @param Thread|null|false $superthread
+	 * @param Thread|null $superthread
 	 */
 	public static function recursiveSet(
 		Thread $thread,
 		$subject,
 		Thread $ancestor,
-		$superthread = false
+		$superthread = null
 	) {
 		$thread->setSubject( $subject );
 		$thread->setAncestor( $ancestor->id() );
 
-		if ( $superthread !== false ) {
+		if ( $superthread ) {
 			$thread->setSuperThread( $superthread );
 		}
 
