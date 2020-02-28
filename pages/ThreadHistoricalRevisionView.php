@@ -3,8 +3,6 @@
 class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	public $mDisplayRevision = null;
 
-	/* TOOD: customize tabs so that History is highlighted. */
-
 	public function postDivClass( $thread ) {
 		$changedObject = $this->mDisplayRevision->getChangeObject();
 		$is_changed_thread = $changedObject && ( $changedObject->id() == $thread->id() );

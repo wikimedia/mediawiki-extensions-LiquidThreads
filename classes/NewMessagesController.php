@@ -352,7 +352,7 @@ class NewMessages {
 
 			$params = [
 				$u->getName(),
-				$t->subjectWithoutIncrement(),
+				$t->subject(),
 				$date,
 				$time,
 				$talkPage,

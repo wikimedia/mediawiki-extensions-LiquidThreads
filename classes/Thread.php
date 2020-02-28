@@ -479,8 +479,13 @@ class Thread {
 		}
 	}
 
-	// Drop a note at the source location of a move, noting that a thread was moved from
-	// there.
+	/**
+	 * Drop a note at the source location of a move, noting that a thread was moved from there.
+	 *
+	 * @param string $reason
+	 * @param Title $oldTitle
+	 * @param Title $newTitle
+	 */
 	public function leaveTrace( $reason, $oldTitle, $newTitle ) {
 		$this->dieIfHistorical();
 
@@ -507,7 +512,11 @@ class Thread {
 		$thread->save();
 	}
 
-	// Lists total reply count, including replies to replies and such
+	/**
+	 * Lists total reply count, including replies to replies and such
+	 *
+	 * @return int
+	 */
 	public function replyCount() {
 		// Populate reply count
 		if ( $this->replyCount == - 1 ) {
@@ -639,7 +648,12 @@ class Thread {
 		$this->dbVersion->dbVersion = null;
 	}
 
-	// Load a list of threads in bulk, including all subthreads.
+	/**
+	 * Load a list of threads in bulk, including all subthreads.
+	 *
+	 * @param object[] $rows
+	 * @return Thread[]
+	 */
 	public static function bulkLoad( $rows ) {
 		// Preload subthreads
 		$top_thread_ids = [];
@@ -872,8 +886,10 @@ class Thread {
 		return $count;
 	}
 
-	// Lazy updates done whenever a thread is loaded.
-	// Much easier than running a long-running maintenance script.
+	/**
+	 * Lazy updates done whenever a thread is loaded.
+	 * Much easier than running a long-running maintenance script.
+	 */
 	public function doLazyUpdates() {
 		if ( $this->isHistorical() ) {
 			return; // Don't do lazy updates on stored historical threads.
@@ -1080,6 +1096,9 @@ class Thread {
 		}
 	}
 
+	/**
+	 * @return Thread[]
+	 */
 	public function replies() {
 		if ( !$this->id() ) {
 			return [];
@@ -1183,8 +1202,12 @@ class Thread {
 		}
 	}
 
-	// Due to a bug in earlier versions, the topmost thread sometimes isn't there.
-	// Fix the corruption by repeatedly grabbing the parent until we hit the topmost thread.
+	/**
+	 * Due to a bug in earlier versions, the topmost thread sometimes isn't there.
+	 * Fix the corruption by repeatedly grabbing the parent until we hit the topmost thread.
+	 *
+	 * @return Thread
+	 */
 	public function fixMissingAncestor() {
 		$thread = $this;
 
@@ -1200,6 +1223,7 @@ class Thread {
 		$dbw->update( 'thread', [ 'thread_ancestor' => $thread->id() ],
 				[ 'thread_id' => $this->id() ], __METHOD__ );
 
+		// @phan-suppress-next-line PhanTypeMismatchReturnNullable Would crash above if null
 		return $thread;
 	}
 
@@ -1261,7 +1285,11 @@ class Thread {
 		return $this->ancestorId;
 	}
 
-	// The 'root' is the page in the Thread namespace corresponding to this thread.
+	/**
+	 * The 'root' is the page in the Thread namespace corresponding to this thread.
+	 *
+	 * @return Article|null
+	 */
 	public function root() {
 		if ( !$this->rootId ) {
 			return null;
@@ -1367,21 +1395,20 @@ class Thread {
 		}
 	}
 
-	// Deprecated, use subject().
-	public function subjectWithoutIncrement() {
-		return $this->subject();
-	}
-
-	// Currently equivalent to isTopmostThread.
+	/**
+	 * Currently equivalent to isTopmostThread.
+	 *
+	 * @return bool
+	 */
 	public function hasDistinctSubject() {
 		return $this->isTopmostThread();
 	}
 
-	public function hasSubthreads() {
-		return count( $this->replies() ) != 0;
-	}
-
-	// Synonym for replies()
+	/**
+	 * Synonym for replies()
+	 *
+	 * @return Thread[]
+	 */
 	public function subthreads() {
 		return $this->replies();
 	}
@@ -1452,7 +1479,9 @@ class Thread {
 		$this->authorName = $user->getName();
 	}
 
-	// Load all lazy-loaded data in prep for (e.g.) serialization.
+	/**
+	 * Load all lazy-loaded data in prep for (e.g.) serialization.
+	 */
 	public function loadAllData() {
 		// Make sure superthread and topmost thread are loaded.
 		$this->superthread();
@@ -1464,7 +1493,11 @@ class Thread {
 		}
 	}
 
-	// On serialization, load all data because it will be different in the DB when we wake up.
+	/**
+	 * On serialization, load all data because it will be different in the DB when we wake up.
+	 *
+	 * @return string[]
+	 */
 	public function __sleep() {
 		$this->loadAllData();
 
@@ -1482,8 +1515,12 @@ class Thread {
 		$this->isHistorical = true;
 	}
 
-	// This is a safety valve that makes sure that the DB is NEVER touched by a historical
-	// thread (even for reading, because the data will be out of date).
+	/**
+	 * This is a safety valve that makes sure that the DB is NEVER touched by a historical thread
+	 * (even for reading, because the data will be out of date).
+	 *
+	 * @throws Exception
+	 */
 	public function dieIfHistorical() {
 		if ( $this->isHistorical() ) {
 			throw new Exception( "Attempted write or DB operation on historical thread" );
@@ -1650,8 +1687,13 @@ class Thread {
 		return $ok;
 	}
 
-	/* N.B. Returns true, or a string with either thread or talkpage, noting which is
-	   protected */
+	/**
+	 * Returns true, or a string with either thread or talkpage, noting which is protected
+	 *
+	 * @param User $user
+	 * @param string $rigor
+	 * @return bool|string
+	 */
 	public function canUserReply( User $user, $rigor = PermissionManager::RIGOR_SECURE ) {
 		$threadRestrictions = $this->topmostThread()->title()->getRestrictions( 'reply' );
 		$talkpageRestrictions = $this->getTitle()->getRestrictions( 'reply' );
@@ -1673,6 +1715,12 @@ class Thread {
 		return self::canUserCreateThreads( $user, $rigor );
 	}
 
+	/**
+	 * @param User $user
+	 * @param Article $talkpage
+	 * @param string $rigor
+	 * @return bool
+	 */
 	public static function canUserPost( $user, $talkpage, $rigor = PermissionManager::RIGOR_SECURE ) {
 		$restrictions = $talkpage->getTitle()->getRestrictions( 'newthread' );
 
@@ -1685,7 +1733,13 @@ class Thread {
 		return self::canUserCreateThreads( $user, $rigor );
 	}
 
-	// Generally, not some specific page
+	/**
+	 * Generally, not some specific page
+	 *
+	 * @param User $user
+	 * @param string $rigor
+	 * @return bool
+	 */
 	public static function canUserCreateThreads( $user, $rigor = PermissionManager::RIGOR_SECURE ) {
 		$userText = $user->getName();
 		$pm = MediaWikiServices::getInstance()->getPermissionManager();
@@ -1844,7 +1898,7 @@ class Thread {
 	}
 
 	/**
-	 * @return array
+	 * @return array[]
 	 */
 	private static function getRevisionQueryInfo() {
 		$info = Revision::getQueryInfo();

@@ -119,10 +119,15 @@ class LqtView {
 		return [ $root->getTitle(), $query ];
 	}
 
-	/*
+	/**
 	 * This is used for action=history so that the history tab works, which is
 	 * why we break the lqt_method paradigm.
-	*/
+	 *
+	 * @param Thread $thread
+	 * @param string[] $query
+	 * @param bool $relative
+	 * @return string
+	 */
 	public static function permalinkUrlWithQuery( $thread, $query, $relative = true ) {
 		if ( !is_array( $query ) ) {
 			$query = wfCgiToArray( $query );
@@ -2403,7 +2408,12 @@ class LqtView {
 		return true; // No-op
 	}
 
-	// Copy-and-modify of Linker::formatComment
+	/**
+	 * Copy-and-modify of Linker::formatComment
+	 *
+	 * @param string $s
+	 * @return string
+	 */
 	public static function formatSubject( $s ) {
 		# Sanitize text a bit:
 		$s = str_replace( "\n", " ", $s );

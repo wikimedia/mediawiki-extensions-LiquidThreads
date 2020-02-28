@@ -40,7 +40,12 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 		$form->show();
 	}
 
-	// Loads stuff like the thread and so on
+	/**
+	 * Loads stuff like the thread and so on
+	 *
+	 * @param string|null $par
+	 * @return bool
+	 */
 	public function checkParameters( $par ) {
 		// Handle parameter
 		$this->mTarget = $par;
