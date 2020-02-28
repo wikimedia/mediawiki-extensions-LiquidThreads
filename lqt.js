@@ -397,7 +397,7 @@
 				.on( 'click', liquidThreads.handleSubjectSave );
 
 			$cancelButton = $( '<input>' )
-				.attr( 'type', 'textbox' )
+				.attr( 'type', 'button' )
 				.val( mw.msg( 'lqt-cancel-subject-edit' ) )
 				.on( 'click', function () {
 					var $form = $( this ).closest( '.mw-subject-editor' ),
