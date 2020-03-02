@@ -13,5 +13,7 @@
 	"lqt-movethread": "ኣንቀሳቐሰ",
 	"lqt-menu-trigger": "ተወሳኺ",
 	"lqt-search-button": "ምድላይ",
-	"lqt-ajax-update-link": "ኣሐዲስ"
+	"lqt-ajax-update-link": "ኣሐዲስ",
+	"lqt-newmessages-n": "ሓድሽ {{PLURAL:$1|መልእኽቲ|መልእክትታት}} ($1)",
+	"lqt_newmessages-title": "ሓድሽ መልእክትታት"
 }
