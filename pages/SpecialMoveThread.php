@@ -113,7 +113,7 @@ class SpecialMoveThread extends ThreadActionPage {
 		}
 
 		// @todo No status code from this method.
-		$this->mThread->moveToPage( $newtitle, $reason, true );
+		$this->mThread->moveToPage( $newtitle, $reason, true, $this->getUser() );
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
 		$this->getOutput()->addHTML( $this->msg( 'lqt_move_success' )->rawParams(
