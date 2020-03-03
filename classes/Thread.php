@@ -109,7 +109,7 @@ class Thread {
 
 			$superthread->commitRevision( $change_type, $thread, $summary, $bump );
 		} else {
-			ThreadRevision::create( $thread, $change_type );
+			ThreadRevision::create( $thread, $change_type, $wgUser );
 		}
 
 		// Create talk page
@@ -199,7 +199,7 @@ class Thread {
 		}
 		$topmost->save();
 
-		ThreadRevision::create( $this, $change_type, $change_object, $reason );
+		ThreadRevision::create( $this, $change_type, $wgUser, $change_object, $reason );
 		$this->logChange( $change_type, $original, $change_object, $reason );
 
 		if ( $change_type == Threads::CHANGE_EDITED_ROOT ) {

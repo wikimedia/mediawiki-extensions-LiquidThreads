@@ -586,7 +586,7 @@ class LqtView {
 			Hooks::run( 'LiquidThreadsSaveNewThread',
 					[ &$info, &$e, &$talkpage ] );
 
-			$thread = self::newPostMetadataUpdates( $info );
+			$thread = self::newPostMetadataUpdates( $this->user, $info );
 
 			if ( $submitted_nonce && $nonce_key ) {
 				global $wgMemc;
@@ -700,7 +700,7 @@ class LqtView {
 			Hooks::run( 'LiquidThreadsSaveReply',
 					[ &$info, &$e, &$thread ] );
 
-			$newThread = self::replyMetadataUpdates( $info );
+			$newThread = self::replyMetadataUpdates( $this->user, $info );
 
 			if ( $submitted_nonce && $nonce_key ) {
 				global $wgMemc;
@@ -982,9 +982,7 @@ class LqtView {
 		return [ $signatureEditor, $signatureHTML ];
 	}
 
-	public static function replyMetadataUpdates( $data = [] ) {
-		global $wgUser;
-
+	public static function replyMetadataUpdates( User $user, $data = [] ) {
 		$requiredFields = [ 'replyTo', 'root', 'text' ];
 
 		foreach ( $requiredFields as $f ) {
@@ -993,7 +991,7 @@ class LqtView {
 			}
 		}
 
-		$signature = $data['signature'] ?? self::getUserSignature( $wgUser );
+		$signature = $data['signature'] ?? self::getUserSignature( $user );
 
 		$summary = $data['summary'] ?? '';
 
@@ -1072,9 +1070,7 @@ class LqtView {
 		return $thread;
 	}
 
-	public static function newPostMetadataUpdates( $data ) {
-		global $wgUser;
-
+	public static function newPostMetadataUpdates( User $user, $data ) {
 		$requiredFields = [ 'talkpage', 'root', 'text', 'subject' ];
 
 		foreach ( $requiredFields as $f ) {
@@ -1083,7 +1079,7 @@ class LqtView {
 			}
 		}
 
-		$signature = $data['signature'] ?? self::getUserSignature( $wgUser );
+		$signature = $data['signature'] ?? self::getUserSignature( $user );
 
 		$summary = $data['summary'] ?? '';
 

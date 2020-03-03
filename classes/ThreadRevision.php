@@ -72,17 +72,14 @@ class ThreadRevision {
 		return $rev;
 	}
 
-	public static function create( $thread, $change_type, $change_object = null, $comment = '',
-		$user = null, $timestamp = null
+	public static function create(
+		$thread,
+		$change_type,
+		User $user,
+		$change_object = null,
+		$comment = ''
 	) {
-		if ( $user === null ) {
-			global $wgUser;
-			$user = $wgUser;
-		}
-
-		if ( $timestamp === null ) {
-			$timestamp = wfTimestampNow();
-		}
+		$timestamp = wfTimestampNow();
 
 		if ( $comment === null ) {
 			$comment = '';

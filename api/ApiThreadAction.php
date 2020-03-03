@@ -345,6 +345,7 @@ class ApiThreadAction extends ApiEditPage {
 		$title->resetArticleID( $articleId );
 
 		$thread = LqtView::newPostMetadataUpdates(
+			$user,
 			[
 				'root' => $article,
 				'talkpage' => $talkpage,
@@ -582,6 +583,7 @@ class ApiThreadAction extends ApiEditPage {
 		$title->resetArticleID( $articleId );
 
 		$thread = LqtView::replyMetadataUpdates(
+			$user,
 			[
 				'root' => $article,
 				'replyTo' => $replyTo,
