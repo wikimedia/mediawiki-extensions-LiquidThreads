@@ -150,7 +150,13 @@ class ApiThreadAction extends ApiEditPage {
 		$title = null;
 		$article = $thread->article();
 		if ( empty( $params['subject'] ) ||
-			!Thread::validateSubject( $params['subject'], $title, null, $article )
+			!Thread::validateSubject(
+				$params['subject'],
+				$this->getUser(),
+				$title,
+				null,
+				$article
+			)
 		) {
 			$this->dieWithError( 'apierror-liquidthreads-nosubject', 'no-valid-subject' );
 		}
@@ -278,7 +284,7 @@ class ApiThreadAction extends ApiEditPage {
 
 		$subject = $params['subject'];
 		$title = null;
-		$subjectOk = Thread::validateSubject( $subject, $title, null, $talkpage );
+		$subjectOk = Thread::validateSubject( $subject, $user, $title, null, $talkpage );
 
 		if ( !$subjectOk ) {
 			$this->dieWithError( 'apierror-liquidthreads-badsubject', 'invalid-subject' );
@@ -394,7 +400,13 @@ class ApiThreadAction extends ApiEditPage {
 			$subject = $params['subject'];
 			$title = null;
 			$subjectOk = empty( $subject ) ||
-				Thread::validateSubject( $subject, $title, null, $talkpage );
+				Thread::validateSubject(
+					$subject,
+					$this->getUser(),
+					$title,
+					null,
+					$talkpage
+				);
 		} else {
 			$subject = $thread->subject();
 		}
@@ -672,7 +684,13 @@ class ApiThreadAction extends ApiEditPage {
 
 		$subject = $params['subject'];
 		$title = null;
-		$subjectOk = Thread::validateSubject( $subject, $title, null, $talkpage );
+		$subjectOk = Thread::validateSubject(
+			$subject,
+			$this->getUser(),
+			$title,
+			null,
+			$talkpage
+		);
 
 		if ( !$subjectOk ) {
 			$this->dieWithError( 'apierror-liquidthreads-badsubject', 'invalid-subject' );
@@ -686,7 +704,12 @@ class ApiThreadAction extends ApiEditPage {
 
 		if ( $thread->dbVersion->subject() !== $subject ) {
 			$thread->setSubject( $subject );
-			$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT, $thread, $reason );
+			$thread->commitRevision(
+				Threads::CHANGE_EDITED_SUBJECT,
+				$this->getUser(),
+				$thread,
+				$reason
+			);
 		}
 
 		$result = [
@@ -744,7 +767,12 @@ class ApiThreadAction extends ApiEditPage {
 		}
 
 		$thread->setSortkey( $ts );
-		$thread->commitRevision( Threads::CHANGE_ADJUSTED_SORTKEY, null, $reason );
+		$thread->commitRevision(
+			Threads::CHANGE_ADJUSTED_SORTKEY,
+			$this->getUser(),
+			null,
+			$reason
+		);
 
 		$result = [
 			'action' => 'setsortkey',

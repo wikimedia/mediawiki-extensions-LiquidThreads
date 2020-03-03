@@ -67,9 +67,16 @@ class Thread {
 		return $this->isHistorical;
 	}
 
-	public static function create( $root, Article $article, ?Thread $superthread,
-		$type = Threads::TYPE_NORMAL, $subject = '',
-		$summary = '', $bump = null, $signature = null
+	public static function create(
+		$root,
+		Article $article,
+		User $user,
+		?Thread $superthread,
+		$type = Threads::TYPE_NORMAL,
+		$subject = '',
+		$summary = '',
+		$bump = null,
+		$signature = null
 	) {
 		$thread = new Thread( null );
 
@@ -83,9 +90,7 @@ class Thread {
 			$change_type = Threads::CHANGE_NEW_THREAD;
 		}
 
-		global $wgUser;
-
-		$thread->setAuthor( $wgUser );
+		$thread->setAuthor( $user );
 
 		if ( is_object( $root ) ) {
 			$thread->setRoot( $root );
@@ -107,19 +112,19 @@ class Thread {
 		if ( $superthread ) {
 			$superthread->addReply( $thread );
 
-			$superthread->commitRevision( $change_type, $thread, $summary, $bump );
+			$superthread->commitRevision( $change_type, $user, $thread, $summary, $bump );
 		} else {
-			ThreadRevision::create( $thread, $change_type, $wgUser );
+			ThreadRevision::create( $thread, $change_type, $user );
 		}
 
 		// Create talk page
 		Threads::createTalkpageIfNeeded( $article );
 
 		// Notifications
-		NewMessages::writeMessageStateForUpdatedThread( $thread, $change_type, $wgUser );
+		NewMessages::writeMessageStateForUpdatedThread( $thread, $change_type, $user );
 
-		if ( $wgUser->getOption( 'lqt-watch-threads', false ) ) {
-			WatchAction::doWatch( $thread->topmostThread()->root()->getTitle(), $wgUser );
+		if ( $user->getOption( 'lqt-watch-threads', false ) ) {
+			WatchAction::doWatch( $thread->topmostThread()->root()->getTitle(), $user );
 		}
 
 		return $thread;
@@ -165,10 +170,14 @@ class Thread {
 		$this->root = null;
 	}
 
-	public function commitRevision( $change_type, $change_object = null, $reason = "",
-					$bump = null ) {
+	public function commitRevision(
+		$change_type,
+		User $user,
+		$change_object = null,
+		$reason = "",
+		$bump = null
+	) {
 		$this->dieIfHistorical();
-		global $wgUser;
 
 		global $wgThreadActionsNoBump;
 		if ( $bump === null ) {
@@ -189,7 +198,7 @@ class Thread {
 		}
 
 		$this->modified = wfTimestampNow();
-		$this->updateEditedness( $change_type, $wgUser );
+		$this->updateEditedness( $change_type, $user );
 		$this->save( __METHOD__ . "/" . wfGetCaller() );
 
 		$topmost = $this->topmostThread();
@@ -199,11 +208,11 @@ class Thread {
 		}
 		$topmost->save();
 
-		ThreadRevision::create( $this, $change_type, $wgUser, $change_object, $reason );
+		ThreadRevision::create( $this, $change_type, $user, $change_object, $reason );
 		$this->logChange( $change_type, $original, $change_object, $reason );
 
 		if ( $change_type == Threads::CHANGE_EDITED_ROOT ) {
-			NewMessages::writeMessageStateForUpdatedThread( $this, $change_type, $wgUser );
+			NewMessages::writeMessageStateForUpdatedThread( $this, $change_type, $user );
 		}
 	}
 
@@ -390,9 +399,10 @@ class Thread {
 		}
 
 		$this->type = Threads::TYPE_DELETED;
+		$user = RequestContext::getMain()->getUser(); // Need to inject
 
 		if ( $commit ) {
-			$this->commitRevision( Threads::CHANGE_DELETED, $this, $reason );
+			$this->commitRevision( Threads::CHANGE_DELETED, $user, $this, $reason );
 		} else {
 			$this->save( __METHOD__ );
 		}
@@ -416,7 +426,8 @@ class Thread {
 
 	public function undelete( $reason ) {
 		$this->type = Threads::TYPE_NORMAL;
-		$this->commitRevision( Threads::CHANGE_UNDELETED, $this, $reason );
+		$user = RequestContext::getMain()->getUser(); // Need to inject
+		$this->commitRevision( Threads::CHANGE_UNDELETED, $user, $this, $reason );
 
 		// Fix reply count.
 		$t = $this->superthread();
@@ -465,13 +476,13 @@ class Thread {
 		$this->articleId = $new_articleID;
 		$this->article = null;
 
-		$this->commitRevision( Threads::CHANGE_MOVED_TALKPAGE, null, $reason );
+		$this->commitRevision( Threads::CHANGE_MOVED_TALKPAGE, $user, null, $reason );
 
 		// Notifications
 		NewMessages::writeMessageStateForUpdatedThread( $this, $this->type, $user );
 
 		if ( $leave_trace ) {
-			$this->leaveTrace( $reason, $oldTitle, $newTitle );
+			$this->leaveTrace( $reason, $oldTitle, $newTitle, $user );
 		}
 	}
 
@@ -481,8 +492,9 @@ class Thread {
 	 * @param string $reason
 	 * @param Title $oldTitle
 	 * @param Title $newTitle
+	 * @param User $user
 	 */
-	public function leaveTrace( $reason, $oldTitle, $newTitle ) {
+	public function leaveTrace( $reason, $oldTitle, $newTitle, User $user ) {
 		$this->dieIfHistorical();
 
 		// Create redirect text
@@ -501,8 +513,14 @@ class Thread {
 		);
 
 		// Add the trace thread to the tracking table.
-		$thread = self::create( $redirectArticle, new Article( $oldTitle, 0 ), null,
-			Threads::TYPE_MOVED, $this->subject() );
+		$thread = self::create(
+			$redirectArticle,
+			new Article( $oldTitle, 0 ),
+			$user,
+			null,
+			Threads::TYPE_MOVED,
+			$this->subject()
+		);
 
 		$thread->setSortKey( $this->sortkey() );
 		$thread->save();
@@ -1611,9 +1629,10 @@ class Thread {
 
 		// For logging purposes, will be reset by the time this call returns.
 		$this->dbVersion = $original;
+		$user = RequestContext::getMain()->getUser(); // Need to inject
 
-		$this->commitRevision( Threads::CHANGE_SPLIT, null, $reason, $bump );
-		$oldTopThread->commitRevision( Threads::CHANGE_SPLIT_FROM, $this, $reason );
+		$this->commitRevision( Threads::CHANGE_SPLIT, $user, null, $reason, $bump );
+		$oldTopThread->commitRevision( Threads::CHANGE_SPLIT_FROM, $user, $this, $reason );
 	}
 
 	public function moveToParent( $newParent, $reason = '' ) {
@@ -1634,9 +1653,10 @@ class Thread {
 		}
 
 		$this->dbVersion = $original;
+		$user = RequestContext::getMain()->getUser(); // Need to inject
 
-		$oldTopThread->commitRevision( Threads::CHANGE_MERGED_FROM, $this, $reason );
-		$newParent->commitRevision( Threads::CHANGE_MERGED_TO, $this, $reason );
+		$oldTopThread->commitRevision( Threads::CHANGE_MERGED_FROM, $user, $this, $reason );
+		$newParent->commitRevision( Threads::CHANGE_MERGED_TO, $user, $this, $reason );
 	}
 
 	public static function recursiveSet( $thread, $subject, $ancestor, $superthread = false ) {
@@ -1654,18 +1674,16 @@ class Thread {
 		}
 	}
 
-	public static function validateSubject( $subject, &$title, $replyTo, $article ) {
+	public static function validateSubject( $subject, User $user, &$title, $replyTo, $article ) {
 		$t = null;
 		$ok = true;
 
 		while ( !$t ) {
 			try {
-				global $wgUser;
-
 				if ( !$replyTo && $subject ) {
 					$t = Threads::newThreadTitle( $subject, $article );
 				} elseif ( $replyTo ) {
-					$t = Threads::newReplyTitle( $replyTo, $wgUser );
+					$t = Threads::newReplyTitle( $replyTo, $user );
 				}
 
 				if ( $t ) {

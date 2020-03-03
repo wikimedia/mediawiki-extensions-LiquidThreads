@@ -763,7 +763,8 @@ class LqtHooks {
 			$signature = $info['ThreadSignature'];
 		}
 
-		$thread = Thread::create( $root, $article, null, $type,
+		$user = RequestContext::getMain()->getUser(); // No context
+		$thread = Thread::create( $root, $article, $user, null, $type,
 			$subject, $summary, null, $signature );
 
 		if ( isset( $info['ThreadSummaryPage'] ) ) {

@@ -56,7 +56,7 @@ class SpecialSplitThread extends ThreadActionPage {
 		$title = null;
 		$article = $this->mThread->article();
 
-		$ok = Thread::validateSubject( $target, $title, null, $article );
+		$ok = Thread::validateSubject( $target, $this->getUser(), $title, null, $article );
 
 		if ( !$ok ) {
 			return $this->msg( 'lqt_split_badsubject' )->parse();

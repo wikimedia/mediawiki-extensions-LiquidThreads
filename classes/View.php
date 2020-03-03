@@ -499,8 +499,13 @@ class LqtView {
 
 		$t = null;
 
-		$subjectOk = Thread::validateSubject( $subject, $t,
-					null, $this->article );
+		$subjectOk = Thread::validateSubject(
+			$subject,
+			$this->user,
+			$t,
+			null,
+			$this->article
+		);
 		if ( !$subjectOk ) {
 			try {
 				$t = $this->newThreadTitle( $subject );
@@ -740,8 +745,13 @@ class LqtView {
 		}
 
 		$t = null;
-		$subjectOk = Thread::validateSubject( $subject, $t,
-					$thread->superthread(), $this->article );
+		$subjectOk = Thread::validateSubject(
+			$subject,
+			$this->user,
+			$t,
+			$thread->superthread(),
+			$this->article
+		);
 		if ( !$subjectOk ) {
 			$subject = false;
 		}
@@ -1003,7 +1013,7 @@ class LqtView {
 		$talkpage = $replyTo->article();
 
 		$thread = Thread::create(
-			$root, $talkpage, $replyTo, Threads::TYPE_NORMAL, $subject,
+			$root, $talkpage, $user, $replyTo, Threads::TYPE_NORMAL, $subject,
 			$summary, $bump, $signature
 		);
 
@@ -1027,9 +1037,10 @@ class LqtView {
 
 		$bump = $data["bump"] ?? null;
 
+		$user = RequestContext::getMain()->getUser(); // Need to inject
 		$thread->setSummary( $article );
 		$thread->commitRevision(
-			Threads::CHANGE_EDITED_SUMMARY, $thread, $summary, $bump );
+			Threads::CHANGE_EDITED_SUMMARY, $user, $thread, $summary, $bump );
 
 		return $thread;
 	}
@@ -1056,15 +1067,16 @@ class LqtView {
 
 		$bump = !empty( $data['bump'] );
 
+		$user = RequestContext::getMain()->getUser(); // Need to inject
 		// Add the history entry.
-		$thread->commitRevision( $type, $thread, $data['summary'], $bump );
+		$thread->commitRevision( $type, $user, $thread, $data['summary'], $bump );
 
 		// Update subject if applicable.
 		if ( $thread->isTopmostThread() && !empty( $data['subject'] ) &&
 				$data['subject'] != $thread->subject() ) {
 			$thread->setSubject( $data['subject'] );
 			$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT,
-						$thread, $data['summary'] );
+						$user, $thread, $data['summary'] );
 		}
 
 		return $thread;
@@ -1089,7 +1101,7 @@ class LqtView {
 		$subject = $data['subject'];
 
 		$thread = Thread::create(
-			$root, $talkpage, null,
+			$root, $talkpage, $user, null,
 			Threads::TYPE_NORMAL, $subject,
 			$summary, null, $signature
 		);
