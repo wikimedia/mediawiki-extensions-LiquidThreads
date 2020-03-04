@@ -6,5 +6,7 @@
 	},
 	"lqt_undelete": "Pane takashiin",
 	"lqt_move_move": "Siirä",
-	"lqt-movethread": "Siirä"
+	"lqt-movethread": "Siirä",
+	"lqt-edit-signature": "(mookkaa allekirjotusta)",
+	"lqt_newmessages-title": "Uuet viestit"
 }

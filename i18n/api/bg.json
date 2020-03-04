@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ted Masters"
+		]
+	},
+	"apierror-liquidthreads-badsubject": "Темата, която сте посочили, не е валидна."
+}
