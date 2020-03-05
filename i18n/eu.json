@@ -5,7 +5,8 @@
 			"Joxemai",
 			"Kobazulo",
 			"Xabier Armendaritz",
-			"Subi"
+			"Subi",
+			"Theklan"
 		]
 	},
 	"lqt_movethread": "Mintzagaia beste orrialde batera mugitu",
@@ -68,7 +69,7 @@
 	"lqt-menu-trigger": "Gehiago",
 	"lqt-hot-topics": "Gai garrantzitsuak",
 	"lqt-add-reply": "Erantzuna gehitu",
-	"lqt-merge-submit": "Merge",
+	"lqt-merge-submit": "Konbinatu",
 	"lqt-enotif-subject-reply": "{{SITENAME}} eztabaida - Erantzuna: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} eztabaida - Mintzagai berria: $1",
 	"lqt-search-button": "Bilatu",
