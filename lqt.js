@@ -872,7 +872,7 @@
 				type = $editform.find( 'input[name=lqt_method]' ).val(),
 				wikiEditorContext = $editform.find( '#wpTextbox1' ).data( 'wikiEditor-context' );
 
-			if ( !wikiEditorContext || typeof ( wikiEditorContext ) === 'undefined' ||
+			if ( !wikiEditorContext || typeof wikiEditorContext === 'undefined' ||
 					!wikiEditorContext.$iframe ) {
 				text = $editform.find( '#wpTextbox1' ).val();
 			} else {
