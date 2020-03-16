@@ -41,25 +41,26 @@ class LqtDispatch {
 			$request->setVal( 'lqt_method', 'talkpage_new_thread' );
 			$request->setVal( 'section', '' );
 
-			$viewname = 'TalkpageView';
+			$viewname = TalkpageView::class;
 		} elseif ( !$lqt_action && (
 				( !in_array( $action, $lqt_actions ) && $action ) ||
 				$request->getVal( 'diff', null ) !== null ||
 				$request->getVal( 'oldid', null ) !== null )
 		) {
 			// Pass through wrapper
-			$viewname = 'TalkpageHeaderView';
+			$viewname = TalkpageHeaderView::class;
 		} elseif ( $action == 'protect' || $action == 'unprotect' ) {
 			// Pass through wrapper
-			$viewname = 'ThreadProtectionFormView';
+			$viewname = ThreadProtectionFormView::class;
 		} elseif ( $lqt_action == 'talkpage_history' ) {
-			$viewname = 'TalkpageHistoryView';
+			$viewname = TalkpageHistoryView::class;
 		} else {
-			$viewname = 'TalkpageView';
+			$viewname = TalkpageView::class;
 		}
 
 		Thread::$titleCacheById[$article->getId()] = $title;
 
+		/** @var LqtView $view */
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		self::$primaryView = $view;
 		return $view->show();
@@ -78,33 +79,33 @@ class LqtDispatch {
 		$lqt_method = $request->getVal( 'lqt_method' );
 
 		if ( $lqt_method == 'thread_history' ) {
-			$viewname = 'ThreadHistoryListingView';
+			$viewname = ThreadHistoryListingView::class;
 		} elseif ( $lqt_method == 'diff' ) {
 			// this clause and the next must be in this order.
-			$viewname = 'ThreadDiffView';
+			$viewname = ThreadDiffView::class;
 		} elseif ( $action == 'history'
 			|| $request->getVal( 'diff', null ) !== null ) {
-			$viewname = 'IndividualThreadHistoryView';
+			$viewname = IndividualThreadHistoryView::class;
 		} elseif ( $action == 'protect' || $action == 'unprotect' ) {
-			$viewname = 'ThreadProtectionFormView';
+			$viewname = ThreadProtectionFormView::class;
 		} elseif ( $request->getVal( 'lqt_oldid', null ) !== null ) {
-			$viewname = 'ThreadHistoricalRevisionView';
+			$viewname = ThreadHistoricalRevisionView::class;
 		} elseif ( $action == 'watch' || $action == 'unwatch' ) {
-			$viewname = 'ThreadWatchView';
+			$viewname = ThreadWatchView::class;
 		} elseif ( $action == 'delete' || $action == 'rollback' || $action == 'markpatrolled' ) {
 			return true;
 		} else {
-			$viewname = 'ThreadPermalinkView';
+			$viewname = ThreadPermalinkView::class;
 		}
 
+		/** @var LqtView $view */
 		$view = new $viewname( $output, $article, $title, $user, $request );
 		self::$primaryView = $view;
 		return $view->show();
 	}
 
 	public static function threadSummaryMain( &$output, &$article, &$title, &$user, &$request ) {
-		$viewname = 'SummaryPageView';
-		$view = new $viewname( $output, $article, $title, $user, $request );
+		$view = new SummaryPageView( $output, $article, $title, $user, $request );
 		self::$primaryView = $view;
 		return $view->show();
 	}

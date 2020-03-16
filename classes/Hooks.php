@@ -924,19 +924,19 @@ class LqtHooks {
 	public static function onParserFirstCallInit( $parser ) {
 		$parser->setFunctionHook(
 			'useliquidthreads',
-			[ 'LqtParserFunctions', 'useLiquidThreads' ]
+			[ LqtParserFunctions::class, 'useLiquidThreads' ]
 		);
 
 		$parser->setFunctionHook(
 			'lqtpagelimit',
-			[ 'LqtParserFunctions', 'lqtPageLimit' ]
+			[ LqtParserFunctions::class, 'lqtPageLimit' ]
 		);
 
 		global $wgLiquidThreadsAllowEmbedding;
 
 		if ( $wgLiquidThreadsAllowEmbedding ) {
-			$parser->setHook( 'talkpage', [ 'LqtParserFunctions', 'lqtTalkPage' ] );
-			$parser->setHook( 'thread', [ 'LqtParserFunctions', 'lqtThread' ] );
+			$parser->setHook( 'talkpage', [ LqtParserFunctions::class, 'lqtTalkPage' ] );
+			$parser->setHook( 'thread', [ LqtParserFunctions::class, 'lqtThread' ] );
 		}
 
 		return true;
