@@ -439,7 +439,7 @@ class LqtView {
 	 * @param string $method
 	 * @param int|null $operand
 	 * @param User $user
-	 * @return String
+	 * @return string
 	 * @throws Exception
 	 */
 	public static function getInlineEditForm( $talkpage, $method, $operand, User $user ) {
