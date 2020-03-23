@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Giromin Cangiaxo"
+		]
+	},
+	"lqt-no-new-messages": "Nœuvi messaggi pe ti no ghe n'è.",
+	"lqt-marked-as-read-placeholder": "O thread $1 o l'è stæto marcou comme za lezuo.",
+	"lqt-feed-title-all": "{{SITENAME}} — Nœuvi messaggi",
+	"lqt-feed-title-all-from": "{{SITENAME}} — Noeuvi messaggi da $1"
+}
