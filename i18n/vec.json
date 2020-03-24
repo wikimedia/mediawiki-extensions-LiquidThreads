@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Candalua",
-			"GatoSelvadego"
+			"GatoSelvadego",
+			"Fierodelveneto"
 		]
 	},
 	"lqt-desc": "Zonta dei argomenti de discussion a le pagine de discussion",
@@ -61,7 +62,7 @@
 	"lqt_change_merged_to": "La [$1 risposta evidensià] la xe stà spostà qua da n'altro argomento",
 	"lqt_change_split_from": "Un [$1 tocheto] de sto argomento el xe stà separà e messo in te n'argomento par conto suo",
 	"lqt_change_root_blanked": "El testo de [$1 un comento] el xe stà cavà.",
-	"lqt_youhavenewmessages": "Te ghè [[$1|messagi novi]].",
+	"lqt_youhavenewmessages": "Te ghè [[$1|mesaji novi]].",
 	"lqt_protectedfromreply": "Sto argomento el xe stà $1. No se pole rispóndarghe.",
 	"lqt_protectedfromreply_link": "protèto",
 	"lqt_subject": "Ogeto:",
@@ -106,7 +107,7 @@
 	"lqt-marked-read": "Argomento '''$1''' segnà come zà lèto.",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|messagio segnà come lèto|messagi segnà come lèti}}.",
 	"lqt-email-undo": "Anula",
-	"lqt-no-new-messages": "No ghe xe messagi novi par ti.",
+	"lqt-no-new-messages": "No ghe xé mesaji novi par ti.",
 	"lqt-new-messages": "Ghe xe de i mesaji novi par ti.",
 	"lqt-email-info-undo": "Recùpera l'argomento che te ghè pena butà via.",
 	"lqt-date-info": "Sto colegamento no'l va, parché te sì drio védar i argomenti de tute le date.",
@@ -172,7 +173,7 @@
 	"lqt-search-button": "Serca",
 	"searchprofile-threads": "Discussion",
 	"searchprofile-threads-tooltip": "Serca le discussion par argomento e le pagine de discussion",
-	"lqt-ajax-updated": "Sto argomento el gà dei messagi novi.",
+	"lqt-ajax-updated": "Sta discusion ła ga dei mesaji novi.",
 	"lqt-ajax-update-link": "Ajorna",
 	"lqt-thread-show-replies": "Mostra $1 {{PLURAL:$1|risposta|risposte}}",
 	"lqt-thread-show-more": "Mostra piassè risposte",
@@ -201,8 +202,8 @@
 	"lqt-drag-subject": "Titolo de l'argomento novo:",
 	"lqt-edit-signature": "(canbia la firma)",
 	"lqt-preview-signature": "(anteprima)",
-	"lqt-feed-title-all": "{{SITENAME}} — Messagi novi",
-	"lqt-feed-title-all-from": "{{SITENAME}} — Messagi novi da $1",
+	"lqt-feed-title-all": "{{SITENAME}} — Mesaji novi",
+	"lqt-feed-title-all-from": "{{SITENAME}} — Mesaji novi da $1",
 	"lqt-feed-title-new-threads": "{{SITENAME}} — Argomenti novi",
 	"lqt-feed-title-new-threads-from": "{{SITENAME}} — Argomenti novi da $1",
 	"lqt-feed-title-replies": "{{SITENAME}} — Risposte",
@@ -210,7 +211,7 @@
 	"lqt-feed-new-thread-intro": "Argomento novo su $1, tacà da $2",
 	"lqt-feed-reply-intro": "Risposta a $3 (su $1) mandà da $2",
 	"lqt-newmessages-n": "Messagi novi ($1)",
-	"lqt_newmessages-title": "Messagi novi",
+	"lqt_newmessages-title": "Mesaji novi",
 	"lqt-newpost-summary": "Argomento novo: $1",
 	"lqt-reply-summary": "Rispóndighe a [[$2|$1]]",
 	"lqt-talkpage-history-title": "Storico de la pagina de discussion",
