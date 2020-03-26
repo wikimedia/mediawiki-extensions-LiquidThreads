@@ -1915,7 +1915,7 @@ class Thread {
 	 * @return array[]
 	 */
 	private static function getRevisionQueryInfo() {
-		$info = Revision::getQueryInfo();
+		$info = MediaWikiServices::getInstance()->getRevisionStore()->getQueryInfo();
 		if ( !isset( $info['fields']['rev_user_text'] ) ) {
 			$info['fields']['rev_user_text'] = 'rev_user_text';
 		}
