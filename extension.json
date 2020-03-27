@@ -150,7 +150,6 @@
 				"jquery.ui",
 				"mediawiki.action.edit.preview",
 				"mediawiki.api",
-				"user.tokens",
 				"user.options",
 				"mediawiki.api",
 				"mediawiki.util"
