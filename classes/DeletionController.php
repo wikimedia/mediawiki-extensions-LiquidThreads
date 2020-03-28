@@ -1,4 +1,5 @@
 <?php
+
 class LqtDeletionController {
 	public static $pageids_to_revive;
 

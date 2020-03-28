@@ -1,4 +1,5 @@
 <?php
+
 class SynchroniseThreadArticleDataJob extends Job {
 	public function __construct( $title, $params ) {
 		parent::__construct( 'synchroniseThreadArticleData', $title, $params );
