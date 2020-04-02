@@ -115,7 +115,7 @@
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|poruka označena je pročitanom|poruke označene su pročitanima|poruka označene su pročitanima}}.",
 	"lqt-email-undo": "Vrati",
 	"lqt-no-new-messages": "Nemate novih poruka.",
-	"lqt-new-messages": "Imate novih poruka.",
+	"lqt-new-messages": "Imate nove poruke.",
 	"lqt-email-info-undo": "Vrati temu koju ste upravo odbacili.",
 	"lqt-date-info": "Poveznica je onemogućeno jer gledate teme za sve datume.",
 	"lqt-newmessages-context": "Cijela rasprava",
