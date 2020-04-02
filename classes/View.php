@@ -483,8 +483,7 @@ class LqtView {
 	 */
 	public function showNewThreadForm( $talkpage ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
-		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-		if ( !$this->handleNonce( $submitted_nonce, $nonce_key ) ) {
+		if ( $this->request->wasPosted() && !$this->checkNonce( $submitted_nonce ) ) {
 			return;
 		}
 
@@ -589,11 +588,7 @@ class LqtView {
 					[ &$info, &$e, &$talkpage ] );
 
 			$thread = self::newPostMetadataUpdates( $this->user, $info );
-
-			if ( $submitted_nonce && $nonce_key ) {
-				global $wgMemc;
-				$wgMemc->set( $nonce_key, 1, 3600 );
-			}
+			self::consumeNonce( $submitted_nonce );
 		}
 
 		if ( $this->output->getRedirect() != '' ) {
@@ -614,8 +609,7 @@ class LqtView {
 		global $wgRequest;
 
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
-		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-		if ( !$this->handleNonce( $submitted_nonce, $nonce_key ) ) {
+		if ( $this->request->wasPosted() && !$this->checkNonce( $submitted_nonce ) ) {
 			return;
 		}
 
@@ -703,11 +697,7 @@ class LqtView {
 					[ &$info, &$e, &$thread ] );
 
 			$newThread = self::replyMetadataUpdates( $this->user, $info );
-
-			if ( $submitted_nonce && $nonce_key ) {
-				global $wgMemc;
-				$wgMemc->set( $nonce_key, 1, 3600 );
-			}
+			self::consumeNonce( $submitted_nonce );
 		}
 
 		if ( $this->output->getRedirect() != '' ) {
@@ -726,8 +716,7 @@ class LqtView {
 	 */
 	public function showPostEditingForm( Thread $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
-		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-		if ( !$this->handleNonce( $submitted_nonce, $nonce_key ) ) {
+		if ( $this->request->wasPosted() && !$this->checkNonce( $submitted_nonce ) ) {
 			return;
 		}
 
@@ -823,11 +812,7 @@ class LqtView {
 					'root' => $article,
 				]
 			);
-
-			if ( $submitted_nonce && $nonce_key ) {
-				global $wgMemc;
-				$wgMemc->set( $nonce_key, 1, 3600 );
-			}
+			self::consumeNonce( $submitted_nonce );
 		}
 
 		if ( $this->output->getRedirect() != '' ) {
@@ -844,8 +829,7 @@ class LqtView {
 	 */
 	public function showSummarizeForm( Thread $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
-		$nonce_key = wfMemcKey( 'lqt-nonce', $submitted_nonce, $this->user->getName() );
-		if ( !$this->handleNonce( $submitted_nonce, $nonce_key ) ) {
+		if ( $this->request->wasPosted() && !$this->checkNonce( $submitted_nonce ) ) {
 			return;
 		}
 
@@ -904,11 +888,7 @@ class LqtView {
 					'bump' => $bump,
 				]
 			);
-
-			if ( $submitted_nonce && $nonce_key ) {
-				global $wgMemc;
-				$wgMemc->set( $nonce_key, 1, 3600 );
-			}
+			self::consumeNonce( $submitted_nonce );
 		}
 
 		if ( $this->output->getRedirect() != '' ) {
@@ -920,20 +900,45 @@ class LqtView {
 		$this->output->addHTML( '</div>' );
 	}
 
-	public function handleNonce( $submitted_nonce, $nonce_key ) {
-		// Add a one-time random string to a hidden field. Store the random string
-		// in memcached on submit and don't allow the edit to go ahead if it's already
-		// been added.
-		if ( $submitted_nonce ) {
-			global $wgMemc;
+	/**
+	 * Check a nonce token on HTTP POST during a thread submission
+	 *
+	 * @param string $token
+	 * @return bool Whether the user nonce token is unused or no token was provided
+	 */
+	public function checkNonce( $token ) {
+		if ( !$token ) {
+			return true;
+		}
 
-			if ( $wgMemc->get( $nonce_key ) ) {
-				$this->output->redirect( $this->article->getTitle()->getLocalURL() );
-				return false;
-			}
+		// Primary data-center cluster cache
+		$cache = ObjectCache::getLocalClusterInstance();
+		$nonce_key = $cache->makeKey( 'lqt-nonce', $token, $this->user->getName() );
+
+		if ( $cache->get( $nonce_key ) ) {
+			$this->output->redirect( $this->article->getTitle()->getLocalURL() );
+			return false;
 		}
 
 		return true;
+	}
+
+	/**
+	 * Consume a nonce token on HTTP POST during a thread submission
+	 *
+	 * @param string $token
+	 * @return bool Whether the user nonce token was acquired or no token was provided
+	 */
+	public function consumeNonce( $token ) {
+		if ( !$token ) {
+			return true;
+		}
+
+		// Primary data-center cluster cache
+		$cache = ObjectCache::getLocalClusterInstance();
+		$nonce_key = $cache->makeKey( 'lqt-nonce', $token, $this->user->getName() );
+
+		return $cache->add( $nonce_key, 1, $cache::TTL_HOUR );
 	}
 
 	/**
