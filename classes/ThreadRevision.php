@@ -134,7 +134,7 @@ class ThreadRevision {
 
 		$dbw = wfGetDB( DB_MASTER );
 
-		$dbw->replace( 'thread_history', [ 'th_thread' ], $row, __METHOD__ );
+		$dbw->replace( 'thread_history', 'th_thread', $row, __METHOD__ );
 	}
 
 	public function getRow() {

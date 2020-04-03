@@ -59,9 +59,14 @@ class NewMessages {
 
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->replace(
-			'user_message_state', [ [ 'ums_user', 'ums_thread' ] ],
-			[ 'ums_user' => $user_id, 'ums_thread' => $thread_id,
-			'ums_read_timestamp' => null, 'ums_conversation' => $conversation ],
+			'user_message_state',
+			[ [ 'ums_user', 'ums_thread' ] ],
+			[
+				'ums_user' => $user_id,
+				'ums_thread' => $thread_id,
+				'ums_read_timestamp' => null,
+				'ums_conversation' => $conversation
+			],
 			__METHOD__
 		);
 
