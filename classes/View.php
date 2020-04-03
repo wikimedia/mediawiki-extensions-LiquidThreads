@@ -216,12 +216,14 @@ class LqtView {
 	public static function diffQuery( Thread $thread, ThreadRevision $revision ) {
 		$changed_thread = $revision->getChangeObject();
 		$curr_rev_id = $changed_thread->rootRevision();
-		$curr_rev = Revision::newFromId( $curr_rev_id );
+
+		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+		$curr_rev_record = $revLookup->getRevisionById( $curr_rev_id );
 
 		$oldid = '';
-		if ( $curr_rev ) {
-			$prev_rev = $curr_rev->getPrevious();
-			$oldid = $prev_rev ? $prev_rev->getId() : '';
+		if ( $curr_rev_record ) {
+			$prev_rev_record = $revLookup->getPreviousRevision( $curr_rev_record );
+			$oldid = $prev_rev_record ? $prev_rev_record->getId() : '';
 		}
 
 		$query = [

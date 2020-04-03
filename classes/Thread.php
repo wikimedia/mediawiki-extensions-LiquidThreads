@@ -2,6 +2,8 @@
 
 use Mediawiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\UserIdentity;
 
 class Thread {
@@ -1443,9 +1445,15 @@ class Thread {
 	}
 
 	public function redirectThread() {
-		$rev = Revision::newFromId( $this->root()->getLatest() );
+		$revContent = MediaWikiServices::getInstance()
+			->getRevisionLookup()
+			->getRevisionById( $this->root()->getLatest() )
+			->getContent(
+				SlotRecord::MAIN,
+				RevisionRecord::RAW
+			);
 		$rtitle = ContentHandler::makeContent(
-			$rev->getContent( Revision::RAW )->getNativeData(),
+			$revContent->getNativeData(),
 			null,
 			CONTENT_MODEL_WIKITEXT
 		)->getRedirectTarget();
