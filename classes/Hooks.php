@@ -747,7 +747,6 @@ class LqtHooks {
 			return true;
 		}
 
-		$statusValues = array_flip( self::$editedStati );
 		$typeValues = array_flip( self::$threadTypes );
 
 		$info = $pageInfo['DiscussionThreading'];

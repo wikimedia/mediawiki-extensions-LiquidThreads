@@ -71,8 +71,6 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 			'lqt-' . $this->getPageName()
 		);
 
-		$par = $this->mThread->title()->getPrefixedText();
-
 		$form->setSubmitText( $this->getSubmitText() );
 		$form->setSubmitCallback( [ $this, 'trySubmit' ] );
 

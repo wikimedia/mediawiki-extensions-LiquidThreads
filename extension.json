@@ -100,7 +100,6 @@
 	"AutoloadClasses": {
 		"LqtDispatch": "classes/Dispatch.php",
 		"LqtView": "classes/View.php",
-		"HistoricalThread": "classes/HistoricalThread.php",
 		"Thread": "classes/Thread.php",
 		"Threads": "classes/Threads.php",
 		"NewMessages": "classes/NewMessagesController.php",

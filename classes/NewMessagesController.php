@@ -228,21 +228,12 @@ class NewMessages {
 		];
 	}
 
-	// Would refactor User::decodeOptions, but the whole point is that this is
-	// compatible with old code :)
-	public static function decodeUserOptions( $str ) {
-		$opts = [];
-		$a = explode( "\n", $str );
-		foreach ( $a as $s ) {
-			$m = [];
-			if ( preg_match( "/^(.[^=]*)=(.*)$/", $s, $m ) ) {
-				$opts[$m[1]] = $m[2];
-			}
-		}
-
-		return $opts;
-	}
-
+	/**
+	 * @param Thread $t
+	 * @param int[] $watching_users
+	 * @param string $timestamp
+	 * @param int $type
+	 */
 	public static function notifyUsersByMail( $t, $watching_users, $timestamp, $type ) {
 		$messages = [
 			Threads::CHANGE_REPLY_CREATED => 'lqt-enotif-reply',
