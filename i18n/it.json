@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alexmar983",
 			"Aushulz",
 			"Beta16",
 			"Blaisorblade",
@@ -8,15 +9,14 @@
 			"Darth Kule",
 			"F. Cosoleto",
 			"Gianfranco",
+			"Gmelfi",
 			"Marco 27",
 			"Melos",
 			"Nemo bis",
 			"PaoloRomano",
+			"Statix64",
 			"Una giornata uggiosa '94",
-			"VittGam",
-			"Gmelfi",
-			"Alexmar983",
-			"Statix64"
+			"VittGam"
 		]
 	},
 	"lqt-desc": "Aggiunge discussioni in stile thread alle pagine di discussione",

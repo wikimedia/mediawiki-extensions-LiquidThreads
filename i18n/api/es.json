@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"DannyS712",
 			"Dgstranz",
 			"Fitoschido",
 			"Macofe",
 			"MarcoAurelio",
-			"Ryo567",
-			"DannyS712"
+			"Ryo567"
 		]
 	},
 	"apihelp-feedthreads-description": "Devolver un suministro de hilos de discusión.",

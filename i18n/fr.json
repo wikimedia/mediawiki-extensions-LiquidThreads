@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"0x010C",
 			"Crochet.david",
 			"Dereckson",
+			"Derugon",
 			"Gomoko",
 			"Grondin",
 			"Hercule",
@@ -10,22 +12,20 @@
 			"Jean-Frédéric",
 			"McDutchie",
 			"Mormegil",
+			"Niridya",
+			"Nnemo",
+			"Orlodrim",
 			"Peter17",
 			"PieRRoMaN",
+			"Pols12",
+			"Ricordisamoa",
 			"Sherbrooke",
+			"Thibaut120094",
 			"Urhixidur",
 			"Verdy p",
-			"Wyz",
-			"Zetud",
-			"0x010C",
-			"Nnemo",
-			"Ricordisamoa",
 			"Wladek92",
-			"Pols12",
-			"Derugon",
-			"Thibaut120094",
-			"Niridya",
-			"Orlodrim"
+			"Wyz",
+			"Zetud"
 		]
 	},
 	"lqt-desc": "Ajoute des fils de discussion dans les pages de discussion",
