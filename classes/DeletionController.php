@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Revision\RevisionRecord;
+
 class LqtDeletionController {
 	public static $pageids_to_revive;
 
@@ -50,9 +52,11 @@ class LqtDeletionController {
 		}
 	}
 
-	public static function onArticleRevisionUndeleted( Title $title, $revision, $page_id ) {
-		if ( $title->getNamespace() == NS_LQT_THREAD ) {
-			self::$pageids_to_revive[$page_id] = $title;
+	public static function onRevisionUndeleted( RevisionRecord $revisionRecord ) {
+		$linkTarget = $revisionRecord->getPageAsLinkTarget();
+		if ( $linkTarget->getNamespace() == NS_LQT_THREAD ) {
+			$pageId = $revisionRecord->getPageId();
+			self::$pageids_to_revive[$pageId] = Title::newFromLinkTarget( $linkTarget );
 		}
 
 		return true;

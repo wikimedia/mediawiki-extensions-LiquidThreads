@@ -220,7 +220,7 @@
 		"ImportHandlePageXMLTag": "LqtHooks::handlePageXMLTag",
 		"AfterImportPage": "LqtHooks::afterImportPage",
 		"ArticleDeleteComplete": "LqtDeletionController::onArticleDeleteComplete",
-		"ArticleRevisionUndeleted": "LqtDeletionController::onArticleRevisionUndeleted",
+		"RevisionUndeleted": "LqtDeletionController::onRevisionUndeleted",
 		"ArticleUndelete": "LqtDeletionController::onArticleUndelete",
 		"ArticleConfirmDelete": "LqtDeletionController::onArticleConfirmDelete",
 		"ArticleDelete": "LqtDeletionController::onArticleDelete",
