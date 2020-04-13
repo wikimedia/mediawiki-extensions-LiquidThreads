@@ -83,7 +83,7 @@
 	"lqt_change_undeleted": "El [$1 mensaje resaltado] ha sido restaurado",
 	"lqt_change_moved": "[$1 Este hilo] fue movido a otra página de discusión",
 	"lqt_change_split": "[$1 Este hilo] fue separado desde otro hilo",
-	"lqt_change_edited_subject": "El tema de este hilo fue cambiado de \"$2\" a \"$3\".",
+	"lqt_change_edited_subject": "El tema de este hilo fue cambiado de «$2» a «$3».",
 	"lqt_change_merged_from": "Una [$1 respuesta] a este hilo fue movida a otro hilo",
 	"lqt_change_merged_to": "La [$1 respuesta resaltada] fue movida desde otro hilo",
 	"lqt_change_split_from": "Un [$1 subhilo] de este hilo se ha separado en su propio hilo",
