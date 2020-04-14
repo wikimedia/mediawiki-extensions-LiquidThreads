@@ -6,6 +6,7 @@
 	},
 	"lqt_delete": "ሰረዘ",
 	"lqt_discussion_link": "ምይይጥ",
+	"lqt_protectedfromreply_link": "ዝተሓለወ",
 	"lqt_move_move": "ኣንቀሳቐሰ",
 	"lqt-summary": "መጠቓለሊ",
 	"lqt-email-undo": "ፈትሐ",
@@ -14,6 +15,6 @@
 	"lqt-menu-trigger": "ተወሳኺ",
 	"lqt-search-button": "ምድላይ",
 	"lqt-ajax-update-link": "ኣሐዲስ",
-	"lqt-newmessages-n": "ሓድሽ {{PLURAL:$1|መልእኽቲ|መልእክትታት}} ($1)",
-	"lqt_newmessages-title": "ሓድሽ መልእክትታት"
+	"lqt-newmessages-n": "{{PLURAL:$1|ሓድሽ መልእኽቲ|ሓደሽቲ መልእክትታት}} ($1)",
+	"lqt_newmessages-title": "ሓደሽቲ መልእክትታት"
 }

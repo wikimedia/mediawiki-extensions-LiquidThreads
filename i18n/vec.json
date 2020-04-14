@@ -106,7 +106,7 @@
 	"lqt-read-all-tooltip": "Cava tuti i argomenti dai messagi novi.\nSe podarà ancora védarli su la so pagina de discussion original.\nNa olta fata sta operassion, no se pole mia anularla.",
 	"lqt-marked-read": "Argomento '''$1''' segnà come zà lèto.",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|messagio segnà come lèto|messagi segnà come lèti}}.",
-	"lqt-email-undo": "Anula",
+	"lqt-email-undo": "Desfare",
 	"lqt-no-new-messages": "No ghe xé mesaji novi par ti.",
 	"lqt-new-messages": "Ghe xe de i mesaji novi par ti.",
 	"lqt-email-info-undo": "Recùpera l'argomento che te ghè pena butà via.",
