@@ -52,11 +52,10 @@ class LqtDeletionController {
 		}
 	}
 
-	public static function onRevisionUndeleted( RevisionRecord $revisionRecord ) {
+	public static function onRevisionUndeleted( RevisionRecord $revisionRecord, $oldPageId ) {
 		$linkTarget = $revisionRecord->getPageAsLinkTarget();
 		if ( $linkTarget->getNamespace() == NS_LQT_THREAD ) {
-			$pageId = $revisionRecord->getPageId();
-			self::$pageids_to_revive[$pageId] = Title::newFromLinkTarget( $linkTarget );
+			self::$pageids_to_revive[$oldPageId] = Title::newFromLinkTarget( $linkTarget );
 		}
 
 		return true;
