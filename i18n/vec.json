@@ -70,7 +70,7 @@
 	"lqt_move_placeholder": "Sto qua el xe un segnal che dise che l'argomento $1 el xe stà portà via da sta pagina.\nEl spostamento lo ga fato $2 el $3 a le $4.\nDesso l'argomento el se cata su $5.",
 	"lqt_thread_deleted_for_sysops": "Sto argomento el xe stà '''scancelà''' e pol védarlo solo i aministradori.",
 	"lqt_thread_deleted": "Sto argomento el xe stà scancelà.",
-	"lqt_summary_notice": "Nissuni gà modificà sta discussion par almanco {{PLURAL:$2|un zorno intiero|$2 zorni intieri}}.\nSe la discussion la xe finìa, forsi te vorè $1.",
+	"lqt_summary_notice": "Nisuni gà modifegà sta discusion par imanco {{PLURAL:$2|on dì intiero|$2 dì intieri}}.\nSe ła discusion ła xe finìa, $1.",
 	"lqt_summary_notice_link": "inserir un ogeto",
 	"lqt_summary_label": "Riassunto de l'argomento:",
 	"lqt_summary_subtitle": "Ogeto de \"$1\"",
