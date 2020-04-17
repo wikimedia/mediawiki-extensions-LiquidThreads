@@ -2365,7 +2365,7 @@ class LqtView {
 			$user = User::newFromId( $uid );
 		}
 
-		$parser->Options( new ParserOptions( $user ) );
+		$parser->setOptions( new ParserOptions( $user ) );
 
 		$sig = $parser->getUserSig( $user );
 
