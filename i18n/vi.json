@@ -3,6 +3,7 @@
 		"authors": [
 			"Max20091",
 			"Minh Nguyen",
+			"Phjtieudoc",
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran"
 		]
@@ -97,7 +98,7 @@
 	"lqt_header_warning_after_big": "Đầu đề dùng để thông báo và mở đầu.\nThay vào đó bạn có thể muốn $2.",
 	"lqt_header_warning_bold": "tiêu đề trang thảo luận",
 	"lqt_header_warning_new_discussion": "bắt đầu cuộc thảo luận mới",
-	"lqt_sorting_order": "Thứ tự xếp:",
+	"lqt_sorting_order": "Thứ tự sắp xếp:",
 	"lqt_sort_newest_changes": "xem lần cuối sửa đổi trước",
 	"lqt_sort_newest_threads": "xem các luồng mới nhất trước",
 	"lqt_sort_oldest_threads": "xem các luồng cũ nhất trước",
