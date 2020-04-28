@@ -58,7 +58,7 @@ class LqtDispatch {
 			$viewname = TalkpageView::class;
 		}
 
-		Thread::$titleCacheById[$article->getId()] = $title;
+		Thread::$titleCacheById[$article->getPage()->getId()] = $title;
 
 		/** @var LqtView $view */
 		$view = new $viewname( $output, $article, $title, $user, $request );

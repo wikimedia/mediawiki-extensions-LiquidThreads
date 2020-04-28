@@ -63,7 +63,7 @@ class Threads {
 	 * @param Article $talkpage
 	 */
 	public static function createTalkpageIfNeeded( $talkpage ) {
-		if ( !$talkpage->exists() ) {
+		if ( !$talkpage->getPage()->exists() ) {
 			try {
 
 				$talkpage->getPage()->doEditContent(
@@ -111,7 +111,7 @@ class Threads {
 
 		foreach ( $threads as $thread ) {
 			if ( $thread->root() ) {
-				self::$cache_by_root[$thread->root()->getId()] = $thread;
+				self::$cache_by_root[$thread->root()->getPage()->getId()] = $thread;
 			}
 			self::$cache_by_id[$thread->id()] = $thread;
 		}
@@ -146,12 +146,16 @@ class Threads {
 	 * @return Thread|null
 	 */
 	public static function withRoot( $post, $bulkLoad = true ) {
+		if ( $post instanceof Article ) {
+			$post = $post->getPage();
+		}
+
 		if ( $post->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			// No articles outside the thread namespace have threads associated with them;
 			return null;
 		}
 
-		if ( $post->getId() == 0 ) {
+		if ( !$post->getId() ) {
 			// Page ID zero doesn't exist.
 			return null;
 		}
@@ -186,9 +190,16 @@ class Threads {
 	 * @return Thread
 	 */
 	public static function withSummary( $article, $bulkLoad = true ) {
-		$ts = self::where( [ 'thread_summary_page' => $article->getId() ],
-			[], $bulkLoad );
-		return self::assertSingularity( $ts, 'thread_summary_page', $article->getId() );
+		$ts = self::where(
+			[ 'thread_summary_page' => $article->getPage()->getId() ],
+			[],
+			$bulkLoad
+		);
+		return self::assertSingularity(
+			$ts,
+			'thread_summary_page',
+			$article->getPage()->getId()
+		);
 	}
 
 	public static function articleClause( $article ) {
@@ -200,7 +211,7 @@ class Threads {
 
 		$conds = [ $titleCond ];
 
-		if ( $article->getId() ) {
+		if ( $article->getPage()->getId() ) {
 			$idCond = [ 'thread_article_id' => $article->getId() ];
 			$conds[] = $dbr->makeList( $idCond, LIST_AND );
 		}

@@ -333,7 +333,10 @@ class LqtHooks {
 		$article = $editPage->getArticle();
 		$title = $article->getTitle();
 
-		if ( !$article->exists() && $title->getNamespace() == NS_LQT_THREAD ) {
+		if (
+			!$article->getPage()->exists()
+			&& $title->getNamespace() == NS_LQT_THREAD
+		) {
 			unset( $checkboxes['minor'] );
 			unset( $checkboxes['watch'] );
 		}
@@ -770,7 +773,7 @@ class LqtHooks {
 			$summaryPageName = $info['ThreadSummaryPage'];
 			$summaryPage = new Article( Title::newFromText( $summaryPageName ), 0 );
 
-			if ( $summaryPage->exists() ) {
+			if ( $summaryPage->getPage()->exists() ) {
 				$thread->setSummary( $summaryPage );
 			} else {
 				self::addPendingRelationship( $thread->id(), 'thread_summary_page',

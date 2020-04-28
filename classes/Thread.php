@@ -457,7 +457,7 @@ class Thread {
 		if ( !$new_articleID ) {
 			$article = new Article( $newTitle, 0 );
 			Threads::createTalkpageIfNeeded( $article );
-			$new_articleID = $article->getId();
+			$new_articleID = $article->getPage()->getId();
 		}
 
 		// Update on *all* subthreads.
@@ -785,7 +785,7 @@ class Thread {
 				$article->getPage()->loadPageData( $row );
 
 				self::$titleCacheById[$t->getArticleID()] = $t;
-				$articlesById[$article->getId()] = $article;
+				$articlesById[$article->getPage()->getId()] = $article;
 
 				if ( count( self::$titleCacheById ) > 10000 ) {
 					self::$titleCacheById = [];
@@ -869,7 +869,7 @@ class Thread {
 		$line = $dbr->selectRow(
 			$revQuery['tables'],
 			[ 'rev_user_text' => $revQuery['fields']['rev_user_text'] ],
-			[ 'rev_page' => $article->getId() ],
+			[ 'rev_page' => $article->getPage()->getId() ],
 			__METHOD__,
 			[
 				'ORDER BY' => 'rev_timestamp',
@@ -1246,7 +1246,7 @@ class Thread {
 	}
 
 	public function setArticle( Article $a ) {
-		$this->articleId = $a->getID();
+		$this->articleId = $a->getPage()->getID();
 		$this->articleNamespace = $a->getTitle()->getNamespace();
 		$this->articleTitle = $a->getTitle()->getDBkey();
 		$this->touch();
@@ -1278,7 +1278,7 @@ class Thread {
 			}
 		}
 
-		if ( isset( $article ) && $article->exists() ) {
+		if ( isset( $article ) && $article->getPage()->exists() ) {
 			$this->article = $article;
 			return $article;
 		} else {
@@ -1768,7 +1768,7 @@ class Thread {
 				$revQuery['tables'],
 				[ 'rev_user_text' => $revQuery['fields']['rev_user_text'] ],
 				[
-					'rev_page' => $this->root()->getId(),
+					'rev_page' => $this->root()->getPage()->getId(),
 					'rev_parent_id != ' . $dbr->addQuotes( 0 )
 				],
 				__METHOD__,
