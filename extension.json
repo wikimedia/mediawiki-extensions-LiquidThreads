@@ -45,7 +45,6 @@
 		"lqtnotifytalk": false,
 		"lqtdisplaydepth": 5,
 		"lqtdisplaycount": 25,
-		"lqtcustomsignatures": true,
 		"lqt-watch-threads": true
 	},
 	"AvailableRights": [

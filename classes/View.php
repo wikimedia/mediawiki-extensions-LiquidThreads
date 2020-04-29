@@ -2338,24 +2338,15 @@ class LqtView {
 	public function getSignature( $user ) {
 		if ( is_object( $user ) ) {
 			$uid = $user->getId();
-			$name = $user->getName();
 		} elseif ( is_int( $user ) ) {
 			$uid = $user;
 			$user = User::newFromId( $uid );
-			$name = $user->getName();
 		} else {
 			$user = User::newFromName( $user );
-			$name = $user->getName();
 			$uid = $user->getId();
 		}
 
-		if ( $this->user->getOption( 'lqtcustomsignatures' ) ) {
-			return $this->getUserSignature( $user, $uid );
-		} else {
-			// @FIXME Method not found
-			// @phan-suppress-next-line PhanUndeclaredMethod
-			return $this->getBoringSignature( $user, $uid, $name );
-		}
+		return $this->getUserSignature( $user, $uid );
 	}
 
 	public static function getUserSignature( $user, $uid = null ) {
