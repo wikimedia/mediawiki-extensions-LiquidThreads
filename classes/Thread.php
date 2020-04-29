@@ -72,14 +72,14 @@ class Thread {
 		$root,
 		Article $article,
 		User $user,
-		?Thread $superthread,
+		?self $superthread,
 		$type = Threads::TYPE_NORMAL,
 		$subject = '',
 		$summary = '',
 		$bump = null,
 		$signature = null
 	) {
-		$thread = new Thread( null );
+		$thread = new self( null );
 
 		if ( !in_array( $type, self::$VALID_TYPES ) ) {
 			throw new Exception( __METHOD__ . ": invalid change type $type." );
@@ -573,7 +573,7 @@ class Thread {
 
 	/**
 	 * @param stdClass $row
-	 * @return Thread
+	 * @return self
 	 */
 	public static function newFromRow( $row ) {
 		$id = $row->thread_id;
@@ -582,7 +582,7 @@ class Thread {
 			return Threads::$cache_by_id[$id];
 		}
 
-		return new Thread( $row );
+		return new self( $row );
 	}
 
 	/**
@@ -667,7 +667,7 @@ class Thread {
 	 * Load a list of threads in bulk, including all subthreads.
 	 *
 	 * @param object[] $rows
-	 * @return Thread[]
+	 * @return self[]
 	 */
 	public static function bulkLoad( $rows ) {
 		// Preload subthreads
@@ -884,7 +884,7 @@ class Thread {
 		}
 	}
 
-	public static function recursiveGetReplyCount( Thread $thread, $level = 1 ) {
+	public static function recursiveGetReplyCount( self $thread, $level = 1 ) {
 		if ( $level > 80 ) {
 			return 1;
 		}
@@ -1061,7 +1061,7 @@ class Thread {
 		$doingUpdates = false;
 	}
 
-	public function addReply( Thread $thread ) {
+	public function addReply( self $thread ) {
 		$thread->setSuperThread( $this );
 
 		if ( is_array( $this->replies ) ) {
@@ -1075,7 +1075,7 @@ class Thread {
 		$this->incrementReplyCount( $thread->replyCount() + 1 );
 	}
 
-	private function removeReply( Thread $thread ) {
+	private function removeReply( self $thread ) {
 		$thread = $thread->id();
 
 		$this->replies();
@@ -1110,7 +1110,7 @@ class Thread {
 	}
 
 	/**
-	 * @return Thread[]
+	 * @return self[]
 	 */
 	public function replies() {
 		if ( !$this->id() ) {
@@ -1151,7 +1151,7 @@ class Thread {
 		return $this->replies;
 	}
 
-	public function setSuperthread( ?Thread $thread ) {
+	public function setSuperthread( ?self $thread ) {
 		if ( $thread == null ) {
 			$this->parentId = null;
 			$this->ancestorId = 0;
@@ -1219,7 +1219,7 @@ class Thread {
 	 * Due to a bug in earlier versions, the topmost thread sometimes isn't there.
 	 * Fix the corruption by repeatedly grabbing the parent until we hit the topmost thread.
 	 *
-	 * @return Thread
+	 * @return self
 	 */
 	public function fixMissingAncestor() {
 		$thread = $this;
@@ -1420,7 +1420,7 @@ class Thread {
 	/**
 	 * Synonym for replies()
 	 *
-	 * @return Thread[]
+	 * @return self[]
 	 */
 	public function subthreads() {
 		return $this->replies();
@@ -1560,7 +1560,7 @@ class Thread {
 		return null;
 	}
 
-	public static function createdSortCallback( Thread $a, Thread $b ) {
+	public static function createdSortCallback( self $a, self $b ) {
 		$a = $a->created();
 		$b = $b->created();
 
@@ -1597,7 +1597,7 @@ class Thread {
 		$oldTopThread->commitRevision( Threads::CHANGE_SPLIT_FROM, $user, $this, $reason );
 	}
 
-	public function moveToParent( Thread $newParent, $reason = '' ) {
+	public function moveToParent( self $newParent, $reason = '' ) {
 		$newSubject = $newParent->subject();
 
 		$original = $this->dbVersion;
@@ -1622,15 +1622,15 @@ class Thread {
 	}
 
 	/**
-	 * @param Thread $thread
+	 * @param self $thread
 	 * @param string $subject
-	 * @param Thread $ancestor
-	 * @param Thread|null $superthread
+	 * @param self $ancestor
+	 * @param self|null $superthread
 	 */
 	public static function recursiveSet(
-		Thread $thread,
+		self $thread,
 		$subject,
-		Thread $ancestor,
+		self $ancestor,
 		$superthread = null
 	) {
 		$thread->setSubject( $subject );
