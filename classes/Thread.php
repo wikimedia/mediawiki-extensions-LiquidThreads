@@ -1682,7 +1682,8 @@ class Thread {
 	 * @return bool|string
 	 */
 	public function canUserReply( User $user, $rigor = PermissionManager::RIGOR_SECURE ) {
-		$threadRestrictions = $this->topmostThread()->title()->getRestrictions( 'reply' );
+		$rootTitle = $this->topmostThread()->title();
+		$threadRestrictions = $rootTitle ? $rootTitle->getRestrictions( 'reply' ) : [];
 		$talkpageRestrictions = $this->getTitle()->getRestrictions( 'reply' );
 
 		$threadRestrictions = array_fill_keys( $threadRestrictions, 'thread' );
