@@ -325,7 +325,10 @@ class Threads {
 	public static function synchroniseArticleData( $article, $limit = false, $queueMore = false ) {
 		if ( !$article ) {
 			throw new Exception( "synchroniseArticleData called on null article" );
+		} elseif ( $article instanceof Article ) {
+			$article = $article->getPage();
 		}
+
 		$dbr = wfGetDB( DB_REPLICA );
 		$dbw = wfGetDB( DB_MASTER );
 

@@ -15,7 +15,7 @@ class NewMessages {
 	 */
 	public static function markThreadAsReadByUser( Thread $thread, UserIdentity $user ) {
 		$thread_id = $thread->id();
-		$user_id = $user->getID();
+		$user_id = $user->getId();
 
 		$dbw = wfGetDB( DB_MASTER );
 
@@ -33,7 +33,7 @@ class NewMessages {
 	 */
 	public static function markAllReadByUser( $user ) {
 		if ( is_object( $user ) ) {
-			$user_id = $user->getID();
+			$user_id = $user->getId();
 		} elseif ( is_int( $user ) ) {
 			$user_id = $user;
 		} else {
@@ -53,7 +53,7 @@ class NewMessages {
 
 	private static function writeUserMessageState( Thread $thread, UserIdentity $user ) {
 		$thread_id = $thread->id();
-		$user_id = $user->getID();
+		$user_id = $user->getId();
 
 		$conversation = Threads::withId( $thread_id )->topmostThread()->id();
 

@@ -18,6 +18,7 @@ class Thread {
 	/* Actual objects loaded on demand from the above when accessors are called: */
 	protected $root;
 	protected $article;
+	/** @var Article|null */
 	protected $summary;
 	protected $superthread;
 	protected $ancestor;
@@ -1272,7 +1273,7 @@ class Thread {
 	}
 
 	public function setArticle( Article $a ) {
-		$this->articleId = $a->getPage()->getID();
+		$this->articleId = $a->getPage()->getId();
 		$this->articleNamespace = $a->getTitle()->getNamespace();
 		$this->articleTitle = $a->getTitle()->getDBkey();
 		$this->touch();
@@ -1393,7 +1394,6 @@ class Thread {
 			}
 
 			$this->summary = new Article( $title, 0 );
-
 		}
 
 		return $this->summary;
@@ -1410,7 +1410,7 @@ class Thread {
 		// Weird -- this was setting $this->summary to NULL before I changed it.
 		// If there was some reason why, please tell me! -- Andrew
 		$this->summary = $post;
-		$this->summaryId = $post->getID();
+		$this->summaryId = $post->getPage()->getId();
 	}
 
 	/**
