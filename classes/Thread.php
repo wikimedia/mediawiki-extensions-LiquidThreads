@@ -46,14 +46,16 @@ class Thread {
 
 	protected $rootRevision;
 
-	/* Flag about who has edited or replied to this thread. */
+	/** @var int Flag about who has edited or replied to this thread. */
 	public $editedness;
 	protected $editors = null;
 
 	protected $replies;
 	protected $reactions;
 
+	/** @var self|null */
 	public $dbVersion; // A copy of the thread as it exists in the database.
+	/** @var ThreadRevision */
 	public $threadRevision;
 
 	public static $titleCacheById = [];
@@ -157,6 +159,9 @@ class Thread {
 		$this->dbVersion->dbVersion = null;
 	}
 
+	/**
+	 * @param Article $article
+	 */
 	public function setRoot( $article ) {
 		$this->rootId = $article->getId();
 		$this->root = $article;
@@ -171,6 +176,15 @@ class Thread {
 		$this->root = null;
 	}
 
+	/**
+	 * @param int $change_type
+	 * @param User $user
+	 * @param self|null $change_object
+	 * @param string $reason
+	 * @param bool|null $bump
+	 *
+	 * @throws Exception
+	 */
 	public function commitRevision(
 		$change_type,
 		User $user,
@@ -217,6 +231,12 @@ class Thread {
 		}
 	}
 
+	/**
+	 * @param int $change_type
+	 * @param self $original
+	 * @param self|null $change_object
+	 * @param string|null $reason
+	 */
 	public function logChange(
 		$change_type,
 		$original,
@@ -1186,6 +1206,9 @@ class Thread {
 		return !$this->isTopmostThread();
 	}
 
+	/**
+	 * @return self
+	 */
 	public function topmostThread() {
 		if ( $this->isTopmostThread() ) {
 			$this->ancestor = $this;
@@ -1207,6 +1230,9 @@ class Thread {
 		}
 	}
 
+	/**
+	 * @param self|int $newAncestor
+	 */
 	public function setAncestor( $newAncestor ) {
 		if ( is_object( $newAncestor ) ) {
 			$this->ancestorId = $newAncestor->id();
@@ -1256,6 +1282,9 @@ class Thread {
 		// Nothing here yet
 	}
 
+	/**
+	 * @return Article
+	 */
 	public function article() {
 		if ( $this->article ) {
 			return $this->article;
@@ -1294,6 +1323,9 @@ class Thread {
 		return $this->id;
 	}
 
+	/**
+	 * @return int|null
+	 */
 	public function ancestorId() {
 		return $this->ancestorId;
 	}
@@ -1336,10 +1368,16 @@ class Thread {
 		return $this->root;
 	}
 
+	/**
+	 * @return int
+	 */
 	public function editedness() {
 		return $this->editedness;
 	}
 
+	/**
+	 * @return Article|null
+	 */
 	public function summary() {
 		if ( !$this->summaryId ) {
 			return null;
@@ -1365,6 +1403,9 @@ class Thread {
 		return $this->summaryId != null;
 	}
 
+	/**
+	 * @param Article $post
+	 */
 	public function setSummary( $post ) {
 		// Weird -- this was setting $this->summary to NULL before I changed it.
 		// If there was some reason why, please tell me! -- Andrew
@@ -1372,6 +1413,9 @@ class Thread {
 		$this->summaryId = $post->getID();
 	}
 
+	/**
+	 * @return Title|null
+	 */
 	public function title() {
 		if ( is_object( $this->root() ) ) {
 			return $this->root()->getTitle();
