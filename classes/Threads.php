@@ -122,15 +122,11 @@ class Threads {
 	}
 
 	/**
-	 * @param Article|WikiPage $post
+	 * @param WikiPage $post
 	 * @param bool $bulkLoad
 	 * @return Thread|null
 	 */
-	public static function withRoot( $post, $bulkLoad = true ) {
-		if ( $post instanceof Article ) {
-			$post = $post->getPage();
-		}
-
+	public static function withRoot( WikiPage $post, $bulkLoad = true ) {
 		if ( $post->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			// No articles outside the thread namespace have threads associated with them;
 			return null;

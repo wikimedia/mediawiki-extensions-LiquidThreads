@@ -35,11 +35,12 @@ class LqtHooks {
 	 * @return bool
 	 */
 	public static function customizeOldChangesList( ChangesList $changeslist, &$s, $rc, &$classes ) {
-		if ( $rc->getTitle()->getNamespace() != NS_LQT_THREAD ) {
+		$rcTitle = $rc->getTitle();
+		if ( $rcTitle->getNamespace() != NS_LQT_THREAD ) {
 			return true;
 		}
 
-		$thread = Threads::withRoot( new Article( $rc->getTitle(), 0 ) );
+		$thread = Threads::withRoot( WikiPage::factory( $rcTitle ) );
 		if ( !$thread ) {
 			return true;
 		}
@@ -278,7 +279,7 @@ class LqtHooks {
 			return true;
 		}
 
-		$thread = Threads::withRoot( new Article( $title, 0 ) );
+		$thread = Threads::withRoot( WikiPage::factory( $title ) );
 
 		if ( $thread ) {
 			$text = $thread->subject();
@@ -516,7 +517,7 @@ class LqtHooks {
 
 		if ( $title->exists() ) {
 			// If the page actually exists, allow the user to edit posts on their own talk page.
-			$thread = Threads::withRoot( new Article( $title, 0 ) );
+			$thread = Threads::withRoot( WikiPage::factory( $title ) );
 
 			if ( !$thread ) {
 				return true;
@@ -786,8 +787,11 @@ class LqtHooks {
 
 		if ( isset( $info['ThreadParent'] ) ) {
 			$threadPageName = $info['ThreadParent'];
-			$parentArticle = new Article( Title::newFromText( $threadPageName ), 0 );
-			$superthread = Threads::withRoot( $parentArticle );
+			$superthread = Threads::withRoot(
+				WikiPage::factory(
+					Title::newFromText( $threadPageName )
+				)
+			);
 
 			if ( $superthread ) {
 				$thread->setSuperthread( $superthread );
@@ -903,7 +907,7 @@ class LqtHooks {
 			return true;
 		}
 
-		$thread = Threads::withRoot( new Article( $title, 0 ) );
+		$thread = Threads::withRoot( WikiPage::factory( $title ) );
 
 		if ( !$thread ) {
 			return true;

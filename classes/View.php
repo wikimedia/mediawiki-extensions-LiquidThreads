@@ -1755,7 +1755,7 @@ class LqtView {
 			);
 		}
 
-		$t_thread = Threads::withRoot( new Article( $target, 0 ) );
+		$t_thread = Threads::withRoot( WikiPage::factory( $target ) );
 
 		// Grab data about the new post.
 		$author = $thread->author();

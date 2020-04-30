@@ -78,8 +78,7 @@ class LqtParserFunctions {
 			if ( is_numeric( $args['thread'] ) ) {
 				$thread = Threads::withId( $args['thread'] );
 			} elseif ( $title ) {
-				$article = new Article( $title, 0 );
-				$thread = Threads::withRoot( $article );
+				$thread = Threads::withRoot( WikiPage::factory( $title ) );
 			}
 		}
 
@@ -144,8 +143,7 @@ class LqtParserFunctions {
 		$oldOut = $out->getHTML();
 		$out->clearHTML();
 
-		$root = new Article( $title, 0 );
-		$thread = Threads::withRoot( $root );
+		$thread = Threads::withRoot( WikiPage::factory( $title ) );
 
 		$user = $out->getUser();
 		$view = new LqtView( $out, $article, $title, $user, $wgRequest );

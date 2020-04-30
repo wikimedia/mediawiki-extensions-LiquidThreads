@@ -109,7 +109,7 @@ class LqtDeletionController {
 			return true;
 		}
 
-		$thread = Threads::withRoot( $article );
+		$thread = Threads::withRoot( $article->getPage() );
 
 		if ( !$thread ) {
 			return true;
