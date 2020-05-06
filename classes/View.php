@@ -2335,6 +2335,10 @@ class LqtView {
 		return $html;
 	}
 
+	/**
+	 * @param User|int|string $user
+	 * @return string
+	 */
 	public function getSignature( $user ) {
 		if ( is_object( $user ) ) {
 			$uid = $user->getId();
@@ -2349,6 +2353,11 @@ class LqtView {
 		return $this->getUserSignature( $user, $uid );
 	}
 
+	/**
+	 * @param User|null $user
+	 * @param int|null $uid
+	 * @return string
+	 */
 	public static function getUserSignature( $user, $uid = null ) {
 		$parser = MediaWikiServices::getInstance()->getParser();
 
