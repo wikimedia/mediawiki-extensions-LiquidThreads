@@ -202,6 +202,10 @@ class Threads {
 		);
 	}
 
+	/**
+	 * @param Article $article
+	 * @return string
+	 */
 	public static function articleClause( $article ) {
 		$dbr = wfGetDB( DB_REPLICA );
 
@@ -212,7 +216,7 @@ class Threads {
 		$conds = [ $titleCond ];
 
 		if ( $article->getPage()->getId() ) {
-			$idCond = [ 'thread_article_id' => $article->getId() ];
+			$idCond = [ 'thread_article_id' => $article->getPage()->getId() ];
 			$conds[] = $dbr->makeList( $idCond, LIST_AND );
 		}
 
@@ -345,7 +349,9 @@ class Threads {
 		$dbw = wfGetDB( DB_MASTER );
 
 		$title = $article->getTitle();
-		$id = $article->getId();
+		$id = $article instanceof Article
+			? $article->getPage()->getId()
+			: $article->getId();
 
 		$titleCond = [ 'thread_article_namespace' => $title->getNamespace(),
 			'thread_article_title' => $title->getDBkey() ];
