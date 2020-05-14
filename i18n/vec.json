@@ -120,7 +120,7 @@
 	"lqt-history-thread": "Argomento",
 	"lqt-thread-edited-author": "Modifegà da l'autor.<br/>\nUltima modìfega: $1",
 	"lqt-thread-edited-others": "Modifegà da {{PLURAL:$2|n'altro utente|$2 altri utenti}}.<br/>\nUltima modìfega: $1",
-	"lqt-header-actions": "Azioni",
+	"lqt-header-actions": "Asion",
 	"lqt_summarize_link": "Riassumi",
 	"lqt-summarize-intro": "Par piaser, riassumi l'argomento drento la casèla.\nTe pol doparar la sintassi wiki.\nCo te ghè finìo, struca \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Dividi verso un argomento novo",
