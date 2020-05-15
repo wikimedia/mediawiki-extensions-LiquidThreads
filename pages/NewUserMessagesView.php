@@ -81,7 +81,8 @@ class NewUserMessagesView extends LqtView {
 
 		$user = $this->user;
 		DeferredUpdates::addCallableUpdate( function () use ( $user ) {
-			$user->setNewtalk( false );
+			MediaWikiServices::getInstance()
+				->getTalkPageNotificationManager()->removeUserHasNewMessages( $user );
 		} );
 
 		if ( $this->methodApplies( 'mark_as_unread' ) ) {

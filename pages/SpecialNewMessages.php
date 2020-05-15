@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class SpecialNewMessages extends SpecialPage {
 	public function __construct() {
 		parent::__construct( 'NewMessages' );
@@ -30,7 +32,8 @@ class SpecialNewMessages extends SpecialPage {
 
 		// Clear newtalk
 		DeferredUpdates::addCallableUpdate( function () use ( $user ) {
-			$user->setNewtalk( false );
+			MediaWikiServices::getInstance()
+				->getTalkPageNotificationManager()->removeUserHasNewMessages( $user );
 		} );
 
 		$view = new NewUserMessagesView( $output, $article,

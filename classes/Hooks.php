@@ -90,7 +90,10 @@ class LqtHooks {
 		$pageTitle = $skintemplate->getTitle();
 		$newmsg_t = SpecialPage::getTitleFor( 'NewMessages' );
 		$watchlist_t = SpecialPage::getTitleFor( 'Watchlist' );
-		if ( $skintemplate->getUser()->getNewtalk()
+		$userHasNewMessages = MediaWikiServices::getInstance()
+			->getTalkPageNotificationManager()
+			->userHasNewMessages( $skintemplate->getUser() );
+		if ( $userHasNewMessages
 				&& !$newmsg_t->equals( $pageTitle )
 				&& !$watchlist_t->equals( $pageTitle )
 				&& !$usertalk_t->equals( $pageTitle )

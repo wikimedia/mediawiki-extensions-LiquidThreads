@@ -212,8 +212,9 @@ class NewMessages {
 			$name = $t->getTitle()->getText();
 
 			$user = User::newFromName( $name );
-			if ( $user && $user->getName() != $changeUser->getName() ) {
-				$user->setNewtalk( true );
+			if ( $user && $user->getName() !== $changeUser->getName() ) {
+				MediaWikiServices::getInstance()
+					->getTalkPageNotificationManager()->setUserHasNewMessages( $user );
 
 				$userIds[] = $user->getId();
 				if ( $user->getOption( 'enotifusertalkpages' ) ) {
