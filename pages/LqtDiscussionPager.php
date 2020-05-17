@@ -118,8 +118,7 @@ class LqtDiscussionPager extends IndexPager {
 	 * @suppress SecurityCheck-XSS See T201811 for more information
 	 */
 	public function getNavigationBar() {
-		if ( method_exists( $this, 'isNavigationBarShown' ) &&
-				!$this->isNavigationBarShown() ) {
+		if ( !$this->isNavigationBarShown() ) {
 			return '';
 		}
 		global $wgExtensionAssetsPath, $wgLang;
