@@ -27,25 +27,6 @@ class Threads {
 	public const CHANGE_ADJUSTED_SORTKEY = 14;
 	public const CHANGE_EDITED_SIGNATURE = 15;
 
-	public static $VALID_CHANGE_TYPES = [
-		self::CHANGE_EDITED_SUMMARY,
-		self::CHANGE_EDITED_ROOT,
-		self::CHANGE_REPLY_CREATED,
-		self::CHANGE_NEW_THREAD,
-		self::CHANGE_DELETED,
-		self::CHANGE_UNDELETED,
-		self::CHANGE_MOVED_TALKPAGE,
-		self::CHANGE_SPLIT,
-		self::CHANGE_EDITED_SUBJECT,
-		self::CHANGE_PARENT_DELETED,
-		self::CHANGE_MERGED_FROM,
-		self::CHANGE_MERGED_TO,
-		self::CHANGE_SPLIT_FROM,
-		self::CHANGE_ROOT_BLANKED,
-		self::CHANGE_ADJUSTED_SORTKEY,
-		self::CHANGE_EDITED_SIGNATURE,
-	];
-
 	// Possible values of Thread->editedness.
 	public const EDITED_NEVER = 0;
 	public const EDITED_HAS_REPLY = 1;
