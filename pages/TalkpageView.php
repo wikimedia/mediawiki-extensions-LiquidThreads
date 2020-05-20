@@ -3,9 +3,9 @@
 use MediaWiki\MediaWikiServices;
 
 class TalkpageView extends LqtView {
-	const LQT_NEWEST_CHANGES = 'nc';
-	const LQT_NEWEST_THREADS = 'nt';
-	const LQT_OLDEST_THREADS = 'ot';
+	public const LQT_NEWEST_CHANGES = 'nc';
+	public const LQT_NEWEST_THREADS = 'nt';
+	public const LQT_OLDEST_THREADS = 'ot';
 
 	protected $mShowItems = [ 'toc', 'options', 'header' ];
 	/** @var Article */

@@ -5,27 +5,27 @@ use Wikimedia\Rdbms\DBQueryError;
 
 /** Module of factory methods. */
 class Threads {
-	const TYPE_NORMAL = 0;
-	const TYPE_MOVED = 1;
-	const TYPE_DELETED = 2;
-	const TYPE_HIDDEN = 4;
+	public const TYPE_NORMAL = 0;
+	public const TYPE_MOVED = 1;
+	public const TYPE_DELETED = 2;
+	public const TYPE_HIDDEN = 4;
 
-	const CHANGE_NEW_THREAD = 0;
-	const CHANGE_REPLY_CREATED = 1;
-	const CHANGE_EDITED_ROOT = 2;
-	const CHANGE_EDITED_SUMMARY = 3;
-	const CHANGE_DELETED = 4;
-	const CHANGE_UNDELETED = 5;
-	const CHANGE_MOVED_TALKPAGE = 6;
-	const CHANGE_SPLIT = 7;
-	const CHANGE_EDITED_SUBJECT = 8;
-	const CHANGE_PARENT_DELETED = 9;
-	const CHANGE_MERGED_FROM = 10;
-	const CHANGE_MERGED_TO = 11;
-	const CHANGE_SPLIT_FROM = 12;
-	const CHANGE_ROOT_BLANKED = 13;
-	const CHANGE_ADJUSTED_SORTKEY = 14;
-	const CHANGE_EDITED_SIGNATURE = 15;
+	public const CHANGE_NEW_THREAD = 0;
+	public const CHANGE_REPLY_CREATED = 1;
+	public const CHANGE_EDITED_ROOT = 2;
+	public const CHANGE_EDITED_SUMMARY = 3;
+	public const CHANGE_DELETED = 4;
+	public const CHANGE_UNDELETED = 5;
+	public const CHANGE_MOVED_TALKPAGE = 6;
+	public const CHANGE_SPLIT = 7;
+	public const CHANGE_EDITED_SUBJECT = 8;
+	public const CHANGE_PARENT_DELETED = 9;
+	public const CHANGE_MERGED_FROM = 10;
+	public const CHANGE_MERGED_TO = 11;
+	public const CHANGE_SPLIT_FROM = 12;
+	public const CHANGE_ROOT_BLANKED = 13;
+	public const CHANGE_ADJUSTED_SORTKEY = 14;
+	public const CHANGE_EDITED_SIGNATURE = 15;
 
 	public static $VALID_CHANGE_TYPES = [
 		self::CHANGE_EDITED_SUMMARY,
@@ -47,10 +47,10 @@ class Threads {
 	];
 
 	// Possible values of Thread->editedness.
-	const EDITED_NEVER = 0;
-	const EDITED_HAS_REPLY = 1;
-	const EDITED_BY_AUTHOR = 2;
-	const EDITED_BY_OTHERS = 3;
+	public const EDITED_NEVER = 0;
+	public const EDITED_HAS_REPLY = 1;
+	public const EDITED_BY_AUTHOR = 2;
+	public const EDITED_BY_OTHERS = 3;
 
 	public static $cache_by_root = [];
 	public static $cache_by_id = [];
