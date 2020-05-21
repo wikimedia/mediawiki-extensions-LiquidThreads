@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Meursault2004",
+			"N219",
 			"NoiX180",
 			"Pras"
 		]
@@ -69,7 +70,7 @@
 	"lqt_subject": "Subyèk:",
 	"lqt_noreason": "Ora mènèhi alesan.",
 	"lqt_move_placeholder": "Topik, $1, dipindhahaké saka kéné nèng $5.\nPamindhahan iki digawé déning $2 $3 wanci $4.",
-	"lqt_thread_deleted_for_sysops": "Topik iki wis '''dibusak''' lan namung katon maring pangurus.",
+	"lqt_thread_deleted_for_sysops": "Topik iki wis '''dibusak''' lan namung bisa didelok déning panata.",
 	"lqt_thread_deleted": "Topik iki wis dibusak",
 	"lqt_summary_notice": "Ora ana owahan saka parembugan iki kanggo paling ora $2 {{PLURAL:$2|dina|dina}}.\nYèn wis rampung, Sampéyan mungkin pingin $1.",
 	"lqt_summary_notice_link": "nulis ringkesan",
