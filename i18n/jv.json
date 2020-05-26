@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"Meursault2004",
 			"N219",
 			"NoiX180",
@@ -116,12 +117,12 @@
 	"lqt-newmessages-context": "Topik jangkep",
 	"lqt-thread-created": "Digawé",
 	"lqt-history-time": "Wektu",
-	"lqt-history-user": "Panganggo",
+	"lqt-history-user": "Naraguna",
 	"lqt-history-action": "Kagiatan",
 	"lqt-history-comment": "Tanggepan",
 	"lqt-history-thread": "Topik",
 	"lqt-thread-edited-author": "Dibesut déning {{GENDER:$5|pangripta}}.<br />\nBesutan pungkasan: $1",
-	"lqt-thread-edited-others": "Dibesut {{PLURAL:$2|panganggo liya|$2 panganggo}}.<br />\nBesutan pungkasan: $1",
+	"lqt-thread-edited-others": "Dibesut {{PLURAL:$2|naraguna liya|$2 naraguna}}.<br />\nBesutan pungkasan: $1",
 	"lqt-header-actions": "Laku",
 	"lqt_summarize_link": "Ringkes",
 	"lqt-summarize-intro": "Mangga ringkes topik ngisor nèng kothak panyuntingan.\nSampéyan mungkin nganggo tèks wiki nèng ringkesan Sampéyan.\nYèn Sampéyan rampung, klik \"{{int:publishpage}}\".",
@@ -179,7 +180,7 @@
 	"lqt-save-subject-failed": "Ana kasalahan nalika arep ngganti jejer topik iki: $1",
 	"lqt-ajax-invalid-subject": "Jejer sing Sampéyan maksud ora sah, mungkin amarga kadawan.",
 	"lqt-ajax-no-subject": "Sampéyan kudu nemtokaké jejer kanggo topik anyar.",
-	"lqt-save-subject-error-unknown": "Ana kasalahan ora dingertèni nalika arep nyetèl jejer topik iki. Mangga jajal manèh mawa ngeklik \"sunting\" nèng ndhuwur kiriman.",
+	"lqt-save-subject-error-unknown": "Ana kasalahan ora dingertèni nalika arep nyetèl jejer topik iki. Mangga jajal manèh mawa ngeklik \"besut\" nèng ndhuwur kiriman.",
 	"lqt-cancel-subject-edit": "Wurung",
 	"lqt-drag-activate": "Surung ing panggon anyar",
 	"lqt-drag-drop-zone": "Sèlèh kéné",
