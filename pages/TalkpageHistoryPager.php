@@ -29,7 +29,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 		$queryInfo = [
 			'tables' => [ 'thread_history', 'thread', 'page' ],
 			'fields' => '*',
-			'conds' => [ Threads::articleClause( $this->talkpage ) ],
+			'conds' => [ Threads::articleClause( $this->talkpage->getPage() ) ],
 			'options' => [ 'order by' => 'th_timestamp desc' ],
 			'join_conds' => [
 				'thread' => [ 'LEFT JOIN', 'thread_id=th_thread' ],

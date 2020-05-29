@@ -122,7 +122,7 @@ class Thread {
 		}
 
 		// Create talk page
-		Threads::createTalkpageIfNeeded( $article );
+		Threads::createTalkpageIfNeeded( $article->getPage() );
 
 		// Notifications
 		NewMessages::writeMessageStateForUpdatedThread( $thread, $change_type, $user );
@@ -476,9 +476,9 @@ class Thread {
 		$new_articleID = $title->getArticleID();
 
 		if ( !$new_articleID ) {
-			$article = new Article( $newTitle, 0 );
-			Threads::createTalkpageIfNeeded( $article );
-			$new_articleID = $article->getPage()->getId();
+			$page = new WikiPage( $newTitle );
+			Threads::createTalkpageIfNeeded( $page );
+			$new_articleID = $page->getId();
 		}
 
 		// Update on *all* subthreads.
@@ -1046,7 +1046,7 @@ class Thread {
 			);
 
 			// There are probably problems on the rest of the article, trigger a small update
-			Threads::synchroniseArticleData( $this->article, 100, 'cascade' );
+			Threads::synchroniseArticleData( $this->article->getPage(), 100, 'cascade' );
 		} elseif ( $articleTitle && !$articleTitle->equals( $dbTitle ) ) {
 			// The page was probably moved and this was probably not updated.
 			wfDebug(
@@ -1059,7 +1059,7 @@ class Thread {
 			$set['thread_article_title'] = $articleTitle->getDBkey();
 
 			// There are probably problems on the rest of the article, trigger a small update
-			Threads::synchroniseArticleData( $this->article, 100, 'cascade' );
+			Threads::synchroniseArticleData( $this->article->getPage(), 100, 'cascade' );
 		}
 
 		// Check for unfilled signature field. This field hasn't existed until

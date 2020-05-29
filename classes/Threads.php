@@ -41,20 +41,19 @@ class Threads {
 	 * Create the talkpage if it doesn't exist so that links to it
 	 * will show up blue instead of red. For use upon new thread creation.
 	 *
-	 * @param Article $talkpage
+	 * @param WikiPage $talkpage
 	 */
-	public static function createTalkpageIfNeeded( $talkpage ) {
-		if ( !$talkpage->getPage()->exists() ) {
+	public static function createTalkpageIfNeeded( WikiPage $talkpage ) {
+		if ( !$talkpage->exists() ) {
 			try {
-
-				$talkpage->getPage()->doEditContent(
+				$talkpage->doEditContent(
 					ContentHandler::makeContent( "", $talkpage->getTitle() ),
 					wfMessage( 'lqt_talkpage_autocreate_summary' )->inContentLanguage()->text(),
 					EDIT_NEW | EDIT_SUPPRESS_RC
 				);
 			} catch ( DBQueryError $e ) {
-				// The article already existed by now. No need to do anything.
-				wfDebug( __METHOD__ . ": Article already exists." );
+				// The page already existed by now. No need to do anything.
+				wfDebug( __METHOD__ . ": Page already exists." );
 			}
 		}
 	}
@@ -162,38 +161,38 @@ class Threads {
 	}
 
 	/**
-	 * @param Article $article
+	 * @param WikiPage $page
 	 * @param bool $bulkLoad
 	 * @return Thread
 	 */
-	public static function withSummary( $article, $bulkLoad = true ) {
+	public static function withSummary( WikiPage $page, $bulkLoad = true ) {
 		$ts = self::where(
-			[ 'thread_summary_page' => $article->getPage()->getId() ],
+			[ 'thread_summary_page' => $page->getId() ],
 			[],
 			$bulkLoad
 		);
 		return self::assertSingularity(
 			$ts,
 			'thread_summary_page',
-			$article->getPage()->getId()
+			$page->getId()
 		);
 	}
 
 	/**
-	 * @param Article $article
+	 * @param WikiPage $page
 	 * @return string
 	 */
-	public static function articleClause( $article ) {
+	public static function articleClause( WikiPage $page ) {
 		$dbr = wfGetDB( DB_REPLICA );
 
-		$titleCond = [ 'thread_article_title' => $article->getTitle()->getDBKey(),
-			'thread_article_namespace' => $article->getTitle()->getNamespace() ];
+		$titleCond = [ 'thread_article_title' => $page->getTitle()->getDBKey(),
+			'thread_article_namespace' => $page->getTitle()->getNamespace() ];
 		$titleCond = $dbr->makeList( $titleCond, LIST_AND );
 
 		$conds = [ $titleCond ];
 
-		if ( $article->getPage()->getId() ) {
-			$idCond = [ 'thread_article_id' => $article->getPage()->getId() ];
+		if ( $page->getId() ) {
+			$idCond = [ 'thread_article_id' => $page->getId() ];
 			$conds[] = $dbr->makeList( $idCond, LIST_AND );
 		}
 
@@ -313,25 +312,17 @@ class Threads {
 	 * If the queueMore parameter is set and rows are left to update, a job queue item
 	 * will then be added with the same limit, to finish the remainder of the update.
 	 *
-	 * @param Article|WikiPage $article
+	 * @param WikiPage $page
 	 * @param int|false $limit
 	 * @param string|false $queueMore
 	 * @return bool
 	 */
-	public static function synchroniseArticleData( $article, $limit = false, $queueMore = false ) {
-		if ( !$article ) {
-			throw new Exception( "synchroniseArticleData called on null article" );
-		} elseif ( $article instanceof Article ) {
-			$article = $article->getPage();
-		}
-
+	public static function synchroniseArticleData( WikiPage $page, $limit = false, $queueMore = false ) {
 		$dbr = wfGetDB( DB_REPLICA );
 		$dbw = wfGetDB( DB_MASTER );
 
-		$title = $article->getTitle();
-		$id = $article instanceof Article
-			? $article->getPage()->getId()
-			: $article->getId();
+		$title = $page->getTitle();
+		$id = $page->getId();
 
 		$titleCond = [ 'thread_article_namespace' => $title->getNamespace(),
 			'thread_article_title' => $title->getDBkey() ];
@@ -378,7 +369,7 @@ class Threads {
 			$jobParams = [ 'limit' => $limit, 'cascade' => true ];
 			JobQueueGroup::singleton()->push(
 				new SynchroniseThreadArticleDataJob(
-					$article->getTitle(),
+					$page->getTitle(),
 					$jobParams
 				)
 			);

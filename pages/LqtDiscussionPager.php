@@ -43,7 +43,7 @@ class LqtDiscussionPager extends IndexPager {
 			'tables' => [ 'thread' ],
 			'fields' => '*',
 			'conds' => [
-				Threads::articleClause( $this->article ),
+				Threads::articleClause( $this->article->getPage() ),
 				Threads::topLevelClause(),
 				'thread_type != ' . $this->mDb->addQuotes( Threads::TYPE_DELETED ),
 			],

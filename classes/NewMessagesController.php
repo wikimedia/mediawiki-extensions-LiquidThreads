@@ -343,7 +343,7 @@ class NewMessages {
 	}
 
 	public static function newUserMessages( $user ) {
-		$talkPage = new Article( $user->getUserPage()->getTalkPage(), 0 );
+		$talkPage = new WikiPage( $user->getUserPage()->getTalkPage() );
 
 		$dbr = wfGetDB( DB_REPLICA );
 
@@ -410,8 +410,8 @@ class NewMessages {
 		User::newFromId( $uid )->clearSharedCache( 'refresh' );
 	}
 
-	public static function watchedThreadsForUser( $user ) {
-		$talkPage = new Article( $user->getUserPage()->getTalkPage(), 0 );
+	public static function watchedThreadsForUser( User $user ) {
+		$talkPage = new WikiPage( $user->getUserPage()->getTalkPage() );
 
 		$dbr = wfGetDB( DB_REPLICA );
 

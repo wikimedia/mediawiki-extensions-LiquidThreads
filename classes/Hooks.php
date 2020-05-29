@@ -498,7 +498,7 @@ class LqtHooks {
 		// Synchronise the first 500 threads, in reverse order by thread id. If
 		// there are more threads to synchronise, the job queue will take over.
 		Threads::synchroniseArticleData(
-			new Article( $newTitle, 0 ),
+			new WikiPage( $newTitle ),
 			500,
 			'cascade'
 		);
@@ -507,7 +507,7 @@ class LqtHooks {
 	public static function onMovePageIsValidMove( Title $oldTitle ) {
 		// Synchronise article data so that moving the article doesn't break any
 		// article association.
-		Threads::synchroniseArticleData( new Article( $oldTitle, 0 ) );
+		Threads::synchroniseArticleData( new WikiPage( $oldTitle ) );
 
 		return true;
 	}

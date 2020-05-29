@@ -93,7 +93,7 @@ class LqtDeletionController {
 
 		// Synchronise the first 500 threads, in reverse order by thread id. If
 		// there are more threads to synchronise, the job queue will take over.
-		Threads::synchroniseArticleData( new Article( $udTitle, 0 ), 500, 'cascade' );
+		Threads::synchroniseArticleData( new WikiPage( $udTitle ), 500, 'cascade' );
 
 		return true;
 	}
@@ -125,10 +125,10 @@ class LqtDeletionController {
 		return true;
 	}
 
-	public static function onArticleDelete( $article ) {
+	public static function onArticleDelete( $wikiPage ) {
 		// Synchronise article data so that moving the article doesn't break any
 		// article association.
-		Threads::synchroniseArticleData( $article );
+		Threads::synchroniseArticleData( $wikiPage );
 
 		return true;
 	}
