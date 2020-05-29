@@ -54,6 +54,13 @@ function recursiveParseArray( $array ) {
 	$recurseLevel--;
 }
 
+/**
+ * @param array $info
+ * @param string $subject
+ * @param Thread|null $super
+ *
+ * @return Thread
+ */
 function createPost( $info, $subject, $super = null ) {
 	$userName = $info['user'];
 	if ( strpos( $userName, '#' ) !== false ) {
@@ -76,6 +83,7 @@ function createPost( $info, $subject, $super = null ) {
 		$title = Threads::newThreadTitle( $subject, $article );
 	}
 
+	// @phan-suppress-next-line SecurityCheck-XSS
 	print "Creating thread $title as a subthread of " . ( $super ? $super->title() : 'none' ) . "\n";
 
 	$root = new Article( $title, 0 );
