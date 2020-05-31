@@ -12,13 +12,13 @@ class SpecialMergeThread extends ThreadActionPage {
 				'type' => 'info',
 				'label-message' => 'lqt-thread-merge-source',
 				'default' => $this->formatThreadField( 'src', $this->mThread->id() ),
-				'raw' => 1
+				'raw' => true
 			],
 			'dest' => [
 				'type' => 'info',
 				'label-message' => 'lqt-thread-merge-dest',
-				'default' => $this->formatThreadField( 'dest', $this->request->getVal( 'dest' ) ),
-				'raw' => 1
+				'default' => $this->formatThreadField( 'dest', $this->request->getInt( 'dest' ) ),
+				'raw' => true
 			],
 			'reason' => [
 				'label-message' => 'movereason',
@@ -38,7 +38,7 @@ class SpecialMergeThread extends ThreadActionPage {
 			return false;
 		}
 
-		$dest = $this->request->getVal( 'dest' );
+		$dest = $this->request->getInt( 'dest' );
 
 		if ( !$dest ) {
 			$this->getOutput()->addWikiMsg( 'lqt_threadrequired' );

@@ -21,7 +21,7 @@ class LqtDiscussionPager extends IndexPager {
 		$article = $this->article;
 
 		global $wgRequest;
-		$requestedLimit = $wgRequest->getInt( 'limit', null );
+		$requestedLimit = $wgRequest->getIntOrNull( 'limit' );
 		if ( $requestedLimit ) {
 			return $requestedLimit;
 		}
@@ -115,7 +115,6 @@ class LqtDiscussionPager extends IndexPager {
 	 * A navigation bar with images
 	 * Stolen from TablePager because it's pretty.
 	 * @return string
-	 * @suppress SecurityCheck-XSS See T201811 for more information
 	 */
 	public function getNavigationBar() {
 		if ( !$this->isNavigationBarShown() ) {

@@ -117,7 +117,6 @@ class NewUserMessagesView extends LqtView {
 
 	/**
 	 * @return bool
-	 * @suppress SecurityCheck-XSS See T201811 for more information
 	 */
 	public function show() {
 		$pager = new LqtNewMessagesPager( $this->user );
