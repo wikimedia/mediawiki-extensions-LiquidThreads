@@ -301,7 +301,7 @@ class NewMessages {
 		$threadSubject = $t->subject();
 
 		// Parse content and strip HTML of post content
-
+		$emailer = MediaWikiServices::getInstance()->getEmailer();
 		foreach ( $res as $row ) {
 			$u = User::newFromRow( $row );
 
@@ -338,7 +338,7 @@ class NewMessages {
 			$to = MailAddress::newFromUser( $u );
 			$subject = wfMessage( $subjectMsg, $threadSubject )->inLanguage( $langCode )->text();
 
-			UserMailer::send( $to, $from, $subject, $msg );
+			$emailer->send( [ $to ], $from, $subject, $msg );
 		}
 	}
 
