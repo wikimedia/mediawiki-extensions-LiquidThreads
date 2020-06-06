@@ -1856,9 +1856,12 @@ class Thread {
 
 				$dbr = wfGetDB( DB_REPLICA );
 
-				$res = $dbr->select( 'thread_reaction',
-						[ 'tr_thread' => $this->id() ],
-						__METHOD__ );
+				$res = $dbr->select(
+					'thread_reaction',
+					[ 'tr_user', 'tr_user_text', 'tr_type', 'tr_value' ],
+					[ 'tr_thread' => $this->id() ],
+					__METHOD__
+				);
 
 				foreach ( $res as $row ) {
 					$user = $row->tr_user_text;
