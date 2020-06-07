@@ -56,7 +56,7 @@ $upTo = $lastUpTo = 0;
 do {
 	$lastUpTo = $upTo;
 
-	$db->begin();
+	$db->begin( 'lqt-update-script' );
 
 	// Read 500 rows
 	$res = $db->select(
@@ -76,6 +76,6 @@ do {
 		}
 	}
 
-	$db->commit();
+	$db->commit( 'lqt-update-script' );
 
 } while ( $lastUpTo != $upTo );
