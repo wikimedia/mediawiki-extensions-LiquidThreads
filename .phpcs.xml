@@ -12,12 +12,6 @@
 	<rule ref="MediaWiki.NamingConventions.LowerCamelFunctionsName">
 		<exclude-pattern>classes/Hooks\.php</exclude-pattern>
 	</rule>
-	<rule ref="MediaWiki.NamingConventions.ValidGlobalName">
-		<exclude-pattern>import/import-parsed-discussions\.php</exclude-pattern>
-	</rule>
-	<rule ref="MediaWiki.NamingConventions.PrefixedGlobalFunctions">
-		<exclude-pattern>import/import-parsed-discussions\.php</exclude-pattern>
-	</rule>
 	<file>.</file>
 	<arg name="extensions" value="php,php5,inc"/>
 	<arg name="encoding" value="UTF-8"/>
