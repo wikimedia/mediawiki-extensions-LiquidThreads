@@ -207,7 +207,7 @@
 		"SkinTemplateNavigation": "LqtDispatch::onSkinTemplateNavigation",
 		"PageContentLanguage": "LqtDispatch::onPageContentLanguage",
 		"OldChangesListRecentChangesLine": "LqtHooks::customizeOldChangesList",
-		"SkinTemplateOutputPageBeforeExec": "LqtHooks::setNewtalkHTML",
+		"GetNewMessagesAlert": "LqtHooks::setNewtalkHTML",
 		"ChangesListSpecialPageQuery": "LqtHooks::beforeWatchlist",
 		"ArticleEditUpdateNewTalk": "LqtHooks::updateNewtalkOnEdit",
 		"PersonalUrls": "LqtHooks::onPersonalUrls",

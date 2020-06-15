@@ -77,35 +77,36 @@ class LqtHooks {
 		return true;
 	}
 
-	public static function setNewtalkHTML( $skintemplate, $tpl ) {
-		global $wgOut;
-
-		$usertalk_t = $skintemplate->getUser()->getTalkPage();
+	/**
+	 * @param string &$newMessagesAlert
+	 * @param array $newtalks
+	 * @param User $user
+	 * @param OutputPage $out
+	 * @return bool
+	 */
+	public static function setNewtalkHTML( &$newMessagesAlert, $newtalks, $user, $out ) {
+		$usertalk_t = $user->getTalkPage();
 
 		// If the user isn't using LQT on their talk page, bail out
 		if ( !LqtDispatch::isLqtPage( $usertalk_t ) ) {
+			return false;
+		}
+
+		$pageTitle = $out->getTitle();
+		$newmsg_t = SpecialPage::getTitleFor( 'NewMessages' );
+		$watchlist_t = SpecialPage::getTitleFor( 'Watchlist' );
+
+		if ( $newtalks
+			&& !$newmsg_t->equals( $pageTitle )
+			&& !$watchlist_t->equals( $pageTitle )
+			&& !$usertalk_t->equals( $pageTitle )
+		) {
+			$newMessagesAlert = $out->msg( 'lqt_youhavenewmessages', $newmsg_t->getPrefixedText() )->parse();
+			$out->setCdnMaxage( 0 );
 			return true;
 		}
 
-		$pageTitle = $skintemplate->getTitle();
-		$newmsg_t = SpecialPage::getTitleFor( 'NewMessages' );
-		$watchlist_t = SpecialPage::getTitleFor( 'Watchlist' );
-		$userHasNewMessages = MediaWikiServices::getInstance()
-			->getTalkPageNotificationManager()
-			->userHasNewMessages( $skintemplate->getUser() );
-		if ( $userHasNewMessages
-				&& !$newmsg_t->equals( $pageTitle )
-				&& !$watchlist_t->equals( $pageTitle )
-				&& !$usertalk_t->equals( $pageTitle )
-				) {
-			$s = wfMessage( 'lqt_youhavenewmessages', $newmsg_t->getPrefixedText() )->parse();
-			$tpl->set( "newtalk", $s );
-			$wgOut->setCdnMaxage( 0 );
-		} else {
-			$tpl->set( "newtalk", '' );
-		}
-
-		return true;
+		return false;
 	}
 
 	public static function beforeWatchlist(
