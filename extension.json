@@ -223,7 +223,7 @@
 		"ArticleUndelete": "LqtDeletionController::onArticleUndelete",
 		"ArticleConfirmDelete": "LqtDeletionController::onArticleConfirmDelete",
 		"ArticleDelete": "LqtDeletionController::onArticleDelete",
-		"TitleMoveComplete": "LqtHooks::onTitleMoveComplete",
+		"PageMoveComplete": "LqtHooks::onPageMoveComplete",
 		"AbortMove": "LqtHooks::onArticleMove",
 		"MovePageIsValidMove": "LqtHooks::onMovePageIsValidMove",
 		"ShowSearchHitTitle": "LqtHooks::customiseSearchResultTitle",

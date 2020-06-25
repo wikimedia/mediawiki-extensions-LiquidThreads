@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
@@ -475,19 +476,31 @@ class LqtHooks {
 		return true;
 	}
 
-	public static function onTitleMoveComplete(
-		Title $ot, Title $nt, User $user, $oldid, $newid, $reason = null
+	public static function onPageMoveComplete(
+		LinkTarget $oldLinkTarget,
+		LinkTarget $newLinkTarget,
+		UserIdentity $user,
+		int $pageId,
+		int $redirId,
+		string $reason,
+		RevisionRecord $revisionRecord
 	) {
+		$oldTitle = Title::newFromLinkTarget( $oldLinkTarget );
+		$newTitle = Title::newFromLinkTarget( $newLinkTarget );
 		// Check if it's a talk page.
-		if ( !LqtDispatch::isLqtPage( $ot ) && !LqtDispatch::isLqtPage( $nt ) ) {
+		if ( !LqtDispatch::isLqtPage( $oldTitle ) &&
+			!LqtDispatch::isLqtPage( $newTitle )
+		) {
 			return true;
 		}
 
 		// Synchronise the first 500 threads, in reverse order by thread id. If
 		// there are more threads to synchronise, the job queue will take over.
-		Threads::synchroniseArticleData( new Article( $nt, 0 ), 500, 'cascade' );
-
-		return true;
+		Threads::synchroniseArticleData(
+			new Article( $newTitle, 0 ),
+			500,
+			'cascade'
+		);
 	}
 
 	public static function onMovePageIsValidMove( Title $oldTitle ) {
