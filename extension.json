@@ -232,7 +232,7 @@
 		"RenameUserSQL": "LqtHooks::onUserRename",
 		"UserMergeAccountFields": "LqtHooks::onUserMergeAccountFields",
 		"EditPageGetCheckboxesDefinition": "LqtHooks::editCheckBoxes",
-		"PageContentSaveComplete": "LqtHooks::onPageContentSaveComplete",
+		"PageSaveComplete": "LqtHooks::onPageSaveComplete",
 		"UserIsBlockedFrom": "LqtHooks::userIsBlockedFrom",
 		"TitleGetRestrictionTypes": "LqtHooks::getProtectionTypes",
 		"SetupNewUserMessageSubject": "LqtHooks::setupNewUserMessageSubject",

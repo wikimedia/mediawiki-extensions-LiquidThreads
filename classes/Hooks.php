@@ -1,6 +1,9 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Storage\EditResult;
+use MediaWiki\User\UserIdentity;
 use UtfNormal\Validator;
 
 class LqtHooks {
@@ -596,36 +599,28 @@ class LqtHooks {
 
 	/**
 	 * @param WikiPage $wikiPage
-	 * @param User $user
-	 * @param Content $content
+	 * @param UserIdentity $user
 	 * @param string $summary
-	 * @param bool $minoredit
-	 * @param bool $watchthis
-	 * @param string $sectionanchor
-	 * @param int &$flags
-	 * @param Revision $revision
-	 * @param Status $status
-	 * @param int $baseRevId
-	 *
+	 * @param int $flags
+	 * @param RevisionRecord $revisionRecord
+	 * @param EditResult $editResult
 	 * @return bool
 	 */
-	public static function onPageContentSaveComplete(
-		WikiPage $wikiPage, $user, $content, $summary,
-		$minoredit, $watchthis, $sectionanchor, &$flags, $revision,
-		$status, $baseRevId
+	public static function onPageSaveComplete(
+		WikiPage $wikiPage,
+		UserIdentity $user,
+		string $summary,
+		int $flags,
+		RevisionRecord $revisionRecord,
+		EditResult $editResult
 	) {
-		if ( !$status->isGood() ) {
-			// Failed
-			return true;
-		}
-
 		$title = $wikiPage->getTitle();
 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
 			// Not a thread
 			return true;
 		}
 
-		if ( !$baseRevId ) {
+		if ( $flags & EDIT_NEW ) {
 			// New page
 			return true;
 		}
@@ -637,6 +632,7 @@ class LqtHooks {
 			return true;
 		}
 
+		$content = $wikiPage->getContent();
 		LqtView::editMetadataUpdates(
 			[
 			'root' => $wikiPage,
