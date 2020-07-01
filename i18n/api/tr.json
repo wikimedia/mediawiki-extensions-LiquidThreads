@@ -6,7 +6,7 @@
 	},
 	"apihelp-feedthreads-description": "Tartışma konuları özet akışını döndürür.",
 	"apihelp-feedthreads-summary": "Tartışma konuları özet akışını döndürür.",
-	"apihelp-feedthreads-param-feedformat": "Yayının biçimi.",
+	"apihelp-feedthreads-param-feedformat": "Beslemenin biçimi.",
 	"apihelp-feedthreads-param-days": "Gösterilecek ileti dizisinin gün sayısı.",
 	"apihelp-feedthreads-param-type": "Gösterilecek yayın türleri.",
 	"apihelp-feedthreads-param-talkpage": "Sonuçları bu konuşma sayfalarındaki konularla sınırlandırın.",
