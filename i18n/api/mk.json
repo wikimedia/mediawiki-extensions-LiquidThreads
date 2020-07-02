@@ -27,7 +27,7 @@
 	"apihelp-query+threads-param-summary": "Ограничи го исходот на нишки што соодветствуваат на дадени описни страници.",
 	"apihelp-query+threads-param-id": "Дај нишки со укажаните назнаки.",
 	"apihelp-query+threads-param-render": "Дали во исходот да се вклучи испишаната нишка.",
-	"apihelp-query+threads-param-renderlevel": "Степенот од кој ќе се почне во исписот (за ограничувања на длабочината и тн.)",
+	"apihelp-query+threads-param-renderlevel": "Степенот од кој ќе се почне во исписот (за ограничувања на продорност итн.)",
 	"apihelp-query+threads-param-renderthreadpos": "Положбата на нишката во групата нишки што се испишува на тој степен (донекаде влијае на приказот).",
 	"apihelp-query+threads-param-renderthreadcount": "Бројот на нишки во исписот на групата од тој степен.",
 	"apihelp-query+threads-param-rendermaxthreadcount": "Највеќе одговори за приказ во исписот пред да се додаде врската „{{int:lqt-thread-show-more}}“.",
