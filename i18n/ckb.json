@@ -5,7 +5,8 @@
 			"Calak",
 			"Lost Whispers",
 			"Sarchia",
-			"Épine"
+			"Épine",
+			"ئارام بکر"
 		]
 	},
 	"lqt_delete": "سڕینەوە",
@@ -18,6 +19,7 @@
 	"lqt-history-user": "بەکارھێنەر",
 	"lqt-history-comment": "بۆچوون",
 	"lqt-movethread": "گواستنەوە",
+	"lqt-menu-trigger": "زیاتر",
 	"lqt-search-button": "گەڕان",
 	"searchprofile-threads": "وتووێژەکان",
 	"lqt-save-subject": "پاشەکەوت",
