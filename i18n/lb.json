@@ -191,7 +191,7 @@
 	"lqt-change-subject": "Sujet änneren",
 	"lqt-save-subject": "Späicheren",
 	"lqt-save-subject-failed": "Wéi Dir de Sujet vun dëser Rubrik ännere wollt ass dëse Feeler geschitt: $1",
-	"lqt-ajax-invalid-subject": "De Sujet deen Dir uginn hutt as ne valabel, wahrscheinlech ass en ze laang.",
+	"lqt-ajax-invalid-subject": "De Sujet deen Dir uginn hutt ass ne valabel, warscheinlech ass en ze laang.",
 	"lqt-ajax-no-subject": "Dir musst e Sujet fir déi nei Rubrik uginn.",
 	"lqt-save-subject-error-unknown": "Wéi Dir de Sujet vun dëser Rubrik festleeë wollt ass en onbekannte Feeler geschitt. Versicht et wgl. an deems Dir op \"Änneren\" um ieweschte Beitrag klickt.",
 	"lqt-cancel-subject-edit": "Ofbriechen",
