@@ -15,6 +15,6 @@
 	"lqt-menu-trigger": "ተወሳኺ",
 	"lqt-search-button": "ምድላይ",
 	"lqt-ajax-update-link": "ኣሐዲስ",
-	"lqt-newmessages-n": "{{PLURAL:$1|ሓድሽ መልእኽቲ|ሓደሽቲ መልእክትታት}} ($1)",
-	"lqt_newmessages-title": "ሓደሽቲ መልእክትታት"
+	"lqt-newmessages-n": "{{PLURAL:$1|ሓድሽ መልእኽቲ|ሓደሽቲ መልእኽትታት}} ($1)",
+	"lqt_newmessages-title": "ሓደሽቲ መልእኽትታት"
 }
