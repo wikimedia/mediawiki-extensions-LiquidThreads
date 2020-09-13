@@ -342,7 +342,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 
 	public function getCacheMode( $params ) {
 		if ( $params['render'] ) {
-			// Rendering uses $wgUser
+			// Rendering uses the context user
 			return 'anon-public-user-private';
 		} else {
 			return 'public';
