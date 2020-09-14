@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Bishnu Saikia",
-			"Gitartha.bordoloi"
+			"Gitartha.bordoloi",
+			"Simbu123"
 		]
 	},
 	"lqt-title": "শিৰোনামা",
@@ -16,6 +17,6 @@
 	"lqt-save-subject": "সাঁচি থওক",
 	"lqt-cancel-subject-edit": "বাতিল কৰক",
 	"lqt-drag-reason": "কাৰণ:",
-	"lqt-newmessages-n": "নতুন বাৰ্তা ($1)",
+	"lqt-newmessages-n": "নতুন {{PLURAL:$1|বাৰ্তা|বাৰ্তাসমূহ}} ($1)",
 	"lqt-talkpage-history-tab": "শীৰ্ষক"
 }
