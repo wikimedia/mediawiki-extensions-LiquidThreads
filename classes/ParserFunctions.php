@@ -2,6 +2,9 @@
 
 /* @phan-file-suppress PhanUndeclaredProperty */
 class LqtParserFunctions {
+
+	private const LQT_REPLACEMENTS_DATA_KEY = 'liquidthreads_replacements';
+
 	public static function useLiquidThreads( Parser $parser, $param = '1' ) {
 		$offParams = [ 'no', 'off', 'disable' ];
 		// Figure out if they want to turn it off or on.
@@ -20,6 +23,24 @@ class LqtParserFunctions {
 		if ( $param && $param > 0 ) {
 			$parser->getOutput()->setProperty( 'lqt-page-limit', $param );
 		}
+	}
+
+	/**
+	 * Adds $data under $text key to ParserOutput $out extension data
+	 * LQT_REPLACEMENTS_DATA_KEY property.
+	 *
+	 * @param ParserOutput $pout
+	 * @param string $text
+	 * @param array $data
+	 */
+	private static function addToExtensionData( ParserOutput $pout, string $text, array $data ) {
+		$lqtReplacements = $pout->getExtensionData( self::LQT_REPLACEMENTS_DATA_KEY ) ?? [];
+		// TODO: drop fallback once ParserCache expires
+		if ( !$lqtReplacements && isset( $pout->mLqtReplacements ) ) {
+			$lqtReplacements = $pout->mLqtReplacements;
+		}
+		$lqtReplacements[$text] = $data;
+		$pout->setExtensionData( self::LQT_REPLACEMENTS_DATA_KEY, $lqtReplacements );
 	}
 
 	/** To bypass the parser cache just for the LiquidThreads part, we have a cute trick.
@@ -55,15 +76,10 @@ class LqtParserFunctions {
 			'talkpage' => $talkpage,
 		];
 
-		if ( !isset( $pout->mLqtReplacements ) ) {
-			$pout->mLqtReplacements = [];
-		}
-
 		// Generate a token
 		$tok = MWCryptRand::generateHex( 32 );
 		$text = '<!--LQT-PAGE-' . $tok . '-->';
-		$pout->mLqtReplacements[$text] = $data;
-
+		self::addToExtensionData( $pout, $text, $data );
 		return $text;
 	}
 
@@ -93,15 +109,10 @@ class LqtParserFunctions {
 			'title' => $thread->title(),
 		];
 
-		if ( !isset( $pout->mLqtReplacements ) ) {
-			$pout->mLqtReplacements = [];
-		}
-
 		// Generate a token
 		$tok = MWCryptRand::generateHex( 32 );
 		$text = '<!--LQT-THREAD-' . $tok . '-->';
-		$pout->mLqtReplacements[$text] = $data;
-
+		self::addToExtensionData( $pout, $text, $data );
 		return $text;
 	}
 
@@ -158,7 +169,9 @@ class LqtParserFunctions {
 	}
 
 	public static function onAddParserOutput( OutputPage $out, ParserOutput $pout ) {
-		if ( !isset( $pout->mLqtReplacements ) ) {
+		// TODO: remove fallback after ParserCache expiration
+		if ( !$pout->getExtensionData( self::LQT_REPLACEMENTS_DATA_KEY )
+			&& !isset( $pout->mLqtReplacements ) ) {
 			return true;
 		}
 
@@ -166,7 +179,12 @@ class LqtParserFunctions {
 			$out->mLqtReplacements = [];
 		}
 
-		foreach ( $pout->mLqtReplacements as $text => $details ) {
+		$lqtReplacements = $pout->getExtensionData( self::LQT_REPLACEMENTS_DATA_KEY );
+		// TODO: remove fallback after ParserCache expiration
+		if ( !$lqtReplacements && isset( $pout->mLqtReplacements ) ) {
+			$lqtReplacements = $pout->mLqtReplacements;
+		}
+		foreach ( $lqtReplacements as $text => $details ) {
 			$result = '';
 
 			if ( !is_array( $details ) ) {
