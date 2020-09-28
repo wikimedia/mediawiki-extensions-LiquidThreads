@@ -1645,12 +1645,12 @@ class LqtView {
 
 		if ( isset( $ebLookup[$editedFlag] ) ) {
 			$editedBy = $ebLookup[$editedFlag];
-			$user = $this->user;
+			$author = $thread->author();
 			// Used messages: lqt-thread-edited-author, lqt-thread-edited-others
 			$editedNotice = wfMessage( "lqt-thread-edited-$editedBy" )
 				->params( $lastEdit )->numParams( $editorCount )
 				->params( $lastEditTime, $lastEditDate )
-				->params( $user->getName() )->parse();
+				->params( $author->getName() )->parse();
 			$editedNotice = str_replace( '$3', $editors, $editedNotice );
 			$infoElements[] = Xml::tags( 'div', [ 'class' =>
 						"lqt-thread-toolbar-edited-$editedBy" ],
