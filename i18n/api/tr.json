@@ -1,21 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"MuratTheTurkish"
 		]
 	},
 	"apihelp-feedthreads-description": "Tartışma ileti özet akışına döndürün.",
 	"apihelp-feedthreads-summary": "Tartışma ileti özet akışına döndürün.",
 	"apihelp-feedthreads-param-feedformat": "Beslemenin biçimi.",
 	"apihelp-feedthreads-param-days": "Gösterilecek ileti dizisinin gün sayısı.",
-	"apihelp-feedthreads-param-type": "Gösterilecek yayın türleri.",
-	"apihelp-feedthreads-param-talkpage": "Sonuçları bu konuşma sayfalarındaki konularla sınırlandırın.",
-	"apihelp-feedthreads-param-thread": "Sonuçları bu iplikler ve torunları ile sınırlandırın.",
-	"apihelp-feedthreads-example-1": "Tüm yeni konuların özet akışını göster",
-	"apihelp-feedthreads-example-2": "[[Thread:Foo]] için yanıt özet akışını göster",
-	"apihelp-feedthreads-example-3": "[[Talk:Main Page]]'de yeni konuların özet akışını göster",
-	"apihelp-query+threads-description": "LiquidThreads konularının ayrıntılarını göster.",
-	"apihelp-query+threads-summary": "LiquidThreads konularının ayrıntılarını göster.",
+	"apihelp-feedthreads-param-type": "Gösterilecek gönderi türleri.",
+	"apihelp-feedthreads-param-talkpage": "Sonuçları bu tartışma sayfalarındaki konularla sınırlandırın.",
+	"apihelp-feedthreads-param-thread": "Sonuçları bu iletiler ve torunları ile sınırlandırın.",
+	"apihelp-feedthreads-example-1": "Tüm yeni konuların özet akışını gösterin",
+	"apihelp-feedthreads-example-2": "[[Thread:Foo]] için yanıt özet akışını gösterin",
+	"apihelp-feedthreads-example-3": "[[Talk:Main Page]] sayfap yeni konuların özet akışını gösterin",
+	"apihelp-query+threads-description": "LiquidThreads konularının ayrıntılarını gösterin.",
+	"apihelp-query+threads-summary": "LiquidThreads konularının ayrıntılarını gösterin.",
 	"apihelp-query+threads-param-startid": "Numaralandırmaya başlamak için ileti kimliği.",
 	"apihelp-query+threads-param-endid": "Konumundaki numaralandırmayı durdurmak için ileti  kimliği.",
 	"apihelp-query+threads-param-showdeleted": "Silinmiş iletilerin gösterilip gösterilmeyeceği.",
@@ -34,7 +35,7 @@
 	"apihelp-query+threads-param-rendermaxdepth": "Oluşturma sırasında, yanıtlar yerine \"X yanıtını göster\" bağlantısını göstermeden önce gösterilecek maksimum yanıt derinliği.",
 	"apihelp-query+threads-param-renderstartrepliesat": "Oluşturma sırasında yanıtları göstermeye başlanacak nokta (dahili olarak ekstra yanıt yüklemek için kullanılır).",
 	"apihelp-query+threads-example-1": "[[Talk:Main Page]] konusundaki iletileri listeleyin",
-	"apihelp-query+threads-example-2": "1, 2, 3 ve 4 iletileri kimlikleri listele",
+	"apihelp-query+threads-example-2": "1, 2, 3 ve 4 iletileri kimlikleri listeleyin",
 	"apihelp-threadaction-description": "İleti tartışmalarında ileti dizileri ve yayınlar üzerinde işlem yapılmasına izin verir.",
 	"apihelp-threadaction-summary": "İleti tartışmalarında ileti dizileri ve yayınlar üzerinde işlem yapılmasına izin verir.",
 	"apihelp-threadaction-param-thread": "İleti kimlikleri veya üzerinde işlem yapılacak başlıklar.",
