@@ -1833,6 +1833,7 @@ class LqtView {
 	public function getMustShowThreads( array $threads = [] ) {
 		if ( $this->request->getCheck( 'lqt_operand' ) ) {
 			$operands = explode( ',', $this->request->getVal( 'lqt_operand' ) );
+			$operands = array_filter( $operands, 'ctype_digit' );
 			$threads = array_merge( $threads, $operands );
 		}
 
@@ -1840,6 +1841,7 @@ class LqtView {
 			// Check for must-show in the request
 			$specifiedMustShow = $this->request->getVal( 'lqt_mustshow' );
 			$specifiedMustShow = explode( ',', $specifiedMustShow );
+			$specifiedMustShow = array_filter( $specifiedMustShow, 'ctype_digit' );
 
 			$threads = array_merge( $threads, $specifiedMustShow );
 		}
