@@ -21,7 +21,7 @@ class ThreadProtectionFormView extends LqtView {
 	public function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		parent::__construct( $output, $article, $title, $user, $request );
 
-		$t = Threads::withRoot( $this->article );
+		$t = Threads::withRoot( $this->article->getPage() );
 
 		$this->thread = $t;
 		if ( !$t ) {

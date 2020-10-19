@@ -19,9 +19,11 @@ class ApiThreadAction extends ApiEditPage {
 						in_array( $action, $allowedAllActions ) ) {
 					$threads = [ 'all' ];
 				} else {
-					$title = Title::newFromText( $thread );
-					$article = new Article( $title, 0 );
-					$threadObj = Threads::withRoot( $article );
+					$threadObj = Threads::withRoot(
+						WikiPage::factory(
+							Title::newFromText( $thread )
+						)
+					);
 				}
 
 				if ( $threadObj instanceof Thread ) {
@@ -211,9 +213,11 @@ class ApiThreadAction extends ApiEditPage {
 		if ( is_numeric( $newParent ) ) {
 			$newParent = Threads::withId( $newParent );
 		} else {
-			$title = Title::newFromText( $newParent );
-			$article = new Article( $title, 0 );
-			$newParent = Threads::withRoot( $article );
+			$newParent = Threads::withRoot(
+				WikiPage::factory(
+					Title::newFromText( $newParent )
+				)
+			);
 		}
 
 		if ( !$newParent ) {
