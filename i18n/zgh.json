@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Hakim1bal",
 			"ⵕⴰⵊⵉ"
 		]
 	},
-	"lqt_newmessages": "ⵜⵓⵣⵉⵏⵉⵏ ⵜⵉⵎⴰⵢⵏⵓⵜⵉⵏ (ⵡⴰⵍⵓ)"
+	"lqt_newmessages-title": "ⵜⵓⵣⵉⵏⵉⵏ ⵜⵉⵎⴰⵢⵏⵓⵜⵉⵏ",
+	"pageinfo-usinglqt-yes": "ⵢⴰⵀ"
 }
