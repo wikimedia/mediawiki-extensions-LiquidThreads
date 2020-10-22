@@ -8,6 +8,7 @@
 			"Firilacroco",
 			"KlaudiuMihaila",
 			"Minisarm",
+			"NGC 54",
 			"Stelistcristi"
 		]
 	},
@@ -153,6 +154,7 @@
 	"lqt-thread-merge-dest": "Subiect destinație:",
 	"lqt-merge-submit": "Unește",
 	"lqt-merge-success": "Ați unit threadul $1 sub $2.",
+	"lqt-log-name": "Jurnal Threaded discussion",
 	"lqt-log-action-move": "a mutat [[$1]] de la [[$2]] la [[$3]] ($4)",
 	"lqt-log-action-split": "a împărțit [[$1]] din [[$3]], cu noul siboect „$2”",
 	"lqt-log-action-merge-across": "a mutat [[$1]] de sub [[$2]] sub [[$3]]",
