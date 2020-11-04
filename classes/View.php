@@ -2071,7 +2071,7 @@ class LqtView {
 		$startAt = $options['startAt'] ?? 0;
 
 		// Figure out if we have replies to show or not.
-		$showThreads = ( $maxDepth == - 1 ) ||
+		$showThreads = ( $maxDepth == -1 ) ||
 				( $this->threadNestingLevel <= $maxDepth );
 		$mustShowThreadIds = array_keys( $mustShowThreads );
 		$subthreadIds = array_keys( $thread->replies() );

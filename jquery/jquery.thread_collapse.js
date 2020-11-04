@@ -39,6 +39,7 @@
 						.end() );
 			},
 			getPreview: function ( thread, depth ) {
+				// eslint-disable-next-line mediawiki/class-doc
 				var $out = $( '<ul>' )
 					.addClass( 'thread-collapse-preview' )
 					.addClass( 'thread-collapse-preview-depth-' + depth )

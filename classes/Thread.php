@@ -555,7 +555,7 @@ class Thread {
 	 */
 	public function replyCount() {
 		// Populate reply count
-		if ( $this->replyCount == - 1 ) {
+		if ( $this->replyCount == -1 ) {
 			if ( $this->isTopmostThread() ) {
 				$dbr = wfGetDB( DB_REPLICA );
 
@@ -589,7 +589,7 @@ class Thread {
 	}
 
 	public function decrementReplyCount( $val = 1 ) {
-		$this->incrementReplyCount( - $val );
+		$this->incrementReplyCount( -$val );
 	}
 
 	/**
@@ -1613,7 +1613,7 @@ class Thread {
 		} elseif ( $a > $b ) {
 			return 1;
 		} else {
-			return - 1;
+			return -1;
 		}
 	}
 

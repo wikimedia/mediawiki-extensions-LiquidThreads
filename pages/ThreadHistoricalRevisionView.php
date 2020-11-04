@@ -136,8 +136,8 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 			1,
 			1,
 			[
-				'maxDepth' => - 1,
-				'maxCount' => - 1,
+				'maxDepth' => -1,
+				'maxCount' => -1,
 				'mustShowThreads' => $changedObject ? [ $changedObject->id() ] : []
 			]
 		);
