@@ -35,10 +35,6 @@ class LqtParserFunctions {
 	 */
 	private static function addToExtensionData( ParserOutput $pout, string $text, array $data ) {
 		$lqtReplacements = $pout->getExtensionData( self::LQT_REPLACEMENTS_DATA_KEY ) ?? [];
-		// TODO: drop fallback once ParserCache expires
-		if ( !$lqtReplacements && isset( $pout->mLqtReplacements ) ) {
-			$lqtReplacements = $pout->mLqtReplacements;
-		}
 		$lqtReplacements[$text] = $data;
 		$pout->setExtensionData( self::LQT_REPLACEMENTS_DATA_KEY, $lqtReplacements );
 	}
@@ -167,9 +163,7 @@ class LqtParserFunctions {
 	}
 
 	public static function onAddParserOutput( OutputPage $out, ParserOutput $pout ) {
-		// TODO: remove fallback after ParserCache expiration
-		if ( !$pout->getExtensionData( self::LQT_REPLACEMENTS_DATA_KEY )
-			&& !isset( $pout->mLqtReplacements ) ) {
+		if ( !$pout->getExtensionData( self::LQT_REPLACEMENTS_DATA_KEY ) ) {
 			return true;
 		}
 
@@ -178,10 +172,6 @@ class LqtParserFunctions {
 		}
 
 		$lqtReplacements = $pout->getExtensionData( self::LQT_REPLACEMENTS_DATA_KEY );
-		// TODO: remove fallback after ParserCache expiration
-		if ( !$lqtReplacements && isset( $pout->mLqtReplacements ) ) {
-			$lqtReplacements = $pout->mLqtReplacements;
-		}
 		foreach ( $lqtReplacements as $text => $details ) {
 			$result = '';
 
