@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joachim Mos"
+			"Joachim Mos",
+			"Slomox"
 		]
 	},
 	"lqt-parent": "Öllern",
@@ -12,7 +13,7 @@
 	"lqt_hist_undeleted": "Wedderhalen",
 	"lqt_hist_moved_talkpage": "Schuven",
 	"lqt-thread-created": "Opstellt",
-	"lqt-history-time": "Tied",
+	"lqt-history-time": "Tiet",
 	"lqt-history-user": "Bruker",
 	"lqt-history-comment": "Kommentar",
 	"lqt-header-actions": "Akschonen",
