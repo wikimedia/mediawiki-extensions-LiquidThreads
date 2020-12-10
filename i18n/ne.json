@@ -6,6 +6,7 @@
 			"Krish Dulal",
 			"NehalDaveND",
 			"RajeshPandey",
+			"पर्वत सुबेदी",
 			"बिप्लब आनन्द",
 			"राम प्रसाद जोशी",
 			"सरोज कुमार ढकाल"
@@ -135,6 +136,7 @@
 	"lqt-feed-title-all": "{{SITENAME}} — नयाँ पोस्ट",
 	"lqt-newmessages-n": "नयाँ सन्देशहरू ($1)",
 	"lqt_newmessages-title": "नयाँ सन्देशहरू",
+	"lqt-talkpage-history-subtitle": "$1 का लागि",
 	"lqt-reply-subpage": "जवाफ",
 	"nstab-thread": "धागो(thread)",
 	"pageinfo-usinglqt-yes": "छ"
