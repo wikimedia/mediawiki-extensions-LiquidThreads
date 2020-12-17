@@ -8,23 +8,30 @@ use MediaWiki\User\UserIdentity;
 use UtfNormal\Validator;
 
 class LqtHooks {
-	// Used to inform hooks about edits that are taking place.
+	/** @var string|null Used to inform hooks about edits that are taking place. */
 	public static $editType = null;
+	/** @var Thread|null Used to inform hooks about edits that are taking place. */
 	public static $editThread = null;
+	/** @var Thread|null Used to inform hooks about edits that are taking place. */
 	public static $editAppliesTo = null;
 
 	/**
-	 * @var Article
+	 * @var Article|null
 	 */
 	public static $editArticle = null;
+	/**
+	 * @var Article|null
+	 */
 	public static $editTalkpage = null;
 
+	/** @var string[] */
 	public static $editedStati = [
 		Threads::EDITED_NEVER => 'never',
 		Threads::EDITED_HAS_REPLY => 'has-reply',
 		Threads::EDITED_BY_AUTHOR => 'by-author',
 		Threads::EDITED_BY_OTHERS => 'by-others'
 	];
+	/** @var string[] */
 	public static $threadTypes = [
 		Threads::TYPE_NORMAL => 'normal',
 		Threads::TYPE_MOVED => 'moved',
@@ -310,6 +317,7 @@ class LqtHooks {
 		return true;
 	}
 
+	/** @var string[][] */
 	private static $userTables = [
 		'thread' => [ 'thread_author_name', 'thread_author_id', 'thread_modified' ],
 		'thread_history' => [ 'th_user_text', 'th_user', 'th_timestamp' ]

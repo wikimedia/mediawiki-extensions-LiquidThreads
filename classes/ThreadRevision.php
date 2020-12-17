@@ -3,6 +3,7 @@
 use MediaWiki\MediaWikiServices;
 
 class ThreadRevision {
+	/** @var string[] */
 	public static $load =
 		[
 			'th_id'             => 'mId',

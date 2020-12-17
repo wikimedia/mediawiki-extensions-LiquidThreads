@@ -33,8 +33,11 @@ class Threads {
 	public const EDITED_BY_AUTHOR = 2;
 	public const EDITED_BY_OTHERS = 3;
 
+	/** @var Thread[] */
 	public static $cache_by_root = [];
+	/** @var Thread[] */
 	public static $cache_by_id = [];
+	/** @var string[] */
 	public static $occupied_titles = [];
 
 	/**

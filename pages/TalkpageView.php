@@ -7,6 +7,7 @@ class TalkpageView extends LqtView {
 	public const LQT_NEWEST_THREADS = 'nt';
 	public const LQT_OLDEST_THREADS = 'ot';
 
+	/** @var string[] */
 	protected $mShowItems = [ 'toc', 'options', 'header' ];
 	/** @var Article */
 	protected $talkpage;

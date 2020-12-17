@@ -3,7 +3,9 @@
 use MediaWiki\MediaWikiServices;
 
 class NewUserMessagesView extends LqtView {
+	/** @var int[] */
 	protected $highlightThreads;
+	/** @var array[] */
 	protected $messagesInfo;
 
 	protected function htmlForReadButton( $label, $title, $class, $ids ) {

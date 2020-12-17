@@ -35,10 +35,14 @@ class LqtView {
 	 */
 	public $request;
 
-	protected $headerLevel = 2; /* h1, h2, h3, etc. */
+	/** @var int h1, h2, h3, etc. */
+	protected $headerLevel = 2;
+	/** @var array */
 	protected $user_colors;
+	/** @var int */
 	protected $user_color_index;
 
+	/** @var int */
 	public $threadNestingLevel = 0;
 
 	public function __construct( &$output, &$article, &$title, &$user, &$request ) {
@@ -729,7 +733,7 @@ class LqtView {
 		$subject = $this->request->getVal( 'lqt_subject_field', '' );
 
 		if ( !$subject ) {
-			$subject = $thread->subject();
+			$subject = $thread->subject() ?? '';
 		}
 
 		$t = null;
@@ -853,7 +857,6 @@ class LqtView {
 		$talkpage = $thread->article();
 
 		LqtHooks::$editTalkpage = $talkpage;
-		// @phan-suppress-next-line PhanPossiblyNullTypeMismatchProperty
 		LqtHooks::$editArticle = $article;
 		LqtHooks::$editThread = $thread;
 		LqtHooks::$editType = 'summarize';
@@ -969,7 +972,7 @@ class LqtView {
 			if ( $from instanceof User ) {
 				$signatureText = self::getUserSignature( $from );
 			} elseif ( $from instanceof Thread ) {
-				$signatureText = $from->signature();
+				$signatureText = $from->signature() ?? '';
 			} else {
 				$signatureText = '';
 			}

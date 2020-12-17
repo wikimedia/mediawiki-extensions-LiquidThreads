@@ -3,6 +3,7 @@
 use MediaWiki\Revision\RevisionRecord;
 
 class LqtDeletionController {
+	/** @var Title[]|null */
 	public static $pageids_to_revive;
 
 	public static function onArticleDeleteComplete( WikiPage &$article, User &$user, $reason, $id ) {

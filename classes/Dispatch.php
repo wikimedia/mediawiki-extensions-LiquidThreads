@@ -1,8 +1,9 @@
 <?php
 
 class LqtDispatch {
-	/** static cache of per-page LiquidThreads activation setting */
+	/** @var (int|null)[] static cache of per-page LiquidThreads activation setting */
 	public static $userLqtOverride = [];
+	/** @var LqtView|null */
 	public static $primaryView = null;
 
 	/**

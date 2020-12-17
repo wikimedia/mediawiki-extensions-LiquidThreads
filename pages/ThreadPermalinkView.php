@@ -3,6 +3,7 @@
 use MediaWiki\MediaWikiServices;
 
 class ThreadPermalinkView extends LqtView {
+	/** @var Thread */
 	protected $thread;
 
 	public function customizeNavigation( $skin, &$links ) {

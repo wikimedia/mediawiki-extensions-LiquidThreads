@@ -1,6 +1,7 @@
 <?php
 
 class LqtNewMessagesPager extends LqtDiscussionPager {
+	/** @var User */
 	private $user;
 
 	public function __construct( $user ) {

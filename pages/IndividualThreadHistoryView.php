@@ -1,6 +1,7 @@
 <?php
 
 class IndividualThreadHistoryView extends ThreadPermalinkView {
+	/** @var int|null */
 	protected $oldid;
 
 	public function customizeNavigation( $skin, &$links ) {

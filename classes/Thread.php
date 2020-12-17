@@ -8,50 +8,73 @@ class Thread {
 	/* SCHEMA changes must be reflected here. */
 
 	/* ID references to other objects that are loaded on demand: */
+	/** @var int|null */
 	protected $rootId;
+	/** @var int|null */
 	protected $articleId;
+	/** @var int|null */
 	protected $summaryId;
+	/** @var int|null */
 	protected $ancestorId;
 	/** @var int|null */
 	protected $parentId;
 
 	/* Actual objects loaded on demand from the above when accessors are called: */
+	/** @var Article|null */
 	protected $root;
+	/** @var Article|null */
 	protected $article;
 	/** @var Article|null */
 	protected $summary;
+	/** @var self|null */
 	protected $superthread;
+	/** @var self|null */
 	protected $ancestor;
 
-	/* Subject page of the talkpage we're attached to: */
+	/** @var int|null namespace of Subject page of the talkpage we're attached to */
 	protected $articleNamespace;
+	/** @var string|null Subject page of the talkpage we're attached to: */
 	protected $articleTitle;
 
-	/* Timestamps: */
+	/** @var string Timestamp */
 	protected $modified;
+	/** @var string Timestamp */
 	protected $created;
+	/** @var string Timestamp */
 	protected $sortkey;
 
 	/** @var int */
 	protected $id;
+	/** @var int|null */
 	protected $type;
+	/** @var string|null */
 	protected $subject;
+	/** @var int */
 	protected $authorId;
+	/** @var string|null */
 	protected $authorName;
+	/** @var string|null */
 	protected $signature;
+	/** @var int */
 	protected $replyCount;
 
+	/** @var bool|null */
 	protected $allDataLoaded;
 
+	/** @var bool */
 	protected $isHistorical = false;
 
+	/** @var int|null */
 	protected $rootRevision;
 
 	/** @var int Flag about who has edited or replied to this thread. */
 	public $editedness;
+	/** @var string[]|null */
 	protected $editors = null;
 
+	/** @var Thread[]|null */
 	protected $replies;
+	/** @var array[]|null */
 	protected $reactions;
 
 	/** @var self|null */
@@ -59,11 +82,16 @@ class Thread {
 	/** @var ThreadRevision */
 	public $threadRevision;
 
+	/** @var Title[] */
 	public static $titleCacheById = [];
+	/** @var self[][] */
 	public static $replyCacheById = [];
+	/** @var Article[] */
 	public static $articleCacheById = [];
+	/** @var array[][] */
 	public static $reactionCacheById = [];
 
+	/** @var int[] */
 	public static $VALID_TYPES = [
 		Threads::TYPE_NORMAL, Threads::TYPE_MOVED, Threads::TYPE_DELETED ];
 
@@ -687,7 +715,7 @@ class Thread {
 	/**
 	 * Load a list of threads in bulk, including all subthreads.
 	 *
-	 * @param object[] $rows
+	 * @param stdClass[] $rows
 	 * @return self[]
 	 */
 	public static function bulkLoad( $rows ) {
@@ -1089,6 +1117,7 @@ class Thread {
 			$this->replies[$thread->id()] = $thread;
 		} else {
 			$this->replies();
+			// @phan-suppress-next-line PhanTypeArraySuspicious $replies set by replies()
 			$this->replies[$thread->id()] = $thread;
 		}
 
@@ -1822,11 +1851,12 @@ class Thread {
 				$revQuery['joins']
 			);
 
+			$editors = [];
 			foreach ( $res as $row ) {
-				$this->editors[$row->rev_user_text] = 1;
+				$editors[$row->rev_user_text] = 1;
 			}
 
-			$this->editors = array_keys( $this->editors );
+			$this->editors = array_keys( $editors );
 		}
 
 		return $this->editors;
