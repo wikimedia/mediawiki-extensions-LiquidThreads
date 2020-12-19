@@ -58,7 +58,7 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 		// Handle parameter
 		$this->mTarget = $par;
 		if ( $par === null || $par === "" ) {
-			$this->output->addHTML( wfMessage( 'lqt_threadrequired' )->escaped() );
+			$this->output->addHTML( $this->msg( 'lqt_threadrequired' )->escaped() );
 			return false;
 		}
 
@@ -68,7 +68,7 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 			)
 		);
 		if ( !$thread ) {
-			$this->output->addHTML( wfMessage( 'lqt_nosuchthread' )->escaped() );
+			$this->output->addHTML( $this->msg( 'lqt_nosuchthread' )->escaped() );
 			return false;
 		}
 

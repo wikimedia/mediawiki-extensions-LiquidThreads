@@ -24,20 +24,20 @@ class ThreadHistoryPager extends TablePager {
 
 		self::$change_names =
 		[
-			Threads::CHANGE_EDITED_ROOT => wfMessage( 'lqt_hist_comment_edited' )->plain(),
-			Threads::CHANGE_EDITED_SUMMARY => wfMessage( 'lqt_hist_summary_changed' )->plain(),
-			Threads::CHANGE_REPLY_CREATED => wfMessage( 'lqt_hist_reply_created' )->plain(),
-			Threads::CHANGE_NEW_THREAD => wfMessage( 'lqt_hist_thread_created' )->plain(),
-			Threads::CHANGE_DELETED => wfMessage( 'lqt_hist_deleted' )->plain(),
-			Threads::CHANGE_UNDELETED => wfMessage( 'lqt_hist_undeleted' )->plain(),
-			Threads::CHANGE_MOVED_TALKPAGE => wfMessage( 'lqt_hist_moved_talkpage' )->plain(),
-			Threads::CHANGE_EDITED_SUBJECT => wfMessage( 'lqt_hist_edited_subject' )->plain(),
-			Threads::CHANGE_SPLIT => wfMessage( 'lqt_hist_split' )->plain(),
-			Threads::CHANGE_MERGED_FROM => wfMessage( 'lqt_hist_merged_from' )->plain(),
-			Threads::CHANGE_MERGED_TO => wfMessage( 'lqt_hist_merged_to' )->plain(),
-			Threads::CHANGE_SPLIT_FROM => wfMessage( 'lqt_hist_split_from' )->plain(),
-			Threads::CHANGE_ROOT_BLANKED => wfMessage( 'lqt_hist_root_blanked' )->plain(),
-			Threads::CHANGE_ADJUSTED_SORTKEY => wfMessage( 'lqt_hist_adjusted_sortkey' )->plain()
+			Threads::CHANGE_EDITED_ROOT => $this->msg( 'lqt_hist_comment_edited' )->plain(),
+			Threads::CHANGE_EDITED_SUMMARY => $this->msg( 'lqt_hist_summary_changed' )->plain(),
+			Threads::CHANGE_REPLY_CREATED => $this->msg( 'lqt_hist_reply_created' )->plain(),
+			Threads::CHANGE_NEW_THREAD => $this->msg( 'lqt_hist_thread_created' )->plain(),
+			Threads::CHANGE_DELETED => $this->msg( 'lqt_hist_deleted' )->plain(),
+			Threads::CHANGE_UNDELETED => $this->msg( 'lqt_hist_undeleted' )->plain(),
+			Threads::CHANGE_MOVED_TALKPAGE => $this->msg( 'lqt_hist_moved_talkpage' )->plain(),
+			Threads::CHANGE_EDITED_SUBJECT => $this->msg( 'lqt_hist_edited_subject' )->plain(),
+			Threads::CHANGE_SPLIT => $this->msg( 'lqt_hist_split' )->plain(),
+			Threads::CHANGE_MERGED_FROM => $this->msg( 'lqt_hist_merged_from' )->plain(),
+			Threads::CHANGE_MERGED_TO => $this->msg( 'lqt_hist_merged_to' )->plain(),
+			Threads::CHANGE_SPLIT_FROM => $this->msg( 'lqt_hist_split_from' )->plain(),
+			Threads::CHANGE_ROOT_BLANKED => $this->msg( 'lqt_hist_root_blanked' )->plain(),
+			Threads::CHANGE_ADJUSTED_SORTKEY => $this->msg( 'lqt_hist_adjusted_sortkey' )->plain()
 		];
 	}
 
@@ -129,7 +129,7 @@ class ThreadHistoryPager extends TablePager {
 					$args[] = $lastChangeObject->subject();
 					$args[] = $changeObject->subject();
 				} else {
-					$msg = wfMessage( 'lqt_hist_edited_subject_corrupt' )->parse();
+					$msg = $this->msg( 'lqt_hist_edited_subject_corrupt' )->parse();
 				}
 				break;
 			case Threads::CHANGE_EDITED_ROOT:
@@ -142,13 +142,13 @@ class ThreadHistoryPager extends TablePager {
 				} else {
 					$args[] = '';
 					if ( $type == Threads::CHANGE_EDITED_ROOT ) {
-						$msg = wfMessage( 'lqt_hist_comment_edited_deleted' )->parse();
+						$msg = $this->msg( 'lqt_hist_comment_edited_deleted' )->parse();
 					}
 				}
 				break;
 			case Threads::CHANGE_REPLY_CREATED:
 				if ( !$changeObject || !$changeObject->title() ) {
-					$msg = wfMessage( 'lqt_hist_reply_created_deleted' )->parse();
+					$msg = $this->msg( 'lqt_hist_reply_created_deleted' )->parse();
 				}
 				break;
 		}

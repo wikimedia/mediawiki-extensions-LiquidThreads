@@ -150,7 +150,7 @@ class LqtDiscussionPager extends IndexPager {
 		$linkTexts = [];
 		$disabledTexts = [];
 		foreach ( $labels as $type => $label ) {
-			$msgLabel = wfMessage( $label )->escaped();
+			$msgLabel = $this->msg( $label )->escaped();
 			$linkTexts[$type] = "<img src=\"$path/{$images[$type]}\" " .
 				"alt=\"$msgLabel\"/><br />$msgLabel";
 			$disabledTexts[$type] = "<img src=\"$path/{$disabledImages[$type]}\" " .

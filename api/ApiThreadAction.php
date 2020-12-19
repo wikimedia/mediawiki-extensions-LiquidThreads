@@ -74,7 +74,7 @@ class ApiThreadAction extends ApiEditPage {
 				'threads' => 'all',
 				'unreadlink' => [
 					'href' => SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL(),
-					'text' => wfMessage( 'lqt-newmessages-n' )->numParams( 0 )->text(),
+					'text' => $this->msg( 'lqt-newmessages-n' )->numParams( 0 )->text(),
 					'active' => false,
 				]
 			];
@@ -93,7 +93,7 @@ class ApiThreadAction extends ApiEditPage {
 			// Only bother to put this on the last threadaction
 			$result[count( $result ) - 1]['unreadlink'] = [
 				'href' => SpecialPage::getTitleFor( 'NewMessages' )->getLocalURL(),
-				'text' => wfMessage( $msgNewMessages )->numParams( $newMessagesCount )->text(),
+				'text' => $this->msg( $msgNewMessages )->numParams( $newMessagesCount )->text(),
 				'active' => $newMessagesCount > 0,
 			];
 		}
@@ -304,7 +304,7 @@ class ApiThreadAction extends ApiEditPage {
 		$text = $params['text'];
 
 		// Generate or pull summary
-		$summary = wfMessage( 'lqt-newpost-summary', $subject )->inContentLanguage()->text();
+		$summary = $this->msg( 'lqt-newpost-summary', $subject )->inContentLanguage()->text();
 		if ( !empty( $params['reason'] ) ) {
 			$summary = $params['reason'];
 		}
@@ -538,7 +538,7 @@ class ApiThreadAction extends ApiEditPage {
 		$bump = $params['bump'] ?? null;
 
 		// Generate/pull summary
-		$summary = wfMessage( 'lqt-reply-summary', $replyTo->subject(),
+		$summary = $this->msg( 'lqt-reply-summary', $replyTo->subject(),
 				$replyTo->title()->getPrefixedText() )->inContentLanguage()->text();
 
 		if ( !empty( $params['reason'] ) ) {

@@ -120,7 +120,7 @@ class SpecialMoveThread extends ThreadActionPage {
 			$linkRenderer->makeLink( $newtitle ),
 			$linkRenderer->makeLink(
 				SpecialPage::getTitleFor( 'MoveThread', $this->mThread->root()->getTitle() ),
-				wfMessage( 'revertmove' )->text(),
+				$this->msg( 'revertmove' )->text(),
 				[],
 				[ 'dest' => $oldtitle ]
 			)

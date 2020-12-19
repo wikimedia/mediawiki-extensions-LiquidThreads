@@ -89,13 +89,13 @@ class ApiFeedLQTThreads extends ApiBase {
 			$stTitle = clone $thread->topmostThread()->title();
 			$stTitle->setFragment( '#' . $thread->superthread()->getAnchorName() );
 			$superthreadLink = $linkRenderer->makeLink( $stTitle );
-			$description = wfMessage( 'lqt-feed-reply-intro' )
+			$description = $this->msg( 'lqt-feed-reply-intro' )
 				->rawParams( $talkpageLink, $userLink, $superthreadLink )
 				->params( $user )
 				->parseAsBlock();
 		} else {
 			// Third param is unused
-			$description = wfMessage( 'lqt-feed-new-thread-intro' )
+			$description = $this->msg( 'lqt-feed-new-thread-intro' )
 				->rawParams( $talkpageLink, $userLink, '' )
 				->params( $user )
 				->parseAsBlock();
@@ -144,7 +144,7 @@ class ApiFeedLQTThreads extends ApiBase {
 			$msg .= '-from';
 		}
 
-		return wfMessage( $msg, $fromPlaces )->numParams( $fromCount )->text();
+		return $this->msg( $msg, $fromPlaces )->numParams( $fromCount )->text();
 	}
 
 	/**
