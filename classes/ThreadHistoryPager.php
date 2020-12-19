@@ -74,15 +74,13 @@ class ThreadHistoryPager extends TablePager {
 	}
 
 	public function formatValue( $name, $value ) {
-		global $wgLang, $wgTitle;
-
 		$row = $this->mCurrentRow;
 
 		switch ( $name ) {
 			case 'th_timestamp':
-				$formatted = $wgLang->timeanddate( $value, true );
+				$formatted = $this->getLanguage()->userTimeAndDate( $value, $this->getUser() );
 				return $this->linkRenderer->makeLink(
-					$wgTitle,
+					$this->getTitle(),
 					$formatted,
 					[],
 					[ 'lqt_oldid' => $row->th_id ]
@@ -103,8 +101,6 @@ class ThreadHistoryPager extends TablePager {
 	}
 
 	public function getActionDescription( $type ) {
-		global $wgOut;
-
 		$args = [];
 		$revision = ThreadRevision::loadFromRow( $this->mCurrentRow );
 		$changeObject = $revision->getChangeObject();
@@ -155,7 +151,7 @@ class ThreadHistoryPager extends TablePager {
 
 		$content = wfMsgReplaceArgs( $msg, $args );
 		return Html::rawElement(
-			'span', [ 'class' => 'plainlinks' ], $wgOut->parseInlineAsInterface( $content )
+			'span', [ 'class' => 'plainlinks' ], $this->getOutput()->parseInlineAsInterface( $content )
 		);
 	}
 

@@ -56,8 +56,8 @@ class LqtHooks {
 			return true;
 		}
 
-		global $wgLang, $wgOut;
-		$wgOut->addModules( 'ext.liquidThreads' );
+		$changeslist->getOutput()->addModules( 'ext.liquidThreads' );
+		$lang = $changeslist->getLanguage();
 
 		// Custom display for new posts.
 		if ( $rc->getAttribute( 'rc_source' ) === RecentChange::SRC_NEW ) {
@@ -72,13 +72,13 @@ class LqtHooks {
 			$msg = $thread->isTopmostThread()
 				? 'lqt_rc_new_discussion' : 'lqt_rc_new_reply';
 			$link = LqtView::linkInContext( $thread );
-			$s .= ' ' . wfMessage( $msg )->rawParams( $link )->parse();
+			$s .= ' ' . $changeslist->msg( $msg )->rawParams( $link )->parse();
 
-			$s .= $wgLang->getDirMark();
+			$s .= $lang->getDirMark();
 
 			// add the truncated post content
 			$quote = ContentHandler::getContentText( $thread->root()->getPage()->getContent() );
-			$quote = $wgLang->truncateForVisual( $quote, 200 );
+			$quote = $lang->truncateForVisual( $quote, 200 );
 			$s .= ' ' . Linker::commentBlock( $quote );
 
 			$classes = [];

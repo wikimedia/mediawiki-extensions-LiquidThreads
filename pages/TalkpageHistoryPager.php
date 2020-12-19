@@ -41,9 +41,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 	}
 
 	public function formatValue( $name, $value ) {
-		global $wgLang, $wgOut;
-
-		$wgOut->setRobotPolicy( 'noindex, nofollow' );
+		$this->getOutput()->setRobotPolicy( 'noindex, nofollow' );
 
 		$row = $this->mCurrentRow;
 
@@ -73,7 +71,7 @@ class TalkpageHistoryPager extends ThreadHistoryPager {
 
 				return Html::rawElement( 'div', [ 'dir' => $contLang->getDir() ], $link );
 			case 'th_timestamp':
-				$formatted = $wgLang->timeanddate( $value );
+				$formatted = $this->getLanguage()->userTimeAndDate( $value, $this->getUser() );
 				$title = Title::makeTitleSafe(
 					$ns,
 					$title

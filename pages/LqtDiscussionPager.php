@@ -20,8 +20,7 @@ class LqtDiscussionPager extends IndexPager {
 	public function getPageLimit() {
 		$article = $this->article;
 
-		global $wgRequest;
-		$requestedLimit = $wgRequest->getIntOrNull( 'limit' );
+		$requestedLimit = $this->getRequest()->getIntOrNull( 'limit' );
 		if ( $requestedLimit ) {
 			return $requestedLimit;
 		}
@@ -120,7 +119,7 @@ class LqtDiscussionPager extends IndexPager {
 		if ( !$this->isNavigationBarShown() ) {
 			return '';
 		}
-		global $wgExtensionAssetsPath, $wgLang;
+		global $wgExtensionAssetsPath;
 
 		$path = "$wgExtensionAssetsPath/LiquidThreads/images";
 		$labels = [
@@ -141,7 +140,7 @@ class LqtDiscussionPager extends IndexPager {
 			'next' => 'arrow_disabled_right_25.png',
 			'last' => 'arrow_disabled_last_25.png',
 		];
-		if ( $wgLang->isRTL() ) {
+		if ( $this->getLanguage()->isRTL() ) {
 			$keys = array_keys( $labels );
 			$images = array_combine( $keys, array_reverse( $images ) );
 			$disabledImages = array_combine( $keys, array_reverse( $disabledImages ) );
