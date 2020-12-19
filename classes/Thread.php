@@ -1337,7 +1337,6 @@ class Thread {
 			}
 		}
 
-		// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
 		if ( isset( $article ) && $article->getPage()->exists() ) {
 			$this->article = $article;
 			return $article;
