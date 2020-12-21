@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"J budissin",
 			"Michawiki"
 		]
 	},
@@ -9,7 +10,7 @@
 	"lqt_deletethread": "Nitku wušmórnyć abo wobnowić",
 	"lqt_contents_title": "Wobsah",
 	"lqt_toc_thread_title": "Titul nitki",
-	"lqt_toc_thread_author": "Započaty wot",
+	"lqt_toc_thread_author": "Zahajeny wot",
 	"lqt_toc_thread_replycount": "Wotmołwy",
 	"lqt_toc_thread_modified": "Posledni raz změnjeny",
 	"lqt_add_header": "Hłowu přidać",
@@ -119,11 +120,11 @@
 	"lqt-history-action": "Aktiwita",
 	"lqt-history-comment": "Komentar",
 	"lqt-history-thread": "Nitka",
-	"lqt-thread-edited-author": "Wot awtora wobdźěłany.<br />\nPoslednja změna: $1",
+	"lqt-thread-edited-author": "Wobdźěłany wot {{GENDER:$5|awtora|awtorki}}.<br />\nPoslednja změna: $1",
 	"lqt-thread-edited-others": "Wot {{PLURAL:$2|druheho wužiwarja|druheju wužiwarjow|druhich wužiwarjow|druhich wužiwarjow}} wobdźěłany.<br />\nPoslednja změna: $1",
 	"lqt-header-actions": "Akcije",
 	"lqt_summarize_link": "zjeć",
-	"lqt-summarize-intro": "Prošu zhorń slědowacu nitku we wobdźěłanskim kašćiku.\nMóžeš někajki wikitekst w swojim zjeću wužiwać. Hdyž skónčiš, klikń na \"{{int:publishpage}}\".",
+	"lqt-summarize-intro": "Prošu zjimaj slědowacu nitku we wobdźěłanskim kašćiku.\nW swojim zjeću móžeš wikitekst wužiwać. Hdyž je dokónčene, klikń na \"{{int:publishpage}}\".",
 	"lqt-thread-split": "Do noweje nitki rozšćěpić",
 	"lqt-split-success": "Sy wuspěšnje nitku $1 wotšćěpił.",
 	"lqt_split_thread": "Nitku šćěpić",
