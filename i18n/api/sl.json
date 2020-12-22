@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Eleassar",
 			"Janezdrilc"
 		]
 	},
@@ -25,7 +26,7 @@
 	"apihelp-threadaction-param-newparent": "V primeru združitve teme, ID-ja ali naslova nove odzvane teme.",
 	"apihelp-threadaction-param-text": "Besedilo ustvarjenega sporočila.",
 	"apierror-liquidthreads-alreadytop": "Ta tema je že vrhnja.",
-	"apierror-liquidthreads-badsubject": "Zadeva, ki si jo navedel, ni veljavna.",
+	"apierror-liquidthreads-badsubject": "Zadeva, ki ste jo določili, ni veljavna.",
 	"apierror-liquidthreads-invalidtalkpage": "Navedena pogovorna stran je neveljavna ali pa ima onemogočene tematizirane pogovore.",
 	"apierror-liquidthreads-noreplies-talkpage": "Ni mogoče odgovoriti na to temo, saj je pogovorna stran zaščitena pred odgovarjanjem.",
 	"apierror-liquidthreads-noreplies-thread": "Ni mogoče odgovoriti na to temo, saj je zaščitena pred odgovori.",
