@@ -6,6 +6,7 @@
 	},
 	"lqt_contents_title": "ትሕዝቶታት",
 	"lqt_toc_thread_replycount": "መልስታት",
+	"lqt_toc_thread_modified": "መጨረሻ ምምሕያሽ",
 	"lqt_reply": "መልስ",
 	"lqt_delete": "ሰርዝ",
 	"lqt_permalink": "ቀዋሚ መጋጠሚ",
@@ -20,8 +21,9 @@
 	"lqt-history-user": "ተጠቃሚ",
 	"lqt-movethread": "ኣንቀሳቕስ",
 	"lqt-menu-trigger": "ተወሳኺ",
+	"lqt-changesortorder": "ጎጅል",
 	"lqt-search-button": "ምድላይ",
-	"lqt-ajax-update-link": "ኣሐዲስ",
+	"lqt-ajax-update-link": "ኣሓድስ",
 	"lqt-newmessages-n": "{{PLURAL:$1|ሓድሽ መልእኽቲ|ሓደሽቲ መልእኽትታት}} ($1)",
 	"lqt_newmessages-title": "ሓደሽቲ መልእኽትታት"
 }
