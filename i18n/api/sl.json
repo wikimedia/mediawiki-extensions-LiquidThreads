@@ -12,7 +12,7 @@
 	"apihelp-query+threads-summary": "Prikaži podrobnosti tem Tekočih tem.",
 	"apihelp-query+threads-param-startid": "ID teme začetka izpisa.",
 	"apihelp-query+threads-param-endid": "ID teme konca izpisa.",
-	"apihelp-query+threads-param-showdeleted": "Prikazati ali neprikazati izbrisane teme.",
+	"apihelp-query+threads-param-showdeleted": "Prikazovanje ali neprikazovanje izbrisanih niti.",
 	"apihelp-query+threads-param-limit": "Največje število tem na seznamu.",
 	"apihelp-query+threads-param-prop": "Katere lastnosti naj se izpišejo.",
 	"apihelp-query+threads-param-page": "Prikaži samo teme teh strani.",

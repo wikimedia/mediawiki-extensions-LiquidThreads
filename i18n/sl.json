@@ -83,7 +83,7 @@
 	"lqt_nosuchthread_title": "Takšna tema ne obstaja",
 	"lqt_threadrequired": "Temo je treba navesti v spletnem naslovu.",
 	"lqt_move_movingthread": "Prestavljanje $1.\nTa tema je del $2.",
-	"lqt_move_torename": "Če želiš preimenovati to temo, $1 in spremeni polje \"Zadeva\".",
+	"lqt_move_torename": "Če želite preimenovati to temo, $1 in spremenite polje »Zadeva«.",
 	"lqt_move_torename_edit": "jo uredi",
 	"lqt_move_destinationtitle": "Naslov ciljne pogovorne strani:",
 	"lqt_move_move": "Preimenuj",
