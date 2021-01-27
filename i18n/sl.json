@@ -178,7 +178,7 @@
 	"lqt-enotif-reply": "Pozdravljeni, $1,\n\n{{SITENAME}} vas obvešča, da je $8 dne $3 ob $4\nodgovoril na nit »$2« na $5.\n\nOdgovor si lahko ogledate na <$6>\n\nBesedilo odgovora je:\n$7",
 	"lqt-search-legend": "Iskanje razprav na tej strani",
 	"lqt-search-label": "Iskalni pojmi:",
-	"lqt-search-button": "Iskanje",
+	"lqt-search-button": "Išči",
 	"searchprofile-threads": "Pogovori",
 	"searchprofile-threads-tooltip": "Iskanje tematiziranih pogovorov in pogovornih strani",
 	"lqt-ajax-updated": "Ta tema ima nova sporočila.",
