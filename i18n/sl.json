@@ -15,7 +15,7 @@
 	"lqt_toc_thread_author": "Začel",
 	"lqt_toc_thread_replycount": "Odgovori",
 	"lqt_toc_thread_modified": "Zadnja sprememba",
-	"lqt_add_header": "Dodaj glavo",
+	"lqt_add_header": "Dodaj naslov",
 	"lqt_new_thread": "Začni nov pogovor",
 	"lqt_invalid_subject": "Vnesena zadeva je neveljavna.\nLahko:\n* je predolga ali\n* je v sporu s predponami interwiki ali imeni imenskih prostorov.",
 	"lqt-empty-text": "Sporočila brez vsebine ni mogoče objaviti",
@@ -164,7 +164,7 @@
 	"lqt-log-action-merge-across": "je prestavil(-a) [[$1]] izpod [[$2]] pod [[$3]]",
 	"lqt-log-action-merge-down": "je združil(-a) [[$1]] pod [[$2]]",
 	"lqt-log-action-subjectedit": "je spremenil(-a) zadevo [[$1]] iz »$2« v »$3«",
-	"lqt-log-action-resort": "je spremenil(-a) vrsti red razvrščanja [[$1]]. Ključ razvrščanja je spremenjen iz $2 v $3",
+	"lqt-log-action-resort": "je spremenil(-a) vrstni red razvrščanja [[$1]]. Razvrstilni ključ je spremenjen iz $2 v $3",
 	"lqt-log-action-signatureedit": "je spremenil(-a) podpis [[$1]] z »$2« na »$3«",
 	"lqt-preference-notify-talk": "Pošlji mi e-pošto ob odgovorih na teme, ki jih nadzorujem",
 	"lqt-preference-watch-threads": "Nadzoruj teme, ki sem jih ustvaril ali nanje odgovoril",
@@ -241,5 +241,5 @@
 	"nstab-thread": "Tema",
 	"nstab-summary": "Povzetek",
 	"pageinfo-usinglqt": "Teme omogočene",
-	"pageinfo-usinglqt-yes": "Da"
+	"pageinfo-usinglqt-yes": "da"
 }
