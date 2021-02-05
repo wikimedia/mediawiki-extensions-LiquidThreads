@@ -154,7 +154,7 @@
 	"lqt-thread-merge-dest": "Subiect destinație:",
 	"lqt-merge-submit": "Unește",
 	"lqt-merge-success": "Ați unit threadul $1 sub $2.",
-	"lqt-log-name": "Jurnal Threaded discussion",
+	"lqt-log-name": "Jurnal discuții filetate",
 	"lqt-log-action-move": "a mutat [[$1]] de la [[$2]] la [[$3]] ($4)",
 	"lqt-log-action-split": "a împărțit [[$1]] din [[$3]], cu noul siboect „$2”",
 	"lqt-log-action-merge-across": "a mutat [[$1]] de sub [[$2]] sub [[$3]]",
@@ -162,6 +162,8 @@
 	"lqt-log-action-subjectedit": "a redenumit subiectul [[$1]] din „$2” în „$3”",
 	"lqt-log-action-resort": "a modificat ordinea de sortare pentru [[$1]]. A schimbat cheia de sortare din $2 în $3",
 	"lqt-preference-notify-talk": "Trimite-mi e-mail la răspunsurile discuțiilor pe care le urmăresc",
+	"prefs-lqt": "Discuție filetată",
+	"lqt-preference-display-depth": "Adâncimea maximă de răspunsuri de arătat:",
 	"lqt-preference-display-count": "Numărul maxim de răspunsuri de arătat:",
 	"lqt-preference-custom-signatures": "Arată semnăturile personalizate ale utilizatorilor",
 	"lqt-enotif-subject-reply": "Discuție {{SITENAME}} - Răspuns: $1",
@@ -226,5 +228,6 @@
 	"lqt-historicalrevision-error": "Versiunea pe care ați selectat-o este coruptă și nu poate fi vizualizată.",
 	"lqt-reply-subpage": "răspuns",
 	"nstab-thread": "Subiect",
-	"nstab-summary": "Rezumat"
+	"nstab-summary": "Rezumat",
+	"pageinfo-usinglqt": "Discuția filetată activată"
 }
