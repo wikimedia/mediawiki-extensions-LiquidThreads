@@ -41,7 +41,7 @@
 	"lqt_hist_listing_subtitle": "הצגת ההיסטוריה",
 	"lqt_hist_view_whole_thread": "צפייה בהיסטוריה עבור השרשור כולו",
 	"lqt_hist_no_revisions_error": "לשרשור זה אין גרסאות בהיסטוריה.",
-	"lqt_hist_past_last_page_error": "אתם חורגים ממספר דפי ההיסטוריה הקיימים.",
+	"lqt_hist_past_last_page_error": "חרגת ממספר דפי ההיסטוריה הקיימים.",
 	"lqt_hist_tooltip_newer_disabled": "קישור זה מבוטל כיוון שאתם בדף הראשון.",
 	"lqt_hist_tooltip_older_disabled": "קישור זה מבוטל כיוון שאתם בדף האחרון.",
 	"lqt_hist_split": "פיצול התגובה לשרשור חדש",
