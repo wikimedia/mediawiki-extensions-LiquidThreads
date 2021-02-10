@@ -27,7 +27,6 @@ class SpecialNewMessages extends SpecialPage {
 
 		$this->setHeaders();
 
-		$article = new Article( $this->getPageTitle(), 0 );
 		$title = $this->getPageTitle();
 
 		// Clear newtalk
@@ -36,7 +35,7 @@ class SpecialNewMessages extends SpecialPage {
 				->getTalkPageNotificationManager()->removeUserHasNewMessages( $user );
 		} );
 
-		$view = new NewUserMessagesView( $output, $article,
+		$view = new NewUserMessagesView( $output, null,
 			$title, $user, $request );
 
 		if ( $request->getBool( 'lqt_inline' ) ) {

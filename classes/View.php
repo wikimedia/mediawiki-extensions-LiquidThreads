@@ -45,7 +45,7 @@ class LqtView {
 	/** @var int */
 	public $threadNestingLevel = 0;
 
-	public function __construct( &$output, &$article, &$title, &$user, &$request ) {
+	public function __construct( $output, $article, $title, $user, $request ) {
 		$this->article = $article;
 		$this->output = $output;
 		$this->user = $user;
