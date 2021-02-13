@@ -520,10 +520,6 @@ class LqtHooks {
 		return true;
 	}
 
-	public static function onArticleMove( $ot, $nt, $user, &$err, $reason ) {
-		return self::onMovePageIsValidMove( $ot );
-	}
-
 	/**
 	 * @param User $user
 	 * @param Title $title
