@@ -214,8 +214,6 @@
 		"GetPreferences": "LqtHooks::getPreferences",
 		"XmlDumpWriterOpenPage": "LqtHooks::dumpThreadData",
 		"ModifyExportQuery": "LqtHooks::modifyExportQuery",
-		"OAIFetchRowsQuery": "LqtHooks::modifyOAIQuery",
-		"OAIFetchRecordQuery": "LqtHooks::modifyOAIQuery",
 		"ImportHandlePageXMLTag": "LqtHooks::handlePageXMLTag",
 		"AfterImportPage": "LqtHooks::afterImportPage",
 		"ArticleDeleteComplete": "LqtDeletionController::onArticleDeleteComplete",

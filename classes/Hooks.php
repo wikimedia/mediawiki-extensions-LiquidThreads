@@ -273,19 +273,6 @@ class LqtHooks {
 		return true;
 	}
 
-	public static function modifyOAIQuery( &$tables, &$fields, &$conds,
-		&$options, &$join_conds
-	) {
-		$tables[] = 'thread';
-
-		$join_conds['thread'] = [ 'left join', [ 'thread_root=page_id' ] ];
-
-		$db = wfGetDB( DB_REPLICA );
-		$fields[] = $db->tableName( 'thread' ) . '.*';
-
-		return true;
-	}
-
 	public static function customiseSearchResultTitle( &$title, &$text, $result, $terms, $page ) {
 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
 			return true;
