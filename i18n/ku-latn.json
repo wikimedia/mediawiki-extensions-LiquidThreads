@@ -35,7 +35,7 @@
 	"lqt-cancel-subject-edit": "Betal bike",
 	"lqt-drag-reason": "Sedem:",
 	"lqt-feed-title-replies": "{{SITENAME}} - Bersiv",
-	"lqt-newmessages-n": "Peyamên nû ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Peyama|Peyamên}} nû ($1)",
 	"lqt_newmessages-title": "Peyamên nû",
 	"lqt-talkpage-history-title": "Dîroka rûpela gotûbêjê",
 	"lqt-talkpage-history-subtitle": "Bo $1",
