@@ -239,7 +239,7 @@
 	"lqt-edit-bump-tooltip": "העברת שרשור זה לראש דף הדיון בו הוא מופיע",
 	"lqt-historicalrevision-error": "הגרסה שבחרת פגומה ולא ניתן להציג אותה.",
 	"lqt-reply-subpage": "תגובה",
-	"lqt-pagechange-editformopen": "בדף זה יש טקסט שלא נשמר. עזיבת הדף עלולה לגרום לכך שהטקסט ייאבד.",
+	"lqt-pagechange-editformopen": "פתוח לך טקסט שלא נשמר בדף הזה. {{GENDER:|אתה עלול|את עלולה}} לאבד אותו אם {{GENDER:|תעזוב|תעזבי}} את הדף הזה.",
 	"lqt-not-a-liquidthreads-page": "$1 אינו דף LiquidThreads",
 	"nstab-thread": "שרשור",
 	"nstab-summary": "תקציר",
