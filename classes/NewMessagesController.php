@@ -183,6 +183,8 @@ class NewMessages {
 		// notification.
 		$userIds = [];
 		$notifyUsers = [];
+		$services = MediaWikiServices::getInstance();
+		$userOptionsLookup = $services->getUserOptionsLookup();
 		$res = self::getRowsObject( $t );
 		foreach ( $res as $row ) {
 			// Don't notify yourself
@@ -199,7 +201,7 @@ class NewMessages {
 			if ( !in_array( 'lqtnotifytalk', $wgHiddenPrefs ) && isset( $row->up_value ) ) {
 				$wantsTalkNotification = (bool)$row->wl_user;
 			} else {
-				$wantsTalkNotification = User::getDefaultOption( 'lqtnotifytalk' );
+				$wantsTalkNotification = $userOptionsLookup->getDefaultOption( 'lqtnotifytalk' );
 			}
 
 			if ( $wantsTalkNotification ) {
@@ -213,8 +215,8 @@ class NewMessages {
 
 			$user = User::newFromName( $name );
 			if ( $user && $user->getName() !== $changeUser->getName() ) {
-				MediaWikiServices::getInstance()
-					->getTalkPageNotificationManager()->setUserHasNewMessages( $user );
+				$services->getTalkPageNotificationManager()
+					->setUserHasNewMessages( $user );
 
 				$userIds[] = $user->getId();
 				if ( $user->getOption( 'enotifusertalkpages' ) ) {
