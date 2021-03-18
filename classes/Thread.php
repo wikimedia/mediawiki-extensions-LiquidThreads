@@ -192,7 +192,7 @@ class Thread {
 	 * @param Article $article
 	 */
 	public function setRoot( $article ) {
-		$this->rootId = $article->getId();
+		$this->rootId = $article->getPage()->getId();
 		$this->root = $article;
 
 		if ( $article->getTitle()->getNamespace() != NS_LQT_THREAD ) {
