@@ -186,7 +186,7 @@
 	"lqt-thread-show-replies": "Prikaži $1 {{PLURAL:$1|odgovor|odgovora|odgovore|odgovorov}}",
 	"lqt-thread-show-more": "Prikaži več odgovorov",
 	"lqt-thread-link-url": "Povezava na spletni naslov:",
-	"lqt-thread-link-title": "Povezava wikibesedila:",
+	"lqt-thread-link-title": "Povezava vikibesedila:",
 	"lqt-thread-link-copy": "Kopiraj v odložišče",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nPodpis se prikaže samodejno.",
 	"lqt-summary-sign-not-necessary": "Vašega sporočila vam ni treba podpisati s štirimi tildami.",
