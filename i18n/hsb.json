@@ -81,7 +81,7 @@
 	"lqt_nosuchthread_title": "Tajka nitka njeje",
 	"lqt_threadrequired": "Dyrbiš w URL nitku podać.",
 	"lqt_move_movingthread": "$1 přesunje so. Tuta nitka je dźěl wot $2.",
-	"lqt_move_torename": "Zo by tutu nitku přemjenował, $1 a změń polo 'Tema'.",
+	"lqt_move_torename": "Zo by tutu nitku přemjenował{{GENDER:||a|(a)}}, $1 a změń polo 'Tema'.",
 	"lqt_move_torename_edit": "změnić",
 	"lqt_move_destinationtitle": "Titul ciloweje diskusijneje strony:",
 	"lqt_move_move": "Přesunyć",
