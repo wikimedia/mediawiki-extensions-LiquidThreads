@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dimension10",
-			"Nayvik"
+			"Nayvik",
+			"ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ"
 		]
 	},
 	"lqt_delete": "ಅಳಿಸು",
@@ -10,7 +11,7 @@
 	"lqt-summary": "ಸಾರಾಂಶ",
 	"lqt-history-comment": "ಟಿಪ್ಪಣಿ",
 	"lqt-search-button": "ಹುಡುಕು",
-	"lqt-cancel-subject-edit": "ರದ್ದು ಮಾಡು",
+	"lqt-cancel-subject-edit": "ರದ್ದುಮಾಡಿ",
 	"lqt-drag-reason": "ಕಾರಣ:",
 	"lqt-preview-signature": "(ಮುನ್ನೋಟ)"
 }
