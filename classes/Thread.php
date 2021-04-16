@@ -858,7 +858,6 @@ class Thread {
 			$t = Title::makeTitleSafe( NS_USER_TALK, $row->thread_author_name );
 			$linkBatch->addObj( $t );
 
-			User::$idCacheByName[$row->thread_author_name] = $row->thread_author_id;
 			$userIds[$row->thread_author_id] = true;
 
 			if ( $row->thread_editedness > Threads::EDITED_BY_AUTHOR ) {
