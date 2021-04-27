@@ -155,8 +155,11 @@ class Thread {
 		// Notifications
 		NewMessages::writeMessageStateForUpdatedThread( $thread, $change_type, $user );
 
-		if ( $user->getOption( 'lqt-watch-threads', false ) ) {
-			WatchAction::doWatch( $thread->topmostThread()->root()->getTitle(), $user );
+		$services = MediaWikiServices::getInstance();
+		$userOptionsLookup = $services->getUserOptionsLookup();
+		$watchlistManager = $services->getWatchlistManager();
+		if ( $userOptionsLookup->getOption( $user, 'lqt-watch-threads', false ) ) {
+			$watchlistManager->addWatch( $user, $thread->topmostThread()->root()->getTitle() );
 		}
 
 		return $thread;

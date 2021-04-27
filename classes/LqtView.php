@@ -1360,7 +1360,8 @@ class LqtView {
 			];
 		}
 
-		if ( !$this->user->isAnon() && !$this->user->isWatched( $thread->title() ) ) {
+		if ( !$this->user->isAnon() && !MediaWikiServices::getInstance()->getWatchlistManager()
+				->isWatched( $this->user, $thread->title() ) ) {
 			$commands['watch'] = [
 				'label' => wfMessage( 'watch' )->parse(),
 				'href' => self::permalinkUrlWithQuery(
