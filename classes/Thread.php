@@ -172,7 +172,7 @@ class Thread {
 			throw new Exception( "Attempt to insert a thread that already exists." );
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$row = $this->getRow();
 
@@ -366,7 +366,7 @@ class Thread {
 	public function save( $fname = null ) {
 		$this->dieIfHistorical();
 
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = wfGetDB( DB_PRIMARY );
 
 		if ( !$fname ) {
 			$fname = __METHOD__ . "/" . wfGetCaller();
@@ -394,7 +394,7 @@ class Thread {
 	public function getRow() {
 		$id = $this->id();
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		if ( !$id ) {
 			$id = $dbw->nextSequenceValue( 'thread_thread_id' );
@@ -463,7 +463,7 @@ class Thread {
 
 		$this->dieIfHistorical();
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$dbw->delete( 'user_message_state', [ 'ums_thread' => $this->id() ],
 			__METHOD__ );
@@ -497,7 +497,7 @@ class Thread {
 
 		$this->dieIfHistorical();
 
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = wfGetDB( DB_PRIMARY );
 
 		$oldTitle = $this->getTitle();
 		$newTitle = $title;
@@ -1103,7 +1103,7 @@ class Thread {
 		}
 
 		if ( count( $set ) ) {
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 
 			$dbw->update( 'thread', $set, [ 'thread_id' => $this->id() ], __METHOD__ );
 		}
@@ -1290,7 +1290,7 @@ class Thread {
 
 		$this->ancestorId = $thread->id();
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->update( 'thread', [ 'thread_ancestor' => $thread->id() ],
 				[ 'thread_id' => $this->id() ], __METHOD__ );
 
@@ -1945,13 +1945,13 @@ class Thread {
 			'tr_value' => $value,
 		];
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$dbw->insert( 'thread_reaction', $row, __METHOD__ );
 	}
 
 	public function deleteReaction( $user, $type ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		if ( isset( $this->reactions[$type][$user->getName()] ) ) {
 			unset( $this->reactions[$type][$user->getName()] );

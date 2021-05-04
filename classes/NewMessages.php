@@ -17,7 +17,7 @@ class NewMessages {
 		$thread_id = $thread->id();
 		$user_id = $user->getId();
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$dbw->delete(
 			'user_message_state',
@@ -40,7 +40,7 @@ class NewMessages {
 			throw new Exception( __METHOD__ . " expected User or integer but got $user" );
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$dbw->delete(
 			'user_message_state',
@@ -57,7 +57,7 @@ class NewMessages {
 
 		$conversation = Threads::withId( $thread_id )->topmostThread()->id();
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->replace(
 			'user_message_state',
 			[ [ 'ums_user', 'ums_thread' ] ],
@@ -81,7 +81,7 @@ class NewMessages {
 	 * @return string
 	 */
 	private static function getWhereClause( $t ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$tpTitle = $t->getTitle();
 		$rootThread = $t->topmostThread()->root()->getTitle();
@@ -158,7 +158,7 @@ class NewMessages {
 				];
 			}
 
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 			$dbw->replace(
 				'user_message_state',
 				[ [ 'ums_user', 'ums_thread' ] ],
@@ -389,7 +389,7 @@ class NewMessages {
 		return (int)$cache->getWithSetCallback(
 			$cache->makeKey( 'lqt-new-messages-count', $user->getId() ),
 			$cache::TTL_DAY,
-			function () use ( $user, $dbIndex, $fname ) {
+			static function () use ( $user, $dbIndex, $fname ) {
 				$dbr = wfGetDB( $dbIndex );
 
 				$cond = [ 'ums_user' => $user->getId(), 'ums_read_timestamp' => null ];

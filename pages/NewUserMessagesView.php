@@ -82,7 +82,7 @@ class NewUserMessagesView extends LqtView {
 		NewMessages::recacheMessageCount( $this->user->getId() );
 
 		$user = $this->user;
-		DeferredUpdates::addCallableUpdate( function () use ( $user ) {
+		DeferredUpdates::addCallableUpdate( static function () use ( $user ) {
 			MediaWikiServices::getInstance()
 				->getTalkPageNotificationManager()->removeUserHasNewMessages( $user );
 		} );

@@ -88,7 +88,7 @@ class ApiThreadAction extends ApiEditPage {
 					'title' => $t->title()->getPrefixedText()
 				];
 			}
-			$newMessagesCount = NewMessages::newMessageCount( $user, DB_MASTER );
+			$newMessagesCount = NewMessages::newMessageCount( $user, DB_PRIMARY );
 			$msgNewMessages = 'lqt-newmessages-n';
 			// Only bother to put this on the last threadaction
 			$result[count( $result ) - 1]['unreadlink'] = [

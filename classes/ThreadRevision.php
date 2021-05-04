@@ -120,7 +120,7 @@ class ThreadRevision {
 	}
 
 	public function insert() {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$row = $this->getRow();
 		$row['th_id'] = $dbw->nextSequenceValue( 'thread_history_th_id' );
@@ -133,7 +133,7 @@ class ThreadRevision {
 	public function save() {
 		$row = $this->getRow();
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$dbw->replace( 'thread_history', 'th_thread', $row, __METHOD__ );
 	}
@@ -142,7 +142,7 @@ class ThreadRevision {
 		$row = [];
 
 		// First, prep the data for insertion
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$this->mTimestamp = $dbw->timestamp( $this->mTimestamp );
 
 		foreach ( self::$load as $col => $field ) {

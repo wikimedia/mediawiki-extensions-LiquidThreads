@@ -831,7 +831,7 @@ class LqtHooks {
 	public static function applyPendingArticleRelationship( $pendingRelationship, $title ) {
 		$articleID = $title->getArticleID();
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$dbw->update( 'thread', [ $pendingRelationship['relationship'] => $articleID ],
 			[ 'thread_id' => $pendingRelationship['thread'] ],
@@ -845,7 +845,7 @@ class LqtHooks {
 	 * @return array
 	 */
 	public static function loadPendingRelationships() {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = wfGetDB( DB_PRIMARY );
 		$arr = [];
 
 		$res = $dbr->select( 'thread_pending_relationship', '*', [ 1 ], __METHOD__ );
@@ -884,7 +884,7 @@ class LqtHooks {
 			$row['tpr_' . $k] = $v;
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->insert( 'thread_pending_relationship', $row, __METHOD__ );
 
 		if ( !isset( $array[$title] ) ) {

@@ -79,7 +79,7 @@ class LqtDeletionController {
 			}
 
 			// TX has not been committed yet, so we must select from the master
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 			$res = $dbw->select( 'thread', '*', [ 'thread_root' => $pageid ], __METHOD__ );
 			$threads = Threads::loadFromResult( $res, $dbw );
 

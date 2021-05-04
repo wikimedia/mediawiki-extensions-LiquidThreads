@@ -143,7 +143,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				'*',
 				'tr_thread',
 				'reactions',
-				function ( $row ) {
+				static function ( $row ) {
 					return [ "{$row->tr_user}_{$row->tr_type}" => [
 						'type' => $row->tr_type,
 						'user-id' => $row->tr_user,
@@ -161,7 +161,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				'thread_id',
 				'thread_parent',
 				'replies',
-				function ( $row ) {
+				static function ( $row ) {
 					return [ $row->thread_id => [ 'id' => $row->thread_id ] ];
 				},
 				'reply'

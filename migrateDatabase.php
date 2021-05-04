@@ -7,7 +7,7 @@ require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . "/maintenance/commandLine.inc"
 	: __DIR__ . '/../../maintenance/commandLine.inc';
 
-$db = wfGetDB( DB_MASTER );
+$db = wfGetDB( DB_PRIMARY );
 
 $wgTitle = SpecialPage::getTitleFor( 'LiquidThreads' );
 

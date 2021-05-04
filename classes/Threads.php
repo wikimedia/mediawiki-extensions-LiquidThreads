@@ -322,7 +322,7 @@ class Threads {
 	 */
 	public static function synchroniseArticleData( WikiPage $page, $limit = false, $queueMore = false ) {
 		$dbr = wfGetDB( DB_REPLICA );
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$title = $page->getTitle();
 		$id = $page->getId();
