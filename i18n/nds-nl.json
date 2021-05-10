@@ -6,10 +6,11 @@
 	},
 	"lqt_permalink": "Vaste verwysing",
 	"lqt_discussion_link": "oaverleg",
-	"lqt_move_move": "Herneum",
+	"lqt_move_move": "Hernööm",
 	"lqt-history-user": "Gebruker",
 	"lqt-menu-trigger": "Meyr",
 	"searchprofile-threads": "Oaverleggen",
+	"lqt-drag-save": "Bevästigen",
 	"lqt-newmessages-n": "Nye {{PLURAL:$1|bericht|berichten}} ($1)",
 	"lqt_newmessages-title": "Nye berichten",
 	"lqt-talkpage-history-subtitle": "Vöär $1"

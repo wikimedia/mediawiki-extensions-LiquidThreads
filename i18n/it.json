@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Alexmar983",
 			"Aushulz",
 			"Beta16",
@@ -74,7 +75,7 @@
 	"lqt_change_moved": "[$1 Questa discussione] è stata spostata ad un'altra pagina di discussione",
 	"lqt_change_split": "[$1 Questa discussione] è stata scorporata da un'altra.",
 	"lqt_change_edited_subject": "L'oggetto di questa discussione è stato cambiato da \"$2\" a \"$3\"",
-	"lqt_change_merged_from": "Una [$1 risposta] a questa discussione è stata trasferita ad un'altro thread",
+	"lqt_change_merged_from": "Una [$1 risposta] a questa discussione è stata trasferita ad un altro thread",
 	"lqt_change_merged_to": "La [$1 risposta evidenziata] è stata trasferita qui da un'altra discussione.",
 	"lqt_change_split_from": "Un [$1 sottothread] di questo thread è stato suddiviso in un thread dedicato",
 	"lqt_change_root_blanked": "Il testo di [$1 un commento] è stato rimosso.",
