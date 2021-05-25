@@ -186,7 +186,7 @@
 	"searchprofile-threads-tooltip": "חיפוש שיחות בשרשורים ודפי שיחה",
 	"lqt-ajax-updated": "בשרשור זה יש הודעות חדשות.",
 	"lqt-ajax-update-link": "עדכון",
-	"lqt-thread-show-replies": "הצגת $1 תגובות",
+	"lqt-thread-show-replies": "הצגת {{PLURAL:$1|תגובה נוספת|$1 תגובות}}",
 	"lqt-thread-show-more": "הצגת תגובות נוספות",
 	"lqt-thread-link-url": "כתובת הקישור:",
 	"lqt-thread-link-title": "טקסט הוויקי של הקישור:",
