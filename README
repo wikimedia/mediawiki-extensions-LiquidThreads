@@ -26,18 +26,9 @@ INSTALLATION:
 
 Liquid Threads uses namespace numbers 90, 91, 92, and 93.
 
-CONTACT:
-=======
-
-* Andrew Garrett
-* agarrett@wikimedia.org
-* werdna in #mediawiki on irc.freenode.net
-
 CREDITS:
 =======
 
 Originally written by David McCabe, sponsered by COL.org, Wikia.com, and the Google
 Summer of Code, with lots of help from Erik Möller, Brion Vibber, and the kind
 folks on #mediawiki.
-
-Now maintained by Andrew Garrett from the Wikimedia Foundation
