@@ -6,17 +6,22 @@
 			"Simbu123"
 		]
 	},
-	"lqt-title": "শিৰোনামা",
+	"lqt_toc_thread_title": "থ্ৰেড শিৰোনাম",
+	"lqt-title": "শিৰোনাম",
 	"lqt-summary": "সাৰাংশ",
-	"lqt-new-messages": "তাত আপোনৰ বাবে নতুন বাৰ্তা আছে ।",
+	"lqt-new-messages": "আপোনৰ বাবে নতুন বাৰ্তা আহিছে।",
 	"lqt-history-time": "সময়",
 	"lqt-history-user": "সদস্য",
+	"lqt-history-thread": "থ্ৰেড",
 	"lqt-movethread": "স্থানান্তৰ কৰক",
 	"lqt-menu-trigger": "অধিক",
 	"lqt-search-button": "সন্ধান কৰক",
 	"lqt-save-subject": "সাঁচি থওক",
 	"lqt-cancel-subject-edit": "বাতিল কৰক",
 	"lqt-drag-reason": "কাৰণ:",
+	"lqt-feed-title-new-threads": "{{SITENAME}} — নতুন থ্ৰেড",
 	"lqt-newmessages-n": "নতুন {{PLURAL:$1|বাৰ্তা|বাৰ্তাসমূহ}} ($1)",
-	"lqt-talkpage-history-tab": "শীৰ্ষক"
+	"lqt-newpost-summary": "নতুন থ্ৰেড: $1",
+	"lqt-talkpage-history-tab": "শীৰ্ষক",
+	"nstab-thread": "থ্ৰেড"
 }
