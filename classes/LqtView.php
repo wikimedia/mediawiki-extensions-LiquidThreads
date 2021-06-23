@@ -1368,8 +1368,7 @@ class LqtView {
 					$thread,
 					[
 						'action' => 'watch',
-						'token' => WatchAction::getWatchToken(
-							$thread->title(), $this->user, 'watch' )
+						'token' => $this->article->getContext()->getCsrfTokenSet()->getToken( 'watch' )->toString()
 					]
 				),
 				'enabled' => true
@@ -1381,8 +1380,7 @@ class LqtView {
 					$thread,
 					[
 						'action' => 'unwatch',
-						'token' => WatchAction::getWatchToken(
-							$thread->title(), $this->user, 'unwatch' )
+						'token' => $this->article->getContext()->getCsrfTokenSet()->getToken( 'unwatch' )->toString()
 					]
 				),
 				'enabled' => true
