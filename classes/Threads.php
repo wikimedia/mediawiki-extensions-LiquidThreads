@@ -49,8 +49,12 @@ class Threads {
 	public static function createTalkpageIfNeeded( WikiPage $talkpage ) {
 		if ( !$talkpage->exists() ) {
 			try {
-				$talkpage->doEditContent(
+				// TODO figure out injecting the context user instead of
+				// using RequestContext::getMain()
+				$user = RequestContext::getMain()->getUser();
+				$talkpage->doUserEditContent(
 					ContentHandler::makeContent( "", $talkpage->getTitle() ),
+					$user,
 					wfMessage( 'lqt_talkpage_autocreate_summary' )->inContentLanguage()->text(),
 					EDIT_NEW | EDIT_SUPPRESS_RC
 				);

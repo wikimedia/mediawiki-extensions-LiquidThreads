@@ -559,8 +559,9 @@ class Thread {
 		$traceTitle = Threads::newThreadTitle( $this->subject(), new Article( $oldTitle, 0 ) );
 		$redirectArticle = new Article( $traceTitle, 0 );
 
-		$redirectArticle->getPage()->doEditContent(
+		$redirectArticle->getPage()->doUserEditContent(
 			ContentHandler::makeContent( $redirectText, $traceTitle ),
+			$user,
 			$reason,
 			EDIT_NEW | EDIT_SUPPRESS_RC
 		);
