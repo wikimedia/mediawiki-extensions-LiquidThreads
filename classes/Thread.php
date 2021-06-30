@@ -1812,8 +1812,7 @@ class Thread {
 		if ( !isset( $canCreateNew[$userText] ) ) {
 			$title = Title::makeTitleSafe(
 				NS_LQT_THREAD, 'Test title for LQT thread creation check' );
-			$canCreateNew[$userText] = $pm->userCan( 'create', $user, $title, $rigor )
-				&& $pm->userCan( 'edit', $user, $title, $rigor );
+			$canCreateNew[$userText] = $pm->userCan( 'edit', $user, $title, $rigor );
 		}
 
 		return $canCreateNew[$userText];
