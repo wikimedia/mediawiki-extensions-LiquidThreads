@@ -9,9 +9,10 @@
 	},
 	"lqt_contents_title": "Kontenajo",
 	"lqt_toc_thread_title": "Titulo di la temo",
-	"lqt_toc_thread_replycount": "Respondi",
+	"lqt_toc_thread_replycount": "Respondez",
 	"lqt_toc_thread_modified": "Lastafoye chanjita",
 	"lqt_new_thread": "Krear nova diskuto",
+	"lqt_reply": "Respondez",
 	"lqt_delete": "Efacez",
 	"lqt_undelete": "Rekuperar",
 	"lqt_from_talk": "De $1",
@@ -52,8 +53,9 @@
 	"lqt-drag-save": "Konfirmar",
 	"lqt-drag-reason": "Motivo:",
 	"lqt-preview-signature": "(previdado)",
-	"lqt-feed-title-replies": "{{SITENAME}} — Respondi",
+	"lqt-feed-title-replies": "{{SITENAME}} — Respondez",
 	"lqt-newmessages-n": "($1) Nova mesaji",
 	"lqt_newmessages-title": "Nova mesaji",
-	"lqt-talkpage-history-subtitle": "Por $1"
+	"lqt-talkpage-history-subtitle": "Por $1",
+	"lqt-reply-subpage": "respondo"
 }
