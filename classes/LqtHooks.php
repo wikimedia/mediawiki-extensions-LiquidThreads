@@ -900,7 +900,7 @@ class LqtHooks {
 	 * @param Title $title
 	 * @param User $user
 	 * @param string $action
-	 * @param bool &$result
+	 * @param array|string|MessageSpecifier &$result
 	 * @return bool
 	 */
 	public static function onGetUserPermissionsErrors( $title, $user, $action, &$result ) {
@@ -922,7 +922,7 @@ class LqtHooks {
 		if ( $canRead ) {
 			return true;
 		} else {
-			$result = false;
+			$result = 'liquidthreads-blocked-read';
 			return false;
 		}
 	}

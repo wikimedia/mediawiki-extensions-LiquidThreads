@@ -239,7 +239,7 @@
 		"SpecialPage_initList": "LqtHooks::onSpecialPage_initList",
 		"OutputPageParserOutput": "LqtParserFunctions::onAddParserOutput",
 		"OutputPageBeforeHTML": "LqtParserFunctions::onAddHTML",
-		"userCan": "LqtHooks::onGetUserPermissionsErrors"
+		"getUserPermissionsErrors": "LqtHooks::onGetUserPermissionsErrors"
 	},
 	"callback": "LqtHooks::onRegistration",
 	"config": {
