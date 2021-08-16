@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Brahim-essaidi",
 			"Hakim1bal",
 			"ⵕⴰⵊⵉ"
 		]
 	},
+	"lqt_move_move": "ⵙⵎⵓⵜⵜⵉ",
+	"lqt-movethread": "ⵙⵎⵎⵓⵜⵜⵉ",
 	"lqt-search-button": "ⵔⵣⵓ",
 	"lqt_newmessages-title": "ⵜⵓⵣⵉⵏⵉⵏ ⵜⵉⵎⴰⵢⵏⵓⵜⵉⵏ",
 	"pageinfo-usinglqt-yes": "ⵢⴰⵀ"
