@@ -1770,7 +1770,7 @@ class LqtView {
 		$html = wfMessage( 'lqt_move_placeholder' )
 			->rawParams( $linkRenderer->makeLink( $target ), $sig )
 			->params( $wgLang->date( $thread->modified() ), $wgLang->time( $thread->modified() ) )
-			->rawParams( $linkRenderer->makeLink( $newTalkpage ) )->parse();
+			->rawParams( $newTalkpage ? $linkRenderer->makeLink( $newTalkpage ) : '' )->parse();
 
 		$this->output->addHTML( $html );
 	}
