@@ -311,6 +311,7 @@ class NewMessages {
 				$langCode = $row->language;
 			} else {
 				global $wgLanguageCode;
+				// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
 				$langCode = $wgLanguageCode;
 			}
 

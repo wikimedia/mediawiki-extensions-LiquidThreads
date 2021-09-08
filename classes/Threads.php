@@ -106,6 +106,10 @@ class Threads {
 		return $threads;
 	}
 
+	/**
+	 * @param string $msg
+	 * @return never
+	 */
 	private static function databaseError( $msg ) {
 		// @todo Tie into MW's error reporting facilities.
 		throw new Exception( "Corrupt LiquidThreads database: $msg" );
