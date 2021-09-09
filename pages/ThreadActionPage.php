@@ -34,7 +34,6 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 	public function execute( $par ) {
 		if ( !$this->userCanExecute( $this->getUser() ) ) {
 			$this->displayRestrictionError();
-			return;
 		}
 
 		// Page title

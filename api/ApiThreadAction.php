@@ -222,7 +222,6 @@ class ApiThreadAction extends ApiEditPage {
 
 		if ( !$newParent ) {
 			$this->dieWithError( 'apierror-liquidthreads-badparent', 'invalid-parent-thread' );
-			throw new LogicException();
 		}
 
 		$errors = $this->getPermissionManager()
@@ -272,7 +271,6 @@ class ApiThreadAction extends ApiEditPage {
 		if ( !$talkpageTitle || !LqtDispatch::isLqtPage( $talkpageTitle ) ) {
 			$this->dieWithError( 'apierror-liquidthreads-invalidtalkpage', 'invalid-talkpage' );
 		}
-		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
 		$talkpage = new Article( $talkpageTitle, 0 );
 
 		// Check if we can post.
