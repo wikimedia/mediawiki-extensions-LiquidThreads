@@ -77,7 +77,8 @@ class LqtHooks {
 			$s .= $lang->getDirMark();
 
 			// add the truncated post content
-			$quote = ContentHandler::getContentText( $thread->root()->getPage()->getContent() );
+			$content = $thread->root()->getPage()->getContent();
+			$quote = ( $content instanceof TextContent ) ? $content->getText() : '';
 			$quote = $lang->truncateForVisual( $quote, 200 );
 			$s .= ' ' . Linker::commentBlock( $quote );
 
@@ -643,7 +644,7 @@ class LqtHooks {
 			'root' => $wikiPage,
 			'thread' => $thread,
 			'summary' => $summary,
-			'text' => ContentHandler::getContentText( $content ),
+			'text' => ( $content instanceof TextContent ) ? $content->getText() : '',
 		] );
 
 		return true;

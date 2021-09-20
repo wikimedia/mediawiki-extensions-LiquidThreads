@@ -312,7 +312,7 @@ class NewMessages {
 				$langCode = $row->language;
 			} else {
 				global $wgLanguageCode;
-				// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
+
 				$langCode = $wgLanguageCode;
 			}
 
@@ -325,6 +325,7 @@ class NewMessages {
 			$date = $lang->date( $adjustedTimestamp );
 			$time = $lang->time( $adjustedTimestamp );
 
+			$content = $t->root()->getPage()->getContent();
 			$params = [
 				$u->getName(),
 				$t->subject(),
@@ -332,7 +333,7 @@ class NewMessages {
 				$time,
 				$talkPage,
 				$permalink,
-				ContentHandler::getContentText( $t->root()->getPage()->getContent() ),
+				( $content instanceof TextContent ) ? $content->getText() : '',
 				$t->author()->getName()
 			];
 

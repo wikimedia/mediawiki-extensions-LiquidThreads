@@ -1761,9 +1761,10 @@ class LqtView {
 		$target = $article->getPage()->getRedirectTarget();
 
 		if ( !$target ) {
+			$content = $article->getPage()->getContent();
+			$contentText = ( $content instanceof TextContent ) ? $content->getText() : '';
 			throw new Exception( "Thread " . $thread->id() . ' purports to be moved, ' .
-				'but no redirect found in text (' .
-				ContentHandler::getContentText( $article->getPage()->getContent() ) . ') of ' .
+				'but no redirect found in text (' . $contentText . ') of ' .
 				$thread->root()->getTitle()->getPrefixedText() . '. Dying.'
 			);
 		}
@@ -1937,8 +1938,8 @@ class LqtView {
 		foreach ( $replies as $reply ) {
 			$content = '';
 			if ( $reply->root() ) {
-				$content = ContentHandler::getContentText(
-					$reply->root()->getPage()->getContent() );
+				$pageContent = $reply->root()->getPage()->getContent();
+				$content = ( $pageContent instanceof TextContent ) ? $pageContent->getText() : '';
 			}
 
 			if ( $content !== null && trim( $content ) != '' ) {
@@ -2065,7 +2066,8 @@ class LqtView {
 		// Don't show blank posts unless we have to
 		$content = '';
 		if ( $thread->root() ) {
-			$content = ContentHandler::getContentText( $thread->root()->getPage()->getContent() );
+			$pageContent = $thread->root()->getPage()->getContent();
+			$content = ( $pageContent instanceof TextContent ) ? $pageContent->getText() : '';
 		}
 
 		if (
@@ -2302,7 +2304,7 @@ class LqtView {
 		if ( !$t->summary() ) {
 			return '';
 		}
-		if ( !ContentHandler::getContentText( $t->summary()->getPage()->getContent() ) ) {
+		if ( !( $t->summary()->getPage()->getContent() instanceof TextContent ) ) {
 			return ''; // Blank summary
 		}
 
