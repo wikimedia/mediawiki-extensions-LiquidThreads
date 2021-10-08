@@ -16,12 +16,12 @@ class LqtParserFunctions {
 			$param = 1;
 		}
 
-		$parser->getOutput()->setProperty( 'use-liquid-threads', $param );
+		$parser->getOutput()->setPageProperty( 'use-liquid-threads', $param );
 	}
 
 	public static function lqtPageLimit( Parser $parser, $param = null ) {
 		if ( $param && $param > 0 ) {
-			$parser->getOutput()->setProperty( 'lqt-page-limit', $param );
+			$parser->getOutput()->setPageProperty( 'lqt-page-limit', $param );
 		}
 	}
 
