@@ -79,7 +79,13 @@
 		"liquidthreads/signatureedit": "LqtLogFormatter::formatLogEntry"
 	},
 	"APIModules": {
-		"feedthreads": "ApiFeedLQTThreads",
+		"feedthreads": {
+			"class": "ApiFeedLQTThreads",
+			"services": [
+				"LinkRenderer",
+				"WikiPageFactory"
+			]
+		},
 		"threadaction": "ApiThreadAction"
 	},
 	"APIListModules": {
