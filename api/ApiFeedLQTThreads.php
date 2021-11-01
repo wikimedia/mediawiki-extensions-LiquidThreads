@@ -16,7 +16,8 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\Page\WikiPageFactory;
 
 /**
  * This action returns LiquidThreads threads/posts in RSS/Atom formats.
@@ -24,8 +25,20 @@ use MediaWiki\MediaWikiServices;
  * @ingroup API
  */
 class ApiFeedLQTThreads extends ApiBase {
-	public function __construct( $main, $action ) {
+	/** @var LinkRenderer */
+	private $linkRenderer;
+	/** @var WikiPageFactory */
+	private $wikiPageFactory;
+
+	public function __construct(
+		ApiMain $main,
+		$action,
+		LinkRenderer $linkRenderer,
+		WikiPageFactory $wikiPageFactory
+	) {
 		parent::__construct( $main, $action );
+		$this->linkRenderer = $linkRenderer;
+		$this->wikiPageFactory = $wikiPageFactory;
 	}
 
 	/**
@@ -80,15 +93,14 @@ class ApiFeedLQTThreads extends ApiBase {
 		$titleUrl = $threadTitle->getFullURL();
 		$timestamp = $thread->created();
 		$user = $thread->author()->getName();
-		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
 		// Prefix content with a quick description
 		$userLink = Linker::userLink( $thread->author()->getId(), $user );
-		$talkpageLink = $linkRenderer->makeLink( $thread->getTitle() );
+		$talkpageLink = $this->linkRenderer->makeLink( $thread->getTitle() );
 		if ( $thread->hasSuperthread() ) {
 			$stTitle = clone $thread->topmostThread()->title();
 			$stTitle->setFragment( '#' . $thread->superthread()->getAnchorName() );
-			$superthreadLink = $linkRenderer->makeLink( $stTitle );
+			$superthreadLink = $this->linkRenderer->makeLink( $stTitle );
 			$description = $this->msg( 'lqt-feed-reply-intro' )
 				->rawParams( $talkpageLink, $userLink, $superthreadLink )
 				->params( $user )
@@ -182,12 +194,12 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		// Thread conditions
 		$threads = (array)$params['thread'];
-		foreach ( $threads as $thread ) {
-			$thread = Threads::withRoot(
-				WikiPage::factory(
-					Title::newFromText( $thread )
-				)
-			);
+		foreach ( $threads as $threadName ) {
+			$thread = null;
+			$threadTitle = Title::newFromText( $threadName );
+			if ( $threadTitle ) {
+				$thread = Threads::withRoot( $this->wikiPageFactory->newFromTitle( $threadTitle ) );
+			}
 
 			if ( !$thread ) {
 				continue;
