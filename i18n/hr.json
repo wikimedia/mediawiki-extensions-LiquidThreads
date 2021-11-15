@@ -6,6 +6,7 @@
 			"Ex13",
 			"Herr Mlinka",
 			"MaGa",
+			"Ponor",
 			"Roberta F.",
 			"SpeedyGonsales"
 		]
@@ -199,7 +200,7 @@
 	"lqt-marked-as-read-placeholder": "Tema $1 označena je pročitanom.",
 	"lqt-change-subject": "Promijeni naziv teme",
 	"lqt-save-subject": "Snimi",
-	"lqt-save-subject-failed": "Sljedeća pogrješka dogodila se prilikom pokušaja promjene naziva ove teme: $1",
+	"lqt-save-subject-failed": "Pogreška prilikom pokušaja promjene naziva ove teme: $1",
 	"lqt-ajax-invalid-subject": "Naslov koji ste naveli nije valjan, vjerojatno zato što je predugačak.",
 	"lqt-ajax-no-subject": "Morate navesti predmet za novu temu.",
 	"lqt-save-subject-error-unknown": "Nepoznata pogrješka pojavljuje se kada je pokušano snimanje naziva ove teme. Pokušajte to učiniti pritiskom na \"Uredi\" na prvoj poruci teme.",
