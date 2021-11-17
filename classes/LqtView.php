@@ -310,7 +310,7 @@ class LqtView {
 
 		// Add fragment if appropriate.
 		if ( $operand && $includeFragment ) {
-			$title->mFragment = $operand->getAnchorName();
+			$title->setFragment( $operand->getAnchorName() );
 		}
 
 		return [ $title, $query ];
