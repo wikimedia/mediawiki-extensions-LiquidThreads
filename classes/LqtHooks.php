@@ -101,7 +101,7 @@ class LqtHooks {
 
 		// If the user isn't using LQT on their talk page, bail out
 		if ( !LqtDispatch::isLqtPage( $usertalk_t ) ) {
-			return false;
+			return true;
 		}
 
 		$pageTitle = $out->getTitle();
