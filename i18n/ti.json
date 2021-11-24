@@ -18,6 +18,8 @@
 	"lqt-summary": "መጠቓለሊ",
 	"lqt-read-message": "ከም ዘይተነበበ ኣመልክት",
 	"lqt-email-undo": "ምለስ",
+	"lqt-no-new-messages": "ንዓኻ ሓደሽቲ መልእኽትታት የለዉን።",
+	"lqt-new-messages": "ንዓኻ ሓደሽቲ መልእኽትታት ኣለዉ።",
 	"lqt-history-user": "ተጠቃሚ",
 	"lqt-movethread": "ኣንቀሳቕስ",
 	"lqt-menu-trigger": "ተወሳኺ",

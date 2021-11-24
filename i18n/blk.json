@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"咽頭べさ"
+		]
+	},
+	"lqt_contents_title": "ဟော်ꩻထွားရီးတာႏဖိုင်ႏ",
+	"lqt_toc_thread_replycount": "လိတ်လဝ်းပြန်ႏဖိုင်ႏ",
+	"lqt_toc_thread_modified": "အဆုဲင်ꩻသွတ်ꩻမွဉ်းဖျင်မုꩻ",
+	"lqt_new_thread": "မာꩻစသွူ အိုင်ကိုမ်ချက်တဗာႏ",
+	"lqt_header_warning_new_discussion": "မာꩻစသွူ အိုင်ကိုမ်ချက်တဗာႏ",
+	"lqt_sorting_order": "စီႏစဲဉ်ႏမုꩻစနိစ်:",
+	"lqt_sort_newest_changes": "အဆုဲင်ꩻသွတ်ꩻ မွဉ်းဖျင်မုꩻ အရီးသွတ်ꩻ",
+	"lqt_sort_newest_threads": "အတသာသွတ်ꩻ အိုင်ကိုမ်ချက်ဖိုင်ႏယို အရီးသွတ်ꩻ",
+	"lqt_sort_oldest_threads": "အယသွတ်ꩻ အိုင်ကိုမ်ချက်ဖိုင်ႏယို အရီးသွတ်ꩻ",
+	"lqt-read-all": "ဟော်ꩻထွားထွူလို့လဲဥ်းအကျောင်ꩻ ဒင်ႏမုဲင်တာႏ",
+	"lqt-no-new-messages": "နာꩻအတာႏ လိတ်မဲက်သေ့တသာဖိုင်ႏ အဝ်ႏတဝ်း။",
+	"lqt_summarize_link": "ချုတ်မာꩻအဲဉ်ႏ",
+	"lqt-changesortorder": "စီႏစဲဉ်ႏ",
+	"lqt-preference-notify-talk": "ခွေသွဥ်း အဝ်ႏပွေားထွားဒါႏ ရောမ်ဖြုဲင်ꩻတဗာႏကို လိတ်ပြန်ႏချာ မိဉ်ႏတွိုႏလွောန်ချာနဝ်ꩻ ပသာသွော့အီးမေးသြ",
+	"searchprofile-threads": "အုံကွံချက်ဖုံႏ",
+	"lqt-change-subject": "ပြောင်ꩻလုဲင်ႏ အကျောင်ꩻခရာႏ",
+	"lqt-drag-activate": "ထွို့ꩻလွေꩻ ခင်ႏလမ်းတသာထျꩻ",
+	"lqt-feed-title-replies": "{{SITENAME}} — လိတ်လဝ်းပြန်ႏဖိုင်ႏ",
+	"lqt-newmessages-n": "လိတ်{{PLURAL:$1|မဲက်သေ့တသာ|မဲက်သေ့တသာဖုံႏ}} ($1)",
+	"lqt_newmessages-title": "လိတ်မဲက်သေ့ တသာဖုံႏ"
+}

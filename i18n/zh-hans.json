@@ -23,7 +23,8 @@
 			"Xiaomingyan",
 			"Yfdyh000",
 			"予弦",
-			"神樂坂秀吉"
+			"神樂坂秀吉",
+			"Xiplus"
 		]
 	},
 	"lqt-desc": "在讨论页增加话题讨论功能",
@@ -36,7 +37,7 @@
 	"lqt_toc_thread_modified": "最后修改",
 	"lqt_add_header": "添加首段",
 	"lqt_new_thread": "发起新的讨论",
-	"lqt_invalid_subject": "您输入的主题无效，可能是由下列原因导致的：\n* 标题太长，或者\n* 与跨wiki前缀或名字空间名称冲突。",
+	"lqt_invalid_subject": "您输入的主题无效，可能是由下列原因导致的：\n* 标题太长，或者\n* 与跨wiki前缀或命名空间名称冲突。",
 	"lqt-empty-text": "您不能发布空白消息",
 	"lqt_empty_subject": "您必须输入一个主题。",
 	"lqt_reply": "回复",

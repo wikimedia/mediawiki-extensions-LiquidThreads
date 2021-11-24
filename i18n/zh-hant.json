@@ -15,13 +15,14 @@
 			"Oapbtommy",
 			"Shinjiman",
 			"Simon Shek",
-			"Waihorace"
+			"Waihorace",
+			"Winston Sung"
 		]
 	},
 	"lqt-desc": "在對話頁面中增加主題討論功能",
 	"lqt_movethread": "移動討論串到其他頁面",
 	"lqt_deletethread": "刪除或取消刪除討論串",
-	"lqt_contents_title": "內容",
+	"lqt_contents_title": "目錄",
 	"lqt_toc_thread_title": "討論串標題",
 	"lqt_toc_thread_author": "發起人",
 	"lqt_toc_thread_replycount": "回覆數",
@@ -186,8 +187,8 @@
 	"lqt-preference-display-depth": "回覆深度顯示上限：",
 	"lqt-preference-display-count": "回覆數量顯示上限：",
 	"lqt-preference-custom-signatures": "顯示使用者自訂簽名",
-	"lqt-enotif-subject-reply": "{{SITENAME}} 的討論 - 回覆：$1",
-	"lqt-enotif-subject-newthread": "{{SITENAME}} 的討論 - 新討論串：$1",
+	"lqt-enotif-subject-reply": "{{SITENAME}}的討論 - 回覆：$1",
+	"lqt-enotif-subject-newthread": "{{SITENAME}}的討論 - 新討論串：$1",
 	"lqt-enotif-newthread": "$1 您好，\n\n此通知來自 {{SITENAME}}，提醒有新的討論串在 $5, $2，\n由 $8 於 $3 $4 發起。\n\n您可至 <$6> 檢視\n\n內容為：\n$7",
 	"lqt-enotif-reply": "$1 您好，\n\n此通知來自 {{SITENAME}}，提醒有新的回覆給 '$2' 在 $5，\n由 $8 於 $3 $4 所建立。\n\n您可至 <$6> 檢視\n\n回覆的內容為：\n$7",
 	"lqt-search-legend": "在本頁搜尋討論",
