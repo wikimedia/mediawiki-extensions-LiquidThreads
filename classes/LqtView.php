@@ -2069,8 +2069,9 @@ class LqtView {
 		}
 
 		// Grab options
-		$maxDepth = $options['maxDepth'] ?? $this->user->getOption( 'lqtdisplaydepth' );
-		$maxCount = $options['maxCount'] ?? $this->user->getOption( 'lqtdisplaycount' );
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$maxDepth = $options['maxDepth'] ?? $userOptionsLookup->getOption( $this->user, 'lqtdisplaydepth' );
+		$maxCount = $options['maxCount'] ?? $userOptionsLookup->getOption( $this->user, 'lqtdisplaycount' );
 		$startAt = $options['startAt'] ?? 0;
 
 		// Figure out if we have replies to show or not.

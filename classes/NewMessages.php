@@ -218,8 +218,9 @@ class NewMessages {
 				$services->getTalkPageNotificationManager()
 					->setUserHasNewMessages( $user );
 
+				$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 				$userIds[] = $user->getId();
-				if ( $user->getOption( 'enotifusertalkpages' ) ) {
+				if ( $userOptionsLookup->getOption( $user, 'enotifusertalkpages' ) ) {
 					$notifyUsers[] = $user->getId();
 				}
 			}
