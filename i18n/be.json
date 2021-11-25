@@ -2,14 +2,21 @@
 	"@metadata": {
 		"authors": [
 			"Artsiom91",
+			"ZlyiLev",
 			"Дзяніс Тутэйшы",
 			"Тест"
 		]
 	},
 	"lqt_new_thread": "Пачаць новую размову",
 	"lqt_youhavenewmessages": "Вы атрымалі [[$1|новыя паведамленні]].",
+	"lqt_sorting_order": "Парадак сартыроўкі:",
+	"lqt_sort_newest_changes": "апошнія змененыя спачатку",
+	"lqt_sort_newest_threads": "найноўшыя тэмы спачатку",
+	"lqt_sort_oldest_threads": "найстарэйшыя тэмы спачатку",
 	"lqt-no-new-messages": "Для Вас няма новых паведамленняў.",
 	"lqt-new-messages": "Для вас ёсць новыя паведамленні",
+	"lqt-no-threads": "На гэтай старонцы пакуль няма тэм абмеркаванняў.",
+	"lqt-changesortorder": "Сартаваць",
 	"lqt-log-name": "Журнал галін абмеркаванняў",
 	"lqt-preference-notify-talk": "Паведамляць мне на пошту пра новыя адказы па галіне, за якой я сачу",
 	"prefs-lqt": "Абмеркаванні па галінах",
@@ -22,5 +29,6 @@
 	"tooltip-pt-newmessages": "Паказвае новыя паведамленні ў галінах і абмеркаваннях, якія Вы адсочваеце",
 	"lqt-newmessages-n": "Новыя паведамленні ($1)",
 	"lqt_newmessages-title": "Новыя паведамленні",
+	"lqt-talkpage-history-title": "Гісторыя старонкі размоў",
 	"pageinfo-usinglqt": "Абмеркаванне па галінах уключана"
 }
