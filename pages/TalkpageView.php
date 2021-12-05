@@ -133,7 +133,11 @@ class TalkpageView extends LqtView {
 
 		// Table body
 		$rows = [];
-		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
+		$services = MediaWikiServices::getInstance();
+		$contLang = $services->getContentLanguage();
+		$langConv = $services
+				->getLanguageConverterFactory()
+				->getLanguageConverter( $services->getContentLanguage() );
 		foreach ( $threads as $thread ) {
 			if ( $thread->root() && !$thread->root()->getPage()->getContent() &&
 				!LqtView::threadContainsRepliesWithContent( $thread )
@@ -144,7 +148,7 @@ class TalkpageView extends LqtView {
 			$row = '';
 			$anchor = '#' . $this->anchorName( $thread );
 			$subject = Xml::tags( 'a', [ 'href' => $anchor ],
-					Threads::stripHTML( $thread->formattedSubject() ) );
+					Threads::stripHTML( $langConv->convert( $thread->formattedSubject() ) ) );
 			$row .= Xml::tags( 'td', [ 'dir' => $contLang->getDir() ], $subject );
 
 			$row .= Xml::element( 'td', null, $wgLang->formatNum( $thread->replyCount() ) );
