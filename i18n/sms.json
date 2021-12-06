@@ -7,6 +7,7 @@
 	"lqt_hist_deleted": "Jaukkuum",
 	"lqt_protectedfromreply_link": "suõjjuum",
 	"lqt_move_move": "Seeʹrd",
+	"lqt-summary": "Õʹhtteǩeässmõš",
 	"lqt-email-undo": "Kååʹmet",
 	"lqt-thread-created": "Rajjum",
 	"lqt-history-user": "Õõʹnni",
@@ -15,5 +16,6 @@
 	"lqt-save-subject": "Ruõkk",
 	"lqt-newmessages-n": "Ođđ {{PLURAL:$1|saakk|saaǥǥ|saakkâd}} ($1)",
 	"lqt_newmessages-title": "Ođđ saaǥǥ",
-	"lqt-talkpage-history-title": "Saǥstõõllâmsseeid historia"
+	"lqt-talkpage-history-title": "Saǥstõõllâmsseeid historia",
+	"nstab-summary": "Õʹhtteǩeässmõš"
 }
