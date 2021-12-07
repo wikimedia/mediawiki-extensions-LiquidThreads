@@ -10,7 +10,8 @@
 			"KlaudiuMihaila",
 			"Minisarm",
 			"NGC 54",
-			"Stelistcristi"
+			"Stelistcristi",
+			"Strainu"
 		]
 	},
 	"lqt-desc": "Adaugă discuțiile de thread în paginile de discuție",
@@ -143,11 +144,15 @@
 	"lqt-newmessages-from": "De la $1",
 	"lqt-hot-topics": "Subiecte calde",
 	"lqt-add-reply": "Adaugă un răspuns",
+	"lqt-changesortorder": "Sortare",
 	"lqt_rc_new_discussion": "postat un nou fir, „$1”",
-	"lqt_rc_new_reply": "postat un răspuns la „$1”",
+	"lqt_rc_new_reply": "a publicat un răspuns la „$1”",
 	"right-lqt-split": "Desparte subiecte",
+	"action-lqt-split": "desparte subiecte",
 	"right-lqt-merge": "Unește subiecte",
+	"action-lqt-merge": "unește subiecte",
 	"right-lqt-react": "Răspunde în subiecte",
+	"action-lqt-react": "răspunde în subiecte",
 	"lqt-thread-merge": "Unește în alt subiect",
 	"lqt-thread-merge-to": "Unește în acest subiect",
 	"lqt_merge_thread": "Unește subiecte",
@@ -228,7 +233,9 @@
 	"lqt-edit-bump-tooltip": "Mutare subiect în partea de sus a paginii de discuție",
 	"lqt-historicalrevision-error": "Versiunea pe care ați selectat-o este coruptă și nu poate fi vizualizată.",
 	"lqt-reply-subpage": "răspuns",
+	"lqt-not-a-liquidthreads-page": "$1 nu este o pagină LiquidThreads",
 	"nstab-thread": "Subiect",
 	"nstab-summary": "Rezumat",
-	"pageinfo-usinglqt": "Discuția filetată activată"
+	"pageinfo-usinglqt": "Discuția filetată activată",
+	"pageinfo-usinglqt-yes": "Da"
 }

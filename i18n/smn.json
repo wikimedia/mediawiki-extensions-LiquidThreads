@@ -1,10 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yupik"
+			"Yupik",
+			"Seipinne"
 		]
 	},
 	"lqt_toc_thread_modified": "Majemustáá nubástittum",
+	"lqt-no-new-messages": "Tunjin iä lah uđđâ viestah.",
+	"lqt-new-messages": "Tunjin láá uđđâ viestah.",
+	"lqt-search-button": "Uusâ",
+	"lqt-save-subject": "Vuorkkii",
 	"lqt-newmessages-n": "Uđđâ {{PLURAL:$1|viestâ|viestah}} ($1)",
 	"lqt_newmessages-title": "Uđđâ viestah"
 }

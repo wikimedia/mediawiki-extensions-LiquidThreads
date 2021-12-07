@@ -125,7 +125,7 @@
 	"lqt-history-action": "Událost",
 	"lqt-history-comment": "Komentář",
 	"lqt-history-thread": "Vlákno",
-	"lqt-thread-edited-author": "Upraveno autorem.<br />\nPoslední editace: $1",
+	"lqt-thread-edited-author": "Upraveno {{GENDER:$5|autorem|autorkou|autorem}}.<br />\nPoslední editace: $1",
 	"lqt-thread-edited-others": "Upraveno {{PLURAL:$2|jiným uživatelem|jinými uživateli}}.<br />\nPoslední editace: $1",
 	"lqt-header-actions": "Akce",
 	"lqt_summarize_link": "Shrnout",

@@ -8,7 +8,8 @@
 			"Omnipaedista",
 			"Protnet",
 			"ZaDiak",
-			"Απεργός"
+			"Απεργός",
+			"Giannaras99"
 		]
 	},
 	"lqt-desc": "Προσθήκη θεματικών συζητήσεων στις σελίδες συζήτησης",
@@ -79,7 +80,7 @@
 	"lqt_move_thread_bad_destination": "Η σελίδα προορισμού δεν είναι μια σελίδα συζήτησης.",
 	"lqt_move_samedestination": "Το θέμα είναι ήδη σε αυτή τη σελίδα!",
 	"lqt_move_noreason": "Δεν δίνεται λόγος.",
-	"lqt_move_success": "Το θέμα μεταφέρθηκε στο $1.",
+	"lqt_move_success": "Το νήμα μετακινήθηκε σε $1: $2.",
 	"lqt_talkpage_autocreate_summary": "Σελίδα Συζήτησης αυτοδημιουργήθηκε όταν το πρώτο  νήμα δημοσιεύτηκε",
 	"lqt_header_warning_big": "Επεξεργάζεστε το $1.",
 	"lqt_header_warning_bold": "επικεφαλίδα σελίδας συζήτησης",
@@ -166,7 +167,7 @@
 	"lqt-feed-title-new-threads-from": "{{SITENAME}} — Νέα θέματα από $1",
 	"lqt-feed-title-replies": "{{SITENAME}} — Απαντήσεις",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Απαντήσεις από $1",
-	"lqt-newmessages-n": "Νέα μηνύματα ($1)",
+	"lqt-newmessages-n": "Νέα {{PLURAL:$1|Μήνυμα|Μηνύματα}} ($1)",
 	"lqt_newmessages-title": "Νέα μηνύματα",
 	"lqt-newpost-summary": "Νέο θέμα: $1",
 	"lqt-reply-summary": "Απάντηση σε [[$2|$1]]",

@@ -5,6 +5,7 @@
 		]
 	},
 	"apihelp-feedthreads-param-feedformat": "피드의 포맷입니다.",
+	"apihelp-feedthreads-param-type": "표시할 게시 유형입니다.",
 	"apihelp-query+threads-summary": "LiquidThreads 스레드의 세부 내용을 표시합니다.",
 	"apihelp-query+threads-param-prop": "가져올 속성입니다.",
 	"apihelp-query+threads-param-rendermaxthreadcount": "렌더링할 때, \"{{int:lqt-thread-show-more}}\" 링크를 추가하기 전 보여줄 최대 답글 수.",

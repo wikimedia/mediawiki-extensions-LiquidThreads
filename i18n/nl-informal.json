@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand"
+			"Siebrand",
+			"McDutchie"
 		]
 	},
 	"lqt_invalid_subject": "Het onderwerp dat je hebt opgegeven is ongeldig. Het kan:\n* te lang zijn, of\n* conflicteren met interwikivoorvoegsels of naamruimtenamen.",
@@ -21,6 +22,6 @@
 	"lqt-date-info": "Deze koppeling is niet actief omdat je onderwerpen van alle datums bekijkt.",
 	"lqt-protected-reply-thread": "Je kunt niet deelnemen aan dit onderwerp omdat het gesloten is.",
 	"lqt-protected-reply-talkpage": "Je kunt niet deelnemen aan dit onderwerp omdat de onderwerpen op deze pagina gesloten zijn.",
-	"lqt-protected-newthread": "Je kunt geen nieuwe onderwerpen aanmaken op deze overlegpagina omdat deze pagina gesloten is voor nieuwe onderwerpen.",
+	"lqt-protected-newthread": "Je kunt geen nieuwe onderwerpen aanmaken op deze overlegpagina omdat deze pagina gesloten is voor nieuwe onderwerpen, of omdat je geen bewerkingsrechten hebt.",
 	"lqt-historicalrevision-error": "De door jou geselecteerde versie is beschadigd en kan niet bekeken worden."
 }

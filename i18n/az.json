@@ -4,7 +4,8 @@
 			"AZISS",
 			"Cekli829",
 			"PPerviz",
-			"Wertuose"
+			"Wertuose",
+			"NMW03"
 		]
 	},
 	"lqt_reply": "Geri göndər",
@@ -29,7 +30,7 @@
 	"lqt-drag-save": "Təsdiq et",
 	"lqt-drag-reason": "Səbəb:",
 	"lqt-feed-title-all": "{{SITENAME}} — Yeni ismarıclar",
-	"lqt-newmessages-n": "Yeni mesajlarım ($1)",
+	"lqt-newmessages-n": "Yeni {{PLURAL:$1|mesaj|mesajlar}} ($1)",
 	"lqt_newmessages-title": "Yeni mesajlar",
 	"lqt-talkpage-history-subtitle": "$1 üçün",
 	"lqt-reply-subpage": "yenidən",

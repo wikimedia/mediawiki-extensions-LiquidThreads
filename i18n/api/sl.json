@@ -27,7 +27,7 @@
 	"apihelp-threadaction-param-text": "Besedilo ustvarjenega sporočila.",
 	"apierror-liquidthreads-alreadytop": "Ta tema je že vrhnja.",
 	"apierror-liquidthreads-badsubject": "Zadeva, ki ste jo določili, ni veljavna.",
-	"apierror-liquidthreads-invalidtalkpage": "Navedena pogovorna stran je neveljavna ali pa ima onemogočene tematizirane pogovore.",
+	"apierror-liquidthreads-invalidtalkpage": "Pogovorna stran, ki ste jo navedli, je neveljavna ali pa pogovori v obliki niti niso omogočeni.",
 	"apierror-liquidthreads-noreplies-talkpage": "Ni mogoče odgovoriti na to nit, saj je pogovorna stran zaščitena pred odgovarjanjem.",
 	"apierror-liquidthreads-noreplies-thread": "Ni mogoče odgovoriti na to nit, saj je zaščitena pred odgovori.",
 	"apierror-liquidthreads-nosubject": "Navedena ni bila nobena zadeva, oziroma je neveljavna.",

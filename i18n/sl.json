@@ -8,7 +8,7 @@
 		]
 	},
 	"lqt-desc": "Doda možnost tematiziranih pogovorov na pogovorne strani",
-	"lqt_movethread": "Premakni nit na drugo stran",
+	"lqt_movethread": "Prestavi nit na drugo stran",
 	"lqt_deletethread": "Izbriši ali obnovi nit",
 	"lqt_contents_title": "Vsebina",
 	"lqt_toc_thread_title": "Naslov niti",
@@ -193,7 +193,7 @@
 	"lqt-marked-as-read-placeholder": "Tema $1 je bila označena kot prebrana.",
 	"lqt-change-subject": "Spremeni zadevo",
 	"lqt-save-subject": "Shrani",
-	"lqt-save-subject-failed": "Med poskusom spremembe zadeve te teme je prišlo do naslednje napake: $1",
+	"lqt-save-subject-failed": "Med poskusom spremembe zadeve te teme se je pojavila naslednja napaka: $1",
 	"lqt-ajax-invalid-subject": "Navedena zadeva ni veljavna, verjetno zato, ker je predolga.",
 	"lqt-ajax-no-subject": "Navesti moraš zadevo nove teme.",
 	"lqt-save-subject-error-unknown": "Pri vstavljanju zadeve te teme je prišlo do neznane napake. Prosimo, poskusi to storiti s klikom na »uredi« pri vrhnjem sporočilu.",

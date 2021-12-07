@@ -7,7 +7,8 @@
 			"Orlodrim",
 			"Thibaut120094",
 			"Urhixidur",
-			"Wladek92"
+			"Wladek92",
+			"Ajeje Brazorf"
 		]
 	},
 	"apihelp-feedthreads-description": "Retourne un flux de fils de discussion.",
@@ -59,7 +60,7 @@
 	"apihelp-threadaction-param-method": "Pour obtenir les formulaires d'édition en ligne, c'est la  méthode pour obtenir un formulaire.",
 	"apihelp-threadaction-param-captchaword": "Réponse au CAPTCHA.",
 	"apihelp-threadaction-param-captchaid": "Identificateur CAPTCHA de la précédente demande.",
-	"apierror-liquidthreads-alreadytop": "Ce thread est déja un thread de niveau supérieur.",
+	"apierror-liquidthreads-alreadytop": "Ce thread est déjà un thread de niveau supérieur.",
 	"apierror-liquidthreads-badparent": "Le fil parent que vous avez spécifié n’est ni le titre d’un fil ni un ID de fil.",
 	"apierror-liquidthreads-badreaction": "Vous devez spécifier à la fois un type et une valeur pour la réaction.",
 	"apierror-liquidthreads-badsortkey": "Vous devez spécifier un horodatage valide pour le paramètre <var>sortkey</var>. Il devrait être de la forme AAAAMMjjhhmmss, un horodatage Unix ou <kbd>now</kbd>.",
