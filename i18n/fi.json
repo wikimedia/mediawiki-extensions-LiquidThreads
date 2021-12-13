@@ -194,7 +194,7 @@
 	"lqt-thread-link-url": "Osoite:",
 	"lqt-thread-link-title": "Wikitekstin linkki:",
 	"lqt-thread-link-copy": "Kopioi leikepöydälle",
-	"lqt-sign-not-necessary": "Viestisi allekirjoittaminen neljällä tildellä (~) ei ole välttämätöntä.\nAllekirjoitus näytetään automaattisesti.",
+	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nAllekirjoitus näytetään automaattisesti.",
 	"lqt-marked-as-read-placeholder": "Ketju $1 merkittiin luetuksi.",
 	"lqt-change-subject": "Muuta aihe",
 	"lqt-save-subject": "Tallenna",

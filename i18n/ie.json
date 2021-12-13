@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Renan"
+		]
+	},
+	"lqt_youhavenewmessages": "Vu have [[$1|nov missages]].",
+	"lqt-email-undo": "Anullar",
+	"lqt-history-comment": "Comentarie",
+	"lqt-drag-reason": "Rason:",
+	"tooltip-pt-newmessages": "Monstra li nov missages in temas o in págines de discussion per temas que vu es vigilant",
+	"lqt-newmessages-n": "Nov {{PLURAL:$1|missage|missages}} ($1)",
+	"lqt_newmessages-title": "Nov missages"
+}

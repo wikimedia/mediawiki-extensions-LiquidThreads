@@ -3,7 +3,9 @@
 		"authors": [
 			"Antonytse",
 			"Hello903hello",
-			"Shinjiman"
+			"Shinjiman",
+			"Moon0319",
+			"Roy17"
 		]
 	},
 	"lqt_movethread": "搬討論串去另一版",
@@ -63,5 +65,16 @@
 	"lqt_header_warning_after_big": "用來做公告同埋導言嘅版頭。你可能想去$2。",
 	"lqt_header_warning_bold": "討論頁版頭",
 	"lqt_header_warning_new_discussion": "開始一個新討論",
-	"lqt-newmessages-n": "新{{PLURAL:$1|訊息}}（$1）"
+	"lqt-movethread": "搬",
+	"lqt-menu-trigger": "多啲",
+	"lqt-merge-submit": "合埋",
+	"lqt-search-legend": "喺呢版搵討論",
+	"lqt-search-label": "搵字詞:",
+	"lqt-search-button": "搵",
+	"lqt-thread-link-url": "拎URL:",
+	"lqt-cancel-subject-edit": "取消",
+	"lqt-newmessages-n": "新{{PLURAL:$1|訊息}}（$1）",
+	"lqt_newmessages-title": "新信息",
+	"lqt-reply-subpage": "覆",
+	"pageinfo-usinglqt-yes": "係"
 }

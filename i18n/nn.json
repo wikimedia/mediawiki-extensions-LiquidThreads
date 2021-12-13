@@ -6,7 +6,8 @@
 			"Harald Khan",
 			"Jon Harald Søby",
 			"Nghtwlkr",
-			"Njardarlogar"
+			"Njardarlogar",
+			"Pyscowicz"
 		]
 	},
 	"lqt-desc": "Legg til tråda diskusjonar til diskusjonssider",
@@ -91,7 +92,7 @@
 	"lqt_move_thread_bad_destination": "Målsida er ikkje ei diskusjonssida.",
 	"lqt_move_samedestination": "Tråden er alt på denne sida.",
 	"lqt_move_noreason": "Inga grunngjeving.",
-	"lqt_move_success": "Tråden vart flytta til $1.",
+	"lqt_move_success": "Tråden vart flytta til $1:$2",
 	"lqt_talkpage_autocreate_summary": "Diskusjonssida oppretta automatisk då fyrste tråd blei lagt inn.",
 	"lqt_header_warning_big": "Du endrar ei $1.",
 	"lqt_header_warning_after_big": "Hovudavsnitt er for kunngjeringar og inleiingar.\nI staden vil du kanskje $2.",
@@ -157,7 +158,7 @@
 	"lqt-merge-submit": "Flett",
 	"lqt-log-name": "Tråda diskusjonslogg",
 	"lqt-log-header": "Denne loggen innheld handlingar gjorde på diskusjonstrådar.",
-	"lqt-log-action-move": "flytta [[$1]] frå [[$2]] til [[$3]].",
+	"lqt-log-action-move": "flytta [[$1]] frå [[$2]] til [[$3]] ($4).",
 	"lqt-log-action-split": "kløyvde av [[$1]] frå under [[$3]] med det nye emnet «$2»",
 	"lqt-log-action-merge-across": "flytta [[$1]] frå under [[$2]] til under [[$3]]",
 	"lqt-log-action-merge-down": "fletta [[$1]] til under [[$3]]",
@@ -205,7 +206,7 @@
 	"lqt-feed-title-replies": "{{SITENAME}} — Svar",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Svar frå $1",
 	"lqt-feed-new-thread-intro": "Ny tråd på $1 oppretta av $2",
-	"lqt-newmessages-n": "Nye meldingar ($1)",
+	"lqt-newmessages-n": "Nye {{PLURAL:$1|melding|meldingar}} ($1)",
 	"lqt_newmessages-title": "Nye meldingar",
 	"lqt-newpost-summary": "Ny tråd: $1",
 	"lqt-reply-summary": "Svar på [[$2|$1]]",

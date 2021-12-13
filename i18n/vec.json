@@ -65,7 +65,7 @@
 	"lqt_youhavenewmessages": "Te ghè [[$1|mesaji novi]].",
 	"lqt_protectedfromreply": "Sto argomento el xe stà $1. No se pole rispóndarghe.",
 	"lqt_protectedfromreply_link": "protèto",
-	"lqt_subject": "Ogeto:",
+	"lqt_subject": "Ojeto:",
 	"lqt_noreason": "Nissuna motivassion indicà.",
 	"lqt_move_placeholder": "Sto qua el xe un segnal che dise che l'argomento $1 el xe stà portà via da sta pagina.\nEl spostamento lo ga fato $2 el $3 a le $4.\nDesso l'argomento el se cata su $5.",
 	"lqt_thread_deleted_for_sysops": "Sto argomento el xe stà '''scancelà''' e pol védarlo solo i aministradori.",

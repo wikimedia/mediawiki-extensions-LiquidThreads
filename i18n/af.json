@@ -5,7 +5,8 @@
 			"Fwolff",
 			"Naudefj",
 			"Oesjaar",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Winstonza"
 		]
 	},
 	"lqt-desc": "Voeg besprekings in onderwerpe op besprekingsblaaie by",
@@ -54,7 +55,7 @@
 	"lqt_revision_as_of": "Weergawe op $2 om $3.",
 	"lqt_change_new_thread": "Hierdie is die eerste weergawe van die onderwerp.",
 	"lqt_change_edited_summary": "Die onderwerp se opsomming is gewysig",
-	"lqt_change_moved": "[$1 Die onderwerp] is na 'n ander besprekinsblad geskuif",
+	"lqt_change_moved": "[$1 Die onderwerp] is na 'n ander besprekingsblad geskuif",
 	"lqt_change_edited_subject": "Die onderwerp is van \"$2\" na \"$3\" gewysig",
 	"lqt_change_root_blanked": "Die teks van 'n [$1 opmerking] is verwyder.",
 	"lqt_youhavenewmessages": "U het [[$1|nuwe boodskappe]]",

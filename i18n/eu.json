@@ -76,7 +76,7 @@
 	"searchprofile-threads": "Eztabaidak",
 	"lqt-ajax-update-link": "Eguneratu",
 	"lqt-thread-show-replies": "Erakutsi {{PLURAL:$1|erantzun bat|$1 erantzun}}",
-	"lqt-thread-link-url": "URL lotura:",
+	"lqt-thread-link-url": "Estekaren URLa:",
 	"lqt-thread-link-title": "Wikitestu lotura:",
 	"lqt-change-subject": "Gaia aldatua",
 	"lqt-save-subject": "Gorde",

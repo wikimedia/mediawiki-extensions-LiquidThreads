@@ -3,7 +3,8 @@
 		"authors": [
 			"Crazymadlover",
 			"Omnipaedista",
-			"Protnet"
+			"Protnet",
+			"PastelKos"
 		]
 	},
 	"lqt_contents_title": "Περιεχόμενα",
@@ -20,6 +21,7 @@
 	"lqt-history-comment": "Σχόλιον",
 	"lqt-header-actions": "Δράσεις",
 	"lqt-thread-split-thread": "Νῆμα διαλέξεως:",
+	"lqt-menu-trigger": "Πλείω",
 	"lqt-search-button": "Ζητεῖν",
 	"lqt-ajax-update-link": "Ἐνημεροῦν",
 	"lqt-cancel-subject-edit": "Ἀκυροῦν",
