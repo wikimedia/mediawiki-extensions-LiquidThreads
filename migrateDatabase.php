@@ -4,8 +4,8 @@
 // normally done on-demand when a thread is loaded. Also runs any necessary database updates.
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
-	? getenv( 'MW_INSTALL_PATH' ) . "/maintenance/commandLine.inc"
-	: __DIR__ . '/../../maintenance/commandLine.inc';
+	? getenv( 'MW_INSTALL_PATH' ) . "/maintenance/CommandLineInc.php"
+	: __DIR__ . '/../../maintenance/CommandLineInc.php';
 
 $db = wfGetDB( DB_PRIMARY );
 
