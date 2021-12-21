@@ -33,6 +33,7 @@
 	"lqt-menu-trigger": "Àutri cosi",
 	"right-lqt-merge": "Junci thread",
 	"action-lqt-merge": "jùnciri thread",
+	"lqt_merge_thread": "Junci discussioni",
 	"lqt-merge-submit": "Junci",
 	"lqt-search-button": "Va arricerca",
 	"searchprofile-threads": "Discussioni",
@@ -48,5 +49,7 @@
 	"lqt-newpost-summary": "Discussioni nova: $1",
 	"lqt-talkpage-history-subtitle": "Pi $1",
 	"lqt-talkpage-history-tab": "Ntistazzioni",
+	"nstab-thread": "Thread",
+	"nstab-summary": "Summariu",
 	"pageinfo-usinglqt-yes": "Sì"
 }
