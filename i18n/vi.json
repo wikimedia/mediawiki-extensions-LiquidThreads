@@ -5,7 +5,8 @@
 			"Minh Nguyen",
 			"Phjtieudoc",
 			"Trần Nguyễn Minh Huy",
-			"Vinhtantran"
+			"Vinhtantran",
+			"NguoiDungKhongDinhDanh"
 		]
 	},
 	"lqt-desc": "Thêm những thảo luận có cấu trúc vào trang thảo luận",
@@ -149,7 +150,7 @@
 	"lqt_rc_new_reply": "đã trả lời “$1”",
 	"right-lqt-split": "Chia luồng",
 	"right-lqt-merge": "Hợp nhất luồng",
-	"right-lqt-react": "Trả lời cho luồng",
+	"right-lqt-react": "Trả lời tại các luồng",
 	"lqt-thread-merge": "Hợp nhất vào luồng khác",
 	"lqt-thread-merge-to": "Hợp nhất vào luồng này.",
 	"lqt_merge_thread": "Hợp nhất luồng",
