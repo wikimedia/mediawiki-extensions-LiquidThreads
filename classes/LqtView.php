@@ -1423,7 +1423,13 @@ class LqtView {
 
 		$wgOut->addParserOutputMetadata( $parserOutput );
 
-		return $parserOutput->getText();
+		// LanguageConverter for language conversion
+		$services = MediaWikiServices::getInstance();
+		$langConv = $services
+			->getLanguageConverterFactory()
+			->getLanguageConverter( $services->getContentLanguage() );
+
+		return $langConv->convert( $parserOutput->getText() );
 	}
 
 	/**
@@ -1692,7 +1698,11 @@ class LqtView {
 
 			$id = 'lqt-header-' . $thread->id();
 
-			$html = $thread->formattedSubject();
+			$services = MediaWikiServices::getInstance();
+			$langConv = $services
+				->getLanguageConverterFactory()
+				->getLanguageConverter( $services->getContentLanguage() );
+			$html = $langConv->convert( $thread->formattedSubject() );
 
 			$show = Hooks::run( 'LiquidThreadsShowThreadHeading',
 					[ $thread, &$html ] );

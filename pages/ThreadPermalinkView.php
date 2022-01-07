@@ -217,7 +217,11 @@ class ThreadPermalinkView extends LqtView {
 
 		$this->showThread( $this->thread, 1, 1, [ 'maxDepth' => -1, 'maxCount' => -1 ] );
 
-		$this->output->setPageTitle( $this->thread->subject() );
+		$services = MediaWikiServices::getInstance();
+		$langConv = $services
+				->getLanguageConverterFactory()
+				->getLanguageConverter( $services->getContentLanguage() );
+		$this->output->setPageTitle( $langConv->convert( $this->thread->subject() ) );
 		return false;
 	}
 }
