@@ -15,6 +15,7 @@
 			"Oapbtommy",
 			"Shinjiman",
 			"Simon Shek",
+			"Tranve",
 			"Waihorace",
 			"Winston Sung"
 		]
@@ -138,8 +139,8 @@
 	"lqt-thread-edited-others": "已由 {{PLURAL:$2|一|$2}} 名其他使用者編輯。<br />\n最後編輯於：$1",
 	"lqt-header-actions": "動作",
 	"lqt_summarize_link": "摘要",
-	"lqt-summarize-intro": "請填寫以下討論串的摘要於編輯框中。\n您可以在摘要中使用任何 Wiki 標記語言。\n完成後，請點選 \"{{int:publishpage}}\"。",
-	"lqt-update-summary-intro": "請填寫以下討論串的摘要於編輯框中。\n您可以在摘要中使用任何 Wiki 標記語言。\n完成後，請點選 \"{{int:publishchanges}}\"。",
+	"lqt-summarize-intro": "請填寫以下討論串的摘要於編輯框中。\n您可以在摘要中使用任何 wikitext。\n完成後，請點選 \"{{int:publishpage}}\"。",
+	"lqt-update-summary-intro": "請填寫以下討論串的摘要於編輯框中。\n您可以在摘要中使用任何 wikitext。\n完成後，請點選 \"{{int:publishchanges}}\"。",
 	"lqt-thread-split": "分割至新討論串",
 	"lqt-split-success": "您已經分割討論串 $1。",
 	"lqt_split_thread": "分割討論串",
@@ -201,7 +202,7 @@
 	"lqt-thread-show-replies": "顯示 $1 則{{PLURAL:$1|回覆|回覆}}",
 	"lqt-thread-show-more": "顯示更多回覆",
 	"lqt-thread-link-url": "URL 連結：",
-	"lqt-thread-link-title": "Wiki 標記語言連結：",
+	"lqt-thread-link-title": "Wikitext 連結：",
 	"lqt-thread-link-copy": "複製到剪貼簿",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\n在此會自動顯示簽名。",
 	"lqt-summary-sign-not-necessary": "不需在您的發言裡以四個波浪號來產生簽名。",
