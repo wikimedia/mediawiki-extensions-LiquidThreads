@@ -378,7 +378,7 @@ class Threads {
 
 		if ( $limit && ( $rowsAffected >= $limit ) && $queueMore ) {
 			$jobParams = [ 'limit' => $limit, 'cascade' => true ];
-			JobQueueGroup::singleton()->push(
+			MediaWikiServices::getInstance()->getJobQueueGroup()->push(
 				new SynchroniseThreadArticleDataJob(
 					$page->getTitle(),
 					$jobParams
