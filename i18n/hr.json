@@ -203,7 +203,7 @@
 	"lqt-save-subject-failed": "Pogreška prilikom pokušaja promjene naziva ove teme: $1",
 	"lqt-ajax-invalid-subject": "Naslov koji ste naveli nije valjan, vjerojatno zato što je predugačak.",
 	"lqt-ajax-no-subject": "Morate navesti predmet za novu temu.",
-	"lqt-save-subject-error-unknown": "Nepoznata pogrješka pojavljuje se kada je pokušano snimanje naziva ove teme. Pokušajte to učiniti pritiskom na \"Uredi\" na prvoj poruci teme.",
+	"lqt-save-subject-error-unknown": "Nepoznata pogreška pojavila se kada je pokušano snimanje naziva ove teme. Pokušajte to učiniti pritiskom na »Uredi« na prvoj poruci teme.",
 	"lqt-cancel-subject-edit": "Odustani",
 	"lqt-drag-activate": "Odvucite na novu lokaciju",
 	"lqt-drag-drop-zone": "Stavi ovdje",
