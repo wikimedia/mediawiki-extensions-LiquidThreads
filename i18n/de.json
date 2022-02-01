@@ -27,7 +27,8 @@
 			"Tbleher",
 			"The Evil IP address",
 			"Umherirrender",
-			"Wikinaut"
+			"Wikinaut",
+			"Brettchenweber"
 		]
 	},
 	"lqt-desc": "Ermöglicht Themen auf Diskussionsseiten",
@@ -79,7 +80,7 @@
 	"lqt_change_new_thread": "Dies ist die erste Version des Themas.",
 	"lqt_change_reply_created": "Der [$1 hervorgehobene Kommentar] wurde in dieser Version erstellt.",
 	"lqt_change_edited_root": "Der [$1 hervorgehobene Kommentar] wurde in dieser Version bearbeitet.",
-	"lqt_change_edited_summary": "Die Zusammenfassung dieses Themas wurde bearbeitet",
+	"lqt_change_edited_summary": "Die Zusammenfassung dieses Themas wurde bearbeitet.",
 	"lqt_change_deleted": "[$1 Dieser] oder sein übergeordneter Beitrag wurden gelöscht",
 	"lqt_change_undeleted": "Der [$1 hervorgehobene Beitrag] wurde wiederhergestellt",
 	"lqt_change_moved": "[$1 Dieses Thema] wurde auf eine andere Diskussionsseite verschoben",
