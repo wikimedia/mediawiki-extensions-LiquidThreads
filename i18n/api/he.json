@@ -61,7 +61,7 @@
 	"apierror-liquidthreads-badsubject": "הנושא שנתת אינו תקין.",
 	"apierror-liquidthreads-invalidtalkpage": "דך השיחה שנתת אינו תקין, או שלא מופעלים בו שרשורים.",
 	"apierror-liquidthreads-noparent": "חובה לתת הורה חדש למיזוג.",
-	"apierror-liquidthreads-noreplies-talkpage": "לא ניתן להשיב לשרשור הזה, כי דף השיחה מוגן מפני תגובות.",
+	"apierror-liquidthreads-noreplies-talkpage": "לא ניתן להגיב לשרשור הזה, כי דף השיחה מוגן מפני תגובות.",
 	"apierror-liquidthreads-noreplies-thread": "לא ניתן להשיב לשרשור הזה, כי השרשור מוגן מפני תגובות.",
 	"apierror-liquidthreads-nosubject": "לא ניתן נושא, או שניתן נושא בלתי־תקין.",
 	"apierror-liquidthreads-notext": "חובה לכלול טקסט ברשומה שלך.",
