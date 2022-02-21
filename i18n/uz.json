@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"CoderSI",
+			"Malikxan",
 			"Sociologist"
 		]
 	},
@@ -80,7 +81,7 @@
 	"lqt-preference-display-depth": "Tasvirlash uchun javoblarning eng ko'p chuqurligi:",
 	"lqt-preference-display-count": "Tasvirlash uchun javoblarning eng ko'p soni:",
 	"lqt-preference-custom-signatures": "Foydalanuvchilarning sozlanadigan imzolarini koʻrsatish",
-	"lqt-search-legend": "Ushbu sahifada munozaralarni qidirish",
+	"lqt-search-legend": "Bu sahifada munozaralarni qidirish",
 	"lqt-search-label": "Qidiruv shartlari",
 	"lqt-search-button": "Qidiruv",
 	"searchprofile-threads": "Munozaralar",
