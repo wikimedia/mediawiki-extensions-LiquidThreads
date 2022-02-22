@@ -6,10 +6,17 @@
 		]
 	},
 	"lqt_toc_thread_modified": "Majemustáá nubástittum",
+	"lqt_fragment": "Uási $1 siijđost $2",
+	"lqt_discussion_link": "savâstâlmist",
 	"lqt-no-new-messages": "Tunjin iä lah uđđâ viestah.",
 	"lqt-new-messages": "Tunjin láá uđđâ viestah.",
+	"lqt-history-time": "Peivim",
+	"lqt-history-user": "Kevttee",
+	"lqt-changesortorder": "Šlajâttâl",
 	"lqt-search-button": "Uusâ",
 	"lqt-save-subject": "Vuorkkii",
+	"lqt-drag-reason": "Suijâ:",
 	"lqt-newmessages-n": "Uđđâ {{PLURAL:$1|viestâ|viestah}} ($1)",
-	"lqt_newmessages-title": "Uđđâ viestah"
+	"lqt_newmessages-title": "Uđđâ viestah",
+	"lqt-talkpage-history-subtitle": "Siijđon $1"
 }
