@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Renameuser\RenameuserSQL;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
