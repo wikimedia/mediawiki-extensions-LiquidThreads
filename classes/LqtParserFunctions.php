@@ -11,9 +11,9 @@ class LqtParserFunctions {
 		$param = trim( strtolower( $param ) );
 
 		if ( in_array( $param, $offParams ) || !$param ) {
-			$param = 0;
+			$param = '0';
 		} else {
-			$param = 1;
+			$param = '1';
 		}
 
 		$parser->getOutput()->setPageProperty( 'use-liquid-threads', $param );
@@ -21,7 +21,7 @@ class LqtParserFunctions {
 
 	public static function lqtPageLimit( Parser $parser, $param = null ) {
 		if ( $param && $param > 0 ) {
-			$parser->getOutput()->setPageProperty( 'lqt-page-limit', $param );
+			$parser->getOutput()->setPageProperty( 'lqt-page-limit', (string)$param );
 		}
 	}
 
