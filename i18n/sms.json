@@ -4,6 +4,8 @@
 			"Yupik"
 		]
 	},
+	"lqt_reply": "Vaʹstted",
+	"lqt_delete": "Jaukkâd",
 	"lqt_hist_deleted": "Jaukkuum",
 	"lqt_protectedfromreply_link": "suõjjuum",
 	"lqt_move_move": "Seeʹrd",
@@ -19,5 +21,6 @@
 	"lqt-newmessages-n": "Ođđ {{PLURAL:$1|saakk|saaǥǥ|saakkâd}} ($1)",
 	"lqt_newmessages-title": "Ođđ saaǥǥ",
 	"lqt-talkpage-history-title": "Saǥstõõllâmsseeid historia",
+	"lqt-reply-subpage": "vasttõs",
 	"nstab-summary": "Õʹhtteǩeässmõš"
 }
