@@ -18,6 +18,7 @@
 
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Page\WikiPageFactory;
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 /**
@@ -233,25 +234,25 @@ class ApiFeedLQTThreads extends ApiBase {
 		$feedFormatNames = array_keys( $wgFeedClasses );
 		return [
 			'feedformat' => [
-				ApiBase::PARAM_DFLT => 'rss',
-				ApiBase::PARAM_TYPE => $feedFormatNames
+				ParamValidator::PARAM_DEFAULT => 'rss',
+				ParamValidator::PARAM_TYPE => $feedFormatNames
 			],
 			'days' => [
-				ApiBase::PARAM_DFLT => 7,
-				ApiBase::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_DEFAULT => 7,
+				ParamValidator::PARAM_TYPE => 'integer',
 				IntegerDef::PARAM_MIN => 1,
 				IntegerDef::PARAM_MAX => 30,
 			],
 			'type' => [
-				ApiBase::PARAM_DFLT => 'newthreads',
-				ApiBase::PARAM_TYPE => [ 'replies', 'newthreads' ],
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_DEFAULT => 'newthreads',
+				ParamValidator::PARAM_TYPE => [ 'replies', 'newthreads' ],
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'talkpage' => [
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'thread' => [
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 		];
 	}

@@ -1,5 +1,6 @@
 <?php
 
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 /**
@@ -355,66 +356,66 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	public function getAllowedParams() {
 		return [
 			'startid' => [
-				ApiBase::PARAM_TYPE => 'integer'
+				ParamValidator::PARAM_TYPE => 'integer'
 			],
 			'endid' => [
-				ApiBase::PARAM_TYPE => 'integer'
+				ParamValidator::PARAM_TYPE => 'integer'
 			],
 			'dir' => [
-				ApiBase::PARAM_TYPE => [
+				ParamValidator::PARAM_TYPE => [
 					'newer',
 					'older'
 				],
-				ApiBase::PARAM_DFLT => 'newer',
+				ParamValidator::PARAM_DEFAULT => 'newer',
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-direction',
 			],
 			'showdeleted' => false,
 			'limit' => [
-				ApiBase::PARAM_DFLT => 10,
-				ApiBase::PARAM_TYPE => 'limit',
+				ParamValidator::PARAM_DEFAULT => 10,
+				ParamValidator::PARAM_TYPE => 'limit',
 				IntegerDef::PARAM_MIN => 1,
 				IntegerDef::PARAM_MAX => ApiBase::LIMIT_BIG1,
 				IntegerDef::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			],
 			'prop' => [
-				ApiBase::PARAM_DFLT => 'id|subject|page|parent|author',
-				ApiBase::PARAM_TYPE => array_keys( self::$propRelations ),
-				ApiBase::PARAM_ISMULTI => true
+				ParamValidator::PARAM_DEFAULT => 'id|subject|page|parent|author',
+				ParamValidator::PARAM_TYPE => array_keys( self::$propRelations ),
+				ParamValidator::PARAM_ISMULTI => true
 			],
 
 			'page' => [
-				ApiBase::PARAM_ISMULTI => true
+				ParamValidator::PARAM_ISMULTI => true
 			],
 			'author' => [
-				ApiBase::PARAM_ISMULTI => true
+				ParamValidator::PARAM_ISMULTI => true
 			],
 			'root' => [
-				ApiBase::PARAM_ISMULTI => true
+				ParamValidator::PARAM_ISMULTI => true
 			],
 			'summary' => [
-				ApiBase::PARAM_ISMULTI => true
+				ParamValidator::PARAM_ISMULTI => true
 			],
 			'id' => [
-				ApiBase::PARAM_ISMULTI => true
+				ParamValidator::PARAM_ISMULTI => true
 			],
 			'render' => false,
 			'renderlevel' => [
-				ApiBase::PARAM_DFLT => 0,
+				ParamValidator::PARAM_DEFAULT => 0,
 			],
 			'renderthreadpos' => [
-				ApiBase::PARAM_DFLT => 1,
+				ParamValidator::PARAM_DEFAULT => 1,
 			],
 			'renderthreadcount' => [
-				ApiBase::PARAM_DFLT => 1,
+				ParamValidator::PARAM_DEFAULT => 1,
 			],
 			'rendermaxthreadcount' => [
-				ApiBase::PARAM_DFLT => null,
+				ParamValidator::PARAM_DEFAULT => null,
 			],
 			'rendermaxdepth' => [
-				ApiBase::PARAM_DFLT => null,
+				ParamValidator::PARAM_DEFAULT => null,
 			],
 			'renderstartrepliesat' => [
-				ApiBase::PARAM_DFLT => null,
+				ParamValidator::PARAM_DEFAULT => null,
 			],
 		];
 	}
