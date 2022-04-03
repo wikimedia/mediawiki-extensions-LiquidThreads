@@ -18,6 +18,7 @@
 
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Page\WikiPageFactory;
+use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 /**
  * This action returns LiquidThreads threads/posts in RSS/Atom formats.
@@ -238,8 +239,8 @@ class ApiFeedLQTThreads extends ApiBase {
 			'days' => [
 				ApiBase::PARAM_DFLT => 7,
 				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_MIN => 1,
-				ApiBase::PARAM_MAX => 30,
+				IntegerDef::PARAM_MIN => 1,
+				IntegerDef::PARAM_MAX => 30,
 			],
 			'type' => [
 				ApiBase::PARAM_DFLT => 'newthreads',
