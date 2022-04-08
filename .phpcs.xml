@@ -11,7 +11,7 @@
 		<exclude name="MediaWiki.Usage.SuperGlobalsUsage.SuperGlobals" />
 	</rule>
 	<rule ref="MediaWiki.NamingConventions.LowerCamelFunctionsName">
-		<exclude-pattern>classes/LqtHooks\.php</exclude-pattern>
+		<exclude-pattern>includes/LqtHooks\.php</exclude-pattern>
 	</rule>
 	<file>.</file>
 	<arg name="extensions" value="php"/>
