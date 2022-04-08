@@ -1,14 +1,41 @@
 <?php
 
+namespace MediaWiki\Extension\LiquidThreads;
+
+use ApiQueryInfo;
+use Article;
+use ChangesList;
+use DatabaseUpdater;
+use EditPage;
+use HtmlArmor;
+use Linker;
+use LqtDispatch;
+use LqtParserFunctions;
+use LqtView;
 use MediaWiki\Extension\Renameuser\RenameuserSQL;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserIdentity;
+use MessageSpecifier;
+use NewMessages;
+use OutputPage;
+use Parser;
+use RecentChange;
+use RequestContext;
+use SpecialPage;
+use TextContent;
+use Thread;
+use Threads;
+use Title;
+use User;
 use UtfNormal\Validator;
+use WikiPage;
+use Xml;
+use XMLReader;
 
-class LqtHooks {
+class Hooks {
 	/** @var string|null Used to inform hooks about edits that are taking place. */
 	public static $editType = null;
 	/** @var Thread|null Used to inform hooks about edits that are taking place. */
@@ -806,7 +833,7 @@ class LqtHooks {
 			$signature = $info['ThreadSignature'];
 		}
 
-		$user = RequestContext::getMain()->getUser(); // No context
+		$user = RequestContext::getMain()->getUser();
 		$thread = Thread::create( $root, $article, $user, null, $type,
 			$subject, $summary, null, $signature );
 

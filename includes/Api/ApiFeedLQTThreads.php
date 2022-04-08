@@ -16,8 +16,19 @@
  * http://www.gnu.org/copyleft/gpl.html
  */
 
+namespace MediaWiki\Extension\LiquidThreads\Api;
+
+use ApiBase;
+use ApiFormatFeedWrapper;
+use ApiMain;
+use FeedItem;
+use Linker;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Page\WikiPageFactory;
+use TextContent;
+use Thread;
+use Threads;
+use Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 

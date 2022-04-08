@@ -1,5 +1,15 @@
 <?php
 
+namespace MediaWiki\Extension\LiquidThreads\Api;
+
+use ApiBase;
+use ApiQueryBase;
+use ApiResult;
+use LqtView;
+use stdClass;
+use Thread;
+use Threads;
+use Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
@@ -118,7 +128,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			}
 
 			if ( isset( $entry['reactions'] ) ) {
-				$result->setIndexedTagName( $entry['reactions'], 'reaction' );
+				ApiResult::setIndexedTagName( $entry['reactions'], 'reaction' );
 			}
 
 			// Render if requested

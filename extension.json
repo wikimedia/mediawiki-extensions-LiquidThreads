@@ -80,16 +80,16 @@
 	},
 	"APIModules": {
 		"feedthreads": {
-			"class": "ApiFeedLQTThreads",
+			"class": "MediaWiki\\Extension\\LiquidThreads\\Api\\ApiFeedLQTThreads",
 			"services": [
 				"LinkRenderer",
 				"WikiPageFactory"
 			]
 		},
-		"threadaction": "ApiThreadAction"
+		"threadaction": "MediaWiki\\Extension\\LiquidThreads\\Api\\ApiThreadAction"
 	},
 	"APIListModules": {
-		"threads": "ApiQueryLQTThreads"
+		"threads": "MediaWiki\\Extension\\LiquidThreads\\Api\\ApiQueryLQTThreads"
 	},
 	"MessagesDirs": {
 		"LiquidThreads": [
@@ -103,14 +103,10 @@
 		"LiquidThreadsAlias": "i18n/Lqt.alias.php"
 	},
 	"AutoloadClasses": {
-		"ApiFeedLQTThreads": "includes/Api/ApiFeedLQTThreads.php",
-		"ApiQueryLQTThreads": "includes/Api/ApiQueryLQTThreads.php",
-		"ApiThreadAction": "includes/Api/ApiThreadAction.php",
 		"IndividualThreadHistoryView": "includes/Pages/IndividualThreadHistoryView.php",
 		"LqtDeletionController": "includes/LqtDeletionController.php",
 		"LqtDiscussionPager": "includes/Pages/LqtDiscussionPager.php",
 		"LqtDispatch": "includes/LqtDispatch.php",
-		"LqtHooks": "includes/LqtHooks.php",
 		"LqtLogFormatter": "includes/LqtLogFormatter.php",
 		"LqtNewMessagesPager": "includes/Pages/LqtNewMessagesPager.php",
 		"LqtParserFunctions": "includes/LqtParserFunctions.php",
@@ -138,6 +134,9 @@
 		"ThreadRevision": "includes/ThreadRevision.php",
 		"ThreadWatchView": "includes/Pages/ThreadWatchView.php",
 		"Threads": "includes/Threads.php"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\LiquidThreads\\": "includes/"
 	},
 	"ResourceModules": {
 		"ext.liquidThreads": {
@@ -207,47 +206,47 @@
 		"remoteExtPath": "LiquidThreads"
 	},
 	"Hooks": {
-		"ParserFirstCallInit": "LqtHooks::onParserFirstCallInit",
-		"CanonicalNamespaces": "LqtHooks::onCanonicalNamespaces",
+		"ParserFirstCallInit": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onParserFirstCallInit",
+		"CanonicalNamespaces": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onCanonicalNamespaces",
 		"MediaWikiPerformAction": "LqtDispatch::tryPage",
 		"SkinTemplateNavigation::Universal": "LqtDispatch::onSkinTemplateNavigation",
 		"PageContentLanguage": "LqtDispatch::onPageContentLanguage",
-		"OldChangesListRecentChangesLine": "LqtHooks::customizeOldChangesList",
-		"GetNewMessagesAlert": "LqtHooks::setNewtalkHTML",
-		"ChangesListSpecialPageQuery": "LqtHooks::beforeWatchlist",
-		"ArticleEditUpdateNewTalk": "LqtHooks::updateNewtalkOnEdit",
-		"PersonalUrls": "LqtHooks::onPersonalUrls",
-		"GetPreferences": "LqtHooks::getPreferences",
-		"XmlDumpWriterOpenPage": "LqtHooks::dumpThreadData",
-		"ModifyExportQuery": "LqtHooks::modifyExportQuery",
-		"ImportHandlePageXMLTag": "LqtHooks::handlePageXMLTag",
-		"AfterImportPage": "LqtHooks::afterImportPage",
+		"OldChangesListRecentChangesLine": "MediaWiki\\Extension\\LiquidThreads\\Hooks::customizeOldChangesList",
+		"GetNewMessagesAlert": "MediaWiki\\Extension\\LiquidThreads\\Hooks::setNewtalkHTML",
+		"ChangesListSpecialPageQuery": "MediaWiki\\Extension\\LiquidThreads\\Hooks::beforeWatchlist",
+		"ArticleEditUpdateNewTalk": "MediaWiki\\Extension\\LiquidThreads\\Hooks::updateNewtalkOnEdit",
+		"PersonalUrls": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onPersonalUrls",
+		"GetPreferences": "MediaWiki\\Extension\\LiquidThreads\\Hooks::getPreferences",
+		"XmlDumpWriterOpenPage": "MediaWiki\\Extension\\LiquidThreads\\Hooks::dumpThreadData",
+		"ModifyExportQuery": "MediaWiki\\Extension\\LiquidThreads\\Hooks::modifyExportQuery",
+		"ImportHandlePageXMLTag": "MediaWiki\\Extension\\LiquidThreads\\Hooks::handlePageXMLTag",
+		"AfterImportPage": "MediaWiki\\Extension\\LiquidThreads\\Hooks::afterImportPage",
 		"ArticleDeleteComplete": "LqtDeletionController::onArticleDeleteComplete",
 		"RevisionUndeleted": "LqtDeletionController::onRevisionUndeleted",
 		"ArticleUndelete": "LqtDeletionController::onArticleUndelete",
 		"ArticleConfirmDelete": "LqtDeletionController::onArticleConfirmDelete",
 		"ArticleDelete": "LqtDeletionController::onArticleDelete",
-		"PageMoveComplete": "LqtHooks::onPageMoveComplete",
-		"MovePageIsValidMove": "LqtHooks::onMovePageIsValidMove",
-		"ShowSearchHitTitle": "LqtHooks::customiseSearchResultTitle",
-		"SpecialSearchProfiles": "LqtHooks::customiseSearchProfiles",
-		"LoadExtensionSchemaUpdates": "LqtHooks::onLoadExtensionSchemaUpdates",
-		"RenameUserSQL": "LqtHooks::onUserRename",
-		"UserMergeAccountFields": "LqtHooks::onUserMergeAccountFields",
-		"EditPageGetCheckboxesDefinition": "LqtHooks::editCheckBoxes",
-		"PageSaveComplete": "LqtHooks::onPageSaveComplete",
-		"UserIsBlockedFrom": "LqtHooks::userIsBlockedFrom",
-		"TitleGetRestrictionTypes": "LqtHooks::getProtectionTypes",
-		"SetupNewUserMessageSubject": "LqtHooks::setupNewUserMessageSubject",
-		"SetupNewUserMessageBody": "LqtHooks::setupNewUserMessageBody",
-		"APIQueryAfterExecute": "LqtHooks::onAPIQueryAfterExecute",
-		"InfoAction": "LqtHooks::onInfoAction",
-		"SpecialPage_initList": "LqtHooks::onSpecialPage_initList",
+		"PageMoveComplete": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onPageMoveComplete",
+		"MovePageIsValidMove": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onMovePageIsValidMove",
+		"ShowSearchHitTitle": "MediaWiki\\Extension\\LiquidThreads\\Hooks::customiseSearchResultTitle",
+		"SpecialSearchProfiles": "MediaWiki\\Extension\\LiquidThreads\\Hooks::customiseSearchProfiles",
+		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onLoadExtensionSchemaUpdates",
+		"RenameUserSQL": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onUserRename",
+		"UserMergeAccountFields": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onUserMergeAccountFields",
+		"EditPageGetCheckboxesDefinition": "MediaWiki\\Extension\\LiquidThreads\\Hooks::editCheckBoxes",
+		"PageSaveComplete": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onPageSaveComplete",
+		"UserIsBlockedFrom": "MediaWiki\\Extension\\LiquidThreads\\Hooks::userIsBlockedFrom",
+		"TitleGetRestrictionTypes": "MediaWiki\\Extension\\LiquidThreads\\Hooks::getProtectionTypes",
+		"SetupNewUserMessageSubject": "MediaWiki\\Extension\\LiquidThreads\\Hooks::setupNewUserMessageSubject",
+		"SetupNewUserMessageBody": "MediaWiki\\Extension\\LiquidThreads\\Hooks::setupNewUserMessageBody",
+		"APIQueryAfterExecute": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onAPIQueryAfterExecute",
+		"InfoAction": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onInfoAction",
+		"SpecialPage_initList": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onSpecialPage_initList",
 		"OutputPageParserOutput": "LqtParserFunctions::onAddParserOutput",
 		"OutputPageBeforeHTML": "LqtParserFunctions::onAddHTML",
-		"getUserPermissionsErrors": "LqtHooks::onGetUserPermissionsErrors"
+		"getUserPermissionsErrors": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onGetUserPermissionsErrors"
 	},
-	"callback": "LqtHooks::onRegistration",
+	"callback": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onRegistration",
 	"config": {
 		"LqtPages": {
 			"value": []

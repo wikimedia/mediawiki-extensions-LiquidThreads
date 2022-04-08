@@ -1,6 +1,21 @@
 <?php
 
+namespace MediaWiki\Extension\LiquidThreads\Api;
+
+use ApiBase;
+use ApiEditPage;
+use ApiMain;
+use Article;
+use DerivativeRequest;
+use LqtDispatch;
+use LqtView;
+use MediaWiki\Extension\LiquidThreads\Hooks;
 use MediaWiki\MediaWikiServices;
+use NewMessages;
+use SpecialPage;
+use Thread;
+use Threads;
+use Title;
 
 class ApiThreadAction extends ApiEditPage {
 	public function execute() {
@@ -316,11 +331,11 @@ class ApiThreadAction extends ApiEditPage {
 		}
 
 		// Inform hooks what we're doing
-		LqtHooks::$editTalkpage = $talkpage;
-		LqtHooks::$editArticle = $article;
-		LqtHooks::$editThread = null;
-		LqtHooks::$editType = 'new';
-		LqtHooks::$editAppliesTo = null;
+		Hooks::$editTalkpage = $talkpage;
+		Hooks::$editArticle = $article;
+		Hooks::$editThread = null;
+		Hooks::$editType = 'new';
+		Hooks::$editAppliesTo = null;
 
 		$token = $params['token'];
 
@@ -441,11 +456,11 @@ class ApiThreadAction extends ApiEditPage {
 		}
 
 		// Inform hooks what we're doing
-		LqtHooks::$editTalkpage = $talkpage;
-		LqtHooks::$editArticle = $article;
-		LqtHooks::$editThread = $thread;
-		LqtHooks::$editType = 'edit';
-		LqtHooks::$editAppliesTo = null;
+		Hooks::$editTalkpage = $talkpage;
+		Hooks::$editArticle = $article;
+		Hooks::$editThread = $thread;
+		Hooks::$editType = 'edit';
+		Hooks::$editAppliesTo = null;
 
 		$token = $params['token'];
 
@@ -559,11 +574,11 @@ class ApiThreadAction extends ApiEditPage {
 		$article = new Article( $title, 0 );
 
 		// Inform hooks what we're doing
-		LqtHooks::$editTalkpage = $talkpage;
-		LqtHooks::$editArticle = $article;
-		LqtHooks::$editThread = null;
-		LqtHooks::$editType = 'reply';
-		LqtHooks::$editAppliesTo = $replyTo;
+		Hooks::$editTalkpage = $talkpage;
+		Hooks::$editArticle = $article;
+		Hooks::$editThread = null;
+		Hooks::$editType = 'reply';
+		Hooks::$editAppliesTo = $replyTo;
 
 		// Pull token in
 		$token = $params['token'];

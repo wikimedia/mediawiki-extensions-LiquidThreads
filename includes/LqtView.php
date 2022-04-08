@@ -6,6 +6,7 @@
  * @license GPL-2.0-or-later
  */
 
+use MediaWiki\Extension\LiquidThreads\Hooks as LqtHooks;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\IPUtils;
 
