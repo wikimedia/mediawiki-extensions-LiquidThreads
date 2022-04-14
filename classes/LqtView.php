@@ -1347,7 +1347,7 @@ class LqtView {
 			$protect_href = $thread->title()->getLocalURL( 'action=protect' );
 
 			// Check if it's already protected
-			if ( !$thread->title()->isProtected() ) {
+			if ( !MediaWikiServices::getInstance()->getRestrictionStore()->isProtected( $thread->title() ) ) {
 				$label = wfMessage( 'protect' )->parse();
 			} else {
 				$label = wfMessage( 'unprotect' )->parse();

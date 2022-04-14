@@ -826,11 +826,12 @@ class Thread {
 
 			$res = $dbr->select( 'page', '*', [ 'page_id' => $pageIds ], __METHOD__ );
 
+			$restrictionStore = MediaWikiServices::getInstance()->getRestrictionStore();
 			foreach ( $res as $row ) {
 				$t = Title::newFromRow( $row );
 
 				if ( isset( $restrictionRows[$t->getArticleID()] ) ) {
-					$t->loadRestrictionsFromRows( $restrictionRows[$t->getArticleID()],
+					$restrictionStore->loadRestrictionsFromRows( $t, $restrictionRows[$t->getArticleID()],
 									$row->page_restrictions );
 				}
 
@@ -1759,8 +1760,9 @@ class Thread {
 	 */
 	public function canUserReply( User $user, $rigor = PermissionManager::RIGOR_SECURE ) {
 		$rootTitle = $this->topmostThread()->title();
-		$threadRestrictions = $rootTitle ? $rootTitle->getRestrictions( 'reply' ) : [];
-		$talkpageRestrictions = $this->getTitle()->getRestrictions( 'reply' );
+		$restrictionStore = MediaWikiServices::getInstance()->getRestrictionStore();
+		$threadRestrictions = $rootTitle ? $restrictionStore->getRestrictions( $rootTitle, 'reply' ) : [];
+		$talkpageRestrictions = $restrictionStore->getRestrictions( $this->getTitle(), 'reply' );
 
 		$threadRestrictions = array_fill_keys( $threadRestrictions, 'thread' );
 		$talkpageRestrictions = array_fill_keys( $talkpageRestrictions, 'talkpage' );
@@ -1786,7 +1788,8 @@ class Thread {
 	 * @return bool
 	 */
 	public static function canUserPost( $user, $talkpage, $rigor = PermissionManager::RIGOR_SECURE ) {
-		$restrictions = $talkpage->getTitle()->getRestrictions( 'newthread' );
+		$restrictions = MediaWikiServices::getInstance()->getRestrictionStore()
+			->getRestrictions( $talkpage->getTitle(), 'newthread' );
 
 		foreach ( $restrictions as $right ) {
 			if ( !$user->isAllowed( $right ) ) {
