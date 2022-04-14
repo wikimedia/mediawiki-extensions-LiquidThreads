@@ -210,7 +210,7 @@
 	"lqt-thread-show-replies": "Montrer $1 {{PLURAL:$1|réponse|réponses}}",
 	"lqt-thread-show-more": "Montrer plus de réponses",
 	"lqt-thread-link-url": "URL du lien :",
-	"lqt-thread-link-title": "Lien wikitexte :",
+	"lqt-thread-link-title": "Lien wikicode :",
 	"lqt-thread-link-copy": "Copier dans le presse-papiers",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nLa signature est automatiquement affichée.",
 	"lqt-summary-sign-not-necessary": "Il n'est pas nécessaire de signer votre message avec quatre tildes.",
