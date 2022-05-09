@@ -68,6 +68,7 @@
 	"lqt-thread-show-more": "Montrez plusa respondi",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nLa signaturo montresas automatale.",
 	"lqt-summary-sign-not-necessary": "Ne bezonas signatar vua redakturo kun 4 tildi.",
+	"lqt-marked-as-read-placeholder": "La listo di mesaji $1 indikesis kom lektita.",
 	"lqt-change-subject": "Chanjar temo",
 	"lqt-save-subject": "Registragar",
 	"lqt-cancel-subject-edit": "Nuligar",
