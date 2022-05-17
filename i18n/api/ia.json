@@ -45,5 +45,19 @@
 	"apihelp-threadaction-param-newparent": "Si se fusiona un filo, le ID o titulo de su nove parente.",
 	"apihelp-threadaction-param-text": "Le texto del message a crear.",
 	"apihelp-threadaction-param-render": "Sur methodos de publication e de responsa, le filo de nivello superior post le cambiamento essera rendite e retornate in le resultato.",
-	"apihelp-threadaction-param-bump": "Substitue le comportamento predefinite de si o no."
+	"apihelp-threadaction-param-bump": "Substitue le comportamento predefinite de si o no.",
+	"apierror-liquidthreads-alreadytop": "Iste filo es jam de nivello superior.",
+	"apierror-liquidthreads-badparent": "Le filo genitor specificate non es le titulo o le ID de un filo.",
+	"apierror-liquidthreads-badreaction": "Es necessari specificar e un typo e un valor pro le reaction.",
+	"apierror-liquidthreads-badsortkey": "Es necessari specificar un data e hora valide pro le parametro <var>sortkey</var>. Debe esser in formato AAAAMMddhhmmss, o un data e hora UNIX, o <kbd>now</kbd>.",
+	"apierror-liquidthreads-badsubject": "Le subjecto specificate non es valide.",
+	"apierror-liquidthreads-invalidtalkpage": "Le pagina de discussion specificate non es valide o non ha le discussion in filos activate.",
+	"apierror-liquidthreads-noparent": "Es necessari specificar un nove filo genitor sub le qual fusionar.",
+	"apierror-liquidthreads-noreplies-talkpage": "Non es possibile responder a iste filo perque le pagina de discussion es protegite contra responsas.",
+	"apierror-liquidthreads-noreplies-thread": "Non es possibile responder a iste filo perque le filo es protegite contra responsas.",
+	"apierror-liquidthreads-nosubject": "Nulle subjecto, o un subjecto invalide, ha essite specificate.",
+	"apierror-liquidthreads-notext": "Es necessari includer texto in le message.",
+	"apierror-liquidthreads-onlyone": "Es possibile ager sur solo un filo al vice.",
+	"apierror-liquidthreads-talkpageprotected": "Non es possibile publicar sur le pagina de discussion specificate perque es protegite contra nove messages.",
+	"apierror-liquidthreads-threadneeded": "Es necessari specificar un filo sur le qual ager."
 }
