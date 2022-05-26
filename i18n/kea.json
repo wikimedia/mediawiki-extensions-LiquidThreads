@@ -5,5 +5,7 @@
 		]
 	},
 	"lqt_discussion_link": "diskuson",
+	"lqt_youhavenewmessages": "Bu ten [[$1|mensajens nobu]].",
+	"lqt_newmessages-title": "Mensajens nobu",
 	"nstab-summary": "Sumáriu"
 }
