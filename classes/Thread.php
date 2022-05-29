@@ -831,8 +831,7 @@ class Thread {
 				$t = Title::newFromRow( $row );
 
 				if ( isset( $restrictionRows[$t->getArticleID()] ) ) {
-					$restrictionStore->loadRestrictionsFromRows( $t, $restrictionRows[$t->getArticleID()],
-									$row->page_restrictions );
+					$restrictionStore->loadRestrictionsFromRows( $t, $restrictionRows[$t->getArticleID()] );
 				}
 
 				$article = new Article( $t, 0 );
