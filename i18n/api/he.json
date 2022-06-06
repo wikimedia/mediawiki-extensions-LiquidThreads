@@ -59,7 +59,7 @@
 	"apierror-liquidthreads-badreaction": "חובה לציין סוג וערך לתגובה.",
 	"apierror-liquidthreads-badsortkey": "חובה לציין חותם־זמן תקין לפרמטר <var>sortkey</var>. הוא חייב להיות בתסדיר YYYYMMddhhmmss, תסדיר יוניקס או <kbd>now</kbd>.",
 	"apierror-liquidthreads-badsubject": "הנושא שנתת אינו תקין.",
-	"apierror-liquidthreads-invalidtalkpage": "דך השיחה שנתת אינו תקין, או שלא מופעלים בו שרשורים.",
+	"apierror-liquidthreads-invalidtalkpage": "דף השיחה שנתת אינו תקין, או שלא מופעלים בו שרשורים.",
 	"apierror-liquidthreads-noparent": "חובה לתת הורה חדש למיזוג.",
 	"apierror-liquidthreads-noreplies-talkpage": "לא ניתן להגיב לשרשור הזה, כי דף השיחה מוגן מפני תגובות.",
 	"apierror-liquidthreads-noreplies-thread": "לא ניתן להשיב לשרשור הזה, כי השרשור מוגן מפני תגובות.",
