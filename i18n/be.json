@@ -4,7 +4,8 @@
 			"Artsiom91",
 			"Дзяніс Тутэйшы",
 			"Тест",
-			"ZlyiLev"
+			"ZlyiLev",
+			"No Sleep till Krupki"
 		]
 	},
 	"lqt_new_thread": "Пачаць новую размову",
@@ -28,7 +29,7 @@
 	"lqt-drag-save": "Пацвердзіць",
 	"lqt-drag-reason": "Прычына:",
 	"tooltip-pt-newmessages": "Паказвае новыя паведамленні ў галінах і абмеркаваннях, якія Вы адсочваеце",
-	"lqt-newmessages-n": "Новыя паведамленні ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|1=Новае паведамленне|Новыя паведамленні ($1)}}",
 	"lqt_newmessages-title": "Новыя паведамленні",
 	"lqt-talkpage-history-title": "Гісторыя старонкі размоў",
 	"pageinfo-usinglqt": "Абмеркаванне па галінах уключана"
