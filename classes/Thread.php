@@ -396,10 +396,6 @@ class Thread {
 
 		$dbw = wfGetDB( DB_PRIMARY );
 
-		if ( !$id ) {
-			$id = $dbw->nextSequenceValue( 'thread_thread_id' );
-		}
-
 		// If there's no root, bail out with an error message
 		if ( !$this->rootId && !( $this->type & Threads::TYPE_DELETED ) ) {
 			throw new Exception( "Non-deleted thread saved with empty root ID" );
@@ -414,9 +410,7 @@ class Thread {
 		}
 
 		// Reflect schema changes here.
-
-		return [
-			'thread_id' => $id,
+		$row = [
 			'thread_root' => $this->rootId,
 			'thread_parent' => $this->parentId,
 			'thread_article_namespace' => $this->articleNamespace,
@@ -435,6 +429,11 @@ class Thread {
 			'thread_replies' => $this->replyCount,
 			'thread_signature' => $this->signature,
 		];
+		if ( $id ) {
+			$row['thread_id'] = $id;
+		}
+
+		return $row;
 	}
 
 	public function author() {

@@ -123,7 +123,6 @@ class ThreadRevision {
 		$dbw = wfGetDB( DB_PRIMARY );
 
 		$row = $this->getRow();
-		$row['th_id'] = $dbw->nextSequenceValue( 'thread_history_th_id' );
 
 		$dbw->insert( 'thread_history', $row, __METHOD__ );
 
