@@ -409,12 +409,7 @@ class LqtHooks {
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater = null ) {
 		$dir = realpath( __DIR__ . '/../sql' );
 		$dbType = $updater->getDB()->getType();
-
-		if ( $updater instanceof PostgresUpdater ) {
-			$updater->addExtensionTable( 'thread', "$dir/postgres/lqt.sql" );
-		} else {
-			$updater->addExtensionTable( 'thread', "$dir/lqt.sql" );
-		}
+		$updater->addExtensionTable( 'thread', "$dir/$dbType/tables-generated.sql" );
 
 		// 1.31
 		$updater->dropExtensionIndex(
@@ -461,6 +456,42 @@ class LqtHooks {
 			] );
 			$updater->addExtensionUpdate( [
 				'renameIndex', 'thread', 'thread_root_page', 'thread_root'
+			] );
+			$updater->addExtensionUpdate( [
+				'renameIndex', 'thread', 'thread_author', 'thread_author_name'
+			] );
+			$updater->addExtensionUpdate( [
+				'addPgIndex', 'thread', 'thread_parent', '(thread_parent)'
+			] );
+			$updater->addExtensionUpdate( [
+				'changeField', 'thread', 'thread_editedness', 'INT', 'thread_editedness::INT DEFAULT 0'
+			] );
+			$updater->addExtensionUpdate( [
+				'changeField', 'thread', 'thread_article_namespace', 'INT', ''
+			] );
+			$updater->addExtensionUpdate( [
+				'changeField', 'thread', 'thread_type', 'INT', 'thread_type::INT DEFAULT 0'
+			] );
+			$updater->addExtensionUpdate( [
+				'changeNullableField', 'thread', 'thread_replies', 'NULL', true
+			] );
+			$updater->addExtensionIndex(
+				'historical_thread', 'historical_thread_pkey', "$dir/$dbType/patch-historical_thread-pk.sql"
+			);
+			$updater->addExtensionIndex(
+				'user_message_state', 'user_message_state_pkey', "$dir/$dbType/patch-user_message_state-pk.sql"
+			);
+			$updater->addExtensionUpdate( [
+				'renameIndex', 'thread_history', 'thread_history_thread', 'th_thread_timestamp'
+			] );
+			$updater->addExtensionUpdate( [
+				'renameIndex', 'thread_history', 'thread_history_user', 'th_user_text'
+			] );
+			$updater->addExtensionUpdate( [
+				'addPgIndex', 'thread_history', 'th_timestamp_thread', '(th_timestamp,th_thread)'
+			] );
+			$updater->addExtensionUpdate( [
+				'renameIndex', 'thread_reaction', 'thread_reaction_user_text_value', 'tr_user_text_value'
 			] );
 		}
 
