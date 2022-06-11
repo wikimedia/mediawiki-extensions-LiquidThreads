@@ -8,8 +8,8 @@ CREATE TABLE /*$wgDBprefix*/thread (
   thread_author_id int unsigned NULL,
   thread_author_name varchar(255) NULL,
 
-  thread_modified char(14) binary NOT NULL default '',
-  thread_created char(14) binary NOT NULL default '',
+  thread_modified binary(14) NOT NULL,
+  thread_created binary(14) NOT NULL,
 
   thread_editedness int(1) NOT NULL default 0,
 
@@ -59,7 +59,7 @@ CREATE TABLE /*$wgDBprefix*/user_message_state (
   ums_user int unsigned NOT NULL,
   ums_thread int(8) unsigned NOT NULL,
   ums_conversation int(8) unsigned NOT NULL DEFAULT 0,
-  ums_read_timestamp varbinary(14),
+  ums_read_timestamp binary(14),
 
   PRIMARY KEY (ums_user, ums_thread)
 ) /*$wgDBTableOptions*/;
@@ -70,7 +70,7 @@ CREATE TABLE /*_*/thread_history (
 	th_id int unsigned NOT NULL PRIMARY KEY auto_increment,
 	th_thread int unsigned NOT NULL,
 
-	th_timestamp varbinary(14) NOT NULL,
+	th_timestamp binary(14) NOT NULL,
 
 	th_user int unsigned NOT NULL,
 	th_user_text varchar(255) NOT NULL,
