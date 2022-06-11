@@ -5,7 +5,7 @@ BEGIN;
 CREATE SEQUENCE thread_thread_id;
 CREATE TABLE thread (
   thread_id                INTEGER         NULL PRIMARY KEY DEFAULT nextval('thread_thread_id'),
-  thread_root              INTEGER     NOT NULL UNIQUE,
+  thread_root              INTEGER     NOT NULL,
   thread_ancestor          INTEGER     NOT NULL,
   thread_parent            INTEGER         NULL,
   thread_summary_page      INTEGER         NULL,
@@ -24,7 +24,7 @@ CREATE TABLE thread (
   thread_signature         varchar(255)    NULL
 );
 
-CREATE UNIQUE INDEX thread_root_page ON thread(thread_root);
+CREATE UNIQUE INDEX thread_root ON thread(thread_root);
 CREATE INDEX thread_ancestor ON thread(thread_ancestor, thread_parent);
 CREATE INDEX thread_article_title ON thread(thread_article_namespace, thread_article_title, thread_sortkey);
 CREATE INDEX thread_article ON thread(thread_article_id, thread_sortkey);

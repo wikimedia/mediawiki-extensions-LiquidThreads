@@ -1,6 +1,6 @@
 CREATE TABLE /*$wgDBprefix*/thread (
   thread_id int(8) unsigned NOT NULL PRIMARY KEY auto_increment,
-  thread_root int(8) unsigned UNIQUE NOT NULL,
+  thread_root int(8) unsigned NOT NULL,
   thread_ancestor int(8) unsigned NOT NULL,
   thread_parent int(8) unsigned NULL,
   thread_summary_page int(8) unsigned NULL,
@@ -27,10 +27,9 @@ CREATE TABLE /*$wgDBprefix*/thread (
   thread_replies int(8) DEFAULT -1,
 
   -- Signature
-  thread_signature TINYBLOB NULL,
-
-  UNIQUE (thread_root)
+  thread_signature TINYBLOB NULL
 ) /*$wgDBTableOptions*/;
+CREATE UNIQUE INDEX thread_root ON /*$wgDBprefix*/thread(thread_root);
 CREATE INDEX thread_ancestor ON /*$wgDBprefix*/thread (thread_ancestor, thread_parent);
 CREATE INDEX thread_article_title ON /*$wgDBprefix*/thread (thread_article_namespace, thread_article_title, thread_sortkey);
 CREATE INDEX thread_article ON /*$wgDBprefix*/thread (thread_article_id, thread_sortkey);
