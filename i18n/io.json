@@ -78,6 +78,7 @@
 	"lqt-enotif-reply": "Saluto $1,\nYen mesajo de {{SITENAME}} pri nova respondo a '$2' che $5,\nqua kreesis en $3, $4 da $8.\n\nVu povas vidar ol che <$6>\n\nLa mesajo di la respondo esas:\n$7",
 	"lqt-search-button": "Serchez",
 	"searchprofile-threads": "Diskuti",
+	"lqt-ajax-update-link": "Aktualigar",
 	"lqt-thread-show-replies": "Montrez $1 {{PLURAL:$1|respondo|respondi}}",
 	"lqt-thread-show-more": "Montrez plusa respondi",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nLa signaturo montresas automatale.",
