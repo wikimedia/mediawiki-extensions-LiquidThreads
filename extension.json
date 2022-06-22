@@ -210,7 +210,7 @@
 		"ParserFirstCallInit": "LqtHooks::onParserFirstCallInit",
 		"CanonicalNamespaces": "LqtHooks::onCanonicalNamespaces",
 		"MediaWikiPerformAction": "LqtDispatch::tryPage",
-		"SkinTemplateNavigation": "LqtDispatch::onSkinTemplateNavigation",
+		"SkinTemplateNavigation::Universal": "LqtDispatch::onSkinTemplateNavigation",
 		"PageContentLanguage": "LqtDispatch::onPageContentLanguage",
 		"OldChangesListRecentChangesLine": "LqtHooks::customizeOldChangesList",
 		"GetNewMessagesAlert": "LqtHooks::setNewtalkHTML",
