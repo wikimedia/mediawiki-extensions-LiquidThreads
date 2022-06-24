@@ -52,7 +52,7 @@ class LqtHooks {
 			return true;
 		}
 
-		$thread = Threads::withRoot( WikiPage::factory( $rcTitle ) );
+		$thread = Threads::withRoot( MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $rcTitle ) );
 		if ( !$thread ) {
 			return true;
 		}
@@ -280,7 +280,7 @@ class LqtHooks {
 			return true;
 		}
 
-		$thread = Threads::withRoot( WikiPage::factory( $title ) );
+		$thread = Threads::withRoot( MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title ) );
 
 		if ( $thread ) {
 			$text = $thread->subject();
@@ -495,7 +495,7 @@ class LqtHooks {
 		// Synchronise the first 500 threads, in reverse order by thread id. If
 		// there are more threads to synchronise, the job queue will take over.
 		Threads::synchroniseArticleData(
-			new WikiPage( $newTitle ),
+			MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $newTitle ),
 			500,
 			'cascade'
 		);
@@ -504,7 +504,9 @@ class LqtHooks {
 	public static function onMovePageIsValidMove( Title $oldTitle ) {
 		// Synchronise article data so that moving the article doesn't break any
 		// article association.
-		Threads::synchroniseArticleData( new WikiPage( $oldTitle ) );
+		Threads::synchroniseArticleData(
+			MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $oldTitle )
+		);
 
 		return true;
 	}
@@ -527,7 +529,9 @@ class LqtHooks {
 
 		if ( $title->exists() ) {
 			// If the page actually exists, allow the user to edit posts on their own talk page.
-			$thread = Threads::withRoot( WikiPage::factory( $title ) );
+			$thread = Threads::withRoot(
+				MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title )
+			);
 
 			if ( !$thread ) {
 				return true;
@@ -791,7 +795,7 @@ class LqtHooks {
 		if ( isset( $info['ThreadParent'] ) ) {
 			$threadPageName = $info['ThreadParent'];
 			$superthread = Threads::withRoot(
-				WikiPage::factory(
+				MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle(
 					Title::newFromText( $threadPageName )
 				)
 			);
@@ -910,7 +914,7 @@ class LqtHooks {
 			return true;
 		}
 
-		$thread = Threads::withRoot( WikiPage::factory( $title ) );
+		$thread = Threads::withRoot( MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title ) );
 
 		if ( !$thread ) {
 			return true;

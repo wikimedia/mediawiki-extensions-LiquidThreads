@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 
 class LqtDeletionController {
@@ -94,7 +95,11 @@ class LqtDeletionController {
 
 		// Synchronise the first 500 threads, in reverse order by thread id. If
 		// there are more threads to synchronise, the job queue will take over.
-		Threads::synchroniseArticleData( new WikiPage( $udTitle ), 500, 'cascade' );
+		Threads::synchroniseArticleData(
+			MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $udTitle ),
+			500,
+			'cascade'
+		);
 
 		return true;
 	}

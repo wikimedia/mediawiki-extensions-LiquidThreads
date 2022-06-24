@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 abstract class ThreadActionPage extends UnlistedSpecialPage {
 	/** @var User */
 	protected $user;
@@ -62,7 +64,7 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 		}
 
 		$thread = Threads::withRoot(
-			WikiPage::factory(
+			MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle(
 				Title::newFromText( $par )
 			)
 		);

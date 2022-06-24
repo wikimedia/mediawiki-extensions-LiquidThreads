@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class ApiThreadAction extends ApiEditPage {
 	public function execute() {
 		$params = $this->extractRequestParams();
@@ -11,6 +13,7 @@ class ApiThreadAction extends ApiEditPage {
 		// Pull the threads from the parameters
 		$threads = [];
 		if ( !empty( $params['thread'] ) ) {
+			$wikiPageFactory = MediaWikiServices::getInstance()->getWikiPageFactory();
 			foreach ( $params['thread'] as $thread ) {
 				$threadObj = null;
 				if ( is_numeric( $thread ) ) {
@@ -20,7 +23,7 @@ class ApiThreadAction extends ApiEditPage {
 					$threads = [ 'all' ];
 				} else {
 					$threadObj = Threads::withRoot(
-						WikiPage::factory(
+						$wikiPageFactory->newFromTitle(
 							Title::newFromText( $thread )
 						)
 					);
@@ -214,7 +217,7 @@ class ApiThreadAction extends ApiEditPage {
 			$newParent = Threads::withId( $newParent );
 		} else {
 			$newParent = Threads::withRoot(
-				WikiPage::factory(
+				MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle(
 					Title::newFromText( $newParent )
 				)
 			);

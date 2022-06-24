@@ -348,7 +348,8 @@ class NewMessages {
 	}
 
 	public static function newUserMessages( $user ) {
-		$talkPage = new WikiPage( $user->getUserPage()->getTalkPage() );
+		$talkPage = MediaWikiServices::getInstance()->getWikiPageFactory()
+			->newFromTitle( $user->getUserPage()->getTalkPage() );
 
 		$dbr = wfGetDB( DB_REPLICA );
 
@@ -416,7 +417,8 @@ class NewMessages {
 	}
 
 	public static function watchedThreadsForUser( User $user ) {
-		$talkPage = new WikiPage( $user->getUserPage()->getTalkPage() );
+		$talkPage = MediaWikiServices::getInstance()->getWikiPageFactory()
+			->newFromTitle( $user->getUserPage()->getTalkPage() );
 
 		$dbr = wfGetDB( DB_REPLICA );
 

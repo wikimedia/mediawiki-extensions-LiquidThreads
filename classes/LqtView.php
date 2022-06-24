@@ -1769,7 +1769,9 @@ class LqtView {
 			);
 		}
 
-		$t_thread = Threads::withRoot( WikiPage::factory( $target ) );
+		$t_thread = Threads::withRoot(
+			MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $target )
+		);
 
 		// Grab data about the new post.
 		$author = $thread->author();

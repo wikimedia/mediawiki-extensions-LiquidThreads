@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class SynchroniseThreadArticleDataJob extends Job {
 	public function __construct( $title, $params ) {
 		parent::__construct( 'synchroniseThreadArticleData', $title, $params );
@@ -11,7 +13,7 @@ class SynchroniseThreadArticleDataJob extends Job {
 	 * @return bool
 	 */
 	public function run() {
-		$article = new WikiPage( $this->title );
+		$article = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->title );
 		$limit = $this->params['limit'];
 		$cascade = $this->params['cascade'];
 

@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /* @phan-file-suppress PhanUndeclaredProperty */
 class LqtParserFunctions {
 
@@ -89,7 +91,9 @@ class LqtParserFunctions {
 			if ( is_numeric( $args['thread'] ) ) {
 				$thread = Threads::withId( $args['thread'] );
 			} elseif ( $title ) {
-				$thread = Threads::withRoot( WikiPage::factory( $title ) );
+				$thread = Threads::withRoot(
+					MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title )
+				);
 			}
 		}
 
@@ -149,7 +153,7 @@ class LqtParserFunctions {
 		$oldOut = $out->getHTML();
 		$out->clearHTML();
 
-		$thread = Threads::withRoot( WikiPage::factory( $title ) );
+		$thread = Threads::withRoot( MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title ) );
 
 		$user = $out->getUser();
 		$view = new LqtView( $out, $article, $title, $user, $wgRequest );

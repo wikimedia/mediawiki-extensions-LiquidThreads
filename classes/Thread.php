@@ -506,7 +506,7 @@ class Thread {
 		$new_articleID = $title->getArticleID();
 
 		if ( !$new_articleID ) {
-			$page = new WikiPage( $newTitle );
+			$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $newTitle );
 			Threads::createTalkpageIfNeeded( $page );
 			$new_articleID = $page->getId();
 		}
