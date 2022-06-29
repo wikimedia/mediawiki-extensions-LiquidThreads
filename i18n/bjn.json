@@ -5,5 +5,7 @@
 		]
 	},
 	"lqt_new_thread": "Mulai cangkurah hanyar",
-	"lqt_header_warning_new_discussion": "mulai cangkurah hanyar"
+	"lqt_summary_notice": "Kadada paubahan pada cangkurah ngini salawas paling kada $2 {{PLURAL:$2|hari|hari}}\nAmun sudah ampih, Pian bulih handak gasan $1.",
+	"lqt_header_warning_new_discussion": "mulai cangkurah hanyar",
+	"lqt-email-undo": "Bulikakan"
 }
