@@ -8,6 +8,7 @@
 			"Kiranmayee",
 			"Knightsofdawn",
 			"NehalDaveND",
+			"Saurmandal",
 			"Sfic",
 			"Siddhartha Ghai"
 		]
@@ -148,7 +149,10 @@
 	"lqt-merge-submit": "मर्ज करें",
 	"lqt-log-name": "सूत्र चर्चा लॉग",
 	"lqt-log-action-move": "प्रतिस्थापित [[$1]], [[$2]] से [[$3]] तक",
-	"prefs-lqt": "सूत्र चर्चा",
+	"lqt-preference-notify-talk": "मेरी ध्यानसूची में दर्ज थ्रेड्स में जवाब आने पर मुझे ईमेल करें",
+	"prefs-lqt": "थ्रेड चर्चा",
+	"lqt-preference-display-depth": "दिखाने के लिए जवाबों की अधिकतम गहराई:",
+	"lqt-preference-display-count": "दिखाने के लिए जवाबों की संख्या:",
 	"lqt-preference-custom-signatures": "मानुयल सदस्य हस्ताक्षर दिखाएँ",
 	"lqt-enotif-subject-reply": "{{SITENAME}} चर्चा - जवाब: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} चर्चा - नया सूत्र: $1",
