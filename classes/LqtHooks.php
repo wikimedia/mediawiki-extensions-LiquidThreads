@@ -407,10 +407,10 @@ class LqtHooks {
 	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater = null ) {
-		$dir = realpath( __DIR__ . '/..' );
+		$dir = realpath( __DIR__ . '/../sql' );
 
 		if ( $updater instanceof PostgresUpdater ) {
-			$updater->addExtensionTable( 'thread', "$dir/lqt.pg.sql" );
+			$updater->addExtensionTable( 'thread', "$dir/postgres/lqt.sql" );
 		} else {
 			$updater->addExtensionTable( 'thread', "$dir/lqt.sql" );
 		}
@@ -419,7 +419,7 @@ class LqtHooks {
 		$updater->dropExtensionIndex(
 			'thread',
 			'thread_root_2',
-			"$dir/schema-changes/thread-drop-thread_root_2.sql"
+			"$dir/patches/thread-drop-thread_root_2.sql"
 		);
 
 		return true;
