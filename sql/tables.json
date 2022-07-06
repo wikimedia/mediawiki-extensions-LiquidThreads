@@ -1,0 +1,358 @@
+[
+	{
+		"name": "thread",
+		"columns": [
+			{
+				"name": "thread_id",
+				"type": "integer",
+				"options": { "autoincrement": true, "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "thread_root",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "thread_ancestor",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "thread_parent",
+				"type": "integer",
+				"options": { "notnull": false, "unsigned": true }
+			},
+			{
+				"name": "thread_summary_page",
+				"type": "integer",
+				"options": { "notnull": false, "unsigned": true }
+			},
+			{
+				"name": "thread_subject",
+				"type": "string",
+				"options": { "notnull": false, "length": 255 }
+			},
+			{
+				"name": "thread_author_id",
+				"type": "integer",
+				"options": { "notnull": false, "unsigned": true }
+			},
+			{
+				"name": "thread_author_name",
+				"type": "string",
+				"options": { "notnull": false, "length": 255 }
+			},
+			{
+				"name": "thread_modified",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "thread_created",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "thread_editedness",
+				"type": "integer",
+				"options": { "notnull": true, "default": 0 }
+			},
+			{
+				"name": "thread_article_namespace",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "thread_article_title",
+				"type": "binary",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "thread_article_id",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "thread_type",
+				"comment": "Special thread types (deleted/move trace/normal)",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true, "default": 0 }
+			},
+			{
+				"name": "thread_sortkey",
+				"comment": "Sort key",
+				"type": "string",
+				"options": { "notnull": true, "length": 255, "default": "" }
+			},
+			{
+				"name": "thread_replies",
+				"comment": "Reply count, -1 means uninitialised.",
+				"type": "integer",
+				"options": { "notnull": false, "default": -1 }
+			},
+			{
+				"name": "thread_signature",
+				"comment": "Signature",
+				"type": "blob",
+				"options": { "notnull": false, "length": 255 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "thread_root",
+				"columns": [ "thread_root" ],
+				"unique": true
+			},
+			{
+				"name": "thread_ancestor",
+				"columns": [ "thread_ancestor", "thread_parent" ],
+				"unique": false
+			},
+			{
+				"name": "thread_article_title",
+				"columns": [ "thread_article_namespace", "thread_article_title", "thread_sortkey" ],
+				"unique": false
+			},
+			{
+				"name": "thread_article",
+				"columns": [ "thread_article_id", "thread_sortkey" ],
+				"unique": false
+			},
+			{
+				"name": "thread_modified",
+				"columns": [ "thread_modified" ],
+				"unique": false
+			},
+			{
+				"name": "thread_created",
+				"columns": [ "thread_created" ],
+				"unique": false
+			},
+			{
+				"name": "thread_summary_page",
+				"columns": [ "thread_summary_page" ],
+				"unique": false
+			},
+			{
+				"name": "thread_author_name",
+				"columns": [ "thread_author_id", "thread_author_name" ],
+				"unique": false
+			},
+			{
+				"name": "thread_sortkey",
+				"columns": [ "thread_sortkey" ],
+				"unique": false
+			},
+			{
+				"name": "thread_parent",
+				"columns": [ "thread_parent" ],
+				"unique": false
+			}
+		],
+		"pk": [ "thread_id" ]
+	},
+	{
+		"name": "historical_thread",
+		"comment": "Old storage table for \"historical\" (i.e. non-current) threads. Now superseded by thread_history.",
+		"columns": [
+			{
+				"name": "hthread_id",
+				"comment": "Note that many hthreads can share an id, which is the same as the id of the live thread. It is only the id/revision combo which must be unique.",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "hthread_revision",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "hthread_contents",
+				"type": "blob",
+				"options": { "notnull": true, "length": 65530 }
+			},
+			{
+				"name": "hthread_change_type",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "hthread_change_object",
+				"type": "integer",
+				"options": { "notnull": false, "unsigned": true }
+			}
+		],
+		"indexes": [],
+		"pk": [ "hthread_id", "hthread_revision" ]
+	},
+	{
+		"name": "user_message_state",
+		"columns": [
+			{
+				"name": "ums_user",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "ums_thread",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "ums_conversation",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true, "default": 0 }
+			},
+			{
+				"name": "ums_read_timestamp",
+				"type": "mwtimestamp",
+				"options": { "notnull": false }
+			}
+		],
+		"indexes": [
+			{
+				"name": "ums_user_conversation",
+				"columns": [ "ums_user", "ums_conversation" ],
+				"unique": false
+			}
+		],
+		"pk": [ "ums_user", "ums_thread" ]
+	},
+	{
+		"name": "thread_history",
+		"comment": "\"New\" storage location for history data.",
+		"columns": [
+			{
+				"name": "th_id",
+				"type": "integer",
+				"options": { "autoincrement": true, "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "th_thread",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "th_timestamp",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "th_user",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "th_user_text",
+				"type": "string",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "th_change_type",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "th_change_object",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "th_change_comment",
+				"type": "text",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "th_content",
+				"comment": "Actual content, stored as a serialised thread row.",
+				"type": "blob",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "th_thread_timestamp",
+				"columns": [ "th_thread", "th_timestamp" ],
+				"unique": false
+			},
+			{
+				"name": "th_timestamp_thread",
+				"columns": [ "th_timestamp", "th_thread" ],
+				"unique": false
+			},
+			{
+				"name": "th_user_text",
+				"columns": [ "th_user", "th_user_text" ],
+				"unique": false
+			}
+		],
+		"pk": [ "th_id" ]
+	},
+	{
+		"name": "thread_pending_relationship",
+		"comment": "Storage for \"pending\" relationships from import",
+		"columns": [
+			{
+				"name": "tpr_thread",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "tpr_relationship",
+				"type": "binary",
+				"options": { "notnull": true, "length": 64 }
+			},
+			{
+				"name": "tpr_title",
+				"type": "binary",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "tpr_type",
+				"type": "binary",
+				"options": { "notnull": true, "length": 32 }
+			}
+		],
+		"indexes": [],
+		"pk": [ "tpr_thread", "tpr_relationship" ]
+	},
+	{
+		"name": "thread_reaction",
+		"comment": "Storage for reactions",
+		"columns": [
+			{
+				"name": "tr_thread",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "tr_user",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "tr_user_text",
+				"type": "binary",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "tr_type",
+				"type": "binary",
+				"options": { "notnull": true, "length": 64 }
+			},
+			{
+				"name": "tr_value",
+				"type": "integer",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "tr_user_text_value",
+				"columns": [ "tr_user", "tr_user_text", "tr_type", "tr_value" ],
+				"unique": false
+			}
+		],
+		"pk": [ "tr_thread", "tr_user", "tr_user_text", "tr_type", "tr_value" ]
+	}
+]
