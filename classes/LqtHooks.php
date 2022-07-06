@@ -408,6 +408,7 @@ class LqtHooks {
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater = null ) {
 		$dir = realpath( __DIR__ . '/../sql' );
+		$dbType = $updater->getDB()->getType();
 
 		if ( $updater instanceof PostgresUpdater ) {
 			$updater->addExtensionTable( 'thread', "$dir/postgres/lqt.sql" );
@@ -421,6 +422,36 @@ class LqtHooks {
 			'thread_root_2',
 			"$dir/patches/thread-drop-thread_root_2.sql"
 		);
+
+		if ( $dbType === 'mysql' ) {
+			// 1.39
+			$updater->modifyExtensionField(
+				'thread',
+				'thread_created',
+				"$dir/$dbType/patch-thread-timestamps.sql"
+			);
+			$updater->modifyExtensionField(
+				'user_message_state',
+				'ums_read_timestamp',
+				"$dir/$dbType/patch-user_message_state-ums_read_timestamp.sql"
+			);
+			$updater->modifyExtensionField(
+				'thread_history',
+				'th_timestamp',
+				"$dir/$dbType/patch-thread_history-th_timestamp.sql"
+			);
+		} elseif ( $dbType === 'postgres' ) {
+			// 1.39
+			$updater->addExtensionUpdate( [
+				'dropDefault', 'thread', 'thread_modified'
+			] );
+			$updater->addExtensionUpdate( [
+				'dropDefault', 'thread', 'thread_created'
+			] );
+			$updater->addExtensionUpdate( [
+				'changeField', 'thread_history', 'th_timestamp', 'TIMESTAMPTZ', 'th_timestamp::timestamp with time zone'
+			] );
+		}
 
 		return true;
 	}
