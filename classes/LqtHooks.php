@@ -440,6 +440,11 @@ class LqtHooks {
 				'th_timestamp',
 				"$dir/$dbType/patch-thread_history-th_timestamp.sql"
 			);
+			$updater->dropExtensionIndex(
+				'thread',
+				'thread_root_2',
+				"$dir/$dbType/patch-thread-drop-index.sql"
+			);
 		} elseif ( $dbType === 'postgres' ) {
 			// 1.39
 			$updater->addExtensionUpdate( [
@@ -450,6 +455,12 @@ class LqtHooks {
 			] );
 			$updater->addExtensionUpdate( [
 				'changeField', 'thread_history', 'th_timestamp', 'TIMESTAMPTZ', 'th_timestamp::timestamp with time zone'
+			] );
+			$updater->addExtensionUpdate( [
+				'dropPgIndex', 'thread', 'thread_thread_root_key'
+			] );
+			$updater->addExtensionUpdate( [
+				'renameIndex', 'thread', 'thread_root_page', 'thread_root'
 			] );
 		}
 
