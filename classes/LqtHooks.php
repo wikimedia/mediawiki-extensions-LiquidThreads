@@ -495,6 +495,12 @@ class LqtHooks {
 			] );
 		}
 
+		$updater->dropExtensionIndex(
+			'thread',
+			'thread_root_page',
+			"$dir/patches/thread-drop-thread_root_page.sql"
+		);
+
 		return true;
 	}
 
