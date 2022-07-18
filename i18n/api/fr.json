@@ -8,7 +8,8 @@
 			"Thibaut120094",
 			"Urhixidur",
 			"Wladek92",
-			"Ajeje Brazorf"
+			"Ajeje Brazorf",
+			"Verdy p"
 		]
 	},
 	"apihelp-feedthreads-description": "Retourne un flux de fils de discussion.",
@@ -57,7 +58,7 @@
 	"apihelp-threadaction-param-signature": "Spécifie la signature à utiliser pour ce billet, au lieu de la valeur par défaut.",
 	"apihelp-threadaction-param-type": "Spécifie le type de réaction à ajouter.",
 	"apihelp-threadaction-param-value": "Spécifie la valeur associée à la réaction à ajouter.",
-	"apihelp-threadaction-param-method": "Pour obtenir les formulaires d'édition en ligne, c'est la  méthode pour obtenir un formulaire.",
+	"apihelp-threadaction-param-method": "Pour l’obtention des formulaires de modification en ligne, la méthode utilisée pour obtenir un formulaire.",
 	"apihelp-threadaction-param-captchaword": "Réponse au CAPTCHA.",
 	"apihelp-threadaction-param-captchaid": "Identificateur CAPTCHA de la précédente demande.",
 	"apierror-liquidthreads-alreadytop": "Ce thread est déjà un thread de niveau supérieur.",
