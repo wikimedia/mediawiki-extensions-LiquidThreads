@@ -40,7 +40,7 @@
 	"lqt_new_thread": "Lancer une nouvelle discussion",
 	"lqt_invalid_subject": "Le sujet que vous avez entré est invalide. Il peut :\n* être trop long ;\n* entrer en conflit avec un préfixe interwiki, ou un espace de noms.",
 	"lqt-empty-text": "Vous ne pouvez pas publier un message vide",
-	"lqt_empty_subject": "Vous devez entrer un objet.",
+	"lqt_empty_subject": "Vous devez saisir un sujet.",
 	"lqt_reply": "Répondre",
 	"lqt-parent": "Parent",
 	"lqt_delete": "Supprimer",
