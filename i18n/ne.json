@@ -9,14 +9,15 @@
 			"बिप्लब आनन्द",
 			"राम प्रसाद जोशी",
 			"सरोज कुमार ढकाल",
-			"पर्वत सुबेदी"
+			"पर्वत सुबेदी",
+			"Bada Kaji"
 		]
 	},
 	"lqt_toc_thread_author": "आरम्भ कर्ता",
 	"lqt_toc_thread_replycount": "उत्तरहरू",
 	"lqt_toc_thread_modified": "पछिल्लो संशोधन",
 	"lqt_add_header": "शीर्षक जोड़ने",
-	"lqt_new_thread": "नयाँ चर्चा आरम्भ गर्ने",
+	"lqt_new_thread": "नयाँ छलफल सुरु गर्नुहोस्",
 	"lqt_invalid_subject": "तपाईंले हालेको विषय अमान्य छ।\nयो:\n* अति लामो भएको   अथवा\n* अन्तर विकि उपसर्ग अथवा नेमस्पेस (नामस्थान)सित अन्तर विरोधी भएको छ।",
 	"lqt_empty_subject": "तपाईंले एउटा विषय दिनुपर्छ।",
 	"lqt_reply": "जवाब दिने",
@@ -125,7 +126,7 @@
 	"lqt-change-subject": "विषय सार्ने",
 	"lqt-save-subject": "संग्रह गर्ने",
 	"lqt-ajax-no-subject": "तपाईंले विषय निर्दिष्ट गर्नै पर्छ",
-	"lqt-cancel-subject-edit": "रद्द गर्ने",
+	"lqt-cancel-subject-edit": "रद्द गर्नुहोस्",
 	"lqt-drag-activate": "नयाँ स्थानमा खसाल्ने",
 	"lqt-drag-drop-zone": "यहाँ खसाल्ने",
 	"lqt-drag-save": "निस्चिय गर्ने",
