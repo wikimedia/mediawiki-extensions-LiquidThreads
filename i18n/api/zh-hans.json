@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Liuxinyu970226",
-			"Yfdyh000"
+			"Yfdyh000",
+			"Stang"
 		]
 	},
 	"apihelp-feedthreads-description": "返回讨论帖子的订阅。",
@@ -33,7 +34,7 @@
 	"apihelp-query+threads-param-renderthreadcount": "当渲染时，在那个等级组中的帖子数量。",
 	"apihelp-query+threads-param-rendermaxthreadcount": "当渲染时，在添加“{{int:lqt-thread-show-more}}”链接前要显示的回复的最大数量。",
 	"apihelp-query+threads-param-rendermaxdepth": "当渲染时，在显示“显示X条回复”链接而不是回复前回复的最大深度。",
-	"apihelp-query+threads-param-renderstartrepliesat": "当渲染时，要开始显示回复的点位（用于在内部载入额外回复）。",
+	"apihelp-query+threads-param-renderstartrepliesat": "当渲染时，要开始显示回复的点位（用于在内部加载额外回复）。",
 	"apihelp-query+threads-example-1": "列出[[Talk:Main Page]]上的帖子",
 	"apihelp-query+threads-example-2": "列出帖子带ID1、2、3和4",
 	"apihelp-threadaction-description": "允许在线程话讨论中的帖子和跟帖中执行操作。",
