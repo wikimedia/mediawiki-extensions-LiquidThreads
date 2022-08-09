@@ -13,6 +13,7 @@
 			"Bada Kaji"
 		]
 	},
+	"lqt_contents_title": "सामग्रीहरू",
 	"lqt_toc_thread_author": "आरम्भ कर्ता",
 	"lqt_toc_thread_replycount": "उत्तरहरू",
 	"lqt_toc_thread_modified": "पछिल्लो संशोधन",
@@ -56,7 +57,7 @@
 	"lqt_nosuchthread": "तपाईंले खुलाउनु भएको धागो(thread) अस्थित्वमा छैन ।",
 	"lqt_nosuchthread_title": "त्यस्तो धागो(thread) छैन \\",
 	"lqt_threadrequired": "तपाईंले धागो(thread)को URL खुलाउनु पर्छ ।",
-	"lqt_move_torename_edit": "यसलाई सम्पादन गर्ने ।",
+	"lqt_move_torename_edit": "यसलाई सम्पादन गर्नुहोस्",
 	"lqt_move_move": "सार्ने",
 	"lqt_move_noreason": "कुनै पनि कारण दिइएको छैन ।",
 	"lqt_move_success": "यस धागो(thread)लाई $1मा सारिएको छ।",
@@ -117,7 +118,7 @@
 	"lqt-merge-success": "तपाईंले धागो(thread) $1लाई $2मा लगेर सफलतापूर्वक जोड्नु भएको छ।",
 	"lqt-enotif-newthread": "$1जी,\n{{SITENAME}}बाट यो सूचना दिइन्छ कि $5माथि एउटा नयाँ सूत्र(thread) '$2',\n$8द्वारा $3 कोदिन $4मा सृजना गरिएको थियो\n\nतपाईंले यसलाई <$6>मा हेर्न सक्नुहुनेछ\n\nजसको पाठ थियो:\n$7",
 	"lqt-enotif-reply": "$1जी,\n{{SITENAME}}बाट यो सूचना दिइन्छ कि $5माथि एउटा नयाँ उत्तर '$2'लाई,\n$8द्वारा $3 कोदिन $4मा सृजना गरिएको थियो\n\nतपाईंले यसलाई <$6>मा हेर्न सक्नुहुनेछ\n\nउत्तरको पाठ थियो:\n$7",
-	"lqt-search-button": "खोज",
+	"lqt-search-button": "खोज्नुहोस्",
 	"searchprofile-threads": "चर्चाहरू",
 	"lqt-ajax-update-link": "अद्यतन गर्ने",
 	"lqt-thread-show-more": "अरु जवाफहरु देखाउने \\",
