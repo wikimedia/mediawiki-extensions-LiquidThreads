@@ -111,7 +111,7 @@
 	"lqt-marked-read": "Tema '''$1''' je označena kot prebrana.",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|sporočilo označeno kot prebrano|sporočili označeni kot prebrani|sporočila označena kot prebrana|sporočil označenih kot prebranih}}",
 	"lqt-email-undo": "Razveljavi",
-	"lqt-no-new-messages": "Nimaš novih sporočil.",
+	"lqt-no-new-messages": "Nimate novih sporočil.",
 	"lqt-new-messages": "Imate nova sporočila.",
 	"lqt-email-info-undo": "Vrnitev teme, ki ste jo pravkar opustili.",
 	"lqt-date-info": "Ta povezava je onemogočena, ker so prikazane teme vseh datumov.",
