@@ -21,7 +21,7 @@
 	"lqt_new_thread": "नयाँ छलफल सुरु गर्नुहोस्",
 	"lqt_invalid_subject": "तपाईंले हालेको विषय अमान्य छ।\nयो:\n* अति लामो भएको   अथवा\n* अन्तर विकि उपसर्ग अथवा नेमस्पेस (नामस्थान)सित अन्तर विरोधी भएको छ।",
 	"lqt_empty_subject": "तपाईंले एउटा विषय दिनुपर्छ।",
-	"lqt_reply": "जवाब दिने",
+	"lqt_reply": "जवाफ दिनुहोस्",
 	"lqt-parent": "जनक",
 	"lqt_delete": "मेट्ने",
 	"lqt_undelete": "मेटेको रद्द गर्ने",
@@ -139,7 +139,7 @@
 	"lqt-newmessages-n": "नयाँ सन्देशहरू ($1)",
 	"lqt_newmessages-title": "नयाँ सन्देशहरू",
 	"lqt-talkpage-history-subtitle": "$1 का लागि",
-	"lqt-reply-subpage": "जवाफ",
+	"lqt-reply-subpage": "जवाफ दिनुहोस्",
 	"nstab-thread": "धागो(thread)",
 	"pageinfo-usinglqt-yes": "छ"
 }
