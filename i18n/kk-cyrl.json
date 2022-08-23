@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Arystanbek",
-			"GaiJin"
+			"GaiJin",
+			"СеніңШешең"
 		]
 	},
 	"lqt_contents_title": "Контенттер",
@@ -29,8 +30,8 @@
 	"lqt_hist_deleted": "Жойылды",
 	"lqt_hist_undeleted": "Жою болдырылмады",
 	"lqt_hist_moved_talkpage": "Жылжытылды",
-	"lqt_hist_listing_subtitle": "Тарих тізімделуін қарау",
-	"lqt_hist_view_whole_thread": "Жазба тармақтың тарихын қарау",
+	"lqt_hist_listing_subtitle": "Тарихын көру",
+	"lqt_hist_view_whole_thread": "Бүкіл тредтің тарихын көру",
 	"lqt_hist_no_revisions_error": "Бұл тармақ қандай да бір тарих нұсқалары жоқ.",
 	"lqt_hist_tooltip_newer_disabled": "Бұл сілтеме сөндірілген себебі сіз бірінші беттесіз.",
 	"lqt_hist_tooltip_older_disabled": "Бүл сілтеме сөндірілген, себебі сіз соңғы беттесіз.",
