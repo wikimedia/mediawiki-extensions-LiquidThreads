@@ -4,6 +4,7 @@
 			"Yupik"
 		]
 	},
+	"lqt_toc_thread_modified": "Mââimõssân muttum",
 	"lqt_reply": "Vaʹstted",
 	"lqt_delete": "Jaukkâd",
 	"lqt_hist_deleted": "Jaukkuum",
@@ -21,6 +22,7 @@
 	"searchprofile-threads": "Saǥstõõllmõõžž",
 	"lqt-ajax-update-link": "Peiʹvved",
 	"lqt-save-subject": "Ruõkk",
+	"lqt-cancel-subject-edit": "Jõõsk",
 	"lqt-drag-reason": "Mäinn:",
 	"lqt-preview-signature": "(ouddǩiõččmõš)",
 	"lqt-newmessages-n": "Ođđ {{PLURAL:$1|saakk|saaǥǥ|saakkâd}} ($1)",
