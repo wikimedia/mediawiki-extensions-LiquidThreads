@@ -9,7 +9,8 @@
 			"Thibaut120094",
 			"Urhixidur",
 			"Wladek92",
-			"Verdy p"
+			"Verdy p",
+			"Cigaryno"
 		]
 	},
 	"apihelp-feedthreads-description": "Retourne un flux de fils de discussion.",
@@ -53,7 +54,7 @@
 	"apihelp-threadaction-param-newparent": "Si on fusionne un thread, l'ID ou le titre de son nouveau parent.",
 	"apihelp-threadaction-param-text": "Le texte de la note à créer.",
 	"apihelp-threadaction-param-render": "Sur les méthodes de publication et de réponse, la discussion de niveau supérieur sera affichée et renvoyée dans le résultat.",
-	"apihelp-threadaction-param-bump": "S’il faut ou non écraser le comportement par défaut.",
+	"apihelp-threadaction-param-bump": "Remplace le comportement par défaut quant à savoir si oui ou non.",
 	"apihelp-threadaction-param-sortkey": "Spécifie l’horodatage auquel mettre la clé de tri d’une discussion. Peut être « now » (maintenant).",
 	"apihelp-threadaction-param-signature": "Spécifie la signature à utiliser pour ce billet, au lieu de la valeur par défaut.",
 	"apihelp-threadaction-param-type": "Spécifie le type de réaction à ajouter.",
