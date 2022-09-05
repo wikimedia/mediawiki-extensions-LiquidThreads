@@ -209,13 +209,15 @@
 		"ParserFirstCallInit": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onParserFirstCallInit",
 		"CanonicalNamespaces": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onCanonicalNamespaces",
 		"MediaWikiPerformAction": "LqtDispatch::tryPage",
-		"SkinTemplateNavigation::Universal": "LqtDispatch::onSkinTemplateNavigation",
+		"SkinTemplateNavigation::Universal": [
+			"LqtDispatch::onSkinTemplateNavigation",
+			"MediaWiki\\Extension\\LiquidThreads\\Hooks::onSkinTemplateNavigation"
+		],
 		"PageContentLanguage": "LqtDispatch::onPageContentLanguage",
 		"OldChangesListRecentChangesLine": "MediaWiki\\Extension\\LiquidThreads\\Hooks::customizeOldChangesList",
 		"GetNewMessagesAlert": "MediaWiki\\Extension\\LiquidThreads\\Hooks::setNewtalkHTML",
 		"ChangesListSpecialPageQuery": "MediaWiki\\Extension\\LiquidThreads\\Hooks::beforeWatchlist",
 		"ArticleEditUpdateNewTalk": "MediaWiki\\Extension\\LiquidThreads\\Hooks::updateNewtalkOnEdit",
-		"PersonalUrls": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onPersonalUrls",
 		"GetPreferences": "MediaWiki\\Extension\\LiquidThreads\\Hooks::getPreferences",
 		"XmlDumpWriterOpenPage": "MediaWiki\\Extension\\LiquidThreads\\Hooks::dumpThreadData",
 		"ModifyExportQuery": "MediaWiki\\Extension\\LiquidThreads\\Hooks::modifyExportQuery",

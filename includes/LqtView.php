@@ -1631,8 +1631,8 @@ class LqtView {
 		$ebLookup = [ Threads::EDITED_BY_AUTHOR => 'author',
 					Threads::EDITED_BY_OTHERS => 'others' ];
 		$lastEdit = $thread->root()->getPage()->getTimestamp();
-		$lastEditTime = $wgLang->time( $lastEdit, false, true, true );
-		$lastEditDate = $wgLang->date( $lastEdit, false, true, true );
+		$lastEditTime = $wgLang->time( $lastEdit, false, true );
+		$lastEditDate = $wgLang->date( $lastEdit, false, true );
 		$lastEdit = $wgLang->timeanddate( $lastEdit, true );
 		$editors = '';
 		$editorCount = 0;

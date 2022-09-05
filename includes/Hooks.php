@@ -631,7 +631,7 @@ class Hooks {
 		return true;
 	}
 
-	public static function onPersonalUrls( &$personal_urls, &$title, $skinTemplate ) {
+	public static function onSkinTemplateNavigation( $skinTemplate, &$links ) {
 		$user = $skinTemplate->getUser();
 
 		if ( $user->isAnon() ) {
@@ -653,13 +653,14 @@ class Hooks {
 			];
 
 			$insertUrls = [ 'newmessages' => $newMessagesLink ];
-
+			$personal_urls = $links['user-menu'] ?? [];
 			// User has viewmywatchlist permission
 			if ( isset( $personal_urls['watchlist'] ) ) {
 				$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'watchlist' );
 			} else {
 				$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'preferences' );
 			}
+			$links['user-menu'] = $personal_urls;
 		}
 
 		return true;
