@@ -10,7 +10,8 @@
 			"बिप्लब आनन्द",
 			"राम प्रसाद जोशी",
 			"सरोज कुमार ढकाल",
-			"Bada Kaji"
+			"Bada Kaji",
+			"बडा काजी"
 		]
 	},
 	"lqt_contents_title": "सामग्रीहरू",
@@ -135,7 +136,7 @@
 	"lqt-drag-save": "निस्चिय गर्ने",
 	"lqt-drag-title": "ड्रयाग निश्चय गर्ने",
 	"lqt-drag-reason": "कारण:",
-	"lqt-edit-signature": "(हस्ताक्षर सम्पादन गर्ने)",
+	"lqt-edit-signature": "(हस्ताक्षर सम्पादन गर्नुहोस्)",
 	"lqt-preview-signature": "(पूर्व रुप)",
 	"lqt-feed-title-all": "{{SITENAME}} — नयाँ पोस्ट",
 	"lqt-newmessages-n": "नयाँ सन्देशहरू ($1)",
