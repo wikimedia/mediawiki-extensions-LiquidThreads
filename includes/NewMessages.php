@@ -305,6 +305,7 @@ class NewMessages {
 
 		// Parse content and strip HTML of post content
 		$emailer = MediaWikiServices::getInstance()->getEmailer();
+		$languageFactory = MediaWikiServices::getInstance()->getLanguageFactory();
 		foreach ( $res as $row ) {
 			$u = User::newFromRow( $row );
 
@@ -316,7 +317,7 @@ class NewMessages {
 				$langCode = $wgLanguageCode;
 			}
 
-			$lang = Language::factory( $langCode );
+			$lang = $languageFactory->getLanguage( $langCode );
 
 			// Adjust with time correction
 			$timeCorrection = $row->timecorrection;
