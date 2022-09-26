@@ -135,7 +135,7 @@
 	"lqt-split-submit": "Razdeli",
 	"lqt_split_badsubject": "Vnešena zadeva ni veljavna.",
 	"lqt-no-threads": "Na tej strani še ni tem.",
-	"lqt-delete-parent-warning": "To je vrhnja tema z odgovori.\nVsi njeni odgovori bodo samodejno izbrisani.\nV izogib temu jih pred brisanjem razcepi od teme.",
+	"lqt-delete-parent-warning": "To je vrhnja tema z odgovori.\nVsi odgovori nanjo bodo samodejno izbrisani. Da bi se temu izognili, jih pred brisanjem odcepite od teme.",
 	"lqt-delete-parent-deleted": "Odzvana tema je izbrisana ($1)",
 	"lqt-delete-replies-done": "Vsi odgovori na to temo so bili pravtako izbrisani.",
 	"lqt-movethread": "Prestavi",

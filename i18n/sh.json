@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Conquistador"
+			"Conquistador",
+			"Vlad5250"
 		]
 	},
+	"lqt-desc": "Dodaj nizane diskusije stranicama za razgovor",
 	"lqt-cancel-subject-edit": "Otkaži",
 	"lqt-preview-signature": "(pregled)"
 }
