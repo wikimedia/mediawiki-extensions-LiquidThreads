@@ -170,6 +170,7 @@
 	"lqt-preference-notify-talk": "Email me on replies to a thread I am watching",
 	"lqt-preference-watch-threads": "Watch threads that I create or reply to",
 	"prefs-lqt": "Threaded discussion",
+	"prefs-description-lqt": "Decide how to display replies.",
 	"lqt-preference-display-depth": "Maximum reply depth to show:",
 	"lqt-preference-display-count": "Maximum number of replies to show:",
 	"lqt-preference-custom-signatures": "Show custom user signatures",
