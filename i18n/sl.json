@@ -126,7 +126,7 @@
 	"lqt-thread-edited-others": "{{PLURAL:$2|Uredil drug uporabnik|Uredila $2 uporabnika||Uredili $2 uporabniki|Uredilo $2 uporabnikov}}.<br />\nZadnje urejanje: $1",
 	"lqt-header-actions": "Dejanja",
 	"lqt_summarize_link": "Povzemi",
-	"lqt-summarize-intro": "Spodnjo nit povzemite v polju za urejanje.\nV povzetku lahko uporabite katero koli wikibesedilo.\nKo končate, kliknite »{{int:publishpage}}«.",
+	"lqt-summarize-intro": "Spodnjo nit povzemite v polju za urejanje.\nV povzetku lahko uporabite katero koli vikibesedilo.\nKo končate, kliknite »{{int:publishpage}}«.",
 	"lqt-thread-split": "Oddeli v novo nit",
 	"lqt-split-success": "Odecepili ste nit $1.",
 	"lqt_split_thread": "Razdeli nit",
