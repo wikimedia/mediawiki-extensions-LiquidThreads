@@ -193,6 +193,7 @@
 	"lqt-preference-notify-talk": "M’avertir par courriel lors d’une réponse sur un sujet que je suis",
 	"lqt-preference-watch-threads": "Suivre les fils de discussion que je crée ou auxquels je participe",
 	"prefs-lqt": "Discussions en fil",
+	"prefs-description-lqt": "Décidez comment afficher les réponses.",
 	"lqt-preference-display-depth": "Profondeur maximale des réponses à afficher :",
 	"lqt-preference-display-count": "Nombre maximal de réponses à afficher :",
 	"lqt-preference-custom-signatures": "Montrer les signatures personnalisées des utilisateurs",

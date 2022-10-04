@@ -196,6 +196,7 @@
 	"lqt-preference-notify-talk": "Bei Antworten zu beobachteten Themen E-Mails senden",
 	"lqt-preference-watch-threads": "Selbst erstellte oder von mir bearbeitete Diskussionsthemen automatisch beobachten",
 	"prefs-lqt": "Thema",
+	"prefs-description-lqt": "Festlegen, wie die Antworten angezeigt werden sollen.",
 	"lqt-preference-display-depth": "Maximale Antworttiefe:",
 	"lqt-preference-display-count": "Maximale Anzahl anzuzeigender Antworten:",
 	"lqt-preference-custom-signatures": "Benutzersignaturen zeigen",
