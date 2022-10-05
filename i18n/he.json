@@ -172,6 +172,7 @@
 	"lqt-preference-notify-talk": "לשלוח אליי דוא\"ל כאשר מתקבלות תגובות בשרשור שאני {{GENDER:|עוקב|עוקבת}} אחריו",
 	"lqt-preference-watch-threads": "הוספת שרשורים שאני {{GENDER:|יוצר|יוצרת}} או {{GENDER:|מגיב|מגיבה}} בהם לרשימת המעקב שלי",
 	"prefs-lqt": "שיחות בשרשורים",
+	"prefs-description-lqt": "{{GENDER:|החלט|החליטי}} איך להציג תשובות.",
 	"lqt-preference-display-depth": "עומק התגובות המרבי להצגה:",
 	"lqt-preference-display-count": "מספר התגובות המרבי להצגה:",
 	"lqt-preference-custom-signatures": "הצגת חתימות משתמשים מותאמות אישית",

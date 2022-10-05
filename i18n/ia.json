@@ -169,6 +169,7 @@
 	"lqt-preference-notify-talk": "Inviar me un e-mail quando il ha responsas in un filo que io observa",
 	"lqt-preference-watch-threads": "Observar filos que io crea o al quales io responde",
 	"prefs-lqt": "Discussion in filos",
+	"prefs-description-lqt": "Decide como monstrar responsas.",
 	"lqt-preference-display-depth": "Profunditate maximal de responsas a monstrar:",
 	"lqt-preference-display-count": "Numero maxime de responsas a monstrar:",
 	"lqt-preference-custom-signatures": "Monstrar signaturas personalisate de usatores",

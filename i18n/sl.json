@@ -169,6 +169,7 @@
 	"lqt-preference-notify-talk": "Pošlji mi e-pošto ob odgovorih na teme, ki jih nadzorujem",
 	"lqt-preference-watch-threads": "Nadzoruj niti, ki sem jih ustvaril ali nanje odgovoril",
 	"prefs-lqt": "Tematiziran pogovor",
+	"prefs-description-lqt": "Odločite se, kako prikazati odgovore.",
 	"lqt-preference-display-depth": "Največja prikazana globina odgovorov:",
 	"lqt-preference-display-count": "Največje število prikazanih odgovorov:",
 	"lqt-preference-custom-signatures": "Prikaži uporabniške podpise po meri",
