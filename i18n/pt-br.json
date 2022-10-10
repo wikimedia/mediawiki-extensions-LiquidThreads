@@ -183,6 +183,7 @@
 	"lqt-preference-notify-talk": "Receber e-mail sobre as respostas de tópicos que eu estou vigiando",
 	"lqt-preference-watch-threads": "Vigiar tópicos que eu venha a criar ou responder",
 	"prefs-lqt": "Discussão em tópicos",
+	"prefs-description-lqt": "Decida como apresentar as respostas.",
 	"lqt-preference-display-depth": "Profundidade máxima de respostas a serem mostradas:",
 	"lqt-preference-display-count": "Número máximo de respostas a mostrar:",
 	"lqt-preference-custom-signatures": "Mostrar assinaturas personalizadas",
