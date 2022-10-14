@@ -246,7 +246,8 @@
 		"SpecialPage_initList": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onSpecialPage_initList",
 		"OutputPageParserOutput": "LqtParserFunctions::onAddParserOutput",
 		"OutputPageBeforeHTML": "LqtParserFunctions::onAddHTML",
-		"getUserPermissionsErrors": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onGetUserPermissionsErrors"
+		"getUserPermissionsErrors": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onGetUserPermissionsErrors",
+		"PreferencesGetIcon": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onPreferencesGetIcon"
 	},
 	"callback": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onRegistration",
 	"config": {
