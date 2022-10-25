@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajiniyaz Nurniyazov"
+		]
+	},
+	"lqt_movethread": "Temanı basqa betke ótkeriń",
+	"lqt_deletethread": "Temanı óshiriw yamasa biykarlaw",
+	"lqt_contents_title": "Mazmunı",
+	"lqt_toc_thread_title": "Tema ataması",
+	"lqt_toc_thread_author": "Baslaǵan",
+	"lqt_toc_thread_replycount": "Juwaplar",
+	"lqt_toc_thread_modified": "Aqırǵı ózgertilgen",
+	"lqt_add_header": "Taqırıp qosıw",
+	"lqt_new_thread": "Talqılawdı baslaw",
+	"lqt_invalid_subject": "Siz kirgizgen tema jaramsız.\nBuǵan sebep bolıwı múmkin:\n * Team atı dım uzın, yamasa \n * Interwiki prefiksleri yamasa atlar maydanı atamaları menen qarama-qarsılıqqa iye.",
+	"lqt-empty-text": "Siz bos xabar jaylastıra almaysız"
+}
