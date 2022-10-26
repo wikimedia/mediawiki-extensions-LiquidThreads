@@ -1084,4 +1084,13 @@ class Hooks {
 			define( 'NS_LQT_SUMMARY_TALK', 93 );
 		}
 	}
+
+	/**
+	 * Add icon for Special:Preferences mobile layout
+	 *
+	 * @param array &$iconNames Array of icon names for their respective sections.
+	 */
+	public static function onPreferencesGetIcon( &$iconNames ) {
+		$iconNames[ 'lqt' ] = 'speechBubbles';
+	}
 }
