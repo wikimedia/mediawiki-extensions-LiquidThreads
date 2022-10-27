@@ -331,6 +331,7 @@ class Thread {
 					[ $original->sortkey(), $this->sortkey() ],
 					$user
 				);
+				break;
 			case Threads::CHANGE_EDITED_SIGNATURE:
 				$log->addEntry(
 					'signatureedit',
