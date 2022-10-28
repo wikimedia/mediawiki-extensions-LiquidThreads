@@ -6,6 +6,18 @@
 		]
 	},
 	"lqt-desc": "Dodaj nizane diskusije stranicama za razgovor",
+	"lqt_movethread": "Premjesti temu na drugu stranicu",
+	"lqt_deletethread": "Izbriši ili vrati izbrisanu temu",
+	"lqt_contents_title": "Sadržaj",
+	"lqt_toc_thread_title": "Naslov teme",
+	"lqt_toc_thread_author": "Započeo/la",
+	"lqt_toc_thread_replycount": "Odgovori",
+	"lqt_toc_thread_modified": "Posljednja promjena",
+	"lqt_add_header": "Dodaj zaglavlje",
+	"lqt_new_thread": "Započni novi razgovor",
+	"lqt_invalid_subject": "Tema koju ste unijeli nije važeća.\nMože biti:\n* Predugačka je, ili\n* Naziv je isti kao međuwiki prefiks ili ime imenskog prostora.",
+	"lqt-empty-text": "Ne možete poslati praznu poruku.",
+	"lqt_empty_subject": "Morate unijeti temu.",
 	"lqt-cancel-subject-edit": "Otkaži",
 	"lqt-preview-signature": "(pregled)"
 }
