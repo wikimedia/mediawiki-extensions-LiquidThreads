@@ -18,6 +18,13 @@
 	"lqt_invalid_subject": "Tema koju ste unijeli nije važeća.\nMože biti:\n* Predugačka je, ili\n* Naziv je isti kao međuwiki prefiks ili ime imenskog prostora.",
 	"lqt-empty-text": "Ne možete poslati praznu poruku.",
 	"lqt_empty_subject": "Morate unijeti temu.",
+	"lqt_reply": "Odgovori",
+	"lqt-parent": "Nadređeni",
+	"lqt_delete": "Izbriši",
+	"lqt_undelete": "Vrati obrisano",
+	"lqt_permalink": "Link prema",
+	"lqt_fragment": "Dio $1 s $2",
+	"lqt_discussion_link": "razgovora",
 	"lqt-cancel-subject-edit": "Otkaži",
 	"lqt-preview-signature": "(pregled)"
 }
