@@ -107,6 +107,7 @@
 	"lqt-thread-merge-source": "উৎস থ্রেড:",
 	"lqt-thread-merge-dest": "গন্তব্য থ্রেড:",
 	"lqt-merge-submit": "একত্রীকরণ",
+	"lqt-preference-notify-talk": "আমার নজরতালিকায় আছে এমন কোনও থ্রেডে উত্তর আসলে আমাকে ই-মেইল করা হোক",
 	"prefs-lqt": "থ্রেডেড আলোচনা",
 	"lqt-preference-display-count": "সর্বোচ্চ যে সংখ্যক উত্তর দেখাবে:",
 	"lqt-preference-custom-signatures": "ব্যবহারকারী নির্ধারিত স্বাক্ষর দেখাও",
