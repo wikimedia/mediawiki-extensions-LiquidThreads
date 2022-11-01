@@ -179,6 +179,7 @@
 	"lqt-preference-notify-talk": "أرسل إليّ بريدًا إلكترونيًا عن الردود التي تضاف إلى موضوع أراقبه",
 	"lqt-preference-watch-threads": "راقب النقاشات التي أنشئها أو أرد عليها",
 	"prefs-lqt": "نقاشات مُجمّعة",
+	"prefs-description-lqt": "قرر كيفية عرض الردود.",
 	"lqt-preference-display-depth": "عمق الردود الأقصى للعرض:",
 	"lqt-preference-display-count": "عدد الردود الأقصى للعرض:",
 	"lqt-preference-custom-signatures": "أظهر توقيعات المستخدمين المُخصّصة",
