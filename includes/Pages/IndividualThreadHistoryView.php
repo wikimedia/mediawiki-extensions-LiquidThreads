@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class IndividualThreadHistoryView extends ThreadPermalinkView {
 	/** @var int|null */
 	protected $oldid;
@@ -35,14 +37,13 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 	}
 
 	public function show() {
-		global $wgHooks;
-
 		if ( !$this->thread ) {
 			$this->showMissingThreadPage();
 			return false;
 		}
 
-		$wgHooks['PageHistoryBeforeList'][] = [ $this, 'customizeSubtitle' ];
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		$hookContainer->register( 'PageHistoryBeforeList', [ $this, 'customizeSubtitle' ] );
 
 		return true;
 	}
