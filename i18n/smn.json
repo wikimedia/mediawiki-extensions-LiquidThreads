@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kimberli Mäkäräinen (WMNO)",
 			"Seipinne",
 			"Yupik"
 		]
 	},
 	"lqt_toc_thread_modified": "Majemustáá nubástittum",
 	"lqt_delete": "Siho",
+	"lqt_undelete": "Maaccât",
 	"lqt_fragment": "Uási $1 siijđost $2",
 	"lqt_discussion_link": "savâstâlmist",
 	"lqt-no-new-messages": "Tunjin iä lah uđđâ viestah.",
