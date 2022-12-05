@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yupik"
+			"Yupik",
+			"Kimberli Mäkäräinen (WMNO)"
 		]
 	},
+	"lqt_delete": "Sihko",
+	"lqt_undelete": "Máhcat",
+	"lqt_hist_deleted": "Sihkkojuvvon",
 	"lqt-search-button": "Oza",
 	"lqt-save-subject": "Vurke"
 }
