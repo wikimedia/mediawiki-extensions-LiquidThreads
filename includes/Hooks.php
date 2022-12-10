@@ -8,7 +8,6 @@ use ChangesList;
 use DatabaseUpdater;
 use EditPage;
 use HtmlArmor;
-use Linker;
 use LqtDispatch;
 use LqtParserFunctions;
 use LqtView;
@@ -108,7 +107,7 @@ class Hooks {
 			$content = $thread->root()->getPage()->getContent();
 			$quote = ( $content instanceof TextContent ) ? $content->getText() : '';
 			$quote = $lang->truncateForVisual( $quote, 200 );
-			$s .= ' ' . Linker::commentBlock( $quote );
+			$s .= ' ' . MediaWikiServices::getInstance()->getCommentFormatter()->formatBlock( $quote );
 
 			$classes = [];
 			$changeslist->insertTags( $s, $rc, $classes );

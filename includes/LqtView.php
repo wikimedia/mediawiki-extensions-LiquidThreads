@@ -2446,7 +2446,7 @@ class LqtView {
 	}
 
 	/**
-	 * Copy-and-modify of Linker::formatComment
+	 * Copy-and-modify of MediaWiki\CommentFormatter\CommentFormatter::format
 	 *
 	 * @param string $s
 	 * @return string
@@ -2458,6 +2458,7 @@ class LqtView {
 		$s = Sanitizer::escapeHtmlAllowEntities( $s );
 
 		# Render links:
-		return Linker::formatLinksInComment( $s, null, false );
+		return MediaWikiServices::getInstance()->getCommentFormatter()
+			->formatLinks( $s, null, false );
 	}
 }
