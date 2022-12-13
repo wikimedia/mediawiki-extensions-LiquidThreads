@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly"
+			"Kly",
+			"捍粵者"
 		]
 	},
 	"apihelp-feedthreads-description": "回傳討論內容討論串的摘要。",
@@ -64,7 +65,7 @@
 	"apierror-liquidthreads-noreplies-thread": "您不能此回覆討論串，因為討論串已被保護而無法回覆。",
 	"apierror-liquidthreads-nosubject": "沒有主題、或是指定了無效主題。",
 	"apierror-liquidthreads-notext": "在您的留言裡必須包含文字。",
-	"apierror-liquidthreads-onlyone": "您一次僅能在一個討論串上進行。",
+	"apierror-liquidthreads-onlyone": "您一次只能處理一串討論串",
 	"apierror-liquidthreads-talkpageprotected": "您不能發佈至特定對話頁，因為已被保護而無法產生的新發佈。",
-	"apierror-liquidthreads-threadneeded": "您必須指定要進行的討論串。"
+	"apierror-liquidthreads-threadneeded": "您必須指定討論串以操作"
 }
