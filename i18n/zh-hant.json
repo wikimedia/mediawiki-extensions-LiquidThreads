@@ -17,7 +17,9 @@
 			"Simon Shek",
 			"Tranve",
 			"Waihorace",
-			"Winston Sung"
+			"Winston Sung",
+			"Diskdance",
+			"捍粵者"
 		]
 	},
 	"lqt-desc": "在討論頁增加討論串討論功能",
@@ -174,7 +176,7 @@
 	"lqt-merge-submit": "合併",
 	"lqt-merge-success": "您已經合併討論串 $1 至 $2 底下。",
 	"lqt-log-name": "討論串日誌",
-	"lqt-log-header": "此日誌記錄了對討論串進行的操作。",
+	"lqt-log-header": "此日誌記錄了討論串的操作。",
 	"lqt-log-action-move": "已移動 [[$1]] 從 [[$2]] 至 [[$3]] ($4)",
 	"lqt-log-action-split": "分割 [[$1]] 從 [[$3]] 底下，至新主題 \"$2\"",
 	"lqt-log-action-merge-across": "已移動 [[$1]] 由 [[$2]] 底下至 [[$3]] 底下。",
