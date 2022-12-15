@@ -94,7 +94,7 @@ class ThreadHistoryPager extends TablePager {
 			case 'th_change_type':
 				return $this->getActionDescription( $value );
 			case 'th_change_comment':
-				return Linker::commentBlock( $value );
+				return MediaWikiServices::getInstance()->getCommentFormatter()->formatBlock( $value );
 			default:
 				return "Unable to format $name";
 		}
