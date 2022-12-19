@@ -727,7 +727,7 @@ class Thread {
 		$top_thread_ids = [];
 		$all_thread_rows = $rows;
 		$pageIds = [];
-		$linkBatch = new LinkBatch();
+		$linkBatch = MediaWikiServices::getInstance()->getLinkBatchFactory()->newLinkBatch();
 		$userIds = [];
 		$loadEditorsFor = [];
 
