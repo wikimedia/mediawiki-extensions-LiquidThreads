@@ -18,7 +18,8 @@
 			"Simon Shek",
 			"Tranve",
 			"Waihorace",
-			"Winston Sung"
+			"Winston Sung",
+			"捍粵者"
 		]
 	},
 	"lqt-desc": "在討論頁增加討論串討論功能",
@@ -85,7 +86,7 @@
 	"lqt_protectedfromreply_link": "受保護",
 	"lqt_subject": "主旨：",
 	"lqt_noreason": "未說明原因。",
-	"lqt_move_placeholder": "討論串 $1 已由此處移動至 $5。\n由 $2 於 $3 $4 時執行。",
+	"lqt_move_placeholder": "討論串「$1」已於$3$4由此處移動至「$5」，執行者：$2",
 	"lqt_thread_deleted_for_sysops": "此討論串已'''刪除'''，只有管理員能夠檢視。",
 	"lqt_thread_deleted": "已刪除此討論串。",
 	"lqt_summary_notice": "此討論已至少 $2 {{PLURAL:$2|天|天}}沒有任何變更。\n若已有結論，您可能希望為它 $1。",
@@ -175,7 +176,7 @@
 	"lqt-merge-submit": "合併",
 	"lqt-merge-success": "您已經合併討論串 $1 至 $2 底下。",
 	"lqt-log-name": "討論串日誌",
-	"lqt-log-header": "此日誌記錄了對討論串進行的操作。",
+	"lqt-log-header": "此日誌記錄了討論串的操作。",
 	"lqt-log-action-move": "已移動 [[$1]] 從 [[$2]] 至 [[$3]] ($4)",
 	"lqt-log-action-split": "分割 [[$1]] 從 [[$3]] 底下，至新主題 \"$2\"",
 	"lqt-log-action-merge-across": "已移動 [[$1]] 由 [[$2]] 底下至 [[$3]] 底下。",
