@@ -358,6 +358,8 @@ class TalkpageView extends LqtView {
 				wfMessage( 'lqt-no-threads' )->parse() );
 		}
 
+		$this->output->addModuleStyles( $pager->getModuleStyles() );
+
 		$html .= $pager->getNavigationBar();
 		$html .= Xml::openElement( 'div', [ 'class' => 'lqt-threads lqt-talkpage-threads' ] );
 
