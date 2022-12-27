@@ -67,7 +67,7 @@ class SpecialMoveThread extends ThreadActionPage {
 		)->parseAsBlock();
 		$intro .= $this->msg( 'lqt_move_torename' )->rawParams( $edit_link )->parseAsBlock();
 
-		$form->setIntro( $intro );
+		$form->setPreHtml( $intro );
 
 		return $form;
 	}
