@@ -27,11 +27,7 @@ class LqtDiscussionPager extends IndexPager {
 
 		if ( $article->getPage()->exists() ) {
 			$pout = $article->getParserOutput();
-			if ( method_exists( $pout, 'getPageProperty' ) ) {
-				$setLimit = $pout->getPageProperty( 'lqt-page-limit' );
-			} else {
-				$setLimit = $pout->getProperty( 'lqt-page-limit' );
-			}
+			$setLimit = $pout->getPageProperty( 'lqt-page-limit' );
 
 			if ( $setLimit ) {
 				return $setLimit;
