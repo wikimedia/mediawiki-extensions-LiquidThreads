@@ -46,7 +46,7 @@
 	"apihelp-threadaction-param-text": "Le texto del message a crear.",
 	"apihelp-threadaction-param-render": "Sur methodos de publication e de responsa, le filo de nivello superior post le cambiamento essera rendite e retornate in le resultato.",
 	"apihelp-threadaction-param-bump": "Substitue le comportamento predefinite de si o no.",
-	"apihelp-threadaction-param-sortkey": "Specifica le data e hora al qual mitter le clave de ordination de un discussion. Pote esser <kbd>now</kbd> (ora).",
+	"apihelp-threadaction-param-sortkey": "Specifica le data e hora al qual mitter le clave de ordinamento de un discussion. Pote esser <kbd>now</kbd> (ora).",
 	"apihelp-threadaction-param-signature": "Specifica le signatura a usar pro le message, in loco del predefinite.",
 	"apihelp-threadaction-param-type": "Specifica le typo de reaction a adder.",
 	"apihelp-threadaction-param-value": "Specifica le valor associate con le reaction a adder.",

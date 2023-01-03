@@ -27,7 +27,7 @@
 	"apihelp-query+threads-param-page": "Begrenze die Ergebnisse für Themen auf diesen Seiten.",
 	"apihelp-query+threads-param-author": "Begrenze die Ergebnisse für Themen nach bestimmten Verfassern.",
 	"apihelp-query+threads-param-root": "Begrenze die Ergebnisse für Themen durch die angegebenen Ursprünge.",
-	"apihelp-query+threads-param-summary": "Begrenze die Ergebnisse für Themen auf diese, welche sich auf die angegebenen Zusammenfassungsseiten beziehen.",
+	"apihelp-query+threads-param-summary": "Begrenze die Ergebnisse für Themen auf die, welche sich auf die angegebenen Zusammenfassungsseiten beziehen.",
 	"apihelp-query+threads-param-id": "Threads mit den angegebenen Kennungen abrufen.",
 	"apihelp-query+threads-param-render": "Ob der gerenderte Thread in den Ergebnissen eingeschlossen werden soll.",
 	"apihelp-query+threads-param-renderthreadcount": "Bei der Renderung die Anzahl der Themen in dieser Ebenengruppe.",
