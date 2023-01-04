@@ -120,55 +120,51 @@ class LqtDiscussionPager extends IndexPager {
 		if ( !$this->isNavigationBarShown() ) {
 			return '';
 		}
-		global $wgExtensionAssetsPath;
 
-		$path = "$wgExtensionAssetsPath/LiquidThreads/images";
-		$labels = [
-			'first' => 'table_pager_first',
-			'prev' => 'table_pager_prev',
-			'next' => 'table_pager_next',
-			'last' => 'table_pager_last',
-		];
-		$images = [
-			'first' => 'arrow_first_25.png',
-			'prev' => 'arrow_left_25.png',
-			'next' => 'arrow_right_25.png',
-			'last' => 'arrow_last_25.png',
-		];
-		$disabledImages = [
-			'first' => 'arrow_disabled_first_25.png',
-			'prev' => 'arrow_disabled_left_25.png',
-			'next' => 'arrow_disabled_right_25.png',
-			'last' => 'arrow_disabled_last_25.png',
-		];
-		if ( $this->getLanguage()->isRTL() ) {
-			$keys = array_keys( $labels );
-			$images = array_combine( $keys, array_reverse( $images ) );
-			$disabledImages = array_combine( $keys, array_reverse( $disabledImages ) );
-		}
+		$this->getOutput()->enableOOUI();
 
-		$linkTexts = [];
-		$disabledTexts = [];
-		foreach ( $labels as $type => $label ) {
-			$msgLabel = $this->msg( $label )->escaped();
-			$linkTexts[$type] = "<img src=\"$path/{$images[$type]}\" " .
-				"alt=\"$msgLabel\"/><br />$msgLabel";
-			$disabledTexts[$type] = "<img src=\"$path/{$disabledImages[$type]}\" " .
-				"alt=\"$msgLabel\"/><br />$msgLabel";
-		}
-		$links = $this->getPagingLinks( $linkTexts, $disabledTexts );
+		$types = [ 'first', 'prev', 'next', 'last' ];
 
-		$navClass = htmlspecialchars( $this->getNavClass() );
-		$s = "<table class=\"$navClass\"><tr>\n";
-		$cellAttrs = 'width: ' . 100 / count( $links ) . '%';
-		foreach ( $labels as $type => $label ) {
-			$s .= "<td style='$cellAttrs'>{$links[$type]}</td>\n";
+		$queries = $this->getPagingQueries();
+
+		$buttons = [];
+
+		$title = $this->getTitle();
+
+		foreach ( $types as $type ) {
+			$buttons[] = new \OOUI\ButtonWidget( [
+				// Messages used here:
+				// * table_pager_first
+				// * table_pager_prev
+				// * table_pager_next
+				// * table_pager_last
+				'classes' => [ 'TablePager-button-' . $type ],
+				'flags' => [ 'progressive' ],
+				'framed' => false,
+				'label' => $this->msg( 'table_pager_' . $type )->text(),
+				'href' => $queries[ $type ] ?
+					$title->getLinkURL( $queries[ $type ] + $this->getDefaultQuery() ) :
+					null,
+				'icon' => $type === 'prev' ? 'previous' : $type,
+				'disabled' => $queries[ $type ] === false
+			] );
 		}
-		$s .= "</tr></table>\n";
-		return $s;
+		return new \OOUI\ButtonGroupWidget( [
+			'classes' => [ $this->getNavClass() ],
+			'items' => $buttons,
+		] );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getModuleStyles() {
+		return array_merge(
+			parent::getModuleStyles(), [ 'oojs-ui.styles.icons-movement' ]
+		);
 	}
 
 	public function getNavClass() {
-		return 'TalkpagePager_nav';
+		return 'TablePager_nav';
 	}
 }

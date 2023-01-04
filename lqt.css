@@ -485,16 +485,6 @@ table.lqt-new-messages {
 	height: 32px;
 }
 
-.TalkpagePager_nav {
-	margin: 30px auto 10px;
-}
-
-.TalkpagePager_nav td {
-	vertical-align: top;
-	text-align: center;
-	padding: 3px;
-}
-
 .lqt-drag-confirm label {
 	margin-right: 20px;
 }

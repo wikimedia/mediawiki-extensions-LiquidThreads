@@ -129,6 +129,8 @@ class NewUserMessagesView extends LqtView {
 			return false;
 		}
 
+		$this->output->addModuleStyles( $pager->getModuleStyles() );
+
 		$this->output->addHTML( $this->getReadAllButton() );
 		$this->output->addHTML( $pager->getNavigationBar() );
 
