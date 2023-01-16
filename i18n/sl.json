@@ -170,7 +170,7 @@
 	"lqt-log-action-resort": "je spremenil_a vrstni red razvrščanja [[$1]]. Razvrstilni ključ je spremenjen iz $2 v $3",
 	"lqt-log-action-signatureedit": "je spremenil_a podpis [[$1]] iz »$2« v »$3«",
 	"lqt-preference-notify-talk": "Pošlji mi e-pošto ob odgovorih na niti, ki jih spremljam",
-	"lqt-preference-watch-threads": "Nadzoruj niti, ki sem jih ustvaril ali nanje odgovoril",
+	"lqt-preference-watch-threads": "Opazuj niti, ki jih ustvarim ali nanje odgovorim",
 	"prefs-lqt": "Nitna razprava",
 	"prefs-description-lqt": "Odločite se, kako prikazati odgovore.",
 	"lqt-preference-display-depth": "Največja prikazana globina odgovorov:",
