@@ -1085,6 +1085,7 @@ class Thread {
 			);
 			$this->articleNamespace = $articleTitle->getNamespace();
 			$this->articleTitle = $articleTitle->getDBkey();
+			$this->article = new Article( $articleTitle, 0 );
 
 			$set['thread_article_namespace'] = $articleTitle->getNamespace();
 			$set['thread_article_title'] = $articleTitle->getDBkey();
