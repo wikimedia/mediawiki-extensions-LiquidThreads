@@ -217,7 +217,7 @@
 	"lqt-drag-title": "Sürüklemeyi onayla",
 	"lqt-drag-reason": "Gerekçe:",
 	"lqt-drag-subject": "Yeni ileti başlığı (zorunlu):",
-	"lqt-edit-signature": "(imzayı düzenle)",
+	"lqt-edit-signature": "(imzayı değiştir)",
 	"lqt-preview-signature": "(ön izleme)",
 	"lqt-feed-title-all": "{{SITENAME}} — Yeni gönderiler",
 	"lqt-feed-title-all-from": "{{SITENAME}} — $1 sayfaları için yeni gönderiler",

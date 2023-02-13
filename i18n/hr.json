@@ -243,7 +243,7 @@
 	"lqt-edit-bump-tooltip": "Premjesti ovu temu na vrh njene stranice za razgovor",
 	"lqt-historicalrevision-error": "Inačica koju ste odabrali je oštećena, i ne može biti pregledana.",
 	"lqt-reply-subpage": "odgovor",
-	"lqt-pagechange-editformopen": "Na ovoj stranici imate nespremljen tekst. Ukoliko otiđete s te stranice možete izgubiti njen sadržaj.",
+	"lqt-pagechange-editformopen": "Na ovoj stranici imate nespremljen tekst. Ako otiđete sa stranice možda ćete izgubiti njen sadržaj.",
 	"lqt-not-a-liquidthreads-page": "$1 nije stranica LiquidThreadsa",
 	"nstab-thread": "Tema",
 	"nstab-summary": "Sažetak",
