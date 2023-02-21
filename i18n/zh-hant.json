@@ -187,6 +187,7 @@
 	"lqt-preference-notify-talk": "當監視的討論串有回覆時，傳送電子郵件通知我",
 	"lqt-preference-watch-threads": "監視我發起或回覆的討論串",
 	"prefs-lqt": "討論串",
+	"prefs-description-lqt": "決定如何顯示回覆。",
 	"lqt-preference-display-depth": "回覆深度顯示上限：",
 	"lqt-preference-display-count": "回覆數量顯示上限：",
 	"lqt-preference-custom-signatures": "顯示使用者自訂簽名",
