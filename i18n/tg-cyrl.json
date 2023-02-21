@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ibrahim",
-			"ToJack"
+			"ToJack",
+			"Vashgird"
 		]
 	},
 	"lqt-desc": "Илова кардани баҳси торкашӣ ба саҳифаҳои баҳс",
@@ -34,6 +35,6 @@
 	"lqt_header_warning_big": "Шумо дар ҳоли вироиши $1 ҳастед.",
 	"lqt_header_warning_new_discussion": "оғози мубоҳисаи ҷадид",
 	"lqt_sort_newest_threads": "торҳои навтарин аввал",
-	"lqt_sort_oldest_threads": "торҳои кӯҳнатарин аввал",
+	"lqt_sort_oldest_threads": "нахуст риштаҳои куҳна",
 	"lqt-new-messages": "Ба Шумо паёмҳои нав фиристоданд"
 }

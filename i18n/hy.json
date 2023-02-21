@@ -5,7 +5,8 @@
 			"Chaojoker",
 			"Kareyac",
 			"Vadgt",
-			"Xelgen"
+			"Xelgen",
+			"Սերգեյ Սաֆարյան"
 		]
 	},
 	"lqt_contents_title": "Բովանդակություն",
@@ -21,6 +22,7 @@
 	"lqt_move_move": "Տեղափոխել",
 	"lqt-no-new-messages": "Քեզ ուղղված նոր հաղորդագրություն չկա:",
 	"lqt-history-thread": "Թեմա",
+	"lqt-header-actions": "Գործողություններ",
 	"lqt-thread-split-thread": "Թեմա՝",
 	"lqt-movethread": "Տեղափոխել",
 	"lqt-menu-trigger": "Ավելին",
@@ -32,6 +34,7 @@
 	"lqt-save-subject": "Հիշել",
 	"lqt-cancel-subject-edit": "Չեղարկել",
 	"lqt-drag-save": "Հաստատել",
+	"lqt-preview-signature": "(նախադիտում)",
 	"lqt-newmessages-n": "Նոր հաղորդագրություններ ($1)",
 	"lqt_newmessages-title": "Նոր հաղորդագրություններ",
 	"lqt-reply-subpage": "պատասխանել",
