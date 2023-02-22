@@ -3,7 +3,8 @@
 		"authors": [
 			"Les Meloures",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"lqt-desc": "Setz Diskussiouns-Rubriken op d'Diskussiounssäiten dobäi",
@@ -109,7 +110,7 @@
 	"lqt-marked-read": "D'Rubrik '''$1''' gouf als gelies markéiert.",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|Message|Messagen}} als gelies markéieren.",
 	"lqt-email-undo": "Zréck setzen",
-	"lqt-no-new-messages": "Et gëtt keng nei Message fir Iech.",
+	"lqt-no-new-messages": "Et gëtt keng nei Messagë fir Iech.",
 	"lqt-new-messages": "Dir hutt nei Messagen.",
 	"lqt-email-info-undo": "Déi Rubrik nees weisen déi Dir elo grad ewechgeholl hutt.",
 	"lqt-date-info": "Dëse Link ass ausgeschalt wëll Dir Rubriken vun allen Datume kuckt.",
