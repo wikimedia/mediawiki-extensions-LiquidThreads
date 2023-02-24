@@ -25,7 +25,7 @@ class LqtDispatch {
 
 		// If we came here from a red-link, redirect to the thread page.
 		$redlink = $request->getCheck( 'redlink' ) &&
-					$request->getText( 'action' ) == 'edit';
+			$request->getText( 'action' ) == 'edit';
 		if ( $redlink ) {
 			$output->redirect( $title->getLocalURL() );
 			return false;
@@ -44,9 +44,9 @@ class LqtDispatch {
 
 			$viewname = TalkpageView::class;
 		} elseif ( !$lqt_action && (
-				( !in_array( $action, $lqt_actions ) && $action ) ||
-				$request->getVal( 'diff', null ) !== null ||
-				$request->getVal( 'oldid', null ) !== null )
+			( !in_array( $action, $lqt_actions ) && $action ) ||
+			$request->getVal( 'diff', null ) !== null ||
+			$request->getVal( 'oldid', null ) !== null )
 		) {
 			// Pass through wrapper
 			$viewname = TalkpageHeaderView::class;
@@ -120,14 +120,13 @@ class LqtDispatch {
 			return false;
 		}
 		// Ignore it if it's a thread or a summary, makes no sense to have LiquidThreads there.
-		if ( $title->getNamespace() == NS_LQT_THREAD ||
-				$title->getNamespace() == NS_LQT_SUMMARY ) {
+		if ( $title->getNamespace() == NS_LQT_THREAD || $title->getNamespace() == NS_LQT_SUMMARY ) {
 			return false;
 		}
 
 		global $wgLqtPages, $wgLqtTalkPages, $wgLqtNamespaces;
 		$isTalkPage = ( $title->isTalkPage() && $wgLqtTalkPages ) ||
-				in_array( $title->getPrefixedText(), $wgLqtPages );
+			in_array( $title->getPrefixedText(), $wgLqtPages );
 
 		if ( in_array( $title->getNamespace(), $wgLqtNamespaces ) ) {
 			$isTalkPage = true;
@@ -160,14 +159,13 @@ class LqtDispatch {
 			return null;
 		}
 
-		$articleid = $title->getArticleID();
-
-		global $wgLiquidThreadsAllowUserControlNamespaces;
 		global $wgLiquidThreadsAllowUserControl;
 
 		if ( !$wgLiquidThreadsAllowUserControl ) {
 			return null;
 		}
+
+		global $wgLiquidThreadsAllowUserControlNamespaces;
 
 		$namespaces = $wgLiquidThreadsAllowUserControlNamespaces;
 
@@ -175,11 +173,11 @@ class LqtDispatch {
 			return null;
 		}
 
+		$articleid = $title->getArticleID();
+
 		// Check instance cache.
 		if ( array_key_exists( $articleid, self::$userLqtOverride ) ) {
-			$cacheVal = self::$userLqtOverride[$articleid];
-
-			return $cacheVal;
+			return self::$userLqtOverride[$articleid];
 		}
 
 		// Load from the database.
@@ -208,7 +206,7 @@ class LqtDispatch {
 	}
 
 	/**
-	 * If the page we recieve is a LiquidThreads page of any kind, process it
+	 * If the page we receive is a LiquidThreads page of any kind, process it
 	 * as needed and return True. If it's a normal, non-liquid page, return false.
 	 * @param OutputPage $output
 	 * @param Article $article
