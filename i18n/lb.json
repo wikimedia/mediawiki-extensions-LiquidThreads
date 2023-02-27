@@ -3,7 +3,8 @@
 		"authors": [
 			"Les Meloures",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"lqt-desc": "Setz Diskussiouns-Rubriken op d'Diskussiounssäiten dobäi",
@@ -77,7 +78,7 @@
 	"lqt_summary_label": "Resumé vun der Rubrik:",
 	"lqt_summary_subtitle": "Résumé vu(n) $1",
 	"lqt_nosuchrevision": "Et gëtt déi Versioun vun deser Rubrik net.",
-	"lqt_nosuchthread": "Déi Rubrik déi Dir uginn hutt gëtt et net.",
+	"lqt_nosuchthread": "Déi Rubrik, déi Dir uginn hutt, gëtt et net.",
 	"lqt_nosuchthread_title": "Keng sou Rubrik",
 	"lqt_threadrequired": "Dir musst eng Rubrik an der URL uginn.",
 	"lqt_move_movingthread": "$1 gëtt geréckelt.\nDës Rubrik ghéiert zu $2.",
@@ -109,9 +110,9 @@
 	"lqt-marked-read": "D'Rubrik '''$1''' gouf als gelies markéiert.",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|Message|Messagen}} als gelies markéieren.",
 	"lqt-email-undo": "Zréck setzen",
-	"lqt-no-new-messages": "Et gëtt keng nei Message fir Iech.",
+	"lqt-no-new-messages": "Et gëtt keng nei Messagë fir Iech.",
 	"lqt-new-messages": "Dir hutt nei Messagen.",
-	"lqt-email-info-undo": "Déi Rubrik nees weisen déi Dir elo grad ewechgeholl hutt.",
+	"lqt-email-info-undo": "Déi Rubrik nees weisen, déi Dir elo grad ewechgeholl hutt.",
 	"lqt-date-info": "Dëse Link ass ausgeschalt wëll Dir Rubriken vun allen Datume kuckt.",
 	"lqt-newmessages-context": "Ganz Rubrik",
 	"lqt-thread-created": "Ugeluecht",
