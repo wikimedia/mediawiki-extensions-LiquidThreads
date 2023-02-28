@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
-	"apierror-liquidthreads-badsubject": "De Sujet deen Dir spezifizéiert hutt ass net valabel."
+	"apierror-liquidthreads-badsubject": "De Sujet, deen Dir spezifizéiert hutt, ass net valabel."
 }
