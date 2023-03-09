@@ -11,9 +11,9 @@ use HtmlArmor;
 use LqtDispatch;
 use LqtParserFunctions;
 use LqtView;
-use MediaWiki\Extension\Renameuser\RenameuserSQL;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\RenameUser\RenameuserSQL;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserIdentity;
@@ -319,7 +319,7 @@ class Hooks {
 	}
 
 	/**
-	 * For integration with the Renameuser extension.
+	 * For integration with user renames.
 	 *
 	 * @param RenameuserSQL $renameUserSQL
 	 * @return bool
