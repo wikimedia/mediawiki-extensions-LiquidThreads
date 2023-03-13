@@ -125,6 +125,7 @@
 	"lqt-header-actions": "Akcije",
 	"lqt_summarize_link": "zjeć",
 	"lqt-summarize-intro": "Prošu zjimaj slědowacu nitku we wobdźěłanskim kašćiku.\nW swojim zjeću móžeš wikitekst wužiwać. Hdyž je dokónčene, klikń na \"{{int:publishpage}}\".",
+	"lqt-update-summary-intro": "Prošu zjimaj slědowacu nitku we wobdźěłanskim kašćiku.\nW swojim zjeću móžeš wikitekst wužiwać. Hdyž je dokónčene, klikń na „{{int:publishchanges}}“.",
 	"lqt-thread-split": "Do noweje nitki rozšćěpić",
 	"lqt-split-success": "Sy wuspěšnje nitku $1 wotšćěpił.",
 	"lqt_split_thread": "Nitku šćěpić",
