@@ -165,7 +165,7 @@
 	"lqt-log-action-resort": "huet de Reiefolleg vum Zortéiere vu(n) [[$1]] gännert. De Zortéierschlësel giuf vun $2 op $3 geännert.",
 	"lqt-log-action-signatureedit": "huet de Ënnerschrëft vu(n) [[$1]] vun \"$2\" op \"$3\" geännert",
 	"lqt-preference-notify-talk": "Mir eng E-Mail schécke wann op eng Rubrik geäntwert gëtt déi ech iwwerwaachen",
-	"lqt-preference-watch-threads": "Rubriken déi ech uleeën oder an deenen ech äntwerten iwwerwaachen",
+	"lqt-preference-watch-threads": "Rubricken, déi ech uleeën oder an deenen ech äntweren, iwwerwaachen",
 	"prefs-lqt": "Diskussioun mat Rubriken",
 	"lqt-preference-display-depth": "Maximal Déift vun den Äntwerten déi gewise gëtt:",
 	"lqt-preference-display-count": "Maximal Zuel vun Äntwerten déi gewise ginn:",
