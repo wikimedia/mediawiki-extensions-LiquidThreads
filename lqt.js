@@ -501,7 +501,7 @@
 				if ( $tsField.length ) {
 					oldTS = $tsField.val();
 					// Prefix is lqt-thread-modified-
-					threadId = $tsField.attr( 'id' ).substr( 'lqt-thread-modified-'.length );
+					threadId = $tsField.attr( 'id' ).slice( 'lqt-thread-modified-'.length );
 					threadModifiedTS[ threadId ] = oldTS;
 					threads.push( threadId );
 				}
@@ -622,7 +622,7 @@
 
 			// Update reply links
 			$threadWrapper = $threadContainer.closest( '.lqt_thread' );
-			threadId = $threadWrapper.attr( 'id' ).substring( prefixLength );
+			threadId = $threadWrapper.attr( 'id' ).slice( Math.max( 0, prefixLength ) );
 
 			$threadContainer.data( 'thread-id', threadId );
 			$threadWrapper.data( 'thread-id', threadId );
@@ -775,7 +775,7 @@
 				$oldButton = $button.clone(),
 				// Find the title of the thread
 				$threadLevelCommands = $button.closest( '.lqt_threadlevel_commands' ),
-				title = $( '#lqt-thread-title-' + $threadLevelCommands.attr( 'id' ).substring( tlcOffset ) ).val(),
+				title = $( '#lqt-thread-title-' + $threadLevelCommands.attr( 'id' ).slice( Math.max( 0, tlcOffset ) ) ).val(),
 				// Check if we're watching or unwatching.
 				action = '';
 
@@ -822,7 +822,7 @@
 			linkTitle = $thread.find( '.lqt-thread-title-metadata' ).val();
 			linkURL = mw.util.getUrl( linkTitle );
 			linkURL = mw.config.get( 'wgServer' ) + linkURL;
-			if ( linkURL.substr( 0, 2 ) === '//' ) {
+			if ( linkURL.slice( 0, 2 ) === '//' ) {
 				linkURL = window.location.protocol + linkURL;
 			}
 			liquidThreads.showLinkWindow( linkTitle, linkURL );
@@ -832,7 +832,7 @@
 			var linkURL, linkTitle;
 			e.preventDefault();
 			linkURL = mw.config.get( 'wgServer' ) + $( this ).attr( 'href' );
-			if ( linkURL.substr( 0, 2 ) === '//' ) {
+			if ( linkURL.slice( 0, 2 ) === '//' ) {
 				linkURL = window.location.protocol + linkURL;
 			}
 			linkTitle = $( this ).parent().find( 'input[name=summary-title]' ).val();
@@ -1201,12 +1201,12 @@
 			$( '.lqt-thread-topmost' ).not( $thread ).each( function () {
 				var sortkey = $( this ).contents().filter( 'input[name=lqt-thread-sortkey]' ).val(),
 					d = new Date(
-						sortkey.substr( 0, 4 ),
-						sortkey.substr( 4, 2 ) - 1, // month is from 0 to 11
-						sortkey.substr( 6, 2 ),
-						sortkey.substr( 8, 2 ),
-						sortkey.substr( 10, 2 ),
-						sortkey.substr( 12, 2 )
+						sortkey.slice( 0, 4 ),
+						sortkey.slice( 4, 6 ) - 1, // month is from 0 to 11
+						sortkey.slice( 6, 8 ),
+						sortkey.slice( 8, 10 ),
+						sortkey.slice( 10, 12 ),
+						sortkey.slice( 12, 14 )
 					);
 
 				// Use proper date manipulation to avoid invalid timestamps such as

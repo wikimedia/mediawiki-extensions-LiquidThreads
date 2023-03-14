@@ -26,8 +26,8 @@
 				$elem = $( '<span>' ).addClass( 'lqt-read-placeholder' );
 
 				if ( placeholderIndex >= 0 ) {
-					beforeMsg = msg.substr( 0, placeholderIndex );
-					afterMsg = msg.substr( placeholderIndex + 2 );
+					beforeMsg = msg.slice( 0, Math.max( 0, placeholderIndex ) );
+					afterMsg = msg.slice( placeholderIndex + 2 );
 
 					beforeText = document.createTextNode( beforeMsg );
 					$elem.append( beforeText );
