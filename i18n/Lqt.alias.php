@@ -557,15 +557,6 @@ $specialPageAliases['yi'] = [
 	'NewMessages' => [ 'נייע_מעלדונגנען' ],
 ];
 
-/** Chinese (中文) */
-$specialPageAliases['zh'] = [
-	'DeleteThread' => [ '删除话题', '刪除話題' ],
-	'MoveThread' => [ '移动话题', '移動話題' ],
-	'NewMessages' => [ '新消息', '新訊息' ],
-	'SplitThread' => [ '分割话题', '分割話題' ],
-	'MergeThread' => [ '合并话题', '合併話題' ],
-];
-
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = [
 	'DeleteThread' => [ '删除话题' ],
@@ -580,6 +571,6 @@ $specialPageAliases['zh-hant'] = [
 	'DeleteThread' => [ '刪除討論串' ],
 	'MoveThread' => [ '移動討論串' ],
 	'NewMessages' => [ '新訊息' ],
-	'SplitThread' => [ '分割討論串' ],
-	'MergeThread' => [ '合併討論串' ],
+	'SplitThread' => [ '分割討論串', '分割話題' ],
+	'MergeThread' => [ '合併討論串', '合併話題' ],
 ];
