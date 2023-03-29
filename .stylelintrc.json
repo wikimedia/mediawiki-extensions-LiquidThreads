@@ -4,7 +4,6 @@
 		"selector-max-id": null,
 		"no-duplicate-selectors": null,
 		"no-descending-specificity": null,
-		"declaration-no-important": null,
-		"selector-pseudo-element-colon-notation": null
+		"declaration-no-important": null
 	}
 }

@@ -496,9 +496,9 @@ table.lqt-new-messages {
 	text-align: right;
 }
 /* Float Clearing - If you confused, http://www.positioniseverything.net/easyclearing.html */
-.lqt_thread_heading:after,
-.lqt-thread-toolbar-commands:after,
-.lqt-post-wrapper:after {
+.lqt_thread_heading::after,
+.lqt-thread-toolbar-commands::after,
+.lqt-post-wrapper::after {
 	content: '';
 	display: block;
 	height: 0;
