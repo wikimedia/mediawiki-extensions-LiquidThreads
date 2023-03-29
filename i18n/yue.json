@@ -5,7 +5,8 @@
 			"Hello903hello",
 			"Moon0319",
 			"Roy17",
-			"Shinjiman"
+			"Shinjiman",
+			"Al12si"
 		]
 	},
 	"lqt_movethread": "搬討論串去另一版",
@@ -47,7 +48,7 @@
 	"lqt_thread_deleted": "呢個討論串已經刪除咗。",
 	"lqt_summary_notice": "如果呢個討論有結論嘅話，鼓勵你去$1。呢個討論已經最少有$2日無更改過。　",
 	"lqt_summary_notice_link": "寫一個摘要",
-	"lqt_summary_label": "呢個討論串已經摘要做:",
+	"lqt_summary_label": "討論摘要：",
 	"lqt_summary_subtitle": "$1嘅摘要。",
 	"lqt_nosuchrevision": "響呢個討論串度無所要嘅修訂。",
 	"lqt_nosuchthread": "呢度無呢個討論串。",
@@ -68,6 +69,7 @@
 	"lqt-movethread": "搬",
 	"lqt-menu-trigger": "多啲",
 	"lqt-merge-submit": "合埋",
+	"lqt-preference-notify-talk": "如果留咗名嘅討論有人回覆，用電郵通知我。",
 	"lqt-search-legend": "喺呢版搵討論",
 	"lqt-search-label": "搵字詞:",
 	"lqt-search-button": "搵",
