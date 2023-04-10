@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eitvys200"
+			"Eitvys200",
+			"Nokeoo"
 		]
 	},
 	"apierror-liquidthreads-badreaction": "Turite nurodyti abu: pavadinimą ir reakcijos reikšmę.",
