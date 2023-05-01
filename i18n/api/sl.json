@@ -61,11 +61,11 @@
 	"apierror-liquidthreads-badsubject": "Zadeva, ki ste jo določili, ni veljavna.",
 	"apierror-liquidthreads-invalidtalkpage": "Pogovorna stran, ki ste jo navedli, je neveljavna ali pa pogovori v obliki niti niso omogočeni.",
 	"apierror-liquidthreads-noparent": "Določiti morate novo matično nit, v katero želite spojiti.",
-	"apierror-liquidthreads-noreplies-talkpage": "Ni mogoče odgovoriti na to nit, saj je pogovorna stran zaščitena pred odgovarjanjem.",
+	"apierror-liquidthreads-noreplies-talkpage": "Na to nit ni mogoče odgovoriti, saj je pogovorna stran zaščitena pred odgovori.",
 	"apierror-liquidthreads-noreplies-thread": "Ni mogoče odgovoriti na to nit, saj je zaščitena pred odgovori.",
 	"apierror-liquidthreads-nosubject": "Navedena ni bila nobena zadeva, oziroma je neveljavna.",
 	"apierror-liquidthreads-notext": "Sporočilo mora vsebovati besedilo.",
 	"apierror-liquidthreads-onlyone": "Istočasno je mogoče urejati samo eno nit.",
-	"apierror-liquidthreads-talkpageprotected": "Na tej pogovorni strani ni mogoče objavljati sporočil, saj je zaščitena pred novimi sporočili.",
+	"apierror-liquidthreads-talkpageprotected": "Na tej pogovorni strani ni mogoče objavljati, saj je zaščitena pred novimi objavami.",
 	"apierror-liquidthreads-threadneeded": "Navesti je treba nit za urejanje."
 }
