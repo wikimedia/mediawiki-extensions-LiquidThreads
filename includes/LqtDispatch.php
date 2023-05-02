@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class LqtDispatch {
 	/** @var (int|null)[] static cache of per-page LiquidThreads activation setting */
 	public static $userLqtOverride = [];
@@ -145,7 +147,8 @@ class LqtDispatch {
 
 		$isTalkPage = $isTalkPage && !$title->isRedirect();
 
-		Hooks::run( 'LiquidThreadsIsLqtPage', [ $title, &$isTalkPage ] );
+		MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'LiquidThreadsIsLqtPage', [ $title, &$isTalkPage ] );
 
 		return $isTalkPage;
 	}

@@ -6,7 +6,7 @@
  * @license GPL-2.0-or-later
  */
 
-use MediaWiki\Extension\LiquidThreads\Hooks as LqtHooks;
+use MediaWiki\Extension\LiquidThreads\Hooks;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\IPUtils;
 
@@ -394,7 +394,7 @@ class LqtView {
 		$wgRequest = $this->request;
 		$wgTitle = $this->title;
 
-		$hookResult = Hooks::run( 'LiquidThreadsDoInlineEditForm',
+		$hookResult = MediaWikiServices::getInstance()->getHookContainer()->run( 'LiquidThreadsDoInlineEditForm',
 					[
 						$thread,
 						$this->request,
@@ -524,15 +524,16 @@ class LqtView {
 		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 		$article = new Article( $t, 0 );
 
-		LqtHooks::$editTalkpage = $talkpage;
-		LqtHooks::$editArticle = $article;
-		LqtHooks::$editThread = null;
-		LqtHooks::$editType = 'new';
-		LqtHooks::$editAppliesTo = null;
+		Hooks::$editTalkpage = $talkpage;
+		Hooks::$editArticle = $article;
+		Hooks::$editThread = null;
+		Hooks::$editType = 'new';
+		Hooks::$editAppliesTo = null;
 
 		$e = new EditPage( $article );
 		$e->setContextTitle( $article->getTitle() );
-		Hooks::run( 'LiquidThreadsShowNewThreadForm', [ &$e, $talkpage ] );
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		$hookContainer->run( 'LiquidThreadsShowNewThreadForm', [ &$e, $talkpage ] );
 
 		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
@@ -574,7 +575,7 @@ class LqtView {
 		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 		$e->editFormTextBeforeContent .= $this->getSubjectEditor( '', $subject );
 
-		Hooks::run( 'LiquidThreadsAfterShowNewThreadForm', [ &$e, $talkpage ] );
+		$hookContainer->run( 'LiquidThreadsAfterShowNewThreadForm', [ &$e, $talkpage ] );
 
 		$e->edit();
 
@@ -591,7 +592,7 @@ class LqtView {
 					'subject' => $subject,
 				];
 
-			Hooks::run( 'LiquidThreadsSaveNewThread',
+			$hookContainer->run( 'LiquidThreadsSaveNewThread',
 					[ &$info, &$e, &$talkpage ] );
 
 			$thread = self::newPostMetadataUpdates( $this->user, $info );
@@ -639,11 +640,11 @@ class LqtView {
 		$article = new Article( $t, 0 );
 		$talkpage = $thread->article();
 
-		LqtHooks::$editTalkpage = $talkpage;
-		LqtHooks::$editArticle = $article;
-		LqtHooks::$editThread = $thread;
-		LqtHooks::$editType = 'reply';
-		LqtHooks::$editAppliesTo = $thread;
+		Hooks::$editTalkpage = $talkpage;
+		Hooks::$editArticle = $article;
+		Hooks::$editThread = $thread;
+		Hooks::$editType = 'reply';
+		Hooks::$editAppliesTo = $thread;
 
 		$e = new EditPage( $article );
 		$e->setContextTitle( $article->getTitle() );
@@ -682,7 +683,8 @@ class LqtView {
 
 		$wgRequest->setVal( 'wpWatchThis', false );
 
-		Hooks::run( 'LiquidThreadsShowReplyForm', [ &$e, $thread ] );
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		$hookContainer->run( 'LiquidThreadsShowReplyForm', [ &$e, $thread ] );
 
 		$e->edit();
 
@@ -700,7 +702,7 @@ class LqtView {
 					'root' => $article,
 				];
 
-			Hooks::run( 'LiquidThreadsSaveReply',
+			$hookContainer->run( 'LiquidThreadsSaveReply',
 					[ &$info, &$e, &$thread ] );
 
 			$newThread = self::replyMetadataUpdates( $this->user, $info );
@@ -752,13 +754,14 @@ class LqtView {
 		$article = $thread->root();
 		$talkpage = $thread->article();
 
-		Hooks::run( 'LiquidThreadsEditFormContent', [ $thread, &$article, $talkpage ] );
+		MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'LiquidThreadsEditFormContent', [ $thread, &$article, $talkpage ] );
 
-		LqtHooks::$editTalkpage = $talkpage;
-		LqtHooks::$editArticle = $article;
-		LqtHooks::$editThread = $thread;
-		LqtHooks::$editType = 'edit';
-		LqtHooks::$editAppliesTo = $thread;
+		Hooks::$editTalkpage = $talkpage;
+		Hooks::$editArticle = $article;
+		Hooks::$editThread = $thread;
+		Hooks::$editType = 'edit';
+		Hooks::$editAppliesTo = $thread;
 
 		$e = new EditPage( $article );
 		$e->setContextTitle( $article->getTitle() );
@@ -857,11 +860,11 @@ class LqtView {
 
 		$talkpage = $thread->article();
 
-		LqtHooks::$editTalkpage = $talkpage;
-		LqtHooks::$editArticle = $article;
-		LqtHooks::$editThread = $thread;
-		LqtHooks::$editType = 'summarize';
-		LqtHooks::$editAppliesTo = $thread;
+		Hooks::$editTalkpage = $talkpage;
+		Hooks::$editArticle = $article;
+		Hooks::$editThread = $thread;
+		Hooks::$editType = 'summarize';
+		Hooks::$editAppliesTo = $thread;
 
 		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 		$e = new EditPage( $article );
@@ -1025,7 +1028,8 @@ class LqtView {
 			$summary, $bump, $signature
 		);
 
-		Hooks::run( 'LiquidThreadsAfterReplyMetadataUpdates', [ &$thread ] );
+		MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'LiquidThreadsAfterReplyMetadataUpdates', [ &$thread ] );
 
 		return $thread;
 	}
@@ -1114,7 +1118,8 @@ class LqtView {
 			$summary, null, $signature
 		);
 
-		Hooks::run( 'LiquidThreadsAfterNewPostMetadataUpdates', [ &$thread ] );
+		MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'LiquidThreadsAfterNewPostMetadataUpdates', [ &$thread ] );
 
 		return $thread;
 	}
@@ -1177,7 +1182,8 @@ class LqtView {
 		if ( $thread->isHistorical() ) {
 			return [];
 		}
-		$user_can_edit = MediaWikiServices::getInstance()->getPermissionManager()
+		$services = MediaWikiServices::getInstance();
+		$user_can_edit = $services->getPermissionManager()
 			->quickUserCan( 'edit', $this->user, $thread->root()->getTitle() );
 		$editMsg = $user_can_edit ? 'edit' : 'viewsource';
 
@@ -1241,7 +1247,7 @@ class LqtView {
 			'tooltip' => wfMessage( 'lqt_permalink' )->parse()
 		];
 
-		Hooks::run( 'LiquidThreadsThreadCommands', [ $thread, &$commands ] );
+		$services->getHookContainer()->run( 'LiquidThreadsThreadCommands', [ $thread, &$commands ] );
 
 		return $commands;
 	}
@@ -1315,8 +1321,8 @@ class LqtView {
 			];
 		}
 
-		Hooks::run( 'LiquidThreadsThreadMajorCommands',
-				[ $thread, &$commands ] );
+		MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'LiquidThreadsThreadMajorCommands', [ $thread, &$commands ] );
 
 		return $commands;
 	}
@@ -1344,11 +1350,12 @@ class LqtView {
 			];
 		}
 
+		$services = MediaWikiServices::getInstance();
 		if ( $this->user->isAllowed( 'protect' ) ) {
 			$protect_href = $thread->title()->getLocalURL( 'action=protect' );
 
 			// Check if it's already protected
-			if ( !MediaWikiServices::getInstance()->getRestrictionStore()->isProtected( $thread->title() ) ) {
+			if ( !$services->getRestrictionStore()->isProtected( $thread->title() ) ) {
 				$label = wfMessage( 'protect' )->parse();
 			} else {
 				$label = wfMessage( 'unprotect' )->parse();
@@ -1361,7 +1368,7 @@ class LqtView {
 			];
 		}
 
-		if ( !$this->user->isAnon() && !MediaWikiServices::getInstance()->getWatchlistManager()
+		if ( !$this->user->isAnon() && !$services->getWatchlistManager()
 				->isWatched( $this->user, $thread->title() ) ) {
 			$commands['watch'] = [
 				'label' => wfMessage( 'watch' )->parse(),
@@ -1397,7 +1404,7 @@ class LqtView {
 			];
 		}
 
-		Hooks::run( 'LiquidThreadsTopLevelCommands', [ $thread, &$commands ] );
+		$services->getHookContainer()->run( 'LiquidThreadsTopLevelCommands', [ $thread, &$commands ] );
 
 		return $commands;
 	}
@@ -1558,8 +1565,9 @@ class LqtView {
 			$oldid = $thread->isHistorical() ? $thread->rootRevision() : null;
 		}
 
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 		// If we're editing the thread, show the editing form.
-		$showAnything = Hooks::run( 'LiquidThreadsShowThreadBody',
+		$showAnything = $hookContainer->run( 'LiquidThreadsShowThreadBody',
 					[ $thread ] );
 		if ( $this->methodAppliesToThread( 'edit', $thread ) && $showAnything ) {
 			$html = Xml::openElement( 'div', [ 'class' => $divClass ] );
@@ -1573,13 +1581,13 @@ class LqtView {
 		} elseif ( $showAnything ) {
 			$html .= Xml::openElement( 'div', [ 'class' => $divClass ] );
 
-			$show = Hooks::run( 'LiquidThreadsShowPostContent',
+			$show = $hookContainer->run( 'LiquidThreadsShowPostContent',
 						[ $thread, &$post ] );
 			if ( $show ) {
 				$html .= $this->showPostBody( $post, $oldid );
 			}
 			$html .= Xml::closeElement( 'div' );
-			Hooks::run( 'LiquidThreadsShowPostThreadBody',
+			$hookContainer->run( 'LiquidThreadsShowPostThreadBody',
 				[ $thread, $this->request, &$html ] );
 
 			$html .= $this->showThreadToolbar( $thread );
@@ -1609,7 +1617,8 @@ class LqtView {
 					[ 'class' => 'lqt-thread-toolbar-timestamp' ],
 					$timestamp );
 
-		Hooks::run( 'LiquidThreadsThreadSignature', [ $thread, &$signature ] );
+		MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'LiquidThreadsThreadSignature', [ $thread, &$signature ] );
 
 		$signature = Xml::tags( 'div', [ 'class' => 'lqt-thread-signature' ],
 					$signature );
@@ -1666,7 +1675,8 @@ class LqtView {
 						$editedNotice );
 		}
 
-		Hooks::run( 'LiquidThreadsThreadInfoPanel', [ $thread, &$infoElements ] );
+		MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'LiquidThreadsThreadInfoPanel', [ $thread, &$infoElements ] );
 
 		if ( !count( $infoElements ) ) {
 			return '';
@@ -1705,8 +1715,7 @@ class LqtView {
 				->getLanguageConverter( $services->getContentLanguage() );
 			$html = $langConv->convert( $thread->formattedSubject() );
 
-			$show = Hooks::run( 'LiquidThreadsShowThreadHeading',
-					[ $thread, &$html ] );
+			$show = $services->getHookContainer()->run( 'LiquidThreadsShowThreadHeading', [ $thread, &$html ] );
 
 			if ( $show ) {
 				$contLang = MediaWikiServices::getInstance()->getContentLanguage();
@@ -2084,7 +2093,8 @@ class LqtView {
 		}
 
 		// Grab options
-		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$services = MediaWikiServices::getInstance();
+		$userOptionsLookup = $services->getUserOptionsLookup();
 		$maxDepth = $options['maxDepth'] ?? $userOptionsLookup->getOption( $this->user, 'lqtdisplaydepth' );
 		$maxCount = $options['maxCount'] ?? $userOptionsLookup->getOption( $this->user, 'lqtdisplaycount' );
 		$startAt = $options['startAt'] ?? 0;
@@ -2108,7 +2118,7 @@ class LqtView {
 		$this->output->addModules( 'ext.liquidThreads' );
 
 		$html = '';
-		Hooks::run( 'EditPageBeforeEditToolbar', [ &$html ] );
+		$services->getHookContainer()->run( 'EditPageBeforeEditToolbar', [ &$html ] );
 
 		$class = $this->threadDivClass( $thread );
 		if ( $levelNum == 1 ) {
@@ -2123,7 +2133,7 @@ class LqtView {
 			$class .= ' lqt-thread-no-subthreads';
 		}
 
-		if ( !MediaWikiServices::getInstance()->getPermissionManager()
+		if ( !$services->getPermissionManager()
 			->quickUserCan( 'edit', $this->user, $thread->title() )
 			|| !LqtDispatch::isLqtPage( $thread->getTitle() )
 		) {
