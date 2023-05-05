@@ -1,6 +1,6 @@
 <?php
 
-use Mediawiki\MediaWikiServices;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\User\UserIdentity;
 
