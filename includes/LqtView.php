@@ -6,6 +6,7 @@
  * @license GPL-2.0-or-later
  */
 
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\LiquidThreads\Hooks;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\IPUtils;
