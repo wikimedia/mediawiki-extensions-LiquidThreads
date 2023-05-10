@@ -219,7 +219,7 @@
 	"lqt-feed-title-replies": "{{SITENAME}} — Responsas",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Responsas de $1",
 	"lqt-feed-new-thread-intro": "Nove filo in $1 publicate per {{GENDER:$4|$2}}",
-	"lqt-feed-reply-intro": "Responsa a $3 (super $1) publicate per {{GENDER:$4|$2}}",
+	"lqt-feed-reply-intro": "Responsa a $3 (sur $1) publicate per {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Monstra nove messages in filos o paginas de discussion arborescente que tu observa",
 	"lqt-newmessages-n": "Nove {{PLURAL:$1|message|messages}} ($1)",
 	"lqt_newmessages-title": "Nove messages",
