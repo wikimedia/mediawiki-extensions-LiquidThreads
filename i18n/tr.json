@@ -177,6 +177,7 @@
 	"lqt-preference-notify-talk": "İzlediğim bir ileti dizisine cevap geldiğinde bana e-posta gönder",
 	"lqt-preference-watch-threads": "Oluşturduğum ya da cevap verdiğim ileti dizilerini izle",
 	"prefs-lqt": "Dizileştirilmiş tartışma",
+	"prefs-description-lqt": "Yanıtların nasıl görüntüleneceğine karar verin.",
 	"lqt-preference-display-depth": "Gösterilecek azami cevap derinliği:",
 	"lqt-preference-display-count": "Gösterilecek azami cevap sayısı:",
 	"lqt-preference-custom-signatures": "Özel kullanıcı imzalarını göster",

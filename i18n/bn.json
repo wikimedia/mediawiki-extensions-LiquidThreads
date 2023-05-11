@@ -137,7 +137,7 @@
 	"lqt-feed-title-new-threads-from": "{{SITENAME}} — $1 হতে নতুন থ্রেড",
 	"lqt-feed-title-replies": "{{SITENAME}} — উত্তর",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — $1 হতে উত্তর",
-	"lqt-newmessages-n": "নতুন বার্তা ($1)",
+	"lqt-newmessages-n": "নতুন {{PLURAL:$1|বার্তা}} ($1)",
 	"lqt_newmessages-title": "নতুন বার্তা",
 	"lqt-newpost-summary": "নতুন থ্রেড: $1",
 	"lqt-reply-summary": "[[$2|$1]] এর উত্তর",
