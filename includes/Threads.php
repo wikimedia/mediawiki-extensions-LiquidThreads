@@ -263,11 +263,11 @@ class Threads {
 	 * @return string
 	 */
 	public static function stripWikitext( $text ) {
-		global $wgOut;
+		$out = RequestContext::getMain()->getOutput();
 		# The $text may not actually be in the interface language, but we
 		# don't want to subject it to language conversion, so
 		# parseAsInterface() is better than parseAsContent()
-		$text = $wgOut->parseInlineAsInterface( $text );
+		$text = $out->parseInlineAsInterface( $text );
 
 		$text = StringUtils::delimiterReplace( '<', '>', '', $text );
 

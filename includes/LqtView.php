@@ -1419,8 +1419,6 @@ class LqtView {
 	 * $post->getParserOutput.
 	 */
 	public function showPostBody( $post, $oldid = null ) {
-		global $wgOut;
-
 		$parserOutput = $post->getParserOutput( $oldid );
 
 		if ( $parserOutput === false ) {
@@ -1430,7 +1428,8 @@ class LqtView {
 		// Remove title, so that it stays set correctly.
 		$parserOutput->setTitleText( '' );
 
-		$wgOut->addParserOutputMetadata( $parserOutput );
+		$out = RequestContext::getMain()->getOutput();
+		$out->addParserOutputMetadata( $parserOutput );
 
 		// LanguageConverter for language conversion
 		$services = MediaWikiServices::getInstance();
@@ -2409,8 +2408,6 @@ class LqtView {
 	 * @return string
 	 */
 	public static function parseSignature( $sig ) {
-		global $wgOut;
-
 		static $parseCache = [];
 		$sigKey = md5( $sig );
 
@@ -2418,8 +2415,9 @@ class LqtView {
 			return $parseCache[$sigKey];
 		}
 
+		$out = RequestContext::getMain()->getOutput();
 		$sig = Parser::stripOuterParagraph(
-			$wgOut->parseAsContent( $sig )
+			$out->parseAsContent( $sig )
 		);
 
 		$parseCache[$sigKey] = $sig;

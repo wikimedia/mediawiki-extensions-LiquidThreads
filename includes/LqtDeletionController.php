@@ -30,8 +30,8 @@ class LqtDeletionController {
 		if ( $thread->replies() && $thread->isTopmostThread() ) {
 			$reason = wfMessage( 'lqt-delete-parent-deleted', $reason )->text();
 			self::recursivelyDeleteReplies( $thread, $reason, $user );
-			global $wgOut;
-			$wgOut->addWikiMsg( 'lqt-delete-replies-done' );
+			$out = RequestContext::getMain()->getOutput();
+			$out->addWikiMsg( 'lqt-delete-replies-done' );
 		} elseif ( $thread->replies() ) {
 			foreach ( $thread->replies() as $reply ) {
 				$reply->setSuperthread( $thread->superthread() );

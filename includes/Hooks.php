@@ -152,7 +152,7 @@ class Hooks {
 	public static function beforeWatchlist(
 		$name, &$tables, &$fields, &$conds, &$query_options, &$join_conds, $opts
 	) {
-		global $wgLiquidThreadsEnableNewMessages, $wgOut;
+		global $wgLiquidThreadsEnableNewMessages;
 
 		if ( !$wgLiquidThreadsEnableNewMessages ) {
 			return true;
@@ -163,7 +163,8 @@ class Hooks {
 		}
 
 		$db = wfGetDB( DB_REPLICA );
-		$user = RequestContext::getMain()->getUser();
+		$context = RequestContext::getMain();
+		$user = $context->getUser();
 
 		if ( !in_array( 'page', $tables ) ) {
 			$tables[] = 'page';
@@ -182,7 +183,8 @@ class Hooks {
 			return true;
 		}
 
-		$wgOut->addModules( 'ext.liquidThreads' );
+		$out = $context->getOutput();
+		$out->addModules( 'ext.liquidThreads' );
 		$messages_title = SpecialPage::getTitleFor( 'NewMessages' );
 		$new_messages = wfMessage( 'lqt-new-messages' )->parse();
 
@@ -190,7 +192,7 @@ class Hooks {
 			$messages_title,
 			new HtmlArmor( $new_messages ),
 			[ 'class' => 'lqt_watchlist_messages_notice' ] );
-		$wgOut->addHTML( $link );
+		$out->addHTML( $link );
 
 		return true;
 	}
