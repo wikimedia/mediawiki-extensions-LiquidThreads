@@ -33,7 +33,7 @@
 	"lqt_hist_comment_edited_deleted": "טקסט ההערה נערך (מאז נמחק)",
 	"lqt_hist_summary_changed": "התקציר שוּנה",
 	"lqt_hist_reply_created": "נוצרה [[$1|תגובה חדשה]]",
-	"lqt_hist_reply_created_deleted": "נוצרה תגובה חדשה (מאז נחמקה)",
+	"lqt_hist_reply_created_deleted": "נוצרה תגובה חדשה (מאז נמחקה)",
 	"lqt_hist_thread_created": "נוצר שרשור חדש",
 	"lqt_hist_deleted": "מחיקה",
 	"lqt_hist_undeleted": "שוחזר ממחיקה",
