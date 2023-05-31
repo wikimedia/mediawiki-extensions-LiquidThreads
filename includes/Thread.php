@@ -410,6 +410,7 @@ class Thread {
 			$this->replyCount = -1;
 		}
 
+		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 		// Reflect schema changes here.
 		$row = [
 			'thread_root' => $this->rootId,
@@ -428,7 +429,7 @@ class Thread {
 			'thread_editedness' => $this->editedness,
 			'thread_sortkey' => $this->sortkey,
 			'thread_replies' => $this->replyCount,
-			'thread_signature' => $this->signature,
+			'thread_signature' => $contLang->truncateForDatabase( $this->signature, 255, '' ),
 		];
 		if ( $id ) {
 			$row['thread_id'] = $id;
@@ -1099,8 +1100,8 @@ class Thread {
 		if ( $this->signature === null ) {
 			// Grab our signature.
 			$sig = LqtView::getUserSignature( $this->author() );
-
-			$set['thread_signature'] = $sig;
+			$contLang = MediaWikiServices::getInstance()->getContentLanguage();
+			$set['thread_signature'] = $contLang->truncateForDatabase( $sig, 255, '' );
 			$this->setSignature( $sig );
 		}
 
