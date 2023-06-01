@@ -6,7 +6,8 @@
 			"Hello903hello",
 			"Moon0319",
 			"Roy17",
-			"Shinjiman"
+			"Shinjiman",
+			"捍粵者"
 		]
 	},
 	"lqt_movethread": "搬討論串去另一版",
@@ -35,7 +36,7 @@
 	"lqt_hist_tooltip_newer_disabled": "呢個連結停用咗，因為你而家響第一版。",
 	"lqt_hist_tooltip_older_disabled": "呢個連結停用咗，因為你而家響最後一版。",
 	"lqt_revision_as_of": "響$1嘅修訂。",
-	"lqt_change_new_thread": "呢個係個討論串嘅最初修訂。",
+	"lqt_change_new_thread": "呢筆係討論串嘅最初修訂。",
 	"lqt_change_reply_created": "嘜咗嘅評論響呢次修訂度開過。",
 	"lqt_change_edited_root": "嘜咗嘅評論響呢次修訂度改過。",
 	"lqt_youhavenewmessages": "你有[[$1|新訊息]]。",
@@ -47,7 +48,7 @@
 	"lqt_thread_deleted_for_sysops": "呢個討論串已經$1，只係可以俾操作員睇到。",
 	"lqt_thread_deleted": "呢個討論串已經刪除咗。",
 	"lqt_summary_notice": "如果呢個討論有結論嘅話，鼓勵你去$1。呢個討論已經最少有$2日無更改過。　",
-	"lqt_summary_notice_link": "寫一個摘要",
+	"lqt_summary_notice_link": "寫摘要",
 	"lqt_summary_label": "討論摘要：",
 	"lqt_summary_subtitle": "$1嘅摘要。",
 	"lqt_nosuchrevision": "響呢個討論串度無所要嘅修訂。",
