@@ -245,20 +245,19 @@ class LqtDispatch {
 	/**
 	 * Most stuff is in the user language.
 	 * @param Title $title
-	 * @param Language|string|StubUserLang &$pageLang
-	 * @param Language|StubUserLang $userLang
+	 * @param Language &$pageLang
 	 */
-	public static function onPageContentLanguage( $title, &$pageLang, $userLang ) {
+	public static function onPageContentLanguage( $title, &$pageLang ) {
 		global $wgRequest;
 		$method = $wgRequest->getVal( 'lqt_method' );
 		$oldid = $wgRequest->getVal( 'lqt_oldid' );
 		if ( $title->inNamespace( NS_LQT_THREAD ) ) {
-			$pageLang = $userLang;
+			$pageLang = RequestContext::getMain()->getLanguage();
 		} elseif ( $method == 'diff' ) {
 			# the diff contains the wikitext, which is in the content language
 			return;
 		} elseif ( $method == 'talkpage_history' || $method == 'thread_history' || $oldid != '' ) {
-			$pageLang = $userLang;
+			$pageLang = RequestContext::getMain()->getLanguage();
 		}
 	}
 }
