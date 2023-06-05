@@ -1,13 +1,51 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eitvys200"
+			"Eitvys200",
+			"Nokeoo"
 		]
 	},
+	"apihelp-feedthreads-description": "Grąžinti diskusijų temų srautą.",
+	"apihelp-feedthreads-summary": "Grąžinti diskusijų temų srautą.",
+	"apihelp-feedthreads-param-feedformat": "Srauto formatas.",
+	"apihelp-feedthreads-param-days": "Temų dienų skaičius rodymui.",
+	"apihelp-feedthreads-param-type": "Įrašų tipai rodymai.",
+	"apihelp-feedthreads-param-talkpage": "Riboti rezultatus iki temų šiuose aptarimo puslapiuose.",
+	"apihelp-feedthreads-example-1": "Rodyti visų naujų temų srautą",
+	"apihelp-feedthreads-example-2": "Rodyti [[Thread:Foo]] atsakymų srautą",
+	"apihelp-feedthreads-example-3": "Rodyti [[Talk:Main Page]] naujų temų srautą",
+	"apihelp-query+threads-param-showdeleted": "Ar rodyti ištrintas temas.",
+	"apihelp-query+threads-param-limit": "Maksimalus nurodomų temų skaičius.",
+	"apihelp-query+threads-param-prop": "Kurias savybes gauti.",
+	"apihelp-query+threads-param-page": "Riboti rezultatus iki temų šiuose puslapiuose.",
+	"apihelp-query+threads-param-author": "Riboti rezultatus iki tam tikrų autorių temų.",
+	"apihelp-query+threads-param-summary": "Riboti rezultatus iki temų, atitinkančių nurodytus santraukų puslapius.",
+	"apihelp-query+threads-param-id": "Gauti temas su nurodytais ID.",
+	"apihelp-query+threads-param-render": "Ar įtraukti atvaizduojamą temą į rezultatus.",
+	"apihelp-query+threads-example-1": "Nurodo [[Talk:Main Page]] temas",
+	"apihelp-query+threads-example-2": "Nurodo temas su ID 1, 2, 3 ir 4",
+	"apihelp-threadaction-description": "Leidžia atlikti veiksmus temose ir įrašuose temų diskusijose.",
+	"apihelp-threadaction-summary": "Leidžia atlikti veiksmus temose ir įrašuose temų diskusijose.",
+	"apihelp-threadaction-param-thread": "Temų ID ar pavadinimai, kur veikti.",
+	"apihelp-threadaction-param-talkpage": "Aptarimo puslapis, kur veikti (jei taikoma).",
+	"apihelp-threadaction-param-threadaction": "Veiksmas atlikimui.",
+	"apihelp-threadaction-param-reason": "Jei taikoma, veiksmo priežastis ar santrauka.",
+	"apihelp-threadaction-param-text": "Įrašo tekstas sukūrimui.",
+	"apihelp-threadaction-param-signature": "Nurodo parašą naudojimui tam įrašui, vietoje numatytojo.",
+	"apihelp-threadaction-param-type": "Nurodomo reakcijos tipą pridėjimui.",
+	"apihelp-threadaction-param-value": "Nurodo reikšmę, susijusią su reakcija pridėjimui.",
+	"apihelp-threadaction-param-captchaword": "Atsakymas į CAPTCHA.",
+	"apihelp-threadaction-param-captchaid": "CAPTCHA ID iš ankstesnio prašymo.",
+	"apierror-liquidthreads-alreadytop": "Ši tema jau yra aukščiausio lygio tema.",
 	"apierror-liquidthreads-badreaction": "Turite nurodyti abu: pavadinimą ir reakcijos reikšmę.",
+	"apierror-liquidthreads-badsortkey": "Turite nurodyta galimą laiko žymą <var>sortkey</var> parametrui. Ji turėtų būti YYYYMMddhhmmss, unix laiko žyma ar <kbd>now</kbd>.",
 	"apierror-liquidthreads-badsubject": "Jūsų nurodytas tema negalima.",
+	"apierror-liquidthreads-invalidtalkpage": "Jūsų nurodytas aptarimo puslapis negalimas arba neturi įjungtų diskusijų temų.",
 	"apierror-liquidthreads-noreplies-talkpage": "Negalite atsakyti į šią temą, nes aptarimo puslapis yra apsaugotas nuo atsakymų.",
 	"apierror-liquidthreads-noreplies-thread": "Negalite atsakyti į šią temą, nes tema yra apsaugota nuo atsakymų.",
 	"apierror-liquidthreads-nosubject": "Nėra temos arba buvo nurodyta negalima tema.",
-	"apierror-liquidthreads-notext": "Turite įtraukti tekstą į savo įrašą."
+	"apierror-liquidthreads-notext": "Turite įtraukti tekstą į savo įrašą.",
+	"apierror-liquidthreads-onlyone": "Vienu metu galite atlikti veiksmus tik vienoje temoje.",
+	"apierror-liquidthreads-talkpageprotected": "Negalite skelbti nurodytame aptarimo puslapyje, nes jis apsaugotas nuo naujų įrašų.",
+	"apierror-liquidthreads-threadneeded": "Turite nurodyti temą, kurioje atlikti veiksmus."
 }
