@@ -85,21 +85,17 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$html = wfMessage( $msg, $args )->parse();
 
 		if (
-			$change_type == Threads::CHANGE_ROOT_BLANKED ||
-			$change_type == Threads::CHANGE_EDITED_ROOT
+			( $change_type == Threads::CHANGE_ROOT_BLANKED || $change_type == Threads::CHANGE_EDITED_ROOT ) &&
+			$post->root()
 		) {
-			try {
-				$diff_link = $this->diffPermalink(
-					$post,
-					wfMessage( 'diff' )->text(),
-					$this->mDisplayRevision
-				);
+			$diff_link = self::diffPermalink(
+				$post,
+				wfMessage( 'diff' )->text(),
+				$this->mDisplayRevision
+			);
 
-				// @todo FIXME: Hard coded brackets.
-				$html .= " [$diff_link]";
-			} catch ( MWException $e ) {
-				// No diff link then
-			}
+			// @todo FIXME: Hard coded brackets.
+			$html .= " [$diff_link]";
 		}
 
 		return $html;

@@ -107,7 +107,6 @@ class LqtView {
 	 * @param Thread $thread
 	 * @param string|null $method
 	 * @param string|null $operand
-	 * @throws MWException
 	 * @return array
 	 */
 	public static function permalinkData( Thread $thread, $method = null, $operand = null ) {
@@ -122,7 +121,8 @@ class LqtView {
 
 		$root = $thread->root();
 		if ( !$root ) {
-			throw new MWException( "No root in " . __METHOD__ );
+			// XXX Perhaps this should be replaced with a checked exception
+			throw new RuntimeException( "No root in " . __METHOD__ );
 		}
 
 		return [ $root->getTitle(), $query ];
