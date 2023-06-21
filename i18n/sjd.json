@@ -4,14 +4,15 @@
 			"Merrahtar"
 		]
 	},
-	"lqt_new_thread": "Оа̄лкхэ о̄дт моа̄йнсемуж",
+	"lqt_new_thread": "Оа̄лкхэ о̄дт са̄ррнмуж",
 	"lqt_reply": "Вуэсстлэ",
-	"lqt_discussion_link": "моа̄йнсемуж",
-	"lqt_header_warning_new_discussion": "оа̄лкхэ о̄дт моа̄йнсемуж",
-	"lqt-no-new-messages": "Элля о̄дт соа̄гкэ то̄н гуэйкэ.",
+	"lqt_discussion_link": "са̄ррнмуж",
+	"lqt_header_warning_new_discussion": "оа̄лкхэ о̄дт са̄ррнмуж",
+	"lqt_sorting_order": "Ко̄ппчем обрядт:",
+	"lqt-no-new-messages": "Евла о̄дт соа̄г то̄н гуэйкэ.",
 	"lqt-history-action": "Лыһкмуж",
 	"lqt-header-actions": "Лыһкмуж",
-	"searchprofile-threads": "Моа̄йнсемуж",
+	"searchprofile-threads": "Са̄ррнмуж",
 	"lqt-newmessages-n": "О̄дт {{PLURAL:$1|соа̄гк|соа̄г}} ($1)",
 	"lqt_newmessages-title": "О̄дт соа̄г"
 }
