@@ -4,7 +4,6 @@
 			"David McCabe <davemccabe@gmail.com> / i18n file by Erik Moeller and Siebrand Mazeland"
 		]
 	},
-	"apihelp-feedthreads-description": "Return a feed of discussion threads.",
 	"apihelp-feedthreads-summary": "Return a feed of discussion threads.",
 	"apihelp-feedthreads-param-feedformat": "The format of the feed.",
 	"apihelp-feedthreads-param-days": "Number of days of threads to show.",
@@ -14,7 +13,6 @@
 	"apihelp-feedthreads-example-1": "Show a feed of all new threads",
 	"apihelp-feedthreads-example-2": "Show a feed of replies on [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Show a feed of new threads on [[Talk:Main Page]]",
-	"apihelp-query+threads-description": "Show details of LiquidThreads threads.",
 	"apihelp-query+threads-summary": "Show details of LiquidThreads threads.",
 	"apihelp-query+threads-param-startid": "The thread ID to start enumerating from.",
 	"apihelp-query+threads-param-endid": "The thread ID to stop enumerating at.",
@@ -35,7 +33,6 @@
 	"apihelp-query+threads-param-renderstartrepliesat": "When rendering, the point at which to start showing replies (used internally to load extra replies).",
 	"apihelp-query+threads-example-1": "List threads on [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "List threads with IDs 1, 2, 3, and 4",
-	"apihelp-threadaction-description": "Allows actions to be taken on threads and posts in threaded discussions.",
 	"apihelp-threadaction-summary": "Allows actions to be taken on threads and posts in threaded discussions.",
 	"apihelp-threadaction-param-thread": "Thread IDs or titles to act on.",
 	"apihelp-threadaction-param-talkpage": "The talkpage to act on (if applicable).",

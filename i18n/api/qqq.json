@@ -39,7 +39,6 @@
 			"Wikinaut"
 		]
 	},
-	"apihelp-feedthreads-description": "{{doc-apihelp-description|feedthreads}}",
 	"apihelp-feedthreads-summary": "{{doc-apihelp-summary|feedthreads}}",
 	"apihelp-feedthreads-param-feedformat": "{{doc-apihelp-param|feedthreads|feedformat}}",
 	"apihelp-feedthreads-param-days": "{{doc-apihelp-param|feedthreads|days}}",
@@ -49,7 +48,6 @@
 	"apihelp-feedthreads-example-1": "{{doc-apihelp-example|feedthreads}}",
 	"apihelp-feedthreads-example-2": "Replace \"Foo\" with any example/filler word suitable in your language.\n----\n{{doc-apihelp-example|feedthreads}}",
 	"apihelp-feedthreads-example-3": "{{doc-apihelp-example|feedthreads}}",
-	"apihelp-query+threads-description": "{{doc-apihelp-description|query+threads}}",
 	"apihelp-query+threads-summary": "{{doc-apihelp-summary|query+threads}}",
 	"apihelp-query+threads-param-startid": "{{doc-apihelp-param|query+threads|startid}}",
 	"apihelp-query+threads-param-endid": "{{doc-apihelp-param|query+threads|endid}}",
@@ -70,7 +68,6 @@
 	"apihelp-query+threads-param-renderstartrepliesat": "{{doc-apihelp-param|query+threads|renderstartrepliesat}}",
 	"apihelp-query+threads-example-1": "{{doc-apihelp-example|query+threads}}",
 	"apihelp-query+threads-example-2": "{{doc-apihelp-example|query+threads}}",
-	"apihelp-threadaction-description": "{{doc-apihelp-description|threadaction}}",
 	"apihelp-threadaction-summary": "{{doc-apihelp-summary|threadaction}}",
 	"apihelp-threadaction-param-thread": "{{doc-apihelp-param|threadaction|thread}}",
 	"apihelp-threadaction-param-talkpage": "{{doc-apihelp-param|threadaction|talkpage}}",
