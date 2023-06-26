@@ -5,7 +5,6 @@
 			"捍粵者"
 		]
 	},
-	"apihelp-feedthreads-description": "回傳討論內容討論串的摘要。",
 	"apihelp-feedthreads-summary": "回傳討論內容討論串的摘要。",
 	"apihelp-feedthreads-param-feedformat": "摘要格式。",
 	"apihelp-feedthreads-param-days": "要顯示之討論串的天數。",
@@ -15,7 +14,6 @@
 	"apihelp-feedthreads-example-1": "顯示在所有新討論串的摘要",
 	"apihelp-feedthreads-example-2": "顯示在 [[Thread:Foo]] 回覆的摘要",
 	"apihelp-feedthreads-example-3": "顯示在 [[Talk:Main Page]] 上新討論串的摘要",
-	"apihelp-query+threads-description": "顯示 LiquidThreads 討論串的詳情。",
 	"apihelp-query+threads-summary": "顯示 LiquidThreads 討論串的詳情。",
 	"apihelp-query+threads-param-startid": "起始列舉的討論串 ID。",
 	"apihelp-query+threads-param-endid": "終止列舉的討論串 ID。",
@@ -36,7 +34,6 @@
 	"apihelp-query+threads-param-renderstartrepliesat": "當呈現時，開始顯示回覆的起始點（用於內部載入額外回覆）。",
 	"apihelp-query+threads-example-1": "列出在 [[Talk:Main Page]] 的討論串",
 	"apihelp-query+threads-example-2": "列出 ID 為 1、2、3，以及 4 的討論串",
-	"apihelp-threadaction-description": "在討論串和討論內容的留言裡，所允許的操作。",
 	"apihelp-threadaction-summary": "在討論串和討論內容的留言裡，所允許的操作。",
 	"apihelp-threadaction-param-thread": "要操作的討論串 ID。",
 	"apihelp-threadaction-param-talkpage": "要操作的對話頁（若適用）。",

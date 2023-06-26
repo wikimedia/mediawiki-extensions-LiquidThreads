@@ -4,7 +4,6 @@
 			"ديفيد"
 		]
 	},
-	"apihelp-feedthreads-description": "قم بإرجاع موجز مواضيع المناقشة.",
 	"apihelp-feedthreads-summary": "قم بإرجاع موجز مواضيع المناقشة.",
 	"apihelp-feedthreads-param-feedformat": "شكل التلقيم.",
 	"apihelp-feedthreads-param-days": "عدد أيام المواضيع لإظهارها.",
@@ -14,7 +13,6 @@
 	"apihelp-feedthreads-example-1": "عرض موجز جميع مواضيع الرسائل الجديدة",
 	"apihelp-feedthreads-example-2": "عرض تغذيات الردود على [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "عرض موجز لمواضيع جديدة في [[Talk:Main Page]]",
-	"apihelp-query+threads-description": "إظهار تفاصيل مواضيع Liquidstreads.",
 	"apihelp-query+threads-summary": "إظهار تفاصيل مواضيع Liquidstreads.",
 	"apihelp-query+threads-param-startid": "معرف الموضوع لبدء التعداد منه.",
 	"apihelp-query+threads-param-endid": "معرف الموضوع لإيقاف التعداد فيه.",
@@ -35,7 +33,6 @@
 	"apihelp-query+threads-param-renderstartrepliesat": "عند التقديم، النقطة التي يبدأ عندها عرض الردود (تُستخدَم داخليا لتحميل ردود إضافية).",
 	"apihelp-query+threads-example-1": "أدرج المواضيع على [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "أدرج المواضيع مع معرفات 1 و2 و3 و4",
-	"apihelp-threadaction-description": "يسمح باتخاذ إجراءات على المواضيع والمشاركات في مناقشات مترابطة.",
 	"apihelp-threadaction-summary": "يسمح باتخاذ إجراءات على المواضيع والمشاركات في مناقشات مترابطة.",
 	"apihelp-threadaction-param-thread": "معرفات مواضيع أو عناوين للعمل عليها.",
 	"apihelp-threadaction-param-talkpage": "صفحة النقاش للعمل عليها (إن وُجِدت).",

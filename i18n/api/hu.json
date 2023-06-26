@@ -4,7 +4,6 @@
 			"Tacsipacsi"
 		]
 	},
-	"apihelp-feedthreads-description": "Megbeszélésszálak lekérése hírcsatornaként.",
 	"apihelp-feedthreads-summary": "Megbeszélésszálak lekérése hírcsatornaként.",
 	"apihelp-feedthreads-param-feedformat": "A hírcsatorna formátuma.",
 	"apihelp-feedthreads-param-days": "Az utóbbi ennyi nap szálainak listázása.",
@@ -14,7 +13,6 @@
 	"apihelp-feedthreads-example-1": "Az összes új szál hírcsatornájának megjelenítése.",
 	"apihelp-feedthreads-example-2": "A [[Thread:Foo]] szálra érkezett válaszok hírcsatornájának megjelenítése.",
 	"apihelp-feedthreads-example-3": "A [[Talk:Main Page]] lapon indított új szálak hírcsatornájának megjelenítése.",
-	"apihelp-query+threads-description": "Folyékony Beszélgetések-szálak részleteinek lekérése.",
 	"apihelp-query+threads-summary": "Folyékony Beszélgetések-szálak részleteinek lekérése.",
 	"apihelp-query+threads-param-startid": "Listázás ettől a szálazonosítótól.",
 	"apihelp-query+threads-param-endid": "Listázás eddig a szálazonosítóig.",
@@ -28,7 +26,6 @@
 	"apihelp-query+threads-param-id": "A megadott azonosítójú szálak lekérése.",
 	"apihelp-query+threads-example-1": "A [[Talk:Main Page]] szálainak lekérése.",
 	"apihelp-query+threads-example-2": "Az 1, 2, 3 és 4 azonosítójú szálak lekérése.",
-	"apihelp-threadaction-description": "Lehetővé teszi műveletek végzését szálakon és szálakat használó beszélgetések hozzászólásain.",
 	"apihelp-threadaction-summary": "Lehetővé teszi műveletek végzését szálakon és szálakat használó beszélgetések hozzászólásain.",
 	"apihelp-threadaction-param-thread": "A műveletben érintett szálazonosítók.",
 	"apihelp-threadaction-param-threadaction": "Az elvégzendő művelet.",

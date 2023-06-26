@@ -5,7 +5,6 @@
 			"Nokeoo"
 		]
 	},
-	"apihelp-feedthreads-description": "Grąžinti diskusijų temų srautą.",
 	"apihelp-feedthreads-summary": "Grąžinti diskusijų temų srautą.",
 	"apihelp-feedthreads-param-feedformat": "Srauto formatas.",
 	"apihelp-feedthreads-param-days": "Temų dienų skaičius rodymui.",
@@ -24,7 +23,6 @@
 	"apihelp-query+threads-param-render": "Ar įtraukti atvaizduojamą temą į rezultatus.",
 	"apihelp-query+threads-example-1": "Nurodo [[Talk:Main Page]] temas",
 	"apihelp-query+threads-example-2": "Nurodo temas su ID 1, 2, 3 ir 4",
-	"apihelp-threadaction-description": "Leidžia atlikti veiksmus temose ir įrašuose temų diskusijose.",
 	"apihelp-threadaction-summary": "Leidžia atlikti veiksmus temose ir įrašuose temų diskusijose.",
 	"apihelp-threadaction-param-thread": "Temų ID ar pavadinimai, kur veikti.",
 	"apihelp-threadaction-param-talkpage": "Aptarimo puslapis, kur veikti (jei taikoma).",

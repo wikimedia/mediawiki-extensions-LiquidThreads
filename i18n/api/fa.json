@@ -6,7 +6,6 @@
 			"Ladsgroup"
 		]
 	},
-	"apihelp-feedthreads-description": "بازگرداندن یک خوراک خبری از مبحث‌ها.",
 	"apihelp-feedthreads-summary": "بازگرداندن یک خوراک خبری از مبحث‌ها.",
 	"apihelp-feedthreads-param-feedformat": "قالب خوراک.",
 	"apihelp-threadaction-param-captchaword": "پاسخ برای کپچا",

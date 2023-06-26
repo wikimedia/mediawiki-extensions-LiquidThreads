@@ -4,7 +4,6 @@
 			"Jon Harald Søby"
 		]
 	},
-	"apihelp-feedthreads-description": "Returner en mating av diskusjonstråder.",
 	"apihelp-feedthreads-summary": "Returner en mating av diskusjonstråder.",
 	"apihelp-feedthreads-param-feedformat": "Matingens format.",
 	"apihelp-feedthreads-param-days": "Antall dager med tråder som skal vises.",
@@ -14,7 +13,6 @@
 	"apihelp-feedthreads-example-1": "Vis en mating med alle nye tråder",
 	"apihelp-feedthreads-example-2": "Vis en mating med svar på [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Vis en mating over nye tråder på [[Talk:Main Page]]",
-	"apihelp-query+threads-description": "Vis detaljer om LiquidThreads-tråder.",
 	"apihelp-query+threads-summary": "Vis detaljer om LiquidThreads-tråder.",
 	"apihelp-query+threads-param-startid": "Tråd-ID-en det skal listes opp fra.",
 	"apihelp-query+threads-param-endid": "Tråd-ID-en opplistingen skal stoppe ved.",
@@ -35,7 +33,6 @@
 	"apihelp-query+threads-param-renderstartrepliesat": "Punktet svar skal begynne å vises under rendring (brukes internt for å laste ekstra svar).",
 	"apihelp-query+threads-example-1": "List opp tråder på [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "List opp tråder med ID-ene 1, 2, 3 og 4",
-	"apihelp-threadaction-description": "Gjør det mulig å utføre handlinger på tråder og poster i trådede diskusjoner.",
 	"apihelp-threadaction-summary": "Gjør det mulig å utføre handlinger på tråder og poster i trådede diskusjoner.",
 	"apihelp-threadaction-param-thread": "Tråd-ID-er eller titler det skal handles på.",
 	"apihelp-threadaction-param-talkpage": "Diskusjonssiden det skal handles på (hvis det gjelder).",

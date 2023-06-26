@@ -13,7 +13,6 @@
 			"Wladek92"
 		]
 	},
-	"apihelp-feedthreads-description": "Retourne un flux de fils de discussion.",
 	"apihelp-feedthreads-summary": "Renvoie un flux de fils de discussion.",
 	"apihelp-feedthreads-param-feedformat": "Le format du flux.",
 	"apihelp-feedthreads-param-days": "Nombre de jours de discussion à afficher.",
@@ -23,7 +22,6 @@
 	"apihelp-feedthreads-example-1": "Afficher un flux de tous les nouveaux fils de discussion",
 	"apihelp-feedthreads-example-2": "Afficher un flux des réponses sur [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Afficher un flux des nouveaux fils de discussion sur [[Talk:Main Page]]",
-	"apihelp-query+threads-description": "Afficher les détails des fils de discussion LiquidThreads.",
 	"apihelp-query+threads-summary": "Afficher les détails des fils de discussion LiquidThreads.",
 	"apihelp-query+threads-param-startid": "L’identifiant du fil de discussion auquel démarrer l’énumération.",
 	"apihelp-query+threads-param-endid": "L'identifiant du fil de discussion auquel arrêter l’énumération.",
@@ -44,7 +42,6 @@
 	"apihelp-query+threads-param-renderstartrepliesat": "Lors du rendu, le point auquel commencer l’affichage des réponses (utilisé en interne pour charger des réponses supplémentaires).",
 	"apihelp-query+threads-example-1": "Lister les fils de discussion sur [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Lister les fils de discussion avec les identifiants 1, 2, 3 et 4",
-	"apihelp-threadaction-description": "Autorise les actions à effectuer sur les fils de discussion et les messages présents dans les discussions défilées.",
 	"apihelp-threadaction-summary": "Permet de réaliser des actions sur les fils de discussion et les messages présents dans les discussions défilées.",
 	"apihelp-threadaction-param-thread": "Identifiants de discussion ou titres sur lesquels agir.",
 	"apihelp-threadaction-param-talkpage": "La page de discussion sur laquelle agir (le cas échéant).",

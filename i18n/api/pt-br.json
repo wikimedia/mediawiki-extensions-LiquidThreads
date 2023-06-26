@@ -5,7 +5,6 @@
 			"Felipe L. Ewald"
 		]
 	},
-	"apihelp-feedthreads-description": "Retorne um feed de tópicos de discussão.",
 	"apihelp-feedthreads-summary": "Retorne um feed de tópicos de discussão.",
 	"apihelp-feedthreads-param-feedformat": "O formato do feed.",
 	"apihelp-feedthreads-param-days": "Número de dias de tópicos para mostrar.",
@@ -15,7 +14,6 @@
 	"apihelp-feedthreads-example-1": "Mostrar um feed de todos os novos tópicos",
 	"apihelp-feedthreads-example-2": "Mostrar um feed de respostas em [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Mostrar um feed de novos tópicos em [[Talk:Main Page]]",
-	"apihelp-query+threads-description": "Mostrar detalhes dos tópicos LiquidThreads.",
 	"apihelp-query+threads-summary": "Mostrar detalhes dos tópicos LiquidThreads.",
 	"apihelp-query+threads-param-startid": "O ID do tópico para começar a enumerar.",
 	"apihelp-query+threads-param-endid": "O ID do tópico para parar de enumerar.",
@@ -36,7 +34,6 @@
 	"apihelp-query+threads-param-renderstartrepliesat": "Ao apresentar, o ponto em que começar a mostrar respostas (usado internamente para carregar respostas extras).",
 	"apihelp-query+threads-example-1": "Listar tópicos em [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Listar tópicos com IDs 1,2,3 e 4",
-	"apihelp-threadaction-description": "Permite que ações sejam realizadas em tópicos e mensagens em discussões encadeadas.",
 	"apihelp-threadaction-summary": "Permite que ações sejam realizadas em tópicos e mensagens em discussões encadeadas.",
 	"apihelp-threadaction-param-thread": "IDs do tópico ou títulos nos quais agir.",
 	"apihelp-threadaction-param-talkpage": "A página de discussão para agir (se aplicável).",

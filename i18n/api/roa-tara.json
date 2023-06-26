@@ -4,7 +4,6 @@
 			"Joetaras"
 		]
 	},
-	"apihelp-feedthreads-description": "Tuèrne 'nu feed de le argominde discusse.",
 	"apihelp-feedthreads-summary": "Tuèrne 'nu feed de le argominde discusse.",
 	"apihelp-feedthreads-param-feedformat": "'U formate d'u feed.",
 	"apihelp-feedthreads-param-days": "Numere de sciurne de le argominde da fà 'ndrucà.",
@@ -14,7 +13,6 @@
 	"apihelp-feedthreads-example-1": "Fà 'ndrucà 'nu feed de tutte le arguminde nuéve",
 	"apihelp-feedthreads-example-2": "Fà 'ndrucà 'nu feed de resposte sus a [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Fà 'ndrucà 'nu feed de argominde nuève sus a [[Talk:Main Page]]",
-	"apihelp-query+threads-description": "Fà 'ndrucà le argominde de LiquidThreads.",
 	"apihelp-query+threads-summary": "Fà 'ndrucà le argominde de LiquidThreads.",
 	"apihelp-query+threads-param-startid": "L'ID de l'argomende da addò accumenze l'enumerazione.",
 	"apihelp-query+threads-param-endid": "L'ID de l'argomende ca stoppe l'enumerazione.",
@@ -35,7 +33,6 @@
 	"apihelp-query+threads-param-renderstartrepliesat": "Quanne renderizze, 'u punde da addò accumenzà a fà 'ndrucà le resposte (ausate 'ndernamende pe carecà resposte de cchiù).",
 	"apihelp-query+threads-example-1": "Elenghe de le arguminde sus 'a [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Elenghe de le arguminde cu ID 1, 2, 3 e 4",
-	"apihelp-threadaction-description": "Permette le aziune da fà sus a le arguminde e le messàgge jndr'à le 'ngazzaminde argomendate.",
 	"apihelp-threadaction-summary": "Permette le aziune da fà sus a le arguminde e le messàgge jndr'à le 'ngazzaminde argomendate.",
 	"apihelp-threadaction-param-thread": "ID de l'argomende o titole addò fà l'azione.",
 	"apihelp-threadaction-param-talkpage": "'A pàgene de le 'ngazzaminde addò ffà (ce applecabbele).",

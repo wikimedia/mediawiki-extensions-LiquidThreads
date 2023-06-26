@@ -4,7 +4,6 @@
 			"Bjankuloski06"
 		]
 	},
-	"apihelp-feedthreads-description": "Дај тековник со нанижани разговори.",
 	"apihelp-feedthreads-summary": "Дај тековник со нанижани разговори.",
 	"apihelp-feedthreads-param-feedformat": "Форматот на тековникот.",
 	"apihelp-feedthreads-param-days": "Колку денови да се прикажува нишката.",
@@ -14,7 +13,6 @@
 	"apihelp-feedthreads-example-1": "Прикажувај тековник со сите нови нишки",
 	"apihelp-feedthreads-example-2": "Прикажувај тековник со одговори на [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Прикажувај тековник со нови нишки на [[Talk:Main Page]]",
-	"apihelp-query+threads-description": "Прикажувај подробности за нишките на LiquidThreads.",
 	"apihelp-query+threads-summary": "Прикажувај подробности за нишките на LiquidThreads.",
 	"apihelp-query+threads-param-startid": "Назнака на нишката од кајшто ќе почне набројувањето.",
 	"apihelp-query+threads-param-endid": "Назнака на нишката на кајшто ќе запре набројувањето.",
@@ -35,7 +33,6 @@
 	"apihelp-query+threads-param-renderstartrepliesat": "Местото од кое да почне приказот на одговори во исписот (се користи внатрешно, за вчитување на дополнителни одговори).",
 	"apihelp-query+threads-example-1": "Дај список на нишки на [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Дај список на нишки со назнаките 1, 2, 3 и 4.",
-	"apihelp-threadaction-description": "Овозможува вршење на дејства врз нишки и објави во нанижаните разговори.",
 	"apihelp-threadaction-summary": "Овозможува вршење на дејства врз нишки и објави во нанижаните разговори.",
 	"apihelp-threadaction-param-thread": "Назнаките или насловите на нишките врз кои ќе се вршат дејства.",
 	"apihelp-threadaction-param-talkpage": "Разговорната страница врз која ќе се вршат дејства (ако е применливо).",

@@ -5,7 +5,6 @@
 			"WikiPhoenix"
 		]
 	},
-	"apihelp-feedthreads-description": "Returnera ett flöde av diskussionstrådar.",
 	"apihelp-feedthreads-summary": "Returnera ett flöde av diskussionstrådar.",
 	"apihelp-feedthreads-param-feedformat": "Formatet på flödet.",
 	"apihelp-feedthreads-param-days": "Antal dagar med trådar att visa.",
@@ -15,7 +14,6 @@
 	"apihelp-feedthreads-example-1": "Visa ett flöde av alla nya trådar",
 	"apihelp-feedthreads-example-2": "Visa ett flöde av svar på [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Visa ett flöde av nya trådar på [[Talk:Main Page]]",
-	"apihelp-query+threads-description": "Visa detaljer för LiquidThreads-trådar.",
 	"apihelp-query+threads-summary": "Visa detaljer för LiquidThreads-trådar.",
 	"apihelp-query+threads-param-startid": "Trådens ID att börja räkna från.",
 	"apihelp-query+threads-param-endid": "Trådens ID att sluta räkna vid.",

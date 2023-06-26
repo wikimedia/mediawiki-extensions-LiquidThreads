@@ -9,7 +9,6 @@
 			"Ryo567"
 		]
 	},
-	"apihelp-feedthreads-description": "Devolver un suministro de hilos de discusión.",
 	"apihelp-feedthreads-summary": "Devolver un suministro de hilos de discusión.",
 	"apihelp-feedthreads-param-feedformat": "El formato del suministro.",
 	"apihelp-feedthreads-param-days": "Número de días de hilos que mostrar.",
@@ -19,7 +18,6 @@
 	"apihelp-feedthreads-example-1": "Mostrar un suministro de todos los hilos nuevos",
 	"apihelp-feedthreads-example-2": "Mostrar un suministro de respuestas a [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Mostrar un suministro de hilos nuevos en [[Talk:Main Page]]",
-	"apihelp-query+threads-description": "Mostrar detalles de hilos LiquidThreads.",
 	"apihelp-query+threads-summary": "Mostrar detalles de hilos de LiquidThreads.",
 	"apihelp-query+threads-param-startid": "El identificador de hilo a partir del cual comenzar a enumerar.",
 	"apihelp-query+threads-param-endid": "El identificador de hilo en el que detener la enumeración.",

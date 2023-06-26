@@ -4,7 +4,6 @@
 			"Purodha"
 		]
 	},
-	"apihelp-feedthreads-description": "Jivv ene Kanahl met Jeschprähschsfäddeme us.",
 	"apihelp-feedthreads-param-feedformat": "Däm Kannahl sing Fommaht.",
 	"apihelp-feedthreads-param-days": "De Aanzahl vun Dääsch vun Jeschprähsfäddeme zom Aanzeije.",
 	"apihelp-feedthreads-param-type": "De Zoot beijdrähsch zom Aanzeije.",
@@ -13,7 +12,6 @@
 	"apihelp-feedthreads-example-1": "Zeij_enne Kannahl met alle neue Jeschprähschfäddemme",
 	"apihelp-feedthreads-example-2": "Zeij_enne Kannahl met Antwoote op [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Zeijsch ene Kannahl met neue Jeschprähschsfäddeme op [[Talk:Main Page|dä Houpsigg iehre Klaafsigg]] aan",
-	"apihelp-query+threads-description": "Zeijsch Einzelheijte vun !FUZZY!! Jeschprähsfäddeme.",
 	"apihelp-query+threads-param-startid": "De Kännong vun däm Jeschprähsfäddem, vun woh aan opzälle.",
 	"apihelp-query+threads-param-endid": "De Kännong vun däm Jeschprähsfäddem, bes woh hen opzälle.",
 	"apihelp-query+threads-param-showdeleted": "Fottjeschmeße Jeschprähschfäddemme annzeije udder nit.",
@@ -27,7 +25,6 @@
 	"apihelp-query+threads-param-render": "Of de ömjenannte Jeschprähsfäddeme metjelivvert wähde sulle.",
 	"apihelp-query+threads-example-1": "Donn de Jeschprähschsfäddemme op dä [[Talk:Main Page|Houpsigg ehr Klaafsigg]] aanzeije.",
 	"apihelp-query+threads-example-2": "Donn de Jeschprähschsfäddemme mt dä Kännonge 1, 2, 3, un 4 aanzeije.",
-	"apihelp-threadaction-description": "Määd et müjjelesch för Jeschprähsfäddeme un Beijdrähsch en esu enem Klaaf, beschtemmpte Saache ze donn.",
 	"apihelp-threadaction-param-thread": "De Kännonge udder de Övverschreffte vun dä Jeschprähschsfäddeme zom beärbeide.",
 	"apihelp-threadaction-param-talkpage": "De Klaafsigg för ze beärbeide, wann ein doh es.",
 	"apihelp-threadaction-param-threadaction": "Wat donn.",

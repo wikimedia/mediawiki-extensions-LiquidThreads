@@ -5,7 +5,6 @@
 			"Vlad5250"
 		]
 	},
-	"apihelp-feedthreads-description": "Дать ленту с ветками обсуждений.",
 	"apihelp-feedthreads-summary": "Дать ленту с ветками обсуждений.",
 	"apihelp-feedthreads-param-feedformat": "Формат ленты.",
 	"apihelp-feedthreads-param-type": "Типы сообщений для показа.",

@@ -6,7 +6,6 @@
 			"Yfdyh000"
 		]
 	},
-	"apihelp-feedthreads-description": "返回讨论帖子的订阅。",
 	"apihelp-feedthreads-summary": "返回讨论帖子的订阅。",
 	"apihelp-feedthreads-param-feedformat": "订阅的格式。",
 	"apihelp-feedthreads-param-days": "要显示几天的话题。",
@@ -16,7 +15,6 @@
 	"apihelp-feedthreads-example-1": "显示所有新话题为一个feed",
 	"apihelp-feedthreads-example-2": "显示在[[Thread:Foo]]上的一个回复的订阅",
 	"apihelp-feedthreads-example-3": "显示[[Talk:Main Page]]中新线程的订阅",
-	"apihelp-query+threads-description": "显示LiquidThreads话题的详细信息。",
 	"apihelp-query+threads-summary": "显示LiquidThreads话题的详细信息。",
 	"apihelp-query+threads-param-startid": "枚举的起始话题ID。",
 	"apihelp-query+threads-param-endid": "枚举的结束话题ID。",
@@ -37,7 +35,6 @@
 	"apihelp-query+threads-param-renderstartrepliesat": "当渲染时，要开始显示回复的点位（用于在内部加载额外回复）。",
 	"apihelp-query+threads-example-1": "列出[[Talk:Main Page]]上的帖子",
 	"apihelp-query+threads-example-2": "列出帖子带ID1、2、3和4",
-	"apihelp-threadaction-description": "允许在线程话讨论中的帖子和跟帖中执行操作。",
 	"apihelp-threadaction-summary": "允许在线程话讨论中的帖子和跟帖中执行操作。",
 	"apihelp-threadaction-param-thread": "要操作的话题ID或标题。",
 	"apihelp-threadaction-param-talkpage": "要操作的讨论页（如适用）。",

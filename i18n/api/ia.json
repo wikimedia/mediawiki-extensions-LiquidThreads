@@ -4,7 +4,6 @@
 			"McDutchie"
 		]
 	},
-	"apihelp-feedthreads-description": "Produce un fluxo de filos de discussion.",
 	"apihelp-feedthreads-summary": "Produce un fluxo de filos de discussion.",
 	"apihelp-feedthreads-param-feedformat": "Le formato del fluxo.",
 	"apihelp-feedthreads-param-days": "Numero de dies de filos a monstrar.",
@@ -14,7 +13,6 @@
 	"apihelp-feedthreads-example-1": "Monstrar un fluxo de tote le nove filos",
 	"apihelp-feedthreads-example-2": "Monstrar un fluxo de responsas a [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Monstrar un fluxo de nove filos sur [[Talk:Main Page]]",
-	"apihelp-query+threads-description": "Monstrar detalios de filos LiquidThreads.",
 	"apihelp-query+threads-summary": "Monstrar detalios de filos LiquidThreads.",
 	"apihelp-query+threads-param-startid": "Le ID del filo ubi comenciar a enumerar.",
 	"apihelp-query+threads-param-endid": "Le ID del filo ubi cessar de enumerar.",
@@ -35,7 +33,6 @@
 	"apihelp-query+threads-param-renderstartrepliesat": "Durante le rendition, le puncto al qual comenciar a monstrar responsas (usate internemente pro cargar additional responsas).",
 	"apihelp-query+threads-example-1": "Listar filos sur [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Listar le filos con IDs 1, 2, 3 e 4",
-	"apihelp-threadaction-description": "Permitte prender actiones sur discussiones e messages in filos de discussion.",
 	"apihelp-threadaction-summary": "Permitte prender actiones sur discussiones e messages in filos de discussion.",
 	"apihelp-threadaction-param-thread": "IDs o titulos del filos sur le quales ager.",
 	"apihelp-threadaction-param-talkpage": "Le paginas de discussion sur le qual ager (si applicabile).",

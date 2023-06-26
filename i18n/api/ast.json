@@ -4,7 +4,6 @@
 			"Xuacu"
 		]
 	},
-	"apihelp-feedthreads-description": "Devuelve una canal de filos d'alderique.",
 	"apihelp-feedthreads-summary": "Devuelve una canal de filos d'alderique.",
 	"apihelp-feedthreads-param-feedformat": "El formatu de la canal.",
 	"apihelp-feedthreads-param-days": "Númberu de díes de filos a amosar.",
@@ -14,7 +13,6 @@
 	"apihelp-feedthreads-example-1": "Amosar una canal de tolos filos nuevos",
 	"apihelp-feedthreads-example-2": "Amosar una canal de respuestes en [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Amosar una canal de filos nuevos en [[Talk:Main Page]]",
-	"apihelp-query+threads-description": "Amosar detalles de filos de LiquidThreads.",
 	"apihelp-query+threads-summary": "Amosar detalles de filos de LiquidThreads.",
 	"apihelp-query+threads-param-startid": "ID del filu dende'l que principiar la enumeración.",
 	"apihelp-query+threads-param-endid": "La ID del filu na que finar la enumeración.",
@@ -35,7 +33,6 @@
 	"apihelp-query+threads-param-renderstartrepliesat": "Cando se representa, el puntu nel que principiar a amosar respuestes (usáu de mou internu pa cargar respuestes estra).",
 	"apihelp-query+threads-example-1": "Llistar los filos de [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Llistar los filos coles ID 1, 2, 3 y 4",
-	"apihelp-threadaction-description": "Permite facer aiciones en filos y mensaxes d'alderiques en filos.",
 	"apihelp-threadaction-summary": "Permite facer aiciones en filos y mensaxes d'alderiques en filos.",
 	"apihelp-threadaction-param-thread": "IDs o títulos de filos nos qu'actuar.",
 	"apihelp-threadaction-param-talkpage": "La páxina d'alderique na qu'actuar (si ye aplicable).",

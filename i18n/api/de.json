@@ -7,7 +7,6 @@
 			"Predatorix"
 		]
 	},
-	"apihelp-feedthreads-description": "Gibt einen Feed mit Diskussionsthreads zurück.",
 	"apihelp-feedthreads-summary": "Gibt einen Feed der Diskussionsstränge zurück.",
 	"apihelp-feedthreads-param-feedformat": "Das Format des Feeds.",
 	"apihelp-feedthreads-param-days": "Anzahl der Tage der anzuzeigenden Threads.",
@@ -17,7 +16,6 @@
 	"apihelp-feedthreads-example-1": "Zeigt einen Feed aller neuen Threads an",
 	"apihelp-feedthreads-example-2": "Zeigt einen Feed der Antworten zu [[Thread:Foo]] an",
 	"apihelp-feedthreads-example-3": "Zeigt einen Feed neuer Threads auf [[Talk:Main Page]] an",
-	"apihelp-query+threads-description": "Zeigt Einzelheiten zu LiquidThreads an.",
 	"apihelp-query+threads-summary": "Zeigt Einzelheiten zu LiquidThreads-Themen an.",
 	"apihelp-query+threads-param-startid": "Die Threadkennung, bei der die Aufzählung begonnen werden soll.",
 	"apihelp-query+threads-param-endid": "Die Threadkennung, bei der die Aufzählung beendet werden soll.",
