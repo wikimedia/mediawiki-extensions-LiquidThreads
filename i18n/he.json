@@ -4,7 +4,8 @@
 			"Amire80",
 			"Guycn2",
 			"Rotemliss",
-			"YaronSh"
+			"YaronSh",
+			"Neriah"
 		]
 	},
 	"lqt-desc": "הוספת דיונים משורשרים לדפי השיחה",
@@ -31,7 +32,7 @@
 	"lqt-history-title": "היסטוריית השרשור",
 	"lqt_hist_comment_edited": "טקסט ההערה [$2 נערך]",
 	"lqt_hist_comment_edited_deleted": "טקסט ההערה נערך (מאז נמחק)",
-	"lqt_hist_summary_changed": "התקציר שוּנה",
+	"lqt_hist_summary_changed": "התקציר שונה",
 	"lqt_hist_reply_created": "נוצרה [[$1|תגובה חדשה]]",
 	"lqt_hist_reply_created_deleted": "נוצרה תגובה חדשה (מאז נמחקה)",
 	"lqt_hist_thread_created": "נוצר שרשור חדש",
@@ -45,8 +46,8 @@
 	"lqt_hist_tooltip_newer_disabled": "קישור זה מבוטל כיוון שאתם בדף הראשון.",
 	"lqt_hist_tooltip_older_disabled": "קישור זה מבוטל כיוון שאתם בדף האחרון.",
 	"lqt_hist_split": "פיצול התגובה לשרשור חדש",
-	"lqt_hist_edited_subject": "הנושא \"$2\" שוּנה אל \"$3\"",
-	"lqt_hist_edited_subject_corrupt": "הנושא שוּנה",
+	"lqt_hist_edited_subject": "הנושא \"$2\" שונה אל \"$3\"",
+	"lqt_hist_edited_subject_corrupt": "שונה הנושא",
 	"lqt_hist_merged_from": "[[$1|תגובה]] הועברה לשרשור אחר",
 	"lqt_hist_merged_to": "[[$1|תגובה]] הועברה משרשור אחר",
 	"lqt_hist_split_from": "פיצול לשרשור חדש",
@@ -61,7 +62,7 @@
 	"lqt_change_undeleted": "[$1 הרשומה המודגשת] שוחזרה ממחיקה.",
 	"lqt_change_moved": "[$1 שרשור זה] הועבר לדף שיחה אחר.",
 	"lqt_change_split": "[$1 שרשור] זה פוצל משרשור אחר",
-	"lqt_change_edited_subject": "נושא השרשור \"$2\" שוּנה אל \"$3\".",
+	"lqt_change_edited_subject": "נושא השרשור \"$2\" שונה אל \"$3\".",
 	"lqt_change_merged_from": "[$1 תגובה] לשרשור זה הועברה לשרשור אחר.",
 	"lqt_change_merged_to": "ה[$1 תגובה המודגשת] הועברה משרשור אחר.",
 	"lqt_change_split_from": "[$1 שרשור־משנה] של שרשור זה פוצל לשרשור עצמאי.",
