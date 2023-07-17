@@ -2,9 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Reedy",
-			"Shirayuki"
+			"Shirayuki",
+			"Piano1forte2"
 		]
 	},
+	"lqt_hist_edited_subject": "Changed subject from '$2' to '$3'",
+	"lqt_change_edited_subject": "The subject of this thread was changed from '$2' to '$3'.",
+	"lqt_summary_subtitle": "Summary of '$1'",
 	"lqt_summarize_link": "Summarise",
-	"lqt-summarize-intro": "Please summarise the below thread in the editing box.\nYou may use any wikitext in your summary.\nWhen you finish, click \"{{int:publishpage}}\"."
+	"lqt-summarize-intro": "Please summarise the below thread in the editing box.\nYou may use any wikitext in your summary.\nWhen you finish, click \"{{int:publishpage}}\".",
+	"lqt-update-summary-intro": "Please summarise the below thread in the editing box.\nYou may use any wikitext in your summary.\nWhen you finish, click '{{int:publishchanges}}'.",
+	"lqt_rc_new_discussion": "posted a new thread, '$1'",
+	"lqt-log-action-split": "split [[$1]] from under [[$3]], with the new subject '$2'",
+	"lqt-log-action-subjectedit": "changed the subject of [[$1]] from '$2' to '$3'",
+	"lqt-log-action-signatureedit": "changed the signature of [[$1]] from '$2' to '$3'",
+	"lqt-save-subject-error-unknown": "An unknown error occurred when attempting to set the subject of this thread. Please try to do this by clicking 'edit' on the top post.",
+	"lqt-drag-confirm": "To complete the following actions, please fill in a reason and click 'Confirm'."
 }

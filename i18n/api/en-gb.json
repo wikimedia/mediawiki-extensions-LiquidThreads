@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki"
+			"Shirayuki",
+			"Piano1forte2"
 		]
 	},
+	"apihelp-query+threads-param-rendermaxthreadcount": "When rendering, the maximum number of replies to show before adding a '{{int:lqt-thread-show-more}}' link.",
+	"apihelp-query+threads-param-rendermaxdepth": "When rendering, the maximum depth of replies to show before showing a 'Show X replies' link instead of replies.",
 	"apihelp-threadaction-param-bump": "Overrides default behaviour as to whether or not to."
 }
