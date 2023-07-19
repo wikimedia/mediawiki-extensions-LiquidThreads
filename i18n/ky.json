@@ -7,7 +7,9 @@
 	},
 	"lqt_youhavenewmessages": "Сиз [[$1|жаңы билдирүү]] алдыңыз.",
 	"lqt-history-user": "Колдонуучу",
+	"lqt-save-subject": "Сактоо",
 	"lqt-cancel-subject-edit": "Жокко чыгаруу",
+	"lqt-preview-signature": "(алдын ала көрүү)",
 	"lqt-newmessages-n": "Жаңы билдирүүлөр ($1)",
 	"lqt_newmessages-title": "Жаңы билдирүүлөр",
 	"pageinfo-usinglqt-yes": "Ооба"

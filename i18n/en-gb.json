@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Reedy",
-			"Shirayuki"
+			"Shirayuki",
+			"Amire80",
+			"Piano1forte2"
 		]
 	},
 	"lqt_summarize_link": "Summarise",
-	"lqt-summarize-intro": "Please summarise the below thread in the editing box.\nYou may use any wikitext in your summary.\nWhen you finish, click \"{{int:publishpage}}\"."
+	"lqt-summarize-intro": "Please summarise the below thread in the editing box.\nYou may use any wikitext in your summary.\nWhen you finish, click \"{{int:publishpage}}\".",
+	"lqt-update-summary-intro": "Please summarise the below thread in the editing box.\nYou may use any wikitext in your summary.\nWhen you finish, click \"{{int:publishchanges}}\"."
 }
