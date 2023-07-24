@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
-			"十弌"
+			"Winston Sung"
 		]
 	},
 	"lqt-log-action-move": "從[[$2]]畀[[$1]]移到[[$3]]($4)",
