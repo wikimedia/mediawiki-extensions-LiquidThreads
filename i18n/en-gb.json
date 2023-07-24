@@ -3,7 +3,8 @@
 		"authors": [
 			"Reedy",
 			"Shirayuki",
-			"Piano1forte2"
+			"Piano1forte2",
+			"Amire80"
 		]
 	},
 	"lqt_hist_edited_subject": "Changed subject from '$2' to '$3'",
@@ -11,7 +12,7 @@
 	"lqt_summary_subtitle": "Summary of '$1'",
 	"lqt_summarize_link": "Summarise",
 	"lqt-summarize-intro": "Please summarise the below thread in the editing box.\nYou may use any wikitext in your summary.\nWhen you finish, click \"{{int:publishpage}}\".",
-	"lqt-update-summary-intro": "Please summarise the below thread in the editing box.\nYou may use any wikitext in your summary.\nWhen you finish, click '{{int:publishchanges}}'.",
+	"lqt-update-summary-intro": "Please summarise the below thread in the editing box.\nYou may use any wikitext in your summary.\nWhen you finish, click \"{{int:publishchanges}}\".",
 	"lqt_rc_new_discussion": "posted a new thread, '$1'",
 	"lqt-log-action-split": "split [[$1]] from under [[$3]], with the new subject '$2'",
 	"lqt-log-action-subjectedit": "changed the subject of [[$1]] from '$2' to '$3'",
