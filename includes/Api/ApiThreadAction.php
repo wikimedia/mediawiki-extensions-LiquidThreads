@@ -976,4 +976,8 @@ class ApiThreadAction extends ApiEditPage {
 	public function isWriteMode() {
 		return true;
 	}
+
+	public function getHelpUrls() {
+		return 'https://www.mediawiki.org/wiki/Special:MyLanguage/API:Threadaction';
+	}
 }
