@@ -5,12 +5,22 @@
 			"Bosogo"
 		]
 	},
+	"lqt_toc_thread_replycount": "Жооптор",
+	"lqt_reply": "Жооп берүү",
+	"lqt_discussion_link": "талкуу",
 	"lqt_youhavenewmessages": "Сиз [[$1|жаңы билдирүү]] алдыңыз.",
+	"lqt-title": "Аталыш",
+	"lqt-no-new-messages": "Сиз үчүн жаңы билдирүүлөр жок.",
 	"lqt-history-user": "Колдонуучу",
+	"searchprofile-threads": "Талкуулар",
 	"lqt-save-subject": "Сактоо",
 	"lqt-cancel-subject-edit": "Жокко чыгаруу",
+	"lqt-drag-save": "Ырастоо",
+	"lqt-drag-reason": "Себеп:",
 	"lqt-preview-signature": "(алдын ала көрүү)",
+	"lqt-feed-title-replies": "{{SITENAME}} — Жооптор",
 	"lqt-newmessages-n": "Жаңы билдирүүлөр ($1)",
 	"lqt_newmessages-title": "Жаңы билдирүүлөр",
+	"lqt-reply-subpage": "жооп",
 	"pageinfo-usinglqt-yes": "Ооба"
 }
