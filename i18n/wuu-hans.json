@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"lqt-log-action-move": "從[[$2]]畀[[$1]]移到[[$3]]($4)",
+	"lqt-cancel-subject-edit": "取消",
+	"lqt-drag-reason": "理由："
+}
