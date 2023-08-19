@@ -11,11 +11,11 @@ use LqtDispatch;
 use LqtView;
 use MediaWiki\Extension\LiquidThreads\Hooks;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use NewMessages;
 use SpecialPage;
 use Thread;
 use Threads;
-use Title;
 
 class ApiThreadAction extends ApiEditPage {
 	public function execute() {

@@ -10,6 +10,7 @@ use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\LiquidThreads\Hooks;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\FauxRequest;
+use MediaWiki\Title\Title;
 use Wikimedia\IPUtils;
 
 class LqtView {

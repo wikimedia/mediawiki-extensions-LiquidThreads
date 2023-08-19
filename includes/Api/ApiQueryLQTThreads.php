@@ -6,10 +6,10 @@ use ApiBase;
 use ApiQueryBase;
 use ApiResult;
 use LqtView;
+use MediaWiki\Title\Title;
 use stdClass;
 use Thread;
 use Threads;
-use Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 

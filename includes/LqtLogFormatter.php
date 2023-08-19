@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 // Contains formatter functions for all log entry types.
 class LqtLogFormatter {

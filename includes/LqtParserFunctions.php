@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 /* @phan-file-suppress PhanUndeclaredProperty */
 class LqtParserFunctions {

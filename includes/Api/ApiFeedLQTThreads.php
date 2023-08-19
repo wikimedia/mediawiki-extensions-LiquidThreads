@@ -25,10 +25,10 @@ use Linker;
 use MediaWiki\Feed\FeedItem;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Page\WikiPageFactory;
+use MediaWiki\Title\Title;
 use TextContent;
 use Thread;
 use Threads;
-use Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 

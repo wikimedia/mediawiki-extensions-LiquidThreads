@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 class LqtDispatch {
 	/** @var (int|null)[] static cache of per-page LiquidThreads activation setting */
