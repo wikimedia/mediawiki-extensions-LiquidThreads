@@ -18,11 +18,7 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 
 		$pager = new ThreadHistoryPager( $this, $this->thread );
 
-		$html = $pager->getNavigationBar() .
-				$pager->getBody() .
-				$pager->getNavigationBar();
-
-		$this->output->addHTML( $html );
+		$this->output->addParserOutputContent( $pager->getFullOutput() );
 
 		$this->showThread( $this->thread );
 

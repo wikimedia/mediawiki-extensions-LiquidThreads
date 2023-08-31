@@ -11,11 +11,7 @@ class TalkpageHistoryView extends TalkpageView {
 
 		$pager = new TalkpageHistoryPager( $this, $this->article );
 
-		$html = $pager->getNavigationBar() .
-			$pager->getBody() .
-			$pager->getNavigationBar();
-
-		$this->output->addHTML( $html );
+		$this->output->addParserOutputContent( $pager->getFullOutput() );
 
 		return false;
 	}
