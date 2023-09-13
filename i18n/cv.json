@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Astahar",
 			"Chuvash2014"
 		]
 	},
 	"lqt-history-user": "Хутшăнакан",
 	"lqt-search-button": "Шыра",
 	"searchprofile-threads": "Сӳтсе явнисем",
-	"lqt-ajax-update-link": "Çĕнĕлет",
+	"lqt-ajax-update-link": "Ҫӗнет",
 	"lqt-newmessages-n": "Çĕнĕ хыпарсем ($1)",
 	"lqt_newmessages-title": "Çĕнĕ хыпарсем"
 }
