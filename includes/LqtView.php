@@ -1823,7 +1823,6 @@ class LqtView {
 	 * Shows a single thread, rather than a thread tree.
 	 *
 	 * @param Thread $thread
-	 * @suppress SecurityCheck-XSS
 	 */
 	public function showSingleThread( Thread $thread ) {
 		$html = '';
