@@ -239,8 +239,6 @@
 		"PageSaveComplete": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onPageSaveComplete",
 		"UserIsBlockedFrom": "MediaWiki\\Extension\\LiquidThreads\\Hooks::userIsBlockedFrom",
 		"TitleGetRestrictionTypes": "MediaWiki\\Extension\\LiquidThreads\\Hooks::getProtectionTypes",
-		"SetupNewUserMessageSubject": "MediaWiki\\Extension\\LiquidThreads\\Hooks::setupNewUserMessageSubject",
-		"SetupNewUserMessageBody": "MediaWiki\\Extension\\LiquidThreads\\Hooks::setupNewUserMessageBody",
 		"APIQueryAfterExecute": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onAPIQueryAfterExecute",
 		"InfoAction": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onInfoAction",
 		"SpecialPage_initList": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onSpecialPage_initList",
