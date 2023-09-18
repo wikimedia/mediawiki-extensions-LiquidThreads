@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"BaRaN6161 TURK",
 			"MuratTheTurkish"
 		]
@@ -16,7 +17,7 @@
 	"apihelp-feedthreads-example-3": "[[Talk:Main Page]] sayfap yeni konuların özet akışını gösterin",
 	"apihelp-query+threads-summary": "LiquidThreads konularının ayrıntılarını gösterin.",
 	"apihelp-query+threads-param-startid": "Numaralandırmaya başlamak için ileti kimliği.",
-	"apihelp-query+threads-param-endid": "Konumundaki numaralandırmayı durdurmak için ileti  kimliği.",
+	"apihelp-query+threads-param-endid": "Konumundaki numaralandırmayı durdurmak için ileti kimliği.",
 	"apihelp-query+threads-param-showdeleted": "Silinmiş iletilerin gösterilip gösterilmeyeceği.",
 	"apihelp-query+threads-param-limit": "Listelenecek maksimum ileti sayısı.",
 	"apihelp-query+threads-param-prop": "Hangi özellikleri elde etmek.",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Banjo",
 			"Elisardojm",
 			"Iváns"
@@ -34,7 +35,7 @@
 	"apihelp-query+threads-param-rendermaxdepth": "Cando se representa, a profundidade máxima de respostas a amosar antes de amosar unha ligazón \"Amosar X respostas\" no canto das respostas.",
 	"apihelp-query+threads-param-renderstartrepliesat": "Cando se representa, o punto no que comezar a mostar respostas (usado internamente para cargar respostas extra).",
 	"apihelp-query+threads-example-1": "Listar os fíos de [[Talk:Main Page]]",
-	"apihelp-query+threads-example-2": "Listar fíos con identificadores 1, 2, 3  e 4.",
+	"apihelp-query+threads-example-2": "Listar fíos con identificadores 1, 2, 3 e 4.",
 	"apihelp-threadaction-summary": "Permite realizar accións en fíos e mensaxes en conversas comezadas.",
 	"apihelp-threadaction-param-thread": "Identificadores de fío ou títulos nos que actuar.",
 	"apihelp-threadaction-param-talkpage": "Páxina de conversa na que actuar (se aplicable).",
