@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
-			"MuratTheTurkish"
+			"MuratTheTurkish",
+			"Amire80"
 		]
 	},
 	"apihelp-feedthreads-description": "Tartışma ileti özet akışına döndürün.",
@@ -18,7 +19,7 @@
 	"apihelp-query+threads-description": "LiquidThreads konularının ayrıntılarını gösterin.",
 	"apihelp-query+threads-summary": "LiquidThreads konularının ayrıntılarını gösterin.",
 	"apihelp-query+threads-param-startid": "Numaralandırmaya başlamak için ileti kimliği.",
-	"apihelp-query+threads-param-endid": "Konumundaki numaralandırmayı durdurmak için ileti  kimliği.",
+	"apihelp-query+threads-param-endid": "Konumundaki numaralandırmayı durdurmak için ileti kimliği.",
 	"apihelp-query+threads-param-showdeleted": "Silinmiş iletilerin gösterilip gösterilmeyeceği.",
 	"apihelp-query+threads-param-limit": "Listelenecek maksimum ileti sayısı.",
 	"apihelp-query+threads-param-prop": "Hangi özellikleri elde etmek.",
