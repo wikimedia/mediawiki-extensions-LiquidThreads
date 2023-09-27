@@ -14,10 +14,10 @@ class SpecialNewMessages extends SpecialPage {
 
 	/**
 	 * @see SpecialPage::getDescription
-	 * @return string
+	 * @return Message
 	 */
 	public function getDescription() {
-		return $this->msg( 'lqt_newmessages-title' )->text();
+		return $this->msg( 'lqt_newmessages-title' );
 	}
 
 	public function execute( $par ) {

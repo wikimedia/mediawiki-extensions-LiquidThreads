@@ -73,10 +73,10 @@ class SpecialMergeThread extends ThreadActionPage {
 
 	/**
 	 * @see SpecialPage::getDescription
-	 * @return string
+	 * @return Message
 	 */
 	public function getDescription() {
-		return $this->msg( 'lqt_merge_thread' )->text();
+		return $this->msg( 'lqt_merge_thread' );
 	}
 
 	public function trySubmit( $data ) {

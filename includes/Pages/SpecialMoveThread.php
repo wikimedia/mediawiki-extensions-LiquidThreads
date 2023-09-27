@@ -5,10 +5,10 @@ use MediaWiki\MediaWikiServices;
 class SpecialMoveThread extends ThreadActionPage {
 	/**
 	 * @see SpecialPage::getDescription
-	 * @return string
+	 * @return Message
 	 */
 	public function getDescription() {
-		return $this->msg( 'lqt_movethread' )->text();
+		return $this->msg( 'lqt_movethread' );
 	}
 
 	public function getFormFields() {
