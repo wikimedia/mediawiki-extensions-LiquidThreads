@@ -1056,10 +1056,10 @@ class Hooks {
 		return true;
 	}
 
-	public static function onInfoAction( $context, $pageInfo ) {
+	public static function onInfoAction( $context, &$pageInfo ) {
 		if ( LqtDispatch::isLqtPage( $context->getTitle() ) ) {
 			$pageInfo['header-basic'][] = [
-				wfMessage( 'pageinfo-usinglqt' ), wfMessage( 'pageinfo-usinglqt-yes' )
+				$context->msg( 'pageinfo-usinglqt' ), $context->msg( 'pageinfo-usinglqt-yes' )
 			];
 		}
 
