@@ -95,7 +95,7 @@ $magicWords['ru'] = [
 	'lqtpagelimit' => [ 0, 'ограничение_страниц_lqt' ],
 ];
 
-/** Serbian (Latin script) (srpski (latinica)‎) */
+/** Serbian (Latin script) (srpski (latinica)) */
 $magicWords['sr-el'] = [
 	'useliquidthreads' => [ 0, 'UseLiquidThreads' ],
 	'lqtpagelimit' => [ 0, 'lqtpagelimit' ],
@@ -113,7 +113,7 @@ $magicWords['uk'] = [
 	'lqtpagelimit' => [ 0, 'обмеження_сторінок_lqt' ],
 ];
 
-/** Simplified Chinese (中文（简体）‎) */
+/** Simplified Chinese (中文（简体）) */
 $magicWords['zh-hans'] = [
 	'useliquidthreads' => [ 0, '使用LiquidThreads' ],
 	'lqtpagelimit' => [ 0, 'lqt页面限制' ],

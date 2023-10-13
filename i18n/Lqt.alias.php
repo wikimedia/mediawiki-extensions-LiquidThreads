@@ -467,7 +467,7 @@ $specialPageAliases['sk'] = [
 	'SplitThread' => [ 'RozdeliťVlákno' ],
 ];
 
-/** Serbian (Cyrillic script) (српски (ћирилица)‎) */
+/** Serbian (Cyrillic script) (српски (ћирилица)) */
 $specialPageAliases['sr-ec'] = [
 	'DeleteThread' => [ 'ОбришиТему', 'Обриши_тему' ],
 	'MoveThread' => [ 'ПреместиТему', 'Премести_тему' ],
@@ -476,7 +476,7 @@ $specialPageAliases['sr-ec'] = [
 	'MergeThread' => [ 'СпојиТему', 'Споји_тему' ],
 ];
 
-/** Serbian (Latin script) (srpski (latinica)‎) */
+/** Serbian (Latin script) (srpski (latinica)) */
 $specialPageAliases['sr-el'] = [
 	'DeleteThread' => [ 'ObrišiTemu', 'Obriši_temu' ],
 	'MoveThread' => [ 'PremestiTemu', 'Premesti_temu' ],
@@ -557,7 +557,7 @@ $specialPageAliases['yi'] = [
 	'NewMessages' => [ 'נייע_מעלדונגנען' ],
 ];
 
-/** Simplified Chinese (中文（简体）‎) */
+/** Simplified Chinese (中文（简体）) */
 $specialPageAliases['zh-hans'] = [
 	'DeleteThread' => [ '删除话题' ],
 	'MoveThread' => [ '移动话题' ],
@@ -566,7 +566,7 @@ $specialPageAliases['zh-hans'] = [
 	'MergeThread' => [ '合并话题' ],
 ];
 
-/** Traditional Chinese (中文（繁體）‎) */
+/** Traditional Chinese (中文（繁體）) */
 $specialPageAliases['zh-hant'] = [
 	'DeleteThread' => [ '刪除討論串' ],
 	'MoveThread' => [ '移動討論串' ],
