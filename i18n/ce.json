@@ -80,7 +80,7 @@
 	"lqt-thread-edited-author": "Авторо нийса йина.<br />\nТӀаьххьара дина нисдар: $1",
 	"lqt-thread-edited-others": "Нисдина {{PLURAL:$2|1 кхечу декъашхочо|$2 кхечу декъашхош|$2 кхечу декъашхош}}.<br />\nТӀаьххьара нисдинарг: $1",
 	"lqt-header-actions": "Ардамаш",
-	"lqt_summarize_link": "Жамl дан",
+	"lqt_summarize_link": "ЖамӀ дан",
 	"lqt-summarize-intro": "Дехар до, хӀокху дийцарийн ген чулацамах лаьцна доца йазде.\nХьа йиш йу муьлха а викийоза леладан. ТӀетаӀе «{{int:publishpage}}», дешдерг кхочушдича.",
 	"lqt_split_thread": "Декъа генаш",
 	"lqt-thread-split-subject": "Керлачу гаьнна корта:",
