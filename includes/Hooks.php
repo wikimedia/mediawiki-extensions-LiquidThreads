@@ -30,6 +30,7 @@ use Thread;
 use Threads;
 use User;
 use UtfNormal\Validator;
+use WikiImporter;
 use WikiPage;
 use Xml;
 use XMLReader;
@@ -741,12 +742,13 @@ class Hooks {
 
 	/**
 	 * Handles tags in Page sections of XML dumps
-	 * @param XMLReader $reader
+	 * @param WikiImporter $importer
 	 * @param array &$pageInfo
 	 * @return bool
 	 */
-	public static function handlePageXMLTag( $reader, &$pageInfo ) {
-		if ( !isset( $reader->nodeType ) || !( $reader->nodeType == XMLReader::ELEMENT &&
+	public static function handlePageXMLTag( $importer, &$pageInfo ) {
+		$reader = $importer->getReader();
+		if ( !( $reader->nodeType == XMLReader::ELEMENT &&
 				$reader->name == 'DiscussionThreading' ) ) {
 			return true;
 		}
@@ -777,9 +779,7 @@ class Hooks {
 			$tag = $reader->name;
 
 			if ( in_array( $tag, $fields ) ) {
-				// @FIXME nodeContents does not exists here, only as BaseDump::nodeContents
-				// @phan-suppress-next-line PhanUndeclaredMethod
-				$pageInfo['DiscussionThreading'][$tag] = $reader->nodeContents();
+				$pageInfo['DiscussionThreading'][$tag] = $importer->nodeContents();
 			}
 		}
 
