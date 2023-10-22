@@ -420,14 +420,13 @@ class ApiThreadAction extends ApiEditPage {
 		if ( !empty( $params['subject'] ) ) {
 			$subject = $params['subject'];
 			$title = null;
-			$subjectOk = empty( $subject ) ||
-				Thread::validateSubject(
-					$subject,
-					$this->getUser(),
-					$title,
-					null,
-					$talkpage
-				);
+			$subjectOk = Thread::validateSubject(
+				$subject,
+				$this->getUser(),
+				$title,
+				null,
+				$talkpage
+			);
 		} else {
 			$subject = $thread->subject();
 		}
