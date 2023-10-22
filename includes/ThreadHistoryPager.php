@@ -66,7 +66,7 @@ class ThreadHistoryPager extends TablePager {
 	public function getFieldNames() {
 		static $headers = null;
 
-		if ( !empty( $headers ) ) {
+		if ( $headers !== null ) {
 			return $headers;
 		}
 
