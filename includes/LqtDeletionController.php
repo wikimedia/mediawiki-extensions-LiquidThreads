@@ -65,7 +65,7 @@ class LqtDeletionController {
 	}
 
 	public static function onArticleUndelete( &$udTitle, $created, $comment = '' ) {
-		if ( empty( self::$pageids_to_revive ) ) {
+		if ( !self::$pageids_to_revive ) {
 			return true;
 		}
 
