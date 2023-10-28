@@ -60,6 +60,20 @@ $namespaceNames['pt'] = [
 	NS_LQT_SUMMARY_TALK => 'Resumo_discussão',
 ];
 
+$namespaceNames['sr-ec'] = [
+	NS_LQT_THREAD       => 'Тема',
+	NS_LQT_THREAD_TALK  => 'Разговор_о_теми',
+	NS_LQT_SUMMARY      => 'Резиме',
+	NS_LQT_SUMMARY_TALK => 'Разговор_о_резимеу',
+];
+
+$namespaceNames['sr-el'] = [
+	NS_LQT_THREAD       => 'Tema',
+	NS_LQT_THREAD_TALK  => 'Razgovor_o_temi',
+	NS_LQT_SUMMARY      => 'Rezime',
+	NS_LQT_SUMMARY_TALK => 'Razgovor_o_rezimeu',
+];
+
 $namespaceNames['sv'] = [
 	NS_LQT_THREAD => 'Tråd',
 	NS_LQT_THREAD_TALK => 'Tråddiskussion',
