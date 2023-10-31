@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xuacu"
+			"Xuacu",
+			"YoaR"
 		]
 	},
 	"lqt-desc": "Amestar discutinios por filos nes páxines d'alderique",
@@ -197,7 +198,7 @@
 	"lqt-ajax-invalid-subject": "L'asuntu qu'especificasti yera inválidu, probablemente porque yera llargu enforma.",
 	"lqt-ajax-no-subject": "Tienes d'especificar un asuntu pal nuevu filu.",
 	"lqt-save-subject-error-unknown": "Asocedió un error desconocíu cuando s'intentó establecer l'asuntu d'esti filu. Intenta nuevamente faciendo clic en «editar» nel mensaxe cimeru.",
-	"lqt-cancel-subject-edit": "Encaboxar",
+	"lqt-cancel-subject-edit": "Zarrar",
 	"lqt-drag-activate": "Abasnar a un allugamientu nuevu",
 	"lqt-drag-drop-zone": "Soltar equí",
 	"lqt-drag-confirm": "Pa completar les siguientes aiciones, escribe un motivu y fai clic en «Confirmar».",
