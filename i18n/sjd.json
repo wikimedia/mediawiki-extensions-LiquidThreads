@@ -9,9 +9,11 @@
 	"lqt_discussion_link": "са̄ррнмуж",
 	"lqt_header_warning_new_discussion": "оа̄лкхэ о̄дт са̄ррнмуж",
 	"lqt_sorting_order": "Ко̄ппчем обрядт:",
+	"lqt-read-all": "Тӣһтлэ пукэтҍ гу ло̄гкма",
 	"lqt-no-new-messages": "Евла о̄дт соа̄г то̄н гуэйкэ.",
 	"lqt-history-action": "Лыһкмуж",
 	"lqt-header-actions": "Лыһкмуж",
+	"prefs-lqt": "Са̄ррьк са̄ррнмуж",
 	"searchprofile-threads": "Са̄ррнмуж",
 	"lqt-newmessages-n": "О̄дт {{PLURAL:$1|соа̄гк|соа̄г}} ($1)",
 	"lqt_newmessages-title": "О̄дт соа̄г"
