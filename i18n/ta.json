@@ -5,7 +5,8 @@
 			"Shanmugamp7",
 			"TRYPPN",
 			"செல்வா",
-			"மதனாஹரன்"
+			"மதனாஹரன்",
+			"Fahimrazick"
 		]
 	},
 	"lqt_contents_title": "பொருளடக்கம்",
@@ -28,7 +29,7 @@
 	"lqt_noreason": "காரணம் தரப்படவில்லை.",
 	"lqt_summary_notice_link": "ஒரு சுருக்கத்தை எழுதவும்",
 	"lqt_move_torename_edit": "இதைத் தொகுக்கவும்",
-	"lqt_move_move": "நகர்த்தவும்",
+	"lqt_move_move": "நகர்த்து",
 	"lqt_move_nodestination": "நீங்கள் கண்டிப்பாக ஓர் இலக்கினைக் குறிப்பிட வேண்டும்.",
 	"lqt_move_noreason": "காரணம் வழங்கப்படவில்லை.",
 	"lqt_header_warning_new_discussion": "புதிய உரையாடலைத் துவங்கு",
@@ -48,7 +49,7 @@
 	"lqt-header-actions": "செயல்கள்",
 	"lqt_summarize_link": "சுருக்குக",
 	"lqt-split-submit": "பிரி",
-	"lqt-movethread": "நகர்த்தவும்",
+	"lqt-movethread": "நகர்த்து",
 	"lqt-menu-trigger": "மேலும்",
 	"lqt-hot-topics": "முக்கியத் தலைப்புகள்",
 	"lqt-add-reply": "மறுமொழியைச் சேர்",
@@ -56,7 +57,7 @@
 	"lqt-preference-display-count": "காட்டப்பட வேண்டிய அதிகபட்ச மறுமொழிகள்:",
 	"lqt-search-legend": "இப்பக்கத்தில் கலந்துரையாடல்களைத் தேடவும்",
 	"lqt-search-label": "பதங்களைத் தேடவும்:",
-	"lqt-search-button": "தேடுக",
+	"lqt-search-button": "தேடு",
 	"searchprofile-threads": "உரையாடல்",
 	"lqt-ajax-update-link": "புதுப்பி",
 	"lqt-thread-show-more": "இன்னும் பதிவுகளைக் காட்டவும்",
