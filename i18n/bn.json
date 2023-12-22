@@ -3,6 +3,7 @@
 		"authors": [
 			"Aftab1995",
 			"Aftabuzzaman",
+			"Aishik Rehman",
 			"Bellayet",
 			"Ehsanulhb",
 			"Mohammed Galib Hasan",
@@ -79,7 +80,7 @@
 	"lqt-thread-created": "তৈরি হয়েছে",
 	"lqt-history-time": "সময়",
 	"lqt-history-user": "ব্যবহারকারী",
-	"lqt-history-action": "কর্মকান্ড",
+	"lqt-history-action": "কর্মকাণ্ড",
 	"lqt-history-comment": "মন্তব্য",
 	"lqt-history-thread": "থ্রেড",
 	"lqt-thread-edited-author": "{{GENDER:$5|লেখক}} দ্বারা সম্পাদিত।<br />\nশেষ সম্পাদনা: $1",
