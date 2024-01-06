@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\User\User;
+
 class LqtNewMessagesPager extends LqtDiscussionPager {
 	/** @var User */
 	private $user;

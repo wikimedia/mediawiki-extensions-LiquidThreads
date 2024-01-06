@@ -11,9 +11,9 @@ use LqtView;
 use MediaWiki\Extension\LiquidThreads\Hooks;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\DerivativeRequest;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use NewMessages;
-use SpecialPage;
 use Thread;
 use Threads;
 

@@ -1,6 +1,11 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
+use MediaWiki\Request\WebRequest;
+use MediaWiki\SpecialPage\UnlistedSpecialPage;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 
 abstract class ThreadActionPage extends UnlistedSpecialPage {
 	/** @var User */

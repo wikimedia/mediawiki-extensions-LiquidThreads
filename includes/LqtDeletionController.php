@@ -1,8 +1,10 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 
 class LqtDeletionController {
 	/** @var Title[]|null */

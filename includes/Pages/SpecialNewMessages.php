@@ -1,6 +1,8 @@
 <?php
 
+use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
 
 class SpecialNewMessages extends SpecialPage {
 	public function __construct() {

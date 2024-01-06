@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Pager\IndexPager;
+
 class LqtDiscussionPager extends IndexPager {
 
 	/** @var Article|false */

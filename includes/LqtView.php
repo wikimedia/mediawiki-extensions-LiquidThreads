@@ -8,9 +8,16 @@
 
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\LiquidThreads\Hooks;
+use MediaWiki\Html\Html;
+use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
+use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Request\FauxRequest;
+use MediaWiki\Request\WebRequest;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use Wikimedia\IPUtils;
 
 class LqtView {

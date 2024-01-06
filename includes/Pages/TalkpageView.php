@@ -1,6 +1,8 @@
 <?php
 
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
 
 class TalkpageView extends LqtView {
 	public const LQT_NEWEST_CHANGES = 'nc';

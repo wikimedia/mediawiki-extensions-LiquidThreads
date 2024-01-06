@@ -1,6 +1,8 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\MediaWikiTitleCodec;
+use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\DBQueryError;
 
 /** Module of factory methods. */

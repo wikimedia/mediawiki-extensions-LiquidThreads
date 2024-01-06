@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Deferred\DeferredUpdates;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 
 class NewUserMessagesView extends LqtView {
