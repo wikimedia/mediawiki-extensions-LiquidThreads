@@ -268,8 +268,8 @@ class NewMessages {
 
 		$fields = [
 			$dbr->tableName( 'user' ) . '.*',
-			'tc_prop.up_value AS timecorrection',
-			'l_prop.up_value as language'
+			'timecorrection' => 'tc_prop.up_value',
+			'language' => 'l_prop.up_value'
 		];
 
 		$join_conds = [
