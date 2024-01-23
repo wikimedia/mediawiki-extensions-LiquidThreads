@@ -5,8 +5,12 @@ use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 
 // Contains formatter functions for all log entry types.
-class LqtLogFormatter {
-	public static function formatLogEntry( $type, $action, $title, $sk, $parameters ) {
+class LqtLogFormatter extends LogFormatter {
+	protected function getActionMessage() {
+		$action = $this->entry->getSubtype();
+		$title = $this->entry->getTarget();
+		$parameters = $this->entry->getParameters();
+
 		$msg = "lqt-log-action-$action";
 
 		switch ( $action ) {
@@ -47,10 +51,19 @@ class LqtLogFormatter {
 		array_unshift( $parameters, $title->getPrefixedText() );
 		$html = wfMessage( $msg, $parameters );
 
-		if ( $sk === null ) {
-			return StringUtils::delimiterReplace( '<', '>', '', $html->inContentLanguage()->parse() );
+		if ( $this->plaintext ) {
+			$html = StringUtils::delimiterReplace( '<', '>', '', $html->inContentLanguage()->parse() );
+		} else {
+			$html = $html->parse();
 		}
 
-		return $html->parse();
+		if ( !$this->irctext ) {
+			$performer = $this->getPerformerElement();
+			$sep = $this->msg( 'word-separator' );
+			$sep = $this->plaintext ? $sep->text() : $sep->escaped();
+			$html = $performer . $sep . $html;
+		}
+
+		return $html;
 	}
 }
