@@ -71,12 +71,12 @@
 		"liquidthreads": "lqt-log-header"
 	},
 	"LogActionsHandlers": {
-		"liquidthreads/move": "LqtLogFormatter::formatLogEntry",
-		"liquidthreads/split": "LqtLogFormatter::formatLogEntry",
-		"liquidthreads/merge": "LqtLogFormatter::formatLogEntry",
-		"liquidthreads/subjectedit": "LqtLogFormatter::formatLogEntry",
-		"liquidthreads/resort": "LqtLogFormatter::formatLogEntry",
-		"liquidthreads/signatureedit": "LqtLogFormatter::formatLogEntry"
+		"liquidthreads/move": "LqtLogFormatter",
+		"liquidthreads/split": "LqtLogFormatter",
+		"liquidthreads/merge": "LqtLogFormatter",
+		"liquidthreads/subjectedit": "LqtLogFormatter",
+		"liquidthreads/resort": "LqtLogFormatter",
+		"liquidthreads/signatureedit": "LqtLogFormatter"
 	},
 	"APIModules": {
 		"feedthreads": {
