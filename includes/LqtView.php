@@ -508,7 +508,7 @@ class LqtView {
 			$this->output->addWikiMsg( 'lqt-protected-newthread' );
 			return;
 		}
-		$subject = $this->request->getVal( 'lqt_subject_field' );
+		$subject = $this->request->getVal( 'lqt_subject_field' ) ?? false;
 
 		$t = null;
 
@@ -582,7 +582,6 @@ class LqtView {
 		$e->previewTextAfterContent .=
 			Xml::tags( 'p', null, $signatureHTML );
 
-		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 		$e->editFormTextBeforeContent .= $this->getSubjectEditor( '', $subject );
 
 		$hookContainer->run( 'LiquidThreadsAfterShowNewThreadForm', [ &$e, $talkpage ] );
