@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Narazeni"
+		]
+	},
+	"lqt-desc": "გეთმუძინანს სხუნუაშ ხასჷლას გოსხუნუაშ მალობას",
+	"lqt_contents_title": "დინორე",
+	"lqt_toc_thread_title": "ყაშ დუდჯოხო",
+	"lqt_toc_thread_author": "ინიციატორი",
+	"lqt_toc_thread_replycount": "გამეფი",
+	"lqt_toc_thread_modified": "ბოლოს დითირჷ",
+	"lqt_add_header": "დუდჯოხოშ ინოძინა",
+	"lqt_new_thread": "ახალი გოსხუნუაშ დოჭყაფა",
+	"lqt-empty-text": "თქვა ვეშეილებჷნა ცაიორი გინაფაშ ჯღონუა",
+	"lqt_empty_subject": "თქვა ქემიოწურუათ-ოკო თემა.",
+	"lqt_reply": "გამა",
+	"lqt-parent": "მასქერი",
+	"lqt_delete": "ლასუა",
+	"lqt_undelete": "ახალშო აკონწყუალა",
+	"lqt_permalink": "რცხილი ათე ხასჷლაშა",
+	"lqt_fragment": "ფრაგმენტი  $1-ს $2-შე",
+	"lqt_discussion_link": "გოსხუნუა",
+	"lqt_from_talk": "$1-შე",
+	"lqt_hist_comment_edited": " [$2 რედაქტირაფილი] კომენტარიშ ტექსტი",
+	"lqt_hist_summary_changed": "შედეგიქ დითირჷ",
+	"lqt_hist_reply_created": "გიჭყჷ [[$1|ახალ გამაქ]]"
+}
