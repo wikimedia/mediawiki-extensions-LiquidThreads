@@ -7,6 +7,7 @@
 		]
 	},
 	"lqt_toc_thread_modified": "Majemustáá nubástittum",
+	"lqt_reply": "Västid",
 	"lqt_delete": "Siho",
 	"lqt_undelete": "Maaccât",
 	"lqt_fragment": "Uási $1 siijđost $2",
@@ -24,5 +25,6 @@
 	"lqt-drag-reason": "Suijâ:",
 	"lqt-newmessages-n": "Uđđâ {{PLURAL:$1|viestâ|viestah}} ($1)",
 	"lqt_newmessages-title": "Uđđâ viestah",
-	"lqt-talkpage-history-subtitle": "Siijđon $1"
+	"lqt-talkpage-history-subtitle": "Siijđon $1",
+	"lqt-reply-subpage": "vástádâs"
 }
