@@ -5,6 +5,7 @@
 			"Yupik"
 		]
 	},
+	"lqt_reply": "Vástit",
 	"lqt_delete": "Sihko",
 	"lqt_undelete": "Máhcat",
 	"lqt_discussion_link": "ságastallan",
@@ -15,5 +16,6 @@
 	"lqt-thread-link-url": "Liŋkka URL:",
 	"lqt-save-subject": "Vurke",
 	"lqt-cancel-subject-edit": "Gaskkalduhte",
-	"lqt-preview-signature": "(ovdačájáhus)"
+	"lqt-preview-signature": "(ovdačájáhus)",
+	"lqt-reply-subpage": "vástádus"
 }
