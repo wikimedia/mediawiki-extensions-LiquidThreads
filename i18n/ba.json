@@ -5,7 +5,8 @@
 			"Haqmar",
 			"Roustammr",
 			"Рустам Нурыев",
-			"З. ӘЙЛЕ"
+			"З. ӘЙЛЕ",
+			"Bashkorttan"
 		]
 	},
 	"lqt-desc": "Фекер алышыу биттәренә фекер алышыу тармаҡтарын өҫтәй",
@@ -93,10 +94,10 @@
 	"lqt_move_success": "Был тармаҡ $1 битенә күсерелгән: $2",
 	"lqt_talkpage_autocreate_summary": "Беренсе хәбәр яҙылыу менән фекер алышыу бите автоматик рәүештә барлыҡҡа килә",
 	"lqt_header_warning_big": "Һеҙ $1 мөхәррирләйһегеҙ.",
-	"lqt_header_warning_after_big": "Исемдәр иғлан һәм инеш һүҙ булараҡ хеҙмәт итә.\nҺеҙ $2 алаһығыҙ.",
+	"lqt_header_warning_after_big": "Башлыҡтар иғлан һәм инеш һүҙ өсөн.\nҺеҙ $2 алаһығыҙ.",
 	"lqt_header_warning_bold": "фекер алышыу битенең исеме",
 	"lqt_header_warning_new_discussion": "яңы фекер алышыу башларға",
-	"lqt_sorting_order": "Айырыу тәртибе:",
+	"lqt_sorting_order": "Теҙеү тәртибе:",
 	"lqt_sort_newest_changes": "тәүҙә һуңғы үҙгәртелгәндәр",
 	"lqt_sort_newest_threads": "тәүҙә яңы тармаҡтар",
 	"lqt_sort_oldest_threads": "тәүҙә иҫке тармаҡтар",
@@ -185,7 +186,7 @@
 	"lqt-thread-link-copy": "Ваҡытлы һаҡлағысҡа яҙҙырырға",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-ҡултамға ҡуйыу кәрәкмәй}} \nИмза үҙенән-үҙе күренә.",
 	"lqt-marked-as-read-placeholder": "$1 тармағы уҡылған тип билдәләнде.",
-	"lqt-change-subject": "Исемен үҙгәртергә",
+	"lqt-change-subject": "Исемен үҙгәртеү",
 	"lqt-save-subject": "Һаҡларға",
 	"lqt-save-subject-failed": "Был тармаҡтың исемен үҙгәртергә тырышҡанда түбәндәге хата килеп сыҡты: $1",
 	"lqt-ajax-invalid-subject": "Һеҙ күрһәткән исем яраҡһыҙ, күрәһең, ул саманан тыш оҙон.",
