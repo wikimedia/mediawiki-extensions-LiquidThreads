@@ -1706,7 +1706,6 @@ class LqtView {
 				$commands_html = "";
 			} else {
 				$commands = $this->topLevelThreadCommands( $thread );
-				// @phan-suppress-next-line SecurityCheck-DoubleEscaped
 				$lis = $this->listItemsForCommands( $commands );
 				$id = 'lqt-threadlevel-commands-' . $thread->id();
 				$commands_html = Xml::tags( 'ul',
