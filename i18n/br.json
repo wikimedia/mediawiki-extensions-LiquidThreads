@@ -5,7 +5,8 @@
 			"Fulup",
 			"Gwendal",
 			"Huñvreüs",
-			"Y-M D"
+			"Y-M D",
+			"Adriendelucca"
 		]
 	},
 	"lqt-desc": "Ouzhpennañ a ra neudennadoù kaozioù er pajennoù kaozeal",
@@ -27,7 +28,7 @@
 	"lqt_undelete": "Diziverkañ",
 	"lqt_permalink": "Peurliamm",
 	"lqt_fragment": "Darn eus ur $1 digant $2",
-	"lqt_discussion_link": "gaoz",
+	"lqt_discussion_link": "kaozeadenn",
 	"lqt_from_talk": "Diwar $1",
 	"lqt-history-title": "Istor ar gaoz",
 	"lqt_hist_comment_edited": "Testenn evezhiadennoù [$2 kemmet]",

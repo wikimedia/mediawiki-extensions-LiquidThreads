@@ -40,6 +40,8 @@
 	"lqt_change_split_from": "[$1 subtemo] di ca diskuto subdividesis, kreinta separita temo.",
 	"lqt_change_root_blanked": "La texto di [$1 komento] removesis.",
 	"lqt_youhavenewmessages": "Vu havas [[$1|nova mesaji]].",
+	"lqt_nosuchthread": "La temo quan vu informis ne existas.",
+	"lqt_nosuchthread_title": "Ne existas ca temo",
 	"lqt_move_torename_edit": "redaktez ol",
 	"lqt_move_destinationtitle": "Destino-titulo dil diskuto-pagino:",
 	"lqt_move_move": "Movar",
