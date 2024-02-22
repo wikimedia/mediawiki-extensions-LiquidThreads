@@ -38,7 +38,7 @@ class NewMessages {
 		} elseif ( is_int( $user ) ) {
 			$user_id = $user;
 		} else {
-			throw new Exception( __METHOD__ . " expected User or integer but got $user" );
+			throw new InvalidArgumentException( __METHOD__ . " expected User or integer but got $user" );
 		}
 
 		$dbw = wfGetDB( DB_PRIMARY );

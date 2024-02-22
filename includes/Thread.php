@@ -116,7 +116,7 @@ class Thread {
 		$thread = new self( null );
 
 		if ( !in_array( $type, self::$VALID_TYPES ) ) {
-			throw new Exception( __METHOD__ . ": invalid change type $type." );
+			throw new UnexpectedValueException( __METHOD__ . ": invalid change type $type." );
 		}
 
 		if ( $superthread ) {
@@ -172,7 +172,7 @@ class Thread {
 		$this->dieIfHistorical();
 
 		if ( $this->id() ) {
-			throw new Exception( "Attempt to insert a thread that already exists." );
+			throw new LogicException( "Attempt to insert a thread that already exists." );
 		}
 
 		$dbw = wfGetDB( DB_PRIMARY );
@@ -202,7 +202,7 @@ class Thread {
 		$this->root = $article;
 
 		if ( $article->getTitle()->getNamespace() != NS_LQT_THREAD ) {
-			throw new Exception( "Attempt to set thread root to a non-Thread page" );
+			throw new LogicException( "Attempt to set thread root to a non-Thread page" );
 		}
 	}
 
@@ -402,7 +402,7 @@ class Thread {
 
 		// If there's no root, bail out with an error message
 		if ( !$this->rootId && !( $this->type & Threads::TYPE_DELETED ) ) {
-			throw new Exception( "Non-deleted thread saved with empty root ID" );
+			throw new LogicException( "Non-deleted thread saved with empty root ID" );
 		}
 
 		if ( $this->replyCount < -1 ) {
@@ -496,7 +496,7 @@ class Thread {
 
 	public function moveToPage( $title, $reason, $leave_trace, User $user ) {
 		if ( !$this->isTopmostThread() ) {
-			throw new Exception( "Attempt to move non-toplevel thread to another page" );
+			throw new LogicException( "Attempt to move non-toplevel thread to another page" );
 		}
 
 		$this->dieIfHistorical();
@@ -1153,13 +1153,13 @@ class Thread {
 		}
 		foreach ( $replies as $reply ) {
 			if ( !$reply->hasSuperthread() ) {
-				throw new Exception( "Post " . $this->id() .
+				throw new RuntimeException( "Post " . $this->id() .
 				" has contaminated reply " . $reply->id() .
 				". Found no superthread." );
 			}
 
 			if ( $reply->superthread()->id() != $this->id() ) {
-				throw new Exception( "Post " . $this->id() .
+				throw new RuntimeException( "Post " . $this->id() .
 				" has contaminated reply " . $reply->id() .
 				". Expected " . $this->id() . ", got " .
 				$reply->superthread()->id() );
@@ -1465,7 +1465,7 @@ class Thread {
 	public static function splitIncrementFromSubject( $subject_string ) {
 		preg_match( '/^(.*) \((\d+)\)$/', $subject_string, $matches );
 		if ( count( $matches ) != 3 ) {
-			throw new Exception(
+			throw new LogicException(
 				__METHOD__ . ": thread subject has no increment: " . $subject_string
 			);
 		} else {
@@ -1580,7 +1580,7 @@ class Thread {
 	 */
 	public function dieIfHistorical() {
 		if ( $this->isHistorical() ) {
-			throw new Exception( "Attempted write or DB operation on historical thread" );
+			throw new LogicException( "Attempted write or DB operation on historical thread" );
 		}
 	}
 

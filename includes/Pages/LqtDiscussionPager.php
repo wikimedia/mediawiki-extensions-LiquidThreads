@@ -97,7 +97,7 @@ class LqtDiscussionPager extends IndexPager {
 			case TalkpageView::LQT_NEWEST_THREADS:
 				return 'thread_created';
 			default:
-				throw new Exception( "Unknown sort order " . $this->orderType );
+				throw new LogicException( "Unknown sort order " . $this->orderType );
 		}
 	}
 
@@ -109,7 +109,7 @@ class LqtDiscussionPager extends IndexPager {
 			case TalkpageView::LQT_OLDEST_THREADS:
 				return false; // Ascending
 			default:
-				throw new Exception( "Unknown sort order " . $this->orderType );
+				throw new LogicException( "Unknown sort order " . $this->orderType );
 		}
 	}
 

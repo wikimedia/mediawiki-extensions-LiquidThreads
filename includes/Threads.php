@@ -114,7 +114,7 @@ class Threads {
 	 */
 	private static function databaseError( $msg ) {
 		// @todo Tie into MW's error reporting facilities.
-		throw new Exception( "Corrupt LiquidThreads database: $msg" );
+		throw new RuntimeException( "Corrupt LiquidThreads database: $msg" );
 	}
 
 	private static function assertSingularity( array $threads, $attribute, $value ) {
@@ -300,7 +300,7 @@ class Threads {
 			$t->isDeletedQuick()
 		) {
 			if ( !$t ) {
-				throw new Exception( "Error in creating title for basename $basename" );
+				throw new LogicException( "Error in creating title for basename $basename" );
 			}
 
 			$n = $contLang->formatNum( $i );

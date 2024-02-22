@@ -198,7 +198,7 @@ class ThreadRevision {
 			if ( $this->mObjSer !== null ) {
 				$this->mThreadObj = unserialize( $this->mObjSer );
 			} else {
-				throw new Exception( "Missing mObjSer" );
+				throw new LogicException( "Missing mObjSer" );
 			}
 		}
 

@@ -420,7 +420,7 @@ class LqtView {
 		} elseif ( $method == 'edit' ) {
 			$this->showPostEditingForm( $thread );
 		} else {
-			throw new Exception( "Invalid thread method $method" );
+			throw new LogicException( "Invalid thread method $method" );
 		}
 
 		$wgOut = $oldOut;
@@ -475,7 +475,7 @@ class LqtView {
 				$talkpage = $thread->article();
 				$title = $talkpage->getTitle();
 			} else {
-				throw new Exception( "Cannot get title" );
+				throw new LogicException( "Cannot get title" );
 			}
 		}
 
@@ -1017,7 +1017,7 @@ class LqtView {
 
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
-				throw new Exception( "Missing required field $f" );
+				throw new RuntimeException( "Missing required field $f" );
 			}
 		}
 
@@ -1048,7 +1048,7 @@ class LqtView {
 
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
-				throw new Exception( "Missing required field $f" );
+				throw new RuntimeException( "Missing required field $f" );
 			}
 		}
 
@@ -1071,7 +1071,7 @@ class LqtView {
 
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
-				throw new Exception( "Missing required field $f" );
+				throw new RuntimeException( "Missing required field $f" );
 			}
 		}
 
@@ -1108,7 +1108,7 @@ class LqtView {
 
 		foreach ( $requiredFields as $f ) {
 			if ( !isset( $data[$f] ) ) {
-				throw new Exception( "Missing required field $f" );
+				throw new RuntimeException( "Missing required field $f" );
 			}
 		}
 
@@ -1780,7 +1780,7 @@ class LqtView {
 		if ( !$target ) {
 			$content = $article->getPage()->getContent();
 			$contentText = ( $content instanceof TextContent ) ? $content->getText() : '';
-			throw new Exception( "Thread " . $thread->id() . ' purports to be moved, ' .
+			throw new LogicException( "Thread " . $thread->id() . ' purports to be moved, ' .
 				'but no redirect found in text (' . $contentText . ') of ' .
 				$thread->root()->getTitle()->getPrefixedText() . '. Dying.'
 			);
@@ -2186,7 +2186,7 @@ class LqtView {
 		}
 
 		if ( !$thread->title() ) {
-			throw new Exception( "Thread " . $thread->id() . " has null title" );
+			throw new LogicException( "Thread " . $thread->id() . " has null title" );
 		}
 
 		// Add the thread's title
