@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Max20091",
 			"Minh Nguyen",
 			"NguoiDungKhongDinhDanh",
@@ -175,8 +176,8 @@
 	"lqt-preference-custom-signatures": "Hiện chữ ký tùy biến của thành viên",
 	"lqt-enotif-subject-reply": "Thảo luận {{SITENAME}} – Trả lời: $1",
 	"lqt-enotif-subject-newthread": "Thảo luận {{SITENAME}} – Luồng mới: $1",
-	"lqt-enotif-newthread": "Chào $1,\n\nĐây là lời thông báo từ {{SITENAME}} về luồng mới về $5, “$2”,\nđược $8 tạo ra vào $3 lúc $4.\n\nBạn có thể đọc nó tại <$6>\n\nVăn bản là:\n$7",
-	"lqt-enotif-reply": "Chào $1,\n\nĐây là lời thông báo từ {{SITENAME}} rằng “$2” có trả lời mới về $5,\ndo $8 tạo ra vào $3 lúc $4.\n\nBạn có thể đọc nó tại <$6>\n\nVăn bản trả lời là:\n$7",
+	"lqt-enotif-newthread": "Chào $1,\n\nĐây là lời thông báo từ {{SITENAME}} về luồng mới về $5, “$2”,\nđược $8 tạo ra vào $3 lúc $4.\n\nBạn có thể đọc nó tại\n$6\n\nVăn bản là:\n$7",
+	"lqt-enotif-reply": "Chào $1,\n\nĐây là lời thông báo từ {{SITENAME}} rằng “$2” có trả lời mới về $5,\ndo $8 tạo ra vào $3 lúc $4.\n\nBạn có thể đọc nó tại\n$6\n\nVăn bản trả lời là:\n$7",
 	"lqt-search-legend": "Tìm kiếm thảo luận tại trang này",
 	"lqt-search-label": "Từ khóa tìm kiếm:",
 	"lqt-search-button": "Tìm kiếm",

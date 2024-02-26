@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"AVRS",
+			"Amire80",
 			"ArnoLagrange",
 			"Blahma",
 			"Joao Xavier",
@@ -173,8 +174,8 @@
 	"lqt-preference-custom-signatures": "Montri proprajn uzanto-subskribojn",
 	"lqt-enotif-subject-reply": "{{SITENAME}}-diskuto - Respondo: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}}-fadeno - Nova fadeno: $1",
-	"lqt-enotif-newthread": "Saluton $1,\nJen sciigo de {{SITENAME}} ke nova fadeno en $5, '$2',\nestis kreita je $3, $4 de $8.\n\nVi povas vidi ĝin ĉe <$6>\n\nLa teksto estas:\n$7",
-	"lqt-enotif-reply": "Saluton $1,\nJen sciigo de {{SITENAME}} pri nova respondo al '$2' en $5,\nestis kreita je $3, $4 de $8.\n\nVi povas vidi ĝin ĉe <$6>\n\nLa teksto de la respondo estas:\n$7",
+	"lqt-enotif-newthread": "Saluton $1,\nJen sciigo de {{SITENAME}} ke nova fadeno en $5, '$2',\nestis kreita je $3, $4 de $8.\n\nVi povas vidi ĝin ĉe\n$6\n\nLa teksto estas:\n$7",
+	"lqt-enotif-reply": "Saluton $1,\n\nJen sciigo de {{SITENAME}} pri nova respondo al '$2' en $5,\nestis kreita je $3, $4 de $8.\n\nVi povas vidi ĝin ĉe\n$6\n\nLa teksto de la respondo estas:\n$7",
 	"lqt-search-legend": "Serĉi diskutojn en ĉi tiu paĝo",
 	"lqt-search-label": "Serĉaj parametroj:",
 	"lqt-search-button": "Serĉi",

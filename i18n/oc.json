@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Cedric31"
 		]
 	},
@@ -156,8 +157,8 @@
 	"lqt-preference-custom-signatures": "Far veire las signaturas personalizadas dels utilizaires",
 	"lqt-enotif-subject-reply": "Discussion sus {{SITENAME}} - Responsa : $1",
 	"lqt-enotif-subject-newthread": "Discussion sus {{SITENAME}}  - Subjècte novèl : $1",
-	"lqt-enotif-newthread": "Bonjorn $1,\n\nAquò es una notificacion de {{SITENAME}}, qu'indica un subjècte novèl de $5, « $2 »,\nes estat creat lo $3 a $4, per $8.\n\nLo podètz consultar a « $6 »\n\nLo tèxte es : $7",
-	"lqt-enotif-reply": "Bonjorn $1,\nAquò es una notificacion de {{SITENAME}}, \nqu'una responsa novèla a « $2 » sus $5,\nes estada creada lo $3 a $4 per $8.\n\nO podètz veire a « $6 »\n\nLo tèxte de la responsa es :\n$7",
+	"lqt-enotif-newthread": "Bonjorn $1,\n\nAquò es una notificacion de {{SITENAME}}, qu'indica un subjècte novèl de $5, « $2 »,\nes estat creat lo $3 a $4, per $8.\n\nLo podètz consultar a\n$6\n\nLo tèxte es :\n$7",
+	"lqt-enotif-reply": "Bonjorn $1,\n\nAquò es una notificacion de {{SITENAME}}, \nqu'una responsa novèla a « $2 » sus $5,\nes estada creada lo $3 a $4 per $8.\n\nO podètz veire a\n$6\n\nLo tèxte de la responsa es :\n$7",
 	"lqt-search-legend": "Recercar de discussions sus aquesta pagina",
 	"lqt-search-label": "Tèrmes de recèrca :",
 	"lqt-search-button": "Recercar",

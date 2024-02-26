@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Airwolf",
+			"Amire80",
 			"Ankry",
 			"Chrumps",
 			"Grzechooo",
@@ -191,8 +192,8 @@
 	"lqt-preference-custom-signatures": "Pokaż niestandardowe podpisy użytkowników",
 	"lqt-enotif-subject-reply": "Dyskusja w {{GRAMMAR:MS.lp|{{SITENAME}}}}. Odpowiedź w wątku $1",
 	"lqt-enotif-subject-newthread": "Dyskusja w {{GRAMMAR:MS.lp|{{SITENAME}}}}. Nowy wątek – $1",
-	"lqt-enotif-newthread": "Witaj $1!\n\nTo jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że $3 o $4 na stronie dyskusji $5, $8 utworzył nowy wątek „$2”.\n\nMożesz go zobaczyć pod adresem <$6>\n\nTreść to:\n$7",
-	"lqt-enotif-reply": "Witaj $1!\n\nTo jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że $3 o $4 na stronie dyskusji $5, $8 odpowiedział w wątku „$2”.\n\nMożesz ją zobaczyć pod adresem <$6>\n\nTreść odpowiedzi to:\n$7",
+	"lqt-enotif-newthread": "Witaj $1!\n\nTo jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że $3 o $4 na stronie dyskusji $5, $8 utworzył nowy wątek „$2”.\n\nMożesz go zobaczyć pod adresem\n$6\n\nTreść to:\n$7",
+	"lqt-enotif-reply": "Witaj $1!\n\nTo jest powiadomienie z {{GRAMMAR:D.lp|{{SITENAME}}}} o tym, że $3 o $4 na stronie dyskusji $5, $8 odpowiedział w wątku „$2”.\n\nMożesz ją zobaczyć pod adresem\n$6\n\nTreść odpowiedzi to:\n$7",
 	"lqt-search-legend": "Szukaj dyskusji na tej stronie",
 	"lqt-search-label": "Szukaj frazy",
 	"lqt-search-button": "Szukaj",

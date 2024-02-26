@@ -3,6 +3,7 @@
 		"authors": [
 			"Als-Chlämens",
 			"Als-Holder",
+			"Amire80",
 			"Purodha"
 		]
 	},
@@ -168,8 +169,8 @@
 	"lqt-preference-custom-signatures": "Signature fir fortgschritteni Benutzer aazeige",
 	"lqt-enotif-subject-reply": "{{SITENAME}}-Diskussion - Antwort: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}}-Diskussion - Neje Diskussionstrang: $1",
-	"lqt-enotif-newthread": "Sali $1,\nDes isch e Nochricht vu {{SITENAME}}. De Benutzer $8 het am $3 um $4 Uhr uff de Syte „$5“ s nöii Thema „$2“ aagfange.\n\nDu chasch es über de Link aaluege: <$6>\n\nD Antwort isch:\n$7",
-	"lqt-enotif-reply": "Sali $1,\nDes isch e Nochricht vu {{SITENAME}}. De Benutzer $8 het am $3 um $4 Uhr uff de Syte „$5“ zum Thema „$2“ e nöii Noochricht gschrybe.\n\nDu chasch es über de Link aaluege: <$6>\n\nD Antwort isch:\n$7",
+	"lqt-enotif-newthread": "Sali $1,\n\nDes isch e Nochricht vu {{SITENAME}}. De Benutzer $8 het am $3 um $4 Uhr uff de Syte „$5“ s nöii Thema „$2“ aagfange.\n\nDu chasch es über de Link aaluege:\n$6\n\nD Antwort isch:\n$7",
+	"lqt-enotif-reply": "Sali $1,\n\nDes isch e Nochricht vu {{SITENAME}}. De Benutzer $8 het am $3 um $4 Uhr uff de Syte „$5“ zum Thema „$2“ e nöii Noochricht gschrybe.\n\nDu chasch es über de Link aaluege:\n$6\n\nD Antwort isch:\n$7",
 	"lqt-search-legend": "Dursuech d Diskussionsbyytreg uf däre Syte",
 	"lqt-search-label": "Suechuusdruck:",
 	"lqt-search-button": "Sueche",

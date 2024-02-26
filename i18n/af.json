@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Arnobarnard",
 			"Fwolff",
 			"Naudefj",
@@ -155,8 +156,8 @@
 	"lqt-preference-custom-signatures": "Wys gebruikers se persoonlike handtekeninge",
 	"lqt-enotif-subject-reply": "Bespreking op {{SITENAME}} - Antwoord: $1",
 	"lqt-enotif-subject-newthread": "Bespreking op {{SITENAME}} - Nuwe gesprek: $1",
-	"lqt-enotif-newthread": "Hallo $1,\n\nHierdie is 'n kennisgewing vanaf {{SITENAME}}. Daar is 'n nuwe onderwerp '$2' op $5 geplaas op $3 om $4 deur $8.\n\nU kan dit sien by <$6>.\n\nDie teks is:\n$7",
-	"lqt-enotif-reply": "Hallo $1,\n\nHierdie is 'n kennisgewing vanaf {{SITENAME}}. Daar is 'n nuwe antwoord '$2' op $5\nwat op $3 om $4 deur $8 geplaas is.\n\nU kan dit sien by <$6>.\n\nDie teks van die antwoord is:\n$7",
+	"lqt-enotif-newthread": "Hallo $1,\n\nHierdie is 'n kennisgewing vanaf {{SITENAME}}. Daar is 'n nuwe onderwerp '$2' op $5 geplaas op $3 om $4 deur $8.\n\nU kan dit sien by\n$6\n\nDie teks is:\n$7",
+	"lqt-enotif-reply": "Hallo $1,\n\nHierdie is 'n kennisgewing vanaf {{SITENAME}}. Daar is 'n nuwe antwoord '$2' op $5\nwat op $3 om $4 deur $8 geplaas is.\n\nU kan dit sien by\n$6\n\nDie teks van die antwoord is:\n$7",
 	"lqt-search-legend": "Deursoek besprekings op hierdie bladsy",
 	"lqt-search-label": "Soekterme:",
 	"lqt-search-button": "Soek",

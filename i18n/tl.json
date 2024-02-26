@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"AnakngAraw",
 			"Jewel457"
 		]
@@ -167,8 +168,8 @@
 	"lqt-preference-custom-signatures": "Ipakita ang pasadyang mga lagda ng tagagamit",
 	"lqt-enotif-subject-reply": "Talakayan sa {{SITENAME}} - Tugon: $1",
 	"lqt-enotif-subject-newthread": "Talakayan sa {{SITENAME}} - Bagong sinulid: $1",
-	"lqt-enotif-newthread": "Kumusta ka $1,\n\nIsa itong pagbibigay-alam mula sa {{SITENAME}} na may isang bagong sinulid sa $5, '$2',\nna nalikha ni $8 noong $3 sa ganap na ika-$4.\n\nMakikita mo ito sa <$6>\n\nAng teksto ay:\n$7",
-	"lqt-enotif-reply": "Kumusta ka $1,\n\nIsa itong pabatid mula sa {{SITENAME}} na may isang bagong tugon sa '$2' na nasa $5,\nna nalikha ni $8 noong $3 sa ganap na ika-$4.\n\nMakikita mo ito sa <$6>\n\nAng teksto ng tugon ay:\n$7",
+	"lqt-enotif-newthread": "Kumusta ka $1,\n\nIsa itong pagbibigay-alam mula sa {{SITENAME}} na may isang bagong sinulid sa $5, '$2',\nna nalikha ni $8 noong $3 sa ganap na ika-$4.\n\nMakikita mo ito sa\n$6\n\nAng teksto ay:\n$7",
+	"lqt-enotif-reply": "Kumusta ka $1,\n\nIsa itong pabatid mula sa {{SITENAME}} na may isang bagong tugon sa '$2' na nasa $5,\nna nalikha ni $8 noong $3 sa ganap na ika-$4.\n\nMakikita mo ito sa\n$6\n\nAng teksto ng tugon ay:\n$7",
 	"lqt-search-legend": "Maghanap sa mga talakayan sa pahinang ito",
 	"lqt-search-label": "Mga katagang hahanapin:",
 	"lqt-search-button": "Maghanap",

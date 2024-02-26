@@ -3,6 +3,7 @@
 		"authors": [
 			"Aleator",
 			"Alvaro Vidal-Abarca",
+			"Amire80",
 			"Fitoschido",
 			"Jmarchn",
 			"Jordi Roqué",
@@ -182,8 +183,8 @@
 	"lqt-preference-custom-signatures": "Mostra les signatures d'usuari personalitzades",
 	"lqt-enotif-subject-reply": "Discussió a {{SITENAME}} - Resposta: $1",
 	"lqt-enotif-subject-newthread": "Discussió a {{SITENAME}} - Nou tema: $1",
-	"lqt-enotif-newthread": "Hola $1,\n\nAçò és una notificació des del projecte {{SITENAME}} per a avisar-vos que s'ha creat un nou fil de de discussió «$2» a $5, el dia $3 a les $4 per part de l'usuari $8\n\nEl podeu veure a <$6>\n\nEl text és:\n$7",
-	"lqt-enotif-reply": "Hola $1,\n\nAçò és una notificació des del projecte {{SITENAME}} per a avisar-vos que una nova resposta al fil «$2» de $5,\nha aparegut el dia $3 a les $4 per part de l'usuari $8\n\nEl podeu veure a <$6>\n\nEl text de la resposta és:\n$7",
+	"lqt-enotif-newthread": "Hola $1,\n\nAçò és una notificació des del projecte {{SITENAME}} per a avisar-vos que s'ha creat un nou fil de discussió «$2» a $5, el dia $3 a les $4 per part de l'usuari $8\n\nEl podeu veure a\n$6\n\nEl text és:\n$7",
+	"lqt-enotif-reply": "Hola $1,\n\nAçò és una notificació des del projecte {{SITENAME}} per a avisar-vos que una nova resposta al fil «$2» de $5,\nha aparegut el dia $3 a les $4 per part de l'usuari $8\n\nEl podeu veure a\n$6\n\nEl text de la resposta és:\n$7",
 	"lqt-search-legend": "Cerca discussions en aquesta pàgina",
 	"lqt-search-label": "Termes de cerca:",
 	"lqt-search-button": "Cerca",

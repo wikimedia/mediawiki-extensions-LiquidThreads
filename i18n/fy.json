@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Kening Aldgilles",
 			"PiefPafPier",
 			"Robin van der Vliet",
@@ -179,8 +180,8 @@
 	"lqt-preference-custom-signatures": "Oanpaste meidoggersinjatueren werjaan",
 	"lqt-enotif-subject-reply": "{{SITENAME}}-diskusje - Antwurd: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}}-diskusje - Nij triedsje: $1",
-	"lqt-enotif-newthread": "Goeie $1,\n\nDit is in melding fan {{GRAMMAR:l|{{SITENAME}}}} dat der in nij triedsje '$2' op $5 pleatst is, op $3 om $4 troch $8.\n\nJo kinne it besjen op <$6>.\n\nDe tekst is:\n$7",
-	"lqt-enotif-reply": "Goeie $1,\n\nDit is in melding fan {{GRAMMAR:l|{{SITENAME}}}} dat der in nij antwurd yn '$2' op $5 pleatst is, op $3 om $4 troch $8.\n\nJo kinne it besjen op <$6>.\n\nDe tekst fan 't antwurd is:\n$7",
+	"lqt-enotif-newthread": "Goeie $1,\n\nDit is in melding fan {{GRAMMAR:l|{{SITENAME}}}} dat der in nij triedsje '$2' op $5 pleatst is, op $3 om $4 troch $8.\n\nJo kinne it besjen op\n$6\n\nDe tekst is:\n$7",
+	"lqt-enotif-reply": "Goeie $1,\n\nDit is in melding fan {{GRAMMAR:l|{{SITENAME}}}} dat der in nij antwurd yn '$2' op $5 pleatst is, op $3 om $4 troch $8.\n\nJo kinne it besjen op\n$6\n\nDe tekst fan 't antwurd is:\n$7",
 	"lqt-search-legend": "Diskusjes op dizze side trochsykje",
 	"lqt-search-label": "Syktermen:",
 	"lqt-search-button": "Sykje",

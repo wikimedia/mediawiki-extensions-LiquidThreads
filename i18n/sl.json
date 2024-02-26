@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Dbc334",
 			"Eleassar",
 			"Janezdrilc",
@@ -179,8 +180,8 @@
 	"lqt-preference-custom-signatures": "Prikaži uporabniške podpise po meri",
 	"lqt-enotif-subject-reply": "Razprava v projektu {{SITENAME}} – odgovor: $1",
 	"lqt-enotif-subject-newthread": "Pogovor v projektu {{SITENAME}} – nova nit: $1",
-	"lqt-enotif-newthread": "Živijo, $1\n\n{{SITENAME}} vas obvešča, da je $8 na $5\ndne $3 ob $4 ustvaril_a novo nit »$2«.\n\nOgledate si jo lahko na <$6>\n\nVsebina je:\n$7",
-	"lqt-enotif-reply": "Pozdravljeni, $1,\n\n{{SITENAME}} vas obvešča, da je $8 dne $3 ob $4\nodgovoril na nit »$2« na $5.\n\nOdgovor si lahko ogledate na <$6>\n\nBesedilo odgovora je:\n$7",
+	"lqt-enotif-newthread": "Živijo, $1\n\n{{SITENAME}} vas obvešča, da je $8 na $5\ndne $3 ob $4 ustvaril_a novo nit »$2«.\n\nOgledate si jo lahko na\n$6\n\nVsebina je:\n$7",
+	"lqt-enotif-reply": "Pozdravljeni, $1,\n\n{{SITENAME}} vas obvešča, da je $8 dne $3 ob $4\nodgovoril na nit »$2« na $5.\n\nOdgovor si lahko ogledate na\n$6\n\nBesedilo odgovora je:\n$7",
 	"lqt-search-legend": "Iskanje razprav na tej strani",
 	"lqt-search-label": "Iskalni pojmi:",
 	"lqt-search-button": "Išči",

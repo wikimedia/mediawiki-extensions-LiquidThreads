@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Armando-Martin",
 			"Ciencia Al Poder",
 			"Crazymadlover",
@@ -196,8 +197,8 @@
 	"lqt-preference-custom-signatures": "Mostrar firmas de usuario personalizadas",
 	"lqt-enotif-subject-reply": "{{SITENAME}} discusión - Respuesta: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} discusión - Nuevo hilo: $1",
-	"lqt-enotif-newthread": "Hola, $1:\n\nEsta es una notificación de {{SITENAME}} de que se ha creado un hilo nuevo\nen $5, «$2», el $3 a las $4 por $8.\n\nPuedes verlo en <$6>\n\nEl texto es:\n$7",
-	"lqt-enotif-reply": "Hola $1,\n\nEsta es una notificación de {{SITENAME}}. Se ha creado una nueva respuesta a '$2' en $5,\n el $3 a las $4 por $8.\n\nPuedes verla en <$6>\n\nEl texto de la respuesta es:\n$7",
+	"lqt-enotif-newthread": "Hola, $1:\n\nEsta es una notificación de {{SITENAME}} de que se ha creado un hilo nuevo\nen $5, «$2», el $3 a las $4 por $8.\n\nPuedes verlo en\n$6\n\nEl texto es:\n$7",
+	"lqt-enotif-reply": "Hola $1,\n\nEsta es una notificación de {{SITENAME}}. Se ha creado una nueva respuesta a '$2' en $5,\nel $3 a las $4 por $8.\n\nPuedes verla en\n$6\n\nEl texto de la respuesta es:\n$7",
 	"lqt-search-legend": "Discusiones de búsqueda en esta página",
 	"lqt-search-label": "Términos de búsqueda:",
 	"lqt-search-button": "Buscar",

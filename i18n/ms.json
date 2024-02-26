@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Anakmalaysia",
 			"Aurora",
 			"Jeluang Terluang",
@@ -171,8 +172,8 @@
 	"lqt-preference-custom-signatures": "Tunjukkan tandatangan tempahan pengguna",
 	"lqt-enotif-subject-reply": "Perbincangan {{SITENAME}} - Balas: $1",
 	"lqt-enotif-subject-newthread": "Perbincangan {{SITENAME}} - Tred baru: $1",
-	"lqt-enotif-newthread": "$1,\n\nIni ialah makluman daripada {{SITENAME}} bahawa ada satu jalur baru bertajuk '$2' yang dibuka oleh $8 di $5 pada $3, $4.\n\nAnda boleh membacanya di <$6>\n\nTeksnya adalah seperti berikut:\n$7",
-	"lqt-enotif-reply": "$1,\n\nIni ialah makluman daripada {{SITENAME}} bahawa ada satu balasan kepada '$2' yang dikirim oleh $8 di $5 pada $3, $4.\n\nAnda boleh membacanya di <$6>\n\nTeksnya adalah seperti berikut:\n$7",
+	"lqt-enotif-newthread": "$1,\n\nIni ialah makluman daripada {{SITENAME}} bahawa ada satu jalur baru bertajuk '$2' yang dibuka oleh $8 di $5 pada $3, $4.\n\nAnda boleh membacanya di\n$6\n\nTeksnya adalah seperti berikut:\n$7",
+	"lqt-enotif-reply": "$1,\n\nIni ialah makluman daripada {{SITENAME}} bahawa ada satu balasan kepada '$2' yang dikirim oleh $8 di $5 pada $3, $4.\n\nAnda boleh membacanya di\n$6\n\nTeksnya adalah seperti berikut:\n$7",
 	"lqt-search-legend": "Cari perbincangan di laman ini",
 	"lqt-search-label": "Kata yang dicari:",
 	"lqt-search-button": "Cari",

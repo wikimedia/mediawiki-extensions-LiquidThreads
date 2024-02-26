@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Joetaras"
 		]
 	},
@@ -175,8 +176,8 @@
 	"lqt-preference-custom-signatures": "Fà vedè le firme personalizzate de l'utinde",
 	"lqt-enotif-subject-reply": "'Ngazzamende de {{SITENAME}} - Resposte: $1",
 	"lqt-enotif-subject-newthread": "'Ngazzamende de {{SITENAME}} - Argomende nuève: $1",
-	"lqt-enotif-newthread": "Cià $1,\n\nQueste jè 'na notifiche da {{SITENAME}} ca 'n'argomende nuève sus a $5, '$2', ha state ccrejate 'u $3 a le $4 da $8\n\n\nTu 'u puè vedè a <$6>\n\n'U teste jè:\n$7",
-	"lqt-enotif-reply": "Cià $1,\n\nQueste jè 'na notifiche da {{SITENAME}} ca 'na resposta nova a '$2' sus a $5, ha state ccrejate 'u $3 a le $4 da $8\n\nTu 'a puè vedè a <$6>\n\n'U teste d'a resposte jè:\n$7",
+	"lqt-enotif-newthread": "Cià $1,\n\nQueste jè 'na notifiche da {{SITENAME}} ca 'n'argomende nuève sus a $5, '$2', ha state ccrejate 'u $3 a le $4 da $8\n\nTu 'u puè vedè a\n$6\n\n'U teste jè:\n$7",
+	"lqt-enotif-reply": "Cià $1,\n\nQueste jè 'na notifiche da {{SITENAME}} ca 'na resposta nova a '$2' sus a $5, ha state ccrejate 'u $3 a le $4 da $8\n\nTu 'a puè vedè a\n$6\n\n'U teste d'a resposte jè:\n$7",
 	"lqt-search-legend": "Cirche le 'ngazzaminde sus a sta pàgene",
 	"lqt-search-label": "Cirche le termine:",
 	"lqt-search-button": "Cirche",

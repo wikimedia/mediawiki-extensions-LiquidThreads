@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Als-Holder",
+			"Amire80",
 			"Purodha"
 		]
 	},
@@ -171,8 +172,8 @@
 	"lqt-preference-custom-signatures": "Donn de selfßjemaate „Ongerschreffte“ vun de Metmaacher anzeije",
 	"lqt-enotif-subject-reply": "Klaaf {{GRAMMAR:em|{{SITENAME}}}} - ene neue Beijdraach zom Tehma: $1",
 	"lqt-enotif-subject-newthread": "Klaaf {{GRAMMAR:em|{{SITENAME}}}} - ene neue {{int:lqt-history-thread}}: $1",
-	"lqt-enotif-newthread": "Leeven $1,\ndat hee es en Nohreesch {{GRAMMAR:Genitiv vun|{{SITENAME}}}},\ndat ene neue {{int:lqt-history-thread}} zom Tehma\n„$2“\nöm $4 Uhr aam $3 op dä Sigg $5\ndobei jekumme es. Jeschrwevve häd_en {{GENDER:$8|dä|dat|dä Metmaacher|de|et}} $8\n\nBelohre kanns de dä op\n<$6>\n\nDer Täx es:\n$7\n\nEne schööne Jrohß!",
-	"lqt-enotif-reply": "Leeven $1,\ndat hee es en Nohreesch {{GRAMMAR:Genitiv vun|{{SITENAME}}}},\ndat ene neue Beijdraach zom {{int:lqt-history-thread}} zom Tehma\n„$2“\nöm $4 Uhr aam $3 op dä Sigg $5\ndobei jekumme es. Jeschrwevve häd_en {{GENDER:$8|dä|dat|dä Metmaacher|de|et}} $8\n\nBeloore kanns de dä op\n<$6>\n\nDä Beidraach es:\n\n$7\n\nEne schööne Jrohß!",
+	"lqt-enotif-newthread": "Leeven $1,\ndat hee es en Nohreesch {{GRAMMAR:Genitiv vun|{{SITENAME}}}},\ndat ene neue Jeschprääschßfäddem zom Tehma\n„$2“\nöm $4 Uhr aam $3 op dä Sigg $5\ndobei jekumme es. Jeschrwevve häd_en {{GENDER:$8|dä|dat|dä Metmaacher|de|et}} $8\n\nBelohre kanns de dä op\n$6\n\nDer Täx es:\n$7\n\nEne schööne Jrohß!",
+	"lqt-enotif-reply": "Leeven $1,\ndat hee es en Nohreesch {{GRAMMAR:Genitiv vun|{{SITENAME}}}},\ndat ene neue Beijdraach zom Jeschprääschßfäddem zom Tehma\n„$2“\nöm $4 Uhr aam $3 op dä Sigg $5\ndobei jekumme es. Jeschrwevve häd_en {{GENDER:$8|dä|dat|dä Metmaacher|de|et}} $8\n\nBeloore kanns de dä op\n$6\n\nDä Beidraach es:\n$7\n\nEne schööne Jrohß!",
 	"lqt-search-legend": "En dä {{int:lqt-history-thread}}e op heh dä Sigg söhke",
 	"lqt-search-label": "Söhk noh:",
 	"lqt-search-button": "Söhke",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Ooswesthoesbes",
 			"Pahles"
 		]
@@ -165,8 +166,8 @@
 	"lqt-preference-custom-signatures": "Tuin aangepasde gebroekershandjteikeninge",
 	"lqt-enotif-subject-reply": "Euverligk óp {{SITENAME}} - Antjwaord: $1",
 	"lqt-enotif-subject-newthread": "Euverlègk óp {{SITENAME}} - Nuuj euverlègk: $1",
-	"lqt-enotif-newthread": "Haj $1,\n\nDit is 'n kinnisgaeving van {{SITENAME}}. d'r Is e nuuj óngerwerp '$2' óp $5 geplaats gewaoren óp $3 óm $4.\n\nDoe kins 't bekieke: <$6>.",
-	"lqt-enotif-reply": "Haj $1,\n\nDit is 'n kinnisgaeving van {{SITENAME}}. d'r Is e nuuj antjwaord óp \"$2\" óp $5 gekómmen óp $3 óm $4.\n\nDoe kins 't bekieke: <$6>.\n\nHieónger steit 't:\n$7",
+	"lqt-enotif-newthread": "Haj $1,\n\nDit is 'n kinnisgaeving van {{SITENAME}}. d'r Is e nuuj óngerwerp '$2' óp $5 geplaats gewaoren óp $3 óm $4.\n\nDoe kins 't bekieke: $6",
+	"lqt-enotif-reply": "Haj $1,\n\nDit is 'n kinnisgaeving van {{SITENAME}}. d'r Is e nuuj antjwaord óp \"$2\" óp $5 gekómmen óp $3 óm $4.\n\nDoe kins 't bekieke:\n$6\n\nHieónger steit 't:\n$7",
 	"lqt-search-legend": "Zeuk óp euverlègk óp dees paasj",
 	"lqt-search-label": "Zeukterme:",
 	"lqt-search-button": "Zeuk",

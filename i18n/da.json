@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Christian List",
 			"Jon Harald Søby",
 			"Kaare",
@@ -175,8 +176,8 @@
 	"lqt-preference-custom-signatures": "Vis brugerdefinerede signaturer",
 	"lqt-enotif-subject-reply": "{{SITENAME}}-diskussion - Svar: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}}-diskussion - Ny tråd: $1",
-	"lqt-enotif-newthread": "Hej $1.\n\nDette er en besked fra {{SITENAME}} at en tråd på $5, '$2',\nblev oprettet den $3 $4 af $8.\n\nDu kan se den på <$6>\n\nTeksten lyder:\n$7",
-	"lqt-enotif-reply": "Hej $1.\n\nDette er en besked fra {{SITENAME}} at et nyt svar til '$2' på $5\nblev oprettet den $3 $4 af $8.\n\nDu kan se det på <$6>\n\nSvarets tekst lyder:\n$7",
+	"lqt-enotif-newthread": "Hej $1.\n\nDette er en besked fra {{SITENAME}} at en tråd på $5, '$2',\nblev oprettet den $3 $4 af $8.\n\nDu kan se den på\n$6\n\nTeksten lyder:\n$7",
+	"lqt-enotif-reply": "Hej $1.\n\nDette er en besked fra {{SITENAME}} at et nyt svar til '$2' på $5\nblev oprettet den $3 $4 af $8.\n\nDu kan se det på\n$6\n\nSvarets tekst lyder:\n$7",
 	"lqt-search-legend": "Søg i diskussioner på denne side",
 	"lqt-search-label": "Søgeord:",
 	"lqt-search-button": "Søg",

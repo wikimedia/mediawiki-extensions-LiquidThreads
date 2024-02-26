@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Bugoslav",
 			"Dalibor Bosits",
 			"Ex13",
@@ -181,8 +182,8 @@
 	"lqt-preference-custom-signatures": "Prikaži modificirane potpise suradnika",
 	"lqt-enotif-subject-reply": "{{SITENAME}} rasprava - Odgovor: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} rasprava - Nova rasprava: $1",
-	"lqt-enotif-newthread": "Pozdrav $1,\n\novo je obavijest s projekta {{SITENAME}} da je $3 u $4 započeta nova rasprava pod naslovom '$2' ($5). Raspravu je {{GENDER:$8|započeo|započela}} $8.\n\nMožete je vidjeti na <$6>\n\nTekst glasi:\n$7",
-	"lqt-enotif-reply": "Pozdrav $1,\n\novo je obavijest s projekta {{SITENAME}} o novom odgovoru {{GENDER:$8|suradnika|suradnice}} $8 dana $3 u $4 na '$2' na $5\n\nOdgovor možete vidjeti ovdje <$6>\n\nOdgovor glasi:\n$7",
+	"lqt-enotif-newthread": "Pozdrav $1,\n\novo je obavijest s projekta {{SITENAME}} da je $3 u $4 započeta nova rasprava pod naslovom '$2' ($5). Raspravu je {{GENDER:$8|započeo|započela}} $8.\n\nMožete je vidjeti na\n$6\n\nTekst glasi:\n$7",
+	"lqt-enotif-reply": "Pozdrav $1,\n\novo je obavijest s projekta {{SITENAME}} o novom odgovoru {{GENDER:$8|suradnika|suradnice}} $8 dana $3 u $4 na '$2' na $5\n\nOdgovor možete vidjeti ovdje\n$6\n\nOdgovor glasi:\n$7",
 	"lqt-search-legend": "Pretraži raspravu na ovoj stranici",
 	"lqt-search-label": "Pojmovi pretrage:",
 	"lqt-search-button": "Traži",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Helix84",
 			"Jkjk",
 			"Luky001",
@@ -170,8 +171,8 @@
 	"lqt-preference-custom-signatures": "Zobraziť prispôsobené podpisy používateľov",
 	"lqt-enotif-subject-reply": "Diskusia {{GRAMMAR:genitív|{{SITENAME}}}} - Odpoveď: $1",
 	"lqt-enotif-subject-newthread": "Diskusia {{GRAMMAR:genitív|{{SITENAME}}}} - Nové vlákno: $1",
-	"lqt-enotif-newthread": "Ahoj $1,\ntoto je oznámenie z {{GRAMMAR:genitív|{{SITENAME}}}}, že nové vlákno $5, „$2“,\n$3 $4 vytvoril $8.\n\nMôžete si ho pozrieť na <$6>\n\nText je:\n$7",
-	"lqt-enotif-reply": "Ahoj $1,\ntoto je oznámenie z {{GRAMMAR:genitív|{{SITENAME}}}}, že používateľ $8 pridal $3 $4\nnovú odpoveď na $5, „$2“.\n\nMôžete si ju pozrieť na <$6>\n\nText odpovede je:\n$7",
+	"lqt-enotif-newthread": "Ahoj $1,\n\ntoto je oznámenie z {{GRAMMAR:genitív|{{SITENAME}}}}, že nové vlákno $5, „$2“,\n$3 $4 vytvoril $8.\n\nMôžete si ho pozrieť na\n$6\n\nText je:\n$7",
+	"lqt-enotif-reply": "Ahoj $1,\n\ntoto je oznámenie z {{GRAMMAR:genitív|{{SITENAME}}}}, že používateľ $8 pridal $3 $4\nnovú odpoveď na $5, „$2“.\n\nMôžete si ju pozrieť na\n$6\n\nText odpovede je:\n$7",
 	"lqt-search-legend": "Hľadať v diskusiách k tejto stránke",
 	"lqt-search-label": "Hľadaný výraz:",
 	"lqt-search-button": "Hľadať",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Cedric31",
 			"ChrisPtDe"
 		]
@@ -167,8 +168,8 @@
 	"lqt-preference-custom-signatures": "Montrar les signatures pèrsonalisâs ux usanciérs",
 	"lqt-enotif-subject-reply": "Discussion dessus {{SITENAME}} - Rèponsa : $1",
 	"lqt-enotif-subject-newthread": "Discussion dessus {{SITENAME}} - Sujèt novél : $1",
-	"lqt-enotif-newthread": "Bonjorn $1,\n\nO est una notificacion de {{SITENAME}}, qu’endique qu’un sujèt novél sur $5, « $2 »,\nat étâ fêt lo $3 a $4 per $8.\n\nVos lo pouede vêre a <$6>\n\nLo tèxto est :\n$7",
-	"lqt-enotif-reply": "Bonjorn $1,\n\nO est una notificacion de {{SITENAME}}, qu’una rèponsa novèla a « $2 » sur $5\nat étâ fêta lo $3 a $4 per $8.\n\nVos la pouede vêre sur <$6>\n\nLo tèxto de la rèponsa est :\n$7",
+	"lqt-enotif-newthread": "Bonjorn $1,\n\nO est una notificacion de {{SITENAME}}, qu’endique qu’un sujèt novél sur $5, « $2 »,\nat étâ fêt lo $3 a $4 per $8.\n\nVos lo pouede vêre a\n$6\n\nLo tèxto est :\n$7",
+	"lqt-enotif-reply": "Bonjorn $1,\n\nO est una notificacion de {{SITENAME}}, qu’una rèponsa novèla a « $2 » sur $5\nat étâ fêta lo $3 a $4 per $8.\n\nVos la pouede vêre sur\n$6\n\nLo tèxto de la rèponsa est :\n$7",
 	"lqt-search-legend": "Rechèrchiér des discussions sur ceta pâge",
 	"lqt-search-label": "Tèrmos de rechèrche :",
 	"lqt-search-button": "Rechèrchiér",

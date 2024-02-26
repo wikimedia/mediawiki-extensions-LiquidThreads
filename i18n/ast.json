@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Xuacu",
 			"YoaR"
 		]
@@ -175,8 +176,8 @@
 	"lqt-preference-custom-signatures": "Amosar firmes d'usuariu personalizaes",
 	"lqt-enotif-subject-reply": "Alderique de {{SITENAME}} - Respuesta: $1",
 	"lqt-enotif-subject-newthread": "Alderique de {{SITENAME}} - Filu nuevu: $1",
-	"lqt-enotif-newthread": "Hola $1,\n\nesta ye una notificación del proyeutu {{SITENAME}} de que se creó un nuevu filu, '$2', en $5 el día $3 a les $4 por $8.\n\nPuedes velu en <$6>\n\nEl testu ye:\n$7",
-	"lqt-enotif-reply": "Hola $1,\n\nEsta ye una notificación del proyeutu {{SITENAME}} de que se creó una nueva respuesta a '$2' en $5, el $3 a les $4 por $8.\n\nPuedes vela en <$6>\n\nEl testu de la respuesta ye:\n$7",
+	"lqt-enotif-newthread": "Hola $1,\n\nesta ye una notificación del proyeutu {{SITENAME}} de que se creó un nuevu filu, '$2', en $5 el día $3 a les $4 por $8.\n\nPuedes velu en\n$6\n\nEl testu ye:\n$7",
+	"lqt-enotif-reply": "Hola $1,\n\nEsta ye una notificación del proyeutu {{SITENAME}} de que se creó una nueva respuesta a '$2' en $5, el $3 a les $4 por $8.\n\nPuedes vela en\n$6\n\nEl testu de la respuesta ye:\n$7",
 	"lqt-search-legend": "Buscar nos alderiques d'esta páxina",
 	"lqt-search-label": "Términos de gueta:",
 	"lqt-search-button": "Guetar",

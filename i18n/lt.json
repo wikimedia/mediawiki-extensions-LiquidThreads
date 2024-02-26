@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Eitvys200",
 			"Homo",
 			"Mantak111",
@@ -166,8 +167,8 @@
 	"lqt-preference-custom-signatures": "Rodyti naudotojo parašą",
 	"lqt-enotif-subject-reply": "{{SITENAME}} aptarimas - Atsakymas: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} aptarimas - Nauja žinutė: $1",
-	"lqt-enotif-newthread": "Sveikas $1,\n\npranešame, kad $3 d. $4 val. saityno {{SITENAME}} puslapyje $5 buvo sukurta nauja žinutė '$2'.\nJą sukūrė $8.\n\nJūs ją galite peržiūrėti: <$6>\n\nŽinutės tekstas:\n$7",
-	"lqt-enotif-reply": "Sveikas $1,\n\npranešame, kad $3 d. $4 val. saityno {{SITENAME}} puslapyje $5 buvo parašytas atsakymas į '$2'.\nJį parašė $8.\n\nJūs šį atsakymą galite peržiūrėti: <$6>\n\nAtsakymo tekstas:\n$7",
+	"lqt-enotif-newthread": "Sveikas $1,\n\npranešame, kad $3 d. $4 val. saityno {{SITENAME}} puslapyje $5 buvo sukurta nauja žinutė '$2'.\nJą sukūrė $8.\n\nJūs ją galite peržiūrėti:\n$6\n\nŽinutės tekstas:\n$7",
+	"lqt-enotif-reply": "Sveikas $1,\n\npranešame, kad $3 d. $4 val. saityno {{SITENAME}} puslapyje $5 buvo parašytas atsakymas į '$2'.\nJį parašė $8.\n\nJūs šį atsakymą galite peržiūrėti:\n$6\n\nAtsakymo tekstas:\n$7",
 	"lqt-search-legend": "Ieškoti šio puslapio aptarimuose",
 	"lqt-search-label": "Ieškoti terminų:",
 	"lqt-search-button": "Paieška",

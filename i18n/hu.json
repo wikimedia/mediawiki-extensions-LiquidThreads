@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"BáthoryPéter",
 			"Dani",
 			"Dj",
@@ -184,8 +185,8 @@
 	"lqt-preference-custom-signatures": "Felhasználók egyéni aláírásainak megjelenítése",
 	"lqt-enotif-subject-reply": "{{SITENAME}}-megbeszélés – Válasz: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}}-megbeszélés – Új téma: $1",
-	"lqt-enotif-newthread": "Szia $1!\n\nEz egy értesítés a(z) {{SITENAME}} wikiről. Új témát indított $8 a(z) $5 lapon „$2” címmel, $3, $4-kor.\n\nA következő címen tekintheted meg: <$6>\n\nA szöveg a következő:\n$7",
-	"lqt-enotif-reply": "Szia, $1!\nEz egy {{SITENAME}}-értesítés. Új válasz érkezett a(z) „$2” című témához a(z) $5 lapon, $3 $4-kor, amit $8 küldött.\n\nA következő címen tekintheted meg: <$6>\n\nA válasz szövege:\n$7",
+	"lqt-enotif-newthread": "Szia $1!\n\nEz egy értesítés a(z) {{SITENAME}} wikiről. Új témát indított $8 a(z) $5 lapon „$2” címmel, $3, $4-kor.\n\nA következő címen tekintheted meg:\n$6\n\nA szöveg a következő:\n$7",
+	"lqt-enotif-reply": "Szia, $1!\n\nEz egy {{SITENAME}}-értesítés. Új válasz érkezett a(z) „$2” című témához a(z) $5 lapon, $3 $4-kor, amit $8 küldött.\n\nA következő címen tekintheted meg:\n$6\n\nA válasz szövege:\n$7",
 	"lqt-search-legend": "Beszélgetések keresése ezen a lapon",
 	"lqt-search-label": "Keresett kifejezés:",
 	"lqt-search-button": "Keresés",

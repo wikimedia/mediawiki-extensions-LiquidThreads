@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Hanberke",
 			"Runningfridgesrule"
 		]
@@ -165,8 +166,8 @@
 	"lqt-preference-custom-signatures": "Hususy ulanyjy gollaryny görkez",
 	"lqt-enotif-subject-reply": "{{SITENAME}} çekişmesi - Jogap: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} çekişmesi - Täze tred: $1",
-	"lqt-enotif-newthread": "Salam $1,\nBu {{SITENAME}} saýtynyň bir uwedomleniýesidir: $5 sahypasynda $4 $3 senesinde täze '$2' tredi döredildi.\n\nOny <$6> adresinde görüp bilersiňiz.",
-	"lqt-enotif-reply": "Salam $1,\nBu {{SITENAME}} saýtynyň uwedomleniýasydyr: $5 sahypasynda $4 $3 senesinde '$2' tredine täze bir jogap döredildi.\n\nOny <$6> adresinde görüp bilersiňiz.",
+	"lqt-enotif-newthread": "Salam $1,\n\nBu {{SITENAME}} saýtynyň bir uwedomleniýesidir: $5 sahypasynda $4 $3 senesinde täze '$2' tredi döredildi.\n\nOny $6 adresinde görüp bilersiňiz.",
+	"lqt-enotif-reply": "Salam $1,\n\nBu {{SITENAME}} saýtynyň uwedomleniýasydyr: $5 sahypasynda $4 $3 senesinde '$2' tredine täze bir jogap döredildi.\n\nOny $6 adresinde görüp bilersiňiz.",
 	"lqt-search-legend": "Şu sahypadaky çekişmeleri gözle",
 	"lqt-search-label": "Gözleg terminleri:",
 	"lqt-search-button": "Gözle",

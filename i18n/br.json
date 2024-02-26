@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Adriendelucca",
+			"Amire80",
 			"Fohanno",
 			"Fulup",
 			"Gwendal",
 			"Huñvreüs",
+			"VIGNERON",
 			"Y-M D"
 		]
 	},
@@ -174,8 +176,8 @@
 	"lqt-preference-custom-signatures": "Diskouez sinadurioù personelaet an implijerien",
 	"lqt-enotif-subject-reply": "Kaoz war {{SITENAME}} - Respont : $1",
 	"lqt-enotif-subject-newthread": "Kaoz war {{SITENAME}} - Neudennad nevez : $1",
-	"lqt-enotif-newthread": "Demat $1,\nHemañ zo ur c'hemenn a-berzh {{SITENAME}} a embann ez eus un neudennad nevez war $5, '$2',\nzo bet savet d'an $3 da $4 gant $8.\n\nE lenn a c'hallit war <$6>\n$7",
-	"lqt-enotif-reply": "Demat $1,\n\nSetu aze ur c'hemenn a-berzh {{SITENAME}} a embann ez eus ur respont nevez da '$2' war $5,\nbet savet d'an $3 da $4 gant $8.\n\nE lenn a c'hallit ober war <$6>\n\nSetu testenn ar respont :\n$7",
+	"lqt-enotif-newthread": "Demat $1,\n\nHemañ zo ur c'hemenn a-berzh {{SITENAME}} a embann ez eus un neudennad nevez war $5, '$2',\nzo bet savet d'an $3 da $4 gant $8.\n\nE lenn a c'hallit war\n$6\n\nSetu testenn ar respont :\n$7",
+	"lqt-enotif-reply": "Demat $1,\n\nSetu aze ur c'hemenn a-berzh {{SITENAME}} a embann ez eus ur respont nevez da '$2' war $5,\nbet savet d'an $3 da $4 gant $8.\n\nE lenn a c'hallit ober war\n$6\n\nSetu testenn ar respont :\n$7",
 	"lqt-search-legend": "Klask kaozeadennoù war ar bajenn-mañ",
 	"lqt-search-label": "Termenoù enklask",
 	"lqt-search-button": "Klask",

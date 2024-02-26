@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Ainali",
+			"Amire80",
 			"Boivie",
 			"Cohan",
 			"Dafer45",
@@ -191,8 +192,8 @@
 	"lqt-preference-custom-signatures": "Visa modifierade användarsignaturer",
 	"lqt-enotif-subject-reply": "{{SITENAME}}-diskussion - Svar: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}}-diskussion - Ny tråd: $1",
-	"lqt-enotif-newthread": "Hej $1,\n\nDetta är ett meddelande från {{SITENAME}} om att det finns en ny tråd på $5, '$2', som skapades den $3 klockan $4 av $8.\n\nDu kan läsa tråden på <$6>\n\nTexten är:\n$7",
-	"lqt-enotif-reply": "Hej $1,\n\nDet här är ett meddelande från {{SITENAME}} om ett nytt svar på '$2' på $5\nskapades den $3 klockan $4 av $8.\n\nDu kan läsa svaret på <$6>\n\nTexten i svaret är:\n$7",
+	"lqt-enotif-newthread": "Hej $1,\n\nDetta är ett meddelande från {{SITENAME}} om att det finns en ny tråd på $5, '$2', som skapades den $3 klockan $4 av $8.\n\nDu kan läsa tråden på\n$6\n\nTexten är:\n$7",
+	"lqt-enotif-reply": "Hej $1,\n\nDet här är ett meddelande från {{SITENAME}} om ett nytt svar på '$2' på $5\nskapades den $3 klockan $4 av $8.\n\nDu kan läsa svaret på\n$6\n\nTexten i svaret är:\n$7",
 	"lqt-search-legend": "Sök i diskussionerna på den här sidan",
 	"lqt-search-label": "Sökord:",
 	"lqt-search-button": "Sök",

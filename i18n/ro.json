@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"AdiJapan",
+			"Amire80",
 			"Andrei Stroe",
 			"Andreyyshore",
 			"Cin",
@@ -174,7 +175,7 @@
 	"lqt-preference-custom-signatures": "Arată semnăturile personalizate ale utilizatorilor",
 	"lqt-enotif-subject-reply": "Discuție {{SITENAME}} - Răspuns: $1",
 	"lqt-enotif-subject-newthread": "Discuție {{SITENAME}} - Subiect nou: $1",
-	"lqt-enotif-newthread": "Bună ziua $1,\n\naceasta este o notificare de la {{SITENAME}} deoarece un nou subiect pe $5, '$2',\na fost creat pe $3 la $4 de către $8\n\nÎl puteți vizualiza la <$6>\n\nTextul este:\n$7",
+	"lqt-enotif-newthread": "Bună ziua $1,\n\naceasta este o notificare de la {{SITENAME}} deoarece un nou subiect pe $5, '$2',\na fost creat pe $3 la $4 de către $8\n\nÎl puteți vizualiza la\n$6\n\nTextul este:\n$7",
 	"lqt-search-legend": "Caută discuții pe această pagină",
 	"lqt-search-label": "Termeni de căutat:",
 	"lqt-search-button": "Căutare",

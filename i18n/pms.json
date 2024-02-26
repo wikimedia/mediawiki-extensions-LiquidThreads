@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Borichèt",
 			"Dragonòt"
 		]
@@ -167,8 +168,8 @@
 	"lqt-preference-custom-signatures": "Smon-e le firme përsonalisà dj'utent",
 	"lqt-enotif-subject-reply": "Discussion ëd {{SITENAME}} - Arspòsta: $1",
 	"lqt-enotif-subject-newthread": "Discussion ëd {{SITENAME}} - Discussion neuva: $1",
-	"lqt-enotif-newthread": "Cerea $1,\nCosta a l'é na notìfica da {{SITENAME}} che na discussion neuva su $5, '$2',\na l'é stàita creà ël $3 a $4 su $8.\n\nA peul vëddla su <$6>\n\nËl test a l'é:\n$7",
-	"lqt-enotif-reply": "Cerea $1,\n\nCosta a l'é na notìfica da {{SITENAME}} che n'arspòsta neuva a '$2' su $5,\na l'é stàita creà ël $3 a $4 da $8.\n\nA peul vëddla su <$6>\n\nËl test ëd l'arspòsta a l'é:\n$7",
+	"lqt-enotif-newthread": "Cerea $1,\n\nCosta a l'é na notìfica da {{SITENAME}} che na discussion neuva su $5, '$2',\na l'é stàita creà ël $3 a $4 su $8.\n\nA peul vëddla su\n$6\n\nËl test a l'é:\n$7",
+	"lqt-enotif-reply": "Cerea $1,\n\nCosta a l'é na notìfica da {{SITENAME}} che na neuva rispòsta a '$2' su $5,\na l'é stàita creà ël $3 a $4 da $8.\n\nA peul vëddla su\n$6\n\nËl test ëd la rispòsta a l'é:\n$7",
 	"lqt-search-legend": "Sërché dle discussion dzora a sta pàgina-sì",
 	"lqt-search-label": "Element d'arserca:",
 	"lqt-search-button": "Sërca",

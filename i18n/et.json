@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Avjoska",
 			"Pikne"
 		]
@@ -155,8 +156,8 @@
 	"lqt-preference-custom-signatures": "Näita kasutajate kohandatud allkirju",
 	"lqt-enotif-subject-reply": "{{SITENAME}} – Vastus lõimele $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} – Uus lõim: $1",
-	"lqt-enotif-newthread": "Tere, $1!\n\nSelle kirjaga teatatakse võrgukohast {{SITENAME}}, et kasutaja $8 lõi kuupäeval $3, kell $4 aruteluleheküljel „$5“ lõime „$2“.\n\nSee on leitav asukohast <$6>.\n\nSõnum on järgmine:\n$7",
-	"lqt-enotif-reply": "Tere, $1!\n\nSelle kirjaga teatatakse {{GRAMMAR:elative|{{SITENAME}}}}, et kasutaja $8 lisas kuupäeval $3, kell $4 aruteluleheküljel „$5“ lõimele „$2“ uue vastuse.\n\nSee on leitav asukohast <$6>.\n\nVastus on järgmine:\n$7",
+	"lqt-enotif-newthread": "Tere, $1!\n\nSelle kirjaga teatatakse võrgukohast {{SITENAME}}, et kasutaja $8 lõi kuupäeval $3, kell $4 aruteluleheküljel „$5“ lõime „$2“.\n\nSee on leitav asukohast\n$6\n\nSõnum on järgmine:\n$7",
+	"lqt-enotif-reply": "Tere, $1!\n\nSelle kirjaga teatatakse {{GRAMMAR:elative|{{SITENAME}}}}, et kasutaja $8 lisas kuupäeval $3, kell $4 aruteluleheküljel „$5“ lõimele „$2“ uue vastuse.\n\nSee on leitav asukohast\n$6\n\nVastus on järgmine:\n$7",
 	"lqt-search-label": "Otsitav:",
 	"lqt-search-button": "Otsi",
 	"searchprofile-threads": "Arutelud",

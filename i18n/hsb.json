@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"J budissin",
 			"Michawiki"
 		]
@@ -172,8 +173,8 @@
 	"lqt-preference-custom-signatures": "Swójske wužiwarske signatury pokazać",
 	"lqt-enotif-subject-reply": "{{SITENAME}} diskusija - wotmołwa: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} diskusija - nowa nitka: $1",
-	"lqt-enotif-newthread": "Witaj $1,\n\nto je zdźělenka wot {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa nitka na $5, '$2', $3 $4 wot $8 wutworiła.\n\nMóžeš ju na <$6> widźeć.\n\nTekst je:\n$7",
-	"lqt-enotif-reply": "Witaj $1,\n\nto je zdźělenka z {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa wotmołwa k '$2' na $5 $3 $4 wot $8 wutworiła.\n\nMóžeš ju na <$6> widźeć\n\nTekst wotmołwy je:\n$7",
+	"lqt-enotif-newthread": "Witaj $1,\n\nto je zdźělenka wot {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa nitka na $5, '$2', $3 $4 wot $8 wutworiła.\n\nMóžeš ju na $6 widźeć.\n\nTekst je:\n$7",
+	"lqt-enotif-reply": "Witaj $1,\n\nto je zdźělenka z {{GRAMMAR:genitiw|{{SITENAME}}}}, zo je so nowa wotmołwa k '$2' na $5 $3 $4 wot $8 wutworiła.\n\nMóžeš ju na $6 widźeć\n\nTekst wotmołwy je:\n$7",
 	"lqt-search-legend": "Diskusije na tutej stronje přepytać",
 	"lqt-search-label": "Pytanske zapřijeća:",
 	"lqt-search-button": "Pytać",

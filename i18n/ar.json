@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Avocato",
 			"AwamerT",
 			"Maroen1990",
@@ -185,8 +186,8 @@
 	"lqt-preference-custom-signatures": "أظهر توقيعات المستخدمين المُخصّصة",
 	"lqt-enotif-subject-reply": "نقاش {{SITENAME}} - رد: $1",
 	"lqt-enotif-subject-newthread": "نقاش {{SITENAME}} - موضوع جديد: $1",
-	"lqt-enotif-newthread": "مرحبا $1،\n\nهذا إخطار من {{SITENAME}} بأن موضوعا جديدا في $5 ('$2')،\nقد أنشئ في يوم $3 عند $4 بواسطة $8\n\nبإمكانك مراجعته عبر <$6>\n\nالنص هو:\n$7",
-	"lqt-enotif-reply": "مرحبا $1،\n\nهذا إخطار من {{SITENAME}} بأن ردا جديدا على '$2' في $5،\nقد وضع في يوم $3 عند $4 بواسطة $8\n\nبإمكانك مراجعته عبر <$6>\n\nنص الرد هو:\n$7",
+	"lqt-enotif-newthread": "مرحبا $1،\n\nهذا إخطار من {{SITENAME}} بأن موضوعا جديدا في $5 ('$2')،\nقد أنشئ في يوم $3 عند $4 بواسطة $8\n\nبإمكانك مراجعته عبر\n$6\n\nالنص هو:\n$7",
+	"lqt-enotif-reply": "مرحبا $1،\n\nهذا إخطار من {{SITENAME}} بأن ردا جديدا على '$2' في $5،\nقد وضع في يوم $3 عند $4 بواسطة $8\n\nبإمكانك مراجعته عبر\n$6\n\nنص الرد هو:\n$7",
 	"lqt-search-legend": "ابحث في نقاشات هذه الصفحة",
 	"lqt-search-label": "عبارة البحث:",
 	"lqt-search-button": "بحث",

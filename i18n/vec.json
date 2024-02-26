@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Candalua",
 			"Fierodelveneto",
 			"GatoSelvadego"
@@ -166,8 +167,8 @@
 	"lqt-preference-custom-signatures": "Fà védar le firme personalizà dei utenti",
 	"lqt-enotif-subject-reply": "Discusion so {{SITENAME}} - Risposta: $1",
 	"lqt-enotif-subject-newthread": "Discusion so {{SITENAME}} - Temàdega nova: $1",
-	"lqt-enotif-newthread": "Ciao $1,\nte avisemo che su {{SITENAME}} el $3 a le $4 xe stà verto un argomento novo su $5, \"$2\".\n\nTe pol védarlo qua: $6",
-	"lqt-enotif-reply": "Ciao $1,\nte avisemo che su {{SITENAME}} el $3 a le $4 i gà risposto a \"$2\" su $5.\n\nTe pol védarlo qua: $6\n\nEl testo de la risposta xe:\n$7",
+	"lqt-enotif-newthread": "Ciao $1,\n\nte avisemo che su {{SITENAME}} el $3 a le $4 xe stà verto un argomento novo su $5, \"$2\".\n\nTe pol védarlo qua:\n$6",
+	"lqt-enotif-reply": "Ciao $1,\n\nte avisemo che su {{SITENAME}} el $3 a le $4 i gà risposto a \"$2\" su $5.\n\nTe pol védarlo qua:\n$6\n\nEl testo de la risposta xe:\n$7",
 	"lqt-search-legend": "Serca discusion in sta pàjina",
 	"lqt-search-label": "Parole da sercar:",
 	"lqt-search-button": "Serca",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Dittaeva",
 			"Gunnernett",
 			"Harald Khan",
@@ -172,7 +173,7 @@
 	"lqt-preference-custom-signatures": "Vis eigendefinerte brukarsignaturar",
 	"lqt-enotif-subject-reply": "{{SITENAME}}-diskusjon - Svar: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}}-diskusjon - Ny tråd: $1",
-	"lqt-enotif-reply": "Hei $1,\n\ndette er eit varsel frå {{SITENAME}} om at det er oppretta eit svar til «$2» på $5 den $3 kl. $4 av $8.\n\nDu kan lesa svaret på <$6>\n\nInnhaldet i svaret er:\n$7",
+	"lqt-enotif-reply": "Hei $1,\n\ndette er eit varsel frå {{SITENAME}} om at det er oppretta eit svar til «$2» på $5 den $3 kl. $4 av $8.\n\nDu kan lesa svaret på\n$6\n\nInnhaldet i svaret er:\n$7",
 	"lqt-search-legend": "Søk i diskusjonar på denne sida",
 	"lqt-search-label": "Søkjeord:",
 	"lqt-search-button": "Søk",

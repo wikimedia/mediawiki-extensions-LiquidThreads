@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Dvorapa",
 			"Kuvaly",
 			"Matěj Grabovský",
@@ -176,8 +177,8 @@
 	"lqt-preference-custom-signatures": "Zobrazovat přizpůsobené uživatelské podpisy",
 	"lqt-enotif-subject-reply": "Diskuse k {{grammar:3sg|{{SITENAME}}}} – Odpověď: $1",
 	"lqt-enotif-subject-newthread": "Diskuse k {{grammar:3sg|{{SITENAME}}}} – Nové vlákno: $1",
-	"lqt-enotif-newthread": "Vážený uživateli $1,\n\ntoto je oznámení z {{grammar:2sg|{{SITENAME}}}}, že $3 v $4\n{{GENDER:$8|založil|založila|založil(a)}} $8 v $5 nové vlákno „$2“.\n\nMůžete si ho prohlédnout na <$6>.\n\nJeho text:\n$7",
-	"lqt-enotif-reply": "Vážený uživateli $1,\n\nToto je oznámení z {{grammar:2sg|{{SITENAME}}}}, že $3 v $4\n{{GENDER:$8|přidal|přidala|přidal(a)}} $8 v $5 novou odpověď na „$2“.\n\nMůžete si ji prohlédnout na <$6>.\n\nText odpovědi:\n$7",
+	"lqt-enotif-newthread": "Vážený uživateli $1,\n\ntoto je oznámení z {{grammar:2sg|{{SITENAME}}}}, že $3 v $4\n{{GENDER:$8|založil|založila|založil(a)}} $8 v $5 nové vlákno „$2“.\n\nMůžete si ho prohlédnout na\n$6\n\nJeho text:\n$7",
+	"lqt-enotif-reply": "Vážený uživateli $1,\n\nToto je oznámení z {{grammar:2sg|{{SITENAME}}}}, že $3 v $4\n{{GENDER:$8|přidal|přidala|přidal(a)}} $8 v $5 novou odpověď na „$2“.\n\nMůžete si ji prohlédnout na\n$6\n\nText odpovědi:\n$7",
 	"lqt-search-legend": "Hledat v diskusích na této stránce",
 	"lqt-search-label": "Hledané výrazy:",
 	"lqt-search-button": "Hledat",

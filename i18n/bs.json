@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"CERminator",
 			"KWiki",
 			"Obsuser",
@@ -170,8 +171,8 @@
 	"lqt-preference-custom-signatures": "Prikaži prilagođene korisničke potpise",
 	"lqt-enotif-subject-reply": "{{SITENAME}} razgovor - Odgovor: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} razgovor - Novi niz: $1",
-	"lqt-enotif-newthread": "Zdravo $1,\novo je obavještenje sa {{SITENAME}} da je kreiran novi niz na $5, '$2', dana $3 u $4 od strane $8\n\nMožete ga vidjeti na <$6>\n\nTekst je:\n$7",
-	"lqt-enotif-reply": "Zdravo $1,\novo je obavještenje sa {{SITENAME}} da je napravljen novi odgovor na '$2' sa $5, dana $3 u $4 od strane $8\n\nMožete ga vidjeti na <$6>\n\nTekst odgovora je:\n$7",
+	"lqt-enotif-newthread": "Zdravo $1,\novo je obavještenje sa {{SITENAME}} da je kreiran novi niz na $5, '$2', dana $3 u $4 od strane $8\n\nMožete ga vidjeti na\n$6\n\nTekst je:\n$7",
+	"lqt-enotif-reply": "Zdravo $1,\n\novo je obavještenje sa {{SITENAME}} da je napravljen novi odgovor na '$2' sa $5, dana $3 u $4 od strane $8\n\nMožete ga vidjeti na\n$6\n\nTekst odgovora je:\n$7",
 	"lqt-search-legend": "Pretraži razgovore na ovoj stranici",
 	"lqt-search-label": "Traženi pojmovi:",
 	"lqt-search-button": "Traži",

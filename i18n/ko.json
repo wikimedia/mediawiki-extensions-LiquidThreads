@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Albamhandae",
+			"Amire80",
 			"Bluemersen",
 			"Changwoo",
 			"FriedC",
@@ -182,8 +183,8 @@
 	"lqt-preference-custom-signatures": "사용자 지정 서명을 보이기",
 	"lqt-enotif-subject-reply": "{{SITENAME}} 토론 - 답변: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} 토론 - 새 스레드: $1",
-	"lqt-enotif-newthread": "$1님 안녕하세요.\n\n{{SITENAME}}의 $5에서 새 스레드 '$2'이(가) $3 $4에 $8님에 의해 만들어졌습니다.\n\n해당 스레드를 <$6>에서 볼 수 있습니다.\n\n내용은 다음과 같습니다:\n$7",
-	"lqt-enotif-reply": "$1님 안녕하세요.\n\n{{SITENAME}}에서 $5 문서의 '$2' 스레드에 $3 $4에 $8님이 남긴 새 답변이 올라왔습니다.\n\n해당하는 글을 <$6>에서 볼 수 있습니다.\n\n답변의 내용은 다음과 같습니다:\n$7",
+	"lqt-enotif-newthread": "$1님 안녕하세요.\n\n{{SITENAME}}의 $5에서 새 스레드 '$2'이(가) $3 $4에 $8님에 의해 만들어졌습니다.\n\n해당 스레드를 $6 에서 볼 수 있습니다.\n\n내용은 다음과 같습니다:\n$7",
+	"lqt-enotif-reply": "$1님 안녕하세요.\n\n{{SITENAME}}에서 $5 문서의 '$2' 스레드에 $3 $4에 $8님이 남긴 새 답변이 올라왔습니다.\n\n해당하는 글을 $6 에서 볼 수 있습니다.\n\n답변의 내용은 다음과 같습니다:\n$7",
 	"lqt-search-legend": "이 문서에 있는 토론 검색하기",
 	"lqt-search-label": "검색어:",
 	"lqt-search-button": "검색",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"GunChleoc"
 		]
 	},
@@ -170,8 +171,8 @@
 	"lqt-preference-custom-signatures": "Seall earr-sgrìobhaidhean gnàthaichte nan cleachdaichean",
 	"lqt-enotif-subject-reply": "Deasbad air {{SITENAME}} - Freagairt: $1",
 	"lqt-enotif-subject-newthread": "Deasbad air {{SITENAME}} - Snàth ùr: $1",
-	"lqt-enotif-newthread": "$1, a charaid\n\nseo brath-naidheachd o {{SITENAME}} gun deach snàth ùr \"$2\" a chruthachadh air $5 le $8 $3 $4\nChì thu e air <$6>\n\nSeo an teacsa:\n$7",
-	"lqt-enotif-reply": "$1, a charaid\n\nseo brath-naidheachd o {{SITENAME}} gun deach freagairt ùr a chur ri \"$2\" air $5 le $8 $3 $4\nChì thu e air <$6>\n\nSeo teacsa na freagairte:\n$7",
+	"lqt-enotif-newthread": "$1, a charaid\n\nseo brath-naidheachd o {{SITENAME}} gun deach snàth ùr \"$2\" a chruthachadh air $5 le $8 $3 $4\n\nChì thu e air\n$6\n\nSeo an teacsa:\n$7",
+	"lqt-enotif-reply": "$1, a charaid\n\nseo brath-naidheachd o {{SITENAME}} gun deach freagairt ùr a chur ri \"$2\" air $5 le $8 $3 $4\n\nChì thu e air\n$6\n\nSeo teacsa na freagairte:\n$7",
 	"lqt-search-legend": "Lorg ann an deasbadan air an duilleag seo",
 	"lqt-search-label": "Cuspairean-luirg:",
 	"lqt-search-button": "Lorg",

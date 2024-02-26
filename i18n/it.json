@@ -3,6 +3,7 @@
 		"authors": [
 			"Ajeje Brazorf",
 			"Alexmar983",
+			"Amire80",
 			"Aushulz",
 			"Beta16",
 			"Blaisorblade",
@@ -186,8 +187,8 @@
 	"lqt-preference-custom-signatures": "Mostra le firme personalizzate degli utenti",
 	"lqt-enotif-subject-reply": "Discussione su {{SITENAME}} - Risposta: $1",
 	"lqt-enotif-subject-newthread": "Discussione su {{SITENAME}} - Nuovo thread: $1",
-	"lqt-enotif-newthread": "Ciao $1,\nquesto messaggio ti è stato inviato da {{SITENAME}} per segnalarti che un nuovo thread su $5, '$2',\nè stato creato il $3 alle $4 da $8.\n\nPuoi leggerlo a <$6>\n\nIl testo è:\n$7",
-	"lqt-enotif-reply": "Ciao $1,\nquesto messaggio ti è stato inviato da {{SITENAME}} per segnalarti che una nuova risposta a '$2' su $5\nè stata creato il $3 alle $4 da $8.\n\nPuoi leggerlo a <$6>\n\nIl testo è:\n$7",
+	"lqt-enotif-newthread": "Ciao $1,\nquesto messaggio ti è stato inviato da {{SITENAME}} per segnalarti che un nuovo thread su $5, '$2',\nè stato creato il $3 alle $4 da $8.\n\nPuoi leggerlo a\n$6\n\nIl testo è:\n$7",
+	"lqt-enotif-reply": "Ciao $1,\n\nquesto messaggio ti è stato inviato da {{SITENAME}} per segnalarti che una nuova risposta a '$2' su $5\nè stata creato il $3 alle $4 da $8.\n\nPuoi leggerlo a\n$6\n\nIl testo è:\n$7",
 	"lqt-search-legend": "Cerca discussioni in questa pagina",
 	"lqt-search-label": "Termini di ricerca:",
 	"lqt-search-button": "Ricerca",

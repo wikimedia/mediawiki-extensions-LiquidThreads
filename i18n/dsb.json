@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Derbeth",
 			"Michawiki"
 		]
@@ -171,8 +172,8 @@
 	"lqt-preference-custom-signatures": "Swójske wužywarske signatury pokazaś",
 	"lqt-enotif-subject-reply": "{{SITENAME}} diskusija - wótegrono: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} diskusija - nowa nitka: $1",
-	"lqt-enotif-newthread": "Witaj $1,\n\nto jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo nowa nitka na $5, '$2', $3 $4 wót $8 napórała.\n\nMóžoš jo na <$6> wiźeś\n\nTekst jo:\n$7",
-	"lqt-enotif-reply": "Witaj $1,\n\nto jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo se nowe wótegrono k '$2' na $5, $3 $4 wót $8 napórało.\n\nMóžoš jo na <$6> wiźeś\n\nTekst wótegrona jo:\n$7",
+	"lqt-enotif-newthread": "Witaj $1,\n\nto jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo nowa nitka na $5, '$2', $3 $4 wót $8 napórała.\n\nMóžoš jo na $6 wiźeś\n\nTekst jo:\n$7",
+	"lqt-enotif-reply": "Witaj $1,\n\nto jo zdźělenje wót {{GRAMMAR:genitiw|{{SITENAME}}}}, až jo se nowe wótegrono k '$2' na $5, $3 $4 wót $8 napórało.\n\nMóžoš jo na $6 wiźeś\n\nTekst wótegrona jo:\n$7",
 	"lqt-search-legend": "Diskusije na toś tom boku pśepytaś",
 	"lqt-search-label": "Pytańske wuraze:",
 	"lqt-search-button": "Pytaś",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Les Meloures",
 			"Robby",
 			"Soued031",
@@ -172,8 +173,8 @@
 	"lqt-preference-custom-signatures": "Déi personaliséiert Ënnerschrëfte vun de Benotzer weisen",
 	"lqt-enotif-subject-reply": "{{SITENAME}}-Diskussioun - Äntwert: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}}-Diskussioun - Nei Rubrik: $1",
-	"lqt-enotif-newthread": "Salut $1,\nDëst ass eng Notifikatioun vu(n) {{SITENAME}} datt eng nei Rubrik op $5, '$2',\nden $3 ëm $4 ugeluecht gouf.\n\nDir kënnt se op <$6> gesinn.\n\nDen Text ass:\n$7",
-	"lqt-enotif-reply": "Salut $1,\nDëst ass eng Notifikatioun vu(n) {{SITENAME}} datt eng nei Äntwert op '$2' op $5,\nden $3 ëm $4 vum $8 ugeluecht gouf.\n\nDir kënnt se op <$6> gesinn.\n\nDen Text vun der Äntwert ass:\n$7",
+	"lqt-enotif-newthread": "Salut $1,\n\nDëst ass eng Notifikatioun vu(n) {{SITENAME}} datt eng nei Rubrik op $5, '$2',\nden $3 ëm $4 ugeluecht gouf.\n\nDir kënnt se op $6 gesinn.\n\nDen Text ass:\n$7",
+	"lqt-enotif-reply": "Salut $1,\n\nDëst ass eng Notifikatioun vu(n) {{SITENAME}} datt eng nei Äntwert op '$2' op $5,\nden $3 ëm $4 vum $8 ugeluecht gouf.\n\nDir kënnt se op $6 gesinn.\n\nDen Text vun der Äntwert ass:\n$7",
 	"lqt-search-legend": "Diskussiounen zu dëser Säit sichen",
 	"lqt-search-label": "Sichbegrëffer:",
 	"lqt-search-button": "Sichen",

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"1917 Ekim Devrimi",
+			"Amire80",
 			"Asmen",
 			"Aspar",
 			"Dılmıc",
@@ -186,8 +187,8 @@
 	"lqt-preference-custom-signatures": "İmzayanê karberanê xısusiyan bımocne",
 	"lqt-enotif-subject-reply": "{{SITENAME}} ra vatene - Cevab: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} ra vatene  -mesaco newe: $1",
-	"lqt-enotif-newthread": "Merheba $1,\nno, web site dê {{SITENAME}} ra yew Peyhesnayışo: pelê $5'i de no name de '$2' yew gıreyo newe, no $3 $4 tarix de $8 vıraşto\n\nKerek ke şırê ena adres <$6>'i vurnayışan bivinê.\n\nBahdo bivine:\n$7",
-	"lqt-enotif-reply": "Merheba $1,\nno, web site dê {{SITENAME}} ra yew Peyhesnayışo: pelê $5'i de no name de '$2' yew gıreyo newe, no $3 $4 tarix de $8'i vıraşto\n\nKerem ke şırê ena adres <$6>'i vurnayışan bivinê.\n\nMetnê cıwabi:\n$7",
+	"lqt-enotif-newthread": "Merheba $1,\nno, web site dê {{SITENAME}} ra yew Peyhesnayışo: pelê $5'i de no name de '$2' yew gıreyo newe, no $3 $4 tarix de $8 vıraşto\n\nKerek ke şırê ena adres $6 'i vurnayışan bivinê.\n\nBahdo bivine:\n$7",
+	"lqt-enotif-reply": "Merheba $1,\n\nno, web site dê {{SITENAME}} ra yew Peyhesnayışo: pelê $5'i de no name de '$2' yew gıreyo newe, no $3 $4 tarix de $8'i vıraşto\n\nKerem ke şırê ena adres $6 'i vurnayışan bivinê.\n\nMetnê cıwabi:\n$7",
 	"lqt-search-legend": "werêameyişê no peli bıgêr",
 	"lqt-search-label": "termê cıgêrayişi:",
 	"lqt-search-button": "Cı geyre",

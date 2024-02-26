@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Event",
 			"Harald Khan",
 			"Jon Harald Søby",
@@ -180,8 +181,8 @@
 	"lqt-preference-custom-signatures": "Vis egendefinerte signaturer",
 	"lqt-enotif-subject-reply": "{{SITENAME}}-diskusjon - Svar: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}}-diskusjon - Ny tråd: $1",
-	"lqt-enotif-newthread": "Hei $1,\n\nDette er et varsel fra {{SITENAME}} om at en ny tråd på $5, '$2',\nble opprettet den $3 klokka $4 av $8\n\nDu kan se den på <$6>\n\nTeksten er:\n$7",
-	"lqt-enotif-reply": "Hei $1.\n\nDette er et varsel fra {{SITENAME}} om at et nytt svar til '$2' på $5,\nble opprettet den $3 klokka $4 av $8\n\nDu kan se den på <$6>\n\nTeksten i svaret er:\n$7",
+	"lqt-enotif-newthread": "Hei $1,\n\nDette er et varsel fra {{SITENAME}} om at en ny tråd på $5, '$2',\nble opprettet den $3 klokka $4 av $8\n\nDu kan se den på\n$6\n\nTeksten er:\n$7",
+	"lqt-enotif-reply": "Hei $1.\n\nDette er et varsel fra {{SITENAME}} om at et nytt svar til '$2' på $5,\nble opprettet den $3 klokka $4 av $8\n\nDu kan se den på\n$6\n\nTeksten i svaret er:\n$7",
 	"lqt-search-legend": "Søk i diskusjoner på denne siden",
 	"lqt-search-label": "Søkeord:",
 	"lqt-search-button": "Søk",

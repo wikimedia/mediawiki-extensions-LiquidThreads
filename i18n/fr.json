@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"0x010C",
+			"Amire80",
 			"Crochet.david",
 			"Dereckson",
 			"Derugon",
@@ -199,8 +200,8 @@
 	"lqt-preference-custom-signatures": "Montrer les signatures personnalisées des utilisateurs",
 	"lqt-enotif-subject-reply": "Discussion sur {{SITENAME}} – Réponse : $1",
 	"lqt-enotif-subject-newthread": "Discussion sur {{SITENAME}} – Nouveau fil : $1",
-	"lqt-enotif-newthread": "Bonjour $1,\nCeci est une notification de {{SITENAME}} indiquant qu’un nouveau fil de discussion sur $5, « $2 »,\na été créé le $3 à $4 par $8.\n\nVous pouvez le consulter à <$6>\n\nLe texte est :\n$7",
-	"lqt-enotif-reply": "Bonjour $1,\n\nCeci est une notification de {{SITENAME}} indiquant qu’une nouvelle réponse à « $2 » sur $5,\na été créée le $3 à $4 par $8.\n\nVous pouvez la consulter sur <$6>.\n\nLe texte de la réponse est :\n$7",
+	"lqt-enotif-newthread": "Bonjour $1,\nCeci est une notification de {{SITENAME}} indiquant qu’un nouveau fil de discussion sur $5, « $2 »,\na été créé le $3 à $4 par $8.\n\nVous pouvez le consulter à\n$6\n\nLe texte est :\n$7",
+	"lqt-enotif-reply": "Bonjour $1,\n\nCeci est une notification de {{SITENAME}} indiquant qu’une nouvelle réponse à « $2 » sur $5,\na été créée le $3 à $4 par $8.\n\nVous pouvez la consulter sur\n$6\n\nLe texte de la réponse est :\n$7",
 	"lqt-search-legend": "Rechercher des discussions sur cette page",
 	"lqt-search-label": "Termes de recherche :",
 	"lqt-search-button": "Rechercher",
