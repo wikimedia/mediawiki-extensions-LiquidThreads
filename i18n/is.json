@@ -5,7 +5,8 @@
 			"Snævar",
 			"Spacebirdy",
 			"Sveinn í Felli",
-			"Ævar Arnfjörð Bjarmason"
+			"Ævar Arnfjörð Bjarmason",
+			"Stefán Örvar Sigmundsson"
 		]
 	},
 	"lqt_movethread": "Færði þráð á aðra síðu",
@@ -61,7 +62,7 @@
 	"lqt-history-comment": "Athugasemd",
 	"lqt-history-thread": "Þráður",
 	"lqt-thread-edited-author": "Breytt af {{GENDER:$5|höfundinum}}.<br />\nSíðast breytt: $1",
-	"lqt-thread-edited-others": "Breytt af {{PLURAL:$2|öðrum notanda|$2 notendum}}.<br />\nSíðast breytt: $1",
+	"lqt-thread-edited-others": "Breytt af {{PLURAL:$2|öðrum notanda|$2 notendum}}.<br>\nSíðast breytt: $1",
 	"lqt-header-actions": "Aðgerðir",
 	"lqt_summarize_link": "Skrifa samantekt",
 	"lqt-summarize-intro": "Hérna getur þú skrifað samantekt á þræðinum hér fyrir neðan. Þú getur notað wiki-texta til að sníða textann. Ýttu á „{{int:publishpage}}“ til að vista samantekina.",
