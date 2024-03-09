@@ -1475,7 +1475,7 @@ class LqtView {
 				'href' => '#'
 			],
 			wfMessage( 'lqt-menu-trigger' )->escaped() );
-		$dropDownTrigger = Xml::tags( 'div',
+		$dropdownTrigger = Xml::tags( 'div',
 				[ 'class' => 'lqt-thread-actions-trigger ' .
 					'lqt-command-icon', 'style' => 'display: none;' ],
 				$triggerText );
@@ -1483,7 +1483,7 @@ class LqtView {
 		if ( count( $commands ) ) {
 			$headerParts[] = Xml::tags( 'li',
 						[ 'class' => 'lqt-thread-toolbar-menu' ],
-						$dropDownTrigger );
+						$dropdownTrigger );
 		}
 
 		$html .= implode( ' ', $headerParts );
