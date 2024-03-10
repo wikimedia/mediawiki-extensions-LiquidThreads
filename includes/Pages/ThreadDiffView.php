@@ -5,7 +5,7 @@ class ThreadDiffView extends LqtView {
 		$remove = [ 'views/edit', 'views/viewsource' ];
 
 		foreach ( $remove as $rem ) {
-			list( $section, $item ) = explode( '/', $rem, 2 );
+			[ $section, $item ] = explode( '/', $rem, 2 );
 			unset( $links[$section][$item] );
 		}
 

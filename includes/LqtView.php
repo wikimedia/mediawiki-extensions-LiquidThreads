@@ -96,7 +96,7 @@ class LqtView {
 		array $uquery = [],
 		$relative = true
 	) {
-		list( $title, $query ) = self::permalinkData( $thread, $method, $operand );
+		[ $title, $query ] = self::permalinkData( $thread, $method, $operand );
 
 		$query = array_merge( $query, $uquery );
 
@@ -150,7 +150,7 @@ class LqtView {
 
 	public static function permalink( Thread $thread, $text = null, $method = null, $operand = null,
 					$linker = null, $attribs = [], $uquery = [] ) {
-		list( $title, $query ) = self::permalinkData( $thread, $method, $operand );
+		[ $title, $query ] = self::permalinkData( $thread, $method, $operand );
 
 		$query = array_merge( $query, $uquery );
 
@@ -197,7 +197,7 @@ class LqtView {
 	 * @return mixed
 	 */
 	public static function linkInContext( Thread $thread, $contextType = 'page', $text = null ) {
-		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
+		[ $title, $query ] = self::linkInContextData( $thread, $contextType );
 
 		if ( $text === null ) {
 			$text = Threads::stripHTML( $thread->formattedSubject() );
@@ -212,13 +212,13 @@ class LqtView {
 	}
 
 	public static function linkInContextFullURL( Thread $thread, $contextType = 'page' ) {
-		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
+		[ $title, $query ] = self::linkInContextData( $thread, $contextType );
 
 		return $title->getFullURL( $query );
 	}
 
 	public static function linkInContextCanonicalURL( Thread $thread, $contextType = 'page' ) {
-		list( $title, $query ) = self::linkInContextData( $thread, $contextType );
+		[ $title, $query ] = self::linkInContextData( $thread, $contextType );
 
 		return $title->getCanonicalURL( $query );
 	}
@@ -264,7 +264,7 @@ class LqtView {
 		$includeFragment = true, $attribs = [],
 		$options = [], $perpetuateOffset = true
 	) {
-		list( $title, $query ) = self::talkpageLinkData(
+		[ $title, $query ] = self::talkpageLinkData(
 			$title, $method, $operand,
 			$includeFragment,
 			$perpetuateOffset
@@ -340,7 +340,7 @@ class LqtView {
 	public static function talkpageUrl( $title, $method = null, $operand = null,
 		$includeFragment = true, $perpetuateOffset = true
 	) {
-		list( $title, $query ) =
+		[ $title, $query ] =
 			self::talkpageLinkData( $title, $method, $operand, $includeFragment,
 						$perpetuateOffset );
 
@@ -575,7 +575,7 @@ class LqtView {
 		$summary = wfMessage( 'lqt-newpost-summary', $subject )->inContentLanguage()->text();
 		$wgRequest->setVal( 'wpSummary', $summary );
 
-		list( $signatureEditor, $signatureHTML ) = $this->getSignatureEditor( $this->user );
+		[ $signatureEditor, $signatureHTML ] = $this->getSignatureEditor( $this->user );
 
 		$e->editFormTextAfterContent .=
 			$signatureEditor;
@@ -683,7 +683,7 @@ class LqtView {
 			Html::hidden( 'offset', $offset ) .
 			Html::hidden( 'wpMinorEdit', '' );
 
-		list( $signatureEditor, $signatureHTML ) = $this->getSignatureEditor( $this->user );
+		[ $signatureEditor, $signatureHTML ] = $this->getSignatureEditor( $this->user );
 
 		$e->editFormTextAfterContent .=
 			$signatureEditor;
@@ -801,7 +801,7 @@ class LqtView {
 			Html::hidden( 'lqt_nonce', MWCryptRand::generateHex( 32 ) ) .
 			Html::hidden( 'offset', $offset );
 
-		list( $signatureEditor, $signatureHTML ) = $this->getSignatureEditor( $thread );
+		[ $signatureEditor, $signatureHTML ] = $this->getSignatureEditor( $thread );
 
 		$e->editFormTextAfterContent .=
 			$signatureEditor;

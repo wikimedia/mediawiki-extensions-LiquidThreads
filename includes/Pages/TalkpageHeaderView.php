@@ -11,7 +11,7 @@ class TalkpageHeaderView extends LqtView {
 		];
 
 		foreach ( $remove as $rem ) {
-			list( $section, $item ) = explode( '/', $rem, 2 );
+			[ $section, $item ] = explode( '/', $rem, 2 );
 			unset( $links[$section][$item] );
 		}
 

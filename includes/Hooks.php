@@ -706,11 +706,11 @@ class Hooks {
 		$content = $wikiPage->getContent();
 		LqtView::editMetadataUpdates(
 			[
-			'root' => $wikiPage,
-			'thread' => $thread,
-			'summary' => $summary,
-			'text' => ( $content instanceof TextContent ) ? $content->getText() : '',
-		] );
+				'root' => $wikiPage,
+				'thread' => $thread,
+				'summary' => $summary,
+				'text' => ( $content instanceof TextContent ) ? $content->getText() : '',
+			] );
 
 		return true;
 	}
