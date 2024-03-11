@@ -188,7 +188,7 @@
 	"lqt-preference-custom-signatures": "カスタムの利用者署名を表示",
 	"lqt-enotif-subject-reply": "{{SITENAME}} の討論 - 返信: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} の討論 - 新スレッド: $1",
-	"lqt-enotif-newthread": "こんにちは、$1 さん。\nこれは {{SITENAME}} からの、$5 でスレッド「$2」が\n$8 によって $3 $4 に作成されたことのお知らせです。\n\n$6 で確認できます。\n\n内容は以下の通りです:\n$7",
+	"lqt-enotif-newthread": "$1 さん、こんにちは、\n\n{{SITENAME}} の $5 に関する新規スレッド「$2」では、$8 さんから$3 $4 に 新しい返信があったことをお知らせします。\n\n内容をご覧いただくには\n$6へ\n\n文面は以下の通りです:\n$7",
 	"lqt-enotif-reply": "$1 さん、こんにちは、\n\n{{SITENAME}} の $5 のスレッド「$2」で、\n$3 $4 に $8 さんから新しい返信があったことをお知らせします。\n\n内容をご覧いただくには\n$6をどうぞ。\n\n返信内容は以下の通りです:\n$7",
 	"lqt-search-legend": "このページ上の議論を検索",
 	"lqt-search-label": "検索語句:",
