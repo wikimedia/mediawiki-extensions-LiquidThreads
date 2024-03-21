@@ -174,7 +174,7 @@ class LqtView {
 		if ( $contextType == 'page' ) {
 			$title = clone $thread->getTitle();
 
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 			$offset = $thread->topmostThread()->sortkey();
 			$offset = (int)wfTimestamp( TS_UNIX, $offset ) + 1;
 			$offset = $dbr->timestamp( $offset );
@@ -670,7 +670,7 @@ class LqtView {
 		$wgRequest->setVal( 'wpSummary', $summary );
 
 		// Add an offset so it works if it's on the wrong page.
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$offset = wfTimestamp( TS_UNIX, $thread->topmostThread()->sortkey() );
 		$offset++;
 		$offset = $dbr->timestamp( $offset );
@@ -789,7 +789,7 @@ class LqtView {
 		}
 
 		// Add an offset so it works if it's on the wrong page.
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$offset = wfTimestamp( TS_UNIX, $thread->topmostThread()->sortkey() );
 		$offset++;
 		$offset = $dbr->timestamp( $offset );
@@ -880,7 +880,7 @@ class LqtView {
 		$e->setContextTitle( $article->getTitle() );
 
 		// Add an offset so it works if it's on the wrong page.
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$offset = wfTimestamp( TS_UNIX, $thread->topmostThread()->sortkey() );
 		$offset++;
 		$offset = $dbr->timestamp( $offset );

@@ -163,7 +163,8 @@ class Hooks {
 			return true;
 		}
 
-		$db = wfGetDB( DB_REPLICA );
+		// Only reading from this DB, but presumably getting primary for latest content.
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 		$context = RequestContext::getMain();
 		$user = $context->getUser();
 
@@ -172,7 +173,7 @@ class Hooks {
 			// Yes, this is the correct field to join to. Weird naming.
 			$join_conds['page'] = [ 'LEFT JOIN', 'rc_cur_id=page_id' ];
 		}
-		$conds[] = "page_namespace IS NULL OR page_namespace != " . $db->addQuotes( NS_LQT_THREAD );
+		$conds[] = "page_namespace IS NULL OR page_namespace != " . $dbw->addQuotes( NS_LQT_THREAD );
 
 		$talkpage_messages = NewMessages::newUserMessages( $user );
 		$tn = count( $talkpage_messages );
@@ -896,7 +897,7 @@ class Hooks {
 	public static function applyPendingArticleRelationship( $pendingRelationship, $title ) {
 		$articleID = $title->getArticleID();
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$dbw->update( 'thread', [ $pendingRelationship['relationship'] => $articleID ],
 			[ 'thread_id' => $pendingRelationship['thread'] ],
@@ -910,7 +911,7 @@ class Hooks {
 	 * @return array
 	 */
 	public static function loadPendingRelationships() {
-		$dbr = wfGetDB( DB_PRIMARY );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$arr = [];
 
 		$res = $dbr->select( 'thread_pending_relationship', '*', [ 1 ], __METHOD__ );
@@ -949,7 +950,7 @@ class Hooks {
 			$row['tpr_' . $k] = $v;
 		}
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 		$dbw->insert( 'thread_pending_relationship', $row, __METHOD__ );
 
 		if ( !isset( $array[$title] ) ) {

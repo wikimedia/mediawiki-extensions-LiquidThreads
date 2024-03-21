@@ -6,6 +6,7 @@ use ApiBase;
 use ApiQueryBase;
 use ApiResult;
 use LqtView;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use stdClass;
 use Thread;
@@ -188,7 +189,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	protected function addSubItems(
 		$tableName, $fields, $joinField, $subitemName, /*callable*/ $handleRow, $tagName
 	) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$result = $this->getResult();
 
 		$fields = array_merge( (array)$fields, (array)$joinField );

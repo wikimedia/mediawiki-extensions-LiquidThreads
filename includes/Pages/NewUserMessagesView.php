@@ -169,7 +169,7 @@ class NewUserMessagesView extends LqtView {
 
 		// Make sure it points to the right page. The Pager seems to use the DB
 		// representation of a timestamp for its offset field, odd.
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$offset = (int)wfTimestamp( TS_UNIX, $topmostThread->modified() ) + 1;
 		$offset = $dbr->timestamp( $offset );
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();

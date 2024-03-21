@@ -188,7 +188,7 @@ class LqtDispatch {
 		}
 
 		// Load from the database.
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$row = $dbr->selectRow(
 			'page_props',

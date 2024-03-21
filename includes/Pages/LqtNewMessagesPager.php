@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\User\User;
 
 class LqtNewMessagesPager extends LqtDiscussionPager {
@@ -33,7 +34,7 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 			$output[$id] = [ 'top' => $thread, 'posts' => [] ];
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$res = $dbr->select( [ 'user_message_state' ],
 					[ 'ums_thread', 'ums_conversation' ],
@@ -54,7 +55,7 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 	}
 
 	public function getQueryInfo() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$queryInfo = [
 			'tables' => [ 'thread', 'user_message_state' ],

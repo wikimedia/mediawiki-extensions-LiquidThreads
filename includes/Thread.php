@@ -175,7 +175,7 @@ class Thread {
 			throw new LogicException( "Attempt to insert a thread that already exists." );
 		}
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$row = $this->getRow();
 
@@ -370,7 +370,7 @@ class Thread {
 	public function save( $fname = null ) {
 		$this->dieIfHistorical();
 
-		$dbr = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		if ( !$fname ) {
 			$fname = __METHOD__ . "/" . wfGetCaller();
@@ -378,7 +378,7 @@ class Thread {
 			$fname = __METHOD__ . "/" . $fname;
 		}
 
-		$dbr->update( 'thread',
+		$dbw->update( 'thread',
 			/* SET */ $this->getRow(),
 			/* WHERE */ [ 'thread_id' => $this->id, ],
 			$fname );
@@ -398,7 +398,7 @@ class Thread {
 	public function getRow() {
 		$id = $this->id();
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		// If there's no root, bail out with an error message
 		if ( !$this->rootId && !( $this->type & Threads::TYPE_DELETED ) ) {
@@ -467,7 +467,7 @@ class Thread {
 
 		$this->dieIfHistorical();
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$dbw->delete( 'user_message_state', [ 'ums_thread' => $this->id() ],
 			__METHOD__ );
@@ -501,7 +501,7 @@ class Thread {
 
 		$this->dieIfHistorical();
 
-		$dbr = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$oldTitle = $this->getTitle();
 		$newTitle = $title;
@@ -517,7 +517,7 @@ class Thread {
 		}
 
 		// Update on *all* subthreads.
-		$dbr->update(
+		$dbw->update(
 			'thread',
 			[
 				'thread_article_namespace' => $new_articleNamespace,
@@ -593,7 +593,7 @@ class Thread {
 		// Populate reply count
 		if ( $this->replyCount == -1 ) {
 			if ( $this->isTopmostThread() ) {
-				$dbr = wfGetDB( DB_REPLICA );
+				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 				$count = $dbr->selectField( 'thread', 'count(*)',
 					[ 'thread_ancestor' => $this->id() ], __METHOD__ );
@@ -650,7 +650,7 @@ class Thread {
 		/* SCHEMA changes must be reflected here. */
 
 		if ( $line === null ) { // For Thread::create().
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 			$this->modified = $dbr->timestamp( wfTimestampNow() );
 			$this->created = $dbr->timestamp( wfTimestampNow() );
 			$this->sortkey = wfTimestamp( TS_MW );
@@ -735,7 +735,7 @@ class Thread {
 		$userIds = [];
 		$loadEditorsFor = [];
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		if ( !is_array( self::$replyCacheById ) ) {
 			self::$replyCacheById = [];
@@ -917,7 +917,7 @@ class Thread {
 	public function loadOriginalAuthorFromRevision() {
 		$this->dieIfHistorical();
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$article = $this->root();
 
@@ -1109,7 +1109,7 @@ class Thread {
 		}
 
 		if ( count( $set ) ) {
-			$dbw = wfGetDB( DB_PRIMARY );
+			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 			$dbw->update( 'thread', $set, [ 'thread_id' => $this->id() ], __METHOD__ );
 		}
@@ -1190,7 +1190,7 @@ class Thread {
 
 		$this->replies = [];
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$res = $dbr->select( 'thread', '*',
 					[ 'thread_parent' => $this->id(),
@@ -1296,7 +1296,7 @@ class Thread {
 
 		$this->ancestorId = $thread->id();
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 		$dbw->update( 'thread', [ 'thread_ancestor' => $thread->id() ],
 				[ 'thread_id' => $this->id() ], __METHOD__ );
 
@@ -1595,7 +1595,7 @@ class Thread {
 			return null;
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$revision = $this->topmostThread()->threadRevision;
 		$timestamp = $dbr->timestamp( $revision->getTimestamp() );
@@ -1845,7 +1845,7 @@ class Thread {
 			// Load editors
 			$this->editors = [];
 
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 			$revQuery = self::getRevisionQueryInfo();
 			$res = $dbr->select(
 				$revQuery['tables'],
@@ -1893,7 +1893,7 @@ class Thread {
 			} else {
 				$reactions = [];
 
-				$dbr = wfGetDB( DB_REPLICA );
+				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 				$res = $dbr->select(
 					'thread_reaction',
@@ -1952,13 +1952,13 @@ class Thread {
 			'tr_value' => $value,
 		];
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$dbw->insert( 'thread_reaction', $row, __METHOD__ );
 	}
 
 	public function deleteReaction( $user, $type ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		if ( isset( $this->reactions[$type][$user->getName()] ) ) {
 			unset( $this->reactions[$type][$user->getName()] );

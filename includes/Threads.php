@@ -93,7 +93,7 @@ class Threads {
 	 * @return Thread[]
 	 */
 	public static function where( $where, $options = [], $bulkLoad = true ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$res = $dbr->select( 'thread', '*', $where, __METHOD__, $options );
 		$threads = self::loadFromResult( $res, $dbr, $bulkLoad );
@@ -196,7 +196,7 @@ class Threads {
 	 * @return string
 	 */
 	public static function articleClause( WikiPage $page ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$titleCond = [ 'thread_article_title' => $page->getTitle()->getDBKey(),
 			'thread_article_namespace' => $page->getTitle()->getNamespace() ];
@@ -213,7 +213,7 @@ class Threads {
 	}
 
 	public static function topLevelClause() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$arr = [ 'thread_ancestor=thread_id', 'thread_parent' => null ];
 
@@ -331,8 +331,8 @@ class Threads {
 	 * @return bool
 	 */
 	public static function synchroniseArticleData( WikiPage $page, $limit = false, $queueMore = false ) {
-		$dbr = wfGetDB( DB_REPLICA );
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$title = $page->getTitle();
 		$id = $page->getId();

@@ -47,7 +47,7 @@ class ThreadRevision {
 	protected $mThreadObj;
 
 	public static function loadFromId( $id ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$row = $dbr->selectRow( 'thread_history', '*', [ 'th_id' => $id ], __METHOD__ );
 
 		if ( !$row ) {
@@ -121,7 +121,7 @@ class ThreadRevision {
 	}
 
 	public function insert() {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$row = $this->getRow();
 
@@ -133,7 +133,7 @@ class ThreadRevision {
 	public function save() {
 		$row = $this->getRow();
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$dbw->replace( 'thread_history', 'th_thread', $row, __METHOD__ );
 	}
@@ -142,7 +142,7 @@ class ThreadRevision {
 		$row = [];
 
 		// First, prep the data for insertion
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 		$this->mTimestamp = $dbw->timestamp( $this->mTimestamp );
 
 		foreach ( self::$load as $col => $field ) {
@@ -213,7 +213,7 @@ class ThreadRevision {
 	}
 
 	public function prev() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$cond = 'th_id<' . $dbr->addQuotes( intval( $this->getId() ) );
 		$row = $dbr->selectRow( 'thread_history', '*',
@@ -224,7 +224,7 @@ class ThreadRevision {
 	}
 
 	public function next() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$cond = 'th_id>' . $dbr->addQuotes( intval( $this->getId() ) );
 		$row = $dbr->selectRow( 'thread_history', '*',

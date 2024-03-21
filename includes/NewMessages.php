@@ -18,7 +18,7 @@ class NewMessages {
 		$thread_id = $thread->id();
 		$user_id = $user->getId();
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$dbw->delete(
 			'user_message_state',
@@ -41,7 +41,7 @@ class NewMessages {
 			throw new InvalidArgumentException( __METHOD__ . " expected User or integer but got $user" );
 		}
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$dbw->delete(
 			'user_message_state',
@@ -58,7 +58,7 @@ class NewMessages {
 
 		$conversation = Threads::withId( $thread_id )->topmostThread()->id();
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 		$dbw->replace(
 			'user_message_state',
 			[ [ 'ums_user', 'ums_thread' ] ],
@@ -82,7 +82,7 @@ class NewMessages {
 	 * @return string
 	 */
 	private static function getWhereClause( $t ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
 		$tpTitle = $t->getTitle();
 		$rootThread = $t->topmostThread()->root()->getTitle();
@@ -129,7 +129,7 @@ class NewMessages {
 		];
 		$fields = [ 'wl_user', 'ums_user', 'ums_read_timestamp', 'up_value' ];
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		return $dbr->select( $tables, $fields, self::getWhereClause( $t ), __METHOD__, [], $joins );
 	}
 
@@ -159,7 +159,7 @@ class NewMessages {
 				];
 			}
 
-			$dbw = wfGetDB( DB_PRIMARY );
+			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 			$dbw->replace(
 				'user_message_state',
 				[ [ 'ums_user', 'ums_thread' ] ],
@@ -258,7 +258,7 @@ class NewMessages {
 		}
 
 		// Send email notification, fetching all the data in one go
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$tables = [
 			'user',
@@ -353,7 +353,7 @@ class NewMessages {
 		$talkPage = MediaWikiServices::getInstance()->getWikiPageFactory()
 			->newFromTitle( $user->getUserPage()->getTalkPage() );
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$joinConds = [ 'ums_user' => null ];
 		$joinConds[] = $dbr->makeList(
@@ -389,22 +389,28 @@ class NewMessages {
 	 * @return int
 	 */
 	public static function newMessageCount( $user, $dbIndex = DB_REPLICA ) {
-		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$services = MediaWikiServices::getInstance();
+		$cache = $services->getMainWANObjectCache();
+		$connectionProvider = $services->getConnectionProvider();
 		$fname = __METHOD__;
 
 		return (int)$cache->getWithSetCallback(
 			$cache->makeKey( 'lqt-new-messages-count', $user->getId() ),
 			$cache::TTL_DAY,
-			static function () use ( $user, $dbIndex, $fname ) {
-				$dbr = wfGetDB( $dbIndex );
+			static function () use ( $user, $dbIndex, $fname, $connectionProvider ) {
+				if ( $dbIndex === DB_REPLICA ) {
+					$db = $connectionProvider->getReplicaDatabase();
+				} else {
+					$db = $connectionProvider->getPrimaryDatabase();
+				}
 
 				$cond = [ 'ums_user' => $user->getId(), 'ums_read_timestamp' => null ];
 				$options = [ 'LIMIT' => 500 ];
 
-				$res = $dbr->select( 'user_message_state', '1', $cond, $fname, $options );
+				$res = $db->select( 'user_message_state', '1', $cond, $fname, $options );
 				$count = $res->numRows();
 				if ( $count >= 500 ) {
-					$count = $dbr->estimateRowCount( 'user_message_state', '*', $cond, $fname );
+					$count = $db->estimateRowCount( 'user_message_state', '*', $cond, $fname );
 				}
 
 				return $count;
@@ -422,7 +428,7 @@ class NewMessages {
 		$talkPage = MediaWikiServices::getInstance()->getWikiPageFactory()
 			->newFromTitle( $user->getUserPage()->getTalkPage() );
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$res = $dbr->select(
 			[ 'thread', 'user_message_state' ],

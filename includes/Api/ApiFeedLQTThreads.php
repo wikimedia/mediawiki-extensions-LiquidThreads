@@ -24,6 +24,7 @@ use ApiMain;
 use MediaWiki\Feed\FeedItem;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Title\Title;
 use TextContent;
@@ -71,7 +72,7 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		$params = $this->extractRequestParams();
 
-		$db = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$feedTitle = $this->createFeedTitle( $params );
 		$feedClass = $wgFeedClasses[$params['feedformat']];
@@ -80,11 +81,11 @@ class ApiFeedLQTThreads extends ApiBase {
 		$feedUrl = Title::newMainPage()->getFullURL();
 
 		$tables = [ 'thread' ];
-		$fields = [ $db->tableName( 'thread' ) . ".*" ];
-		$conds = $this->getConditions( $params, $db );
+		$fields = [ $dbr->tableName( 'thread' ) . ".*" ];
+		$conds = $this->getConditions( $params, $dbr );
 		$options = [ 'LIMIT' => 200, 'ORDER BY' => 'thread_created DESC' ];
 
-		$res = $db->select( $tables, $fields, $conds, __METHOD__, $options );
+		$res = $dbr->select( $tables, $fields, $conds, __METHOD__, $options );
 
 		foreach ( $res as $row ) {
 			$feedItems[] = $this->createFeedItem( $row );
@@ -176,10 +177,10 @@ class ApiFeedLQTThreads extends ApiBase {
 
 	/**
 	 * @param array $params
-	 * @param \Wikimedia\Rdbms\IDatabase $db
+	 * @param \Wikimedia\Rdbms\IReadableDatabase $dbr
 	 * @return array
 	 */
-	private function getConditions( $params, $db ) {
+	private function getConditions( $params, $dbr ) {
 		$conds = [];
 
 		// Types
@@ -187,8 +188,8 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		// Limit
 		$cutoff = time() - intval( $params['days'] * 24 * 3600 );
-		$cutoff = $db->timestamp( $cutoff );
-		$conds[] = 'thread_created > ' . $db->addQuotes( $cutoff );
+		$cutoff = $dbr->timestamp( $cutoff );
+		$conds[] = 'thread_created > ' . $dbr->addQuotes( $cutoff );
 
 		// Talkpage conditions
 		$pageConds = [];
@@ -203,7 +204,7 @@ class ApiFeedLQTThreads extends ApiBase {
 				'thread_article_namespace' => $title->getNamespace(),
 				'thread_article_title' => $title->getDBkey()
 			];
-			$pageConds[] = $db->makeList( $pageCond, LIST_AND );
+			$pageConds[] = $dbr->makeList( $pageCond, LIST_AND );
 		}
 
 		// Thread conditions
@@ -223,10 +224,10 @@ class ApiFeedLQTThreads extends ApiBase {
 				'thread_ancestor' => $thread->id(),
 				'thread_id' => $thread->id()
 			];
-			$pageConds[] = $db->makeList( $threadCond, LIST_OR );
+			$pageConds[] = $dbr->makeList( $threadCond, LIST_OR );
 		}
 		if ( count( $pageConds ) ) {
-			$conds[] = $db->makeList( $pageConds, LIST_OR );
+			$conds[] = $dbr->makeList( $pageConds, LIST_OR );
 		}
 
 		// New thread v. Reply
