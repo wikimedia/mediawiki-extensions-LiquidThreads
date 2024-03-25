@@ -51,7 +51,7 @@
 	"apihelp-threadaction-param-signature": "מגדיר את חותם־הזמן לשימוש עם הרשומה, במקום ברירת המחדל.",
 	"apihelp-threadaction-param-type": "מגדיר את סוג התגובה להוספה.",
 	"apihelp-threadaction-param-value": "מגדיר את הערך שמשויך לתגובה שתתווסף.",
-	"apihelp-threadaction-param-method": "לקבלת טופסי עריכה פנימיים, באיזו שיטה לקבל את הטופס.",
+	"apihelp-threadaction-param-method": "לקבלת טופסי עריכה מובנים לתוך הדף, לאיזו שיטה לקבל את הטופס.",
 	"apihelp-threadaction-param-captchaword": "התגובה ל־CAPTCHA.",
 	"apihelp-threadaction-param-captchaid": "מזהה CAPTCHA מבקשה קודמת.",
 	"apierror-liquidthreads-alreadytop": "השרשור הזה הוא כבר שרשור ברמה עליונה.",
