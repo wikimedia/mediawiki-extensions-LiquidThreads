@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 
@@ -29,8 +28,7 @@ class LqtLogFormatter extends LogFormatter {
 				);
 
 				if ( $rightsCheck === true ) {
-					$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
-					$parameters[] = Message::rawParam( $linkRenderer->makeLink(
+					$parameters[] = Message::rawParam( $this->getLinkRenderer()->makeLink(
 						SpecialPage::getTitleFor( 'MoveThread', $title ),
 						wfMessage( 'revertmove' )->text(),
 						[],
