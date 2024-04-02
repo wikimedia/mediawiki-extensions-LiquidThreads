@@ -135,7 +135,12 @@ class ThreadRevision {
 
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-		$dbw->replace( 'thread_history', 'th_thread', $row, __METHOD__ );
+		$dbw->newReplaceQueryBuilder()
+			->replaceInto( 'thread_history' )
+			->uniqueIndexFields( 'th_thread' )
+			->row( $row )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	public function getRow() {

@@ -59,17 +59,17 @@ class NewMessages {
 		$conversation = Threads::withId( $thread_id )->topmostThread()->id();
 
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
-		$dbw->replace(
-			'user_message_state',
-			[ [ 'ums_user', 'ums_thread' ] ],
-			[
+		$dbw->newReplaceQueryBuilder()
+			->replaceInto( 'user_message_state' )
+			->uniqueIndexFields( [ 'ums_user', 'ums_thread' ] )
+			->row( [
 				'ums_user' => $user_id,
 				'ums_thread' => $thread_id,
 				'ums_read_timestamp' => null,
 				'ums_conversation' => $conversation
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
 		self::recacheMessageCount( $user_id );
 	}
@@ -160,11 +160,12 @@ class NewMessages {
 			}
 
 			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
-			$dbw->replace(
-				'user_message_state',
-				[ [ 'ums_user', 'ums_thread' ] ],
-				$insertRows, __METHOD__
-			);
+			$dbw->newReplaceQueryBuilder()
+				->replaceInto( 'user_message_state' )
+				->uniqueIndexFields( [ 'ums_user', 'ums_thread' ] )
+				->rows( $insertRows )
+				->caller( __METHOD__ )
+				->execute();
 		}
 
 		global $wgLqtEnotif;
