@@ -469,8 +469,11 @@ class Thread {
 
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-		$dbw->delete( 'user_message_state', [ 'ums_thread' => $this->id() ],
-			__METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'user_message_state' )
+			->where( [ 'ums_thread' => $this->id() ] )
+			->caller( __METHOD__ )
+			->execute();
 
 		// Fix reply count.
 		$t = $this->superthread();
@@ -1964,11 +1967,15 @@ class Thread {
 			unset( $this->reactions[$type][$user->getName()] );
 		}
 
-		$dbw->delete( 'thread_reaction',
-				[ 'tr_thread' => $this->id(),
-					'tr_user' => $user->getId(),
-					'tr_type' => $type ],
-				__METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'thread_reaction' )
+			->where( [
+				'tr_thread' => $this->id(),
+				'tr_user' => $user->getId(),
+				'tr_type' => $type
+			] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**

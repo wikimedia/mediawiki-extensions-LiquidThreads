@@ -20,11 +20,11 @@ class NewMessages {
 
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-		$dbw->delete(
-			'user_message_state',
-			[ 'ums_user' => $user_id, 'ums_thread' => $thread_id ],
-			__METHOD__
-		);
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'user_message_state' )
+			->where( [ 'ums_user' => $user_id, 'ums_thread' => $thread_id ] )
+			->caller( __METHOD__ )
+			->execute();
 
 		self::recacheMessageCount( $user_id );
 	}
@@ -43,11 +43,11 @@ class NewMessages {
 
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-		$dbw->delete(
-			'user_message_state',
-			[ 'ums_user' => $user_id ],
-			__METHOD__
-		);
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'user_message_state' )
+			->where( [ 'ums_user' => $user_id ] )
+			->caller( __METHOD__ )
+			->execute();
 
 		self::recacheMessageCount( $user_id );
 	}

@@ -903,8 +903,11 @@ class Hooks {
 			[ 'thread_id' => $pendingRelationship['thread'] ],
 			__METHOD__ );
 
-		$dbw->delete( 'thread_pending_relationship',
-			[ 'tpr_title' => $pendingRelationship['title'] ], __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'thread_pending_relationship' )
+			->where( [ 'tpr_title' => $pendingRelationship['title'] ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
