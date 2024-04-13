@@ -899,9 +899,12 @@ class Hooks {
 
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-		$dbw->update( 'thread', [ $pendingRelationship['relationship'] => $articleID ],
-			[ 'thread_id' => $pendingRelationship['thread'] ],
-			__METHOD__ );
+		$dbw->newUpdateQueryBuilder()
+			->update( 'thread' )
+			->set( [ $pendingRelationship['relationship'] => $articleID ] )
+			->where( [ 'thread_id' => $pendingRelationship['thread'] ] )
+			->caller( __METHOD__ )
+			->execute();
 
 		$dbw->delete( 'thread_pending_relationship',
 			[ 'tpr_title' => $pendingRelationship['title'] ], __METHOD__ );
@@ -951,7 +954,11 @@ class Hooks {
 		}
 
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
-		$dbw->insert( 'thread_pending_relationship', $row, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'thread_pending_relationship' )
+			->row( $row )
+			->caller( __METHOD__ )
+			->execute();
 
 		if ( !isset( $array[$title] ) ) {
 			$array[$title] = [];

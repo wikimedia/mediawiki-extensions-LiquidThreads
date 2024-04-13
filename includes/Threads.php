@@ -364,14 +364,26 @@ class Threads {
 			// Fix wrong title.
 			$fixTitleCount = $dbr->selectField( 'thread', 'COUNT(*)', $fixTitleCond, __METHOD__ );
 			if ( intval( $fixTitleCount ) ) {
-				$dbw->update( 'thread', $titleCond, $fixTitleCond, __METHOD__, $options );
+				$dbw->newUpdateQueryBuilder()
+					->update( 'thread' )
+					->set( $titleCond )
+					->where( $fixTitleCond )
+					->options( $options )
+					->caller( __METHOD__ )
+					->execute();
 				$roundRowsAffected += $dbw->affectedRows();
 			}
 
 			// Fix wrong ID
 			$fixIdCount = $dbr->selectField( 'thread', 'COUNT(*)', $fixIdCond, __METHOD__ );
 			if ( intval( $fixIdCount ) ) {
-				$dbw->update( 'thread', $idCond, $fixIdCond, __METHOD__, $options );
+				$dbw->newUpdateQueryBuilder()
+					->update( 'thread' )
+					->set( $idCond )
+					->where( $fixIdCond )
+					->options( $options )
+					->caller( __METHOD__ )
+					->execute();
 				$roundRowsAffected += $dbw->affectedRows();
 			}
 
