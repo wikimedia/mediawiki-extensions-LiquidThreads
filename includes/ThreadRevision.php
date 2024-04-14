@@ -125,7 +125,11 @@ class ThreadRevision {
 
 		$row = $this->getRow();
 
-		$dbw->insert( 'thread_history', $row, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'thread_history' )
+			->row( $row )
+			->caller( __METHOD__ )
+			->execute();
 
 		$this->mId = $dbw->insertId();
 	}

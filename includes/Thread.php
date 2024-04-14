@@ -179,7 +179,11 @@ class Thread {
 
 		$row = $this->getRow();
 
-		$dbw->insert( 'thread', $row, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'thread' )
+			->row( $row )
+			->caller( __METHOD__ )
+			->execute();
 		$this->id = $dbw->insertId();
 
 		// Touch the root
@@ -378,10 +382,12 @@ class Thread {
 			$fname = __METHOD__ . "/" . $fname;
 		}
 
-		$dbw->update( 'thread',
-			/* SET */ $this->getRow(),
-			/* WHERE */ [ 'thread_id' => $this->id, ],
-			$fname );
+		$dbw->newUpdateQueryBuilder()
+			->update( 'thread' )
+			->set( $this->getRow() )
+			->where( [ 'thread_id' => $this->id, ] )
+			->caller( $fname )
+			->execute();
 
 		// Touch the root
 		if ( $this->root() ) {
@@ -520,16 +526,16 @@ class Thread {
 		}
 
 		// Update on *all* subthreads.
-		$dbw->update(
-			'thread',
-			[
+		$dbw->newUpdateQueryBuilder()
+			->update( 'thread' )
+			->set( [
 				'thread_article_namespace' => $new_articleNamespace,
 				'thread_article_title' => $new_articleTitle,
 				'thread_article_id' => $new_articleID,
-			],
-			[ 'thread_ancestor' => $this->id() ],
-			__METHOD__
-		);
+			] )
+			->where( [ 'thread_ancestor' => $this->id() ] )
+			->caller( __METHOD__ )
+			->execute();
 
 		$this->articleNamespace = $new_articleNamespace;
 		$this->articleTitle = $new_articleTitle;
@@ -1114,7 +1120,12 @@ class Thread {
 		if ( count( $set ) ) {
 			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-			$dbw->update( 'thread', $set, [ 'thread_id' => $this->id() ], __METHOD__ );
+			$dbw->newUpdateQueryBuilder()
+				->update( 'thread' )
+				->set( $set )
+				->where( [ 'thread_id' => $this->id() ] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 
 		// Done
@@ -1300,8 +1311,12 @@ class Thread {
 		$this->ancestorId = $thread->id();
 
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
-		$dbw->update( 'thread', [ 'thread_ancestor' => $thread->id() ],
-				[ 'thread_id' => $this->id() ], __METHOD__ );
+		$dbw->newUpdateQueryBuilder()
+			->update( 'thread' )
+			->set( [ 'thread_ancestor' => $thread->id() ] )
+			->where( [ 'thread_id' => $this->id() ] )
+			->caller( __METHOD__ )
+			->execute();
 
 		// @phan-suppress-next-line PhanTypeMismatchReturnNullable Would crash above if null
 		return $thread;
@@ -1957,7 +1972,11 @@ class Thread {
 
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 
-		$dbw->insert( 'thread_reaction', $row, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'thread_reaction' )
+			->row( $row )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	public function deleteReaction( $user, $type ) {
