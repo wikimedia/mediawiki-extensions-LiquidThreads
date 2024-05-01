@@ -6,6 +6,7 @@ use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class Thread {
 	/* SCHEMA changes must be reflected here. */
@@ -604,8 +605,12 @@ class Thread {
 			if ( $this->isTopmostThread() ) {
 				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-				$count = $dbr->selectField( 'thread', 'count(*)',
-					[ 'thread_ancestor' => $this->id() ], __METHOD__ );
+				$count = $dbr->newSelectQueryBuilder()
+					->select( 'COUNT(*)' )
+					->from( 'thread' )
+					->where( [ 'thread_ancestor' => $this->id() ] )
+					->caller( __METHOD__ )
+					->fetchField();
 			} else {
 				$count = self::recursiveGetReplyCount( $this );
 			}
@@ -776,10 +781,15 @@ class Thread {
 		// Pull replies to the threads provided, and as above, pull page IDs to pull data for,
 		// pre-initialise the reply cache, and stash the row object for later use.
 		if ( count( $top_thread_ids ) ) {
-			$res = $dbr->select( 'thread', '*',
-				[ 'thread_ancestor' => $top_thread_ids,
-					'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ],
-				__METHOD__ );
+			$res = $dbr->newSelectQueryBuilder()
+				->select( '*' )
+				->from( 'thread' )
+				->where( [
+					'thread_ancestor' => $top_thread_ids,
+					$dbr->expr( 'thread_type', '!=', Threads::TYPE_DELETED ),
+				] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 
 			foreach ( $res as $row ) {
 				// Grab page data while we're here.
@@ -796,9 +806,12 @@ class Thread {
 
 		// Pull thread reactions
 		if ( count( $all_thread_ids ) ) {
-			$res = $dbr->select( 'thread_reaction', '*',
-						[ 'tr_thread' => $all_thread_ids ],
-						__METHOD__ );
+			$res = $dbr->newSelectQueryBuilder()
+				->select( '*' )
+				->from( 'thread_reaction' )
+				->where( [ 'tr_thread' => $all_thread_ids ] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 
 			foreach ( $res as $row ) {
 				$thread_id = $row->tr_thread;
@@ -831,13 +844,22 @@ class Thread {
 			// Pull restriction info. Needs to come first because otherwise it's done per
 			// page by loadPageData.
 			$restrictionRows = array_fill_keys( $pageIds, [] );
-			$res = $dbr->select( 'page_restrictions', '*', [ 'pr_page' => $pageIds ],
-									__METHOD__ );
+			$res = $dbr->newSelectQueryBuilder()
+				->select( '*' )
+				->from( 'page_restrictions' )
+				->where( [ 'pr_page' => $pageIds ] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			foreach ( $res as $row ) {
 				$restrictionRows[$row->pr_page][] = $row;
 			}
 
-			$res = $dbr->select( 'page', '*', [ 'page_id' => $pageIds ], __METHOD__ );
+			$res = $dbr->newSelectQueryBuilder()
+				->select( '*' )
+				->from( 'page' )
+				->where( [ 'page_id' => $pageIds ] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 
 			$restrictionStore = MediaWikiServices::getInstance()->getRestrictionStore();
 			foreach ( $res as $row ) {
@@ -886,17 +908,16 @@ class Thread {
 		// Pull list of users who have edited
 		if ( count( $loadEditorsFor ) ) {
 			$revQuery = self::getRevisionQueryInfo();
-			$res = $dbr->select(
-				$revQuery['tables'],
-				[ 'rev_user_text' => $revQuery['fields']['rev_user_text'], 'rev_page' ],
-				[
+			$res = $dbr->newSelectQueryBuilder()
+				->select( [ 'rev_user_text' => $revQuery['fields']['rev_user_text'], 'rev_page' ] )
+				->tables( $revQuery['tables'] )
+				->where( [
 					'rev_page' => array_keys( $loadEditorsFor ),
-					'rev_parent_id != ' . $dbr->addQuotes( 0 )
-				],
-				__METHOD__,
-				[],
-				$revQuery['joins']
-			);
+					$dbr->expr( 'rev_parent_id', '!=', 0 ),
+				] )
+				->caller( __METHOD__ )
+				->joinConds( $revQuery['joins'] )
+				->fetchResultSet();
 			foreach ( $res as $row ) {
 				$pageid = $row->rev_page;
 				$editor = $row->rev_user_text;
@@ -931,17 +952,14 @@ class Thread {
 		$article = $this->root();
 
 		$revQuery = self::getRevisionQueryInfo();
-		$line = $dbr->selectRow(
-			$revQuery['tables'],
-			[ 'rev_user_text' => $revQuery['fields']['rev_user_text'] ],
-			[ 'rev_page' => $article->getPage()->getId() ],
-			__METHOD__,
-			[
-				'ORDER BY' => 'rev_timestamp',
-				'LIMIT'   => '1'
-			],
-			$revQuery['joins']
-		);
+		$line = $dbr->newSelectQueryBuilder()
+			->select( [ 'rev_user_text' => $revQuery['fields']['rev_user_text'] ] )
+			->tables( $revQuery['tables'] )
+			->where( [ 'rev_page' => $article->getPage()->getId() ] )
+			->caller( __METHOD__ )
+			->orderBy( 'rev_timestamp' )
+			->joinConds( $revQuery['joins'] )
+			->fetchRow();
 		if ( $line ) {
 			return User::newFromName( $line->rev_user_text, false );
 		} else {
@@ -1206,10 +1224,15 @@ class Thread {
 
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		$res = $dbr->select( 'thread', '*',
-					[ 'thread_parent' => $this->id(),
-					'thread_type != ' . $dbr->addQuotes( Threads::TYPE_DELETED ) ],
-					__METHOD__ );
+		$res = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'thread' )
+			->where( [
+				'thread_parent' => $this->id(),
+				$dbr->expr( 'thread_type', '!=', Threads::TYPE_DELETED ),
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$rows = [];
 		foreach ( $res as $row ) {
@@ -1618,16 +1641,18 @@ class Thread {
 		$revision = $this->topmostThread()->threadRevision;
 		$timestamp = $dbr->timestamp( $revision->getTimestamp() );
 
-		$conds = [
-			'rev_timestamp<=' . $dbr->addQuotes( $timestamp ),
-			'page_namespace' => $this->root()->getTitle()->getNamespace(),
-			'page_title' => $this->root()->getTitle()->getDBkey(),
-		];
-
-		$join_conds = [ 'page' => [ 'JOIN', 'rev_page=page_id' ] ];
-
-		$row = $dbr->selectRow( [ 'revision', 'page' ], '*', $conds, __METHOD__,
-			[ 'ORDER BY' => 'rev_timestamp DESC' ], $join_conds );
+		$row = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'revision' )
+			->join( 'page', null, 'rev_page=page_id' )
+			->where( [
+				$dbr->expr( 'rev_timestamp', '<=', $timestamp ),
+				'page_namespace' => $this->root()->getTitle()->getNamespace(),
+				'page_title' => $this->root()->getTitle()->getDBkey(),
+			] )
+			->caller( __METHOD__ )
+			->orderBy( 'rev_timestamp', SelectQueryBuilder::SORT_DESC )
+			->fetchRow();
 
 		return $row->rev_id;
 	}
@@ -1865,17 +1890,16 @@ class Thread {
 
 			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 			$revQuery = self::getRevisionQueryInfo();
-			$res = $dbr->select(
-				$revQuery['tables'],
-				[ 'rev_user_text' => $revQuery['fields']['rev_user_text'] ],
-				[
+			$res = $dbr->newSelectQueryBuilder()
+				->select( [ 'rev_user_text' => $revQuery['fields']['rev_user_text'] ] )
+				->tables( $revQuery['tables'] )
+				->where( [
 					'rev_page' => $this->root()->getPage()->getId(),
-					'rev_parent_id != ' . $dbr->addQuotes( 0 )
-				],
-				__METHOD__,
-				[],
-				$revQuery['joins']
-			);
+					$dbr->expr( 'rev_parent_id', '!=', 0 ),
+				] )
+				->caller( __METHOD__ )
+				->joinConds( $revQuery['joins'] )
+				->fetchResultSet();
 
 			$editors = [];
 			foreach ( $res as $row ) {
@@ -1913,12 +1937,12 @@ class Thread {
 
 				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-				$res = $dbr->select(
-					'thread_reaction',
-					[ 'tr_user', 'tr_user_text', 'tr_type', 'tr_value' ],
-					[ 'tr_thread' => $this->id() ],
-					__METHOD__
-				);
+				$res = $dbr->newSelectQueryBuilder()
+					->select( [ 'tr_user', 'tr_user_text', 'tr_type', 'tr_value' ] )
+					->from( 'thread_reaction' )
+					->where( [ 'tr_thread' => $this->id() ] )
+					->caller( __METHOD__ )
+					->fetchResultSet();
 
 				foreach ( $res as $row ) {
 					$user = $row->tr_user_text;

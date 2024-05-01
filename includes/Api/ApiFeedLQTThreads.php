@@ -32,6 +32,7 @@ use Thread;
 use Threads;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * This action returns LiquidThreads threads/posts in RSS/Atom formats.
@@ -80,12 +81,14 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		$feedUrl = Title::newMainPage()->getFullURL();
 
-		$tables = [ 'thread' ];
-		$fields = [ $dbr->tableName( 'thread' ) . ".*" ];
-		$conds = $this->getConditions( $params, $dbr );
-		$options = [ 'LIMIT' => 200, 'ORDER BY' => 'thread_created DESC' ];
-
-		$res = $dbr->select( $tables, $fields, $conds, __METHOD__, $options );
+		$res = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'thread' )
+			->where( $this->getConditions( $params, $dbr ) )
+			->limit( 200 )
+			->orderBy( 'thread_created', SelectQueryBuilder::SORT_DESC )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		foreach ( $res as $row ) {
 			$feedItems[] = $this->createFeedItem( $row );

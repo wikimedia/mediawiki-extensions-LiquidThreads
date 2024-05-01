@@ -108,29 +108,21 @@ class NewMessages {
 	 * @return IResultWrapper
 	 */
 	private static function getRowsObject( $t ) {
-		$tables = [ 'watchlist', 'user_message_state', 'user_properties' ];
-		$joins = [
-			'user_message_state' =>
-			[
-				'LEFT JOIN',
-				[
-					'ums_user=wl_user',
-					'ums_thread' => $t->id()
-				]
-			],
-			'user_properties' =>
-			[
-				'LEFT JOIN',
-				[
-					'up_user=wl_user',
-					'up_property' => 'lqtnotifytalk',
-				]
-			]
-		];
-		$fields = [ 'wl_user', 'ums_user', 'ums_read_timestamp', 'up_value' ];
-
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-		return $dbr->select( $tables, $fields, self::getWhereClause( $t ), __METHOD__, [], $joins );
+		return $dbr->newSelectQueryBuilder()
+			->select( [ 'wl_user', 'ums_user', 'ums_read_timestamp', 'up_value' ] )
+			->from( 'watchlist' )
+			->leftJoin( 'user_message_state', null, [
+				'ums_user=wl_user',
+				'ums_thread' => $t->id()
+			] )
+			->leftJoin( 'user_properties', null, [
+				'up_user=wl_user',
+				'up_property' => 'lqtnotifytalk',
+			] )
+			->where( self::getWhereClause( $t ) )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 	}
 
 	/**
@@ -261,40 +253,24 @@ class NewMessages {
 		// Send email notification, fetching all the data in one go
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		$tables = [
-			'user',
-			'tc_prop' => 'user_properties',
-			'l_prop' => 'user_properties'
-		];
-
-		$fields = [
-			$dbr->tableName( 'user' ) . '.*',
-			'timecorrection' => 'tc_prop.up_value',
-			'language' => 'l_prop.up_value'
-		];
-
-		$join_conds = [
-			'tc_prop' => [
-				'LEFT JOIN',
-				[
-					'tc_prop.up_user=user_id',
-					'tc_prop.up_property' => 'timecorrection',
-				]
-			],
-			'l_prop' => [
-				'LEFT JOIN',
-				[
-					'l_prop.up_user=user_id',
-					'l_prop.up_property' => 'language',
-				]
-			]
-		];
-
-		$res = $dbr->select(
-			$tables, $fields,
-			[ 'user_id' => $watching_users ], __METHOD__,
-			[], $join_conds
-		);
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [
+				'u.*',
+				'timecorrection' => 'tc_prop.up_value',
+				'language' => 'l_prop.up_value'
+			] )
+			->from( 'user', 'u' )
+			->leftJoin( 'user_properties', 'tc_prop', [
+				'tc_prop.up_user=user_id',
+				'tc_prop.up_property' => 'timecorrection',
+			] )
+			->leftJoin( 'user_properties', 'l_prop', [
+				'l_prop.up_user=user_id',
+				'l_prop.up_property' => 'language',
+			] )
+			->where( [ 'u.user_id' => $watching_users ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		// Set up one-time data.
 		global $wgPasswordSender;
@@ -366,20 +342,16 @@ class NewMessages {
 		);
 		$joinClause = $dbr->makeList( $joinConds, LIST_OR );
 
-		$res = $dbr->select(
-			[ 'thread', 'user_message_state' ],
-			'*',
-			[
+		$res = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'user_message_state' )
+			->leftJoin( 'thread', null, $joinClause )
+			->where( [
 				'ums_read_timestamp' => null,
 				Threads::articleClause( $talkPage )
-			],
-			__METHOD__,
-			[],
-			[
-				'thread' =>
-				[ 'LEFT JOIN', $joinClause ]
-			]
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		return Threads::loadFromResult( $res, $dbr );
 	}
@@ -406,12 +378,22 @@ class NewMessages {
 				}
 
 				$cond = [ 'ums_user' => $user->getId(), 'ums_read_timestamp' => null ];
-				$options = [ 'LIMIT' => 500 ];
 
-				$res = $db->select( 'user_message_state', '1', $cond, $fname, $options );
+				$res = $db->newSelectQueryBuilder()
+					->select( '1' )
+					->from( 'user_message_state' )
+					->where( $cond )
+					->caller( $fname )
+					->limit( 500 )
+					->fetchResultSet();
 				$count = $res->numRows();
 				if ( $count >= 500 ) {
-					$count = $db->estimateRowCount( 'user_message_state', '*', $cond, $fname );
+					$count = $db->newSelectQueryBuilder()
+						->select( '*' )
+						->from( 'user_message_state' )
+						->where( $cond )
+						->caller( $fname )
+						->estimateRowCount();
 				}
 
 				return $count;
@@ -431,21 +413,17 @@ class NewMessages {
 
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		$res = $dbr->select(
-			[ 'thread', 'user_message_state' ],
-			'*',
-			[
+		$res = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'thread' )
+			->join( 'user_message_state', null, 'ums_thread=thread_id' )
+			->where( [
 				'ums_read_timestamp' => null,
 				'ums_user' => $user->getId(),
 				'not (' . Threads::articleClause( $talkPage ) . ')',
-			],
-			__METHOD__,
-			[],
-			[
-				'user_message_state' =>
-				[ 'INNER JOIN', 'ums_thread=thread_id' ],
-			]
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		return Threads::loadFromResult( $res, $dbr );
 	}

@@ -190,15 +190,15 @@ class LqtDispatch {
 		// Load from the database.
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		$row = $dbr->selectRow(
-			'page_props',
-			'pp_value',
-			[
+		$row = $dbr->newSelectQueryBuilder()
+			->select( 'pp_value' )
+			->from( 'page_props' )
+			->where( [
 				'pp_propname' => 'use-liquid-threads',
 				'pp_page' => $articleid
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchRow();
 
 		if ( $row ) {
 			$dbVal = $row->pp_value;

@@ -920,7 +920,11 @@ class Hooks {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$arr = [];
 
-		$res = $dbr->select( 'thread_pending_relationship', '*', [ 1 ], __METHOD__ );
+		$res = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'thread_pending_relationship' )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		foreach ( $res as $row ) {
 			$title = $row->tpr_title;

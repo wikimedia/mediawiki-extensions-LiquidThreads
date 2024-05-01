@@ -95,7 +95,13 @@ class Threads {
 	public static function where( $where, $options = [], $bulkLoad = true ) {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		$res = $dbr->select( 'thread', '*', $where, __METHOD__, $options );
+		$res = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'thread' )
+			->where( $where )
+			->caller( __METHOD__ )
+			->options( $options )
+			->fetchResultSet();
 		$threads = self::loadFromResult( $res, $dbr, $bulkLoad );
 
 		foreach ( $threads as $thread ) {
@@ -362,7 +368,12 @@ class Threads {
 			$roundRowsAffected = 0;
 
 			// Fix wrong title.
-			$fixTitleCount = $dbr->selectField( 'thread', 'COUNT(*)', $fixTitleCond, __METHOD__ );
+			$fixTitleCount = $dbr->newSelectQueryBuilder()
+				->select( 'COUNT(*)' )
+				->from( 'thread' )
+				->where( $fixTitleCond )
+				->caller( __METHOD__ )
+				->fetchField();
 			if ( intval( $fixTitleCount ) ) {
 				$dbw->newUpdateQueryBuilder()
 					->update( 'thread' )
@@ -375,7 +386,12 @@ class Threads {
 			}
 
 			// Fix wrong ID
-			$fixIdCount = $dbr->selectField( 'thread', 'COUNT(*)', $fixIdCond, __METHOD__ );
+			$fixIdCount = $dbr->newSelectQueryBuilder()
+				->select( 'COUNT(*)' )
+				->from( 'thread' )
+				->where( $fixIdCond )
+				->caller( __METHOD__ )
+				->fetchField();
 			if ( intval( $fixIdCount ) ) {
 				$dbw->newUpdateQueryBuilder()
 					->update( 'thread' )

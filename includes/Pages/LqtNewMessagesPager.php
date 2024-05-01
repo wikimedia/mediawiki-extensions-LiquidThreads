@@ -36,14 +36,15 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		$res = $dbr->select( [ 'user_message_state' ],
-					[ 'ums_thread', 'ums_conversation' ],
-					[
-						'ums_user' => $this->user->getId(),
-						'ums_conversation' => $thread_ids
-					],
-					__METHOD__
-					);
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [ 'ums_thread', 'ums_conversation' ] )
+			->from( 'user_message_state' )
+			->where( [
+				'ums_user' => $this->user->getId(),
+				'ums_conversation' => $thread_ids
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		foreach ( $res as $row ) {
 			$top = $row->ums_conversation;

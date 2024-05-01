@@ -194,14 +194,14 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 
 		$fields = array_merge( (array)$fields, (array)$joinField );
 
-		$res = $dbr->select(
-			$tableName,
-			$fields,
-			[
+		$res = $dbr->newSelectQueryBuilder()
+			->select( $fields )
+			->from( $tableName )
+			->where( [
 				$joinField => $this->threadIds
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		foreach ( $res as $row ) {
 			$output = $handleRow( $row );

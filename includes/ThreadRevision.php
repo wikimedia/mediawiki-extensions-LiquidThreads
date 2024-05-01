@@ -48,7 +48,12 @@ class ThreadRevision {
 
 	public static function loadFromId( $id ) {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-		$row = $dbr->selectRow( 'thread_history', '*', [ 'th_id' => $id ], __METHOD__ );
+		$row = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'thread_history' )
+			->where( [ 'th_id' => $id ] )
+			->caller( __METHOD__ )
+			->fetchRow();
 
 		if ( !$row ) {
 			return null;
@@ -224,10 +229,15 @@ class ThreadRevision {
 	public function prev() {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		$cond = 'th_id<' . $dbr->addQuotes( intval( $this->getId() ) );
-		$row = $dbr->selectRow( 'thread_history', '*',
-				[ $cond, 'th_thread' => $this->mThreadId ],
-				__METHOD__ );
+		$row = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'thread_history' )
+			->where( [
+				$dbr->expr( 'th_id', '<', intval( $this->getId() ) ),
+				'th_thread' => $this->mThreadId
+			] )
+			->caller( __METHOD__ )
+			->fetchRow();
 
 		return self::loadFromRow( $row );
 	}
@@ -235,10 +245,15 @@ class ThreadRevision {
 	public function next() {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		$cond = 'th_id>' . $dbr->addQuotes( intval( $this->getId() ) );
-		$row = $dbr->selectRow( 'thread_history', '*',
-				[ $cond, 'th_thread' => $this->mThreadId ],
-				__METHOD__ );
+		$row = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'thread_history' )
+			->where( [
+				$dbr->expr( 'th_id', '>', intval( $this->getId() ) ),
+				'th_thread' => $this->mThreadId
+			] )
+			->caller( __METHOD__ )
+			->fetchRow();
 
 		return self::loadFromRow( $row );
 	}

@@ -84,7 +84,12 @@ class LqtDeletionController {
 
 			// TX has not been committed yet, so we must select from the master
 			$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
-			$res = $dbw->select( 'thread', '*', [ 'thread_root' => $pageid ], __METHOD__ );
+			$res = $dbw->newSelectQueryBuilder()
+				->select( '*' )
+				->from( 'thread' )
+				->where( [ 'thread_root' => $pageid ] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			$threads = Threads::loadFromResult( $res, $dbw );
 
 			if ( count( $threads ) ) {
