@@ -122,7 +122,7 @@ class ThreadPermalinkView extends LqtView {
 	}
 
 	public function showMissingThreadPage() {
-		$this->output->setPageTitle( wfMessage( 'lqt_nosuchthread_title' ) );
+		$this->output->setPageTitleMsg( wfMessage( 'lqt_nosuchthread_title' ) );
 		$this->output->addWikiMsg( 'lqt_nosuchthread' );
 	}
 
