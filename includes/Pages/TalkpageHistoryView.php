@@ -5,7 +5,7 @@ class TalkpageHistoryView extends TalkpageView {
 		$talkpageTitle = $this->article->getTitle();
 		$talkpageLink = $this->linkRenderer->makeLink( $talkpageTitle );
 
-		$this->output->setPageTitle( wfMessage( 'lqt-talkpage-history-title' ) );
+		$this->output->setPageTitleMsg( wfMessage( 'lqt-talkpage-history-title' ) );
 		$this->output->setSubtitle( wfMessage( 'lqt-talkpage-history-subtitle' )
 			->rawParams( $talkpageLink )->parse() );
 

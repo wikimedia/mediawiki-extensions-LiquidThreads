@@ -9,7 +9,7 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 
 		$this->thread->updateHistory();
 
-		$this->output->setPageTitle( wfMessage( 'lqt-history-title' ) );
+		$this->output->setPageTitleMsg( wfMessage( 'lqt-history-title' ) );
 		$this->output->setSubtitle(
 			$this->getSubtitle() . '<br />' .
 				wfMessage( 'lqt_hist_listing_subtitle' )->escaped()
