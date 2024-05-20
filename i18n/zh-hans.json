@@ -27,7 +27,8 @@
 			"予弦",
 			"神樂坂秀吉",
 			"LittlePaw365",
-			"MangoFanFanw"
+			"MangoFanFanw",
+			"Amire80"
 		]
 	},
 	"lqt-desc": "在讨论页增加话题讨论功能",
@@ -225,7 +226,7 @@
 	"lqt-save-subject-error-unknown": "在试图设置此话题的主题时发生了未知错误。请尝试点击顶部的“编辑”进行。",
 	"lqt-cancel-subject-edit": "取消",
 	"lqt-drag-activate": "拖动到新的位置",
-	"lqt-drag-drop-zone": "拖动到这里",
+	"lqt-drag-drop-zone": "拖放到这里",
 	"lqt-drag-confirm": "要完成下列操作，请填写原因并点击“确认”。",
 	"lqt-drag-reparent": "将发言移动到新的话题下",
 	"lqt-drag-split": "将发言移动到它所属的话题中",
