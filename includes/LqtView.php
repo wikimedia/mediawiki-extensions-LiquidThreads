@@ -1612,7 +1612,7 @@ class LqtView {
 	public function threadSignature( Thread $thread ) {
 		global $wgLang;
 
-		$signature = $thread->signature();
+		$signature = $thread->signature() ?? '';
 		$signature = self::parseSignature( $signature );
 
 		$signature = Xml::tags( 'span', [ 'class' => 'lqt-thread-user-signature' ],
