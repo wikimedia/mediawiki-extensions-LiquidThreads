@@ -14,7 +14,8 @@
 			"Ykhwong",
 			"아라",
 			"Amire80",
-			"Dr1t jg"
+			"Dr1t jg",
+			"Suleiman the Magnificent Television"
 		]
 	},
 	"lqt-desc": "토론 문서의 스레드 토론을 추가합니다",
@@ -158,9 +159,9 @@
 	"lqt_rc_new_discussion": "님이 새 스레드인 \"$1\"을(를) 게시했습니다",
 	"lqt_rc_new_reply": "\"$1\"에 대한 답글을 남겼습니다.",
 	"right-lqt-split": "스레드 분할하기",
-	"action-lqt-split": "글타래 분리해",
+	"action-lqt-split": "스레드 분할",
 	"right-lqt-merge": "스레드 합치기",
-	"action-lqt-merge": "글타래 합쳐",
+	"action-lqt-merge": "스레드 병합",
 	"right-lqt-react": "스레드에 답변하기",
 	"lqt-thread-merge": "다른 스레드로 합치기",
 	"lqt-thread-merge-to": "이 스레드에 합치기",

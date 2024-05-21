@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Matma Rex"
 		]
 	},
 	"lqt_movethread": "搬討論串去另一版",
@@ -24,7 +25,7 @@
 	"lqt_hist_undeleted": "反刪除咗",
 	"lqt_hist_moved_talkpage": "搬咗",
 	"lqt_hist_listing_subtitle": "睇緊個歷史一覽",
-	"lqt_hist_view_whole_thread": "睇成個討論串嘅歷史　",
+	"lqt_hist_view_whole_thread": "睇成個討論串嘅歷史",
 	"lqt_hist_no_revisions_error": "呢個討論無任何嘅歷史修訂。",
 	"lqt_hist_past_last_page_error": "你響已經存在嘅歷史版數存在範圍之外。",
 	"lqt_hist_tooltip_newer_disabled": "呢個連結停用咗，因為你而家響第一版。",
@@ -41,7 +42,7 @@
 	"lqt_move_placeholder": "呢個討論串係一個放置指定討論串$1響呢版度刪除咗，搬咗去另一版討論版度。呢次嘅搬動係由$2響$3 $4做嘅。",
 	"lqt_thread_deleted_for_sysops": "呢個討論串已經$1，只係可以俾操作員睇到。",
 	"lqt_thread_deleted": "呢個討論串已經刪除咗。",
-	"lqt_summary_notice": "如果呢個討論有結論嘅話，鼓勵你去$1。呢個討論已經最少有$2日無更改過。　",
+	"lqt_summary_notice": "如果呢個討論有結論嘅話，鼓勵你去$1。呢個討論已經最少有$2日無更改過。",
 	"lqt_summary_notice_link": "寫摘要",
 	"lqt_summary_label": "討論摘要：",
 	"lqt_summary_subtitle": "$1嘅摘要。",
