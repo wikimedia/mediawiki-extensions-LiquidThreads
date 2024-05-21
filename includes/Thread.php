@@ -1868,6 +1868,9 @@ class Thread {
 		return $canCreateNew[$userText];
 	}
 
+	/**
+	 * @return string|null Signature wikitext, may be null for very old unserialized comments (T365495)
+	 */
 	public function signature() {
 		return $this->signature;
 	}
