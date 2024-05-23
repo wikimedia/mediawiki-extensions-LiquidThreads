@@ -5,7 +5,8 @@
 			"Anakmalaysia",
 			"Aurora",
 			"Jeluang Terluang",
-			"Pizza1016"
+			"Pizza1016",
+			"Hakimi97"
 		]
 	},
 	"lqt-desc": "Tambahkan tred perbincangan kepada laman perbincangan",
@@ -207,7 +208,7 @@
 	"lqt-drag-reason": "Sebab:",
 	"lqt-drag-subject": "Subjek tred baru (wajib):",
 	"lqt-edit-signature": "(tandatangan suntingan)",
-	"lqt-preview-signature": "(pralihat)",
+	"lqt-preview-signature": "(pratayang)",
 	"lqt-feed-title-all": "{{SITENAME}} — Kiriman baru",
 	"lqt-feed-title-all-from": "{{SITENAME}} — Kiriman baru dari $1",
 	"lqt-feed-title-new-threads": "{{SITENAME}} — Tred baru",
