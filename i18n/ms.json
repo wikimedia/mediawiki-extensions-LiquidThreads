@@ -4,7 +4,9 @@
 			"Anakmalaysia",
 			"Aurora",
 			"Jeluang Terluang",
-			"Pizza1016"
+			"Pizza1016",
+			"Amire80",
+			"Hakimi97"
 		]
 	},
 	"lqt-desc": "Tambahkan tred perbincangan kepada laman perbincangan",
@@ -206,7 +208,7 @@
 	"lqt-drag-reason": "Sebab:",
 	"lqt-drag-subject": "Subjek tred baru (wajib):",
 	"lqt-edit-signature": "(tandatangan suntingan)",
-	"lqt-preview-signature": "(pralihat)",
+	"lqt-preview-signature": "(pratayang)",
 	"lqt-feed-title-all": "{{SITENAME}} — Kiriman baru",
 	"lqt-feed-title-all-from": "{{SITENAME}} — Kiriman baru dari $1",
 	"lqt-feed-title-new-threads": "{{SITENAME}} — Tred baru",
@@ -222,7 +224,7 @@
 	"lqt-reply-summary": "Balas [[$2|$1]]",
 	"lqt-talkpage-history-title": "Sejarah laman perbincangan",
 	"lqt-talkpage-history-subtitle": "Untuk $1",
-	"lqt-talkpage-history-tab": "Pengatas",
+	"lqt-talkpage-history-tab": "Pengepala",
 	"restriction-reply": "Kirim balasan",
 	"restriction-newthread": "Kirim tred baru",
 	"lqt-protected-reply-thread": "Anda tidak boleh mengirim dalam tred ini kerana ia telah dilindungi daripada kiriman baru.",

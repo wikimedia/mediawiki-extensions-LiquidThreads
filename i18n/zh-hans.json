@@ -191,7 +191,7 @@
 	"lqt-log-action-merge-across": "已将[[$1]]从[[$2]]之下移动到[[$3]]之下",
 	"lqt-log-action-merge-down": "已将[[$1]]合并到下方的[[$3]]",
 	"lqt-log-action-subjectedit": "已将[[$1]]的主题由“$2”改为“$3”",
-	"lqt-log-action-resort": "已修改[[$1]]的排序方向。排序关键字从$2改为$3",
+	"lqt-log-action-resort": "修改[[$1]]的排序顺序。排序键从$2更改为$3",
 	"lqt-log-action-signatureedit": "已将[[$1]]的签名从“$2”更改为“$3”",
 	"lqt-preference-notify-talk": "当监视话题有新回复时发送电子邮件通知我",
 	"lqt-preference-watch-threads": "监视我发起或回复的话题",
