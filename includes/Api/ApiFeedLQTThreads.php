@@ -191,8 +191,7 @@ class ApiFeedLQTThreads extends ApiBase {
 
 		// Limit
 		$cutoff = time() - intval( $params['days'] * 24 * 3600 );
-		$cutoff = $dbr->timestamp( $cutoff );
-		$conds[] = 'thread_created > ' . $dbr->addQuotes( $cutoff );
+		$conds[] = $dbr->expr( 'thread_created', '>', $dbr->timestamp( $cutoff ) );
 
 		// Talkpage conditions
 		$pageConds = [];

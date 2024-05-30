@@ -94,8 +94,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			$params['startid'], $params['endid'] );
 
 		if ( !$params['showdeleted'] ) {
-			$delType = $this->getDB()->addQuotes( Threads::TYPE_DELETED );
-			$this->addWhere( "thread_type != $delType" );
+			$this->addWhere( $this->getDB()->expr( 'thread_type', '!=', Threads::TYPE_DELETED ) );
 		}
 
 		if ( $params['render'] ) {
