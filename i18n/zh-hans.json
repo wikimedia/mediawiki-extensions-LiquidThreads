@@ -204,7 +204,7 @@
 	"lqt-enotif-newthread": "$1您好，\n\n这是来自{{SITENAME}}的一封提醒邮件。$8于$3$4时，在$5上发起了新话题“$2”，\n\n您可以访问<$6>阅读之\n\n内容为：\n$7",
 	"lqt-enotif-reply": "$1您好，\n这是来自{{SITENAME}}的一封提醒邮件。$8于$3$4时，对$5上的话题“$2”进行了回复，\n\n您可以访问<$6>阅读之\n\n回复的内容是：\n$7",
 	"lqt-search-legend": "在本页搜索讨论",
-	"lqt-search-label": "搜索词语：",
+	"lqt-search-label": "搜索词：",
 	"lqt-search-button": "搜索",
 	"searchprofile-threads": "讨论",
 	"searchprofile-threads-tooltip": "搜索话题讨论和讨论页",
