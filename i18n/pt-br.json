@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"!Silent",
+			555,
 			"Amire80",
 			"Araceletorres",
 			"Cainamarques",
@@ -15,8 +16,7 @@
 			"Helder.wiki",
 			"Luckas",
 			"Luckas Blade",
-			"MetalBrasil",
-			555
+			"MetalBrasil"
 		]
 	},
 	"lqt-desc": "Adiciona discussões em tópicos a páginas de discussão",

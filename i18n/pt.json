@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			555,
 			"Amire80",
 			"Athena in Wonderland",
 			"Crazymadlover",
@@ -13,8 +14,7 @@
 			"Luckas",
 			"Malafaya",
 			"SandroHc",
-			"Vitorvicentevalente",
-			555
+			"Vitorvicentevalente"
 		]
 	},
 	"lqt-desc": "Adiciona discussões em formato de tópicos às páginas de discussão",
