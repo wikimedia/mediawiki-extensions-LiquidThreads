@@ -2,6 +2,7 @@
 
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Message\Message;
 use MediaWiki\SpecialPage\SpecialPage;
 
 class SpecialNewMessages extends SpecialPage {

@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Html\Html;
+use MediaWiki\Message\Message;
 
 // @todo FIXME: access control
 class SpecialMergeThread extends ThreadActionPage {

@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\Message\Message;
+
 // TODO access control
 class SpecialSplitThread extends ThreadActionPage {
 	public function getFormFields() {

@@ -6,12 +6,14 @@
  * @license GPL-2.0-or-later
  */
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\LiquidThreads\Hooks;
 use MediaWiki\Html\Html;
 use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Request\WebRequest;
