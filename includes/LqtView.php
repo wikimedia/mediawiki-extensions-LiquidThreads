@@ -932,7 +932,7 @@ class LqtView {
 		}
 
 		// Primary data-center cluster cache
-		$cache = ObjectCache::getLocalClusterInstance();
+		$cache = MediaWikiServices::getInstance()->getObjectCacheFactory()->getLocalClusterInstance();
 		$nonce_key = $cache->makeKey( 'lqt-nonce', $token, $this->user->getName() );
 
 		if ( $cache->get( $nonce_key ) ) {
@@ -955,7 +955,7 @@ class LqtView {
 		}
 
 		// Primary data-center cluster cache
-		$cache = ObjectCache::getLocalClusterInstance();
+		$cache = MediaWikiServices::getInstance()->getObjectCacheFactory()->getLocalClusterInstance();
 		$nonce_key = $cache->makeKey( 'lqt-nonce', $token, $this->user->getName() );
 
 		return $cache->add( $nonce_key, 1, $cache::TTL_HOUR );
