@@ -16,6 +16,8 @@
 	"lqt_invalid_subject": "Siz kirgizgen tema jaramsız.\nBuǵan sebep bolıwı múmkin:\n * Tema atı dım uzın, yamasa \n * Interwiki prefiksleri yamasa atamalar kópliginiń atı menen qarama-qarsılıqqa iye.",
 	"lqt-empty-text": "Siz bos xabar jaylastıra almaysız",
 	"lqt_delete": "Óshiriw",
+	"lqt_undelete": "Óshiriwdi biykarlaw",
+	"lqt_hist_deleted": "Óshirildi",
 	"lqt_youhavenewmessages": "Sizge [[$1|jańa xabar]] keldi.",
 	"lqt-drag-reason": "Sebebi:",
 	"lqt-newmessages-n": "Jańa xabarlandırıwlar ($1)"
