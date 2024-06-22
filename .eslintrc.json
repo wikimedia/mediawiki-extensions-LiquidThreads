@@ -10,6 +10,7 @@
 		"no-jquery/no-class-state": "warn",
 		"no-jquery/no-sizzle": "warn",
 		"no-shadow": "warn",
-		"no-jquery/no-extend": "warn"
+		"no-jquery/no-extend": "warn",
+		"es-x/no-object-assign": "warn"
 	}
 }

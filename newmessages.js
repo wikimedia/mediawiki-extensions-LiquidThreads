@@ -6,7 +6,7 @@
 
 ( function () {
 
-	$.extend( liquidThreads, {
+	Object.assign( liquidThreads, {
 		markReadDone: {
 			one: function ( reply, button, operand ) {
 				var msg, undoMsg, placeholderIndex, $elem,
