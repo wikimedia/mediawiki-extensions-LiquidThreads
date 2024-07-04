@@ -28,7 +28,8 @@
 			"Xiplus",
 			"Yfdyh000",
 			"予弦",
-			"神樂坂秀吉"
+			"神樂坂秀吉",
+			"Lakejason0"
 		]
 	},
 	"lqt-desc": "在讨论页增加话题讨论功能",
@@ -202,8 +203,8 @@
 	"lqt-preference-custom-signatures": "显示用户自定义签名",
 	"lqt-enotif-subject-reply": "{{SITENAME}}的讨论 - 回复：$1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}}的讨论 - 新话题：$1",
-	"lqt-enotif-newthread": "$1您好，\n\n这是来自{{SITENAME}}的一封提醒邮件。$8于$3$4时，在$5上发起了新话题“$2”，\n\n您可以访问 $6 阅读之\n\n内容为：\n$7",
-	"lqt-enotif-reply": "$1您好，\n\n这是来自{{SITENAME}}的一封提醒邮件。$8于$3$4时，对$5上的话题“$2”进行了回复，\n\n您可以访问 $6 阅读之\n\n回复的内容是：\n$7",
+	"lqt-enotif-newthread": "$1，您好：\n\n这是来自{{SITENAME}}的一封提醒邮件。$8于$3$4时，在$5上发起了新话题“$2”。\n\n您可以在以下链接访问此话题：\n$6\n\n内容为：\n$7",
+	"lqt-enotif-reply": "$1，您好：\n\n这是来自{{SITENAME}}的一封提醒邮件。$8于$3$4时，对$5上的话题“$2”进行了回复，\n\n您可以在以下链接访问此话题：\n$6\n\n回复的内容是：\n$7",
 	"lqt-search-legend": "在本页搜索讨论",
 	"lqt-search-label": "搜索词：",
 	"lqt-search-button": "搜索",
