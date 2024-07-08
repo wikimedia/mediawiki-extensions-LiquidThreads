@@ -1,0 +1,41 @@
+{
+	"@metadata": {
+		"authors": [
+			"IJzeren Jan"
+		]
+	},
+	"lqt-desc": "Dodavaje besědnym stranicam nitne diskusije",
+	"lqt_movethread": "Prěměstiti nit na drugu stranicu",
+	"lqt_deletethread": "Odstraniti ili vratiti nit",
+	"lqt_contents_title": "Sodržanje",
+	"lqt_toc_thread_title": "Zaglavje niti",
+	"lqt_toc_thread_author": "Započeta od",
+	"lqt_toc_thread_replycount": "Odgovory",
+	"lqt_toc_thread_modified": "Poslědnja izměna",
+	"lqt_add_header": "Dodati zaglavje",
+	"lqt_new_thread": "Započeti novu diskusiju",
+	"lqt_invalid_subject": "Vvedeno vami zaglavje jest nepravilno. \nMože byti, že:\n* jest prěmnogo dolgo, ili\n* konfliktuje s medžujezyčnymi prědstavkami ili nazvami imennyh prostorov.",
+	"lqt-empty-text": "Ne možete poslati prazdno soobčenje",
+	"lqt_empty_subject": "Trěba vpisati temu.",
+	"lqt_reply": "Odgovoriti",
+	"lqt-parent": "Nadredno soobčenje",
+	"lqt_delete": "Odstraniti",
+	"lqt_undelete": "Vratiti",
+	"lqt_permalink": "Postojanny link",
+	"lqt_fragment": "Fragment $1 iz $2",
+	"lqt_discussion_link": "diskusije",
+	"lqt_from_talk": "Iz $1",
+	"lqt-history-title": "Historija niti",
+	"lqt_hist_comment_edited": "[$2 Izpravjeny] tekst komentara",
+	"lqt_hist_comment_edited_deleted": "Izpravjeny tekst komentara (od hvilje odstranjenja)",
+	"lqt_hist_summary_changed": "Izměnjeny kratky opis",
+	"lqt_hist_reply_created": "Dodany [[$1|novy odgovor]]",
+	"lqt_hist_reply_created_deleted": "Dodany novy odgovor (od hvilje odstranjenja)",
+	"lqt_hist_thread_created": "Stvorjena nova nit",
+	"lqt_hist_deleted": "Odstranjena",
+	"lqt_hist_undeleted": "Vračena",
+	"lqt_hist_moved_talkpage": "Prěměščena",
+	"lqt_hist_listing_subtitle": "Prěgled spiska historije",
+	"lqt_hist_view_whole_thread": "Prěgled historije za cělu nit",
+	"lqt_hist_no_revisions_error": "V historiji tutoj niti nemaje nijednoj versije."
+}
