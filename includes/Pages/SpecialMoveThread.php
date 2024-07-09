@@ -2,6 +2,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
+use MediaWiki\Permissions\PermissionStatus;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 
@@ -77,25 +78,15 @@ class SpecialMoveThread extends ThreadActionPage {
 
 	public function checkUserRights( $oldTitle, $newTitle ) {
 		$user = $this->getUser();
+		$status = new PermissionStatus();
 		$permManager = MediaWikiServices::getInstance()->getPermissionManager();
-		$oldErrors = $permManager->getPermissionErrors( 'move', $user, $oldTitle );
-		$newErrors = $permManager->getPermissionErrors( 'move', $user, $newTitle );
+		$status->merge( $permManager->getPermissionStatus( 'move', $user, $oldTitle ) );
+		$status->merge( $permManager->getPermissionStatus( 'move', $user, $newTitle ) );
 
-		// Custom merge/unique function because we don't have the second parameter to
-		// array_unique on Wikimedia.
-		$mergedErrors = [];
-		foreach ( array_merge( $oldErrors, $newErrors ) as $key => $value ) {
-			if ( !is_numeric( $key ) ) {
-				$mergedErrors[$key] = $value;
-			} elseif ( !in_array( $value, $mergedErrors ) ) {
-				$mergedErrors[] = $value;
-			}
-		}
-
-		if ( count( $mergedErrors ) > 0 ) {
+		if ( !$status->isGood() ) {
 			$out = $this->getOutput();
 			return $out->parseAsInterface(
-				$out->formatPermissionsErrorMessage( $mergedErrors, 'move' )
+				$out->formatPermissionStatus( $status, 'move' )
 			);
 		}
 
