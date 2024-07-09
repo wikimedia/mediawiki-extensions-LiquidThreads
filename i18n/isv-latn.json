@@ -37,5 +37,17 @@
 	"lqt_hist_moved_talkpage": "Prěměščena",
 	"lqt_hist_listing_subtitle": "Prěgled spiska historije",
 	"lqt_hist_view_whole_thread": "Prěgled historije za cělu nit",
-	"lqt_hist_no_revisions_error": "V historiji tutoj niti nemaje nijednoj versije."
+	"lqt_hist_no_revisions_error": "V historiji tutoj niti nemaje nijednoj versije.",
+	"lqt_hist_tooltip_newer_disabled": "Tutoj link jest nedostupny, ibo vy jeste na prvoj stranici.",
+	"lqt_hist_tooltip_older_disabled": "Tutoj link jest nedostupny, ibo vy jeste na poslědnjej stranici.",
+	"lqt_hist_split": "Odgovor odděljeny v novu nit",
+	"lqt_hist_edited_subject": "Zaglavje izměnjeno s «$2» na «$3»",
+	"lqt_hist_edited_subject_corrupt": "Izměnjeny prědmet",
+	"lqt_hist_merged_from": "[[$1|Odgovor]] prěměščeny v drugu nit",
+	"lqt_hist_merged_to": "[[$1|Odgovor]] prěměščeny iz drugoj niti",
+	"lqt_hist_split_from": "Odděliti v novu nit",
+	"lqt_hist_root_blanked": "Odstranjeny tekst komentara",
+	"lqt-new-messages": "Imajete nove soobčenja.",
+	"tooltip-pt-newmessages": "Pokazyvaje nove komentare v slědovanyh vami nitah ili besědnyh stranicah",
+	"lqt_newmessages-title": "Nove soobčenja"
 }
