@@ -157,10 +157,10 @@ class ApiThreadAction extends ApiEditPage {
 
 		$thread = array_pop( $threads );
 
-		$errors = $this->getPermissionManager()
-			->getPermissionErrors( 'lqt-split', $this->getUser(), $thread->title() );
-		if ( $errors ) {
-			$this->dieStatus( $this->errorArrayToStatus( $errors ) );
+		$status = $this->getPermissionManager()
+			->getPermissionStatus( 'lqt-split', $this->getUser(), $thread->title() );
+		if ( !$status->isGood() ) {
+			$this->dieStatus( $status );
 		}
 
 		if ( $thread->isTopmostThread() ) {
@@ -242,10 +242,10 @@ class ApiThreadAction extends ApiEditPage {
 			$this->dieWithError( 'apierror-liquidthreads-badparent', 'invalid-parent-thread' );
 		}
 
-		$errors = $this->getPermissionManager()
-			->getPermissionErrors( 'lqt-merge', $this->getUser(), $newParent->title() );
-		if ( $errors ) {
-			$this->dieStatus( $this->errorArrayToStatus( $errors ) );
+		$status = $this->getPermissionManager()
+			->getPermissionStatus( 'lqt-merge', $this->getUser(), $newParent->title() );
+		if ( !$status->isGood() ) {
+			$this->dieStatus( $status );
 		}
 
 		// Pull a reason, if applicable.
@@ -688,10 +688,10 @@ class ApiThreadAction extends ApiEditPage {
 		}
 		$thread = array_pop( $threads );
 
-		$errors = $this->getPermissionManager()
-			->getPermissionErrors( 'edit', $this->getUser(), $thread->title() );
-		if ( $errors ) {
-			$this->dieStatus( $this->errorArrayToStatus( $errors ) );
+		$status = $this->getPermissionManager()
+			->getPermissionStatus( 'edit', $this->getUser(), $thread->title() );
+		if ( !$status->isGood() ) {
+			$this->dieStatus( $status );
 		}
 
 		// Validate subject
@@ -779,10 +779,10 @@ class ApiThreadAction extends ApiEditPage {
 
 		$thread = array_pop( $threads );
 
-		$errors = $this->getPermissionManager()
-			->getPermissionErrors( 'edit', $this->getUser(), $thread->title() );
-		if ( $errors ) {
-			$this->dieStatus( $this->errorArrayToStatus( $errors ) );
+		$status = $this->getPermissionManager()
+			->getPermissionStatus( 'edit', $this->getUser(), $thread->title() );
+		if ( !$status->isGood() ) {
+			$this->dieStatus( $status );
 		}
 
 		$thread->setSortkey( $ts );
