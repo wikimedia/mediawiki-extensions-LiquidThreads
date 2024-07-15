@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"IJzeren Jan"
+		]
+	},
+	"apihelp-feedthreads-summary": "Vrnuti kanal diskusijnyh nitij.",
+	"apihelp-feedthreads-param-feedformat": "Format kanala.",
+	"apihelp-feedthreads-param-days": "Kolikost dnjev pokazyvanyh v nitah.",
+	"apihelp-feedthreads-param-type": "Tipy pokazyvanyh zapisov.",
+	"apihelp-feedthreads-param-talkpage": "Ograničiti rezultaty do nitij na tutyh besědnyh stranic.",
+	"apihelp-feedthreads-param-thread": "Ograničiti rezultaty do tutyh nitij i jihnyh potomkov.",
+	"apihelp-feedthreads-example-1": "Pokazati kanal za vse novy niti",
+	"apihelp-feedthreads-example-2": "Pokazati kanal odgovorov na [[Thread:Foo]]",
+	"apihelp-feedthreads-example-3": "Pokazati kanal novyh nitij na [[Talk:Main Page]]",
+	"apihelp-query+threads-summary": "Pokazati podrobnosti LiquidThreads-nitij.",
+	"apihelp-query+threads-param-startid": "Identifikator niti, od ktoroj načinaje se čisljenje.",
+	"apihelp-query+threads-param-endid": "Identifikator niti, na ktoroj končaje se čisljenje.",
+	"apihelp-query+threads-param-showdeleted": "Pokazati ili ne pokazati odstranjene niti.",
+	"apihelp-query+threads-param-limit": "Maksimalna kolikost nitij v spisku.",
+	"apihelp-query+threads-param-prop": "Koje svojstva včitati.",
+	"apihelp-query+threads-param-page": "Ograničiti rezultaty do nitij na tutyh stranic.",
+	"apihelp-query+threads-param-author": "Ograničiti rezultaty do nitij oprěděljenyh avtorov.",
+	"apihelp-query+threads-param-root": "Ograničiti rezultaty do nitij s podanymi korenjami.",
+	"apihelp-query+threads-param-summary": "Ograničiti rezultaty do nitij odpovědajučih podanym stranicam s rezjume."
+}
