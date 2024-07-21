@@ -202,11 +202,10 @@ class ApiFeedLQTThreads extends ApiBase {
 			if ( !$title ) {
 				$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $page ) ] );
 			}
-			$pageCond = [
+			$pageConds[] = $dbr->andExpr( [
 				'thread_article_namespace' => $title->getNamespace(),
-				'thread_article_title' => $title->getDBkey()
-			];
-			$pageConds[] = $dbr->makeList( $pageCond, LIST_AND );
+				'thread_article_title' => $title->getDBkey(),
+			] );
 		}
 
 		// Thread conditions
@@ -222,14 +221,13 @@ class ApiFeedLQTThreads extends ApiBase {
 				continue;
 			}
 
-			$threadCond = [
+			$pageConds[] = $dbr->orExpr( [
 				'thread_ancestor' => $thread->id(),
 				'thread_id' => $thread->id()
-			];
-			$pageConds[] = $dbr->makeList( $threadCond, LIST_OR );
+			] );
 		}
 		if ( count( $pageConds ) ) {
-			$conds[] = $dbr->makeList( $pageConds, LIST_OR );
+			$conds[] = $dbr->orExpr( $pageConds );
 		}
 
 		// New thread v. Reply

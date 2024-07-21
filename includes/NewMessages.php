@@ -3,7 +3,9 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
+use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IResultWrapper;
+use Wikimedia\Rdbms\RawSQLExpression;
 
 class NewMessages {
 	public static function markThreadAsUnreadByUser( Thread $thread, UserIdentity $user ) {
@@ -79,7 +81,7 @@ class NewMessages {
 	 * If the thread is on a user's talkpage, set that user's newtalk.
 	 *
 	 * @param Thread $t
-	 * @return string
+	 * @return IExpression
 	 */
 	private static function getWhereClause( $t ) {
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
@@ -88,19 +90,16 @@ class NewMessages {
 		$rootThread = $t->topmostThread()->root()->getTitle();
 
 		// Select any applicable watchlist entries for the thread.
-		$talkpageWhere = [
+		$talkpageWhere = $dbw->andExpr( [
 			'wl_namespace' => $tpTitle->getNamespace(),
 			'wl_title' => $tpTitle->getDBkey()
-		];
-		$rootWhere = [
+		] );
+		$rootWhere = $dbw->andExpr( [
 			'wl_namespace' => $rootThread->getNamespace(),
 			'wl_title' => $rootThread->getDBkey()
-		];
+		] );
 
-		$talkpageWhere = $dbw->makeList( $talkpageWhere, LIST_AND );
-		$rootWhere = $dbw->makeList( $rootWhere, LIST_AND );
-
-		return $dbw->makeList( [ $talkpageWhere, $rootWhere ], LIST_OR );
+		return $dbw->orExpr( [ $talkpageWhere, $rootWhere ] );
 	}
 
 	/**
@@ -333,19 +332,16 @@ class NewMessages {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$joinConds = [ 'ums_user' => null ];
-		$joinConds[] = $dbr->makeList(
-			[
-				'ums_user' => $user->getId(),
-				'ums_thread=thread_id'
-			],
-			LIST_AND
-		);
-		$joinClause = $dbr->makeList( $joinConds, LIST_OR );
+		$joinConds[] = $dbr->andExpr( [
+			'ums_user' => $user->getId(),
+			new RawSQLExpression( 'ums_thread=thread_id' ),
+		] );
+		$joinClause = $dbr->orExpr( $joinConds );
 
 		$res = $dbr->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'user_message_state' )
-			->leftJoin( 'thread', null, $joinClause )
+			->leftJoin( 'thread', null, [ $joinClause ] )
 			->where( [
 				'ums_read_timestamp' => null,
 				Threads::articleClause( $talkPage )

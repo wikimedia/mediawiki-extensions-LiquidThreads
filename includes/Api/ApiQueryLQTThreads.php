@@ -297,13 +297,12 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 			$this->addWhere( $cond );
 		} else {
 			$conds = [];
+			$dbr = $this->getDB();
 			foreach ( $value as $page ) {
-				$cond = $this->getPageCond( $prop, $page );
-				$conds[] = $this->getDB()->makeList( $cond, LIST_AND );
+				$conds[] = $dbr->andExpr( $this->getPageCond( $prop, $page ) );
 			}
 
-			$cond = $this->getDB()->makeList( $conds, LIST_OR );
-			$this->addWhere( $cond );
+			$this->addWhere( $dbr->orExpr( $conds ) );
 		}
 	}
 
