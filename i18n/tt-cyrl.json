@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ерней",
-			"Ильнар"
+			"Ильнар",
+			"Don Alessandro"
 		]
 	},
 	"lqt_contents_title": "Эчтәлек",
@@ -50,8 +51,8 @@
 	"lqt-talkpage-history-title": "Аралашу битенең тарихы",
 	"lqt-talkpage-history-subtitle": "$1 өчен",
 	"lqt-talkpage-history-tab": "Баш исем",
-	"restriction-reply": "җавап бирергә",
-	"restriction-newthread": "яңа элемтәләр ясау",
+	"restriction-reply": "Җавап язу",
+	"restriction-newthread": "Яңа элемтәләр ясау",
 	"lqt-reply-subpage": "җавап бирү",
 	"nstab-thread": "Тармак",
 	"pageinfo-usinglqt-yes": "Әйе"
