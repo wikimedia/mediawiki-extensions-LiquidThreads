@@ -46,7 +46,7 @@
 	"apihelp-threadaction-param-sortkey": "Ukazyvaje značku časa za ustanovjenje ključ sortovanja niti. Može byti «now» (tutčas).",
 	"apihelp-threadaction-param-signature": "Ukazyvaje podpis, ktory bude upotrěbjeny za toj zapis zaměsto standardnogo.",
 	"apihelp-threadaction-param-type": "Ukazyvaje tip reakcije, ktoru hočete dodati.",
-	"apihelp-threadaction-param-value": "Ukazyvaje značenje povezno s reakcijeju, ktoru hočete dodati.",
+	"apihelp-threadaction-param-value": "Ukazyvaje značenje povezano s reakcijeju, ktoru hočete dodati.",
 	"apihelp-threadaction-param-method": "Tuto jest metoda za dobytje formulara za vnutri-redočno pravjenje.",
 	"apihelp-threadaction-param-captchaword": "Odgovor na CAPTCHA.",
 	"apihelp-threadaction-param-captchaid": "Identifikator CAPTCHA iz poprědnjego zapyta.",
