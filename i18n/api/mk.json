@@ -13,7 +13,7 @@
 	"apihelp-feedthreads-example-1": "Прикажувај тековник со сите нови нишки",
 	"apihelp-feedthreads-example-2": "Прикажувај тековник со одговори на [[Thread:Foo]]",
 	"apihelp-feedthreads-example-3": "Прикажувај тековник со нови нишки на [[Talk:Main Page]]",
-	"apihelp-query+threads-summary": "Прикажувај подробности за нишките на LiquidThreads.",
+	"apihelp-query+threads-summary": "Прикажувај поединости за нишките на LiquidThreads.",
 	"apihelp-query+threads-param-startid": "Назнака на нишката од кајшто ќе почне набројувањето.",
 	"apihelp-query+threads-param-endid": "Назнака на нишката на кајшто ќе запре набројувањето.",
 	"apihelp-query+threads-param-showdeleted": "Дали да се прикажуваат избришаните нишки.",
