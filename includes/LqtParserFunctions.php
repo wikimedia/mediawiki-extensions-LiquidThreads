@@ -6,7 +6,6 @@ use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
 
-/* @phan-file-suppress PhanUndeclaredProperty */
 class LqtParserFunctions {
 
 	private const LQT_REPLACEMENTS_DATA_KEY = 'liquidthreads_replacements';
