@@ -1685,19 +1685,6 @@ class Thread {
 		return null;
 	}
 
-	public static function createdSortCallback( self $a, self $b ) {
-		$a = $a->created();
-		$b = $b->created();
-
-		if ( $a == $b ) {
-			return 0;
-		} elseif ( $a > $b ) {
-			return 1;
-		} else {
-			return -1;
-		}
-	}
-
 	public function split( $newSubject, $reason = '', $newSortkey = null ) {
 		$oldTopThread = $this->topmostThread();
 		$oldParent = $this->superthread();
