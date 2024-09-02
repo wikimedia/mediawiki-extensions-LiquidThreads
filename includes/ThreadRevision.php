@@ -86,16 +86,10 @@ class ThreadRevision {
 		$change_object = null,
 		$comment = ''
 	) {
-		$timestamp = wfTimestampNow();
-
-		if ( $comment === null ) {
-			$comment = '';
-		}
-
 		$rev = new ThreadRevision;
 
 		$rev->mThreadId = $thread->topmostThread()->id();
-		$rev->mTimestamp = $timestamp;
+		$rev->mTimestamp = wfTimestampNow();
 
 		$rev->mUser = $user;
 		$rev->mUserId = $user->getId();
@@ -115,7 +109,7 @@ class ThreadRevision {
 
 		// This field is TINYTEXT so it can only fit 255 bytes.
 		$rev->mChangeComment = MediaWikiServices::getInstance()->getContentLanguage()
-			->truncateForDatabase( $comment, 255 );
+			->truncateForDatabase( $comment ?? '', 255 );
 
 		$rev->mThreadObj = $thread->topmostThread();
 		$rev->mObjSer = serialize( $rev->mThreadObj );

@@ -800,10 +800,7 @@ class Hooks {
 	public static function afterImportPage( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
 		// in-process cache of pending thread relationships
 		static $pendingRelationships = null;
-
-		if ( $pendingRelationships === null ) {
-			$pendingRelationships = self::loadPendingRelationships();
-		}
+		$pendingRelationships ??= self::loadPendingRelationships();
 
 		$titlePendingRelationships = [];
 		if ( isset( $pendingRelationships[$title->getPrefixedText()] ) ) {

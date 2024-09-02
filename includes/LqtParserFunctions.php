@@ -62,9 +62,7 @@ class LqtParserFunctions {
 		if ( !empty( $args['talkpage'] ) ) {
 			$title = Title::newFromText( $args['talkpage'] );
 		}
-		if ( $title === null ) {
-			$title = $parser->getTitle();
-		}
+		$title ??= $parser->getTitle();
 
 		$talkpage = new Article( $title, 0 );
 		$article = new Article( $parser->getTitle(), 0 );

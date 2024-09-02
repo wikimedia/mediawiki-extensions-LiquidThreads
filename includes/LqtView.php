@@ -201,13 +201,9 @@ class LqtView {
 	public static function linkInContext( Thread $thread, $contextType = 'page', $text = null ) {
 		[ $title, $query ] = self::linkInContextData( $thread, $contextType );
 
-		if ( $text === null ) {
-			$text = Threads::stripHTML( $thread->formattedSubject() );
-		}
-
 		return MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
 			$title,
-			$text,
+			$text ?? Threads::stripHTML( $thread->formattedSubject() ),
 			[],
 			$query
 		);

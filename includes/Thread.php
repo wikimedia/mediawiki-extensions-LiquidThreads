@@ -236,9 +236,7 @@ class Thread {
 		$this->dieIfHistorical();
 
 		global $wgThreadActionsNoBump;
-		if ( $bump === null ) {
-			$bump = !in_array( $change_type, $wgThreadActionsNoBump );
-		}
+		$bump ??= !in_array( $change_type, $wgThreadActionsNoBump );
 		if ( $bump ) {
 			$this->sortkey = wfTimestamp( TS_MW );
 		}
@@ -287,9 +285,7 @@ class Thread {
 		$log = new LogPage( 'liquidthreads' );
 		$user = $this->author();
 
-		if ( $reason === null ) {
-			$reason = '';
-		}
+		$reason ??= '';
 
 		switch ( $change_type ) {
 			case Threads::CHANGE_MOVED_TALKPAGE:
@@ -1663,11 +1659,7 @@ class Thread {
 	}
 
 	public function setSortKey( $k = null ) {
-		if ( $k === null ) {
-			$k = wfTimestamp( TS_MW );
-		}
-
-		$this->sortkey = $k;
+		$this->sortkey = $k ?? wfTimestamp( TS_MW );
 	}
 
 	public function replyWithId( $id ) {
