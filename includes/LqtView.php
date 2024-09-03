@@ -2001,7 +2001,7 @@ class LqtView {
 		$mustShowThreads = $cascadeOptions['mustShowThreads'];
 
 		$replies = $thread->subthreads();
-		usort( $replies, [ 'Thread', 'createdSortCallback' ] );
+		usort( $replies, static fn ( Thread $a, Thread $b ) => $a->created() <=> $b->created() );
 
 		foreach ( $replies as $st ) {
 			++$i;
