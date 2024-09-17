@@ -24,6 +24,7 @@ use ApiMain;
 use MediaWiki\Feed\FeedItem;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Title\Title;
@@ -69,14 +70,13 @@ class ApiFeedLQTThreads extends ApiBase {
 	 * Wrap the result as an RSS/Atom feed.
 	 */
 	public function execute() {
-		global $wgFeedClasses;
-
 		$params = $this->extractRequestParams();
+		$feedClasses = $this->getConfig()->get( MainConfigNames::FeedClasses );
 
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
 		$feedTitle = $this->createFeedTitle( $params );
-		$feedClass = $wgFeedClasses[$params['feedformat']];
+		$feedClass = $feedClasses[$params['feedformat']];
 		$feedItems = [];
 
 		$feedUrl = Title::newMainPage()->getFullURL();
@@ -242,8 +242,7 @@ class ApiFeedLQTThreads extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		global $wgFeedClasses;
-		$feedFormatNames = array_keys( $wgFeedClasses );
+		$feedFormatNames = array_keys( $this->getConfig()->get( MainConfigNames::FeedClasses ) );
 		return [
 			'feedformat' => [
 				ParamValidator::PARAM_DEFAULT => 'rss',

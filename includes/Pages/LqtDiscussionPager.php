@@ -36,8 +36,7 @@ class LqtDiscussionPager extends IndexPager {
 			}
 		}
 
-		global $wgLiquidThreadsDefaultPageLimit;
-		return $wgLiquidThreadsDefaultPageLimit;
+		return $this->getConfig()->get( 'LiquidThreadsDefaultPageLimit' );
 	}
 
 	public function getQueryInfo() {
