@@ -386,6 +386,7 @@ class LqtView {
 		$thread = Threads::withId( intval( $operand ) );
 
 		// Yuck.
+		// phpcs:ignore MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle
 		global $wgOut, $wgRequest, $wgTitle;
 		$oldOut = $wgOut;
 		$oldRequest = $wgRequest;
@@ -2435,6 +2436,7 @@ class LqtView {
 	 * @return string
 	 */
 	public static function signaturePST( $sig, $user ) {
+		// phpcs:ignore MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle
 		global $wgTitle;
 
 		$title = $wgTitle ?: $user->getUserPage();
