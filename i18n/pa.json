@@ -21,10 +21,10 @@
 	"right-lqt-react": "ਤੰਦੋਤਾਣੇਆਂ ਦਾ ਜਵਾਬ ਦਿਓ",
 	"action-lqt-react": "ਤੰਦੋਤਾਣੇਆਂ ਦਾ ਜਵਾਬ ਦਿਓ",
 	"prefs-lqt": "ਤੰਦਨੁਮਾ ਚਰਚਾ",
-	"lqt-thread-show-replies": "$1 {{PLURAL:$1|ਜੁਆਬ|ਜੁਆਬ}} ਵਿਖਾਉ",
+	"lqt-thread-show-replies": "$1 {{PLURAL:$1|ਜੁਆਬ}} ਵਿਖਾਓ",
 	"lqt-thread-show-more": "ਹੋਰ ਜੁਆਬ ਵਿਖਾਉ",
 	"lqt-feed-title-new-threads": "{{SITENAME}} — ਨਵੇਂ ਤੰਦੋਤਾਣੇ",
-	"lqt-newmessages-n": "ਨਵੇਂ ਸੁਨੇਹੇ ($1)",
+	"lqt-newmessages-n": "ਨਵੇਂ {{PLURAL:$1|ਸੁਨੇਹਾ|ਸੁਨੇਹੇ}} ($1)",
 	"lqt_newmessages-title": "ਨਵੇਂ ਸੁਨੇਹੇ",
 	"restriction-newthread": "ਨਵੇਂ ਤੰਦੋਤਾਣੇ ਜੋੜੋ"
 }
