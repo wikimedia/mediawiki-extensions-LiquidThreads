@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Xml\Xml;
+
 class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	/** @var ThreadRevision|null */
 	public $mDisplayRevision = null;

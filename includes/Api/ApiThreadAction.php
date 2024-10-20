@@ -2,12 +2,12 @@
 
 namespace MediaWiki\Extension\LiquidThreads\Api;
 
-use ApiBase;
-use ApiEditPage;
-use ApiMain;
 use Article;
 use LqtDispatch;
 use LqtView;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiEditPage;
+use MediaWiki\Api\ApiMain;
 use MediaWiki\Extension\LiquidThreads\Hooks;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\DerivativeRequest;

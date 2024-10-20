@@ -1,9 +1,11 @@
 <?php
 
+use MediaWiki\Language\ReplacementArray;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOutput;
+use MediaWiki\Parser\PPFrame;
 use MediaWiki\Title\Title;
 
 class LqtParserFunctions {

@@ -3,6 +3,8 @@
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\Xml\Xml;
+use MediaWiki\Xml\XmlSelect;
 
 class TalkpageView extends LqtView {
 	public const LQT_NEWEST_CHANGES = 'nc';

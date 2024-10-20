@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\LiquidThreads\Api;
 
-use ApiBase;
-use ApiQueryBase;
-use ApiResult;
 use LqtView;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiQueryBase;
+use MediaWiki\Api\ApiResult;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use stdClass;

@@ -18,9 +18,10 @@
 
 namespace MediaWiki\Extension\LiquidThreads\Api;
 
-use ApiBase;
-use ApiFormatFeedWrapper;
-use ApiMain;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiFormatFeedWrapper;
+use MediaWiki\Api\ApiMain;
+use MediaWiki\Content\TextContent;
 use MediaWiki\Feed\FeedItem;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Linker\LinkRenderer;
@@ -28,7 +29,6 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Title\Title;
-use TextContent;
 use Thread;
 use Threads;
 use Wikimedia\ParamValidator\ParamValidator;
