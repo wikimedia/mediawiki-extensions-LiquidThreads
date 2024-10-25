@@ -41,14 +41,12 @@ use Wikimedia\Rdbms\SelectQueryBuilder;
  * @ingroup API
  */
 class ApiFeedLQTThreads extends ApiBase {
-	/** @var LinkRenderer */
-	private $linkRenderer;
-	/** @var WikiPageFactory */
-	private $wikiPageFactory;
+	private LinkRenderer $linkRenderer;
+	private WikiPageFactory $wikiPageFactory;
 
 	public function __construct(
 		ApiMain $main,
-		$action,
+		string $action,
 		LinkRenderer $linkRenderer,
 		WikiPageFactory $wikiPageFactory
 	) {

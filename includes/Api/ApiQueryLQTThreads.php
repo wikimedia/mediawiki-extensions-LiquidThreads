@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\LiquidThreads\Api;
 
 use LqtView;
 use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\Api\ApiResult;
 use MediaWiki\MediaWikiServices;
@@ -63,7 +64,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	/** @var array */
 	protected $threadIds;
 
-	public function __construct( $query, $moduleName ) {
+	public function __construct( ApiQuery $query, string $moduleName ) {
 		parent::__construct( $query, $moduleName, 'th' );
 	}
 
