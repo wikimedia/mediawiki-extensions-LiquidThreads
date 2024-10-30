@@ -436,7 +436,7 @@ class Hooks {
 	 * @param DatabaseUpdater|null $updater
 	 * @return bool
 	 */
-	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater = null ) {
+	public static function onLoadExtensionSchemaUpdates( ?DatabaseUpdater $updater = null ) {
 		$dir = realpath( __DIR__ . '/../sql' );
 		$dbType = $updater->getDB()->getType();
 		$updater->addExtensionTable( 'thread', "$dir/$dbType/tables-generated.sql" );
