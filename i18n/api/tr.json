@@ -2,8 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
-			"MuratTheTurkish",
-			"Amire80"
+			"MuratTheTurkish"
 		]
 	},
 	"apihelp-feedthreads-description": "Tartışma ileti özet akışına döndürün.",

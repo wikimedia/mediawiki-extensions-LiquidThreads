@@ -3,8 +3,7 @@
 		"authors": [
 			"Banjo",
 			"Elisardojm",
-			"Iváns",
-			"Amire80"
+			"Iváns"
 		]
 	},
 	"apihelp-feedthreads-description": "Devolve un fluxo de fíos de conversa.",
