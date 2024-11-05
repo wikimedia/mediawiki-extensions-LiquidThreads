@@ -24,6 +24,7 @@
 	"prefs-lqt": "ਤੰਦਨੁਮਾ ਚਰਚਾ",
 	"lqt-thread-show-replies": "$1 {{PLURAL:$1|ਜੁਆਬ}} ਵਿਖਾਓ",
 	"lqt-thread-show-more": "ਹੋਰ ਜੁਆਬ ਵਿਖਾਉ",
+	"lqt-thread-link-copy": "ਚੂੰਢੀ-ਤਖਤੀ 'ਤੇ ਉਤਾਰਾ ਲਿਖੋ",
 	"lqt-change-subject": "ਵਿਸ਼ਾ ਬਦਲੋ",
 	"lqt-feed-title-new-threads": "{{SITENAME}} — ਨਵੇਂ ਤੰਦੋਤਾਣੇ",
 	"lqt-newmessages-n": "ਨਵੇਂ {{PLURAL:$1|ਸੁਨੇਹਾ|ਸੁਨੇਹੇ}} ($1)",
