@@ -17,5 +17,6 @@
 	"lqt-save-subject": "Vurke",
 	"lqt-cancel-subject-edit": "Gaskkalduhte",
 	"lqt-preview-signature": "(ovdačájáhus)",
+	"lqt-newmessages-n": "{{PLURAL:$1|$1 ođđa dieđáhusa|0=Ii oktage ođđa dieđáhus|1=1 ođđa dieđáhus}}",
 	"lqt-reply-subpage": "vástádus"
 }
