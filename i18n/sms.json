@@ -29,7 +29,7 @@
 	"lqt-drag-save": "Priim",
 	"lqt-drag-reason": "Mäinn:",
 	"lqt-preview-signature": "(ouddǩiõččmõš)",
-	"lqt-newmessages-n": "Ođđ {{PLURAL:$1|saakk|saaǥǥ|saakkâd}} ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|$1 ođđ saakkâd|0=Ni õhtt ođđ saakk|1=1 ođđ saakk|2=2 ođđ saaǥǥ|3=3 ođđ saaǥǥ|4=4 ođđ saaǥǥ|5=5 ođđ saaǥǥ|6=6 ođđ saaǥǥ}}",
 	"lqt_newmessages-title": "Ođđ saaǥǥ",
 	"lqt-talkpage-history-title": "Saǥstõõllâmsseeid historia",
 	"lqt-reply-subpage": "vasttõs",
