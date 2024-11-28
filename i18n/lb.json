@@ -71,7 +71,7 @@
 	"lqt_subject": "Sujet:",
 	"lqt_noreason": "Kee Grond uginn.",
 	"lqt_move_placeholder": "Dës Rubrik ass en Ersatz fir ze weisen datt eng Rubrik, $1, vun dëser Säit geréckelt gouf.\n\nDëst Réckele gouf vum $2 den $3 ëm $4 Auer gemaach. D'Rubrik ass elo op $5 lokaliséiert.",
-	"lqt_thread_deleted_for_sysops": "Dës Rubrik gouf 'geläscht''' an ass nëmme fir Administrateuren ze gesinn.",
+	"lqt_thread_deleted_for_sysops": "Dës Rubrik gouf '''geläscht''' an ass nëmme fir Administrateuren ze gesinn.",
 	"lqt_thread_deleted": "Dës Rubrik gouf geläscht.",
 	"lqt_summary_notice": "Et gouf keng Ännerungen un dëser Diskussioun fir mindestens $2 {{PLURAL:$2|Dag|Deeg}}.\nWa se eriwwer ass wëllt dir vläicht $1.",
 	"lqt_summary_notice_link": "e Résumé schreiwen",
