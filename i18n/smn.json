@@ -23,7 +23,7 @@
 	"lqt-save-subject": "Vuorkkii",
 	"lqt-cancel-subject-edit": "Jooskâ",
 	"lqt-drag-reason": "Suijâ:",
-	"lqt-newmessages-n": "{{PLURAL:$1|$1 uđđâ viestâd|0=Ij ohtâge uđđâ viestâ|1=1 uđđâ viestâ|2=2 uđđâ viestâ|3=3 uđđâ viestâ|4=4 uđđâ viestâ|5=5 uđđâ viestâ|6=6 uđđâ viestâ}}",
+	"lqt-newmessages-n": "{{PLURAL:$1|$1 uđđâ viestâd|0=Ij ohtâgin uđđâ viestâ|1=1 uđđâ viestâ|2=2 uđđâ viestâ|3=3 uđđâ viestâ|4=4 uđđâ viestâ|5=5 uđđâ viestâ|6=6 uđđâ viestâ}}",
 	"lqt_newmessages-title": "Uđđâ viestah",
 	"lqt-talkpage-history-subtitle": "Siijđon $1",
 	"lqt-reply-subpage": "vástádâs"
