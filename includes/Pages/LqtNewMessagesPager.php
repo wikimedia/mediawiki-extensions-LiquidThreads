@@ -60,7 +60,7 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 
 		$queryInfo = [
 			'tables' => [ 'thread', 'user_message_state' ],
-			'fields' => [ $dbr->tableName( 'thread' ) . '.*', 'ums_conversation' ],
+			'fields' => [ 'thread.*', 'ums_conversation' ],
 			'conds' => [
 				'ums_user' => $this->user->getId(),
 				$this->mDb->expr( 'thread_type', '!=', Threads::TYPE_DELETED ),
