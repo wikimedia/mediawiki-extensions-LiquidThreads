@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"BadDog"
 		]
 	},
 	"lqt-desc": "Dodaj nizane diskusije stranicama za razgovor",
@@ -20,7 +21,7 @@
 	"lqt_reply": "Odgovori",
 	"lqt-parent": "Nadređeni",
 	"lqt_delete": "Izbriši",
-	"lqt_undelete": "Vrati obrisano",
+	"lqt_undelete": "Vrati izbrisano",
 	"lqt_permalink": "Link prema",
 	"lqt_fragment": "Dio $1 s $2",
 	"lqt_discussion_link": "razgovora",
