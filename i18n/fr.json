@@ -242,7 +242,7 @@
 	"lqt-feed-title-new-threads-from": "{{SITENAME}} — Nouveaux fils de discussion de $1",
 	"lqt-feed-title-replies": "{{SITENAME}} — Réponses",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — Réponses de $1",
-	"lqt-feed-new-thread-intro": "Nouveau fil de discussion sur $1 publié par {{GENDER:$4|}}$2",
+	"lqt-feed-new-thread-intro": "Nouveau fil de discussion sur $1 publié par {{GENDER:$4|$2}}",
 	"lqt-feed-reply-intro": "Réponse à $3 (sur $1) publiée par {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Montre les nouveaux messages sur les sujets ou sur les pages de discussions que vous suivez",
 	"lqt-newmessages-n": "{{PLURAL:$1|Nouveau message|Nouveaux messages}} ($1)",
