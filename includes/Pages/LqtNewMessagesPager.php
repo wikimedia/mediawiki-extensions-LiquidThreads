@@ -56,10 +56,8 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 	}
 
 	public function getQueryInfo() {
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-
 		$queryInfo = [
-			'tables' => [ 'thread', 'user_message_state' ],
+			'tables' => [ 'thread' => 'thread', 'user_message_state' ],
 			'fields' => [ 'thread.*', 'ums_conversation' ],
 			'conds' => [
 				'ums_user' => $this->user->getId(),
