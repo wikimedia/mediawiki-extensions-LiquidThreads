@@ -123,7 +123,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 
 			$entry = [];
 			foreach ( $prop as $name => $nothing ) {
-				$fields = self::$propRelations[$name];
+				$fields = self::$propRelations[$name] ?? null;
 				self::formatProperty( $name, $fields, $row, $entry );
 			}
 
@@ -339,7 +339,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 
 	private function handleCondition( $prop, $value ) {
 		$titleParams = [ 'page', 'root', 'summary' ];
-		$fields = self::$propRelations[$prop];
+		$fields = self::$propRelations[$prop] ?? null;
 
 		if ( in_array( $prop, $titleParams ) ) {
 			// Special cases
