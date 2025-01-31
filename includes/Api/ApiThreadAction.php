@@ -73,7 +73,7 @@ class ApiThreadAction extends ApiEditPage {
 
 		$method = $actions[$action];
 
-		call_user_func_array( [ $this, $method ], [ $threads, $params ] );
+		$this->$method( $threads, $params );
 	}
 
 	/**
