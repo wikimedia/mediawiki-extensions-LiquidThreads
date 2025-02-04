@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Meno25",
-			"Ouda"
+			"Ouda",
+			"XIDME"
 		]
 	},
 	"lqt-desc": "يضيف نقاشات فى مجموعات إلى صفحات النقاش",
@@ -181,7 +182,7 @@
 	"lqt-ajax-invalid-subject": "الموضوع الذى حددته كان غير صحيح، على الأرجح لأنه كان طويلا جدا.",
 	"lqt-ajax-no-subject": "يجب أن تحدد موضوعا.",
 	"lqt-save-subject-error-unknown": "خطأ غير معروف حدث أثناء محاوله ضبط موضوع هذا الخيط. من فضلك حاول فعل هذا بواسطه الضغط على \"عدل\" على التعليق الاعلى.",
-	"lqt-cancel-subject-edit": "ألغ",
+	"lqt-cancel-subject-edit": "إلغاء",
 	"lqt-drag-activate": "جر إلى الموقع الجديد",
 	"lqt-drag-drop-zone": "أسقط هنا",
 	"lqt-drag-confirm": "لإكمال الأفعال التاليه، من فضلك املأ السبب واضغط \"أكد\".",
