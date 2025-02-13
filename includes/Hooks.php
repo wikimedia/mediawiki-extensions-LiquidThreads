@@ -482,7 +482,7 @@ class Hooks {
 				'changeField', 'thread_history', 'th_timestamp', 'TIMESTAMPTZ', 'th_timestamp::timestamp with time zone'
 			] );
 			$updater->addExtensionUpdate( [
-				'dropPgIndex', 'thread', 'thread_thread_root_key'
+				'dropConstraint', 'thread', 'thread_thread_root_key', 'unique'
 			] );
 			$updater->addExtensionUpdate( [
 				'renameIndex', 'thread', 'thread_root_page', 'thread_root'
