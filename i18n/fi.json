@@ -185,7 +185,7 @@
 	"lqt-enotif-reply": "Hei $1,\n\nTämä on ilmoitus {{GRAMMAR:elative|{{SITENAME}}}}, että sivun $5 ketjuun ”$2” on tullut uusi vastaus $3 kello $4 käyttäjältä $8.\n\nNäet sen osoitteessa\n$6\n\nVastauksen teksti on:\n$7",
 	"lqt-search-legend": "Hae keskusteluja tältä sivulta",
 	"lqt-search-label": "Hae keskusteluista",
-	"lqt-search-button": "Etsi",
+	"lqt-search-button": "Hae",
 	"searchprofile-threads": "Keskustelut",
 	"searchprofile-threads-tooltip": "Hae ketjutetuista keskusteluista ja keskustelusivuilta",
 	"lqt-ajax-updated": "Tässä ketjussa on uusia viestejä.",
