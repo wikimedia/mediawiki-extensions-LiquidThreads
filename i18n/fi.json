@@ -130,7 +130,7 @@
 	"lqt-history-action": "Toiminto",
 	"lqt-history-comment": "Kommentti",
 	"lqt-history-thread": "Ketju",
-	"lqt-thread-edited-author": "Aloittajan muokkaama.<br />\nViimeisin muokkaus: $1",
+	"lqt-thread-edited-author": "{{GENDER:$5|Aloittajan}} muokkaama.<br />\nViimeisin muokkaus: $1",
 	"lqt-thread-edited-others": "{{PLURAL:$2|Muun käyttäjän|$2 muun käyttäjän}} muokkaama.<br />\nViimeisin muokkaus: $1",
 	"lqt-header-actions": "Toiminnot",
 	"lqt_summarize_link": "Tee yhteenveto",

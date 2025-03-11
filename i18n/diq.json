@@ -13,7 +13,8 @@
 			"Marmase",
 			"Mirzali",
 			"Orbot707",
-			"Xoser"
+			"Xoser",
+			"GolyatGeri"
 		]
 	},
 	"lqt-desc": "werêameyişê ke gırediyayê pelê mesajan, têarê keno",
@@ -181,6 +182,7 @@
 	"lqt-preference-notify-talk": "gıreyo ke mi seyr kerdo wexta cı re mesaj ame mire e-posta bışaw.",
 	"lqt-preference-watch-threads": "gıreyo ke mı vıraşti ya zi mi cewab dayi seyr bıker",
 	"prefs-lqt": "Ratnayışıno vatenın",
+	"prefs-description-lqt": "Cewabi  do seni bıase qerar bide",
 	"lqt-preference-display-depth": "Xoriyeya asayışa azami cewaban:",
 	"lqt-preference-display-count": "amarê cewabi yo azami ramociyeno:",
 	"lqt-preference-custom-signatures": "İmzayanê karberanê xısusiyan bımocne",
