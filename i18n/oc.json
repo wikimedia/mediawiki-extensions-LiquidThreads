@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cedric31"
+			"Cedric31",
+			"Lhanars"
 		]
 	},
 	"lqt-desc": "Apond de fials de discussion dins las paginas de discussion",
@@ -13,7 +14,7 @@
 	"lqt_toc_thread_replycount": "Responsas",
 	"lqt_toc_thread_modified": "Darrièra modificacion",
 	"lqt_add_header": "Apondre una entèsta",
-	"lqt_new_thread": "Amodar una discussion novèla",
+	"lqt_new_thread": "Començar una nòva discussion",
 	"lqt_invalid_subject": "Lo subjècte qu'avètz picat es invalid. Es possible :\n* que siá tròp long o\n* siá en conflicte amb un prefix interwiki, o un espaci de noms.",
 	"lqt-empty-text": "Podètz pas publicar un messatge void",
 	"lqt_empty_subject": "Vos cal entrar un objècte.",
@@ -88,7 +89,7 @@
 	"lqt_header_warning_after_big": "Las entèstas son pels anoncis e las prefàcias. Deuriatz a la plaça $2.",
 	"lqt_header_warning_bold": "Entèsta d'una pagina de discussion",
 	"lqt_header_warning_new_discussion": "amodar un fial de discussion novèl",
-	"lqt_sorting_order": "Òrdre de triada :",
+	"lqt_sorting_order": "Òrdre de classificacion:",
 	"lqt_sort_newest_changes": "darrièr modificat en primièr",
 	"lqt_sort_newest_threads": "Los fials de discussion mai recents en primièr",
 	"lqt_sort_oldest_threads": "Los fials de discussion mai ancians en primièr",
