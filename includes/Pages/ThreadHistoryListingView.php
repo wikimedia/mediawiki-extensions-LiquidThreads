@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Parser\ParserOptions;
+
 class ThreadHistoryListingView extends ThreadPermalinkView {
 	public function show() {
 		if ( !$this->thread ) {
@@ -18,7 +20,10 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 
 		$pager = new ThreadHistoryPager( $this, $this->thread );
 
-		$this->output->addParserOutputContent( $pager->getFullOutput() );
+		$this->output->addParserOutputContent(
+			$pager->getFullOutput(),
+			ParserOptions::newFromContext( $this->output->getContext() )
+		);
 
 		$this->showThread( $this->thread );
 

@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Parser\ParserOptions;
+
 class TalkpageHistoryView extends TalkpageView {
 	public function show() {
 		$talkpageTitle = $this->article->getTitle();
@@ -11,7 +13,10 @@ class TalkpageHistoryView extends TalkpageView {
 
 		$pager = new TalkpageHistoryPager( $this, $this->article );
 
-		$this->output->addParserOutputContent( $pager->getFullOutput() );
+		$this->output->addParserOutputContent(
+			$pager->getFullOutput(),
+			ParserOptions::newFromContext( $this->article->getContext() )
+		);
 
 		return false;
 	}
