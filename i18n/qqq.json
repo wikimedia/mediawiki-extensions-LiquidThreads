@@ -163,7 +163,7 @@
 	"lqt_summarize_link": "Used as link title.\n{{Identical|Summarize}}",
 	"lqt-summarize-intro": "Used as introduction text in summarize page.\n\nRefers to {{msg-mw|publishpage}}.",
 	"lqt-update-summary-intro": "Used as introduction text in update summary page.\n\nRefers to {{msg-mw|publishchanges}}.",
-	"lqt-thread-split": "{{doc-actionlink}}\n\nThe opposite of {{msg-mw|lqt-thread-merge}}: \"split\" is imperative, not a participle.",
+	"lqt-thread-split": "{{doc-actionlink}}\n\nThe opposite of {{msg-mw|lqt-thread-merge}}: \"split\" is an action, not a participle.",
 	"lqt-split-success": "Used as success message. Parameters:\n* $1 - thread title with link",
 	"lqt_split_thread": "{{doc-special|SplitThread|unlisted=1}}",
 	"lqt-thread-split-subject": "Used as label on [[Special:SplitThread]]",

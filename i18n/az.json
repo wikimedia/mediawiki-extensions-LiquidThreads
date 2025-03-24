@@ -6,7 +6,8 @@
 			"NMW03",
 			"PPerviz",
 			"Wertuose",
-			"Nemoralis"
+			"Nemoralis",
+			"Əkrəm"
 		]
 	},
 	"lqt_reply": "Geri göndər",
@@ -22,6 +23,9 @@
 	"lqt-history-comment": "Şərh",
 	"lqt-movethread": "Adını dəyişdir",
 	"lqt-newmessages-from": "$1-dən",
+	"prefs-lqt": "Budaqlanmış müzakirələr",
+	"lqt-preference-display-depth": "Göstərilən maksimal cavab dərinliyi:",
+	"lqt-preference-display-count": "Göstərilən maksimal cavab sayı:",
 	"lqt-search-button": "Axtar",
 	"searchprofile-threads-tooltip": "Mövzulara ayrılmış müzakirələrdə və müzakirə səhifələrində axtarış",
 	"lqt-ajax-update-link": "Yenilə",
