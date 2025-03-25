@@ -252,8 +252,10 @@ class LqtView {
 	}
 
 	public static function diffPermalinkURL( Thread $thread, ThreadRevision $revision ) {
+		$services = MediaWikiServices::getInstance();
+
 		$query = self::diffQuery( $thread, $revision );
-		return wfExpandUrl( self::permalinkUrl( $thread, null, null, $query ), PROTO_RELATIVE );
+		return $services->getUrlUtils()->expand( self::permalinkUrl( $thread, null, null, $query ), PROTO_RELATIVE );
 	}
 
 	public static function diffPermalink( Thread $thread, $text, ThreadRevision $revision ) {
