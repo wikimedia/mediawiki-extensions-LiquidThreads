@@ -107,6 +107,8 @@
 	"lqt-preference-notify-talk": "Сан тидамехь долу генна тӀехь жоп делча соьга поштехула хаамбе",
 	"lqt-preference-watch-threads": "Аса кхоьллина йа жоп дела генашна тидаме бе",
 	"prefs-lqt": "Дийцарш гаьннашца",
+	"lqt-preference-display-depth": "Жоьпийн максималан кӀоргалла:",
+	"lqt-preference-display-count": "Жоьпийн максималан дукхалла:",
 	"lqt-enotif-subject-reply": "{{SITENAME}} дийцар - Жоп: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} дийцар — Керла га: $1",
 	"lqt-enotif-newthread": "Маршалла, $1.\n\nХӀара хаам {{SITENAME}} сайтера бу $3 $4 агӀонехь $5 $8 декъашхочо керла га кхоллар хоуьйтуш «$2»\n\nОьцунга хьажа йиш йу $6 адресца\n\nГаьнан текст:\n$7",
