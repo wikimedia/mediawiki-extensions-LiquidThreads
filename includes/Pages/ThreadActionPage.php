@@ -45,7 +45,7 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 		}
 
 		// Page title
-		$this->getOutput()->setPageTitle( $this->getDescription() );
+		$this->getOutput()->setPageTitleMsg( $this->getDescription() );
 
 		if ( !$this->checkParameters( $par ) ) {
 			return;
