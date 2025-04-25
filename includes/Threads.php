@@ -3,6 +3,7 @@
 use MediaWiki\Content\ContentHandler;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Title\MediaWikiTitleCodec;
 use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\DBQueryError;

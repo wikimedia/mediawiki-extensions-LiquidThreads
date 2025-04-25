@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\LiquidThreads\Api;
 
-use Article;
 use LqtDispatch;
 use LqtView;
 use MediaWiki\Api\ApiBase;
@@ -10,6 +9,7 @@ use MediaWiki\Api\ApiEditPage;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Extension\LiquidThreads\Hooks;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\Article;
 use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;

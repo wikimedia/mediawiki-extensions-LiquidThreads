@@ -2,8 +2,6 @@
 
 namespace MediaWiki\Extension\LiquidThreads;
 
-use Article;
-use ChangesList;
 use HtmlArmor;
 use LqtDispatch;
 use LqtParserFunctions;
@@ -16,7 +14,11 @@ use MediaWiki\Installer\DatabaseUpdater;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Page\Article;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Parser\Parser;
+use MediaWiki\RecentChanges\ChangesList;
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\RenameUser\RenameuserSQL;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\SpecialPage\SpecialPage;
@@ -26,13 +28,11 @@ use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\Xml\Xml;
 use NewMessages;
-use RecentChange;
 use Thread;
 use Threads;
 use UtfNormal\Validator;
 use WikiImporter;
 use Wikimedia\Message\MessageSpecifier;
-use WikiPage;
 use XMLReader;
 
 class Hooks {
