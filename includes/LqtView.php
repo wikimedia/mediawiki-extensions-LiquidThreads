@@ -1007,9 +1007,9 @@ class LqtView {
 			],
 			$signatureHTML
 		);
-		$signatureEditBox = Xml::input(
-			'wpLqtSignature', 45, $signatureText,
-			[ 'class' => 'lqt-signature-edit' ]
+		$signatureEditBox = Html::input(
+			'wpLqtSignature', $signatureText, 'text',
+			[ 'class' => 'lqt-signature-edit', 'size' => 45 ]
 		);
 
 		$signatureEditor = $signaturePreview . $signatureEditBox;
