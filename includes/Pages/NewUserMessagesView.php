@@ -16,7 +16,7 @@ class NewUserMessagesView extends LqtView {
 		$html = '';
 		$html .= Html::hidden( 'lqt_method', 'mark_as_read' );
 		$html .= Html::hidden( 'lqt_operand', $ids_s );
-		$html .= Xml::submitButton(
+		$html .= Html::submitButton(
 			$label,
 			[
 				'name' => 'lqt_read_button',
@@ -54,7 +54,7 @@ class NewUserMessagesView extends LqtView {
 		$html .= $msg;
 		$html .= Html::hidden( 'lqt_method', 'mark_as_unread' );
 		$html .= Html::hidden( 'lqt_operand', $operand );
-		$html .= ' ' . Xml::submitButton(
+		$html .= ' ' . Html::submitButton(
 			wfMessage( 'lqt-email-undo' )->text(),
 			[
 				'name' => 'lqt_read_button',
