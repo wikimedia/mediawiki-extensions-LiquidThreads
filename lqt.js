@@ -23,7 +23,7 @@
 		currentToolbar: null,
 
 		handleReplyLink: function ( e ) {
-			var $container, threadId, params, $repliesElement, $replyDiv,
+			let $container, threadId, params, $repliesElement, $replyDiv,
 				$target = $( this );
 
 			if ( e.preventDefault ) {
@@ -66,7 +66,7 @@
 		},
 
 		getRepliesElement: function ( $thread /* a .lqt_thread */ ) {
-			var $finishDiv, $repliesFinishElement,
+			let $finishDiv, $repliesFinishElement,
 				$repliesElement = $thread.contents().filter( '.lqt-thread-replies' );
 
 			if ( !$repliesElement.length ) {
@@ -89,7 +89,7 @@
 		},
 
 		checkEmptyReplies: function ( element, action ) {
-			var contents = element.contents();
+			let contents = element.contents();
 
 			contents = contents.not( '.lqt-replies-finish,.lqt-post-sep,.lqt-edit-form' );
 
@@ -103,7 +103,7 @@
 		},
 
 		handleNewLink: function ( e ) {
-			var params, $container,
+			let params, $container,
 				talkpage = $( this ).attr( 'lqt_talkpage' );
 
 			if ( talkpage !== undefined ) {
@@ -120,7 +120,7 @@
 		},
 
 		handleEditLink: function ( e ) {
-			var $parent, $container, params;
+			let $parent, $container, params;
 
 			e.preventDefault();
 
@@ -138,7 +138,7 @@
 		},
 
 		injectEditForm: function ( params, $container, preload ) {
-			var $loadSpinner;
+			let $loadSpinner;
 
 			liquidThreads.cancelEdit( $container );
 
@@ -147,7 +147,7 @@
 
 			function finishShow() {
 				// Scroll to the textbox
-				var scrollOffset, $editLink,
+				let scrollOffset, $editLink,
 					targetOffset = $container.offset().top,
 					windowHeight = $( window ).height(),
 					editBoxHeight = $container.height();
@@ -177,7 +177,7 @@
 			}
 
 			function finishSetup() {
-				var $cancelButton, $currentFocused;
+				let $cancelButton, $currentFocused;
 
 				// Kill the loader.
 				$( '.lqt-loader' ).remove();
@@ -220,9 +220,9 @@
 			}
 
 			mw.loader.using( [ 'mediawiki.action.edit' ],
-				function () {
-					liquidThreads.loadInlineEditForm( params, $container, function () {
-						var dependencies = [ 'ext.wikiEditor', 'user.options' ];
+				() => {
+					liquidThreads.loadInlineEditForm( params, $container, () => {
+						const dependencies = [ 'ext.wikiEditor', 'user.options' ];
 						mw.loader.using( dependencies, finishSetup );
 					} );
 				} );
@@ -234,7 +234,7 @@
 			params.threadaction = 'inlineeditform';
 			params.token = mw.user.tokens.get( 'csrfToken' );
 
-			( new mw.Api() ).post( params ).done( function ( result ) {
+			( new mw.Api() ).post( params ).done( ( result ) => {
 				$container.empty().append(
 					$( result.threadaction.inlineeditform.html ).contents()
 				);
@@ -263,7 +263,7 @@
 			// XXX: Should this be e.target instead of e?
 			$( '.lqt-edit-form' ).not( e ).each(
 				function () {
-					var $repliesElement = $( this ).closest( '.lqt-thread-replies' );
+					const $repliesElement = $( this ).closest( '.lqt-thread-replies' );
 					// FIXME: Use CSS transition
 					// eslint-disable-next-line no-jquery/no-fade
 					$( this ).fadeOut( 'slow',
@@ -285,7 +285,7 @@
 		},
 
 		setupMenus: function () {
-			var $replyLink, $dragLI, $dragLink, $trigger,
+			let $replyLink, $dragLI, $dragLink, $trigger,
 				$post = $( this ),
 				$toolbar = $post.contents().filter( '.lqt-thread-toolbar' ),
 				threadID = $post.data( 'thread-id' ),
@@ -320,8 +320,8 @@
 
 			// FIXME: After a drag-and-drop, this stops working on the thread and its replies
 			$trigger.on( 'click',
-				function ( e ) {
-					var windowHeight, toolbarOffset, scrollPos, menuBottom;
+				( e ) => {
+					let windowHeight, toolbarOffset, scrollPos, menuBottom;
 
 					e.stopImmediatePropagation();
 					e.preventDefault();
@@ -349,7 +349,7 @@
 		},
 
 		setupThreadMenu: function ( menu, id ) {
-			var $editSubjectField, $editSubjectLink;
+			let $editSubjectField, $editSubjectLink;
 
 			if ( menu.find( '.lqt-command-edit-subject' ).length ||
 				menu.closest( '.lqt_thread' ).is( '.lqt-thread-uneditable' )
@@ -371,7 +371,7 @@
 		},
 
 		handleChangeSubject: function ( e ) {
-			var threadId, $header, headerText, $textbox, saveText, $saveButton,
+			let threadId, $header, headerText, $textbox, saveText, $saveButton,
 				$cancelButton, $subjectForm;
 
 			e.preventDefault();
@@ -400,7 +400,7 @@
 				.attr( 'type', 'button' )
 				.val( mw.msg( 'lqt-cancel-subject-edit' ) )
 				.on( 'click', function () {
-					var $form = $( this ).closest( '.mw-subject-editor' ),
+					const $form = $( this ).closest( '.mw-subject-editor' ),
 						$header = $form.closest( '.lqt_header' );
 					$header.contents().filter( '.mw-headline' ).show();
 					$header.next().find( '.lqt-command-edit-subject' ).show();
@@ -419,7 +419,7 @@
 		},
 
 		handleSubjectSave: function () {
-			var $spinner, request, code,
+			let $spinner, request, code,
 				$button = $( this ),
 				$subjectForm = $button.closest( '.mw-subject-editor' ),
 				$header = $subjectForm.closest( '.lqt_header' ),
@@ -447,8 +447,8 @@
 			};
 
 			// Set new subject through API.
-			( new mw.Api() ).post( request ).done( function ( reply ) {
-				var result;
+			( new mw.Api() ).post( request ).done( ( reply ) => {
+				let result;
 
 				try {
 					result = reply.threadaction.thread.result;
@@ -492,12 +492,12 @@
 		},
 
 		checkForUpdates: function () {
-			var oldTS, threadId,
+			let oldTS, threadId,
 				threadModifiedTS = {},
 				threads = [];
 
 			$( '.lqt-thread-topmost' ).each( function () {
-				var $tsField = $( this ).find( '.lqt-thread-modified' );
+				const $tsField = $( this ).find( '.lqt-thread-modified' );
 				if ( $tsField.length ) {
 					oldTS = $tsField.val();
 					// Prefix is lqt-thread-modified-
@@ -517,12 +517,12 @@
 				list: 'threads',
 				thid: threads.join( '|' ),
 				thprop: 'id|subject|parent|modified'
-			} ).done( function ( data ) {
-				var threads = data.query.threads;
+			} ).done( ( data ) => {
+				const threads = data.query.threads;
 
 				// eslint-disable-next-line no-jquery/no-each-util
-				$.each( threads, function ( i, thread ) {
-					var threadId = thread.id,
+				$.each( threads, ( i, thread ) => {
+					const threadId = thread.id,
 						threadModified = thread.modified;
 
 					if ( threadModified !== threadModifiedTS[ threadId ] ) {
@@ -534,7 +534,7 @@
 
 		showUpdated: function ( id ) {
 			// Check if there's already an updated marker here
-			var $notifier, $updateButton,
+			let $notifier, $updateButton,
 				$threadObject = $( '#lqt_thread_id_' + id );
 
 			if ( $threadObject.find( '.lqt-updated-notification' ).length ) {
@@ -562,7 +562,7 @@
 		},
 
 		doReloadThread: function ( $thread /* The .lqt_thread */ ) {
-			var threadId = $thread.data( 'thread-id' ),
+			const threadId = $thread.data( 'thread-id' ),
 				$loader = $( '<div>' ).addClass( 'mw-ajax-loader' ),
 				$header = $( '#lqt-header-' + threadId );
 
@@ -574,9 +574,9 @@
 				list: 'threads',
 				thid: threadId,
 				thrender: 1
-			} ).done( function ( data ) {
+			} ).done( ( data ) => {
 				// Load data from JSON
-				var $newThread, targetOffset,
+				let $newThread, targetOffset,
 					html = data.query.threads[ threadId ].content,
 					$newContent = $( html );
 
@@ -608,7 +608,7 @@
 		},
 
 		setupThread: function ( $threadContainer ) {
-			var i, $threadWrapper, threadId, $menu, threadLevelCommandSelector, $traverseElement,
+			let i, $threadWrapper, threadId, $menu, threadLevelCommandSelector, $traverseElement,
 				prefixLength = 'lqt_thread_id_'.length,
 				// Add the interruption class if it needs it
 				// FIXME: misses a lot of cases
@@ -668,7 +668,7 @@
 		},
 
 		showReplies: function ( e ) {
-			var $thread, threadId, $replies, $loader, $sep;
+			let $thread, threadId, $replies, $loader, $sep;
 
 			e.preventDefault();
 
@@ -687,8 +687,8 @@
 				thid: threadId,
 				thrender: '1',
 				thprop: 'id'
-			} ).done( function ( data ) {
-				var content, $content;
+			} ).done( ( data ) => {
+				let content, $content;
 				// Interpret
 				if ( typeof data.query.threads[ threadId ] !== 'undefined' ) {
 					content = data.query.threads[ threadId ].content;
@@ -719,7 +719,7 @@
 		},
 
 		showMore: function ( e ) {
-			var $loader, $thread, threadId, $startAtField, startAt;
+			let $loader, $thread, threadId, $startAtField, startAt;
 
 			e.preventDefault();
 
@@ -743,8 +743,8 @@
 				thrender: '1',
 				thprop: 'id',
 				threnderstartrepliesat: startAt
-			} ).done( function ( data ) {
-				var content = data.query.threads[ threadId ].content,
+			} ).done( ( data ) => {
+				let content = data.query.threads[ threadId ].content,
 					$content = $( content ).find( '.lqt-thread-replies' ).first().contents().not( '.lqt-replies-finish' );
 
 				if ( $content.is( '.lqt-post-sep' ) ) {
@@ -769,7 +769,7 @@
 		},
 
 		asyncWatch: function ( e ) {
-			var $spinner, api, success, error,
+			let $spinner, api, success, error,
 				$button = $( this ),
 				tlcOffset = 'lqt-threadlevel-commands-'.length,
 				$oldButton = $button.clone(),
@@ -815,7 +815,7 @@
 		},
 
 		showThreadLinkWindow: function ( e ) {
-			var $thread, linkTitle, linkURL;
+			let $thread, linkTitle, linkURL;
 
 			e.preventDefault();
 			$thread = $( this ).closest( '.lqt_thread' );
@@ -829,7 +829,7 @@
 		},
 
 		showSummaryLinkWindow: function ( e ) {
-			var linkURL, linkTitle;
+			let linkURL, linkTitle;
 			e.preventDefault();
 			linkURL = mw.config.get( 'wgServer' ) + $( this ).attr( 'href' );
 			if ( linkURL.slice( 0, 2 ) === '//' ) {
@@ -840,7 +840,7 @@
 		},
 
 		showLinkWindow: function ( linkTitle, linkURL ) {
-			var $urlLabel, $urlField, $urlRow, $titleLabel, $titleField, $titleRow,
+			let $urlLabel, $urlField, $urlRow, $titleLabel, $titleField, $titleRow,
 				$table, $dialog;
 			linkTitle = '[[' + linkTitle + ']]';
 
@@ -866,7 +866,7 @@
 		},
 
 		handleAJAXSave: function ( e ) {
-			var text, summary, signature, subject, replyThread,
+			let text, summary, signature, subject, replyThread,
 				$bumpBox, bump, $spinner, page,
 				$editform = $( this ).closest( '.lqt-edit-form' ),
 				type = $editform.find( 'input[name=lqt_method]' ).val(),
@@ -907,7 +907,7 @@
 			$editform.prepend( $spinner );
 
 			function replyCallback( data ) {
-				var $parent = $( '#lqt_thread_id_' + data.threadaction.thread[ 'parent-id' ] ),
+				const $parent = $( '#lqt_thread_id_' + data.threadaction.thread[ 'parent-id' ] ),
 					$html = $( data.threadaction.thread.html ),
 					$newThread = $html.find( '#lqt_thread_id_' + data.threadaction.thread[ 'thread-id' ] );
 
@@ -920,7 +920,7 @@
 			}
 
 			function newCallback( data ) {
-				var $newThread = $( data.threadaction.thread.html );
+				const $newThread = $( data.threadaction.thread.html );
 				$( '.lqt-threads' ).prepend( $newThread );
 				// remove the no threads message if it's on the page
 				$( '.lqt-no-threads' ).remove();
@@ -936,7 +936,7 @@
 				// Create a hidden field to mimic the save button, and
 				// submit it normally, so they'll get a real error message.
 
-				var $saveHidden = $( '<input>' ).attr( {
+				const $saveHidden = $( '<input>' ).attr( {
 						type: 'hidden',
 						name: 'wpSave',
 						value: 'Save'
@@ -948,7 +948,7 @@
 			}
 
 			function doneCallback( data ) {
-				var result, callback;
+				let result, callback;
 				try {
 					result = data.threadaction.thread.result;
 				} catch ( err ) {
@@ -1002,7 +1002,7 @@
 		},
 
 		reloadTOC: function () {
-			var $contentsHeading, $loadTOCSpinner,
+			let $contentsHeading, $loadTOCSpinner,
 				$toc = $( '.lqt_toc' );
 
 			if ( !$toc.length ) {
@@ -1017,7 +1017,7 @@
 			$loadTOCSpinner = $( '<div>' ).addClass( 'mw-ajax-loader' )
 				.css( 'height', $toc.height() );
 			$toc.empty().append( $loadTOCSpinner );
-			$toc.load( window.location.href + ' .lqt_toc > *', function () {
+			$toc.load( window.location.href + ' .lqt_toc > *', () => {
 				$loadTOCSpinner.remove();
 			} );
 		},
@@ -1025,7 +1025,7 @@
 		doNewThread: function (
 			talkpage, subject, text, summary, doneCallback, bump, signature, errorCallback
 		) {
-			var newTopicParams = {
+			const newTopicParams = {
 				action: 'threadaction',
 				threadaction: 'newthread',
 				talkpage: talkpage,
@@ -1052,7 +1052,7 @@
 		},
 
 		doReply: function ( thread, text, summary, callback, bump, signature ) {
-			var replyParams = {
+			const replyParams = {
 				action: 'threadaction',
 				threadaction: 'reply',
 				thread: thread,
@@ -1079,7 +1079,7 @@
 		},
 
 		doEditThread: function ( thread, subject, text, summary, callback, bump, signature ) {
-			var request = {
+			const request = {
 				action: 'threadaction',
 				threadaction: 'edit',
 				thread: thread,
@@ -1108,7 +1108,7 @@
 
 		onTextboxKeyUp: function () {
 			// Check if a user has signed their post, and if so, tell them they don't have to.
-			var $weLqtSummaryTop, $elem, msg, $weTop,
+			let $weLqtSummaryTop, $elem, msg, $weTop,
 				text = $( this ).val().trim(),
 				$prevWarning = $( '#lqt-sign-warning' );
 			if ( text.match( /~~~~$/ ) ) {
@@ -1137,7 +1137,7 @@
 		},
 
 		activateDragDrop: function ( e ) {
-			var $thread, threadId, scrollOffset, helperFunc, $header,
+			let $thread, threadId, scrollOffset, helperFunc, $header,
 				$headline, $helper, draggableOptions, droppableOptions;
 			// FIXME: Need a cancel drop action
 			e.preventDefault();
@@ -1164,7 +1164,7 @@
 			} else {
 				helperFunc =
 					function () {
-						var $helper = $thread.clone();
+						const $helper = $thread.clone();
 						$helper.find( '.lqt-thread-replies' ).remove();
 						return $helper;
 					};
@@ -1199,7 +1199,7 @@
 			// Now one after every thread except the drag thread
 			// FIXME: Do not add one right before the current thread (bug 26237 comment 2)
 			$( '.lqt-thread-topmost' ).not( $thread ).each( function () {
-				var sortkey = $( this ).contents().filter( 'input[name=lqt-thread-sortkey]' ).val(),
+				let sortkey = $( this ).contents().filter( 'input[name=lqt-thread-sortkey]' ).val(),
 					d = new Date(
 						sortkey.slice( 0, 4 ),
 						sortkey.slice( 4, 6 ) - 1, // month is from 0 to 11
@@ -1226,7 +1226,7 @@
 
 			// Now one underneath every thread except the drag thread
 			$( '.lqt_thread' ).not( $thread ).each( function () {
-				var $repliesElement,
+				let $repliesElement,
 					$curThread = $( this );
 				// don't put any drop zones under child threads
 				if ( $.contains( $thread[ 0 ], $curThread[ 0 ] ) ) {
@@ -1256,7 +1256,7 @@
 		},
 
 		completeDragDrop: function ( e, ui ) {
-			var params, emptyChecks,
+			let params, emptyChecks,
 				$thread = $( ui.draggable );
 
 			// Determine parameters
@@ -1277,14 +1277,14 @@
 			// Kill the helper.
 			ui.helper.remove();
 
-			setTimeout( function () {
+			setTimeout( () => {
 				$thread.draggable( 'destroy' );
 			}, 1 );
 
 			// Remove drop points and schedule removal of empty replies elements.
 			emptyChecks = [];
 			$( '.lqt-drop-zone' ).each( function () {
-				var $repliesHolder = $( this ).closest( '.lqt-thread-replies' );
+				const $repliesHolder = $( this ).closest( '.lqt-thread-replies' );
 
 				$( this ).remove();
 
@@ -1301,7 +1301,7 @@
 		},
 
 		confirmDragDrop: function ( $thread, params ) {
-			var $intro, $actionSummary, topLevel, wasTopLevel, buttons, $spinner,
+			let $intro, $actionSummary, topLevel, wasTopLevel, buttons, $spinner,
 				$summaryWrapper, $summaryPrompt, $summaryField,
 				$subjectPrompt, $subjectField,
 				$confirmDialog = $( '<div>' ).addClass( 'lqt-drag-confirm' );
@@ -1314,7 +1314,7 @@
 			$actionSummary = $( '<ul>' );
 
 			function addAction( msg ) {
-				var $li = $( '<li>' )
+				const $li = $( '<li>' )
 					// eslint-disable-next-line mediawiki/msg-doc
 					.text( mw.msg( msg ) );
 				$actionSummary.append( $li );
@@ -1346,7 +1346,7 @@
 			$summaryField.addClass( 'lqt-drag-confirm-reason' )
 				.attr( 'name', 'reason' )
 				.attr( 'id', 'reason' )
-				.on( 'keyup', function ( event ) {
+				.on( 'keyup', ( event ) => {
 					if ( event.keyCode === 13 ) {
 						$( '#lqt-drag-save-button' ).trigger( 'click' );
 					}
@@ -1410,7 +1410,7 @@
 		},
 
 		submitDragDrop: function ( $thread, params, callback ) {
-			var newSortkey = params.sortkey,
+			const newSortkey = params.sortkey,
 				newParent = params.parent,
 				threadId = $thread.find( '.lqt-post-wrapper' ).data( 'thread-id' ),
 				topLevel = ( newParent === 'top' ),
@@ -1424,14 +1424,14 @@
 
 			function doEmptyChecks() {
 				// eslint-disable-next-line no-jquery/no-each-util
-				$.each( params.emptyChecks, function ( k, element ) {
+				$.each( params.emptyChecks, ( k, element ) => {
 					liquidThreads.checkEmptyReplies( $( element ) );
 				} );
 			}
 
 			function doneCallback( data ) {
 				// TODO error handling
-				var payload, $oldParent, threadId, $reloadThread, newSortKey, ancestorId,
+				let payload, $oldParent, threadId, $reloadThread, newSortKey, ancestorId,
 					result = 'success';
 
 				if ( typeof data === 'undefined' || !data || typeof data.threadaction === 'undefined' ) {
@@ -1544,7 +1544,7 @@
 		},
 
 		handleEditSignature: function ( e ) {
-			var $container, $saveButton;
+			let $container, $saveButton;
 
 			e.preventDefault();
 
@@ -1563,7 +1563,7 @@
 		},
 
 		handlePreviewSignature: function ( e ) {
-			var $container, $spinner, $textbox, $preview;
+			let $container, $spinner, $textbox, $preview;
 
 			e.preventDefault();
 
@@ -1582,8 +1582,8 @@
 				text: $textbox.val(),
 				pst: '1',
 				prop: 'text'
-			} ).done( function ( data ) {
-				var $html = $( ( data.parse.text[ '*' ] || '' ).trim() );
+			} ).done( ( data ) => {
+				let $html = $( ( data.parse.text[ '*' ] || '' ).trim() );
 
 				if ( $html.length === 2 ) { // Not 1, because of the NewPP report
 					$html = $html.contents();
@@ -1596,11 +1596,11 @@
 		}
 	};
 
-	$( function () {
+	$( () => {
 		// One-time setup for the full page
 
 		// Update the new thread link
-		var $threadContainers,
+		let $threadContainers,
 			$newThreadLink = $( '.lqt_start_discussion a' );
 
 		$( 'li#ca-addsection a' ).attr( 'lqt_talkpage', $( '.lqt_start_discussion a' ).attr( 'lqt_talkpage' ) );
@@ -1648,10 +1648,10 @@
 		// Set up periodic update checking
 		setInterval( liquidThreads.checkForUpdates, 60000 );
 
-		$( window ).on( 'beforeunload', function () {
-			var confirmExitPage = false;
-			$( '.lqt-edit-form:not(.lqt-summarize-form)' ).each( function ( index, element ) {
-				var $textArea = $( element ).children( 'form' ).find( 'textarea' );
+		$( window ).on( 'beforeunload', () => {
+			let confirmExitPage = false;
+			$( '.lqt-edit-form:not(.lqt-summarize-form)' ).each( ( index, element ) => {
+				const $textArea = $( element ).children( 'form' ).find( 'textarea' );
 				if ( element.style.display !== 'none' && !$( element ).data( 'non-ajax-submit' ) && $textArea.val() ) {
 					confirmExitPage = true;
 				}

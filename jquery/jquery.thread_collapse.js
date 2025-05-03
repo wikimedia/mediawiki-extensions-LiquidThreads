@@ -13,7 +13,7 @@
 		// merge options into the defaults
 		// run the initialization on each jquery object
 		this.each( function () {
-			var $thread = $( this );
+			const $thread = $( this );
 			// add collapse controls to this thread
 			$.threadCollapse.fn.init( $thread );
 			// add collapse controls recursivly to the child threads
@@ -40,7 +40,7 @@
 			},
 			getPreview: function ( thread, depth ) {
 				// eslint-disable-next-line mediawiki/class-doc
-				var $out = $( '<ul>' )
+				const $out = $( '<ul>' )
 					.addClass( 'thread-collapse-preview' )
 					.addClass( 'thread-collapse-preview-depth-' + depth )
 					.append( $( '<li>' )
@@ -52,7 +52,7 @@
 				return $out;
 			},
 			toggleCollapse: function () {
-				var numReplies, $preview,
+				let numReplies, $preview,
 					$thread = $( this ).closest( '.lqt_thread' );
 				if ( $thread.is( '.collapsed_thread' ) ) {
 					// expand!
@@ -112,7 +112,7 @@
 		}
 	};
 	// FIXME - this should be moved out of here
-	$( function () {
+	$( () => {
 		$( '.lqt-thread-topmost' ).threadCollapse();
 	} ); // document ready
 }() );

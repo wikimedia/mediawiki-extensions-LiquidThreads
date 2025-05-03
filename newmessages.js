@@ -9,7 +9,7 @@
 	Object.assign( liquidThreads, {
 		markReadDone: {
 			one: function ( reply, button, operand ) {
-				var msg, undoMsg, placeholderIndex, $elem,
+				let msg, undoMsg, placeholderIndex, $elem,
 					beforeMsg, afterMsg, beforeText, afterText,
 					titleSel, subject, title, url, $link,
 					undoURL, query, $undoLink,
@@ -52,7 +52,7 @@
 				// Add the "undo" link.
 				undoURL = mw.config.get( 'wgArticlePath' ).replace( '$1', mw.config.get( 'wgPageName' ) );
 				query = 'lqt_method=mark_as_unread&lqt_operand=' + operand;
-				if ( undoURL.indexOf( '?' ) === -1 ) {
+				if ( !undoURL.includes( '?' ) ) {
 					query = '?' + query;
 				} else {
 					query = '&' + query;
@@ -66,17 +66,17 @@
 			},
 
 			all: function () {
-				var $tables = $( 'table.lqt-new-messages' );
+				const $tables = $( 'table.lqt-new-messages' );
 				// FIXME: Use CSS transition
 				// eslint-disable-next-line no-jquery/no-fade
-				$tables.fadeOut( 'slow', function () {
+				$tables.fadeOut( 'slow', () => {
 					$tables.remove();
 				} );
 			}
 		},
 
 		doMarkRead: function ( e ) {
-			var $form,
+			let $form,
 				$button = $( this );
 
 			e.preventDefault();
@@ -93,7 +93,7 @@
 		},
 
 		doMarkOneRead: function ( $form ) {
-			var operand = $form.find( 'input[name=lqt_operand]' ).val(),
+			const operand = $form.find( 'input[name=lqt_operand]' ).val(),
 				threads = operand.replace( /,/g, '|' ),
 				$spinner = $( '<div>' ).addClass( 'mw-ajax-loader' );
 
@@ -104,7 +104,7 @@
 				threadaction: 'markread',
 				thread: threads,
 				token: mw.user.tokens.get( 'csrfToken' )
-			} ).done( function ( e ) {
+			} ).done( ( e ) => {
 				liquidThreads.markReadDone.one( e, $form.find( 'input[type=submit]' ), operand );
 				$( 'li#pt-newmessages' ).html( $( '<a>', $( e.threadactions ).last().prop( 'unreadlink' ) ) ); // Unreadlink will be on the last threadaction
 				$spinner.remove();
@@ -112,7 +112,7 @@
 		},
 
 		doMarkAllRead: function ( $form ) {
-			var $spinner = $( '<div>' ).addClass( 'mw-ajax-loader' );
+			const $spinner = $( '<div>' ).addClass( 'mw-ajax-loader' );
 
 			$form.prepend( $spinner );
 
@@ -121,7 +121,7 @@
 				threadaction: 'markread',
 				thread: 'all',
 				token: mw.user.tokens.get( 'csrfToken' )
-			} ).done( function ( res ) {
+			} ).done( ( res ) => {
 				liquidThreads.markReadDone.all( res );
 				$( 'li#pt-newmessages' ).html( $( '<a>', res.threadactions[ 0 ].unreadlink ) );
 				$spinner.remove();
@@ -131,7 +131,7 @@
 	} );
 
 	// Setup
-	$( function () {
+	$( () => {
 		$( '.lqt-read-button' ).on( 'click', liquidThreads.doMarkRead );
 	} );
 
