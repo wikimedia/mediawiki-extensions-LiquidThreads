@@ -18,7 +18,7 @@ use MediaWiki\Page\Article;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\Sanitizer;
-use MediaWiki\Request\FauxRequest;
+use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
@@ -439,21 +439,6 @@ class LqtView {
 	}
 
 	/**
-	 * Workaround for bug 27887 caused by r82686
-	 * @param FauxRequest $request FauxRequest object to have session data injected into.
-	 */
-	public static function fixFauxRequestSession( $request ) {
-		// This is sometimes called before session_start (bug 28826).
-		if ( !isset( $_SESSION ) ) {
-			return;
-		}
-
-		foreach ( $_SESSION as $k => $v ) {
-			$request->setSessionData( $k, $v );
-		}
-	}
-
-	/**
 	 * @param Article|null $talkpage
 	 * @param string $method
 	 * @param int|null $operand
@@ -462,13 +447,11 @@ class LqtView {
 	 * @throws Exception
 	 */
 	public static function getInlineEditForm( $talkpage, $method, $operand, User $user ) {
+		global $wgRequest;
+
 		$req = new RequestContext;
 		$output = $req->getOutput();
-		$request = new FauxRequest( [] );
-
-		// Workaround for loss of session data when using FauxRequest
-		global $wgRequest;
-		self::fixFauxRequestSession( $request );
+		$request = new DerivativeRequest( $wgRequest, [] );
 
 		$title = null;
 
@@ -492,10 +475,6 @@ class LqtView {
 		$view = new LqtView( $output, $talkpage, $title, $user, $request );
 
 		$view->doInlineEditForm();
-
-		foreach ( $request->getSessionArray() ?? [] as $k => $v ) {
-			$wgRequest->setSessionData( $k, $v );
-		}
 
 		return $output->getHTML();
 	}
