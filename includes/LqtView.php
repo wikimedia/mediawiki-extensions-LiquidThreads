@@ -955,11 +955,21 @@ class LqtView {
 
 		$subject_label = wfMessage( 'lqt_subject' )->text();
 
-		$attr = [ 'tabindex' => 1 ];
+		$attr = [
+			'tabindex' => 1,
+			'id' => 'lqt_subject_field',
+			'size' => 60
+		];
 
-		return Xml::inputLabel( $subject_label, 'lqt_subject_field',
-				'lqt_subject_field', 60, $subject, $attr ) .
-			Xml::element( 'br' );
+		return Html::label( $subject_label, 'lqt_subject_field', $attr )
+			. "\u{00A0}"
+			. Html::input(
+				'lqt_subject_field',
+				$subject,
+				'text',
+				$attr,
+			)
+			. Html::element( 'br' );
 	}
 
 	public function getSignatureEditor( $from ) {
