@@ -384,12 +384,9 @@ class TalkpageView extends LqtView {
 
 	private function getSearchBox() {
 		$html = '';
-		$html .= Xml::inputLabel(
-			wfMessage( 'lqt-search-label' )->text(),
-			'lqt_search',
-			'lqt-search-box',
-			45
-		);
+
+		$html .= Html::label( wfMessage( 'lqt-search-label' )->text(), 'lqt-search-box' );
+		$html .= Html::input( 'lqt_search', '', 'text', [ 'size' => 45, 'id' => 'lqt-search-box' ] );
 
 		$html .= ' ' . Html::submitButton( wfMessage( 'lqt-search-button' )->text() );
 		$html .= Html::hidden( 'title', $this->title->getPrefixedText() );
