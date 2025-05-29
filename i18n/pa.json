@@ -40,6 +40,7 @@
 	"lqt-thread-show-more": "ਹੋਰ ਜੁਆਬ ਵਿਖਾਓ",
 	"lqt-thread-link-copy": "ਚੂੰਢੀ-ਤਖਤੀ 'ਤੇ ਉਤਾਰਾ ਲਿਖੋ",
 	"lqt-change-subject": "ਵਿਸ਼ਾ ਬਦਲੋ",
+	"lqt-cancel-subject-edit": "ਰੱਦ ਕਰੋ",
 	"lqt-drag-subject": "ਨਵੇਂ ਤੰਦੋਤਾਣੇਆਂ ਲਈ ਵਿਸ਼ਾ (ਲਾਜ਼ਮੀ):",
 	"lqt-feed-title-new-threads": "{{SITENAME}} — ਨਵੇਂ ਤੰਦੋਤਾਣੇ",
 	"lqt-newmessages-n": "ਨਵੇਂ {{PLURAL:$1|ਸੁਨੇਹਾ|ਸੁਨੇਹੇ}} ($1)",
