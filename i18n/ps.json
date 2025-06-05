@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
 	"lqt_contents_title": "منځپانگه",
@@ -56,7 +57,7 @@
 	"lqt-feed-title-all": "{{SITENAME}} — نوي پوستونه",
 	"lqt-feed-title-replies": "{{SITENAME}} — ځوابونه",
 	"lqt-feed-title-replies-from": "{{SITENAME}} — د $1 لخوا ځوابونه",
-	"lqt-newmessages-n": "نوي پيغامونه ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|نوی پيغام|نوي پيغامونه}} ($1)",
 	"lqt_newmessages-title": "نوي پيغامونه",
 	"lqt-reply-summary": "[[$2|$1]] ته ځواب وييل",
 	"lqt-talkpage-history-title": "د خبرو اترو د مخ پېښليک",
