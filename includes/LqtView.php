@@ -957,7 +957,6 @@ class LqtView {
 
 		$attr = [
 			'tabindex' => 1,
-			'id' => 'lqt_subject_field',
 			'size' => 60
 		];
 
@@ -967,7 +966,7 @@ class LqtView {
 				'lqt_subject_field',
 				$subject,
 				'text',
-				$attr,
+				$attr + [ 'id' => 'lqt_subject_field' ],
 			)
 			. Html::element( 'br' );
 	}
