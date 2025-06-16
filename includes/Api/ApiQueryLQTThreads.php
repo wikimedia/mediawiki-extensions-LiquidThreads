@@ -189,6 +189,9 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	protected function addSubItems(
 		$tableName, $fields, $joinField, $subitemName, /*callable*/ $handleRow, $tagName
 	) {
+		if ( !$this->threadIds ) {
+			return;
+		}
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$result = $this->getResult();
 
