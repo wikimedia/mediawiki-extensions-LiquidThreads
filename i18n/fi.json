@@ -176,6 +176,7 @@
 	"lqt-preference-notify-talk": "Lähetä sähköpostia viestiketjun vastauksista, joita tarkkailen",
 	"lqt-preference-watch-threads": "Tarkkaile viestiketjuja, jotka olen luonut tai joihin olen vastannut",
 	"prefs-lqt": "Viestiketjut",
+	"prefs-description-lqt": "Päätä, miten vastaukset näytetään.",
 	"lqt-preference-display-depth": "Sisäkkäisiä vastauksia oletusnäkymässä:",
 	"lqt-preference-display-count": "Enimmäismäärä vastauksia näytettäväksi:",
 	"lqt-preference-custom-signatures": "Näytä käyttäjien mukautetut allekirjoitukset",
