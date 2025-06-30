@@ -6,6 +6,8 @@
 	},
 	"lqt_discussion_link": "diskuson",
 	"lqt_youhavenewmessages": "Bu ten [[$1|mensajens nobu]].",
+	"searchprofile-threads": "Diskusons",
+	"lqt-ajax-update-link": "Atualiza",
 	"lqt-newmessages-n": "{{PLURAL:$1|Mensajen nobu|Mensajens nobu}} ($1)",
 	"lqt_newmessages-title": "Mensajens nobu",
 	"nstab-summary": "Sumáriu"
