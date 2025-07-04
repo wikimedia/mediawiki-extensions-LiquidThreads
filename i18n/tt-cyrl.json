@@ -3,6 +3,7 @@
 		"authors": [
 			"Don Alessandro",
 			"Ерней",
+			"Ильгиз",
 			"Ильнар"
 		]
 	},
@@ -10,12 +11,12 @@
 	"lqt_toc_thread_title": "Тармак башы",
 	"lqt_reply": "Җавап бирү",
 	"lqt_delete": "Бетерү",
-	"lqt_undelete": "Кайтару",
+	"lqt_undelete": "Бетерүдән кайтар",
 	"lqt_hist_deleted": "Бетерелгән",
 	"lqt_hist_undeleted": "Кайтарылган",
 	"lqt_subject": "Тема:",
 	"lqt_move_move": "Күчерү",
-	"lqt-title": "Исем",
+	"lqt-title": "Башлык",
 	"lqt-read-all": "Барысын да укылган итеп билгеләү",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|хәбәр}} укылган дип билгеләнде.",
 	"lqt-email-undo": "Кире кайтару",
