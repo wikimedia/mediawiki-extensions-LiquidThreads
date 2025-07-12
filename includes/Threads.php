@@ -63,7 +63,7 @@ class Threads {
 					wfMessage( 'lqt_talkpage_autocreate_summary' )->inContentLanguage()->text(),
 					EDIT_NEW | EDIT_SUPPRESS_RC
 				);
-			} catch ( DBQueryError $e ) {
+			} catch ( DBQueryError ) {
 				// The page already existed by now. No need to do anything.
 				wfDebug( __METHOD__ . ": Page already exists." );
 			}

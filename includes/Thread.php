@@ -1769,7 +1769,7 @@ class Thread {
 				if ( $t ) {
 					break;
 				}
-			} catch ( Exception $e ) {
+			} catch ( Exception ) {
 			}
 
 			$subject = md5( (string)mt_rand() ); // Just a random title

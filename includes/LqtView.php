@@ -506,7 +506,7 @@ class LqtView {
 		if ( !$subjectOk ) {
 			try {
 				$t = $this->newThreadTitle( $subject );
-			} catch ( Exception $excep ) {
+			} catch ( Exception ) {
 				$t = $this->scratchTitle();
 			}
 		}
@@ -626,7 +626,7 @@ class LqtView {
 
 		try {
 			$t = $this->newReplyTitle( null, $thread );
-		} catch ( Exception $excep ) {
+		} catch ( Exception ) {
 			$t = $this->scratchTitle();
 		}
 
