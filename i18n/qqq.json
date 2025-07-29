@@ -38,7 +38,8 @@
 			"The Evil IP address",
 			"Theklan",
 			"Umherirrender",
-			"Wikinaut"
+			"Wikinaut",
+			"Abshirdheere"
 		]
 	},
 	"lqt-desc": "{{desc|name=Liquid Threads|url=https://www.mediawiki.org/wiki/Extension:LiquidThreads}}",
@@ -206,7 +207,7 @@
 	"lqt-log-action-signatureedit": "Used as log entry. Parameters:\n* $1 is the link text to the topic\n* $2 is the old signature text\n* $3 is the new signature text\n{{Related|Lqt-log-action}}",
 	"lqt-preference-notify-talk": "This appears in [[Special:Preferences]]. The wording should be similar to {{msg-mw|tog-enotifwatchlistpages}}.",
 	"lqt-preference-watch-threads": "The wording of this message should be similar to {{msg-mw|tog-watchdefault}}.",
-	"prefs-lqt": "Used as header on [[Special:Preferences]]",
+	"prefs-lqt": "Dood taxane ah",
 	"prefs-description-lqt": "Used in [[Special:Preferences]] for mobile to describe the Threaded discussions features section.",
 	"lqt-preference-display-depth": "Used in [[Special:Preferences]], tab Threaded Discussion (where Liquid Thread extension is installed).\nDepth refers to the nesting of replies that were given to replies to replies, etc. which is shown on-screen as indents in the discussion threads.\n\nIn other words, 'depth' is the number of idents that will be displayed for a thread (''reply (5) to reply (4) to reply (3) to reply (2) of original post (1)'').\n<pre>\n-- ORIGINAL (depth 1)\n |-- reply 1 (depth 2)\n   |-- reply 2 (reply to reply 1) (depth 3)\n |-- reply 3 (reply to reply 1) (depth 2)\n</pre>",
 	"lqt-preference-display-count": "Used in [[Special:Preferences]], tab {{msg-mw|prefs-lqt}} (where Liquid Thread extension is installed).",
