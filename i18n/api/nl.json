@@ -49,7 +49,7 @@
 	"apihelp-threadaction-param-signature": "Specificeert de voor dat bericht in plaats van de standaardhandtekening te gebruiken handtekening.",
 	"apihelp-threadaction-param-type": "Specificeert het type toe te voegen reactie.",
 	"apihelp-threadaction-param-value": "Specificeert de aan de toe te voegen reactie gekoppelde waarde.",
-	"apihelp-threadaction-param-method": "Voor het verkrijgen van inline bewerkingsformulieren is dit de methode waarvoor een formulier moet worden verkregen.",
+	"apihelp-threadaction-param-method": "De methode waarvoor een ingebed bewerkingsformulier moet worden aangemaakt.",
 	"apihelp-threadaction-param-captchaword": "Antwoord op de CAPTCHA.",
 	"apihelp-threadaction-param-captchaid": "CAPTCHA-ID van de vorige aanvraag.",
 	"apierror-liquidthreads-alreadytop": "Deze draad is al een draad op het hoogste niveau.",

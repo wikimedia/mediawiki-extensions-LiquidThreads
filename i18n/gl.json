@@ -225,7 +225,7 @@
 	"lqt-feed-new-thread-intro": "Novo fío de conversa en \"$1\" publicado por {{GENDER:$4|$2}}",
 	"lqt-feed-reply-intro": "Resposta a \"$3\" (en \"$1\") publicada por {{GENDER:$4|$2}}",
 	"tooltip-pt-newmessages": "Amosa as mensaxes novas nos fíos ou nas páxinas de conversa que está a vixiar",
-	"lqt-newmessages-n": "{{PLURAL:$1|Nova mensaxe|Novas mensaxes}} ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Mensaxe nova|Mensaxes novas}} ($1)",
 	"lqt_newmessages-title": "Mensaxes novas",
 	"lqt-newpost-summary": "Novo fío: $1",
 	"lqt-reply-summary": "Responder a [[$2|$1]]",
