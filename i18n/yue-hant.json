@@ -3,7 +3,8 @@
 		"authors": [
 			"Ktchankt",
 			"Matma Rex",
-			"Winston Sung"
+			"Winston Sung",
+			"Yueman"
 		]
 	},
 	"lqt_movethread": "搬討論串去另一版",
@@ -63,6 +64,7 @@
 	"lqt_header_warning_after_big": "用來做公告同埋導言嘅版頭。你可能想去$2。",
 	"lqt_header_warning_bold": "討論頁版頭",
 	"lqt_header_warning_new_discussion": "開始一個新討論",
+	"lqt-header-actions": "動作",
 	"lqt-movethread": "搬",
 	"lqt-menu-trigger": "多啲",
 	"lqt-merge-submit": "合埋",
