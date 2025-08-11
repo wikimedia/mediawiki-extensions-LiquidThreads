@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Winston Sung",
-			"Matma Rex"
+			"Matma Rex",
+			"Ktchankt"
 		]
 	},
 	"lqt_movethread": "搬討論串去另一版",
@@ -70,6 +71,7 @@
 	"lqt-search-label": "搵字詞:",
 	"lqt-search-button": "搵",
 	"lqt-thread-link-url": "拎URL:",
+	"lqt-save-subject": "儲存",
 	"lqt-cancel-subject-edit": "取消",
 	"lqt-newmessages-n": "新{{PLURAL:$1|訊息}}（$1）",
 	"lqt_newmessages-title": "新信息",
