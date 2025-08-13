@@ -12,6 +12,7 @@
 	"lqt_noreason": "Nuk është dhënë arsyeja.",
 	"lqt_move_noreason": "Nuk është dhënë arsyeja.",
 	"lqt-no-new-messages": "Nuk ka mesazhe të reja për ty.",
+	"lqt-preference-notify-talk": "Më dërgo email për përgjigjet në një temë që jam duke mbikëqyrur",
 	"lqt-drag-reason": "Arsyeja:",
 	"lqt-newmessages-n": "Mesazhet e reja ($1)",
 	"lqt_newmessages-title": "Mesazhet e reja"
