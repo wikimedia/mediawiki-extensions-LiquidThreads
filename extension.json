@@ -250,13 +250,16 @@
 	"callback": "MediaWiki\\Extension\\LiquidThreads\\Hooks::onRegistration",
 	"config": {
 		"LqtPages": {
-			"value": []
+			"value": [],
+			"description": "Allows activation of LiquidThreads on individual pages"
 		},
 		"LqtTalkPages": {
-			"value": true
+			"value": true,
+			"description": "Allows switching LiquidThreads off for regular talk pages (intended for testing and transition)"
 		},
 		"LqtEnotif": {
-			"value": true
+			"value": true,
+			"description": "Whether or not to activate LiquidThreads email notifications"
 		},
 		"ThreadActionsNoBump": {
 			"value": [
@@ -265,31 +268,40 @@
 				12,
 				2,
 				14
-			]
+			],
+			"description": "Thread actions which do *not* cause threads to be \"bumped\" to the top. Numbers correspond to the change type constants defined in Threads.php."
 		},
 		"LiquidThreadsMigrate": {
-			"value": false
+			"value": false,
+			"description": "Switch this on if you've migrated from a version before around May 2009"
 		},
 		"LiquidThreadsDefaultPageLimit": {
-			"value": 20
+			"value": 20,
+			"description": "The default number of threads per page"
 		},
 		"LiquidThreadsAllowUserControl": {
-			"value": true
+			"value": true,
+			"description": "Whether or not to allow users to activate/deactivate LiquidThreads per-page"
 		},
 		"LiquidThreadsAllowUserControlNamespaces": {
-			"value": null
+			"value": null,
+			"description": "Whether or not to allow users to activate/deactivate LiquidThreads in specific namespaces. null means either all or none, depending on the value of LiquidThreadsAllowUserControl."
 		},
 		"LiquidThreadsAllowEmbedding": {
-			"value": true
+			"value": true,
+			"description": "Allow LiquidThreads embedding"
 		},
 		"LqtNamespaces": {
-			"value": []
+			"value": [],
+			"description": "Namespaces in which to enable LQT"
 		},
 		"LiquidThreadsShowBumpCheckbox": {
-			"value": false
+			"value": false,
+			"description": "Enable/disable the bump checkbox"
 		},
 		"LiquidThreadsEnableNewMessages": {
-			"value": true
+			"value": true,
+			"description": "Enable/Disable 'New messages' link and special page (Special:NewMessages)"
 		}
 	},
 	"manifest_version": 2
