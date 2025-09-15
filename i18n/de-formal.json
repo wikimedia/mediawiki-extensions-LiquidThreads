@@ -8,30 +8,7 @@
 			"Umherirrender"
 		]
 	},
-	"lqt_invalid_subject": "Der Betreff, den Sie eingegeben haben, ist ungültig.\nEs ist möglich, dass er\n* zu lang ist oder\n* im Konflikt mit Interwikipräfixen oder Namensraumbezeichnern steht.",
-	"lqt_empty_subject": "Sie müssen einen Betreff eingeben.",
-	"lqt_hist_past_last_page_error": "Sie sind außerhalb des Seitenbereichs der Versionsgeschichte.",
-	"lqt_hist_tooltip_newer_disabled": "Der Link ist deaktiviert, da Sie sich auf der ersten Seite befinden.",
-	"lqt_hist_tooltip_older_disabled": "Der Link ist deaktiviert, da Sie sich auf der letzten Seite befinden.",
-	"lqt_youhavenewmessages": "Sie haben [[$1|neue Nachrichten]].",
-	"lqt_summary_notice": "Zu diesem Thema gibt es seit $2 {{PLURAL:$2|Tag|Tagen}} keine neuen Beiträge.\nSofern die Diskussion beendet ist, möchten Sie vielleicht eine $1.",
-	"lqt_header_warning_big": "Sie bearbeiten gerade den $1.",
-	"lqt_header_warning_after_big": "Dieser Bereich ist für Ankündigungen, Einleitungen und Hinweise vorgesehen.\nMöglicherweise möchten Sie stattdessen ein $2.",
-	"lqt-no-new-messages": "Sie haben keine neuen Nachrichten.",
-	"lqt-new-messages": "→ Sie haben neue Nachrichten.",
-	"lqt-email-info-undo": "Holen Sie das Thema zurück, das Sie gerade weggeklickt haben.",
-	"lqt-date-info": "Dieser Link ist nicht aktiv, da Sie Themen von allen Daten ansehen.",
-	"lqt-summarize-intro": "Bitte fassen Sie das untenstehende Thema im Bearbeitungsfenster zusammen.\nSie können Wikitext in Ihrer Zusammenfassung verwenden. Sobald Sie fertig sind, klicken Sie auf „{{int:publishpage}}“.",
-	"lqt-split-success": "Sie haben den Diskussionsstrang $1 erfolgreich abgetrennt.",
-	"lqt-delete-parent-warning": "Dies ist ein Thema auf höchster Ebene mit Antworten.\nAuch seine Antworten werden automatisch gelöscht.\nUm dies zu vermeiden, teilen Sie sie von diesem Thema ab, bevor Sie es löschen.",
 	"lqt-enotif-newthread": "Hallo $1,\n\ndies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ das neue Thema „$2“ begonnen.\n\nSie können es unter diesem Link einsehen: <$6>\n\nDie Nachricht lautet:\n$7",
 	"lqt-enotif-reply": "Hallo $1,\n\ndies ist eine Benachrichtigung von {{SITENAME}}. Von Benutzer $8 wurde am $3 um $4 Uhr auf der Seite „$5“ zum Thema „$2“ eine neue Nachricht verfasst.\n\nSie können sie unter diesem Link einsehen: <$6>\n\nDie Nachricht lautet:\n$7",
-	"lqt-sign-not-necessary": "Es ist nicht notwendig, Ihre Antwort mit vier Tilden zu signieren.\nDie Signatur wird automatisch ergänzt.",
-	"lqt-ajax-no-subject": "Sie müssen einen Betreff für das neuen Thema angeben.",
-	"lqt-save-subject-error-unknown": "Beim Festlegen des Betreffs ist ein unbekannter Fehler aufgetreten. Bitte versuchen Sie es über „bearbeiten“ beim obersten Beitrag.",
-	"lqt-drag-confirm": "Um die folgenden Aktionen abzuschließen, geben Sie bitte einen Grund an und klicken Sie auf „Bestätigen“.",
-	"tooltip-pt-newmessages": "Zeigt neue Nachrichten zu den von Ihnen beobachteten Themen oder deren zugehörigen Diskussionsseiten",
-	"lqt-protected-reply-thread": "Da dieses Thema geschützt ist, können Sie hierauf nicht antworten.",
-	"lqt-protected-reply-talkpage": "Diese Diskussionsseite wurde geschützt, sodass Sie zu den enthaltenen Themen nicht antworten können.",
-	"lqt-protected-newthread": "Diese Diskussionsseite wurde geschützt, sodass Sie keine neuen Themen erstellen können."
+	"tooltip-pt-newmessages": "Zeigt neue Nachrichten zu den von Ihnen beobachteten Themen oder deren zugehörigen Diskussionsseiten"
 }

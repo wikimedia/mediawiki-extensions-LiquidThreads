@@ -4,7 +4,8 @@
 			"Les Meloures",
 			"Robby",
 			"Soued031",
-			"Volvox"
+			"Volvox",
+			"GilPe"
 		]
 	},
 	"lqt-desc": "Setz Diskussiouns-Rubriken op d'Diskussiounssäiten dobäi",
@@ -31,7 +32,7 @@
 	"lqt-history-title": "Historique vun der Rubrik",
 	"lqt_hist_comment_edited": "Text vun der Bemierkung [$2 geännert]",
 	"lqt_hist_comment_edited_deleted": "Text vun der Bemierkung geännert (zanter geläscht)",
-	"lqt_hist_summary_changed": "Resumé geännert",
+	"lqt_hist_summary_changed": "Resümmee geännert",
 	"lqt_hist_reply_created": "[[$1|Nei Äntwert]] ginn",
 	"lqt_hist_thread_created": "Nei Rubrik ugeluecht",
 	"lqt_hist_deleted": "Geläscht",
@@ -55,7 +56,7 @@
 	"lqt_change_new_thread": "Dëst ass déi initial Versioun vun der Rubrik.",
 	"lqt_change_reply_created": "Déi [$1 markéiert Bemierkung] gouf an dëser Versioun ugeluecht.",
 	"lqt_change_edited_root": "Déi [$1 markéiert Bemierkung] gouf an dëser Versioun geännert.",
-	"lqt_change_edited_summary": "De Resumé vun der Rubrik gouf geännert",
+	"lqt_change_edited_summary": "De Resümmee vun der Rubrik gouf geännert",
 	"lqt_change_deleted": "[$1 Dës Rubrik] oder eng Äntwert dorop gouf geläscht",
 	"lqt_change_undeleted": "De [$1 markéierte Message] gouf restauréiert.",
 	"lqt_change_moved": "[$1 Dës Rubrik] gouf op eng aner Diskussiounssäit geréckelt",
@@ -75,7 +76,7 @@
 	"lqt_thread_deleted": "Dës Rubrik gouf geläscht.",
 	"lqt_summary_notice": "Et gouf keng Ännerungen un dëser Diskussioun fir mindestens $2 {{PLURAL:$2|Dag|Deeg}}.\nWa se eriwwer ass wëllt dir vläicht $1.",
 	"lqt_summary_notice_link": "e Résumé schreiwen",
-	"lqt_summary_label": "Resumé vun der Rubrik:",
+	"lqt_summary_label": "Resümmee vun der Rubrik:",
 	"lqt_summary_subtitle": "Résumé vu(n) $1",
 	"lqt_nosuchrevision": "Et gëtt déi Versioun vun deser Rubrik net.",
 	"lqt_nosuchthread": "Déi Rubrik, déi Dir uginn hutt, gëtt et net.",
@@ -101,7 +102,7 @@
 	"lqt_sort_newest_threads": "neiste Rubrik als éischt",
 	"lqt_sort_oldest_threads": "déi eelst Rubriken d'éischt",
 	"lqt-title": "Titel",
-	"lqt-summary": "Resumé",
+	"lqt-summary": "Resümmee",
 	"lqt-searching": "No Rubrike sichen",
 	"lqt-read-message": "Als gelies markéieren",
 	"lqt-read-message-tooltip": "Dës Rubrik aus den neie Messagen ewechhuelen.\nSi bleift op der Original-Diskussiounssäit ze gesinn.",
@@ -109,7 +110,7 @@
 	"lqt-read-all-tooltip": "All Rubriken aus neie Messagen eraushuelen.\nSi si weiderhinn op hirer Original-Diskussiounssäit ze gesinn.\nDës Operatioun kann net réckgängeg gemaach ginn.",
 	"lqt-marked-read": "D'Rubrik '''$1''' gouf als gelies markéiert.",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|Message|Messagen}} als gelies markéieren.",
-	"lqt-email-undo": "Zréck setzen",
+	"lqt-email-undo": "Réckgängeg maachen",
 	"lqt-no-new-messages": "Et gëtt keng nei Messagë fir Iech.",
 	"lqt-new-messages": "Dir hutt nei Messagen.",
 	"lqt-email-info-undo": "Déi Rubrik nees weisen, déi Dir elo grad ewechgeholl hutt.",
@@ -236,6 +237,6 @@
 	"lqt-reply-subpage": "äntweren",
 	"lqt-not-a-liquidthreads-page": "$1 ass keng LiquidThreads-Säit",
 	"nstab-thread": "Rubrik",
-	"nstab-summary": "Resumé",
+	"nstab-summary": "Resümmee",
 	"pageinfo-usinglqt-yes": "Jo"
 }
