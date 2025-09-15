@@ -247,7 +247,7 @@
 	"lqt-feed-title-replies-from": "{{SITENAME}} – Antworten von $1",
 	"lqt-feed-new-thread-intro": "Neues Thema auf $1 von {{GENDER:$4|$2}}",
 	"lqt-feed-reply-intro": "Antwort auf $3 (auf $1) von {{GENDER:$4|$2}}",
-	"tooltip-pt-newmessages": "Zeigt neue Nachrichten zu den von dir beobachteten Themen oder deren zugehörigen Diskussionsseiten",
+	"tooltip-pt-newmessages": "Zeigt neue Nachrichten zu den von {{#FORMAL:dir|Ihnen}} beobachteten Themen oder deren zugehörigen Diskussionsseiten",
 	"lqt-newmessages-n": "Neue {{PLURAL:$1|Nachricht|Nachrichten}} ($1)",
 	"lqt_newmessages-title": "Neue Nachrichten",
 	"lqt-newpost-summary": "Neues Thema: $1",
