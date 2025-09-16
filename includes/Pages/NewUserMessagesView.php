@@ -11,7 +11,7 @@ class NewUserMessagesView extends LqtView {
 	/** @var array[] */
 	protected $messagesInfo;
 
-	protected function htmlForReadButton( $label, $title, $class, $ids ) {
+	private function htmlForReadButton( $label, $title, $class, $ids ) {
 		$ids_s = implode( ',', $ids );
 		$html = '';
 		$html .= Html::hidden( 'lqt_method', 'mark_as_read' );

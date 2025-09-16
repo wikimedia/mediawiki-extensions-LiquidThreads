@@ -1213,12 +1213,8 @@ class LqtView {
 			}
 
 			if ( $this->user->isAllowed( 'lqt-merge' ) ) {
-				$mergeParams = $_GET;
-				$mergeParams['lqt_merge_from'] = $thread->id();
-
-				unset( $mergeParams['title'] );
-
-				$mergeUrl = $this->title->getLocalURL( wfArrayToCgi( $mergeParams ) );
+				$mergeParams = $this->request->appendQueryValue( 'lqt_merge_from', (string)$thread->id() );
+				$mergeUrl = $this->title->getLocalURL( $mergeParams );
 				$label = wfMessage( 'lqt-thread-merge' )->parse();
 
 				$commands['merge'] = [

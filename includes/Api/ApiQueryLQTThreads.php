@@ -33,7 +33,6 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
  * - replies
  * - reactions
  */
-
 class ApiQueryLQTThreads extends ApiQueryBase {
 	/**
 	 * @var (null|string|string[])[] Property definitions
@@ -186,7 +185,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$result->addIndexedTagName( [ 'query', $this->getModuleName() ], 'thread' );
 	}
 
-	protected function addSubItems(
+	private function addSubItems(
 		$tableName, $fields, $joinField, $subitemName, callable $handleRow, $tagName
 	) {
 		if ( !$this->threadIds ) {

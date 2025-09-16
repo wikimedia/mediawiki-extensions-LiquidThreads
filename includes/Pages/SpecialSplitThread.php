@@ -2,7 +2,6 @@
 
 use MediaWiki\Message\Message;
 
-// TODO access control
 class SpecialSplitThread extends ThreadActionPage {
 	public function getFormFields() {
 		$splitForm = [
@@ -33,6 +32,7 @@ class SpecialSplitThread extends ThreadActionPage {
 		return $this->msg( 'lqt_split_thread' );
 	}
 
+	/** @inheritDoc */
 	protected function getRightRequirement() {
 		return 'lqt-split';
 	}

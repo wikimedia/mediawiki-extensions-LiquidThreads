@@ -5,8 +5,12 @@ use MediaWiki\Message\Message;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 
-// Contains formatter functions for all log entry types.
+/**
+ * Contains formatter functions for all log entry types.
+ */
 class LqtLogFormatter extends LogFormatter {
+
+	/** @inheritDoc */
 	protected function getActionMessage() {
 		$action = $this->entry->getSubtype();
 		$title = $this->entry->getTarget();

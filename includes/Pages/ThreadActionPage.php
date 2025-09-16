@@ -35,6 +35,9 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 
 	abstract public function getFormFields();
 
+	/**
+	 * @return string
+	 */
 	protected function getRightRequirement() {
 		return '';
 	}

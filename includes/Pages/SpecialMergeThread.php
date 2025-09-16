@@ -3,7 +3,6 @@
 use MediaWiki\Html\Html;
 use MediaWiki\Message\Message;
 
-// @todo FIXME: access control
 class SpecialMergeThread extends ThreadActionPage {
 
 	/** @var Thread */
@@ -32,6 +31,7 @@ class SpecialMergeThread extends ThreadActionPage {
 		return $splitForm;
 	}
 
+	/** @inheritDoc */
 	protected function getRightRequirement() {
 		return 'lqt-merge';
 	}

@@ -51,6 +51,7 @@ class SpecialNewMessages extends SpecialPage {
 		$view->show();
 	}
 
+	/** @inheritDoc */
 	protected function getGroupName() {
 		return 'wiki';
 	}

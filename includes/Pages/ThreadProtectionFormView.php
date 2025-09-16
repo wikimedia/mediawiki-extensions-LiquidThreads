@@ -1,6 +1,8 @@
 <?php
 
-// Pass-through wrapper
+/**
+ * Pass-through wrapper
+ */
 class ThreadProtectionFormView extends LqtView {
 
 	/** @var Thread */

@@ -2,7 +2,9 @@
 
 use MediaWiki\Xml\Xml;
 
-// Pass-through wrapper with an extra note at the top
+/**
+ * Pass-through wrapper with an extra note at the top
+ */
 class TalkpageHeaderView extends LqtView {
 	public function customizeNavigation( $skin, &$links ) {
 		$remove = [
