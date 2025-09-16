@@ -13,10 +13,6 @@ class NewMessages {
 		self::writeUserMessageState( $thread, $user );
 	}
 
-	/**
-	 * @param Thread $thread
-	 * @param UserIdentity $user
-	 */
 	public static function markThreadAsReadByUser( Thread $thread, UserIdentity $user ) {
 		$thread_id = $thread->id();
 		$user_id = $user->getId();

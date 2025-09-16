@@ -373,9 +373,6 @@ class LqtView {
 		return '';
 	}
 
-	/**
-	 * @param Thread $thread
-	 */
 	public function showReplyProtectedNotice( Thread $thread ) {
 		$log_url = SpecialPage::getTitleFor( 'Log' )->getLocalURL(
 			"type=protect&user=&page={$thread->title()->getPrefixedURL()}" );
@@ -603,9 +600,6 @@ class LqtView {
 		$this->output->addHTML( '</div>' );
 	}
 
-	/**
-	 * @param Thread $thread
-	 */
 	public function showReplyForm( Thread $thread ) {
 		global $wgRequest;
 
@@ -713,9 +707,6 @@ class LqtView {
 		$this->output->addHTML( '</div>' );
 	}
 
-	/**
-	 * @param Thread $thread
-	 */
 	public function showPostEditingForm( Thread $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		if ( $this->request->wasPosted() && !$this->checkNonce( $submitted_nonce ) ) {
@@ -827,9 +818,6 @@ class LqtView {
 		$this->output->addHTML( '</div>' );
 	}
 
-	/**
-	 * @param Thread $thread
-	 */
 	public function showSummarizeForm( Thread $thread ) {
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		if ( $this->request->wasPosted() && !$this->checkNonce( $submitted_nonce ) ) {
@@ -1557,7 +1545,6 @@ class LqtView {
 
 	/**
 	 * Shows a normal (i.e. not deleted or moved) thread body
-	 * @param Thread $thread
 	 */
 	public function showThreadBody( Thread $thread ) {
 		$post = $thread->root();
@@ -1830,8 +1817,6 @@ class LqtView {
 
 	/**
 	 * Shows a single thread, rather than a thread tree.
-	 *
-	 * @param Thread $thread
 	 */
 	public function showSingleThread( Thread $thread ) {
 		$html = '';
@@ -2284,9 +2269,6 @@ class LqtView {
 		$this->threadNestingLevel--;
 	}
 
-	/**
-	 * @param Thread $thread
-	 */
 	public function showReplyBox( Thread $thread ) {
 		// Check if we're actually replying to this thread.
 		if ( $this->methodAppliesToThread( 'reply', $thread ) ) {

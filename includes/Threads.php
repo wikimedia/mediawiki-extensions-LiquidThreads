@@ -48,8 +48,6 @@ class Threads {
 	/**
 	 * Create the talkpage if it doesn't exist so that links to it
 	 * will show up blue instead of red. For use upon new thread creation.
-	 *
-	 * @param WikiPage $talkpage
 	 */
 	public static function createTalkpageIfNeeded( WikiPage $talkpage ) {
 		if ( !$talkpage->exists() ) {
