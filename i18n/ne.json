@@ -76,7 +76,7 @@
 	"lqt-read-all": "सबै पढिएको भनि चिनो लगाउने",
 	"lqt-marked-read": "धागो(thread) '''$1''' पढिएको भनी चिनो लगाइयो ।",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|सन्देश|सन्देशहरु}}लाई पढिएकोमा चिह्नित गर्ने",
-	"lqt-email-undo": "रद्द गर्ने",
+	"lqt-email-undo": "पूर्ववत गर्नुहोस्",
 	"lqt-no-new-messages": "तपाईंलाई नयाँ सन्देशहरू छैनन्।",
 	"lqt-new-messages": "तपाईंका लागि नयाँ सन्देशहरू छन्।",
 	"lqt-newmessages-context": "पूरा धागो(thread)",
