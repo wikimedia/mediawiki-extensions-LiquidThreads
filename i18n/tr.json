@@ -8,6 +8,7 @@
 			"Mach",
 			"MuratTheTurkish",
 			"Rapsar",
+			"SaldırganSincap",
 			"Srhat",
 			"Vito Genovese"
 		]
@@ -183,8 +184,8 @@
 	"lqt-preference-custom-signatures": "Özel kullanıcı imzalarını göster",
 	"lqt-enotif-subject-reply": "{{SITENAME}} tartışması - Cevap: $1",
 	"lqt-enotif-subject-newthread": "{{SITENAME}} tartışması - Yeni ileti dizisi: $1",
-	"lqt-enotif-newthread": "Merhaba $1,\n\nbu {{SITENAME}} tarafından $5, '$2' yeni bir ileti dizisi,\n$3 tarihinde $4 saatine $8 ile oluşturuldu\n\n$6 üzerinde görebilirsiniz\n\nMetin:\n$7",
-	"lqt-enotif-reply": "Merhaba $1,\n\nbu {{SITENAME}} tarafından $5, '$2' yeni bir ileti dizisi,\n$3 tarihinde $4 saatine $8 ile oluşturuldu\n\n$6 üzerinde görebilirsiniz\n\nCevabın metni:\n$7",
+	"lqt-enotif-newthread": "Merhaba $1,\n\nbu {{SITENAME}} tarafından $5, '$2' yeni bir ileti dizisi,\n$3 tarihinde $4 saatine $8 ile oluşturuldu\n\nŞuradan görebilirsiniz\n$6\n\nMetin şudur:\n$7",
+	"lqt-enotif-reply": "Merhaba $1,\n\nbu {{SITENAME}} tarafından $5, '$2' yeni bir ileti dizisi,\n$3 tarihinde $4 saatine $8 ile oluşturuldu\n\nŞuradan görebilirsiniz\n$6\n\nYanıtı şudur:\n$7",
 	"lqt-search-legend": "Bu sayfadaki tartışmaları ara",
 	"lqt-search-label": "Arama terimleri:",
 	"lqt-search-button": "Ara",
