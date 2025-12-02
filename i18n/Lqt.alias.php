@@ -557,6 +557,15 @@ $specialPageAliases['yi'] = [
 	'NewMessages' => [ 'נייע_מעלדונגנען' ],
 ];
 
+/** Chinese (中文) */
+$specialPageAliases['zh'] = [
+	'DeleteThread' => [ 'DeleteThread' ],
+	'MoveThread' => [ 'MoveThread' ],
+	'NewMessages' => [ 'NewMessages' ],
+	'SplitThread' => [ 'SplitThread' ],
+	'MergeThread' => [ 'MergeThread' ],
+];
+
 /** Simplified Chinese (中文（简体）) */
 $specialPageAliases['zh-hans'] = [
 	'DeleteThread' => [ '删除话题' ],
