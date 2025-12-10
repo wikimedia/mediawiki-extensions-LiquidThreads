@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bennylin",
 			"Diki Ananta",
 			"Meursault2004",
 			"N219",
@@ -25,7 +26,7 @@
 	"lqt_reply": "Wangsulana",
 	"lqt-parent": "Biyung",
 	"lqt_delete": "Busak",
-	"lqt_undelete": "Wurung mbusak",
+	"lqt_undelete": "Wurung busak",
 	"lqt_permalink": "Gayutaké menyang",
 	"lqt_fragment": "Fragmèn $1 saka $2",
 	"lqt_discussion_link": "parembugan",
