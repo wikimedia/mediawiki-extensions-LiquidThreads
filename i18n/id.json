@@ -11,7 +11,8 @@
 			"Mirws",
 			"Naval Scene",
 			"Rex",
-			"Sumbukompor"
+			"Sumbukompor",
+			"Penyuwangi"
 		]
 	},
 	"lqt-desc": "Menambahkan diskusi bertopik pada halaman pembicaraan",
@@ -241,7 +242,7 @@
 	"restriction-newthread": "Kirim topik baru",
 	"lqt-protected-reply-thread": "Anda tidak dapat mengirim di topik ini karena telah dilindungi dari pengiriman baru.",
 	"lqt-protected-reply-talkpage": "Anda tidak dapat mengirim ke topik ini karena halaman diskusi ini telah dilindungi dari balasan ke dalam topik ini.",
-	"lqt-protected-newthread": "Anda tidak dapat mengirim topik baru ke halaman diskuisi ini karena telah dilindungi dari topik baru, atau anda tidak memiliki izin untuk mengedit.",
+	"lqt-protected-newthread": "Anda tidak dapat mengirim topik baru ke halaman diskuisi ini karena telah dilindungi dari topik baru, atau anda tidak memiliki izin untuk menyunting.",
 	"lqt-edit-bump": "Sundul utas ini",
 	"lqt-edit-bump-tooltip": "Pindahkan utas ini ke atas halaman pembicaraannya",
 	"lqt-historicalrevision-error": "Revisi yang Anda pilih korup dan tidak dapat dilihat.",
