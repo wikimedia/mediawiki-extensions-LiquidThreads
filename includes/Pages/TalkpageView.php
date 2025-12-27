@@ -193,7 +193,7 @@ class TalkpageView extends LqtView {
 		$form_action_url = $this->talkpageUrl( $this->title, 'talkpage_sort_order' );
 		$html = '';
 
-		$html .= Xml::label( wfMessage( 'lqt_sorting_order' )->text(), 'lqt_sort_select' ) . ' ';
+		$html .= Html::label( wfMessage( 'lqt_sorting_order' )->text(), 'lqt_sort_select' ) . ' ';
 
 		$sortOrderSelect =
 			new XmlSelect( 'lqt_order', 'lqt_sort_select', $this->getSortType() );
