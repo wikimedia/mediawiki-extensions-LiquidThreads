@@ -4,7 +4,6 @@ use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Article;
 use MediaWiki\SpecialPage\SpecialPage;
-use MediaWiki\Xml\Xml;
 use MediaWiki\Xml\XmlSelect;
 
 class TalkpageView extends LqtView {
@@ -93,12 +92,12 @@ class TalkpageView extends LqtView {
 
 			$actions = '';
 			foreach ( $actionLinks as $link ) {
-				$actions .= Xml::tags( 'li', null, "[$link]" ) . "\n";
+				$actions .= Html::rawElement( 'li', [], "[$link]" ) . "\n";
 			}
-			$actions = Xml::tags( 'ul', [ 'class' => 'lqt_header_commands' ], $actions );
+			$actions = Html::rawElement( 'ul', [ 'class' => 'lqt_header_commands' ], $actions );
 			$html .= $actions;
 
-			$html = Xml::tags( 'div', [ 'class' => 'lqt_header_content' ], $html );
+			$html = Html::rawElement( 'div', [ 'class' => 'lqt_header_content' ], $html );
 
 			$this->output->addHTML( $html );
 		} elseif ( $quickCanEdit ) {
@@ -109,7 +108,7 @@ class TalkpageView extends LqtView {
 				[ 'action' => 'edit' ]
 			);
 
-			$html = Xml::tags( 'p', [ 'class' => 'lqt_header_notice' ], "[$editLink]" );
+			$html = Html::rawElement( 'p', [ 'class' => 'lqt_header_notice' ], "[$editLink]" );
 
 			$this->output->addHTML( $html );
 		}
@@ -124,17 +123,17 @@ class TalkpageView extends LqtView {
 
 		$html = '';
 
-		$h2_header = Xml::tags( 'h2', null, wfMessage( 'lqt_contents_title' )->parse() );
+		$h2_header = Html::rawElement( 'h2', [], wfMessage( 'lqt_contents_title' )->parse() );
 
 		// Header row
 		$headerRow = '';
 		$headers = [ 'lqt_toc_thread_title',
 				'lqt_toc_thread_replycount', 'lqt_toc_thread_modified' ];
 		foreach ( $headers as $msg ) {
-			$headerRow .= Xml::tags( 'th', null, wfMessage( $msg )->parse() );
+			$headerRow .= Html::rawElement( 'th', [], wfMessage( $msg )->parse() );
 		}
-		$headerRow = Xml::tags( 'tr', null, $headerRow );
-		$headerRow = Xml::tags( 'thead', null, $headerRow );
+		$headerRow = Html::rawElement( 'tr', [], $headerRow );
+		$headerRow = Html::rawElement( 'thead', [], $headerRow );
 
 		// Table body
 		$rows = [];
@@ -152,23 +151,23 @@ class TalkpageView extends LqtView {
 
 			$row = '';
 			$anchor = '#' . $this->anchorName( $thread );
-			$subject = Xml::tags( 'a', [ 'href' => $anchor ],
+			$subject = Html::rawElement( 'a', [ 'href' => $anchor ],
 					Threads::stripHTML( $langConv->convert( $thread->formattedSubject() ) ) );
-			$row .= Xml::tags( 'td', [ 'dir' => $contLang->getDir() ], $subject );
+			$row .= Html::rawElement( 'td', [ 'dir' => $contLang->getDir() ], $subject );
 
-			$row .= Xml::element( 'td', null, $wgLang->formatNum( $thread->replyCount() ) );
+			$row .= Html::element( 'td', [], $wgLang->formatNum( $thread->replyCount() ) );
 
 			$timestamp = $wgLang->timeanddate( $thread->modified(), true );
-			$row .= Xml::element( 'td', null, $timestamp );
+			$row .= Html::element( 'td', [], $timestamp );
 
-			$row = Xml::tags( 'tr', null, $row );
+			$row = Html::rawElement( 'tr', [], $row );
 			$rows[] = $row;
 		}
 
-		$html .= $headerRow . "\n" . Xml::tags( 'tbody', null, implode( "\n", $rows ) );
-		$html = $h2_header . Xml::tags( 'table', [ 'class' => 'lqt_toc' ], $html );
+		$html .= $headerRow . "\n" . Html::rawElement( 'tbody', [], implode( "\n", $rows ) );
+		$html = $h2_header . Html::rawElement( 'table', [ 'class' => 'lqt_toc' ], $html );
 		// wrap our output in a div for containment
-		$html = Xml::tags( 'div', [ 'class' => 'lqt-contents-wrapper' ], $html );
+		$html = Html::rawElement( 'div', [ 'class' => 'lqt-contents-wrapper' ], $html );
 
 		return $html;
 	}
@@ -176,16 +175,16 @@ class TalkpageView extends LqtView {
 	public function getList( $kind, $class, $id, $contents ) {
 		$html = '';
 		foreach ( $contents as $li ) {
-			$html .= Xml::tags( 'li', null, $li );
+			$html .= Html::rawElement( 'li', [], $li );
 		}
-		$html = Xml::tags( $kind, [ 'class' => $class, 'id' => $id ], $html );
+		$html = Html::rawElement( $kind, [ 'class' => $class, 'id' => $id ], $html );
 
 		return $html;
 	}
 
 	public function getArchiveWidget() {
 		$html = '';
-		$html = Xml::tags( 'div', [ 'class' => 'lqt_archive_teaser' ], $html );
+		$html = Html::rawElement( 'div', [ 'class' => 'lqt_archive_teaser' ], $html );
 		return $html;
 	}
 
@@ -219,7 +218,7 @@ class TalkpageView extends LqtView {
 		);
 		$html .= Html::hidden( 'title', $this->title->getPrefixedText() );
 
-		$html = Xml::tags(
+		$html = Html::rawElement(
 			'form',
 			[
 				'action' => $form_action_url,
@@ -228,7 +227,7 @@ class TalkpageView extends LqtView {
 			],
 			$html
 		);
-		$html = Xml::tags( 'div', [ 'class' => 'lqt_view_options' ], $html );
+		$html = Html::rawElement( 'div', [ 'class' => 'lqt_view_options' ], $html );
 
 		return $html;
 	}
@@ -264,7 +263,7 @@ class TalkpageView extends LqtView {
 		}
 
 		$this->output->addHTML(
-			Xml::openElement( 'div', [ 'class' => 'lqt-talkpage' ] )
+			Html::openElement( 'div', [ 'class' => 'lqt-talkpage' ] )
 		);
 
 		// Search!
@@ -316,7 +315,7 @@ class TalkpageView extends LqtView {
 				[ 'lqt_method' => 'talkpage_new_thread' ]
 			);
 
-			$newThreadLink = Xml::tags(
+			$newThreadLink = Html::rawElement(
 				'strong',
 				[ 'class' => 'lqt_start_discussion' ],
 				$newThreadLink
@@ -332,7 +331,7 @@ class TalkpageView extends LqtView {
 			$talkpageHeader .= $this->getSearchBox();
 		}
 		$talkpageHeader .= $this->showTalkpageViewOptions();
-		$talkpageHeader = Xml::tags(
+		$talkpageHeader = Html::rawElement(
 			'div',
 			[ 'class' => 'lqt-talkpage-header' ],
 			$talkpageHeader
@@ -347,7 +346,7 @@ class TalkpageView extends LqtView {
 		if ( $this->methodApplies( 'talkpage_new_thread' ) ) {
 			$this->showNewThreadForm( $this->talkpage );
 		} else {
-			$this->output->addHTML( Xml::tags( 'div',
+			$this->output->addHTML( Html::rawElement( 'div',
 				[ 'class' => 'lqt-new-thread lqt-edit-form' ], '' ) );
 		}
 
@@ -358,14 +357,14 @@ class TalkpageView extends LqtView {
 		if ( count( $threads ) > 0 && $this->shouldShow( 'toc' ) ) {
 			$html .= $this->getTOC( $threads );
 		} elseif ( count( $threads ) == 0 ) {
-			$html .= Xml::tags( 'div', [ 'class' => 'lqt-no-threads' ],
+			$html .= Html::rawElement( 'div', [ 'class' => 'lqt-no-threads' ],
 				wfMessage( 'lqt-no-threads' )->parse() );
 		}
 
 		$this->output->addModuleStyles( $pager->getModuleStyles() );
 
 		$html .= $pager->getNavigationBar();
-		$html .= Xml::openElement( 'div', [ 'class' => 'lqt-threads lqt-talkpage-threads' ] );
+		$html .= Html::openElement( 'div', [ 'class' => 'lqt-threads lqt-talkpage-threads' ] );
 
 		$this->output->addHTML( $html );
 
@@ -374,9 +373,9 @@ class TalkpageView extends LqtView {
 		}
 
 		$this->output->addHTML(
-			Xml::closeElement( 'div' ) .
+			Html::closeElement( 'div' ) .
 			$pager->getNavigationBar() .
-			Xml::closeElement( 'div' )
+			Html::closeElement( 'div' )
 		);
 
 		return false;
@@ -390,7 +389,7 @@ class TalkpageView extends LqtView {
 
 		$html .= ' ' . Html::submitButton( wfMessage( 'lqt-search-button' )->text() );
 		$html .= Html::hidden( 'title', $this->title->getPrefixedText() );
-		$html = Xml::tags(
+		$html = Html::rawElement(
 			'form',
 			[
 				'action' => $this->title->getLocalURL(),
@@ -399,7 +398,7 @@ class TalkpageView extends LqtView {
 			$html
 		);
 
-		$html = Xml::tags( 'div', [ 'class' => 'lqt-talkpage-search' ], $html );
+		$html = Html::rawElement( 'div', [ 'class' => 'lqt-talkpage-search' ], $html );
 
 		return $html;
 	}

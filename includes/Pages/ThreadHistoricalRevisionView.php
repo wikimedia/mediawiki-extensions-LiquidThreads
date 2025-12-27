@@ -1,6 +1,6 @@
 <?php
 
-use MediaWiki\Xml\Xml;
+use MediaWiki\Html\Html;
 
 class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	/** @var ThreadRevision|null */
@@ -56,7 +56,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$html .= '<br />';
 		$html .= $this->getChangeDescription();
 
-		$html = Xml::tags( 'div', [ 'class' => 'lqt_history_info' ], $html );
+		$html = Html::rawElement( 'div', [ 'class' => 'lqt_history_info' ], $html );
 
 		$this->output->addHTML( $html );
 	}

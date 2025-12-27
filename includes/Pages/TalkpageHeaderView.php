@@ -1,6 +1,6 @@
 <?php
 
-use MediaWiki\Xml\Xml;
+use MediaWiki\Html\Html;
 
 /**
  * Pass-through wrapper with an extra note at the top
@@ -30,9 +30,9 @@ class TalkpageHeaderView extends LqtView {
 		if ( $this->request->getVal( 'action' ) === 'edit' ) {
 			$html = '';
 
-			$warn_bold = Xml::tags(
+			$warn_bold = Html::rawElement(
 				'strong',
-				null,
+				[],
 				wfMessage( 'lqt_header_warning_bold' )->parse()
 			);
 
@@ -44,16 +44,16 @@ class TalkpageHeaderView extends LqtView {
 
 			$html .= wfMessage( 'lqt_header_warning_before_big' )
 				->rawParams( $warn_bold, $warn_link )->parse();
-			$html .= Xml::tags(
+			$html .= Html::rawElement(
 				'big',
-				null,
+				[],
 				wfMessage( 'lqt_header_warning_big' )->rawParams( $warn_bold, $warn_link )->parse()
 			);
 			$html .= wfMessage( 'word-separator' )->escaped();
 			$html .= wfMessage( 'lqt_header_warning_after_big' )
 				->rawParams( $warn_bold, $warn_link )->parse();
 
-			$html = Xml::tags( 'p', [ 'class' => 'lqt_header_warning' ], $html );
+			$html = Html::rawElement( 'p', [ 'class' => 'lqt_header_warning' ], $html );
 
 			$this->output->addHTML( $html );
 		}

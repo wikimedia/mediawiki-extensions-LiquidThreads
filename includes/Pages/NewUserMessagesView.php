@@ -3,7 +3,6 @@
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Xml\Xml;
 
 class NewUserMessagesView extends LqtView {
 	/** @var int[] */
@@ -24,7 +23,7 @@ class NewUserMessagesView extends LqtView {
 				'class' => 'lqt-read-button'
 			]
 		);
-		$html = Xml::tags( 'form', [ 'method' => 'post', 'class' => $class ], $html );
+		$html = Html::rawElement( 'form', [ 'method' => 'post', 'class' => $class ], $html );
 
 		return $html;
 	}
@@ -62,7 +61,7 @@ class NewUserMessagesView extends LqtView {
 			]
 		);
 
-		$html = Xml::tags(
+		$html = Html::rawElement(
 			'form',
 			[ 'method' => 'post', 'class' => 'lqt_undo_mark_as_read' ],
 			$html
@@ -186,10 +185,10 @@ class NewUserMessagesView extends LqtView {
 		$talkpageInfo = wfMessage( 'lqt-newmessages-from' )
 			->rawParams( $talkpageLink )->parseAsBlock();
 
-		$leftColumn = Xml::tags( 'p', null, $read_button ) .
-						Xml::tags( 'p', null, $contextLink ) .
+		$leftColumn = Html::rawElement( 'p', [], $read_button ) .
+						Html::rawElement( 'p', [], $contextLink ) .
 						$talkpageInfo;
-		$leftColumn = Xml::tags( 'td', [ 'class' => 'lqt-newmessages-left' ],
+		$leftColumn = Html::rawElement( 'td', [ 'class' => 'lqt-newmessages-left' ],
 									$leftColumn );
 		$html = "<tr>$leftColumn<td class='lqt-newmessages-right'>";
 		$this->output->addHTML( $html );
