@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Jopparn",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Stefan2255"
 		]
 	},
 	"apihelp-feedthreads-summary": "Returnera ett flöde av diskussionstrådar.",
@@ -21,7 +22,12 @@
 	"apihelp-query+threads-param-limit": "Maximala antalet trådar att lista.",
 	"apihelp-query+threads-param-prop": "Vilka egenskaper att hämta.",
 	"apihelp-query+threads-param-page": "Begränsa resultaten till trådar på dessa sidor.",
+	"apihelp-query+threads-param-author": "Begränsa resultaten till trådar av specifika författare.",
+	"apihelp-query+threads-param-root": "Begränsa resultaten till trådar med de angivna rötterna.",
+	"apihelp-query+threads-param-summary": "Begränsa resultaten till trådar som motsvarar de angivna sammanfattningssidorna.",
 	"apihelp-query+threads-param-id": "Hämta trådar med angivna ID:n.",
+	"apihelp-query+threads-param-render": "Om den renderade tråden ska inkluderas i resultaten.",
+	"apihelp-query+threads-param-renderlevel": "Vid rendering, nivån att börja på (för djupbegränsningar etc.).",
 	"apihelp-query+threads-example-1": "Lista trådar på [[Talk:Main Page]]",
 	"apihelp-query+threads-example-2": "Lista trådar med ID:n 1, 2, 3 och 4",
 	"apihelp-threadaction-param-threadaction": "Åtgärden att vidta.",
