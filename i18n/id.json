@@ -118,7 +118,7 @@
 	"lqt-read-all-tooltip": "Singkirkan semua topik dari pesan-pesan baru.\nIni masih dapat dilihat pada halaman pembicaraan aslinya.\nHal ini tidak dapat dibatalkan.",
 	"lqt-marked-read": "Topik '''$1''' ditandai sudah dibaca.",
 	"lqt-count-marked-read": "$1 {{PLURAL:$1|pesan|pesan}} ditandai sudah dibaca.",
-	"lqt-email-undo": "Balikkan",
+	"lqt-email-undo": "Batalkan",
 	"lqt-no-new-messages": "Tidak ada pesan baru untuk Anda.",
 	"lqt-new-messages": "Ada pesan baru untuk Anda.",
 	"lqt-email-info-undo": "Kembalikan topik yang baru Anda singkirkan.",
