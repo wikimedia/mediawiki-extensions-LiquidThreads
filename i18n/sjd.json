@@ -13,7 +13,9 @@
 	"lqt-no-new-messages": "Евла о̄дт соа̄г то̄н гуэйкэ.",
 	"lqt-history-action": "Лыһкмуж",
 	"lqt-header-actions": "Лыһкмуж",
-	"prefs-lqt": "Рыссе са̄ррнмуж",
+	"prefs-lqt": "Рыссе-налшэм са̄ррнмуж",
+	"lqt-preference-display-depth": "Шурьмусс вуэстлэгэ чӣӈӈалвудт вуэзхэллэм гуэйкэ:",
+	"lqt-preference-display-count": "Шурьмусс вуэсстлэгэ числа вуэзхэллэм гуэйкэ:",
 	"searchprofile-threads": "Са̄ррнмуж",
 	"lqt-newmessages-n": "О̄дт {{PLURAL:$1|соа̄гк|соа̄г}} ($1)",
 	"lqt_newmessages-title": "О̄дт соа̄г"
