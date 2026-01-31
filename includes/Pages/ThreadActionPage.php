@@ -24,7 +24,6 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 
 	public function __construct() {
 		parent::__construct( $this->getPageName(), $this->getRightRequirement() );
-		$this->mIncludable = false;
 
 		$this->output = $this->getOutput();
 		$this->user = $this->getUser();

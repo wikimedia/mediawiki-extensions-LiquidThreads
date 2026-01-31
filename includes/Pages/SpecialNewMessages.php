@@ -3,12 +3,11 @@
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
-use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\SpecialPage\IncludableSpecialPage;
 
-class SpecialNewMessages extends SpecialPage {
+class SpecialNewMessages extends IncludableSpecialPage {
 	public function __construct() {
 		parent::__construct( 'NewMessages' );
-		$this->mIncludable = true;
 	}
 
 	public function doesWrites() {
