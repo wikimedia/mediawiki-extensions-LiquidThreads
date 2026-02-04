@@ -5,7 +5,8 @@
 			"No Sleep till Krupki",
 			"ZlyiLev",
 			"Дзяніс Тутэйшы",
-			"Тест"
+			"Тест",
+			"Ucukor"
 		]
 	},
 	"lqt_new_thread": "Пачаць новую размову",
@@ -27,6 +28,7 @@
 	"lqt-preference-display-count": "Максімальная колькасць адказаў для адлюстравання:",
 	"searchprofile-threads": "Абмеркаванні",
 	"searchprofile-threads-tooltip": "Шукаць у галіновых абмеркаваннях і на старонках размоў",
+	"lqt-cancel-subject-edit": "Скасаваць",
 	"lqt-drag-save": "Пацвердзіць",
 	"lqt-drag-reason": "Прычына:",
 	"tooltip-pt-newmessages": "Паказвае новыя паведамленні ў галінах і абмеркаваннях, якія Вы адсочваеце",
