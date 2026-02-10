@@ -38,7 +38,8 @@ class ThreadPermalinkView extends LqtView {
 		$nstabs =& $links['namespaces'];
 
 		unset( $nstabs[$talkKey] );
-		$nstabs = $new_nstabs + $nstabs;
+		// (T416981) The 'namespaces' menu is legacy, and might not exist
+		$nstabs = $new_nstabs + ( $nstabs ?? [] );
 
 		// Remove some views.
 		$views =& $links['views'];
