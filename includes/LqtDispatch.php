@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Language\Language;
 use MediaWiki\MediaWikiServices;
@@ -226,7 +228,7 @@ class LqtDispatch {
 	 * @param WebRequest $request
 	 * @return bool
 	 */
-	public static function tryPage( $output, $article, $title, $user, $request ) {
+	public static function onMediaWikiPerformAction( $output, $article, $title, $user, $request ) {
 		if ( self::isLqtPage( $title ) ) {
 			// LiquidThreads pages, Talk:X etc
 			return self::talkpageMain( $output, $article, $title, $user, $request );
@@ -245,7 +247,7 @@ class LqtDispatch {
 	 * @param array &$links
 	 * @return true
 	 */
-	public static function onSkinTemplateNavigation( $skinTemplate, &$links ) {
+	public static function onSkinTemplateNavigation__Universal( $skinTemplate, &$links ) {
 		if ( !self::$primaryView ) {
 			return true;
 		}

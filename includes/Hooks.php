@@ -76,7 +76,7 @@ class Hooks {
 	 * @param array &$classes
 	 * @return bool
 	 */
-	public static function customizeOldChangesList( ChangesList $changeslist, &$s, $rc, &$classes ) {
+	public static function onOldChangesListRecentChangesLine( ChangesList $changeslist, &$s, $rc, &$classes ) {
 		$rcTitle = $rc->getTitle();
 		if ( $rcTitle->getNamespace() != NS_LQT_THREAD ) {
 			return true;
@@ -128,7 +128,7 @@ class Hooks {
 	 * @param OutputPage $out
 	 * @return bool
 	 */
-	public static function setNewtalkHTML( &$newMessagesAlert, $newtalks, $user, $out ) {
+	public static function onGetNewMessagesAlert( &$newMessagesAlert, $newtalks, $user, $out ) {
 		$usertalk_t = $user->getTalkPage();
 
 		// If the user isn't using LQT on their talk page, bail out
@@ -153,7 +153,7 @@ class Hooks {
 		return false;
 	}
 
-	public static function beforeWatchlist(
+	public static function onChangesListSpecialPageQuery(
 		$name, &$tables, &$fields, &$conds, &$query_options, &$join_conds, $opts
 	) {
 		global $wgLiquidThreadsEnableNewMessages;
@@ -202,7 +202,7 @@ class Hooks {
 		return true;
 	}
 
-	public static function getPreferences( $user, &$preferences ) {
+	public static function onGetPreferences( $user, &$preferences ) {
 		global $wgEnableEmail, $wgLqtTalkPages, $wgLiquidThreadsEnableNewMessages, $wgHiddenPrefs;
 
 		if ( $wgEnableEmail ) {
@@ -251,14 +251,14 @@ class Hooks {
 	 *
 	 * @return bool
 	 */
-	public static function updateNewtalkOnEdit( WikiPage $wikiPage ) {
+	public static function onArticleEditUpdateNewTalk( WikiPage $wikiPage ) {
 		$title = $wikiPage->getTitle();
 
 		// They're only editing the header, don't update newtalk.
 		return !LqtDispatch::isLqtPage( $title );
 	}
 
-	public static function dumpThreadData( $writer, &$out, $row, $title ) {
+	public static function onXmlDumpWriterOpenPage( $writer, &$out, $row, $title ) {
 		// Is it a thread
 		if ( empty( $row->thread_id ) || $row->thread_type >= 2 ) {
 			return true;
@@ -300,7 +300,7 @@ class Hooks {
 		return true;
 	}
 
-	public static function modifyExportQuery( $db, &$tables, &$cond, &$opts, &$join ) {
+	public static function onModifyExportQuery( $db, &$tables, &$cond, &$opts, &$join ) {
 		$tables[] = 'thread';
 
 		$join['thread'] = [ 'left join', [ 'thread_root=page_id' ] ];
@@ -308,7 +308,7 @@ class Hooks {
 		return true;
 	}
 
-	public static function customiseSearchResultTitle( &$title, &$text, $result, $terms, $page ) {
+	public static function onShowSearchHitTitle( &$title, &$text, $result, $terms, $page ) {
 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
 			return true;
 		}
@@ -331,7 +331,7 @@ class Hooks {
 	 * @param RenameuserSQL $renameUserSQL
 	 * @return bool
 	 */
-	public static function onUserRename( $renameUserSQL ) {
+	public static function onRenameUserSQL( $renameUserSQL ) {
 		// Always use the job queue, talk page edits will take forever
 		foreach ( self::$userTables as $table => $fields ) {
 			$renameUserSQL->tablesJob[$table] = $fields;
@@ -366,7 +366,7 @@ class Hooks {
 	 * @param array &$checkboxes
 	 * @return bool
 	 */
-	public static function editCheckboxes( $editPage, &$checkboxes ) {
+	public static function onEditPageGetCheckboxesDefinition( $editPage, &$checkboxes ) {
 		global $wgLiquidThreadsShowBumpCheckbox;
 
 		$article = $editPage->getArticle();
@@ -396,7 +396,7 @@ class Hooks {
 		return true;
 	}
 
-	public static function customiseSearchProfiles( &$profiles ) {
+	public static function onSpecialSearchProfiles( &$profiles ) {
 		$namespaces = [ NS_LQT_THREAD, NS_LQT_SUMMARY ];
 
 		// Add odd namespaces
@@ -582,7 +582,7 @@ class Hooks {
 	 * @param bool &$allowUserTalk
 	 * @return bool
 	 */
-	public static function userIsBlockedFrom( $user, $title, &$isBlocked, &$allowUserTalk ) {
+	public static function onUserIsBlockedFrom( $user, $title, &$isBlocked, &$allowUserTalk ) {
 		// Limit applicability
 		if ( !( $isBlocked && $allowUserTalk && $title->getNamespace() == NS_LQT_THREAD ) ) {
 			return true;
@@ -638,7 +638,7 @@ class Hooks {
 		return true;
 	}
 
-	public static function onSkinTemplateNavigation( $skinTemplate, &$links ) {
+	public static function onSkinTemplateNavigation__Universal( $skinTemplate, &$links ) {
 		$user = $skinTemplate->getUser();
 
 		if ( $user->isAnon() ) {
@@ -725,7 +725,7 @@ class Hooks {
 	 * @param array &$types
 	 * @return bool
 	 */
-	public static function getProtectionTypes( $title, &$types ) {
+	public static function onTitleGetRestrictionTypes( $title, &$types ) {
 		$isLqtPage = LqtDispatch::isLqtPage( $title );
 		$isThread = $title->getNamespace() == NS_LQT_THREAD;
 
@@ -751,7 +751,7 @@ class Hooks {
 	 * @param array &$pageInfo
 	 * @return bool
 	 */
-	public static function handlePageXMLTag( $importer, &$pageInfo ) {
+	public static function onImportHandlePageXMLTag( $importer, &$pageInfo ) {
 		$reader = $importer->getReader();
 		if ( !( $reader->nodeType == XMLReader::ELEMENT &&
 				$reader->name == 'DiscussionThreading' ) ) {
@@ -792,7 +792,7 @@ class Hooks {
 	}
 
 	/**
-	 * Processes discussion threading data in XML dumps (extracted in handlePageXMLTag).
+	 * Processes discussion threading data in XML dumps (extracted in {@link onImportHandlePageXMLTag}).
 	 *
 	 * @param Title $title
 	 * @param Title $origTitle
@@ -801,7 +801,7 @@ class Hooks {
 	 * @param array $pageInfo
 	 * @return bool
 	 */
-	public static function afterImportPage( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
+	public static function onAfterImportPage( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
 		// in-process cache of pending thread relationships
 		static $pendingRelationships = null;
 		$pendingRelationships ??= self::loadPendingRelationships();

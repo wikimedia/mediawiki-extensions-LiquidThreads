@@ -180,7 +180,7 @@ class LqtParserFunctions {
 		return $html;
 	}
 
-	public static function onAddParserOutput( OutputPage $out, ParserOutput $pout ) {
+	public static function onOutputPageParserOutput( OutputPage $out, ParserOutput $pout ) {
 		if ( !$pout->getExtensionData( self::LQT_REPLACEMENTS_DATA_KEY ) ) {
 			return true;
 		}
@@ -210,7 +210,7 @@ class LqtParserFunctions {
 		return true;
 	}
 
-	public static function onAddHTML( OutputPage $out, &$text ) {
+	public static function onOutputPageBeforeHTML( OutputPage $out, &$text ) {
 		if ( !isset( $out->mLqtReplacements ) || !count( $out->mLqtReplacements ) ) {
 			return true;
 		}
