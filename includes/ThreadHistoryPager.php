@@ -166,6 +166,6 @@ class ThreadHistoryPager extends TablePager {
 	}
 
 	public function getDefaultDirections() {
-		return true; /* descending */
+		return self::DIR_DESCENDING;
 	}
 }

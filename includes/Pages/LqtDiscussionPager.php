@@ -102,15 +102,12 @@ class LqtDiscussionPager extends IndexPager {
 	}
 
 	public function getDefaultDirections() {
-		switch ( $this->orderType ) {
-			case TalkpageView::LQT_NEWEST_CHANGES:
-			case TalkpageView::LQT_NEWEST_THREADS:
-				return true; // Descending
-			case TalkpageView::LQT_OLDEST_THREADS:
-				return false; // Ascending
-			default:
-				throw new LogicException( "Unknown sort order " . $this->orderType );
-		}
+		return match ( $this->orderType ) {
+			TalkpageView::LQT_NEWEST_CHANGES,
+			TalkpageView::LQT_NEWEST_THREADS => self::DIR_DESCENDING,
+			TalkpageView::LQT_OLDEST_THREADS => self::DIR_ASCENDING,
+			default => throw new LogicException( 'Unknown sort order ' . $this->orderType )
+		};
 	}
 
 	/**

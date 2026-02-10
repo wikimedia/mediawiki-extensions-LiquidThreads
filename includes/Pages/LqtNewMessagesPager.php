@@ -79,7 +79,7 @@ class LqtNewMessagesPager extends LqtDiscussionPager {
 	}
 
 	public function getDefaultDirections() {
-		return true; // Descending
+		return self::DIR_DESCENDING;
 	}
 
 	public function getIndexField() {
