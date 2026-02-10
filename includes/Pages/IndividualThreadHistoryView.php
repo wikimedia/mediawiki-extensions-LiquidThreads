@@ -6,6 +6,7 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 	/** @var int|null */
 	protected $oldid;
 
+	/** @inheritDoc */
 	public function customizeNavigation( $skin, &$links ) {
 		$links['views']['history']['class'] = 'selected';
 		parent::customizeNavigation( $skin, $links );
@@ -36,6 +37,7 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 		return $this->output->getSubtitle();
 	}
 
+	/** @inheritDoc */
 	public function show() {
 		if ( !$this->thread ) {
 			$this->showMissingThreadPage();

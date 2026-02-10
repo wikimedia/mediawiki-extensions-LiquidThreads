@@ -63,6 +63,13 @@ class LqtView {
 	/** @var int */
 	public $threadNestingLevel = 0;
 
+	/**
+	 * @param OutputPage $output
+	 * @param Article|null $article
+	 * @param Title|null $title
+	 * @param User $user
+	 * @param WebRequest $request
+	 */
 	public function __construct( $output, $article, $title, $user, $request ) {
 		$this->article = $article;
 		$this->output = $output;
@@ -96,6 +103,14 @@ class LqtView {
 		return $this->request->getVal( 'lqt_method' ) == $method;
 	}
 
+	/**
+	 * @param Thread $thread
+	 * @param string|null $method
+	 * @param int|null $operand
+	 * @param array $uquery
+	 * @param bool $relative
+	 * @return string
+	 */
 	public static function permalinkUrl(
 		Thread $thread,
 		$method = null,
@@ -120,8 +135,8 @@ class LqtView {
 	 * Gets an array of (title, query-parameters) for a permalink
 	 * @param Thread $thread
 	 * @param string|null $method
-	 * @param string|null $operand
-	 * @return array
+	 * @param int|null $operand
+	 * @return array{0: Title, 1: array}
 	 */
 	public static function permalinkData( Thread $thread, $method = null, $operand = null ) {
 		$query = [];
@@ -155,6 +170,16 @@ class LqtView {
 		return self::permalinkUrl( $thread, null, null, $query, $relative );
 	}
 
+	/**
+	 * @param Thread $thread
+	 * @param string|null $text
+	 * @param string|null $method
+	 * @param int|null $operand
+	 * @param null $linker Unused
+	 * @param array $attribs
+	 * @param array $uquery
+	 * @return string
+	 */
 	public static function permalink( Thread $thread, $text = null, $method = null, $operand = null,
 					$linker = null, $attribs = [], $uquery = [] ) {
 		[ $title, $query ] = self::permalinkData( $thread, $method, $operand );
@@ -173,7 +198,7 @@ class LqtView {
 	 * @param Thread $thread
 	 * @param string $contextType
 	 * @throws Exception
-	 * @return array
+	 * @return array{0: Title, 1: array}
 	 */
 	public static function linkInContextData( Thread $thread, $contextType = 'page' ) {
 		$query = [];
@@ -214,12 +239,22 @@ class LqtView {
 		);
 	}
 
+	/**
+	 * @param Thread $thread
+	 * @param string $contextType
+	 * @return string
+	 */
 	public static function linkInContextFullURL( Thread $thread, $contextType = 'page' ) {
 		[ $title, $query ] = self::linkInContextData( $thread, $contextType );
 
 		return $title->getFullURL( $query );
 	}
 
+	/**
+	 * @param Thread $thread
+	 * @param string $contextType
+	 * @return string
+	 */
 	public static function linkInContextCanonicalURL( Thread $thread, $contextType = 'page' ) {
 		[ $title, $query ] = self::linkInContextData( $thread, $contextType );
 
@@ -253,6 +288,9 @@ class LqtView {
 		return $query;
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public static function diffPermalinkURL( Thread $thread, ThreadRevision $revision ) {
 		$services = MediaWikiServices::getInstance();
 
@@ -260,6 +298,12 @@ class LqtView {
 		return $services->getUrlUtils()->expand( self::permalinkUrl( $thread, null, null, $query ), PROTO_RELATIVE );
 	}
 
+	/**
+	 * @param Thread $thread
+	 * @param string|null $text
+	 * @param ThreadRevision $revision
+	 * @return string
+	 */
 	public static function diffPermalink( Thread $thread, $text, ThreadRevision $revision ) {
 		$query = self::diffQuery( $thread, $revision );
 		return self::permalink( $thread, $text, null, null, null, [], $query );
@@ -1660,6 +1704,9 @@ class LqtView {
 		return '';
 	}
 
+	/**
+	 * @return string
+	 */
 	public function postDivClass( Thread $thread ) {
 		$levelClass = 'lqt-thread-nest-' . $this->threadNestingLevel;
 		$alternatingType = ( $this->threadNestingLevel % 2 ) ? 'odd' : 'even';
@@ -2365,10 +2412,17 @@ class LqtView {
 		return $sig;
 	}
 
+	/**
+	 * @param SkinTemplate $skin
+	 * @param array &$links
+	 */
 	public function customizeNavigation( $skin, &$links ) {
 		// No-op
 	}
 
+	/**
+	 * @return bool
+	 */
 	public function show() {
 		return true; // No-op
 	}

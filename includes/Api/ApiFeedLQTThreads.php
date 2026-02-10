@@ -29,6 +29,7 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Title\Title;
+use stdClass;
 use Thread;
 use Threads;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -97,6 +98,10 @@ class ApiFeedLQTThreads extends ApiBase {
 		ApiFormatFeedWrapper::setResult( $this->getResult(), $feed, $feedItems );
 	}
 
+	/**
+	 * @param stdClass $row
+	 * @return FeedItem
+	 */
 	private function createFeedItem( $row ) {
 		$thread = Thread::newFromRow( $row );
 

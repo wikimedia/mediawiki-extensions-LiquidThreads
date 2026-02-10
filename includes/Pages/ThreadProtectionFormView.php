@@ -8,6 +8,7 @@ class ThreadProtectionFormView extends LqtView {
 	/** @var Thread */
 	public $thread;
 
+	/** @inheritDoc */
 	public function customizeNavigation( $skintemplate, &$links ) {
 		ThreadPermalinkView::customizeThreadNavigation( $skintemplate, $links, $this );
 
@@ -20,6 +21,7 @@ class ThreadProtectionFormView extends LqtView {
 		}
 	}
 
+	/** @inheritDoc */
 	public function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		parent::__construct( $output, $article, $title, $user, $request );
 

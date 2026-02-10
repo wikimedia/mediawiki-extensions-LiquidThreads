@@ -39,9 +39,9 @@ class Threads {
 	public const EDITED_BY_AUTHOR = 2;
 	public const EDITED_BY_OTHERS = 3;
 
-	/** @var Thread[] */
+	/** @var array<int,Thread> */
 	public static $cache_by_root = [];
-	/** @var Thread[] */
+	/** @var array<int,Thread> */
 	public static $cache_by_id = [];
 	/** @var string[] */
 	public static $occupied_titles = [];
@@ -125,6 +125,12 @@ class Threads {
 		throw new RuntimeException( "Corrupt LiquidThreads database: $msg" );
 	}
 
+	/**
+	 * @param Thread[] $threads
+	 * @param string $attribute
+	 * @param int $value
+	 * @return Thread|null
+	 */
 	private static function assertSingularity( array $threads, $attribute, $value ) {
 		if ( count( $threads ) == 0 ) {
 			return null;

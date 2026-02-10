@@ -3,6 +3,8 @@
 use MediaWiki\Parser\ParserOptions;
 
 class ThreadHistoryListingView extends ThreadPermalinkView {
+
+	/** @inheritDoc */
 	public function show() {
 		if ( !$this->thread ) {
 			$this->showMissingThreadPage();
@@ -30,6 +32,7 @@ class ThreadHistoryListingView extends ThreadPermalinkView {
 		return false;
 	}
 
+	/** @inheritDoc */
 	public function customizeNavigation( $skin, &$links ) {
 		parent::customizeNavigation( $skin, $links );
 		// Not present if thread does not exist

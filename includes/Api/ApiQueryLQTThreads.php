@@ -185,6 +185,14 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$result->addIndexedTagName( [ 'query', $this->getModuleName() ], 'thread' );
 	}
 
+	/**
+	 * @param string $tableName
+	 * @param string|string[] $fields
+	 * @param string $joinField
+	 * @param string $subitemName
+	 * @param callable(stdClass): mixed $handleRow
+	 * @param string $tagName
+	 */
 	private function addSubItems(
 		$tableName, $fields, $joinField, $subitemName, callable $handleRow, $tagName
 	) {
@@ -274,6 +282,12 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		$entry['content'] = $result;
 	}
 
+	/**
+	 * @param string $name
+	 * @param array<string,string>|string|null $fields A value from {@link $propRelations}
+	 * @param stdClass $row
+	 * @param array &$entry
+	 */
 	private static function formatProperty( $name, $fields, $row, &$entry ) {
 		if ( $fields === null ) {
 			$entry[$name] = [];
@@ -294,6 +308,10 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 	}
 
+	/**
+	 * @param string $prop
+	 * @param string[] $value
+	 */
 	private function addPageCond( $prop, $value ) {
 		if ( count( $value ) === 1 ) {
 			$cond = $this->getPageCond( $prop, $value[0] );
@@ -309,6 +327,11 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 	}
 
+	/**
+	 * @param string $prop
+	 * @param string $value
+	 * @return array
+	 */
 	private function getPageCond( $prop, $value ) {
 		$fieldMappings = [
 			'page' => [
@@ -340,6 +363,10 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		return $cond;
 	}
 
+	/**
+	 * @param string $prop
+	 * @param mixed $value
+	 */
 	private function handleCondition( $prop, $value ) {
 		$titleParams = [ 'page', 'root', 'summary' ];
 		$fields = self::$propRelations[$prop] ?? null;
@@ -355,6 +382,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getCacheMode( $params ) {
 		if ( $params['render'] ) {
 			// Rendering uses the context user
@@ -364,6 +392,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'startid' => [
@@ -431,10 +460,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		];
 	}
 
-	/**
-	 * @see ApiBase::getExamplesMessages()
-	 * @return array
-	 */
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
 			'action=query&list=threads&thpage=Talk:Main_Page'

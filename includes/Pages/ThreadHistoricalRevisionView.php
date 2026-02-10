@@ -6,6 +6,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	/** @var ThreadRevision|null */
 	public $mDisplayRevision = null;
 
+	/** @inheritDoc */
 	public function postDivClass( Thread $thread ) {
 		$changedObject = $this->mDisplayRevision->getChangeObject();
 		$is_changed_thread = $changedObject && ( $changedObject->id() == $thread->id() );
@@ -61,6 +62,9 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$this->output->addHTML( $html );
 	}
 
+	/**
+	 * @return string
+	 */
 	private function getChangeDescription() {
 		$args = [];
 
@@ -103,6 +107,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		return $html;
 	}
 
+	/** @inheritDoc */
 	public function show() {
 		if ( !$this->thread ) {
 			$this->showMissingThreadPage();

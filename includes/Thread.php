@@ -87,7 +87,7 @@ class Thread {
 
 	/** @var self|null */
 	public $dbVersion; // A copy of the thread as it exists in the database.
-	/** @var ThreadRevision */
+	/** @var ThreadRevision|null */
 	public $threadRevision;
 
 	/** @var Title[] */
@@ -352,6 +352,10 @@ class Thread {
 		}
 	}
 
+	/**
+	 * @param int $change_type
+	 * @param User $user
+	 */
 	private function updateEditedness( $change_type, User $user ) {
 		if ( $change_type == Threads::CHANGE_REPLY_CREATED
 				&& $this->editedness == Threads::EDITED_NEVER ) {
@@ -1177,6 +1181,9 @@ class Thread {
 		$this->decrementReplyCount( 1 + $threadObj->replyCount() );
 	}
 
+	/**
+	 * @param Thread[] $replies
+	 */
 	private function checkReplies( $replies ) {
 		// Fixes a bug where some history pages were not working, before
 		// superthread was properly instance-cached.
@@ -1630,6 +1637,7 @@ class Thread {
 	 */
 	public function rootRevision() {
 		if ( !$this->isHistorical() ||
+			// @phan-suppress-next-line MediaWikiNoIssetIfDefined
 			!isset( $this->topmostThread()->threadRevision ) ||
 			!$this->root()
 		) {

@@ -6,6 +6,8 @@ use MediaWiki\Html\Html;
  * Pass-through wrapper with an extra note at the top
  */
 class TalkpageHeaderView extends LqtView {
+
+	/** @inheritDoc */
 	public function customizeNavigation( $skin, &$links ) {
 		$remove = [
 			'actions/edit',
@@ -26,6 +28,7 @@ class TalkpageHeaderView extends LqtView {
 		];
 	}
 
+	/** @inheritDoc */
 	public function show() {
 		if ( $this->request->getVal( 'action' ) === 'edit' ) {
 			$html = '';

@@ -23,6 +23,7 @@ class TalkpageView extends LqtView {
 	 */
 	protected $linkRenderer;
 
+	/** @inheritDoc */
 	public function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		parent::__construct( $output, $article, $title, $user, $request );
 
@@ -30,6 +31,9 @@ class TalkpageView extends LqtView {
 		$this->linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 	}
 
+	/**
+	 * @param Article $tp
+	 */
 	public function setTalkPage( $tp ) {
 		$this->talkpage = $tp;
 	}
@@ -49,6 +53,7 @@ class TalkpageView extends LqtView {
 		}
 	}
 
+	/** @inheritDoc */
 	public function customizeNavigation( $skintemplate, &$links ) {
 		self::customizeTalkpageNavigation( $skintemplate, $links, $this );
 	}
@@ -234,9 +239,7 @@ class TalkpageView extends LqtView {
 		return $html;
 	}
 
-	/**
-	 * @return bool
-	 */
+	/** @inheritDoc */
 	public function show() {
 		$this->output->addModules( 'ext.liquidThreads' );
 
@@ -382,6 +385,9 @@ class TalkpageView extends LqtView {
 		return false;
 	}
 
+	/**
+	 * @return string
+	 */
 	private function getSearchBox() {
 		$html = '';
 
@@ -404,17 +410,27 @@ class TalkpageView extends LqtView {
 		return $html;
 	}
 
+	/**
+	 * @return LqtDiscussionPager
+	 */
 	private function getPager() {
 		$sortType = $this->getSortType();
 		return new LqtDiscussionPager( $this->talkpage, $sortType );
 	}
 
+	/**
+	 * @param LqtDiscussionPager $pager
+	 * @return Thread[]
+	 */
 	private function getPageThreads( $pager ) {
 		$rows = $pager->getRows();
 
 		return Thread::bulkLoad( $rows );
 	}
 
+	/**
+	 * @return string
+	 */
 	private function getSortType() {
 		// Determine sort order
 		if ( $this->request->getCheck( 'lqt_order' ) ) {

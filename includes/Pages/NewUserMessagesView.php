@@ -11,6 +11,13 @@ class NewUserMessagesView extends LqtView {
 	/** @var array[] */
 	protected $messagesInfo;
 
+	/**
+	 * @param string $label
+	 * @param string $title
+	 * @param string $class
+	 * @param array<int|string> $ids
+	 * @return string
+	 */
 	private function htmlForReadButton( $label, $title, $class, $ids ) {
 		$ids_s = implode( ',', $ids );
 		$html = '';
@@ -71,6 +78,7 @@ class NewUserMessagesView extends LqtView {
 		return $html;
 	}
 
+	/** @inheritDoc */
 	public function postDivClass( Thread $thread ) {
 		$origClass = parent::postDivClass( $thread );
 
@@ -120,9 +128,7 @@ class NewUserMessagesView extends LqtView {
 		}
 	}
 
-	/**
-	 * @return bool
-	 */
+	/** @inheritDoc */
 	public function show() {
 		$pager = new LqtNewMessagesPager( $this->user );
 		$this->messagesInfo = $pager->getThreads();

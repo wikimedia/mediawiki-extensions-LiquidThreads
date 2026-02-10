@@ -3,6 +3,8 @@
 use MediaWiki\Parser\ParserOptions;
 
 class TalkpageHistoryView extends TalkpageView {
+
+	/** @inheritDoc */
 	public function show() {
 		$talkpageTitle = $this->article->getTitle();
 		$talkpageLink = $this->linkRenderer->makeLink( $talkpageTitle );
@@ -21,6 +23,7 @@ class TalkpageHistoryView extends TalkpageView {
 		return false;
 	}
 
+	/** @inheritDoc */
 	public function customizeNavigation( $skin, &$links ) {
 		TalkpageView::customizeTalkpageNavigation( $skin, $links, $this );
 		$links['views']['history']['class'] = 'selected';

@@ -3,6 +3,8 @@
 use MediaWiki\MediaWikiServices;
 
 class SummaryPageView extends LqtView {
+
+	/** @inheritDoc */
 	public function show() {
 		$thread = Threads::withSummary( $this->article->getPage() );
 		if ( $thread && $thread->root() ) {

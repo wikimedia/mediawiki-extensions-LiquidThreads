@@ -120,6 +120,11 @@ class LqtParserFunctions {
 		return $text;
 	}
 
+	/**
+	 * @param array $details
+	 * @param OutputPage $out
+	 * @return string
+	 */
 	private static function runLqtTalkPage( $details, OutputPage $out ) {
 		$title = $details["title"];
 		$article = $details["article"];
@@ -150,6 +155,11 @@ class LqtParserFunctions {
 		return $html;
 	}
 
+	/**
+	 * @param array $details
+	 * @param OutputPage $out
+	 * @return string
+	 */
 	private static function showLqtThread( $details, OutputPage $out ) {
 		$title = $details["title"];
 		$article = $details["article"];

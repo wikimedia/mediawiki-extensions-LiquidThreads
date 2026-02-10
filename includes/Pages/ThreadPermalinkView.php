@@ -10,6 +10,7 @@ class ThreadPermalinkView extends LqtView {
 	/** @var Thread */
 	protected $thread;
 
+	/** @inheritDoc */
 	public function customizeNavigation( $skin, &$links ) {
 		self::customizeThreadNavigation( $skin, $links, $this );
 	}
@@ -155,6 +156,7 @@ class ThreadPermalinkView extends LqtView {
 		return $message;
 	}
 
+	/** @inheritDoc */
 	public function __construct( &$output, &$article, &$title, &$user, &$request ) {
 		parent::__construct( $output, $article, $title, $user, $request );
 
@@ -170,6 +172,7 @@ class ThreadPermalinkView extends LqtView {
 		$this->article = $t->article(); # for creating reply threads.
 	}
 
+	/** @inheritDoc */
 	public function show() {
 		if ( !$this->thread ) {
 			$this->showMissingThreadPage();
