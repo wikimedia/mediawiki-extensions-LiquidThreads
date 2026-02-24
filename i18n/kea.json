@@ -1,14 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
+			"GrogeXaKaba",
+			"Letra.berdi",
 			"Waldyrious"
 		]
 	},
 	"lqt_discussion_link": "diskuson",
-	"lqt_youhavenewmessages": "Bu ten [[$1|mensajens nobu]].",
+	"lqt_youhavenewmessages": "Bu tene [[$1|mensájis nobu]].",
+	"lqt_subject": "Asuntu:",
+	"lqt-summary": "Razumu",
 	"searchprofile-threads": "Diskusons",
 	"lqt-ajax-update-link": "Atualiza",
-	"lqt-newmessages-n": "{{PLURAL:$1|Mensajen nobu|Mensajens nobu}} ($1)",
-	"lqt_newmessages-title": "Mensajens nobu",
-	"nstab-summary": "Sumáriu"
+	"lqt-newmessages-n": "{{PLURAL:$1|Mensáji nobu|Mensájis nobu}} ($1)",
+	"lqt_newmessages-title": "Mensájis nobu",
+	"nstab-summary": "Razumu"
 }
