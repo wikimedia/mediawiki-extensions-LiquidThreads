@@ -24,6 +24,7 @@
 	"lqt_hist_thread_created": "Nova subdivido kreita",
 	"lqt_hist_deleted": "Efacita",
 	"lqt_hist_tooltip_newer_disabled": "Ca ligilo ne funcionas, pro ke vu esas en l'unesma pagino.",
+	"lqt_hist_tooltip_older_disabled": "Ca ligilo ne funcionas, pro ke vu esas en la lasta pagino.",
 	"lqt_hist_edited_subject": "Chanjis temo de \"$2\" a \"$3\"",
 	"lqt_hist_edited_subject_corrupt": "Chanjis temo",
 	"lqt_change_new_thread": "Yen l'unesma revizo dil temo.",
