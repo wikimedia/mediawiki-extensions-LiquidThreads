@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Davidzdh",
 			"Jason924tw",
 			"LNDDYL",
 			"WAN233"
@@ -10,5 +11,6 @@
 	"lqt-history-user": "用戶",
 	"lqt-search-button": "尋",
 	"searchprofile-threads": "議",
-	"searchprofile-threads-tooltip": "尋議"
+	"searchprofile-threads-tooltip": "尋議",
+	"lqt-cancel-subject-edit": "捨"
 }
