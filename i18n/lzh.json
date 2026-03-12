@@ -3,12 +3,14 @@
 		"authors": [
 			"Jason924tw",
 			"LNDDYL",
-			"WAN233"
+			"WAN233",
+			"Davidzdh"
 		]
 	},
 	"lqt-desc": "在討論頁增加討論串討論功能",
 	"lqt-history-user": "用戶",
 	"lqt-search-button": "尋",
 	"searchprofile-threads": "議",
-	"searchprofile-threads-tooltip": "尋議"
+	"searchprofile-threads-tooltip": "尋議",
+	"lqt-cancel-subject-edit": "捨"
 }
