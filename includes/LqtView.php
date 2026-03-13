@@ -405,16 +405,7 @@ class LqtView {
 		$wgRequest = $this->request;
 		$wgTitle = $this->title;
 
-		$hookResult = MediaWikiServices::getInstance()->getHookContainer()->run( 'LiquidThreadsDoInlineEditForm',
-					[
-						$thread,
-						$this->request,
-						&$this->output
-					] );
-
-		if ( !$hookResult ) {
-			// Handled by a hook.
-		} elseif ( $method == 'reply' ) {
+		if ( $method == 'reply' ) {
 			$this->showReplyForm( $thread );
 		} elseif ( $method == 'talkpage_new_thread' ) {
 			$this->showNewThreadForm( $this->article );
@@ -522,8 +513,6 @@ class LqtView {
 
 		$e = new EditPage( $article );
 		$e->setContextTitle( $article->getTitle() );
-		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
-		$hookContainer->run( 'LiquidThreadsShowNewThreadForm', [ &$e, $talkpage ] );
 
 		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
@@ -564,8 +553,6 @@ class LqtView {
 
 		$e->editFormTextBeforeContent .= $this->getSubjectEditor( '', $subject );
 
-		$hookContainer->run( 'LiquidThreadsAfterShowNewThreadForm', [ &$e, $talkpage ] );
-
 		$e->edit();
 
 		if ( $e->didSave ) {
@@ -580,9 +567,6 @@ class LqtView {
 					'root' => $article,
 					'subject' => $subject,
 				];
-
-			$hookContainer->run( 'LiquidThreadsSaveNewThread',
-					[ &$info, &$e, &$talkpage ] );
 
 			$thread = self::newPostMetadataUpdates( $this->user, $info );
 			self::consumeNonce( $submitted_nonce );
@@ -669,9 +653,6 @@ class LqtView {
 
 		$wgRequest->setVal( 'wpWatchThis', false );
 
-		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
-		$hookContainer->run( 'LiquidThreadsShowReplyForm', [ &$e, $thread ] );
-
 		$e->edit();
 
 		if ( $e->didSave ) {
@@ -687,9 +668,6 @@ class LqtView {
 					'signature' => $signature,
 					'root' => $article,
 				];
-
-			$hookContainer->run( 'LiquidThreadsSaveReply',
-					[ &$info, &$e, &$thread ] );
 
 			$newThread = self::replyMetadataUpdates( $this->user, $info );
 			self::consumeNonce( $submitted_nonce );
@@ -736,9 +714,6 @@ class LqtView {
 
 		$article = $thread->root();
 		$talkpage = $thread->article();
-
-		MediaWikiServices::getInstance()->getHookContainer()
-			->run( 'LiquidThreadsEditFormContent', [ $thread, &$article, $talkpage ] );
 
 		Hooks::$editTalkpage = $talkpage;
 		Hooks::$editArticle = $article;
@@ -1012,15 +987,10 @@ class LqtView {
 		$subject = $replyTo->subject();
 		$talkpage = $replyTo->article();
 
-		$thread = Thread::create(
+		return Thread::create(
 			$root, $talkpage, $user, $replyTo, Threads::TYPE_NORMAL, $subject,
 			$summary, $bump, $signature
 		);
-
-		MediaWikiServices::getInstance()->getHookContainer()
-			->run( 'LiquidThreadsAfterReplyMetadataUpdates', [ &$thread ] );
-
-		return $thread;
 	}
 
 	public static function summarizeMetadataUpdates( $data = [] ) {
@@ -1101,16 +1071,11 @@ class LqtView {
 		$root = $data['root'];
 		$subject = $data['subject'];
 
-		$thread = Thread::create(
+		return Thread::create(
 			$root, $talkpage, $user, null,
 			Threads::TYPE_NORMAL, $subject,
 			$summary, null, $signature
 		);
-
-		MediaWikiServices::getInstance()->getHookContainer()
-			->run( 'LiquidThreadsAfterNewPostMetadataUpdates', [ &$thread ] );
-
-		return $thread;
 	}
 
 	/**
@@ -1232,8 +1197,6 @@ class LqtView {
 			'tooltip' => wfMessage( 'lqt_permalink' )->parse()
 		];
 
-		$services->getHookContainer()->run( 'LiquidThreadsThreadCommands', [ $thread, &$commands ] );
-
 		return $commands;
 	}
 
@@ -1305,9 +1268,6 @@ class LqtView {
 				'showlabel' => 1,
 			];
 		}
-
-		MediaWikiServices::getInstance()->getHookContainer()
-			->run( 'LiquidThreadsThreadMajorCommands', [ $thread, &$commands ] );
 
 		return $commands;
 	}
@@ -1388,8 +1348,6 @@ class LqtView {
 				'enabled' => true,
 			];
 		}
-
-		$services->getHookContainer()->run( 'LiquidThreadsTopLevelCommands', [ $thread, &$commands ] );
 
 		return $commands;
 	}
@@ -1558,11 +1516,8 @@ class LqtView {
 			$oldid = $thread->isHistorical() ? $thread->rootRevision() : null;
 		}
 
-		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 		// If we're editing the thread, show the editing form.
-		$showAnything = $hookContainer->run( 'LiquidThreadsShowThreadBody',
-					[ $thread ] );
-		if ( $this->methodAppliesToThread( 'edit', $thread ) && $showAnything ) {
+		if ( $this->methodAppliesToThread( 'edit', $thread ) ) {
 			$html = Html::openElement( 'div', [ 'class' => $divClass ] );
 			$this->output->addHTML( $html );
 			$html = '';
@@ -1571,17 +1526,10 @@ class LqtView {
 			// so I'm just flushing the HTML and displaying it as-is.
 			$this->showPostEditingForm( $thread );
 			$html .= Html::closeElement( 'div' );
-		} elseif ( $showAnything ) {
+		} else {
 			$html .= Html::openElement( 'div', [ 'class' => $divClass ] );
-
-			$show = $hookContainer->run( 'LiquidThreadsShowPostContent',
-						[ $thread, &$post ] );
-			if ( $show ) {
-				$html .= $this->showPostBody( $post, $oldid );
-			}
+			$html .= $this->showPostBody( $post, $oldid );
 			$html .= Html::closeElement( 'div' );
-			$hookContainer->run( 'LiquidThreadsShowPostThreadBody',
-				[ $thread, $this->request, &$html ] );
 
 			$html .= $this->showThreadToolbar( $thread );
 			$html .= $this->threadSignature( $thread );
@@ -1610,13 +1558,7 @@ class LqtView {
 					[ 'class' => 'lqt-thread-toolbar-timestamp' ],
 					$timestamp );
 
-		MediaWikiServices::getInstance()->getHookContainer()
-			->run( 'LiquidThreadsThreadSignature', [ $thread, &$signature ] );
-
-		$signature = Html::rawElement( 'div', [ 'class' => 'lqt-thread-signature' ],
-					$signature );
-
-		return $signature;
+		return Html::rawElement( 'div', [ 'class' => 'lqt-thread-signature' ], $signature );
 	}
 
 	/**
@@ -1668,9 +1610,6 @@ class LqtView {
 						$editedNotice );
 		}
 
-		MediaWikiServices::getInstance()->getHookContainer()
-			->run( 'LiquidThreadsThreadInfoPanel', [ $thread, &$infoElements ] );
-
 		if ( !count( $infoElements ) ) {
 			return '';
 		}
@@ -1708,22 +1647,17 @@ class LqtView {
 				->getLanguageConverter( $services->getContentLanguage() );
 			$html = $langConv->convert( $thread->formattedSubject() );
 
-			$show = $services->getHookContainer()->run( 'LiquidThreadsShowThreadHeading', [ $thread, &$html ] );
-
-			if ( $show ) {
-				$contLang = MediaWikiServices::getInstance()->getContentLanguage();
-				$html = Html::rawElement( 'span', [ 'class' => 'mw-headline' ], $html );
-				$html .= Html::hidden( 'raw-header', $thread->subject() );
-				$html = Html::rawElement( 'h' . $this->headerLevel,
-						[ 'class' => 'lqt_header', 'id' => $id, 'dir' => $contLang->getDir() ],
-						$html ) . $commands_html;
-			}
+			$contLang = MediaWikiServices::getInstance()->getContentLanguage();
+			$html = Html::rawElement( 'span', [ 'class' => 'mw-headline' ], $html );
+			$html .= Html::hidden( 'raw-header', $thread->subject() );
+			$html = Html::rawElement( 'h' . $this->headerLevel,
+					[ 'class' => 'lqt_header', 'id' => $id, 'dir' => $contLang->getDir() ],
+					$html ) . $commands_html;
 
 			// wrap it all in a container
-			$html = Html::rawElement( 'div',
+			return Html::rawElement( 'div',
 					[ 'class' => 'lqt_thread_heading' ],
 					$html );
-			return $html;
 		}
 
 		return '';
