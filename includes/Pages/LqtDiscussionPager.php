@@ -151,7 +151,7 @@ class LqtDiscussionPager extends IndexPager {
 				'disabled' => $queries[ $type ] === false
 			] );
 		}
-		return new \OOUI\ButtonGroupWidget( [
+		return (string)new \OOUI\ButtonGroupWidget( [
 			'classes' => [ $this->getNavClass() ],
 			'items' => $buttons,
 		] );
