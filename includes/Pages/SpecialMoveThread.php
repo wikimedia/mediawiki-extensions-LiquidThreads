@@ -113,7 +113,7 @@ class SpecialMoveThread extends ThreadActionPage {
 		$this->getOutput()->addHTML( $this->msg( 'lqt_move_success' )->rawParams(
 			$linkRenderer->makeLink( $newtitle ),
 			$linkRenderer->makeLink(
-				SpecialPage::getTitleFor( 'MoveThread', $this->mThread->root()->getTitle() ),
+				SpecialPage::getTitleFor( 'MoveThread', $this->mThread->root()->getTitle()->getPrefixedText() ),
 				$this->msg( 'revertmove' )->text(),
 				[],
 				[ 'dest' => $oldtitle ]

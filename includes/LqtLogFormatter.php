@@ -35,7 +35,7 @@ class LqtLogFormatter extends LogFormatter {
 
 				if ( $rightsCheck === true ) {
 					$parameters[] = Message::rawParam( $this->getLinkRenderer()->makeLink(
-						SpecialPage::getTitleFor( 'MoveThread', $title ),
+						SpecialPage::getTitleFor( 'MoveThread', $title->getPrefixedText() ),
 						wfMessage( 'revertmove' )->text(),
 						[],
 						[ 'dest' => $parameters[0] ]
