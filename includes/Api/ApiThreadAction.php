@@ -308,10 +308,9 @@ class ApiThreadAction extends ApiEditPage {
 		$title = null;
 		$subjectOk = Thread::validateSubject( $subject, $user, $title, null, $talkpage );
 
-		if ( !$subjectOk ) {
+		if ( !$subjectOk || !$title ) {
 			$this->dieWithError( 'apierror-liquidthreads-badsubject', 'invalid-subject' );
 		}
-		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
 		$article = new Article( $title, 0 );
 
 		// Check for text
