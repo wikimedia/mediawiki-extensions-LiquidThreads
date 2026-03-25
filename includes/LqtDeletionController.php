@@ -81,8 +81,8 @@ class LqtDeletionController {
 
 			// Try to get comment for old versions where it isn't passed, hacky :(
 			if ( !$comment ) {
-				global $wgRequest;
-				$comment = $wgRequest->getText( 'wpComment' );
+				$request = RequestContext::getMain()->getRequest();
+				$comment = $request->getText( 'wpComment' );
 			}
 
 			// TX has not been committed yet, so we must select from the master

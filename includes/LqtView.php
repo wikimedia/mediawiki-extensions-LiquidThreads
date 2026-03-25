@@ -292,7 +292,7 @@ class LqtView {
 	public static function talkpageLinkData( $title, $method = null, $operand = null,
 		$includeFragment = true, $perpetuateOffset = true
 	) {
-		global $wgRequest;
+		$mainRequest = RequestContext::getMain()->getRequest();
 		$query = [];
 
 		if ( $method ) {
@@ -303,7 +303,7 @@ class LqtView {
 			$query['lqt_operand'] = $operand->id();
 		}
 
-		$oldid = $wgRequest->getVal( 'oldid', null );
+		$oldid = $mainRequest->getVal( 'oldid', null );
 
 		if ( $oldid !== null ) {
 			// this is an immensely ugly hack to make editing old revisions work.
@@ -312,8 +312,7 @@ class LqtView {
 
 		$request = $perpetuateOffset;
 		if ( $request === true ) {
-			global $wgRequest;
-			$request = $wgRequest;
+			$request = $mainRequest;
 		}
 
 		if ( $perpetuateOffset ) {
@@ -436,11 +435,11 @@ class LqtView {
 	 * @throws Exception
 	 */
 	public static function getInlineEditForm( $talkpage, $method, $operand, User $user ) {
-		global $wgRequest;
+		$mainRequest = $talkpage?->getContext()?->getRequest() ?? RequestContext::getMain()->getRequest();
 
 		$req = new RequestContext;
 		$output = $req->getOutput();
-		$request = new DerivativeRequest( $wgRequest, [] );
+		$request = new DerivativeRequest( $mainRequest, [] );
 
 		$title = null;
 
@@ -516,11 +515,10 @@ class LqtView {
 		$e = new EditPage( $article );
 		$e->setContextTitle( $article->getTitle() );
 
-		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
 		if ( !$subjectOk ) {
 			// Dirty hack to prevent saving from going ahead
-			$wgRequest->setVal( 'wpPreview', true );
+			$e->getContext()->getRequest()->setVal( 'wpPreview', true );
 
 			if ( $this->request->wasPosted() ) {
 				if ( !$subject ) {
@@ -544,7 +542,7 @@ class LqtView {
 		$e->mShowSummaryField = false;
 
 		$summary = wfMessage( 'lqt-newpost-summary', $subject )->inContentLanguage()->text();
-		$wgRequest->setVal( 'wpSummary', $summary );
+		$e->getContext()->getRequest()->setVal( 'wpSummary', $summary );
 
 		[ $signatureEditor, $signatureHTML ] = $this->getSignatureEditor( $this->user );
 
@@ -586,8 +584,6 @@ class LqtView {
 	}
 
 	public function showReplyForm( Thread $thread ) {
-		global $wgRequest;
-
 		$submitted_nonce = $this->request->getVal( 'lqt_nonce' );
 		if ( $this->request->wasPosted() && !$this->checkNonce( $submitted_nonce ) ) {
 			return;
@@ -630,7 +626,7 @@ class LqtView {
 			$reply_subject,
 			$reply_title
 		)->inContentLanguage()->text();
-		$wgRequest->setVal( 'wpSummary', $summary );
+		$e->getContext()->getRequest()->setVal( 'wpSummary', $summary );
 
 		// Add an offset so it works if it's on the wrong page.
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
@@ -653,7 +649,7 @@ class LqtView {
 		$e->previewTextAfterContent .=
 			Html::rawElement( 'p', [], $signatureHTML );
 
-		$wgRequest->setVal( 'wpWatchThis', false );
+		$e->getContext()->getRequest()->setVal( 'wpWatchThis', false );
 
 		$e->edit();
 
@@ -726,11 +722,10 @@ class LqtView {
 		$e = new EditPage( $article );
 		$e->setContextTitle( $article->getTitle() );
 
-		global $wgRequest;
 		// Quietly force a preview if no subject has been specified.
 		if ( !$subjectOk ) {
 			// Dirty hack to prevent saving from going ahead
-			$wgRequest->setVal( 'wpPreview', true );
+			$e->getContext()->getRequest()->setVal( 'wpPreview', true );
 
 			if ( $this->request->wasPosted() ) {
 				$e->editFormPageTop .=

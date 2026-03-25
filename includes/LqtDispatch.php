@@ -255,9 +255,9 @@ class LqtDispatch {
 	 * @param Language &$pageLang
 	 */
 	public static function onPageContentLanguage( $title, &$pageLang ) {
-		global $wgRequest;
-		$method = $wgRequest->getVal( 'lqt_method' );
-		$oldid = $wgRequest->getVal( 'lqt_oldid' );
+		$request = RequestContext::getMain()->getRequest();
+		$method = $request->getVal( 'lqt_method' );
+		$oldid = $request->getVal( 'lqt_oldid' );
 		if ( $title->inNamespace( NS_LQT_THREAD ) ) {
 			$pageLang = RequestContext::getMain()->getLanguage();
 		} elseif ( $method == 'diff' ) {

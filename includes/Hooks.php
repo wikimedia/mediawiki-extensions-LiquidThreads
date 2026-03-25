@@ -366,7 +366,7 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function editCheckboxes( $editPage, &$checkboxes ) {
-		global $wgRequest, $wgLiquidThreadsShowBumpCheckbox;
+		global $wgLiquidThreadsShowBumpCheckbox;
 
 		$article = $editPage->getArticle();
 		$title = $article->getTitle();
@@ -382,12 +382,13 @@ class Hooks {
 		if ( $title->getNamespace() == NS_LQT_THREAD && self::$editType != 'new' &&
 			$wgLiquidThreadsShowBumpCheckbox
 		) {
+			$request = $editPage->getContext()->getRequest();
 			$checkboxes['wpBumpThread'] = [
 				'id' => 'wpBumpThread',
 				'label-message' => 'lqt-edit-bump',
 				'title-message' => 'lqt-edit-bump-tooltip',
 				'legacy-name' => 'bump',
-				'default' => !$wgRequest->wasPosted() || $wgRequest->getBool( 'wpBumpThread' ),
+				'default' => !$request->wasPosted() || $request->getBool( 'wpBumpThread' ),
 			];
 		}
 

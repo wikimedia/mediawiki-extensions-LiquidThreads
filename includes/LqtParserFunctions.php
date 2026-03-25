@@ -126,12 +126,12 @@ class LqtParserFunctions {
 		$talkpage = $details["talkpage"];
 		$args = $details["args"];
 
-		global $wgRequest;
 		$oldOut = $out->getHTML();
 		$out->clearHTML();
 
 		$user = $out->getUser();
-		$view = new TalkpageView( $out, $article, $title, $user, $wgRequest );
+		$request = $out->getRequest();
+		$view = new TalkpageView( $out, $article, $title, $user, $request );
 		$view->setTalkPage( $talkpage );
 
 		// Handle show/hide preferences. Header gone by default.
@@ -154,14 +154,13 @@ class LqtParserFunctions {
 		$title = $details["title"];
 		$article = $details["article"];
 
-		global $wgRequest;
 		$oldOut = $out->getHTML();
 		$out->clearHTML();
 
 		$thread = Threads::withRoot( MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title ) );
 
 		$user = $out->getUser();
-		$view = new LqtView( $out, $article, $title, $user, $wgRequest );
+		$view = new LqtView( $out, $article, $title, $user, $out->getRequest() );
 
 		$view->showThread( $thread );
 
