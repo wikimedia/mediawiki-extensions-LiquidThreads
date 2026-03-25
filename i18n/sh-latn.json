@@ -16,7 +16,7 @@
 	"lqt_toc_thread_modified": "Posljednja promjena",
 	"lqt_add_header": "Dodaj zaglavlje",
 	"lqt_new_thread": "Započni novi razgovor",
-	"lqt_invalid_subject": "Tema koju ste unijeli nije važeća.\nMože biti:\n* Predugačka je, ili\n* Naziv je isti kao međuwiki prefiks ili ime imenskog prostora.",
+	"lqt_invalid_subject": "Uneseni naziv teme nije ispravan.\nMožda je:\n* predug;\n* u sukobu s međuwiki prefiksima ili nazivima imenskih prostora.",
 	"lqt-empty-text": "Ne možete poslati praznu poruku.",
 	"lqt_empty_subject": "Morate unijeti temu.",
 	"lqt_reply": "Odgovori",
