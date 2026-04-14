@@ -1543,7 +1543,7 @@ class LqtView {
 	 * @return string
 	 */
 	public function threadSignature( Thread $thread ) {
-		global $wgLang;
+		$lang = RequestContext::getMain()->getLanguage();
 
 		$signature = $thread->signature() ?? '';
 		$signature = self::parseSignature( $signature );
@@ -1551,9 +1551,9 @@ class LqtView {
 		$signature = Html::rawElement( 'span', [ 'class' => 'lqt-thread-user-signature' ],
 					$signature );
 
-		$signature .= $wgLang->getDirMark();
+		$signature .= $lang->getDirMark();
 
-		$timestamp = $wgLang->timeanddate( $thread->created(), true );
+		$timestamp = $lang->timeanddate( $thread->created(), true );
 		$signature .= Html::element( 'span',
 					[ 'class' => 'lqt-thread-toolbar-timestamp' ],
 					$timestamp );
@@ -1566,7 +1566,7 @@ class LqtView {
 	 * @return string
 	 */
 	private function threadInfoPanel( Thread $thread ) {
-		global $wgLang;
+		$lang = RequestContext::getMain()->getLanguage();
 
 		$infoElements = [];
 
@@ -1575,9 +1575,9 @@ class LqtView {
 		$ebLookup = [ Threads::EDITED_BY_AUTHOR => 'author',
 					Threads::EDITED_BY_OTHERS => 'others' ];
 		$lastEdit = $thread->root()->getPage()->getTimestamp();
-		$lastEditTime = $wgLang->time( $lastEdit, false, true );
-		$lastEditDate = $wgLang->date( $lastEdit, false, true );
-		$lastEdit = $wgLang->timeanddate( $lastEdit, true );
+		$lastEditTime = $lang->time( $lastEdit, false, true );
+		$lastEditDate = $lang->date( $lastEdit, false, true );
+		$lastEdit = $lang->timeanddate( $lastEdit, true );
 		$editors = '';
 		$editorCount = 0;
 
@@ -1593,7 +1593,7 @@ class LqtView {
 				$formattedEditors[] = $fEditor;
 			}
 
-			$editors = $wgLang->commaList( $formattedEditors );
+			$editors = $lang->commaList( $formattedEditors );
 		}
 
 		if ( isset( $ebLookup[$editedFlag] ) ) {
@@ -1687,7 +1687,7 @@ class LqtView {
 	 * @throws Exception
 	 */
 	public function showMovedThread( Thread $thread ) {
-		global $wgLang;
+		$lang = RequestContext::getMain()->getLanguage();
 
 		// Grab target thread
 		if ( !$thread->title() ) {
@@ -1719,7 +1719,7 @@ class LqtView {
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$html = wfMessage( 'lqt_move_placeholder' )
 			->rawParams( $linkRenderer->makeLink( $target ), $sig )
-			->params( $wgLang->date( $thread->modified() ), $wgLang->time( $thread->modified() ) )
+			->params( $lang->date( $thread->modified() ), $lang->time( $thread->modified() ) )
 			->rawParams( $newTalkpage ? $linkRenderer->makeLink( $newTalkpage ) : '' )->parse();
 
 		$this->output->addHTML( $html );

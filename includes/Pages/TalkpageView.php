@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Article;
@@ -119,7 +120,7 @@ class TalkpageView extends LqtView {
 	 * @return string
 	 */
 	public function getTOC( array $threads ) {
-		global $wgLang;
+		$lang = RequestContext::getMain()->getLanguage();
 
 		$html = '';
 
@@ -155,9 +156,9 @@ class TalkpageView extends LqtView {
 					Threads::stripHTML( $langConv->convert( $thread->formattedSubject() ) ) );
 			$row .= Html::rawElement( 'td', [ 'dir' => $contLang->getDir() ], $subject );
 
-			$row .= Html::element( 'td', [], $wgLang->formatNum( $thread->replyCount() ) );
+			$row .= Html::element( 'td', [], $lang->formatNum( $thread->replyCount() ) );
 
-			$timestamp = $wgLang->timeanddate( $thread->modified(), true );
+			$timestamp = $lang->timeanddate( $thread->modified(), true );
 			$row .= Html::element( 'td', [], $timestamp );
 
 			$row = Html::rawElement( 'tr', [], $row );
@@ -289,14 +290,13 @@ class TalkpageView extends LqtView {
 			$this->showHeader();
 		}
 
-		global $wgLang;
-
 		// This closes the div of mw-content-ltr/rtl containing lang and dir attributes
+		$lang = $this->output->getLanguage();
 		$this->output->addHTML(
 			Html::closeElement( 'div' ) . Html::openElement( 'div', [
 				'class' => 'lqt-talkpage',
-				'lang' => $wgLang->getCode(),
-				'dir' => $wgLang->getDir()
+				'lang' => $lang->getCode(),
+				'dir' => $lang->getDir()
 			]
 		) );
 

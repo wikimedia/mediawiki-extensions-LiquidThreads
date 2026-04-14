@@ -44,13 +44,13 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	}
 
 	private function showHistoryInfo() {
-		global $wgLang;
+		$lang = $this->output->getLanguage();
 
 		$html = wfMessage(
 			'lqt_revision_as_of',
-			$wgLang->timeanddate( $this->mDisplayRevision->getTimestamp() ),
-			$wgLang->date( $this->mDisplayRevision->getTimestamp() ),
-			$wgLang->time( $this->mDisplayRevision->getTimestamp() )
+			$lang->timeanddate( $this->mDisplayRevision->getTimestamp() ),
+			$lang->date( $this->mDisplayRevision->getTimestamp() ),
+			$lang->time( $this->mDisplayRevision->getTimestamp() )
 		)->parse();
 
 		$html .= '<br />';
