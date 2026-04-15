@@ -4,7 +4,6 @@
 
 namespace MediaWiki\Extension\LiquidThreads;
 
-use HtmlArmor;
 use LqtDispatch;
 use LqtParserFunctions;
 use LqtView;
@@ -12,6 +11,7 @@ use MediaWiki\Api\ApiQueryInfo;
 use MediaWiki\Content\TextContent;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
+use MediaWiki\Import\WikiImporter;
 use MediaWiki\Installer\DatabaseUpdater;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
@@ -33,7 +33,7 @@ use NewMessages;
 use Thread;
 use Threads;
 use UtfNormal\Validator;
-use WikiImporter;
+use Wikimedia\HtmlArmor\HtmlArmor;
 use Wikimedia\Message\MessageSpecifier;
 use XMLReader;
 

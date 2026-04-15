@@ -7,6 +7,7 @@ use MediaWiki\Page\WikiPage;
 use MediaWiki\Title\MediaWikiTitleCodec;
 use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\DBQueryError;
+use Wikimedia\StringUtils\StringUtils;
 
 /** Module of factory methods. */
 class Threads {

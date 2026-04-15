@@ -3,6 +3,7 @@
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\HtmlArmor\HtmlArmor;
 
 class NewUserMessagesView extends LqtView {
 	/** @var int[] */

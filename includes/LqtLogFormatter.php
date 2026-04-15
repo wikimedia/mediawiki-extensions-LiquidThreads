@@ -4,6 +4,7 @@ use MediaWiki\Logging\LogFormatter;
 use MediaWiki\Message\Message;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
+use Wikimedia\StringUtils\StringUtils;
 
 /**
  * Contains formatter functions for all log entry types.

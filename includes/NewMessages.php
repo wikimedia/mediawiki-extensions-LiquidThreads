@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Content\TextContent;
+use MediaWiki\Mail\MailAddress;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;

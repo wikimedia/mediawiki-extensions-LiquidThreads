@@ -6,6 +6,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Article;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Xml\XmlSelect;
+use Wikimedia\HtmlArmor\HtmlArmor;
 
 class TalkpageView extends LqtView {
 	public const LQT_NEWEST_CHANGES = 'nc';

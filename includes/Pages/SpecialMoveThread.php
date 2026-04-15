@@ -5,6 +5,7 @@ use MediaWiki\Message\Message;
 use MediaWiki\Permissions\PermissionStatus;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
+use Wikimedia\HtmlArmor\HtmlArmor;
 
 class SpecialMoveThread extends ThreadActionPage {
 	/**

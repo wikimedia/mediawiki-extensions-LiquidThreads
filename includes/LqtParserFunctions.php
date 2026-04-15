@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Language\ReplacementArray;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Article;
@@ -8,6 +7,8 @@ use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Parser\PPFrame;
 use MediaWiki\Title\Title;
+use MediaWiki\Utils\MWCryptRand;
+use Wikimedia\ReplacementArray;
 
 class LqtParserFunctions {
 

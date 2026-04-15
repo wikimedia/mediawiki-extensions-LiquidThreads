@@ -23,6 +23,8 @@ use MediaWiki\Request\WebRequest;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use MediaWiki\Utils\MWCryptRand;
+use Wikimedia\HtmlArmor\HtmlArmor;
 use Wikimedia\IPUtils;
 
 class LqtView {
