@@ -23,7 +23,7 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 	protected $mTarget;
 
 	public function __construct() {
-		parent::__construct( $this->getPageName(), $this->getRightRequirement() );
+		parent::__construct( $this->getPageName() );
 
 		$this->output = $this->getOutput();
 		$this->user = $this->getUser();
@@ -33,13 +33,6 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 	abstract public function getPageName();
 
 	abstract public function getFormFields();
-
-	/**
-	 * @return string
-	 */
-	protected function getRightRequirement() {
-		return '';
-	}
 
 	public function execute( $par ) {
 		if ( !$this->userCanExecute( $this->getUser() ) ) {
