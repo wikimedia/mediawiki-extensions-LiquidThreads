@@ -33,7 +33,7 @@ class SpecialSplitThread extends ThreadActionPage {
 	}
 
 	/** @inheritDoc */
-	protected function getRightRequirement() {
+	public function getRestriction(): string {
 		return 'lqt-split';
 	}
 
