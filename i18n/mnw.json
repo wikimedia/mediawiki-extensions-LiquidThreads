@@ -6,6 +6,7 @@
 		]
 	},
 	"lqt_new_thread": "စကၠောန်ဓရီုကျာချပ်ဗ္စာရဏာတၟိ",
+	"lqt_reply": "မကလေၚ်သွဟ်",
 	"lqt_delete": "ဇိုတ်",
 	"lqt_undelete": "ဟွံသ္ပပလီုထောံ",
 	"lqt_hist_deleted": "ပလီုတုဲယျ",
@@ -13,5 +14,6 @@
 	"lqt-read-all": "သမ္တီထောံပရောပရာမဗှ်တုဲသီုဖ္အိုတ်",
 	"lqt-header-actions": "ကမၠောန်ဂမၠိုင်",
 	"lqt-newmessages-n": "ထိုၚ်လိက် {{PLURAL:$1|တၟိ|တၟိဂမၠိုင်}} ($1)",
-	"lqt_newmessages-title": "ထိုၚ်လိက် တၟိဂမၠိုင်"
+	"lqt_newmessages-title": "ထိုၚ်လိက် တၟိဂမၠိုင်",
+	"lqt-reply-subpage": "မကလေၚ်သွဟ်"
 }
