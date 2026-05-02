@@ -1425,10 +1425,10 @@ class LqtView {
 		// it actually is is an open question).
 		// To avoid a new version of T353257, we stay conservative here, keep an equivalent to getText, and revisit
 		// this later (including analysis of whether this precaution is at all necessary) to allow cloning.
-		$oldText = $parserOutput->getRawText();
+		$oldText = $parserOutput->getContentHolderText();
 		$newText = $parserOutput
 			->runOutputPipeline( $post->getParserOptions(), [ 'allowClone' => false ] )->getContentHolderText();
-		$parserOutput->setRawText( $oldText );
+		$parserOutput->setContentHolderText( $oldText );
 
 		return $langConv->convert( $newText );
 	}
