@@ -180,9 +180,12 @@ class LqtParserFunctions {
 		return $html;
 	}
 
+	/**
+	 * @return void
+	 */
 	public static function onOutputPageParserOutput( OutputPage $out, ParserOutput $pout ) {
 		if ( !$pout->getExtensionData( self::LQT_REPLACEMENTS_DATA_KEY ) ) {
-			return true;
+			return;
 		}
 
 		if ( !isset( $out->mLqtReplacements ) ) {
@@ -206,20 +209,16 @@ class LqtParserFunctions {
 			$out->mLqtReplacements[$text] = $result;
 			$out->addModules( 'ext.liquidThreads' );
 		}
-
-		return true;
 	}
 
 	public static function onOutputPageBeforeHTML( OutputPage $out, &$text ) {
 		if ( !isset( $out->mLqtReplacements ) || !count( $out->mLqtReplacements ) ) {
-			return true;
+			return;
 		}
 
 		$replacements = $out->mLqtReplacements;
 
 		$replacer = new ReplacementArray( $replacements );
 		$text = $replacer->replace( $text );
-
-		return true;
 	}
 }

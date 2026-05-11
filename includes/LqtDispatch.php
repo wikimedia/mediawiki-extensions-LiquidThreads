@@ -245,16 +245,14 @@ class LqtDispatch {
 	/**
 	 * @param SkinTemplate $skinTemplate
 	 * @param array &$links
-	 * @return true
+	 * @return void
 	 */
 	public static function onSkinTemplateNavigation__Universal( $skinTemplate, &$links ) {
 		if ( !self::$primaryView ) {
-			return true;
+			return;
 		}
 
 		self::$primaryView->customizeNavigation( $skinTemplate, $links );
-
-		return true;
 	}
 
 	/**

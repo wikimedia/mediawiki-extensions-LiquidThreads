@@ -17,14 +17,14 @@ class LqtDeletionController {
 		$title = $article->getTitle();
 
 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
-			return true;
+			return;
 		}
 
 		$threads = Threads::where( [ 'thread_root' => $id ] );
 
 		if ( !count( $threads ) ) {
 			wfDebugLog( 'LiquidThreads', __METHOD__ . ": no threads with root $id, ignoring...\n" );
-			return true;
+			return;
 		}
 
 		$thread = array_pop( $threads );
@@ -48,8 +48,6 @@ class LqtDeletionController {
 		// Synchronise the first 500 threads, in reverse order by thread id. If
 		// there are more threads to synchronise, the job queue will take over.
 		Threads::synchroniseArticleData( $article, 500, 'cascade' );
-
-		return true;
 	}
 
 	public static function recursivelyDeleteReplies( Thread $thread, $reason, User $user ) {
@@ -65,13 +63,11 @@ class LqtDeletionController {
 		if ( $linkTarget->getNamespace() == NS_LQT_THREAD ) {
 			self::$pageids_to_revive[$oldPageId] = Title::newFromLinkTarget( $linkTarget );
 		}
-
-		return true;
 	}
 
 	public static function onArticleUndelete( &$udTitle, $created, $comment = '' ) {
 		if ( !self::$pageids_to_revive ) {
-			return true;
+			return;
 		}
 
 		foreach ( self::$pageids_to_revive as $pageid => $title ) {
@@ -111,25 +107,23 @@ class LqtDeletionController {
 			500,
 			'cascade'
 		);
-
-		return true;
 	}
 
 	/**
 	 * @param Article $article
 	 * @param OutputPage $out
 	 * @param string &$reason
-	 * @return bool
+	 * @return void
 	 */
 	public static function onArticleConfirmDelete( $article, $out, &$reason ) {
 		if ( $article->getTitle()->getNamespace() != NS_LQT_THREAD ) {
-			return true;
+			return;
 		}
 
 		$thread = Threads::withRoot( $article->getPage() );
 
 		if ( !$thread ) {
-			return true;
+			return;
 		}
 
 		if ( $thread->isTopmostThread() && count( $thread->replies() ) ) {
@@ -138,15 +132,11 @@ class LqtDeletionController {
 				'lqt-delete-parent-warning'
 			);
 		}
-
-		return true;
 	}
 
 	public static function onArticleDelete( $wikiPage ) {
 		// Synchronise article data so that moving the article doesn't break any
 		// article association.
 		Threads::synchroniseArticleData( $wikiPage );
-
-		return true;
 	}
 }

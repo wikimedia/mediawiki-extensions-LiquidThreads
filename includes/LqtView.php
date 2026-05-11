@@ -933,18 +933,18 @@ class LqtView {
 	 * Consume a nonce token on HTTP POST during a thread submission
 	 *
 	 * @param string $token
-	 * @return bool Whether the user nonce token was acquired or no token was provided
+	 * @return void
 	 */
 	public function consumeNonce( $token ) {
 		if ( !$token ) {
-			return true;
+			return;
 		}
 
 		// Primary data-center cluster cache
 		$cache = MediaWikiServices::getInstance()->getObjectCacheFactory()->getLocalClusterInstance();
 		$nonce_key = $cache->makeKey( 'lqt-nonce', $token, $this->user->getName() );
 
-		return $cache->add( $nonce_key, 1, $cache::TTL_HOUR );
+		$cache->add( $nonce_key, 1, $cache::TTL_HOUR );
 	}
 
 	/**

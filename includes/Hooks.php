@@ -74,17 +74,17 @@ class Hooks {
 	 * @param string &$s
 	 * @param RecentChange $rc
 	 * @param array &$classes
-	 * @return bool
+	 * @return void
 	 */
 	public static function onOldChangesListRecentChangesLine( ChangesList $changeslist, &$s, $rc, &$classes ) {
 		$rcTitle = $rc->getTitle();
 		if ( $rcTitle->getNamespace() != NS_LQT_THREAD ) {
-			return true;
+			return;
 		}
 
 		$thread = Threads::withRoot( MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $rcTitle ) );
 		if ( !$thread ) {
-			return true;
+			return;
 		}
 
 		$changeslist->getOutput()->addModules( 'ext.liquidThreads' );
@@ -117,8 +117,6 @@ class Hooks {
 			$changeslist->insertTags( $s, $rc, $classes );
 			$changeslist->insertExtra( $s, $rc, $classes );
 		}
-
-		return true;
 	}
 
 	/**
@@ -159,11 +157,11 @@ class Hooks {
 		global $wgLiquidThreadsEnableNewMessages;
 
 		if ( !$wgLiquidThreadsEnableNewMessages ) {
-			return true;
+			return;
 		}
 
 		if ( $name !== 'Watchlist' ) {
-			return true;
+			return;
 		}
 
 		// Only reading from this DB, but presumably getting primary for latest content.
@@ -185,7 +183,7 @@ class Hooks {
 		$wn = count( $watch_messages );
 
 		if ( $tn == 0 && $wn == 0 ) {
-			return true;
+			return;
 		}
 
 		$out = $context->getOutput();
@@ -198,8 +196,6 @@ class Hooks {
 			new HtmlArmor( $new_messages ),
 			[ 'class' => 'lqt_watchlist_messages_notice' ] );
 		$out->addHTML( $link );
-
-		return true;
 	}
 
 	public static function onGetPreferences( $user, &$preferences ) {
@@ -242,8 +238,6 @@ class Hooks {
 			$wgHiddenPrefs[] = 'lqtdisplaydepth';
 			$wgHiddenPrefs[] = 'lqtdisplaycount';
 		}
-
-		return true;
 	}
 
 	/**
@@ -261,7 +255,7 @@ class Hooks {
 	public static function onXmlDumpWriterOpenPage( $writer, &$out, $row, $title ) {
 		// Is it a thread
 		if ( empty( $row->thread_id ) || $row->thread_type >= 2 ) {
-			return true;
+			return;
 		}
 
 		$thread = Thread::newFromRow( $row );
@@ -296,21 +290,17 @@ class Hooks {
 		}
 
 		$out .= Validator::cleanUp( Xml::tags( 'DiscussionThreading', null, $threadInfo ) . "\n" );
-
-		return true;
 	}
 
 	public static function onModifyExportQuery( $db, &$tables, &$cond, &$opts, &$join ) {
 		$tables[] = 'thread';
 
 		$join['thread'] = [ 'left join', [ 'thread_root=page_id' ] ];
-
-		return true;
 	}
 
 	public static function onShowSearchHitTitle( &$title, &$text, $result, $terms, $page ) {
 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
-			return true;
+			return;
 		}
 
 		$thread = Threads::withRoot( MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title ) );
@@ -321,22 +311,19 @@ class Hooks {
 			$title = clone $thread->topmostThread()->title();
 			$title->setFragment( '#' . $thread->getAnchorName() );
 		}
-
-		return true;
 	}
 
 	/**
 	 * For integration with user renames.
 	 *
 	 * @param RenameuserSQL $renameUserSQL
-	 * @return bool
+	 * @return void
 	 */
 	public static function onRenameUserSQL( $renameUserSQL ) {
 		// Always use the job queue, talk page edits will take forever
 		foreach ( self::$userTables as $table => $fields ) {
 			$renameUserSQL->tablesJob[$table] = $fields;
 		}
-		return true;
 	}
 
 	/** @var string[][] */
@@ -349,14 +336,13 @@ class Hooks {
 	 * For integration with the UserMerge extension.
 	 *
 	 * @param array &$updateFields
-	 * @return bool
+	 * @return void
 	 */
 	public static function onUserMergeAccountFields( &$updateFields ) {
 		// array( tableName, idField, textField )
 		foreach ( self::$userTables as $table => $fields ) {
 			$updateFields[] = [ $table, $fields[1], $fields[0] ];
 		}
-		return true;
 	}
 
 	/**
@@ -364,7 +350,7 @@ class Hooks {
 	 *
 	 * @param EditPage $editPage
 	 * @param array &$checkboxes
-	 * @return bool
+	 * @return void
 	 */
 	public static function onEditPageGetCheckboxesDefinition( $editPage, &$checkboxes ) {
 		global $wgLiquidThreadsShowBumpCheckbox;
@@ -392,8 +378,6 @@ class Hooks {
 				'default' => !$request->wasPosted() || $request->getBool( 'wpBumpThread' ),
 			];
 		}
-
-		return true;
 	}
 
 	public static function onSpecialSearchProfiles( &$profiles ) {
@@ -432,13 +416,11 @@ class Hooks {
 			$insert,
 			array_slice( $profiles, $index )
 		);
-
-		return true;
 	}
 
 	/**
 	 * @param DatabaseUpdater|null $updater
-	 * @return bool
+	 * @return void
 	 */
 	public static function onLoadExtensionSchemaUpdates( ?DatabaseUpdater $updater = null ) {
 		$dir = realpath( __DIR__ . '/../sql' );
@@ -534,8 +516,6 @@ class Hooks {
 			'thread_root_page',
 			"$dir/patches/thread-drop-thread_root_page.sql"
 		);
-
-		return true;
 	}
 
 	public static function onPageMoveComplete(
@@ -553,7 +533,7 @@ class Hooks {
 		if ( !LqtDispatch::isLqtPage( $oldTitle ) &&
 			!LqtDispatch::isLqtPage( $newTitle )
 		) {
-			return true;
+			return;
 		}
 
 		// Synchronise the first 500 threads, in reverse order by thread id. If
@@ -571,8 +551,6 @@ class Hooks {
 		Threads::synchroniseArticleData(
 			MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $oldTitle )
 		);
-
-		return true;
 	}
 
 	/**
@@ -580,12 +558,12 @@ class Hooks {
 	 * @param Title $title
 	 * @param bool &$isBlocked
 	 * @param bool &$allowUserTalk
-	 * @return bool
+	 * @return void
 	 */
 	public static function onUserIsBlockedFrom( $user, $title, &$isBlocked, &$allowUserTalk ) {
 		// Limit applicability
 		if ( !( $isBlocked && $allowUserTalk && $title->getNamespace() == NS_LQT_THREAD ) ) {
-			return true;
+			return;
 		}
 
 		// Now we're dealing with blocked users with user talk editing allowed editing pages
@@ -598,7 +576,7 @@ class Hooks {
 			);
 
 			if ( !$thread ) {
-				return true;
+				return;
 			}
 
 			$articleTitle = $thread->getTitle();
@@ -606,7 +584,6 @@ class Hooks {
 			if ( $articleTitle->getNamespace() == NS_USER_TALK &&
 					$user->getName() == $title->getText() ) {
 				$isBlocked = false;
-				return true;
 			}
 		} else {
 			// Otherwise, it's a bit trickier. Allow creation of thread titles prefixed by the
@@ -631,18 +608,15 @@ class Hooks {
 				&& $isOnTalkPage
 			) {
 				$isBlocked = false;
-				return true;
 			}
 		}
-
-		return true;
 	}
 
 	public static function onSkinTemplateNavigation__Universal( $skinTemplate, &$links ) {
 		$user = $skinTemplate->getUser();
 
 		if ( $user->isAnon() ) {
-			return true;
+			return;
 		}
 
 		global $wgLiquidThreadsEnableNewMessages;
@@ -669,8 +643,6 @@ class Hooks {
 			}
 			$links['user-menu'] = $personal_urls;
 		}
-
-		return true;
 	}
 
 	/**
@@ -680,7 +652,7 @@ class Hooks {
 	 * @param int $flags
 	 * @param RevisionRecord $revisionRecord
 	 * @param EditResult $editResult
-	 * @return bool
+	 * @return void
 	 */
 	public static function onPageSaveComplete(
 		WikiPage $wikiPage,
@@ -693,19 +665,19 @@ class Hooks {
 		$title = $wikiPage->getTitle();
 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
 			// Not a thread
-			return true;
+			return;
 		}
 
 		if ( $flags & EDIT_NEW ) {
 			// New page
-			return true;
+			return;
 		}
 
 		$thread = Threads::withRoot( $wikiPage );
 
 		if ( !$thread ) {
 			// No matching thread.
-			return true;
+			return;
 		}
 
 		$content = $wikiPage->getContent();
@@ -716,21 +688,19 @@ class Hooks {
 				'summary' => $summary,
 				'text' => ( $content instanceof TextContent ) ? $content->getText() : '',
 			] );
-
-		return true;
 	}
 
 	/**
 	 * @param Title $title
 	 * @param array &$types
-	 * @return bool
+	 * @return void
 	 */
 	public static function onTitleGetRestrictionTypes( $title, &$types ) {
 		$isLqtPage = LqtDispatch::isLqtPage( $title );
 		$isThread = $title->getNamespace() == NS_LQT_THREAD;
 
 		if ( !$isLqtPage && !$isThread ) {
-			return true;
+			return;
 		}
 
 		if ( $isLqtPage ) {
@@ -741,8 +711,6 @@ class Hooks {
 		if ( $isThread ) {
 			$types[] = 'reply';
 		}
-
-		return true;
 	}
 
 	/**
@@ -799,7 +767,7 @@ class Hooks {
 	 * @param int $revCount
 	 * @param int $sRevCount
 	 * @param array $pageInfo
-	 * @return bool
+	 * @return void
 	 */
 	public static function onAfterImportPage( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
 		// in-process cache of pending thread relationships
@@ -819,7 +787,7 @@ class Hooks {
 		}
 
 		if ( !isset( $pageInfo['DiscussionThreading'] ) ) {
-			return true;
+			return;
 		}
 
 		$typeValues = array_flip( self::$threadTypes );
@@ -877,8 +845,6 @@ class Hooks {
 				unset( $titlePendingRelationships[$k] );
 			}
 		}
-
-		return true;
 	}
 
 	public static function applyPendingThreadRelationship( $pendingRelationship, Thread $thread ) {
@@ -1010,7 +976,7 @@ class Hooks {
 
 	/**
 	 * @param Parser $parser
-	 * @return bool
+	 * @return void
 	 */
 	public static function onParserFirstCallInit( $parser ) {
 		$parser->setFunctionHook(
@@ -1029,20 +995,17 @@ class Hooks {
 			$parser->setHook( 'talkpage', LqtParserFunctions::lqtTalkPage( ... ) );
 			$parser->setHook( 'thread', LqtParserFunctions::lqtThread( ... ) );
 		}
-
-		return true;
 	}
 
 	/**
 	 * @param array &$list
-	 * @return bool
+	 * @return void
 	 */
 	public static function onCanonicalNamespaces( &$list ) {
 		$list[NS_LQT_THREAD] = 'Thread';
 		$list[NS_LQT_THREAD_TALK] = 'Thread_talk';
 		$list[NS_LQT_SUMMARY] = 'Summary';
 		$list[NS_LQT_SUMMARY_TALK] = 'Summary_talk';
-		return true;
 	}
 
 	public static function onAPIQueryAfterExecute( $module ) {
@@ -1068,8 +1031,6 @@ class Hooks {
 				}
 			}
 		}
-
-		return true;
 	}
 
 	public static function onInfoAction( $context, &$pageInfo ) {
@@ -1078,8 +1039,6 @@ class Hooks {
 				$context->msg( 'pageinfo-usinglqt' ), $context->msg( 'pageinfo-usinglqt-yes' )
 			];
 		}
-
-		return true;
 	}
 
 	public static function onSpecialPage_initList( &$aSpecialPages ) {
@@ -1090,7 +1049,6 @@ class Hooks {
 				unset( $aSpecialPages['NewMessages'] );
 			}
 		}
-		return true;
 	}
 
 	public static function onRegistration() {
