@@ -139,7 +139,7 @@
 	"lqt-thread-split-subject": "Kop nieuwe onderwerp:",
 	"lqt-thread-split-thread": "Overleg:",
 	"lqt-split-submit": "Splitsen",
-	"lqt_split_badsubject": "Het onderwerp dat u hebt opgegeven is ongeldig.",
+	"lqt_split_badsubject": "Het onderwerp dat u hebt opgegeven is onjuist.",
 	"lqt-no-threads": "Er staan nog geen onderwerpen op deze pagina.",
 	"lqt-delete-parent-warning": "Dit is een overleg op het hoogste niveau in een boomstructuur met antwoorden.\nDe antwoorden worden worden ook automatisch verwijderd.\nSplits dit overleg alvorens het te verwijderen om dit te voorkomen.",
 	"lqt-delete-parent-deleted": "Bovenliggend overleg verwijderd ($1)",
