@@ -57,7 +57,7 @@
 	"apierror-liquidthreads-badreaction": "U moet zowel een type als een waarde voor de reactie opgeven.",
 	"apierror-liquidthreads-badsortkey": "U moet een geldige tijdstempel opgeven voor de parameter <var>sortkey</var>. Het moet in de vorm JJJJMMddhhmmss, een Unix-tijdstempel of <kbd>now</kbd> zijn.",
 	"apierror-liquidthreads-badsubject": "Het door u opgegeven onderwerp is niet geldig.",
-	"apierror-liquidthreads-invalidtalkpage": "De door u opgegeven overlegpagina is ongeldig of discussies in draden zijn daar niet geactiveerd.",
+	"apierror-liquidthreads-invalidtalkpage": "De door u opgegeven overlegpagina is incorrect of discussies in draden zijn daar niet geactiveerd.",
 	"apierror-liquidthreads-noparent": "U moet een nieuwe bovenliggende draad opgeven om eronder samen te voegen.",
 	"apierror-liquidthreads-noreplies-talkpage": "U kunt niet reageren op deze draad, want de overlegpagina is beschermd tegen antwoorden.",
 	"apierror-liquidthreads-noreplies-thread": "U kunt niet reageren op deze draad, want de draad is beschermd tegen antwoorden.",
