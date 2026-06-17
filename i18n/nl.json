@@ -194,7 +194,7 @@
 	"lqt-ajax-update-link": "Bijwerken",
 	"lqt-thread-show-replies": "$1 {{PLURAL:$1|reactie|reacties}} weergeven",
 	"lqt-thread-show-more": "Meer reacties weergeven",
-	"lqt-thread-link-url": "URL voor koppeling:",
+	"lqt-thread-link-url": "Koppelings-url:",
 	"lqt-thread-link-title": "Wikitekst­koppeling:",
 	"lqt-thread-link-copy": "Naar klembord kopiëren",
 	"lqt-sign-not-necessary": "{{int:lqt-summary-sign-not-necessary}}\nDe ondertekening wordt automatisch toegevoegd.",
