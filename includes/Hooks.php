@@ -33,6 +33,7 @@ use NewMessages;
 use Thread;
 use Threads;
 use UtfNormal\Validator;
+use Wikimedia\ArrayUtils\ArrayUtils;
 use Wikimedia\HtmlArmor\HtmlArmor;
 use Wikimedia\Message\MessageSpecifier;
 use XMLReader;
@@ -662,9 +663,9 @@ class Hooks {
 			$personal_urls = $links['user-menu'] ?? [];
 			// User has viewmywatchlist permission
 			if ( isset( $personal_urls['watchlist'] ) ) {
-				$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'watchlist' );
+				$personal_urls = ArrayUtils::insertAfter( $personal_urls, $insertUrls, 'watchlist' );
 			} else {
-				$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'preferences' );
+				$personal_urls = ArrayUtils::insertAfter( $personal_urls, $insertUrls, 'preferences' );
 			}
 			$links['user-menu'] = $personal_urls;
 		}
