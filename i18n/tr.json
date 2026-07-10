@@ -10,7 +10,8 @@
 			"Rapsar",
 			"SaldırganSincap",
 			"Srhat",
-			"Vito Genovese"
+			"Vito Genovese",
+			"Leo"
 		]
 	},
 	"lqt-desc": "Tartışma sayfalarına ileti halinde tartışmalar ekler",
@@ -166,7 +167,7 @@
 	"lqt-thread-merge-dest": "Hedef dizi:",
 	"lqt-merge-submit": "Birleştir",
 	"lqt-merge-success": "$1 iletiğini $2 altına birleştirdiniz.",
-	"lqt-log-name": "Dizi haline getirilmiş tartışma günlüğü",
+	"lqt-log-name": "Konu bazlı tartışma günlüğü",
 	"lqt-log-header": "Bu günlük tartışma dizilerinde alınan eylemleri detaylandırır.",
 	"lqt-log-action-move": "[[$1]] ileti dizisini [[$2]] sayfasından [[$3]] sayfasına taşıdı ($4)",
 	"lqt-log-action-split": "[[$1]] iletiti dizisini [[$3]] ileti dizisinin altından ayırdı, yeni konu: \"$2\"",
