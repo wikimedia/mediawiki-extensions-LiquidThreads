@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Abshirdheere",
-			"Maax"
+			"Maax",
+			"AhmedG612"
 		]
 	},
 	"lqt_new_thread": "Biloow wadahadal cusub",
@@ -20,6 +21,6 @@
 	"lqt-preference-notify-talk": "Ii soo dir farriin e-mail ka dhiidhinta lagu daray qodobka aan waardiyeeyay",
 	"lqt-search-label": "Habka raadinta:",
 	"lqt-search-button": "Raadi",
-	"lqt-newmessages-n": "Farriimaha cusub ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|farriim|farriimo}} cusub ($1)",
 	"lqt_newmessages-title": "Farriimo cusub"
 }

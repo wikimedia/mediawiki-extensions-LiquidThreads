@@ -36,7 +36,7 @@
 	"lqt_noreason": "Arrazoirik eman gabe.",
 	"lqt_summary_notice_link": "laburpena idatzi",
 	"lqt_summary_label": "Mintzagaiaren laburpena:",
-	"lqt_move_movingthread": "$1 mugitzen.\nEztabaida hau $2-(e)ko zati da.",
+	"lqt_move_movingthread": "«$1» mugitzen.\nEztabaida hau «$2» orriaren parte da.",
 	"lqt_move_torename_edit": "editatu",
 	"lqt_move_move": "Mugitu",
 	"lqt_move_noreason": "Ez da arrazoirik zehaztu.",
