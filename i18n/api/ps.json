@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"apihelp-feedthreads-summary": "شننلړونو کتنمخ بېرته راستون کړئ.",
+	"apihelp-feedthreads-param-feedformat": "د کتنمخ بڼه.",
+	"apihelp-feedthreads-param-days": "د شننلړونو د ورځو شمېر چې بايد وښودل شي.",
+	"apihelp-feedthreads-param-type": "د پوسټونو شمېر چې بايد وښودل شي.",
+	"apihelp-feedthreads-param-talkpage": "د شننلړونو پايلې د دې خبرو اترو مخونو پورې محدودې کړئ.",
+	"apihelp-feedthreads-param-thread": "پايلې شننلړونو او د هغوی زوزاتو پورې محدوده کړئ.",
+	"apihelp-feedthreads-example-1": "د ټولو نويو شننلړونو کتمنځ ښودل.",
+	"apihelp-feedthreads-example-2": "په [[Thread:Foo]] کې د ځوابونو کتمنځ ښودل",
+	"apihelp-feedthreads-example-3": "په [[Talk:Main Page]] کې د نويو شننلړونو کتمنځ ښودل",
+	"apihelp-query+threads-summary": "د اوبيزشننلړونو د شننلړونو سپيناوی ښودل",
+	"apihelp-query+threads-param-startid": "د شننلړ هغه پېژند چې شمېرل ترې پيلېږي.",
+	"apihelp-query+threads-param-endid": "د شننلړ هغه پېژند چې شمېرل پرې درېږي.",
+	"apihelp-query+threads-param-showdeleted": "ړنگ شوي شننلړونه وښودل شي يا نه.",
+	"apihelp-query+threads-param-limit": "د شننلړونو ډېر شمېر چې بايد لړليک شي.",
+	"apihelp-query+threads-param-prop": "کومې ځانتياوې بايد ترلاسه شي.",
+	"apihelp-query+threads-param-page": "د شننلړونو پايلې د دې مخونو پورې محدودې کړئ.",
+	"apihelp-query+threads-param-author": "د شننلړونو پايلې د سمدوديزه ليکوالانو پورې محدوې کړئ.",
+	"apihelp-query+threads-param-root": "د شننلړونو پايلې د ورکړل شويو ريښو پورې محدودې کړئ."
+}
