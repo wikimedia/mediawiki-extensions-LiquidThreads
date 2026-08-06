@@ -26,7 +26,6 @@ use MediaWiki\Feed\FeedItem;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MainConfigNames;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Title\Title;
 use stdClass;
@@ -34,6 +33,7 @@ use Thread;
 use Threads;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
@@ -42,18 +42,14 @@ use Wikimedia\Rdbms\SelectQueryBuilder;
  * @ingroup API
  */
 class ApiFeedLQTThreads extends ApiBase {
-	private LinkRenderer $linkRenderer;
-	private WikiPageFactory $wikiPageFactory;
-
 	public function __construct(
 		ApiMain $main,
 		string $action,
-		LinkRenderer $linkRenderer,
-		WikiPageFactory $wikiPageFactory
+		private readonly IConnectionProvider $dbProvider,
+		private readonly LinkRenderer $linkRenderer,
+		private readonly WikiPageFactory $wikiPageFactory,
 	) {
 		parent::__construct( $main, $action );
-		$this->linkRenderer = $linkRenderer;
-		$this->wikiPageFactory = $wikiPageFactory;
 	}
 
 	/**
@@ -72,7 +68,7 @@ class ApiFeedLQTThreads extends ApiBase {
 		$params = $this->extractRequestParams();
 		$feedClasses = $this->getConfig()->get( MainConfigNames::FeedClasses );
 
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		$dbr = $this->dbProvider->getReplicaDatabase();
 
 		$feedTitle = $this->createFeedTitle( $params );
 		$feedClass = $feedClasses[$params['feedformat']];

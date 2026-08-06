@@ -6,13 +6,13 @@ use LqtView;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use stdClass;
 use Thread;
 use Threads;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * LiquidThreads API Query module
@@ -60,7 +60,11 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 	/** @var array */
 	protected $threadIds;
 
-	public function __construct( ApiQuery $query, string $moduleName ) {
+	public function __construct(
+		ApiQuery $query,
+		string $moduleName,
+		private readonly IConnectionProvider $dbProvider,
+	) {
 		parent::__construct( $query, $moduleName, 'th' );
 	}
 
@@ -174,7 +178,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		if ( !$this->threadIds ) {
 			return;
 		}
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		$dbr = $this->dbProvider->getReplicaDatabase();
 		$result = $this->getResult();
 
 		$fields = array_merge( (array)$fields, (array)$joinField );

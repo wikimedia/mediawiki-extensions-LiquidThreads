@@ -80,14 +80,25 @@
 		"feedthreads": {
 			"class": "MediaWiki\\Extension\\LiquidThreads\\Api\\ApiFeedLQTThreads",
 			"services": [
+				"ConnectionProvider",
 				"LinkRenderer",
 				"WikiPageFactory"
 			]
 		},
-		"threadaction": "MediaWiki\\Extension\\LiquidThreads\\Api\\ApiThreadAction"
+		"threadaction": {
+			"class": "MediaWiki\\Extension\\LiquidThreads\\Api\\ApiThreadAction",
+			"services": [
+				"WikiPageFactory"
+			]
+		}
 	},
 	"APIListModules": {
-		"threads": "MediaWiki\\Extension\\LiquidThreads\\Api\\ApiQueryLQTThreads"
+		"threads": {
+			"class": "MediaWiki\\Extension\\LiquidThreads\\Api\\ApiQueryLQTThreads",
+			"services": [
+				"ConnectionProvider"
+			]
+		}
 	},
 	"MessagesDirs": {
 		"LiquidThreads": [

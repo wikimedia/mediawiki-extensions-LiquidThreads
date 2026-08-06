@@ -8,8 +8,8 @@ use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiEditPage;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Extension\LiquidThreads\Hooks;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Article;
+use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
@@ -18,6 +18,14 @@ use Thread;
 use Threads;
 
 class ApiThreadAction extends ApiEditPage {
+	public function __construct(
+		ApiMain $main,
+		string $action,
+		private readonly WikiPageFactory $wikiPageFactory,
+	) {
+		parent::__construct( $main, $action );
+	}
+
 	public function execute() {
 		$params = $this->extractRequestParams();
 
@@ -28,7 +36,6 @@ class ApiThreadAction extends ApiEditPage {
 		// Pull the threads from the parameters
 		$threads = [];
 		if ( !empty( $params['thread'] ) ) {
-			$wikiPageFactory = MediaWikiServices::getInstance()->getWikiPageFactory();
 			foreach ( $params['thread'] as $thread ) {
 				$threadObj = null;
 				if ( is_numeric( $thread ) ) {
@@ -38,7 +45,7 @@ class ApiThreadAction extends ApiEditPage {
 					$threads = [ 'all' ];
 				} else {
 					$threadObj = Threads::withRoot(
-						$wikiPageFactory->newFromTitle(
+						$this->wikiPageFactory->newFromTitle(
 							Title::newFromText( $thread )
 						)
 					);
@@ -233,7 +240,7 @@ class ApiThreadAction extends ApiEditPage {
 			$newParent = Threads::withId( $newParent );
 		} else {
 			$newParent = Threads::withRoot(
-				MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle(
+				$this->wikiPageFactory->newFromTitle(
 					Title::newFromText( $newParent )
 				)
 			);
