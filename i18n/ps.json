@@ -145,7 +145,7 @@
 	"lqt-enotif-subject-reply": "د {{SITENAME}} خبرې اترې - ځوابول: $1",
 	"lqt-search-label": "نومه‌ونې پلټل:",
 	"lqt-search-button": "پلټل",
-	"searchprofile-threads": "خبرې اترې",
+	"searchprofile-threads": "شننې",
 	"searchprofile-threads-tooltip": "د شننلړ شننې او خبرو اترو مخونو پلټل",
 	"lqt-ajax-update-link": "هم‌مهالول",
 	"lqt-thread-show-replies": "$1 {{PLURAL:$1|ځواب|ځوابونه}} ښکاره کول",
