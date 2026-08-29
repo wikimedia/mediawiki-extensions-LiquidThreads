@@ -1738,11 +1738,11 @@ class LqtView {
 			return; // Odd case: moved thread with no title?
 		}
 
-		$article = new Article( $thread->title(), 0 );
-		$target = $article->getPage()->getRedirectTarget();
+		$target = MediaWikiServices::getInstance()->getRedirectLookup()->getRedirectTarget( $thread->title() );
 
 		if ( !$target ) {
-			$content = $article->getPage()->getContent();
+			$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $thread->title() );
+			$content = $page->getContent();
 			$contentText = ( $content instanceof TextContent ) ? $content->getText() : '';
 			throw new LogicException( "Thread " . $thread->id() . ' purports to be moved, ' .
 				'but no redirect found in text (' . $contentText . ') of ' .
@@ -1751,7 +1751,7 @@ class LqtView {
 		}
 
 		$t_thread = Threads::withRoot(
-			MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $target )
+			MediaWikiServices::getInstance()->getWikiPageFactory()->newFromLinkTarget( $target )
 		);
 
 		// Grab data about the new post.
