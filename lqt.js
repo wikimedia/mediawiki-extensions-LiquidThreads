@@ -1315,7 +1315,6 @@
 
 			function addAction( msg ) {
 				const $li = $( '<li>' )
-					// eslint-disable-next-line mediawiki/msg-doc
 					.text( mw.msg( msg ) );
 				$actionSummary.append( $li );
 			}
