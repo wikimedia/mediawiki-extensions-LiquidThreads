@@ -74,7 +74,7 @@ class ThreadRevision {
 		}
 
 		$rev->mUser = User::newFromName( $rev->mUserText, /* Don't validate */ false );
-		$rev->mThreadObj = unserialize( $rev->mObjSer );
+		$rev->mThreadObj = unserialize( $rev->mObjSer, [ 'allowed_classes' => [ Thread::class ] ] );
 
 		return $rev;
 	}
@@ -204,7 +204,7 @@ class ThreadRevision {
 	public function getThreadObj() {
 		if ( $this->mThreadObj === null ) {
 			if ( $this->mObjSer !== null ) {
-				$this->mThreadObj = unserialize( $this->mObjSer );
+				$this->mThreadObj = unserialize( $this->mObjSer, [ 'allowed_classes' => [ Thread::class ] ] );
 			} else {
 				throw new LogicException( "Missing mObjSer" );
 			}
