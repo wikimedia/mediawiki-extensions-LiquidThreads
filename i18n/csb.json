@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kaszeba"
+			"Kaszeba",
+			"Orbitminis"
 		]
 	},
-	"lqt-newmessages-n": "Nowé wiadła ($1)",
+	"lqt-newmessages-n": "{{PLURAL:$1|Nowi wiadło|Nowé wiadła}} ($1)",
 	"lqt_newmessages-title": "Nowé wiadła"
 }
