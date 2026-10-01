@@ -1409,7 +1409,7 @@ class LqtView {
 		}
 
 		// Remove title, so that it stays set correctly.
-		$parserOutput->setTitleText( '' );
+		$parserOutput->setDisplayTitleParts( '', '', '' );
 
 		$out = RequestContext::getMain()->getOutput();
 		$out->addParserOutputMetadata( $parserOutput );
