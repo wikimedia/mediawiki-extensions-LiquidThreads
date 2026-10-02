@@ -168,7 +168,7 @@
 	"lqt-merge-submit": "Birleştir",
 	"lqt-merge-success": "$1 iletiğini $2 altına birleştirdiniz.",
 	"lqt-log-name": "Konu bazlı tartışma günlüğü",
-	"lqt-log-header": "Bu günlük tartışma dizilerinde alınan eylemleri detaylandırır.",
+	"lqt-log-header": "Bu günlük, tartışma başlıkları üzerinde gerçekleştirilen işlemleri ayrıntılı olarak gösterir.",
 	"lqt-log-action-move": "[[$1]] ileti dizisini [[$2]] sayfasından [[$3]] sayfasına taşıdı ($4)",
 	"lqt-log-action-split": "[[$1]] iletiti dizisini [[$3]] ileti dizisinin altından ayırdı, yeni konu: \"$2\"",
 	"lqt-log-action-merge-across": "[[$1]] ileti dizisini [[$2]] ileti dizisinin altından [[$3]] ileti dizisinin altına taşıdı",
