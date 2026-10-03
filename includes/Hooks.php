@@ -1015,19 +1015,19 @@ class Hooks {
 	public static function onParserFirstCallInit( $parser ) {
 		$parser->setFunctionHook(
 			'useliquidthreads',
-			[ LqtParserFunctions::class, 'useLiquidThreads' ]
+			LqtParserFunctions::useLiquidThreads( ... )
 		);
 
 		$parser->setFunctionHook(
 			'lqtpagelimit',
-			[ LqtParserFunctions::class, 'lqtPageLimit' ]
+			LqtParserFunctions::lqtPageLimit( ... )
 		);
 
 		global $wgLiquidThreadsAllowEmbedding;
 
 		if ( $wgLiquidThreadsAllowEmbedding ) {
-			$parser->setHook( 'talkpage', [ LqtParserFunctions::class, 'lqtTalkPage' ] );
-			$parser->setHook( 'thread', [ LqtParserFunctions::class, 'lqtThread' ] );
+			$parser->setHook( 'talkpage', LqtParserFunctions::lqtTalkPage( ... ) );
+			$parser->setHook( 'thread', LqtParserFunctions::lqtThread( ... ) );
 		}
 
 		return true;

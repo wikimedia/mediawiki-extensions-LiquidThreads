@@ -17,7 +17,7 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 	 * This customizes the subtitle of a history *listing* from the hook, and of an old revision
 	 * from getSubtitle() below.
 	 */
-	public function customizeSubtitle() {
+	private function customizeSubtitle() {
 		$msg = wfMessage( 'lqt_hist_view_whole_thread' )->text();
 		$threadhist = $this->permalink(
 			$this->thread->topmostThread(),
@@ -45,7 +45,7 @@ class IndividualThreadHistoryView extends ThreadPermalinkView {
 		}
 
 		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
-		$hookContainer->register( 'PageHistoryBeforeList', [ $this, 'customizeSubtitle' ] );
+		$hookContainer->register( 'PageHistoryBeforeList', $this->customizeSubtitle( ... ) );
 
 		return true;
 	}

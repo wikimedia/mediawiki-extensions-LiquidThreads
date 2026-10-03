@@ -30,7 +30,7 @@ class SpecialMoveThread extends ThreadActionPage {
 			'dest-title' => [
 				'label-message' => 'lqt_move_destinationtitle',
 				'type' => 'text',
-				'validation-callback' => [ $this, 'validateTarget' ],
+				'validation-callback' => $this->validateTarget( ... ),
 			] + $destAdditions,
 			'reason' => [
 				'label-message' => 'movereason',
@@ -124,7 +124,11 @@ class SpecialMoveThread extends ThreadActionPage {
 		return true;
 	}
 
-	public function validateTarget( $target ) {
+	/**
+	 * @param string|null $target
+	 * @return string|bool
+	 */
+	private function validateTarget( $target ) {
 		if ( !$target ) {
 			return $this->msg( 'lqt_move_nodestination' )->parse();
 		}

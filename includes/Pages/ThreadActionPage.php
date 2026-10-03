@@ -89,7 +89,7 @@ abstract class ThreadActionPage extends UnlistedSpecialPage {
 		);
 
 		$form->setSubmitText( $this->getSubmitText() );
-		$form->setSubmitCallback( [ $this, 'trySubmit' ] );
+		$form->setSubmitCallback( $this->trySubmit( ... ) );
 
 		return $form;
 	}
