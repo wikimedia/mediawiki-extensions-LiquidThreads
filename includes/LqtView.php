@@ -20,6 +20,7 @@ use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Request\WebRequest;
+use MediaWiki\Skin\SkinTemplate;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
