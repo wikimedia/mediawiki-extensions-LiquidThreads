@@ -13,7 +13,6 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Import\WikiImporter;
 use MediaWiki\Installer\DatabaseUpdater;
-use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Article;
@@ -25,6 +24,7 @@ use MediaWiki\RenameUser\RenameuserSQL;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Storage\EditResult;
+use MediaWiki\Title\ForeignTitle;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
@@ -38,7 +38,17 @@ use Wikimedia\HtmlArmor\HtmlArmor;
 use Wikimedia\Message\MessageSpecifier;
 use XMLReader;
 
-class Hooks {
+class Hooks implements
+	\MediaWiki\Hook\MovePageIsValidMoveHook,
+	\MediaWiki\Hook\PageMoveCompleteHook,
+	\MediaWiki\Import\Hook\AfterImportPageHook,
+	\MediaWiki\Permissions\Hook\GetUserPermissionsErrorsHook,
+	\MediaWiki\Permissions\Hook\UserIsBlockedFromHook,
+	\MediaWiki\RecentChanges\Hook\OldChangesListRecentChangesLineHook,
+	\MediaWiki\Search\Hook\ShowSearchHitTitleHook,
+	\MediaWiki\SpecialPage\Hook\ChangesListSpecialPageQueryHook,
+	\MediaWiki\Specials\Hook\SpecialSearchProfilesHook
+{
 	/** @var string|null Used to inform hooks about edits that are taking place. */
 	public static $editType = null;
 	/** @var Thread|null Used to inform hooks about edits that are taking place. */
@@ -74,9 +84,10 @@ class Hooks {
 	 * @param string &$s
 	 * @param RecentChange $rc
 	 * @param array &$classes
+	 * @param string[] &$attribs
 	 * @return void
 	 */
-	public static function onOldChangesListRecentChangesLine( ChangesList $changeslist, &$s, $rc, &$classes ) {
+	public function onOldChangesListRecentChangesLine( $changeslist, &$s, $rc, &$classes, &$attribs ) {
 		$rcTitle = $rc->getTitle();
 		if ( $rcTitle->getNamespace() != NS_LQT_THREAD ) {
 			return;
@@ -151,7 +162,7 @@ class Hooks {
 		return false;
 	}
 
-	public static function onChangesListSpecialPageQuery(
+	public function onChangesListSpecialPageQuery(
 		$name, &$tables, &$fields, &$conds, &$query_options, &$join_conds, $opts
 	) {
 		global $wgLiquidThreadsEnableNewMessages;
@@ -298,7 +309,7 @@ class Hooks {
 		$join['thread'] = [ 'left join', [ 'thread_root=page_id' ] ];
 	}
 
-	public static function onShowSearchHitTitle( &$title, &$text, $result, $terms, $page ) {
+	public function onShowSearchHitTitle( &$title, &$text, $result, $terms, $page, &$query, &$attributes ) {
 		if ( $title->getNamespace() != NS_LQT_THREAD ) {
 			return;
 		}
@@ -380,7 +391,7 @@ class Hooks {
 		}
 	}
 
-	public static function onSpecialSearchProfiles( &$profiles ) {
+	public function onSpecialSearchProfiles( &$profiles ) {
 		$namespaces = [ NS_LQT_THREAD, NS_LQT_SUMMARY ];
 
 		// Add odd namespaces
@@ -518,14 +529,14 @@ class Hooks {
 		);
 	}
 
-	public static function onPageMoveComplete(
-		LinkTarget $oldLinkTarget,
-		LinkTarget $newLinkTarget,
-		UserIdentity $user,
-		int $pageId,
-		int $redirId,
-		string $reason,
-		RevisionRecord $revisionRecord
+	public function onPageMoveComplete(
+		$oldLinkTarget,
+		$newLinkTarget,
+		$user,
+		$pageId,
+		$redirId,
+		$reason,
+		$revisionRecord
 	) {
 		$oldTitle = Title::newFromLinkTarget( $oldLinkTarget );
 		$newTitle = Title::newFromLinkTarget( $newLinkTarget );
@@ -545,7 +556,7 @@ class Hooks {
 		);
 	}
 
-	public static function onMovePageIsValidMove( Title $oldTitle ) {
+	public function onMovePageIsValidMove( $oldTitle, $newTitle, $status ) {
 		// Synchronise article data so that moving the article doesn't break any
 		// article association.
 		Threads::synchroniseArticleData(
@@ -560,7 +571,7 @@ class Hooks {
 	 * @param bool &$allowUserTalk
 	 * @return void
 	 */
-	public static function onUserIsBlockedFrom( $user, $title, &$isBlocked, &$allowUserTalk ) {
+	public function onUserIsBlockedFrom( $user, $title, &$isBlocked, &$allowUserTalk ) {
 		// Limit applicability
 		if ( !( $isBlocked && $allowUserTalk && $title->getNamespace() == NS_LQT_THREAD ) ) {
 			return;
@@ -763,13 +774,13 @@ class Hooks {
 	 * Processes discussion threading data in XML dumps (extracted in {@link onImportHandlePageXMLTag}).
 	 *
 	 * @param Title $title
-	 * @param Title $origTitle
+	 * @param ForeignTitle $origTitle
 	 * @param int $revCount
 	 * @param int $sRevCount
 	 * @param array $pageInfo
-	 * @return void
+	 * @return bool|void
 	 */
-	public static function onAfterImportPage( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
+	public function onAfterImportPage( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
 		// in-process cache of pending thread relationships
 		static $pendingRelationships = null;
 		$pendingRelationships ??= self::loadPendingRelationships();
@@ -950,7 +961,7 @@ class Hooks {
 	 * @param array|string|MessageSpecifier &$result
 	 * @return bool
 	 */
-	public static function onGetUserPermissionsErrors( $title, $user, $action, &$result ) {
+	public function onGetUserPermissionsErrors( $title, $user, $action, &$result ) {
 		if ( $title->getNamespace() != NS_LQT_THREAD || $action != 'read' ) {
 			return true;
 		}
