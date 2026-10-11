@@ -207,7 +207,15 @@
 	},
 	"HookHandlers": {
 		"main": {
-			"class": "MediaWiki\\Extension\\LiquidThreads\\Hooks"
+			"class": "MediaWiki\\Extension\\LiquidThreads\\Hooks",
+			"services": [
+				"ConnectionProvider",
+				"CommentFormatter",
+				"LinkRenderer",
+				"PermissionManager",
+				"SearchEngineConfig",
+				"WikiPageFactory"
+			]
 		}
 	},
 	"Hooks": {

@@ -8,20 +8,24 @@ use LqtDispatch;
 use LqtParserFunctions;
 use LqtView;
 use MediaWiki\Api\ApiQueryInfo;
+use MediaWiki\CommentFormatter\CommentFormatter;
 use MediaWiki\Content\TextContent;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Import\WikiImporter;
 use MediaWiki\Installer\DatabaseUpdater;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Article;
 use MediaWiki\Page\WikiPage;
+use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Parser\Parser;
+use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\RecentChanges\ChangesList;
 use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\RenameUser\RenameuserSQL;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Search\SearchEngineConfig;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\Title\ForeignTitle;
@@ -36,6 +40,7 @@ use UtfNormal\Validator;
 use Wikimedia\ArrayUtils\ArrayUtils;
 use Wikimedia\HtmlArmor\HtmlArmor;
 use Wikimedia\Message\MessageSpecifier;
+use Wikimedia\Rdbms\IConnectionProvider;
 use XMLReader;
 
 class Hooks implements
@@ -79,6 +84,16 @@ class Hooks implements
 		Threads::TYPE_DELETED => 'deleted'
 	];
 
+	public function __construct(
+		private readonly IConnectionProvider $dbProvider,
+		private readonly CommentFormatter $commentFormatter,
+		private readonly LinkRenderer $linkRenderer,
+		private readonly PermissionManager $permissionManager,
+		private readonly SearchEngineConfig $searchEngineConfig,
+		private readonly WikiPageFactory $wikiPageFactory,
+	) {
+	}
+
 	/**
 	 * @param ChangesList $changeslist
 	 * @param string &$s
@@ -93,7 +108,7 @@ class Hooks implements
 			return;
 		}
 
-		$thread = Threads::withRoot( MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $rcTitle ) );
+		$thread = Threads::withRoot( $this->wikiPageFactory->newFromTitle( $rcTitle ) );
 		if ( !$thread ) {
 			return;
 		}
@@ -104,9 +119,7 @@ class Hooks implements
 		// Custom display for new posts.
 		if ( $rc->getAttribute( 'rc_source' ) === RecentChange::SRC_NEW ) {
 			// Article link, timestamp, user
-			$s = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
-				$thread->getTitle()
-			);
+			$s = $this->linkRenderer->makeLink( $thread->getTitle() );
 			$changeslist->insertTimestamp( $s, $rc );
 			$changeslist->insertUserRelatedLinks( $s, $rc );
 
@@ -122,7 +135,7 @@ class Hooks implements
 			$content = $thread->root()->getPage()->getContent();
 			$quote = ( $content instanceof TextContent ) ? $content->getText() : '';
 			$quote = $lang->truncateForVisual( $quote, 200 );
-			$s .= ' ' . MediaWikiServices::getInstance()->getCommentFormatter()->formatBlock( $quote );
+			$s .= ' ' . $this->commentFormatter->formatBlock( $quote );
 
 			$classes = [];
 			$changeslist->insertTags( $s, $rc, $classes );
@@ -176,7 +189,7 @@ class Hooks implements
 		}
 
 		// Only reading from this DB, but presumably getting primary for latest content.
-		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		$dbw = $this->dbProvider->getPrimaryDatabase();
 		$context = RequestContext::getMain();
 		$user = $context->getUser();
 
@@ -202,7 +215,7 @@ class Hooks implements
 		$messages_title = SpecialPage::getTitleFor( 'NewMessages' );
 		$new_messages = wfMessage( 'lqt-new-messages' )->parse();
 
-		$link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink(
+		$link = $this->linkRenderer->makeLink(
 			$messages_title,
 			new HtmlArmor( $new_messages ),
 			[ 'class' => 'lqt_watchlist_messages_notice' ] );
@@ -314,7 +327,7 @@ class Hooks implements
 			return;
 		}
 
-		$thread = Threads::withRoot( MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title ) );
+		$thread = Threads::withRoot( $this->wikiPageFactory->newFromTitle( $title ) );
 
 		if ( $thread ) {
 			$text = $thread->subject();
@@ -395,8 +408,7 @@ class Hooks implements
 		$namespaces = [ NS_LQT_THREAD, NS_LQT_SUMMARY ];
 
 		// Add odd namespaces
-		$searchableNS = MediaWikiServices::getInstance()->getSearchEngineConfig()
-			->searchableNamespaces();
+		$searchableNS = $this->searchEngineConfig->searchableNamespaces();
 		foreach ( $searchableNS as $ns => $nsName ) {
 			if ( $ns % 2 == 1 ) {
 				$namespaces[] = $ns;
@@ -408,7 +420,7 @@ class Hooks implements
 				'message' => 'searchprofile-threads',
 				'tooltip' => 'searchprofile-threads-tooltip',
 				'namespaces' => $namespaces,
-				'namespace-messages' => MediaWikiServices::getInstance()->getSearchEngineConfig()
+				'namespace-messages' => $this->searchEngineConfig
 					->namespacesAsText( $namespaces ),
 			],
 		];
@@ -550,7 +562,7 @@ class Hooks implements
 		// Synchronise the first 500 threads, in reverse order by thread id. If
 		// there are more threads to synchronise, the job queue will take over.
 		Threads::synchroniseArticleData(
-			MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $newTitle ),
+			$this->wikiPageFactory->newFromTitle( $newTitle ),
 			500,
 			'cascade'
 		);
@@ -560,7 +572,7 @@ class Hooks implements
 		// Synchronise article data so that moving the article doesn't break any
 		// article association.
 		Threads::synchroniseArticleData(
-			MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $oldTitle )
+			$this->wikiPageFactory->newFromTitle( $oldTitle )
 		);
 	}
 
@@ -583,7 +595,7 @@ class Hooks implements
 		if ( $title->exists() ) {
 			// If the page actually exists, allow the user to edit posts on their own talk page.
 			$thread = Threads::withRoot(
-				MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title )
+				$this->wikiPageFactory->newFromTitle( $title )
 			);
 
 			if ( !$thread ) {
@@ -783,7 +795,7 @@ class Hooks implements
 	public function onAfterImportPage( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
 		// in-process cache of pending thread relationships
 		static $pendingRelationships = null;
-		$pendingRelationships ??= self::loadPendingRelationships();
+		$pendingRelationships ??= $this->loadPendingRelationships();
 
 		$titlePendingRelationships = [];
 		if ( isset( $pendingRelationships[$title->getPrefixedText()] ) ) {
@@ -791,7 +803,7 @@ class Hooks implements
 
 			foreach ( $titlePendingRelationships as $k => $v ) {
 				if ( $v['type'] == 'article' ) {
-					self::applyPendingArticleRelationship( $v, $title );
+					$this->applyPendingArticleRelationship( $v, $title );
 					unset( $titlePendingRelationships[$k] );
 				}
 			}
@@ -827,7 +839,7 @@ class Hooks implements
 			if ( $summaryPage->getPage()->exists() ) {
 				$thread->setSummary( $summaryPage );
 			} else {
-				self::addPendingRelationship( $thread->id(), 'thread_summary_page',
+				$this->addPendingRelationship( $thread->id(), 'thread_summary_page',
 					$summaryPageName, 'article', $pendingRelationships );
 			}
 		}
@@ -835,7 +847,7 @@ class Hooks implements
 		if ( isset( $info['ThreadParent'] ) ) {
 			$threadPageName = $info['ThreadParent'];
 			$superthread = Threads::withRoot(
-				MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle(
+				$this->wikiPageFactory->newFromTitle(
 					Title::newFromText( $threadPageName )
 				)
 			);
@@ -843,7 +855,7 @@ class Hooks implements
 			if ( $superthread ) {
 				$thread->setSuperthread( $superthread );
 			} else {
-				self::addPendingRelationship( $thread->id(), 'thread_parent',
+				$this->addPendingRelationship( $thread->id(), 'thread_parent',
 					$threadPageName, 'thread', $pendingRelationships );
 			}
 		}
@@ -872,10 +884,10 @@ class Hooks implements
 	 * @param array $pendingRelationship
 	 * @param Title $title
 	 */
-	public static function applyPendingArticleRelationship( $pendingRelationship, $title ) {
+	private function applyPendingArticleRelationship( $pendingRelationship, $title ) {
 		$articleID = $title->getArticleID();
 
-		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		$dbw = $this->dbProvider->getPrimaryDatabase();
 
 		$dbw->newUpdateQueryBuilder()
 			->update( 'thread' )
@@ -894,8 +906,8 @@ class Hooks implements
 	/**
 	 * @return array
 	 */
-	public static function loadPendingRelationships() {
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+	private function loadPendingRelationships() {
+		$dbr = $this->dbProvider->getReplicaDatabase();
 		$arr = [];
 
 		$res = $dbr->newSelectQueryBuilder()
@@ -923,8 +935,8 @@ class Hooks implements
 		return $arr;
 	}
 
-	public static function addPendingRelationship(
-		$thread, $relationship, $title, $type, &$array
+	private function addPendingRelationship(
+		int $thread, string $relationship, string $title, string $type, array &$array
 	) {
 		$entry = [
 			'thread' => $thread,
@@ -938,7 +950,7 @@ class Hooks implements
 			$row['tpr_' . $k] = $v;
 		}
 
-		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		$dbw = $this->dbProvider->getPrimaryDatabase();
 		$dbw->newInsertQueryBuilder()
 			->insertInto( 'thread_pending_relationship' )
 			->row( $row )
@@ -966,7 +978,7 @@ class Hooks implements
 			return true;
 		}
 
-		$thread = Threads::withRoot( MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title ) );
+		$thread = Threads::withRoot( $this->wikiPageFactory->newFromTitle( $title ) );
 
 		if ( !$thread ) {
 			return true;
@@ -974,7 +986,7 @@ class Hooks implements
 
 		$talkpage = $thread->article();
 
-		$canRead = MediaWikiServices::getInstance()->getPermissionManager()
+		$canRead = $this->permissionManager
 			->quickUserCan( 'read', $user, $talkpage->getTitle() );
 
 		if ( $canRead ) {
