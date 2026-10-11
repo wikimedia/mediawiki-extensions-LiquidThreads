@@ -46,7 +46,7 @@ class NewUserMessagesView extends LqtView {
 	}
 
 	public function getUndoButton( $ids ) {
-		if ( count( $ids ) == 1 ) {
+		if ( count( $ids ) === 1 ) {
 			$t = Threads::withId( (int)$ids[0] );
 			if ( !$t ) {
 				return; // empty or just bogus operand.
@@ -99,7 +99,7 @@ class NewUserMessagesView extends LqtView {
 		} );
 
 		if ( $this->methodApplies( 'mark_as_unread' ) ) {
-			$ids = explode( ',', $this->request->getVal( 'lqt_operand', '' ) );
+			$ids = explode( ',', $this->request->getRawVal( 'lqt_operand' ) ?? '' );
 
 			foreach ( $ids as $id ) {
 				$tmp_thread = Threads::withId( (int)$id );
@@ -109,9 +109,9 @@ class NewUserMessagesView extends LqtView {
 			}
 			$this->output->redirect( $this->title->getLocalURL() );
 		} elseif ( $this->methodApplies( 'mark_as_read' ) ) {
-			$ids = explode( ',', $this->request->getVal( 'lqt_operand' ) );
+			$ids = explode( ',', $this->request->getRawVal( 'lqt_operand' ) ?? '' );
 			foreach ( $ids as $id ) {
-				if ( $id == 'all' ) {
+				if ( $id === 'all' ) {
 					NewMessages::markAllReadByUser( $this->user );
 				} else {
 					$tmp_thread = Threads::withId( (int)$id );
@@ -123,7 +123,7 @@ class NewUserMessagesView extends LqtView {
 			$query = 'lqt_method=undo_mark_as_read&lqt_operand=' . implode( ',', $ids );
 			$this->output->redirect( $this->title->getLocalURL( $query ) );
 		} elseif ( $this->methodApplies( 'undo_mark_as_read' ) ) {
-			$ids = explode( ',', $this->request->getVal( 'lqt_operand', '' ) );
+			$ids = explode( ',', $this->request->getRawVal( 'lqt_operand' ) ?? '' );
 			$this->output->addHTML( $this->getUndoButton( $ids ) );
 		}
 	}

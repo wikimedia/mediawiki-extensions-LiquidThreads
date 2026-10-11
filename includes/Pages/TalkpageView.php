@@ -65,7 +65,7 @@ class TalkpageView extends LqtView {
 		$quickCanEdit = MediaWikiServices::getInstance()->getPermissionManager()
 			->quickUserCan( 'edit', $this->user, $article->getTitle() );
 
-		// If $article_text == "", the talkpage was probably just created
+		// If $article_text === "", the talkpage was probably just created
 		// when the first thread was posted to make the links blue.
 		if ( $article->getPage()->exists() ) {
 			$html = '';
@@ -329,7 +329,7 @@ class TalkpageView extends LqtView {
 		}
 
 		global $wgSearchTypeAlternatives, $wgSearchType;
-		if ( $wgSearchType == "LuceneSearch"
+		if ( $wgSearchType === "LuceneSearch"
 			|| in_array( "LuceneSearch", $wgSearchTypeAlternatives ?: [] )
 		) {
 			$talkpageHeader .= $this->getSearchBox();
@@ -360,7 +360,7 @@ class TalkpageView extends LqtView {
 
 		if ( count( $threads ) > 0 && $this->shouldShow( 'toc' ) ) {
 			$html .= $this->getTOC( $threads );
-		} elseif ( count( $threads ) == 0 ) {
+		} elseif ( count( $threads ) === 0 ) {
 			$html .= Html::rawElement( 'div', [ 'class' => 'lqt-no-threads' ],
 				wfMessage( 'lqt-no-threads' )->parse() );
 		}

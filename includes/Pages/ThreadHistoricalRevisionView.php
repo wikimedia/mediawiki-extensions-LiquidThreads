@@ -9,7 +9,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 	/** @inheritDoc */
 	public function postDivClass( Thread $thread ) {
 		$changedObject = $this->mDisplayRevision->getChangeObject();
-		$is_changed_thread = $changedObject && ( $changedObject->id() == $thread->id() );
+		$is_changed_thread = $changedObject && ( $changedObject->id() === $thread->id() );
 
 		$class = parent::postDivClass( $thread );
 
@@ -91,7 +91,7 @@ class ThreadHistoricalRevisionView extends ThreadPermalinkView {
 		$html = wfMessage( $msg, $args )->parse();
 
 		if (
-			( $change_type == Threads::CHANGE_ROOT_BLANKED || $change_type == Threads::CHANGE_EDITED_ROOT ) &&
+			( $change_type === Threads::CHANGE_ROOT_BLANKED || $change_type === Threads::CHANGE_EDITED_ROOT ) &&
 			$post->root()
 		) {
 			$diff_link = self::diffPermalink(

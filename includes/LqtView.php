@@ -92,8 +92,8 @@ class LqtView {
 	 * @return bool
 	 */
 	public function methodAppliesToThread( $method, Thread $thread ) {
-		return $this->request->getVal( 'lqt_method' ) == $method &&
-			$this->request->getVal( 'lqt_operand' ) == $thread->id();
+		return $this->request->getRawVal( 'lqt_method' ) === $method &&
+			$this->request->getInt( 'lqt_operand' ) === $thread->id();
 	}
 
 	/**
@@ -101,7 +101,7 @@ class LqtView {
 	 * @return bool
 	 */
 	public function methodApplies( $method ) {
-		return $this->request->getVal( 'lqt_method' ) == $method;
+		return $this->request->getRawVal( 'lqt_method' ) === $method;
 	}
 
 	/**
@@ -204,7 +204,7 @@ class LqtView {
 	public static function linkInContextData( Thread $thread, $contextType = 'page' ) {
 		$query = [];
 
-		if ( $contextType == 'page' ) {
+		if ( $contextType === 'page' ) {
 			$title = clone $thread->getTitle();
 
 			$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
@@ -411,7 +411,7 @@ class LqtView {
 	 */
 	public function perpetuate( $name, $as = 'hidden' ) {
 		$value = $this->request->getVal( $name, '' );
-		if ( $as == 'hidden' ) {
+		if ( $as === 'hidden' ) {
 			return Html::hidden( $name, $value );
 		}
 
@@ -428,10 +428,10 @@ class LqtView {
 	}
 
 	public function doInlineEditForm() {
-		$method = $this->request->getVal( 'lqt_method' );
-		$operand = $this->request->getVal( 'lqt_operand' );
+		$method = $this->request->getRawVal( 'lqt_method' );
+		$operand = $this->request->getInt( 'lqt_operand' );
 
-		$thread = Threads::withId( intval( $operand ) );
+		$thread = Threads::withId( $operand );
 
 		// Yuck.
 		// phpcs:ignore MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle
@@ -451,11 +451,11 @@ class LqtView {
 		$wgRequest = $this->request;
 		$wgTitle = $this->title;
 
-		if ( $method == 'reply' ) {
+		if ( $method === 'reply' ) {
 			$this->showReplyForm( $thread );
-		} elseif ( $method == 'talkpage_new_thread' ) {
+		} elseif ( $method === 'talkpage_new_thread' ) {
 			$this->showNewThreadForm( $this->article );
-		} elseif ( $method == 'edit' ) {
+		} elseif ( $method === 'edit' ) {
 			$this->showPostEditingForm( $thread );
 		} else {
 			throw new LogicException( "Invalid thread method $method" );
@@ -617,7 +617,7 @@ class LqtView {
 			self::consumeNonce( $submitted_nonce );
 		}
 
-		if ( $this->output->getRedirect() != '' ) {
+		if ( $this->output->getRedirect() !== '' ) {
 			$redirectTitle = clone $talkpage->getTitle();
 			if ( !empty( $thread ) ) {
 				$redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
@@ -716,7 +716,7 @@ class LqtView {
 			self::consumeNonce( $submitted_nonce );
 		}
 
-		if ( $this->output->getRedirect() != '' ) {
+		if ( $this->output->getRedirect() !== '' ) {
 			$redirectTitle = clone $talkpage->getTitle();
 			if ( !empty( $newThread ) ) {
 				$redirectTitle->setFragment( '#' . $this->anchorName( $newThread ) );
@@ -825,7 +825,7 @@ class LqtView {
 			self::consumeNonce( $submitted_nonce );
 		}
 
-		if ( $this->output->getRedirect() != '' ) {
+		if ( $this->output->getRedirect() !== '' ) {
 			$redirectTitle = clone $talkpage->getTitle();
 			$redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
 			$this->output->redirect( $this->title->getLocalURL() );
@@ -897,7 +897,7 @@ class LqtView {
 			self::consumeNonce( $submitted_nonce );
 		}
 
-		if ( $this->output->getRedirect() != '' ) {
+		if ( $this->output->getRedirect() !== '' ) {
 			$redirectTitle = clone $talkpage->getTitle();
 			$redirectTitle->setFragment( '#' . $this->anchorName( $thread ) );
 			$this->output->redirect( $this->title->getLocalURL() );
@@ -1086,7 +1086,7 @@ class LqtView {
 
 		// Update subject if applicable.
 		if ( $thread->isTopmostThread() && !empty( $data['subject'] ) &&
-				$data['subject'] != $thread->subject() ) {
+				$data['subject'] !== $thread->subject() ) {
 			$thread->setSubject( $data['subject'] );
 			$thread->commitRevision( Threads::CHANGE_EDITED_SUBJECT,
 						$user, $thread, $data['summary'] );
@@ -1198,7 +1198,7 @@ class LqtView {
 
 		if ( $this->user->isAllowed( 'delete' ) ) {
 			$delete_url = $thread->title()->getLocalURL( 'action=delete' );
-			$deleteMsg = $thread->type() == Threads::TYPE_DELETED ? 'lqt_undelete' : 'delete';
+			$deleteMsg = $thread->type() === Threads::TYPE_DELETED ? 'lqt_undelete' : 'delete';
 
 			$commands['delete'] = [
 				'label' => wfMessage( $deleteMsg )->parse(),
@@ -1796,10 +1796,10 @@ class LqtView {
 		$html = '';
 
 		// If it's a 'moved' thread, show the placeholder
-		if ( $thread->type() == Threads::TYPE_MOVED ) {
+		if ( $thread->type() === Threads::TYPE_MOVED ) {
 			$this->showMovedThread( $thread );
 			return;
-		} elseif ( $thread->type() == Threads::TYPE_DELETED ) {
+		} elseif ( $thread->type() === Threads::TYPE_DELETED ) {
 			$res = $this->showDeletedThread( $thread );
 
 			if ( !$res ) {
@@ -1923,7 +1923,7 @@ class LqtView {
 				$content = ( $pageContent instanceof TextContent ) ? $pageContent->getText() : '';
 			}
 
-			if ( $content !== null && trim( $content ) != '' ) {
+			if ( $content !== null && trim( $content ) !== '' ) {
 				return true;
 			}
 
@@ -1931,7 +1931,7 @@ class LqtView {
 				return true;
 			}
 
-			if ( $reply->type() == Threads::TYPE_MOVED ) {
+			if ( $reply->type() === Threads::TYPE_MOVED ) {
 				return true;
 			}
 		}
@@ -1973,7 +1973,7 @@ class LqtView {
 
 			// Only show undeleted threads that are above our 'startAt' index.
 			$shown = false;
-			if ( $st->type() != Threads::TYPE_DELETED &&
+			if ( $st->type() !== Threads::TYPE_DELETED &&
 					$i >= $startAt &&
 					$showThreads ) {
 				if ( $showCount > $maxCount && $maxCount > 0 ) {
@@ -1986,7 +1986,7 @@ class LqtView {
 				}
 
 				++$showCount;
-				if ( $showCount == 1 ) {
+				if ( $showCount === 1 ) {
 					// There's a post sep before each reply group to
 					// separate from the parent thread.
 					$this->output->addHTML( $div );
@@ -1999,7 +1999,7 @@ class LqtView {
 			// Handle must-show threads.
 			// FIXME this thread will be duplicated if somebody clicks the
 			// "show more" link (probably needs fixing in the JS)
-			if ( $st->type() != Threads::TYPE_DELETED && !$shown &&
+			if ( $st->type() !== Threads::TYPE_DELETED && !$shown &&
 					array_key_exists( $st->id(), $mustShowThreads ) ) {
 				$this->showThread( $st, $i, $subthreadCount, $cascadeOptions );
 			}
@@ -2052,8 +2052,8 @@ class LqtView {
 		}
 
 		if (
-			$content !== null && trim( $content ) == '' &&
-			$thread->type() != Threads::TYPE_MOVED &&
+			$content !== null && trim( $content ) === '' &&
+			$thread->type() !== Threads::TYPE_MOVED &&
 			!self::threadContainsRepliesWithContent( $thread ) &&
 			!array_key_exists( $thread->id(), $mustShowThreads )
 		) {
@@ -2064,12 +2064,12 @@ class LqtView {
 		// Grab options
 		$services = MediaWikiServices::getInstance();
 		$userOptionsLookup = $services->getUserOptionsLookup();
-		$maxDepth = $options['maxDepth'] ?? $userOptionsLookup->getOption( $this->user, 'lqtdisplaydepth' );
-		$maxCount = $options['maxCount'] ?? $userOptionsLookup->getOption( $this->user, 'lqtdisplaycount' );
+		$maxDepth = $options['maxDepth'] ?? $userOptionsLookup->getIntOption( $this->user, 'lqtdisplaydepth' );
+		$maxCount = $options['maxCount'] ?? $userOptionsLookup->getIntOption( $this->user, 'lqtdisplaycount' );
 		$startAt = $options['startAt'] ?? 0;
 
 		// Figure out if we have replies to show or not.
-		$showThreads = ( $maxDepth == -1 ) ||
+		$showThreads = ( $maxDepth === -1 ) ||
 				( $this->threadNestingLevel <= $maxDepth );
 		$mustShowThreadIds = array_keys( $mustShowThreads );
 		$subthreadIds = array_keys( $thread->replies() );
@@ -2090,9 +2090,9 @@ class LqtView {
 		$services->getHookContainer()->run( 'EditPageBeforeEditToolbar', [ &$html ] );
 
 		$class = $this->threadDivClass( $thread );
-		if ( $levelNum == 1 ) {
+		if ( $levelNum === 1 ) {
 			$class .= ' lqt-thread-first';
-		} elseif ( $levelNum == $totalInLevel ) {
+		} elseif ( $levelNum === $totalInLevel ) {
 			$class .= ' lqt-thread-last';
 		}
 

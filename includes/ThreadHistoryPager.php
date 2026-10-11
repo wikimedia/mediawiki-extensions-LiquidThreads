@@ -134,7 +134,7 @@ class ThreadHistoryPager extends TablePager {
 					$args[] = $diffLink;
 				} else {
 					$args[] = '';
-					if ( $type == Threads::CHANGE_EDITED_ROOT ) {
+					if ( $type === Threads::CHANGE_EDITED_ROOT ) {
 						$msg = $this->msg( 'lqt_hist_comment_edited_deleted' )->parse();
 					}
 				}

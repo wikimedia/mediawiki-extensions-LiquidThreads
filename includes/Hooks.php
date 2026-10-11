@@ -104,7 +104,7 @@ class Hooks implements
 	 */
 	public function onOldChangesListRecentChangesLine( $changeslist, &$s, $rc, &$classes, &$attribs ) {
 		$rcTitle = $rc->getTitle();
-		if ( $rcTitle->getNamespace() != NS_LQT_THREAD ) {
+		if ( !$rcTitle->inNamespace( NS_LQT_THREAD ) ) {
 			return;
 		}
 
@@ -206,7 +206,7 @@ class Hooks implements
 		$watch_messages = NewMessages::watchedThreadsForUser( $user );
 		$wn = count( $watch_messages );
 
-		if ( $tn == 0 && $wn == 0 ) {
+		if ( $tn === 0 && $wn === 0 ) {
 			return;
 		}
 
@@ -323,7 +323,7 @@ class Hooks implements
 	}
 
 	public function onShowSearchHitTitle( &$title, &$text, $result, $terms, $page, &$query, &$attributes ) {
-		if ( $title->getNamespace() != NS_LQT_THREAD ) {
+		if ( !$title->inNamespace( NS_LQT_THREAD ) ) {
 			return;
 		}
 
@@ -384,13 +384,13 @@ class Hooks implements
 
 		if (
 			!$article->getPage()->exists()
-			&& $title->getNamespace() == NS_LQT_THREAD
+			&& $title->inNamespace( NS_LQT_THREAD )
 		) {
 			unset( $checkboxes['minor'] );
 			unset( $checkboxes['watch'] );
 		}
 
-		if ( $title->getNamespace() == NS_LQT_THREAD && self::$editType != 'new' &&
+		if ( $title->inNamespace( NS_LQT_THREAD ) && self::$editType !== 'new' &&
 			$wgLiquidThreadsShowBumpCheckbox
 		) {
 			$request = $editPage->getContext()->getRequest();
@@ -410,7 +410,7 @@ class Hooks implements
 		// Add odd namespaces
 		$searchableNS = $this->searchEngineConfig->searchableNamespaces();
 		foreach ( $searchableNS as $ns => $nsName ) {
-			if ( $ns % 2 == 1 ) {
+			if ( $ns % 2 === 1 ) {
 				$namespaces[] = $ns;
 			}
 		}
@@ -585,7 +585,7 @@ class Hooks implements
 	 */
 	public function onUserIsBlockedFrom( $user, $title, &$isBlocked, &$allowUserTalk ) {
 		// Limit applicability
-		if ( !( $isBlocked && $allowUserTalk && $title->getNamespace() == NS_LQT_THREAD ) ) {
+		if ( !( $isBlocked && $allowUserTalk && $title->inNamespace( NS_LQT_THREAD ) ) ) {
 			return;
 		}
 
@@ -604,8 +604,8 @@ class Hooks implements
 
 			$articleTitle = $thread->getTitle();
 
-			if ( $articleTitle->getNamespace() == NS_USER_TALK &&
-					$user->getName() == $title->getText() ) {
+			if ( $articleTitle->inNamespace( NS_USER_TALK ) &&
+					$user->getName() === $title->getText() ) {
 				$isBlocked = false;
 			}
 		} else {
@@ -686,7 +686,7 @@ class Hooks implements
 		EditResult $editResult
 	) {
 		$title = $wikiPage->getTitle();
-		if ( $title->getNamespace() != NS_LQT_THREAD ) {
+		if ( !$title->inNamespace( NS_LQT_THREAD ) ) {
 			// Not a thread
 			return;
 		}
@@ -720,7 +720,7 @@ class Hooks implements
 	 */
 	public static function onTitleGetRestrictionTypes( $title, &$types ) {
 		$isLqtPage = LqtDispatch::isLqtPage( $title );
-		$isThread = $title->getNamespace() == NS_LQT_THREAD;
+		$isThread = $title->inNamespace( NS_LQT_THREAD );
 
 		if ( !$isLqtPage && !$isThread ) {
 			return;
@@ -744,8 +744,8 @@ class Hooks implements
 	 */
 	public static function onImportHandlePageXMLTag( $importer, &$pageInfo ) {
 		$reader = $importer->getReader();
-		if ( !( $reader->nodeType == XMLReader::ELEMENT &&
-				$reader->name == 'DiscussionThreading' ) ) {
+		if ( !( $reader->nodeType === XMLReader::ELEMENT &&
+				$reader->name === 'DiscussionThreading' ) ) {
 			return true;
 		}
 
@@ -766,8 +766,8 @@ class Hooks implements
 		$skip = false;
 
 		while ( $skip ? $reader->next() : $reader->read() ) {
-			if ( $reader->nodeType == XMLReader::END_ELEMENT &&
-				$reader->name == 'DiscussionThreading'
+			if ( $reader->nodeType === XMLReader::END_ELEMENT &&
+				$reader->name === 'DiscussionThreading'
 			) {
 				break;
 			}
@@ -802,7 +802,7 @@ class Hooks implements
 			$titlePendingRelationships = $pendingRelationships[$title->getPrefixedText()];
 
 			foreach ( $titlePendingRelationships as $k => $v ) {
-				if ( $v['type'] == 'article' ) {
+				if ( $v['type'] === 'article' ) {
 					$this->applyPendingArticleRelationship( $v, $title );
 					unset( $titlePendingRelationships[$k] );
 				}
@@ -863,7 +863,7 @@ class Hooks implements
 		$thread->save();
 
 		foreach ( $titlePendingRelationships as $k => $v ) {
-			if ( $v['type'] == 'thread' ) {
+			if ( $v['type'] === 'thread' ) {
 				self::applyPendingThreadRelationship( $v, $thread );
 				unset( $titlePendingRelationships[$k] );
 			}
@@ -871,7 +871,7 @@ class Hooks implements
 	}
 
 	public static function applyPendingThreadRelationship( $pendingRelationship, Thread $thread ) {
-		if ( $pendingRelationship['relationship'] == 'thread_parent' ) {
+		if ( $pendingRelationship['relationship'] === 'thread_parent' ) {
 			$childThread = Threads::withId( $pendingRelationship['thread'] );
 
 			$childThread->setSuperthread( $thread );
@@ -974,7 +974,7 @@ class Hooks implements
 	 * @return bool
 	 */
 	public function onGetUserPermissionsErrors( $title, $user, $action, &$result ) {
-		if ( $title->getNamespace() != NS_LQT_THREAD || $action != 'read' ) {
+		if ( !$title->inNamespace( NS_LQT_THREAD ) || $action !== 'read' ) {
 			return true;
 		}
 
@@ -1039,7 +1039,7 @@ class Hooks implements
 				'Strip' => 'base'
 			] );
 			foreach ( $data as $pageid => $page ) {
-				if ( $page == 'page' ) {
+				if ( $page === 'page' ) {
 					continue;
 				}
 
