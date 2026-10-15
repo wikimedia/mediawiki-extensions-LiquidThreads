@@ -363,7 +363,7 @@ class Thread {
 		} elseif ( $change_type === Threads::CHANGE_EDITED_ROOT ) {
 			$originalAuthor = $this->author();
 
-			if ( ( $user->getId() === 0 && $originalAuthor->getName() !== $user->getName() )
+			if ( ( !$user->isRegistered() && !$user->equals( $originalAuthor ) )
 					|| $user->getId() !== $originalAuthor->getId() ) {
 				$this->editedness = Threads::EDITED_BY_OTHERS;
 			} elseif ( $this->editedness === Threads::EDITED_HAS_REPLY ) {

@@ -212,13 +212,13 @@ class Threads {
 	public static function articleClause( WikiPage $page ) {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
-		$titleCond = [ 'thread_article_title' => $page->getTitle()->getDBKey(),
+		$titleCond = [ 'thread_article_title' => $page->getTitle()->getDBkey(),
 			'thread_article_namespace' => $page->getTitle()->getNamespace() ];
 		$titleCond = $dbr->makeList( $titleCond, LIST_AND );
 
 		$conds = [ $titleCond ];
 
-		if ( $page->getId() ) {
+		if ( $page->exists() ) {
 			$idCond = [ 'thread_article_id' => $page->getId() ];
 			$conds[] = $dbr->makeList( $idCond, LIST_AND );
 		}

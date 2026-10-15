@@ -29,7 +29,7 @@ class LqtDispatch {
 	public static function talkpageMain( &$output, &$article, &$title, &$user, &$request ) {
 		// We are given a talkpage article and title. Fire up a TalkpageView
 
-		if ( $title->inNamespace( NS_LQT_THREAD + 1 /* talk page */ ) ) {
+		if ( $title->inNamespace( NS_LQT_THREAD_TALK ) ) {
 			// Threads don't have talk pages; redirect to the thread page.
 			$output->redirect( $title->getSubjectPage()->getLocalURL() );
 			return false;
@@ -140,7 +140,7 @@ class LqtDispatch {
 		$isTalkPage = ( $title->isTalkPage() && $wgLqtTalkPages ) ||
 			in_array( $title->getPrefixedText(), $wgLqtPages );
 
-		if ( in_array( $title->getNamespace(), $wgLqtNamespaces ) ) {
+		if ( $title->inNamespaces( $wgLqtNamespaces ) ) {
 			$isTalkPage = true;
 		}
 
@@ -173,16 +173,13 @@ class LqtDispatch {
 		}
 
 		global $wgLiquidThreadsAllowUserControl;
-
 		if ( !$wgLiquidThreadsAllowUserControl ) {
 			return null;
 		}
 
 		global $wgLiquidThreadsAllowUserControlNamespaces;
-
 		$namespaces = $wgLiquidThreadsAllowUserControlNamespaces;
-
-		if ( $namespaces !== null && !in_array( $title->getNamespace(), $namespaces ) ) {
+		if ( $namespaces !== null && !$title->inNamespaces( $namespaces ) ) {
 			return null;
 		}
 
