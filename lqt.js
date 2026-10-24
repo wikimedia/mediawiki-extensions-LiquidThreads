@@ -867,7 +867,7 @@
 
 		handleAJAXSave: function ( e ) {
 			let text, summary, signature, subject, replyThread,
-				$bumpBox, bump, $spinner, page,
+				$spinner, page,
 				$editform = $( this ).closest( '.lqt-edit-form' ),
 				type = $editform.find( 'input[name=lqt_method]' ).val(),
 				wikiEditorContext = $editform.find( '#wpTextbox1' ).data( 'wikiEditor-context' );
@@ -900,8 +900,6 @@
 
 			subject = $editform.find( '#lqt_subject_field' ).val();
 			replyThread = $editform.find( 'input[name=lqt_operand]' ).val();
-			$bumpBox = $editform.find( '#wpBumpThread' );
-			bump = $bumpBox.length === 0 || $bumpBox.is( ':checked' );
 
 			$spinner = $( '<div>' ).addClass( 'mw-ajax-loader' );
 			$editform.prepend( $spinner );
@@ -982,7 +980,7 @@
 
 			if ( type === 'reply' ) {
 				liquidThreads.doReply( replyThread, text, summary,
-					doneCallback, bump, signature, errorCallback );
+					doneCallback, signature, errorCallback );
 
 				e.preventDefault();
 			} else if ( type === 'talkpage_new_thread' ) {
@@ -991,12 +989,12 @@
 					page = $( $( '[lqt_talkpage]' )[ 0 ] ).attr( 'lqt_talkpage' ); // A couple of elements have this attribute, it doesn't matter which
 				}
 				liquidThreads.doNewThread( page, subject, text, summary,
-					doneCallback, bump, signature, errorCallback );
+					doneCallback, signature, errorCallback );
 
 				e.preventDefault();
 			} else if ( type === 'edit' ) {
 				liquidThreads.doEditThread( replyThread, subject, text, summary,
-					doneCallback, bump, signature, errorCallback );
+					doneCallback, signature, errorCallback );
 				e.preventDefault();
 			}
 		},
@@ -1023,7 +1021,7 @@
 		},
 
 		doNewThread: function (
-			talkpage, subject, text, summary, doneCallback, bump, signature, errorCallback
+			talkpage, subject, text, summary, doneCallback, signature, errorCallback
 		) {
 			const newTopicParams = {
 				action: 'threadaction',
@@ -1034,7 +1032,7 @@
 				token: mw.user.tokens.get( 'csrfToken' ),
 				render: '1',
 				reason: summary,
-				bump: bump
+				bump: true
 			};
 
 			if ( $( '#wpCaptchaWord' ) ) {
@@ -1051,7 +1049,7 @@
 			( new mw.Api() ).post( newTopicParams ).done( doneCallback ).fail( errorCallback );
 		},
 
-		doReply: function ( thread, text, summary, callback, bump, signature ) {
+		doReply: function ( thread, text, summary, callback, signature ) {
 			const replyParams = {
 				action: 'threadaction',
 				threadaction: 'reply',
@@ -1060,7 +1058,7 @@
 				token: mw.user.tokens.get( 'csrfToken' ),
 				render: '1',
 				reason: summary,
-				bump: bump
+				bump: true
 			};
 
 			if ( $( '#wpCaptchaWord' ) ) {
@@ -1078,7 +1076,7 @@
 			( new mw.Api() ).post( replyParams ).done( callback );
 		},
 
-		doEditThread: function ( thread, subject, text, summary, callback, bump, signature ) {
+		doEditThread: function ( thread, subject, text, summary, callback, signature ) {
 			const request = {
 				action: 'threadaction',
 				threadaction: 'edit',
@@ -1086,7 +1084,7 @@
 				text: text,
 				render: 1,
 				reason: summary,
-				bump: bump,
+				bump: true,
 				subject: subject,
 				token: mw.user.tokens.get( 'csrfToken' )
 			};

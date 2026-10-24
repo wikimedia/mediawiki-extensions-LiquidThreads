@@ -699,15 +699,13 @@ class LqtView {
 		$e->edit();
 
 		if ( $e->didSave ) {
-			$bump = !$this->request->getCheck( 'wpBumpThread' ) ||
-				$this->request->getBool( 'wpBumpThread' );
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
 
 			$info = [
 					'replyTo' => $thread,
 					'text' => $e->textbox1,
 					'summary' => $e->summary,
-					'bump' => $bump,
+					'bump' => true,
 					'signature' => $signature,
 					'root' => $article,
 				];
@@ -807,8 +805,6 @@ class LqtView {
 		$e->edit();
 
 		if ( $e->didSave ) {
-			$bump = !$this->request->getCheck( 'wpBumpThread' ) ||
-				$this->request->getBool( 'wpBumpThread' );
 			$signature = $this->request->getVal( 'wpLqtSignature', null );
 
 			self::editMetadataUpdates(
@@ -816,7 +812,7 @@ class LqtView {
 					'thread' => $thread,
 					'text' => $e->textbox1,
 					'summary' => $e->summary,
-					'bump' => $bump,
+					'bump' => true,
 					'subject' => $subject,
 					'signature' => $signature,
 					'root' => $article,
@@ -883,15 +879,11 @@ class LqtView {
 		$e->edit();
 
 		if ( $e->didSave ) {
-			$bump = !$this->request->getCheck( 'wpBumpThread' ) ||
-				$this->request->getBool( 'wpBumpThread' );
-
 			self::summarizeMetadataUpdates(
 				[
 					'thread' => $thread,
 					'article' => $article,
 					'summary' => $e->summary,
-					'bump' => $bump,
 				]
 			);
 			self::consumeNonce( $submitted_nonce );
@@ -1048,12 +1040,10 @@ class LqtView {
 		$article = $data["article"];
 		$summary = $data["summary"];
 
-		$bump = $data["bump"] ?? null;
-
 		$user = RequestContext::getMain()->getUser(); // Need to inject
 		$thread->setSummary( $article );
 		$thread->commitRevision(
-			Threads::CHANGE_EDITED_SUMMARY, $user, $thread, $summary, $bump );
+			Threads::CHANGE_EDITED_SUMMARY, $user, $thread, $summary, true );
 
 		return $thread;
 	}

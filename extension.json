@@ -308,10 +308,6 @@
 			"value": [],
 			"description": "Namespaces in which to enable LQT"
 		},
-		"LiquidThreadsShowBumpCheckbox": {
-			"value": false,
-			"description": "Enable/disable the bump checkbox"
-		},
 		"LiquidThreadsEnableNewMessages": {
 			"value": true,
 			"description": "Enable/Disable 'New messages' link and special page (Special:NewMessages)"

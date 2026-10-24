@@ -273,8 +273,6 @@
 	"lqt-protected-reply-thread": "Used as error page when replay to a thread",
 	"lqt-protected-reply-talkpage": "Used as error page when replay to a thread",
 	"lqt-protected-newthread": "Used as error page when creating new thread",
-	"lqt-edit-bump": "See {{msg-mw|Lqt-edit-bump-tooltip}} for the explanation of this feature.",
-	"lqt-edit-bump-tooltip": "Used as tooltip of a button on thread page",
 	"lqt-historicalrevision-error": "Error message shown when looking in Thread history",
 	"lqt-reply-subpage": "Part of the page title when a LiquidThread answer is given. Should probably be translated as a noun and not as a verb.\n\n{{Identical|Reply}}",
 	"lqt-pagechange-editformopen": "Shown as a JavaScript confirmation dialog to the user when they try to leave the page while an LQT editing form is open.",

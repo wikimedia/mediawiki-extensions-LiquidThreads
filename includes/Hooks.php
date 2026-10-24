@@ -377,8 +377,6 @@ class Hooks implements
 	 * @return void
 	 */
 	public static function onEditPageGetCheckboxesDefinition( $editPage, &$checkboxes ) {
-		global $wgLiquidThreadsShowBumpCheckbox;
-
 		$article = $editPage->getArticle();
 		$title = $article->getTitle();
 
@@ -388,19 +386,6 @@ class Hooks implements
 		) {
 			unset( $checkboxes['minor'] );
 			unset( $checkboxes['watch'] );
-		}
-
-		if ( $title->getNamespace() == NS_LQT_THREAD && self::$editType != 'new' &&
-			$wgLiquidThreadsShowBumpCheckbox
-		) {
-			$request = $editPage->getContext()->getRequest();
-			$checkboxes['wpBumpThread'] = [
-				'id' => 'wpBumpThread',
-				'label-message' => 'lqt-edit-bump',
-				'title-message' => 'lqt-edit-bump-tooltip',
-				'legacy-name' => 'bump',
-				'default' => !$request->wasPosted() || $request->getBool( 'wpBumpThread' ),
-			];
 		}
 	}
 
