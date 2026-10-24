@@ -1047,33 +1047,6 @@ class Thread {
 			$set['thread_author_id'] = $this->authorId;
 		}
 
-		// Check for article being in subject, not talk namespace.
-		// If the page is non-LiquidThreads and it's in subject-space, we'll assume it's meant
-		// to be on the corresponding talk page, but only if the talk-page is a LQT page.
-		// (Previous versions stored the subject page, for some totally bizarre reason)
-		// Old versions also sometimes store the thread page for trace threads as the
-		// article, not as the root.
-		// Trying not to exacerbate this by moving it to be the 'Thread talk' page.
-		$articleTitle = $this->getTitle();
-		global $wgLiquidThreadsMigrate;
-		if ( !LqtDispatch::isLqtPage( $articleTitle ) && !$articleTitle->isTalkPage() &&
-			LqtDispatch::isLqtPage( $articleTitle->getTalkPage() ) &&
-			$articleTitle->getNamespace() != NS_LQT_THREAD &&
-			$wgLiquidThreadsMigrate
-		) {
-			$newTitle = $articleTitle->getTalkPage();
-			$newArticle = new Article( $newTitle, 0 );
-
-			$set['thread_article_namespace'] = $newTitle->getNamespace();
-			$set['thread_article_title'] = $newTitle->getDBkey();
-
-			$this->articleNamespace = $newTitle->getNamespace();
-			$this->articleTitle = $newTitle->getDBkey();
-			$this->articleId = $newTitle->getArticleID();
-
-			$this->article = $newArticle;
-		}
-
 		// Check for article corruption from incomplete thread moves.
 		// (thread moves only updated this on immediate replies, not replies to replies etc)
 		if ( !$ancestor->getTitle()->equals( $this->getTitle() ) ) {
