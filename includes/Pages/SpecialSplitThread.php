@@ -51,23 +51,6 @@ class SpecialSplitThread extends ThreadActionPage {
 		return true;
 	}
 
-	public function validateSubject( $target ) {
-		if ( !$target ) {
-			return $this->msg( 'lqt_split_nosubject' )->parse();
-		}
-
-		$title = null;
-		$article = $this->mThread->article();
-
-		$ok = Thread::validateSubject( $target, $this->getUser(), $title, null, $article );
-
-		if ( !$ok ) {
-			return $this->msg( 'lqt_split_badsubject' )->parse();
-		}
-
-		return true;
-	}
-
 	public function getPageName() {
 		return 'SplitThread';
 	}

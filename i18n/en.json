@@ -132,7 +132,6 @@
 	"lqt-thread-split-subject": "New thread subject:",
 	"lqt-thread-split-thread": "Thread:",
 	"lqt-split-submit": "Split",
-	"lqt_split_badsubject": "The subject you entered is invalid.",
 	"lqt-no-threads": "There are no threads on this page yet.",
 	"lqt-delete-parent-warning": "This is a top-level thread with replies.\nIts replies will also be deleted automatically.\nTo avoid this, split them from this thread before deleting it.",
 	"lqt-delete-parent-deleted": "Parent thread deleted ($1)",

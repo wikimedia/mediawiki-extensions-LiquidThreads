@@ -66,14 +66,8 @@ class Thread {
 	/** @var int */
 	protected $replyCount;
 
-	/** @var bool|null */
-	protected $allDataLoaded;
-
 	/** @var bool */
 	protected $isHistorical = false;
-
-	/** @var int|null */
-	protected $rootRevision;
 
 	/** @var int Flag about who has edited or replied to this thread. */
 	public $editedness;
@@ -553,7 +547,7 @@ class Thread {
 		NewMessages::writeMessageStateForUpdatedThread( $this, $this->type, $user );
 
 		if ( $leave_trace ) {
-			$this->leaveTrace( $reason, $oldTitle, $newTitle, $user );
+			$this->leaveTrace( $reason, $oldTitle, $user );
 		}
 	}
 
@@ -562,10 +556,9 @@ class Thread {
 	 *
 	 * @param string $reason
 	 * @param Title $oldTitle
-	 * @param Title $newTitle
 	 * @param User $user
 	 */
-	public function leaveTrace( $reason, $oldTitle, $newTitle, User $user ) {
+	public function leaveTrace( $reason, $oldTitle, User $user ) {
 		$this->dieIfHistorical();
 
 		// Create redirect text

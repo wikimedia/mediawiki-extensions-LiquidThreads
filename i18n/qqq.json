@@ -171,7 +171,6 @@
 	"lqt-thread-split-subject": "Used as label on [[Special:SplitThread]]",
 	"lqt-thread-split-thread": "{{Identical|Thread}}",
 	"lqt-split-submit": "{{Identical|Split}}",
-	"lqt_split_badsubject": "Used as error on [[Special:SplitThread]]",
 	"lqt-no-threads": "[{{canonicalurl:Project_talk:Autoconfirmed_users}} Example]",
 	"lqt-delete-parent-warning": "Used as confirmation message when deleting threads.",
 	"lqt-delete-parent-deleted": "Used as reason for deletion of the reply. Parameters:\n* $1 - the reason for deletion of the parent thread of the reply",
