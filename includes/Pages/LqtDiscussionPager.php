@@ -5,6 +5,8 @@ use MediaWiki\Pager\IndexPager;
 
 class LqtDiscussionPager extends IndexPager {
 
+	private const int DEFAULT_PAGE_LIMIT = 20;
+
 	/** @var Article|false */
 	protected $article;
 
@@ -37,7 +39,7 @@ class LqtDiscussionPager extends IndexPager {
 			}
 		}
 
-		return $this->getConfig()->get( 'LiquidThreadsDefaultPageLimit' );
+		return self::DEFAULT_PAGE_LIMIT;
 	}
 
 	public function getQueryInfo() {

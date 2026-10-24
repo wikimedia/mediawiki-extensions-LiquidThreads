@@ -284,10 +284,6 @@
 			],
 			"description": "Thread actions which do *not* cause threads to be \"bumped\" to the top. Numbers correspond to the change type constants defined in Threads.php."
 		},
-		"LiquidThreadsDefaultPageLimit": {
-			"value": 20,
-			"description": "The default number of threads per page"
-		},
 		"LiquidThreadsAllowUserControl": {
 			"value": true,
 			"description": "Whether or not to allow users to activate/deactivate LiquidThreads per-page"
