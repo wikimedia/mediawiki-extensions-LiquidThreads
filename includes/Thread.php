@@ -210,7 +210,7 @@ class Thread {
 		$this->rootId = $article->getPage()->getId();
 		$this->root = $article;
 
-		if ( !$article->getTitle()->inNamespace( NS_LQT_THREAD ) ) {
+		if ( $article->getTitle()->getNamespace() != NS_LQT_THREAD ) {
 			throw new LogicException( "Attempt to set thread root to a non-Thread page" );
 		}
 	}
@@ -245,7 +245,7 @@ class Thread {
 		}
 
 		$original = $this->dbVersion;
-		if ( $original->signature() !== $this->signature() ) {
+		if ( $original->signature() != $this->signature() ) {
 			$this->logChange(
 				Threads::CHANGE_EDITED_SIGNATURE,
 				$original,
@@ -268,7 +268,7 @@ class Thread {
 		ThreadRevision::create( $this, $change_type, $user, $change_object, $reason );
 		$this->logChange( $change_type, $original, $change_object, $reason );
 
-		if ( $change_type === Threads::CHANGE_EDITED_ROOT ) {
+		if ( $change_type == Threads::CHANGE_EDITED_ROOT ) {
 			NewMessages::writeMessageStateForUpdatedThread( $this, $change_type, $user );
 		}
 	}
@@ -357,16 +357,16 @@ class Thread {
 	 * @param User $user
 	 */
 	private function updateEditedness( $change_type, User $user ) {
-		if ( $change_type === Threads::CHANGE_REPLY_CREATED
-				&& $this->editedness === Threads::EDITED_NEVER ) {
+		if ( $change_type == Threads::CHANGE_REPLY_CREATED
+				&& $this->editedness == Threads::EDITED_NEVER ) {
 			$this->editedness = Threads::EDITED_HAS_REPLY;
-		} elseif ( $change_type === Threads::CHANGE_EDITED_ROOT ) {
+		} elseif ( $change_type == Threads::CHANGE_EDITED_ROOT ) {
 			$originalAuthor = $this->author();
 
 			if ( ( !$user->isRegistered() && !$user->equals( $originalAuthor ) )
 					|| $user->getId() !== $originalAuthor->getId() ) {
 				$this->editedness = Threads::EDITED_BY_OTHERS;
-			} elseif ( $this->editedness === Threads::EDITED_HAS_REPLY ) {
+			} elseif ( $this->editedness == Threads::EDITED_HAS_REPLY ) {
 				$this->editedness = Threads::EDITED_BY_AUTHOR;
 			}
 		}
@@ -462,7 +462,7 @@ class Thread {
 	}
 
 	public function delete( $reason, $commit = true ) {
-		if ( $this->type === Threads::TYPE_DELETED ) {
+		if ( $this->type == Threads::TYPE_DELETED ) {
 			return;
 		}
 
@@ -605,7 +605,7 @@ class Thread {
 	 */
 	public function replyCount() {
 		// Populate reply count
-		if ( $this->replyCount === -1 ) {
+		if ( $this->replyCount == -1 ) {
 			if ( $this->isTopmostThread() ) {
 				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
@@ -979,7 +979,7 @@ class Thread {
 		$count = 0;
 
 		foreach ( $thread->replies() as $reply ) {
-			if ( $thread->type !== Threads::TYPE_DELETED ) {
+			if ( $thread->type != Threads::TYPE_DELETED ) {
 				$count++;
 				$count += self::recursiveGetReplyCount( $reply, $level + 1 );
 			}
@@ -1029,7 +1029,7 @@ class Thread {
 
 		// Fix inconsistent subject information
 		// (in some intermediate versions this was not updated when the subject was changed)
-		if ( $this->subject() !== $ancestor->subject() ) {
+		if ( $this->subject() != $ancestor->subject() ) {
 			$set['thread_subject'] = $ancestor->subject();
 
 			$this->subject = $ancestor->subject();
@@ -1058,7 +1058,7 @@ class Thread {
 		global $wgLiquidThreadsMigrate;
 		if ( !LqtDispatch::isLqtPage( $articleTitle ) && !$articleTitle->isTalkPage() &&
 			LqtDispatch::isLqtPage( $articleTitle->getTalkPage() ) &&
-			!$articleTitle->inNamespace( NS_LQT_THREAD ) &&
+			$articleTitle->getNamespace() != NS_LQT_THREAD &&
 			$wgLiquidThreadsMigrate
 		) {
 			$newTitle = $articleTitle->getTalkPage();
@@ -1101,7 +1101,7 @@ class Thread {
 
 		// If still unfilled, the article ID referred to is no longer valid. Re-fill it
 		// from the namespace/title pair if an article ID is provided
-		if ( !$articleTitle && ( $this->articleId !== 0 || $dbTitle->getArticleID() !== 0 ) ) {
+		if ( !$articleTitle && ( $this->articleId != 0 || $dbTitle->getArticleID() != 0 ) ) {
 			$articleTitle = $dbTitle;
 			$this->articleId = $articleTitle->getArticleID();
 			$this->article = new Article( $dbTitle, 0 );
@@ -1197,7 +1197,7 @@ class Thread {
 				". Found no superthread." );
 			}
 
-			if ( $reply->superthread()->id() !== $this->id() ) {
+			if ( $reply->superthread()->id() != $this->id() ) {
 				throw new RuntimeException( "Post " . $this->id() .
 				" has contaminated reply " . $reply->id() .
 				". Expected " . $this->id() . ", got " .
@@ -1254,7 +1254,7 @@ class Thread {
 	}
 
 	public function setSuperthread( ?self $thread ) {
-		if ( $thread === null ) {
+		if ( $thread == null ) {
 			$this->parentId = null;
 			$this->ancestorId = 0;
 			return;
@@ -1353,8 +1353,8 @@ class Thread {
 	}
 
 	public function isTopmostThread() {
-		return $this->ancestorId === $this->id ||
-				$this->parentId === 0;
+		return $this->ancestorId == $this->id ||
+				$this->parentId == 0;
 	}
 
 	public function setArticle( Article $a ) {
@@ -1437,7 +1437,7 @@ class Thread {
 				$title = Title::newFromID( $this->rootId );
 			}
 
-			if ( !$title && $this->type() !== Threads::TYPE_DELETED ) {
+			if ( !$title && $this->type() != Threads::TYPE_DELETED ) {
 				if ( !$this->isHistorical() ) {
 					$this->delete( '', false /* !commit */ );
 				} else {
@@ -1485,7 +1485,7 @@ class Thread {
 	}
 
 	public function hasSummary() {
-		return $this->summaryId !== null;
+		return $this->summaryId != null;
 	}
 
 	/**
@@ -1512,7 +1512,7 @@ class Thread {
 
 	public static function splitIncrementFromSubject( $subject_string ) {
 		preg_match( '/^(.*) \((\d+)\)$/', $subject_string, $matches );
-		if ( count( $matches ) !== 3 ) {
+		if ( count( $matches ) != 3 ) {
 			throw new LogicException(
 				__METHOD__ . ": thread subject has no increment: " . $subject_string
 			);
@@ -1674,7 +1674,7 @@ class Thread {
 	}
 
 	public function replyWithId( $id ) {
-		if ( $this->id() === $id ) {
+		if ( $this->id() == $id ) {
 			return $this;
 		}
 
@@ -1808,7 +1808,7 @@ class Thread {
 		$restrictions = array_merge( $threadRestrictions, $talkpageRestrictions );
 
 		foreach ( $restrictions as $right => $source ) {
-			if ( $right === 'sysop' ) {
+			if ( $right == 'sysop' ) {
 				$right = 'protect';
 			}
 			if ( !$user->isAllowed( $right ) ) {
@@ -1875,7 +1875,7 @@ class Thread {
 		if ( $this->editors === null ) {
 			if ( $this->editedness() < Threads::EDITED_BY_AUTHOR ) {
 				return [];
-			} elseif ( $this->editedness === Threads::EDITED_BY_AUTHOR ) {
+			} elseif ( $this->editedness == Threads::EDITED_BY_AUTHOR ) {
 				return [ $this->author()->getName() ];
 			}
 

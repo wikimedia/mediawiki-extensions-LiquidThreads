@@ -37,35 +37,35 @@ class LqtDispatch {
 
 		// If we came here from a red-link, redirect to the thread page.
 		$redlink = $request->getCheck( 'redlink' ) &&
-			$request->getRawVal( 'action' ) === 'edit';
+			$request->getText( 'action' ) == 'edit';
 		if ( $redlink ) {
 			$output->redirect( $title->getLocalURL() );
 			return false;
 		}
 
-		$action = $request->getRawVal( 'action' ) ?? 'view';
+		$action = $request->getVal( 'action', 'view' );
 
 		// Actions handled by LQT.
 		$lqt_actions = [ 'view', 'protect', 'unprotect' ];
 
-		$lqt_action = $request->getRawVal( 'lqt_method' );
-		if ( $action === 'edit' && $request->getRawVal( 'section' ) === 'new' ) {
+		$lqt_action = $request->getVal( 'lqt_method' );
+		if ( $action == 'edit' && $request->getVal( 'section' ) == 'new' ) {
 			// Hijack section=new for "new thread".
 			$request->setVal( 'lqt_method', 'talkpage_new_thread' );
 			$request->setVal( 'section', '' );
 
 			$viewname = TalkpageView::class;
-		} elseif ( $lqt_action === null && (
+		} elseif ( !$lqt_action && (
 			( !in_array( $action, $lqt_actions ) && $action ) ||
-			$request->getRawVal( 'diff' ) !== null ||
-			$request->getRawVal( 'oldid' ) !== null )
+			$request->getVal( 'diff', null ) !== null ||
+			$request->getVal( 'oldid', null ) !== null )
 		) {
 			// Pass through wrapper
 			$viewname = TalkpageHeaderView::class;
-		} elseif ( $action === 'protect' || $action === 'unprotect' ) {
+		} elseif ( $action == 'protect' || $action == 'unprotect' ) {
 			// Pass through wrapper
 			$viewname = ThreadProtectionFormView::class;
-		} elseif ( $lqt_action === 'talkpage_history' ) {
+		} elseif ( $lqt_action == 'talkpage_history' ) {
 			$viewname = TalkpageHistoryView::class;
 		} else {
 			$viewname = TalkpageView::class;
@@ -88,24 +88,24 @@ class LqtDispatch {
 	 * @return bool
 	 */
 	public static function threadPermalinkMain( &$output, &$article, &$title, &$user, &$request ) {
-		$action = $request->getRawVal( 'action' );
-		$lqt_method = $request->getRawVal( 'lqt_method' );
+		$action = $request->getVal( 'action' );
+		$lqt_method = $request->getVal( 'lqt_method' );
 
-		if ( $lqt_method === 'thread_history' ) {
+		if ( $lqt_method == 'thread_history' ) {
 			$viewname = ThreadHistoryListingView::class;
-		} elseif ( $lqt_method === 'diff' ) {
+		} elseif ( $lqt_method == 'diff' ) {
 			// this clause and the next must be in this order.
 			$viewname = ThreadDiffView::class;
-		} elseif ( $action === 'history'
-			|| $request->getRawVal( 'diff' ) !== null ) {
+		} elseif ( $action == 'history'
+			|| $request->getVal( 'diff', null ) !== null ) {
 			$viewname = IndividualThreadHistoryView::class;
-		} elseif ( $action === 'protect' || $action === 'unprotect' ) {
+		} elseif ( $action == 'protect' || $action == 'unprotect' ) {
 			$viewname = ThreadProtectionFormView::class;
-		} elseif ( $request->getRawVal( 'lqt_oldid' ) !== null ) {
+		} elseif ( $request->getVal( 'lqt_oldid', null ) !== null ) {
 			$viewname = ThreadHistoricalRevisionView::class;
-		} elseif ( $action === 'watch' || $action === 'unwatch' ) {
+		} elseif ( $action == 'watch' || $action == 'unwatch' ) {
 			$viewname = ThreadWatchView::class;
-		} elseif ( $action === 'delete' || $action === 'rollback' || $action === 'markpatrolled' ) {
+		} elseif ( $action == 'delete' || $action == 'rollback' || $action == 'markpatrolled' ) {
 			return true;
 		} else {
 			$viewname = ThreadPermalinkView::class;
@@ -132,7 +132,7 @@ class LqtDispatch {
 			return false;
 		}
 		// Ignore it if it's a thread or a summary, makes no sense to have LiquidThreads there.
-		if ( $title->inNamespace( NS_LQT_THREAD ) || $title->inNamespace( NS_LQT_SUMMARY ) ) {
+		if ( $title->getNamespace() == NS_LQT_THREAD || $title->getNamespace() == NS_LQT_SUMMARY ) {
 			return false;
 		}
 
@@ -229,10 +229,10 @@ class LqtDispatch {
 		if ( self::isLqtPage( $title ) ) {
 			// LiquidThreads pages, Talk:X etc
 			return self::talkpageMain( $output, $article, $title, $user, $request );
-		} elseif ( $title->inNamespace( NS_LQT_THREAD ) ) {
+		} elseif ( $title->getNamespace() == NS_LQT_THREAD ) {
 			// Thread permalink pages, Thread:X
 			return self::threadPermalinkMain( $output, $article, $title, $user, $request );
-		} elseif ( $title->inNamespace( NS_LQT_SUMMARY ) ) {
+		} elseif ( $title->getNamespace() == NS_LQT_SUMMARY ) {
 			// Summary pages, Summary:X
 			return self::threadSummaryMain( $output, $article, $title, $user, $request );
 		}
@@ -259,14 +259,14 @@ class LqtDispatch {
 	 */
 	public static function onPageContentLanguage( $title, &$pageLang ) {
 		$request = RequestContext::getMain()->getRequest();
-		$method = $request->getRawVal( 'lqt_method' );
-		$oldid = $request->getInt( 'lqt_oldid' );
+		$method = $request->getVal( 'lqt_method' );
+		$oldid = $request->getVal( 'lqt_oldid' );
 		if ( $title->inNamespace( NS_LQT_THREAD ) ) {
 			$pageLang = RequestContext::getMain()->getLanguage();
-		} elseif ( $method === 'diff' ) {
+		} elseif ( $method == 'diff' ) {
 			# the diff contains the wikitext, which is in the content language
 			return;
-		} elseif ( $method === 'talkpage_history' || $method === 'thread_history' || $oldid ) {
+		} elseif ( $method == 'talkpage_history' || $method == 'thread_history' || $oldid != '' ) {
 			$pageLang = RequestContext::getMain()->getLanguage();
 		}
 	}

@@ -30,7 +30,7 @@ class TalkpageHeaderView extends LqtView {
 
 	/** @inheritDoc */
 	public function show() {
-		if ( $this->request->getRawVal( 'action' ) === 'edit' ) {
+		if ( $this->request->getVal( 'action' ) === 'edit' ) {
 			$html = '';
 
 			$warn_bold = Html::rawElement(
