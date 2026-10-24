@@ -86,19 +86,3 @@ CREATE TABLE /*_*/thread_pending_relationship (
   tpr_type VARBINARY(32) NOT NULL,
   PRIMARY KEY(tpr_thread, tpr_relationship)
 ) /*$wgDBTableOptions*/;
-
-
-CREATE TABLE /*_*/thread_reaction (
-  tr_thread INT UNSIGNED NOT NULL,
-  tr_user INT UNSIGNED NOT NULL,
-  tr_user_text VARBINARY(255) NOT NULL,
-  tr_type VARBINARY(64) NOT NULL,
-  tr_value INT NOT NULL,
-  INDEX tr_user_text_value (
-    tr_user, tr_user_text, tr_type, tr_value
-  ),
-  PRIMARY KEY(
-    tr_thread, tr_user, tr_user_text,
-    tr_type, tr_value
-  )
-) /*$wgDBTableOptions*/;

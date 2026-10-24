@@ -315,44 +315,5 @@
 		],
 		"indexes": [],
 		"pk": [ "tpr_thread", "tpr_relationship" ]
-	},
-	{
-		"name": "thread_reaction",
-		"comment": "Storage for reactions",
-		"columns": [
-			{
-				"name": "tr_thread",
-				"type": "integer",
-				"options": { "notnull": true, "unsigned": true }
-			},
-			{
-				"name": "tr_user",
-				"type": "integer",
-				"options": { "notnull": true, "unsigned": true }
-			},
-			{
-				"name": "tr_user_text",
-				"type": "binary",
-				"options": { "notnull": true, "length": 255 }
-			},
-			{
-				"name": "tr_type",
-				"type": "binary",
-				"options": { "notnull": true, "length": 64 }
-			},
-			{
-				"name": "tr_value",
-				"type": "integer",
-				"options": { "notnull": true }
-			}
-		],
-		"indexes": [
-			{
-				"name": "tr_user_text_value",
-				"columns": [ "tr_user", "tr_user_text", "tr_type", "tr_value" ],
-				"unique": false
-			}
-		],
-		"pk": [ "tr_thread", "tr_user", "tr_user_text", "tr_type", "tr_value" ]
 	}
 ]

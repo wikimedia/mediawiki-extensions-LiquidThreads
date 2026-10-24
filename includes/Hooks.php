@@ -524,6 +524,9 @@ class Hooks implements
 			'thread_root_page',
 			"$dir/patches/thread-drop-thread_root_page.sql"
 		);
+
+		// 1.48
+		$updater->dropExtensionTable( 'thread_reaction' );
 	}
 
 	public function onPageMoveComplete(

@@ -100,20 +100,3 @@ CREATE TABLE thread_pending_relationship (
   tpr_type TEXT NOT NULL,
   PRIMARY KEY(tpr_thread, tpr_relationship)
 );
-
-
-CREATE TABLE thread_reaction (
-  tr_thread INT NOT NULL,
-  tr_user INT NOT NULL,
-  tr_user_text TEXT NOT NULL,
-  tr_type TEXT NOT NULL,
-  tr_value INT NOT NULL,
-  PRIMARY KEY(
-    tr_thread, tr_user, tr_user_text,
-  tr_type, tr_value
-  )
-);
-
-CREATE INDEX tr_user_text_value ON thread_reaction (
-  tr_user, tr_user_text, tr_type, tr_value
-);

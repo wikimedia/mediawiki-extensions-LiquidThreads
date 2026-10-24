@@ -98,20 +98,3 @@ CREATE TABLE /*_*/thread_pending_relationship (
   tpr_type BLOB NOT NULL,
   PRIMARY KEY(tpr_thread, tpr_relationship)
 );
-
-
-CREATE TABLE /*_*/thread_reaction (
-  tr_thread INTEGER UNSIGNED NOT NULL,
-  tr_user INTEGER UNSIGNED NOT NULL,
-  tr_user_text BLOB NOT NULL,
-  tr_type BLOB NOT NULL,
-  tr_value INTEGER NOT NULL,
-  PRIMARY KEY(
-    tr_thread, tr_user, tr_user_text,
-    tr_type, tr_value
-  )
-);
-
-CREATE INDEX tr_user_text_value ON /*_*/thread_reaction (
-  tr_user, tr_user_text, tr_type, tr_value
-);
