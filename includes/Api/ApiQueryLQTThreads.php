@@ -294,7 +294,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		} elseif ( !is_array( $fields ) ) {
 			// Common case.
 			$entry[$name] = $row->$fields;
-		} elseif ( $name === 'page' ) {
+		} elseif ( $name == 'page' ) {
 			// Special cases
 			$nsField = $fields['namespace'];
 			$tField = $fields['title'];
@@ -374,7 +374,7 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		if ( in_array( $prop, $titleParams ) ) {
 			// Special cases
 			$this->addPageCond( $prop, $value );
-		} elseif ( $prop === 'author' ) {
+		} elseif ( $prop == 'author' ) {
 			$this->addWhereFld( 'thread_author_name', $value );
 		} elseif ( is_string( $fields ) ) {
 			// Common case

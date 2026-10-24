@@ -179,7 +179,7 @@ class NewMessages {
 		$res = self::getRowsObject( $t );
 		foreach ( $res as $row ) {
 			// Don't notify yourself
-			if ( $changeUser->getId() === (int)$row->wl_user ) {
+			if ( $changeUser->getId() == $row->wl_user ) {
 				continue;
 			}
 
@@ -201,7 +201,7 @@ class NewMessages {
 		}
 
 		// Add user talk notification
-		if ( $t->getTitle()->inNamespace( NS_USER_TALK ) ) {
+		if ( $t->getTitle()->getNamespace() == NS_USER_TALK ) {
 			$name = $t->getTitle()->getText();
 
 			$user = User::newFromName( $name );
