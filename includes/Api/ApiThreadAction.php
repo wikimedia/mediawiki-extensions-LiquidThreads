@@ -810,73 +810,6 @@ class ApiThreadAction extends ApiEditPage {
 	 * @param Thread[] $threads
 	 * @param array $params
 	 */
-	public function actionAddReaction( array $threads, $params ) {
-		if ( !count( $threads ) ) {
-			$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
-		}
-
-		$this->checkUserRightsAny( 'lqt-react' );
-
-		$required = [ 'type', 'value' ];
-
-		if ( count( array_diff( $required, array_keys( $params ) ) ) ) {
-			$this->dieWithError( 'apierror-liquidthreads-badreaction', 'missing-parameter' );
-		}
-
-		$result = [];
-
-		foreach ( $threads as $thread ) {
-			$thread->addReaction( $this->getUser(), $params['type'], $params['value'] );
-
-			$result[] = [
-				'result' => 'Success',
-				'action' => 'addreaction',
-				'id' => $thread->id(),
-			];
-		}
-
-		$this->getResult()->setIndexedTagName( $result, 'thread' );
-		$this->getResult()->addValue( null, 'threadaction', $result );
-	}
-
-	/**
-	 * @param Thread[] $threads
-	 * @param array $params
-	 */
-	public function actionDeleteReaction( array $threads, $params ) {
-		if ( !count( $threads ) ) {
-			$this->dieWithError( 'apihelp-liquidthreads-threadneeded', 'no-specified-threads' );
-		}
-
-		$user = $this->getUser();
-		$this->checkUserRightsAny( 'lqt-react' );
-
-		$required = [ 'type', 'value' ];
-
-		if ( count( array_diff( $required, array_keys( $params ) ) ) ) {
-			$this->dieWithError( 'apierror-liquidthreads-badreaction', 'missing-parameter' );
-		}
-
-		$result = [];
-
-		foreach ( $threads as $thread ) {
-			$thread->deleteReaction( $user, $params['type'] );
-
-			$result[] = [
-				'result' => 'Success',
-				'action' => 'deletereaction',
-				'id' => $thread->id(),
-			];
-		}
-
-		$this->getResult()->setIndexedTagName( $result, 'thread' );
-		$this->getResult()->addValue( null, 'threadaction', $result );
-	}
-
-	/**
-	 * @param Thread[] $threads
-	 * @param array $params
-	 */
 	public function actionInlineEditForm( array $threads, $params ) {
 		$method = $talkpage = $operand = null;
 
@@ -922,8 +855,6 @@ class ApiThreadAction extends ApiEditPage {
 			'setsubject' => 'actionSetSubject',
 			'setsortkey' => 'actionSetSortkey',
 			'edit' => 'actionEdit',
-			'addreaction' => 'actionAddReaction',
-			'deletereaction' => 'actionDeleteReaction',
 			'inlineeditform' => 'actionInlineEditForm',
 		];
 	}
@@ -960,8 +891,6 @@ class ApiThreadAction extends ApiEditPage {
 			'bump' => null,
 			'sortkey' => null,
 			'signature' => null,
-			'type' => null,
-			'value' => null,
 			'method' => null,
 			'operand' => null,
 		];

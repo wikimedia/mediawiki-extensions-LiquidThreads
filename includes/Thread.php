@@ -76,8 +76,6 @@ class Thread {
 
 	/** @var Thread[]|null */
 	protected $replies;
-	/** @var array[]|null */
-	protected $reactions;
 
 	/** @var self|null */
 	public $dbVersion; // A copy of the thread as it exists in the database.
@@ -90,8 +88,6 @@ class Thread {
 	public static $replyCacheById = [];
 	/** @var Article[] */
 	public static $articleCacheById = [];
-	/** @var array[][] */
-	public static $reactionCacheById = [];
 
 	/** @var int[] */
 	public static $VALID_TYPES = [
@@ -798,39 +794,6 @@ class Thread {
 				}
 				$all_thread_rows[] = $row;
 				$all_thread_ids[$row->thread_id] = $row->thread_id;
-			}
-		}
-
-		// Pull thread reactions
-		if ( count( $all_thread_ids ) ) {
-			$res = $dbr->newSelectQueryBuilder()
-				->select( '*' )
-				->from( 'thread_reaction' )
-				->where( [ 'tr_thread' => $all_thread_ids ] )
-				->caller( __METHOD__ )
-				->fetchResultSet();
-
-			foreach ( $res as $row ) {
-				$thread_id = $row->tr_thread;
-				$info = [
-					'type' => $row->tr_type,
-					'user-id' => $row->tr_user,
-					'user-name' => $row->tr_user_text,
-					'value' => $row->tr_value,
-				];
-
-				$type = $info['type'];
-				$user = $info['user-name'];
-
-				if ( !isset( self::$reactionCacheById[$thread_id] ) ) {
-					self::$reactionCacheById[$thread_id] = [];
-				}
-
-				if ( !isset( self::$reactionCacheById[$thread_id][$type] ) ) {
-					self::$reactionCacheById[$thread_id][$type] = [];
-				}
-
-				self::$reactionCacheById[$thread_id][$type][$user] = $info;
 			}
 		}
 
@@ -1886,99 +1849,6 @@ class Thread {
 	 */
 	public function getTitle() {
 		return $this->article()->getTitle();
-	}
-
-	public function getReactions( $requestedType = null ) {
-		if ( $this->reactions === null ) {
-			if ( isset( self::$reactionCacheById[$this->id()] ) ) {
-				$this->reactions = self::$reactionCacheById[$this->id()];
-			} else {
-				$reactions = [];
-
-				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-
-				$res = $dbr->newSelectQueryBuilder()
-					->select( [ 'tr_user', 'tr_user_text', 'tr_type', 'tr_value' ] )
-					->from( 'thread_reaction' )
-					->where( [ 'tr_thread' => $this->id() ] )
-					->caller( __METHOD__ )
-					->fetchResultSet();
-
-				foreach ( $res as $row ) {
-					$user = $row->tr_user_text;
-					$type = $row->tr_type;
-					$info = [
-						'type' => $type,
-						'user-id' => $row->tr_user,
-						'user-name' => $row->tr_user_text,
-						'value' => $row->tr_value,
-					];
-
-					if ( !isset( $reactions[$type] ) ) {
-						$reactions[$type] = [];
-					}
-
-					$reactions[$type][$user] = $info;
-				}
-
-				$this->reactions = $reactions;
-			}
-		}
-
-		if ( $requestedType === null ) {
-			return $this->reactions;
-		} else {
-			return $this->reactions[$requestedType];
-		}
-	}
-
-	public function addReaction( $user, $type, $value ) {
-		$info = [
-			'type' => $type,
-			'user-id' => $user->getId(),
-			'user-name' => $user->getName(),
-			'value' => $value,
-		];
-
-		if ( !isset( $this->reactions[$type] ) ) {
-			$this->reactions[$type] = [];
-		}
-
-		$this->reactions[$type][$user->getName()] = $info;
-
-		$row = [
-			'tr_type' => $type,
-			'tr_thread' => $this->id(),
-			'tr_user' => $user->getId(),
-			'tr_user_text' => $user->getName(),
-			'tr_value' => $value,
-		];
-
-		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
-
-		$dbw->newInsertQueryBuilder()
-			->insertInto( 'thread_reaction' )
-			->row( $row )
-			->caller( __METHOD__ )
-			->execute();
-	}
-
-	public function deleteReaction( $user, $type ) {
-		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
-
-		if ( isset( $this->reactions[$type][$user->getName()] ) ) {
-			unset( $this->reactions[$type][$user->getName()] );
-		}
-
-		$dbw->newDeleteQueryBuilder()
-			->deleteFrom( 'thread_reaction' )
-			->where( [
-				'tr_thread' => $this->id(),
-				'tr_user' => $user->getId(),
-				'tr_type' => $type
-			] )
-			->caller( __METHOD__ )
-			->execute();
 	}
 
 	/**

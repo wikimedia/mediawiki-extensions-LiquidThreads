@@ -37,8 +37,7 @@
 	"GroupPermissions": {
 		"user": {
 			"lqt-split": true,
-			"lqt-merge": true,
-			"lqt-react": true
+			"lqt-merge": true
 		}
 	},
 	"DefaultUserOptions": {
@@ -49,8 +48,7 @@
 	},
 	"AvailableRights": [
 		"lqt-split",
-		"lqt-merge",
-		"lqt-react"
+		"lqt-merge"
 	],
 	"SpecialPages": {
 		"MoveThread": "SpecialMoveThread",

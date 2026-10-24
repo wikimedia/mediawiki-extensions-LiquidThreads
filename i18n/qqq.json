@@ -187,8 +187,6 @@
 	"action-lqt-split": "{{doc-action|lqt-split}}",
 	"right-lqt-merge": "{{doc-right|lqt-merge}}\n{{Identical|Merge thread}}",
 	"action-lqt-merge": "{{doc-action|lqt-merge}}",
-	"right-lqt-react": "{{doc-right|lqt-react}}",
-	"action-lqt-react": "{{doc-action|lqt-react}}",
 	"lqt-thread-merge": "Used as label on thread pages",
 	"lqt-thread-merge-to": "Used as label on thread pages",
 	"lqt_merge_thread": "{{doc-special|MergeThread|unlisted=1}}\n{{Identical|Merge thread}}",

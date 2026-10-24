@@ -6,7 +6,6 @@ use LqtView;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
-use MediaWiki\Api\ApiResult;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use stdClass;
@@ -31,7 +30,6 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
  * - "root" page ID
  * - type
  * - replies
- * - reactions
  */
 class ApiQueryLQTThreads extends ApiQueryBase {
 	/**
@@ -56,7 +54,6 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		'rootid' => 'thread_root',
 		'type' => 'thread_type',
 		'signature' => 'thread_signature',
-		'reactions' => null, // Handled elsewhere
 		'replies' => null, // Handled elsewhere
 	];
 
@@ -127,10 +124,6 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 				self::formatProperty( $name, $fields, $row, $entry );
 			}
 
-			if ( isset( $entry['reactions'] ) ) {
-				ApiResult::setIndexedTagName( $entry['reactions'], 'reaction' );
-			}
-
 			// Render if requested
 			if ( $params['render'] ) {
 				$this->renderThread( $row, $params, $entry );
@@ -150,24 +143,6 @@ class ApiQueryLQTThreads extends ApiQueryBase {
 		}
 
 		$this->threadIds = $ids;
-
-		if ( isset( $prop['reactions'] ) ) {
-			$this->addSubItems(
-				'thread_reaction',
-				'*',
-				'tr_thread',
-				'reactions',
-				static function ( $row ) {
-					return [ "{$row->tr_user}_{$row->tr_type}" => [
-						'type' => $row->tr_type,
-						'user-id' => $row->tr_user,
-						'user-name' => $row->tr_user_text,
-						'value' => $row->tr_value,
-					] ];
-				},
-				'reaction'
-			);
-		}
 
 		if ( isset( $prop['replies'] ) ) {
 			$this->addSubItems(
