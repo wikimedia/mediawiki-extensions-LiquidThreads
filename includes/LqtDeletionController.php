@@ -10,13 +10,13 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 
 class LqtDeletionController {
-	/** @var Title[]|null */
-	public static $pageids_to_revive;
+	/** @var array<int,Title> */
+	private static array $pageids_to_revive = [];
 
 	public static function onArticleDeleteComplete( WikiPage &$article, User &$user, $reason, $id ) {
 		$title = $article->getTitle();
 
-		if ( $title->getNamespace() != NS_LQT_THREAD ) {
+		if ( !$title->inNamespace( NS_LQT_THREAD ) ) {
 			return;
 		}
 
@@ -60,7 +60,7 @@ class LqtDeletionController {
 
 	public static function onRevisionUndeleted( RevisionRecord $revisionRecord, $oldPageId ) {
 		$linkTarget = $revisionRecord->getPageAsLinkTarget();
-		if ( $linkTarget->getNamespace() == NS_LQT_THREAD ) {
+		if ( $linkTarget->inNamespace( NS_LQT_THREAD ) ) {
 			self::$pageids_to_revive[$oldPageId] = Title::newFromLinkTarget( $linkTarget );
 		}
 	}
@@ -71,7 +71,7 @@ class LqtDeletionController {
 		}
 
 		foreach ( self::$pageids_to_revive as $pageid => $title ) {
-			if ( $pageid == 0 ) {
+			if ( !$pageid ) {
 				continue;
 			}
 
@@ -116,7 +116,7 @@ class LqtDeletionController {
 	 * @return void
 	 */
 	public static function onArticleConfirmDelete( $article, $out, &$reason ) {
-		if ( $article->getTitle()->getNamespace() != NS_LQT_THREAD ) {
+		if ( !$article->getTitle()->inNamespace( NS_LQT_THREAD ) ) {
 			return;
 		}
 

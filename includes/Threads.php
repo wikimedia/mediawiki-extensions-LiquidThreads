@@ -132,19 +132,11 @@ class Threads {
 	 * @return Thread|null
 	 */
 	private static function assertSingularity( array $threads, $attribute, $value ) {
-		if ( count( $threads ) == 0 ) {
-			return null;
-		}
-
-		if ( count( $threads ) == 1 ) {
-			return array_pop( $threads );
-		}
-
 		if ( count( $threads ) > 1 ) {
 			self::databaseError( "More than one thread with $attribute = $value." );
 		}
 
-		return null;
+		return array_first( $threads );
 	}
 
 	/**
@@ -153,7 +145,7 @@ class Threads {
 	 * @return Thread|null
 	 */
 	public static function withRoot( WikiPage $post, $bulkLoad = true ) {
-		if ( $post->getTitle()->getNamespace() != NS_LQT_THREAD ) {
+		if ( !$post->getTitle()->inNamespace( NS_LQT_THREAD ) ) {
 			// No articles outside the thread namespace have threads associated with them;
 			return null;
 		}

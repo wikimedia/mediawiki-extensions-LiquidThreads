@@ -122,11 +122,7 @@ class Thread {
 			throw new UnexpectedValueException( __METHOD__ . ": invalid change type $type." );
 		}
 
-		if ( $superthread ) {
-			$change_type = Threads::CHANGE_REPLY_CREATED;
-		} else {
-			$change_type = Threads::CHANGE_NEW_THREAD;
-		}
+		$change_type = $superthread ? Threads::CHANGE_REPLY_CREATED : Threads::CHANGE_NEW_THREAD;
 
 		$thread->setAuthor( $user );
 
@@ -208,7 +204,7 @@ class Thread {
 		$this->rootId = $article->getPage()->getId();
 		$this->root = $article;
 
-		if ( $article->getTitle()->getNamespace() != NS_LQT_THREAD ) {
+		if ( !$article->getTitle()->inNamespace( NS_LQT_THREAD ) ) {
 			throw new LogicException( "Attempt to set thread root to a non-Thread page" );
 		}
 	}
@@ -243,7 +239,7 @@ class Thread {
 		}
 
 		$original = $this->dbVersion;
-		if ( $original->signature() != $this->signature() ) {
+		if ( $original->signature() !== $this->signature() ) {
 			$this->logChange(
 				Threads::CHANGE_EDITED_SIGNATURE,
 				$original,
@@ -602,7 +598,7 @@ class Thread {
 	 */
 	public function replyCount() {
 		// Populate reply count
-		if ( $this->replyCount == -1 ) {
+		if ( $this->replyCount === -1 ) {
 			if ( $this->isTopmostThread() ) {
 				$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 
@@ -993,7 +989,7 @@ class Thread {
 
 		// Fix inconsistent subject information
 		// (in some intermediate versions this was not updated when the subject was changed)
-		if ( $this->subject() != $ancestor->subject() ) {
+		if ( $this->subject() !== $ancestor->subject() ) {
 			$set['thread_subject'] = $ancestor->subject();
 
 			$this->subject = $ancestor->subject();
@@ -1038,7 +1034,7 @@ class Thread {
 
 		// If still unfilled, the article ID referred to is no longer valid. Re-fill it
 		// from the namespace/title pair if an article ID is provided
-		if ( !$articleTitle && ( $this->articleId != 0 || $dbTitle->getArticleID() != 0 ) ) {
+		if ( !$articleTitle && ( $this->articleId || $dbTitle->getArticleID() ) ) {
 			$articleTitle = $dbTitle;
 			$this->articleId = $articleTitle->getArticleID();
 			$this->article = new Article( $dbTitle, 0 );
@@ -1191,7 +1187,7 @@ class Thread {
 	}
 
 	public function setSuperthread( ?self $thread ) {
-		if ( $thread == null ) {
+		if ( !$thread ) {
 			$this->parentId = null;
 			$this->ancestorId = 0;
 			return;
@@ -1291,7 +1287,7 @@ class Thread {
 
 	public function isTopmostThread() {
 		return $this->ancestorId == $this->id ||
-				$this->parentId == 0;
+				!$this->parentId;
 	}
 
 	public function setArticle( Article $a ) {
@@ -1398,11 +1394,8 @@ class Thread {
 		return $this->editedness;
 	}
 
-	/**
-	 * @return Article|null
-	 */
-	public function summary() {
-		if ( !$this->summaryId ) {
+	public function summary(): ?Article {
+		if ( !$this->hasSummary() ) {
 			return null;
 		}
 
@@ -1421,8 +1414,8 @@ class Thread {
 		return $this->summary;
 	}
 
-	public function hasSummary() {
-		return $this->summaryId != null;
+	public function hasSummary(): bool {
+		return (bool)$this->summaryId;
 	}
 
 	/**
@@ -1449,7 +1442,7 @@ class Thread {
 
 	public static function splitIncrementFromSubject( $subject_string ) {
 		preg_match( '/^(.*) \((\d+)\)$/', $subject_string, $matches );
-		if ( count( $matches ) != 3 ) {
+		if ( count( $matches ) !== 3 ) {
 			throw new LogicException(
 				__METHOD__ . ": thread subject has no increment: " . $subject_string
 			);
@@ -1745,7 +1738,7 @@ class Thread {
 		$restrictions = array_merge( $threadRestrictions, $talkpageRestrictions );
 
 		foreach ( $restrictions as $right => $source ) {
-			if ( $right == 'sysop' ) {
+			if ( $right === 'sysop' ) {
 				$right = 'protect';
 			}
 			if ( !$user->isAllowed( $right ) ) {

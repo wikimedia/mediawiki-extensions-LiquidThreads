@@ -200,9 +200,9 @@ class LqtParserFunctions {
 				continue;
 			}
 
-			if ( $details['type'] == 'talkpage' ) {
+			if ( $details['type'] === 'talkpage' ) {
 				$result = self::runLqtTalkPage( $details, $out );
-			} elseif ( $details['type'] == 'thread' ) {
+			} elseif ( $details['type'] === 'thread' ) {
 				$result = self::showLqtThread( $details, $out );
 			}
 

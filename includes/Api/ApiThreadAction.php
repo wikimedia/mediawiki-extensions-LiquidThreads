@@ -40,7 +40,7 @@ class ApiThreadAction extends ApiEditPage {
 				$threadObj = null;
 				if ( is_numeric( $thread ) ) {
 					$threadObj = Threads::withId( $thread );
-				} elseif ( $thread == 'all' &&
+				} elseif ( $thread === 'all' &&
 						in_array( $action, $allowedAllActions ) ) {
 					$threads = [ 'all' ];
 				} else {
@@ -367,7 +367,7 @@ class ApiThreadAction extends ApiEditPage {
 
 		$editResult = $internalApi->getResult()->getResultData();
 
-		if ( $editResult['edit']['result'] != 'Success' ) {
+		if ( $editResult['edit']['result'] !== 'Success' ) {
 			$result = [ 'result' => 'EditFailure', 'details' => $editResult ];
 			$this->getResult()->addValue( null, $this->getModuleName(), $result );
 			return;
@@ -492,7 +492,7 @@ class ApiThreadAction extends ApiEditPage {
 
 		$editResult = $internalApi->getResult()->getResultData();
 
-		if ( $editResult['edit']['result'] != 'Success' ) {
+		if ( $editResult['edit']['result'] !== 'Success' ) {
 			$result = [ 'result' => 'EditFailure', 'details' => $editResult ];
 			$this->getResult()->addValue( null, $this->getModuleName(), $result );
 			return;
@@ -611,7 +611,7 @@ class ApiThreadAction extends ApiEditPage {
 
 		$editResult = $internalApi->getResult()->getResultData();
 
-		if ( $editResult['edit']['result'] != 'Success' ) {
+		if ( $editResult['edit']['result'] !== 'Success' ) {
 			$result = [ 'result' => 'EditFailure', 'details' => $editResult ];
 			$this->getResult()->addValue( null, $this->getModuleName(), $result );
 			return;
@@ -768,7 +768,7 @@ class ApiThreadAction extends ApiEditPage {
 
 		$ts = $params['sortkey'];
 
-		if ( $ts == 'now' ) {
+		if ( $ts === 'now' ) {
 			$ts = wfTimestampNow();
 		}
 

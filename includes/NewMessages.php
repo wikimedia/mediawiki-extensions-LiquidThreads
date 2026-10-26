@@ -201,7 +201,7 @@ class NewMessages {
 		}
 
 		// Add user talk notification
-		if ( $t->getTitle()->getNamespace() == NS_USER_TALK ) {
+		if ( $t->getTitle()->inNamespace( NS_USER_TALK ) ) {
 			$name = $t->getTitle()->getText();
 
 			$user = User::newFromName( $name );

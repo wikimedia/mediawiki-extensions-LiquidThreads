@@ -6,7 +6,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Pager\TablePager;
 
 class ThreadHistoryPager extends TablePager {
-	/** @var string[] */
+	/** @var array<int,string> */
 	public static $change_names;
 
 	/** @var Thread|null */
@@ -89,7 +89,7 @@ class ThreadHistoryPager extends TablePager {
 					) .
 					' ' . Linker::userToolLinks( $row->th_user, $row->th_user_text );
 			case 'th_change_type':
-				return $this->getActionDescription( $value );
+				return $this->getActionDescription( (int)$value );
 			case 'th_change_comment':
 				return MediaWikiServices::getInstance()->getCommentFormatter()->formatBlock( $value );
 			default:
@@ -97,7 +97,7 @@ class ThreadHistoryPager extends TablePager {
 		}
 	}
 
-	public function getActionDescription( $type ) {
+	public function getActionDescription( int $type ): string {
 		$args = [];
 		$revision = ThreadRevision::loadFromRow( $this->mCurrentRow );
 		$changeObject = $revision->getChangeObject();
@@ -134,7 +134,7 @@ class ThreadHistoryPager extends TablePager {
 					$args[] = $diffLink;
 				} else {
 					$args[] = '';
-					if ( $type == Threads::CHANGE_EDITED_ROOT ) {
+					if ( $type === Threads::CHANGE_EDITED_ROOT ) {
 						$msg = $this->msg( 'lqt_hist_comment_edited_deleted' )->parse();
 					}
 				}
