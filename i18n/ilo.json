@@ -82,7 +82,6 @@
 	"lqt-add-reply": "Ikkam ti sungbat",
 	"right-lqt-split": "Gudduan dagiti panait",
 	"right-lqt-merge": "Itpon dagiti panait",
-	"right-lqt-react": "Sungbatam dagiti panait",
 	"lqt-thread-merge": "Itipon idiay sabali nga panait",
 	"lqt-thread-merge-to": "Itipon itoy nga panait",
 	"lqt_merge_thread": "Itipon ti panait",
@@ -127,7 +126,6 @@
 	"lqt-talkpage-history-subtitle": "Para iti $1",
 	"lqt-talkpage-history-tab": "Paulo",
 	"restriction-reply": "Agikabil ka ti sungbat",
-	"lqt-edit-bump": "Ipan mo ti rabaw daytoy nga panait",
 	"lqt-reply-subpage": "sungbat",
 	"nstab-thread": "Panait",
 	"nstab-summary": "Pakabuklan"

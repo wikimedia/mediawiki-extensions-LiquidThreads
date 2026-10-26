@@ -64,8 +64,6 @@
 	"lqt-protected-reply-thread": "Ju nuk mund të postoni në këtë thread sepse ajo ka qenë mbrojtur nga postet e reja.",
 	"lqt-protected-reply-talkpage": "Ju nuk mund të postoni në këtë thread sepse kjo faqe diskutimi ka qenë i mbrojtur nga përgjigjet në temat e saj.",
 	"lqt-protected-newthread": "Ju nuk mund të postoni tema të reja në këtë faqe diskutimi për shkak se ajo ka qenë e mbrojtur nga tema të reja.",
-	"lqt-edit-bump": "Përplasem this thread",
-	"lqt-edit-bump-tooltip": "Move this thread në krye të faqes e diskutimit",
 	"lqt-historicalrevision-error": "Rishikim të keni zgjedhur është e korruptuar, dhe nuk mund të shikohet.",
 	"lqt-reply-subpage": "përgjigje"
 }

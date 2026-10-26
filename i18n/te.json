@@ -95,7 +95,6 @@
 	"lqt-thread-split-subject": "కొత్త చర్చాహారపు విషయం:",
 	"lqt-thread-split-thread": "చర్చాహారం:",
 	"lqt-split-submit": "విడదీయి",
-	"lqt_split_badsubject": "మీరు ఇచ్చిన విషయం సరైనది కాదు.",
 	"lqt-no-threads": "ఈ పుటలో ఇంకా చర్చాహారాలేమీ లేవు.",
 	"lqt-delete-parent-deleted": "పైన చర్చ తొలగించడమైనది ($1)",
 	"lqt-delete-replies-done": "ఈ చర్చాహారానికి వచ్చిన అన్ని స్పందనలను కూడా తొలగించాం.",
@@ -160,7 +159,6 @@
 	"lqt-talkpage-history-subtitle": "$1 కొరకు",
 	"lqt-talkpage-history-tab": "శీర్షిక",
 	"restriction-reply": "స్పందనలు వ్రాయడం",
-	"lqt-edit-bump-tooltip": "ఈ చర్చాహారాన్ని దాని చర్చాపుటలలో పైకి కదపండి",
 	"lqt-reply-subpage": "స్పందించు",
 	"nstab-thread": "చర్చాహారం",
 	"nstab-summary": "సారాంశం"

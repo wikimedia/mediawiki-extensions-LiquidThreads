@@ -128,7 +128,6 @@
 	"lqt-thread-split-subject": "Kop nuuj ongerwerp:",
 	"lqt-thread-split-thread": "Euverlègk:",
 	"lqt-split-submit": "Spliet",
-	"lqt_split_badsubject": "Ingegaeve óngerwerp is óngeljig.",
 	"lqt-no-threads": "Nag gein óngerwerpe óp dees pagina.",
 	"lqt-delete-parent-warning": "Dit is 'n euverlègk op 't hoeagste niveau in 'nen boumstructuur mit antjwäörd.\nDe antjwäörd waeren ouch automatisch gewösj.\nSplits dit euverlègk veur 't wösjen óm dit te verkómme.",
 	"lqt-delete-parent-deleted": "Baoveligkendj euverlègk gewösj ($1)",
@@ -221,8 +220,6 @@
 	"lqt-protected-reply-thread": "Doe kins neet deilnömme aan dit ongerwerp went 't is toe.",
 	"lqt-protected-reply-talkpage": "Doe kins hie neet aan middoon, went de ongerwerpe hie zeen geslaote.",
 	"lqt-protected-newthread": "Doe kins gein nuuj ongerwerpe aanmake op dees pagina, went dees is gesalote daoveur.",
-	"lqt-edit-bump": "Activeer euverlègk",
-	"lqt-edit-bump-tooltip": "Activeer dit euverlègk door 't baovenaan de pagina te plaatse",
 	"lqt-historicalrevision-error": "Geselcteerde versie is besjajig en ónbekiekbaar.",
 	"lqt-reply-subpage": "antjwaord"
 }

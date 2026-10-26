@@ -38,7 +38,6 @@
 	"apihelp-threadaction-param-captchaid": "CAPTCHA-azonosító az előző kérésből.",
 	"apierror-liquidthreads-alreadytop": "Ez a szál már eleve legfelső szintű.",
 	"apierror-liquidthreads-badparent": "A szülőnek megadott érték sem címe, sem azonosítója egyetlen szálnak sem.",
-	"apierror-liquidthreads-badreaction": "A reakcióhoz meg kell adni egy típust és egy értéket is.",
 	"apierror-liquidthreads-badsortkey": "Érvényes időbélyeget kell megadnod a <var>sortkey</var> paraméterben. Ennek ÉÉÉÉHHNNóóppmm formátumban, Unix-időbélyeg-formátumban kell lennie vagy a <kbd>now</kbd> értéknek kell lennie.",
 	"apierror-liquidthreads-badsubject": "A megadott tárgy érvénytelen.",
 	"apierror-liquidthreads-invalidtalkpage": "A megadott vitalap érvénytelen, vagy nincsenek rajta engedélyezve a megbeszélésszálak.",

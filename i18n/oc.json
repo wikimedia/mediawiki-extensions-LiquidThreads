@@ -125,7 +125,6 @@
 	"lqt-thread-split-subject": "Subjècte del fial novèl :",
 	"lqt-thread-split-thread": "Fial :",
 	"lqt-split-submit": "Separar",
-	"lqt_split_badsubject": "Lo subjècte qu'avètz picat es invalid.",
 	"lqt-no-threads": "I a pas encara de fial de discussion sus aquesta pagina.",
 	"lqt-delete-parent-warning": "Aquò es un fial de discussion de naut nivèl que conten de responsas.\nSas responsas seràn tanben suprimidas automaticament.\nPer evitar aquò, separatz-los d'aqueste fial de discussion abans de suprimir aqueste.",
 	"lqt-delete-parent-deleted": "Fial de discussion parent suprimit ($1)",

@@ -92,7 +92,6 @@
 	"lqt-thread-split-subject": "নতুন থ্রেডের বিষয়:",
 	"lqt-thread-split-thread": "থ্রেড:",
 	"lqt-split-submit": "পৃথক",
-	"lqt_split_badsubject": "আপনার দেওয়া বিষয়টি সঠিক নয়।",
 	"lqt-delete-parent-deleted": "মূল থ্রেড অপসারণ করা হয়েছে ($1)",
 	"lqt-movethread": "স্থানান্তর",
 	"lqt-menu-trigger": "আরও",
