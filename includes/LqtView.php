@@ -1541,7 +1541,7 @@ class LqtView {
 		// We can grab oldid either from lqt_oldid (which is a thread rev),
 		// or from oldid (which is a page rev). But oldid only applies to the
 		// thread being requested, not any replies.
-		$page_rev = $this->request->getVal( 'oldid', null );
+		$page_rev = $this->request->getIntOrNull( 'oldid' );
 		if ( $page_rev !== null && $this->title->equals( $thread->root()->getTitle() ) ) {
 			$oldid = $page_rev;
 		} else {
