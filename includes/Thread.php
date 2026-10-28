@@ -82,6 +82,14 @@ class Thread {
 	/** @var ThreadRevision|null */
 	public $threadRevision;
 
+	// The following three properties are unused, but declared to avoid PHP warnings during deserialization of old data
+	/** @var array[]|null */
+	protected $reactions;
+	/** @var bool|null */
+	protected $allDataLoaded;
+	/** @var int|null */
+	protected $rootRevision;
+
 	/** @var Title[] */
 	public static $titleCacheById = [];
 	/** @var self[][] */
