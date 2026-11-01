@@ -2077,7 +2077,6 @@ class LqtView {
 		$this->output->addModules( 'ext.liquidThreads' );
 
 		$html = '';
-		$services->getHookContainer()->run( 'EditPageBeforeEditToolbar', [ &$html ] );
 
 		$class = $this->threadDivClass( $thread );
 		if ( $levelNum == 1 ) {
