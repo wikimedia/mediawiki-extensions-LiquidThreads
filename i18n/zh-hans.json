@@ -28,7 +28,8 @@
 			"Xiplus",
 			"Yfdyh000",
 			"予弦",
-			"神樂坂秀吉"
+			"神樂坂秀吉",
+			"铁桶"
 		]
 	},
 	"lqt-desc": "在讨论页增加话题讨论功能",
@@ -130,7 +131,7 @@
 	"lqt-searching": "搜索话题",
 	"lqt-read-message": "标记为已读",
 	"lqt-read-message-tooltip": "从新消息中移除该话题。您仍然可以在其原始讨论页找到它。",
-	"lqt-read-all": "标记所有为已读",
+	"lqt-read-all": "全部标记为已读",
 	"lqt-read-all-tooltip": "从新消息中移除所有话题。您仍然可以在其原始讨论页找到它们。此操作是可撤销的。",
 	"lqt-marked-read": "话题'''$1'''已被标记为已读。",
 	"lqt-count-marked-read": "$1条消息被标记为已读。",
